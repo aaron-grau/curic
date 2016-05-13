@@ -1,0 +1,20 @@
+{
+  "name": "react_minesweeper",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "application.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "6.1.21",
+    "babel-loader": "6.2.0",
+    "babel-preset-react": "6.1.18",
+    "react": "0.14.2",
+    "react-dom": "0.14.2",
+    "webpack": "1.12.6"
+  }
+}

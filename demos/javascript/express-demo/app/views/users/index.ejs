@@ -1,0 +1,7 @@
+<html>
+  <% include ../shared/head %>
+  <h1>Users Index</h1>
+  <% users.forEach(function (user) { %>
+    <a href="users/<%= user._id %>"><h2><%= user.name %></h2></a>
+  <% }); %>
+</html>

@@ -1,0 +1,11 @@
+#jQuery Sorting Demo
+
+Basic To-Do app with sortable to-do items.
+
+[list show view][list-show-view]
+
+[list-show-view]: ./app/assets/javascripts/views/listView.js
+
+Uses [jQuery sortable][jquery-sortable].
+
+[jquery-sortable]: https://jqueryui.com/sortable/

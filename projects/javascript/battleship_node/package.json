@@ -1,0 +1,29 @@
+{
+  "name": "BattleshipNode",
+  "version": "0.0.0",
+  "description": "0. `npm install` 0. `node .`",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify js/main.js -o public/bs.js",
+    "prestart": "npm run build",
+    "start": "node lib/app.js",
+    "watch": "watchify -o public/bs.js -v -d js/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appacademy/BattleshipNode"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/appacademy/BattleshipNode/issues"
+  },
+  "homepage": "https://github.com/appacademy/BattleshipNode",
+  "dependencies": {
+    "watchify": "^2.1.1",
+    "lodash": "^3.6.0",
+    "node-static": "^0.7.6",
+    "socket.io": "1.0.x"
+  }
+}
+

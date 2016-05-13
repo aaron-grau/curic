@@ -1,0 +1,564 @@
+/* Bootstrap Lite Styles Manifest */
+/* basic components */
+/* Bootstrap Lite Variables */
+/* grid var.s */
+/* css3 media query breakpoints */
+/* Bootstrap Lite Mixins */
+/* grid mixins */
+/* reset */
+/* Bootstrap Lite CSS Reset */
+/* Based on the classic meyerweb reset,
+http://meyerweb.com/eric/tools/css/reset/
+Bootstrap's 'normalize'
+https://github.com/twbs/bootstrap-sass/blob/master/vendor/assets/stylesheets/bootstrap/_normalize.scss
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+del {
+  text-decoration: line-through; }
+
+a {
+  background: transparent; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+/* responsive grid */
+/* Bootstrap Lite Responsive Grid */
+.container {
+  margin: 0.5em auto;
+  padding-bottom: 1.5em;
+  width: 90%; }
+
+.row:before, .row:after {
+  content: " ";
+  display: table; }
+.row:after {
+  clear: both; }
+
+.col-1 {
+  width: 8.33333%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-1 {
+  margin-left: 8.33333%; }
+
+.col-2 {
+  width: 16.66667%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-2 {
+  margin-left: 16.66667%; }
+
+.col-3 {
+  width: 25%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-3 {
+  margin-left: 25%; }
+
+.col-4 {
+  width: 33.33333%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-4 {
+  margin-left: 33.33333%; }
+
+.col-5 {
+  width: 41.66667%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-5 {
+  margin-left: 41.66667%; }
+
+.col-6 {
+  width: 50%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-6 {
+  margin-left: 50%; }
+
+.col-7 {
+  width: 58.33333%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-7 {
+  margin-left: 58.33333%; }
+
+.col-8 {
+  width: 66.66667%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-8 {
+  margin-left: 66.66667%; }
+
+.col-9 {
+  width: 75%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-9 {
+  margin-left: 75%; }
+
+.col-10 {
+  width: 83.33333%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-10 {
+  margin-left: 83.33333%; }
+
+.col-11 {
+  width: 91.66667%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-11 {
+  margin-left: 91.66667%; }
+
+.col-12 {
+  width: 100%;
+  float: left;
+  padding: 1.5em 0.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.col-offset-12 {
+  margin-left: 100%; }
+
+@media (max-width: 768px) {
+  .col-1 {
+    width: 100%; }
+
+  .col-2 {
+    width: 100%; }
+
+  .col-3 {
+    width: 100%; }
+
+  .col-4 {
+    width: 100%; }
+
+  .col-5 {
+    width: 100%; }
+
+  .col-6 {
+    width: 100%; }
+
+  .col-7 {
+    width: 100%; }
+
+  .col-8 {
+    width: 100%; }
+
+  .col-9 {
+    width: 100%; }
+
+  .col-10 {
+    width: 100%; }
+
+  .col-11 {
+    width: 100%; }
+
+  .col-12 {
+    width: 100%; } }
+/* base styles */
+/* Bootstrap Lite Base Styles */
+html {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0.5em 0; }
+
+.sr-only {
+  font-size: 0px; }
+
+/* links */
+a {
+  color: #69caff;
+  text-decoration: none;
+  font-weight: bold; }
+  a:visited {
+    color: #8bc0dd; }
+  a:hover {
+    text-decoration: underline;
+    color: #69caff; }
+
+/* Bootstrap Lite Form Styles */
+/* fieldsets and similar things */
+fieldset {
+  padding: 1.5em;
+  margin: 0.5em 0; }
+
+.form-group {
+  padding: 1.5em 0;
+  margin: 0.5em 0; }
+
+fieldset {
+  border: 0px none transparent;
+  border-top: 1px solid #9aadb8; }
+
+legend {
+  border: 1px solid #9aadb8;
+  padding: 0.75em; }
+
+/* buttons inputs etc. */
+.button {
+  cursor: pointer;
+  background-color: #9aadb8;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  text-align: center;
+  font: -webkit-small-control;
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  border: 0px none transparent;
+  font-size: 120%; }
+  .button:focus {
+    border: none 0px transparent;
+    outline: 0;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 0px transparent;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 0px transparent; }
+  .button[type="radio"] {
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+    background-clip: padding-box;
+    /* useful if you don't want a bg color from leaking outside the border: */ }
+
+.button:hover {
+  background-color: #8ba1ad;
+  color: #ffffff;
+  text-decoration: none; }
+
+.button:active {
+  position: relative;
+  top: 1px;
+  color: #ffffff; }
+
+a.button:visited {
+  color: #ffffff; }
+
+.form-control {
+  font-size: 100%;
+  padding: 0.75em;
+  border: 1px solid #dae6e2;
+  cursor: pointer;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
+  .form-control:focus {
+    border: solid 1px #69caff;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #69caff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #69caff; }
+  .form-control[type="radio"] {
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+    background-clip: padding-box;
+    /* useful if you don't want a bg color from leaking outside the border: */ }
+
+input[type="radio"], input[type="checkbox"] {
+  vertical-align: middle; }
+
+textarea {
+  display: block;
+  width: 100%; }
+
+/* labels */
+label {
+  display: inline-block;
+  font-weight: bold;
+  padding: 1.5em 0;
+  cursor: pointer; }
+
+/* Bootstrap Lite Navbar Styles */
+/* navbar styles */
+.nav li {
+  list-style-type: none;
+  clear: both; }
+  .nav li.active {
+    background-color: #8ba1ad; }
+    .nav li.active a:hover {
+      background-color: #7c95a3; }
+  .nav li a {
+    padding: 0.75em;
+    color: #fff;
+    text-decoration: none;
+    display: block; }
+    .nav li a:hover {
+      text-decoration: underline;
+      background-color: #8ba1ad; }
+
+.navbar {
+  background-color: #cecece;
+  border: 1px solid #B6B6B6;
+  padding: 1em; }
+
+.navbar-brand {
+  float: left;
+  color: #fff; }
+  .navbar-brand:visited {
+    color: #fff; }
+  .navbar-brand:hover {
+    color: #fff; }
+
+.navbar-toggle {
+  float: right; }
+  .navbar-toggle:focus {
+    border: none 0px transparent;
+    outline: 0;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 0px transparent;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 0px transparent; }
+  .navbar-toggle[type="radio"] {
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+    background-clip: padding-box;
+    /* useful if you don't want a bg color from leaking outside the border: */ }
+
+.nav-collapse {
+  display: none; }
+
+/* in small screens inner nav should be 
+styled like a dropdown */
+.navbar .nav-collapse {
+  border: solid 1px #B6B6B6; }
+
+.navbar .nav-collapse li {
+  display: block; }
+
+.nav-navbar {
+  background-color: #9aadb8;
+  display: block;
+  width: 100%;
+  padding: 1.5em;
+  color: #fff;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+  .nav-navbar:before, .nav-navbar:after {
+    content: " ";
+    display: table; }
+  .nav-navbar:after {
+    clear: both; }
+
+.navbar-brand {
+  float: left;
+  padding: 0.75em;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff; }
+  .navbar-brand:hover {
+    text-decoration: underline; }
+
+.visible {
+  display: block !important; }
+
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: none; }
+
+  .nav-collapse {
+    display: block; }
+
+  .navbar-brand {
+    padding: 1.5em; }
+
+  .nav {
+    padding: 1.5em; }
+    .nav li {
+      clear: none;
+      padding: 0 0.75em;
+      float: right; }
+      .nav li a {
+        display: inline-block; }
+        .nav li a:hover {
+          background: #9aadb8; }
+      .nav li.active {
+        background-color: #9aadb8; }
+        .nav li.active a:hover {
+          background-color: #9aadb8; } }
+/* Bootstrap Lite Modal Styles */
+.modal, .modal-backdrop {
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  right: 0px;
+  top: 0px; }
+
+.modal {
+  display: none;
+  /* this gets toggled by the javascript*/
+  z-index: 1040;
+  overflow-x: auto;
+  overflow-y: scroll; }
+
+.modal-dialogue {
+  margin: 3em auto;
+  width: 25em;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  background-clip: padding-box;
+  /* useful if you don't want a bg color from leaking outside the border: */
+  background-color: #fff;
+  border: solid 1px #000;
+  color: #000; }
+
+.modal-backdrop {
+  opacity: 0.5;
+  background-color: #000;
+  z-index: 1030; }
+
+.fade {
+  transition: opacity 0.15s linear 0s; }
+
+.modal-header, .modal-body, .modal-footer {
+  padding: 1.5em; }
+
+.modal-header {
+  border-bottom: solid 1px #cecece; }
+
+.modal-footer {
+  border-top: solid 1px #cecece; }
+
+.modal-header .close {
+  margin-top: 2px; }
+
+button.close {
+  border: none;
+  cursor: pointer;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: 0 none; }
+
+.close {
+  float: right;
+  color: #cecece;
+  font-weight: bold;
+  font-size: large; }
+
+/* Bootstrap Lite Tabs Styles */
+.nav-tabs {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: solid 1px #69caff; }
+  .nav-tabs:before, .nav-tabs:after {
+    content: " ";
+    display: table; }
+  .nav-tabs:after {
+    clear: both; }
+
+.nav-tabs li {
+  background-color: #9aadb8;
+  color: white;
+  padding: 1.5em;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  border-radius: 12px 12px 0px 0px;
+  background-clip: padding-box;
+  /* useful if you don't want a bg color from leaking outside the border: */
+  margin-bottom: -2px;
+  margin-left: 1.5em; }
+
+.nav-tabs li.active {
+  background-color: white;
+  border-top: solid 1px #69caff;
+  border-left: solid 1px #69caff;
+  border-right: solid 1px #69caff;
+  /* bottom is white, connecting to the content */
+  border-bottom: solid 1px white; }
+  .nav-tabs li.active a {
+    color: #9aadb8; }
+
+.tab-content {
+  background-color: white;
+  border-left: solid 1px #69caff;
+  border-right: solid 1px #69caff;
+  border-bottom: solid 1px #69caff;
+  padding: 1.5em; }
+  .tab-content:before, .tab-content:after {
+    content: " ";
+    display: table; }
+  .tab-content:after {
+    clear: both; }
+
+.tab-content > .tab-pane {
+  display: none; }
+
+.tab-content > .active {
+  display: block; }

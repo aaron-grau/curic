@@ -1,0 +1,88 @@
+/* Bootstrap Lite Mixins */
+@mixin base-text-shadow {
+  text-shadow:0px 1px 0px #2f6627;
+}
+
+@mixin border-box {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " "; 
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+@mixin box-shadow($box-shadow...) {
+  -webkit-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}
+
+@mixin rounded-corners($border-radius) {
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+  background-clip: padding-box;
+  /* useful if you don't want a bg color from leaking outside the border: */
+
+}
+
+@mixin active-glow($color) {
+  &:focus {
+    border: solid 1px $color;
+    outline: 0;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $color);
+  }
+  &[type="radio"] {
+    @include rounded-corners(18px);
+  }
+  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+}
+
+@mixin remove-active-glow {
+  &:focus {
+    border: none 0px transparent; 
+    outline: 0;
+    @include box-shadow(inset 0 0px 0px rgba(0,0,0,.0), 0 0 0px transparent);
+  }
+  &[type="radio"] {
+    @include rounded-corners(18px);
+  }
+}
+
+
+/* grid mixins */
+
+@mixin build-cols {
+  $col-width: (1.0 / $num-cols);
+  @for $i from 1 through $num-cols {
+    .col-#{$i} {
+     width: percentage($col-width * $i);
+     float: left;
+     padding: $base-padding ($grid-gutter-width / 2.0);
+     @include border-box;
+    }
+     .col-offset-#{$i} {
+     margin-left: percentage($col-width * $i);
+   }
+  }
+  @media(max-width: $screen-sm) {
+    @for $i from 1 through $num-cols {
+      .col-#{$i} {
+        width: 100%;
+      }
+    }
+  }
+   
+}

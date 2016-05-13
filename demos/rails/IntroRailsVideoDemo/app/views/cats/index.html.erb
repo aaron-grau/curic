@@ -1,0 +1,20 @@
+<h1>All The Cats!</h1>
+
+<ul>
+  <li><%= link_to "All", cats_url %></li>
+  <% Tag.all.each do |tag| %>
+    <li><%= link_to tag.name, cats_url(tag: tag.name) %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @cats.each do |cat| %>
+    <li>
+      <%= cat_link(cat) %>
+
+      <%= button_to "Destroy Cat!", cat_url(cat), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Cat!", new_cat_url %>

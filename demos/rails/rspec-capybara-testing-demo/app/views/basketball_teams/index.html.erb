@@ -1,0 +1,15 @@
+Team Index Page
+
+<%= current_user.username if logged_in? %>
+
+<% @teams.each do |team|%>
+	<%= team.city %> <%= team.name %>
+<% end %>
+
+<a href="#" id="switcher">Not Yet</a>
+
+<script type="text/javascript">
+	$("a").on("click", function(event) {
+		$(event.currentTarget).html("YAY I'm HERE")
+	});
+</script>

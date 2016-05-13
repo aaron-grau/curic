@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Demo Project</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body  data-spy="scroll" data-target=".bootstrap-demo-sidebar">
+    <header>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#demo-project-navbar-collapse-1">
+        <!-- this is the unicode character that approximates a menu icon.
+        Better to get an image in your own app. -->
+        &#9776;
+      </button>
+      <%= link_to "Bootstrap Demo Project", static_pages_index_url, :class => "navbar-brand"%>
+    </div>
+    <div class="collapse navbar-collapse" id="demo-project-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", static_pages_index_url %>
+        <li><%= link_to "About", static_pages_about_url %>
+        <li><%= link_to "Contact", static_pages_contact_url %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <%if current_user%>
+        <li>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user.username%><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="<%=user_url current_user%>">Profile</a></li>
+          <li class="divider"></li>
+          <li><%= link_to "Log Out", session_url, method: :delete %></li>
+
+        </ul>
+        </li>
+        <% else %>
+        <li><button 
+          class="btn btn-primary" 
+          data-toggle="modal" 
+          data-target="#signInModal">Sign In
+        </button>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    </nav>
+    </header>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+
+    <div class="modal fade" id="signInModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <%= render 'shared/user' %>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+  </body>
+</html>
