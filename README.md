@@ -1,4 +1,4 @@
-[sf-course]:(http://github.com/appacademy/sf-course)
+[sf-course]: http://github.com/appacademy/sf-course
 
 # Purpose 
 
