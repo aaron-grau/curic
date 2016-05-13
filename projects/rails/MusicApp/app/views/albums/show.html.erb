@@ -1,0 +1,15 @@
+<h1><%= @album.name %></h1>
+
+<ul>
+  <% @album.tracks.each do |track| %>
+    <li><%= link_to track.name, track_url(track) %></li>
+  <% end %>
+</ul>
+
+<h4>Links</h4>
+<ul>
+  <li><%= link_to "New track", new_album_track_url(@album) %></li>
+  <li><%= link_to "Edit Album", edit_album_url(@album) %></li>
+  <li><%= link_to "Destroy Album", album_url(@album), method: :delete %></li>
+  <li><%= link_to @album.band.name, band_url(@album.band) %></li>
+</ul>

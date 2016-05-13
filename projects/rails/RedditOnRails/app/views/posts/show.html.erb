@@ -1,0 +1,39 @@
+<h1>
+  (<%= @post.votes %>)
+  <%= link_to @post.title, @post.url %> by
+  <%= @post.author.name %>
+</h1>
+<br>
+
+<b>Content:</b>
+
+<pre><%= @post.content %></pre>
+<br><br>
+
+<%= button_to "Upvote", upvote_post_url(@post) %>
+<%= button_to "Downvote", downvote_post_url(@post) %>
+
+<b>Subs</b>
+<ul>
+  <% @post.subs.each do |sub| %>
+    <li><%= link_to sub.name, sub_url(sub) %></li>
+  <% end %>
+</ul>
+
+<h2>Comments</h2>
+
+<%= link_to "Comment on this post!", new_post_comment_url(@post.id) %>
+<br><br>
+
+<ul>
+  <% comments_by_parent = @post.comments_by_parent %>
+  <% comments_by_parent[nil].each do |top_level_comment| %>
+    <li>
+      <%= render("comments/comment",
+                 comment: top_level_comment,
+                 comments_by_parent: comments_by_parent) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit", edit_post_url(@post) if @post.author == current_user %>

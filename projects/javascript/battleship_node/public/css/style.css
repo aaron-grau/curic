@@ -1,0 +1,20 @@
+.grid {
+  width: 300px;
+  height: 300px;
+  border: 2px solid grey;
+}
+.primary-grid {
+  border: 2px solid grey;
+}
+.enemy-grid {
+  border: 2px solid red;
+}
+.tile {
+  width: 28px;
+  height: 28px;
+  border: 1px solid grey;
+  float: left;
+}
+.game-state {
+  width: 200px;
+}

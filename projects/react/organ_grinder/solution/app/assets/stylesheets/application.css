@@ -1,0 +1,54 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.note-key {
+  float: left;
+  width: 50px;
+  height: 200px;
+  border: 1px solid grey;
+  background-color: white;
+  transition: background-color 0.25s;
+}
+
+.note-key.pressed {
+  background-color: lightgray;
+}
+
+.play-button.disabled {
+  display: none;
+}
+
+.jukebox {
+  width: 500px;
+}
+
+.keys {
+  clear: both;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+} 
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}

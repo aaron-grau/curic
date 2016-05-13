@@ -1,0 +1,32 @@
+/* Bootstrap Lite Variables */
+
+$base-padding: 1.5em;
+$base-margin: .5em;
+$highlight-color: #69CAFF;
+$brand-color: #9AADB8;
+$neutral-color: #DAE6E2;
+$darken-brand-color: darken($brand-color, 5%);
+$tab-content-color: #ffffff;
+
+/* grid var.s */
+$num-cols: 12;
+$grid-gutter-width: 1em;
+
+/* css3 media query breakpoints */
+
+// Extra small screen / phone
+$screen-xs:                  480px !default;
+
+// Small screen / tablet
+$screen-sm:                  768px !default;
+
+// Medium screen / desktop
+$screen-md:                  992px !default;
+
+// Large screen / wide desktop
+$screen-lg:                  1200px !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm - 1) !default;
+$screen-sm-max:              ($screen-md - 1) !default;
+$screen-md-max:              ($screen-lg - 1) !default;

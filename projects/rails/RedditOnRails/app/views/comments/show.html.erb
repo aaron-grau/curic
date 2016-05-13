@@ -1,0 +1,9 @@
+<%= @comment.body %> by <%= @comment.author.name %><br>
+<%= @comment.votes %> upvotes
+<br><br>
+
+<%= button_to "Upvote", upvote_comment_url(@comment) %>
+<%= button_to "Downvote", downvote_comment_url(@comment) %>
+
+<b>Reply to this comment:</b>
+<%= render "form", comment: @new_comment %>

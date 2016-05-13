@@ -1,0 +1,66 @@
+/* Bootstrap Lite Modal Styles */
+
+.modal, .modal-backdrop {
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+}
+
+.modal {
+  
+  display: none; /* this gets toggled by the javascript*/
+  z-index: 1040;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.modal-dialogue {
+  margin: 3em auto;
+  width: 25em;
+  @include rounded-corners(15px);
+  background-color: #fff;
+  border: solid 1px #000;
+  color: #000;
+}
+
+.modal-backdrop {
+  opacity: 0.5;
+  background-color: #000;
+  z-index: 1030;
+}
+
+.fade {
+  transition: opacity 0.15s linear 0s;
+}
+
+.modal-header, .modal-body, .modal-footer {
+  padding: 1.5em;
+}
+
+.modal-header {
+  border-bottom: solid 1px #cecece;
+}
+
+.modal-footer {
+  border-top: solid 1px #cecece;
+}
+
+.modal-header .close {
+  margin-top: 2px;
+}
+
+button.close {
+  border: none;
+  cursor: pointer;
+  background:none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: 0 none;
+}
+
+.close {
+  float: right;
+  color: #cecece;
+  font-weight: bold;
+  font-size: large;
+}

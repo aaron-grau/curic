@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'bootstrap';
+
+.done-button {
+  width: 80px;
+  float: right;
+  margin-top: 1px;
+  margin-right: 10px;
+}
+.big-title{
+  width: 200px;
+  margin: 0 auto;
+}
+
+.add-todo{
+  width: 100%;
+}
+
+.todo-body {
+  margin: 10px;
+  border-radius: 5px;
+  display: block;
+  border: 1px solid lightgray;
+}
+
+body{
+  width: 100%;
+}
+
+#root {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.delete-todo {
+  position: relative;
+  right: 10px;
+}
+.list-item {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin: 10px 0px 10px 0px;
+  font-size: larger;
+}
+.list-item.min {
+  transition: background-color 0.25s;
+}
+
+.list-item.min:hover{
+  background-color: lightgray;
+}
+
+

@@ -1,0 +1,29 @@
+<div class="col-xs-3">
+  <div class="list panel panel-default">
+    <div class="panel-heading">
+      <small class="tiny help-block">Click title to edit</small>
+      <div class="list-title-wrapper" data-list-id="<%= list.id %>">
+        <h3 class="panel-title list-title"><%= list.escape("title") %></h3>
+      </div>
+    </div>
+    <div class="panel-body">
+      <ol class="todo-list" data-list-id="<%= list.get('id') %>">
+        <% if(list.get("todos")){ %>
+          <% list.get("todos").each(function(todo){ %>
+            <li
+            data-todo-order="<%= todo.get('todo_order') %>"
+            data-todo-id="<%= todo.id %>"
+            data-list-id="<%= todo.get('list_id') %>">
+            <%= todo.escape("body") %>
+          <% }) %>
+        <% } %>
+      </ol>
+    </div>
+    <div class="panel-footer">
+      <label for="delete-list-<%= list.id %>">Delete:</label>
+      <button id="delete-list-<%= list.id %>"
+        class="delete-list btn btn-warning"
+        data-list-id="<%= list.id %>">&times;</button>
+    </div>
+  </div>
+</div>

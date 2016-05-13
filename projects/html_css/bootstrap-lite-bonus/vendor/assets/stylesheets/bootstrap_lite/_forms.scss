@@ -1,0 +1,81 @@
+/* Bootstrap Lite Form Styles */
+
+/* fieldsets and similar things */
+fieldset {
+  padding: $base-padding;
+  margin: $base-margin 0;
+}
+
+.form-group {
+  padding: $base-padding 0;
+  margin: $base-margin 0;
+}
+
+fieldset {
+  border: 0px none transparent;
+  border-top: 1px solid $brand-color;
+}
+
+legend {
+  border: 1px solid $brand-color;
+  padding: ($base-padding / 2);
+}
+
+/* buttons inputs etc. */
+.button {
+  cursor: pointer;
+  background-color: $brand-color;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  text-align: center; 
+  font: -webkit-small-control;
+  padding: ($base-padding / 2) $base-padding;
+  text-decoration:none;
+  @include base-text-shadow;
+  @include remove-active-glow;
+  border: 0px none transparent;
+  font-size: 120%;
+}
+
+.button:hover {
+  background-color: $darken-brand-color;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.button:active {
+  position:relative;
+  top:1px;
+  color: #ffffff;
+}
+
+a.button:visited {
+  color: #ffffff;
+}
+
+.form-control {
+  font-size: 100%;
+  padding: ($base-padding / 2);
+  border: 1px solid $neutral-color;
+  cursor: pointer;
+  @include active-glow($highlight-color);
+}
+
+input[type="radio"], input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+}
+         
+/* labels */
+
+label {
+  display: inline-block;
+  font-weight: bold;
+  padding: $base-padding 0; 
+  cursor: pointer;
+}

@@ -1,0 +1,6 @@
+<pre><%= note.content %></pre>
+<p>Authored by: <%= note.user.email %></p>
+
+<% if note.user_id == current_user_id %>
+  <%= button_to "Destroy note!", note_url(note), method: :delete %>
+<% end %>
