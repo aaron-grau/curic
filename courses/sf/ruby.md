@@ -143,7 +143,7 @@
 
 [git-add]: ../../ruby/readings/git-add.md
 [git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
-[atom-cheatsheet]: ../../ruby/readings/atom_cheatsheet.md
+[atom-cheatsheet]: readings/atom_cheatsheet.md
 [git-fix-authorship]: ./w1d5/git-fix-authorship.md
 [git-workflow]: ../../ruby/readings/git-workflow.md
 [git-workflow-exercises]: ../../ruby/homeworks/git-workflow-exercises.md
