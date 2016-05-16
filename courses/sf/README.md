@@ -16,9 +16,9 @@
 * [AA Machine Bash Profile](assets/bash_profile)
 * [Atom Cheat Sheet](readings/atom_cheatsheet.md)
 
-[ruby]: topics/ruby.md
-[sql]: topics/sql.md
-[rails]: topics/rails.md
-[js]: topics/js.md
-[react]: topics/react.md
-[html-css]: topics/html-css.md
+[ruby]: phases/ruby.md
+[sql]: phases/sql.md
+[rails]: phases/rails.md
+[js]: phases/js.md
+[react]: phases/react.md
+[html-css]: phases/html-css.md
