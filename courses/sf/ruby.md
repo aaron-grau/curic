@@ -29,13 +29,13 @@
 [day1-instructions]: https://github.com/appacademy/meta/blob/master/first-day-instructions/README.md
 [prep-w0]: https://github.com/appacademy/appacademy-prep/tree/master/w0
 [prep-w1]: https://github.com/appacademy/appacademy-prep/tree/master/w1
-[pry-and-byebug]: ../../../ruby/readings/debugger.md
-[common-error-messages]: ../../../ruby/readings/common-exceptions.md
-[bonus-byebug]: ../../../ruby/readings/bonus-debugger.md
+[pry-and-byebug]: ../../ruby/readings/debugger.md
+[common-error-messages]: ../../ruby/readings/common-exceptions.md
+[bonus-byebug]: ../../ruby/readings/bonus-debugger.md
 
-[enumerables-project]: ../../../ruby/projects/enumerables
-[ghost-project]: ../../../ruby/projects/ghost
-[maze-solver-project]: ../../../ruby/projects/maze_solver
+[enumerables-project]: ../../ruby/projects/enumerables
+[ghost-project]: ../../ruby/projects/ghost
+[maze-solver-project]: ../../ruby/projects/maze_solver
 [eight-queens]: http://en.wikipedia.org/wiki/Eight_queens_puzzle
 [project-euler]: https://projecteuler.net/problems
 
@@ -69,13 +69,13 @@
 
 [references-video]: https://vimeo.com/165965713
 [prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
-[references]: ../../../ruby/readings/references.md
-[scope]: ../../../ruby/readings/scope.md
-[code-smells]: ../../../ruby/readings/refactoring.md
-[array-hash-defaults]: ../../../ruby/readings/array-hash-defaults.md
+[references]: ../../ruby/readings/references.md
+[scope]: ../../ruby/readings/scope.md
+[code-smells]: ../../ruby/readings/refactoring.md
+[array-hash-defaults]: ../../ruby/readings/array-hash-defaults.md
 
-[memory-project]: ../../../ruby/projects/memory
-[sudoku-project]: ../../../ruby/projects/sudoku
+[memory-project]: ../../ruby/projects/memory
+[sudoku-project]: ../../ruby/projects/sudoku
 
 ## Algorithms
 
@@ -115,12 +115,12 @@
 [the-stack-video]: https://vimeo.com/162571286
 
 [prep-w3]: https://github.com/appacademy/appacademy-prep/tree/master/w3
-[recursion]: ../../../ruby/readings/recursion.md
+[recursion]: ../../ruby/readings/recursion.md
 
-[recursion-homework]: ../../../ruby/homeworks/questions/recursion.md
+[recursion-homework]: ../../ruby/homeworks/questions/recursion.md
 
-[recursion-project]: ../../../ruby/projects/recursion
-[word-chains]:  ../../../ruby/projects/word_chains
+[recursion-project]: ../../ruby/projects/recursion
+[word-chains]:  ../../ruby/projects/word_chains
 [bonus-recursion-practice]: https://github.com/appacademy/recursion_exercises
 
 ### w1d4
@@ -141,20 +141,20 @@
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
-[git-add]: ../../../ruby/readings/git-add.md
+[git-add]: ../../ruby/readings/git-add.md
 [git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
-[atom-cheatsheet]: ../../../ruby/readings/atom_cheatsheet.md
+[atom-cheatsheet]: ../../ruby/readings/atom_cheatsheet.md
 [git-fix-authorship]: ./w1d5/git-fix-authorship.md
-[git-workflow]: ../../../ruby/readings/git-workflow.md
-[git-workflow-exercises]: ../../../ruby/homeworks/git-workflow-exercises.md
-[aliases]: ../../../ruby/readings/alias.md
+[git-workflow]: ../../ruby/readings/git-workflow.md
+[git-workflow-exercises]: ../../ruby/homeworks/git-workflow-exercises.md
+[aliases]: ../../ruby/readings/alias.md
 [interactive-git]: http://pcottle.github.io/learnGitBranching/
 [assessment-practice]: https://github.com/appacademy/assessment-prep
-[serialization]: ../../../ruby/readings/serialization.md
-[gems]: ../../../ruby/readings/gems-and-rbenv.md
+[serialization]: ../../ruby/readings/serialization.md
+[gems]: ../../ruby/readings/gems-and-rbenv.md
 
-[screwedoku]: ../../../ruby/projects/screwdoku
-[minesweeper]: ../../../ruby/projects/minesweeper
+[screwedoku]: ../../ruby/projects/screwdoku
+[minesweeper]: ../../ruby/projects/minesweeper
 
 ### w1d5
 
@@ -179,12 +179,12 @@
 [data-structures-video]: https://vimeo.com/162763729
 [dfs-video]: https://vimeo.com/162763740
 
-[intro-algorithms-and-data-structures]: ../../../ruby/readings/intro-algorithms-and-data-stuctures.md
-[diy-adts]: ../../../ruby/homeworks/questions/abstract_data_types.md
+[intro-algorithms-and-data-structures]: ../../ruby/readings/intro-algorithms-and-data-stuctures.md
+[diy-adts]: ../../ruby/homeworks/questions/abstract_data_types.md
 
-[poly-tree-node]: ../../../ruby/projects/poly_tree_node
-[knights-travails]: ../../../ruby/projects/knights_travails
-[tic-tac-toe-ai]: ../../../ruby/projects/tic_tac_toe_ai
+[poly-tree-node]: ../../ruby/projects/poly_tree_node
+[knights-travails]: ../../ruby/projects/knights_travails
+[tic-tac-toe-ai]: ../../ruby/projects/tic_tac_toe_ai
 
 ### w1d6-w1d7
 * **STUDY FOR ASSESSMENT**
