@@ -69,13 +69,13 @@
 
 [references-video]: https://vimeo.com/165965713
 [prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
-[references]: ./w1d2/references.md
-[scope]: ./w1d2/scope.md
-[code-smells]: ./w1d2/refactoring.md
-[array-hash-defaults]: ./w1d2/array-hash-defaults.md
+[references]: ../../ruby/readings/references.md
+[scope]: ../../ruby/readings/scope.md
+[code-smells]: ../../ruby/readings/refactoring.md
+[array-hash-defaults]: ../../ruby/readings/array-hash-defaults.md
 
-[memory-project]: ./projects/w1d2-memory-puzzle.md
-[sudoku-project]: ./projects/w1d2-sudoku.md
+[memory-project]: ../../ruby/projects/memory/README.md
+[sudoku-project]: ../../ruby/projects/sudoku/README.md
 
 ## Algorithms
 
