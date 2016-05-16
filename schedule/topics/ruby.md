@@ -17,9 +17,9 @@
 #### Assessment00
 
 #### Projects
-+ [Enumerables][enumerable-exercises]
++ [Enumerables][enumerables]
 + [Ghost][ghost-project]
-+ **Bonus**: [maze solver][maze-project]
++ **Bonus**: [Maze Solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens].
 + **Bonus**: Work through as many [Project Euler][project-euler]
   problems as you can.
@@ -33,7 +33,7 @@
 [common-error-messages]: ../../ruby/readings/common-exceptions.md
 [bonus-byebug]: ../../ruby/readings/bonus-debugger.md
 
-[enumerable-exercises]: ../../ruby/projects/enumerables-arrays.md
+[enumerables-project]: ../../ruby/projects/enumerables-arrays.md
 [ghost-project]: ../../ruby/projects/ghost/README.md
 [maze-project]: ../../ruby/projects/maze_solver/README.md
 [eight-queens]: http://en.wikipedia.org/wiki/Eight_queens_puzzle
@@ -41,7 +41,10 @@
 
 ### w1d2
 #### Yesterday's Solutions
-+ Read yesterday's [solutions][solutions]
++ Read yesterday's solutions:
+  + [Enumerables][enumerables-project]
+  + [Ghost][ghost-project]
+  + [Maze-Solver][maze-solver-project]
 
 #### Video Lectures
 * :movie_camera: [References (20 min)][references-video] (`go_video_go`)
@@ -65,7 +68,6 @@
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens].
 
 [references-video]: https://vimeo.com/165965713
-[solutions]: https://github.com/appacademy/solutions
 [prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
 [references]: ./w1d2/references.md
 [scope]: ./w1d2/scope.md
