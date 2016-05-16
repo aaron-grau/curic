@@ -18,7 +18,7 @@ instance variable (e.g., `@dictionary`).
 
 Next, write a helper method `adjacent_words(word)`. This should
 return all words in the dictionary one letter different than the
-current word. Here `dictionary` is an array of words.
+current word. By "one letter different" we mean that both words have the same length and only differ at one position, e.g. "mat" and "cat" count as adjacent words, but "cat" and "cats" do not, nor do "cola" and "cool."
 
 Verify that your `adjacent_words` method is working.
 
