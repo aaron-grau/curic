@@ -199,37 +199,28 @@ https://en.wikipedia.org/wiki/Merge_sort#/media/File:Merge-sort-example-300px.gi
 
 ### Make Change
 
-RubyQuiz: [Make change][make-change-mirror]. **Make sure your solution
-works for `make_change(14, [10, 7, 1])`**. The correct answer is
-`[7, 7]`, not `[10, 1, 1, 1, 1]`.
+RubyQuiz: [Make change][make-change-mirror]. 
 
 Here's a game plan for solving the problem:
 
-First, do the traditional American money thing: take as many of the
-biggest coin as you can. Then do a recursion on the remaining amount,
-leaving out the biggest kind of coin.
+First, write a 'greedy' version of making change called `greedy_make_change`:
+  - Take as many of the biggest coin as possible and add them to your result.
+  - Add to the result by recursively calling your method on the remaining amount, leaving out the biggest coin, until the remainder is zero.
 
-Next, instead of taking as many of the biggest you can, instead use
-only one of the biggest you can. When you make your recursive call for
-the remaining amount, leave out the biggest kind of coin **only if
-you couldn't use any of them**. Note that this doesn't fix anything;
-it just makes you give out coins of a given type one-by-one.
+Once you have a working greedy version, talk with your partner about refactoring this to `make_better_change`. What's wrong with `greedy_make_change`? 
 
-Lastly, change your program so that it doesn't lock itself into using
-the biggest possible coin. In each call to `make_change`, iterate
-through the possible coins; first take one of the biggest, and then
-make a recursive call on the remaining amount. Record this way of
-making change. But don't stop yet; next, take one of the
-second-biggest coin, and try to make change for the remainder. If this
-uses fewer coins than the previous solution, replace your "current
-best" solution. Don't stop until you iterate through all the coins.
+Consider the case of `greedy_make_change(24, [10,7,1])`. Because it takes as many `10` pieces as possible, `greedy_make_change` misses the correct answer of `[10,7,7]` (try it in pry).
 
-The trick is that each level of recursion should be trying out all the
-coins. Like in the `make_change(14, [10, 7, 1])` case, you can't
-assume that you'll use the 10 cent piece.
+To `make_better_change`, we only take one coin at a time and never rule out denominations that we've already used. This allows each coin to be available each time we get a new remainder. By iterating over the denominations and continuing to search for the best change, we assure that we test for 'non-greedy' uses of each denomination. 
 
-**This problem is harder than the others. Check with your TA to verify
-your solution**. You'll probably be wrong the first time :-)
+Discuss the following game plan and then work together to implement your new method:
+
+  - Iterate over each coin.
+  - **Grab only one** of that one coin and recursively call `make_better_change` on the remainder using all of the same coins.
+  - Add the change for the remainder to the single coin you originally grabbed to obtain a possible solution.
+  - Keep track of the best solution and return it at the end.
+
+Make sure you and your partner understand each line before moving on.
 
 [make-change-mirror]:
 http://web.archive.org/web/20130215052843/http://rubyquiz.com/quiz154.html

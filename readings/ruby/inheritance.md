@@ -122,11 +122,11 @@ methods in addition to the shared `editor` method.
 
 ## Calling a super method
 
-When overriding a method, it is common to call the original 
-implementation. We can call the superclass's implementation of any 
-method using the special `super` keyword. There are two major ways 
-in which `super` is called. If super is called without any arguments, 
-the arguments passed to the method will be implicitly passed on 
+When overriding a method, it is common to call the original
+implementation. We can call the superclass's implementation of any
+method using the special `super` keyword. There are two major ways
+in which `super` is called. If super is called without any arguments,
+the arguments passed to the method will be implicitly passed on
 to the parent class's implementation.
 
 ```ruby
@@ -139,7 +139,7 @@ end
 class Liger < Animal
   def make_n_noises(num = 4)
     num.times { print "Roar " }
-    # here we'll call super without any arguments. This will pass on `num` 
+    # here we'll call super without any arguments. This will pass on `num`
     # implicitly to super. You can think of this call to super as:
     # `super(num)`
     super
@@ -149,7 +149,7 @@ end
 Liger.new.make_n_noises(3) # => Roar Roar Roar Growl Growl Growl
 ```
 
-The most common method where this happens is `initialize`. Consider this 
+The most common method where this happens is `initialize`. Consider this
 setup and try to spot the problem:
 
 ```ruby
@@ -171,7 +171,7 @@ end
 ```
 
 Uh-oh! When we call `Human.new`, this won't set the species! Let's fix
-that. Here is the second major way that super is called, passing 
+that. Here is the second major way that super is called, passing
 arguments explicitly:
 
 ```ruby
@@ -194,48 +194,4 @@ class Human < Animal
     @name = name
   end
 end
-```
-
-## Exercises
-
-Estimated time: 45min.
-
-### Employee and Manager
-
-Write a class `Employee` that has attributes that return the
-employee's name, title, salary, and boss.
-
-Write another class, `Manager`, that extends `Employee`. `Manager`
-should have an attribute that holds an array of all employees assigned
-to the manager. Note that managers might report to higher level
-managers, of course.
-
-Add a method, `bonus(multiplier)` to `Employee`. Non-manager employees
-should get a bonus like this
-
-    bonus = (employee salary) * multiplier
-
-Managers should get a bonus based on the total salary of all of their
-subordinates, as well as the manager's subordinates' subordinates, and
-the subordinates' subordinates' subordinates, etc.
-
-    bonus = (total salary of all sub-employees) * multiplier
-
-#### Testing
-
-If we have a company structured like this:
-
-| Name    | Salary      | Title       | Boss    |
-|-------- |------------ |------------ |-------- |
-| Ned     | $1,000,000  | Founder     | nil     |
-| Darren  | $78,000     | TA Manager  | Ned     |
-| Shawna  | $12,000     | TA          | Darren  |
-| David   | $10,000     | TA          | Darren  |
-
-then we should have bonuses like this:
-
-```ruby
-ned.bonus(5) # => 500_000
-darren.bonus(4) # => 88_000
-david.bonus(3) # => 30_000
 ```

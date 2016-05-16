@@ -223,20 +223,3 @@ that aren't required take time away from more important
 requirements. But more importantly, they are often poorly conceived,
 because until you have a practical need for a feature, you're just
 trying to imagine how that feature should work.
-
-## Exercises
-
-Estimated time: 15min.
-
-* Go back to our [Memory solutions][memory-solutions] from w1d2 and harden the code, 
-  looking for places where we could throw exceptions, or
-  rescue them, rather than using plain loops.
-
-## Resources
-
-* [Skorks on exceptions][skorks-exceptions]
-* [Ruby Patterns][Ruby-Patterns]
-
-[skorks-exceptions]: http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/
-[Ruby-Patterns]: https://github.com/adomokos/DesignPatterns-Ruby/
-[memory-solutions]: https://github.com/appacademy/solutions/tree/master/w1/w1d2/memory
