@@ -214,16 +214,14 @@
 + [Chess][chess]
     + Please read the project description the night before.
 
-[inheritance]: ./w2d1/inheritance.md
-[inheritance-exercises]: ./w2d1/inheritance_exercises.md
-[errors]: ./w2d1/errors.md
-[errors-exercises]: ./w2d1/errors_exercises.md
-[object-decomposition]: ./w2d1/object-decomposition.md
-[inheritance-design]: ./w2d1/inheritance-design.md
-[hiding]: ./w2d1/hiding.md
-
-[chess]: ./projects/w2d1-chess.md
-
+[inheritance]: ../../ruby/readings/inheritance.md
+[inheritance-exercises]: ../../ruby/homeworks/inheritance_exercises.md
+[errors]: ../../ruby/readings/errors.md
+[errors-exercises]: ../../ruby/homeworks/errors_exercises.md
+[object-decomposition]: ../../ruby/readings/object-decomposition.md
+[inheritance-design]: ../../ruby/readings/inheritance-design.md
+[hiding]: ../../ruby/readings/hiding.md
+[chess]: ../../ruby/projects/chess
 
 ### w2d2
 
@@ -248,18 +246,18 @@
 + [First TDD Projects][first-tdd-projects]
 + [Poker][poker-project]
 
-[intro-rspec]: ./w2d3/intro-rspec.md
-[rspec-syntax]: ./w2d3/rspec-syntax.md
-[intro-tdd]: ./w2d3/intro-tdd.md
-[test-doubles]: ./w2d3/test-doubles.md
-[subject-and-let]: ./w2d3/subject-and-let.md
-[guard-rspec]: ./w2d3/guard-rspec.md
-[rspec-order]: ./w2d3/rspec-order.md
+[intro-rspec]: ../../ruby/readings/intro-rspec.md
+[rspec-syntax]: ../../ruby/readings/rspec-syntax.md
+[intro-tdd]: ../../ruby/readings/intro-tdd.md
+[test-doubles]: ../../ruby/readings/test-doubles.md
+[subject-and-let]: ../../ruby/readings/subject-and-let.md
+[guard-rspec]: ../../ruby/readings/guard-rspec.md
+[rspec-order]: ../../ruby/readings/rspec-order.md
 
-[robot-demo]: ./w2d3/robot-rspec-demo
+[robot-demo]: ../../ruby/demos/robot-rspec-demo
 
-[first-tdd-projects]: ./projects/w2d3-first-tdd-projects.md
-[poker-project]: ./projects/w2d3-poker.md
+[first-tdd-projects]: ../../ruby/projects/first_tdd
+[poker-project]: ../../ruby/projects/poker
 
 ### w2d4
 
@@ -270,7 +268,7 @@
 + [Algorithm Visualization][algorithm-visual]
   + [Merge Sort][merge-sort-visual]
   + [Bubble Sort][bubble-sort-visual]
-+ [Sorting Complexity][sorting-algs]
++ [Sorting Complexity][sorting-demo]
 + **Resource**: [Big O Cheatsheet][big-o-cheatsheet]
 
 #### Projects
@@ -288,12 +286,12 @@
 [merge-sort-visual]: http://www.algomation.com/player?algorithm=551321f6e1b6fa0300aae4d0
 [bubble-sort-visual]: http://www.algomation.com/player?algorithm=541a6ea7a7fe980200089c5e
 
-[sorting-algs]: ./w2d4/sorting_demo/README.md
-[execution-time]: ./w2d4/execution-time-differences.md
-[anagrams]: ./w2d4/anagrams.md
-[two-sum]: ./w2d4/two_sum.md
-[max-windowed-range]: ./w2d4/max-windowed-range.md
-[benchmarking]: ./w2d4/benchmarking.md
+[sorting-demo]: ../../ruby/demos/sorting_demo
+[execution-time]: ../../ruby/projects/execution_time_differences
+[anagrams]: ../../ruby/projects/anagrams
+[two-sum]: ../../ruby/projects/two_sum
+[max-windowed-range]: ../../ruby/projects/max_windowed_range
+[benchmarking]: ../../ruby/projects/benchmarking
 
 ### w2d5
 
@@ -319,12 +317,13 @@
 [hash-map-reading]: http://www.gotealeaf.com/blog/how-the-hash-works-in-ruby
 [lru-cache-reading]: https://web.archive.org/web/20150710185255/http://mcicpc.cs.atu.edu/archives/2012/mcpc2012/lru/lru.html
 [dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
-[hash-map]: ./w2d5/README.md
+[hash-map]: ../../ruby/projects/hash_map_lru_cache
 
 ### w2d6-w2d7
 
 + Begin [SQL Curriculum W3D1][sql-curriculum] readings.
-[sql-curriculum]: https://github.com/appacademy/sql-curriculum
+
+[sql-curriculum]: sql.md
 
 ## Additional Bonus Topics
 
@@ -337,9 +336,9 @@
 + [Swap][swap]
 
 [cursor-demo]: https://github.com/rglassett/ruby-cursor-game
-[modules]: ./bonus/modules.md
-[require]: ./bonus/require.md
-[privacy]: ./bonus/privacy.md
-[how-rspec-works]: ./bonus/how-rspec-works.md
-[hash-and-equals]: ./bonus/hash-and-equals.md
-[swap]: ./bonus/swap.md
+[modules]: ../../ruby/readings/modules.md
+[require]: ../../ruby/readings/require.md
+[privacy]: ../../ruby/readings/privacy.md
+[how-rspec-works]: ../../ruby/readings/how-rspec-works.md
+[hash-and-equals]: ../../ruby/readings/hash-and-equals.md
+[swap]: ../../ruby/readings/swap.md
