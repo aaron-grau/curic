@@ -15,9 +15,9 @@
 
 [AA Machine Bash Profile](assets/bash_profile)
 
-[ruby]: syllabi/ruby.md
-[sql]: syllabi/sql.md
-[rails]: syllabi/rails.md
-[js]: syllabi/js.md
-[react]: syllabi/react.md
-[html-css]: syllabi/html-css.md
+[ruby]: topics/ruby.md
+[sql]: topics/sql.md
+[rails]: topics/rails.md
+[js]: topics/js.md
+[react]: topics/react.md
+[html-css]: topics/html-css.md
