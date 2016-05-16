@@ -6,7 +6,7 @@ This repository exists solely to store curriculum materials.
 
 It does not follow "presentation logic", i.e. materials are not organized according to the day on which they are presented. 
 
-Check out the **SF course** folder [**here**][schedule] for chronologically-organized READMEs linking to curriculum materials.
+Check out the [**SF course** folder][schedule] for chronologically-organized READMEs linking to curriculum materials.
 
 # Organization 
 
