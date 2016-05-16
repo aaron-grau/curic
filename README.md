@@ -1,4 +1,4 @@
-[sf-course]: http://github.com/appacademy/sf-course
+[schedule]:(schedule/README.md)
 
 # Purpose 
 
@@ -6,7 +6,7 @@ This repository exists solely to store curriculum materials.
 
 It does not follow "presentation logic", i.e. materials are not organized according to the day on which they are presented. 
 
-**[appacademy/sf-course][sf-course]** is the home for syllabi, i.e. chronologically-organized READMEs linking to curriculum materials.
+Course schedules live [**here**][schedule] as chronologically-organized READMEs linking to curriculum materials.
 
 # Organization 
 
