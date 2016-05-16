@@ -35,7 +35,7 @@
 
 [enumerables-project]: ../../ruby/projects/enumerables-arrays.md
 [ghost-project]: ../../ruby/projects/ghost/README.md
-[maze-project]: ../../ruby/projects/maze_solver/README.md
+[maze-solver-project]: ../../ruby/projects/maze_solver/README.md
 [eight-queens]: http://en.wikipedia.org/wiki/Eight_queens_puzzle
 [project-euler]: https://projecteuler.net/problems
 
