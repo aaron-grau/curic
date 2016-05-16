@@ -33,7 +33,7 @@
 [common-error-messages]: ../../ruby/readings/common-exceptions.md
 [bonus-byebug]: ../../ruby/readings/bonus-debugger.md
 
-[enumerables-project]: ../../ruby/projects/enumerables-arrays.md
+[enumerables-project]: ../../ruby/projects/enumerables/README.md
 [ghost-project]: ../../ruby/projects/ghost/README.md
 [maze-solver-project]: ../../ruby/projects/maze_solver/README.md
 [eight-queens]: http://en.wikipedia.org/wiki/Eight_queens_puzzle
