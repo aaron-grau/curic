@@ -1,4 +1,4 @@
-[schedule]:(schedule/README.md)
+[schedule]: schedule/README.md
 
 # Purpose 
 
