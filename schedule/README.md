@@ -1,4 +1,4 @@
-# Curriculae
+# View Curriculum by Topic
 
 * [Ruby][ruby]
 * [SQL][sql]
