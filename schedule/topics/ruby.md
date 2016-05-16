@@ -99,7 +99,7 @@
 + [Recursion][recursion-homework]
 
 #### Projects
-+ [Recursion questions][recursion-questions]
++ [Recursion exercises][recursion-project]
 + [Word chains][word-chains]
 * **Bonus**: [More Recursion questions][bonus-recursion-practice]
 + **Bonus**: [Maze solver][maze-project]
@@ -115,12 +115,12 @@
 [the-stack-video]: https://vimeo.com/162571286
 
 [prep-w3]: https://github.com/appacademy/appacademy-prep/tree/master/w3
-[recursion]: ./w1d3/recursion.md
+[recursion]: ../../ruby/readings/recursion.md
 
-[recursion-homework]: ./homeworks/questions/recursion.md
+[recursion-homework]: ../../ruby/homeworks/questions/recursion.md
 
-[recursion-questions]: ./projects/w1d3-recursion-questions.md
-[word-chains]:  ./projects/w1d3-word-chains.md
+[recursion-project]: ../../ruby/projects/recursion/README.md
+[word-chains]:  ../../ruby/projects/word_chains/README.md
 [bonus-recursion-practice]: https://github.com/appacademy/recursion_exercises
 
 ### w1d4
