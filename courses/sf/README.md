@@ -12,8 +12,8 @@
 [A note on viewing solutions](readings/solutions.md)
 # Resources
 
-[AA Machine Bash Profile](assets/bash_profile)
-[Atom Cheat Sheet](readings/atom_cheatsheet.md)
+* [AA Machine Bash Profile](assets/bash_profile)
+* [Atom Cheat Sheet](readings/atom_cheatsheet.md)
 
 [ruby]: topics/ruby.md
 [sql]: topics/sql.md
