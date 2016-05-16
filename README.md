@@ -10,15 +10,7 @@ It does not follow "presentation logic", i.e. materials are not organized accord
 
 # Organization 
 
-Materials are organized by type and then topic. 
-
-* **Types**   
-	* **Readings**: markdown files for teaching material.   
-	* **Projects**: Work done in class.
-		* Each project should have its own folder holding instructions (as a README), skeleton, solution, etc.
-	* **Homeworks**: Work done outside of class. 
-	* **Demos**: Self-contained demonstrations requiring no student input.
-	* **Assets**: Images, etc. Roughly miscellaneous.
+Materials are organized by topic and then type. 
 
 * **Topics** 
 	* Ruby
@@ -28,7 +20,15 @@ Materials are organized by type and then topic.
 	* Javascript
 	* React
 
-**Note:** There is no "Solutions" folder: solutions should live in the folders of their respective assignments (e.g. projects/javascript/asteroids/solution or homeworks/ruby/recursion/solution).
+* **Types**   
+	* **Readings**: markdown files for teaching material.   
+	* **Projects**: Work done in class.
+		* Each project should have its own folder holding instructions (as a README), skeleton, solution, etc.
+	* **Homeworks**: Work done outside of class. 
+	* **Demos**: Self-contained demonstrations requiring no student input.
+	* **Assets**: Images, etc. Roughly miscellaneous.
+
+**Note:** There is no "Solutions" folder: solutions should live in the folders of their respective projects (e.g. javascript/projects/asteroids/solution).
 
 # Revision Workflow 
 
