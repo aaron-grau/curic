@@ -44,7 +44,7 @@
 + Read yesterday's solutions:
   + [Enumerables][enumerables-project]
   + [Ghost][ghost-project]
-  + [Maze-Solver][maze-solver-project]
+  + [Maze-Solver][maze-project]
 
 #### Video Lectures
 * :movie_camera: [References (20 min)][references-video] (`go_video_go`)
