@@ -9,7 +9,8 @@
 
 # Information
 
-[A note on viewing solutions](readings/solutions.md)
+* [A note on viewing solutions](readings/solutions.md)
+
 # Resources
 
 * [AA Machine Bash Profile](assets/bash_profile)
