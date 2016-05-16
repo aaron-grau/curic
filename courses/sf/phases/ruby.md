@@ -17,7 +17,7 @@
 #### Assessment00
 
 #### Projects
-+ [Enumerables][enumerables]
++ [Enumerables][enumerables-project]
 + [Ghost][ghost-project]
 + **Bonus**: [Maze Solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens].
