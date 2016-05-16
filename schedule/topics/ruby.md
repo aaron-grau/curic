@@ -17,7 +17,7 @@
 #### Assessment00
 
 #### Projects
-+ [enumerables][enumerable-exercises]
++ [Enumerables][enumerable-exercises]
 + [Ghost][ghost-project]
 + **Bonus**: [maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens].
@@ -29,13 +29,13 @@
 [day1-instructions]: https://github.com/appacademy/meta/blob/master/first-day-instructions/README.md
 [prep-w0]: https://github.com/appacademy/appacademy-prep/tree/master/w0
 [prep-w1]: https://github.com/appacademy/appacademy-prep/tree/master/w1
-[pry-and-byebug]: ./w1d1/debugging/debugger.md
-[common-error-messages]: ./w1d1/debugging/common-exceptions.md
-[bonus-byebug]: ./w1d1/debugging/bonus-debugger.md
+[pry-and-byebug]: ../../ruby/readings/debugger.md
+[common-error-messages]: ../../ruby/readings/common-exceptions.md
+[bonus-byebug]: ../../ruby/readings/bonus-debugger.md
 
-[enumerable-exercises]: ./w1d1/exercises/enumerables-arrays.md
-[ghost-project]: ./projects/w1d1-ghost.md
-[maze-project]: ./projects/w1d1-maze-solver.md
+[enumerable-exercises]: ../../ruby/projects/enumerables-arrays.md
+[ghost-project]: ../../ruby/projects/ghost/README.md
+[maze-project]: ../../ruby/projects/maze_solver/README.md
 [eight-queens]: http://en.wikipedia.org/wiki/Eight_queens_puzzle
 [project-euler]: https://projecteuler.net/problems
 
