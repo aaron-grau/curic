@@ -143,7 +143,7 @@
 
 [git-add]: ./w1d5/git-add.md
 [git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
-[atom-cheatsheet]: ./w1d5/atom_cheatsheet.md
+[atom-cheatsheet]: ../../ruby/readings/atom_cheatsheet.md
 [git-fix-authorship]: ./w1d5/git-fix-authorship.md
 [git-workflow]: ./w1d5/git-workflow.md
 [git-workflow-exercises]: ./w1d5/git-workflow-exercises.md
