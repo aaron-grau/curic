@@ -77,7 +77,7 @@ from `SQLite3::Database`; you will only need one instance. If you use
 the `Singleton` module like I do, this will be available through a
 `QuestionsDatabase::instance` method.
 
-[school.rb]: ../w3d2/demos/sqlite3-demo/school.rb
+[school.rb]: ../../demos/sqlite3-demo/school.rb
 
 *NB: A singleton is a general programming pattern that describes a
 scenario in which you will only have a single instance of a particular
