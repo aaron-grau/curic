@@ -323,7 +323,7 @@
 ### w2d6-w2d7
 
 + Begin [SQL Curriculum W3D1][sql-curriculum] readings.
-+ **Study for Assessment02** ([practice][assessment-prep])
++ **Study for Assessment 2** ([practice][assessment-prep])
     + We'll implement a simple version of a well-known card game. We'll announce the specific game, and you can look up the basic rules ahead of time.
 [sql-curriculum]: ../sql
 
