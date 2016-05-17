@@ -5,10 +5,10 @@
 * Rails Guides [guides.rubyonrails.org][rails-guides]
 * [Code for Rails Videos][rails-videos-code]
 
-[rails-setup]: ./rails-setup.md
+[rails-setup]: readings/rails-setup.md
 [rails-api]: http://api.rubyonrails.org/v4.0.2/
 [rails-guides]: http://guides.rubyonrails.org/v4.0.2/
-[rails-videos-code]: https://github.com/appacademy/IntroRailsVideoDemo
+[rails-videos-code]: demos/intro_rails_video_demo
 
 ## w3d6-w3d7
 
@@ -53,13 +53,13 @@
 
 [assessment-prep]: http://github.com/appacademy/assessment-prep
 
-[routing-i]: ./w4d1/routing-part-i.md
-[basic-controllers]: ./w4d1/basic-controllers.md
-[basic-json-api]: ./w4d1/basic-json-api.md
-[routing-ii]: ./w4d1/routing-part-ii.md
+[routing-i]: readings/routing-part-i.md
+[basic-controllers]: readings/basic-controllers.md
+[basic-json-api]: readings/basic-json-api.md
+[routing-ii]: readings/routing-part-ii.md
 
-[first-routes]: ./projects/w4d1-first-routes.md
-[contacts-api]: ./projects/w4d1-contacts-api.md
+[first-routes]: projects/w4d1-first-routes.md
+[contacts-api]: projects/w4d1-contacts-api.md
 
 ## w4d2
 
@@ -84,15 +84,15 @@
     * [:movie_camera: (cc) 04 Session Token (16 min)][auth-04-session-token]
 
 
-[html]: ./w4d2/html.md
-[basic-views]: ./w4d2/basic-views.md
-[erb]: ./w4d2/erb.md
-[html-forms]: ./w4d2/html-forms.md
-[rails-params-conventions]: ./w4d2/parameter-conventions.md
-[mass-assignment]: ./w4d2/mass-assignment.md
-[patch-put-and-delete]: ./w4d2/patch-put-and-delete.md
-[debugging-rails]: ./w4d2/debugging-rails.md
-[partials]: https://github.com/appacademy/rails-curriculum/blob/master/w4d4/partials.md
+[html]: readings/html.md
+[basic-views]: readings/basic-views.md
+[erb]: readings/erb.md
+[html-forms]: readings/html-forms.md
+[rails-params-conventions]: readings/parameter-conventions.md
+[mass-assignment]: readings/mass-assignment.md
+[patch-put-and-delete]: readings/patch-put-and-delete.md
+[debugging-rails]: readings/debugging-rails.md
+[partials]: readings/partials.md
 
 [auth-00-user-model]: https://vimeo.com/groups/appacademy/videos/93097977
 [auth-01-basic-sessions]: https://vimeo.com/groups/appacademy/videos/93097978
