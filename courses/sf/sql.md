@@ -16,13 +16,13 @@
 [assessment-practice]: http://github.com/appacademy/assessment-prep
 [assessment-practice2]: http://github.com/appacademy/assessment-prep
 
-[sql-intro]: ./w3d1/sql-intro.md
+[sql-intro]: ../../sql/readings/sql-intro.md
 [visual-joins]: http://www.codinghorror.com/blog/2007/10/a-visual-explanation-of-sql-joins.html
-[sql-formatting]: ./w3d1/formatting.md
+[sql-formatting]: ../../sql/readings/formatting.md
 
-[learning-sql-setup]: ./w3d1/setup.md
-[learning-sql-part-i]: ./w3d1/part-i.md
-[sqlzoo-readme]: ./projects/w3d1-sqlzoo.md
+[learning-sql-setup]: ../../sql/readings/setup.md
+[learning-sql-part-i]: ../../sql/readings/part-i.md
+[sqlzoo-readme]: ../../sql/projects/sqlzoo
 
 ## w3d2
 
@@ -34,15 +34,14 @@
     + Make sure to read this before class! It is essential!
 + **Project**: [AA Questions][aa-questions]
 
-[learning-sql-part-ii]: ./w3d2/part-ii.md
-[sqlite3]: ./w3d2/sqlite3.md
-[heredocs]: ./w3d2/heredocs.md
+[learning-sql-part-ii]: ../../sql/readings/part-ii.md
+[sqlite3]: ../../sql/readings/sqlite3.md
+[heredocs]: ../../sql/readings/heredocs.md
 [sql-ex]: http://www.sql-ex.ru/
 
-[patients-demo]: ./w3d2/demos/patients-demo
-[sqlite3-demo]: ./w3d2/demos/sqlite3-demo
+[sqlite3-demo]: ../../sql/demos/sqlite3_demo
 
-[aa-questions]: ./projects/w3d2-aa-questions.md
+[aa-questions]: ../../sql/projects/aa_questions
 
 ## w3d3
 
