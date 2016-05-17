@@ -68,24 +68,24 @@
 + **Exercise**: [Associations Exercise][associations-exercise]
 + **Project**: [URL Shortener][url-shortener]
 
-[first-rails-project]: ./w3d3/first-rails-project.md
-[ar-migrations]: ./w3d3/migrations.md
-[ar-orm]: ./w3d3/orm.md
+[first-rails-project]: ../../sql/readings/first-rails-project.md
+[ar-migrations]: ../../sql/readings/migrations.md
+[ar-orm]: ../../sql/readings/orm.md
 
-[belongs-to-has-many]: ./w3d3/belongs-to-has-many.md
-[has-many-through]: ./w3d3/has-many-through.md
-[has-one]: ./w3d3/has-one.md
-[rails-conventions]: ./w3d3/rails-conventions.md
-[unconventional-associations]: ./w3d3/unconventional-associations.md
+[belongs-to-has-many]: ../../sql/readings/belongs-to-has-many.md
+[has-many-through]: ../../sql/readings/has-many-through.md
+[has-one]: ../../sql/readings/has-one.md
+[rails-conventions]: ../../sql/readings/rails-conventions.md
+[unconventional-associations]: ../../sql/readings/unconventional-associations.md
 
-[validations]: ./w3d3/validations/validations.md
-[custom-validations]: ./w3d3/validations/custom-validations.md
-[validations-misc]: ./w3d3/validations/validations-misc.md
+[validations]: ../../sql/readings/validations.md
+[custom-validations]: ../../sql/readings/custom-validations.md
+[validations-misc]: ../../sql/readings/validations-misc.md
 
-[ar-indexing]: ./w3d3/indexing.md
+[ar-indexing]: ../../sql/readings/indexing.md
 
-[associations-exercise]: ./projects/w3d3-associations-exercise.md
-[url-shortener]: ./projects/w3d3-url-shortener.md
+[associations-exercise]: ../../sql/projects/associations_exercise
+[url-shortener]: ../../sql/projects/url_shortener
 
 ## w3d4
 
@@ -95,17 +95,17 @@
 + [More on Querying][querying-ii]
 + [Ternary Logic in SQL][sql-ternary-logic] (optional)
 + **Demo**: [JoinsDemo][joins-demo]
-+ **Project**: [Polls][polls-project]
++ **Project**: [Polls][polls-app]
 
-[relation]: ./w3d4/relation.md
-[ar-joins]: ./w3d4/joins.md
-[scopes]: ./w3d4/scopes.md
-[querying-ii]: ./w3d4/querying-ii.md
-[sql-ternary-logic]: ./w3d4/sql-ternary-logic.md
+[relation]: ../../sql/readings/relation.md
+[ar-joins]: ../../sql/readings/joins.md
+[scopes]: ../../sql/readings/scopes.md
+[querying-ii]: ../../sql/readings/querying-ii.md
+[sql-ternary-logic]: ../../sql/readings/sql-ternary-logic.md
 
-[joins-demo]: https://github.com/appacademy/JoinsDemo
+[joins-demo]: ../../sql/demos/joins_demo
 
-[polls-project]: ./projects/w3d4-polls.md
+[polls-app]: ../../sql/projects/polls_app
 
 ## w3d5
 
@@ -116,16 +116,16 @@
 + **Solo Project**: [Build Your Own ActiveRecord][build-your-own-ar]
 + :joy_cat: **5pm Happy Hour!** :joy_cat:
 
-[metaprogramming]: ./w3d5/metaprogramming.md
-[class-instance-variables]: ./w3d5/class-instance-variables.md
-[meta-send]: ./w3d5/send.rb
-[meta-macros]: ./w3d5/macros.rb
-[build-your-own-ar]: ./projects/w3d5-build-your-own-ar.md
+[metaprogramming]: ../../sql/readings/metaprogramming.md
+[class-instance-variables]: ../../sql/readings/class-instance-variables.md
+[meta-send]: ../../sql/demos/send.rb
+[meta-macros]: ../../sql/demos/macros.rb
+[build-your-own-ar]: ../../sql/projects/active_record_lite
 
 ## w3d6-w3d7
 
 + [Callbacks][callbacks]
 + [Delegation][delegation]
 
-[callbacks]: ./w3d6-w3d7/callbacks.md
-[delegation]: ./bonus/delegation.md
+[callbacks]: ../../sql/readings/callbacks.md
+[delegation]: ../../sql/readings/delegation.md

@@ -1,3 +1,4 @@
-# w3d5: [Active Record Lite!][description]
+Active Record Lite!
 
-[description]: https://github.com/appacademy/sql-curriculum/blob/master/projects/w3d5-build-your-own-ar.md
+[Day 1](instructions/active-record-lite-i.md)
+[Day 2](instructions/active-record-lite-ii.md)
