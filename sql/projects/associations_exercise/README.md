@@ -1,6 +1,6 @@
 # Associations Exercise
 
-Download the [`skeleton.zip`](skeleton.zip) file in this repo (click the link and then click `raw` to start the download).
+Download the [`skeleton.zip`](skeleton.zip) file in this repo (click the link and then click `View Raw` to start the download).
 
 * Unzip the file.
 * `cd` into the `skeleton` directory and run `bundle install` to ensure that you have all necessary gems.

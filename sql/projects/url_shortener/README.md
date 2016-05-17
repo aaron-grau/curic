@@ -66,8 +66,8 @@ loading this file, it would create an instance of the class with data from a
 table it assumes to be `good_students`. **If your naming doesn't _EXACTLY_
 follow convention, you're gonna have a bad time.**
 
-[indexing-reading]: ../w3d3/indexing.md
-[validations-reading]: ../w3d3/validations/validations.md
+[indexing-reading]: ../readings/indexing.md
+[validations-reading]: ../readings/validations.md
 [add-index-docs]: http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
 
 ## Phase II: `ShortenedUrl`
