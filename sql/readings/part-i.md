@@ -8,8 +8,8 @@ Your reading is chapters 3-5 in
 teach you how to create tables and make queries against them.
 
 [Learning-SQL]: http://www.amazon.com/Learning-SQL-Alan-Beaulieu/dp/0596520832
-[setup]: ./setup.md
-[intro]: ./sql-intro.md
+[setup]: setup.md
+[intro]: sql-intro.md
 
 ### Reading suggestions
 

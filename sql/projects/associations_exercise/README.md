@@ -5,8 +5,6 @@ Download the [`skeleton.zip`](skeleton.zip) file in this repo (click the link an
 * Unzip the file.
 * `cd` into the `skeleton` directory and run `bundle install` to ensure that you have all necessary gems.
 
-[assoc-exercise]: https://github.com/appacademy/AssociationsExercise
-
 We are going to write active record associations to connect some models.
 A rails project has been created for your testing purposes with the database
 already set up for your convenience. In this project there are three models:

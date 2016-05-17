@@ -3,7 +3,7 @@
 I refer heavily to the [JoinsDemo][joins-demo]. You should clone that
 repository and play with that project.
 
-[joins-demo]: https://github.com/appacademy/JoinsDemo
+[joins-demo]: ../demos/joins_demo
 
 ## Schema overview:
 
