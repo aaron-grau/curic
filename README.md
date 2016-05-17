@@ -1,4 +1,4 @@
-[schedule]: courses
+[schedule]: course
 
 # Purpose 
 
