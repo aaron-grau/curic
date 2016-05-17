@@ -16,13 +16,13 @@
 [assessment-practice]: http://github.com/appacademy/assessment-prep
 [assessment-practice2]: http://github.com/appacademy/assessment-prep
 
-[sql-intro]: ../../sql/readings/sql-intro.md
+[sql-intro]: readings/sql-intro.md
 [visual-joins]: http://www.codinghorror.com/blog/2007/10/a-visual-explanation-of-sql-joins.html
-[sql-formatting]: ../../sql/readings/formatting.md
+[sql-formatting]: readings/formatting.md
 
-[learning-sql-setup]: ../../sql/readings/setup.md
-[learning-sql-part-i]: ../../sql/readings/part-i.md
-[sqlzoo-readme]: ../../sql/projects/sqlzoo
+[learning-sql-setup]: readings/setup.md
+[learning-sql-part-i]: readings/part-i.md
+[sqlzoo-readme]: projects/sqlzoo
 
 ## w3d2
 
@@ -34,14 +34,14 @@
     + Make sure to review this before class! It is essential!
 + **Project**: [AA Questions][aa-questions]
 
-[learning-sql-part-ii]: ../../sql/readings/part-ii.md
-[sqlite3]: ../../sql/readings/sqlite3.md
-[heredocs]: ../../sql/readings/heredocs.md
+[learning-sql-part-ii]: readings/part-ii.md
+[sqlite3]: readings/sqlite3.md
+[heredocs]: readings/heredocs.md
 [sql-ex]: http://www.sql-ex.ru/
 
-[sqlite3-demo]: ../../sql/demos/sqlite3_demo
+[sqlite3-demo]: demos/sqlite3_demo
 
-[aa-questions]: ../../sql/projects/aa_questions
+[aa-questions]: projects/aa_questions
 
 ## w3d3
 
@@ -68,24 +68,24 @@
 + **Exercise**: [Associations Exercise][associations-exercise]
 + **Project**: [URL Shortener][url-shortener]
 
-[first-rails-project]: ../../sql/readings/first-rails-project.md
-[ar-migrations]: ../../sql/readings/migrations.md
-[ar-orm]: ../../sql/readings/orm.md
+[first-rails-project]: readings/first-rails-project.md
+[ar-migrations]: readings/migrations.md
+[ar-orm]: readings/orm.md
 
-[belongs-to-has-many]: ../../sql/readings/belongs-to-has-many.md
-[has-many-through]: ../../sql/readings/has-many-through.md
-[has-one]: ../../sql/readings/has-one.md
-[rails-conventions]: ../../sql/readings/rails-conventions.md
-[unconventional-associations]: ../../sql/readings/unconventional-associations.md
+[belongs-to-has-many]: readings/belongs-to-has-many.md
+[has-many-through]: readings/has-many-through.md
+[has-one]: readings/has-one.md
+[rails-conventions]: readings/rails-conventions.md
+[unconventional-associations]: readings/unconventional-associations.md
 
-[validations]: ../../sql/readings/validations.md
-[custom-validations]: ../../sql/readings/custom-validations.md
-[validations-misc]: ../../sql/readings/validations-misc.md
+[validations]: readings/validations.md
+[custom-validations]: readings/custom-validations.md
+[validations-misc]: readings/validations-misc.md
 
-[ar-indexing]: ../../sql/readings/indexing.md
+[ar-indexing]: readings/indexing.md
 
-[associations-exercise]: ../../sql/projects/associations_exercise
-[url-shortener]: ../../sql/projects/url_shortener
+[associations-exercise]: projects/associations_exercise
+[url-shortener]: projects/url_shortener
 
 ## w3d4
 
@@ -97,15 +97,15 @@
 + **Demo**: [JoinsDemo][joins-demo]
 + **Project**: [Polls][polls-app]
 
-[relation]: ../../sql/readings/relation.md
-[ar-joins]: ../../sql/readings/joins.md
-[scopes]: ../../sql/readings/scopes.md
-[querying-ii]: ../../sql/readings/querying-ii.md
-[sql-ternary-logic]: ../../sql/readings/sql-ternary-logic.md
+[relation]: readings/relation.md
+[ar-joins]: readings/joins.md
+[scopes]: readings/scopes.md
+[querying-ii]: readings/querying-ii.md
+[sql-ternary-logic]: readings/sql-ternary-logic.md
 
-[joins-demo]: ../../sql/demos/joins_demo
+[joins-demo]: demos/joins_demo
 
-[polls-app]: ../../sql/projects/polls_app
+[polls-app]: projects/polls_app
 
 ## w3d5
 
@@ -116,16 +116,16 @@
 + **Solo Project**: [Build Your Own ActiveRecord][build-your-own-ar]
 + :joy_cat: **5pm Happy Hour!** :joy_cat:
 
-[metaprogramming]: ../../sql/readings/metaprogramming.md
-[class-instance-variables]: ../../sql/readings/class-instance-variables.md
-[meta-send]: ../../sql/demos/send.rb
-[meta-macros]: ../../sql/demos/macros.rb
-[build-your-own-ar]: ../../sql/projects/active_record_lite
+[metaprogramming]: readings/metaprogramming.md
+[class-instance-variables]: readings/class-instance-variables.md
+[meta-send]: demos/send.rb
+[meta-macros]: demos/macros.rb
+[build-your-own-ar]: projects/active_record_lite
 
 ## w3d6-w3d7
 
 + [Callbacks][callbacks]
 + [Delegation][delegation]
 
-[callbacks]: ../../sql/readings/callbacks.md
-[delegation]: ../../sql/readings/delegation.md
+[callbacks]: readings/callbacks.md
+[delegation]: readings/delegation.md
