@@ -323,7 +323,8 @@
 ### w2d6-w2d7
 
 + Begin [SQL Curriculum W3D1][sql-curriculum] readings.
-
++ **Study for Assessment02** ([practice][assessment-prep])
+    + We'll implement a simple version of a well-known card game. We'll announce the specific game, and you can look up the basic rules ahead of time.
 [sql-curriculum]: ../sql
 
 ## Additional Bonus Topics
@@ -336,6 +337,7 @@
 + [Hash and Equals][hash-and-equals]
 + [Swap][swap]
 
+[assessment-prep]: http://github.com/appacademy/assessment-prep
 [cursor-demo]: https://github.com/rglassett/ruby-cursor-game
 [modules]: readings/modules.md
 [require]: readings/require.md

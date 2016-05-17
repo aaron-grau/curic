@@ -2,7 +2,7 @@
 
 ## w3d1
 
-+ **Assessment02** ([practice][assessment-practice]) ([additional practice][assessment-practice2])
++ **Assessment02** ([practice][assessment-prep])
     + We'll implement a simple version of a well-known card game. We'll announce
       the specific game, and you can look up the basic rules ahead of time.
 + SQL Fundamentals (Read them first!)
@@ -13,8 +13,7 @@
 + [Learning SQL: Part I][learning-sql-part-i]
 + **Project**: [SQL Zoo][sqlzoo-readme]
 
-[assessment-practice]: http://github.com/appacademy/assessment-prep
-[assessment-practice2]: http://github.com/appacademy/assessment-prep
+[assessment-prep]: http://github.com/appacademy/assessment-prep
 
 [sql-intro]: readings/sql-intro.md
 [visual-joins]: http://www.codinghorror.com/blog/2007/10/a-visual-explanation-of-sql-joins.html
