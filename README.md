@@ -38,7 +38,7 @@ There are three types of revisions: **patches, revisions, and releases**.
 
 ## Patches
 
-Patches can be accomplished in one commit and do not require peer-review. Examples include fixing typos, broken links and formatting.
+Patches are minor, non-substantive changes that can be accomplished in one commit and do not require peer-review. Examples include fixing typos, broken links and formatting.
 
 Patches can be done directly to the `master` branch.
 
