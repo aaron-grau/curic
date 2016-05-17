@@ -245,6 +245,7 @@
 #### Projects
 + [First TDD Projects][first-tdd-projects]
 + [Poker][poker-project]
+
 [assessment-prep]: https://github.com/appacademy/assessment-prep
 [intro-rspec]: readings/intro-rspec.md
 [rspec-syntax]: readings/rspec-syntax.md
