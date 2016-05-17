@@ -239,13 +239,13 @@
 + [Test doubles][test-doubles]
 + [Order of RSpec methods][rspec-order]
 + [guard-rspec][guard-rspec]
-+ **Demo Reading**: read assessment00 and assessment01 spec files
++ **Demo Reading**: review A00 and A01 [spec-files][assessment-prep]
 + **Demo Reading**: [OO Robot RSpec Example][robot-demo]
 
 #### Projects
 + [First TDD Projects][first-tdd-projects]
 + [Poker][poker-project]
-
+[assessment-prep]: https://github.com/appacademy/assessment-prep
 [intro-rspec]: readings/intro-rspec.md
 [rspec-syntax]: readings/rspec-syntax.md
 [intro-tdd]: readings/intro-tdd.md
