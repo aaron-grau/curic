@@ -306,7 +306,7 @@ we update the LRU cache by inserting or deleting an element, we'll
 insert it into our hash or delete it from our hash (which both take
 `O(1)` time).
 
-![](lru-cache-scaled500.png?raw=true)
+![](../assets/lru-cache-scaled500.png?raw=true)
 
 **NB**: We are about to ask you to go back and update your LinkedList
 implementation. However, you should **not** have to change the way it
