@@ -1,4 +1,4 @@
-[schedule]: courses/sf/README.md
+[schedule]: courses/sf
 
 # Purpose 
 
