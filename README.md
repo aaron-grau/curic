@@ -30,26 +30,3 @@ Materials are organized by topic and then type.
 
 **Note:** There is no "Solutions" folder: solutions should live in the folders of their respective projects (e.g. javascript/projects/asteroids/solution).
 
-# Revision Workflow 
-
-There are three types of revisions: **patches, revisions, and releases**.
-
-**Note:** Gitflow and versioning coming soon.
-
-## Patches
-
-Patches are minor, non-substantive changes that do not require peer-review. Examples include fixing typos, broken links and formatting.
-
-Patches can be done directly to the `master` branch.
-
-## Revisions
-
-Revisions are changes that alter the curriculum in a modular way. Examples include changing a project's instructions, removing deprecated materials, adding new materials, and updating a solution.
-
-Revisions should be done on a feature branch. Once complete, they should be assigned to the curriculum point-person for review and merging into master.
-
-## Releases
-
-Releases are major alterations to the curriculum. Examples include introducing a new language or framework and updating materials that cross-cut many parts of the curriculum.
-
-Releases are a team-wide concern and plans should be developed on an ad hoc basis.
