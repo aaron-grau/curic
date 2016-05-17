@@ -324,7 +324,7 @@
 
 + Begin [SQL Curriculum W3D1][sql-curriculum] readings.
 
-[sql-curriculum]: sql.md
+[sql-curriculum]: ~/sql
 
 ## Additional Bonus Topics
 
