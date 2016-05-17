@@ -31,7 +31,7 @@
 + [Heredocs][heredocs]
 + _optional_ [sql-ex][sql-ex]
 + **Demo Readings**: [SQLite3 demo][sqlite3-demo]
-    + Make sure to read this before class! It is essential!
+    + Make sure to review this before class! It is essential!
 + **Project**: [AA Questions][aa-questions]
 
 [learning-sql-part-ii]: ../../sql/readings/part-ii.md
