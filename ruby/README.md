@@ -239,7 +239,7 @@
 + [Test doubles][test-doubles]
 + [Order of RSpec methods][rspec-order]
 + [guard-rspec][guard-rspec]
-+ **Demo Reading**: review A00 and A01 [spec-files][assessment-prep]
++ **Demo Reading**: review spec files for [A00 and A01][assessment-prep]
 + **Demo Reading**: [OO Robot RSpec Example][robot-demo]
 
 #### Projects
