@@ -100,7 +100,7 @@
 [auth-03-password-pseudo-attribute]: https://vimeo.com/groups/appacademy/videos/93100190
 [auth-04-session-token]: https://vimeo.com/groups/appacademy/videos/93101442
 
-[easy-forms-demo]: https://github.com/appacademy/EasyFormsDemo
+[easy-forms-demo]: demos/easy_forms_demo
 [99-cats]: ./projects/w4d2-99cats.md
 
 ## w4d3
