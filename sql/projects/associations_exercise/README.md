@@ -1,12 +1,9 @@
 # Associations Exercise
 
-Start by downloading [this repo][assoc-exercise] (click Download Zip in
-the github sidebar).
+Download the `skeleton.zip` file in this repo (click the link and then click `raw` to start the download).
 
 * Unzip the file.
-* Delete the solution directory.
-* `cd` into the `skeleton` directory and run `bundle install` to ensure
-that you have all necessary gems.
+* `cd` into the `skeleton` directory and run `bundle install` to ensure that you have all necessary gems.
 
 [assoc-exercise]: https://github.com/appacademy/AssociationsExercise
 
