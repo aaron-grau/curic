@@ -45,7 +45,7 @@
 
 ## w3d3
 
-* [Your first Rails project][first-rails-project]
+* [Creating a new rails project][first-rails-project]
 + [Migrations][ar-migrations]
 + [What is an ORM?][ar-orm]
 + Associations
