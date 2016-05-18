@@ -49,7 +49,7 @@
 #### Video Lectures
 * :movie_camera: [References (20 min)][references-video] (`go_video_go`)
 * Pro Tip: Watch these videos at 1.5x speed with [this video speed controller][speed-control] to save time!
- 
+
 
 [speed-control]: https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en
 
@@ -242,6 +242,9 @@
 + **Demo Reading**: review spec files for A00 and A01([assessment-prep][assessment-prep])
 + **Demo Reading**: [OO Robot RSpec Example][robot-demo]
 
+#### Homeworks
++ [RSpec][rspec-homework]
+
 #### Projects
 + [First TDD Projects][first-tdd-projects]
 + [Poker][poker-project]
@@ -256,6 +259,7 @@
 [rspec-order]: readings/rspec-order.md
 
 [robot-demo]: demos/robot-rspec-demo
+[rspec-homework]: homeworks/questions/rspec-homework.md
 
 [first-tdd-projects]: projects/first_tdd
 [poker-project]: projects/poker
