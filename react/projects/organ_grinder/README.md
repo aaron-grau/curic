@@ -123,7 +123,7 @@ the `flux` package (available to us through require under
 'flux/utils'). As you build the `KeyStore` and `KeyActions` in this
 phase, feel free to refer to this [reference material][stores-and-actions].
 
-[stores-and-actions]: ../w7d3/stores_and_actions.md
+[stores-and-actions]: ../../readings/stores_and_actions.md
 
 First, make a `KeyStore`. This should keep track of all the keys
 currently being played; we can store these by name (e.g., "C3").
@@ -345,7 +345,7 @@ to move on!
 
 But FIRST: look through every file you've written and make sure you know which part of [the flux pattern][flux-diagram] the file represents.  Check with your partner that they can make the same connections.
 
-[flux-diagram]: https://github.com/appacademy/react-flux-curriculum/blob/master/w7d3/flux-diagram.png
+[flux-diagram]: ../../asets/flux-diagram.png
 
 ## Phase 6: Adding Tracks to the DB
 

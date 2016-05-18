@@ -28,23 +28,23 @@ The password is `go_video_go`
 * [Widgets!][react-widgets]
 * [Minesweeper][react-minesweeper]
 
-[react-intro]: /w7d1/intro.md
-[first-component]: /w7d1/my_first_component.md
-[react-jsx]: /w7d1/jsx.md
-[jsx-components]: /w7d1/components_with_jsx.md
+[react-intro]: readings/intro.md
+[first-component]: readings/my_first_component.md
+[react-jsx]: readings/jsx.md
+[jsx-components]: readings/components_with_jsx.md
 [react-examples]: http://tutorialzine.com/2014/07/5-practical-examples-for-learning-facebooks-react-framework/
-[npm-exercise]: /w7d1/npm_reading.md
-[npm-git]: /w7d1/git_and_npm.md
+[npm-exercise]: readings/npm_reading.md
+[npm-git]: readings/git_and_npm.md
 [lec-w7d1-01]: https://vimeo.com/album/3686654/video/147897911
 [lec-w7d1-02]: https://vimeo.com/album/3686654/video/147899305
 [lec-w7d1-03]: https://vimeo.com/album/3686654/video/147900089
 [lec-w7d1-04]: https://vimeo.com/album/3686654/video/147900661
 [lec-w7d1-05]: https://vimeo.com/album/3686654/video/147900472
 [lec-w7d1-06]: https://vimeo.com/album/3686654/video/147900885
-[react-widgets]: /projects/w7d1_react_widgets.md
-[react-minesweeper]: /projects/w7d1_minesweeper.md
-[examples]: /w7d1/five_examples
-[watch-demo]: https://github.com/appacademy/lecture-notes/tree/master/src/react_flux/intro_react/watch_webpack_demo
+[react-widgets]: projects/widgets
+[react-minesweeper]: projects/react_minesweeper
+[examples]: demos/five_examples
+[watch-demo]: demos/watch_webpack_demo
 
 ## w7d2
 
@@ -59,12 +59,12 @@ The password is `go_video_go`
 
 [react-tutorial]: https://zapier.com/engineering/react-js-tutorial-guide-gotchas/
 [think-in-react]: http://facebook.github.io/react/docs/thinking-in-react.html
-[components-in-depth]: /w7d2/components_in_depth.md
-[react-on-rails]: /w7d2/react_on_rails.md
+[components-in-depth]: readings/components_in_depth.md
+[react-on-rails]: readings/react_on_rails.md
 [keys-reading]: https://facebook.github.io/react/docs/reconciliation.html#list-wise-diff
-[react-todo]: /projects/w7d2_todo_app.md
-[separate-js-from-html]: /w7d1/separate_javascript_from_html.md
-[store-reading]: /w7d2/stores.md
+[react-todo]: projects/todo_react
+[separate-js-from-html]: readings/separate_javascript_from_html.md
+[store-reading]: readings/stores.md
 
 ## w7d3
 
@@ -95,22 +95,22 @@ The password is `go_video_go`
 * **Project:** [Organ Grinder][organ-grinder]
 
 [flux-api-screencast]: https://vimeo.com/163488310
-[flux-demo-pre-flux]: https://github.com/appacademy/lecture-notes/tree/master/src/react_flux/flux/recipes_pre_flux
-[flux-demo-post-flux]: https://github.com/appacademy/lecture-notes/tree/master/src/react_flux/flux/recipes_flux
-[flux-demo-with-api]: https://github.com/appacademy/lecture-notes/tree/master/src/react_flux/flux/recipes_flux_api
+[flux-demo-pre-flux]: demos/recipes_pre_flux
+[flux-demo-post-flux]: demos/recipes_flux
+[flux-demo-with-api]: demos/recipes_flux_api
 [flux-lecture]: https://vimeo.com/163485520
 [flux-demo-screencast]: https://vimeo.com/163486476
-[click-counter-flux]: /w7d3/flux_homework.md
-[tentative-proposal]: ./w7d3/tentative-project-proposal.md
-[flux-intro]: /w7d3/intro_to_flux.md
+[click-counter-flux]: homeworks/flux_homework.md
+[tentative-proposal]: readings/tentative-project-proposal.md
+[flux-intro]: readings/intro_to_flux.md
 [flux-video]: https://www.youtube.com/watch?v=Bic_sFiaNDI
-[flux-todo-tutorial]: ./w7d3/todo_list_tutorial.md
+[flux-todo-tutorial]: readings/todo_list_tutorial.md
 [flux-todo-source]: https://github.com/facebook/flux/tree/master/examples/flux-todomvc/
-[how-to-run]: /w7d3/how_to_run.md
-[flux-component-overview]: /w7d3/component_overview.md
+[how-to-run]: readings/how_to_run.md
+[flux-component-overview]: readings/component_overview.md
 [flux-dispatcher]: https://facebook.github.io/flux/docs/dispatcher.html#content
-[organ-grinder]: /projects/w7d3_organ.md
-[stores-and-actions]: /w7d3/stores_and_actions.md
+[organ-grinder]: projects/organ_grinder
+[stores-and-actions]: readings/stores_and_actions.md
 
 ## w7d4
 
@@ -124,13 +124,13 @@ The password is `go_video_go`
 * **Project:** [Pokedex][pokedex]
 
 
-[react-router-intro]: https://github.com/rackt/react-router/blob/master/docs/Introduction.md
-[route-configuration]: https://github.com/rackt/react-router/blob/master/docs/guides/RouteConfiguration.md
-[route-matching]: https://github.com/rackt/react-router/blob/master/docs/guides/RouteMatching.md
-[index-routes]: https://github.com/rackt/react-router/blob/master/docs/guides/IndexRoutes.md
-[component-lifecycle]: https://github.com/rackt/react-router/blob/master/docs/guides/ComponentLifecycle.md
+[react-router-intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
+[route-configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
+[route-matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
+[index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[component-lifecycle]: https://github.com/reactjs/react-router/blob/master/docs/guides/ComponentLifecycle.md
 [jbuilder-link]: https://github.com/rails/jbuilder
-[pokedex]: /projects/w7d4_pokedex.md
+[pokedex]: projects/pokedex
 
 ## w7d5
 
@@ -145,10 +145,10 @@ The password is `go_video_go`
 * [BenchBnB Day 1][bench-bnb]
 * :joy_cat: **5pm Happy Hour!** :joy_cat:
 
-[bench-bnb]: /projects/w7d5_bench_bnb.md
-[react_map_demo]: /w7d5/react_map_demo.html
+[bench-bnb]: projects/bench_bnb
+[react_map_demo]: demos/react_map_demo
 [jbuilder-link]: https://github.com/rails/jbuilder
-[jbuilder-demo]: https://github.com/appacademy/jbuilder_demo
+[jbuilder-demo]: demos/jbuilder_demo
 
 ## w7d6-w7d7
 
@@ -160,15 +160,14 @@ The password is `go_video_go`
 
 [capstone-project-curriculum]: https://github.com/appacademy/capstone-project-curriculum
 [capstone-project-proposal]: https://github.com/appacademy/capstone-project-curriculum/blob/master/capstone-projects/capstone-project-proposal.md
-[jest-basics]: /w7d5/jest_basics.md
-[jest-config]: /w7d5/jest_config.md
+[jest-basics]: readings/jest_basics.md
+[jest-config]: readings/jest_config.md
 
 ## w8d1
 
 * **Solo Project:** [BenchBnB Day 2][bench-bnb2]
 * **Project Proposal Review Period for Instructional Staff**
 
-[bench-bnb2]: /projects/w8d1_bench_bnb_day_2.md
-
+[bench-bnb2]: projects/bench_bnb
 
 [effective-js]: http://effectivejs.com/
