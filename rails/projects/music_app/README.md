@@ -272,7 +272,7 @@ they sign up.
   use [ActiveRecord's toggle method][ar-toggle] to elegantly flip the
   value of a boolean attribute.
 
-[actionmailer-curriculum]:  https://github.com/appacademy/rails-curriculum/blob/master/w4d4/mailing-1.md
+[actionmailer-curriculum]:  ../../readings/mailing-1.md
 [adding-routes-rails-guides]: http://guides.rubyonrails.org/v3.2.13/routing.html#adding-more-restful-actions
 [ar-toggle]: http://api.rubyonrails.org/classes/ActiveRecord/Persistence.html#method-i-toggle
 
