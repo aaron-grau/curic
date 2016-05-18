@@ -47,7 +47,7 @@ it). It is behind every iOS app.
 First we write a SQL source file to generate our data. Check it out
 [here][first-sql-demo]. **Read this demo and the comments!**
 
-[first-sql-demo]: ./demos/sqlite3-demo/create_tables.sql
+[first-sql-demo]: ../demos/sqlite3-demo/create_tables.sql
 
 Then we can use SQLite3 to run the sql source, generating the tables.
 
@@ -179,6 +179,6 @@ path in your `~/.bashrc`.
 [sqlite-lang]: http://www.sqlite.org/lang.html
 
 [sqlite-ruby-github]: https://github.com/luislavena/sqlite3-ruby
-[sqlite-ruby-demo]: ./demos/sqlite3-demo/school.rb
+[sqlite-ruby-demo]: ../demos/sqlite3-demo/school.rb
 [sqlite-ruby-faq]: https://web.archive.org/web/20130723020358/http://sqlite-ruby.rubyforge.org/sqlite3/faq.html
 [sqlite-download]: http://sqlite.org/download.html

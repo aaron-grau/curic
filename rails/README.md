@@ -5,10 +5,10 @@
 * Rails Guides [guides.rubyonrails.org][rails-guides]
 * [Code for Rails Videos][rails-videos-code]
 
-[rails-setup]: ./rails-setup.md
+[rails-setup]: readings/rails-setup.md
 [rails-api]: http://api.rubyonrails.org/v4.0.2/
 [rails-guides]: http://guides.rubyonrails.org/v4.0.2/
-[rails-videos-code]: https://github.com/appacademy/IntroRailsVideoDemo
+[rails-videos-code]: demos/intro_rails_video_demo
 
 ## w3d6-w3d7
 
@@ -53,13 +53,13 @@
 
 [assessment-prep]: http://github.com/appacademy/assessment-prep
 
-[routing-i]: ./w4d1/routing-part-i.md
-[basic-controllers]: ./w4d1/basic-controllers.md
-[basic-json-api]: ./w4d1/basic-json-api.md
-[routing-ii]: ./w4d1/routing-part-ii.md
+[routing-i]: readings/routing-part-i.md
+[basic-controllers]: readings/basic-controllers.md
+[basic-json-api]: readings/basic-json-api.md
+[routing-ii]: readings/routing-part-ii.md
 
-[first-routes]: ./projects/w4d1-first-routes.md
-[contacts-api]: ./projects/w4d1-contacts-api.md
+[first-routes]: projects/w4d1-first-routes.md
+[contacts-api]: projects/w4d1-contacts-api.md
 
 ## w4d2
 
@@ -84,15 +84,15 @@
     * [:movie_camera: (cc) 04 Session Token (16 min)][auth-04-session-token]
 
 
-[html]: ./w4d2/html.md
-[basic-views]: ./w4d2/basic-views.md
-[erb]: ./w4d2/erb.md
-[html-forms]: ./w4d2/html-forms.md
-[rails-params-conventions]: ./w4d2/parameter-conventions.md
-[mass-assignment]: ./w4d2/mass-assignment.md
-[patch-put-and-delete]: ./w4d2/patch-put-and-delete.md
-[debugging-rails]: ./w4d2/debugging-rails.md
-[partials]: https://github.com/appacademy/rails-curriculum/blob/master/w4d4/partials.md
+[html]: readings/html.md
+[basic-views]: readings/basic-views.md
+[erb]: readings/erb.md
+[html-forms]: readings/html-forms.md
+[rails-params-conventions]: readings/parameter-conventions.md
+[mass-assignment]: readings/mass-assignment.md
+[patch-put-and-delete]: readings/patch-put-and-delete.md
+[debugging-rails]: readings/debugging-rails.md
+[partials]: readings/partials.md
 
 [auth-00-user-model]: https://vimeo.com/groups/appacademy/videos/93097977
 [auth-01-basic-sessions]: https://vimeo.com/groups/appacademy/videos/93097978
@@ -100,8 +100,8 @@
 [auth-03-password-pseudo-attribute]: https://vimeo.com/groups/appacademy/videos/93100190
 [auth-04-session-token]: https://vimeo.com/groups/appacademy/videos/93101442
 
-[easy-forms-demo]: https://github.com/appacademy/EasyFormsDemo
-[99-cats]: ./projects/w4d2-99cats.md
+[easy-forms-demo]: demos/easy_forms_demo
+[99-cats]: projects/ninety_nine_cats_i
 
 ## w4d3
 
@@ -133,12 +133,12 @@ There will be a Q/A on the material, but no additional lecture.
 #### Project
 * [99 Cats II: Auth][99-cats-part-ii]
 
-[controllers-and-state]: ./w4d3/controllers-and-state.md
-[csrf-and-forms]: ./w4d3/csrf.md
-[cookies]: ./w4d3/cookies.md
-[auth-part-i]: ./w4d3/auth-part-i.md
-[auth-part-ii]: ./w4d3/auth-part-ii.md
-[error-validation]: ./w4d3/validation.md
+[controllers-and-state]: readings/controllers-and-state.md
+[csrf-and-forms]: readings/csrf.md
+[cookies]: readings/cookies.md
+[auth-part-i]: readings/auth-part-i.md
+[auth-part-ii]: readings/auth-part-ii.md
+[error-validation]: readings/validation.md
 [12-displaying-validation-errors]: http://vimeo.com/groups/appacademy/videos/100729436
 [13-flash-messages]: http://vimeo.com/groups/appacademy/videos/100729438
 
@@ -149,7 +149,7 @@ There will be a Q/A on the material, but no additional lecture.
 [auth-08-csrf-methods]: https://vimeo.com/groups/appacademy/videos/93114287
 [auth-github]: https://github.com/appacademy/AuthVideoDemo
 
-[99-cats-part-ii]: ./projects/w4d3-99cats-part-ii.md
+[99-cats-part-ii]: projects/ninety_nine_cats_ii
 
 ## w4d4
 
@@ -161,14 +161,14 @@ There will be a Q/A on the material, but no additional lecture.
 * [:movie_camera:  (cc) 15-helpers (13 min)][15-helpers]
 * **Solo Project**: [Music App][music-app-project]
 
-[action-mailer]: ./w4d4/mailing-1.md
-[view-helpers]: ./w4d4/helpers.md
-[view-layouts]: ./w4d4/layouts.md
-[view-partials]: ./w4d4/partials.md
+[action-mailer]: readings/mailing-1.md
+[view-helpers]: readings/helpers.md
+[view-layouts]: readings/layouts.md
+[view-partials]: readings/partials.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
 
-[music-app-project]: ./projects/w4d4-music.md
+[music-app-project]: projects/music_app.md
 
 ## w4d5
 
@@ -189,9 +189,9 @@ There will be a Q/A on the material, but no additional lecture.
 [18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
 [19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
 [20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
-[decorators]: ./w4d5/decorators.md
+[decorators]: readings/decorators.md
 
-[reddit-clone]: ./projects/w4d5-reddit-clone.md
+[reddit-clone]: projects/reddit_on_rails
 
 ## SF w4d6-w4d7
 
@@ -200,9 +200,9 @@ There will be a Q/A on the material, but no additional lecture.
 * **Bonus**: [Responsive Design][responsive-design]
 
 [bootstrap-examples]: http://getbootstrap.com/getting-started/#examples
-[build-with-bootstrap]: ./projects/w4d6-w4d7-bootstrap.md
-[sass]: ./bonus/sass.md
-[responsive-design]: ./bonus/responsive_design.md
+[build-with-bootstrap]: ../html-css/projects/bootstrap_lite
+[sass]: readings/sass.md
+[responsive-design]: readings/responsive_design.md
 
 ## NYC w4d6-w4d7
 * [CSS Brief Notes][css-demos-notes] (**Read up to Reset**)
@@ -224,14 +224,14 @@ There will be a Q/A on the material, but no additional lecture.
 * **Project**: [Goal App][goaling-app]
 * **Bonus Project**: [Appacademy.io tests][appacademyio-tests]
 
-[integration-testing]: ./w5d1/integration-testing.md
-[rspec-setup]: ./w5d1/rspec-and-rails-setup.md
-[rspec-models]: ./w5d1/rspec-models.md
-[fac-grl-faker]: ./w5d1/factorygirl-and-faker.md
-[capybara]: ./w5d1/capybara.md
+[integration-testing]: readings/integration-testing.md
+[rspec-setup]: readings/rspec-and-rails-setup.md
+[rspec-models]: readings/rspec-models.md
+[fac-grl-faker]: readings/factorygirl-and-faker.md
+[capybara]: readings/capybara.md
 
-[goaling-app]: ./projects/w5d1-goaling-app.md
-[appacademyio-tests]: ./projects/w5d1-appacademyio-tests.md
+[goaling-app]: projects/goal_app
+[appacademyio-tests]: projects/appacademy.io_tests
 
 ## w5d2
 
@@ -267,14 +267,14 @@ There will be a Q/A on the material, but no additional lecture.
 * [Rails Lite][rails-lite]
 * [Rails Lite II: Bonus][rails-lite-ii]
 
-[http]: ./w5d2/http.md
-[rack]: ./w5d2/rack.md
+[http]: readings/http.md
+[rack]: readings/rack.md
 [regex-link]: http://regexone.com/
 [00-webserver]: http://vimeo.com/groups/appacademy/videos/100169899
 [01-protocols]: http://vimeo.com/groups/appacademy/videos/100169898
 [02-http]: http://vimeo.com/groups/appacademy/videos/100267302
-[rails-lite]: ./projects/w5d2-rails-lite-i.md
-[rails-lite-ii]: ./projects/w5d2-rails-lite-ii.md
+[rails-lite]: projects/rails-lite
+[rails-lite-ii]: projects/rails-lite
 
 ## w5d3
 
@@ -299,7 +299,5 @@ There will be a Q/A on the material, but no additional lecture.
 #### Project (solo)
 * Finish ActiveRecordLite and RailsLite.
 
-[middleware]: ./w5d3/middleware.md
-[js-curriculum]: https://github.com/appacademy/js-curriculum
-
-[js-curriculum]: http://github.com/appacademy/js-curriculum
+[middleware]: readings/middleware.md
+[js-curriculum]: ../javascript
