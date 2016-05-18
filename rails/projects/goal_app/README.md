@@ -40,8 +40,8 @@ Feel free to consult the [reading on git][git-reading].
 Git Tip: To add all changes, use `git add -A`. Prefer this to other
 methods for adding all changes. Reading [here][git-add].
 
-[git-reading]: https://github.com/appacademy/ruby-curriculum/blob/master/w1d2/git-summary.md
-[git-add]: https://github.com/appacademy/ruby-curriculum/blob/master/w1d5/git-add.md
+[git-reading]: ../../readings/git-summary.md
+[git-add]: ../../readings/git-add.md
 
 ## Phase I: User Creation & Login
 
@@ -95,8 +95,8 @@ methods for adding all changes. Reading [here][git-add].
 
 This is the 'Red, Green, Refactor' approach.
 
-[rspec-setup]: ../w5d1/rspec-and-rails-setup.md
-[capybara]: ../w5d1/capybara.md
+[rspec-setup]: ../../readings/rspec-and-rails-setup.md
+[capybara]: ../../readings/capybara.md
 
 ## Phase II: Goals
 

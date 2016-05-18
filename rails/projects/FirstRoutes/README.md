@@ -484,4 +484,4 @@ Play around with them. Think about what each action's purpose is, what
 data is coming in (params), what your controller needs to do with
 models, and what it ultimately should render.
 
-[strong-params-example]: https://github.com/appacademy/rails-curriculum/blob/master/w4d1/basic-controllers.md#drying-out-strong-parameters
+[strong-params-example]: ../../readings/basic-controllers.md#drying-out-strong-parameters
