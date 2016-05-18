@@ -13,12 +13,12 @@ Check out the [**Course Schedule**][schedule] for chronologically-organized READ
 Materials are organized by topic and then type. 
 
 * **Topics** 
-	* Ruby
-	* SQL
-	* Rails
-	* HTML/CSS
-	* Javascript
-	* React
+	* [Ruby][ruby]
+	* [SQL][sql]
+	* [Rails][rails]
+	* [HTML/CSS][html-css]
+	* [Javascript][js]
+	* [React][react]
 
 * **Types**   
 	* **Readings**: markdown files for teaching material.   
@@ -30,3 +30,9 @@ Materials are organized by topic and then type.
 
 **Note:** There is no "Solutions" folder: solutions should live in the folders of their respective projects (e.g. javascript/projects/asteroids/solution).
 
+[ruby]: ../ruby
+[sql]: ../sql
+[rails]: ../rails
+[js]: ../javascript
+[react]: ../react
+[html-css]: ../html-css
