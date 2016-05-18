@@ -11,7 +11,7 @@
   App Academy Prep course. **Pay special attention to the readings on code style from week 1!**
 + Debugging
     + [the pry REPL and the byebug debugger][pry-and-byebug]
-    + [common error messages][common-error-messages]
+    + [common error messages][commown-error-messages]
     + More byebug commands: [`display` and `where`][bonus-byebug] (optional)
 
 #### Assessment00
@@ -144,7 +144,7 @@
 [git-add]: readings/git-add.md
 [git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
 [atom-cheatsheet]: readings/atom_cheatsheet.md
-[git-fix-authorship]: ./w1d5/git-fix-authorship.md
+[git-fix-authorship]: readings/git-fix-authorship.md
 [git-workflow]: readings/git-workflow.md
 [git-workflow-exercises]: homeworks/git-workflow-exercises.md
 [aliases]: readings/alias.md
