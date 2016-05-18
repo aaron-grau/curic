@@ -3,7 +3,7 @@
 In this project, we will refer to the [AuthVideoDemo][video-demo]
 project. We pick up from the previous work.
 
-[video-demo]: https://github.com/appacademy/AuthVideoDemo
+[video-demo]: ../demos/auth_video_demo
 
 ## Overview
 

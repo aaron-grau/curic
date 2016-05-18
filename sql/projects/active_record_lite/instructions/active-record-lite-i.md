@@ -444,4 +444,4 @@ object.
 
 [Page on over to the association phases!][ar-part-two]
 
-[ar-part-two]: ./w3d5-build-your-own-ar-p2.md
+[ar-part-two]: active-record-lite-ii.md

@@ -156,7 +156,7 @@ end
 Then you can do things like call `build(:user)` instead of
 `FactoryGirl.build(:user)` in your specs.
 
-[rspec-setup]: ./rspec-and-rails-setup.md
+[rspec-setup]: rspec-and-rails-setup.md
 
 ## Using FactoryGirl and Faker
 

@@ -65,7 +65,7 @@ we'll write a hybrid data structure called a MinMaxStackQueue.
 
 Let's take a detour to [write this data structure][stacks-and-queues].
 
-[stacks-and-queues]: ./stacks-and-queues.md
+[stacks-and-queues]: stacks_and_queues
 
 **Do not move on until you have completed the Stacks and Queues
 exercises!**

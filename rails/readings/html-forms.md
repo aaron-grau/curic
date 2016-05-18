@@ -15,7 +15,7 @@ include:
 * Check boxes (`checkbox`)
 * Date selectors (`date`)
 
-<img src="./html-controls.png">
+<img src="html-controls.png">
 
 A form's input tags are wrapped in a `form` tag. The form should present
 a button (an `input` tag with `type=submit`). When the user clicks the
