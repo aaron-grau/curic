@@ -21,5 +21,5 @@ in the `bin` directory.
 
 Run `bundle exec rspec` to run all the spec files.
 
-[instructions-i]: https://github.com/appacademy/core-curriculum/projects/rails-lite/rails-lite-i.md
-[instructions-ii]: https://github.com/appacademy/core-curriculum/projects/rails-lite/rails-lite-ii.md
+[instructions-i]: rails-lite-i.md
+[instructions-ii]: rails-lite-ii.md
