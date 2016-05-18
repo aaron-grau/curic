@@ -2,6 +2,8 @@
 
 ## w3d1
 
+### Readings
+
 + **Assessment02** ([practice][assessment-prep])
     + We'll implement a simple version of a well-known card game. We'll announce
       the specific game, and you can look up the basic rules ahead of time.
@@ -11,7 +13,14 @@
     + [Formatting SQL Code][sql-formatting]
 + [Learning SQL: Setup][learning-sql-setup]
 + [Learning SQL: Part I][learning-sql-part-i]
-+ **Project**: [SQL Zoo][sqlzoo-readme]
+
+### Homeworks
+
++ Complete [SQL Zoo Select Basics][sql-zoo-select] on the Sql Zoo Website
+
+### Projects
+
++ [SQL Zoo][sqlzoo-readme]
 
 [assessment-prep]: http://github.com/appacademy/assessment-prep
 
@@ -22,6 +31,7 @@
 [learning-sql-setup]: readings/setup.md
 [learning-sql-part-i]: readings/part-i.md
 [sqlzoo-readme]: projects/sqlzoo
+[sql-zoo-select]: http://sqlzoo.net/wiki/SQLZOO:SELECT_basics
 
 ## w3d2
 
