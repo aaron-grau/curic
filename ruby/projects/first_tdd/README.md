@@ -9,5 +9,5 @@
         * `#move`
         * `#won?`
 
-[array-exercises]: tdd-array-exercises.md
+[array-exercises]: tdd_array_exercises.md
 [rspec-doc]: https://www.relishapp.com/rspec/rspec-mocks/docs/message-expectations
