@@ -273,8 +273,10 @@
 + [Algorithm Visualization][algorithm-visual]
   + [Merge Sort][merge-sort-visual]
   + [Bubble Sort][bubble-sort-visual]
-+ [Sorting Complexity][sorting-demo]
 + **Resource**: [Big O Cheatsheet][big-o-cheatsheet]
+
+#### Homeworks
++ [Sorting Complexity][sorting-demo]
 
 #### Projects
 + [Execution Time Differences/Algorithms][execution-time]
@@ -291,7 +293,7 @@
 [merge-sort-visual]: http://www.algomation.com/player?algorithm=551321f6e1b6fa0300aae4d0
 [bubble-sort-visual]: http://www.algomation.com/player?algorithm=541a6ea7a7fe980200089c5e
 
-[sorting-demo]: demos/sorting_demo
+[sorting-demo]: homeworks/questions/sorting_demo
 [execution-time]: projects/execution_time_differences
 [anagrams]: projects/anagrams
 [two-sum]: projects/two_sum
