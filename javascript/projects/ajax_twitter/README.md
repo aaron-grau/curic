@@ -327,7 +327,7 @@ not set `lastCreatedAt`, you'll fetch the same tweet again when you
 make an AJAX call to `/feed`.
 
 [underscore_rails]: https://github.com/rweng/underscore-rails
-[underscore_erb]: https://github.com/appacademy/js-curriculum/blob/master/w6d5/underscore-templates.md#erb--underscore
+[underscore_erb]: ../../readings/underscore-templates.md#erb--underscore
 
 ## Bonus: Underscore Templates
 

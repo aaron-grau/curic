@@ -11,7 +11,7 @@ A component's **user** is the component that is allowed to run functions
 or change that component. A component's **observer** is the component that
 the original component is allowed to change.
 
-![the diagram](flux-diagram.png)
+![the diagram](../assets/flux-diagram.png)
 
 
 ### Dispatcher

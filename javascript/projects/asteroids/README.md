@@ -68,7 +68,7 @@ to test your code  as you go.
 
 Don't forget to [webpack][browser-modules] your modules.
 
-[browser-modules]: https://github.com/appacademy/js-curriculum/blob/master/w6d1/browser-modules.md
+[browser-modules]: ../../readings/browser-modules.md
 
 ## Phase I: `MovingObject` and `Asteroid`
 

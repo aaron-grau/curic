@@ -43,5 +43,5 @@ Make sure you can answer the following questions:
 
 
 [weather-api-signup]: http://home.openweathermap.org/users/sign_up
-[simple-ajax-example]: ../w6d4/simple-ajax-example.md
+[simple-ajax-example]: ../../readings/simple-ajax-example.md
 [sample-ajax]: ./sample-ajax.zip

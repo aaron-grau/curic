@@ -280,4 +280,4 @@ After you have written this, you may look up
 [my answer][inherits-answer] so you can use it (in a slightly modified
 format) for Asteroids.
 
-[inherits-answer]: https://github.com/appacademy/solutions/blob/master/w6/w6d1/inherits.js
+[inherits-answer]: ../projects/inherits_exercises/solution/inherits.js

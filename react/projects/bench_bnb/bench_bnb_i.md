@@ -182,7 +182,7 @@ module.exports = ServerActions;
 * Once you've tested that it works, remove the lines from the BenchStore and
   ApiUtil that exported them to the window.
 
-![the story so far](api_store_diagram.png)
+![the story so far](../../assets/api_store_diagram.png)
 
 ## Phase 3: Our First React Component
 #### Emitting Events from the Store

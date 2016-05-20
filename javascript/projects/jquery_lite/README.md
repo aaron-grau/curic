@@ -197,6 +197,7 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
 * Have your `ajax` function return a `Promise`
 * Use a [`Promise`][promise-library] to pretty up the usage of your AJAX
   function. [Read about promise usage here][promise_doc].
+
 [append]: http://api.jquery.com/append/
 [promise-library]: https://raw.githubusercontent.com/jakearchibald/es6-promise/master/dist/es6-promise.js
 [promise_doc]: http://www.2ality.com/2014/09/es6-promises-foundations.html
@@ -205,6 +206,6 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
 [elementqueryselectorall]: https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
 [queryselectorall]: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
 [addeventlistener]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-[sample-ajax-request]: https://github.com/appacademy/js-curriculum/blob/master/w6d4/simple-ajax-example.md
+[sample-ajax-request]: ../../readings/simple-ajax-example.md
 [jquery_ajax]: http://api.jquery.com/jquery.ajax/
-[vanilla_ajax]: ../w6d4/vanilla_ajax.md
+[vanilla_ajax]: ../../readings/vanilla_ajax.md

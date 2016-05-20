@@ -345,7 +345,7 @@ to move on!
 
 But FIRST: look through every file you've written and make sure you know which part of [the flux pattern][flux-diagram] the file represents.  Check with your partner that they can make the same connections.
 
-[flux-diagram]: ../../asets/flux-diagram.png
+[flux-diagram]: ../../assets/flux-diagram.png
 
 ## Phase 6: Adding Tracks to the DB
 
