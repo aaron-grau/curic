@@ -280,7 +280,7 @@ end
 ```javascript
 if (x === 3) {
   console.log('YAY X IS 3');
-} else if (x === 4) {
+} elsif (x === 4) {
   console.log('YAY X IS 4');
 } else {
   console.log('OH NO, X IS NOT 3 OR 4!');

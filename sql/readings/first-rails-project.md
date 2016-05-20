@@ -74,5 +74,12 @@ default: &default
   timeout: 5000
 ```
 
-You will have to create a database with the given name. Run `rake
-db:create`.
+You will have to create a database with the given name. Name your development, test, and production databases as shown below:
+
+```rb
+development:
+  <<: *default 
+  database: ProjectName_development
+```
+
+Then run `rake db:create`.

@@ -4,7 +4,7 @@ var Tile = function (board, pos) {
   this.bombed = false;
   this.explored = false;
   this.flagged = false;
-}
+};
 
 Tile.DELTAS = [[-1, -1], [-1,  0], [-1,  1], [ 0, -1], 
                [ 0,  1], [ 1, -1], [ 1,  0], [ 1,  1]]
@@ -82,8 +82,8 @@ Board.prototype.onBoard = function (pos) {
   return (
     pos[0] >= 0 && pos[0] < this.gridSize && 
       pos[1] >= 0 && pos[1] < this.gridSize
-  )
-}
+  );
+};
 
 Board.prototype.plantBombs = function () {
   var totalPlantedBombs = 0;

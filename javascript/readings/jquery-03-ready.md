@@ -53,7 +53,7 @@ JavaScript files or scripts precede HTML body content, the browser
 will not render any of the body until the javascripts have been 
 evaluated. The result of this is that a user might have to wait an 
 unacceptable amount of time for their content to show. For this reason 
-it is preferred to put JavaScripts of all kinds below the HTML body content 
+it is preferred to put javascripts of all kinds below the HTML body content 
 if possible. However, we can use jQuery to ensure that JavaScript code 
 will be executed only after the page is loaded, even if the JavaScript 
 is placed at the head:
