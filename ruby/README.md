@@ -145,7 +145,7 @@
 [git-add]: readings/git-add.md
 [why-git]: readings/why-git.md
 [git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
-[atom-cheatsheet]: readings/atom_cheatsheet.md
+[atom-cheatsheet]: ../course/readings/atom_cheatsheet.md
 [git-fix-authorship]: readings/git-fix-authorship.md
 [git-workflow]: readings/git-workflow.md
 [git-workflow-exercises]: homeworks/git-workflow-exercises.md
