@@ -11,7 +11,7 @@ We won't worry about CSRF attacks today (you're not supposed to know
 what that is yet!). Take a walk on the wild side by commenting out
 `protect_from_forgery` in `app/controllers/application_controller.rb`.
 
-[rails-setup]: ../rails-setup.md
+[rails-setup]: ../../readings/rails-setup.md
 
 ## Phase I: Cat
 

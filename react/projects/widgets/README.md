@@ -23,8 +23,8 @@ Lastly, we won't be using jQuery for this project. If you're not sure
 how to do something without it, use Google as a resource and ask a TA
 if needed.
 
-[npm-demo-link]: ../w7d1/npm_reading.md
-[git-npm-reading]: ../w7d1/git_and_npm.md
+[npm-demo-link]: ../../readings/npm_reading.md
+[git-npm-reading]: ../../readings/git_and_npm.md
 
 ## React Component Refresher
 
@@ -78,8 +78,6 @@ user selects different headers.
   argument to a function, which means that it only supports
   _expressions_, so you can't use `if`/`else` inside `{ }`. (This is
   also why you can't end with a semicolon.)
-
-* [Separate your javascript from your HTML][separate-js-from-html]
 
 ## Weather Clock
 
@@ -255,5 +253,4 @@ Right now, the matched names instantly appear on the screen and the filtered nam
 [react-transitions]: https://facebook.github.io/react/docs/animation.html
 [html5-flowchart]: http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf
 [react-keys]: https://facebook.github.io/react/docs/reconciliation.html#list-wise-diff
-[separate-js-from-html]: ../w7d1/separate_javascript_from_html.md
 [controlled-component-docs]: https://facebook.github.io/react/docs/forms.html#controlled-components

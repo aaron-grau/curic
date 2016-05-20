@@ -6,7 +6,7 @@
 * [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
 
 
-[mdn-js-doc]: ./mdn-js.md
+[mdn-js-doc]: readings/mdn-js.md
 [codecademy-js]: http://www.codecademy.com/tracks/javascript
 
 ## w5d3
@@ -21,9 +21,9 @@
 * **Bonus**: [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics]
   * Just the first chapter. Another great intro reading.
 
-[intro-to-js]: ./w5d3/js-intro.md
-[server-side-js]: ./w5d4/server-side-javascript.md
-[debugging-node]: ./w5d4/debugging-node.md
+[intro-to-js]: readings/js-intro.md
+[server-side-js]: readings/server-side-javascript.md
+[debugging-node]: readings/debugging-node.md
 [reactivex]: http://reactivex.io/learnrx/
 [mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 
@@ -35,18 +35,18 @@
 * [Closures and Scope][closures]
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9
 * [:movie_camera: (cc) node-01-module-exports][node-01-vid]
-* **Project**: [Intro JavaScript problems][intro-javascript-problems.md]
+* **Project**: [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
 
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
-[linting-js]: ./w5d4/linting-js.md
-[oo-js]: ./w5d4/object-oriented-js.md
-[function-invocation]: ./w5d4/function-invocation.md
-[closures]: ./w5d4/closures.md
+[linting-js]: readings/linting-js.md
+[oo-js]: readings/object-oriented-js.md
+[function-invocation]: readings/function-invocation.md
+[closures]: readings/closures.md
 
-[intro-javascript-problems.md]: ./projects/w5d4-intro-javascript-problems.md
-[reversi]: ./projects/w5d4-reversi.md
+[intro-javascript-problems]: projects/intro_js_exercises
+[reversi]: projects/js_reversi
 
 ## w5d5
 
@@ -59,14 +59,18 @@
 * Style
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
-* **Projects**: [Towers of Hanoi, Tic-Tac-Toe][hanoi-ttt]
-    * Write user interaction with node's `readline` library.
+* **Projects**: 
+  * [Towers of Hanoi][hanoi_node]
+  * [Tic-Tac-Toe][ttt_node]
+  * 
+Write user interaction with node's `readline` library.
 
-[file-io]: ./w5d5/intro-to-callbacks.md
-[this-and-that]: ./w5d5/this-and-that.md
-[function-calling]: ./w5d5/function-calling.md
-[module-pattern]: ./w5d5/module-pattern.md
-[hanoi-ttt]: ./projects/w5d5-hanoi-ttt.md
+[file-io]: readings/intro-to-callbacks.md
+[this-and-that]: readings/this-and-that.md
+[function-calling]: readings/function-calling.md
+[module-pattern]: readings/module-pattern.md
+[hanoi_node]: projects/hanoi_node
+[ttt_node]: projects/ttt_node
 [crockford-style]: http://javascript.crockford.com/code.html
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
 [loupe]: http://latentflip.com/loupe
@@ -84,13 +88,13 @@
 
 [css-diner]: http://flukeout.github.io/
 [eloquent-javascript]: http://eloquentjavascript.net/
-[chrome-dev-tools]: ./w5d6-w5d7/chrome_dev_tools.md
+[chrome-dev-tools]: readings/chrome_dev_tools.md
 [chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
 [node-inspector-vid]: http://vimeo.com/groups/appacademy/videos/95551778
-[github-pages]: ./w5d6-w5d7/github_pages.md
-[css-demos-notes]: https://github.com/appacademy/css-demos/blob/gh-pages/README.md#brief-notes
-[css-lectures]: https://github.com/appacademy/css-demos/blob/gh-pages/README.md#lectures
-[css-warm-up]: https://github.com/appacademy/css-warm-up
+[github-pages]: readings/github_pages.md
+[css-demos-notes]: ../html-css/demos/css_demos/README.md#brief-notes
+[css-lectures]: ../html-css/demos/css_demos/README.md#lectures
+[css-warm-up]: ../html-css/projects/css_warm_up
 
 ## w6d1
 
@@ -121,16 +125,16 @@
 [inherit-demo-video]: https://vimeo.com/162115223
 [arg-video]: https://vimeo.com/162115222
 [js-browser-video]: https://vimeo.com/162115224
-[arguments]: ./w6d1/arguments.md
-[prototypal-inheritance]: ./w6d1/prototypal-inheritance.md
-[client-side-js]: ./w6d1/client-side-javascript.md
-[browser-modules]: ./w6d1/browser-modules.md
-[asynchronous-js]: ./w6d1/asynchronous-js.md
+[arguments]: readings/arguments.md
+[prototypal-inheritance]: readings/prototypal-inheritance.md
+[client-side-js]: readings/client-side-javascript.md
+[browser-modules]: readings/browser-modules.md
+[asynchronous-js]: readings/asynchronous-js.md
 [basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
 [webpack]: https://webpack.github.io/docs/tutorials/getting-started
-[canvas-demo]: https://github.com/appacademy/DrunkenCircles
-[asteroids-project]: ./projects/w6d1-asteroids.md
-[modules]: ./w6d1/browser-modules.md
+[canvas-demo]: demos/drunken_circles
+[asteroids-project]: projects/asteroids
+[modules]: readings/browser-modules.md
 
 ## w6d2
 
@@ -150,18 +154,18 @@
 * **Bonus Project**: [Google Homepage][css-bonus-assignment]
 * **Bonus Reading**: [CSS Transform property][css-transform]
 
-[semantic-html]: ./w6d2/semantic-html.md
-[selectors]: ./w6d2/selectors.md
-[box-model]: ./w6d2/box-model.md
-[display-attr]: ./w6d2/display.md
-[positioning]: ./w6d2/positioning-and-floating.md
-[css-demos]: https://github.com/appacademy/css-demos/blob/gh-pages/README.md#demos
-[css-friends]: https://github.com/appacademy/css-friends
-[css-bonus-assignment]: ./projects/w6d2-css-assignment.md
+[semantic-html]: readings/semantic-html.md
+[selectors]: readings/selectors.md
+[box-model]: readings/box-model.md
+[display-attr]: readings/display.md
+[positioning]: readings/positioning-and-floating.md
+[css-demos]: ../css/demos/css_demos
+[css-friends]: ../css/projects/css_friends
+[css-bonus-assignment]: ../css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-navbar-vid]: https://vimeo.com/album/3732382/video/158975002
 [css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
-[navbar-gif]: https://github.com/appacademy/css-demos/blob/gh-pages/lectures/navbar.gif?raw=true
+[navbar-gif]: ../css/demos/css_demos/lectures/navbar.gif?raw=true
 
 ## w6d3
 
@@ -191,18 +195,18 @@
   * **Bonus Project**: [Snake][snake-project]
 
 
-[wacky-project]: ./w6d3/jquery-wacky-homework.md
-[dom]: ./w6d3/document-object-model.md
-[jquery-01-selection]: ./w6d3/jquery-01-selection-and-manipulation.md
-[jquery-02-events]: ./w6d3/jquery-02-events.md
-[jquery-03-ready]: ./w6d3/jquery-03-ready.md
-[jquery-04-all-the-ways]: ./w6d3/jquery-04-all-the-ways.md
-[jquery-05-data-attributes]: ./w6d3/jquery-05-data-attributes.md
+[wacky-project]: readings/jquery-wacky-homework.md
+[dom]: readings/document-object-model.md
+[jquery-01-selection]: readings/jquery-01-selection-and-manipulation.md
+[jquery-02-events]: readings/jquery-02-events.md
+[jquery-03-ready]: readings/jquery-03-ready.md
+[jquery-04-all-the-ways]: readings/jquery-04-all-the-ways.md
+[jquery-05-data-attributes]: readings/jquery-05-data-attributes.md
 [jquery-docs]: http://api.jquery.com/
 [jquery-fundamentals]: http://jqfundamentals.com/
 
-[ttt-ui]: ./projects/w6d3-ttt-ui.md
-[snake-project]: ./projects/w6d3-snake.md
+[ttt-ui]: projects/ttt_jquery
+[snake-project]: projects/snake
 
 ## w6d4
 
@@ -217,14 +221,14 @@
 * **Project**: [jQuery Lite][jquery-lite]
 * **Project**: Build [Snake][snake-project] using your jQuery Lite
 
-[jquery-06-event-delegation]: ./w6d4/jquery-06-event-delegation.md
-[jquery-07-triggering]: ./w6d4/jquery-07-triggering.md
+[jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
+[jquery-07-triggering]: readings/jquery-07-triggering.md
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 
-[first-ajax]: ./projects/w6d4-first-ajax.md
-[jquery-lite]: ./projects/w6d4-jquery-lite.md
-[snake-project]: ./projects/w6d3-snake.md
-[vanilla-ajax]: ./w6d4/vanilla_ajax.md
+[first-ajax]: projects/first_ajax
+[jquery-lite]: projects/jquery_lite
+[snake-project]: projects/snake
+[vanilla-ajax]: readings/vanilla_ajax.md
 
 ## w6d5
 
@@ -252,18 +256,18 @@
 [assessment-practice]: https://github.com/appacademy/assessment-prep
 [ajax-lecture]: https://vimeo.com/162860823
 [ajax-demo]: https://vimeo.com/162764008
-[ajax-demo-code]: ./w6d5/ChatDemo
+[ajax-demo-code]: demos/chat_demo
 [css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
 [jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
-[basic-ajax]: ./w6d5/basic-ajax.md
+[basic-ajax]: readings/basic-ajax.md
 
-[ajax-remote-forms]: ./w6d5/ajax-remote-forms.md
-[underscore-templates]: ./w6d5/underscore-templates.md
-[ajax-twitter]: ./projects/w6d5-twitter.md
+[ajax-remote-forms]: readings/ajax-remote-forms.md
+[underscore-templates]: readings/underscore-templates.md
+[ajax-twitter]: projects/twitter
 
 ## w6d6 - w6d7
 
 Complete the React/Flux [w7d1 readings][react-link]. There is a lot of material, so start early!
 
-[react-link]: https://github.com/appacademy/react-flux-curriculum#w7d1
+[react-link]: ../react
 [effective-js]: http://effectivejs.com/

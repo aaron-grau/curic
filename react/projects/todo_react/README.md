@@ -354,7 +354,7 @@ Todos should now have steps!
   in the sidebar, displaying their respective `todo` titles.
 
 [rails-turbolinks]: http://guides.rubyonrails.org/working_with_javascript_in_rails.html#turbolinks
-[react-rails]: ../w7d1/npm_reading.md
+[react-rails]: ../../readings/npm_reading.md
 [react-forms]: http://facebook.github.io/react/docs/forms.html#controlled-components
 [bootstrap]: http://v4-alpha.getbootstrap.com/components/buttons/
 [fb-bind-link]: https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#under-the-hood-autobinding-and-event-delegation

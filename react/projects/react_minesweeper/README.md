@@ -150,4 +150,4 @@ resets the board in the Game's state to the new board.
 
 As a guide, check out the modal demo in the [css demos][css-demos].
 
-[css-demos]: https://github.com/appacademy/css-demos
+[css-demos]: ../../../html-css/demos/css-demos
