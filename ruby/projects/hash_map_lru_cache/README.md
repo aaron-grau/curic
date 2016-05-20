@@ -1,9 +1,9 @@
 # MyHashMap
 
 Today you will implement your very own HashMap. If this sounds tricky,
-don't worry--we've provided specs. We'll email out a skeleton to you.
+don't worry--we've provided specs. Download the [skeleton] before you start.
 
-[skeleton]: ./skeleton.zip?raw=true
+[skeleton]: skeleton.zip?raw=true
 
 ## Phase 1: IntSet
 
