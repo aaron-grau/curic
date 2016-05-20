@@ -9,3 +9,7 @@ Click the link then click "view raw" to download.
 [rspec-homework]: rspec-homework.zip
 
 **Note:** Technically, this is not Test Driven Development since we've provided the Dessert class for you. That's okay! The idea for tonight's homework is to familiarize you with RSpec syntax and methods. Enjoy your dessert!
+
+After you finish the homework, or if you get stuck on one of the problems, you can view the solutions [here][rspec-solutions].
+
+[rspec-solutions]: ../solutions/rspec-homework
