@@ -1,3 +1,5 @@
+#O(n^2) quadratic time
+#O(n^2) quadratic space 
 def my_min_1a(list)
   min_num = nil
 
@@ -10,6 +12,8 @@ def my_min_1a(list)
   min_num
 end
 
+#O(n^2) quadratic time
+#O(1) constant space
 def my_min_1b(list)
   list.each_with_index do |num1, i1|
     min = true
@@ -21,6 +25,8 @@ def my_min_1b(list)
   end
 end
 
+#O(n) linear time
+#O(1) constant space
 def my_min_2(list)
   min_num = list.first
 
@@ -29,7 +35,8 @@ def my_min_2(list)
   min_num
 end
 
-
+#O(n^3) cubic time
+#O(n^2) quadratic space
 def largest_contiguous_subsum1(array)
   subs = []
 
@@ -42,7 +49,8 @@ def largest_contiguous_subsum1(array)
   subs.map { |sub| sub.inject(:+) }.max
 end
 
-
+#O(n) linear time
+#O(1) constant space
 def largest_contiguous_subsum2(array)
   largest = 0
   current = 0

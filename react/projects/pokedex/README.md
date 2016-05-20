@@ -199,7 +199,7 @@ the browser works as expected.
 
 #### Component Hierarchy
 
-![pokedex_structure](pokedex_structure.png)
+![pokedex_structure](../../assets/pokedex_structure.png)
 
 #### PokemonsIndex
 
