@@ -3,7 +3,7 @@
 Now that we've started using npm and Webpack, we'll consistently have two large
 objects in our project directory. The first is the `node_modules` folder. Good
 practice using npm is to not check your `node_modules` folder into version
-control ([source][source-link]). This can be regenerated when needed by simply
+control. This can be regenerated when needed by simply
 running `npm install` in the project directory.
 
 In addition, Webpack's output file is fairly massive and small changes in your
@@ -18,6 +18,4 @@ own line in your `.gitignore`. As for syntax, `*` are wildcards that match anyth
 (within that directory). `#` marks comments. If you want a template, here's an 
 [example][gitignore-example].
 
-
-[source-link]: https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 [gitignore-example]: https://github.com/github/gitignore/blob/master/Node.gitignore

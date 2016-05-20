@@ -8,7 +8,7 @@ start making applications using the Flux architecture the concept will
 become more clear.
 
 All explanations of flux show the following diagram:
-![flux diagram](flux-diagram.png)
+![flux diagram](../assets/flux-diagram.png)
 
 The core pieces of Flux are the React Component Views, the Dispatcher,
 and the Data Stores. We are already familiar with React views. The

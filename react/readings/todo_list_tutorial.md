@@ -12,6 +12,6 @@ energy more on understanding the React/Flux here.
 You can find the tutorial [here][flux-todo-tutorial].
 
 [example-link]: https://github.com/facebook/flux/tree/master/examples/flux-todomvc/
-[instructions-link]: readings/how_to_run.md
+[instructions-link]: how_to_run.md
 [mdn-promises]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [flux-todo-tutorial]: https://facebook.github.io/flux/docs/todo-list.html#content

@@ -50,5 +50,5 @@ the exercise or are irrecoverably stuck.
 
 ### Have fun!
 
-[wacky-zip]: https://github.com/appacademy/js-curriculum/raw/master/projects/WackyPainter.zip
+[wacky-zip]: ../homeworks/wacky_painter.zip
 [wacky-project-intro-video]: https://vimeo.com/162618262

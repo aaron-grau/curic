@@ -154,18 +154,18 @@ Write user interaction with node's `readline` library.
 * **Bonus Project**: [Google Homepage][css-bonus-assignment]
 * **Bonus Reading**: [CSS Transform property][css-transform]
 
-[semantic-html]: readings/semantic-html.md
-[selectors]: readings/selectors.md
-[box-model]: readings/box-model.md
-[display-attr]: readings/display.md
-[positioning]: readings/positioning-and-floating.md
-[css-demos]: ../css/demos/css_demos
-[css-friends]: ../css/projects/css_friends
-[css-bonus-assignment]: ../css/projects/google_homepage
+[semantic-html]: ../html-css/readings/semantic-html.md
+[selectors]: ../html-css/readings/selectors.md
+[box-model]: ../html-css/readings/box-model.md
+[display-attr]: ../html-css/readings/display.md
+[positioning]: ../html-css/readings/positioning-and-floating.md
+[css-demos]: ../html-css/demos/css_demos#demos
+[css-friends]: ../html-css/projects/css_friends
+[css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-navbar-vid]: https://vimeo.com/album/3732382/video/158975002
 [css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
-[navbar-gif]: ../css/demos/css_demos/lectures/navbar.gif?raw=true
+[navbar-gif]: ../html-css/demos/css_demos/lectures/navbar.gif?raw=true
 
 ## w6d3
 
@@ -263,7 +263,7 @@ Write user interaction with node's `readline` library.
 
 [ajax-remote-forms]: readings/ajax-remote-forms.md
 [underscore-templates]: readings/underscore-templates.md
-[ajax-twitter]: projects/twitter
+[ajax-twitter]: projects/ajax_twitter
 
 ## w6d6 - w6d7
 

@@ -11,7 +11,7 @@ Do the [Array exercises][array-exercises] in JS.
 * `twoSum`
 * `transpose`
 
-[array-exercises]: https://github.com/appacademy/ruby-curriculum/tree/36166f57c3be3828a79cadf1ae3e6b952463c850/w1d1/data-structures/array.md
+[array-exercises]: exercises/array.md
 
 ## Enumerable exercises
 
@@ -28,8 +28,8 @@ Do the [Enumerable][enumerable-exercises] and
       the first value. Iterate through the rest.
     * **It must also use your `myEach` function**
 
-[enumerable-exercises]: https://github.com/appacademy/ruby-curriculum/tree/36166f57c3be3828a79cadf1ae3e6b952463c850/w1d1/data-structures/enumerable.md
-[blocks-exercises]: https://github.com/appacademy/ruby-curriculum/tree/36166f57c3be3828a79cadf1ae3e6b952463c850/w1d4/blocks.md
+[enumerable-exercises]: exercises/enumerable.md
+[blocks-exercises]: exercises/blocks.md
 
 ## Iteration exercises
 
@@ -39,15 +39,14 @@ Do the [iteration exercises][iteration-exercises] in JS.
     * Your version can modify the original array.
 * `substrings`
 
-[iteration-exercises]: https://github.com/appacademy/ruby-curriculum/tree/36166f57c3be3828a79cadf1ae3e6b952463c850/w1d2/iteration.md
+[iteration-exercises]: exercises/iteration.md
 
 ## Recursion exercises
 
 Do the [recursion exercises][recursion-exercises] in JS. Do them all
 except `deepDup`.
 
-[recursion-exercises]: https://github.com/appacademy/ruby-curriculum/tree/36166f57c3be3828a79cadf1ae3e6b952463c850/w1d4/recursion.md
-
+[recursion-exercises]: exercises/recursion.md
 
 ## Constructors and Prototypes
 
@@ -83,6 +82,6 @@ the `Array` prototype, `substrings` on the `String` prototype, etc.).
 
 ## Class exercises
 
-Do [Students and Courses][students-courses] from the Ruby curriculum.
+Do [Students and Courses][students-courses].
 
-[students-courses]: https://github.com/appacademy/ruby-curriculum/tree/36166f57c3be3828a79cadf1ae3e6b952463c850/w1d2/classes.md#students-and-courses
+[students-courses]: exercises/classes.md

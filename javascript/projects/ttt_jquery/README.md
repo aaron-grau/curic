@@ -42,7 +42,7 @@ Remember to run webpack, keep a terminal tab or window open running `webpack
 --watch` so webpack will rebundle your app every time a file is saved.
 
 
-[webpack]: https://webpack.github.io/
+[webpack]: ../../readings/browser-modules.md#webpack
 
 **Instructions**
 

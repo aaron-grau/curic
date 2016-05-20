@@ -1,7 +1,6 @@
 # Towers of Hanoi
 
 Let's rewrite the towers of Hanoi game we previously wrote in Ruby.
-[Here's][ruby-hanoi] a link to the old instructions.
 
 Before you start, write out `HanoiGame#run` in pseudocode (using comments).  For example, if I were to write the pseudocode for `Chess#run`, it would look something like:
 
@@ -57,5 +56,3 @@ Compare the `#run` method you wrote to the pseudocode you originally had.  Does 
 Instantiate the `HanoiGame` class and play a game. In the completion
 callback, close your `reader` so that Node knows it can exit when the
 game is over.
-
-[ruby-hanoi]: https://github.com/appacademy/ruby-curriculum/blob/fcfb4fba24faef97a2559eaff811c0e7789e64ba/w1d1/data-structures/array.md#towers-of-hanoi

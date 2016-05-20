@@ -14,7 +14,7 @@ Before continuing, clone the skeleton repository and follow the
 instructions in the README. As you follow along, write your component
 and JSX code inside in the `counter.jsx` file.
 
-[skeleton-link]: https://github.com/appacademy/jsx-demo-skeleton
+[skeleton-link]: ../demos/jsx_demo_skeleton
 
 ### The Cool Stuff
 JSX provides an alternate syntax to `React.createElement` which is

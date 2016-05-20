@@ -140,4 +140,4 @@ zen of clean code.
 [atom-linter]: https://atom.io/packages/linter
 [eslint-inline-docs]: http://eslint.org/docs/user-guide/configuring.html#configuring-rules
 [eslint-rules-list]: http://eslint.org/docs/rules/
-[aa-eslintrc]: https://github.com/appacademy/dotfiles/blob/master/eslintrc
+[aa-eslintrc]: https://github.com/appacademy/dotfiles/blob/master/dot/eslintrc
