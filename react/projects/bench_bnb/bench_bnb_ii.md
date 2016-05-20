@@ -133,7 +133,7 @@ In this phase, we are going to implement front-end user sign-up and login. Goodb
 
 You should already know how to do this. Create a User Model, Users Controller, and Sessions Controller.
 
-[rails]: ../../../rails
+[rails]: ../../../rails#readings-after-you-finish-all-videos
 
 Follow the pattern you used during the [Rails curriculum][rails], keeping in mind the following: 
   * Your controllers should live under an `Api` namespace and return JSON formatted responses.
@@ -204,7 +204,7 @@ Use your sprinkly-shiny mixin to create a `LoginForm` component in your App that
 * your filter store should register a callback with the dispatcher and update it's data according to the action that was dispatched
 * your search component should hold the params as part of it's state and register a change listener on the filter params store so that it re-fetches the benches when the params in the FilterParams store changes.
 * refactor your map component to use a FilterParams action to change the FilterParams store when the map idles
-*  the search component should listen to the filter params store for a change event and update it's state to always contain the current paramters.
+*  the search component should listen to the filter params store for a change event and update it's state to always contain the current parameters.
 * the search component should also re-fetch the benches when the filter params store emits a change event
 * your ApiUtil function should get the current params from the FilterParams store when it is called and make a get request using the params as a query string
 * once you can properly change the benches in the index by moving the map, move on to the FilterParams component.

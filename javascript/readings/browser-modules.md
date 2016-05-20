@@ -47,7 +47,7 @@ What is an enterprising new front-end developer to do?
 
 ## Module Bundlers ##
 There are wonderful tools that exist for the purpose of 'bundling' your
-front-end code into digestible, bite-sized bits built for the browswer. These
+front-end code into digestible, bite-sized bits built for the browser. These
 tools will run through code, creating one file you can include with one script
 tag. Each file requires its dependencies explicitly at the top, and then exports
 the object it is responsible for making.

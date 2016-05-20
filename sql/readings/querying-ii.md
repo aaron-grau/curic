@@ -82,7 +82,7 @@ Case.find_by_sql(<<-SQL)
   FROM
     cases
   JOIN (
-    // the five lawyers with the most clients
+    -- the five lawyers with the most clients
     SELECT
       lawyers.*
     FROM

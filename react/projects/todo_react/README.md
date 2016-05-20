@@ -280,10 +280,10 @@ logic.
 * Create another component: `TodoForm`. This should `render` a form with
   a field for `title` and `body`.
 * Make this a [controlled component][react-forms]. The initial state
-  should be `{title: "", body: ""}`. Create `updateTitle` and `updateBody`
+  should be `{title: "", body: "", done: false}`. Create `updateTitle` and `updateBody`
   methods. `onChange` for the `title` or `body` fields, update the `state`.
-* `onSubmit` of the form, you should use the todos collection's `create`
-  function from phase 0. Write a `handleSubmit` function to create the
+* `onSubmit` of the form, you should use the `TodoStore`'s `create`
+  function from phase 1. Write a `handleSubmit` function to create the
   todo and reset the component's `state`. Don't forget to clear the
   form's state.
 * Update the `TodoList` render method to include a `TodoForm`. Check that the

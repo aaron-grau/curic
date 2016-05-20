@@ -3,7 +3,7 @@ var TodoStore = require('../stores/todo_store');
 
 var TodoForm = React.createClass({
   getInitialState: function () {
-    return {title: "", body: ""};
+    return {title: "", body: "", done: false};
   },
 
   updateTitle: function (event) {

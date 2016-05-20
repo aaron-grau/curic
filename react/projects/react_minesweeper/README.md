@@ -41,7 +41,7 @@ when installing it for the Widgets project.
 
 Start by creating a Game component using `React.createClass`. In
 `getInitialState`, initialize a new `Minesweeper.Board` and set it as
-the `board` property of the intialial state object. This will be the 
+the `board` property of the initial state object. This will be the 
 object that we continuously update over the course of the game.
 
 Stub out a second function, `updateGame`, but don't write anything
