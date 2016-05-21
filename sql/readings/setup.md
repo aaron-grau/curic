@@ -72,8 +72,8 @@ records). Download my version of the
 [LearningSQLExample.sql][learning-sql-example] script (or [legacy version][learning-sql-example-legacy] for the 1st Edition); I've modified
 it to work with Postgres.
 
-[learning-sql-example]: ../demos/learning-sql-example-postgres.sql
-[learning-sql-example-legacy]: ../demos/learning-sql-example-postgres-1st-ed.sql
+[learning-sql-example]: ../demos/learning_psql/learning-sql-example-postgres.sql
+[learning-sql-example-legacy]: ../demos/learning_psql/learning-sql-example-postgres-1st-ed.sql
 
 The `learning-sql-example-postgres.sql` file contains SQL commands. To
 run them we need to "pipe them in" to `psql bank`. This is what the
