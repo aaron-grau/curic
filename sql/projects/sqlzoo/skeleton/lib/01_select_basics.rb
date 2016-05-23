@@ -23,6 +23,12 @@ end
 
 def select_population_of_germany
   execute(<<-SQL)
+    SELECT
+      population
+    FROM
+      countries
+    WHERE
+      name = 'Germany'
   SQL
 end
 
