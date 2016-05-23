@@ -35,20 +35,37 @@
 
 ## w3d2
 
+### Video Lectures
++ :movie_camera: [RDBMS Intro (10 min)][rdbms-intro-video] (`go_video_go`)
++ :movie_camera: [Building a Database (25 min)][build-db-video] (`go_video_go`)
++ :movie_camera: [ORM Intro (5 min)][orm-intro-video] (`go_video_go`)
++ :movie_camera: [ORM Demo (25 min)][orm-demo-video] (`go_video_go`)
+
+### Readings
 + [Learning SQL: Part II][learning-sql-part-ii]
 + [SQLite3][sqlite3]
 + [Heredocs][heredocs]
++ [Little Bobby Tables][xkcd-bobby-tables]
 + _optional_ [sql-ex][sql-ex]
-+ **Demo Readings**: [SQLite3 demo][sqlite3-demo]
-    + Make sure to review this before class! It is essential!
-+ **Project**: [AA Questions][aa-questions]
+
+### Homeworks
++ [Plays-Playwrights ORM][plays-orm]
+
+### Projects
++ [AA Questions][aa-questions]
 
 [learning-sql-part-ii]: readings/part-ii.md
 [sqlite3]: readings/sqlite3.md
 [heredocs]: readings/heredocs.md
+[xkcd-bobby-tables]: http://xkcd.com/327/
 [sql-ex]: http://www.sql-ex.ru/
 
-[sqlite3-demo]: demos/sqlite3_demo
+[plays-orm]: homeworks/questions/plays_orm.md
+
+[rdbms-intro-video]: https://vimeo.com/167596295
+[build-db-video]: https://vimeo.com/167593816
+[orm-intro-video]: https://vimeo.com/167805228
+[orm-demo-video]: https://vimeo.com/167672029
 
 [aa-questions]: projects/aa_questions
 
@@ -56,7 +73,7 @@
 
 * [Creating a new rails project][first-rails-project]
 + [Migrations][ar-migrations]
-+ [What is an ORM?][ar-orm]
++ [ORM Review and Intro to Active Record][ar-orm]
 + Associations
     + [`belongs_to` and `has_many`][belongs-to-has-many]
         * Learn this well; specify
