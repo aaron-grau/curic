@@ -18,13 +18,13 @@ so basically we're going to build *all of mathematics* today. No big deal.
 A set is an **abstract data type**
 ([ADT](https://en.wikipedia.org/wiki/Abstract_data_type)). An ADT can be
 thought of as a high-level description of a structure and an API (i.e., a
-specific set of methods). Examples of ADTs are things like 
-sets, maps, or queues. But any given data type or API can be realized 
-through many different implementations. Those implementations are known as 
-**data structures**. 
+specific set of methods). Examples of ADTs are things like
+sets, maps, or queues. But any given data type or API can be realized
+through many different implementations. Those implementations are known as
+**data structures**.
 
-Different data structures can implement the same abstract data type, but some 
-data structures are worse than others. We're going to show you *the best* 
+Different data structures can implement the same abstract data type, but some
+data structures are worse than others. We're going to show you *the best*
 implementations, or close to them. (In reality, there's usually no single
 best implementation of an ADT; there are always tradeoffs.)
 
@@ -87,7 +87,7 @@ grows pretty big, our set's retrieval time depends more and more on an
 array scan, which is what we're trying to get away from. It's slow.
 
 Scanning for an item in an array (when you don't know the index) takes
-`O(n)` time, because you potentially have to look at every item. So if we're 
+`O(n)` time, because you potentially have to look at every item. So if we're
 having to do an array scan on one of the 20 buckets, that bucket will have on
 average 1/20th of the overall items. That gives us an overall time
 complexity proportional to `0.05n`. When you strip out the 0.05 constant
@@ -131,14 +131,14 @@ it's fast, and it provides a good, nearly uniform output of bits.
 
 **Hint**: Note that `Fixnum#hash` is provided for you. You can
 use this on numerical values (for instance, the index of an array
-element). Don't try to overwrite Ruby's native `Fixnum#hash`; making a 
+element). Don't try to overwrite Ruby's native `Fixnum#hash`; making a
 good hash function for numbers is something that's outside the scope
 of this assignment.
 
 [More reading on hash functions][hash-info].
 - Write hash functions for `Array`, `String`, and `Hash`. Build these up
   sequentially.
-  - Order of elements is relevant for arrays and strings, but it's 
+  - Order of elements is relevant for arrays and strings, but it's
     irrelevant for hashes (e.g. `[1, 2, 3]` should hash to a different value
     from `[3, 2, 1]`)
     - Keep track of indices for arrays and strings.
@@ -251,8 +251,7 @@ awesomeness by asking a TA for a **Code Review**.
 
 Finally, let's make your hash map properly enumerable. You know the
 drill. Implement `#each`, and then include the `Enumerable` module.
-Your method should yield `[key, value]` pairs, the same way the Ruby
-hash does.
+Your method should yield `[key, value]` pairs and maintain insertion order -- the same way the Ruby hash does!
 
 ## Phase 6: LRU Cache
 
@@ -269,7 +268,7 @@ If you're confused, that's okay. Just follow these basic principles, and
 you'll be fine.
 - Your cache will only hold `max` many items (you should be able to set
   the `max` upon initialize).
-- When you retrieve or insert an item, you should mark that item as now 
+- When you retrieve or insert an item, you should mark that item as now
   being the most recently used item in your cache.
 - When you insert an item, if the cache exceeds size `max`, delete the
   least recently used item. This keeps the cache size always at `max` or
