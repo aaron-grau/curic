@@ -167,9 +167,8 @@ which creates a `products` table with columns called `name` and
 also timestamps.
 
 The object yielded to the block allows you to create columns on the
-table. The so called "sexy" migration calls a method like `string` or
-`integer` to create a column of that type. You then pass a symbol
-which supplies the name. In general, the format is
+table. The migration calls a method like `string` or
+`integer` on the table to create a column of that type. You then pass a symbol which supplies the name. In general, the format is
 
     t.data_type :column_name, { :option1 => :option_value, :option2 => :option_value }
 
