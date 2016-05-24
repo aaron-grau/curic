@@ -71,6 +71,15 @@
 
 ## w3d3
 
+### Video Lectures (`go_video_go`)
++ :movie_camera: [Starting a new Rails Project (7 min)][rails-intro-video]
++ :movie_camera: [Migrations (14 min)][migrations-video]
++ :movie_camera: [Models (7 min)][models-video]
++ :movie_camera: [Basic Associations (belongs_to, has_many) (12 min)][associations-video]
++ :movie_camera: [More Associations (has_many through: ...) (12 min)][associations-2-video]
++ :movie_camera: [Indices (7 min)][indices-video]
+
+### Additional Resources
 * [Creating a new rails project][first-rails-project]
 + [Migrations][ar-migrations]
 + [ORM Review and Intro to Active Record][ar-orm]
@@ -91,8 +100,17 @@
     + [Miscellaneous][validations-misc]
 + [ActiveRecord and Indexes][ar-indexing]
     + This is also less vital and can be read the day of the project.
+
+### Projects
 + **Exercise**: [Associations Exercise][associations-exercise]
 + **Project**: [URL Shortener][url-shortener]
+
+[rails-intro-video]: https://vimeo.com/167799435
+[migrations-video]: https://vimeo.com/167799434
+[models-video]: https://vimeo.com/167799436
+[associations-video]: https://vimeo.com/167799432
+[assiciations-2-video]: https://vimeo.com/167799430
+[indices-video]: https://vimeo.com/167799431
 
 [first-rails-project]: readings/first-rails-project.md
 [ar-migrations]: readings/migrations.md
