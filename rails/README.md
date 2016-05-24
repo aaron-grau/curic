@@ -273,8 +273,8 @@ There will be a Q/A on the material, but no additional lecture.
 [00-webserver]: http://vimeo.com/groups/appacademy/videos/100169899
 [01-protocols]: http://vimeo.com/groups/appacademy/videos/100169898
 [02-http]: http://vimeo.com/groups/appacademy/videos/100267302
-[rails-lite]: projects/rails-lite
-[rails-lite-ii]: projects/rails-lite
+[rails-lite]: projects/rails_lite
+[rails-lite-ii]: projects/rails_lite
 
 ## w5d3
 
