@@ -134,6 +134,8 @@
 + [Serialization][serialization] (JSON and YAML)
 + [Gems and rbenv][gems]
 
++ **optional**: [Git Repository Clean Up][git-cleanup]
+
 #### Homeworks
 + [Git Workflow Exercises][git-workflow-exercises]
 + [Git tutorial][interactive-git]
@@ -149,6 +151,7 @@
 [git-fix-authorship]: readings/git-fix-authorship.md
 [git-workflow]: readings/git-workflow.md
 [git-workflow-exercises]: homeworks/git-workflow-exercises.md
+[git-cleanup]: readings/git-repository-cleanup.md
 [aliases]: readings/alias.md
 [interactive-git]: http://pcottle.github.io/learnGitBranching/
 [assessment-practice]: https://github.com/appacademy/assessment-prep
