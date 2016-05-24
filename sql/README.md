@@ -109,7 +109,7 @@
 [migrations-video]: https://vimeo.com/167799434
 [models-video]: https://vimeo.com/167799436
 [associations-video]: https://vimeo.com/167799432
-[assiciations-2-video]: https://vimeo.com/167799430
+[associations-2-video]: https://vimeo.com/167799430
 [indices-video]: https://vimeo.com/167799431
 
 [first-rails-project]: readings/first-rails-project.md
