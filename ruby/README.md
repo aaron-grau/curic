@@ -239,9 +239,9 @@
 + [Introduction to RSpec][intro-rspec]
 + [RSpec Syntax][rspec-syntax]
 + [`subject` and `let`][subject-and-let]
-+ [TDD][intro-tdd]
-+ [Test doubles][test-doubles]
 + [Order of RSpec methods][rspec-order]
++ [Test doubles][test-doubles]
++ [TDD][intro-tdd]
 + [guard-rspec][guard-rspec]
 + **Demo Reading**: review spec files for A00 and A01([assessment-prep][assessment-prep])
 + **Demo Reading**: [OO Robot RSpec Example][robot-demo]
