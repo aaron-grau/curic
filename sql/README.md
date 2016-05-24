@@ -2,21 +2,21 @@
 
 ## w3d1
 
-### Readings
+### Readings (85 min)
 
 + **Assessment02** ([practice][assessment-prep])
     + We'll implement a simple version of a well-known card game. We'll announce
       the specific game, and you can look up the basic rules ahead of time.
-+ SQL Fundamentals (Read them first!)
-    + [SQL For The Impatient][sql-intro]
-    + [A Visual Explanation of Joins][visual-joins]
-    + [Formatting SQL Code][sql-formatting]
-+ [Learning SQL: Setup][learning-sql-setup]
-+ [Learning SQL: Part I][learning-sql-part-i]
++ SQL Fundamentals - read these first!
+    + [SQL For The Impatient][sql-intro] (20 min)
+    + [A Visual Explanation of Joins][visual-joins] (5 min)
+    + [Formatting SQL Code][sql-formatting] (5 min)
++ [Learning SQL: Setup][learning-sql-setup] (10 min)
++ [Learning SQL: Part I][learning-sql-part-i] (45 min)
 
-### Homeworks
+### Homeworks (30 min)
 
-+ Complete [SQL Zoo Select Basics][sql-zoo-select] on the Sql Zoo Website
++ Complete [SQL Zoo Select Basics][sql-zoo-select] on the Sql Zoo Website (30 min)
 
 ### Projects
 
@@ -35,21 +35,24 @@
 
 ## w3d2
 
-### Video Lectures
-+ :movie_camera: [RDBMS Intro (10 min)][rdbms-intro-video] (`go_video_go`)
-+ :movie_camera: [Building a Database (25 min)][build-db-video] (`go_video_go`)
-+ :movie_camera: [ORM Intro (5 min)][orm-intro-video] (`go_video_go`)
-+ :movie_camera: [ORM Demo (25 min)][orm-demo-video] (`go_video_go`)
+### Video Lectures (65 min)
+:closed_lock_with_key: `go_video_go`
++ :movie_camera: [RDBMS Intro][rdbms-intro-video] (10 min)
++ :movie_camera: [Building a Database][build-db-video] (25 min)
++ :movie_camera: [ORM Intro][orm-intro-video] (5 min)
++ :movie_camera: [ORM Demo][orm-demo-video] (25 min)
 
-### Readings
-+ [Learning SQL: Part II][learning-sql-part-ii]
-+ [SQLite3][sqlite3]
-+ [Heredocs][heredocs]
-+ [Little Bobby Tables][xkcd-bobby-tables]
-+ _optional_ [sql-ex][sql-ex]
+### Readings (67 min)
++ [Learning SQL: Part II][learning-sql-part-ii] (45 min)
++ [SQLite3][sqlite3] (15 min)
++ [Heredocs][heredocs] (5 min)
++ [Little Bobby Tables][xkcd-bobby-tables] (2 min)
 
-### Homeworks
-+ [Plays-Playwrights ORM][plays-orm]
+### Homeworks (35 min)
++ [Plays-Playwrights ORM][plays-orm] (35 min)
+
+### Additional Resources
++ [sql-ex][sql-ex]
 
 ### Projects
 + [AA Questions][aa-questions]
@@ -71,16 +74,15 @@
 
 ## w3d3
 
-### Video Lectures
-
+### Video Lectures (60 min)
 :closed_lock_with_key: `go_video_go`
 
-+ :movie_camera: [Starting a new Rails Project (7 min)][rails-intro-video]
-+ :movie_camera: [Migrations (14 min)][migrations-video]
-+ :movie_camera: [Models (7 min)][models-video]
-+ :movie_camera: [Basic Associations (belongs_to, has_many) (12 min)][associations-video]
-+ :movie_camera: [More Associations (has_many through: ...) (12 min)][associations-2-video]
-+ :movie_camera: [Indices (7 min)][indices-video]
++ :movie_camera: [Starting a new Rails Project][rails-intro-video] (7 min)
++ :movie_camera: [Migrations][migrations-video] (14 min)
++ :movie_camera: [Models][models-video] (8 min)
++ :movie_camera: [Basic Associations (belongs_to, has_many)][associations-video]  (12 min)
++ :movie_camera: [More Associations (has_many through:...)][associations-2-video] (12 min)
++ :movie_camera: [Indices][indices-video] (7 min)
 
 ### Additional Resources
 * [Creating a new rails project][first-rails-project]
@@ -105,8 +107,8 @@
     + This is also less vital and can be read the day of the project.
 
 ### Projects
-+ **Exercise**: [Associations Exercise][associations-exercise]
-+ **Project**: [URL Shortener][url-shortener]
++ [Associations Exercise][associations-exercise]
++ [URL Shortener][url-shortener]
 
 [rails-intro-video]: https://vimeo.com/167799435
 [migrations-video]: https://vimeo.com/167799434
@@ -136,13 +138,18 @@
 
 ## w3d4
 
-+ [ActiveRecord::Relation][relation]
-+ [ActiveRecord and Joins][ar-joins]
-+ [Scopes][scopes]
-+ [More on Querying][querying-ii]
-+ [Ternary Logic in SQL][sql-ternary-logic] (optional)
-+ **Demo**: [JoinsDemo][joins-demo]
-+ **Project**: [Polls][polls-app]
+### Readings (65 min)
++ [ActiveRecord::Relation][relation] (15 min)
++ [ActiveRecord and Joins][ar-joins] (25 min)
+  + [JoinsDemo][joins-demo]
++ [Scopes][scopes] (10 min)
++ [More on Querying][querying-ii] (15 min)
+
+### Additional Resources
++ [Ternary Logic in SQL][sql-ternary-logic]
+
+### Projects
++ [Polls][polls-app]
 
 [relation]: readings/relation.md
 [ar-joins]: readings/joins.md
@@ -156,12 +163,16 @@
 
 ## w3d5
 
-+ [Metaprogramming][metaprogramming]
-+ [Class Instance Variables][class-instance-variables]
-+ [Reading Demo: send][meta-send]
-+ [Reading Demo: macros][meta-macros]
-+ **Solo Project**: [Build Your Own ActiveRecord][build-your-own-ar]
-+ :joy_cat: **5pm Happy Hour!** :joy_cat:
+### Readings (45 min)
++ [Metaprogramming][metaprogramming] (20 min)
++ [Class Instance Variables][class-instance-variables] (15 min)
++ [Demo: send][meta-send] (5 min)
++ [Demo: macros][meta-macros] (5 min)
+
+### Project
++ **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
+
+### :joy_cat: **Happy Hour!** :joy_cat:
 
 [metaprogramming]: readings/metaprogramming.md
 [class-instance-variables]: readings/class-instance-variables.md
