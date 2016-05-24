@@ -1,6 +1,6 @@
 #method_missing
 
-class CorgiAmenities
+class CorgiAmenity
 
   def initialize(amenity_id, shopping_list)
     @id = amenity_id
@@ -20,12 +20,12 @@ end
 
 #dynamic dispatch
 
-class CorgiAmenities
+class CorgiAmenity
 
   def initialize(amenity_id, shopping_list)
     @id = amenity_id
     @shopping_list = shopping_list
-    shopping_list.methods.grep(/^get_(.*)_info$/) { CorgiAmenities.define_amenity $1 }
+    shopping_list.methods.grep(/^get_(.*)_info$/) { CorgiAmenity.define_amenity $1 }
   end
 
   def self.define_amenity(name)
