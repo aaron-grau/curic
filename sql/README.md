@@ -115,12 +115,20 @@
 
 ## w3d4
 
-+ [ActiveRecord::Relation][relation]
-+ [ActiveRecord and Joins][ar-joins]
-+ [Scopes][scopes]
-+ [More on Querying][querying-ii]
-+ [Ternary Logic in SQL][sql-ternary-logic] (optional)
-+ **Demo**: [JoinsDemo][joins-demo]
+#### Readings (45 min)
+
++ [ActiveRecord::Relation][relation] (10 min)
++ [ActiveRecord and Joins][ar-joins] (15 min)
++ [Scopes][scopes] (5 min)
++ [More on Querying][querying-ii] (10 min)
++ [Ternary Logic in SQL][sql-ternary-logic] (optional) (5 min)
+
+#### Homeworks (30 min)
+
++ **Demo**: [JoinsDemo][joins-demo] (30 min)
+
+#### Projects
+
 + **Project**: [Polls][polls-app]
 
 [relation]: readings/relation.md
