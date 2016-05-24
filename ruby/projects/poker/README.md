@@ -25,6 +25,7 @@ Classes you will want:
 
 * Card
 * Deck
+    * Now would be a great time to request a TA Code review! 
 * Hand
     * The logic of calculating pair, three-of-a-kind, two-pair, etc. goes
       here.
