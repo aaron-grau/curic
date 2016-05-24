@@ -89,20 +89,18 @@
 + [Migrations][ar-migrations]
 + [ORM Review and Intro to Active Record][ar-orm]
 + Associations
-    + [`belongs_to` and `has_many`][belongs-to-has-many]
-        * Learn this well; specify
-          `class_name`/`primary_key`/`foreign_key` on all associations
-          until I give you leave to let Rails infer these.
-    + [`has_many :through`][has-many-through]
-    + [`has_one`][has-one] (exercises)
-    + [Rails Conventions][rails-conventions]
-    + [Unconventional Associations][unconventional-associations]
+  + [`belongs_to` and `has_many`][belongs-to-has-many]
+    * Learn this well; specify
+`class_name`/`primary_key`/`foreign_key` on all associations
+until I give you leave to let Rails infer these.
+  + [`has_many :through`][has-many-through]
+  + [`has_one`][has-one]
+  + [Rails Conventions][rails-conventions]
+  + [Unconventional Associations][unconventional-associations]
 + Validations
-    + This stuff is less important than mastering associations and can
-      be read during class the next day if necessary.
-    + [Basics][validations]
-    + [Custom Validations][custom-validations]
-    + [Miscellaneous][validations-misc]
+  + [Basics][validations]
+  + [Custom Validations][custom-validations]
+  + [Miscellaneous][validations-misc]
 + [ActiveRecord and Indexes][ar-indexing]
     + This is also less vital and can be read the day of the project.
 
@@ -116,6 +114,8 @@
 [associations-video]: https://vimeo.com/167799432
 [associations-2-video]: https://vimeo.com/167799430
 [indices-video]: https://vimeo.com/167799431
+
+
 
 [first-rails-project]: readings/first-rails-project.md
 [ar-migrations]: readings/migrations.md
@@ -132,6 +132,8 @@
 [validations-misc]: readings/validations-misc.md
 
 [ar-indexing]: readings/indexing.md
+
+[simple-rails-homework]: homeworks/w3d3.md
 
 [associations-exercise]: projects/associations_exercise
 [url-shortener]: projects/url_shortener
