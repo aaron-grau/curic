@@ -130,11 +130,10 @@
 + [Git Workflow][git-workflow]
 + [Faster Git with aliases][aliases]
 + [Fixing Git commit authorship][git-fix-authorship]
++ **Optional**: [Git Repository Clean Up][git-cleanup]
 + [Git Cheatsheet][git-cheatsheet]
 + [Serialization][serialization] (JSON and YAML)
 + [Gems and rbenv][gems]
-
-+ **optional**: [Git Repository Clean Up][git-cleanup]
 
 #### Homeworks
 + [Git Workflow Exercises][git-workflow-exercises]
