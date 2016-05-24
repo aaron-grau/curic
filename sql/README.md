@@ -73,7 +73,7 @@
 
 ### Video Lectures
 
-:closed_lock_with_key: password: `go_video_go`
+:closed_lock_with_key: `go_video_go`
 
 + :movie_camera: [Starting a new Rails Project (7 min)][rails-intro-video]
 + :movie_camera: [Migrations (14 min)][migrations-video]
