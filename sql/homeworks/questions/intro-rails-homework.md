@@ -4,7 +4,7 @@
 
 In this project we'll be creating a simple Rails project to model the relationships between `People` and `Houses`. By the end of this project, each `Person` will live in a house and each `House` will have an `address`. You will be able to call `House.people` and get a list of the `people` that live in that `House`. You will also be able to call `Person.house` and get the `House` that that `Person` lives in.
 
-## Phase 1: rails new
+## Phase 1: `rails new`
 * Create a new rails project [using PostgreSQL][rails-with-pg-reading]
   + Remember to create the database!
   + Remember that you need to have postgres running in the background!

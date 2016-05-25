@@ -84,6 +84,10 @@
 + :movie_camera: [More Associations (has_many through:...)][associations-2-video] (12 min)
 + :movie_camera: [Indices][indices-video] (7 min)
 
+### Homeworks (45 min)
+
++ [Intro to Rails][intro-rails-homework] (45 min)
+
 ### Additional Resources
 * [Creating a new rails project][first-rails-project]
 + [Migrations][ar-migrations]
@@ -133,7 +137,7 @@ until I give you leave to let Rails infer these.
 
 [ar-indexing]: readings/indexing.md
 
-[simple-rails-homework]: homeworks/w3d3.md
+[intro-rails-homework]: homeworks/questions/intro-rails-homework.md
 
 [associations-exercise]: projects/associations_exercise
 [url-shortener]: projects/url_shortener
