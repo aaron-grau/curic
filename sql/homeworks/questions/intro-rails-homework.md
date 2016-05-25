@@ -24,8 +24,8 @@ In this project we'll be creating a simple Rails project to model the relationsh
 
 N.B. Refer to the readings often.
 
-[rails-with-pg-reading]: ../readings/first-rails-project.md
-[migrations-reading]: ../readings/migrations.md
-[validations-reading]: ../readings/validations.md
-[associations-reading]: ../readings/belongs-to-has-many.md
-[orm-reading]: ../readings/orm.md
+[rails-with-pg-reading]: ../../readings/first-rails-project.md
+[migrations-reading]: ../../readings/migrations.md
+[validations-reading]: ../../readings/validations.md
+[associations-reading]: ../../readings/belongs-to-has-many.md
+[orm-reading]: ../../readings/orm.md
