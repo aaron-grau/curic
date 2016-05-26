@@ -58,8 +58,8 @@
 [basic-json-api]: readings/basic-json-api.md
 [routing-ii]: readings/routing-part-ii.md
 
-[first-routes]: projects/w4d1-first-routes.md
-[contacts-api]: projects/w4d1-contacts-api.md
+[first-routes]: projects/first_routes
+[contacts-api]: projects/contacts_api
 
 ## w4d2
 
