@@ -1,18 +1,18 @@
 #method_missing
 
-class CorgiAmenity
+class CorgiPerk
 
-  def initialize(amenity_id, shopping_list)
-    @id = amenity_id
+  def initialize(perk_id, shopping_list)
+    @id = perk_id
     @shopping_list = shopping_list
   end
 
   def method_missing(name, *args)
     info = @shopping_list.send("get_#{name}_info", args[0])
-    utility = @shopping_list.send("get_#{name}_utility", args[0])
+    happiness = @shopping_list.send("get_#{name}_happiness", args[0])
     name = "#{name.split('_').map(&:capitalize).join(' ')}"
-    result = "#{name}: #{info}: (#{utility})"
-    utility > 30 ? "* #{result}" : result
+    result = "#{name}: #{info}: #{happiness}"
+    happiness > 30 ? "* #{result}" : result
   end
 
 end
@@ -20,21 +20,21 @@ end
 
 #dynamic dispatch
 
-class CorgiAmenity
+class CorgiPerk
 
-  def initialize(amenity_id, shopping_list)
-    @id = amenity_id
+  def initialize(perk_id, shopping_list)
+    @id = perk_id
     @shopping_list = shopping_list
-    shopping_list.methods.grep(/^get_(.*)_info$/) { CorgiAmenity.define_amenity $1 }
+    shopping_list.methods.grep(/^get_(.*)_info$/) { CorgiPerk.define_perk $1 }
   end
 
-  def self.define_amenity(name)
+  def self.define_perk(name)
     define_method(name) do
     info = @shopping_list.send "get_#{name}_info" , @id
-    utility = @data_source.send "get_#{name}_utility" , @id
+    happiness = @data_source.send "get_#{name}_happiness" , @id
     name = "#{name.split('_').map(&:capitalize).join(' ')}"
-    result = "#{name}: #{info}: (#{utility})"
-    utility > 30 ? "* #{result}" : result
+    result = "#{name}: #{info}: #{happiness}"
+    happiness > 30 ? "* #{result}" : result
     end
   end
 
