@@ -182,7 +182,7 @@ until I give you leave to let Rails infer these.
 
 ### Homework (45 min)
 + [Metacorgis][metacorgi-hw] (30 min)
-+ [Implicit Bias Test][bias-quiz](15 min)
++ [Implicit Bias Test][bias-quiz] (15 min)
   + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
 
 ### Project
