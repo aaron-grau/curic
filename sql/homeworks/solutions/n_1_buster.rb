@@ -45,9 +45,10 @@ def better_drivers_query
     drivers = []
     # will not fire a query for each route since drivers have already been prefetched
     route.drivers.each do |driver|
-      drivers << driver
+      drivers << driver.name
     end
     all_drivers[route] = drivers
+  end
 
   all_drivers
 end

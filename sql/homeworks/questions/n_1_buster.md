@@ -179,9 +179,10 @@ class Bus
     routes.each do |route|
       drivers = []
       route.drivers.each do |driver|
-        drivers << driver
+        drivers << driver.name
       end
       all_drivers[route] = drivers
+    end
 
     all_drivers
   end
