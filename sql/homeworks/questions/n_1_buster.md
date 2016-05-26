@@ -2,6 +2,13 @@
 
 Your job today is to eliminate all the costly, inefficient `N+1` queries in the code snippets below. Read through the associations and methods for each example to understand what needs to be fetched, then decide whether `.includes?` or `.joins` is a better fit for the situation and implement whichever you choose.
 
+In the methods containing `# TODO: your code here` write the Active Record code that will produce the same
+result without causing an N+1 query. There are no skeleton projects provided: you will have to carefully
+think through the effects of what you write.
+
+Refer to the [joins demo][demo] for hints on what you might want to do!
+
+[demo]: https://github.com/appacademy/curriculum/tree/master/sql/demos/joins_demo/lib
 
 ## Artists, Albums, and Tracks
 
