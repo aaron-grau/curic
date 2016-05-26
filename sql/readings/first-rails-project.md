@@ -1,4 +1,4 @@
-# Your First Rails Project
+# Initializing a Rails project with Postgres
 
 This unit begins our foray into ActiveRecord; a component of Rails
 that is a way for your Ruby code to interact with a SQL

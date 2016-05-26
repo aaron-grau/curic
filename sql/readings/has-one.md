@@ -38,10 +38,4 @@ often contain useful information. For instance, an `appointments`
 table could have the start and end time of the appointment. In that
 case, you'll want an `Appointment` model class anyway.
 
-For this reason, I won't further describe HABTM; you can look it up if
-you encounter it out there on the mean streets.
-
-## Exercises
-
-* What is the difference between `belongs_to` and `has_one`?
-* Why would a new `belongs_to_many` association type not make sense?
+For this reason, I won't further describe HABTM; you can look it up if/when you encounter it.

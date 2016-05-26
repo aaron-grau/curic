@@ -50,8 +50,9 @@ in a different color from the rest of your board. You should be able to
 handle this in your render logic just by checking whether the square
 you're rendering is your `@cursor`.
 
-Once you have this working, it's time to start developing your piece
-logic!
+**Note:** if you're stuck on cursor for more than ~30 minutes, please call for help from a TA. Fancy cursors are cool, but the main purpose of today is to become more familiar with Object Oriented Programming.
+
+**Code Review Time:** Before moving on to piece logic, get a code review from a TA! How you've set up your Board and Display Classes will greatly affect your game moving forward, so make sure that these classes are solid and well-written before continuing.
 
 ## Phase III: `Pieces`
 
