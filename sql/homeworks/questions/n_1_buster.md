@@ -128,7 +128,7 @@ end
 
 ## MUNI Routes, Buses, and Drivers
 
-Create a hash with each bus as a key and an array of bus drivers as the corresponding value.
+Create a hash with each bus route as a key and an array of bus drivers as the corresponding value.
 E.g. `{'47' => ['Joan Lee', 'Charlie McDonald', 'Kevin Quashie'], 'N Judah' => ['Ed Michaels', 'Lisa Frank', 'Sharla Alegria']}`
 
 ```ruby
