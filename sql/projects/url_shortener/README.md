@@ -177,7 +177,17 @@ same shortened URL several times. We'll address this soon!
 Write a method that will count the number of clicks on a `ShortenedUrl`.
 
 Next, let's write a method that will determine the number of **distinct** users
-who have clicked a link. The SQL we want looks like this:
+who have clicked a link. 
+
+How do we do this in ActiveRecord? In addition to our `visits` association, we
+will want to:
+
+* Use the [select](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-select) method to select just the `user_id` column
+* Use the [distinct](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-distinct) method to de-duplicate the `user_id`s so that each user
+  counts only once.
+* Use the `count` method to count the unique users.
+
+The SQL we want looks like this:
 
 ```sql
 SELECT
@@ -187,14 +197,6 @@ FROM
 WHERE
   visits.shortened_url_id = ?
 ```
-
-How do we do this in ActiveRecord? In addition to our `visits` association, we
-will want to:
-
-* Use the [select](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-select) method to select just the `user_id` column
-* Use the [distinct](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-distinct) method to de-duplicate the `user_id`s so that each user
-  counts only once.
-* Use the `count` method to count the unique users.
 
 Lastly, count only unique clicks in a recent time period (say,
 `10.minutes.ago`). This involves throwing a [where](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where) clause onto your
@@ -237,9 +239,7 @@ Also, write a distinct-ified version of `visited_urls`.
 
 ## Phase IV: A simple CLI
 
-Write a very simple command-line interface in `bin/cli` (the
-convention for rails scripts is to omit the extension `.rb`). Add
-these features:
+Write a very simple command-line interface in `bin/cli` (theconvention for rails scripts is to omit the extension `.rb`). You already know how to do this-- you have written programs that had CLIs using functions like `puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.). Add these features:
 
 * Ask the user for their email; find the `User` with this email. You
   don't have to support users signing up through the CLI.
