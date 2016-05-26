@@ -181,7 +181,7 @@ until I give you leave to let Rails infer these.
 + [Demo: macros][meta-macros] (5 min)
 
 ### Homework (30 min)
-+ [Metacorgis][metacorgi-hw]
++ [Metacorgis][metacorgi-hw] (30 min)
 
 ### Project
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
