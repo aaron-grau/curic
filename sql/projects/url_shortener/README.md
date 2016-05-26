@@ -239,7 +239,7 @@ Also, write a distinct-ified version of `visited_urls`.
 
 ## Phase IV: A simple CLI
 
-Write a very simple command-line interface in `bin/cli` (theconvention for rails scripts is to omit the extension `.rb`). You already know how to do this-- you have written programs that had CLIs using functions like `puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.). Add these features:
+Write a very simple command-line interface in `bin/cli` (the convention for rails scripts is to omit the extension `.rb`). You already know how to do this-- you have written programs that had CLIs using functions like `puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.). Add these features:
 
 * Ask the user for their email; find the `User` with this email. You
   don't have to support users signing up through the CLI.
