@@ -1,20 +1,25 @@
 # Metaprogramming MetaCorgs
 
-Tonight we'll refactor an unwieldy ```CorgiPerk``` class. Because corgis deserve only the best perks and perk classes.
+Tonight we'll refactor an unwieldy `CorgiPerk` class. Because corgis deserve only the best perks and perk classes.
 
 ## Phase 0: Description
 
-Let's refactor the repetitive methods ```#bone```, ```#kibble```, and ```#silly_outfit```. Each returns a string listing the type of perk along with its info and a happiness rating measured in licks. Amenities with a happiness greater than 30 licks get a star.
+An instance of the `CorgiPerk` class initializes with a `perk_id` and a `shopping_list`.  The shopping list contains information about 3 different types of corgi perks: bones, kibble, and silly outfits.  You may assume that `shopping_list.get_#{perk}_info(id)` and `shopping_list.get_#{perk}_happiness(id)` return the info and happiness ratings of each corgi perk, respectively.
+
+Our job is to refactor three repetitive methods from the `CorgiPerk` class: `#bone`, `#kibble`, and `#silly_outfit`. Each returns a string listing the type of perk along with its info and a happiness rating measured in licks. Amenities with a happiness rating greater than 30 licks get a `*`.  
+
+For example, our code should behave as follows:
 
 ```ruby
-bone #=> "* Bone: Phoenician rawhide: 40 licks"
-```
+  # Given the following behavior:
+  demo_shopping_list.get_bone_info(10) # => returns "Phoenician rawhide"
+  demo_shopping_list.get_bone_happiness(10) # => returns "40 licks"
 
-An instance of the ```CorgiPerk``` class initializes with a ```@shopping_list``` that provides access to the info and happiness of all corgi perks with ```get_#{perk}_info(@id)``` and ```get_#{perk}_happiness(@id)```.
+  # Create new instance of CorgiPerk class
+  demo_corgi = CorgiPerk.new(10, my_list)
 
-```ruby
-@shopping_list.get_bone_info(@id) #=> "Phoenician rawhide"
-@shopping_list.get_bone_happiness(@id) #=> "40 licks"
+  # Functionality provided by our code
+  demo_corgi.bone # => returns "* Bone: Phoenician rawhide: 40 licks"
 ```
 
 Take a minute to familiarize yourself with the class as it stands now. Look for repetitive code to refactor.
@@ -51,12 +56,12 @@ class CorgiPerk
 end
 ```
 
-## Phase 1: ```#method_missing``` aka Do it for the Metacorgs
+## Phase 1: `#method_missing` (aka do it for the metacorgs)
 
-Use```#method_missing``` to refactor. The goal is for your ```#method_missing``` to be functionally equivalent to ```#bone```, ```#kibble```, and ```#silly_outfit```.
+Employ `#method_missing` to refactor. The goal is for your `#method_missing` to be functionally equivalent to `#bone`, `#kibble`, and `#silly_outfit`.
 
-**Hint**: Within ```#method_missing``` you can use ```#send``` to call methods on your ```@shopping_list```. Note that you can pass ```#send``` a string, allowing for interpolation.
+**Hint:** Within `#method_missing` you can use `#send` to call methods on your `@shopping_list`. Note that you can pass `#send` a string, allowing for interpolation.
 
-## Phase 2: Dynamic Dispatch aka Really Do it for the Metacorgs
+## Phase 2: Dynamic Dispatch (aka really do it for the metacorgs)
 
-Next try using ```#send``` in conjunction with ```#define_method``` within a class method, e.g. ```::define_perk(perk)```, that dynamically builds all of your class' instance methods. You can call this method upon initialization. This technique is called dynamic dispatch.
+Next try using `#send` in conjunction with `#define_method` within a class method, e.g. `::define_perk(perk)`, that dynamically builds all of your class' instance methods. You can call this method upon initialization. This technique is called dynamic dispatch.
