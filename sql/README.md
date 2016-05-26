@@ -180,6 +180,9 @@ until I give you leave to let Rails infer these.
 + [Demo: send][meta-send] (5 min)
 + [Demo: macros][meta-macros] (5 min)
 
+### Homework (30 min)
++ [Metacorgis][metacorgi-hw]
+
 ### Project
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
 
@@ -190,6 +193,7 @@ until I give you leave to let Rails infer these.
 [meta-send]: demos/send.rb
 [meta-macros]: demos/macros.rb
 [build-your-own-ar]: projects/active_record_lite
+[metacorgi-hw]: homeworks/questions/metacorgs.md
 
 ## w3d6-w3d7
 
