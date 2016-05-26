@@ -12,7 +12,7 @@ You know you have succeeded when the click counter works again.
 
 ### Getting Started
 
-Download **[the project implemented without flux][click-pre-flux]**.
+Download **[the project implemented without flux][click-skeleton]**.
 
 First install the node modules using `npm install`. Then, use webpack to bundle
 the js. The webpack config file has already been set up for you, so you should
@@ -58,5 +58,5 @@ video lectures and provided readings.
 
 ### Have fun!
 
-[click-pre-flux]: click_counter_pre_flux.zip
-[click-solution]: click_counter_solution.zip
+[click-skeleton]: click_counter_skeleton.zip?raw=true
+[click-solution]: click_counter_solution.zip?raw=true

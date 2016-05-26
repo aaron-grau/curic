@@ -71,15 +71,15 @@ be available when you run `bundle exec pry`.
 
 ## Ruby
 
-Write a `QuestionsDatabase` class similar to my
-[SchoolDatabase][school.rb] in the demo. This class should inherit
+Write a `QuestionsDatabase` class similar to one created in last night's demo: 
+[PlaysDatabase][plays.rb]. This class should inherit
 from `SQLite3::Database`; you will only need one instance. If you use
-the `Singleton` module like I do, this will be available through a
+the `Singleton` module this will be available through a
 `QuestionsDatabase::instance` method.
 
-[school.rb]: ../../demos/sqlite3-demo/school.rb
+[plays.rb]: https://github.com/appacademy/curriculum/blob/master/sql/homeworks/solutions/plays_demo/plays.rb
 
-*NB: A singleton is a general programming pattern that describes a
+*NB: Remember that a singleton is a general programming pattern that describes a
 scenario in which you will only have a single instance of a particular
 class. Ruby's [Singleton module][ruby-singleton] helps implement this
 pattern - it ensures that only one instance of that class is ever

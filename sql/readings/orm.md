@@ -224,6 +224,3 @@ will re-load all the model classes.
 
 If you want to access a SQL console, you may conveniently run `rails
 dbconsole`.
-
-**Start a Rails project and play round with what you've learned so
-far!**
