@@ -151,6 +151,9 @@ until I give you leave to let Rails infer these.
 + [Scopes][scopes] (10 min)
 + [More on Querying][querying-ii] (15 min)
 
+### Homeworks (30 min)
++ [N+1 Buster][n1-buster] (30 min)
+
 ### Additional Resources
 + [Ternary Logic in SQL][sql-ternary-logic]
 
@@ -164,6 +167,8 @@ until I give you leave to let Rails infer these.
 [sql-ternary-logic]: readings/sql-ternary-logic.md
 
 [joins-demo]: demos/joins_demo
+
+[n1-buster]: homeworks/questions/n_1_buster.md
 
 [polls-app]: projects/polls_app
 
