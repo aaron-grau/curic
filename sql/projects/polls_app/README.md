@@ -3,6 +3,8 @@
 In the spirit of enfranchisement, we're going to build a polling app
 today!
 
+Generate a new rails project called `PollApp`. Refer to yesterday's instructions if you need a reminder. Don't forget to include a PostGreSQL flag:  `rails new PollApp --database=postgresql`.
+
 ## Schema
 
 You need to implement the following schema. Try drawing it out first to
