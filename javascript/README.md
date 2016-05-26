@@ -1,31 +1,34 @@
 # JavaScript
 
-## Resources
-
-* [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
-* [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
-
-
-[mdn-js-doc]: readings/mdn-js.md
-[codecademy-js]: http://www.codecademy.com/tracks/javascript
-
 ## w5d3
-* **Homework**: [Intro to JavaScript][intro-to-js]
-* [Server-side JavaScript][server-side-js]
-* [Debugging Node.js][debugging-node]
-* Acquire and begin reading [Effective JavaScript][effective-js].
-  * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
-  * A **lot** of JS interview questions come from this book.
-* **Bonus**: [ReactiveX][reactivex], additional practice so you can be a star.
-* **Bonus**: [MDN Guide][mdn-guide], another great guide from MDN
-* **Bonus**: [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics]
+
+### Readings (40 min)
+* [Intro to JavaScript][intro-to-js] (25 min)
+* [Server-side JavaScript][server-side-js] (5 min)
+* [Debugging Node.js][debugging-node] (10 min)
+
+### Homeworks (40 min)
+* [Intro to JavaScript Problem Set][intro-problem-set]
+
+### Additional Resources
+* [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
+* [ReactiveX][reactivex], additional practice so you can be a star.
+* [MDN Guide][mdn-guide], another great guide from MDN
+* [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics]
   * Just the first chapter. Another great intro reading.
+* [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
+* Acquire and begin reading [Effective JavaScript][effective-js].
+    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
+    * A **lot** of JS interview questions come from this book.
 
 [intro-to-js]: readings/js-intro.md
 [server-side-js]: readings/server-side-javascript.md
 [debugging-node]: readings/debugging-node.md
+[intro-problem-set]: homeworks/questions/js_intro.md
 [reactivex]: http://reactivex.io/learnrx/
 [mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+[codecademy-js]: http://www.codecademy.com/tracks/javascript
+[mdn-js-doc]: readings/mdn-js.md
 
 ## w5d4
 
@@ -59,10 +62,10 @@
 * Style
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
-* **Projects**: 
+* **Projects**:
   * [Towers of Hanoi][hanoi_node]
   * [Tic-Tac-Toe][ttt_node]
-  * 
+  *
 Write user interaction with node's `readline` library.
 
 [file-io]: readings/intro-to-callbacks.md
