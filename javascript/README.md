@@ -57,26 +57,33 @@
 
 ## w5d5
 
-* [Intro to Callbacks: File I/O][file-io] (exercises)
+### Readings
+* [Intro to Callbacks: File I/O][file-io]
 * [`this` and that][this-and-that]
 * [Ways to Call a Function][function-calling] (exercises)
 * [The Module Pattern][module-pattern]
 * [Event Loop Visualization][loupe]
 * [Effective JavaScript][effective-js]: Items 11, 12, 61, 65
+
+### Additional Resources
 * Style
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
-* **Projects**:
-  * [Towers of Hanoi][hanoi_node]
-  * [Tic-Tac-Toe][ttt_node]
-  *
-Write user interaction with node's `readline` library.
+
+### Homeworks
+
+### Projects
+* [Intro to Callbacks Exercises][functions_exercises]
+* [Towers of Hanoi][hanoi_node]
+* [Tic-Tac-Toe][ttt_node]
+
 
 [file-io]: readings/intro-to-callbacks.md
 [this-and-that]: readings/this-and-that.md
 [function-calling]: readings/function-calling.md
 [module-pattern]: readings/module-pattern.md
 [hanoi_node]: projects/hanoi_node
+[functions_exercises]: projects/functions_exercises
 [ttt_node]: projects/ttt_node
 [crockford-style]: http://javascript.crockford.com/code.html
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
@@ -105,27 +112,33 @@ Write user interaction with node's `readline` library.
 
 ## w6d1
 
-#### Video Lectures (Prioritize These)
-* :movie_camera: Watch [JS in Browser (10 min)][js-browser-video] (`go_video_go`)
-* :movie_camera: Watch [Arguments (10 min)][arg-video] (`go_video_go`)
-* :movie_camera: Watch [Prototype Chain and Inheritance (20 min)][proto-inherit] (`go_video_go`)
-* :movie_camera: Watch [Inheritance Demo (20 min)][inherit-demo-video] (`go_video_go`)
+### Video Lectures (60 min)
 
-#### Important Readings
-* **Homework**: [Webpack tutorial][webpack] complete up to 'The First Loader'
-* [Basic Canvas Drawing][basic-canvas-drawing]
-* [Effective JavaScript][effective-js]: Items 18-23, 30
-* [Modules in the Browser][browser-modules]
-* **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo]
+:closed_lock_with_key: `go_video_go`
+
+* :movie_camera: Watch [JS in Browser][js-browser-video] (10 min)
+* :movie_camera: Watch [Arguments][arg-video] (10 min)
+* :movie_camera: Watch [Prototype Chain and Inheritance][proto-inherit] (20 min)
+* :movie_camera: Watch [Inheritance Demo][inherit-demo-video]  (20 min)
+
+### Readings (60 min)
+
+* [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
+* [Effective JavaScript][effective-js]: Items 18-23, 30 (15 min)
+* [Modules in the Browser][browser-modules] (15 min)
+* **Demo Reading**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
     * **Be sure to run and understand this the night before**
 
-#### Bonus Readings (Mostly Covered in Videos)
+### Homeworks (20 min)
+* [Webpack tutorial][webpack] complete up to 'The First Loader' (20 min)
+
+### Additional Resources
 * [Asynchronous Client-side Code][asynchronous-js]
 * [Client-side JavaScript][client-side-js]
 
-#### Projects
-* [`arguments`][arguments] (exercises)
-* [Prototypal Inheritance][prototypal-inheritance] (exercises)
+### Projects  
+* [`arguments` exercises][arguments]
+* [Prototypal Inheritance exercises][prototypal-inheritance]
 * [Asteroids project][asteroids-project]
 
 [proto-inherit]: https://vimeo.com/162131042
