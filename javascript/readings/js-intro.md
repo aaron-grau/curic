@@ -58,11 +58,24 @@ Take care when writing conditional statements in JavaScript! Try testing out con
 
 ### Declaring Variables
 
-In JavaScript, in order to use a variable, we must declare it. Variable
-declaration is the act of introducing the variable to the environment. When we declare
-a variable, we will often initialize it to a value.
+There are a few different ways to declare variables and constants in JavaScript. We go over the use cases for each.
 
-To declare a variable, use the `var` keyword, followed by a space and then the name of the variable.
+1. `var`
+2. `let` (ES6+)
+3. `const` (ES6+)
+
+Note: the subsections below talk a great deal about scoping in JavaScript. More on this to come!
+
+#### In the absence of `var`, `let`, or `const`
+
+In JavaScript, in order to use a variable or constant, we must declare it. Variable
+declaration is the act of introducing the variable to the environment. When we declare a variable, we will often initialize it to a value.
+
+JavaScript won't raise an exception if you forget to use one of the above binding constructs - it'll just declare a global variable by default. As a general rule, we want to avoid declaring global variables because they can clutter up the global namespace and lead to unpredictable errors. For this reason, always make sure to declare your variables with a binding construct like `var`. Using a linter in your text editor (discussed in a later reading) can help you enforce this.
+
+#### `var`
+
+To declare a function-scoped variable, use the `var` keyword, followed by a space and then the name of the variable.
 
 ```javascript
 var myVar;
@@ -110,7 +123,73 @@ We can also declare and initialize a variable on the same line.
 > "Hello " + myOtherVar; // What will this evaluate to?
 ```
 
-Note: You may have noticed that it is possible to assign a variable in JS without `var`, but beware! Assigning a variable without `var` puts it in the global scope. More on scope later.
+#### `let`
+
+`let` is a new feature in ES6. Be sure not to use it when working in environments that are not ES6-compatible.
+
+We can use `let` to declare block-scoped variables, like in Ruby blocks. How are block-scoped variables different than function-scoped variables? Consider the following:
+
+```javascript
+function functionScoped() {
+  var x = 'out of block';
+  if (true) {
+    var x = 'in block';  // same variable!
+    console.log(x);  // 'in block'
+  }
+  console.log(x);  // 'in block'
+}
+
+function blockScoped() {
+  let x = 'out of block';
+  if (true) {
+    let x = 'in block';  // different variable!
+    console.log(x);  // 'in block'
+  }
+  console.log(x);  // 'out of block'
+}
+```
+
+Examples of blocks in javascript include `if` statements, `while` loops, `switch` statements, and `for` loops.
+
+One note: JavaScript will raise a `SyntaxError` if you try to declare the same `let` variable twice in one block.
+
+For a more detailed description of `let`, please refer to the [MDN Documentation][mdn-let].
+
+#### `const`
+
+`const` is a new feature in ES6. Be sure not to use it when working in environments that are not ES6-compatible.
+
+We use `const` to declare constants. Constants should be used for constructs that will not be redeclared or reassigned.
+
+Properties of constants:
+* They are block-scoped like `let`.
+* Unlike Ruby constants, JavaScript will actually enforce constants by raising an error if you try to reassign them.
+* Trying to redeclare a constant with a `var` or `let` by the same name will also raise an error.
+* You should name constants in `SCREAMING_SNAKE_CASE` by convention.
+
+A quick example:
+
+```javascript
+const FAVORITE_FOOD = "Cheeseboard pizza";
+
+const FAVORITE_FOOD = "Some inferior food"; // this will raise an error
+
+var FAVORITE_FOOD = "Some other inferior food"; // this will also raise an error
+
+FAVORITE_FOOD = "Cardboard middle school pizza"; // this will fail silently but won't raise an error
+
+if (true) {
+  const = FAVORITE_FOOD; // this will also raise an error
+  console.log(FAVORITE_FOOD); // outputs "Cheeseboard pizza"
+
+  const FAVORITE_DRINK = "coffee"; // this is scoped to the block
+  console.log(FAVORITE_DRINK) // outputs coffee
+}
+
+const FAVORITE_DRINK = "Harmless Coconut Water"; // declared after block, works fine
+
+console.log(FAVORITE_DRINK) // outputs "Harmless Coconut Water"
+```
 
 ## Useful Methods
 
@@ -167,6 +246,43 @@ type conversion which can lead to confusing results. Learn more about it in *Eff
 * `+`
 
 *We will talk about this `prototype` later, but for now just now that a class's methods are defined on it*
+
+### ES6 Additional Feature: Template Literals
+
+Template Literals are a new feature in ES6. Be sure not to use them when working in environments that are not ES6-compatible.
+
+With ES6, we can now use string interpolation, much like in Ruby.
+
+Ruby:
+```ruby
+  name = "Brooke"
+  favorite_food = "pizza"
+
+  puts "Hi, my name is #{name} and my favorite food is #{favorite_food}!"
+```
+
+Note that in order to use template strings, we must surround our string with the grave character (back tick).
+
+Javascript:
+```javascript
+  var name = "Brooke";
+  var favoriteFood = "pizza";
+
+  console.log(`Hi, my name is ${name} and my favorite food is ${favoriteFood}!`);
+```
+
+We can also use template literals to create multiline strings:
+
+```javascript
+
+// Old way: insert \n for newline
+console.log("line 1\n"+ "line 2");
+
+// New way - use template literal
+console.log(`string text line 1
+string text line 2`);
+
+```
 
 ### Array Properties
 
@@ -443,5 +559,11 @@ function printNStop5(n) {
 
 Ready for more practice? Complete [homework part II][intro-js-homework] before moving on.
 
+# JavaScript Introduction - Part III
+
+Let's explore some more new ES6 Features.
+
+
 
 [intro-js-homework]: ../homeworks/questions/js_intro.md
+[mdn-let]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
