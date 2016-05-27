@@ -15,4 +15,4 @@ Take your recipe file from day 1 of this curriculum and add some more semantic s
 11. Add a footer element at the bottom
 12. Add a paragraph element in the footer with some text/link about where the recipe originated from.
 
-After coding your recipe page, compare your html to [this example](containers_example_recipe.html).
+After coding your recipe page, compare your html to [this example](containers_example_recipe.html) and view the live version [here](http://appacademy.github.io/curriculum/containers_example_recipe.html).

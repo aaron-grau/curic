@@ -1,6 +1,6 @@
 ## HTML Forms Exercise
 
-**N.B.** Remember that forms make a request upon submission to the provided action URI. Since we are not hosting our page yet with a server to build a response from that request, our form is not really functional. Still, this exercise will help practice coding the structure of our form element.
+**N.B.** Remember that forms make a request upon submission to the provided action URI. Since we don't have a server to handle the request, our form won't really do anything on submission. Still, this exercise will help practice coding the structure of our form element.
 
 Create a review form for your recipe page:
 
@@ -16,4 +16,4 @@ Create a review form for your recipe page:
     - Professional Chef
 5. Code a label element for "Review" but this time place the corresponding textarea element inside the label element instead of using for/id.
 
-After coding your review section on your recipe page, compare your html to [this example](forms_example_recipe.html).
+After coding your review section on your recipe page, compare your html to [this example](forms_example_recipe.html) and view the live version [here](http://appacademy.github.io/curriculum/forms_example_recipe.html).
