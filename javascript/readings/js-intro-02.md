@@ -1,4 +1,4 @@
-# Javascript Introduction - Part II
+# Javascript Introduction - Part II (Looping Constructs)
 
 Keep on testing things out in Node as we go!
 

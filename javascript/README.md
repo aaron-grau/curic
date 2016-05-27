@@ -3,7 +3,9 @@
 ## w5d3
 
 ### Readings (40 min)
-* [Intro to JavaScript][intro-to-js] (25 min)
+* [Intro to JavaScript I][intro-to-js-i] (25 min)
+* [Intro to JavaScript II (looping constructs)][intro-to-js-ii] (25 min)
+* [Intro to JavaScript III (arguments)][intro-to-js-iii] (25 min)
 * [Server-side JavaScript][server-side-js] (5 min)
 * [Debugging Node.js][debugging-node] (10 min)
 
@@ -21,7 +23,9 @@
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
 
-[intro-to-js]: readings/js-intro.md
+[intro-to-js-i]: readings/js-intro-01.md
+[intro-to-js-ii]: readings/js-intro-02.md
+[intro-to-js-iii]: readings/js-intro-03.md
 [server-side-js]: readings/server-side-javascript.md
 [debugging-node]: readings/debugging-node.md
 [intro-problem-set]: homeworks/questions/js_intro.md
