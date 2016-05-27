@@ -119,7 +119,6 @@ The password is `go_video_go`
 * [Route Matching][route-matching]
 * [Index Routes][index-routes]
 * [Component lifecycle][component-lifecycle]
-* [List of React Lifecycle Methods][lifecycle-methods]
 * [jbuilder][jbuilder-link] (read the documentation thoroughly!)
 * [Effective JavaScript][effective-js]: Items 66-68
 * **Project:** [Pokedex][pokedex]
@@ -129,8 +128,7 @@ The password is `go_video_go`
 [route-configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
 [route-matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
 [index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-[component-lifecycle]: https://github.com/reactjs/react-router/blob/master/docs/guides/ComponentLifecycle.md
-[lifecycle-methods]: https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
+[component-lifecycle]: https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
 [jbuilder-link]: https://github.com/rails/jbuilder
 [pokedex]: projects/pokedex
 
