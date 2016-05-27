@@ -2,14 +2,14 @@
 
 ## w5d3
 
-### Readings (40 min)
-* [Intro to JavaScript I][intro-to-js-i] (25 min)
-* [Intro to JavaScript II (looping constructs)][intro-to-js-ii] (25 min)
-* [Intro to JavaScript III (arguments)][intro-to-js-iii] (25 min)
+### Readings (55 min)
 * [Server-side JavaScript][server-side-js] (5 min)
+* [Intro to JavaScript I][intro-to-js-i] (20 min)
+* [Intro to JavaScript II (looping constructs)][intro-to-js-ii] (10 min)
+* [Intro to JavaScript III (arguments)][intro-to-js-iii] (10 min)
 * [Debugging Node.js][debugging-node] (10 min)
 
-### Homeworks (40 min)
+### Homeworks (45 min)
 * [Intro to JavaScript Problem Set][intro-problem-set]
 
 ### Additional Resources
