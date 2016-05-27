@@ -2,9 +2,7 @@
 
 Practice writing HTML and coding popular HTML elements by creating a recipe page.
 
-First Create a new file with your first/last name and the name of your recipe.
-
-**Example:** "kevin_mccall_shakshuka.html"
+First Create a new file with your first/last name and the name of your recipe, e.g. `kevin_mccall_shakshuka.html`.
 
 Start with the standard HTML structure. We will go over this in more detail later in the curriculum. For now, write all of today's exercise within the body tag.
 
@@ -19,21 +17,25 @@ Start with the standard HTML structure. We will go over this in more detail late
     </html>
 ```
 
-**Pro-Tip:** Use the html snippet in Atom to generate a basic HTML page layout by typing "html" and then pressing Tab.
+**Pro-Tip:** Use the html snippet in Atom to generate a basic HTML page layout by typing `html` and then pressing Tab.
 
-Now build up your page with the following elements. It may be helpful to open up your file in your web browser and refresh as you code to see your work render correctly. Feel free to find your favorite recipe on the web and paste in content to the respective elements.
+Now build up your page with the following elements: 
 
-    - A `H2` with the title of your recipe
-    - An unordered list of anchor links to each section of your recipe
-    - A header2 for the description section
-    - A paragraph with the description of your recipe
-    - A link within the description to a wikipedia article about your recipe
-    - An image of your prepared dish
-    - A header2 for the ingredients section
-    - An unordered list of recipe ingredients
-    - A header2 for the directions section
-    - An ordered list of cooking directions
-    - A comment at the end citing the author of the original recipe
+* An `H2` with the title of your recipe
+* An unordered list of anchor links to each section of your recipe
+* An `H2` for the description section
+* A paragraph with the description of your recipe
+* A link within the description to a wikipedia article about your recipe
+* An image of your prepared dish
+* An `H2` for the ingredients section
+* An unordered list of recipe ingredients
+* An `H2` for the directions section
+* An ordered list of cooking directions
+* A comment at the end citing the author of the original recipe
+
+It may be helpful to open up your file in your web browser and refresh as you code to see your work. To do this in Atom, right-click on the file name in the file tree and select `copy full path`.  Paste this path into your browser and see your rendered code!
+
+Feel free to find your favorite recipe on the web and paste in content to the respective elements.
 
 #### HTML Character Codes
 
