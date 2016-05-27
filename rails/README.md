@@ -33,7 +33,7 @@
     * Only do up through (and including) "I3: Tagging"
     * Just this one time, don't delete `stylesheet_link_tag` or
       `javascript_include_tag`.
-* **Complete days 1 & 2 of [html curriculum][html-readme]** (60 min)
+* **Complete days 1 & 2 of [HTML-CSS Curriculum][html-readme]** (60 min)
 
 ### Additional Resources
 + [Routing I: Basics][routing-i]
