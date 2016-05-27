@@ -1,4 +1,4 @@
-# JavaScript Introduction - Part I
+# JavaScript Introduction - Part I (The Beginnings)
 
 Welcome to JavaScript! Make sure to follow along, type things in, and play with the new syntax as you make your way through this JS intro.
 
@@ -159,7 +159,7 @@ function blockScoped() {
 }
 ```
 
-Examples of blocks in javascript include `if` statements, `while` loops, `switch` statements, and `for` loops.
+Examples of blocks in javascript include `if` statements, `while` loops, `switch` statements, and `for` loops (more on these later).
 
 One note: JavaScript will raise a `SyntaxError` if you try to declare the same `let` variable twice in one block.
 
