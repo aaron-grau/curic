@@ -163,16 +163,20 @@ module.exports = ServerActions;
 * Remember to `require` the BenchConstants
 
 ```javascript
-//stores/bench.j
+//stores/bench.js
   var BenchConstants = require('../constants/bench_constants');
 
   BenchStore.__onDispatch = function (payload) {
     switch(payload.actionType) {
       case BenchConstants.BENCHES_RECEIVED:
-        _benches = payload.benches;
-        break;
+        payload.benches.forEach(function(bench){
+          _benches[bench.id] = bench;
+        });
+        BenchStore.__emitChange();
+      break;
     }
   };
+
 ```
 
 * Finally we should be able to test this thing. In the console, call
