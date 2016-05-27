@@ -14,6 +14,16 @@ Got it working? Congratulations! Time to learn JavaScript.
 
 [server-side-javascript]:./server-side-javascript.md
 
+## ECMAScript Versions
+
+ECMAScript is the standardized scripting language that forms the basis for JavaScript. From 2009-2015, the most recent stable version of ECMAScript was ECMAScript 5, or ES5 for short.
+
+The new ES6 standard was released in June 2015 and has added a wide variety of new features to javascript. ES6 features have been widely adopted across most browsers, but a number of environments still lag behind. ([See Compatibility.](http://kangax.github.io/compat-table/es6/))
+
+It is important to be aware of the features you're using, and whether or not they are ES5-compatible. Features that are new to ES6 have been clearly indicated in this reading and in the MDN Documentation (example: [documentation for `indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) - scroll down to the 'specifications' section for info on which ECMAScript versions the feature is compatible with. In this case, the feature `indexOf` is ES5-compatible.)
+
+Later in the course when we write code that will run in the browser, we will be using tools such as `babel` to translate our ES6 to vanilla ES5.
+
 ## JavaScript Data Types
 
 Before we start manipulating data, we first have to know what kinds of data we can manipulate. JavaScript provides 5 primitive data types for us:
@@ -125,7 +135,7 @@ We can also declare and initialize a variable on the same line.
 
 #### `let`
 
-`let` is a new feature in ES6. Be sure not to use it when working in environments that are not ES6-compatible.
+`let` is a new feature in ES6.
 
 We can use `let` to declare block-scoped variables, like in Ruby blocks. How are block-scoped variables different than function-scoped variables? Consider the following:
 
@@ -157,7 +167,7 @@ For a more detailed description of `let`, please refer to the [MDN Documentation
 
 #### `const`
 
-`const` is a new feature in ES6. Be sure not to use it when working in environments that are not ES6-compatible.
+`const` is a new feature in ES6.
 
 We use `const` to declare constants. Constants should be used for constructs that will not be redeclared or reassigned.
 
@@ -247,9 +257,9 @@ type conversion which can lead to confusing results. Learn more about it in *Eff
 
 *We will talk about this `prototype` later, but for now just now that a class's methods are defined on it*
 
-### ES6 Additional Feature: Template Literals
+### Template Literals
 
-Template Literals are a new feature in ES6. Be sure not to use them when working in environments that are not ES6-compatible.
+Template Literals are a new feature in ES6.
 
 With ES6, we can now use string interpolation, much like in Ruby.
 
@@ -446,124 +456,6 @@ the end of methods like in Ruby.
 ## Practice Problems
 
 Ready for some practice problems? Complete [homework part I][intro-js-homework] to get a handle on the syntax.
-
-
-# Javascript Introduction - Part II
-
-Keep on testing things out in Node as we go!
-
-## Looping
-
-Time to loop! The most common loops in JavaScript are the `for` loop and `while` loop.
-
-### for loop
-
-The structure of a `for` loop is as follows:
-
-```javascript
-for ([initialization]; [condition]; [incrementer]) {
-  //do something...
-}
-
-for (var i = 0; i < 10; i += 1) {
-  console.log(i)
-}
-```
-
-* `[initialization]` - This is where you initialize a variable that will be used
-as the counter. This counter will be updated in the incrementer and checked in
-the condition.
-* `[condition]` - If it evaluates to true, we do another loop. If false, we
-don't.
-* `[incrementer]` - This is evaluated after every iteration of the loop. **This
-step should bring the counter that was created in the `[initialization]` closer
-to a `[conditional]` that evaluates to false**
-
-### while loop
-
-```javascript
-while([conditional]) {
-  //do something...
-}
-
-var i = 0;
-
-while(i < 10) {
-  console.log(i);
-  i += 1;
-}
-```
-
-* `[conditional]` - If it evaluates to true, we do another loop. If false, we
-don't.
-
-Here's an example that prints the numbers 0 to n - 1.
-
-```javascript
-function printN(n) {
-  var i = 0;
-
-  while(i < n) {
-    console.log(i);
-    i += 1;
-  }
-}
-```
-
-Can you write this using a `for` loop?
-
-### Looping Keywords
-
-* `break` - Terminates the loop.
-
-* `continue` - Skips the current loop iteration.
-
-If we wanted to change our `printN` function so that it skipped multiples of 5,
-we could write:
-
-```javascript
-function printNSkip5(n) {
-  var i = 0;
-
-  while(i < n) {
-    if(i % 5 === 0) {
-      i += 1;
-      continue;
-    }
-
-    console.log(i);
-    i += 1;
-  }
-}
-```
-
-If we wanted to change our `printN` function so that it stops as soon as it hits
-a multiple of 5, we could write:
-
-```javascript
-function printNStop5(n) {
-  var i = 0;
-
-  while(i < n) {
-    if(i % 5 === 0 && i !== 0) {
-      break;
-    }
-
-    console.log(i);
-    i += 1;
-  }
-}
-```
-
-## Practice Problems
-
-Ready for more practice? Complete [homework part II][intro-js-homework] before moving on.
-
-# JavaScript Introduction - Part III
-
-Let's explore some more new ES6 Features.
-
-
 
 [intro-js-homework]: ../homeworks/questions/js_intro.md
 [mdn-let]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
