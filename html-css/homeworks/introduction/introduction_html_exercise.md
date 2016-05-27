@@ -49,4 +49,4 @@ Other common character entity references are `&amp;` for an ampersand and `&nbsp
 
 Here is a list of [HTML Character Entity References](https://dev.w3.org/html5/html-author/charref).
 
-After coding your recipe page, compare your html to [this example](intro_example_recipe.html).
+After coding your recipe page, compare your html to [this example](intro_example_recipe.html) and view the live version [here](http://appacademy.github.io/curriculum/intro_example_recipe.html).
