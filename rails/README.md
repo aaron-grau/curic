@@ -15,18 +15,14 @@
 ### Assessment03
 + [Practice Assessment][assessment-prep]
 
-### Video Lectures (2 hr, 40 min)
+### Video Lectures (60 min)
 :closed_lock_with_key: `go_video_go`
-+ [:movie_camera: (cc) 03-basic-rails-routing][03-basic-rails-routing] (24 min)
-+ [:movie_camera: (cc) 04-strong-params][04-strong-params] (25 min)
-+ [:movie_camera: (cc) 05-nested-resources][05-nested-resources] (15 min)
-* [:movie_camera: (cc) 06-erb-and-views][06-erb-and-views] (16 min)
-* [:movie_camera: (cc) 07-basic-forms][07-basic-forms] (19 min)
-* [:movie_camera: (cc) 08-form-request-cycle][08-form-request-cycle] (13 min)
-* [:movie_camera: (cc) 09-select][09-select] (21 min)
-* [:movie_camera: (cc) 10-form-partial][10-form-partial] (13 min)
-* [:movie_camera: (cc) 11-form-encoding][11-form-encoding] (12 min)
-*  **Tip**: You may want to test out watching videos at double speed.  Some students have used [this Chrome Extension][vimeo-double-speed] in the past.
++ [:movie_camera: What is an API?][api-video] (10 min)
++ [:movie_camera: HTTP Request/Response][http-req-res-video] (5 min)
++ [:movie_camera: Rails Routing][rails-routing-video] (5 min)
++ [:movie_camera: Routes Demo][routes-demo-video] (10 min)
++ [:movie_camera: Basic Controller Demo][basic-controller-demo-video] (15 min)
++ [:movie_camera: RESTful Controller Demo][restful-controller-demo-video] (15 min)
 
 ### Homeworks (2 hr, 30 min)
 * [JumpStart Blogger][js-blogger] (90 min)
@@ -40,12 +36,28 @@
 + [Basic Controllers][basic-controllers]
 + [Basic JSON API][basic-json-api]
 + [Routing II: Nested Collections][routing-ii]
++ [:movie_camera: (cc) 03-basic-rails-routing][03-basic-rails-routing] (24 min)
++ [:movie_camera: (cc) 04-strong-params][04-strong-params] (25 min)
++ [:movie_camera: (cc) 05-nested-resources][05-nested-resources] (15 min)
+* [:movie_camera: (cc) 06-erb-and-views][06-erb-and-views] (16 min)
+* [:movie_camera: (cc) 07-basic-forms][07-basic-forms] (19 min)
+* [:movie_camera: (cc) 08-form-request-cycle][08-form-request-cycle] (13 min)
+* [:movie_camera: (cc) 09-select][09-select] (21 min)
+* [:movie_camera: (cc) 10-form-partial][10-form-partial] (13 min)
+* [:movie_camera: (cc) 11-form-encoding][11-form-encoding] (12 min)
 
 ### Projects
 + [First Routes and Controllers][first-routes]
 + [Contacts API][contacts-api]
 
 [assessment-prep]: http://github.com/appacademy/assessment-prep
+
+[api-video]: https://vimeo.com/168498417
+[http-req-res-video]: https://vimeo.com/168498424
+[rails-routing-video]: https://vimeo.com/168498679
+[routes-demo-video]: https://vimeo.com/168499905
+[basic-controller-demo-video]: https://vimeo.com/168501163
+[restful-controller-demo-video]: https://vimeo.com/168505535
 
 [03-basic-rails-routing]: http://vimeo.com/groups/appacademy/videos/100267303
 [04-strong-params]: http://vimeo.com/groups/appacademy/videos/100267304
