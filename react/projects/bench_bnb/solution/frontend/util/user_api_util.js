@@ -1,31 +1,23 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
+var SessionActions = require('./../actions/session_actions');
+var ErrorActions = require('./../actions/error_actions');
 
 var UserApiUtil = {
-	post: function(options){
-		$.ajax({
-			url: options.url,
-			type: "post",
-			data: {user: options.user},
-			success: options.success,
-			error: options.error
-		});
-	},
-	logout: function(success, error){
-		$.ajax({
-			url: '/api/session',
-			method: 'delete',
-			success: success,
-			error: error
-		});
-	},
-	fetchCurrentUser: function(success, error){
-		$.ajax({
-			url: '/api/session',
-			method: 'get',
-			success: success,
-			error: error
-		});
-	},
+  signup: function (formData) {
+    $.ajax({
+      url: '/api/user',
+      type: 'POST',
+      dataType: 'json',
+      data: {user: formData},
+      success: function (currentUser) {
+        SessionActions.receiveCurrentUser(currentUser);
+      },
+      error: function (xhr) {
+        console.log('UserApiUtil#createAccount error');
+        var errors = xhr.responseJSON;
+        ErrorActions.setErrors("signup", errors);
+      }
+    });
+  }
 };
 
 module.exports = UserApiUtil;

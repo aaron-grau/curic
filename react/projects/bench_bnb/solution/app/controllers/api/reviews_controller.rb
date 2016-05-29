@@ -1,10 +1,9 @@
 class Api::ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
-    bench = Bench.find(review.bench_id)
 
     if review.save
-      render json: bench, include: :reviews
+      render json: review.bench, include: :reviews
     else
       render json: review, status: :unprocessable_entity
     end
