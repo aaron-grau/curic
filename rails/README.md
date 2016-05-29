@@ -198,6 +198,9 @@
 * [View layouts][view-layouts] (10 min)
 * [View partials][view-partials] (15 min)
 
+### Homeworks (30 min)
+* [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
+
 ### Projects
 * **Solo**: [Music App][music-app-project]
 
@@ -205,6 +208,7 @@
 [view-helpers]: readings/helpers.md
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
+[helpers-and-layouts-hw]: homeworks/helpers-and-layouts.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
 
