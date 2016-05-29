@@ -158,6 +158,7 @@ Set up the following flux architecture components.
 
 ####SessionStore 
   * Keep track of a `_currentUser`
+  * Keep track of a boolean of whether `_currentUserHasBeenFetched`
   * I would set this to `{}` if there isn't a user
   * `#isUserLoggedIn` should return a boolean of whether a user is logged in
     * hint: you can check the id of `_currentUser`
