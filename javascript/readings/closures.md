@@ -7,7 +7,7 @@ for use within the method. Scope in JS is nested:
 
 ```javascript
 function sum(nums) {
-  var count = 0;
+  let count = 0;
 
   function addNum(num) {
     // `count` here refers to the outside defined count variable.
@@ -55,9 +55,9 @@ from outside its definition.
 
 ```javascript
 function greetTenTimes(name) {
-  _.times(10, function () {
+  _.times(10, () => {
     // captures `name` from outside.
-    console.log("Hello, " + name + "!");
+    console.log(`Hello, ${name}!`);
   });
 }
 ```
@@ -72,14 +72,12 @@ example:
 
 ```javascript
 function makeCounter() {
-  var count = 1;
+  let count = 1;
 
-  return function () {
-    return count++;
-  };
+  return () => count++;
 }
 
-var counterFn = makeCounter();
+const counterFn = makeCounter();
 console.log(counterFn()); // => 1
 console.log(counterFn()); // => 2
 ```
@@ -97,18 +95,21 @@ However, a more straightforward solution using a class is probably the
 better solution:
 
 ```javascript
-function Counter () {
-  this._count = 0;
+class Counter {
+  constructor() {
+    this._count = 0;
+  }
+
+  fire() {
+    this._count += 1;
+    return this._count;
+  }
 }
 
-Counter.prototype.fire = function () {
-  this._count += 1;
-  return this._count;
-};
-
-var counter = new Counter();
+const counter = new Counter();
 counter.fire(); // => 1
 counter.fire(); // => 2
+
 ```
 
 One advantage of the closure way is that the count is **truly
@@ -140,21 +141,21 @@ namespacing. You'll learn more about this pattern soon.
 
 A common mistake new JS developers commit is to unintentionally create
 global variables. This happens if you declare a variable without the
-`var` keyword anywhere in your code, and can lead to strange behavior.
+`var`, `let`, or `const` keywords anywhere in your code, and can lead to strange behavior.
 Thankfully, modern JS runtimes support *strict mode*, a state in which
 the runtime disallows dangerous practices like declaring variables
-without `var`.
+without `var`, `let`, or `const`.
 
 Simply place `"use strict";` at the start of your file or function,
 and Node or the browser will throw a helpful error whenever you forget
-`var`:
+`var`, `let`, or `const`:
 
 ```javascript
 "use strict";
-var test = function() {
+const test = () => {
   something = 'hello';
   console.log(something);
-}
+};
 
 test(); // Produces "ReferenceError: something is not defined"
 ```
