@@ -25,16 +25,14 @@ Arrow functions aren't simply just syntactic sugar, though; they actually behave
 Consider the following scenario: 
 
 ```javascript
-
 function Cat (name){
 	this.name = name;
 };
 
-	meow: function(){
-		console.log(`$(this.name) says 'meow'`);
-	}
+Cat.prototype.meow = function(){
+	console.log(`$(this.name) says 'meow'`);
+};
 
 let garfield = new Cat();
 garfield.meow // => prints 'undefined says meow'
-
 ```
