@@ -81,13 +81,13 @@ ESLint is really easy to configure this way because every lint message
 includes the name of the lint rule that triggered it:
 
 ```js
-var unused = ':('
+let unused = ':('
 //=> ESLint Warning no-unused-vars "unused" is defined but never used
 ```
 
 ```js
 /* eslint no-unused-vars: 0 */
-var unused = ':)'
+let unused = ':)'
 //=> no lint warning
 ```
 
