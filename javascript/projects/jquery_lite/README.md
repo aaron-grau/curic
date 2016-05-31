@@ -167,9 +167,9 @@ arguments will be two or more objects.
 For example:
 
 ```javascript
-var objA = {a: 'a', b: 'a', c: 'a'};
-var objB = {b: 'b', c: 'b'};
-var objC = {c: 'c'};
+const objA = {a: 'a', b: 'a', c: 'a'};
+const objB = {b: 'b', c: 'b'};
+const objC = {c: 'c'};
 $l.extend(objA, objB, objC); //=> {a: 'a', b: 'b', c: 'c'}
 objA //=> {a: 'a', b: 'b', c: 'c'}
 ```

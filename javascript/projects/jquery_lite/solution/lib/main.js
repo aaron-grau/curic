@@ -1,9 +1,12 @@
-var DomNodeCollection = require("./dom_node_collection");
+/* jshint esversion: 6 */
 
-var _docReadyCallbacks = [], _docReady = false;
+const DomNodeCollection = require("./dom_node_collection");
 
-function $l (arg){
-  var returnValue;
+const _docReadyCallbacks = [];
+let _docReady = false;
+
+const $l = arg => {
+  let returnValue;
   switch(typeof(arg)){
     case "function":
       registerDocReadyCallback(arg);
@@ -18,15 +21,12 @@ function $l (arg){
       break;
   }
   return returnValue;
-}
+};
 
-$l.extend = function(base){
-  var otherObjs = Array.prototype.slice.call(arguments, 1);
-  otherObjs.forEach(function(obj){
+$l.extend = (base, ...otherObjs) => {
+  otherObjs.forEach( obj => {
     for(var prop in obj){
-      if (obj.hasOwnProperty(prop)){
-        base[prop] = obj[prop];
-      }
+      base[prop] = obj[prop];
     }
   });
   return base;
