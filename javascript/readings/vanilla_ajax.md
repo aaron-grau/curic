@@ -18,19 +18,19 @@ Let's see an example:
 
 ```js
 //step 1 - create xhr object
-var xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 
 // step 2 - specify path and verb
 xhr.open('POST', 'api/path/to/resource');
 
 // step 3 - register a callback
-xhr.onload = function () {
+xhr.onload = () => {
   console.log(xhr.status) // for status info
   console.log(xhr.responseType) //the type of data that was returned
   console.log(xhr.response) //the actual response. For json api calls, this will be a json string
 }
 
 // step 4 - send off the request with optional data
-var optionalData = { name: "User1", password : "123456" };
+const optionalData = { name: "User1", password : "123456" };
 xhr.send(optionalData);
 ```
