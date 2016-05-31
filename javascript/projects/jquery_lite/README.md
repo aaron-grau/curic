@@ -26,7 +26,7 @@ create a `/lib` folder where we will store all of our files.
 Create a file in `/lib` called, `main.js`. Set up `webpack.config.js` to use this file as the entry point. While you're at it, set up the output to be `jquery_lite.js`. This output file is what we want to source in the
 `<script>` tag of our html file. Go ahead and add that script tag now.
 
-Boot up `webpack --watch`. 
+Boot up `webpack --watch`.
 
 ### The core function
 
@@ -128,19 +128,17 @@ registered for every element in the node array!
 Don't worry about event delegation.  In other words, you don't have to handle cases
 like:
 ```javascript
-    $("ul").on("click", "li", function(){...})
+  $("ul").on("click", "li", () => {...})
 ```
 
 You only have to handle:
 ```javascript
-  $("ul").on("click", function(){...})
+  $("ul").on("click", () => {...})
 ```
 
 ## Phase 3: Document Ready
 ```javascript
-$(function(){
-  alert('the document is ready');
-})
+$( () => alert('the document is ready'));
 //$(document).ready(someCallback); would have the same effect
 ```
 
@@ -195,11 +193,11 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
 
 ## SUPER Bonus Phase (do this after the rest of the day's exercises)
 * Have your `ajax` function return a `Promise`
-* Use a [`Promise`][promise-library] to pretty up the usage of your AJAX
+* Use a [`Promise`][promise-reading] to pretty up the usage of your AJAX
   function. [Read about promise usage here][promise_doc].
 
 [append]: http://api.jquery.com/append/
-[promise-library]: https://raw.githubusercontent.com/jakearchibald/es6-promise/master/dist/es6-promise.js
+[promise-reading]: ../../readings/promises.md
 [promise_doc]: http://www.2ality.com/2014/09/es6-promises-foundations.html
 [htmlelement]: https://developer.mozilla.org/en-US/docs/Web/API/element
 [children]: https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
