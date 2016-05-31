@@ -58,7 +58,7 @@ undefined plays with string
 undefined plays with ball
 undefined plays with balloon
 ```
-`play` breaks because `this` in `this.name` refers to the `forEach` method surrounding it. But if we rewrite `play` using a fat arrow: 
+`play` breaks because `this` in `this.name` refers to the `forEach` method surrounding it. But if we rewrite `play` using a fat arrow, it works: 
 
 ```javascript
 
