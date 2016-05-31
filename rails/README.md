@@ -187,10 +187,11 @@
 
 ## w4d4
 
-### Video Lectures (29 min)
+### Video Lectures (39 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera:  (cc) 14-radio-and-textarea][14-radio-and-textarea] (16 min)
 * [:movie_camera:  (cc) 15-helpers][15-helpers] (13 min)
+* [:movie_camera: layouts][layout-video] (10 min)
 
 ### Readings (60 min)
 * [ActionMailer][action-mailer] (20 min)
@@ -200,6 +201,9 @@
 
 ### Homeworks (30 min)
 * [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
+
+### Additional Resources
+* [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
 
 ### Projects
 * **Solo**: [Music App][music-app-project]
@@ -211,6 +215,8 @@
 [helpers-and-layouts-hw]: homeworks/helpers-and-layouts.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
+[layout-video]: https://vimeo.com/168822741
+[action-mailer-video]: https://vimeo.com/168810895
 
 [music-app-project]: projects/music_app.md
 
