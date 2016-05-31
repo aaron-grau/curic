@@ -14,14 +14,15 @@
 
 ### Additional Resources
 * [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
-* [ReactiveX][reactivex], additional practice so you can be a star.
-* [MDN Guide][mdn-guide], another great guide from MDN
+* [ReactiveX][reactivex] - additional practice so you can be a star.
+* [MDN Guide][mdn-guide] - another great guide from MDN
 * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics]
   * Just the first chapter. Another great intro reading.
 * [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
 * Acquire and begin reading [Effective JavaScript][effective-js].
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
+* [Style Guide][style-guide] - Air BnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
 
 [intro-to-js-i]: readings/js-intro-01.md
 [intro-to-js-ii]: readings/js-intro-02.md
@@ -60,7 +61,7 @@
 ### Readings
 * [Intro to Callbacks: File I/O][file-io]
 * [`this` and that][this-and-that]
-* [Ways to Call a Function][function-calling] (exercises)
+* [Ways to Call a Function][function-calling]
 * [The Module Pattern][module-pattern]
 * [Event Loop Visualization][loupe]
 * [Effective JavaScript][effective-js]: Items 11, 12, 61, 65
