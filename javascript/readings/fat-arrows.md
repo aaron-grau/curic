@@ -27,18 +27,16 @@ Both functions in the example above accomplish the same thing. However, the arro
 
 For single-expression blocks, `{ }` and `return` are implied, and you may omit the `( )` when there is a single argument. 
 ```javascript
-argument => returnExpression;
+argument => returnExpression; // equal to (argument) => {return returnExpression};
 ```
 
 __N.B.:__ In Javascript, an _expression_ is a line of code that returns a value. _Statements_ are, more generally, any line of code.
 
-Arrow functions aren't just syntactic sugar for normal functions, though; they behave differently.
+Arrow functions aren't just syntactic sugar for normal functions, though. They behave differently in some scenarios:
 
 ## Scope
 
-Arrow functions, unlike normal functions, do not have scope. In other words, `this` means the same thing inside an arrow function that it does outside of it.
-
-Consider the following scenario: 
+Arrow functions, unlike normal functions, do not have scope. In other words, `this` means the same thing inside an arrow function that it does outside of it. Consider the following scenario: 
 
 ```javascript
 function Cat (name){
@@ -79,7 +77,7 @@ garfield plays with balloon
 ```
 ## Implicit Returns
 
-Fat arrows implicitly return when they are comprised of a single expression.
+Fat arrows implicitly return when they consist of a single expression.
 
 ```javascript
 	let halfMyAge = myAge => myAge/2;
