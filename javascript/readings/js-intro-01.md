@@ -133,6 +133,8 @@ We can also declare and initialize a variable on the same line.
 > "Hello " + myOtherVar; // What will this evaluate to?
 ```
 
+A note on style: `var` is not the preferred means of declaring a variable in ES6. Prefer `let` or `const`.
+
 #### `let`
 
 `let` is a new feature in ES6.
@@ -175,30 +177,38 @@ Properties of constants:
 * They are block-scoped like `let`.
 * Unlike Ruby constants, JavaScript will actually enforce constants by raising an error if you try to reassign them.
 * Trying to redeclare a constant with a `var` or `let` by the same name will also raise an error.
-* You should name constants in `SCREAMING_SNAKE_CASE` by convention.
 
 A quick example:
 
 ```javascript
-const FAVORITE_FOOD = "Cheeseboard pizza";
+const favoriteFood = "Cheeseboard pizza";
 
-const FAVORITE_FOOD = "Some inferior food"; // this will raise an error
+const favoriteFood = "Some inferior food"; // this will raise an error
 
-var FAVORITE_FOOD = "Some other inferior food"; // this will also raise an error
+var favoriteFood = "Some other inferior food"; // this will also raise an error
 
-FAVORITE_FOOD = "Cardboard middle school pizza"; // this will fail silently but won't raise an error
+favoriteFood = "Cardboard middle school pizza"; // this will fail silently but won't raise an error
 
 if (true) {
-  const = FAVORITE_FOOD; // this will also raise an error
-  console.log(FAVORITE_FOOD); // outputs "Cheeseboard pizza"
+  const favoriteFood; // this will also raise an error
+  console.log(favoriteFood); // outputs "Cheeseboard pizza"
 
-  const FAVORITE_DRINK = "coffee"; // this is scoped to the block
-  console.log(FAVORITE_DRINK) // outputs coffee
+  const favoriteDrink = "coffee"; // this is scoped to the block
+  console.log(favoriteDrink) // outputs coffee
 }
 
-const FAVORITE_DRINK = "Harmless Coconut Water"; // declared after block, works fine
+const favoriteDrink = "Harmless Coconut Water"; // declared after block, works fine
 
-console.log(FAVORITE_DRINK) // outputs "Harmless Coconut Water"
+console.log(favoriteDrink) // outputs "Harmless Coconut Water"
+```
+
+One note - constants are not immutable. Only the binding is immutable. For example, if we set a constant equal to an object, we can still modify that object:
+
+```javascript
+
+const animals = {};
+animals.mammals = ['hippo', 'lemur', 'possum']; // this is okay
+
 ```
 
 ## Useful Methods

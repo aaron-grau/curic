@@ -2,8 +2,7 @@
 
 ## Quick Hits
 
-So far, we've written all our code in a single file. We'd like to learn
-how to split code up in Node modules.
+So far, we've written all our code in a single file. We'd like to learn how to split code up in Node modules.
 
 Node is different from Ruby. In Ruby, you can do like so:
 
@@ -59,11 +58,11 @@ Dog.prototype.bark = function () {
 module.exports = Dog;
 
 // ./animals.js
-var Cat = require("./cat");
-var Dog = require("./dog");
+const Cat = require("./cat");
+const Dog = require("./dog");
 
-var cat = new Cat();
-var dog = new Dog();
+const cat = new Cat();
+const dog = new Dog();
 
 cat.meow();
 dog.bark();
@@ -108,7 +107,7 @@ another file. Let's have a look:
 module.exports = "THIS IS MY EXPORTED STRING";
 
 // ./main.js
-var silly = require("./silly");
+const silly = require("./silly");
 console.log(silly); //=> THIS IS MY EXPORTED STRING
 ```
 
@@ -142,14 +141,14 @@ module.exports = Bishop;
 // ... more piece files ...
 
 // ./lib/chess-board.js
-var Pawn   = require("./pieces/pawn");
-var Knight = require("./pieces/knight");
-var Bishop = require("./pieces/bishop");
+const Pawn   = require("./pieces/pawn");
+const Knight = require("./pieces/knight");
+const Bishop = require("./pieces/bishop");
 // ...
 
-var p = new Pawn();
-var k = new Knight();
-var b = new Bishop();
+const p = new Pawn();
+const k = new Knight();
+const b = new Bishop();
 ```
 
 This is kind of annoying. Anyone who wants to use all of our pieces
@@ -168,11 +167,11 @@ module.exports = {
 };
 
 // chess-board.js
-var Pieces = require("./pieces");
+const Pieces = require("./pieces");
 
-var p = new Pieces.Pawn();
-var k = new Pieces.Knight();
-var b = new Pieces.Bishop();
+const p = new Pieces.Pawn();
+const k = new Pieces.Knight();
+const b = new Pieces.Bishop();
 ```
 
 When we `require("./pieces")`, Node will realize that `./pieces` is a

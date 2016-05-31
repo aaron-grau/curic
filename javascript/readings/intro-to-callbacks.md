@@ -106,9 +106,9 @@ node.js programs. Here's the [documentation][readline-doc].
 Here's a simple example:
 
 ```javascript
-var readline = require('readline');
+const readline = require('readline');
 
-var reader = readline.createInterface({
+const reader = readline.createInterface({
   // it's okay if this part is magic; it just says that we want to
   // 1. output the prompt to the standard output (console)
   // 2. read input from the standard input (again, console)
@@ -160,9 +160,9 @@ program just because we hit the end of the source file.  If we want to
 stop accepting input, we have to explicitly call `reader.close()`:
 
 ```javascript
-var readline = require('readline');
+const readline = require('readline');
 
-var reader = readline.createInterface({
+const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -183,8 +183,8 @@ console.log("Last program line");
 Let's see a more developed example:
 
 ```javascript
-var readline = require('readline');
-var reader = readline.createInterface({
+const readline = require('readline');
+const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -196,8 +196,8 @@ function addTwoNumbers(callback) {
 
   reader.question("Enter #1", function (numString1) {
     reader.question("Enter #2", function (numString2) {
-      var num1 = parseInt(numString1);
-      var num2 = parseInt(numString2);
+      const num1 = parseInt(numString1);
+      const num2 = parseInt(numString2);
 
       callback(num1 + num2);
     });
@@ -212,12 +212,12 @@ addTwoNumbers(function (result) {
 
 Notice the use of closures and callbacks:
 
-0. `function (numString1) { ...`'s closure scope includes the
+1. `function (numString1) { ...`'s closure scope includes the
    `callback` variable. `numString1` is a regular argument.
-0. `function (numString2) { ...`'s closure scope includes the
+2. `function (numString2) { ...`'s closure scope includes the
    `numString1` variable, as well as `callback`
    recursively. `numString2` is a regular argument.
-0. `function (result) { ...`'s closure scope includes
+3. `function (result) { ...`'s closure scope includes
    `reader`. `result` is a regular argument.
 
 Note: `callback` is not a Javascript keyword. It is simply the name of
@@ -259,7 +259,7 @@ the trick from above:
 
 ```javascript
 function absurdTimes(numTimes, fn, completionFn) {
-  var i = 0;
+  let i = 0;
 
   function loopStep() {
     if (i == numTimes) {
@@ -276,8 +276,8 @@ function absurdTimes(numTimes, fn, completionFn) {
   loopStep();
 }
 
-var readline = require('readline');
-var reader = readline.createInterface({
+const readline = require('readline');
+const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -285,8 +285,8 @@ var reader = readline.createInterface({
 function addTwoNumbers(callback) {
   reader.question("Enter #1", function (numString1) {
     reader.question("Enter #2", function (numString2) {
-      var num1 = parseInt(numString1);
-      var num2 = parseInt(numString2);
+      const num1 = parseInt(numString1);
+      const num2 = parseInt(numString2);
 
       callback(num1 + num2);
     });
