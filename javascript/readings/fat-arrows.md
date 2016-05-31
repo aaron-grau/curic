@@ -27,7 +27,7 @@ Both functions in the example above accomplish the same thing. However, the arro
 
 For single-expression blocks, `{ }` and `return` are implied, and you may omit the `( )` when there is a single argument. 
 ```javascript
-argument => returnExpression; // equal to (argument) => {return returnExpression};
+argument => expression; // equal to (argument) => {return expression};
 ```
 
 __N.B.:__ In Javascript, an _expression_ is a line of code that returns a value. _Statements_ are, more generally, any line of code.
@@ -58,7 +58,7 @@ undefined plays with string
 undefined plays with ball
 undefined plays with balloon
 ```
-But if we rewrite `play` using a fat arrow: 
+`#play` breaks because `this` in `this.name` refers to the `forEach` method surrounding it. But if we rewrite `play` using a fat arrow: 
 
 ```javascript
 
