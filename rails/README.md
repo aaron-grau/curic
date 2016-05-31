@@ -145,8 +145,9 @@
 * [:movie_camera: (cc) 07 CSRF Protection][auth-07-csrf-protection] (12 min)
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
-### Homeworks (30 min)
+### Homeworks (60 min)
 * Complete day 4 of [html curriculum][html-readme] (30 min)
+* [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources
 * [Cookies][cookies]
@@ -185,6 +186,8 @@
 
 [99-cats-part-ii]: projects/ninety_nine_cats_ii
 
+[rails-auth-homework]: homeworks/questions/rails_auth.md
+
 ## w4d4
 
 ### Video Lectures (39 min)
@@ -212,7 +215,7 @@
 [view-helpers]: readings/helpers.md
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
-[helpers-and-layouts-hw]: homeworks/helpers-and-layouts.md
+[helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
 [layout-video]: https://vimeo.com/168822741
