@@ -50,12 +50,15 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DomNodeCollection = __webpack_require__(2);
+	/* jshint esversion: 6 */
 	
-	var _docReadyCallbacks = [], _docReady = false;
+	const DomNodeCollection = __webpack_require__(2);
 	
-	function $l (arg){
-	  var returnValue;
+	const _docReadyCallbacks = [];
+	let _docReady = false;
+	
+	const $l = arg => {
+	  let returnValue;
 	  switch(typeof(arg)){
 	    case "function":
 	      registerDocReadyCallback(arg);
@@ -70,15 +73,12 @@
 	      break;
 	  }
 	  return returnValue;
-	}
+	};
 	
-	$l.extend = function(base){
-	  var otherObjs = Array.prototype.slice.call(arguments, 1);
-	  otherObjs.forEach(function(obj){
+	$l.extend = (base, ...otherObjs) => {
+	  otherObjs.forEach( obj => {
 	    for(var prop in obj){
-	      if (obj.hasOwnProperty(prop)){
-	        base[prop] = obj[prop];
-	      }
+	      base[prop] = obj[prop];
 	    }
 	  });
 	  return base;
@@ -144,6 +144,7 @@
 	});
 	
 	module.exports = $l;
+
 
 /***/ },
 /* 2 */
