@@ -1,51 +1,51 @@
+/* jshint esversion: 6 */
+
 function DomNodeCollection(nodes){
   // We coerce array-like objects to Arrays because NodeList has no
   // #forEach method. We should be able to count on the type of
   // `nodes` so that we can prevent TypeErrors later on. This is best
   // practice even in dynamically-typed languages.
-  this.nodes = Array.prototype.slice.call(nodes);
+  this.nodes = Array.from(nodes);
 }
 
 DomNodeCollection.prototype = {
-  each: function(cb){
+  each(cb){
     this.nodes.forEach(cb);
   },
-  on: function(eventName, callback){
-    this.each(function(node){
+  on(eventName, callback){
+    this.each( node => {
       node.addEventListener(eventName, callback);
-      var eventKey = "jqliteEvents-" + eventName;
+      const eventKey = "jqliteEvents-" + eventName;
       if (typeof node[eventKey] === "undefined") {
         node[eventKey] = [];
       }
       node[eventKey].push(callback);
     });
   },
-  off: function(eventName){
-    this.each(function(node){
-      var eventKey = "jqliteEvents-" + eventName;  
-      if (node[eventKey]){       
-        node[eventKey].forEach(function(callback){
+  off(eventName){
+    this.each( node => {
+      const eventKey = "jqliteEvents-" + eventName;
+      if (node[eventKey]){
+        node[eventKey].forEach( callback => {
           node.removeEventListener(eventName, callback);
         });
       }
       node[eventKey] = [];
     });
   },
-  html: function(html){
+  html(html){
     if(typeof html === "string"){
-      this.each(function(node){
-        node.innerHTML = html;
-      });
+      this.each( node => node.innerHTML = html );
     } else {
       if(this.nodes.length > 0){
         return this.nodes[0].innerHTML;
       }
     }
   },
-  empty: function(){
+  empty(){
     this.html('');
   },
-  append: function(children){
+  append(children){
     if (this.nodes.length > 0) return;
     if (typeof children === 'object' &&
         !(children instanceof DomNodeCollection)) {
@@ -54,64 +54,50 @@ DomNodeCollection.prototype = {
     }
 
     if (typeof children === "string") {
-      this.each(function (node) {
-        node.innerHTML += children;
-      });
+      this.each( node => node.innerHTML += children );
     } else if (children instanceof DomNodeCollection) {
       // You can't append the same child node to multiple parents,
       // so real jQuery duplicates the child nodes here, but we're
       // appending them to the first parent only.
-      var node = this.nodes[0];
-      children.each(function (childNode) {
-        node.appendChild(childNode);
-      });
+      const node = this.nodes[0];
+      children.each( childNode => node.appendChild(childNode) );
     }
   },
-  remove: function(){
-    this.each(function(node){
-      node.parentNode.removeChild(node);
-    });
+  remove(){
+    this.each( node => node.parentNode.removeChild(node) );
   },
-  attr: function(key, val){
+  attr(key, val){
     if(typeof val === "string"){
-      this.each(function(node){
-        node.setAttribute(key, val);
-      });
+      this.each( node => node.setAttribute(key, val) );
     } else {
       return this.nodes[0].getAttribute(key);
     }
   },
-  addClass: function(newClass){
-    this.each(function(node){
-      node.classList.add(newClass);
-    });
+  addClass(newClass){
+    this.each( node => node.classList.add(newClass) );
   },
-  removeClass: function(oldClass){
-    this.each(function(node){
-      node.classList.remove(oldClass);
-    });
+  removeClass(oldClass){
+    this.each( node => node.classList.remove(oldClass) );
   },
-  find: function(selector){
-    var foundNodes = [];
-    this.each(function(node){
-      var nodeList = node.querySelectorAll(selector);
-      foundNodes = foundNodes.concat([].slice.call(nodeList));
+  find(selector){
+    let foundNodes = [];
+    this.each( node => {
+      const nodeList = node.querySelectorAll(selector);
+      foundNodes = foundNodes.concat(Array.from(nodeList));
     });
     return new DomNodeCollection(foundNodes);
   },
-  children: function(){
-    var childNodes = [];
-    this.each(function(node){
-      var childNodeList = node.children;
-      childNodes = childNodes.concat([].slice.call(childNodeList));
+  children(){
+    let childNodes = [];
+    this.each( node => {
+      const childNodeList = node.children;
+      childNodes = childNodes.concat(Array.from(childNodeList));
     });
     return new DomNodeCollection(childNodes);
   },
-  parent: function(){
-    var parentNodes = [];
-    this.each(function(node){
-      parentNodes.push(node.parentNode);
-    });
+  parent(){
+    const parentNodes = [];
+    this.each( node => parentNodes.push(node.parentNode) );
     return new DomNodeCollection(parentNodes);
   }
 };
