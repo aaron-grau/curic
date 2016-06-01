@@ -1,9 +1,11 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
-var Store = require('flux/utils').Store;
-var _params = { minSeating: 1, maxSeating: 10 };
-var FilterConstants = require('../constants/filter_constants');
+/* jshint esversion: 6 */
 
-var FilterParamsStore = new Store(AppDispatcher);
+import AppDispatcher from '../dispatcher/dispatcher';
+import { Store } from 'flux/utils';
+import FilterConstants from '../constants/filter_constants';
+let _params = { minSeating: 1, maxSeating: 10 };
+
+const FilterParamsStore = new Store(AppDispatcher);
 
 FilterParamsStore.params = function () {
   return Object.assign({}, _params);
