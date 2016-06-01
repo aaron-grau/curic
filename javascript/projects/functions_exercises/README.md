@@ -42,7 +42,7 @@ Clock.prototype._tick = function () {
   // 2. Call printTime.
 };
 
-var clock = new Clock();
+const clock = new Clock();
 ```
 
 [setInterval-doc]: http://nodejs.org/api/globals.html#globals_setinterval_cb_ms
@@ -139,9 +139,9 @@ run.
 Here's a code skeleton:
 
 ```javascript
-var readline = require("readline");
+const readline = require("readline");
 
-var reader = readline.createInterface({
+const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -187,15 +187,13 @@ absurdBubbleSort([3, 2, 1], function (arr) {
 Write your own `myBind(context)` method. Add it to
 `Function.prototype`. You'll want to:
 
-1. Capture `this` (which is the function to bind) in a variable named
-   `fn`.
-2. Define and return an anonymous function.
-3. The anonymous function captures `fn` and `context`.
-4. In the anonymous function, call `Function#apply` on `fn`, passing
+1. Return an arrow function.
+2. The arrow function captures `this` and `context`.
+3. In the anonymous function, call `Function#apply` on `this`, passing
    the `context`.
 
 Assume the method you're binding doesn't take any arguments; we'll see
-tomorrow how to use the special `arguments` variable to fix this.
+tomorrow how to use the rest and spread operators to fix this.
 
 How would you test your "bind" method out?  Try out this example code:
 
@@ -204,19 +202,25 @@ function Lamp() {
    this.name = "a lamp";
 }
 
-var turnOn = function() {
+const turnOn = function() {
    console.log("Turning on " + this.name);
 }
 
-var lamp = new Lamp();
+const lamp = new Lamp();
 
 turnOn(); // should not work the way we want it to
 
-var boundTurnOn = turnOn.bind(lamp);
-var myBoundTurnOn = turnOn.myBind(lamp);
+const boundTurnOn = turnOn.bind(lamp);
+const myBoundTurnOn = turnOn.myBind(lamp);
 
 boundTurnOn(); // should say "Turning on a lamp"
 myBoundTurnOn(); // should say "Turning on a lamp"
 
 
 ```
+
+## Bonus Round
+
+After you finish the remaining projects for the day (Tic Tac Toe and Hanoi), go back and refactor the asynchronous exercises to use [ES6 Promises][promise].
+
+[promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise 
