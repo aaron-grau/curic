@@ -2,7 +2,7 @@
 
 The <head></head> section of an HTML document contains important information about the page such as title, description, external style sheets, scripts and more.
 
-This information does not render as content and therefore does not belong in the <body></body>.
+This information does not render as content and therefore does not belong in the `<body></body>`.
 
 ### Title
 
