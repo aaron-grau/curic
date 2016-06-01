@@ -1,11 +1,13 @@
-var AppDispatcher = require('../dispatcher/dispatcher.js');
-var Store = require('flux/utils').Store;
-var SessionConstants = require('../constants/session_constants');
-var FavoriteConstants = require('../constants/favorite_constants');
+/* jshint esversion: 6 */
 
-var SessionStore = new Store(AppDispatcher);
+import AppDispatcher from '../dispatcher/dispatcher.js';
+import { Store } from 'flux/utils';
+import SessionConstants from '../constants/session_constants';
+import FavoriteConstants from '../constants/favorite_constants';
 
-var _currentUser = {}, 
+const SessionStore = new Store(AppDispatcher);
+
+let _currentUser = {},
     _currentUserHasBeenFetched = false;
 
 function _login(currentUser) {

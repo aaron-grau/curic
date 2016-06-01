@@ -1,9 +1,11 @@
-var Store = require('flux/utils').Store;
-var _benches = {};
-var BenchConstants = require('../constants/bench_constants');
-var FavoriteConstants = require('../constants/favorite_constants.js');
-var AppDispatcher = require('../dispatcher/dispatcher');
-var BenchStore = window.BenchStore = new Store(AppDispatcher);
+/* jshint esversion: 6 */
+
+import { Store } from 'flux/utils';
+import BenchConstants from '../constants/bench_constants';
+import FavoriteConstants from '../constants/favorite_constants.js';
+import AppDispatcher from '../dispatcher/dispatcher';
+const BenchStore = new Store(AppDispatcher);
+let _benches = {};
 
 BenchStore.all = function () {
   return Object.assign({}, _benches);

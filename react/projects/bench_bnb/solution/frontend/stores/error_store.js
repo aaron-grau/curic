@@ -1,24 +1,26 @@
-var Store = require('flux/utils').Store;
-var AppDispatcher = require('../dispatcher/dispatcher');
-var ErrorConstants = require('../constants/error_constants');
-var ErrorStore = new Store(AppDispatcher);
+/* jshint esversion: 6 */
 
-var _errors = {};
-var _form = "";
+import { Store } from 'flux/utils';
+import AppDispatcher from '../dispatcher/dispatcher';
+import ErrorConstants from '../constants/error_constants';
+
+const ErrorStore = new Store(AppDispatcher);
+let _errors = {};
+let _form = "";
 
 ErrorStore.formErrors = function (form) {
   if (form !== _form) {
     return {};
   }
-  
+
   var result = {};
-  
+
   var errors;
   Object.keys(_errors).forEach(function (field) {
     errors = _errors[field];
     result[field] = errors.slice();
   });
-  
+
   return result;
 };
 
