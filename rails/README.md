@@ -245,7 +245,7 @@
 * [RedditClone][reddit-clone]
 
 [polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-[concerns-reading]: https://richonrails.com/articles/rails-4-code-concerns-in-active-record-models
+[concerns-reading]: readings/concerns.md
 [16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
 [17-checkboxes-1]: http://vimeo.com/groups/appacademy/videos/100780887
 [18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
