@@ -61,8 +61,8 @@ Most browsers have happily adopted the new ES6 Standard and should be fully (or 
 
 So, what do we do for browsers that have not yet integrated ES6's new features? A few options:
 
-1. Ignore them. This isn't the most viable option for apps in production, since there are bound to be users who still utilize ES6-incompatible browsers. For the next few days, however, stick with Chrome and everything should go according to plan.
-2. Use a polyfill. This means that we test for the existence of a certain function or property and provide a hand-spun version if one doesn't exist. For example:
+1. **Ignore them.** This isn't the most viable option for apps in production, since there are bound to be users who still utilize ES6-incompatible browsers. For the next few days, however, stick with Chrome and everything should go according to plan.
+2. **Use a polyfill.** This means that we test for the existence of a certain function or property and provide a hand-spun version if one doesn't exist. For example:
 
 ```JavaScript
 if (!String.prototype.includes) {
@@ -85,7 +85,7 @@ Often, MDN provides polyfills for applicable functions. The above is copied from
 
 As one might imagine, including polyfills for every ES6 function you use in every file can be somewhat exhausting, annoying, and ugly. Polyfills provide a quick stopgap, but we can do better which brings us to solution number three.
 
-3. Compile to ES5. Yup, seems a little counterintuitive - why even bother writing ES6 if we're just going to translate back to ES5 anyways? The answer: ES6 provides us with several elegant and useful features. We like ES6, and hope that it'll one day be compatible with all browser environments. In the meantime, we can use simple tools like [Babel][babel] to compile our ES6 and maintain backwards compatibility. Ultimately, this is the solution that we will use when we move forth to React. More instructions on how to use babel when the time comes.
+3. **Compile to ES5.** Yup, seems a little counterintuitive - why even bother writing ES6 if we're just going to translate back to ES5 anyways? The answer: ES6 provides us with several elegant and useful features. We like ES6, and hope that it'll one day be compatible with all browser environments. In the meantime, we can use simple tools like [Babel][babel] to compile our ES6 and maintain backwards compatibility. Ultimately, this is the solution that we will use when we move forth to React. More instructions on how to use babel when the time comes.
 
 [compatibility-table]: https://kangax.github.io/compat-table/es6/
 [mdn-includes]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
