@@ -34,6 +34,7 @@
 [mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 [codecademy-js]: http://www.codecademy.com/tracks/javascript
 [mdn-js-doc]: readings/mdn-js.md
+[style-guide]: https://github.com/airbnb/javascript
 
 ## w5d4
 
