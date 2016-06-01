@@ -197,3 +197,48 @@ module.exports.Bishop = require("./bishop");
 
 I like our way of reassigning the whole `module.exports` better. But
 this way would also work.
+
+## One More One More Thing
+
+In ES6, we can write export statements a differently. These new ways of writing export statements don't work in Node, but are starting to be used in frontend development. The command `export default` is similar to `module.exports`, as shown below.
+
+```js
+// ./cat.js
+class Cat () {
+  meow () {
+    // ...
+  }
+};
+
+export default Cat;
+
+// ./dog.js
+class Dog () {
+  bark () {
+    // ...
+  };
+};
+
+export default Dog;
+
+// ./animals.js
+import Cat from "./cat";
+import Dog from "./dog";
+
+var cat = new Cat();
+var dog = new Dog();
+
+cat.meow();
+dog.bark();
+```
+
+ES6 also allows us to export specific named functions and constants, and load them by name in other files.
+
+```js
+// ./silly.js
+export const funString = "THIS IS MY EXPORTED STRING";
+
+// ./main.js
+import {funString} from "./silly";
+console.log(funString); //=> THIS IS MY EXPORTED STRING
+```
