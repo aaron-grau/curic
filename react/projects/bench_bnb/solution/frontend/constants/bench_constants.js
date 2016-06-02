@@ -3,4 +3,4 @@ const BenchConstants = {
   BENCH_RECEIVED: "BENCH_RECEIVED"
 };
 
-module.exports = BenchConstants;
+export default BenchConstants;

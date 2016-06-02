@@ -3,4 +3,4 @@ const SessionConstants = {
 	LOGOUT: "LOGOUT"
 };
 
-module.exports = SessionConstants;
+export default SessionConstants;

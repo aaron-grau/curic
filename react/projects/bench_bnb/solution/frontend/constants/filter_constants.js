@@ -4,4 +4,4 @@ const FilterConstants = {
   UPDATE_MAX_SEATING: "UPDATE_MAX_SEATING"
 };
 
-module.exports = FilterConstants;
+export default FilterConstants;

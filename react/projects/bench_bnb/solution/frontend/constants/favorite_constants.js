@@ -3,4 +3,4 @@ const FavoriteConstants = {
   FAVORITE_REMOVED: "FAVORITE_REMOVED"
 };
 
-module.exports = FavoriteConstants;
+export default FavoriteConstants;
