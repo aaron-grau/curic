@@ -1,13 +1,13 @@
 import React from 'react';
 import {hashHistory} from 'react-router';
 
-var IndexItem = React.createClass({
-  handleClick: function() {
-    var benchID = this.props.bench.id;
+const IndexItem = React.createClass({
+  handleClick() {
+    const benchID = this.props.bench.id;
     hashHistory.push("benches/" + benchID );
   },
-  render: function(){
-    var bench = this.props.bench;
+  render() {
+    const bench = this.props.bench;
 
     return (
         <div className="bench-index-item"
