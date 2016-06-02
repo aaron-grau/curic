@@ -8,21 +8,21 @@ const SessionStore = new Store(AppDispatcher);
 let _currentUser = {},
     _currentUserHasBeenFetched = false;
 
-_login = currentUser => {
+const _login = currentUser => {
   _currentUser = currentUser;
   _currentUserHasBeenFetched = true;
 };
 
-_logout = () => {
+const _logout = () => {
   _currentUser = {};
   _currentUserHasBeenFetched = true;
 };
 
-_addFavorite = benchId => {
+const _addFavorite = benchId => {
   _currentUser.favorite_benches.push(parseInt(benchId));
 };
 
-_removeFavorite = benchId => {
+const _removeFavorite = benchId => {
   const benchIdx = _currentUser.favorite_benches.indexOf(parseInt(benchId));
   _currentUser.favorite_benches.splice(benchIdx, 1);
 };
