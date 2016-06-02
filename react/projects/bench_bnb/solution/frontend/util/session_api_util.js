@@ -2,18 +2,14 @@ import SessionActions from './../actions/session_actions';
 import ErrorActions from './../actions/error_actions';
 
 const SessionApiUtil = {
-	login: function (credentials) {
+	login(credentials) {
 		$.ajax({
 			url: '/api/session',
 			type: 'POST',
 			data: {user: credentials},
-			success: function (currentUser) {
-        console.log("Login success (SessionApiUtil#login)");
-        SessionActions.receiveCurrentUser(currentUser);
-      },
-			error: function (xhr) {
-			  console.log("Login error in SessionApiUtil#login");
-        var errors = xhr.responseJSON;
+			success: SessionActions.receiveCurrentUser(currentUser), //TODO this work?
+			error(xhr) {
+        const errors = xhr.responseJSON;
 	      ErrorActions.setErrors("login", errors);
 			}
 		});
@@ -48,4 +44,4 @@ const SessionApiUtil = {
 	}
 };
 
-module.exports = SessionApiUtil;
+export default SessionApiUtil;

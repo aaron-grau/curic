@@ -2,21 +2,15 @@ import ServerActions from '../actions/server_actions';
 import FilterParamsStore from '../stores/filter_params';
 
 var ApiUtil = {
-  fetchBenches: function(filters){
-    $.get('api/benches', filters, function(benches){
-      ServerActions.receiveAll(benches);
-    });
+  fetchBenches(filters){
+    $.get('api/benches', filters, ServerActions.receiveAll); //TODO this work?
   },
-  createBench: function(data){
-    $.post('api/benches', { bench: data }, function(bench) {
-      ServerActions.receiveSingleBench(bench);
-    });
+  createBench(data){
+    $.post('api/benches', { bench: data }, ServerActions.receiveSingleBench);
   },
-  createReview: function(data) {
-    $.post('api/reviews', { review: data }, function (bench) {
-      ServerActions.receiveSingleBench(bench);
-    });
+  createReview(data) {
+    $.post('api/reviews', { review: data }, ServerActions.receiveSingleBench);
   }
 };
 
-module.exports = ApiUtil;
+export default ApiUtil;

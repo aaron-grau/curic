@@ -4,7 +4,7 @@ const FavoriteApiUtil = {
       url: 'api/favorites',
       type: 'POST',
       data: { favorite: data },
-      success: success
+      success
     });
   },
 
@@ -13,9 +13,9 @@ const FavoriteApiUtil = {
       url: 'api/favorites',
       type: 'DELETE',
       data: { favorite: data },
-      success: success
+      success
     });
   }
 };
 
-module.exports = FavoriteApiUtil;
+export default FavoriteApiUtil;
