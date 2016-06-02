@@ -7,7 +7,7 @@ let _benches = {};
 
 BenchStore.all = () => Object.assign({}, _benches);
 
-BenchStore.find = () => Object.assign({}, _benches[id]);
+BenchStore.find = id => Object.assign({}, _benches[id]);
 
 BenchStore.addFavorite = (benchId, userId) => {
   _benches[benchId].favorite_users.push(parseInt(userId));
@@ -21,9 +21,8 @@ BenchStore.removeFavorite = (benchId, userId) => {
 BenchStore.__onDispatch = payload => {
   switch(payload.actionType) {
     case BenchConstants.BENCHES_RECEIVED:
-      payload.benches.forEach( bench => {
-        _benches[bench.id] = bench;
-      });
+      // debugger;
+      _benches = payload.benches;
       BenchStore.__emitChange();
       break;
     case BenchConstants.BENCH_RECEIVED:
