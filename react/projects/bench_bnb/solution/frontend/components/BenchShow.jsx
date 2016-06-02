@@ -6,28 +6,32 @@ import Bench from './Bench';
 import Map from './Map';
 import ClientActions from '../actions/client_actions';
 
-var BenchShow = React.createClass({
-  getInitialState: function () {
-    var benchId = this.props.params.benchId;
-    var bench = BenchStore.find(benchId) || {} ;
+const BenchShow = React.createClass({
+  getInitialState() {
+    const benchId = this.props.params.benchId;
+    const bench = BenchStore.find(benchId) || {} ;
     return { bench: bench };
   },
-  componentDidMount: function () {
+
+  componentDidMount() {
     this.benchListener = BenchStore.addListener(this._benchChanged);
-    var params = FilterParamsStore.params();
+    const params = FilterParamsStore.params();
     ClientActions.fetchBenches(params);
   },
-  componentWillUnmount: function () {
+
+  componentWillUnmount() {
     this.benchListener.remove();
   },
-  _benchChanged: function () {
-    var benchId = this.props.params.benchId;
-    var bench = BenchStore.find(benchId);
+
+  _benchChanged() {
+    const benchId = this.props.params.benchId;
+    const bench = BenchStore.find(benchId);
     this.setState({ bench: bench });
   },
-  render: function () {
-    var reviewURL = "/benches/" + this.state.bench.id + "/review";
-    var benches = {};
+
+  render() {
+    const reviewURL = "/benches/" + this.state.bench.id + "/review";
+    const benches = {};
     benches[this.state.bench.id] = this.state.bench;
     return (
         <div>
@@ -47,4 +51,4 @@ var BenchShow = React.createClass({
   }
 });
 
-module.exports = BenchShow;
+export default BenchShow;
