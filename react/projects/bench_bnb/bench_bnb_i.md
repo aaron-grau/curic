@@ -55,18 +55,18 @@ export default new Dispatcher();
 
 ```javascript
 //stores/bench.js
-var Store = require('flux/utils').Store;
-var AppDispatcher = require('../dispatcher/dispatcher');
-var _benches = {};
-var BenchStore = new Store(AppDispatcher);
+import { Store } from 'flux/utils');
+import AppDispatcher from '../dispatcher/dispatcher';
+let _benches = {};
+const BenchStore = new Store(AppDispatcher);
+
+window.BenchStore = BenchStore; //Just for testing
 
 BenchStore.all = function () {
   return Object.assign({}, _benches);
 };
 
-window.BenchStore = BenchStore; //Just for testing
-
-module.exports = BenchStore
+export default BenchStore;
 ```
 We require the `Store` class from the `flux` npm module and then create a new
 store by passing in our `AppDispatcher`. This links the store to the dispatcher
@@ -85,14 +85,14 @@ so it will receive actions that are dispatched.
 ```javascript
 //util/api_util.js
 ApiUtil = {
-  fetchBenches: function(){
+  fetchBenches(){
     //make an api call using AJAX in here
   }
 }
 
 window.ApiUtil = ApiUtil; //Just for testing
 
-module.exports = ApiUtil;
+export default ApiUtil;
 ```
 
 * The success callback of the AJAX will contain all the bench objects,
@@ -138,10 +138,10 @@ module.exports = BenchConstants;
   `BenchConstants.BENCHES_RECEIVED`
 
 ```javascript
-var AppDispatcher = require('../dispatcher/dispatcher');
-var BenchConstants = require('../constants/bench_constants');
+import AppDispatcher from '../dispatcher/dispatcher';
+import BenchConstants from '../constants/bench_constants';
 ServerActions = {
-  receiveAll: function(benches){
+  receiveAll(benches){
     AppDispatcher.dispatch({
       actionType: BenchConstants.BENCHES_RECEIVED,
       benches: benches
@@ -149,7 +149,7 @@ ServerActions = {
   }
 }
 
-module.exports = ServerActions;
+export default ServerActions;
 ```
 
 ##### Putting it all together
@@ -164,7 +164,7 @@ module.exports = ServerActions;
 
 ```javascript
 //stores/bench.js
-  var BenchConstants = require('../constants/bench_constants');
+  import BenchConstants from '../constants/bench_constants';
 
   BenchStore.__onDispatch = function (payload) {
     switch(payload.actionType) {
@@ -197,7 +197,7 @@ module.exports = ServerActions;
   BenchStore.__onDispatch = function (payload) {
    switch(payload.actionType) {
      case BenchConstants.BENCHES_RECEIVED:
-       var result = resetBenches(payload.benches);
+       resetBenches(payload.benches);
          BenchStore.__emitChange();
          break;
     }
@@ -219,14 +219,14 @@ the store runs `__emitChange()`;
   * Use your `ClientActions` to call `ApiUtil.fetchBenches`. It should look like:
 
   ```javascript
-  //actions/client_actions.js
-  var ApiUtil = require('../util/api_util');
+    //actions/client_actions.js
+    import ApiUtil from '../util/api_util';
 
-  var ClientActions = {
-    fetchBenches: ApiUtil.fetchBenches
-  };
+    const ClientActions = {
+      fetchBenches: ApiUtil.fetchBenches
+    };
 
-  module.exports = ClientActions;
+    default export ClientActions;
   ```
 
 * Here's the summary:
@@ -263,9 +263,9 @@ the store runs `__emitChange()`;
 ```javascript
     //components/map.jsx
     //...
-    componentDidMount: function(){
-      var mapDOMNode = this.refs.map;
-      var mapOptions = {
+    componentDidMount(){
+      const mapDOMNode = this.refs.map;
+      const mapOptions = {
         center: {lat: 37.7758, lng: -122.435},
         zoom: 13
       };
