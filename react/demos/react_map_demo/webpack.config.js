@@ -1,15 +1,14 @@
 module.exports = {
   context: __dirname,
-  entry: "./react_minesweeper.jsx",
+  entry: "./map.jsx",
   output: {
-    path: "./",
-    filename: "bundle.js"
+    filename: "./bundle.js",
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
           presets: ['react']
@@ -18,6 +17,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ["", ".js", ".jsx" ]
   }
 };
