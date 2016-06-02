@@ -5,7 +5,7 @@ import ClientActions from '../actions/client_actions';
 import Filters from './Filters';
 import Index from './Index';
 import Map from './Map';
-import {hashHistory} from 'react-router';
+import { hashHistory } from 'react-router';
 
 
 const Search = React.createClass({
