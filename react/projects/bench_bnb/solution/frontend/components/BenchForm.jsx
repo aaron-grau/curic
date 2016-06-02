@@ -3,32 +3,32 @@ import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import ClientActions from '../actions/client_actions';
 import { hashHistory } from 'react-router';
 
-var BenchForm = React.createClass({
-  mixins: [LinkedStateMixin],
-  getInitialState: function(){
+const BenchForm = React.createClass({
+  mixins: [LinkedStateMixin], //TODO now depricated
+  getInitialState() {
     return {
       description: "",
       seating: 2
     };
   },
-  handleSubmit: function(event){
+  handleSubmit(event) {
     event.preventDefault();
-    var bench = Object.assign({}, this.state, this._coords());
+    const bench = Object.assign({}, this.state, this._coords());
     ClientActions.createBench(bench);
     this.navigateToSearch();
   },
-  navigateToSearch: function(){
+  navigateToSearch() {
     hashHistory.push("/");
   },
-  handleCancel: function(event){
+  handleCancel(event) {
     event.preventDefault();
     this.navigateToSearch();
   },
-  _coords: function(){
+  _coords() {
     return this.props.location.query;
   },
-  render: function(){
-    var lat = this._coords().lat, lng = this._coords().lng;
+  render() {
+    const lat = this._coords().lat, lng = this._coords().lng;
     return (
         <div>
           <h3>Create A Bench!</h3>
@@ -53,4 +53,4 @@ var BenchForm = React.createClass({
   }
 });
 
-module.exports = BenchForm;
+export default BenchForm;
