@@ -1,7 +1,7 @@
 import React from 'react';
 
 var Review = React.createClass({
-  render: function () {
+  render() {
     return (
       <div>
       <ul>
@@ -13,4 +13,4 @@ var Review = React.createClass({
   }
 });
 
-module.exports = Review;
+export default Review;

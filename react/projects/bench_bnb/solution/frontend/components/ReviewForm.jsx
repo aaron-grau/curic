@@ -3,22 +3,25 @@ import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import {hashHistory} from 'react-router';
 import ClientActions from '../actions/client_actions';
 
-var ReviewForm = React.createClass({
+const ReviewForm = React.createClass({
   mixins: [LinkedStateMixin],
-  getInitialState: function () {
+  getInitialState() {
     return { rating: 5, body: "" };
   },
-  navigateToBenchShow: function () {
-    var benchUrl = "/benches/" + this.props.params.benchId;
+
+  navigateToBenchShow() {
+    const benchUrl = "/benches/" + this.props.params.benchId;
     hashHistory.push(benchUrl);
   },
-  handleCancel: function(event){
+
+  handleCancel(event) {
     event.preventDefault();
     this.navigateToBenchShow();
   },
-  handleSubmit: function(event){
+
+  handleSubmit(event) {
     event.preventDefault();
-    var review = $.extend(
+    const review = Object.assign(
       {},
       this.state,
       { bench_id: this.props.params.benchId }
@@ -26,7 +29,8 @@ var ReviewForm = React.createClass({
     ClientActions.createReview(review);
     this.navigateToBenchShow();
   },
-  render: function () {
+  
+  render() {
     return (
       <div className="review-form">
         <form onSubmit={this.handleSubmit}>
@@ -50,4 +54,4 @@ var ReviewForm = React.createClass({
  }
 });
 
-module.exports = ReviewForm;
+export default ReviewForm;
