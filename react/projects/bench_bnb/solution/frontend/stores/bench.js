@@ -5,6 +5,8 @@ import AppDispatcher from '../dispatcher/dispatcher';
 const BenchStore = new Store(AppDispatcher);
 let _benches = {};
 
+window.BenchStore = BenchStore;
+
 BenchStore.all = () => Object.assign({}, _benches);
 
 BenchStore.find = id => Object.assign({}, _benches[id]);
