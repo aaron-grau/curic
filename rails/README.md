@@ -221,7 +221,7 @@
 [layout-video]: https://vimeo.com/168822741
 [action-mailer-video]: https://vimeo.com/168810895
 
-[music-app-project]: projects/music_app.md
+[music-app-project]: projects/music_app
 
 ## w4d5
 
