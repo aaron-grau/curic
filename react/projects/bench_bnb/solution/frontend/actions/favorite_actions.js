@@ -2,23 +2,23 @@ import FavoriteApiUtil from '../util/favorite_api_util';
 import FavoriteConstants from '../constants/favorite_constants';
 import AppDispatcher from '../dispatcher/dispatcher';
 
-var FavoriteActions = {
-  createFavorite: function(data) {
+const FavoriteActions = {
+  createFavorite(data) {
     FavoriteApiUtil.createFavorite(data, this.receiveFavorite);
   },
 
-  deleteFavorite: function(data) {
+  deleteFavorite(data) {
     FavoriteApiUtil.deleteFavorite(data, this.removeFavorite);
   },
 
-  receiveFavorite: function(favorite){
+  receiveFavorite(favorite) {
     AppDispatcher.dispatch({
       actionType: FavoriteConstants.FAVORITE_RECEIVED,
       favorite: favorite
     });
   },
 
-  removeFavorite: function(favorite){
+  removeFavorite(favorite) {
     AppDispatcher.dispatch({
       actionType: FavoriteConstants.FAVORITE_REMOVED,
       favorite: favorite
@@ -26,4 +26,4 @@ var FavoriteActions = {
   }
 };
 
-module.exports = FavoriteActions;
+export default FavoriteActions;

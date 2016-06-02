@@ -37,8 +37,8 @@ frontend
 
 ```javascript
 //dispatcher/dispatcher.js
-var Dispatcher = require('flux').Dispatcher;
-module.exports = new Dispatcher();
+import { Dispatcher } from 'flux';
+export default new Dispatcher();
 ```
 * This file will now create and export a new Dispatcher
 
