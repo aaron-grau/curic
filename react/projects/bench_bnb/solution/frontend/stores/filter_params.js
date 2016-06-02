@@ -1,15 +1,13 @@
 import AppDispatcher from '../dispatcher/dispatcher';
 import { Store } from 'flux/utils';
 import FilterConstants from '../constants/filter_constants';
-let _params = { minSeating: 1, maxSeating: 10 };
 
+let _params = { minSeating: 1, maxSeating: 10 };
 const FilterParamsStore = new Store(AppDispatcher);
 
-FilterParamsStore.params = function () {
-  return Object.assign({}, _params);
-};
+FilterParamsStore.params = () => Object.assign({}, _params);
 
-FilterParamsStore.__onDispatch = function (payload) {
+FilterParamsStore.__onDispatch = payload => {
   switch(payload.actionType){
     case FilterConstants.UPDATE_MAX_SEATING:
       _params.maxSeating = payload.maxSeating;
@@ -26,4 +24,4 @@ FilterParamsStore.__onDispatch = function (payload) {
   }
 };
 
-module.exports = FilterParamsStore;
+export default FilterParamsStore;
