@@ -1,5 +1,3 @@
-/* jshint esversion: 6 */
-
 import { Store } from 'flux/utils';
 import AppDispatcher from '../dispatcher/dispatcher';
 import ErrorConstants from '../constants/error_constants';

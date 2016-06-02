@@ -1,4 +1,4 @@
-var ApiUtil = require('../util/api_util');
+import ApiUtil from '../util/api_util';
 
 var ClientActions = {
   fetchBenches: ApiUtil.fetchBenches,

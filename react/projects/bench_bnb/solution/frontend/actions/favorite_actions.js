@@ -1,6 +1,6 @@
-var FavoriteApiUtil = require('../util/favorite_api_util');
-var FavoriteConstants = require('../constants/favorite_constants');
-var AppDispatcher = require('../dispatcher/dispatcher');
+import FavoriteApiUtil from '../util/favorite_api_util';
+import FavoriteConstants from '../constants/favorite_constants';
+import AppDispatcher from '../dispatcher/dispatcher';
 
 var FavoriteActions = {
   createFavorite: function(data) {
