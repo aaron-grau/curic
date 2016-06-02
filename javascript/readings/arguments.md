@@ -4,7 +4,7 @@ Arguments in JS behave differently than they do in other languages.
 Namely, JavaScript functions will happily take fewer arguments than
 specified (in which case the unspecified arguments have value
 `undefined`), or extra arguments (they will be available in a special
-`arguments` array).
+`arguments` array-like object).
 
 ## Fewer Arguments
 
@@ -61,137 +61,79 @@ args.forEach(function (i) { console.log(i) });
 Holy cow. This works because `arguments` is `Array`-like enough for
 the `slice` method to work. Wow.
 
-## Exercises
+## Rest Arguments in ES6
 
-### `sum`
+Working with arguments in ES6 is easier than ever. Having to call slice `arguments` to work with it is kind of annoying - what if we could just use an actual array to capture the arguments? In ES6, we actually can capture remaining arguments using the `...` operator (Rest Operator).
 
-Write a `sum` function. This should take any number of arguments:
+The differences between `arguments` and Rest Parameters are:
 
-    sum(1, 2, 3, 4) == 10
-    sum(1, 2, 3, 4, 5) == 15
+* a) Rest Parameters only grab the un-named arguments
+* b) Rest Parameters give us back a real array, so we can use methods like `pop` and `sort`
 
-### `bind` with args
-
-Rewrite your `myBind` method so that it can optionally take some args
-to be partially applied.
-
-For example:
+Let's write a quick example method that will start by logging the first argument, followed by a list of the remaining arguments.
 
 ```javascript
-function Cat(name) {
-  this.name = name;
-};
 
-Cat.prototype.says = function (sound, person) {
-  console.log(this.name + " says " + sound + " to " + person + "!");
-  return true;
+function oldWay (firstArg) {
+  console.log(`The first arg is ${firstArg}!`);
+
+  // We grab the arguments and call slice with 1 to eliminate the firstArg
+  var otherArgs = Array.prototype.slice.call(arguments, 1);
+  console.log(`The other args are:`);
+
+  otherArgs.forEach((arg) => {
+    console.log(arg);
+  });
 }
 
-markov = new Cat("Markov");
-breakfast = new Cat("Breakfast");
+function newWay (firstArg, ...otherArgs) {
+  console.log(`The first arg is ${firstArg}!`);
 
-markov.says("meow", "Ned");
-// Markov says meow to Ned!
-// true
+  console.log(`The other args are:`);
 
-markov.says.myBind(breakfast, "meow", "Kush")();
-// Breakfast says meow to Kush!
-// true
-
-markov.says.myBind(breakfast)("meow", "a tree");
-// Breakfast says meow to a tree!
-// true
-
-markov.says.myBind(breakfast, "meow")("Markov");
-// Breakfast says meow to Markov!
-// true
-
-var notMarkovSays = markov.says.myBind(breakfast);
-notMarkovSays("meow", "me");
-// Breakfast says meow to me!
-// true
-
+  otherArgs.forEach((arg) => {
+    console.log(arg);
+  });
+}
 ```
 
-Within your `myBind` method, you'll have to define a new, anonymous
-function to be returned. Be careful: using `arguments` inside the
-anonymous function will not give you the `arguments` passed to
-`myBind`, because `arguments` is reset on every function invocation
-(just like `this`).
+Rest arguments are often simpler to use than the old `arguments` keyword and are stylistically preferred by companies that have adopted ES6. However, for the sake of interviews and for understanding JavaScript, it is important to understand both forms of grabbing arguments.
 
-That makes sense, because there are two arrays of `arguments` you care
-about: the extra `arguments` passed to `myBind`, and the `arguments`
-passed when the bound function is called.
+### Spread Parameters
 
-### `curriedSum`, `curry`
-
-**Functional programming** is another style of programming; it's an
-alternative to object-oriented programming, though the two styles can
-also be mixed. We'll learn more about it later, but in (very) brief,
-functional programming focuses on passing functions around, rather
-than objects.
-
-In functional programming, a common pattern is **currying**. Currying
-is the process of decomposing a function that takes multiple arguments
-into one that takes single arguments successively until it has the
-sufficient number of arguments to run. This technique is named after
-the logician Haskell Curry (the functional programming language
-Haskell is, too).
-
-Here's an example of two ways to use a `sumThree` function. The first
-is a typical version that takes 3 arguments; the second is a
-**curried** version:
+ES6 also allows us to use Spread Parameters, which is similar to the Ruby splat operator (`*`) for de-structuring parameters. We can now pass an array into a function with the `...` as shown below:
 
 ```javascript
-function sumThree(num1, num2, num3) {
-  return num1 + num2 + num3;
+
+function madLib (verb, pluralNoun1, pluralNoun2, place) {
+  return `I like to ${verb} ${pluralNoun1} with ${pluralNoun2} by the ${place}.`
 }
 
-sumThree(4, 20, 6); // == 30
+var words = ["eat", "socks", "rabbits", "sea"];
 
-// you'll write `Function#curry`!
-var f1 = sumThree.curry(3);
-var f2 = f1(4);
-var f3 = f2(20);
-var result = f3(6); // = 30
-
-// or more briefly:
-sumThree.curry(3)(4)(20)(6); // == 30
+console.log(madLib(...words));
 ```
 
-Note that the curried version returns functions at each step until it
-has the full number of arguments it needs. At this point it actually
-runs `sumThree` and returns the result.
-
-As a warmup, write a `curriedSum` function that takes an integer (how
-many numbers to sum) and returns a function that can be successively
-called with single arguments until it finally returns a sum. That is:
+We can de-structure arguments multiple times in a function call.
 
 ```javascript
-var sum = curriedSum(4);
-sum(5)(30)(20)(1); // => 56
+
+function myFunction(v, w, x, y, z) { }
+var args = [0, 1];
+myFunction(-1, ...args, 2, ...[3]);
+
 ```
 
-Hint: `curriedSum(numArgs)` should:
+### Default Values
 
-* Define an empty array, `numbers`.
-* Defines a function, `_curriedSum` that:
-    * Closes over `numArgs` and `numbers`.
-    * Takes a single number as an argument.
-    * Appends this to `numbers` each time.
-    * If `numbers.length === numArgs`, it sums the numbers in the array
-      and returns the result.
-    * Else, it returns itself.
-* Returns `_curriedSum`.
+Default values are new to ES6. We can now set default values in a way similar to Ruby.
 
-Intuitively, the `_curriedSum` function keeps collecting arguments and
-returning itself until it has enough arguments, at which point it
-actually does the required work of summing.
+```javascript
 
-Now that you're all limbered up, write a method
-`Function#curry(numArgs)`. This should return a function that will:
+function add(x, y = 17) {
+  // y is 12 if not passed (or passed as undefined)
+  return x + y;
+}
+f(3) === 20;
 
-* Collect up arguments until there are `numArgs` of them,
-* If there are too few arguments still, it should return itself.
-* When there are `numArgs` arguments, it should call the original
-  function. You'll want to use `apply`.
+```
