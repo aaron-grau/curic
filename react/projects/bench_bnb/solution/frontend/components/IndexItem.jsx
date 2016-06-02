@@ -25,4 +25,4 @@ const IndexItem = React.createClass({
   }
 });
 
-module.exports = IndexItem;
+export default IndexItem;
