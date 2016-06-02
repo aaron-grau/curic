@@ -16,19 +16,32 @@ import SessionApiUtil from './util/session_api_util';
 
 const appRouter = (
   <Router history={ hashHistory }>
-    <Route path="/" component={ App }>
+    <Route path="/" component={ App } onEnter={ _ensureUserFetched }>
       <IndexRoute component={ Search } />
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
-      <Route path="benches/new" component={ BenchForm } onEnter={ _ensureLoggedIn } />
+      <Route path="benches/new" component={ BenchForm } onEnter={ _ensureLoggedIn }/>
       <Route path="benches/:benchId" component={ BenchShow} >
-        <Route path="review" component={ ReviewForm } onEnter={ _ensureLoggedIn } />
+        <Route path="review" component={ ReviewForm } onEnter={ _ensureLoggedIn }/>
       </Route>
     </Route>
   </Router>
 );
 
+function _ensureUserFetched(nextState, replace, asyncDoneCallback){
+  //Any time we render the app, we want to ensure that we have already
+  //checked to see if the user is logged in. This should only fire once --
+  //when the user first visits our website / after a reload
+  if ( SessionStore.currentUserHasBeenFetched() ) {
+    asyncDoneCallback();
+  } else {
+    SessionApiUtil.fetchCurrentUser(asyncDoneCallback);
+  }
+}
+
 function _ensureLoggedIn(nextState, replace, asyncDoneCallback) {
+  // We don't want users to be able to visit our 'new' or 'review' routes
+  // if they haven't already signed in/up. Let's redirect them!
   // Router is in the process of entering a route.
   // Will wait for us to call the `asyncDoneCallback`
   // before it actually enters the route (and renders onto the page)

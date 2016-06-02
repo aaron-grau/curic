@@ -6,7 +6,7 @@ const IndexItem = React.createClass({
     const benchID = this.props.bench.id;
     hashHistory.push("benches/" + benchID );
   },
-  
+
   render() {
     const bench = this.props.bench;
 
