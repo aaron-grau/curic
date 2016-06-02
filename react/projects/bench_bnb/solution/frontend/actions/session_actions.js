@@ -3,16 +3,16 @@ import SessionApiUtil from '../util/session_api_util';
 import SessionStore from '../stores/session_store';
 import AppDispatcher from '../dispatcher/dispatcher';
 
-var SessionActions = {
+const SessionActions = {
 
-  receiveCurrentUser: function (currentUser) {
+  receiveCurrentUser(currentUser) {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGIN,
       currentUser: currentUser
     });
   },
 
-  removeCurrentUser: function () {
+  removeCurrentUser() {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGOUT
     });
@@ -20,4 +20,4 @@ var SessionActions = {
 
 };
 
-module.exports = SessionActions;
+export default SessionActions;

@@ -1,14 +1,14 @@
 import AppDispatcher from '../dispatcher/dispatcher';
 import BenchConstants from '../constants/bench_constants';
 
-var ApiActions = {
-  receiveAll: function(benches){
+const ApiActions = {
+  receiveAll(benches) {
     AppDispatcher.dispatch({
       actionType: BenchConstants.BENCHES_RECEIVED,
       benches: benches
     });
   },
-  receiveSingleBench: function(bench){
+  receiveSingleBench(bench) {
     AppDispatcher.dispatch({
       actionType: BenchConstants.BENCH_RECEIVED,
       bench: bench
@@ -16,4 +16,4 @@ var ApiActions = {
   }
 };
 
-module.exports = ApiActions;
+export default ApiActions;
