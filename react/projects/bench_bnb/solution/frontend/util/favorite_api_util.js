@@ -1,5 +1,4 @@
-
-var FavoriteApiUtil = {
+const FavoriteApiUtil = {
   createFavorite: function(data, success) {
     $.ajax({
       url: 'api/favorites',

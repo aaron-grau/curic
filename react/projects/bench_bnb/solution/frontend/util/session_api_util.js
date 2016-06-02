@@ -1,7 +1,7 @@
-var SessionActions = require('./../actions/session_actions');
-var ErrorActions = require('./../actions/error_actions');
+import SessionActions from './../actions/session_actions';
+import ErrorActions from './../actions/error_actions';
 
-var SessionApiUtil = {
+const SessionApiUtil = {
 	login: function (credentials) {
 		$.ajax({
 			url: '/api/session',
@@ -18,7 +18,7 @@ var SessionApiUtil = {
 			}
 		});
 	},
-  
+
 	logout: function () {
 		$.ajax({
 			url: '/api/session',
@@ -32,7 +32,7 @@ var SessionApiUtil = {
 			}
 		});
 	},
-  
+
 	fetchCurrentUser: function (complete) {
 		$.ajax({
 			url: '/api/session',

@@ -1,5 +1,5 @@
-var ServerActions = require('../actions/server_actions');
-var FilterParamsStore = require('../stores/filter_params');
+import ServerActions from '../actions/server_actions';
+import FilterParamsStore from '../stores/filter_params';
 
 var ApiUtil = {
   fetchBenches: function(filters){
