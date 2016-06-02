@@ -15,7 +15,7 @@ const SessionApiUtil = {
 		});
 	},
 
-	logout: function () {
+	logout() {
 		$.ajax({
 			url: '/api/session',
 			method: 'delete',
@@ -29,7 +29,7 @@ const SessionApiUtil = {
 		});
 	},
 
-	fetchCurrentUser: function (complete) {
+	fetchCurrentUser(complete) {
 		$.ajax({
 			url: '/api/session',
 			method: 'GET',
@@ -39,7 +39,9 @@ const SessionApiUtil = {
 			error: function (xhr) {
 			  console.log("Error in SessionApiUtil#fetchCurrentUser");
 			},
-      complete: complete
+      complete: function(){
+				complete();
+			}
 		});
 	}
 };
