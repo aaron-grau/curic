@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import SessionStore from './../stores/session_store';
+import SessionStore from '../stores/session_store';
 import SessionApiUtil from './../util/session_api_util';
 
 const App = React.createClass({
@@ -20,7 +20,7 @@ const App = React.createClass({
     			<h3>You have {numFavoriteBenches} favorite benches!</h3>
     		</hgroup>
     	);
-    } else if ( ["/login", "/signup"].includes(this.props.location.pathname) ) {
+    } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {
       return (
         <nav>
           <Link to="/login" activeClassName="current">Login</Link>
