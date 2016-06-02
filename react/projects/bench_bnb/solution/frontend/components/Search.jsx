@@ -8,15 +8,7 @@ import Map from './Map';
 import {hashHistory} from 'react-router';
 
 
-var Search = React.createClass({
-  _benchesChanged: function(){
-    this.setState({benches: BenchStore.all()});
-  },
-  _filtersChanged: function () {
-    var newParams = FilterParamsStore.params();
-    this.setState({ filterParams: newParams });
-    ClientActions.fetchBenches(newParams);
-  },
+const Search = React.createClass({
   getInitialState: function(){
     return {
       benches: BenchStore.all(),
@@ -24,16 +16,29 @@ var Search = React.createClass({
       clickedLoc: null,
     };
   },
+
+  _benchesChanged: function(){
+    this.setState({benches: BenchStore.all()});
+  },
+
+  _filtersChanged: function () {
+    const newParams = FilterParamsStore.params();
+    this.setState({ filterParams: newParams });
+    ClientActions.fetchBenches(newParams);
+  },
+
   componentDidMount: function(){
     this.benchListener = BenchStore.addListener(this._benchesChanged);
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
-    var filterParams = FilterParamsStore.params();
+    const filterParams = FilterParamsStore.params();
     ClientActions.fetchBenches(filterParams);
   },
+
   componentWillUnmount: function(){
     this.benchListener.remove();
     this.filterListener.remove();
   },
+
   render: function(){
     return(
       <div>
@@ -49,4 +54,4 @@ var Search = React.createClass({
   }
 });
 
-module.exports = Search;
+export default Search;
