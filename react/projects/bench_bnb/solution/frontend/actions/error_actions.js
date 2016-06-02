@@ -1,5 +1,5 @@
-import AppDispatcher from'../dispatcher/dispatcher';
-import ErrorConstants from'../constants/error_constants';
+import AppDispatcher from '../dispatcher/dispatcher';
+import ErrorConstants from '../constants/error_constants';
 
 var ErrorActions = {
   setErrors: function (form, errors) {

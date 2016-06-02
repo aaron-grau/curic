@@ -1,5 +1,5 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
-var FilterConstants = require('../constants/filter_constants');
+import AppDispatcher from '../dispatcher/dispatcher';
+import FilterConstants from '../constants/filter_constants';
 
 var FilterActions = {
   updateBounds: function (bounds) {
