@@ -1,5 +1,5 @@
-var React = require('react');
-var IndexItem = require('./IndexItem');
+import React from 'react';
+import IndexItem from './IndexItem';
 
 var Index = React.createClass({
   render: function(){

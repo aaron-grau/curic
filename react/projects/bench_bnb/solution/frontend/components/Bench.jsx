@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var Review = require('./Review');
-var SessionStore = require('../stores/session_store');
-var FavoriteActions = require('../actions/favorite_actions');
+import React from 'react';
+import ReactRouter from 'react-router';
+import Review from './Review';
+import SessionStore from '../stores/session_store';
+import FavoriteActions from '../actions/favorite_actions';
 
 var Bench = React.createClass({
   getInitialState: function() {

@@ -1,11 +1,11 @@
-var React = require('react');
-var BenchStore = require('../stores/bench');
-var FilterParamsStore = require('../stores/filter_params');
-var ClientActions = require('../actions/client_actions');
-var Filters = require('./Filters');
-var Index = require('./Index');
-var Map = require('./Map');
-var hashHistory = require('react-router').hashHistory;
+import React from 'react';
+import BenchStore from '../stores/bench';
+import FilterParamsStore from '../stores/filter_params';
+import ClientActions from '../actions/client_actions';
+import Filters from './Filters';
+import Index from './Index';
+import Map from './Map';
+import {hashHistory} from 'react-router';
 
 
 var Search = React.createClass({

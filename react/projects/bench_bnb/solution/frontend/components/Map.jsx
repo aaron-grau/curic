@@ -1,7 +1,7 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var FilterActions = require('../actions/filter_actions');
-var hashHistory = require('react-router').hashHistory;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import FilterActions from '../actions/filter_actions';
+import {hashHistory} from 'react-router';
 
 function _getCoordsObj(latLng) {
   return {

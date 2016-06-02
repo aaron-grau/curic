@@ -1,5 +1,5 @@
-var React = require('react');
-var FilterActions = require('../actions/filter_actions');
+import React from 'react';
+import FilterActions from '../actions/filter_actions';
 
 var Filters = React.createClass({
   maxSeatingChanged: function(e){
