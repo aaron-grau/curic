@@ -6,40 +6,41 @@ import SessionStore from './../stores/session_store';
 import ErrorStore from './../stores/error_store';
 import UserApiUtil from './../util/user_api_util';
 
-var LoginForm = React.createClass({
+const LoginForm = React.createClass({
 	mixins: [LinkedStateMixin],
 
-  getInitialState: function () {
+	contextTypes: {
+		router: React.PropTypes.object.isRequired
+	},
+
+  getInitialState() {
     return {
       username: "",
       password: ""
     };
   },
 
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
 
-  componentDidMount: function () {
+  componentDidMount() {
     this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount() {
     this.errorListener.remove();
     this.sessionListener.remove();
   },
 
-  redirectIfLoggedIn: function () {
+  redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
       this.context.router.push("/");
     }
   },
 
-	handleSubmit: function (e) {
+	handleSubmit(e) {
 		e.preventDefault();
 
-		var formData = {
+		const formData = {
 			username: this.state.username,
 			password: this.state.password
 		};
@@ -51,23 +52,23 @@ var LoginForm = React.createClass({
     }
 	},
 
-  fieldErrors: function (field) {
-    var errors = ErrorStore.formErrors(this.formType());
+  fieldErrors(field) {
+    const errors = ErrorStore.formErrors(this.formType());
     if (!errors[field]) { return; }
 
-    var messages = errors[field].map(function (errorMsg, i) {
+    const messages = errors[field].map( (errorMsg, i) => {
       return <li key={ i }>{ errorMsg }</li>;
     });
 
     return <ul>{ messages }</ul>;
   },
 
-  formType: function () {
+  formType() {
     return this.props.location.pathname.slice(1);
   },
 
-	render: function () {
-    var navLink;
+	render() {
+    let navLink;
     if (this.formType() === "login") {
       navLink = <Link to="/signup">sign up instead</Link>;
     } else {
@@ -99,4 +100,4 @@ var LoginForm = React.createClass({
 	}
 });
 
-module.exports = LoginForm;
+export default LoginForm;
