@@ -1,7 +1,7 @@
 import React from 'react';
 import BenchStore from '../stores/bench';
 import FilterParamsStore from '../stores/filter_params';
-import ClientActions from '../actions/client_actions';
+import BenchActions from '../actions/bench_actions';
 import Filters from './Filters';
 import Index from './Index';
 import Map from './Map';
@@ -22,16 +22,16 @@ const Search = React.createClass({
   },
 
   _filtersChanged() {
-    const newParams = FilterParamsStore.params();
-    this.setState({ filterParams: newParams });
-    ClientActions.fetchBenches(newParams);
+    const newFilters = FilterParamsStore.params();
+    this.setState({ filterParams: newFilters });
+    BenchActions.fetchBenches(newFilters);
   },
 
   componentDidMount() {
     this.benchListener = BenchStore.addListener(this._benchesChanged);
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
     const filterParams = FilterParamsStore.params();
-    ClientActions.fetchBenches(filterParams);
+    BenchActions.fetchBenches(filterParams);
   },
 
   componentWillUnmount() {

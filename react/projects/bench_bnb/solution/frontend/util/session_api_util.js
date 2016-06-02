@@ -1,41 +1,51 @@
-import SessionActions from './../actions/session_actions';
-import ErrorActions from './../actions/error_actions';
+//TODO remove:
+// import SessionActions from './../actions/session_actions';
+// import ErrorActions from './../actions/error_actions';
 
 const SessionApiUtil = {
-	login(credentials) {
+	signIn(user, success, error) {
 		$.ajax({
 			url: '/api/session',
 			type: 'POST',
-			data: {user: credentials},
-			success: SessionActions.receiveCurrentUser(currentUser), //TODO this work?
+			data: { user },
+			success,
 			error(xhr) {
-        const errors = xhr.responseJSON;
-	      ErrorActions.setErrors("login", errors);
+				const errors = xhr.responseJSON;
+				error("signin", errors);
 			}
 		});
 	},
 
-	logout() {
+	signOut(success) {
 		$.ajax({
 			url: '/api/session',
 			method: 'delete',
-			success: function () {
-        console.log("Logout success (SessionApiUtil#logout)");
-        SessionActions.removeCurrentUser();
-      },
+			success,
 			error: function () {
 			  console.log("Logout error in SessionApiUtil#logout");
 			}
 		});
 	},
 
-	fetchCurrentUser(complete) {
+	signUp(user, success, error) {
+		$.ajax({
+			url: '/api/user',
+			type: 'POST',
+			dataType: 'json',
+			data: { user },
+			success,
+			error(xhr) {
+				const errors = xhr.responseJSON;
+				error("signup", errors);
+			}
+		});
+	},
+
+	fetchCurrentUser(success, complete) {
 		$.ajax({
 			url: '/api/session',
 			method: 'GET',
-			success: function (currentUser) {
-			  SessionActions.receiveCurrentUser(currentUser);
-			},
+			success,
 			error: function (xhr) {
 			  console.log("Error in SessionApiUtil#fetchCurrentUser");
 			},

@@ -1,10 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
-import SessionApiUtil from './../util/session_api_util';
-import SessionStore from './../stores/session_store';
-import ErrorStore from './../stores/error_store';
-import UserApiUtil from './../util/user_api_util';
+import SessionActions from '../actions/session_actions';
+import SessionStore from '../stores/session_store';
+import ErrorStore from '../stores/error_store';
 
 const LoginForm = React.createClass({
 	mixins: [LinkedStateMixin],
@@ -45,9 +44,9 @@ const LoginForm = React.createClass({
 		};
 
     if (this.props.location.pathname === "/login") {
-      SessionApiUtil.login(formData);
+      SessionActions.signIn(formData);
     } else {
-      UserApiUtil.signup(formData);
+      SessionActions.signUp(formData);
     }
 	},
 

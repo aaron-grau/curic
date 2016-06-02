@@ -4,7 +4,7 @@ import FilterParamsStore from '../stores/filter_params';
 import { Link } from 'react-router';
 import Bench from './Bench';
 import Map from './Map';
-import ClientActions from '../actions/client_actions';
+import BenchActions from '../actions/bench_actions';
 
 const BenchShow = React.createClass({
   getInitialState() {
@@ -16,7 +16,7 @@ const BenchShow = React.createClass({
   componentDidMount() {
     this.benchListener = BenchStore.addListener(this._benchChanged);
     const params = FilterParamsStore.params();
-    ClientActions.fetchBenches(params);
+    BenchActions.fetchBenches(params);
   },
 
   componentWillUnmount() {

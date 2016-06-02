@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
 import SessionStore from '../stores/session_store';
-import SessionApiUtil from './../util/session_api_util';
+import SessionActions from '../actions/session_actions';
 
 const App = React.createClass({
 
   componentDidMount() {
     SessionStore.addListener(this.forceUpdate.bind(this));
+  },
+
+  _handleSignOut(){
+    SessionActions.signOut();
   },
 
   greeting() {
@@ -16,7 +20,7 @@ const App = React.createClass({
     	return (
     		<hgroup>
     			<h2>Hi, {SessionStore.currentUser().username}!</h2>
-    			<input type="submit" value="logout" onClick={ SessionApiUtil.logout } />
+    			<input type="submit" value="logout" onClick={ this._handleSignOut } />
     			<h3>You have {numFavoriteBenches} favorite benches!</h3>
     		</hgroup>
     	);

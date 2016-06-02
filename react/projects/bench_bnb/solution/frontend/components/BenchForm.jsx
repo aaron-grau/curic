@@ -1,6 +1,6 @@
 import React from 'react';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
-import ClientActions from '../actions/client_actions';
+import BenchActions from '../actions/bench_actions';
 import { hashHistory } from 'react-router';
 
 const BenchForm = React.createClass({
@@ -14,7 +14,7 @@ const BenchForm = React.createClass({
   handleSubmit(event) {
     event.preventDefault();
     const bench = Object.assign({}, this.state, this._coords());
-    ClientActions.createBench(bench);
+    BenchActions.createBench(bench);
     this.navigateToSearch();
   },
   navigateToSearch() {
