@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import {hashHistory} from 'react-router';
-import ClientActions from '../actions/client_actions';
+import BenchActions from '../actions/bench_actions';
 
 const ReviewForm = React.createClass({
   mixins: [LinkedStateMixin],
@@ -26,10 +26,10 @@ const ReviewForm = React.createClass({
       this.state,
       { bench_id: this.props.params.benchId }
     );
-    ClientActions.createReview(review);
+    BenchActions.createReview(review);
     this.navigateToBenchShow();
   },
-  
+
   render() {
     return (
       <div className="review-form">

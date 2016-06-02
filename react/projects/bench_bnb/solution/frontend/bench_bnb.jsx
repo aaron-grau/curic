@@ -12,7 +12,7 @@ import ReviewForm from './components/ReviewForm';
 import LoginForm from './components/LoginForm';
 //Auth
 import SessionStore from './stores/session_store';
-import SessionApiUtil from './util/session_api_util';
+import SessionActions from './actions/session_actions';
 
 const appRouter = (
   <Router history={ hashHistory }>
@@ -35,7 +35,7 @@ function _ensureUserFetched(nextState, replace, asyncDoneCallback){
   if ( SessionStore.currentUserHasBeenFetched() ) {
     asyncDoneCallback();
   } else {
-    SessionApiUtil.fetchCurrentUser(asyncDoneCallback);
+    SessionActions.fetchCurrentUser(asyncDoneCallback);
   }
 }
 
@@ -53,7 +53,7 @@ function _ensureLoggedIn(nextState, replace, asyncDoneCallback) {
   if (SessionStore.currentUserHasBeenFetched()) {
     redirectIfNotLoggedIn();
   } else {
-    SessionApiUtil.fetchCurrentUser(redirectIfNotLoggedIn);
+    SessionActions.fetchCurrentUser(redirectIfNotLoggedIn);
   }
 
   function redirectIfNotLoggedIn() {
