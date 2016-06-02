@@ -1,5 +1,5 @@
-var SessionActions = require('./../actions/session_actions');
-var ErrorActions = require('./../actions/error_actions');
+import SessionActions from './../actions/session_actions';
+import ErrorActions from './../actions/error_actions';
 
 var UserApiUtil = {
   signup: function (formData) {
