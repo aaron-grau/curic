@@ -22,7 +22,7 @@
 * Acquire and begin reading [Effective JavaScript][effective-js].
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
-* [Style Guide][style-guide] - Air BnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
+* [Style Guide][airbnb-style] - Air BnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
 
 [intro-to-js-i]: readings/js-intro-01.md
 [intro-to-js-ii]: readings/js-intro-02.md
@@ -34,7 +34,6 @@
 [mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 [codecademy-js]: http://www.codecademy.com/tracks/javascript
 [mdn-js-doc]: readings/mdn-js.md
-[style-guide]: https://github.com/airbnb/javascript
 
 ## w5d4
 
@@ -71,6 +70,7 @@
 * Style
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
+  *  [Air BnB][airbnb-style]
 
 ### Homeworks
 
@@ -89,6 +89,7 @@
 [ttt_node]: projects/ttt_node
 [crockford-style]: http://javascript.crockford.com/code.html
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
+[airbnb-style]: https://github.com/airbnb/javascript
 [loupe]: http://latentflip.com/loupe
 
 ## w5d6-w5d7
@@ -123,8 +124,9 @@
 * :movie_camera: Watch [Prototype Chain and Inheritance][proto-inherit] (20 min)
 * :movie_camera: Watch [Inheritance Demo][inherit-demo-video]  (20 min)
 
-### Readings (60 min)
+### Readings (70 min)
 
+* [Arguments][arguments] (10 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
 * [Effective JavaScript][effective-js]: Items 18-23, 30 (15 min)
 * [Modules in the Browser][browser-modules] (15 min)
@@ -139,7 +141,7 @@
 * [Client-side JavaScript][client-side-js]
 
 ### Projects  
-* [`arguments` exercises][arguments]
+* [`arguments` exercises][arguments-exercises]
 * [Prototypal Inheritance exercises][prototypal-inheritance]
 * [Asteroids project][asteroids-project]
 
@@ -148,6 +150,7 @@
 [arg-video]: https://vimeo.com/162115222
 [js-browser-video]: https://vimeo.com/162115224
 [arguments]: readings/arguments.md
+[arguments-exercises]: exercises/arguments_exercises
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [client-side-js]: readings/client-side-javascript.md
 [browser-modules]: readings/browser-modules.md
