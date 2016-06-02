@@ -10,100 +10,92 @@ function _getCoordsObj(latLng) {
   };
 }
 
-var mapOptions = {
+const mapOptions = {
   center: {lat: 37.773972, lng: -122.431297}, //San Francisco
   zoom: 13
 };
 
-var Map = React.createClass({
-  componentDidMount: function(){
-    var map = ReactDOM.findDOMNode(this.refs.map);
+const MapContainer = React.createClass({
+  componentDidMount() {
+    const map = ReactDOM.findDOMNode(this.refs.map);
     this.map = new google.maps.Map(map, mapOptions);
-    this.registerListeners();
     this.markers = [];
-    this.eachBench(this.createMarkerFromBench);
+    this.registerListeners();
+    this._onChange();
   },
-  eachBench: function(callback){
-    var benches = this.props.benches;
-    var keys = Object.keys(benches);
-    keys.forEach(function(key){
-      callback(benches[key]);
+
+  markersToRemove(){
+    return this.markers.filter( marker => {
+      return !this.props.benches.hasOwnProperty(marker.benchId);
     });
   },
 
-  componentDidUpdate: function () {
+  benchesToAdd(){
+    const currentBenchIds = this.markers.map( marker => marker.benchId );
+    const newBenches = this.props.benches;
+    const newBenchIds = Object.keys(newBenches);
+
+    return newBenchIds.reduce( (collection, benchId) => {
+      if (!currentBenchIds.includes(benchId)) {
+        return ( collection.concat( [newBenches[benchId]] ));
+      }
+    }, [] );
+  },
+
+  componentDidUpdate() {
     this._onChange();
   },
-  _onChange: function(){
-    var benchesToAdd = [];
-    var markersToRemove = [];
-    //Collect markers to remove
-    this.markers.forEach(function(marker){
-      if (!this.props.benches.hasOwnProperty(marker.benchId)){
-        markersToRemove.push(marker);
-      }
-    }.bind(this));
-    //Collect benches to add
-    var currentBenchIds = this.markers.map(function(marker){
-      return marker.benchId;
-    });
-    this.eachBench(function(bench){
-      if (!currentBenchIds.includes(bench.id)){
-        benchesToAdd.push(bench);
-      }
-    });
-    //Do the adding / removing
-    benchesToAdd.forEach(this.createMarkerFromBench);
-    markersToRemove.forEach(this.removeMarker);
+
+  _onChange() {
+    this.benchesToAdd().forEach(this.createMarkerFromBench);
+    this.markersToRemove().forEach(this.removeMarker);
   },
-  _handleClick: function(coords){
+
+  _handleClick(coords) {
     hashHistory.push({
       pathname: "benches/new",
       query: coords
     });
   },
-  registerListeners: function(){
-    var that = this;
-    google.maps.event.addListener(this.map, 'idle', function() {
-      var bounds = that.map.getBounds();
-      var northEast = _getCoordsObj(bounds.getNorthEast());
-      var southWest = _getCoordsObj(bounds.getSouthWest());
+
+  registerListeners() {
+    const that = this;
+    google.maps.event.addListener(this.map, 'idle', () => {
+      const mapBounds = that.map.getBounds();
+      const northEast = _getCoordsObj(mapBounds.getNorthEast());
+      const southWest = _getCoordsObj(mapBounds.getSouthWest());
       //actually issue the request
-      bounds = {
-        northEast: northEast,
-        southWest: southWest
-      };
+      const bounds = { northEast, southWest };
       FilterActions.updateBounds(bounds);
     });
-    google.maps.event.addListener(this.map, 'click', function(event) {
-      var coords = { lat: event.latLng.lat(), lng: event.latLng.lng() };
+    google.maps.event.addListener(this.map, 'click', event => {
+      const coords = { lat: event.latLng.lat(), lng: event.latLng.lng() };
       that._handleClick(coords);
     });
   },
-  createMarkerFromBench: function (bench) {
-    var pos = new google.maps.LatLng(bench.lat, bench.lng);
-    var marker = new google.maps.Marker({
+
+  createMarkerFromBench(bench) {
+    const pos = new google.maps.LatLng(bench.lat, bench.lng);
+    const marker = new google.maps.Marker({
       position: pos,
       map: this.map,
       benchId: bench.id
     });
-    marker.addListener('click', function () {
+    marker.addListener('click', () => {
       hashHistory.push("benches/" + bench.id );
     });
     this.markers.push(marker);
   },
-  removeMarker: function(marker){
-    for(var i = 0; i < this.markers.length; i++){
-      if (this.markers[i].benchId === marker.benchId){
-        this.markers[i].setMap(null);
-        this.markers.splice(i, 1);
-        break;
-      }
-    }
+
+  removeMarker(marker) {
+    const idx = this.markers.indexOf( marker );
+    this.markers[idx].setMap(null);
+    this.markers.splice(idx, 1);
   },
-  render: function(){
+
+  render() {
     return ( <div className="half" ref="map">Map</div>);
   }
 });
 
-module.exports = Map;
+export default MapContainer;
