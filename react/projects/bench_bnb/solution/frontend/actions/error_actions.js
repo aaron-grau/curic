@@ -1,8 +1,8 @@
 import AppDispatcher from '../dispatcher/dispatcher';
 import ErrorConstants from '../constants/error_constants';
 
-var ErrorActions = {
-  setErrors: function (form, errors) {
+const ErrorActions = {
+  setErrors(form, errors) {
     AppDispatcher.dispatch({
       actionType: ErrorConstants.SET_ERRORS,
       form: form,
@@ -10,11 +10,11 @@ var ErrorActions = {
     });
   },
 
-  clearErrors: function () {
+  clearErrors() {
     AppDispatcher.dispatch({
       actionType: ErrorConstants.CLEAR_ERRORS
     });
   }
 };
 
-module.exports = ErrorActions;
+export default ErrorActions;

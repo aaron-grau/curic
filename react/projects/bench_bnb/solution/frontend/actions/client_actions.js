@@ -1,9 +1,9 @@
 import ApiUtil from '../util/api_util';
 
-var ClientActions = {
+const ClientActions = {
   fetchBenches: ApiUtil.fetchBenches,
   createBench: ApiUtil.createBench,
   createReview: ApiUtil.createReview,
 };
 
-module.exports = ClientActions;
+export default ClientActions;
