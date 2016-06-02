@@ -5,24 +5,24 @@ import SessionStore from '../stores/session_store';
 import FavoriteActions from '../actions/favorite_actions';
 
 var Bench = React.createClass({
-  getInitialState: function() {
+  getInitialState() {
     return { currentUser: SessionStore.currentUser() };
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.sessionListener = SessionStore.addListener(this._userChanged);
   },
 
-  _userChanged: function() {
+  _userChanged() {
     this.setState({current_user: SessionStore.currentUser() });
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount() {
     this.sessionListener.remove();
   },
 
-  toggleFavorite: function() {
-    var data = {bench_id: this.props.bench.id};
+  toggleFavorite() {
+    const data = {bench_id: this.props.bench.id};
 
     if(this._isLiked() === "Like") {
       FavoriteActions.createFavorite(data);
@@ -31,12 +31,12 @@ var Bench = React.createClass({
     }
   },
 
-  _isLiked: function() {
-    var likeText = "Like";
-    var currentUser = this.state.currentUser;
+  _isLiked() {
+    let likeText = "Like";
+    const currentUser = this.state.currentUser;
 
     if(SessionStore.isUserLoggedIn()) {
-      var currentUserFavs = currentUser.favorite_benches;
+      const currentUserFavs = currentUser.favorite_benches;
 
       if (currentUserFavs.indexOf(this.props.bench.id) !== -1) {
         likeText = "Unlike";
@@ -46,8 +46,8 @@ var Bench = React.createClass({
     return likeText;
   },
 
-  render: function () {
-    var reviews = this.props.bench.reviews || [];
+  render() {
+    const reviews = this.props.bench.reviews || [];
     return (
       <div>
         <ul>
@@ -62,13 +62,11 @@ var Bench = React.createClass({
         <br/>
         <div className="reviews">
           <h3>Reviews</h3>
-          {reviews.map(function (review) {
-           return <Review key={review.id} {...review} />;
-         })}
+          { reviews.map( review => <Review key={review.id} {...review} />) }
         </div>
       </div>
     );
   }
 });
 
-module.exports = Bench;
+export default Bench;
