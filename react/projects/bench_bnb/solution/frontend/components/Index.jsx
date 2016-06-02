@@ -1,15 +1,15 @@
 import React from 'react';
 import IndexItem from './IndexItem';
 
-var Index = React.createClass({
-  render: function(){
-    var benches = this.props.benches;
-    var benchKeys = Object.keys(benches);
+const Index = React.createClass({
+  render() {
+    const benches = this.props.benches;
+    const benchKeys = Object.keys(benches);
     return (
       <div>
         <h1>Index</h1>
         {
-          benchKeys.map(function(key){
+          benchKeys.map( key => {
             return (<IndexItem
               bench={benches[key]}
               key={key} />);
@@ -20,4 +20,4 @@ var Index = React.createClass({
   }
 });
 
-module.exports = Index;
+export default Index;
