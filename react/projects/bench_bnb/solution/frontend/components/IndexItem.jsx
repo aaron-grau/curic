@@ -1,6 +1,6 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var hashHistory = require('react-router').hashHistory;
+import React from 'react';
+import ReactRouter from 'react-router';
+import {hashHistory} from 'react-router';
 
 var IndexItem = React.createClass({
   handleClick: function() {
@@ -9,7 +9,7 @@ var IndexItem = React.createClass({
   },
   render: function(){
     var bench = this.props.bench;
-    
+
     return (
         <div className="bench-index-item"
              onClick={this.handleClick}

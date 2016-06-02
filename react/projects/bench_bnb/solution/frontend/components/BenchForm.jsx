@@ -1,7 +1,7 @@
-var React = require('react');
-var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var ClientActions = require('../actions/client_actions');
-var hashHistory = require('react-router').hashHistory;
+import React from 'react';
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import ClientActions from '../actions/client_actions';
+import { hashHistory } from 'react-router';
 
 var BenchForm = React.createClass({
   mixins: [LinkedStateMixin],

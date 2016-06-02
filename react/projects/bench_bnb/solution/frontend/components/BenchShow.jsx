@@ -1,10 +1,10 @@
-var React = require('react');
-var BenchStore = require('../stores/bench');
-var FilterParamsStore = require('../stores/filter_params');
-var ReactRouter = require('react-router');
-var Bench = require('./Bench');
-var Map = require('./Map');
-var ClientActions = require('../actions/client_actions');
+import React from 'react';
+import BenchStore from '../stores/bench';
+import FilterParamsStore from '../stores/filter_params';
+import ReactRouter from 'react-router';
+import Bench from './Bench';
+import Map from './Map';
+import ClientActions from '../actions/client_actions';
 
 var BenchShow = React.createClass({
   getInitialState: function () {
@@ -13,7 +13,7 @@ var BenchShow = React.createClass({
     return { bench: bench };
   },
   componentDidMount: function () {
-    this.benchListener = BenchStore.addListener(this._benchChanged);  
+    this.benchListener = BenchStore.addListener(this._benchChanged);
     var params = FilterParamsStore.params();
     ClientActions.fetchBenches(params);
   },

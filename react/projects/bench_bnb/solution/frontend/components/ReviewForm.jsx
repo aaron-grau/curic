@@ -1,8 +1,8 @@
-var React = require('react');
-var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var ReactRouter = require('react-router');
-var hashHistory = ReactRouter.hashHistory;
-var ClientActions = require('../actions/client_actions');
+import React from 'react';
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import ReactRouter from 'react-router';
+import {hashHistory} from 'react-router';
+import ClientActions from '../actions/client_actions';
 
 var ReviewForm = React.createClass({
   mixins: [LinkedStateMixin],
