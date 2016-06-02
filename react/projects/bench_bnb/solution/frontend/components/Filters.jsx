@@ -1,25 +1,25 @@
 import React from 'react';
 import FilterActions from '../actions/filter_actions';
 
-var Filters = React.createClass({
-  maxSeatingChanged: function(e){
+const Filters = React.createClass({
+  maxSeatingChanged(e) {
     FilterActions.updateMaxSeating(e.target.value);
   },
-  minSeatingChanged: function (e) {
+  minSeatingChanged(e) {
     FilterActions.updateMinSeating(e.target.value);
   },
-  currentMax: function(){
+  currentMax() {
     return this.props.filterParams.maxSeating;
   },
-  currentMin: function(){
+  currentMin() {
     return this.props.filterParams.minSeating;
   },
-  updateSeating: function (min, max) {
+  updateSeating(min, max) {
     FilterActions.updateParams({
       seating: {min: min, max: max}
     });
   },
-  render: function(){
+  render() {
     return (
       <div>
         <label>Minimum Seats</label>
@@ -36,4 +36,4 @@ var Filters = React.createClass({
   }
 });
 
-module.exports = Filters;
+export default Filters;
