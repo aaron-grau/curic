@@ -3,15 +3,15 @@ import { Link } from 'react-router';
 import SessionStore from './../stores/session_store';
 import SessionApiUtil from './../util/session_api_util';
 
-var App = React.createClass({
+const App = React.createClass({
 
-  componentDidMount: function () {
+  componentDidMount() {
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
 
-  greeting: function(){
+  greeting() {
     if (SessionStore.isUserLoggedIn()) {
-      var numFavoriteBenches = SessionStore.currentUser().favorite_benches.length;
+      const numFavoriteBenches = SessionStore.currentUser().favorite_benches.length;
 
     	return (
     		<hgroup>
@@ -20,7 +20,7 @@ var App = React.createClass({
     			<h3>You have {numFavoriteBenches} favorite benches!</h3>
     		</hgroup>
     	);
-    } else if (["/login", "/signup"].indexOf(this.props.location.pathname) === -1) {
+    } else if ( ["/login", "/signup"].includes(this.props.location.pathname) ) {
       return (
         <nav>
           <Link to="/login" activeClassName="current">Login</Link>
@@ -31,7 +31,7 @@ var App = React.createClass({
     }
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <header>

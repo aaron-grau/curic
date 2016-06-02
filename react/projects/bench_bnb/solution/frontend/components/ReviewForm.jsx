@@ -1,6 +1,5 @@
 import React from 'react';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
-import ReactRouter from 'react-router';
 import {hashHistory} from 'react-router';
 import ClientActions from '../actions/client_actions';
 

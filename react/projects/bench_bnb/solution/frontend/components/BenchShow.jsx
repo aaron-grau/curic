@@ -1,7 +1,7 @@
 import React from 'react';
 import BenchStore from '../stores/bench';
 import FilterParamsStore from '../stores/filter_params';
-import ReactRouter from 'react-router';
+import { Link } from 'react-router';
 import Bench from './Bench';
 import Map from './Map';
 import ClientActions from '../actions/client_actions';
@@ -26,7 +26,6 @@ var BenchShow = React.createClass({
     this.setState({ bench: bench });
   },
   render: function () {
-    var Link = ReactRouter.Link;
     var reviewURL = "/benches/" + this.state.bench.id + "/review";
     var benches = {};
     benches[this.state.bench.id] = this.state.bench;

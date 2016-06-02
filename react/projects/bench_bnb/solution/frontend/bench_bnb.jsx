@@ -2,11 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 //Router
-import ReactRouter from 'react-router';
-const Router = ReactRouter.Router;
-const Route = ReactRouter.Route;
-const IndexRoute = ReactRouter.IndexRoute;
-const hashHistory = ReactRouter.hashHistory;
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 //Components
 import App from './components/App';
 import Search from './components/Search';
@@ -18,7 +14,7 @@ import LoginForm from './components/LoginForm';
 import SessionStore from './stores/session_store';
 import SessionApiUtil from './util/session_api_util';
 
-var appRouter = (
+const appRouter = (
   <Router history={ hashHistory }>
     <Route path="/" component={ App }>
       <IndexRoute component={ Search } />
@@ -63,7 +59,7 @@ function _ensureLoggedIn(nextState, replace, asyncDoneCallback) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-  var root = document.getElementById('content');
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.getElementById('content');
   ReactDOM.render(appRouter, root);
 });
