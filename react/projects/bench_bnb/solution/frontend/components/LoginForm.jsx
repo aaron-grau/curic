@@ -20,7 +20,6 @@ const LoginForm = React.createClass({
     };
   },
 
-
   componentDidMount() {
     this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
