@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactRouter from 'react-router';
 import {hashHistory} from 'react-router';
 
 var IndexItem = React.createClass({

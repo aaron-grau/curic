@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactRouter from 'react-router';
+import { Link } from 'react-router';
 import Review from './Review';
 import SessionStore from '../stores/session_store';
 import FavoriteActions from '../actions/favorite_actions';
@@ -48,7 +48,6 @@ var Bench = React.createClass({
 
   render: function () {
     var reviews = this.props.bench.reviews || [];
-    var Link = ReactRouter.Link;
     return (
       <div>
         <ul>
