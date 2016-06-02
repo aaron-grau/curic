@@ -9,7 +9,6 @@ const IndexItem = React.createClass({
 
   render() {
     const bench = this.props.bench;
-
     return (
         <div className="bench-index-item"
              onClick={this.handleClick}
