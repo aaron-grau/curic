@@ -1,5 +1,3 @@
-/* jshint esversion: 6 */
-
 import { Store } from 'flux/utils';
 import BenchConstants from '../constants/bench_constants';
 import FavoriteConstants from '../constants/favorite_constants.js';

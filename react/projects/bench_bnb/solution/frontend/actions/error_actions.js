@@ -1,5 +1,5 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
-var ErrorConstants = require('../constants/error_constants');
+import AppDispatcher from'../dispatcher/dispatcher';
+import ErrorConstants from'../constants/error_constants';
 
 var ErrorActions = {
   setErrors: function (form, errors) {
@@ -9,7 +9,7 @@ var ErrorActions = {
       errors: errors
     });
   },
-  
+
   clearErrors: function () {
     AppDispatcher.dispatch({
       actionType: ErrorConstants.CLEAR_ERRORS

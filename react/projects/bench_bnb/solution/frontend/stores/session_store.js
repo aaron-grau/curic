@@ -1,5 +1,3 @@
-/* jshint esversion: 6 */
-
 import AppDispatcher from '../dispatcher/dispatcher.js';
 import { Store } from 'flux/utils';
 import SessionConstants from '../constants/session_constants';

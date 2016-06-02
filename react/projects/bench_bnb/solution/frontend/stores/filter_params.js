@@ -1,5 +1,3 @@
-/* jshint esversion: 6 */
-
 import AppDispatcher from '../dispatcher/dispatcher';
 import { Store } from 'flux/utils';
 import FilterConstants from '../constants/filter_constants';
