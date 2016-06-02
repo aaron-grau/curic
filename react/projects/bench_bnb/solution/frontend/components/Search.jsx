@@ -9,7 +9,7 @@ import { hashHistory } from 'react-router';
 
 
 const Search = React.createClass({
-  getInitialState: function(){
+  getInitialState() {
     return {
       benches: BenchStore.all(),
       filterParams: FilterParamsStore.params(),
@@ -17,29 +17,29 @@ const Search = React.createClass({
     };
   },
 
-  _benchesChanged: function(){
+  _benchesChanged() {
     this.setState({benches: BenchStore.all()});
   },
 
-  _filtersChanged: function () {
+  _filtersChanged() {
     const newParams = FilterParamsStore.params();
     this.setState({ filterParams: newParams });
     ClientActions.fetchBenches(newParams);
   },
 
-  componentDidMount: function(){
+  componentDidMount() {
     this.benchListener = BenchStore.addListener(this._benchesChanged);
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
     const filterParams = FilterParamsStore.params();
     ClientActions.fetchBenches(filterParams);
   },
 
-  componentWillUnmount: function(){
+  componentWillUnmount() {
     this.benchListener.remove();
     this.filterListener.remove();
   },
 
-  render: function(){
+  render() {
     return(
       <div>
         <h5>Click Map to Add Bench!</h5>

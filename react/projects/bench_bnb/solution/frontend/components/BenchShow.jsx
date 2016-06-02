@@ -10,7 +10,7 @@ const BenchShow = React.createClass({
   getInitialState() {
     const benchId = this.props.params.benchId;
     const bench = BenchStore.find(benchId) || {} ;
-    return { bench: bench };
+    return { bench };
   },
 
   componentDidMount() {
@@ -26,7 +26,7 @@ const BenchShow = React.createClass({
   _benchChanged() {
     const benchId = this.props.params.benchId;
     const bench = BenchStore.find(benchId);
-    this.setState({ bench: bench });
+    this.setState({ bench });
   },
 
   render() {

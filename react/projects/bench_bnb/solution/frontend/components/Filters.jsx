@@ -5,20 +5,25 @@ const Filters = React.createClass({
   maxSeatingChanged(e) {
     FilterActions.updateMaxSeating(e.target.value);
   },
+
   minSeatingChanged(e) {
     FilterActions.updateMinSeating(e.target.value);
   },
+
   currentMax() {
     return this.props.filterParams.maxSeating;
   },
+
   currentMin() {
     return this.props.filterParams.minSeating;
   },
+
   updateSeating(min, max) {
     FilterActions.updateParams({
-      seating: {min: min, max: max}
+      seating: { min, max}
     });
   },
+
   render() {
     return (
       <div>
