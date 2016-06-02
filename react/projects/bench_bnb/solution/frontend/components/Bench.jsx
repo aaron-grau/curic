@@ -35,7 +35,7 @@ var Bench = React.createClass({
     var likeText = "Like";
     var currentUser = this.state.currentUser;
 
-    if(currentUser) {
+    if(SessionStore.isUserLoggedIn()) {
       var currentUserFavs = currentUser.favorite_benches;
 
       if (currentUserFavs.indexOf(this.props.bench.id) !== -1) {
