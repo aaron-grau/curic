@@ -5,27 +5,23 @@ import AppDispatcher from '../dispatcher/dispatcher';
 const BenchStore = new Store(AppDispatcher);
 let _benches = {};
 
-BenchStore.all = function () {
-  return Object.assign({}, _benches);
-};
+BenchStore.all = () => Object.assign({}, _benches);
 
-BenchStore.find = function(id){
-  return Object.assign({}, _benches[id]);
-};
+BenchStore.find = () => Object.assign({}, _benches[id]);
 
-BenchStore.addFavorite = function(benchId, userId) {
+BenchStore.addFavorite = (benchId, userId) => {
   _benches[benchId].favorite_users.push(parseInt(userId));
 };
 
-BenchStore.removeFavorite = function(benchId, userId) {
+BenchStore.removeFavorite = (benchId, userId) => {
   userIdx = _benches[benchId].favorite_users.indexOf(parseInt(userId));
   _benches[benchId].favorite_users.splice(userIdx, 1);
 };
 
-BenchStore.__onDispatch = function (payload) {
+BenchStore.__onDispatch = payload => {
   switch(payload.actionType) {
     case BenchConstants.BENCHES_RECEIVED:
-      payload.benches.forEach(function(bench){
+      payload.benches.forEach( bench => {
         _benches[bench.id] = bench;
       });
       BenchStore.__emitChange();
@@ -45,4 +41,4 @@ BenchStore.__onDispatch = function (payload) {
   }
 };
 
-module.exports = BenchStore;
+export default BenchStore;

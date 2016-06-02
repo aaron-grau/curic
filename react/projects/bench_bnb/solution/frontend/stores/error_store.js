@@ -6,28 +6,25 @@ const ErrorStore = new Store(AppDispatcher);
 let _errors = {};
 let _form = "";
 
-ErrorStore.formErrors = function (form) {
+ErrorStore.formErrors = form => {
   if (form !== _form) {
     return {};
   }
 
-  var result = {};
+  let result = {};
 
-  var errors;
-  Object.keys(_errors).forEach(function (field) {
+  let errors;
+  Object.keys(_errors).forEach( field => {
     errors = _errors[field];
-    result[field] = errors.slice();
+    result[field] = Array.from(errors);
   });
 
   return result;
 };
 
-ErrorStore.form = function () {
-  return _form.slice();
-};
+ErrorStore.form = () => Array.from(_form);
 
-
-ErrorStore.__onDispatch = function (payload) {
+ErrorStore.__onDispatch = payload => {
   switch (payload.actionType) {
     case ErrorConstants.SET_ERRORS:
       _errors = payload.errors;
@@ -42,4 +39,4 @@ ErrorStore.__onDispatch = function (payload) {
   }
 };
 
-module.exports = ErrorStore;
+export default ErrorStore;
