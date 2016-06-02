@@ -2,22 +2,20 @@ import SessionActions from './../actions/session_actions';
 import ErrorActions from './../actions/error_actions';
 
 var UserApiUtil = {
-  signup: function (formData) {
+  signup(formData) {
     $.ajax({
       url: '/api/user',
       type: 'POST',
       dataType: 'json',
       data: {user: formData},
-      success: function (currentUser) {
-        SessionActions.receiveCurrentUser(currentUser);
-      },
-      error: function (xhr) {
+      success: SessionActions.receiveCurrentUser, //TODO this work?
+      error(xhr) {
         console.log('UserApiUtil#createAccount error');
-        var errors = xhr.responseJSON;
+        const errors = xhr.responseJSON;
         ErrorActions.setErrors("signup", errors);
       }
     });
   }
 };
 
-module.exports = UserApiUtil;
+export default UserApiUtil;
