@@ -8,26 +8,26 @@ const SessionStore = new Store(AppDispatcher);
 let _currentUser = {},
     _currentUserHasBeenFetched = false;
 
-function _login(currentUser) {
+_login = currentUser => {
   _currentUser = currentUser;
   _currentUserHasBeenFetched = true;
-}
+};
 
-function _logout() {
+_logout = () => {
   _currentUser = {};
   _currentUserHasBeenFetched = true;
-}
+};
 
-function _addFavorite(benchId) {
+_addFavorite = benchId => {
   _currentUser.favorite_benches.push(parseInt(benchId));
 };
 
-function _removeFavorite(benchId) {
-  var benchIdx = _currentUser.favorite_benches.indexOf(parseInt(benchId));
+_removeFavorite = benchId => {
+  const benchIdx = _currentUser.favorite_benches.indexOf(parseInt(benchId));
   _currentUser.favorite_benches.splice(benchIdx, 1);
 };
 
-SessionStore.__onDispatch = function (payload) {
+SessionStore.__onDispatch = payload => {
   switch(payload.actionType) {
     case SessionConstants.LOGIN:
       _login(payload.currentUser);
@@ -48,16 +48,10 @@ SessionStore.__onDispatch = function (payload) {
   }
 };
 
-SessionStore.currentUser = function () {
-	return $.extend({}, _currentUser);
-};
+SessionStore.currentUser = () => Object.assign({}, _currentUser);
 
-SessionStore.currentUserHasBeenFetched = function () {
-  return _currentUserHasBeenFetched;
-};
+SessionStore.currentUserHasBeenFetched = () => _currentUserHasBeenFetched;
 
-SessionStore.isUserLoggedIn = function () {
-  return !!_currentUser.id;
-};
+SessionStore.isUserLoggedIn = () => !!_currentUser.id;
 
-module.exports = SessionStore;
+export default SessionStore;
