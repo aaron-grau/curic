@@ -2,29 +2,32 @@
 
 ## w7d1
 
-###Readings
+### Video Lectures (94 min)
+:closed_lock_with_key: `go_video_go`
+
+* :movie_camera: [Part 1: Intro to React)][lec-w7d1-01] (5 min)
+* :movie_camera: [Part 2: Anatomy/Physiology of Components)][lec-w7d1-02] (15 min)
+* :movie_camera: [Part 3: Rendering Components in the Browser)][lec-w7d1-03] (10 min)
+* :movie_camera: [Part 4: JSX][lec-w7d1-04] (7 min)
+* :movie_camera: [Part 5: Babel/Transpiling JSX][lec-w7d1-05] (6 min)
+* :movie_camera: [Part 6: The Grand Demo)][lec-w7d1-06] (51 min)
+  * :computer: [demo source code][watch-demo]
+
+### Homeworks (35 min)
+* [Getting Started with NPM and Webpack][npm-exercise] (35 min)
+
+### Additional Resources
 * [Intro to react][react-intro]
 * [My first component][first-component]
 * [Intro to JSX][react-jsx]
 * [Components with JSX][jsx-components]
 * [5 practical examples][react-examples]
 * [working examples of these examples][examples]
-* **Exercise:** [Getting Started with NPM and Webpack][npm-exercise] **(Do this over the weekend)**
 * [Using Git with NPM][npm-git]
 
-###Lecture
-**Watch these before class and come prepared with questions.**
-
-The password is `go_video_go`
-* :movie_camera: [Part 1 (Intro to React)][lec-w7d1-01]
-* :movie_camera: [Part 2 (Anatomy/Physiology of Components)][lec-w7d1-02]
-* :movie_camera: [Part 3 (Rendering Components in the Browser)][lec-w7d1-03]
-* :movie_camera: [Part 4 (JSX)][lec-w7d1-04]
-* :movie_camera: [Part 5 (Babel/Transpiling JSX)][lec-w7d1-05]
-* :movie_camera: [Part 6 (The Grand Demo)][lec-w7d1-06][:computer: demo source code][watch-demo]
-
 ###Projects
-* [Getting Started with NPM and Webpack][npm-exercise] (This was in the readings, but do it again. The set up is tricky)
+* [Getting Started with NPM and Webpack][npm-exercise]
+  * This was in the hw, but do it again. The set up is tricky! 
 * [Widgets!][react-widgets]
 * [Minesweeper][react-minesweeper]
 
