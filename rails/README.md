@@ -82,15 +82,6 @@
 
 ## w4d2
 
-### Video Lectures (90 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera: (cc) 00 User Models][auth-00-user-model] (21 min)
-* [:movie_camera: (cc) 01 Basic Sessions][auth-01-basic-sessions] (21 min)
-* [:movie_camera: (cc) 02 Password Digest][auth-02-password-digest] (20 min)
-* [:movie_camera: (cc) 03 Password Pseudo Attribute][auth-03-password-pseudo-attribute] (11 min)
-* [:movie_camera: (cc) 04 Session Token][auth-04-session-token] (16 min)
-* [Demo code for videos][auth-github]
-
 ### Readings (90 min)
 * [Basic views][basic-views] (15 min)
 * [Partials][partials] (15 min)
