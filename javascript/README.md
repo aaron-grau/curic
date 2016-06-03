@@ -124,9 +124,10 @@
 * :movie_camera: Watch [Prototype Chain and Inheritance][proto-inherit] (20 min)
 * :movie_camera: Watch [Inheritance Demo][inherit-demo-video]  (20 min)
 
-### Readings (70 min)
+### Readings (85 min)
 
 * [Arguments][arguments] (10 min)
+* [Prototypal Inheritance exercises][prototypal-inheritance] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
 * [Effective JavaScript][effective-js]: Items 18-23, 30 (15 min)
 * [Modules in the Browser][browser-modules] (15 min)
@@ -142,7 +143,7 @@
 
 ### Projects  
 * [`arguments` exercises][arguments-exercises]
-* [Prototypal Inheritance exercises][prototypal-inheritance]
+* [Prototypal Inheritance Exercises][inheritance-exercises]
 * [Asteroids project][asteroids-project]
 
 [proto-inherit]: https://vimeo.com/162131042
@@ -151,6 +152,7 @@
 [js-browser-video]: https://vimeo.com/162115224
 [arguments]: readings/arguments.md
 [arguments-exercises]: exercises/arguments_exercises
+[inherits-exercises]: exercises/inherits_exercises
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [client-side-js]: readings/client-side-javascript.md
 [browser-modules]: readings/browser-modules.md
