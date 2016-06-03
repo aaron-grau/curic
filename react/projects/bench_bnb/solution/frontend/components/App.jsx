@@ -9,8 +9,8 @@ const App = React.createClass({
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
 
-  _handleSignOut(){
-    SessionActions.signOut();
+  _handleLogOut(){
+    SessionActions.logOut();
   },
 
   greeting() {
@@ -20,7 +20,7 @@ const App = React.createClass({
     	return (
     		<hgroup>
     			<h2>Hi, {SessionStore.currentUser().username}!</h2>
-    			<input type="submit" value="logout" onClick={ this._handleSignOut } />
+    			<input type="submit" value="logout" onClick={ this._handleLogOut } />
     			<h3>You have {numFavoriteBenches} favorite benches!</h3>
     		</hgroup>
     	);

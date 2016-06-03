@@ -11,14 +11,14 @@ const SessionActions = {
       ErrorActions.setErrors);
   },
 
-  signIn(formData){
-    SessionApiUtil.signIn(formData,
+  logIn(formData){
+    SessionApiUtil.logIn(formData,
       this.receiveCurrentUser,
       ErrorActions.setErrors);
   },
 
-  signOut() {
-    SessionApiUtil.signOut(this.removeCurrentUser);
+  logOut() {
+    SessionApiUtil.logOut(this.removeCurrentUser);
   },
 
   fetchCurrentUser(complete){

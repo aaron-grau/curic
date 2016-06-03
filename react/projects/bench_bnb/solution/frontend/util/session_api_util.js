@@ -3,7 +3,7 @@
 // import ErrorActions from './../actions/error_actions';
 
 const SessionApiUtil = {
-	signIn(user, success, error) {
+	logIn(user, success, error) {
 		$.ajax({
 			url: '/api/session',
 			type: 'POST',
@@ -11,12 +11,12 @@ const SessionApiUtil = {
 			success,
 			error(xhr) {
 				const errors = xhr.responseJSON;
-				error("signin", errors);
+				error("Login", errors);
 			}
 		});
 	},
 
-	signOut(success) {
+	logOut(success) {
 		$.ajax({
 			url: '/api/session',
 			method: 'delete',
