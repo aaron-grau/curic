@@ -2,9 +2,9 @@ import AppDispatcher from '../dispatcher/dispatcher';
 import BenchConstants from '../constants/bench_constants';
 import BenchApiUtil from '../util/bench_api_util';
 
-const ApiActions = {
-  fetchBenches(filters) {
-    BenchApiUtil.fetchBenches(filters, this.receiveAll);
+const BenchActions = {
+  fetchAllBenches(filters) {
+    BenchApiUtil.fetchBenches(filters, this.receiveAllBenches);
   },
   createBench(bench){
     BenchApiUtil.createBench(bench, this.receiveSingleBench);
@@ -13,7 +13,7 @@ const ApiActions = {
     BenchApiUtil.createReview(review, this.receiveSingleBench);
   },
 
-  receiveAll(benches) {
+  receiveAllBenches(benches) {
     AppDispatcher.dispatch({
       actionType: BenchConstants.BENCHES_RECEIVED,
       benches: benches
@@ -27,4 +27,4 @@ const ApiActions = {
   }
 };
 
-export default ApiActions;
+export default BenchActions;
