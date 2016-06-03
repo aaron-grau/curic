@@ -25,9 +25,9 @@
 * [working examples of these examples][examples]
 * [Using Git with NPM][npm-git]
 
-###Projects
+### Projects
 * [Getting Started with NPM and Webpack][npm-exercise]
-  * This was in the hw, but do it again. The set up is tricky! 
+  * This was in the hw, but do it again. The set up is tricky!
 * [Widgets!][react-widgets]
 * [Minesweeper][react-minesweeper]
 
@@ -51,14 +51,20 @@
 
 ## w7d2
 
-* [Full component tutorial][react-tutorial]
-* [Stores][store-reading]
-* [Think in React][think-in-react]
-* [Components in depth][components-in-depth]
-* [List diffing and the `key` prop][keys-reading]
-* [Effective JavaScript][effective-js]: Items 53 and 55
-* **Project:** [React Todos][react-todo]
-* **Lecture:** Capstone Projects Kickoff Lecture at 5PM
+### Readings (2 hrs)
+* [Full component tutorial][react-tutorial] (45 min)
+* [Stores][store-reading] (20 min)
+* [Think in React][think-in-react] (20 min)
+* [Components in depth][components-in-depth] (15 min)
+* [List diffing and the `key` prop][keys-reading] (5 min)
+* [Effective JavaScript][effective-js]
+  * Items 53 and 55 (15 min)
+
+### Projects
+* [React Todos][react-todo]
+
+### Capstones
+* Capstone Projects Kickoff Lecture at 5PM!
 
 [react-tutorial]: https://zapier.com/engineering/react-js-tutorial-guide-gotchas/
 [think-in-react]: http://facebook.github.io/react/docs/thinking-in-react.html
