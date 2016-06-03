@@ -238,6 +238,9 @@
   * **Just section 2.9**
 * [Concerns][concerns-reading] (10 min)
 
+### Homeworks (30 min)
+* [Polymorphism and Concerns][polymorphism-and-concerns-hw] (30 min)
+
 ### Additional Resources
 * **Bonus Topic:** [Decorators][decorators]
 
@@ -252,6 +255,7 @@
 [19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
 [20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
 [decorators]: readings/decorators.md
+[polymorphism-and-concerns-hw]: homeworks/questions/polymorphism-concerns/polymorphism-concerns.md
 
 [reddit-clone]: projects/reddit_on_rails
 
@@ -285,6 +289,9 @@
 * [FactoryGirl and Faker Gems][fac-grl-faker] (20 min)
 * [Testing with Capybara][capybara] (15 min)
 
+### Homeworks (45 min)
+* [Capybara][capybara-hw] (45 min)
+
 ### Projects
 * [Goal App][goaling-app]
 * **Bonus**: [Appacademy.io tests][appacademyio-tests]
@@ -294,6 +301,8 @@
 [rspec-models]: readings/rspec-models.md
 [fac-grl-faker]: readings/factorygirl-and-faker.md
 [capybara]: readings/capybara.md
+
+[capybara-hw]: homeworks/questions/capybara.md
 
 [goaling-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
