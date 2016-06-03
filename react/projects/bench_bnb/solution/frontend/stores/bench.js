@@ -16,7 +16,7 @@ BenchStore.addFavorite = (benchId, userId) => {
 };
 
 BenchStore.removeFavorite = (benchId, userId) => {
-  userIdx = _benches[benchId].favorite_users.indexOf(parseInt(userId));
+  const userIdx = _benches[benchId].favorite_users.indexOf(parseInt(userId));
   _benches[benchId].favorite_users.splice(userIdx, 1);
 };
 
