@@ -88,7 +88,8 @@
 * [Basic intro to flux][flux-intro]
 * [Flux component overview][flux-component-overview]
 * [Stores and Actions (quick reference)][stores-and-actions]
-* [Effective JavaScript][effective-js]: Items 56 58, and 59
+* [Effective JavaScript][effective-js]:
+  * Items 56, 58, and 59 (23 min)
 
 #### Homework Assignment
 * [Click Counter Flux Conversion Project!][click-counter-flux]
@@ -129,7 +130,8 @@
 * [Index Routes][index-routes]
 * [Component lifecycle][component-lifecycle]
 * [jbuilder][jbuilder-link] (read the documentation thoroughly!)
-* [Effective JavaScript][effective-js]: Items 66-68
+* [Effective JavaScript][effective-js]
+  * Items 66, 67, and 68 (20 min)
 * **Project:** [Pokedex][pokedex]
 
 
