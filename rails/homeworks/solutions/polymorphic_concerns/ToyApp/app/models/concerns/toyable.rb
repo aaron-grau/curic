@@ -6,7 +6,6 @@ module Toyable
   end
 
   def receive_toy(name)
-    toy = Toy.find_or_create_by(name: name)
     self.toys.find_or_create_by(name: name)
   end
 end
