@@ -10,37 +10,24 @@ browser, and also handle browser user input.
 We're looking to build something like [this][ttt-demo] (don't look at
 the code!).
 
-[ttt-demo]: http://appacademy.github.io/ttt.js/solution/index.html
-
 **Structure**
 
-You will be sent a skeleton for the project, as well as a folder called `ttt-core-solution`.
+Download the [skeleton][skeleton], as well as the [Tic Tac Toe Node solution][ttt-node].
 
-The `ttt-core-solution` directory contains all the game logic of
-Tic-Tac-Toe. We've written this for you so you can focus on building the
-UI. You will need to reference the files in `ttt-core-solution/src`
-because you'll be using `Board`, `Game`, and `MoveError`. You shouldn't
-have to modify anything in `ttt-core-solution`, but definitely read and 
-refer to that code!
+The `Tice Tac Toe Node solution` contains all the game logic of
+Tic-Tac-Toe, so you can focus on building the UI. You will need to reference the files in the Node solution because you'll be using `Board`, `Game`, and `MoveError`. You shouldn't have to modify anything in the Node solution, but definitely read and refer to that code!
 
-A brief side-note here. We'll be using use Node's `module.exports` and 
-`require` to break our game into digestible modules. Since we can't actually use `require` in the
-browser, this is a considerable problem. To solve this, we'll use 
-[Webpack][webpack] to bundle things up. 
+A brief side-note here. We'll be using use Node's `module.exports` and
+`require` to break our game into digestible modules. Since we can't actually use `require` in the browser, this is a considerable problem. To solve this, we'll use [Webpack][webpack] to bundle things up.
 
-Take a gander at the `webpack.config` and `js/main.js` files we've included for you.
-We included statements to `require` both the `ttt-view` and the `game` from 
-`ttt-core-solution`.
+Take a gander at the `webpack.config` and `js/main.js` files we've included for you. We included statements to `require` both the `ttt-view` and the `game` from the Node solution.
 
 When this file is processed by webpack, it will include those files as
 dependencies so that we can use those classes _within_ this file.
 
-The bundled file will be output to `js/bundle.js` which we have included a
-script tag for in `index.html`.
+The bundled file will be output to `js/bundle.js,for which we have included a script tag in `index.html`.
 
-Remember to run webpack, keep a terminal tab or window open running `webpack
---watch` so webpack will rebundle your app every time a file is saved.
-
+Remember to run webpack, keep a terminal tab or window open running `webpack --watch` so webpack will rebundle your app every time a file is saved.
 
 [webpack]: ../../readings/browser-modules.md#webpack
 
@@ -50,13 +37,10 @@ We've given you the outline of a `View` class in `js/ttt-view.js`.
 The constructor takes in a `Game` object and a jQuery object in
 which to display the grid.
 
-Let's create our `View` and `Game` objects in the entry point (`js/main.js`).
-Since we have required these constructor functions, we can create a new Game
-with `new Game()`
+Let's create our `View` and `Game` objects in the entry point (`js/main.js`). Since we have required these constructor functions, we can create a new Game with `new Game()`.
 
 Use jQuery to find the container element in the view that we created in
-`index.html`. Make sure you do this inside the `$(function () {...})` so that we
-can be sure that the container element has been loaded.
+`index.html`. Make sure you do this inside the `$( () => {...})` so that we can be sure that the container element has been loaded.
 
 Write a `View#setupBoard` method; it should make a grid to represent the
 board. Build the grid using an unordered list (`<ul>`). The cells can
@@ -79,11 +63,11 @@ colors. I did all this in a `View#makeMove` method. I also popped an
 
 Display a congratulatory message when a player wins!
 
-Note: Since the core solution classes are written for the node console,
+**Note:** Since the solution classes are written for the node console,
 the `Game` class has a `#run` and a `#promptMove` method. Ignore
 these. You're going to call `Game#makeMove` directly from your
 `View#makeMove` method.
 
-## Towers of Hanoi
-
-[**Link**](../hanoi_jquery)
+[ttt-demo]: http://appacademy.github.io/ttt.js/solution/index.html
+[ttt-node]: http://github.com/appacademy/curriculum/tree/master/javascript/projects/ttt_node/solution.zip?raw=true
+[skeleton]: skeleton.zip?raw=true
