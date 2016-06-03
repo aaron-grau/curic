@@ -43,7 +43,7 @@ npm install --save package1 package2 package3
 
 ## Adding a `webpack` script
 
-Recall that, in Ruby, running 'bundle exec some_command' is **not the same** as running 'some_command'. In the former, the `Gemfile`-specified version of `some_command` is run, while in the latter, the local version is run. Omitting `bundle exec` when running commands can cause errors if our app isn't compatible with the local version.
+Recall that, in Ruby, running `bundle exec some_command` is **not the same** as running `some_command`. In the former, the `Gemfile`-specified version of `some_command` is run, while in the latter, the local version is run. Omitting `bundle exec` when running commands can cause errors if our app isn't compatible with the local version.
 
 To solve this issue with NPM packages, we need to add `"scripts"` for any packages that we intend to call from the command line. Once we've added a script for a package, we can 
 
