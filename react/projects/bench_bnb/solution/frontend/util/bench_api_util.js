@@ -1,7 +1,7 @@
 import FilterParamsStore from '../stores/filter_params';
 
 var ApiUtil = {
-  fetchBenches(filters, success){
+  fetchAllBenches(filters, success){
     $.get('api/benches', filters, success); //TODO this work?
   },
   createBench(data, success){

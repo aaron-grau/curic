@@ -37,8 +37,8 @@ frontend
 
 ```javascript
 //dispatcher/dispatcher.js
-import { Dispatcher } from 'flux';
-export default new Dispatcher();
+const Dispatcher = require('flux').dispatcher;
+module.exports = new Dispatcher();
 ```
 * This file will now create and export a new Dispatcher
 
@@ -55,8 +55,8 @@ export default new Dispatcher();
 
 ```javascript
 //stores/bench.js
-import { Store } from 'flux/utils');
-import AppDispatcher from '../dispatcher/dispatcher';
+const Store = require('flux/utils').store;
+const AppDispatcher = require('../dispatcher/dispatcher');
 let _benches = {};
 const BenchStore = new Store(AppDispatcher);
 
@@ -66,7 +66,7 @@ BenchStore.all = function () {
   return Object.assign({}, _benches);
 };
 
-export default BenchStore;
+module.exports = BenchStore;
 ```
 We require the `Store` class from the `flux` npm module and then create a new
 store by passing in our `AppDispatcher`. This links the store to the dispatcher
@@ -79,20 +79,20 @@ so it will receive actions that are dispatched.
   it in the console before we get our components working
 
 #### Api Utility
-* Next, lets make a utility function, `api_util.js` to help us populate this store with
+* Next, lets make a utility file, `bench_api_util.js` to help us populate this store with
   content from the server
 
 ```javascript
-//util/api_util.js
+//util/bench_api_util.js
 ApiUtil = {
-  fetchBenches(){
+  fetchAllBenches(success){
     //make an api call using AJAX in here
   }
 }
 
 window.ApiUtil = ApiUtil; //Just for testing
 
-export default ApiUtil;
+module.exports = ApiUtil;
 ```
 
 * The success callback of the AJAX will contain all the bench objects,
@@ -128,20 +128,21 @@ module.exports = BenchConstants;
 
     ![better-flux-diagram](assets/better_flux_structure.png)
 
-* Let's create two files in our actions folder: `client_actions.js` and `server_actions.js`
-  * `client_actions` will be responsible for triggering api calls and dispatching client-side actions
-  * `server_actions` will be called from `api_util` after our ajax requests have completed. This will trigger dispatches with data from the server.
-* Both of these files can communicate with the dispatcher, but they will help clean up our Actions <--> ApiUtil structure.
-* `client_actions` will require `api_util`, and `api_util` will require `server_actions`
-* Inside of `server_actions`, create an object and give it a `receiveAll` function
-* `receiveAll` should dispatch an object with an `actionType` of
+* Let's create a `bench_actions.js` file in our actions folder
+  * `bench_actions` will require `api_util` and will be responsible for triggering api calls and dispatching the data that returns from the server
+* Inside of `bench_actions`, create an object and give it `#fetchAllBenches` and `#receiveAllBenches` methods
+* `#fetchAllBenches` should invoke `bench_api_util#fetchAllBenches`, and pass to it the success callback: `#receiveAllBenches`
+* `#receiveAllBenches` should dispatch an object with an `actionType` of
   `BenchConstants.BENCHES_RECEIVED`
 
 ```javascript
-import AppDispatcher from '../dispatcher/dispatcher';
-import BenchConstants from '../constants/bench_constants';
-ServerActions = {
-  receiveAll(benches){
+const AppDispatcher = require('../dispatcher/dispatcher');
+const BenchConstants = require('../constants/bench_constants');
+BenchActions = {
+  fetchAllBenches(){
+    BenchApiUtil.fetchAllBenches(this.receiveAllBenches)
+  },
+  receiveAllBenches(benches){
     AppDispatcher.dispatch({
       actionType: BenchConstants.BENCHES_RECEIVED,
       benches: benches
@@ -149,13 +150,12 @@ ServerActions = {
   }
 }
 
-export default ServerActions;
+module.exports = BenchActions;
 ```
 
 ##### Putting it all together
-* In the success callback of your AJAX call in the `ApiUtil`, we can
-  finally use the action we just wrote. Call `ServerActions.receiveAll` and
-  pass in the benches you received as an argument.
+* In the success callback of your AJAX call in the `ApiUtil#fetchAllBenches`,
+  we can invoke the success callback that was passed.
 * Call `BenchStore.all`, it's still empty, right? The Dispatcher fired
   (hopefully) but the store wasn't listening to the Dispatcher.
 * Tell the `BenchStore` to listen to the dispatcher by doing the
@@ -164,23 +164,20 @@ export default ServerActions;
 
 ```javascript
 //stores/bench.js
-  import BenchConstants from '../constants/bench_constants';
+  const BenchConstants = require('../constants/bench_constants');
 
-  BenchStore.__onDispatch = function (payload) {
+  BenchStore.__onDispatch = function(payload) {
     switch(payload.actionType) {
       case BenchConstants.BENCHES_RECEIVED:
-        payload.benches.forEach(function(bench){
-          _benches[bench.id] = bench;
-        });
-        BenchStore.__emitChange();
-      break;
+        resetBenches(payload.benches);
+        break;
     }
   };
 
 ```
 
 * Finally we should be able to test this thing. In the console, call
-  `ApiUtil.fetchBenches()`. Then, `BenchStore.all()`. If it returns an
+  `BenchActions.fetchAllBenches()`. Then, `BenchStore.all()`. If it returns an
   object containing all the benches in the database we have won.
 * Make sure that everything is working before moving on
 * Once you've tested that it works, remove the lines from the BenchStore and
@@ -198,8 +195,8 @@ export default ServerActions;
    switch(payload.actionType) {
      case BenchConstants.BENCHES_RECEIVED:
        resetBenches(payload.benches);
-         BenchStore.__emitChange();
-         break;
+       BenchStore.__emitChange();
+       break;
     }
   };
 ```
@@ -213,32 +210,25 @@ the store runs `__emitChange()`;
 * In `bench_bnb.jsx`, add a `ReactDOM.render` call that creates the
   `Index` and places it into the `#content` div
 * Give it an initial state of `{ benches: BenchStore.all() }`
-* As part of the `componentDidMount` lifecycle function, let's do two things:
+* As part of the `componentDidMount` lifecycle method, let's do two things:
   * Register a listener on the `BenchStore` using it's new `addListener` function.
     When the store changes, update the state.
-  * Use your `ClientActions` to call `ApiUtil.fetchBenches`. It should look like:
+  * Call `BenchActions#fetchAllBenches`. It should look like:
 
   ```javascript
-    //actions/client_actions.js
-    import ApiUtil from '../util/api_util';
-
-    const ClientActions = {
-      fetchBenches: ApiUtil.fetchBenches
-    };
-
-    default export ClientActions;
+    componentDidMount(){
+      BenchStore.addEventListener(this._handleChange);
+      BenchActions.fetchAllBenches();
+    }
   ```
 
 * Here's the summary:
   * The index component calls our client-side action-creator.
-  * `ClientActions` calls the `ApiUtil`, which fetches bench data.
-  * `ApiUtil` then calls the `ServerActions`, which triggers a dispatch.
+  * `BenchActions` calls the `ApiUtil`, which fetches bench data.
+  * `ApiUtil` then invokes the callback on `BenchActions`, which triggers a dispatch.
   * The dispatcher hits the `BenchStore`, which should cause the store to emit a change.
-  * When the store changes, our `Index` component's callback function is triggered, which should set the state
-    of our `Index` component.
+  * When the store changes, our `Index` component's callback function is triggered, which should set the state of our `Index` component.
   * When the `Index` component's state changes, it re-renders. Phew!
-
-![complete flux loop](assets/complete_flux_loop.png)
 
 ## Phase 4: The Map
 * Create a new React component, `Map`
@@ -264,7 +254,7 @@ the store runs `__emitChange()`;
     //components/map.jsx
     //...
     componentDidMount(){
-      const mapDOMNode = this.refs.map;
+      const map = ReactDOM.findDOMNode(this.refs.map);
       const mapOptions = {
         center: {lat: 37.7758, lng: -122.435},
         zoom: 13
@@ -285,7 +275,7 @@ the store runs `__emitChange()`;
 * Move on when all your benches are represented by markers on the map
 * One last change: since it doesn't make sense to fetch any markers from
   the API until we know where the map is, move the
-  `ClientActions.fetchBenches` from the `Index` to the idle event of the map
+  `BenchActions.fetchAllBenches` from the `Index` to the idle event of the map
    [read this documentation][event-doc] to learn about Google Map events
 * If everything still works, move on to the next phase
 
@@ -330,7 +320,7 @@ the store runs `__emitChange()`;
 * Now, armed with an object containing the current bounds of the map, we
   can use this object in our AJAX call
 * Pass this bounds object we have created as an argument to
-  `ApiUtil.fetchBenches`. Inside `fetchBenches` we can now pass this
+  `ApiUtil.fetchAllBenches`. Inside `fetchAllBenches` we can now pass this
   argument to our AJAX call so it can be used as a query string
 * Verify that when the map moves the correct request including the query
   string is being sent to the server, and the server is responding with
