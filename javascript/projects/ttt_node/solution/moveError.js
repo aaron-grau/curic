@@ -1,5 +1,3 @@
-function MoveError (msg) {
-  this.msg = msg;
-}
+const MoveError = msg => { this.msg = msg; };
 
 module.exports = MoveError;
