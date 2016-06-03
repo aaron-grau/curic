@@ -14,7 +14,7 @@ the code!).
 
 Download the [skeleton][skeleton], as well as the [Tic Tac Toe Node solution][ttt-node].
 
-The `Tice Tac Toe Node solution` contains all the game logic of
+The Node solution contains all the game logic of
 Tic-Tac-Toe, so you can focus on building the UI. You will need to reference the files in the Node solution because you'll be using `Board`, `Game`, and `MoveError`. You shouldn't have to modify anything in the Node solution, but definitely read and refer to that code!
 
 A brief side-note here. We'll be using use Node's `module.exports` and
