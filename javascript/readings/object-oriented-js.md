@@ -288,6 +288,26 @@ In this way, even though the `meow` method is only defined once,
 because it is stored in `Kitten.prototype`, every `Kitten` instance
 can access it via the `__proto__` property.
 
+## Class Methods
+
+We can mimic Ruby class methods and class variables by defining attributes on the constructor itself.
+
+```javascript
+
+Kitten.caboodle = [k1, k2, new Cat('Flying Merkel', 3)];
+
+Kitten.parade = function() {
+  Kitten.caboodle.forEach( kitten => {
+    kitten.meow();
+  });
+}; 
+
+Kitten.parade();
+// 'Earl says "meow!"'
+// 'Houdini says "meow!"'
+// 'Flying Merkel says "meow!"'
+```
+
 ## Constructor Steps: Recap
 
 Say we call `var cat = new Cat()`. Here's what JS does:

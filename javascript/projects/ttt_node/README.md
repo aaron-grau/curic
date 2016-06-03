@@ -9,13 +9,13 @@
   `ttt/board.js` file.
     * Write the `Game` constructor such that it takes a reader interface
       as an argument. As in the previous exercise, write a
-      `#run(completionCallback)` method.
-* Write a `ttt/index.js` that exports both the `Game` and `Board`
-  classes.
-* Write a `playTicTacToe.js` script. Import your library by requiring
-  `ttt/index.js`.
-    * Instantiate a reader.
-    * Instantiate a `TTT.Game`, passing the reader.
+      `#run` method that takes in both this reader and a completion callback (`#run(reader, completionCallback)`).
+* Write a `playTicTacToe.js` script. Import your game by requiring
+  `ttt/game.js`.
+    * Instantiate a reader using node's [readline library][node-io].
+    * Write a completion callback to ask the users if they want to play again.
+    * Instantiate a `TTT.Game`, passing the reader and the completion callback.
     * Run the game; close the reader when done.
 
-[ruby-ttt]: https://github.com/appacademy/ruby-curriculum/blob/fcfb4fba24faef97a2559eaff811c0e7789e64ba/w1d2/classes.md#tic-tac-toe
+[ruby-ttt]: https://github.com/appacademy/curriculum/tree/master/ruby/w1d2/classes.md#tic-tac-toe
+[node-io]:https://github.com/appacademy/curriculum/tree/master/javascript/readings/intro-to-callbacks.md
