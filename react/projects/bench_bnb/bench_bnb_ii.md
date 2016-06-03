@@ -11,19 +11,19 @@
 
 ```javascript
   // frontend/bench_bnb.js.jsx
-var React = require('react');
-var ReactDOM = require('react-dom');
+const React = require('react');
+const ReactDOM = require('react-dom');
 
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
-var hashHistory = ReactRouter.hashHistory;
+const ReactRouter = require('react-router');
+const Router = ReactRouter.Router;
+const Route = ReactRouter.Route;
+const IndexRoute = ReactRouter.IndexRoute;
+const hashHistory = ReactRouter.hashHistory;
 
-var Search = require('./components/Search');
+const Search = require('./components/Search');
 
-var App = React.createClass({
-  render: function(){
+const App = React.createClass({
+  render() {
     return (
         <div>
           <header><h1>Bench BnB</h1></header>
@@ -33,7 +33,7 @@ var App = React.createClass({
   }
 });
 
-var Router = (
+const Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Search}/>
@@ -41,8 +41,8 @@ var Router = (
   </Router>
 );
 
-document.addEventListener('DOMContentLoaded', function(){
-  var root = document.getElementById('content');
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.getElementById('content');
   ReactDOM.render(Router, root);
 });
 ```
@@ -105,7 +105,7 @@ should:
     string when we click on the map.
 
   ```javascript
-    _handleClick: function(coords){
+    _handleClick(coords){
       hashHistory.push({
         pathname: "benches/new",
         query: coords
@@ -133,11 +133,11 @@ In this phase, we are going to implement front-end user sign-up and login. Goodb
 At the end of the day, we want to have methods to create users, log users in, see who's logged in, log them out, and restrict access to certain `Route`s based on whether someone is logged in. Now read the rest of the phase before starting on this.
 
 ### 1. Build Your Backend.
-You should already know how to do this. Create a `User` model, `UsersController`, and `SessionsController`. The big difference is that now your controllers will be in the Api namespace (ie: `Api::SessionsController < ApplicationController`), and they will render json.jbuilder views instead of rendering html views or redirecting. 
+You should already know how to do this. Create a `User` model, `UsersController`, and `SessionsController`. The big difference is that now your controllers will be in the Api namespace (ie: `Api::SessionsController < ApplicationController`), and they will render json.jbuilder views instead of rendering html views or redirecting.
 
 [rails]: ../../../rails#readings-after-you-finish-all-videos
 
-Follow the pattern you used during the [Rails curriculum][rails], keeping in mind the following: 
+Follow the pattern you used during the [Rails curriculum][rails], keeping in mind the following:
   * Your controllers should live under an `Api` namespace now and return JSON formatted responses.
   * We only care about one user (the current user), so adjust your routes and controllers accordingly (i.e. you have a single user `resource`, not `resources`).
   * `Sessions#show` should render the `current_user` if she or he exists.
@@ -160,14 +160,14 @@ Set up the following flux architecture components.
     * No need to render anything in `Api::SessionsController#destroy`. `render json: {}` is fine.
   * Attach it to the window to test out in the console. Call `SessionApiUtil#login`. You should see the request in the Network tab in Developer Tools, also in the `rails server`. Make sure the response in the Network tab contains the json for the currentUser.
 
-####SessionStore 
+####SessionStore
   * Keep track of a `_currentUser`
   * Keep track of a boolean of whether `_currentUserHasBeenFetched`
   * I would set this to `{}` if there isn't a user
   * `#isUserLoggedIn` should return a boolean of whether a user is logged in
     * hint: you can check `_currentUser.id`
   * `#currentUser`
-  
+
 ####SessionActions
   * `receiveCurrentUser`
     * should dispatch to `SessionStore`
@@ -182,26 +182,26 @@ Set up the following flux architecture components.
     * On success, call `SessionAction#receiveCurrentUser` so store also knows they're logged in.
 
 ### 3. Create a LoginForm
-Create a `LoginForm` component and make a front-end route for it. 
+Create a `LoginForm` component and make a front-end route for it.
 
-  * Render a form for users to enter their username and password. 
-  * `onSubmit`, call your `SessionApiUtil#login` and pass in the credentials 
-  * After they log in, send them back to the root (`/`) 
+  * Render a form for users to enter their username and password.
+  * `onSubmit`, call your `SessionApiUtil#login` and pass in the credentials
+  * After they log in, send them back to the root (`/`)
     * hint: In `#componentDidMount`, register a listener with the `SessionStore`. When the store `__emitChange`, check if user is logged in, and if so, send them to the root (`this.context.router.push("/")`).
     * User will then be at the root, but still have no way of telling they're signed in. We'll deal with that later.
   * Now also make a signup form component that calls `UserApiUtil#signup`
 
 #### Errors
 Let's display errors in case users enter bad data into the forms and fail validations/authentication.
-  
+
   * Make an `ErrorStore`
     * Keep track of `_errors` and `_form`. The store should only ever have the errors for a single form.
-    * You have 2 options for what _errors should look like. You can keep track of `errors.full_messages`, (ie: `_errors === ["Username has already been taken", "Username is too short (minimum is 4 characters)", "Password is too short (minimum is 6 characters)"]`) or by field, ie: 
+    * You have 2 options for what \_errors should look like. You can keep track of `errors.full_messages`, (ie: `_errors === ["Username has already been taken", "Username is too short (minimum is 4 characters)", "Password is too short (minimum is 6 characters)"]`) or by field, ie:
 
         ```
         _errors === {
           username: [
-            "has already been taken", 
+            "has already been taken",
             "is too short (minimum is 4 character)"
           ],
           password: [
@@ -209,13 +209,13 @@ Let's display errors in case users enter bad data into the forms and fail valida
           ]
         }
         ```
-        
+
   * Make `ErrorActions#setErrors` and `#clearErrors`. Call these in the error callback for `SessionApiUtil#login` and `UserApiUtil#signup`.
     * hint: the first argument to $.ajax#error is the xhr. Check in there for the error data you sent back from the server
     * Make sure you're rendering relevant errors from your controllers. If you decide to keep track of errors by field, `render json: @user.errors` works great!
-  * Make your `LoginForm` listen to your `ErrorStore` on `#componentDidMount`. When the store changes, re-render and include any errors you might need to display on the form. Check the `ErrorStore#form` to make sure the errors in the are for the `LoginForm`. 
+  * Make your `LoginForm` listen to your `ErrorStore` on `#componentDidMount`. When the store changes, re-render and include any errors you might need to display on the form. Check the `ErrorStore#form` to make sure the errors in the are for the `LoginForm`.
     * If you choose to store errors by field, you can display them nicely alongside each field.
-    
+
 ### 4. Create a greeting in the header
 Let's let users know who is currently signed in.
 
@@ -225,7 +225,7 @@ Let's let users know who is currently signed in.
   * If user IS NOT logged in, give them links to "#/login" and "#/signup"
 
 ### 5. Protect your front-end routes
-Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in. We're going to use react-router's `onEnter` hooks to accomplish this. 
+Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in. We're going to use react-router's `onEnter` hooks to accomplish this.
 
   * Add on `onEnter` prop to the Routes we want to protect (ie: `<Route path="something" onEnter={ _ensureLoggedIn } />`).
   * Define the `_ensureLoggedIn function`. It can be right in bench_bnb.jsx. It won't be big.
@@ -235,7 +235,7 @@ Let's make sure users can't get to our "/benches/new" or "benches/:id/review" ro
     * 2nd: `replace` function. This function replaces the current path with another one you give it. We can use this to redirect them to another route (ie: `replace("/login")`)
       * The reason it's called "replace" and not "redirect" or "push" is because it replaces the current entry in the browser's history. The browser keeps track of all the paths the user visits in it's history, for the "forward" and "back" buttons to work. By replacing the current history entry, we're saying "hey browser, the user didn't actually go to /benches/new. They're going to /login."
     * 3rd: `asyncCompletionCallback`: By defualt, the Router is going to instantiate the component for the route and render it right away after the `onEnter` hook is done. The problem in this case, is that we might have to do an async AJAX request to `#fetchCurrentUser` to see if anybody is logged in before we can know whether to `replace` or not. In the meantime, we don't want to render the component. The Router gives us this third argument. If our onEnter hook takes 3 arguments in it's signature, then the Router will wait until we call it before continuing, whether by `replace`ing or continuing to the original route.
-  * In your `_ensureLoggedIn`, check wether `SessionStore#currentUserHasBeenFetched`. 
+  * In your `_ensureLoggedIn`, check wether `SessionStore#currentUserHasBeenFetched`.
     * If they haven't been fetched, `SessionApiUtil#fetchCurrentUser`. Give it a callback that runs on success and checks if now `SessionStore#userIsLoggedIn`. If they're not, `replace` and send them to "/login"
       * Don't forget to call the `#asyncCompletionCallback`.
     * If they have already been fetched before, check if they're logged in. If they are not, `replace` to "/login" and call the `#asyncCompletionCallback`.
