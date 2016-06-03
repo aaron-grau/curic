@@ -4,7 +4,7 @@ Today we'll be testing the Reddit Clone you created yesterday. Use your code fro
 
 ## Setup
 
-Follow the instructions for setting up [RSpec-Rails][rspec-rails], [Shoulda Matchers][shoulda-matchers], and [Capybara][capybara]. (Note: no need to use Factory Girl or Faker for this assignment - we'll save that for tomorrow.)
+Follow the instructions for setting up [RSpec-Rails][rspec-rails], [Shoulda Matchers][shoulda-matchers-docs], and [Capybara][capybara]. (Note: no need to use Factory Girl or Faker for this assignment - we'll save that for tomorrow.)
 
 Note: if you're having difficulty getting your config to work, don't hesitate to check out the `spec_helper.rb`, `Gemfile`, and specs from the solutions.
 
@@ -80,4 +80,4 @@ Congrats! You are on your way to becoming a master of Capybara! Make sure to rev
 [shoulda-matchers]: ../../readings/shoulda-matchers.md
 [shoulda-matchers-docs]: https://github.com/thoughtbot/shoulda-matchers
 [capybara]: ../../readings/capybara.md
-[users-solutions]: ../../rails/projects/reddit_on_rails/solution/spec/models/user_spec.rb
+[users-solutions]: ../../projects/reddit_on_rails/solution/spec/models/user_spec.rb

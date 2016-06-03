@@ -289,6 +289,9 @@
 * [FactoryGirl and Faker Gems][fac-grl-faker] (20 min)
 * [Testing with Capybara][capybara] (15 min)
 
+### Homeworks (45 min)
+* [Capybara][capybara-hw] (45 min)
+
 ### Projects
 * [Goal App][goaling-app]
 * **Bonus**: [Appacademy.io tests][appacademyio-tests]
@@ -298,6 +301,8 @@
 [rspec-models]: readings/rspec-models.md
 [fac-grl-faker]: readings/factorygirl-and-faker.md
 [capybara]: readings/capybara.md
+
+[capybara-hw]: homeworks/questions/capybara.md
 
 [goaling-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
