@@ -145,8 +145,9 @@
 * [:movie_camera: (cc) 07 CSRF Protection][auth-07-csrf-protection] (12 min)
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
-### Homeworks (30 min)
+### Homeworks (60 min)
 * Complete day 4 of [html curriculum][html-readme] (30 min)
+* [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources
 * [Cookies][cookies]
@@ -185,12 +186,15 @@
 
 [99-cats-part-ii]: projects/ninety_nine_cats_ii
 
+[rails-auth-homework]: homeworks/questions/rails_auth.md
+
 ## w4d4
 
-### Video Lectures (29 min)
+### Video Lectures (39 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera:  (cc) 14-radio-and-textarea][14-radio-and-textarea] (16 min)
 * [:movie_camera:  (cc) 15-helpers][15-helpers] (13 min)
+* [:movie_camera: layouts][layout-video] (10 min)
 
 ### Readings (60 min)
 * [ActionMailer][action-mailer] (20 min)
@@ -201,6 +205,9 @@
 ### Homeworks (30 min)
 * [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
 
+### Additional Resources
+* [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
+
 ### Projects
 * **Solo**: [Music App][music-app-project]
 
@@ -208,11 +215,13 @@
 [view-helpers]: readings/helpers.md
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
-[helpers-and-layouts-hw]: homeworks/helpers-and-layouts.md
+[helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
+[layout-video]: https://vimeo.com/168822741
+[action-mailer-video]: https://vimeo.com/168810895
 
-[music-app-project]: projects/music_app.md
+[music-app-project]: projects/music_app
 
 ## w4d5
 
@@ -236,7 +245,7 @@
 * [RedditClone][reddit-clone]
 
 [polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-[concerns-reading]: https://richonrails.com/articles/rails-4-code-concerns-in-active-record-models
+[concerns-reading]: readings/concerns.md
 [16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
 [17-checkboxes-1]: http://vimeo.com/groups/appacademy/videos/100780887
 [18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
