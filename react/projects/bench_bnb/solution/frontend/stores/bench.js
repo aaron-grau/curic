@@ -28,6 +28,7 @@ BenchStore.__onDispatch = payload => {
       BenchStore.__emitChange();
       break;
     case BenchConstants.BENCH_RECEIVED:
+    // debugger;
       _benches[payload.bench.id] = payload.bench;
       BenchStore.__emitChange();
       break;

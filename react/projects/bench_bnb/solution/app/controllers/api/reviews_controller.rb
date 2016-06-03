@@ -3,7 +3,8 @@ class Api::ReviewsController < ApplicationController
     review = Review.new(review_params)
 
     if review.save
-      render json: review.bench, include: :reviews
+      @bench = review.bench
+      render '/api/benches/show'
     else
       render json: review, status: :unprocessable_entity
     end
