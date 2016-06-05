@@ -165,7 +165,7 @@ Haven't had enough fun with setting things up yet? Not to worry. You
 might want to go through [this optional process][guard-spring-setup] to
 setup the gems Guard and Spring to make your TDD flow a lot smoother.
 
-[guard-spring-setup]: ../bonus/testing/guard-spring-setup.md
+[guard-spring-setup]: ./guard-spring-setup.md
 
 ## Resources
  * [RSpec homepage][rspec-home]
