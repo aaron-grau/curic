@@ -1,4 +1,4 @@
-import React from 'react';
+const React = require('react');
 
 const Tile = React.createClass({
   handleClick(e) {
@@ -32,4 +32,4 @@ const Tile = React.createClass({
   }
 });
 
-export default Tile;
+module.exports = Tile;

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   context: __dirname,
   entry: "./react_minesweeper.jsx",
   output: {

@@ -1,5 +1,5 @@
-import Tile from './tile';
-import React from 'react';
+const Tile = require('./tile');
+const React = require('react');
 
 const Board = React.createClass({
   render() {
@@ -15,11 +15,12 @@ const Board = React.createClass({
                 tile={tile}
                 updateGame={that.props.updateGame}
                 key={i * board.gridSize + j} />
-            )
+            ))
           }
-      )
+        </div>
+      ))
     );
   }
 });
 
-export default Board;
+module.exports = Board;
