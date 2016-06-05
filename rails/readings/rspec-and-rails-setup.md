@@ -68,7 +68,7 @@ production:
 (This will be slightly different if you have
 [switched to Postgres][postgres].)
 
-[postgres]: https://github.com/appacademy/sql-curriculum/blob/master/w3d3/first-rails-project.md#postgres
+[postgres]: ../../sql/readings/setup.md#installing-postgres
 
 Notice there are three sets of configuration data: one for
 `development`, one for `test`, and one for `production`. When you are
