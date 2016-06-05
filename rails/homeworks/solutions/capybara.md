@@ -8,4 +8,4 @@ Make sure to review:
 
 [users-solutions]: ../../projects/reddit_on_rails/solution/spec/models/user_spec.rb
 
-[auth-solutions]: ../../rails/projects/reddit_on_rails/solution/spec/features/auth_spec.rb
+[auth-solutions]: ../../projects/reddit_on_rails/solution/spec/features/auth_spec.rb
