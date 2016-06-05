@@ -1,6 +1,6 @@
-import Board from './board';
-import React from 'react';
-import Minesweeper from '../minesweeper';
+const Board = require('./board');
+const React = require('react');
+const Minesweeper = require('../minesweeper');
 
 const Game = React.createClass({
   getInitialState() {
@@ -45,4 +45,4 @@ const Game = React.createClass({
   }
 });
 
-export default Game;
+module.exports = Game;
