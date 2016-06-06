@@ -10,12 +10,7 @@
     * Write the `Game` constructor such that it takes a reader interface
       as an argument. As in the previous exercise, write a
       `#run` method that takes in both this reader and a completion callback (`#run(reader, completionCallback)`).
-* Write a `playTicTacToe.js` script. Import your game by requiring
-  `ttt/game.js`.
-    * Instantiate a reader using node's [readline library][node-io].
-    * Write a completion callback to ask the users if they want to play again.
-    * Instantiate a `TTT.Game`, passing the reader and the completion callback.
-    * Run the game; close the reader when done.
+* Copy your `playScript.js` from [Hanoi Node][node-ttt]. It should work for TOH as well. 
 
-[ruby-ttt]: https://github.com/appacademy/curriculum/tree/master/ruby/w1d2/classes.md#tic-tac-toe
-[node-io]:https://github.com/appacademy/curriculum/tree/master/javascript/readings/intro-to-callbacks.md
+[ruby-ttt]: ruby_ttt.md
+[node-ttt]: ../hanoi_node
