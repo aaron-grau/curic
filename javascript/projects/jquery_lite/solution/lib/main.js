@@ -1,9 +1,10 @@
-var DomNodeCollection = require("./dom_node_collection");
+const DomNodeCollection = require("./dom_node_collection");
 
-var _docReadyCallbacks = [], _docReady = false;
+const _docReadyCallbacks = [];
+let _docReady = false;
 
-function $l (arg){
-  var returnValue;
+window.$l = arg => {
+  let returnValue;
   switch(typeof(arg)){
     case "function":
       registerDocReadyCallback(arg);
@@ -18,28 +19,25 @@ function $l (arg){
       break;
   }
   return returnValue;
-}
+};
 
-$l.extend = function(base){
-  var otherObjs = Array.prototype.slice.call(arguments, 1);
-  otherObjs.forEach(function(obj){
-    for(var prop in obj){
-      if (obj.hasOwnProperty(prop)){
-        base[prop] = obj[prop];
-      }
+$l.extend = (base, ...otherObjs) => {
+  otherObjs.forEach( obj => {
+    for(let prop in obj){
+      base[prop] = obj[prop];
     }
   });
   return base;
 };
 
-$l.ajax = function(options){
-  var request = new XMLHttpRequest();
-  var defaults = {
+$l.ajax = options => {
+  const request = new XMLHttpRequest();
+  const defaults = {
     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
     method: "GET",
     url: "",
-    success: function(){},
-    error: function(){},
+    success: () => {},
+    error: () => {},
     data: {},
   };
   options = $l.extend(defaults, options);
@@ -50,7 +48,7 @@ $l.ajax = function(options){
   }
 
   request.open(options.method, options.url, true);
-  request.onload = function (e) {
+  request.onload = e => {
     //NB: Triggered when request.readyState === XMLHttpRequest.DONE ===  4
     if (request.status === 200) {
       options.success(request.response);
@@ -63,9 +61,9 @@ $l.ajax = function(options){
 };
 
 //helper methods
-function toQueryString (obj){
-  var result = "";
-  for(var prop in obj){
+toQueryString = obj => {
+  let result = "";
+  for(let prop in obj){
     if (obj.hasOwnProperty(prop)){
       result += prop + "=" + obj[prop] + "&";
     }
@@ -73,22 +71,21 @@ function toQueryString (obj){
   return result.substring(0, result.length - 1);
 };
 
-function registerDocReadyCallback (func){
+registerDocReadyCallback = func => {
   if(!_docReady){
     _docReadyCallbacks.push(func);
   } else {
     func();
   }
-}
+};
 
-function getNodesFromDom (selector){
-  var nodes = [].slice.call(document.querySelectorAll(selector), 0);
-  return new DomNodeCollection(nodes);
-}
+getNodesFromDom = selector => {
+  const nodes = document.querySelectorAll(selector);
+  const nodes_array = Array.from(nodes);
+  return new DomNodeCollection(nodes_array);
+};
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   _docReady = true;
-  _docReadyCallbacks.forEach(function(func){ func(); });
+  _docReadyCallbacks.forEach( func => func() );
 });
-
-module.exports = $l;

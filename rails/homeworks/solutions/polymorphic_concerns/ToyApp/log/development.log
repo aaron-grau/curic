@@ -1,0 +1,399 @@
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCorgis (20160602040832)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCorgis (20160602040832)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "corgis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160602040832"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCats (20160602040839)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "cats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160602040839"]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateToys (20160602041854)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "toys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "toyable_id" integer, "toyable_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_toys_on_toyable_type_and_toyable_id" ON "toys" ("toyable_type", "toyable_id")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160602041854"]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_toys_on_toyable_type_and_toyable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_toys_on_toyable_type_and_toyable_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Elmore"], ["created_at", "2016-06-02 04:21:04.586541"], ["updated_at", "2016-06-02 04:21:04.586541"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Melisa"], ["created_at", "2016-06-02 04:21:04.615314"], ["updated_at", "2016-06-02 04:21:04.615314"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Soledad"], ["created_at", "2016-06-02 04:21:04.619517"], ["updated_at", "2016-06-02 04:21:04.619517"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Leonora"], ["created_at", "2016-06-02 04:21:04.623474"], ["updated_at", "2016-06-02 04:21:04.623474"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ian"], ["created_at", "2016-06-02 04:21:04.627245"], ["updated_at", "2016-06-02 04:21:04.627245"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Felicity"], ["created_at", "2016-06-02 04:21:04.631707"], ["updated_at", "2016-06-02 04:21:04.631707"]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Edwina"], ["created_at", "2016-06-02 04:21:04.638123"], ["updated_at", "2016-06-02 04:21:04.638123"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Rachelle"], ["created_at", "2016-06-02 04:21:04.645411"], ["updated_at", "2016-06-02 04:21:04.645411"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Leland"], ["created_at", "2016-06-02 04:21:04.650850"], ["updated_at", "2016-06-02 04:21:04.650850"]]
+  [1m[35m (3.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Princess"], ["created_at", "2016-06-02 04:21:04.657713"], ["updated_at", "2016-06-02 04:21:04.657713"]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jordan"], ["created_at", "2016-06-02 04:21:04.666122"], ["updated_at", "2016-06-02 04:21:04.666122"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Gaylord"], ["created_at", "2016-06-02 04:21:04.670988"], ["updated_at", "2016-06-02 04:21:04.670988"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Patricia"], ["created_at", "2016-06-02 04:21:04.675523"], ["updated_at", "2016-06-02 04:21:04.675523"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Quentin"], ["created_at", "2016-06-02 04:21:04.680092"], ["updated_at", "2016-06-02 04:21:04.680092"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bettye"], ["created_at", "2016-06-02 04:21:04.684823"], ["updated_at", "2016-06-02 04:21:04.684823"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Burnice"], ["created_at", "2016-06-02 04:21:04.690848"], ["updated_at", "2016-06-02 04:21:04.690848"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Khalil"], ["created_at", "2016-06-02 04:21:04.694823"], ["updated_at", "2016-06-02 04:21:04.694823"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Ellen"], ["created_at", "2016-06-02 04:21:04.699531"], ["updated_at", "2016-06-02 04:21:04.699531"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "corgis" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Silas"], ["created_at", "2016-06-02 04:21:04.705755"], ["updated_at", "2016-06-02 04:21:04.705755"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Winifred"], ["created_at", "2016-06-02 04:21:04.709682"], ["updated_at", "2016-06-02 04:21:04.709682"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Green Mephisto"], ["toyable_id", 1], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.769606"], ["updated_at", "2016-06-02 04:21:04.769606"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Firestar"], ["toyable_id", 3], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.775655"], ["updated_at", "2016-06-02 04:21:04.775655"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Magnificent Rorschach of Hearts"], ["toyable_id", 10], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.782136"], ["updated_at", "2016-06-02 04:21:04.782136"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Faora"], ["toyable_id", 6], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.789409"], ["updated_at", "2016-06-02 04:21:04.789409"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Krypto"], ["toyable_id", 1], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.796454"], ["updated_at", "2016-06-02 04:21:04.796454"]]
+  [1m[35m (3.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Spawn Woman"], ["toyable_id", 3], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.804764"], ["updated_at", "2016-06-02 04:21:04.804764"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mr Hollow"], ["toyable_id", 10], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.813144"], ["updated_at", "2016-06-02 04:21:04.813144"]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Darkseid Brain"], ["toyable_id", 1], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.821813"], ["updated_at", "2016-06-02 04:21:04.821813"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Giant Yellowjacket"], ["toyable_id", 4], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.828671"], ["updated_at", "2016-06-02 04:21:04.828671"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Illustrious Medusa"], ["toyable_id", 3], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.835302"], ["updated_at", "2016-06-02 04:21:04.835302"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cable"], ["toyable_id", 9], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.842937"], ["updated_at", "2016-06-02 04:21:04.842937"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Ultra Wolverine"], ["toyable_id", 9], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.849856"], ["updated_at", "2016-06-02 04:21:04.849856"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cyborg Aqualad II"], ["toyable_id", 8], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.856490"], ["updated_at", "2016-06-02 04:21:04.856490"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Illustrious Shrinking Violet II"], ["toyable_id", 8], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.862878"], ["updated_at", "2016-06-02 04:21:04.862878"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quantum"], ["toyable_id", 1], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.869490"], ["updated_at", "2016-06-02 04:21:04.869490"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Green Bat Eyes"], ["toyable_id", 11], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.876169"], ["updated_at", "2016-06-02 04:21:04.876169"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lizard Thirteen"], ["toyable_id", 10], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.881882"], ["updated_at", "2016-06-02 04:21:04.881882"]]
+  [1m[35m (6.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Meteorite"], ["toyable_id", 2], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.892342"], ["updated_at", "2016-06-02 04:21:04.892342"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Red Shatterstar"], ["toyable_id", 11], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.900364"], ["updated_at", "2016-06-02 04:21:04.900364"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Illustrious Flash"], ["toyable_id", 8], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.908399"], ["updated_at", "2016-06-02 04:21:04.908399"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Walrus"], ["toyable_id", 2], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.914527"], ["updated_at", "2016-06-02 04:21:04.914527"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Absorbing III"], ["toyable_id", 6], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.920512"], ["updated_at", "2016-06-02 04:21:04.920512"]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Illustrious Quill Girl"], ["toyable_id", 3], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.927607"], ["updated_at", "2016-06-02 04:21:04.927607"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Loki"], ["toyable_id", 4], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.933935"], ["updated_at", "2016-06-02 04:21:04.933935"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Titan Wolf"], ["toyable_id", 7], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.940006"], ["updated_at", "2016-06-02 04:21:04.940006"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Red Annihilus"], ["toyable_id", 4], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.945090"], ["updated_at", "2016-06-02 04:21:04.945090"]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bushido Brain"], ["toyable_id", 1], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.954258"], ["updated_at", "2016-06-02 04:21:04.954258"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Illustrious Omega Red"], ["toyable_id", 1], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.959376"], ["updated_at", "2016-06-02 04:21:04.959376"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mr Shocker"], ["toyable_id", 10], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.964572"], ["updated_at", "2016-06-02 04:21:04.964572"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Stardust"], ["toyable_id", 1], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.969221"], ["updated_at", "2016-06-02 04:21:04.969221"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Renata Soliz Thirteen"], ["toyable_id", 11], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.975720"], ["updated_at", "2016-06-02 04:21:04.975720"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cyclops the Fated"], ["toyable_id", 1], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.981775"], ["updated_at", "2016-06-02 04:21:04.981775"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Storm Wolf"], ["toyable_id", 9], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:04.988821"], ["updated_at", "2016-06-02 04:21:04.988821"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Animal IX"], ["toyable_id", 7], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.994292"], ["updated_at", "2016-06-02 04:21:04.994292"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Callisto"], ["toyable_id", 8], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:04.999587"], ["updated_at", "2016-06-02 04:21:04.999587"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cyclops Boy"], ["toyable_id", 8], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:05.006947"], ["updated_at", "2016-06-02 04:21:05.006947"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "The Shang-Chi"], ["toyable_id", 3], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:05.012815"], ["updated_at", "2016-06-02 04:21:05.012815"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Mr Flash"], ["toyable_id", 4], ["toyable_type", "Corgi"], ["created_at", "2016-06-02 04:21:05.019392"], ["updated_at", "2016-06-02 04:21:05.019392"]]
+  [1m[36m (4.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Sage"], ["toyable_id", 9], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:05.026912"], ["updated_at", "2016-06-02 04:21:05.026912"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Supah Sabretooth"], ["toyable_id", 7], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:21:05.032828"], ["updated_at", "2016-06-02 04:21:05.032828"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[36mToy Load (1.3ms)[0m  [1mSELECT "toys".* FROM "toys"[0m
+  [1m[35mCat Load (0.3ms)[0m  SELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1
+  [1m[36mToy Load (0.4ms)[0m  [1mSELECT "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ?[0m  [["toyable_id", 1], ["toyable_type", "Cat"]]
+  [1m[35mToy Load (0.4ms)[0m  SELECT  "toys".* FROM "toys"  ORDER BY "toys"."id" ASC LIMIT 1
+  [1m[36mToy Load (0.3ms)[0m  [1mSELECT  "toys".* FROM "toys"  ORDER BY "toys"."id" ASC LIMIT 1[0m
+  [1m[35mCorgi Load (0.2ms)[0m  SELECT  "corgis".* FROM "corgis" WHERE "corgis"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCat Load (0.2ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.3ms)[0m  SELECT "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ?  [["toyable_id", 1], ["toyable_type", "Cat"]]
+  [1m[36mCorgi Load (0.2ms)[0m  [1mSELECT  "corgis".* FROM "corgis"  ORDER BY "corgis"."id" ASC LIMIT 1[0m
+  [1m[36mCat Load (0.2ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.3ms)[0m  SELECT  "toys".* FROM "toys" WHERE "toys"."name" = ? LIMIT 1  [["name", "smile"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "toys" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "smile"], ["created_at", "2016-06-02 04:28:28.581404"], ["updated_at", "2016-06-02 04:28:28.581404"]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+  [1m[36mCat Load (0.3ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.3ms)[0m  SELECT  "toys".* FROM "toys" WHERE "toys"."name" = ? LIMIT 1  [["name", "smile"]]
+  [1m[36mToy Load (0.6ms)[0m  [1mSELECT  "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ? AND "toys"."toy_id" = 41 LIMIT 1[0m  [["toyable_id", 1], ["toyable_type", "Cat"]]
+SQLite3::SQLException: no such column: toys.toy_id: SELECT  "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ? AND "toys"."toy_id" = 41 LIMIT 1
+  [1m[36mCorgi Load (0.2ms)[0m  [1mSELECT  "corgis".* FROM "corgis"  ORDER BY "corgis"."id" ASC LIMIT 1[0m
+  [1m[36mCat Load (0.2ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mCat Load (0.3ms)[0m  SELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1
+  [1m[36mToy Load (0.4ms)[0m  [1mSELECT "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ?[0m  [["toyable_id", 1], ["toyable_type", "Cat"]]
+  [1m[35mCorgi Load (0.2ms)[0m  SELECT  "corgis".* FROM "corgis"  ORDER BY "corgis"."id" ASC LIMIT 1
+  [1m[36mToy Load (0.1ms)[0m  [1mSELECT "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ?[0m  [["toyable_id", 1], ["toyable_type", "Corgi"]]
+  [1m[36mCorgi Load (0.2ms)[0m  [1mSELECT  "corgis".* FROM "corgis"  ORDER BY "corgis"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.6ms)[0m  SELECT "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ?  [["toyable_id", 1], ["toyable_type", "Corgi"]]
+  [1m[36mCat Load (0.2ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.1ms)[0m  SELECT "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ?  [["toyable_id", 1], ["toyable_type", "Cat"]]
+  [1m[36mCat Load (0.3ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.2ms)[0m  SELECT  "toys".* FROM "toys" WHERE "toys"."name" = ? LIMIT 1  [["name", "monkey"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "toys" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "monkey"], ["created_at", "2016-06-02 04:50:37.333975"], ["updated_at", "2016-06-02 04:50:37.333975"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mToy Load (1.0ms)[0m  SELECT  "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ? AND "toys"."toy_id" = 42 LIMIT 1  [["toyable_id", 1], ["toyable_type", "Cat"]]
+SQLite3::SQLException: no such column: toys.toy_id: SELECT  "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ? AND "toys"."toy_id" = 42 LIMIT 1
+  [1m[36mCat Load (1.3ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.2ms)[0m  SELECT  "toys".* FROM "toys" WHERE "toys"."name" = ? LIMIT 1  [["name", "smile"]]
+  [1m[36mToy Load (1.1ms)[0m  [1mSELECT  "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ? AND "toys"."toy_id" = 41 LIMIT 1[0m  [["toyable_id", 1], ["toyable_type", "Cat"]]
+SQLite3::SQLException: no such column: toys.toy_id: SELECT  "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ? AND "toys"."toy_id" = 41 LIMIT 1
+  [1m[36mCat Load (0.2ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.3ms)[0m  SELECT "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ?  [["toyable_id", 1], ["toyable_type", "Cat"]]
+  [1m[36mCat Load (0.3ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.3ms)[0m  SELECT  "toys".* FROM "toys" WHERE "toys"."name" = ? LIMIT 1  [["name", "smile"]]
+  [1m[36mCat Load (0.2ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.4ms)[0m  SELECT  "toys".* FROM "toys" WHERE "toys"."name" = ? LIMIT 1  [["name", "smile"]]
+  [1m[36mToy Load (0.2ms)[0m  [1mSELECT  "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ? AND "toys"."id" = ? LIMIT 1[0m  [["toyable_id", 1], ["toyable_type", "Cat"], ["id", 41]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "toys" ("id", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 41], ["toyable_id", 1], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:54:58.508722"], ["updated_at", "2016-06-02 04:54:58.508722"]]
+SQLite3::ConstraintException: NOT NULL constraint failed: toys.name: INSERT INTO "toys" ("id", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mCat Load (0.2ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mToy Load (0.3ms)[0m  SELECT  "toys".* FROM "toys" WHERE "toys"."name" = ? LIMIT 1  [["name", "smile"]]
+  [1m[36mToy Load (0.3ms)[0m  [1mSELECT  "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ? AND "toys"."name" = ? LIMIT 1[0m  [["toyable_id", 1], ["toyable_type", "Cat"], ["name", "smile"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "toys" ("name", "toyable_id", "toyable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "smile"], ["toyable_id", 1], ["toyable_type", "Cat"], ["created_at", "2016-06-02 04:56:23.846730"], ["updated_at", "2016-06-02 04:56:23.846730"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mCat Load (5.5ms)[0m  [1mSELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1[0m
+  [1m[35mCat Load (0.3ms)[0m  SELECT  "cats".* FROM "cats"  ORDER BY "cats"."id" ASC LIMIT 1
+  [1m[36mToy Load (0.4ms)[0m  [1mSELECT "toys".* FROM "toys" WHERE "toys"."toyable_id" = ? AND "toys"."toyable_type" = ?[0m  [["toyable_id", 1], ["toyable_type", "Cat"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUniquenesstoName (20160603180735)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "atoys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "toyable_id" integer, "toyable_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_toys_on_toyable_type_and_toyable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_toys_on_toyable_type_and_toyable_id' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "tindex_atoys_on_toyable_type_and_toyable_id" ON "atoys" ("toyable_type", "toyable_id")
+  [1m[36m (0.3ms)[0m  [1mSELECT * FROM "toys"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (1, 'Green Mephisto', 1, 'Corgi', '2016-06-02 04:21:04.769606', '2016-06-02 04:21:04.769606')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (2, 'Firestar', 3, 'Corgi', '2016-06-02 04:21:04.775655', '2016-06-02 04:21:04.775655')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (3, 'Magnificent Rorschach of Hearts', 10, 'Corgi', '2016-06-02 04:21:04.782136', '2016-06-02 04:21:04.782136')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (4, 'Faora', 6, 'Corgi', '2016-06-02 04:21:04.789409', '2016-06-02 04:21:04.789409')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (5, 'Krypto', 1, 'Corgi', '2016-06-02 04:21:04.796454', '2016-06-02 04:21:04.796454')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (6, 'Spawn Woman', 3, 'Cat', '2016-06-02 04:21:04.804764', '2016-06-02 04:21:04.804764')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (7, 'Mr Hollow', 10, 'Corgi', '2016-06-02 04:21:04.813144', '2016-06-02 04:21:04.813144')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (8, 'Darkseid Brain', 1, 'Cat', '2016-06-02 04:21:04.821813', '2016-06-02 04:21:04.821813')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (9, 'Giant Yellowjacket', 4, 'Corgi', '2016-06-02 04:21:04.828671', '2016-06-02 04:21:04.828671')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (10, 'Illustrious Medusa', 3, 'Cat', '2016-06-02 04:21:04.835302', '2016-06-02 04:21:04.835302')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (11, 'Cable', 9, 'Cat', '2016-06-02 04:21:04.842937', '2016-06-02 04:21:04.842937')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (12, 'Ultra Wolverine', 9, 'Cat', '2016-06-02 04:21:04.849856', '2016-06-02 04:21:04.849856')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (13, 'Cyborg Aqualad II', 8, 'Cat', '2016-06-02 04:21:04.856490', '2016-06-02 04:21:04.856490')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (14, 'Illustrious Shrinking Violet II', 8, 'Cat', '2016-06-02 04:21:04.862878', '2016-06-02 04:21:04.862878')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (15, 'Quantum', 1, 'Cat', '2016-06-02 04:21:04.869490', '2016-06-02 04:21:04.869490')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (16, 'Green Bat Eyes', 11, 'Cat', '2016-06-02 04:21:04.876169', '2016-06-02 04:21:04.876169')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (17, 'Lizard Thirteen', 10, 'Cat', '2016-06-02 04:21:04.881882', '2016-06-02 04:21:04.881882')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (18, 'Meteorite', 2, 'Corgi', '2016-06-02 04:21:04.892342', '2016-06-02 04:21:04.892342')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (19, 'Red Shatterstar', 11, 'Cat', '2016-06-02 04:21:04.900364', '2016-06-02 04:21:04.900364')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (20, 'Illustrious Flash', 8, 'Corgi', '2016-06-02 04:21:04.908399', '2016-06-02 04:21:04.908399')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (21, 'Walrus', 2, 'Corgi', '2016-06-02 04:21:04.914527', '2016-06-02 04:21:04.914527')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (22, 'Absorbing III', 6, 'Cat', '2016-06-02 04:21:04.920512', '2016-06-02 04:21:04.920512')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (23, 'Illustrious Quill Girl', 3, 'Cat', '2016-06-02 04:21:04.927607', '2016-06-02 04:21:04.927607')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (24, 'Loki', 4, 'Corgi', '2016-06-02 04:21:04.933935', '2016-06-02 04:21:04.933935')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (25, 'Titan Wolf', 7, 'Cat', '2016-06-02 04:21:04.940006', '2016-06-02 04:21:04.940006')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (26, 'Red Annihilus', 4, 'Corgi', '2016-06-02 04:21:04.945090', '2016-06-02 04:21:04.945090')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (27, 'Bushido Brain', 1, 'Corgi', '2016-06-02 04:21:04.954258', '2016-06-02 04:21:04.954258')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (28, 'Illustrious Omega Red', 1, 'Corgi', '2016-06-02 04:21:04.959376', '2016-06-02 04:21:04.959376')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (29, 'Mr Shocker', 10, 'Corgi', '2016-06-02 04:21:04.964572', '2016-06-02 04:21:04.964572')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (30, 'Stardust', 1, 'Corgi', '2016-06-02 04:21:04.969221', '2016-06-02 04:21:04.969221')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (31, 'Renata Soliz Thirteen', 11, 'Corgi', '2016-06-02 04:21:04.975720', '2016-06-02 04:21:04.975720')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (32, 'Cyclops the Fated', 1, 'Corgi', '2016-06-02 04:21:04.981775', '2016-06-02 04:21:04.981775')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (33, 'Storm Wolf', 9, 'Corgi', '2016-06-02 04:21:04.988821', '2016-06-02 04:21:04.988821')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (34, 'Animal IX', 7, 'Cat', '2016-06-02 04:21:04.994292', '2016-06-02 04:21:04.994292')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (35, 'Callisto', 8, 'Cat', '2016-06-02 04:21:04.999587', '2016-06-02 04:21:04.999587')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (36, 'Cyclops Boy', 8, 'Cat', '2016-06-02 04:21:05.006947', '2016-06-02 04:21:05.006947')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (37, 'The Shang-Chi', 3, 'Corgi', '2016-06-02 04:21:05.012815', '2016-06-02 04:21:05.012815')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (38, 'Mr Flash', 4, 'Corgi', '2016-06-02 04:21:05.019392', '2016-06-02 04:21:05.019392')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (39, 'Sage', 9, 'Cat', '2016-06-02 04:21:05.026912', '2016-06-02 04:21:05.026912')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (40, 'Supah Sabretooth', 7, 'Cat', '2016-06-02 04:21:05.032828', '2016-06-02 04:21:05.032828')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (41, 'smile', NULL, NULL, '2016-06-02 04:28:28.581404', '2016-06-02 04:28:28.581404')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (42, 'monkey', NULL, NULL, '2016-06-02 04:50:37.333975', '2016-06-02 04:50:37.333975')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atoys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (43, 'smile', 1, 'Cat', '2016-06-02 04:56:23.846730', '2016-06-02 04:56:23.846730')
+  [1m[36m (1.8ms)[0m  [1mDROP TABLE "toys"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "toys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "toyable_id" integer, "toyable_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atoys_on_toyable_type_and_toyable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atoys_on_toyable_type_and_toyable_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_toys_on_toyable_type_and_toyable_id" ON "toys" ("toyable_type", "toyable_id")
+  [1m[36m (0.3ms)[0m  [1mSELECT * FROM "atoys"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (1, 'Green Mephisto', 1, 'Corgi', '2016-06-02 04:21:04.769606', '2016-06-02 04:21:04.769606')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (2, 'Firestar', 3, 'Corgi', '2016-06-02 04:21:04.775655', '2016-06-02 04:21:04.775655')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (3, 'Magnificent Rorschach of Hearts', 10, 'Corgi', '2016-06-02 04:21:04.782136', '2016-06-02 04:21:04.782136')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (4, 'Faora', 6, 'Corgi', '2016-06-02 04:21:04.789409', '2016-06-02 04:21:04.789409')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (5, 'Krypto', 1, 'Corgi', '2016-06-02 04:21:04.796454', '2016-06-02 04:21:04.796454')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (6, 'Spawn Woman', 3, 'Cat', '2016-06-02 04:21:04.804764', '2016-06-02 04:21:04.804764')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (7, 'Mr Hollow', 10, 'Corgi', '2016-06-02 04:21:04.813144', '2016-06-02 04:21:04.813144')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (8, 'Darkseid Brain', 1, 'Cat', '2016-06-02 04:21:04.821813', '2016-06-02 04:21:04.821813')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (9, 'Giant Yellowjacket', 4, 'Corgi', '2016-06-02 04:21:04.828671', '2016-06-02 04:21:04.828671')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (10, 'Illustrious Medusa', 3, 'Cat', '2016-06-02 04:21:04.835302', '2016-06-02 04:21:04.835302')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (11, 'Cable', 9, 'Cat', '2016-06-02 04:21:04.842937', '2016-06-02 04:21:04.842937')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (12, 'Ultra Wolverine', 9, 'Cat', '2016-06-02 04:21:04.849856', '2016-06-02 04:21:04.849856')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (13, 'Cyborg Aqualad II', 8, 'Cat', '2016-06-02 04:21:04.856490', '2016-06-02 04:21:04.856490')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (14, 'Illustrious Shrinking Violet II', 8, 'Cat', '2016-06-02 04:21:04.862878', '2016-06-02 04:21:04.862878')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (15, 'Quantum', 1, 'Cat', '2016-06-02 04:21:04.869490', '2016-06-02 04:21:04.869490')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (16, 'Green Bat Eyes', 11, 'Cat', '2016-06-02 04:21:04.876169', '2016-06-02 04:21:04.876169')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (17, 'Lizard Thirteen', 10, 'Cat', '2016-06-02 04:21:04.881882', '2016-06-02 04:21:04.881882')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (18, 'Meteorite', 2, 'Corgi', '2016-06-02 04:21:04.892342', '2016-06-02 04:21:04.892342')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (19, 'Red Shatterstar', 11, 'Cat', '2016-06-02 04:21:04.900364', '2016-06-02 04:21:04.900364')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (20, 'Illustrious Flash', 8, 'Corgi', '2016-06-02 04:21:04.908399', '2016-06-02 04:21:04.908399')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (21, 'Walrus', 2, 'Corgi', '2016-06-02 04:21:04.914527', '2016-06-02 04:21:04.914527')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (22, 'Absorbing III', 6, 'Cat', '2016-06-02 04:21:04.920512', '2016-06-02 04:21:04.920512')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (23, 'Illustrious Quill Girl', 3, 'Cat', '2016-06-02 04:21:04.927607', '2016-06-02 04:21:04.927607')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (24, 'Loki', 4, 'Corgi', '2016-06-02 04:21:04.933935', '2016-06-02 04:21:04.933935')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (25, 'Titan Wolf', 7, 'Cat', '2016-06-02 04:21:04.940006', '2016-06-02 04:21:04.940006')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (26, 'Red Annihilus', 4, 'Corgi', '2016-06-02 04:21:04.945090', '2016-06-02 04:21:04.945090')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (27, 'Bushido Brain', 1, 'Corgi', '2016-06-02 04:21:04.954258', '2016-06-02 04:21:04.954258')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (28, 'Illustrious Omega Red', 1, 'Corgi', '2016-06-02 04:21:04.959376', '2016-06-02 04:21:04.959376')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (29, 'Mr Shocker', 10, 'Corgi', '2016-06-02 04:21:04.964572', '2016-06-02 04:21:04.964572')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (30, 'Stardust', 1, 'Corgi', '2016-06-02 04:21:04.969221', '2016-06-02 04:21:04.969221')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (31, 'Renata Soliz Thirteen', 11, 'Corgi', '2016-06-02 04:21:04.975720', '2016-06-02 04:21:04.975720')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (32, 'Cyclops the Fated', 1, 'Corgi', '2016-06-02 04:21:04.981775', '2016-06-02 04:21:04.981775')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (33, 'Storm Wolf', 9, 'Corgi', '2016-06-02 04:21:04.988821', '2016-06-02 04:21:04.988821')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (34, 'Animal IX', 7, 'Cat', '2016-06-02 04:21:04.994292', '2016-06-02 04:21:04.994292')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (35, 'Callisto', 8, 'Cat', '2016-06-02 04:21:04.999587', '2016-06-02 04:21:04.999587')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (36, 'Cyclops Boy', 8, 'Cat', '2016-06-02 04:21:05.006947', '2016-06-02 04:21:05.006947')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (37, 'The Shang-Chi', 3, 'Corgi', '2016-06-02 04:21:05.012815', '2016-06-02 04:21:05.012815')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (38, 'Mr Flash', 4, 'Corgi', '2016-06-02 04:21:05.019392', '2016-06-02 04:21:05.019392')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (39, 'Sage', 9, 'Cat', '2016-06-02 04:21:05.026912', '2016-06-02 04:21:05.026912')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (40, 'Supah Sabretooth', 7, 'Cat', '2016-06-02 04:21:05.032828', '2016-06-02 04:21:05.032828')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (41, 'smile', NULL, NULL, '2016-06-02 04:28:28.581404', '2016-06-02 04:28:28.581404')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (42, 'monkey', NULL, NULL, '2016-06-02 04:50:37.333975', '2016-06-02 04:50:37.333975')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "toys" ("id","name","toyable_id","toyable_type","created_at","updated_at") VALUES (43, 'smile', 1, 'Cat', '2016-06-02 04:56:23.846730', '2016-06-02 04:56:23.846730')
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE "atoys"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160603180735"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_toys_on_toyable_type_and_toyable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_toys_on_toyable_type_and_toyable_id' AND type='index'
+[0m

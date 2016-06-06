@@ -1,8 +1,8 @@
-var Game = require('./components/game');
-var React = require('react');
-var ReactDOM = require('react-dom');
+const Game = require('./components/game');
+const React = require('react');
+const ReactDOM = require('react-dom');
 
 ReactDOM.render(
-  <Game />, 
+  <Game />,
   document.getElementById('main')
 );
