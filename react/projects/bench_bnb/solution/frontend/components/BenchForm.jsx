@@ -1,7 +1,7 @@
 const React = require('react');
 const LinkedStateMixin = require('react-addons-linked-state-mixin');
 const BenchActions = require('../actions/bench_actions');
-const hashHistory = require('react-router');
+const hashHistory = require('react-router').hashHistory;
 
 const BenchForm = React.createClass({
   mixins: [LinkedStateMixin],
