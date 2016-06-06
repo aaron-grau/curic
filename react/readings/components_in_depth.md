@@ -22,13 +22,6 @@ var Dog = React.createClass({
   }
 });
 ```
-
-It's worth mentioning that any element created during a component's
-`render` is said to be **owned** by the creator. If this dog's `render`
-method rendered a more sophisticated tree, each node of the tree would
-be **owned** by their creator, the `Dog`. **Children**, on the other
-hand, are the nodes **surrounded** by another node.
-
 ### Where do props come from?
 
 `props` are assigned when instances of the component are created. Using

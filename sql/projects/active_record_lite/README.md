@@ -1,4 +1,4 @@
-Active Record Lite!
+# Active Record Lite!
 
-[Day 1](instructions/active-record-lite-i.md)
-[Day 2](instructions/active-record-lite-ii.md)
+* [Part 1](instructions/active-record-lite-i.md)
+* [Part 2](instructions/active-record-lite-ii.md)

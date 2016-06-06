@@ -83,7 +83,7 @@ Wait. What about the content? Create a file called
 `welcome_email.html.erb` in `app/views/user_mailer/`. This will be the
 template used for the email, formatted in HTML:
 
-```html+erb
+```html
 <!DOCTYPE html>
 <html>
   <head>

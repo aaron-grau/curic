@@ -1,7 +1,6 @@
 # Intro JS Exercises
 
-**NB**: Remember that in JavaScript we'll use camelCase. And don't forget
- your semicolons!
+**NB**: Remember that in JavaScript we'll use camelCase. And don't forget your semicolons!
 
 ## Array exercises
 
@@ -20,13 +19,13 @@ Do the [Enumerable][enumerable-exercises] and
 
 * `myEach`
 * `myMap`
-    * it must use your `myEach` function
+    * It must use your `myEach` function.
     * Use a closure.
 * `myInject`
-    * your inject should take a function
+    * Your inject should take a function.
     * As the exercise describes, start the accumulator variable with
       the first value. Iterate through the rest.
-    * **It must also use your `myEach` function**
+    * **It must also use your `myEach` function**.
 
 [enumerable-exercises]: exercises/enumerable.md
 [blocks-exercises]: exercises/blocks.md

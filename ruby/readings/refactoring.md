@@ -49,8 +49,8 @@ LoD has disadvantages (see the wiki article); if taken too literally
 you end up with overly wide interfaces. However, the longer your
 method chains get, the more likely you should apply LoD.
 
-[dry-reading]: ../w1d2/style/dry.md
-[method-decomp-reading]: ../w1d2/style/method-decomposition.md
+[dry-reading]: dry.md
+[method-decomp-reading]: method-decomposition.md
 [wiki-demeter]: http://en.wikipedia.org/wiki/Law_Of_Demeter
 [informit-demeter]: http://www.informit.com/articles/article.aspx?p=1834700&seqNum=6
 

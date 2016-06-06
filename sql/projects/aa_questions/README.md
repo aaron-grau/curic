@@ -250,8 +250,8 @@ you hand them through reader and writer methods (`attr_accessor`).
 
 So you've probably noticed that each of these classes shares a lot of
 functionality. Let's extract some common methods out into a superclass. 
-Easy stuff first, let's take `#find_by_id` out of the individual classes 
-and put it into our superclass. Let's also add a `#all` method while we're 
+Easy stuff first, let's take `::find_by_id` out of the individual classes 
+and put it into our superclass. Let's also add a `::all` method while we're 
 at it.
 
 Now for the fun part. Your `#save` method is very similar in each
