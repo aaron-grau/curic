@@ -7,20 +7,28 @@ const Board = React.createClass({
     const that = this;
 
     return(
-      board.grid.map((row, i) => (
-        <div className='row' key={i}>
-          {
-            row.map((tile, j) => (
-              <Tile
-                tile={tile}
-                updateGame={that.props.updateGame}
-                key={i * board.gridSize + j} />
-            ))
-          }
-        </div>
-      ))
+      <div>
+      {
+        board.grid.map((row, i) => {
+          return (
+            <div className='row' key={i}>
+            {
+              row.map((tile, j) => {
+                return (
+                  <Tile
+                    tile={tile}
+                    updateGame={that.props.updateGame}
+                    key={i * board.gridSize + j} />
+                )
+              })
+            }
+            </div>
+          );
+        })
+      }
+      </div>
     );
-  }
+}
 });
 
 module.exports = Board;
