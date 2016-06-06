@@ -1,18 +1,21 @@
-In the course, we will primarily be using the JQuery library to make all of our AJAX requests. The reason for this is two-fold:
+## Why not JQuery?
 
-1. The JQuery that is included in Rails will automatically handle the CSFR token behind the scenes for us.
-2. JQuery will automatically transform the JSON (from an JSON API request) to a JavaScript object. If we use vanilla JavaScript, we have to handle this ourselves.
+In the course, we will primarily be using the JQuery library to make all of our AJAX requests. The reasons for this are:
 
-Although we will be relying on JQuery, you may be asked how to make an AJAX request for question during an interview or have to work with a stack that doesn't rely on JQuery. Therefore it is important to know how to make an AJAX request with vanilla JavaScript.
+1. The version of JQuery that is included in Rails will automatically handle CSRF tokens for us.
+2. JQuery will automatically transform JSON (which is a string) into JavaScript objects. If we use XHR (the vanilla-DOM way), we have to handle this ourselves.
+3.  JQuery's API is much more user-friendly than XHR.
+
+Although we will be relying on JQuery, you may be asked about non-JQuery AJAX requests in interviews or end up working with a stack that doesn't rely on JQuery. Therefore it is important to know how to use vanilla DOM.
 
 ## XMLHttpRequest
 
-The functionality of AJAX is accomplished though something called an XMLHttpRequest object (aka XHR). The steps to make an ajax request are:
+The functionality of AJAX is accomplished though something called an XMLHttpRequest object (aka **XHR**). The steps to make an XHR request are:
 
-1. Create a XHR object
-2. Tell it where to go and what verb to use ('Get', 'Post', etc)
-3. Tell it what to do when it's finished loading (register a callback)
-4. Send off the request (with optional data)
+1. Create a XHR object.
+2. Tell it where to go and what verb to use ('Get', 'Post', etc).
+3. Tell it what to do when it's finished loading (register a callback).
+4. Send off the request (with optional data).
 
 Let's see an example:
 
