@@ -1,10 +1,10 @@
-var assert = require("assert");
-var Board = require("../lib/board.js");
-var Piece = require("../lib/piece.js");
-var Game = require("../lib/game.js");
+const assert = require("assert");
+const Board = require("../lib/board.js");
+const Piece = require("../lib/piece.js");
+const Game = require("../lib/game.js");
 
 describe("Piece", function () {
-  var darkPiece,
+  let darkPiece,
       lightPiece;
 
   beforeEach(function () {
@@ -36,15 +36,15 @@ describe("Piece", function () {
 });
 
 describe("Board", function () {
-  var testBoard;
+  let testBoard;
 
   beforeEach(function () {
     testBoard = new Board();
   });
 
-  var fillBoard = function(board) {
-    for (var i = 0; i < 8; i ++) {
-      for (var j = 0; j < 8; j ++) {
+  const fillBoard = function(board) {
+    for (let i = 0; i < 8; i ++) {
+      for (let j = 0; j < 8; j ++) {
         board.grid[i][j] = new Piece("white");
       }
     }
@@ -53,7 +53,7 @@ describe("Board", function () {
   describe("#grid", function () {
     it("should be 8x8", function () {
       assert.equal(testBoard.grid.length, 8);
-      for(var i = 0; i < 8; i ++){
+      for(let i = 0; i < 8; i ++){
         assert.equal(testBoard.grid[i].length, 8);
       }
     });
@@ -202,18 +202,18 @@ describe("Board", function () {
     });
 
     it('should return an array of valid moves when some are left', function() {
-      var validPositions = [
+      const validPositions = [
         [2, 3],
         [3, 2],
         [4, 5],
         [5, 4]
       ];
-      var actualPositions = testBoard.validMoves('black');
+      const actualPositions = testBoard.validMoves('black');
 
       assert.equal(actualPositions.length, validPositions.length);
 
       actualPositions.forEach(function(actualPosition, index) {
-        var validPosition = validPositions[index];
+        let validPosition = validPositions[index];
         assert.equal(actualPosition[0], validPosition[0]);
         assert.equal(actualPosition[1], validPosition[1]);
       });

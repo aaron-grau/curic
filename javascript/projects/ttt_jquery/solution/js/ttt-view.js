@@ -1,17 +1,17 @@
-var View = function (game, $el) {
-    this.game = game;
-    this.$el = $el;
+function View (game, $el) {
+  this.game = game;
+  this.$el = $el;
 
-    this.setupBoard();
-    this.bindEvents();
-  };
+  this.setupBoard();
+  this.bindEvents();
+}
 
 View.prototype.bindEvents = function () {
   // install a handler on the `li` elements inside the board.
-  this.$el.on("click", "li", (function (event) {
-    var $square = $(event.currentTarget);
+  this.$el.on("click", "li", ( event => {
+    const $square = $(event.currentTarget);
     this.makeMove($square);
-  }).bind(this));
+  }));
 };
 
 View.prototype.makeMove = function ($square) {
@@ -32,8 +32,8 @@ View.prototype.makeMove = function ($square) {
     this.$el.off("click");
     this.$el.addClass("game-over");
 
-    var winner = this.game.winner();
-    var $figcaption = $("<figcaption>");
+    const winner = this.game.winner();
+    const $figcaption = $("<figcaption>");
 
     if (winner) {
       this.$el.addClass("winner-" + winner);
@@ -47,13 +47,12 @@ View.prototype.makeMove = function ($square) {
 };
 
 View.prototype.setupBoard = function () {
-  $('body').css('background-color', 'red');
-  var $ul = $("<ul>");
+  const $ul = $("<ul>");
   $ul.addClass("group");
 
-  for (var rowIdx = 0; rowIdx < 3; rowIdx++) {
-    for (var colIdx = 0; colIdx < 3; colIdx++) {
-      var $li = $("<li>");
+  for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
+    for (let colIdx = 0; colIdx < 3; colIdx++) {
+      let $li = $("<li>");
       $li.data("pos", [rowIdx, colIdx]);
 
       $ul.append($li);

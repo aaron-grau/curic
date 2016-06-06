@@ -1,6 +1,6 @@
-var Board = require('./snake.js');
+const Board = require('./board.js');
 
-var View = function ($el) {
+const View = function ($el) {
   this.$el = $el;
 
   this.board = new Board(20);
@@ -26,9 +26,7 @@ View.STEP_MILLIS = 100;
 View.prototype.handleKeyEvent = function (event) {
   if (View.KEYS[event.keyCode]) {
     this.board.snake.turn(View.KEYS[event.keyCode]);
-  } else {
-    // some other key was pressed; ignore.
-  }
+  } 
 };
 
 View.prototype.render = function () {
@@ -42,18 +40,18 @@ View.prototype.render = function () {
 View.prototype.updateClasses = function(coords, className) {
   this.$li.filter("." + className).removeClass();
 
-  coords.forEach(function(coord){
-    var flatCoord = (coord.i * this.board.dim) + coord.j;
+  coords.forEach( coord => {
+    const flatCoord = (coord.i * this.board.dim) + coord.j;
     this.$li.eq(flatCoord).addClass(className);
-  }.bind(this));
+  });
 };
 
 View.prototype.setupGrid = function () {
-  var html = "";
+  let html = "";
 
-  for (var i = 0; i < this.board.dim; i++) {
+  for (let i = 0; i < this.board.dim; i++) {
     html += "<ul>";
-    for (var j = 0; j < this.board.dim; j++) {
+    for (let j = 0; j < this.board.dim; j++) {
       html += "<li></li>";
     }
     html += "</ul>";

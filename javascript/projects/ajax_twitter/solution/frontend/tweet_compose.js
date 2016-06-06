@@ -1,4 +1,4 @@
-var TweetCompose = function (el) {
+function TweetCompose(el) {
   this.$el = $(el);
 
   this.$input = this.$el.find("textarea[name=tweet\\[content\\]]");
@@ -11,12 +11,12 @@ var TweetCompose = function (el) {
     "click", "a.remove-mentioned-user", this.removeMentionedUser.bind(this));
 
   this.$el.on("submit", this.submit.bind(this));
-};
+}
 
 TweetCompose.prototype.addMentionedUser = function (event) {
   event.preventDefault();
 
-  var $mentionedUserSelect = $(this.$mentionedUsersDiv.find("script").html());
+  const $mentionedUserSelect = $(this.$mentionedUsersDiv.find("script").html());
   this.$mentionedUsersDiv.find("ul").append($mentionedUserSelect);
 };
 
@@ -28,13 +28,13 @@ TweetCompose.prototype.clearInput = function () {
 };
 
 TweetCompose.prototype.handleInput = function (event) {
-  var inputLength = this.$input.val().length;
+  const inputLength = this.$input.val().length;
 
   this.$el.find(".char-left").text(140 - inputLength + " characters left");
 };
 
 TweetCompose.prototype.handleSuccess = function (data) {
-  var $tweetsUl = $(this.$el.data("tweets-ul"));
+  const $tweetsUl = $(this.$el.data("tweets-ul"));
   $tweetsUl.trigger("insert-tweet", data);
 
   this.clearInput();
@@ -48,7 +48,7 @@ TweetCompose.prototype.removeMentionedUser = function (event) {
 TweetCompose.prototype.submit = function (event) {
   event.preventDefault();
 
-  var data = this.$el.serializeJSON();
+  const data = this.$el.serializeJSON();
   this.$el.find(":input").prop("disabled", true);
 
   $.ajax({
