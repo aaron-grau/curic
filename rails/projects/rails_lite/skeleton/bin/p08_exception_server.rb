@@ -3,7 +3,6 @@ require_relative '../lib/controller_base'
 require_relative '../lib/router'
 require_relative '../lib/show_exceptions'
 
-
 class StatusesController < ControllerBase
   def index
     statuses = $statuses.select do |s|
