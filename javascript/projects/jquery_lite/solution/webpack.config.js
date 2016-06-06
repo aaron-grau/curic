@@ -5,4 +5,4 @@ module.exports = {
     filename: "jquery_lite.js"
 	},
 	devtool: "source-map"
-	};
+};
