@@ -33,43 +33,23 @@ function _ensureUserFetched(nextState, replace, asyncDoneCallback){
   //checked to see if the user is logged in. This should only fire once --
   //when the user first visits our website / after a reload
   if ( SessionStore.currentUserHasBeenFetched() ) {
+    //If the current user has already been fetched, we're done!
     asyncDoneCallback();
   } else {
+    //If not, let's initiate the fetch, and pass the asyncDoneCallback to be invoked upon completion
     SessionActions.fetchCurrentUser(asyncDoneCallback);
   }
 }
 
-function _ensureLoggedIn(nextState, replace, asyncDoneCallback) {
+function _ensureLoggedIn(nextState, replace) {
   // We don't want users to be able to visit our 'new' or 'review' routes
   // if they haven't already signed in/up. Let's redirect them!
-  // Router is in the process of entering a route.
-  // Will wait for us to call the `asyncDoneCallback`
-  // before it actually enters the route (and renders onto the page)
-  //
-  // Let's check if user is signed in, if they are, we can just call
-  // the asyncDoneCallback and the Router will enter the Route normally,
-  // else, if user is NOT signed in, let's call the `replace` argument
-  // to instead redirect the user to the login route/component.
-  if (SessionStore.currentUserHasBeenFetched()) {
-    redirectIfNotLoggedIn();
-  } else {
-    SessionActions.fetchCurrentUser(redirectIfNotLoggedIn);
-  }
-
-  function redirectIfNotLoggedIn() {
+  // `replace` is like a redirect. It replaces the current entry
+  // into the history (and the hashFragment), so the Router is forced
+  // to re-route.
     if (!SessionStore.isUserLoggedIn()) {
-      // `replace` is like a redirect. It replaces the current entry
-      // into the history (and the hashFragment), so the Router is forced
-      // to re-route.
       replace('/login');
     }
-
-    // The `asyncDoneCallback` is the React Router's way of telling us
-    // "let me know when you're done doing any async stuff, and I'll see
-    // if I render the original Route or navigate to another one. In the
-    // meantime, I'll just wait and not do anything".
-    asyncDoneCallback();
-  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
