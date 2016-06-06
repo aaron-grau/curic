@@ -1,6 +1,6 @@
 # Towers of Hanoi
 
-Let's rewrite the towers of Hanoi game we previously wrote in Ruby.
+Let's rewrite the towers of Hanoi game we [previously wrote in Ruby][ruby-hanoi].
 
 Before you start, write out `HanoiGame#run` in pseudocode (using comments).  For example, if I were to write the pseudocode for `Chess#run`, it would look something like:
 
@@ -15,7 +15,7 @@ Before you start, write out `HanoiGame#run` in pseudocode (using comments).  For
 
 Save the pseudocode to a separate file.  We'll come back to it later.
 
-Now write a `HanoiGame` class and run it using Node:
+Now write a `Game` class and run it using Node:
 
 * In the initialization, set an ivar for the stacks.
 
@@ -53,6 +53,17 @@ See the theme here?  Test each method, one at a time, before you move on.
 
 Compare the `#run` method you wrote to the pseudocode you originally had.  Does it look like what you expected?
 
-Instantiate the `HanoiGame` class and play a game. In the completion
+##Playing the Game
+
+In order to play our game, we need to implement a layer of I/O to connect our game logic to user input. Create a `playScript.js` file. 
+  * Import your game by requiring `./game.js` as `Game`.
+  * Instantiate a reader using node's [readline library][node-io].
+  * Write a completion callback to ask the users if they want to play again.
+  * Instantiate a new `Game`, passing the reader and the completion callback.
+  * Run the game; close the reader when done.
+
+Instantiate the `Game` class and play a game. In the completion
 callback, close your `reader` so that Node knows it can exit when the
 game is over.
+[ruby-hanoi]: ruby_hanoi.md
+[node-io]: ../../readings/intro-to-callbacks.md

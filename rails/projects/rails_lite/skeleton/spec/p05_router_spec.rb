@@ -25,7 +25,7 @@ describe Route do
       expect(index_route.matches?(req)).to be_truthy
     end
 
-    it "correctly doesn't matche regular expression with capture" do
+    it "correctly doesn't match regular expression with capture" do
       index_route = Route.new(Regexp.new("^/users/(?<id>\\d+)$"), :get, "UsersController", :index)
       allow(req).to receive(:path) { "/statuses/1" }
       allow(req).to receive(:request_method) { 'GET' }
@@ -40,7 +40,7 @@ describe Route do
     it "instantiates controller and invokes action" do
       # reader beware. hairy adventures ahead.
       # this is really checking way too much implementation,
-      # but tests the aproach recommended in the project
+      # but tests the approach recommended in the project
       allow(req).to receive(:path) { "/users" }
 
       dummy_controller_class = DummyController
@@ -155,5 +155,3 @@ describe 'ControllerBase#initialize' do
     end
   end
 end
-
-

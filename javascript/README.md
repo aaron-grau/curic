@@ -59,21 +59,23 @@
 * Style
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
-* **Projects**: 
+* **Projects**:
   * [Towers of Hanoi][hanoi_node]
   * [Tic-Tac-Toe][ttt_node]
-  * 
+  *
 Write user interaction with node's `readline` library.
+* **Bonus Reading**: [Promises][promises]
 
 [file-io]: readings/intro-to-callbacks.md
 [this-and-that]: readings/this-and-that.md
 [function-calling]: readings/function-calling.md
 [module-pattern]: readings/module-pattern.md
-[hanoi_node]: projects/hanoi_node
-[ttt_node]: projects/ttt_node
+[loupe]: http://latentflip.com/loupe
 [crockford-style]: http://javascript.crockford.com/code.html
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
-[loupe]: http://latentflip.com/loupe
+[hanoi_node]: projects/hanoi_node
+[ttt_node]: projects/ttt_node
+[promises]: readings/promises.md
 
 ## w5d6-w5d7
 

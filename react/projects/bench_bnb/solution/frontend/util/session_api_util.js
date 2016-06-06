@@ -33,20 +33,19 @@ var SessionApiUtil = {
 		});
 	},
   
-	fetchCurrentUser: function (success) {
+	fetchCurrentUser: function (complete) {
 		$.ajax({
 			url: '/api/session',
 			method: 'GET',
 			success: function (currentUser) {
 			  SessionActions.receiveCurrentUser(currentUser);
-        success && success();
 			},
 			error: function (xhr) {
 			  console.log("Error in SessionApiUtil#fetchCurrentUser");
-			}
+			},
+      complete: complete
 		});
 	}
 };
 
-window.SessionApiUtil = SessionApiUtil;
 module.exports = SessionApiUtil;

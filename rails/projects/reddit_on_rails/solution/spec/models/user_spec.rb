@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
   subject(:user) do
     FactoryGirl.build(:user,
       name: "jonathan",
@@ -10,10 +9,9 @@ describe User do
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:password_digest) }
-  it { should ensure_length_of(:password).is_at_least(6) }
+  it { should validate_length_of(:password).is_at_least(6) }
 
   it { should have_many(:subs) }
-  it { should have_many(:links) }
   it { should have_many(:user_votes) }
   it { should have_many(:comments) }
 
@@ -43,11 +41,11 @@ describe User do
 
   describe "#is_password?" do
     it "verifies a password is correct" do
-      expect(user.is_password?("good_password")).to be_true
+      expect(user.is_password?("good_password")).to be true
     end
 
     it "verifies a password is not correct" do
-      expect(user.is_password?("bad_password")).to be_false
+      expect(user.is_password?("bad_password")).to be false
     end
   end
 

@@ -1,8 +1,6 @@
-var View = require('./ttt-view');
-var Game = require('../../ttt-core-solution/game');
+const View = // require appropriate file
+const Game = // require appropriate file
 
-$(function () {
+$( () => {
   // Your code here
 });
-
-
