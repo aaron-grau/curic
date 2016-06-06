@@ -1,7 +1,3 @@
-//TODO remove:
-// import SessionActions from './../actions/session_actions';
-// import ErrorActions from './../actions/error_actions';
-
 const SessionApiUtil = {
 	logIn(user, success, error) {
 		$.ajax({
@@ -56,4 +52,4 @@ const SessionApiUtil = {
 	}
 };
 
-export default SessionApiUtil;
+module.exports = SessionApiUtil;

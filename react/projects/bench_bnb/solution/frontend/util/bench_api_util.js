@@ -1,8 +1,8 @@
-import FilterParamsStore from '../stores/filter_params';
+const FilterParamsStore = require('../stores/filter_params');
 
-var ApiUtil = {
+const ApiUtil = {
   fetchAllBenches(filters, success){
-    $.get('api/benches', filters, success); //TODO this work?
+    $.get('api/benches', filters, success);
   },
   createBench(data, success){
     $.post('api/benches', { bench: data }, success);
@@ -12,4 +12,4 @@ var ApiUtil = {
   }
 };
 
-export default ApiUtil;
+module.exports = ApiUtil;

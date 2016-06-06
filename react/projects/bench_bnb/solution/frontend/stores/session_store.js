@@ -1,7 +1,7 @@
-import AppDispatcher from '../dispatcher/dispatcher.js';
-import { Store } from 'flux/utils';
-import SessionConstants from '../constants/session_constants';
-import FavoriteConstants from '../constants/favorite_constants';
+const AppDispatcher = require('../dispatcher/dispatcher.js');
+const Store = require('flux/utils').Store;
+const SessionConstants = require('../constants/session_constants');
+const FavoriteConstants = require('../constants/favorite_constants');
 
 const SessionStore = new Store(AppDispatcher);
 
@@ -54,4 +54,4 @@ SessionStore.currentUserHasBeenFetched = () => _currentUserHasBeenFetched;
 
 SessionStore.isUserLoggedIn = () => !!_currentUser.id;
 
-export default SessionStore;
+module.exports = SessionStore;

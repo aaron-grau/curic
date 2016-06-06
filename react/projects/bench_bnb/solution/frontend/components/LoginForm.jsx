@@ -1,9 +1,9 @@
-import React from 'react';
-import {Link} from 'react-router';
-import LinkedStateMixin from 'react-addons-linked-state-mixin';
-import SessionActions from '../actions/session_actions';
-import SessionStore from '../stores/session_store';
-import ErrorStore from '../stores/error_store';
+const React = require('react');
+const Link = require('react-router').Link;
+const LinkedStateMixin = require('react-addons-linked-state-mixin');
+const SessionActions = require('../actions/session_actions');
+const SessionStore = require('../stores/session_store');
+const ErrorStore = require('../stores/error_store');
 
 const LoginForm = React.createClass({
 	mixins: [LinkedStateMixin],
@@ -98,4 +98,4 @@ const LoginForm = React.createClass({
 	}
 });
 
-export default LoginForm;
+module.exports = LoginForm;

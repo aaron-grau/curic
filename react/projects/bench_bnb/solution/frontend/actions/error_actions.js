@@ -1,5 +1,5 @@
-import AppDispatcher from '../dispatcher/dispatcher';
-import ErrorConstants from '../constants/error_constants';
+const AppDispatcher = require('../dispatcher/dispatcher');
+const ErrorConstants = require('../constants/error_constants');
 
 const ErrorActions = {
   setErrors(form, errors) {
@@ -17,4 +17,4 @@ const ErrorActions = {
   }
 };
 
-export default ErrorActions;
+module.exports = ErrorActions;

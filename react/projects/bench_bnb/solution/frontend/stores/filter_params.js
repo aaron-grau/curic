@@ -1,6 +1,6 @@
-import AppDispatcher from '../dispatcher/dispatcher';
-import { Store } from 'flux/utils';
-import FilterConstants from '../constants/filter_constants';
+const AppDispatcher = require('../dispatcher/dispatcher');
+const Store = require('flux/utils').Store;
+const FilterConstants = require('../constants/filter_constants');
 
 let _params = { minSeating: 1, maxSeating: 10 };
 const FilterParamsStore = new Store(AppDispatcher);
@@ -24,4 +24,4 @@ FilterParamsStore.__onDispatch = payload => {
   }
 };
 
-export default FilterParamsStore;
+module.exports = FilterParamsStore;

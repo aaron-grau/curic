@@ -1,10 +1,10 @@
-import React from 'react';
-import BenchStore from '../stores/bench';
-import FilterParamsStore from '../stores/filter_params';
-import { Link } from 'react-router';
-import Bench from './Bench';
-import Map from './Map';
-import BenchActions from '../actions/bench_actions';
+const React = require('react');
+const BenchStore = require('../stores/bench');
+const FilterParamsStore = require('../stores/filter_params');
+const Link = require('react-router').Link;
+const Bench = require('./Bench');
+const Map = require('./Map');
+const BenchActions = require('../actions/bench_actions');
 
 const BenchShow = React.createClass({
   getInitialState() {
@@ -51,4 +51,4 @@ const BenchShow = React.createClass({
   }
 });
 
-export default BenchShow;
+module.exports = BenchShow;

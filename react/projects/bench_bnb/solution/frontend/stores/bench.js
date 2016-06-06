@@ -1,7 +1,7 @@
-import { Store } from 'flux/utils';
-import BenchConstants from '../constants/bench_constants';
-import FavoriteConstants from '../constants/favorite_constants.js';
-import AppDispatcher from '../dispatcher/dispatcher';
+const Store = require('flux/utils').Store;
+const BenchConstants = require('../constants/bench_constants');
+const FavoriteConstants = require('../constants/favorite_constants.js');
+const AppDispatcher = require('../dispatcher/dispatcher');
 const BenchStore = new Store(AppDispatcher);
 let _benches = {};
 
@@ -43,4 +43,4 @@ BenchStore.__onDispatch = payload => {
   }
 };
 
-export default BenchStore;
+module.exports = BenchStore;

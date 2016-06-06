@@ -1,4 +1,4 @@
-import React from 'react';
+const React = require('react');
 
 var Review = React.createClass({
   render() {
@@ -13,4 +13,4 @@ var Review = React.createClass({
   }
 });
 
-export default Review;
+module.exports = Review;

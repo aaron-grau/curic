@@ -18,4 +18,4 @@ const FavoriteApiUtil = {
   }
 };
 
-export default FavoriteApiUtil;
+module.exports = FavoriteApiUtil;

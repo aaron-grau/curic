@@ -1,3 +1,3 @@
-import { Dispatcher } from 'flux';
+const Dispatcher = require('flux');
 
 module.exports = new Dispatcher();
