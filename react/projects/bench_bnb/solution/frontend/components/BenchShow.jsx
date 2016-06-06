@@ -16,7 +16,7 @@ const BenchShow = React.createClass({
   componentDidMount() {
     this.benchListener = BenchStore.addListener(this._benchChanged);
     const params = FilterParamsStore.params();
-    BenchActions.fetchBenches(params);
+    BenchActions.fetchAllBenches(params);
   },
 
   componentWillUnmount() {

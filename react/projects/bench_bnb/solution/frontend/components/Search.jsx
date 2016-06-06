@@ -24,14 +24,14 @@ const Search = React.createClass({
   _filtersChanged() {
     const newFilters = FilterParamsStore.params();
     this.setState({ filterParams: newFilters });
-    BenchActions.fetchBenches(newFilters);
+    BenchActions.fetchAllBenches(newFilters);
   },
 
   componentDidMount() {
     this.benchListener = BenchStore.addListener(this._benchesChanged);
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
     const filterParams = FilterParamsStore.params();
-    BenchActions.fetchBenches(filterParams);
+    BenchActions.fetchAllBenches(filterParams);
   },
 
   componentWillUnmount() {

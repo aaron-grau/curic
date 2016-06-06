@@ -4,7 +4,7 @@ import BenchApiUtil from '../util/bench_api_util';
 
 const BenchActions = {
   fetchAllBenches(filters) {
-    BenchApiUtil.fetchBenches(filters, this.receiveAllBenches);
+    BenchApiUtil.fetchAllBenches(filters, this.receiveAllBenches);
   },
   createBench(bench){
     BenchApiUtil.createBench(bench, this.receiveSingleBench);

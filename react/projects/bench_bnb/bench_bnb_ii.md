@@ -63,11 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
   * this new column will store how many people can sit together on the
     bench at the same time
 * create a new route, `/benches/new`, for this new `BenchForm` component
-* test the route by navigating to `#/benches/new`, the map should disappear
-* add a `createBench` function to the `ApiUtil`. It should make a `POST`
+* test the route by navigating to `/#/benches/new`, the map should disappear
+* add a `createBench` function to the `BenchApiUtil`. It should make a `POST`
   request and then add the newly created bench using a new action that
   you must create
-* submission of the form should run `ClientActions.createBench`
+* submission of the form should run `BenchActions.createBench`
 * test that this works by creating a new bench through the form before moving on
 
 #### Navigating to the BenchForm ###
@@ -98,7 +98,7 @@ should:
   * First, make sure the `Map` requires the hashHistory module.
 
   ```javascript
-    var hashHistory = require('react-router').hashHistory;
+    const hashHistory = require('react-router').hashHistory;
   ```
 
   * Then, we can use the `hashHistory#push` method to send some data in the query
@@ -140,7 +140,7 @@ You should already know how to do this. Create a `User` model, `UsersController`
 Follow the pattern you used during the [Rails curriculum][rails], keeping in mind the following:
   * Your controllers should live under an `Api` namespace now and return JSON formatted responses.
   * We only care about one user (the current user), so adjust your routes and controllers accordingly (i.e. you have a single user `resource`, not `resources`).
-  * `Sessions#show` should render the `current_user` if she or he exists.
+  * `Sessions#show` should render the `current_user` if they exist.
     * We'll use this to see who's logged in
     * Make an api/users/show.json.jbuilder
   * If any auth errors arise (e.g. 'invalid credentials' or 'username already exists'), render those errors in your response with a corresponding error status.
@@ -151,6 +151,10 @@ Follow the pattern you used during the [Rails curriculum][rails], keeping in min
 ### 2. Build Your Frontend
 Set up the following flux architecture components.
 ####SessionApiUtil
+  * `#signup` a user
+    * Goes to `Api::UsersController#create`
+    * Can use the same `render "api/users/show.json.jbuilder"` as the SessionsController!
+    * On success, call `SessionAction#receiveCurrentUser` so store also knows they're logged in.
   * `#login` and `#logout` via AJAX!
     * AJAX calls like any other. Remember you might need the credentials in the `Api::SessionController`, so have to send those.
   * `#fetchCurrentUser`
@@ -161,42 +165,38 @@ Set up the following flux architecture components.
   * Attach it to the window to test out in the console. Call `SessionApiUtil#login`. You should see the request in the Network tab in Developer Tools, also in the `rails server`. Make sure the response in the Network tab contains the json for the currentUser.
 
 ####SessionStore
-  * Keep track of a `_currentUser`
+  * Keep track of a `_currentUser`, I would set this to `{}` if there isn't a user
   * Keep track of a boolean of whether `_currentUserHasBeenFetched`
-  * I would set this to `{}` if there isn't a user
   * `#isUserLoggedIn` should return a boolean of whether a user is logged in
     * hint: you can check `_currentUser.id`
   * `#currentUser`
 
 ####SessionActions
-  * `receiveCurrentUser`
+  * `#signup`, `#login`, `#logout`
+    * these should invoke the corresponding `SessionApiUtil` method and pass the appropriate callback
+  * `#receiveCurrentUser`
     * should dispatch to `SessionStore`
-  * `removeCurrentUser`
+  * `#removeCurrentUser`
     * Dispatches to `SessionStore` to reset `_currentUser`, logging them out
   * Once you have this, attach the store and `SessionApiUtil` to the window to test it out. Make sure it works before moving forward. You should be able to `#login` from the console and then see `SessionStore#currentUser`.
 
-####UserApiUtil
-  * `#signup` a user
-    * Goes to `Api::UsersController#create`
-    * Can use the same `render "api/users/show.json.jbuilder"` as the SessionsController!
-    * On success, call `SessionAction#receiveCurrentUser` so store also knows they're logged in.
 
 ### 3. Create a LoginForm
 Create a `LoginForm` component and make a front-end route for it.
 
   * Render a form for users to enter their username and password.
-  * `onSubmit`, call your `SessionApiUtil#login` and pass in the credentials
+  * `onSubmit`, call your `SessionActions#login` and pass in the credentials
   * After they log in, send them back to the root (`/`)
     * hint: In `#componentDidMount`, register a listener with the `SessionStore`. When the store `__emitChange`, check if user is logged in, and if so, send them to the root (`this.context.router.push("/")`).
     * User will then be at the root, but still have no way of telling they're signed in. We'll deal with that later.
-  * Now also make a signup form component that calls `UserApiUtil#signup`
+  * Now also make a signup form component that calls `SessionActions#signup`
 
 #### Errors
 Let's display errors in case users enter bad data into the forms and fail validations/authentication.
 
   * Make an `ErrorStore`
     * Keep track of `_errors` and `_form`. The store should only ever have the errors for a single form.
-    * You have 2 options for what \_errors should look like. You can keep track of `errors.full_messages`, (ie: `_errors === ["Username has already been taken", "Username is too short (minimum is 4 characters)", "Password is too short (minimum is 6 characters)"]`) or by field, ie:
+    * You have 2 options for what `_errors` should look like. You can keep track of `errors.full_messages`, (ie: `_errors === ["Username has already been taken", "Username is too short (minimum is 4 characters)", "Password is too short (minimum is 6 characters)"]`) or by field, ie:
 
         ```
         _errors === {
@@ -210,7 +210,7 @@ Let's display errors in case users enter bad data into the forms and fail valida
         }
         ```
 
-  * Make `ErrorActions#setErrors` and `#clearErrors`. Call these in the error callback for `SessionApiUtil#login` and `UserApiUtil#signup`.
+  * Make `ErrorActions#setErrors` and `#clearErrors`. Call these in the error callback for `SessionApiUtil#login` and `#signup`.
     * hint: the first argument to $.ajax#error is the xhr. Check in there for the error data you sent back from the server
     * Make sure you're rendering relevant errors from your controllers. If you decide to keep track of errors by field, `render json: @user.errors` works great!
   * Make your `LoginForm` listen to your `ErrorStore` on `#componentDidMount`. When the store changes, re-render and include any errors you might need to display on the form. Check the `ErrorStore#form` to make sure the errors in the are for the `LoginForm`.
@@ -221,25 +221,32 @@ Let's let users know who is currently signed in.
 
   * In the `App` component, render a `<header>` with information about the `SessionStore#currentUser`
   * If user is logged in, display their username and a logout button.
-    * `onClick` of logout button, `preventDefault` and `SessionApiUtil#logout`
+    * `onClick` of logout button, `preventDefault` and `SessionActions#logout`
   * If user IS NOT logged in, give them links to "#/login" and "#/signup"
 
-### 5. Protect your front-end routes
-Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in. We're going to use react-router's `onEnter` hooks to accomplish this.
+### 5. Fetch the current user before the app mounts
+We want to make sure that we don't render the app without first trying to fetch the current user. We're going to use react-router's [onEnter][on-enter-hook] hook to accomplish this.
 
-  * Add on `onEnter` prop to the Routes we want to protect (ie: `<Route path="something" onEnter={ _ensureLoggedIn } />`).
-  * Define the `_ensureLoggedIn function`. It can be right in bench_bnb.jsx. It won't be big.
-  * At this point, just put a `debugger` in there and make sure that you hit it when you try to navigate to that route. Your onEnter hook will be called whenever you navigate to the route. Check out the `arguments` it gets.
+  * Add on `onEnter` prop to the root route
+    ```javascript
+      <Route path="/" component={ App } onEnter={ _ensureUserFetched }>
+    ```
+  * Next, let's define an `_ensureUserFetched` function. It can be right in bench_bnb.jsx. It won't be big.
+  * At this point, just put a `debugger` in there and make sure that you hit it when you try to refresh the page. Your onEnter hook will be called whenever you navigate to that route. Check out the `arguments` it gets.
   * The hook gets 3 arguments, passed in by the ReactRouter.
     * 1st argument: next state. We won't use this one today.
     * 2nd: `replace` function. This function replaces the current path with another one you give it. We can use this to redirect them to another route (ie: `replace("/login")`)
       * The reason it's called "replace" and not "redirect" or "push" is because it replaces the current entry in the browser's history. The browser keeps track of all the paths the user visits in it's history, for the "forward" and "back" buttons to work. By replacing the current history entry, we're saying "hey browser, the user didn't actually go to /benches/new. They're going to /login."
-    * 3rd: `asyncCompletionCallback`: By defualt, the Router is going to instantiate the component for the route and render it right away after the `onEnter` hook is done. The problem in this case, is that we might have to do an async AJAX request to `#fetchCurrentUser` to see if anybody is logged in before we can know whether to `replace` or not. In the meantime, we don't want to render the component. The Router gives us this third argument. If our onEnter hook takes 3 arguments in it's signature, then the Router will wait until we call it before continuing, whether by `replace`ing or continuing to the original route.
-  * In your `_ensureLoggedIn`, check wether `SessionStore#currentUserHasBeenFetched`.
-    * If they haven't been fetched, `SessionApiUtil#fetchCurrentUser`. Give it a callback that runs on success and checks if now `SessionStore#userIsLoggedIn`. If they're not, `replace` and send them to "/login"
-      * Don't forget to call the `#asyncCompletionCallback`.
-    * If they have already been fetched before, check if they're logged in. If they are not, `replace` to "/login" and call the `#asyncCompletionCallback`.
-    * Hint: the callback to `#fetchCurrentUser` and what you do when they already have been fetched are the exact same thing. Time to refactor!
+    * 3rd: `asyncCompletionCallback`: By defualt, the Router is going to instantiate the component for the route and render it right away after the `onEnter` hook is done. The problem in this case, is that we might have to do an async AJAX request to `#fetchCurrentUser` to see if anybody is logged in before proceeding. In the meantime, we don't want to render the component. The Router gives us this third argument. If our onEnter hook takes 3 arguments in it's signature, then the Router will wait until we either invoke the `asyncCompletionCallback` function or `replace` the route before continuing.
+* In your `_ensureUserFetched`, check wether `SessionStore#currentUserHasBeenFetched`. If it has, immediately invoke `asyncCompletionCallback`. Otherwise, invoke SessionActions#fetchCurrentUser. Pass the `asyncCompletionCallback` function to the action creator, which should in turn pass it to the `SessionApiUtil`. Inside of `SessionApiUtil#fetchCurrentUser` use the `jQuery#ajax` [complete][jquery-ajax] property to invoke `asyncCompletionCallback` once the request has completed.
+
+### 6. Protect your front-end routes
+Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in.
+
+  * Add an `onEnter` prop to the Routes we want to protect (ie: `<Route path="something" onEnter={ _ensureLoggedIn } />`).
+  * In your `_ensureLoggedIn` function, check `SessionStore#isUserLoggedIn`
+    * If they are logged in, we don't have to do anything! If they are _not_ logged in, let's `replace` the path with "/login"
+    * We don't need to define this method to accept the 3rd parameter, since `_ensureLoggedIn` runs synchronously
 
 
 ## Phase 10: Filtering By Seating
@@ -303,4 +310,6 @@ Let's make sure users can't get to our "/benches/new" or "benches/:id/review" ro
 [lat-lng-docs]: https://developers.google.com/maps/documentation/javascript/reference#LatLngBounds
 [react-router-source]: https://cdnjs.cloudflare.com/ajax/libs/react-router/1.0.0-rc1/ReactRouter.min.js
 [react-history]: https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md
+[on-enter-hook]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
+[jquery-ajax]: http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
 [cloudinary-js]: http://cloudinary.com/documentation/upload_widget
