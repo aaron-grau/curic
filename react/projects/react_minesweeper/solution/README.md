@@ -54,26 +54,22 @@ putting Tile components onto the page correctly.
 
 ## Phase 2: Board
 
-Our Board component will be responsible for a single task — rendering
-rows of Tile components. The construction logic will live in our
-render function. We're going to return a component tree, starting with
-a top-level `<div>`. Inside of this, use `Array#map` on the grid of
-`this.props.board` to return a `<div>` component for each row.
-Remember that the function passed to map is given two arguments, the
-object and the index, both of which we'll need here.
+Our Board component will be responsible for a single task — rendering rows of Tile components. We're going to return a component tree that looks roughly like the example below, only with more rows and tiles: 
 
-Each row of the board's grid consists of individual tiles. We want to
-map these into React components. Add an inner call to map, this time
-on the row being mapped by the outer function. Again, keep track of
-the index. Create a new Tile component for each element in the row,
-passing three props: the tile object being mapped, the position of the
-tile, and the `updateGame` function we passed into the Board component
-as a prop.
+```html
+<div id="board">
+	<div class="row">
+		<div class="tile"/>
+	</div>
+</div>
+```
+Start with the top-level `<div id="board">` element.  The content of this element should be a call to a helper method `renderRows()`, which will create the row elements for the board. 
 
-Lastly, ensure that both the rows and Tile components are passed a
-`key`. This isn't strictly needed right now, since our tiles won't be
-reordered and aren't stateful, but it's a good habit to get into. Read
-more on keys [here][key_reading].
+`renderRows()` should use `Array#map` on `this.props.board.grid` to return a `div` for each row with a `className="row"`. When writing your `Array#map` callback, make sure it receives two arguments, the `row` object and its index. Use the index to assign a unique `key` prop to each row. Then pass the `row` and index to another helper, `renderTiles()`, which will return an array of tiles to go inside that row.
+
+`renderTiles()` should return an array of `Tile` components (see [Phase 3](#phase-3-tile) below). Each `Tile` component should take 3 props: the `tile` object being mapped, a unique `key` based on the tile's position, and an `updateGame` callback that refers to the Board's `updateGame` prop.
+
+If you're wondering what a `key` does, read [this][key_reading]. We'll cover these more later.
 
 [key_reading]: https://facebook.github.io/react/docs/multiple-components.html#dynamic-children
 

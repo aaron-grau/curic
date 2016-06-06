@@ -3,16 +3,16 @@ function Game () {
 };
 
 Game.prototype.isValidMove = function(startTowerIdx, endTowerIdx) {
-    let startTower = this.towers[startTowerIdx];
-    let endTower = this.towers[endTowerIdx];
+    const startTower = this.towers[startTowerIdx];
+    const endTower = this.towers[endTowerIdx];
 
     if (startTower.length === 0) {
       return false;
     } else if (endTower.length == 0) {
       return true;
     } else {
-      let topStartDisc = startTower[startTower.length - 1];
-      let topEndDisc = endTower[endTower.length - 1];
+      const topStartDisc = startTower[startTower.length - 1];
+      const topEndDisc = endTower[endTower.length - 1];
       return topStartDisc < topEndDisc;
     }
 };
@@ -41,9 +41,9 @@ Game.prototype.print = function(){
 Game.prototype.promptMove = function(reader, callback) {
     this.print();
     reader.question("Enter a starting tower: ", start => {
-      let startTowerIdx = parseInt(start);
+      const startTowerIdx = parseInt(start);
       reader.question("Enter an ending tower: ", end => {
-        let endTowerIdx = parseInt(end);
+        const endTowerIdx = parseInt(end);
         callback(startTowerIdx, endTowerIdx)
       });
     });
@@ -65,3 +65,5 @@ Game.prototype.run = function(reader, gameCompletionCallback) {
       }
     });
 };
+
+module.exports = Game;

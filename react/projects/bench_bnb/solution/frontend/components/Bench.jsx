@@ -1,24 +1,24 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 var Review = require('./Review');
-var UserStore = require('../stores/user_store');
+var SessionStore = require('../stores/session_store');
 var FavoriteActions = require('../actions/favorite_actions');
 
 var Bench = React.createClass({
   getInitialState: function() {
-    return { currentUser: UserStore.currentUser() };
+    return { currentUser: SessionStore.currentUser() };
   },
 
   componentDidMount: function() {
-    this.userListener = UserStore.addListener(this._userChanged);
+    this.sessionListener = SessionStore.addListener(this._userChanged);
   },
 
   _userChanged: function() {
-    this.setState({current_user: UserStore.currentUser() });
+    this.setState({current_user: SessionStore.currentUser() });
   },
 
   componentWillUnmount: function () {
-    this.userListener.remove();
+    this.sessionListener.remove();
   },
 
   toggleFavorite: function() {
@@ -38,7 +38,7 @@ var Bench = React.createClass({
     if(currentUser) {
       var currentUserFavs = currentUser.favorite_benches;
 
-      if(currentUserFavs.indexOf(this.props.bench.id) !== -1) {
+      if (currentUserFavs.indexOf(this.props.bench.id) !== -1) {
         likeText = "Unlike";
       }
     }

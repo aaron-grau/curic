@@ -1,14 +1,14 @@
-var Piece = require("./piece");
+let Piece = require("./piece");
 
 /**
  * Returns a 2D array (8 by 8) with two black pieces at [3, 4] and [4, 3]
  * and two white pieces at [3, 3] and [4, 4]
  */
 function _makeGrid() {
-  var grid = [];
+  const grid = [];
 
-  for (var i = 0; i < 8; i++) {
-    var row = new Array(8);
+  for (let i = 0; i < 8; i++) {
+    let row = new Array(8);
     grid.push(row);
   }
 
@@ -58,7 +58,7 @@ Board.prototype.hasMove = function (color) {
  * matches a given color.
  */
 Board.prototype.isMine = function (pos, color) {
-  var piece = this.getPiece(pos);
+  const piece = this.getPiece(pos);
   return piece && piece.color === color;
 };
 
@@ -104,7 +104,7 @@ function _positionsToFlip(board, pos, color, dir, piecesToFlip) {
     piecesToFlip.push(pos);
   }
 
-  var nextPos = [pos[0] + dir[0], pos[1] + dir[1]];
+  let nextPos = [pos[0] + dir[0], pos[1] + dir[1]];
 
   if (!board.isValidPos(nextPos)) {
     return null;
@@ -128,15 +128,15 @@ Board.prototype.placePiece = function (pos, color) {
     throw new Error('Invalid move!');
   }
 
-  var positionsToFlip = [];
-  for (var dirIdx = 0; dirIdx < Board.DIRS.length; dirIdx++) {
+  let positionsToFlip = [];
+  for (let dirIdx = 0; dirIdx < Board.DIRS.length; dirIdx++) {
 
     positionsToFlip = positionsToFlip.concat(
       _positionsToFlip(this, pos, color, Board.DIRS[dirIdx]) || []
     );
   }
 
-  for (var posIdx = 0; posIdx < positionsToFlip.length; posIdx++) {
+  for (let posIdx = 0; posIdx < positionsToFlip.length; posIdx++) {
     this.getPiece(positionsToFlip[posIdx]).flip();
   }
 
@@ -147,11 +147,11 @@ Board.prototype.placePiece = function (pos, color) {
  * Prints a string representation of the Board to the console.
  */
 Board.prototype.print = function () {
-  for (var i = 0; i < 8; i++) {
-    var rowString = " " + i + " |";
+  for (let i = 0; i < 8; i++) {
+    let rowString = " " + i + " |";
 
-    for (var j = 0; j < 8; j++) {
-      var pos = [i, j];
+    for (let j = 0; j < 8; j++) {
+      let pos = [i, j];
       rowString +=
         (this.getPiece(pos) ? this.getPiece(pos).toString() : ".");
     }
@@ -170,8 +170,8 @@ Board.prototype.validMove = function (pos, color) {
     return false;
   }
 
-  for (var i = 0; i < Board.DIRS.length; i++) {
-    var piecesToFlip =
+  for (let i = 0; i < Board.DIRS.length; i++) {
+    const piecesToFlip =
       _positionsToFlip(this, pos, color, Board.DIRS[i]);
     if (piecesToFlip) {
       return true;
@@ -186,10 +186,10 @@ Board.prototype.validMove = function (pos, color) {
  * the Board for a given color.
  */
 Board.prototype.validMoves = function (color) {
-  var validMovesList = [];
+  const validMovesList = [];
 
-  for (var i = 0; i < 8; i++) {
-    for (var j = 0; j < 8; j++) {
+  for (let i = 0; i < 8; i++) {
+    for (let j = 0; j < 8; j++) {
       if (this.validMove([i, j], color)) {
         validMovesList.push([i, j]);
       }

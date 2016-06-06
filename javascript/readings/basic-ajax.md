@@ -76,7 +76,7 @@ And here's some JavaScript that might make a request to the server:
 $.ajax({
   url: "/widgets/1.json",
   type: "GET",
-  success: function (widgetData) {
+  success(widgetData) {
     console.log("Here are the fetched json parameters of the widget:");
     console.log(widgetData);
   }
@@ -88,7 +88,8 @@ $.ajax({
   data: {
     name: "The Best Widget",
     maker: "The Widget King"
-  }, success: function (widgetData) {
+  },
+  success(widgetData) {
     console.log("Widget created!");
 
     // `create` action should `render json: @widget`

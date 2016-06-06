@@ -23,7 +23,7 @@ Let's see it go!
 </form>
 
 <script>
-  $("#cat-form").on("submit", function (event) {
+  $("#cat-form").on("submit", event => {
       // Lookup `preventDefault`; it stops the browser's default action,
       // which is to make a synchronous submission of the form.
       // http://api.jquery.com/category/events/event-object
@@ -41,7 +41,7 @@ Let's see it go!
         url: "/cats",
         type: "POST",
         data: formData,
-        success: function () {
+        success() {
           console.log("Your callback here!");
         }
       });
