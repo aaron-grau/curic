@@ -71,6 +71,7 @@
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
+* **Bonus Reading**: [Promises][promises]
 
 ### Homeworks
 
@@ -79,6 +80,7 @@
 * [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
 
+Write user interaction with node's `readline` library.
 
 [file-io]: readings/intro-to-callbacks.md
 [this-and-that]: readings/this-and-that.md
@@ -91,6 +93,7 @@
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
 [airbnb-style]: https://github.com/airbnb/javascript
 [loupe]: http://latentflip.com/loupe
+[promises]: readings/promises.md
 
 ## w5d6-w5d7
 

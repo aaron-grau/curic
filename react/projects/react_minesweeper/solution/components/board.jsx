@@ -1,34 +1,38 @@
-var Tile = require('./tile');
-var React = require('react');
+const Tile = require('./tile');
+const React = require('react');
 
-var Board = React.createClass({
-  render: function () {
-    var board = this.props.board;
-    var that = this;
-
+const Board = React.createClass({
+  render() {
     return(
-      <div>
-      {
-        board.grid.map(function(row, i) {
-          return (
-            <div className='row' key={i}>
-            {
-              row.map(function(tile, j) {
-                return (
-                  <Tile 
-                    tile={tile}
-                    updateGame={that.props.updateGame} 
-                    key={i * board.gridSize + j} />
-                )
-              })
-            }
-            </div>
-          );
-        })
-      }
+      <div id="board">
+        {this.renderRows()}
       </div>
     );
+  },
+
+  renderRows() {
+    const board = this.props.board;
+    return board.grid.map( (row, i) => {
+      return (
+        <div className="row" key={`row-${i}`}>
+          {this.renderTiles(row, i)}
+        </div>
+      );
+    });
+  },
+
+  renderTiles(row, i){
+    const board = this.props.board;
+    return row.map( (tile, j) => {
+      return (
+        <Tile
+          tile={tile}
+          updateGame={this.props.updateGame}
+          key={i * board.gridSize + j} />
+      );
+    });
   }
+
 });
 
 module.exports = Board;

@@ -1,19 +1,19 @@
-var Board = require('./board');
-var React = require('react');
-var Minesweeper = require('../minesweeper');
+const Board = require('./board');
+const React = require('react');
+const Minesweeper = require('../minesweeper');
 
-var Game = React.createClass({
-  getInitialState: function () {
-    var board = new Minesweeper.Board(9, 10);
-    return({ board: board });
+const Game = React.createClass({
+  getInitialState() {
+    const board = new Minesweeper.Board(9, 10);
+    return({ board });
   },
 
-  restartGame: function () {
-    var board = new Minesweeper.Board(9, 10);
-    this.setState({ board: board });
+  restartGame() {
+    const board = new Minesweeper.Board(9, 10);
+    this.setState({ board });
   },
 
-  updateGame: function (tile, flagged) {
+  updateGame(tile, flagged) {
     if (flagged) {
       tile.toggleFlag();
     } else {
@@ -23,11 +23,11 @@ var Game = React.createClass({
     this.setState({ board: this.state.board });
   },
 
-  render: function () {
-    var modal = "";
+  render() {
+    let modal;
     if (this.state.board.lost() || this.state.board.won()) {
-      var text = this.state.board.won() ? "You won!" : "You lost!";
-      modal = 
+      const text = this.state.board.won() ? "You won!" : "You lost!";
+      modal =
         <div className='modal-screen'>
           <div className='modal-content'>
             <p>{text}</p>

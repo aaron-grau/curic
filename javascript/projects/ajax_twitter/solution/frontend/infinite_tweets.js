@@ -1,22 +1,22 @@
-var _ = require('underscore');
+const _ = require('underscore');
 
-var InfiniteTweets = function (el) {
+function InfiniteTweets(el) {
   this.$el = $(el);
   this.lastCreatedAt = null;
 
   this.$el.on("click", ".fetch-more", this.fetchTweets.bind(this));
   this.$el.on("insert-tweet", this.insertTweet.bind(this));
-};
+}
 
 InfiniteTweets.prototype.fetchTweets = function (event) {
   event.preventDefault();
 
-  var infiniteTweets = this;
+  const infiniteTweets = this;
 
-  var options = {
+  const options = {
     url: "/feed",
     dataType: "json",
-    success: function (data) {
+    success(data) {
       infiniteTweets.insertTweets(data);
 
       if (data.length < 20) {
@@ -40,7 +40,7 @@ InfiniteTweets.prototype.fetchTweets = function (event) {
 };
 
 InfiniteTweets.prototype.insertTweet = function (event, data) {
-  var tmpl = _.template(this.$el.find("script").html());
+  const tmpl = _.template(this.$el.find("script").html());
   this.$el.find("ul.tweets").prepend(tmpl({
     tweets: [data]
   }));
@@ -51,7 +51,7 @@ InfiniteTweets.prototype.insertTweet = function (event, data) {
 };
 
 InfiniteTweets.prototype.insertTweets = function (data) {
-  var tmpl = _.template(this.$el.find("script").html());
+  const tmpl = _.template(this.$el.find("script").html());
   this.$el.find("ul.tweets").append(tmpl({
     tweets: data
   }));

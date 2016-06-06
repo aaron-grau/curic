@@ -1,4 +1,4 @@
-var Game = require("../lib/game");
+const Game = require("../lib/game");
 
-var game = new Game();
+const game = new Game();
 game.play();

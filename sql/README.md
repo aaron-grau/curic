@@ -180,6 +180,11 @@ until I give you leave to let Rails infer these.
 + [Demo: send][meta-send] (5 min)
 + [Demo: macros][meta-macros] (5 min)
 
+### Homework (45 min)
++ [Metacorgis][metacorgi-hw] (30 min)
++ [Implicit Bias Test][bias-quiz] (15 min)
+  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
+
 ### Project
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
 
@@ -190,6 +195,8 @@ until I give you leave to let Rails infer these.
 [meta-send]: demos/send.rb
 [meta-macros]: demos/macros.rb
 [build-your-own-ar]: projects/active_record_lite
+[metacorgi-hw]: homeworks/questions/metacorgs.md
+[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 ## w3d6-w3d7
 
