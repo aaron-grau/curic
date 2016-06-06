@@ -1,6 +1,10 @@
-require 'webrick'
-require_relative '../lib/phase9/controller_base'
-require_relative '../lib/phase9/router'
+require 'rack'
+require_relative '../lib/controller_base.rb'
+require_relative '../lib/router'
+
+# To test out your CSRF protection, go to the new dog form and
+# make sure it works! Alter the form_authenticity_token and see that
+# your server throws an error. 
 
 class Dog
   attr_reader :name, :owner
@@ -43,7 +47,9 @@ class Dog
   end
 end
 
-class DogsController < Phase9::ControllerBase
+class DogsController < ControllerBase
+  protect_from_forgery
+
   def create
     @dog = Dog.new(params["dog"])
     if @dog.save
@@ -64,13 +70,9 @@ class DogsController < Phase9::ControllerBase
     @dog = Dog.new
     render :new
   end
-
-  def show
-    render :show
-  end
 end
 
-router = Phase9::Router.new
+router = Router.new
 router.draw do
   get Regexp.new("^/dogs$"), DogsController, :index
   get Regexp.new("^/dogs/new$"), DogsController, :new
@@ -78,10 +80,14 @@ router.draw do
   post Regexp.new("^/dogs$"), DogsController, :create
 end
 
-server = WEBrick::HTTPServer.new(Port: 3000)
-server.mount_proc('/') do |req, res|
+app = Proc.new do |env|
+  req = Rack::Request.new(env)
+  res = Rack::Response.new
   router.run(req, res)
+  res.finish
 end
 
-trap('INT') { server.shutdown }
-server.start
+Rack::Server.start(
+ app: app,
+ Port: 3000
+)
