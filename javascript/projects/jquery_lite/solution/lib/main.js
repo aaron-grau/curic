@@ -1,5 +1,3 @@
-/* jshint esversion: 6 */
-
 const DomNodeCollection = require("./dom_node_collection");
 
 const _docReadyCallbacks = [];

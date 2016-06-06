@@ -1,11 +1,11 @@
 #jQuery Lite!
 
 ## Overview
-Today we will be creating most of the important functionality of the
+Today we will be recreating most of the important functionality of the
 jQuery library. jQuery is widely used for making AJAX requests, handling
 events, manipulating the DOM, and guaranteeing it works across browsers.
 
-We will implement most of this functionality using the native DOM api
+We will implement most of this functionality using the native DOM API
 that is built right in to every browser. You will be surprised how
 little you actually need jQuery when you finish this project!
 
@@ -65,8 +65,7 @@ this array as an instance variable.
 * Back in `main.js`, require your DOMNodeCollection file and store it in a variable.
 
 #### `$l(HTMLElement)`
-* We are now going to modify the core (`$l`) function. It will recieve one
-  argument, but let's make it flexible.
+* We are now going to modify the core (`$l`) function. It will recieve one argument, but let's make it flexible.
 * If the argument received is an `object`, i.e. an `instanceof`
   `HTMLElement`, you should put it into an array and return an instance of
   DOMNodeCollection.
