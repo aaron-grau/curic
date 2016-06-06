@@ -9,7 +9,7 @@
         console.log(data);
       },
       error() {
-        console.error("An error occured.");
+        console.error("An error occurred.");
       },
    });
 
