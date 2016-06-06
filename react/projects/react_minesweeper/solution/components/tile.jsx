@@ -8,7 +8,7 @@ const Tile = React.createClass({
 
   render() {
     const tile = this.props.tile;
-    let klass, text, count;
+    var klass, text, count;
     if (tile.explored) {
       if (tile.bombed) {
         klass = 'bombed';
