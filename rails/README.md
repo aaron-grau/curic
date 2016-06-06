@@ -82,15 +82,6 @@
 
 ## w4d2
 
-### Video Lectures (90 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera: (cc) 00 User Models][auth-00-user-model] (21 min)
-* [:movie_camera: (cc) 01 Basic Sessions][auth-01-basic-sessions] (21 min)
-* [:movie_camera: (cc) 02 Password Digest][auth-02-password-digest] (20 min)
-* [:movie_camera: (cc) 03 Password Pseudo Attribute][auth-03-password-pseudo-attribute] (11 min)
-* [:movie_camera: (cc) 04 Session Token][auth-04-session-token] (16 min)
-* [Demo code for videos][auth-github]
-
 ### Readings (90 min)
 * [Basic views][basic-views] (15 min)
 * [Partials][partials] (15 min)
@@ -145,8 +136,9 @@
 * [:movie_camera: (cc) 07 CSRF Protection][auth-07-csrf-protection] (12 min)
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
-### Homeworks (30 min)
+### Homeworks (60 min)
 * Complete day 4 of [html curriculum][html-readme] (30 min)
+* [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources
 * [Cookies][cookies]
@@ -185,12 +177,15 @@
 
 [99-cats-part-ii]: projects/ninety_nine_cats_ii
 
+[rails-auth-homework]: homeworks/questions/rails_auth.md
+
 ## w4d4
 
-### Video Lectures (29 min)
+### Video Lectures (39 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera:  (cc) 14-radio-and-textarea][14-radio-and-textarea] (16 min)
 * [:movie_camera:  (cc) 15-helpers][15-helpers] (13 min)
+* [:movie_camera: layouts][layout-video] (10 min)
 
 ### Readings (60 min)
 * [ActionMailer][action-mailer] (20 min)
@@ -201,6 +196,9 @@
 ### Homeworks (30 min)
 * [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
 
+### Additional Resources
+* [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
+
 ### Projects
 * **Solo**: [Music App][music-app-project]
 
@@ -208,11 +206,13 @@
 [view-helpers]: readings/helpers.md
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
-[helpers-and-layouts-hw]: homeworks/helpers-and-layouts.md
+[helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
+[layout-video]: https://vimeo.com/168822741
+[action-mailer-video]: https://vimeo.com/168810895
 
-[music-app-project]: projects/music_app.md
+[music-app-project]: projects/music_app
 
 ## w4d5
 
@@ -229,6 +229,9 @@
   * **Just section 2.9**
 * [Concerns][concerns-reading] (10 min)
 
+### Homeworks (30 min)
+* [Polymorphism and Concerns][polymorphism-and-concerns-hw] (30 min)
+
 ### Additional Resources
 * **Bonus Topic:** [Decorators][decorators]
 
@@ -236,13 +239,14 @@
 * [RedditClone][reddit-clone]
 
 [polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-[concerns-reading]: https://richonrails.com/articles/rails-4-code-concerns-in-active-record-models
+[concerns-reading]: readings/concerns.md
 [16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
 [17-checkboxes-1]: http://vimeo.com/groups/appacademy/videos/100780887
 [18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
 [19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
 [20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
 [decorators]: readings/decorators.md
+[polymorphism-and-concerns-hw]: homeworks/questions/polymorphism-concerns/polymorphism-concerns.md
 
 [reddit-clone]: projects/reddit_on_rails
 
@@ -276,6 +280,9 @@
 * [FactoryGirl and Faker Gems][fac-grl-faker] (20 min)
 * [Testing with Capybara][capybara] (15 min)
 
+### Homeworks (45 min)
+* [Capybara][capybara-hw] (45 min)
+
 ### Projects
 * [Goal App][goaling-app]
 * **Bonus**: [Appacademy.io tests][appacademyio-tests]
@@ -285,6 +292,8 @@
 [rspec-models]: readings/rspec-models.md
 [fac-grl-faker]: readings/factorygirl-and-faker.md
 [capybara]: readings/capybara.md
+
+[capybara-hw]: homeworks/questions/capybara.md
 
 [goaling-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
