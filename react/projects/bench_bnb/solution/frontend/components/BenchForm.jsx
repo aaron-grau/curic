@@ -1,10 +1,10 @@
-import React from 'react';
-import LinkedStateMixin from 'react-addons-linked-state-mixin';
-import BenchActions from '../actions/bench_actions';
-import { hashHistory } from 'react-router';
+const React = require('react');
+const LinkedStateMixin = require('react-addons-linked-state-mixin');
+const BenchActions = require('../actions/bench_actions');
+const hashHistory = require('react-router');
 
 const BenchForm = React.createClass({
-  mixins: [LinkedStateMixin], //TODO now depricated
+  mixins: [LinkedStateMixin],
   getInitialState() {
     return {
       description: "",
@@ -53,4 +53,4 @@ const BenchForm = React.createClass({
   }
 });
 
-export default BenchForm;
+module.exports = BenchForm;

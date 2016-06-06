@@ -1,5 +1,5 @@
-import React from 'react';
-import {hashHistory} from 'react-router';
+const React = require('react');
+const hashHistory = require('react-router').hashHistory;
 
 const IndexItem = React.createClass({
   handleClick() {
@@ -25,4 +25,4 @@ const IndexItem = React.createClass({
   }
 });
 
-export default IndexItem;
+module.exports = IndexItem;

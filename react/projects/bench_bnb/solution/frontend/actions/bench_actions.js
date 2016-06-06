@@ -1,6 +1,6 @@
-import AppDispatcher from '../dispatcher/dispatcher';
-import BenchConstants from '../constants/bench_constants';
-import BenchApiUtil from '../util/bench_api_util';
+const AppDispatcher = require('../dispatcher/dispatcher');
+const BenchConstants = require('../constants/bench_constants');
+const BenchApiUtil = require('../util/bench_api_util');
 
 const BenchActions = {
   fetchAllBenches(filters) {
@@ -27,4 +27,4 @@ const BenchActions = {
   }
 };
 
-export default BenchActions;
+module.exports = BenchActions;

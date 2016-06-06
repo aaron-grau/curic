@@ -1,7 +1,7 @@
-import AppDispatcher from '../dispatcher/dispatcher';
-import SessionConstants from '../constants/session_constants';
-import SessionApiUtil from '../util/session_api_util';
-import ErrorActions from './error_actions';
+const AppDispatcher = require('../dispatcher/dispatcher');
+const SessionConstants = require('../constants/session_constants');
+const SessionApiUtil = require('../util/session_api_util');
+const ErrorActions = require('./error_actions');
 
 const SessionActions = {
 
@@ -40,4 +40,4 @@ const SessionActions = {
 
 };
 
-export default SessionActions;
+module.exports = SessionActions;

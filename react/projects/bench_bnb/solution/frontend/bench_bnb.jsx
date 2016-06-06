@@ -1,18 +1,22 @@
 //React
-import React from 'react';
-import ReactDOM from 'react-dom';
+const React = require('react');
+const ReactDOM = require('react-dom');
 //Router
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+const ReactRouter = require('react-router');
+const Router = ReactRouter.Router;
+const Route = ReactRouter.Route;
+const IndexRoute = ReactRouter.IndexRoute;
+const hashHistory = ReactRouter.hashHistory;
 //Components
-import App from './components/App';
-import Search from './components/Search';
-import BenchForm from './components/BenchForm';
-import BenchShow from './components/BenchShow';
-import ReviewForm from './components/ReviewForm';
-import LoginForm from './components/LoginForm';
+const App = require('./components/App');
+const Search = require('./components/Search');
+const BenchForm = require('./components/BenchForm');
+const BenchShow = require('./components/BenchShow');
+const ReviewForm = require('./components/ReviewForm');
+const LoginForm = require('./components/LoginForm');
 //Auth
-import SessionStore from './stores/session_store';
-import SessionActions from './actions/session_actions';
+const SessionStore = require('./stores/session_store');
+const SessionActions = require('./actions/session_actions');
 
 const appRouter = (
   <Router history={ hashHistory }>

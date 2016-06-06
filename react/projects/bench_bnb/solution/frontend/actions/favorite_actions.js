@@ -1,6 +1,6 @@
-import FavoriteApiUtil from '../util/favorite_api_util';
-import FavoriteConstants from '../constants/favorite_constants';
-import AppDispatcher from '../dispatcher/dispatcher';
+const FavoriteApiUtil = require('../util/favorite_api_util');
+const FavoriteConstants = require('../constants/favorite_constants');
+const AppDispatcher = require('../dispatcher/dispatcher');
 
 const FavoriteActions = {
   createFavorite(data) {
@@ -26,4 +26,4 @@ const FavoriteActions = {
   }
 };
 
-export default FavoriteActions;
+module.exports = FavoriteActions;

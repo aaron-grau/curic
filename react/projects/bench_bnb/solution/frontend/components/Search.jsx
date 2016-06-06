@@ -1,11 +1,11 @@
-import React from 'react';
-import BenchStore from '../stores/bench';
-import FilterParamsStore from '../stores/filter_params';
-import BenchActions from '../actions/bench_actions';
-import Filters from './Filters';
-import Index from './Index';
-import Map from './Map';
-import { hashHistory } from 'react-router';
+const React = require('react');
+const BenchStore = require('../stores/bench');
+const FilterParamsStore = require('../stores/filter_params');
+const BenchActions = require('../actions/bench_actions');
+const Filters = require('./Filters');
+const Index = require('./Index');
+const Map = require('./Map');
+const hashHistory = require('react-router').hashHistory;
 
 
 const Search = React.createClass({
@@ -54,4 +54,4 @@ const Search = React.createClass({
   }
 });
 
-export default Search;
+module.exports = Search;

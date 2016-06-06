@@ -1,7 +1,7 @@
-import React from 'react';
-import LinkedStateMixin from 'react-addons-linked-state-mixin';
-import {hashHistory} from 'react-router';
-import BenchActions from '../actions/bench_actions';
+const React = require('react');
+const LinkedStateMixin = require('react-addons-linked-state-mixin');
+const hashHistory = require('react-router').hashHistory;
+const BenchActions = require('../actions/bench_actions');
 
 const ReviewForm = React.createClass({
   mixins: [LinkedStateMixin],
@@ -54,4 +54,4 @@ const ReviewForm = React.createClass({
  }
 });
 
-export default ReviewForm;
+module.exports = ReviewForm;

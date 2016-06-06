@@ -3,4 +3,4 @@ const ErrorConstants = {
   CLEAR_ERRORS: "CLEAR_ERRORS"
 };
 
-export default ErrorConstants;
+module.exports = ErrorConstants;

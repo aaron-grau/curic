@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import FilterActions from '../actions/filter_actions';
-import {hashHistory} from 'react-router';
+const React = require('react');
+const ReactDOM = require('react-dom');
+const FilterActions = require('../actions/filter_actions');
+const hashHistory = require('react-router').hashHistory;
 
 const _getCoordsObj = latLng => ({
   lat: latLng.lat(),
@@ -96,4 +96,4 @@ const MapContainer = React.createClass({
   }
 });
 
-export default MapContainer;
+module.exports = MapContainer;

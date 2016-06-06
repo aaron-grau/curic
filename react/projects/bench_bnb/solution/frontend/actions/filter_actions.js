@@ -1,5 +1,5 @@
-import AppDispatcher from '../dispatcher/dispatcher';
-import FilterConstants from '../constants/filter_constants';
+const AppDispatcher = require('../dispatcher/dispatcher');
+const FilterConstants = require('../constants/filter_constants');
 
 const FilterActions = {
   updateBounds(bounds) {
@@ -22,4 +22,4 @@ const FilterActions = {
   }
 };
 
-export default FilterActions;
+module.exports = FilterActions;

@@ -1,5 +1,5 @@
-import React from 'react';
-import IndexItem from './IndexItem';
+const React = require('react');
+const IndexItem = require('./IndexItem');
 
 const Index = React.createClass({
   render() {
@@ -20,4 +20,4 @@ const Index = React.createClass({
   }
 });
 
-export default Index;
+module.exports = Index;

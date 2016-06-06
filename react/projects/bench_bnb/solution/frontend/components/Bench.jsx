@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router';
-import Review from './Review';
-import SessionStore from '../stores/session_store';
-import FavoriteActions from '../actions/favorite_actions';
+const React = require('react');
+const Link = require('react-router').Link;
+const Review = require('./Review');
+const SessionStore = require('../stores/session_store');
+const FavoriteActions = require('../actions/favorite_actions');
 
 var Bench = React.createClass({
   getInitialState() {
@@ -69,4 +69,4 @@ var Bench = React.createClass({
   }
 });
 
-export default Bench;
+module.exports = Bench;

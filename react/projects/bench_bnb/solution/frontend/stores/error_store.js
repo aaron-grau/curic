@@ -1,6 +1,6 @@
-import { Store } from 'flux/utils';
-import AppDispatcher from '../dispatcher/dispatcher';
-import ErrorConstants from '../constants/error_constants';
+const Store = require('flux/utils').Store;
+const AppDispatcher = require('../dispatcher/dispatcher');
+const ErrorConstants = require('../constants/error_constants');
 
 const ErrorStore = new Store(AppDispatcher);
 let _errors = {};
@@ -39,4 +39,4 @@ ErrorStore.__onDispatch = payload => {
   }
 };
 
-export default ErrorStore;
+module.exports = ErrorStore;

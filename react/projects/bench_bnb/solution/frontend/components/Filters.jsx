@@ -1,5 +1,5 @@
-import React from 'react';
-import FilterActions from '../actions/filter_actions';
+const React = require('react');
+const FilterActions = require('../actions/filter_actions');
 
 const Filters = React.createClass({
   maxSeatingChanged(e) {
@@ -41,4 +41,4 @@ const Filters = React.createClass({
   }
 });
 
-export default Filters;
+module.exports = Filters;
