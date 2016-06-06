@@ -225,20 +225,33 @@ Let's let users know who is currently signed in.
   * If user IS NOT logged in, give them links to "#/login" and "#/signup"
 
 ### 5. Fetch the current user before the app mounts
-We want to make sure that we don't render the app without first trying to fetch the current user. We're going to use react-router's [onEnter][on-enter-hook] hook to accomplish this.
+We want to make sure that we don't render the app without first trying to fetch the current user. We're going to use the react-router's [onEnter][on-enter-hook] hook to accomplish this.
 
   * Add on `onEnter` prop to the root route
     ```javascript
       <Route path="/" component={ App } onEnter={ _ensureUserFetched }>
     ```
   * Next, let's define an `_ensureUserFetched` function. It can be right in bench_bnb.jsx. It won't be big.
-  * At this point, just put a `debugger` in there and make sure that you hit it when you try to refresh the page. Your onEnter hook will be called whenever you navigate to that route. Check out the `arguments` it gets.
-  * The hook gets 3 arguments, passed in by the ReactRouter.
+  * At this point, just put a `debugger` in there and make sure that you hit it when you try to refresh the page. Your onEnter hook will be called whenever you navigate to that route. Check out the `arguments` it gets:
     * 1st argument: next state. We won't use this one today.
     * 2nd: `replace` function. This function replaces the current path with another one you give it. We can use this to redirect them to another route (ie: `replace("/login")`)
       * The reason it's called "replace" and not "redirect" or "push" is because it replaces the current entry in the browser's history. The browser keeps track of all the paths the user visits in it's history, for the "forward" and "back" buttons to work. By replacing the current history entry, we're saying "hey browser, the user didn't actually go to /benches/new. They're going to /login."
-    * 3rd: `asyncCompletionCallback`: By defualt, the Router is going to instantiate the component for the route and render it right away after the `onEnter` hook is done. The problem in this case, is that we might have to do an async AJAX request to `#fetchCurrentUser` to see if anybody is logged in before proceeding. In the meantime, we don't want to render the component. The Router gives us this third argument. If our onEnter hook takes 3 arguments in it's signature, then the Router will wait until we either invoke the `asyncCompletionCallback` function or `replace` the route before continuing.
+    * 3rd: `asyncCompletionCallback`: By default, the Router is going to instantiate the component for the route and render it right away after the `onEnter` hook is done. The problem in this case, is that we might have to do an async AJAX request to `#fetchCurrentUser` to see if anybody is logged in before proceeding. In the meantime, we don't want to render the component. The Router gives us this third argument. If our onEnter hook takes 3 arguments in it's signature, then the Router will wait until we either invoke the `asyncCompletionCallback` function or `replace` the route before continuing.
 * In your `_ensureUserFetched`, check wether `SessionStore#currentUserHasBeenFetched`. If it has, immediately invoke `asyncCompletionCallback`. Otherwise, invoke SessionActions#fetchCurrentUser. Pass the `asyncCompletionCallback` function to the action creator, which should in turn pass it to the `SessionApiUtil`. Inside of `SessionApiUtil#fetchCurrentUser` use the `jQuery#ajax` [complete][jquery-ajax] property to invoke `asyncCompletionCallback` once the request has completed.
+
+Your `_ensureUserFetched` function should look something like this:
+
+  ```javascript
+    function _ensureUserFetched(nextState, replace, asyncDoneCallback){
+      if ( SessionStore.currentUserHasBeenFetched() ) {
+        //If the current user has already been fetched, we're done!
+        asyncDoneCallback();
+      } else {
+        //If not, let's initiate the fetch, and pass the asyncDoneCallback to be invoked upon completion
+        SessionActions.fetchCurrentUser(asyncDoneCallback);
+      }
+    }
+  ```
 
 ### 6. Protect your front-end routes
 Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in.
