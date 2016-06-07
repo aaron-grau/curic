@@ -7,7 +7,7 @@
 * [Server-side JavaScript][server-side-js] (5 min)
 * [Syntax][syntax] (10 min)
 * [Data Types and Truthiness][data-types] (5 min)
-* [Userful Methods][useful-methods] (5 min)
+* [Useful Methods][useful-methods] (5 min)
 * [Variables][variables] (15 min)
 * [Arguments][arguments] (15 min)
 * [Debugging Node.js][debugging-node] (10 min)
