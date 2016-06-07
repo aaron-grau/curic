@@ -89,11 +89,10 @@ function isSubstring (phrase, subphrase) {
 // fizzBuzz
 
 function fizzBuzz (array) {
-  var fizzBuzzArr = [];
+  const fizzBuzzArr = [];
 
-  for (var i = 0; i < array.length; i++) {
-    let el = array[i];
-    debugger;
+  for (let i = 0; i < array.length; i++) {
+    const el = array[i];
     if ((el % 3 === 0) ^ (el % 5 === 0)) {
       fizzBuzzArr.push(el);
     }
@@ -106,7 +105,7 @@ function fizzBuzz (array) {
 function isPrime (n) {
   if (n < 2) { return false; }
 
-  for (var i = 2; i < n; i++) {
+  for (let i = 2; i < n; i++) {
     if (n % i === 0) {
       return false;
     }
@@ -118,9 +117,9 @@ function isPrime (n) {
 // sumOfNPrimes
 
 function sumOfNPrimes (n) {
-  var sum = 0;
-  var countPrimes = 0;
-  var i = 2;
+  let sum = 0;
+  let countPrimes = 0;
+  let i = 2;
 
   while (countPrimes < n) {
     if (isPrime(i)) {
@@ -131,32 +130,4 @@ function sumOfNPrimes (n) {
   }
 
   return sum;
-}
-
-// Part III
-
-// printChildren
-
-function printChildren (parent, ...children) {
-  console.log(`${parent}'s children are:`);
-
-  for(var i = 0; i < children.length; i++) {
-    console.log(children[i]);
-  }
-}
-
-// addThree
-
-function addThree (a, b, c) {
-  return a + b + c;
-}
-
-var arr = [1,2,3];
-
-addThree(...arr);
-
-// dinnerTonightIs
-
-function dinnerTonightIs (food = "pizza") {
-  return `Dinner tonight is ${food}.`
 }
