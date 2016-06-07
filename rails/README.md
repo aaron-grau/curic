@@ -350,7 +350,7 @@
 * :movie_camera: Watch [W5D3 Javascript Video Lectures][js-videos] (12 min)
 
 ### Readings (70 min)
-* Complete [Javascript W5D3 Readings][js-readings] (30 min)
+* Complete [Javascript W5D3 Readings][js-readings] (70 min)
 
 ### Homeworks (30 min)
 * Complete [Javascript W5D3 Homework][js-hw] (30 min)
