@@ -12,21 +12,19 @@ Consider this example:
 
 
 ```javascript
-function greet(){
-  let name = "Bob";
-
-  function goodMorning(){
-   return `Good Morning, ${name}!`;
+function sayHelloTo(name){
+  function greet(){
+   return `Hi, ${name}!`;
   }
 
-  return goodMorning();
+  return greet();
 }
 
-greet() // returns 'Good Morning, Bob!'
+sayHelloTo("Bob"); // returns 'Hi, Bob!'
 ```
-In the example above, the variable `name` is referenced by `goodMorning`, even though it was never declared within `goodMorning`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.** 
+In the example above, the variable `name` is referenced by `greet`, even though it was never declared within `greet`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.** 
 
-Functions such as `goodMorning` that capture (a.k.a. use) such variables (a.k.a. free variables) are called **closures**. 
+Functions such as `greet` that capture (a.k.a. use) such variables (a.k.a. free variables) are called **closures**. 
 
 **Free variables can be modified** by closures. Consider this function: 
 
