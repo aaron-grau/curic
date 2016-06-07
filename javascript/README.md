@@ -2,6 +2,10 @@
 
 ## w5d3
 
+### Video Lectures (12 min)
+:closed_lock_with_key: `go_video_go`
+* [:movie_camera: Intro to JS](https://vimeo.com/169645510) (12 min)
+
 ### Readings (70 min)
 * [Intro to JavaScript][intro-js] (5 min)
 * [Server-side JavaScript][server-side-js] (5 min)
@@ -12,7 +16,7 @@
 * [Arguments][arguments] (15 min)
 * [Debugging Node.js][debugging-node] (10 min)
 
-### Homeworks (45 min)
+### Homeworks (30 min)
 * [Intro to JavaScript Problem Set][intro-problem-set]
 
 ### Additional Resources
