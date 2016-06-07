@@ -63,7 +63,7 @@ That makes sense, because there are two arrays of `arguments` you care
 about: the extra `arguments` passed to `myBind`, and the `arguments`
 passed when the bound function is called.
 
-Next, simplify your life and write a second version using the `...` rest operator.
+Once you've done that, **write a second version using the `...` rest operator.**
 
 ### `curriedSum`, `curry`
 
