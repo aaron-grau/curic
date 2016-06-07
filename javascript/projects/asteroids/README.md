@@ -163,8 +163,7 @@ Create a new file called "asteroids.js".
 
 In it, use `document.getElementById()` to find the canvas element. It should use `getContext` to extract a canvas context. It should construct `Game` and `GameView` object and call `GameView#start`.
 
-This is your webpack entry point, so start webpack (or restart it,
-if you're already running webpack --watch) with the "asteroids.js" file as your new entry point.
+This is your webpack entry point, so start webpack (or restart it, if you're already running webpack --watch) with the "asteroids.js" file as your new entry point.
 
 Your asteroids should fly around :-)
 

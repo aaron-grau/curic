@@ -131,3 +131,31 @@ function sumOfNPrimes (n) {
 
   return sum;
 }
+
+// Part III
+
+// printChildren
+
+function printChildren (parent, ...children) {
+  console.log(`${parent}'s children are:`);
+
+  for(var i = 0; i < children.length; i++) {
+    console.log(children[i]);
+  }
+}
+
+// addThree
+
+function addThree (a, b, c) {
+  return a + b + c;
+}
+
+var arr = [1,2,3];
+
+addThree(...arr);
+
+// dinnerTonightIs
+
+function dinnerTonightIs (food = "pizza") {
+  return `Dinner tonight is ${food}.`
+}

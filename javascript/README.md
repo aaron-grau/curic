@@ -33,6 +33,7 @@
 * [Style Guide][airbnb-style] - Air BnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
 
 [intro-js]: readings/js-intro.md
+
 [server-side-js]: readings/server-side-javascript.md
 [syntax]: readings/syntax.md
 [data-types]: readings/data-types-and-truthiness.md
@@ -91,31 +92,24 @@
 * [Tic-Tac-Toe][ttt_node]
 
 Write user interaction with node's `readline` library.
+
 * **Bonus Reading**: [Promises][promises]
 
 [file-io]: readings/intro-to-callbacks.md
 [this-and-that]: readings/this-and-that.md
 [function-calling]: readings/function-calling.md
 [module-pattern]: readings/module-pattern.md
-<<<<<<< HEAD
-[loupe]: http://latentflip.com/loupe
-[crockford-style]: http://javascript.crockford.com/code.html
-[jquery-style]: http://contribute.jquery.org/style-guide/js/
-[hanoi_node]: projects/hanoi_node
-[ttt_node]: projects/ttt_node
-[functions_exercises]: projects/functions_exercises
-[ttt_node]: projects/ttt_node
-[airbnb-style]: https://github.com/airbnb/javascript
-=======
-[hanoi_node]: projects/hanoi_node
-[functions_exercises]: projects/functions_exercises
-[ttt_node]: projects/ttt_node
-[crockford-style]: http://javascript.crockford.com/code.html
-[jquery-style]: http://contribute.jquery.org/style-guide/js/
-[airbnb-style]: https://github.com/airbnb/javascript
-[loupe]: http://latentflip.com/loupe
->>>>>>> origin/fix-w5d3
 [promises]: readings/promises.md
+
+[hanoi_node]: projects/hanoi_node
+[ttt_node]: projects/ttt_node
+[functions_exercises]: projects/functions_exercises
+
+[loupe]: http://latentflip.com/loupe
+[crockford-style]: http://javascript.crockford.com/code.html
+[jquery-style]: http://contribute.jquery.org/style-guide/js/
+[airbnb-style]: https://github.com/airbnb/javascript
+[loupe]: http://latentflip.com/loupe
 
 ## w5d6-w5d7
 

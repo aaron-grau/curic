@@ -105,9 +105,7 @@ Note that the curried version returns functions at each step until it
 has the full number of arguments it needs. At this point it actually
 runs `sumThree` and returns the result.
 
-Write a `curriedSum` function that takes an integer (how
-many numbers to sum) and returns a function that can be successively
-called with single arguments until it finally returns a sum. That is:
+Write a `curriedSum` function that takes an integer (how many numbers to sum) and returns a function that can be successively called with single arguments until it finally returns a sum. That is:
 
 ```javascript
 const sum = curriedSum(4);
@@ -134,8 +132,7 @@ Write a method `Function#curry(numArgs)`. This should return a function that wil
 
 * Collect up arguments until there are `numArgs` of them,
 * If there are too few arguments still, it should return itself.
-* When there are `numArgs` arguments, it should call the original
-  function. 
+* When there are `numArgs` arguments, it should call the original function. 
 * Write a version that uses `Function.prototype.apply` and another one that uses the spread `...` operator.
 
 ** Make sure to call a TA to check over your work if you haven't already! **
