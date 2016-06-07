@@ -11,7 +11,7 @@ classes/sourcefiles:
 
 * `Util` (`lib/utils.js`)
     * Utility code, especially vector math stuff.
-* `MovingObject` (`lib/movingObject.js`)
+* `MovingObject` (`lib/moving_object.js`)
     * Base class for anything that moves.
     * Most important methods are `#move`, `#draw(ctx)`,
       `#isCollidedWith(otherMovingObject)`.
@@ -28,7 +28,7 @@ classes/sourcefiles:
     * `#draw(ctx)` draws the game.
     * Keeps track of dimensions of the space; wraps objects around when
       they drift off the screen.
-* `GameView` (`lib/gameView.js`)
+* `GameView` (`lib/game_view.js`)
     * Stores a `Game` instance.
     * Stores a `canvas` context to draw the game into.
     * Installs key listeners to move the ship and fire bullets.
@@ -74,7 +74,7 @@ Don't forget to [webpack][browser-modules] your modules.
 
 ### `MovingObject`
 
-Write a `MovingObject` class in `lib/movingObject.js`.
+Write a `MovingObject` class in `lib/moving_object.js`.
 
 Store key instance variables:
 
@@ -150,7 +150,7 @@ the `asteroids`.
 
 Your `GameView` class will be responsible for holding a
 
-Define an `GameView` class in `lib/gameView.js`. The
+Define an `GameView` class in `lib/game_view.js`. The
 `GameView` should store a `Game` and a drawing `ctx`.
 
 Write a `GameView#start` method. It should call `setInterval` to call
@@ -163,7 +163,7 @@ with the width and height you defined in `Game`.
 
 
 ### Create your entry file
-Create a new file called "asteroids.js".
+Create a new file called `asteroids.js`.
 
 In it, use
 `document.getElementById()` to find the canvas element. It should use
