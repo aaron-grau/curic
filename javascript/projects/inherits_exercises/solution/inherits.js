@@ -1,5 +1,5 @@
 Function.prototype.inherits = function (BaseClass) {
-  function Surrogate () {};
+  function Surrogate () {}
   Surrogate.prototype = BaseClass.prototype;
   this.prototype = new Surrogate();
   this.prototype.constructor = this;
@@ -23,6 +23,6 @@ Corgi.prototype.waddle = function () {
   console.log(this.name + " waddles!");
 };
 
-var blixa = new Corgi("Blixa");
+const blixa = new Corgi("Blixa");
 blixa.bark();
 blixa.waddle();

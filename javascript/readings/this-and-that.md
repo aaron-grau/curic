@@ -9,12 +9,12 @@ callbacks. Observe, dear reader:
 
 ```javascript
 function times(num, fun) {
-  for (var i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     fun(); // call is made "function-style"
   }
 }
 
-var cat = {
+const cat = {
   age: 5,
 
   ageOneYear: function () {
@@ -42,7 +42,7 @@ The `ageOneYear` method uses the special `this` variable. But the
 ```javascript
 obj.method(); // called method style; `this` set properly
 
-var m = obj.method;
+let m = obj.method;
 m(); // called function style; `this` not set properly
 ```
 
@@ -61,12 +61,12 @@ closure to capture `cat`:
 ```javascript
 // `times` is the same:
 function times(num, fun) {
-  for (var i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     fun(); // call is made "function-style"
   }
 }
 
-var cat = {
+const cat = {
   age: 5,
 
   ageOneYear: function () {
@@ -104,7 +104,7 @@ on `cat` method style.
 Note that we could do crazy things like this:
 
 ```javascript
-var crazyMethod = cat.ageOneYear.bind(dog);
+const crazyMethod = cat.ageOneYear.bind(dog);
 ```
 
 Here, `crazyMethod()` will call the `Cat#ageOneYear` method, but
@@ -152,7 +152,7 @@ access variables defined in the enclosing scope. `this` is special
 because **it doesn't get captured; it gets reset everytime a function
 is called**.
 
-The typical solution is to introduce a normal variable to hold `this`
+The ES5 solution is to introduce a normal variable to hold `this`
 in a way that can be captured:
 
 ```javascript
@@ -162,7 +162,7 @@ function SumCalculator() {
 }
 
 SumCalculator.prototype.addNumbers = function (numbers) {
-  var sumCalculator = this;
+  const sumCalculator = this;
 
   numbers.forEach(function (number) {
     sumCalculator.sum += number; // will work as intended
@@ -191,8 +191,6 @@ is a normal variable captured according to typical rules, while `this`
 is a special variable **which is never captured and is reset on every
 function call**.
 
-Some people consider the error-prone nature of `this` to be a bad part
-of JavaScript and a mistake. I'm not sure if I agree with them: the
-existing behavior is (with practice!) easy to understand, even if it
-is error-prone. I'm not sure a more complicated solution would have
-really been better. People debate this.
+## The ES6 Solution
+
+Though it is still important to understand the scope of `this` and know how to use it, ES6 provides a more elegant solution for scoping some callbacks using Arrow Functions. Carry on in the following readings for more details.
