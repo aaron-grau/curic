@@ -339,7 +339,7 @@
 ## w5d3
 
 ### Breakfast
-* :joy_cat:**Bagels @ 8:30am**:joy_cat:
+* :joy_cat: **Bagels @ 8:30am** :joy_cat:
 
 ### Video lectures (65 min)
 :closed_lock_with_key: `go_video_go`
@@ -347,7 +347,7 @@
 * [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
-* [:movie_camera: W5D3 Javascript Lecture Videos][js-videos] (12 min)
+* :movie_camera: Watch [W5D3 Javascript Video Lectures][js-videos] (12 min)
 
 ### Readings (70 min)
 * Complete [Javascript W5D3 Readings][js-readings] (30 min)
