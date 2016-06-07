@@ -2,6 +2,10 @@
 
 ## w5d3
 
+### Video Lectures (12 min)
+:closed_lock_with_key: `go_video_go`
+* [:movie_camera: Intro to JS](https://vimeo.com/169645510) (12 min)
+
 ### Readings (70 min)
 * [Intro to JavaScript][intro-js] (5 min)
 * [Server-side JavaScript][server-side-js] (5 min)
@@ -13,6 +17,7 @@
 * [Debugging Node.js][debugging-node] (10 min)
 
 ### Homeworks (45 min)
+
 * [Intro to JavaScript Problem Set][intro-problem-set]
 
 ### Additional Resources
@@ -92,6 +97,7 @@ Write user interaction with node's `readline` library.
 [this-and-that]: readings/this-and-that.md
 [function-calling]: readings/function-calling.md
 [module-pattern]: readings/module-pattern.md
+<<<<<<< HEAD
 [loupe]: http://latentflip.com/loupe
 [crockford-style]: http://javascript.crockford.com/code.html
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
@@ -100,6 +106,15 @@ Write user interaction with node's `readline` library.
 [functions_exercises]: projects/functions_exercises
 [ttt_node]: projects/ttt_node
 [airbnb-style]: https://github.com/airbnb/javascript
+=======
+[hanoi_node]: projects/hanoi_node
+[functions_exercises]: projects/functions_exercises
+[ttt_node]: projects/ttt_node
+[crockford-style]: http://javascript.crockford.com/code.html
+[jquery-style]: http://contribute.jquery.org/style-guide/js/
+[airbnb-style]: https://github.com/airbnb/javascript
+[loupe]: http://latentflip.com/loupe
+>>>>>>> origin/fix-w5d3
 [promises]: readings/promises.md
 
 ## w5d6-w5d7
