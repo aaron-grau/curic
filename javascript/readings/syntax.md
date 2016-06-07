@@ -132,7 +132,7 @@ const nameOfFunction = function(arg1, arg2, arg3, argN){
 ```
 **Fat Arrow-style (ES6)** 
 ```javascript
-const nameOfFunction = (arg1, arg2, arg3, argN){
+const nameOfFunction = (arg1, arg2, arg3, argN) => {
   // code block
 };
 ```
