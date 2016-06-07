@@ -86,10 +86,6 @@ Let's consider an alternative approach that runs **asynchronously**. We will reg
 <html>
   <head>
     <title>A page for you!</title>
-
-    <script type="application/javascript"
-             src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-    </script>
   </head>
 
   <body>
@@ -97,44 +93,26 @@ Let's consider an alternative approach that runs **asynchronously**. We will reg
     <button id="submit-button">Submit me!</button>
 
     <script type="application/javascript">
-      // uses jQuery to find HTML elements by id.
-      const $submitButtonEl = $('#submit-button');
-      const $textFieldEl = $('#text-field');
+      const textField = document.getElementById('text-field');
+      const button = document.getElementById('submit-button');
 
-      // installs a "click handler" on the submit button; the callback
-      // gets run when the button is clicked.
-      $submitButtonEl.on('click', function () {
-        // grab input text from the text field.
-        const input = $textFieldEl.val();
-        // reset text field to blank
-        $textFieldEl.val("")
+      const showValue = () => {
+        let inputValue = textField.value;
+        alert(inputValue);
+      }
 
-        // Build a new `p` tag with the input content and append it to
-        // the body.
-        const $parEl = $("<p></p>");
-        $parEl.text(input);
-        $("body").append($parEl);
-      });
+      button.onclick = showValue;
     </script>
   </body>
 </html>
 ```
 
 JavaScript lets us ask the browser to notify us of **events**. Here,
-we're asking the browser to listen for a `click` event on the
-`$submitButtonEl`. When a user presses the mouse while it is hovered
-over the `$submitButtonEl`, the browser interprets this as a "click"
-occurring on the button. The browser then calls any JavaScript code
-that has been **registered** as a **handler** for the event.
+we're asking the browser to listen for the `onclick` event of `button`. When a user presses the mouse while it is hovered over the `button`, the browser interprets this as an `onclick` of the button. It then calls any JavaScript code that has been **registered** as a **handler** for the event, i.e. `showValue`.
 
-Our handler extracts the value of the `$textFieldEl`, resetting it. We
-then build and append a `p` tag with the input contents.
+Our handler extracts the value of the `textField` and gives it to `alert`.
 
-This is all accomplished through jQuery's `on` method, which asks the
-browser to **register** the **handler** to call later when the
-**event** is **triggered**.
-
-Paste this in the browser and try it out!
+Paste this example into an `.html` file, open it in your browser and try it out!
 
 ## Resources
 
