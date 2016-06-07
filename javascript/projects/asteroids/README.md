@@ -87,7 +87,7 @@ Rather than pass all these as separate arguments, write your
 `MovingObject` constructor function so that you can pass in an options object:
 
 ```js
-var mo = new MovingObject(
+let mo = new MovingObject(
   { pos: [30, 30], vel: [10, 10], radius: 5, color: "#00FF00"}
 );
 ```
@@ -148,10 +148,7 @@ the `asteroids`.
 
 ### `GameView`
 
-Your `GameView` class will be responsible for holding a
-
-Define an `GameView` class in `lib/gameView.js`. The
-`GameView` should store a `Game` and a drawing `ctx`.
+Define an `GameView` class in `lib/gameView.js`. The `GameView` should store a `Game` and a drawing `ctx`.
 
 Write a `GameView#start` method. It should call `setInterval` to call
 `Game#moveObjects` and `Game#draw` once every 20ms, say.
@@ -161,18 +158,13 @@ Write a `GameView#start` method. It should call `setInterval` to call
 In the body of your HTML file, add a `<canvas id="game-canvas">` tag
 with the width and height you defined in `Game`.
 
-
 ### Create your entry file
 Create a new file called "asteroids.js".
 
-In it, use
-`document.getElementById()` to find the canvas element. It should use
-`getContext` to extract a canvas context. It should construct `Game`
-and `GameView` object and call `GameView#start`.
+In it, use `document.getElementById()` to find the canvas element. It should use `getContext` to extract a canvas context. It should construct `Game` and `GameView` object and call `GameView#start`.
 
 This is your webpack entry point, so start webpack (or restart it,
-if you're already running webpack --watch) with the "asteroids.js" file as
-your new entry point.
+if you're already running webpack --watch) with the "asteroids.js" file as your new entry point.
 
 Your asteroids should fly around :-)
 
@@ -301,7 +293,7 @@ object is out of bounds. If so, I either (A) wrap the object if it
 Oftentimes people want to draw a background image on their game.
 
 ```javascript
-var img = new Image();
+let img = new Image();
 img.onload = function () {
   ctx.drawImage(img, xOffset, yOffset);
 };
@@ -349,8 +341,8 @@ passing in the `GameView#animate`.
 **NB**: You'll notice that all of your moving objects are moving way too fast. Go back to `MovingObject#move` and divide the delta by some number before adding it to the velocity. My code looked something like:
 
 ```js
-var velX = this.vel[0] * delta/20;
-var velY = this.vel[1] * delta/20;
+let velX = this.vel[0] * delta/20;
+let velY = this.vel[1] * delta/20;
 
 this.pos = [this.pos[0] + velX, this.pos[1] + velY];
 ```
