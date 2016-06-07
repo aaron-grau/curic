@@ -1,7 +1,13 @@
+/* jshint esversion: 6 */
+
 function View($el) {
   this.$el = $el;
   this.setupEasel();
 }
+
+window._randomColorString = function(){
+  return '#' + Math.random().toString(16).substr(-6);
+};
 
 View.prototype.exercise0 = function () {
   //Challenge: (example) remove the 'square' class from every li
@@ -14,16 +20,14 @@ View.prototype.exercise0 = function () {
 
 View.prototype.exercise1 = function () {
   //Challenge: Give every square the class 'orange'
-  //Result: every square should turn orange (we already have a CSS rule)
+  //Result: Every square should turn orange (we already have a CSS rule)
 
   //your code here!
 };
 
 View.prototype.exercise2 = function () {
-  //Challenge: Give every square a dashed border
-  //Result: Every square gets a dashed border. The grid is no longer a square
-  //because the dimensions of the squares are different and they no longer fit
-  //into the grid's width.
+  //Challenge: Remove every square
+  //Result: Every square vanishes
 
   //your code here!
 };
@@ -57,16 +61,9 @@ View.prototype.exercise6 = function () {
   //should become a beautiful rainbow of colors.
 
   //your code here!
-  //hint: this array might make it easy to assign random colors
-  var colors = [
-    'darksalmon',
-    'cornflowerblue',
-    'red',
-    'yellow',
-    'wheat',
-    'hotpink',
-    'lawngreen'
-  ];
+
+  //hint: use window._randomColorString() to get a random color!
+  //this function is defined above
 };
 
 View.prototype.exercise7 = function(){
@@ -80,47 +77,33 @@ View.prototype.exercise7 = function(){
 };
 
 
-View.prototype.setupEasel = function () {
-  var $addRowButton = $("<button>").html("Add a row");
+
+View.prototype.setupEasel = function() {
+  const $addRowButton = $('<button>').html('Add a row');
   this.$el.append($addRowButton);
   $addRowButton.on("click", this.addRow.bind(this));
 
-  for(var j = 0; j <= 7; j++){
-    var $button = $("<button>").html("Exercise " + j);
+  for(let j = 0; j <= 7; j++){
+    const $button = $("<button>").html("Exercise " + j);
     $button.on("click", this["exercise" + j]);
     this.$el.append($button);
   }
 
-  for(var i = 0; i < 20; i ++) {
+  for(let i = 0; i < 20; i ++) {
     this.addRow();
   }
-
-  this.bindEvents();
 };
 
-View.prototype.bindEvents = function () {
-  var colors = [
-    'darksalmon',
-    'cornflowerblue',
-    'red',
-    'yellow',
-    'wheat',
-    'hotpink',
-    'lawngreen'
-  ];
 
-  this.$el.on("mouseenter", ".square", function (e) {
-    var $square = $(e.currentTarget);
-    var numColor = Math.floor(Math.random() * colors.length);
-    $square.css("background-color", colors[numColor]);
-  });
-};
-
-View.prototype.addRow = function () {
-  var rowIdx = this.$el.find(".row").length;
-  var $row = $("<ul>").addClass("row").addClass("group");
-  for(var colIdx = 0; colIdx < 20; colIdx++) {
-    var $square = $("<li>").addClass("square").attr("data-pos", [rowIdx, colIdx]);
+View.prototype.addRow = function() {
+  const rowIdx = this.$el.find(".row").length;
+  const $row = $("<ul>").addClass("row").addClass("group");
+  for(let colIdx = 0; colIdx < 20; colIdx++) {
+    const $square = $("<li>").addClass("square").attr("data-pos", [rowIdx, colIdx]);
+    $square.on("mouseenter", (e) => {
+      const $square = $(e.currentTarget);
+      $square.css("background-color", window._randomColorString());
+    });
     $row.append($square);
   }
   this.$el.append($row);
@@ -131,7 +114,7 @@ View.prototype.addRow = function () {
 //WORK AS HARD AS POSSIBLE ON SOLVING EACH PROBLEM
 //BEFORE READING ITS SOLUTION
 //
-// View.prototype.exercise1 = function () {
+// View.prototype.exercise1 = function() {
 //   $("li").addClass("orange");
 // };
 //
@@ -142,8 +125,8 @@ View.prototype.addRow = function () {
 //
 //
 //
-// View.prototype.exercise2 = function () {
-//   $(".square").css("border", "dashed");
+// View.prototype.exercise2 = function() {
+//   $('.square').remove();
 // };
 //
 //
@@ -154,8 +137,8 @@ View.prototype.addRow = function () {
 //
 //
 //
-// View.prototype.exercise3 = function () {
-//   var h1 = $("<h1>").text("I love jQuery");
+// View.prototype.exercise3 = function() {
+//   const h1 = $("<h1>").text("I love jQuery");
 //   $("#easel").append(h1);
 // };
 //
@@ -167,7 +150,7 @@ View.prototype.addRow = function () {
 //
 //
 //
-// View.prototype.exercise4 = function () {
+// View.prototype.exercise4 = function() {
 //   $(".square:nth-child(even)").text("Jeff");
 //   //this could also be solved using iteration and %
 // };
@@ -180,10 +163,10 @@ View.prototype.addRow = function () {
 //
 //
 //
-// View.prototype.exercise5 = function () {
-//   //hint: look at line 28 of this file: we set the 'data-pos' of every square
-//   $('.square').on("click", function(e){
-//     var $sq = $(e.currentTarget);
+// View.prototype.exercise5 = function() {
+//   //hint: look at line 98 of this file: we set the 'data-pos' of every square
+//   $('.square').on("click", e => {
+//     const $sq = $(e.currentTarget);
 //     alert($sq.attr("data-pos"));
 //   });
 // };
@@ -196,21 +179,10 @@ View.prototype.addRow = function () {
 //
 //
 //
-// View.prototype.exercise6 = function () {
-//   var colors = [
-//     'darksalmon',
-//     'cornflowerblue',
-//     'red',
-//     'yellow',
-//     'wheat',
-//     'hotpink',
-//     'lawngreen'
-//   ];
-//
-//   $('.square').each(function(idx, el){
+// View.prototype.exercise6 = function() {
+//   $('.square').each( (idx, el) => {
 //     var $sq = $(el);
-//     var color = colors[Math.floor((Math.random() * colors.length))];
-//     $sq.css("background-color", color)
+//     $sq.css("background-color", _randomColorString());
 //   })
 // };
 //
@@ -222,9 +194,9 @@ View.prototype.addRow = function () {
 //
 //
 //
-// View.prototype.exercise7 = function(){
-//   $('#easel').on("mouseenter", ".square", function(e){
-//     var $sq = $(e.currentTarget);
+// View.prototype.exercise7 = function() {
+//   $('#easel').on("mouseenter", ".square", e => {
+//     const $sq = $(e.currentTarget);
 //     console.log($sq.css("background-color"));
 //   });
 // };
