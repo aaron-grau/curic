@@ -154,8 +154,8 @@ Write user interaction with node's `readline` library.
 [arg-video]: https://vimeo.com/162115222
 [js-browser-video]: https://vimeo.com/162115224
 [arguments]: readings/arguments.md
-[arguments-exercises]: exercises/arguments_exercises
-[inherits-exercises]: exercises/inherits_exercises
+[arguments-exercises]: projects/arguments_exercises
+[inheritance-exercises]: projects/inherits_exercises
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [client-side-js]: readings/client-side-javascript.md
 [browser-modules]: readings/browser-modules.md
