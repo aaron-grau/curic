@@ -30,8 +30,8 @@ Each script tag tells the Browser to load and execute some JavaScript
 code. If the `src` attribute is given, the browser fetches the code.
 If the `script` tag has a body (called **inline JavaScript**), it is
 treated as JavaScript code and executed. Inline JavaScript is
-considered poor style and is hard to keep organized, so use inline JS
-at a minimum.
+considered poor style and is hard to keep organized, so keep inline JS
+use at a minimum.
 
 In this example, we would first fetch and execute the jQuery library
 from Google, then run the inline alert code, then fetch and run our
@@ -39,21 +39,16 @@ from Google, then run the inline alert code, then fetch and run our
 
 ## Environment
 
-We call programs like the browser (Chrome, Safari, Firefox, Internet
+We call programs like browsers (Chrome, Safari, Firefox, Internet
 Explorer) and Node.js **JavaScript runtimes**, or **environments**.
-Calling these an **environment** emphasizes that the browser or Node.js
-exposes functionality that the JavaScript program can access through
-**APIs**.
+These environments expose functionality that our JavaScript scripts can access through **APIs**.
 
-For instance, Node.js lets us read files in code we can import through
-the `require("fs")` module. On the other hand, we can use the browser's
+For instance, Node.js lets us read files inside our scripts via
+the `require("fs")` module. Similarly, we can use the browser's
 DOM API (for instance, `document.getElementById("...");`) to find and
 modify HTML elements in a web page.
 
-Neither File IO or DOM manipulation is part of "JavaScript the
-language", per se. Instead, these are functionalities provided by the
-environment (Node.js, web browser), and accessed through a JavaScript
-API.
+Neither File IO nor DOM manipulation are part of `JavaScript`, per se. Instead, these are functionalities provided by the environment (Node.js, web browser), and accessed through a JavaScript API.
 
 ## ES6, Browsers, and You!
 
@@ -61,7 +56,7 @@ Most browsers have happily adopted the new ES6 Standard and should be fully (or 
 
 So, what do we do for browsers that have not yet integrated ES6's new features? A few options:
 
-1. **Ignore them.** This isn't the most viable option for apps in production, since there are bound to be users who still utilize ES6-incompatible browsers. For the next few days, however, stick with Chrome and everything should go according to plan.
+1. **Ignore them.** This isn't the most viable option for apps in production, since there are bound to be users who still utilize ES6-incompatible browsers. For the next few days, however, **stick with Chrome** and everything should go according to plan.
 2. **Use a polyfill.** This means that we test for the existence of a certain function or property and provide a hand-spun version if one doesn't exist. For example:
 
 ```JavaScript
@@ -83,9 +78,9 @@ if (!String.prototype.includes) {
 
 Often, MDN provides polyfills for applicable functions. The above is copied from the [MDN documentation][mdn-includes] for `String.prototype.includes`.
 
-As one might imagine, including polyfills for every ES6 function you use in every file can be somewhat exhausting, annoying, and ugly. Polyfills provide a quick stopgap, but we can do better which brings us to solution number three.
+As one might imagine, including polyfills for every ES6 function you use in every file can be somewhat exhausting, annoying, and ugly. Polyfills provide a quick stopgap, but we can do better. This brings us to solution number three.
 
-3. **Compile to ES5.** Yup, seems a little counterintuitive - why even bother writing ES6 if we're just going to translate back to ES5 anyways? The answer: ES6 provides us with several elegant and useful features. We like ES6, and hope that it'll one day be compatible with all browser environments. In the meantime, we can use simple tools like [Babel][babel] to compile our ES6 and maintain backwards compatibility. Ultimately, this is the solution that we will use when we move forth to React. More instructions on how to use babel when the time comes.
+3. **Transpile to ES5.** Yup, seems a little counterintuitive - why even bother writing ES6 if we're just going to translate back to ES5 anyways? The answer: ES6 provides us with several elegant and useful features. We like ES6, and hope that it'll one day be compatible with all browser environments. In the meantime, we can use simple tools like [Babel][babel] to transpile our ES6 into ES5 and thereby maintain backwards compatibility. Ultimately, this is the approach that we will use in React. Look for more instructions on how to use `babel` later in the course. 
 
 [compatibility-table]: https://kangax.github.io/compat-table/es6/
 [mdn-includes]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
