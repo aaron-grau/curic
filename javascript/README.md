@@ -3,7 +3,7 @@
 ## w5d3
 
 ### Readings (70 min)
-* [Intro to JavaScript I][intro-js] (5 min)
+* [Intro to JavaScript][intro-js] (5 min)
 * [Server-side JavaScript][server-side-js] (5 min)
 * [Syntax][syntax] (10 min)
 * [Data Types and Truthiness][data-types] (5 min)
