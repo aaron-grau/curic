@@ -1,6 +1,6 @@
-# Intro to Callbacks
+# Intro to Callbacks Exercises
 
-### Timing is Everything
+## Timing is Everything
 
 Use [`setInterval`][setInterval-doc] to build a small clock in your
 terminal. It should display the current time every second. However, you
@@ -8,21 +8,11 @@ can only query the system time once. Your clock must store that time,
 increment it, and display it in `HH:MM:SS` (use 24hr format).
 
 Make a `Clock` class. Calling `new Date()` will give us an object that
-represents the current system time. The instructions say you can only do
-this once, so do it in your `Clock` constructor. Don't bother keeping
-this `Date` object around because you won't need it anymore. Just store
-the hours, minutes, and seconds. Look at the [`Date` docs][date-docs]
-for help here.
+represents the current system time. Because you can only do this once, do it in your `Clock` constructor. Don't bother keeping this `Date` object around because you won't need it anymore. Just store the hours, minutes, and seconds. Look at the [`Date` docs][date-docs] for help here.
 
 You'll also need to schedule a `#_tick` callback that updates the time
 and calls `#printTime`. Don't worry about padding zeroes in the format.
 Just focus on the basic logic and functionality.
-
-We recommend building this piece by piece, one line at a time.  Start by only writing the first line of the constructor function.  Stop.  Poke around (using a debugger or console.logs).  Then write the next line and poke around again.
-
- Make sure you know what's going on line by line.  Once you start writing other functions, also go line by line and stop.  Poke around. Know *exactly what objects you're dealing with* at all times.
-
-
 
 ```javascript
 function Clock () {
@@ -151,7 +141,6 @@ function askIfGreaterThan(el1, el2, callback) {
   // Prompt user to tell us whether el1 > el2; pass true back to the
   // callback if true; else false.
 }
-
 
 // Once you're done testing askIfGreaterThan with dummy arguments, write this.
 function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
