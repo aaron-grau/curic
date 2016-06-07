@@ -30,36 +30,48 @@ all.
 
 JS functions will also accept more arguments than are asked for. You
 have access to all of the arguments through a special array called
-`arguments`. Like the `this` keyword, `arguments` is set each time you
+`arguments`. `arguments` is set each time you
 call a function. It contains the values of all the arguments: ones
 that were anticipated in the function definition, plus the extras.
 
 ```javascript
-function logArguments() {
+function logArguments(arg1, arg2) {
+  let result = [];
   for (var i = 0; i < arguments.length; i++) {
-    console.log(arguments[i]);
+    result.push(arguments[i]);
   }
 };
 
-logArguments("boop", "candle", 3);
+logArguments("boop", "candle", 3); // ["boop", "candle", 3]
 ```
 
 One very annoying thing about `arguments` is that it is not a true
 `Array` object. It is only **Array-like** in that it can be indexed
 with integers and has a `length` property.
 
-This is infuriating: we can't use any of our favorite
-`Array` methods. We can, however, use `Array#slice` to create a copy
-of `arguments`:
+This is infuriating: we can't use any of our favorite `Array` methods. We can, however, use `Array#slice` to create a copy of `arguments` that is an array by calling it on `arguments`:
 
 ```javascript
-// `arr.slice() == arr.slice(0, arr.length)` makes a copy of `arr`.
-var args = Array.prototype.slice.call(arguments);
-args.forEach(function (i) { console.log(i) });
+
+function(){
+  arguments instanceof Array; // false
+  let args = Array.slice.call(arguments);
+  args instanceof Array; // true
+}
 ```
 
 Holy cow. This works because `arguments` is `Array`-like enough for
 the `slice` method to work. Wow.
+
+### `Array.from`
+
+If you thought the trick above was hacky, [Ecma International](https://en.wikipedia.org/wiki/Ecma_International) would agree. That's why ES6 includes a new method `Array#from`, that accomplishes the same thing as our trick above.
+
+```js
+function(){
+  Array.from(arguments) instanceof Array; // true
+}
+``` 
 
 ## Rest Arguments in ES6
 
@@ -137,3 +149,9 @@ function add(x, y = 17) {
 f(3) === 20;
 
 ```
+
+## Practice Problems
+
+Complete [homework part III][intro-js-homework] to solidify your new knowledge.
+
+[intro-js-homework]: ../homeworks/questions/js_intro.md

@@ -6,7 +6,7 @@ Keep on testing things out in Node as we go!
 
 Time to loop! The most common loops in JavaScript are the `for` loop and `while` loop.
 
-### for loop
+### `for` loops
 
 The structure of a `for` loop is as follows:
 

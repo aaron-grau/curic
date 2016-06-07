@@ -1,4 +1,4 @@
-# JavaScript Introduction - Part III (Arguments)
+# Arguments
 
 Let's explore some additional features relating to arguments.
 
@@ -130,9 +130,3 @@ function add(x, y = 17) {
 f(3) === 20;
 
 ```
-
-## Practice Problems
-
-Congrats on making it through the intro readings! Complete [homework part III][intro-js-homework] to solidify your new knowledge.
-
-[intro-js-homework]: ../homeworks/questions/js_intro.md
