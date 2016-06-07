@@ -11,8 +11,7 @@ Solve it first using the `arguments` keyword, then rewrite your solution to use 
 
 ### `bind` with args
 
-Rewrite your `myBind` method so that it can optionally take some args
-to be partially applied.
+Rewrite your `myBind` method so that it can take both bind-time arguments and call-time arguments.
 
 For example:
 
