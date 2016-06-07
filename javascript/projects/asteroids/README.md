@@ -36,7 +36,7 @@ classes/sourcefiles:
 
 ## A Refresher on Vectors
 
-You'll use a lot of **vector**s in this assignment.
+You'll use a lot of **vectors** in this assignment.
 
 2D vectors have an `x` and a `y` component. A position vector has an `x`
 and `y` position, while a velocity vector has a speed in the `x` and the
@@ -78,13 +78,13 @@ Write a `MovingObject` class in `lib/movingObject.js`.
 
 Store key instance variables:
 
-0. 2D `pos`ition.
-0. 2D `vel`ocity.
-0. `radius` (everything in the  game is a circle).
-0. `color`
+* 2D `pos`ition.
+* 2D `vel`ocity.
+* `radius` (everything in the  game is a circle).
+* `color`
 
-Rather than pass all these as separate arguments, I wrote my
-`MovingObject` constructor function so that I could do like so:
+Rather than pass all these as separate arguments, write your
+`MovingObject` constructor function so that you can pass in an options object:
 
 ```js
 var mo = new MovingObject(
@@ -93,7 +93,7 @@ var mo = new MovingObject(
 ```
 
 Write a `#draw(ctx)` method. Draw a circle of the appropriate `radius`
-centered at `pos`. Fill it with the appropriate `color`.
+centered at `pos`. Fill it with the appropriate `color`. Refer to the Drunken Circles demo if you need a refresher on Canvas.
 
 Write a `#move` method. Increment the `pos` by the `vel`.
 
@@ -116,34 +116,29 @@ judiciously. Instead, let's create a general utilities module in
 Write an `Asteroid` class in a `lib/asteroid.js` file. This should be
 a subclass of `MovingObject`.
 
-Pick a default `COLOR` and `RADIUS` for `Asteroid`s. I set these as
+Pick a default `COLOR` and `RADIUS` for `Asteroid`s. Set these as
 properties of the `Asteroid` class: `Asteroid.COLOR` and
 `Asteroid.RADIUS`.
 
 Write your `Asteroid` constructor so that the caller specifies the
 `pos` and it will call the `MovingObject` superconstructor, setting
 `color` and `radius` to the `Asteroid` defaults, and choosing a random
-vector for `vel`. I wrote an `Util.randomVec(length)` helper
-function.
+vector for `vel`. You may want to consider writing a `Util.randomVec(length)` helper function.
 
 ```js
 // Other properties are filled in for you.
 new Asteroid({ pos: [30, 30] });
 ```
 
-**NB**: There are no constants in JavaScript, but you can use
-conventions like ALL_CAPS to show that certain values should not be
-modified.
-
 ### `Game`
 
-Write an `Game` class in `lib/game.js`. Constants I defined
-on the `Game` class were `DIM_X`, `DIM_Y`, and `NUM_ASTEROIDS`.
+`Game` will be in charge of holding all of our moving objects. It will also contain the logic for iterating through these objects and calling their corresponding `move` methods.
+
+Write an `Game` class in `lib/game.js`. Define the following constants
+on the `Game` class: `DIM_X`, `DIM_Y`, and `NUM_ASTEROIDS`.
 
 Write a `Game#addAsteroids` method. Randomly place the asteroids
-within the dimensions of the game grid. I wrote a `Game#randomPosition`
-method. Store the asteroids in an instance variable array `asteroids`.
-Call `#addAsteroids` in your constructor.
+within the dimensions of the game grid. You may also wish to write a  `Game#randomPosition` method. Store the asteroids in an instance variable array `asteroids`. Call `#addAsteroids` in your constructor.
 
 Write a `Game#draw(ctx)` method. It should use `clearRect` to wipe down
 the entire space. Call the `#draw` method on each of the `asteroids`.
@@ -152,6 +147,8 @@ Write a `Game#moveObjects` method. It should call `#move` on each of
 the `asteroids`.
 
 ### `GameView`
+
+Your `GameView` class will be responsible for holding a
 
 Define an `GameView` class in `lib/gameView.js`. The
 `GameView` should store a `Game` and a drawing `ctx`.
@@ -174,7 +171,7 @@ In it, use
 and `GameView` object and call `GameView#start`.
 
 This is your webpack entry point, so start webpack (or restart it,
-if you're already running webpack --watch) with the "asteroids.js" file as 
+if you're already running webpack --watch) with the "asteroids.js" file as
 your new entry point.
 
 Your asteroids should fly around :-)

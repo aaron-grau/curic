@@ -63,8 +63,8 @@ execution by the browser.
 
 ```js
 // ./zoo/animal.js
-// Define an Animal class; export it as `Animal`. Save it 
-var Animal = function () {
+// Define an Animal class; export it as `Animal`. Save it
+const Animal = function () {
   // ...
 };
 
@@ -78,9 +78,9 @@ module.exports = Animal;
 #### `.zoo/lion.js`
 ```js
 
-var Animal = require('./animal.js');
+const Animal = require('./animal.js');
 
-var Lion = function () {
+const Lion = function () {
   // ...
 };
 
@@ -99,8 +99,8 @@ module.exports = Lion;
 ##### `./app.js`:
 
 ```js
-var Lion = require('./zoo/lion');
-for (var i = 0; i < 10; i++) {
+const Lion = require('./zoo/lion');
+for (let i = 0; i < 10; i++) {
   console.log(new Lion().roar());
 }
 ```
@@ -136,14 +136,14 @@ information later about how to use `npm`, but for now we just want to get you
 set up with Webpack.
 
 Running the command `npm install -g webpack` will install and setup Webpack.
-Webpack is a very powerful (and extensible) tool. We will leverage many of its 
+Webpack is a very powerful (and extensible) tool. We will leverage many of its
 features as the course goes on, but for now we will just use it to bundle our
 Javascript source files into one file.
 
 To do this, simply run `webpack app.js bundle.js`. This will look for a file
 named `app.js` at the current directory and bundle it up with any files it
 requires and any files those files require until it has all the dependencies it
-needs. It will output this to a file called `bundle.js`. 
+needs. It will output this to a file called `bundle.js`.
 
 Your html file would then have a script tag for the bundled file like:
 `<script src="bundle.js"></script>`

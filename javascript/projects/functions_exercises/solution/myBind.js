@@ -1,17 +1,24 @@
-Function.prototype.myBind = function (obj) {
-  var fn = this;
-  return function () {
-    return fn.apply(obj);
+// simple myBind with no args
+Function.prototype.myBind = function (ctx) {
+  return () => {
+    return this.apply(ctx);
   };
 };
 
-var Cat = function (name) {
+// myBind with arguments
+Function.prototype.myBind = function (ctx, ...bindArgs) {
+  return (...callArgs) => {
+    return this.apply(ctx, bindArgs.concat(callArgs));
+  };
+};
+
+const Cat = function (name) {
   this.name = name;
-}
+};
 
 Cat.prototype.meow = function () {
   console.log(this.name + " says meow!");
 };
 
-var curie = new Cat("Curie")
+const curie = new Cat("Curie");
 setTimeout(curie.meow.myBind(curie), 1000);
