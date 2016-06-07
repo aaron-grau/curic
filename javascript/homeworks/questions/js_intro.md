@@ -159,3 +159,51 @@ the first `n` prime numbers.
 > sumOfNPrimes(4)
 17
 ```
+## Part III - Arguments
+
+### printChildren
+
+Write a function `printChildren` that takes a parent's name and an unspecified number of children. It should loop through the children and print each of their names.
+
+**Input**
+* 1) A string for the parent's name
+* 2) Any number of strings for the children's names
+
+**Output**
+* "**parent**'s children are:" followed by the names of their children
+
+```javascript
+
+> printChildren("George", "Cassie", "Jeff", "Roger");
+Georges children are:
+Cassie
+Jeff
+Roger
+```
+
+### addThree
+
+Below is a function that takes three numbers and returns their sum.
+Use the spread operator to pass in a three-item array to `addThree`.
+
+```javascript
+function addThree (a, b, c) {
+  return a + b + c;
+}
+
+var arr = [1,2,3];
+// How can we use the spread operator to pass in arr?
+```
+
+### dinnerTonightIs
+
+Write a function that takes in a food and outputs "Dinner tonight is **food**". Caveat: if you don't specify a food, `dinnerTonightIs` should use the default argument "pizza".
+
+```
+> dinnerTonightIs('some inferior food')
+Dinner tonight is some inferior food.
+
+> dinnerTonightIs()
+Dinner tonight is pizza.
+
+```

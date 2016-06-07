@@ -179,4 +179,3 @@ returnHi(); // undefined
 returnHi = () => "hi";
 
 returnHi(); // "hi"
-```
