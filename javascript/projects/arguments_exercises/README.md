@@ -1,15 +1,15 @@
-## Exercises
+# Exercises
 
-### `sum`
+## `sum`
 
-Write a `sum` function. This should take any number of arguments:
+Write a `sum` function that takes any number of arguments:
 
     sum(1, 2, 3, 4) == 10
     sum(1, 2, 3, 4, 5) == 15
 
 Solve it first using the `arguments` keyword, then rewrite your solution to use the `...` rest operator.
 
-### `bind` with args
+## `bind` with args
 
 Rewrite your `myBind` method so that it can take both bind-time arguments and call-time arguments.
 
@@ -65,15 +65,15 @@ passed when the bound function is called.
 
 Once you've done that, **write a second version using the `...` rest operator.**
 
-### `curriedSum`, `curry`
+## `curriedSum`
 
 **Functional programming** is another style of programming; it's an
 alternative to object-oriented programming, though the two styles can
-also be mixed. We'll learn more about it later, but in (very) brief,
-functional programming focuses on passing functions around, rather
-than objects.
+also be mixed. We'll learn more about it later, but briefly,
+functional programming focuses on passing *functions* around instead of
+*objects*.
 
-In functional programming, a common pattern is **currying**. Currying
+One pattern seen in functional programming is **currying**. Currying
 is the process of decomposing a function that takes multiple arguments
 into one that takes single arguments successively until it has the
 sufficient number of arguments to run. This technique is named after
@@ -92,10 +92,10 @@ function sumThree(num1, num2, num3) {
 sumThree(4, 20, 6); // == 30
 
 // you'll write `Function#curry`!
-const f1 = sumThree.curry(3);
-const f2 = f1(4);
-const f3 = f2(20);
-const result = f3(6); // = 30
+const f1 = sumThree.curry(3); // tells `f1` to wait until 3 arguments are given before running `sumThree`
+f1 = f1(4); // [Function]
+f1 = f1(20); // [Function]
+f1 = f1(6); // = 30
 
 // or more briefly:
 sumThree.curry(3)(4)(20)(6); // == 30
@@ -105,7 +105,7 @@ Note that the curried version returns functions at each step until it
 has the full number of arguments it needs. At this point it actually
 runs `sumThree` and returns the result.
 
-As a warmup, write a `curriedSum` function that takes an integer (how
+Write a `curriedSum` function that takes an integer (how
 many numbers to sum) and returns a function that can be successively
 called with single arguments until it finally returns a sum. That is:
 
@@ -126,16 +126,16 @@ Hint: `curriedSum(numArgs)` should:
     * Else, it returns itself.
 * Returns `_curriedSum`.
 
-Intuitively, the `_curriedSum` function keeps collecting arguments and
-returning itself until it has enough arguments, at which point it
-actually does the required work of summing.
+If you're confused, think of it this way: `_curriedSum` function keeps collecting arguments and returning itself until it has enough arguments, at which point it actually does the required work of summing.
 
-Now that you're all limbered up, write a method
-`Function#curry(numArgs)`. This should return a function that will:
+## `Function#curry`
+
+Write a method `Function#curry(numArgs)`. This should return a function that will:
 
 * Collect up arguments until there are `numArgs` of them,
 * If there are too few arguments still, it should return itself.
 * When there are `numArgs` arguments, it should call the original
-  function. Prove that you can do this using both `Function.prototype.apply` and the spread `...` operator.
+  function. 
+* Write a version that uses `Function.prototype.apply` and another one that uses the spread `...` operator.
 
 ** Make sure to call a TA to check over your work if you haven't already! **
