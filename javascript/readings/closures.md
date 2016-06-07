@@ -12,15 +12,17 @@ Consider this example:
 
 
 ```javascript
-function sayHelloTo(name){
+function sayHelloNTimes(name, n){
   function greet(){
-   return `Hi, ${name}!`;
+   console.log( `Hi, ${name}!`);
   }
 
-  return greet();
+  for(let i=0; i<n; i++) {
+    greet();
+  }
 }
-
-sayHelloTo("Bob"); // returns 'Hi, Bob!'
+sayHelloNTimes("Bob", 3); // logs 'Hi, Bob!' x3
+sayHelloNTimes("Sally", 6); // logs 'Hi, Sally!' x6
 ```
 In the example above, the variable `name` is referenced by `greet`, even though it was never declared within `greet`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.** 
 
