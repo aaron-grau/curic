@@ -51,6 +51,10 @@ You can use jQuery to stop listening:
 <script>
   let enabled = false;
 
+  function annoy() {
+    alert("YOU ARE HOVERING OVER ME!");
+  }
+
   $("button").on("click", () => {
     if (!enabled) {
       $("p").on("mouseover", annoy);
@@ -61,8 +65,6 @@ You can use jQuery to stop listening:
       enabled = false;
     }
   });
-
-  annoy = () => alert("YOU ARE HOVERING OVER ME!");
 </script>
 ```
 
