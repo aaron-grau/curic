@@ -4,6 +4,7 @@
 
 *	[Part I][instructions-i]
 *	[Part II (Bonus)][instructions-ii]
+* [Skeleton][skeleton]
 
 ## Using The Specs
 
@@ -20,6 +21,6 @@ in the `bin` directory.
 0.  `bundle exec rspec spec/p06_integration_spec.rb`
 
 Run `bundle exec rspec` to run all the spec files.
-
+[skeleton]: skeleton.zip?raw=true
 [instructions-i]: rails-lite-i.md
 [instructions-ii]: rails-lite-ii.md
