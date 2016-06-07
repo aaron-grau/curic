@@ -60,8 +60,6 @@ function printN(n) {
 }
 ```
 
-Can you write this using a `for` loop?
-
 ### Looping Keywords
 
 * `break` - Terminates the loop.

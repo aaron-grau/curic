@@ -24,110 +24,17 @@ The new ES6 standard, a.k.a. ES2015, was released in June 2015 and has added a w
 
 When using Javascript features, consider whether they are compatible with the environments you need. Features that are new to ES6 have been clearly indicated in this reading and in the MDN Documentation (example: [documentation for `indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) - scroll down to the 'specifications' section for info on which ECMAScript versions the feature is compatible with. In this case, the feature `indexOf` is ES5 and ES6 compatible.)
 
-When we need maximum compatibility, such as for a web page to be served through various browsers, we can use tools called **transpilers** to translate our ES6 back to the more-universal ES5. We'll learn more about transpilers(in particular, **Babel**)  later.
-
-## Syntax
-
-### Semi-colons
-
-Every expression needs a `;` at the end. This is like a period for the
-computer. Although you may find that your programs will sometimes work without
-them **leaving out semi-colons is a very bad practice because it makes your code
-more error prone**.
-
-### Parentheses
-
-Functions are called a bit differently in JavaScript than in Ruby. Parentheses are used when defining functions and calling functions. We will talk more about defining functions below. When calling a function, if you forget to add the parentheses, you'll see that it evaluates to `[Function]` - that is how Node represents a function object. To actually run the function, you must add parentheses.
-For an example, see below:
-
-```javascript
-
->function Happy(){
-  return "HAPPY";
-}
-
-> "Happy".toUpperCase
-[Function]
-
-> "Happy".toUpperCase()
-"HAPPY"
-```
-
-
-
-### { }
-
-Curly brackets are used in several programming constructs - function definitions,
-loops, if-statements. They wrap around the block of code that belongs to that
-construct.
-
-Curly brackets also define `objects`, but more on that later :)
-
-In Ruby:
-
-```ruby
-if x == 3
-  puts 'YAY X IS 3'
-elsif x == 4
-  puts 'YAY X IS 4'
-else
-  puts 'OH NO, X IS NOT 3 OR 4!'
-end
-```
-
-```javascript
-if (x === 3) {
-  console.log('YAY X IS 3');
-} elsif (x === 4) {
-  console.log('YAY X IS 4');
-} else {
-  console.log('OH NO, X IS NOT 3 OR 4!');
-}
-```
-
-## Creating a Function
-
-Let's say we wanted to create a function called `addThree`.
-The specification of this function describes it as taking as an input any three
-numbers and returning as the output the sum of those numbers. For example:
-
-```javascript
-> addThree(1, 1, 1);
-3
-> addThree(0, 1, -15);
--14
-> addThree(5, 100, 30);
-135
-```
-
-The syntax for defining a function is as follows:
-
-```javascript
-function nameOfFunction(param1, param2, param3, paramN){
-  //function body...
-}
-
-OR
-
-var nameOfFunction = function(param1, param2, param3, paramN){
-  //function body...
-}
-```
-
-Let's see how we would define our `addThree` function.
-
-```javascript
-function addThree(number1, number2, number3){
-  return number1 + number2 + number3;
-}
-```
-
-Note that in JavaScript, we must use `return`. There is no implicit return at
-the end of methods like in Ruby.
+When we need maximum compatibility, such as for a web page to be served through various browsers, we can use tools called **transpilers** to translate our ES6 back to the more universal ES5. We'll learn more about transpilers(in particular, **Babel**)  later.
 
 ## Practice Problems
 
-Ready for some practice problems? Complete [homework part I][intro-js-homework] to get a handle on the syntax.
+Complete these readings and then do [homework part I][intro-js-homework]:
+[Syntax](syntax.md)
+[Data Types and Truthiness](data_types_and_truthiness.md)
+[Useful Methods](useful_methods.md)
+[Variables](variables.md)
+
+
 
 [intro-js-homework]: ../homeworks/questions/js_intro.md
 [mdn-let]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
