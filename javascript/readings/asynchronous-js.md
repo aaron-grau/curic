@@ -93,7 +93,7 @@ the synchronous `prompt` command:
 
 ```javascript
 // wait for input
-var userInput = window.prompt();
+constant userInput = window.prompt();
 
 game.makeMove(userInput);
 ```
@@ -127,20 +127,20 @@ by the browser when an **event** occurs. Here's an example:
 
     <script type="application/javascript">
       // uses jQuery to find HTML elements by id.
-      var $submitButtonEl = $('#submit-button');
-      var $textFieldEl = $('#text-field');
+      const $submitButtonEl = $('#submit-button');
+      const $textFieldEl = $('#text-field');
 
       // installs a "click handler" on the submit button; the callback
       // gets run when the button is clicked.
       $submitButtonEl.on('click', function () {
         // grab input text from the text field.
-        var input = $textFieldEl.val();
+        const input = $textFieldEl.val();
         // reset text field to blank
         $textFieldEl.val("")
 
         // Build a new `p` tag with the input content and append it to
         // the body.
-        var $parEl = $("<p></p>");
+        const $parEl = $("<p></p>");
         $parEl.text(input);
         $("body").append($parEl);
       });
