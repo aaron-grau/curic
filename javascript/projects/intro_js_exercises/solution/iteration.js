@@ -1,12 +1,14 @@
+"use strict";
+
 //bubbleSort
 Array.prototype.bubbleSort = function () {
-  var isSorted = false;
+  let isSorted = false;
 
   while (!isSorted) {
     isSorted = true;
-    for (var i = 0; i < (this.length - 1); i++) {
+    for (let i = 0; i < (this.length - 1); i++) {
       if (this[i] > this[i + 1]) {
-        var tmp = this[i];
+        let tmp = this[i];
         this[i] = this[i + 1];
         this[i + 1] = tmp;
 
@@ -22,10 +24,10 @@ console.log([5, 3, 4, 2, 1].bubbleSort());
 
 // substrings
 String.prototype.substrings = function () {
-  var substrings = [];
+  let substrings = [];
 
-  for (var start = 0; start < this.length; start++) {
-    for (var len = 1; (start + len) <= this.length; len++) {
+  for (let start = 0; start < this.length; start++) {
+    for (let len = 1; (start + len) <= this.length; len++) {
       substrings.push(this.slice(start, start + len));
     }
   }

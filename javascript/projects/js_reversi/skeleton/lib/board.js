@@ -1,4 +1,4 @@
-var Piece = require("./piece");
+let Piece = require("./piece");
 
 /**
  * Returns a 2D array (8 by 8) with two black pieces at [3, 4] and [4, 3]

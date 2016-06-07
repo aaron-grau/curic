@@ -1,48 +1,15 @@
-var Coord = function (i, j) {
-  this.i = i;
-  this.j = j;
-};
+const Coord = require('./coord');
 
-Coord.prototype.equals = function (coord2) {
-  return (this.i == coord2.i) && (this.j == coord2.j);
-};
-
-Coord.prototype.isOpposite = function (coord2) {
-  return (this.i == (-1 * coord2.i)) && (this.j == (-1 * coord2.j));
-};
-
-Coord.prototype.plus = function (coord2) {
-  return new Coord(this.i + coord2.i, this.j + coord2.j);
-};
-
-var Apple = function (board) {
-  this.board = board;
-  this.replace();
-};
-
-Apple.prototype.replace = function () {
-  var x = Math.floor(Math.random() * this.board.dim);
-  var y = Math.floor(Math.random() * this.board.dim);
-
-  // Don't place an apple where there is a snake
-  while (this.board.snake.isOccupying([x, y])) {
-    x = Math.floor(Math.random() * this.board.dim);
-    y = Math.floor(Math.random() * this.board.dim);
-  }
-
-  this.position = new Coord(x, y);
-};
-
-var Snake = function (board) {
+function Snake(board) {
   this.dir = "N";
   this.turning = false;
   this.board = board;
 
-  var center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
+  const center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
   this.segments = [center];
 
   this.growTurns = 0;
-};
+}
 
 Snake.DIFFS = {
   "N": new Coord(-1, 0),
@@ -64,8 +31,8 @@ Snake.prototype.eatApple = function () {
 };
 
 Snake.prototype.isOccupying = function (array) {
-  var result = false;
-  this.segments.forEach(function (segment) {
+  let result = false;
+  this.segments.forEach( segment => {
     if (segment.i === array[0] && segment.j === array[1]) {
       result = true;
       return result;
@@ -75,17 +42,17 @@ Snake.prototype.isOccupying = function (array) {
 };
 
 Snake.prototype.head = function () {
-  return this.segments[this.segments.length - 1];
+  return this.segments.slice(-1)[0];
 };
 
 Snake.prototype.isValid = function () {
-  var head = this.head();
+  const head = this.head();
 
   if (!this.board.validPosition(this.head())) {
     return false;
   }
 
-  for (var i = 0; i < this.segments.length - 1; i++) {
+  for (let i = 0; i < this.segments.length - 1; i++) {
     if (this.segments[i].equals(head)) {
       return false;
     }
@@ -130,48 +97,4 @@ Snake.prototype.turn = function (dir) {
   }
 };
 
-var Board = function (dim) {
-  this.dim = dim;
-
-  this.snake = new Snake(this);
-  this.apple = new Apple(this);
-};
-
-Board.BLANK_SYMBOL = ".";
-
-Board.blankGrid = function (dim) {
-  var grid = [];
-
-  for (var i = 0; i < dim; i++) {
-    var row = [];
-    for (var j = 0; j < dim; j++) {
-      row.push(Board.BLANK_SYMBOL);
-    }
-    grid.push(row);
-  }
-
-  return grid;
-};
-
-Board.prototype.render = function () {
-  var grid = Board.blankGrid(this.dim);
-
-  this.snake.segments.forEach(function (segment) {
-    grid[segment.i][segment.j] = Snake.SYMBOL;
-  });
-
-  grid[this.apple.position.i][this.apple.position.j] = Apple.SYMBOL;
-
-  // join it up
-  var rowStrs = [];
-  grid.map(function (row) {
-    return row.join("");
-  }).join("\n");
-};
-
-Board.prototype.validPosition = function (coord) {
-  return (coord.i >= 0) && (coord.i < this.dim) &&
-    (coord.j >= 0) && (coord.j < this.dim);
-};
-
-module.exports = Board;
+module.exports = Snake;
