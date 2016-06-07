@@ -6,16 +6,138 @@ In Javascript, an __expression__ is a line of code that returns a value. __State
 
 ```javascript
 
-let x = 5; // expression 
+let x = 5; // expression
 
-function(){} // statement, no semi-colon
+function(){} // statement
 
 if (x ===5 ) {
   console.log("hello"); // expression
-}  // 'if' block is a statement, no semi-colon
+}  // 'if' block is a statement
 ```
 
-## (parentheses)
+## { curly braces }
+
+Curly braces are used to delineate code blocks such as in function definitions, loops, and if-statements.  Curly braces can also define `objects`.
+
+```javascript
+
+// if statement
+if (isTrue) {
+  // code block
+} else {
+  // another code block
+}
+
+// loop
+while (condition) {
+  // code block
+}
+
+// function definition
+function doIfTrue () {
+  // code block
+}
+
+// object
+
+myHash = { key: "value" };
+
+```
+
+Missing curly braces are the cause of many a stupid error. [Build good habits early.](indentation.md)
+
+## Looping
+
+Use blocks to delineate the code within loops.
+
+### `for` Loops
+
+```js
+for (let i = 0 ; i < 10 ; i++){
+  // code block
+}
+```
+
+### `while` loops
+
+```js
+while (condition) {
+ // code block
+}
+```
+### Looping Keywords
+
+#### `continue` 
+
+Skips the current iteration.
+
+```javascript
+let result = [];
+for  ( let i = 1 ; i < 10 ; i++ )
+  if (i % 3 === 0) {
+    continue;
+  }
+  result.push(i);
+}
+
+result; // [1,2,4,5,7,8]
+```
+
+#### `break` 
+
+Exits the loop.
+```js
+let result = [];
+for  ( let i = 1 ; i < 10 ; i++ )
+  if (i % 3 === 0) {
+    break;
+  }
+  result.push(i);
+}
+
+result; // [1,2]
+```
+
+
+## `switch` statements
+
+```js
+switch(expression) {
+case x:
+  // code block
+  break;
+case y:
+  // code block
+  break;
+default:
+  // code block
+}
+```
+
+## Function declarations
+
+There are multiple ways to declare a function in Javascript.
+
+**Function-style**
+```javascript
+function nameOfFunction(arg1, arg2, arg3, argN){
+  //code block
+}
+```
+**Expression-style**
+```javascript
+const nameOfFunction = function(arg1, arg2, arg3, argN){
+  //code block
+};
+```
+**Fat Arrow-style (ES6)** 
+```javascript
+const nameOfFunction = (arg1, arg2, arg3, argN){
+  // code block
+};
+```
+
+## Invoking functions with `( )`
 
 Functions are called a bit differently in JavaScript than in Ruby. In Ruby, after a function is declared, it is **invoked** every time it is referenced:
 
@@ -40,61 +162,6 @@ In Javascript, referencing the function name by itself will only return a pointe
   ReturnHello(); //=> "hello"
 ```
 
-## {curly braces}
-
-Curly braces are used to delineate code blocks such as in function definitions, loops, and if-statements.  Curly braces can also define `objects`.
-
-```javascript
-
-// if statement
-if (isTrue) {
-  // code block
-} else {
-  // another code block
-}
-
-// loop
-while (isTrue) {
-  // code block
-}
-
-// function definition
-function doIfTrue () {
-  // code block
-}
-
-// object
-
-myHash = {key: "value"};
-
-```
-
-Missing curly braces are the cause of many a stupid error. [Build good habits early.](indentation.md)
-
-## Function declarations
-
-There are multiple ways to declare a function in Javascript.
-
-**Function-style**
-```javascript
-function nameOfFunction(arg1, arg2, arg3, argN){
-  //function body...
-}
-```
-**Expression-style**
-```javascript
-const nameOfFunction = function(arg1, arg2, arg3, argN){
-  //function body...
-};
-```
-**Fat Arrow-style (ES6)** 
-```javascript
-const nameOfFunction = (arg1, arg2, arg3, argN){
-  // function body...
-}
-
-```
-
 ### No Implicit Returns
 
 In JavaScript, **there is usually no implicit `return`**.
@@ -113,3 +180,9 @@ returnHi = () => "hi";
 
 returnHi(); // "hi"
 ```
+
+## Practice Problems
+
+Ready for more practice? Complete [homework part II][intro-js-homework] before moving on.
+
+[intro-js-homework]: ../homeworks/questions/js_intro.md
