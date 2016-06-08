@@ -1,6 +1,6 @@
-var readline = require("readline");
-var Piece = require("./piece.js");
-var Board = require("./board.js");
+let readline = require("readline");
+let Piece = require("./piece.js");
+let Board = require("./board.js");
 
 /**
  * Sets up the game with a board and the first player to play a turn.
@@ -18,7 +18,7 @@ Game.prototype._flipTurn = function () {
 };
 
 // Dreaded global state!
-var rlInterface;
+let rlInterface;
 
 /**
  * Creates a readline interface and starts the run loop.
@@ -48,7 +48,7 @@ Game.prototype.playTurn = function (callback) {
   );
 
   function handleResponse(answer) {
-    var pos = JSON.parse(answer);
+    let pos = JSON.parse(answer);
     if (!this.board.validMove(pos, this.turn)) {
       console.log("Invalid move!");
       this.playTurn(callback);

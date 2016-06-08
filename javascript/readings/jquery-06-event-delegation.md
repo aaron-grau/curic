@@ -23,25 +23,23 @@ Let's see a more complicated version of our cool things example:
 </form>
 
 <script>
-(function () {
-  var $form = $("#cool-thing-form");
-  $form.on("submit", function (event) {
+  const $form = $("#cool-thing-form");
+  $form.on("submit", event => {
     event.preventDefault();
 
-    var $input = $("#cool_thing");
-    var coolThing = $input.val();
+    const $input = $("#cool_thing");
+    const coolThing = $input.val();
     $input.val("");
 
     $("ul.cool-things").append($("<li></li>").text(coolThing));
   });
 
-  var $listItems = $("li");
-  $listItems.on("mouseover", function (event) {
-    var currentTarget = event.currentTarget;
-    var $currentTarget = $(currentTarget);
+  const $listItems = $("li");
+  $listItems.on("mouseover", event => {
+    const currentTarget = event.currentTarget;
+    const $currentTarget = $(currentTarget);
     alert($currentTarget.text());
   });
-})();
 </script>
 ```
 
@@ -54,29 +52,27 @@ callback**.
 We can hack a solution:
 
 ```js
-(function () {
-  var $form = $("#cool-thing-form");
-  $form.on("submit", function (event) {
+  const $form = $("#cool-thing-form");
+  $form.on("submit", event => {
     event.preventDefault();
 
-    var $input = $("#cool_thing");
-    var coolThing = $input.val();
+    const $input = $("#cool_thing");
+    const coolThing = $input.val();
     $input.val("");
 
-    var $li = $("<li></li>").text(coolThing);
+    const $li = $("<li></li>").text(coolThing);
     $li.on("mouseover", mouseoverCallback);
     $("ul.cool-things").append($li);
   });
 
-  var $listItems = $("li");
+  const $listItems = $("li");
   $listItems.on("mouseover", mouseoverCallback);
 
-  function mouseoverCallback(event) {
-    var currentTarget = event.currentTarget;
-    var $currentTarget = $(currentTarget);
+  mouseoverCallback = event => {
+    const currentTarget = event.currentTarget;
+    const $currentTarget = $(currentTarget);
     alert($currentTarget.text());
   }
-})();
 ```
 
 We are now being extra careful to add a callback each time we create a
@@ -119,22 +115,21 @@ Let's write a new solution:
 </form>
 
 <script>
-(function () {
-  var $form = $("#cool-thing-form");
-  $form.on("submit", function (event) {
+  const $form = $("#cool-thing-form");
+  $form.on("submit", event => {
     event.preventDefault();
 
-    var $input = $("#cool_thing");
-    var coolThing = $input.val();
+    const $input = $("#cool_thing");
+    const coolThing = $input.val();
     $input.val("");
 
-    var $li = $("<li></li>").text(coolThing);
+    const $li = $("<li></li>").text(coolThing);
     $("ul.cool-things").append($li);
   });
 
-  $("ul.cool-things").on("mouseover", function (event) {
+  $("ul.cool-things").on("mouseover", event => {
     // currentTarget is the thing the event handler is installed on.
-    var $ul = $(event.currentTarget);
+    const $ul = $(event.currentTarget);
 
     // target is the thing that the event happened to. This line sees
     // if the thing we mousedover is an `li` in the `$ul`.
@@ -142,7 +137,6 @@ Let's write a new solution:
       alert($(event.target).text());
     };
   });
-})();
 </script>
 ```
 
@@ -185,25 +179,23 @@ jQuery helps us out by giving us the three-argument version of
 `jQuery#on(event, selector, callback)`:
 
 ```js
-(function () {
-  var $form = $("#cool-thing-form");
-  $form.on("submit", function (event) {
+  const $form = $("#cool-thing-form");
+  $form.on("submit", event => {
     event.preventDefault();
 
-    var $input = $("#cool_thing");
-    var coolThing = $input.val();
+    const $input = $("#cool_thing");
+    const coolThing = $input.val();
     $input.val("");
 
-    var $li = $("<li></li>").text(coolThing);
+    const $li = $("<li></li>").text(coolThing);
     $("ul.cool-things").append($li);
   });
 
   // the handler will be called whenever we mouseover any `li` in
   // `ul.cool-things`.
-  $("ul.cool-things").on("mouseover", "li", function (event) {
+  $("ul.cool-things").on("mouseover", "li", event => {
     alert($(event.currentTarget).text());
   });
-})();
 ```
 
 The three-argument version sets up the delegation for us: it says that
@@ -230,7 +222,7 @@ further nested in the `li`. For instance:
 </ul>
 
 <script>
-$("ul").on("mouseover", "li", function (event) {
+$("ul").on("mouseover", "li", event => {
   console.log(event.target);
   console.log(event.currentTarget);
   console.log(event.delegateTarget);

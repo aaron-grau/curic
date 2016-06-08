@@ -1,91 +1,100 @@
-var React = require("react");
+var React = require('react');
+var Link = require('react-router').Link;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var UserActions = require("../actions/user_actions");
-var CurrentUserState = require("../mixins/current_user_state");
+var SessionApiUtil = require('./../util/session_api_util');
+var SessionStore = require('./../stores/session_store');
+var ErrorStore = require('./../stores/error_store');
+var UserApiUtil = require('./../util/user_api_util');
 
 var LoginForm = React.createClass({
-	mixins: [LinkedStateMixin, CurrentUserState],
-	getInitialState: function(){
-		return {form: "login"};
-	},
-	setForm: function(e){
-		this.setState({form: e.currentTarget.value});
-	},
-	handleSubmit: function(e){
+	mixins: [LinkedStateMixin],
+
+  getInitialState: function () {
+    return {
+      username: "",
+      password: ""
+    };
+  },
+  
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+  
+  componentDidMount: function () {
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
+    this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
+  },
+  
+  componentWillUnmount: function () {
+    this.errorListener.remove();
+    this.sessionListener.remove();
+  },
+  
+  redirectIfLoggedIn: function () {
+    if (SessionStore.isUserLoggedIn()) {
+      this.context.router.push("/");
+    }
+  },
+  
+	handleSubmit: function (e) {
 		e.preventDefault();
-		UserActions[this.state.form]({
+    
+		var formData = {
 			username: this.state.username,
 			password: this.state.password
-		});
+		};
+    
+    if (this.props.location.pathname === "/login") {
+      SessionApiUtil.login(formData);
+    } else {
+      UserApiUtil.signup(formData);
+    }
 	},
-	logout: function(e){
-		e.preventDefault();
-		UserActions.logout();
-	},
-	greeting: function(){
-		if (!this.state.currentUser) {
-			return;
-		}
-		var numFavoriteBenches = this.state.currentUser.favorite_benches.length;
-
+  
+  fieldErrors: function (field) {
+    var errors = ErrorStore.formErrors(this.formType());
+    if (!errors[field]) { return; }
+    
+    var messages = errors[field].map(function (errorMsg, i) {
+      return <li key={ i }>{ errorMsg }</li>;
+    });
+    
+    return <ul>{ messages }</ul>;
+  },
+  
+  formType: function () {
+    return this.props.location.pathname.slice(1);
+  },
+  
+	render: function () {
+    var navLink; 
+    if (this.formType() === "login") {
+      navLink = <Link to="/signup">sign up instead</Link>;
+    } else {
+      navLink = <Link to="/login">log in instead</Link>;
+    }
+    
 		return (
-			<div>
-				<h2>Hi, {this.state.currentUser.username}!</h2>
-				<input type="submit" value="logout" onClick={this.logout}/>
-				<h3>You have {numFavoriteBenches} favorite benches!</h3>
-			</div>
-		);
-	},
-	errors: function(){
-		if (!this.state.userErrors){
-			return;
-		}
-		var self = this;
-		return (<ul>
-		{
-			Object.keys(this.state.userErrors).map(function(key, i){
-				return (<li key={i}>{self.state.userErrors[key]}</li>);
-			})
-		}
-		</ul>);
-	},
-	form: function(){
-		if (this.state.currentUser) {
-			return;
-		}
-		return(
-				<form onSubmit={this.handleSubmit}>
-					<section>
-						<label> Username:
-							<input type="text" valueLink={this.linkState("username")}/>
-						</label>
-
-						<label> Password:
-							<input type="password" valueLink={this.linkState("password")}/>
-						</label>
-					</section>
-
-					<section>
-						<label> Login
-							<input type="Radio" name="action" value="login" onChange={this.setForm}/>
-						</label>
-
-						<label> Sign Up
-							<input type="Radio" name="action" value="signup" onChange={this.setForm}/>
-						</label>
-					</section>
-
-					<input type="Submit" value="Submit"/>
-				</form>
-		);
-	},
-	render: function(){
-		return (
-			<div id="login-form">
-				{this.greeting()}
-				{this.errors()}
-				{this.form()}
-			</div>
+			<form onSubmit={this.handleSubmit}>
+        Welcome to AirBnB! Please { this.formType() } or { navLink }
+        
+        { this.fieldErrors("base") }
+        
+        <br />
+				<label> Username:
+          { this.fieldErrors("username") }
+					<input type="text" valueLink={this.linkState("username")} />
+				</label>
+        
+        <br />
+				<label> Password:
+          { this.fieldErrors("password") }
+					<input type="password" valueLink={this.linkState("password")} />
+				</label>
+        
+        <br />
+				<input type="submit" value="Submit" />
+			</form>
 		);
 	}
 });

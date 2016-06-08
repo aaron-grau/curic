@@ -3,21 +3,44 @@
 ## Scope
 
 The **scope** of a method is the set of variables that are available
-for use within the method. Scope in JS is nested:
+for use within the method. The scope of a function includes:
+  0. the function's arguments
+  0. any local variables declared inside the function
+  0. **any variables that were already declared when the function was defined**.
+
+Consider this example: 
+
+
+```javascript
+function sayHelloNTimes(name, n){
+  function greet(){
+   console.log( `Hi, ${name}!`);
+  }
+
+  for(let i=0; i<n; i++) {
+    greet();
+  }
+}
+sayHelloNTimes("Bob", 3); // logs 'Hi, Bob!' x3
+sayHelloNTimes("Sally", 6); // logs 'Hi, Sally!' x6
+```
+In the example above, the variable `name` is referenced by `greet`, even though it was never declared within `greet`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.** 
+
+Functions such as `greet` that capture (a.k.a. use) such variables (a.k.a. free variables) are called **closures**. 
+
+**Free variables can be modified** by closures. Consider this function: 
 
 ```javascript
 function sum(nums) {
-  var count = 0;
+  let count = 0;
 
   function addNum(num) {
-    // `count` here refers to the outside defined count variable.
-    // We can access it in here, because at the point where `addNum`
-    // is defined, `count` was "in scope".
     count += num;
   }
 
-  // run the addNum function for each num
-  nums.forEach(addNum);
+  for (let i = 0; i < nums.length; i++){
+    addNum(nums[i]);
+  }
 
   return count;
 }
@@ -25,76 +48,43 @@ function sum(nums) {
 sum([1, 3, 5]) // => 9
 ```
 
-The variables available when we call a function include:
+## Applications
 
-0. the arguments
-0. any local variables declared inside the function
-0. **any variables that were declared when the function was first
-   defined**.
+### Passing Arguments Implicitly
 
-Scopes are nested. A new, inner scope is created each time a function
-is called. The function can refer to this new, current scope, or
-anything from the enclosing scope.
-
-Not only can we access the outside variables, we can even reset
-them. This is what lets the `addNum` method modify the outside `count`
-variable.
-
-In JavaScript, every function has access to the variables from
-enclosing scopes. Functions that use (or **capture**) these variables
-(called **free variables**) are called **closures**. `addNum`, which
-captures `count`, is a closure.
-
-## Examples
-
-Lots of helper code (for instance, `_.times`) will take a function and
-call it later. A typical limitation is that the passed function may
-not take any arguments. To get around this problem, we introduce an
-anonymous closure which takes no arguments, but references variables
-from outside its definition.
+We can use closures to pass down arguments to helper functions without explicitly listing them as arguments.
 
 ```javascript
-function greetTenTimes(name) {
-  _.times(10, function () {
-    // captures `name` from outside.
-    console.log("Hello, " + name + "!");
-  });
+function isAnagram(string){
+  function reverse(){
+    return string.split('').reverse().join('');
+  }
+
+  return string === reverse();
 }
 ```
-
-In JavaScript, this kind of thing happens **all the time**. This is a
-very, very common JS technique, so become familiar with it :-)
 
 ### Private state
 
-Another major use of closures is to create some private state. For
+Another major use of closures is to create private state. For
 example:
 
 ```javascript
-function makeCounter() {
-  var count = 1;
+function Counter() {
+  let count = 1;
 
-  return function () {
-    return count++;
-  };
+  return () => count++;
 }
 
-var counterFn = makeCounter();
-console.log(counterFn()); // => 1
-console.log(counterFn()); // => 2
+let counter = new Counter();
+console.log(counter()); // => 1
+console.log(counter()); // => 2
+counter.count; // undefined
 ```
 
-By **closing over** (or **capturing**) the `count` variable, the
-returned function is more object-like. Calling it repeatedly with the
-same (zero) arguments gives different results, because it references
-private, mutable state (the `count` variable).
+By **closing over** (or **capturing**) the `count` variable, the `Counter` functions has private, mutable state that cannot be accessed externally.
 
-The returned counter closure is sort-of like an object, in that it has
-its own state. That's a cool technique, and it's a good fit for
-something simple like this.
-
-However, a more straightforward solution using a class is probably the
-better solution:
+Compare that implementation against this one:
 
 ```javascript
 function Counter () {
@@ -104,60 +94,70 @@ function Counter () {
 Counter.prototype.fire = function () {
   this._count += 1;
   return this._count;
-};
+}
 
-var counter = new Counter();
-counter.fire(); // => 1
-counter.fire(); // => 2
+let counter = new Counter();
+counter.fire(); // 1
+counter.fire(); // 2
+counter._count // 2
+counter._count = 0 // 0 (this works);
 ```
 
 One advantage of the closure way is that the count is **truly
-private**. In the second example, a foolish user might set
-`counter._count` inadvertently. In the first example, there is no way
-anyone beside the closure can access the state.
-
-True privacy is overrated. As you recall, nothing is truly private in
-Ruby; we can always call `send` to defeat privacy protections. A good
-compromise in JavaScript is to name "private" attributes with a
-leading underscore: `_count` should indicate to the user that they
-ought not mess with this variable. This is good enough.
+private**. In the first example, there is no way any method beside the closure itself can access the `count` state. In the second example, a foolish user might set `counter._count` inadvertently.
 
 ## Global Scope
 
-JavaScript also has a global scope that is available to all code
-running. Global variables can be accessed and altered by any code.
-They're held in a special object called the global object. In the
-browser, this object is called `window`. In Node.js, it's called
-`global`. While useful on occasion, global variables are usually best
-avoided, as they give too much code access to their values, increasing
-the likelihood of bugs. So you should strive to create as few global
-variables as possible. A general pattern is to create one global
-variable to represent your program, assign an object to it, then store
-all the components of your program in that object. This is called
-namespacing. You'll learn more about this pattern soon.
+JavaScript has global scope, represented by the 'window' object in the browser and the 'global' object in Node.js. Adding attributes to these objects makes them available throughout a program. 
+
+```javascript
+function theBest(){
+  window.daRealMVP = 'you';
+}
+
+theBest();
+
+daRealMVP; // 'you'
+
+function whoDaBest(){
+  return daRealMVP; // 'you'
+}
+```
+
+While useful on occasion, global variables are usually best avoided, as they give too much code access to their values, increasing the likelihood of bugs. 
 
 ### `"use strict";`
 
 A common mistake new JS developers commit is to unintentionally create
-global variables. This happens if you declare a variable without the
-`var` keyword anywhere in your code, and can lead to strange behavior.
-Thankfully, modern JS runtimes support *strict mode*, a state in which
-the runtime disallows dangerous practices like declaring variables
-without `var`.
+global variables. This happens if you declare a variable without the `var`, `let`, or `const` keywords anywhere in your code, and can lead to strange behavior. Consider: 
 
-Simply place `"use strict";` at the start of your file or function,
-and Node or the browser will throw a helpful error whenever you forget
-`var`:
+```javascript
+window.local; // undefined
+
+function subroutine(){
+  local = 'oops';
+}
+
+subroutine();
+
+window.local // 'oops';
+```
+
+Thankfully, modern JS runtimes support *strict mode*, which prohibits variable declaration without `var`, `let`, or `const`.
 
 ```javascript
 "use strict";
-var test = function() {
-  something = 'hello';
-  console.log(something);
+
+window.local; // undefined
+
+function subroutine(){
+  local = 'oops'; 
 }
 
-test(); // Produces "ReferenceError: something is not defined"
+subroutine(); // ReferenceError: 'local' is not defined
 ```
+
+**Note**: "use strict" does not work in the Node CLI or the Dev Tools console. 
 
 ## References
 

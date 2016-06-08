@@ -1,8 +1,8 @@
-var HanoiView = require('./hanoi-view.js');
-var HanoiGame = require('../../hanoi-core-solution/game.js');
+const HanoiView = require('./hanoi-view.js');
+const HanoiGame = require('./game.js');
 
-$(function () {
-  var rootEl = $(".hanoi");
-  var game = new HanoiGame();
-  new HanoiView(game, $(".hanoi"));
+$( () => {
+  const rootEl = $('.hanoi');
+  const game = new HanoiGame();
+  new HanoiView(game, rootEl);
 });

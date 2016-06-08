@@ -55,18 +55,18 @@ We can also trigger events manually. Let's see a silly example:
 </form>
 
 <script>
-  $("div.hover-submit-inner").on("mouseenter", function (event) {
+  $("div.hover-submit-inner").on("mouseenter", event => {
     console.log("mouseenter");
-    var $div = $(event.currentTarget);
+    const $div = $(event.currentTarget);
 
-    var timerId = window.setTimeout(function () {
+    const timerId = window.setTimeout( () => {
       $div.closest("form").trigger("submit");
     }, 2000);
     $div.data("timer-id", timerId);
   });
-  $("div.hover-submit-inner").on("mouseleave", function () {
+  $("div.hover-submit-inner").on("mouseleave", () => {
     console.log("mouseleave");
-    var $div = $(event.currentTarget);
+    const $div = $(event.currentTarget);
 
     window.clearTimeout($div.data("timer-id"));
     $div.data("timer-id", null);

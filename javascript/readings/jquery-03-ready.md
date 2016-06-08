@@ -48,14 +48,14 @@ We can fix this by moving JavaScript to the bottom of the page:
 </script>
 ```
 
-The browser will evaluate the HTML document from top to bottom. If 
-JavaScript files or scripts precede HTML body content, the browser 
-will not render any of the body until the javascripts have been 
-evaluated. The result of this is that a user might have to wait an 
-unacceptable amount of time for their content to show. For this reason 
-it is preferred to put javascripts of all kinds below the HTML body content 
-if possible. However, we can use jQuery to ensure that JavaScript code 
-will be executed only after the page is loaded, even if the JavaScript 
+The browser will evaluate the HTML document from top to bottom. If
+JavaScript files or scripts precede HTML body content, the browser
+will not render any of the body until the javascripts have been
+evaluated. The result of this is that a user might have to wait an
+unacceptable amount of time for their content to show. For this reason
+it is preferred to put javascripts of all kinds below the HTML body content
+if possible. However, we can use jQuery to ensure that JavaScript code
+will be executed only after the page is loaded, even if the JavaScript
 is placed at the head:
 
 ```html
@@ -64,7 +64,7 @@ is placed at the head:
 <script>
   // jQuery will call the function only after the DOM is fully loaded.
   // The anonymous function **is not** called right at this point.
-  $(function () {
+  $( () => {
     $("ul.cool-things > li").attr("style", "background-color: red");
   });
 </script>
