@@ -79,8 +79,7 @@ First, refactor your ActiveRecord Lite project. Get rid of all the phase crap. T
 
 Next, combine Rails Lite and Active Record Lite! Your should be able to write a working web application with these two projects together.
 
-Double extra credit if you make an app with this framework. Check out
-[this excellent guide][go-live] from rockstar alum @ironunicorn.
+Double extra credit if you make an app with this framework.
 
 [go-live]: http://restful-cats.com/go_live
 
