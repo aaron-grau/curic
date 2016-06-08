@@ -59,10 +59,14 @@
 * [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
 
+### Homeworks (30 min)
+* [Object Oriented JS Homework][oo-js-hw] (30 min)
+
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
 
+[oo-js-hw]: homeworks/questions/oo_js.md
 [arrows]: readings/fat-arrows.md
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
