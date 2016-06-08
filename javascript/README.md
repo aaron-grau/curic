@@ -47,29 +47,38 @@
 
 ## w5d4
 
-### Video Lectures (10 min)
+### Video Lectures (52 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
+* :movie_camera: [Object-Oriented JS: Intro][OO-js-lecture] (15 min)
+* :movie_camera: [Object-Oriented JS: Demo][OO-js-demo] (7 min)
+* :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
 
-### Readings (85 min)
+### Readings (45 min)
 * [Linting JavaScript][linting-js] (10 min)
-* [Object-oriented JavaScript][oo-js] (15 min)
 * [Arrow functions][arrows] (15 min)
 * [Function invocation][function-invocation] (5 min)
-* [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
 
-## Homeworks (60 min)
+### Homeworks (60 min)
 * [CSS Curriculum Day 1][css-day1] (30 min)
 * [Object Oriented JS Homework][oo-js-hw] (30 min)
 
+### Additional Resources
+* [Object-oriented JavaScript][oo-js]
+* [Closures and Scope][closures]
+
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
-* **Bonus Project**: [Reversi][reversi]
+* **Bonus**: [Reversi][reversi]
+
+[node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
+[OO-js-lecture]: https://vimeo.com/169806088
+[OO-js-demo]: https://vimeo.com/169804475
+[callbacks-video]: https://vimeo.com/169898573
 
 [oo-js-hw]: homeworks/questions/oo_js.md
 [arrows]: readings/fat-arrows.md
-[node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 [linting-js]: readings/linting-js.md
 [oo-js]: readings/object-oriented-js.md
@@ -89,16 +98,16 @@
 * [Event Loop Visualization][loupe] (10 min)
 * [Effective JavaScript][effective-js]: Items 11, 12, 61, 65 (15 min)
 
+### Homeworks (60 min)
+* [CSS Curriculum Day 2][css-day2] (30 min)
+* [Callbacks and Function Calls][cb-function-hw] (30 min)
+
 ### Additional Resources
 * Style
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
-* **Bonus Reading**: [Promises][promises]
-
-## Homeworks (60 min)
-* [CSS Curriculum Day 2][css-day2] (30 min)
-* [Callbacks and Function Calls][cb-function-hw] (30 min)
+* **Bonus**: [Promises][promises]
 
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
@@ -133,7 +142,7 @@
 * [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Github Pages][github-pages] (5 min)
 
-## Homeworks (70 min)
+### Homeworks (70 min)
 * [CSS Curriculum Day 3][css-day3] (30 min)
 * [CSS Curriculum Day 4][css-day4] (40 min)
 
@@ -152,13 +161,12 @@
 ## w6d1
 
 ### Video Lectures (60 min)
-
 :closed_lock_with_key: `go_video_go`
 
-* :movie_camera: Watch [JS in Browser][js-browser-video] (10 min)
-* :movie_camera: Watch [Arguments][arg-video] (10 min)
-* :movie_camera: Watch [Prototype Chain and Inheritance][proto-inherit] (20 min)
-* :movie_camera: Watch [Inheritance Demo][inherit-demo-video]  (20 min)
+* :movie_camera: [JS in Browser][js-browser-video] (10 min)
+* :movie_camera: [Arguments][arg-video] (10 min)
+* :movie_camera: [Prototype Chain and Inheritance][proto-inherit] (20 min)
+* :movie_camera: [Inheritance Demo][inherit-demo-video]  (20 min)
 
 ### Readings (85 min)
 
@@ -180,7 +188,7 @@
 ### Projects  
 * [`arguments` exercises][arguments-exercises]
 * [Prototypal Inheritance Exercises][inheritance-exercises]
-* [Asteroids project][asteroids-project]
+* [Asteroids][asteroids-project]
 
 [proto-inherit]: https://vimeo.com/162131042
 [inherit-demo-video]: https://vimeo.com/162115223
@@ -203,14 +211,14 @@
 
 <!-- TODO set agenda for this day -->
 
-### Homeworks (60 min)
+### Homeworks (2 hr)
 * [CSS Curriculum Day 5][css-day5] (30 min)
 * [CSS Curriculum Day 6][css-day6] (30 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
 ### Projects
-* **Project**: [CSS Friends][css-friends]
-* **Bonus Project**: [Google Homepage][css-bonus-assignment]
+* [CSS Friends][css-friends]
+* **Bonus**: [Google Homepage][css-bonus-assignment]
 * **Bonus Reading**: [CSS Transform property][css-transform]
 
 [css-demos]: ../html-css/demos/css_demos#demos
@@ -230,7 +238,7 @@
   * [jQuery V: Data Attributes][jquery-05-data-attributes] (10 min)
   * [Effective JavaScript][effective-js]: Items 34 - 37 (15 min)
 
-### Homeworks
+### Homeworks (45 min)
   * [wacky jQuery exercises][wacky-project] (45 min)
 
 ### Additional Resources
@@ -244,7 +252,7 @@
 
 ### Projects
   * [jQuery Tic-Tac-Toe and Towers of Hanoi][ttt-ui]
-  * **Bonus Project**: [Snake][snake-project]
+  * **Bonus**: [Snake][snake-project]
 
 
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
@@ -263,6 +271,7 @@
 ## w6d4
 
 ### Video Lectures (55 min)
+:closed_lock_with_key: `go_video_go`
 * :movie_camera: [AJAX Video Lecture][ajax-lecture]  (20 min)
 * :movie_camera: [AJAX Demo][ajax-demo] (35 min)
 * [complete demo from video][ajax-demo-code]
@@ -333,4 +342,3 @@ Complete the React/Flux [w7d1 readings][react-link]. There is a lot of material,
 [css-day4]: ../html-css/README.md#the-display-property--the-box-model-day-4
 [css-day5]: ../html-css/README.md#float-fluid-layouts--flexbox-day-5
 [css-day6]: ../html-css/README.md#positioning--media-queries-day-6
-
