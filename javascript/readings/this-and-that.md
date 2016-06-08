@@ -1,6 +1,6 @@
 # `this`
 
-Recall our `Kitten` class from [the Object Oriented Programming][oop] reading.
+Recall our `Kitten` class from [the Objects and Primitives][oop] reading.
 
 [oop]: objects-and-primitives.md
 
