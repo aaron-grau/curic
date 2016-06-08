@@ -12,17 +12,17 @@
 * :movie_camera: [Part 6: The Grand Demo)][lec-w7d1-06] (51 min)
   * :computer: [demo source code][watch-demo]
 
+### Readings (1hr, 5min)
+* [Intro to react][react-intro] (5 min)
+* [My first component][first-component] (10 min)
+* [Intro to JSX][react-jsx] (7 min)
+* [Components with JSX][jsx-components] (15 min)
+* [5 practical examples][react-examples] (25 min)
+  * [working examples of these examples][examples]
+* [Using Git with NPM][npm-git] (3 min)
+
 ### Homeworks (35 min)
 * [Getting Started with NPM and Webpack][npm-exercise] (35 min)
-
-### Additional Resources
-* [Intro to react][react-intro]
-* [My first component][first-component]
-* [Intro to JSX][react-jsx]
-* [Components with JSX][jsx-components]
-* [5 practical examples][react-examples]
-* [working examples of these examples][examples]
-* [Using Git with NPM][npm-git]
 
 ### Projects
 * [Getting Started with NPM and Webpack][npm-exercise]
@@ -50,14 +50,13 @@
 
 ## w7d2
 
-### Readings (2 hrs)
+### Readings (1hr, 55min)
 * [Full component tutorial][react-tutorial] (45 min)
 * [Stores][store-reading] (20 min)
 * [Think in React][think-in-react] (20 min)
 * [Components in depth][components-in-depth] (15 min)
 * [List diffing and the `key` prop][keys-reading] (5 min)
-* [Effective JavaScript][effective-js]
-  * Items 53 and 55 (15 min)
+* [Effective JavaScript][effective-js]: Items 53 and 55 (10 min)
 
 ### Projects
 * [React Todos][react-todo]
@@ -93,7 +92,8 @@
 
 ### Homeworks (30 min)
 * [Click Counter Flux Conversion Project!][click-counter-flux] (30 min)
-* [Submit tentative project proposal (due w7d4 9AM)][tentative-proposal]
+* [Submit tentative project proposal][tentative-proposal]
+  * due w7d4 9AM
 
 ### Additional Resources
 * [Dispatcher][flux-dispatcher]
