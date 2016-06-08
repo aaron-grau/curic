@@ -147,4 +147,13 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 ## Positioning & Media Queries (Day 6)
 
+## Bonus Materials
 
+### Readings
+[Bootstrap][bootstrap]
+[SASS][sass]
+[Responsive Design][responsive]
+
+[bootstrap]: readings/bootstrap.md
+[sass]: readings/sass.md
+[responsive]: readings/responsive_design.md
