@@ -24,9 +24,9 @@ We do not use `this` in the `purr` method, but we do in `purrMore`. In `purrMore
 
 Unlike Ruby's `self`, `this` is not optional if you want to access the attributes of the object. In other words, `purr()` instead of `this.purr()` would not work.
 
-If we had used `purr()` instead of `this.purr()`, the function would have looked for a **local variable** named `purr` in the scope of `purrMore`. `this.purr()` tells `purrMore` to look at `cat`, the object it was invoked on, to find `purr`.
+If we had used `purr()` instead of `this.purr()` in `purrMore`, the function would have looked for a **local variable** named `purr` in the scope of `purrMore`. `this.purr()` tells `purrMore` to look at `cat`, the object it was invoked on, to find `purr`.
 
-This is because invoking a function **method-style**, i.e. `object.method(arguments, ...)`. Using method-style invocation (a.k.a. dot-notation) sets `this` to the object preceding the dot. 
+This is because `cat.purrMore` function **method-style**, i.e. `object.method(arguments, ...)`. Using method-style invocation (a.k.a. dot-notation) sets `this` to the object preceding the dot. 
 
 Calling a function in the traditional **function style** (`f(a, b,
 c)`) **does not** set `this` properly. In such cases, `this` will be set to the global scope (either `window` or `global`). 
