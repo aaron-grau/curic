@@ -1,6 +1,6 @@
 # Syntax
 
-## semi-colons; 
+## semi-colons;
 
 In Javascript, an __expression__ is a line of code that returns a value. __Statements__ are, more generally, any line of code. Every expression needs a semi-colon at the end. Statements that aren't expressions don't generally require semi-colons, and may cause syntax errors.
 
@@ -67,7 +67,7 @@ while (condition) {
 ```
 ### Looping Keywords
 
-#### `continue` 
+#### `continue`
 
 Skips the current iteration.
 
@@ -83,7 +83,7 @@ for  ( let i = 1 ; i < 10 ; i++ )
 result; // [1,2,4,5,7,8]
 ```
 
-#### `break` 
+#### `break`
 
 Exits the loop.
 ```js
@@ -130,9 +130,9 @@ const nameOfFunction = function(arg1, arg2, arg3, argN){
   //code block
 };
 ```
-**Fat Arrow-style (ES6)** 
+**Fat Arrow-style (ES6)**
 ```javascript
-const nameOfFunction = (arg1, arg2, arg3, argN){
+const nameOfFunction = (arg1, arg2, arg3, argN) => {
   // code block
 };
 ```
@@ -149,7 +149,7 @@ Functions are called a bit differently in JavaScript than in Ruby. In Ruby, afte
   return_hello #=> "hello"
 ```
 
-In Javascript, referencing the function name by itself will only return a pointer to the function; to execute it, you must invoke the function **with arguments**. If no arguments are required, this looks like `()` appended to the function name. 
+In Javascript, referencing the function name by itself will only return a pointer to the function; to execute it, you must invoke the function **with arguments**. If no arguments are required, this looks like `()` appended to the function name.
 
 ```javascript
   function ReturnHello() {
@@ -179,3 +179,4 @@ returnHi(); // undefined
 returnHi = () => "hi";
 
 returnHi(); // "hi"
+```
