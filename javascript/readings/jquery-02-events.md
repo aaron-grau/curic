@@ -19,15 +19,15 @@ jQuery way: `jQuery#on(eventName, callback)`:
 </form>
 
 <script>
-$("#cool-thing-form").on("submit", function (event) {
+$("#cool-thing-form").on("submit", event => {
   event.preventDefault();
 
-  var $input = $("#cool_thing");
-  var coolThingVal = $input.val();
+  const $input = $("#cool_thing");
+  const coolThingVal = $input.val();
   // clear input
   $input.val("");
 
-  var $li = $("<li></li>");
+  const $li = $("<li></li>");
   $li.text(coolThingVal);
 
   $("#cool-things").append($li);
@@ -49,24 +49,22 @@ You can use jQuery to stop listening:
 <p>Try to hover over me!</p>
 
 <script>
-(function () {
-  var enabled = false;
+  let enabled = false;
 
-  $("button").on("click", function () {
+  function annoy() {
+    alert("YOU ARE HOVERING OVER ME!");
+  }
+
+  $("button").on("click", () => {
     if (!enabled) {
-      $("p").on("mouseover", hoverCallback);
+      $("p").on("mouseover", annoy);
       enabled = true;
     } else {
       // remove listener
-      $("p").off("mouseover", hoverCallback);
+      $("p").off("mouseover", annoy);
       enabled = false;
     }
   });
-
-  function hoverCallback() {
-    alert("YOU ARE HOVERING OVER ME!");
-  }
-})();
 </script>
 ```
 
@@ -92,14 +90,12 @@ We have seen that your event handler will be passed an
 </ul>
 
 <script>
-(function () {
   var $listItems = $("li");
-  $listItems.on("mouseover", function (event) {
-    var currentTarget = event.currentTarget;
-    var $currentTarget = $(currentTarget);
+  $listItems.on("mouseover", event => {
+    const currentTarget = event.currentTarget;
+    const $currentTarget = $(currentTarget);
     alert($currentTarget.text());
   })
-})();
 </script>
 ```
 

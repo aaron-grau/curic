@@ -1,8 +1,6 @@
 // simple myBind with no args
 Function.prototype.myBind = function (ctx) {
-  return () => {
-    return this.apply(ctx);
-  };
+  return () => this.apply(ctx);
 };
 
 // myBind with arguments
