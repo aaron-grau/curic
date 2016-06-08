@@ -9,3 +9,5 @@ Use your latest html recipe page with the latest external stylesheet and update 
 5. Color every other list element in the directions list with a light grey background.
 6. Use the `+` operator to select the first review proceeding the Reviews header element and give it a 1px solid, black, top border.
 7. Style the radio buttons with stars! Use the `stars.png` file in the assets folder.
+
+Compare your recipe page to [this example](./example.html) and [this stylesheet](../../assets/advanced_selectors.css).
