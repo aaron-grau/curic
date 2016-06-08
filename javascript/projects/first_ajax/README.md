@@ -4,7 +4,7 @@ You're going to dive more into AJAX in a bit, but we need to give you a taste be
 
 ## Part 1: Up and Running
 
-Download [the skeleton][skeleton].  Open index.html in the browser and pop open the console (command + option + J).  You should see a welcome message.
+Download [the skeleton][skeleton].  Open `index.html` in the browser and pop open the console (command + option + J).  You should see a welcome message.
 
 ## Part 2: AJAX of One Trade
 
