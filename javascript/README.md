@@ -59,10 +59,14 @@
 * [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
 
+## Homeworks
+* [CSS Curriculum Day 1][css-day1]
+
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
 
+[css-day1]: ../html-css/README.md#css-intro-workflow-day-1
 [arrows]: readings/fat-arrows.md
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
