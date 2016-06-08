@@ -18,7 +18,7 @@ Let's review all the ways that `$` can be used:
     * Returns a jQuery wrapping those, giving you access to the jQuery
       methods.
 * Ready-style
-    * `$(function () { ... })`
+    * `$(someFunction)`
     * Takes a function to run when the DOM is fully loaded; does not
       run it yet.
     * Returns nothing.

@@ -19,7 +19,7 @@ Note that callbacks (that is, functions you pass to other functions)
 are almost always eventually called function style, which makes `this`
 the global object.  Remember, you can use an anonymous function
 with the `var that = this` trick or `bind` to ensure that `this` is
-set properly in your callback, but using arrow functions so that `this` is set to the surrounding scope is preferred in ES6 when possible.
+set properly in your callback, but using arrow functions so that `this` is set to the surrounding scope is preferred in ES6.
 
 ## Two last ways to call functions
 
@@ -75,11 +75,4 @@ function greet(msg1, msg2) {
 greet.call(obj, "hello", "goodbye");
 ```
 
-Why use `call` since `apply` seems more flexible? There is a slight
-performance cost to using `apply` because the arguments need to be
-unpacked. Don't worry about it; I just want you to understand why
-there is such a similar method.
-
-In general, `call` is more convenient when you know ahead of time what
-arguments you want to pass. `apply` is more useful when someone is
-going to give you an array of arguments to use.
+Why prefer `call` over `apply`, and vice versa? In general, `call` is more convenient when you know ahead of time what arguments you want to pass. `apply` is more useful when someone is going to give you an array of arguments to use. There is a slight performance cost to using `apply` because the arguments need to be unpacked. Don't worry much about it, though.

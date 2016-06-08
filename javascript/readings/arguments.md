@@ -149,9 +149,3 @@ function add(x, y = 17) {
 f(3) === 20;
 
 ```
-
-## Practice Problems
-
-Complete [homework part III][intro-js-homework] to solidify your new knowledge.
-
-[intro-js-homework]: ../homeworks/questions/js_intro.md

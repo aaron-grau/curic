@@ -1,8 +1,8 @@
 # Reversi: Javascript Style
 
-Use the [skeleton repo][reversi-skeleton] (click 'view raw' to download).
+Download the [skeleton][reversi-skeleton].
 
-[reversi-skeleton]: skeleton.zip 
+[reversi-skeleton]: skeleton.zip?raw=true 
 
 ## Reversi: Part I
 
