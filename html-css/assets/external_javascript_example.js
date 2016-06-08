@@ -33,8 +33,8 @@ var createReview = function(event) {
   reviewElements.forEach(function(el) {
     reviewElement.appendChild(el);
   });
-
-  reviewElement.id = 'name' + '_review';
+  reviewElement.id = name.textContent + '_review';
+  reviewElement.className = 'user_review';
 
   return reviewElement;
 };
