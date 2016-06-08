@@ -4,7 +4,6 @@
 
 ### Video Lectures (94 min)
 :closed_lock_with_key: `go_video_go`
-
 * :movie_camera: [Part 1: Intro to React)][lec-w7d1-01] (5 min)
 * :movie_camera: [Part 2: Anatomy/Physiology of Components)][lec-w7d1-02] (15 min)
 * :movie_camera: [Part 3: Rendering Components in the Browser)][lec-w7d1-03] (10 min)
@@ -77,32 +76,33 @@
 
 ## w7d3
 
-#### Video Lectures
-* [Flux video lecture (15 min)][flux-lecture] (`go_video_go`)
-* [Flux code demo (15 min)][flux-demo-screencast] (`go_video_go`)
-  [pre-flux code][flux-demo-pre-flux], [complete project with flux][flux-demo-post-flux]
-* [Flux web api demo (flux with rails) (5 min)][flux-api-screencast] (`go_video_go`)
-  [flux demo with API code][flux-demo-with-api]
+### Video Lectures (35 min)
+:closed_lock_with_key: `go_video_go`
+* [Flux video lecture][flux-lecture] (15 min)
+* [Flux code demo][flux-demo-screencast] (15 min)
+    * [pre-flux code][flux-demo-pre-flux]
+    * [complete project with flux][flux-demo-post-flux]
+* [Flux web api demo (flux with rails)][flux-api-screencast] (5 min)
+    * [flux demo with API code][flux-demo-with-api]
 
-#### Important Readings
-* [Basic intro to flux][flux-intro]
-* [Flux component overview][flux-component-overview]
-* [Stores and Actions (quick reference)][stores-and-actions]
-* [Effective JavaScript][effective-js]:
-  * Items 56, 58, and 59 (23 min)
+### Readings (40 min)
+* [Basic intro to flux][flux-intro] (5 min)
+* [Flux component overview][flux-component-overview] (5 min)
+* [Stores and Actions][stores-and-actions] (10 min)
+* [Effective JavaScript][effective-js]: Items 56, 58, and 59 (20 min)
 
-#### Homework Assignment
-* [Click Counter Flux Conversion Project!][click-counter-flux]
+### Homeworks (30 min)
+* [Click Counter Flux Conversion Project!][click-counter-flux] (30 min)
 * [Submit tentative project proposal (due w7d4 9AM)][tentative-proposal]
 
-#### Bonus Readings
+### Additional Resources
 * [Dispatcher][flux-dispatcher]
 * [Facebook Flux Todo List Tutorial][flux-todo-tutorial]
 * [Todo List source][flux-todo-source] | [How to run this project][how-to-run]
-* [Bonus Video: 'Facebook: react, flux by Bill Fisher'][flux-video]
+* [Video: 'Facebook: react, flux by Bill Fisher'][flux-video]
 
-#### Projects
-* **Project:** [Organ Grinder][organ-grinder]
+### Projects
+* [Organ Grinder][organ-grinder]
 
 [flux-api-screencast]: https://vimeo.com/163488310
 [flux-demo-pre-flux]: demos/recipes_pre_flux
@@ -124,15 +124,18 @@
 
 ## w7d4
 
-* [Intro to react router][react-router-intro]
-* [Route Configuration][route-configuration]
-* [Route Matching][route-matching]
-* [Index Routes][index-routes]
-* [Component lifecycle][component-lifecycle]
-* [jbuilder][jbuilder-link] (read the documentation thoroughly!)
-* [Effective JavaScript][effective-js]
-  * Items 66, 67, and 68 (20 min)
-* **Project:** [Pokedex][pokedex]
+### Readings (91 min)
+* [Intro to react router][react-router-intro] (12 min)
+* [Route Configuration][route-configuration] (12 min)
+* [Route Matching][route-matching] (5 min)
+* [Index Routes][index-routes] (7 min)
+* [Component lifecycle][component-lifecycle] (15 min)
+* [jbuilder][jbuilder-link] (20 min)
+  * read the documentation thoroughly!
+* [Effective JavaScript][effective-js]: Items 66, 67, and 68 (20 min)
+
+### Projects
+* [Pokedex][pokedex]
 
 
 [react-router-intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
@@ -145,16 +148,20 @@
 
 ## w7d5
 
-### Readings
-* [jbuilder][jbuilder-link]
-* [React Map Demo][react_map_demo]
+### Readings (15 min)
+* [React Map Demo][react_map_demo] (15 min)
 
-### Homework
-* [Jbuilder Exercise][jbuilder-demo] (instructions in README)
+### Homework (90 min)
+* [Jbuilder Exercise][jbuilder-demo] (90 min)
+  * instructions in README
+
+### Additional Resources
+* [Jbuilder Documentation][jbuilder-link]
 
 ### Projects
 * [BenchBnB Day 1][bench-bnb]
-* :joy_cat: **5pm Happy Hour!** :joy_cat:
+
+### :joy_cat: **Happy Hour!** :joy_cat:
 
 [bench-bnb]: projects/bench_bnb
 [react_map_demo]: demos/react_map_demo
