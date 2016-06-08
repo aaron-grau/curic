@@ -1,20 +1,22 @@
 # `this` and that
 
-We've learned about the special `this` variable. When we call a
+We've learned about the special [`this`][this] variable. When we call a
 function "method style" (`object.method()`), the special variable
 `this` gets set to `object`. `this` is a lot like `self` in Ruby.
+
+[this]: https://github.com/appacademy/curriculum/blob/es6/javascript/readings/object-oriented-js.md#this
 
 There is one evil thing about `this`, and it comes up when we pass
 callbacks. Observe, dear reader:
 
 ```javascript
 function times(num, fun) {
-  for (var i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     fun(); // call is made "function-style"
   }
 }
 
-var cat = {
+const cat = {
   age: 5,
 
   ageOneYear: function () {
@@ -24,11 +26,10 @@ var cat = {
 
 cat.ageOneYear(); // works
 
-times(10, cat.ageOneYear); // does not work!
+times(10, cat.ageOneYear); // ReferenceError; this.age is not defined
 ```
 
-The first call to age the cat works. But the calls to increment the
-cat's age ten times don't.
+Calling cat.ageOneYear() method style works. But the calls to increment the cat's age ten times don't.
 
 ```
 ~$ node test.js
@@ -42,7 +43,7 @@ The `ageOneYear` method uses the special `this` variable. But the
 ```javascript
 obj.method(); // called method style; `this` set properly
 
-var m = obj.method;
+let m = obj.method;
 m(); // called function style; `this` not set properly
 ```
 
@@ -61,12 +62,12 @@ closure to capture `cat`:
 ```javascript
 // `times` is the same:
 function times(num, fun) {
-  for (var i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     fun(); // call is made "function-style"
   }
 }
 
-var cat = {
+const cat = {
   age: 5,
 
   ageOneYear: function () {
@@ -104,7 +105,7 @@ on `cat` method style.
 Note that we could do crazy things like this:
 
 ```javascript
-var crazyMethod = cat.ageOneYear.bind(dog);
+const crazyMethod = cat.ageOneYear.bind(dog);
 ```
 
 Here, `crazyMethod()` will call the `Cat#ageOneYear` method, but
@@ -142,17 +143,13 @@ function is not even a method of `SumCalculator`!
 
 This problem can be hard to spot, because even though we are using
 `this` in a method of `SumCalculator`, we're also inside an anonymous,
-nested function which will be called function style. **That makes the
-problem hard to spot**. In particular, the correct use of `this` in
-scope 1 will mean something different than the incorrect use in scope
-2.
+nested function which will be called function style. In particular, the correct use of `this` in scope 1 will mean something different than the incorrect use in scope 2.
 
 This sort of runs counter to the philosophy of closures: that they can
 access variables defined in the enclosing scope. `this` is special
-because **it doesn't get captured; it gets reset everytime a function
-is called**.
+because **`this` doesn't get captured; it gets reset everytime a function is called**.
 
-The typical solution is to introduce a normal variable to hold `this`
+The ES5 solution is to introduce a normal variable to hold `this`
 in a way that can be captured:
 
 ```javascript
@@ -162,7 +159,7 @@ function SumCalculator() {
 }
 
 SumCalculator.prototype.addNumbers = function (numbers) {
-  var sumCalculator = this;
+  const sumCalculator = this;
 
   numbers.forEach(function (number) {
     sumCalculator.sum += number; // will work as intended
@@ -191,8 +188,6 @@ is a normal variable captured according to typical rules, while `this`
 is a special variable **which is never captured and is reset on every
 function call**.
 
-Some people consider the error-prone nature of `this` to be a bad part
-of JavaScript and a mistake. I'm not sure if I agree with them: the
-existing behavior is (with practice!) easy to understand, even if it
-is error-prone. I'm not sure a more complicated solution would have
-really been better. People debate this.
+## The ES6 Solution
+
+Though it is still important to understand the scope of `this` and know how to use it, ES6 provides a more elegant solution for scoping some callbacks using [Arrow Functions](fat-arrows.md).

@@ -15,18 +15,14 @@
 ### Assessment03
 + [Practice Assessment][assessment-prep]
 
-### Video Lectures (2 hr, 40 min)
+### Video Lectures (60 min)
 :closed_lock_with_key: `go_video_go`
-+ [:movie_camera: (cc) 03-basic-rails-routing][03-basic-rails-routing] (24 min)
-+ [:movie_camera: (cc) 04-strong-params][04-strong-params] (25 min)
-+ [:movie_camera: (cc) 05-nested-resources][05-nested-resources] (15 min)
-* [:movie_camera: (cc) 06-erb-and-views][06-erb-and-views] (16 min)
-* [:movie_camera: (cc) 07-basic-forms][07-basic-forms] (19 min)
-* [:movie_camera: (cc) 08-form-request-cycle][08-form-request-cycle] (13 min)
-* [:movie_camera: (cc) 09-select][09-select] (21 min)
-* [:movie_camera: (cc) 10-form-partial][10-form-partial] (13 min)
-* [:movie_camera: (cc) 11-form-encoding][11-form-encoding] (12 min)
-*  **Tip**: You may want to test out watching videos at double speed.  Some students have used [this Chrome Extension][vimeo-double-speed] in the past.
++ [:movie_camera: What is an API?][api-video] (10 min)
++ [:movie_camera: HTTP Request/Response][http-req-res-video] (5 min)
++ [:movie_camera: Rails Routing][rails-routing-video] (5 min)
++ [:movie_camera: Routes Demo][routes-demo-video] (10 min)
++ [:movie_camera: Basic Controller Demo][basic-controller-demo-video] (15 min)
++ [:movie_camera: RESTful Controller Demo][restful-controller-demo-video] (15 min)
 
 ### Homeworks (2 hr, 30 min)
 * [JumpStart Blogger][js-blogger] (90 min)
@@ -40,12 +36,28 @@
 + [Basic Controllers][basic-controllers]
 + [Basic JSON API][basic-json-api]
 + [Routing II: Nested Collections][routing-ii]
++ [:movie_camera: (cc) 03-basic-rails-routing][03-basic-rails-routing] (24 min)
++ [:movie_camera: (cc) 04-strong-params][04-strong-params] (25 min)
++ [:movie_camera: (cc) 05-nested-resources][05-nested-resources] (15 min)
+* [:movie_camera: (cc) 06-erb-and-views][06-erb-and-views] (16 min)
+* [:movie_camera: (cc) 07-basic-forms][07-basic-forms] (19 min)
+* [:movie_camera: (cc) 08-form-request-cycle][08-form-request-cycle] (13 min)
+* [:movie_camera: (cc) 09-select][09-select] (21 min)
+* [:movie_camera: (cc) 10-form-partial][10-form-partial] (13 min)
+* [:movie_camera: (cc) 11-form-encoding][11-form-encoding] (12 min)
 
 ### Projects
 + [First Routes and Controllers][first-routes]
 + [Contacts API][contacts-api]
 
 [assessment-prep]: http://github.com/appacademy/assessment-prep
+
+[api-video]: https://vimeo.com/168498417
+[http-req-res-video]: https://vimeo.com/168498424
+[rails-routing-video]: https://vimeo.com/168498679
+[routes-demo-video]: https://vimeo.com/168499905
+[basic-controller-demo-video]: https://vimeo.com/168501163
+[restful-controller-demo-video]: https://vimeo.com/168505535
 
 [03-basic-rails-routing]: http://vimeo.com/groups/appacademy/videos/100267303
 [04-strong-params]: http://vimeo.com/groups/appacademy/videos/100267304
@@ -69,15 +81,6 @@
 [contacts-api]: projects/contacts_api
 
 ## w4d2
-
-### Video Lectures (90 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera: (cc) 00 User Models][auth-00-user-model] (21 min)
-* [:movie_camera: (cc) 01 Basic Sessions][auth-01-basic-sessions] (21 min)
-* [:movie_camera: (cc) 02 Password Digest][auth-02-password-digest] (20 min)
-* [:movie_camera: (cc) 03 Password Pseudo Attribute][auth-03-password-pseudo-attribute] (11 min)
-* [:movie_camera: (cc) 04 Session Token][auth-04-session-token] (16 min)
-* [Demo code for videos][auth-github]
 
 ### Readings (90 min)
 * [Basic views][basic-views] (15 min)
@@ -133,8 +136,9 @@
 * [:movie_camera: (cc) 07 CSRF Protection][auth-07-csrf-protection] (12 min)
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
-### Homeworks (30 min)
+### Homeworks (60 min)
 * Complete day 4 of [html curriculum][html-readme] (30 min)
+* [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources
 * [Cookies][cookies]
@@ -173,18 +177,27 @@
 
 [99-cats-part-ii]: projects/ninety_nine_cats_ii
 
+[rails-auth-homework]: homeworks/questions/rails_auth.md
+
 ## w4d4
 
-### Video Lectures (29 min)
+### Video Lectures (39 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera:  (cc) 14-radio-and-textarea][14-radio-and-textarea] (16 min)
 * [:movie_camera:  (cc) 15-helpers][15-helpers] (13 min)
+* [:movie_camera: layouts][layout-video] (10 min)
 
 ### Readings (60 min)
 * [ActionMailer][action-mailer] (20 min)
 * [View helpers][view-helpers] (15 min)
 * [View layouts][view-layouts] (10 min)
 * [View partials][view-partials] (15 min)
+
+### Homeworks (30 min)
+* [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
+
+### Additional Resources
+* [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
 
 ### Projects
 * **Solo**: [Music App][music-app-project]
@@ -193,10 +206,13 @@
 [view-helpers]: readings/helpers.md
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
+[helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
+[layout-video]: https://vimeo.com/168822741
+[action-mailer-video]: https://vimeo.com/168810895
 
-[music-app-project]: projects/music_app.md
+[music-app-project]: projects/music_app
 
 ## w4d5
 
@@ -213,6 +229,9 @@
   * **Just section 2.9**
 * [Concerns][concerns-reading] (10 min)
 
+### Homeworks (30 min)
+* [Polymorphism and Concerns][polymorphism-and-concerns-hw] (30 min)
+
 ### Additional Resources
 * **Bonus Topic:** [Decorators][decorators]
 
@@ -220,13 +239,14 @@
 * [RedditClone][reddit-clone]
 
 [polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-[concerns-reading]: https://richonrails.com/articles/rails-4-code-concerns-in-active-record-models
+[concerns-reading]: readings/concerns.md
 [16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
 [17-checkboxes-1]: http://vimeo.com/groups/appacademy/videos/100780887
 [18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
 [19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
 [20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
 [decorators]: readings/decorators.md
+[polymorphism-and-concerns-hw]: homeworks/questions/polymorphism-concerns/polymorphism-concerns.md
 
 [reddit-clone]: projects/reddit_on_rails
 
@@ -260,6 +280,9 @@
 * [FactoryGirl and Faker Gems][fac-grl-faker] (20 min)
 * [Testing with Capybara][capybara] (15 min)
 
+### Homeworks (45 min)
+* [Capybara][capybara-hw] (45 min)
+
 ### Projects
 * [Goal App][goaling-app]
 * **Bonus**: [Appacademy.io tests][appacademyio-tests]
@@ -269,6 +292,8 @@
 [rspec-models]: readings/rspec-models.md
 [fac-grl-faker]: readings/factorygirl-and-faker.md
 [capybara]: readings/capybara.md
+
+[capybara-hw]: homeworks/questions/capybara.md
 
 [goaling-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
@@ -314,21 +339,30 @@
 ## w5d3
 
 ### Breakfast
-* :joy_cat:**Bagels and Coffee 8:30am**:joy_cat:
+* :joy_cat: **Bagels @ 8:30am** :joy_cat:
 
-### Video lectures (53 min)
+### Video lectures (65 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
 * [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
+* :movie_camera: Watch [W5D3 Javascript Video Lectures][js-videos]
 
-### Readings & Homeworks
-* [Middleware][middleware] (12 min)
-* Complete [W5D3 readings and Homework][js-curriculum] in js-curriculum
+### Readings (70 min)
+* Complete [Javascript W5D3 Readings][js-readings] (70 min)
+
+### Homeworks (30 min)
+* Complete [Javascript W5D3 Homework][js-hw] (30 min)
+
+### Additional Resources
+* [Middleware][middleware]
 
 ### Projects
 * **Solo**: Finish ActiveRecordLite and RailsLite.
 
+[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/rails_lite/video/demos/rack_middleware/middleware.rb
 [middleware]: readings/middleware.md
-[js-curriculum]: ../javascript
+[js-videos]: ../javascript#video-lectures-12-min
+[js-readings]: ../javascript#readings-70-min
+[js-hw]: ../javascript#homeworks-30-min

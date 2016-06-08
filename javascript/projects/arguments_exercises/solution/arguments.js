@@ -1,22 +1,33 @@
-function sum() {
-  var total = 0;
-  for (var i = 0; i < arguments.length; i++) {
+function sum1() {
+  let total = 0;
+  for (let i = 0; i < arguments.length; i++) {
     total += arguments[i];
   }
 
   return total;
 }
 
-Function.prototype.myBind = function (context) {
-  var fn = this;
+function sum2(...nums) {
+  let total = 0;
+  for (let i = 0; i < nums.length; i++) {
+    total += nums[i];
+  }
 
-  // arguments will be reset, so we need to save it. We also lop off
-  // the initial context argument.
-  var bindTimeArgs = Array.prototype.slice.call(arguments, 1);
+  return total;
+}
 
+Function.prototype.myBind1 = function (ctx) {
+  const fn = this;
+  const bindArgs = Array.prototype.slice.call(arguments, 1);
   return function () {
-    var callTimeArgs = Array.prototype.slice.call(arguments);
-    return fn.apply(context, bindTimeArgs.concat(callTimeArgs));
+    const callArgs = Array.prototype.slice.call(arguments);
+    return fn.apply(ctx, bindArgs.concat(callArgs));
+  };
+};
+
+Function.prototype.myBind2 = function (ctx, ...bindArgs) {
+  return (...callArgs) => {
+    return this.apply(ctx, bindArgs.concat(callArgs));
   };
 };
 
@@ -26,10 +37,11 @@ function curriedSum(numArgs) {
   function _curriedSum(num) {
     numbers.push(num);
 
-    if (numbers.length == numArgs) {
-      var total = 0;
+    if (numbers.length === numArgs) {
+      let total = 0;
 
-      numbers.forEach(function (num) { total += num });
+      numbers.forEach((n) => { total += n; });
+
       return total;
     } else {
       return _curriedSum;
@@ -40,14 +52,14 @@ function curriedSum(numArgs) {
 }
 
 Function.prototype.curry = function (numArgs) {
-  var fn = this;
-  var args = [];
+  const args = [];
+  const fn = this;
 
   function _curriedFn(arg) {
     args.push(arg);
 
     if (args.length === numArgs) {
-      return fn.apply(null, args);
+      return fn(...args);
     } else {
       return _curriedFn;
     }
