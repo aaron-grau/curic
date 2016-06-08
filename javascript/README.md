@@ -59,6 +59,9 @@
 * [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
 
+## Homeworks (30 min)
+* [CSS Curriculum Day 1][css-day1] (30 min)
+
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
@@ -91,6 +94,9 @@
   *  [Air BnB][airbnb-style]
 * **Bonus Reading**: [Promises][promises]
 
+## Homeworks (30 min)
+* [CSS Curriculum Day 2][css-day2] (30 min)
+
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
 * [Towers of Hanoi][hanoi_node]
@@ -114,19 +120,21 @@
 
 ## w5d6-w5d7
 
-### Video Lectures (173 min)
+### Video Lectures (33 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
 * :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (18 min)
-* :movie_camera: [CSS lectures][css-lectures] - skip 10 Navbar and 12 Glasses (140 min)
 
-### Readings
+### Readings (15 min)
 * [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Github Pages][github-pages] (5 min)
-* **NYC**: Finish up [CSS Warm Up][css-warm-up]
+
+## Homeworks (70 min)
+* [CSS Curriculum Day 3][css-day3] (30 min)
+* [CSS Curriculum Day 4][css-day4] (40 min)
 
 ### Additional Resources
-* [CSS Diner][css-diner] Fun!
+* [CSS Diner][css-diner]
 
 [css-diner]: http://flukeout.github.io/
 [eloquent-javascript]: http://eloquentjavascript.net/
@@ -136,7 +144,6 @@
 [github-pages]: readings/github_pages.md
 [css-demos-notes]: ../html-css/demos/css_demos/README.md#brief-notes
 [css-lectures]: ../html-css/demos/css_demos/README.md#lectures
-[css-warm-up]: ../html-css/projects/css_warm_up
 
 ## w6d1
 
@@ -190,34 +197,23 @@
 
 ## w6d2
 
-* **NYC**:
-   * Review all of [CSS Brief Notes][css-demos-notes]
-   * :movie_camera: Watch [Building a Navbar with Floats][css-navbar-vid] (`go_video_go`)
-   * :movie_camera: Watch [Putting Glasses on a Cat with Positioning][css-glasses-vid] (`go_video_go`)
-   * Look at this [Breaking a Layout Into Boxes GIF][navbar-gif]
-* **SF**:
-   * [Semantic HTML][semantic-html]
-   * [CSS Selectors][selectors]
-   * [The Box Model][box-model]
-   * [CSS Display Attribute][display-attr]
-   * [Positioning and Floating][positioning]
-* **Demos**: [CSS Demos][css-demos]
+<!-- TODO set agenda for this day -->
+
+### Homeworks (60 min)
+* [CSS Curriculum Day 5][css-day5] (30 min)
+* [CSS Curriculum Day 6][css-day6] (30 min)
+* [CSS Warm Up][css-warmup] (60 min)
+
+### Projects
 * **Project**: [CSS Friends][css-friends]
 * **Bonus Project**: [Google Homepage][css-bonus-assignment]
 * **Bonus Reading**: [CSS Transform property][css-transform]
 
-[semantic-html]: ../html-css/readings/semantic-html.md
-[selectors]: ../html-css/readings/selectors.md
-[box-model]: ../html-css/readings/box-model.md
-[display-attr]: ../html-css/readings/display.md
-[positioning]: ../html-css/readings/positioning-and-floating.md
 [css-demos]: ../html-css/demos/css_demos#demos
 [css-friends]: ../html-css/projects/css_friends
 [css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
-[css-navbar-vid]: https://vimeo.com/album/3732382/video/158975002
-[css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
-[navbar-gif]: ../html-css/demos/css_demos/lectures/navbar.gif?raw=true
+[css-warmup]: ../html-css/projects/css_warm_up
 
 ## w6d3
 
@@ -326,3 +322,11 @@ Complete the React/Flux [w7d1 readings][react-link]. There is a lot of material,
 
 [react-link]: ../react
 [effective-js]: http://effectivejs.com/
+
+[css-day1]: ../html-css/README.md#css-intro-workflow--day-1
+[css-day2]: ../html-css/README.md#css-syntax-day-2
+[css-day3]: ../html-css/README.md#css-reset--advanced-selectors-day-3
+[css-day4]: ../html-css/README.md#the-display-property--the-box-model-day-4
+[css-day5]: ../html-css/README.md#float-fluid-layouts--flexbox-day-5
+[css-day6]: ../html-css/README.md#positioning--media-queries-day-6
+
