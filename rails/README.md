@@ -329,8 +329,17 @@
 * [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
 * [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
+<<<<<<< HEAD
+<<<<<<< HEAD
+* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  [:computer:demo code][middleware-demo](22 min)
+=======
+* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
+>>>>>>> es6
+* :movie_camera: Watch [W5D3 Javascript Video Lectures][js-videos] (12 min)
+=======
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
 * :movie_camera: Watch [W5D3 Javascript Video Lectures][js-videos]
+>>>>>>> 9a03da4b3ac8f5651b4c3ad3eef403d735bbcbdb
 
 ### Readings (70 min)
 * Complete [Javascript W5D3 Readings][js-readings] (70 min)
