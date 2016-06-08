@@ -38,7 +38,7 @@ Methods are always called like this: `object.method(arguments, ...)`. This is be
 Calling a function in the traditional **function style** (`f(a, b,
 c)`) **does not** set `this` properly. In such cases, `this` will be set to the global scope (either `window` or `global`). 
 
-# `this` and that
+# Scope issues with `this`
 
 There is one tricky thing about `this`, and it comes up when passing
 callbacks. Observe, dear reader:
@@ -74,7 +74,7 @@ In the example, we pull out the `cat.ageOneYear` method and pass it
 to `times`. `times` calls the method, **but it calls it
 function-style**. Recall that function-style method calls use `window` or `global` as `this`.
 
-There are two ways around this problem. The first is to introduce an anonymous closure function to capture `cat`:
+There are two ways around this problem. The first is to introduce an **anonymous closure** to capture `cat`:
 
 ```javascript
 // `times` is the same:
@@ -103,7 +103,7 @@ will still be set to `window`. But the closure doesn't care, **because
 inside it explicitly calls `ageOneYear` method style on `cat`**.
 
 This is a very common pattern, so there is another, less verbose
-alternative:
+alternative: `#bind`.
 
 ```javascript
 times(10, cat.ageOneYear.bind(cat));
@@ -111,10 +111,10 @@ times(10, cat.ageOneYear.bind(cat));
 
 `bind` is a method you can call on JS functions. Other methods of `Function` objects live in `Function.prototype`. Check them out!
 
-`bind` works just like anonymous closure we made, in which
+`bind` works just like the closure we made, in which
 `cat#ageOneYear` is called method style on the `cat`
 object. `cat.ageOneYear.bind(cat)` returns a closure that will
-still be called function style, but that calls `cat.ageOneYear` method style inside of it.
+still be called function-style, but which calls `cat.ageOneYear` method-style inside of it.
 
 Note that you can bind functions to any scope, not just `this`: 
 
@@ -122,7 +122,7 @@ Note that you can bind functions to any scope, not just `this`:
 const crazyMethod = cat.ageOneYear.bind(dog);
 ```
 
-# More trouble
+# nested `this` problems
 
 Let's see the same problem in another context:
 
@@ -145,20 +145,15 @@ SumCalculator.prototype.addNumbers = function (numbers) {
 
 For the same reason as before, the use of `this` in scope 2 will not
 work. Because the anonymous function will not be called method style
-by `Array#forEach`, the special `this` variable will not be set
-properly. That makes sense if you think about it: the anonymous
-function is not even a method of `SumCalculator`!
+by `Array#forEach`, `this` will not be set properly. That makes sense if you think about it: the anonymous function is not even a method of `SumCalculator`!
 
 This problem can be hard to spot, because even though we are using
 `this` in a method of `SumCalculator`, we're also inside an anonymous,
 nested function which will be called function style. In particular, the correct use of `this` in scope 1 will mean something different than the incorrect use in scope 2.
 
-This sort of runs counter to the philosophy of closures: that they can
-access variables defined in the enclosing scope. `this` is special
-because **`this` doesn't get captured; it gets reset everytime a function is called**.
+This sort of runs counter to our basic understanding of closures: that they can access variables defined in the enclosing scope. However, `this` is special because **`this` doesn't get captured; it gets reset everytime a function is called**.
 
-The ES5 solution is to introduce a normal variable to hold `this`
-in a way that can be captured:
+If we do want to close over `this`, we need to store it in a normal, capturable local variable:
 
 ```javascript
 function SumCalculator() {
@@ -198,4 +193,4 @@ function call**.
 
 ## The ES6 Solution
 
-Though it is still important to understand the scope of `this` and know how to use it, ES6 provides a more elegant solution for scoping some callbacks using [Arrow Functions](fat-arrows.md).
+ES6 provides an elegant solution to callback scoping issues through [Arrow Functions](fat-arrows.md).
