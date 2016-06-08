@@ -51,19 +51,19 @@
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
 
-### Readings (70 min)
+### Readings (85 min)
 * [Linting JavaScript][linting-js] (10 min)
 * [Object-oriented JavaScript][oo-js] (15 min)
+* [Arrow functions][arrows] (15 min)
 * [Function invocation][function-invocation] (5 min)
 * [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
-### Homeworks
 
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
 
-
+[arrows]: readings/fat-arrows.md
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 [linting-js]: readings/linting-js.md
@@ -90,8 +90,6 @@
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
 * **Bonus Reading**: [Promises][promises]
-
-### Homeworks
 
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
@@ -127,12 +125,8 @@
 * [Github Pages][github-pages] (5 min)
 * **NYC**: Finish up [CSS Warm Up][css-warm-up]
 
-### Homeworks
-
 ### Additional Resources
 * [CSS Diner][css-diner] Fun!
-
-### Projects
 
 [css-diner]: http://flukeout.github.io/
 [eloquent-javascript]: http://eloquentjavascript.net/
