@@ -250,26 +250,9 @@
 
 [reddit-clone]: projects/reddit_on_rails
 
-## SF w4d6-w4d7
+## w4d6-w4d7
 
-* [CSS Brief Notes][css-demos-notes] (**Read up to Reset**)
-* **Bonus**: [SASS][sass]
-* **Bonus**: [Responsive Design][responsive-design]
-
-[bootstrap-examples]: http://getbootstrap.com/getting-started/#examples
-[build-with-bootstrap]: ../html-css/projects/bootstrap_lite
-[sass]: readings/sass.md
-[responsive-design]: readings/responsive_design.md
-
-## NYC w4d6-w4d7
-* [CSS Brief Notes][css-demos-notes] (**Read up to Reset**)
-* **Game**: [CSS Diner][css-diner]
-* **Project**: [CSS Warm Up][css-warm-up]
-
-[css-demos-notes]: https://github.com/appacademy/css-demos#brief-notes
-[css-diner]: http://flukeout.github.io/
-[css-warm-up]: https://github.com/appacademy/css-warm-up
-
+<!--TODO (maybe move capybara here and then move curriculum up one day, gives us a free day to spend on react or js or whatever) -->
 
 ## w5d1
 
