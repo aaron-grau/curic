@@ -2,33 +2,30 @@
 
 ## What is a callback?
 
-Closures are a very big part of JavaScript. One reason they are so
-important is because they are often used as **callbacks**.
-
 A callback is a function that is passed to another function and
 intended to be called at a later time. The most common use of
-callbacks is when a result will not be immediately available,
-typically because it relies on user input.
+callbacks is when executing asynchronous requests such as getting user input or requesting data over a network.
 
-Perhaps the simplest example is to ask JavaScript to wait a specified
-period of time and then call a function. This uses the `setTimeout`
-method:
+
+Consider this example that uses the `setTimeout` method:
 
 ```javascript
-// wait 2000 milliseconds and then print great movie link:
+// wait 2000 milliseconds and then print 'hello':
 window.setTimeout(function () {
-  console.log("http://en.wikipedia.org/wiki/Out_of_Time_(2003_film)");
+  console.log('hello');
 }, 2000);
 ```
 
-Here the callback prints the movie title. The `setTimeout` method
-holds on to the function, waiting to call it after the appropriate
-period. The callback is essential here, because `setTimeout` needs to
+setTimeout receives two arguments: the callback and the interval. 
+Here the callback prints 'hello'. The `setTimeout` method
+holds on to the function, and calls it after 2000 milliseconds. The callback is essential here, because `setTimeout` needs to
 know what do at the end of the timeout.
 
+
+## Callbacks and closures
 The above function passes a **callback** to `setTimeout`. In this
 case, the callback is not a **closure**, since it uses no outside
-variables. That's because we've hard-coded the URL. Let's see an
+variables. That's because we've hard-coded string. Let's see an
 example that illustrates why closures are so commonly used as
 callbacks:
 
@@ -36,31 +33,28 @@ callbacks:
 function scheduleGreatMovieReminder(movie) {
   // remind in one min
   window.setTimeout(function () {
-      console.log("Remember to watch: " + movie);
+      console.log(`Remember to watch: ${movie}`);
     }, 60 * 1000
   );
+  console.log(`Timer set for ${movie}`)
 }
 
 scheduleGreatMovieReminder("Citizen Kane");
 scheduleGreatMovieReminder("Touch of Evil");
 scheduleGreatMovieReminder("The Third Man");
-
-// Easter egg!
-// http://en.wikipedia.org/wiki/Frozen_Peas
 ```
+
+Run the above code in your browser console and observe the timing of the outputs.
 
 ## JavaScript is Asynchronous
 
 In Ruby programming, most of the methods we wrote are **not** like
-`setTimeout`. `setTimeout` sets a timer (we'll talk about how later;
-it turns out `setTimeout` is a special function) and then immediately
-returns. `setTimeout` returns before the timeout is up, long before
-the callback is actually invoked.
+`setTimeout`. `setTimeout` sets a timer in the background and then immediately returns, long before the callback is actually invoked.
 
 `setTimeout` is called **asynchronous**. An asynchronous function does
 not wait for work to be completed. It schedules work to be done in the
 background. Asynchronous functions tend to be used when work may take
-an indeterminate amount of time:
+a variable amount of time:
 
 * Timers
     * Waits a specified amount of time.
@@ -144,12 +138,7 @@ Hello Ned!
 Notice that because `reader.question` returns immediately and does not
 wait, it prints `"Last program line"` before I get a chance to write
 anything. Notice also that I don't try to save or use the return value
-of `reader.question`: that's because this method does not return
-anything. `reader.question` cannot return the input, because the
-function returns before I have actually typed in any
-input. **Asynchronous functions do not return meaningful values: we
-give them a callback so that the result of the async operation can be
-communicated back to us**.
+of `reader.question`: that's because this method does not return anything. `reader.question` cannot return the input, because the function returns before I have actually typed in any input. **Asynchronous functions do not return meaningful values: we give them a callback so that the result of the async operation can be communicated back to us**.
 
 One final note: note that our program didn't end when it hits the end
 of the code. It patiently waited for our input. That's because Node

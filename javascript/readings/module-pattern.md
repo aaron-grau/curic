@@ -2,9 +2,7 @@
 
 ## Quick Hits
 
-So far, we've written all our code in a single file. We'd like to learn how to split code up in Node modules.
-
-Node is different from Ruby. In Ruby, you can do like so:
+So far, we've written all our code in a single file. We'd like to learn how to split code up in Node modules. Node is different from Ruby. In Ruby, you can do like so:
 
 ```ruby
 # ./cat.rb
