@@ -128,14 +128,13 @@
 ### Readings (15 min)
 * [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Github Pages][github-pages] (5 min)
-* **NYC**: Finish up [CSS Warm Up][css-warm-up]
 
 ## Homeworks (70 min)
 * [CSS Curriculum Day 3][css-day3] (30 min)
 * [CSS Curriculum Day 4][css-day4] (40 min)
 
 ### Additional Resources
-* [CSS Diner][css-diner] Fun!
+* [CSS Diner][css-diner]
 
 [css-diner]: http://flukeout.github.io/
 [eloquent-javascript]: http://eloquentjavascript.net/
@@ -145,7 +144,6 @@
 [github-pages]: readings/github_pages.md
 [css-demos-notes]: ../html-css/demos/css_demos/README.md#brief-notes
 [css-lectures]: ../html-css/demos/css_demos/README.md#lectures
-[css-warm-up]: ../html-css/projects/css_warm_up
 
 ## w6d1
 
@@ -170,7 +168,6 @@
 
 ### Homeworks (20 min)
 * [Webpack tutorial][webpack] complete up to 'The First Loader' (20 min)
-* [CSS Curriculum Day 5][css-day5] (30 min)
 
 ### Additional Resources
 * [Asynchronous Client-side Code][asynchronous-js]
@@ -200,38 +197,23 @@
 
 ## w6d2
 
-* **NYC**:
-   * Review all of [CSS Brief Notes][css-demos-notes]
-   * :movie_camera: Watch [Building a Navbar with Floats][css-navbar-vid] (`go_video_go`)
-   * :movie_camera: Watch [Putting Glasses on a Cat with Positioning][css-glasses-vid] (`go_video_go`)
-   * Look at this [Breaking a Layout Into Boxes GIF][navbar-gif]
-* **SF**:
-   * [Semantic HTML][semantic-html]
-   * [CSS Selectors][selectors]
-   * [The Box Model][box-model]
-   * [CSS Display Attribute][display-attr]
-   * [Positioning and Floating][positioning]
-* **Demos**: [CSS Demos][css-demos]
+<!-- TODO set agenda for this day -->
+
+### Homeworks (60 min)
+* [CSS Curriculum Day 5][css-day5] (30 min)
+* [CSS Curriculum Day 6][css-day6] (30 min)
+* [CSS Warm Up][css-warmup] (60 min)
+
+### Projects
 * **Project**: [CSS Friends][css-friends]
 * **Bonus Project**: [Google Homepage][css-bonus-assignment]
 * **Bonus Reading**: [CSS Transform property][css-transform]
 
-### Homeworks (20 min)
-* [CSS Curriculum Day 6][css-day6] (30 min)
-
-
-[semantic-html]: ../html-css/readings/semantic-html.md
-[selectors]: ../html-css/readings/selectors.md
-[box-model]: ../html-css/readings/box-model.md
-[display-attr]: ../html-css/readings/display.md
-[positioning]: ../html-css/readings/positioning-and-floating.md
 [css-demos]: ../html-css/demos/css_demos#demos
 [css-friends]: ../html-css/projects/css_friends
 [css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
-[css-navbar-vid]: https://vimeo.com/album/3732382/video/158975002
-[css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
-[navbar-gif]: ../html-css/demos/css_demos/lectures/navbar.gif?raw=true
+[css-warmup]: ../html-css/projects/css_warm_up
 
 ## w6d3
 
