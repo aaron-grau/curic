@@ -1,8 +1,10 @@
 # `this` and that
 
-We've learned about the special `this` variable. When we call a
+We've learned about the special [`this`][this] variable. When we call a
 function "method style" (`object.method()`), the special variable
 `this` gets set to `object`. `this` is a lot like `self` in Ruby.
+
+[this]: https://github.com/appacademy/curriculum/blob/es6/javascript/readings/object-oriented-js.md#this
 
 There is one evil thing about `this`, and it comes up when we pass
 callbacks. Observe, dear reader:
