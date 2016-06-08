@@ -51,9 +51,10 @@
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
 
-### Readings (70 min)
+### Readings (85 min)
 * [Linting JavaScript][linting-js] (10 min)
 * [Object-oriented JavaScript][oo-js] (15 min)
+* [Arrow functions][arrows] (15 min)
 * [Function invocation][function-invocation] (5 min)
 * [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
@@ -62,7 +63,7 @@
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
 
-
+[arrows]: readings/fat-arrows.md
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 [linting-js]: readings/linting-js.md
