@@ -59,7 +59,7 @@
 * [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
 
-## Homeworks
+## Homeworks (30 min)
 * [CSS Curriculum Day 1][css-day1] (30 min)
 
 ### Projects
@@ -94,7 +94,7 @@
   *  [Air BnB][airbnb-style]
 * **Bonus Reading**: [Promises][promises]
 
-## Homeworks
+## Homeworks (30 min)
 * [CSS Curriculum Day 2][css-day2] (30 min)
 
 ### Projects
@@ -120,20 +120,19 @@
 
 ## w5d6-w5d7
 
-### Video Lectures (173 min)
+### Video Lectures (33 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
 * :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (18 min)
-* :movie_camera: [CSS lectures][css-lectures] - skip 10 Navbar and 12 Glasses (140 min)
 
-### Readings
+### Readings (15 min)
 * [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Github Pages][github-pages] (5 min)
 * **NYC**: Finish up [CSS Warm Up][css-warm-up]
 
-## Homeworks
+## Homeworks (70 min)
 * [CSS Curriculum Day 3][css-day3] (30 min)
-* [CSS Curriculum Day 4][css-day4] (30 min)
+* [CSS Curriculum Day 4][css-day4] (40 min)
 
 ### Additional Resources
 * [CSS Diner][css-diner] Fun!
