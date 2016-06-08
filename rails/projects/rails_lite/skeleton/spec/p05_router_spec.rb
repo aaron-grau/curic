@@ -3,7 +3,7 @@ require 'router'
 require 'controller_base'
 
 describe Route do
-  let(:req) { Rack::Request.new({'rack-input' => {}}) }
+  let(:req) { Rack::Request.new({'rack.input' => {}}) }
   let(:res) { Rack::MockResponse.new('200', {}, []) }
 
   before(:each) do

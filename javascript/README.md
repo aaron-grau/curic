@@ -16,12 +16,12 @@
 * [Arguments][arguments] (15 min)
 * [Debugging Node.js][debugging-node] (10 min)
 
-### Homeworks (45 min)
-
-* [Intro to JavaScript Problem Set][intro-problem-set]
+### Homeworks (30 min)
+* [Intro to JavaScript Problem Set][intro-problem-set] (30 min)
 *  Acquire [Effective JavaScript][effective-js] (readings begin tomorrow).
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
+
 ### Additional Resources
 * [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
 * [ReactiveX][reactivex] - additional practice so you can be a star.
@@ -51,19 +51,23 @@
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
 
-### Readings (70 min)
+### Readings (85 min)
 * [Linting JavaScript][linting-js] (10 min)
 * [Object-oriented JavaScript][oo-js] (15 min)
+* [Arrow functions][arrows] (15 min)
 * [Function invocation][function-invocation] (5 min)
 * [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
-### Homeworks
+
+### Homeworks (30 min)
+* [Object Oriented JS Homework][oo-js-hw] (30 min)
 
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
 
-
+[oo-js-hw]: homeworks/questions/oo_js.md
+[arrows]: readings/fat-arrows.md
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 [linting-js]: readings/linting-js.md
@@ -91,13 +95,15 @@
   *  [Air BnB][airbnb-style]
 * **Bonus Reading**: [Promises][promises]
 
-### Homeworks
+### Homeworks (30 min)
+* [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
 * [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
 
+[cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
 [file-io]: readings/intro-to-callbacks.md
 [this-and-that]: readings/this-and-that.md
 [function-calling]: readings/function-calling.md
@@ -127,12 +133,8 @@
 * [Github Pages][github-pages] (5 min)
 * **NYC**: Finish up [CSS Warm Up][css-warm-up]
 
-### Homeworks
-
 ### Additional Resources
 * [CSS Diner][css-diner] Fun!
-
-### Projects
 
 [css-diner]: http://flukeout.github.io/
 [eloquent-javascript]: http://eloquentjavascript.net/

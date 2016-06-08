@@ -346,7 +346,7 @@
 * [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
 * [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
-* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
+* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  [:computer:demo code][middleware-demo](22 min)
 * :movie_camera: Watch [W5D3 Javascript Video Lectures][js-videos] (12 min)
 
 ### Readings (70 min)
@@ -361,6 +361,7 @@
 ### Projects
 * **Solo**: Finish ActiveRecordLite and RailsLite.
 
+[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/rails_lite/video/demos/rack_middleware/middleware.rb
 [middleware]: readings/middleware.md
 [js-videos]: ../javascript#video-lectures-12-min
 [js-readings]: ../javascript#readings-70-min

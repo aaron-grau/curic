@@ -70,23 +70,20 @@ A note on style: `var` is not the preferred means of declaring a variable in ES6
 We can use `let` to declare block-scoped variables, like in Ruby blocks. How are block-scoped variables different than function-scoped variables? Consider the following:
 
 ```javascript
-function functionScoped() {
-  var x = 'out of block';
+function blockScope() {
   if (true) {
-    var x = 'in block';  // same variable!
-    console.log(x);  // 'in block'
+    var x = 'var';
+    let y = 'let';
+    console.log(x); // 'var'
+    console.log(y); // 'let'
   }
-  console.log(x);  // 'in block'
+  console.log(x); // 'var'
+  console.log(y); // Reference error, y is undefined
 }
+blockScope();
 
-function blockScoped() {
-  let x = 'out of block';
-  if (true) {
-    let x = 'in block';  // different variable!
-    console.log(x);  // 'in block'
-  }
-  console.log(x);  // 'out of block'
-}
+console.log(x); // Reference error, x is undefined
+console.log(y); // Reference error, y is undefined
 ```
 
 Examples of blocks in javascript include `if` statements, `while` loops, `switch` statements, and `for` loops (more on these later).

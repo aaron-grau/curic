@@ -19,7 +19,7 @@ Both functions in the example above accomplish the same thing. However, the arro
 
 ## Anatomy of an arrow function
 ```javascript
-(arguments, go, here) => {
+(parameters, go, here) => {
 	statements;
 	return value;
 }
