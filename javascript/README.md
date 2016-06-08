@@ -95,11 +95,15 @@
   *  [Air BnB][airbnb-style]
 * **Bonus Reading**: [Promises][promises]
 
+### Homeworks (30 min)
+* [Callbacks and Function Calls][cb-function-hw] (30 min)
+
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
 * [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
 
+[cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
 [file-io]: readings/intro-to-callbacks.md
 [this-and-that]: readings/this-and-that.md
 [function-calling]: readings/function-calling.md
