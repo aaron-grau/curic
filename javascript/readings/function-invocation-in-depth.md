@@ -1,6 +1,6 @@
 # Ways to Call a Function
 
-Let's review the various ways to call a function that we have learned:
+Let's review the various ways to call a function that we have encountered:
 
 * Function-style (`fun(arg1, arg2)`)
     * `this` is set to `window`

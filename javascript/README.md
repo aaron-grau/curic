@@ -57,7 +57,7 @@
 ### Readings (85 min)
 * [Objects and Primitives][objects-and-primitives] (10 min)
 * [Functions][functions-js] (10 min)
-* [Function invocation][function-invocation] (5 min)
+* [Function invocation, briefly][function-invocation-briefly] (5 min)
 * [`this` and that][this-and-that] (10 min)
 * [Arrow functions][arrows] (15 min)
 * [Object-oriented JavaScript][oo-js] (15 min)
@@ -93,7 +93,7 @@
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 [linting-js]: readings/linting-js.md
 [oo-js]: readings/object-oriented-js.md
-[function-invocation]: readings/function-invocation.md
+[function-invocation-briefly]: readings/function-invocation-briefly.md
 [closures]: readings/closures.md
 
 [intro-javascript-problems]: projects/intro_js_exercises
@@ -103,7 +103,7 @@
 
 ### Readings (60 min)
 * [Intro to Callbacks: File I/O][file-io] (15 min)
-* [Ways to Call a Function][function-calling] (10 min)
+* [Function Invocation In Depth][function-invocation-in-depth] (10 min)
 * [The Module Pattern][module-pattern] (10 min)
 * [Event Loop Visualization][loupe] (10 min)
 * [Effective JavaScript][effective-js]: Items 11, 12, 61, 65 (15 min)
@@ -118,6 +118,8 @@
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
 * **Bonus**: [Promises][promises]
+* **Bonus**: [ES6 class syntax][es6-classes]
+* **Bonus**: [Tagging template literals][taggings]
 
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
@@ -127,9 +129,11 @@
 [cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
 [file-io]: readings/intro-to-callbacks.md
 [this-and-that]: readings/this-and-that.md
-[function-calling]: readings/function-calling.md
+[function-invocation-in-depth]: readings/function-invocation-in-depth.md
 [module-pattern]: readings/module-pattern.md
 [promises]: readings/promises.md
+[es6-classes]: readings/es6-classes.md
+[taggings]: readings/tagged-templates.md
 
 [hanoi_node]: projects/hanoi_node
 [ttt_node]: projects/ttt_node
