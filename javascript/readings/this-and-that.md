@@ -1,6 +1,6 @@
 ### `this`
 
-Recall our `Kitten` class from [this][oop] reading.
+Recall our `Kitten` class from [the Object Oriented Programming][oop] reading.
 
 [oop]: object-oriented-js.md
 

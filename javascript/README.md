@@ -68,7 +68,6 @@
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
->>>>>>> js-reading-revisions
 
 ### Additional Resources
 
