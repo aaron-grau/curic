@@ -330,7 +330,7 @@
 * [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
-* [:computer: demo code][middleware-demo](22 min)
+	* [:computer: demo code][middleware-demo](22 min)
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
 * [:movie_camera: Watch W5D3 Javascript Video Lectures][js-videos] (12 min)
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
