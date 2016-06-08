@@ -1,5 +1,7 @@
 # Intro to Callbacks Exercises
 
+Note: Write user interaction with node's `readline` library.
+
 ## Timing is Everything
 
 Use [`setInterval`][setInterval-doc] to build a small clock in your
@@ -212,4 +214,4 @@ myBoundTurnOn(); // should say "Turning on a lamp"
 
 After you finish the remaining projects for the day (Tic Tac Toe and Hanoi), go back and refactor the asynchronous exercises to use [ES6 Promises][promise].
 
-[promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise 
+[promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
