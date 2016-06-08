@@ -19,7 +19,9 @@
 ### Homeworks (45 min)
 
 * [Intro to JavaScript Problem Set][intro-problem-set]
-
+*  Acquire [Effective JavaScript][effective-js] (readings begin tomorrow).
+    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
+    * A **lot** of JS interview questions come from this book.
 ### Additional Resources
 * [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
 * [ReactiveX][reactivex] - additional practice so you can be a star.
@@ -27,9 +29,6 @@
 * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics]
   * Just the first chapter. Another great intro reading.
 * [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
-* Acquire and begin reading [Effective JavaScript][effective-js].
-    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
-    * A **lot** of JS interview questions come from this book.
 * [Style Guide][airbnb-style] - Air BnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
 
 [intro-js]: readings/js-intro.md
@@ -58,7 +57,6 @@
 * [Function invocation][function-invocation] (5 min)
 * [Closures and Scope][closures] (10 min)
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
-
 ### Homeworks
 
 ### Projects
