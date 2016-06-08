@@ -1,8 +1,7 @@
-var Util = require("./util");
-var MovingObject = require("./movingObject");
-var Asteroid = require("./asteroid");
+const Util = require("./util");
+const MovingObject = require("./moving_object");
 
-var Bullet = function (options) {
+const Bullet = function (options) {
   options.radius = Bullet.RADIUS;
 
   MovingObject.call(this, options);
@@ -13,14 +12,6 @@ Bullet.SPEED = 15;
 
 Util.inherits(Bullet, MovingObject);
 
-Bullet.prototype.collideWith = function (otherObject) {
-  if (otherObject.type === "Asteroid") {
-    this.remove();
-    otherObject.remove();
-  }
-};
-
 Bullet.prototype.isWrappable = false;
-Bullet.prototype.type = "Bullet";
 
 module.exports = Bullet;
