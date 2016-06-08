@@ -52,7 +52,7 @@ Dinner tonight is pizza.
 
 Today we're going to practice many of the fundamentals of object-oriented programming in JavaScript.
 
-### Callbacks
+## Phase I: Callbacks
 
 Write a function `sillyNames` that takes an array of names and a function (callback). `sillyNames` should use `Array.prototype.map` to create a new array full of silly-fied versions of each name - silly-fied meaning "Roger" should be made to read "Mx. Roger Sillypants". Then pass this new array of silly names to the callback, which should use `Array.prototype.forEach` to print out each silly name.
 
@@ -64,18 +64,22 @@ Mx. Leo Sillypants
 undefined
 ```
 
-### Constructors, Prototypes, and `this`
+Test to make sure it works before moving on!
+
+## Phase II: Constructors, Prototypes, and `this`
 
 First write a constructor function for an elephant. Each elephant should have a name, height (in inches), and array of tricks in gerund form (e.g. "painting a picture" rather than "paint a picture").
 
-Next write a few prototype methods that will be shared among all elephants:
-- trumpet: should print "________(name) the elephant goes 'phrRRRRRRRRRRR!!!!!!!'"
-- grow: should increase the elephant's height by 12 inches
-- addTrick(trick): add a new trick to their existing repertoire
-- play: print out a random trick, e.g. "____(name) is ______(trick)!"
+Next write a few prototype functions that will be shared among all elephants:
+- `Elephant.prototype.trumpet`: should print "(name) the elephant goes 'phrRRRRRRRRRRR!!!!!!!'"
+- `Elephant.prototype.grow`: should increase the elephant's height by 12 inches
+- `Elephant.prototype.addTrick(trick)`: add a new trick to their existing repertoire
+- `Elephant.prototype.play`: print out a random trick, e.g. "(name) is (trick)!"
   - hint: you might need to look up some JS `Math` methods!
 
-### Function Invocation
+Make sure to create an elephant and test all of these functions out on them method style!
+
+## Phase III: Function Invocation
 
 First, let's make a few elephants so we have a small herd. Feel free to copy the code below, or to make your own with any attributes you like. Make sure to store all of our elephants in an array.
 
@@ -90,16 +94,34 @@ let herd = [ellie, charlie, kate, micah];
 
 Now let's create a function called `paradeHelper` that we'll use to have an elephant parade. It should take a single elephant as an argument; this way, we can pass it as a callback to `forEach` when called on our herd. Make sure to store it as a property on the `Elephant` object. You can populate it with any `console.log` statement you want to build your parade (e.g. "_______ is trotting by!").
 
+For example:
+```js
+> Elephant.paradeHelper(micah);
+Micah is trotting by!
+undefined
+```
+
 Once you have this function, call `forEach` on the herd and pass it in as the callback without invoking it. Elephants galore!
 
 :elephant: :elephant: :elephant: :elephant:
 
-### Closure
+## Phase IV: Closure
 
-Let's make a function `dinerBreakfast`. It should initially set up `order` to be the string "I'd like cheesy scrambled eggs and bacon please." Within `dinerBreakfast` we're going to create and return a closure that captures `order` and makes it more delicious. This closure should be anonymous and take in a breakfast food as an argument. It should add this food to the end of the `order` and return the whole updated `order` string. Make sure you can call it multiple times and keep chaining on more breakfast foods!
+Let's make a function `dinerBreakfast`. Ultimately, we want it to return an anonymous closure, which we will be able to use to keep adding breakfast foods to our initial order.
 
 ```js
-let bfastOrder = dinerBreakfast();
-bfastOrder("chocolate chip pancakes"); // => "I'd like cheesy scrambled eggs and bacon and chocolate chip pancakes please."
-bfastOrder("grits"); // => "I'd like cheesy scrambled eggs and bacon and chocolate chip pancakes and grits please."
+> let bfastOrder = dinerBreakfast();
+"I'd like cheesy scrambled eggs and bacon please"
+> bfastOrder("chocolate chip pancakes");
+"I'd like cheesy scrambled eggs and bacon and chocolate chip pancakes please."
+> bfastOrder("grits");
+"I'd like cheesy scrambled eggs and bacon and chocolate chip pancakes and grits please."
 ```
+
+Hints:
+- `order` should be initialized to a starting order (e.g. scrambled eggs and bacon) before the anonymous function can do its work.
+- The closure should capture/close over `order`
+- What should the return value of `dinerBreakfast` be?
+- Which function should take in the additional food as an argument?
+
+Make sure you can call it multiple times and keep chaining on more breakfast foods!

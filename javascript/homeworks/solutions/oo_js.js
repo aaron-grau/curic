@@ -28,7 +28,8 @@ function dinnerTonightIs (food = "pizza") {
 
 // Callbacks
 
-function nameChange (names, callback) {
+// defining the function
+function sillyNames (names, callback) {
   let sillyNames = names.map(function(name) {
     return `Mx. ${name} Sillypants`;
   });
@@ -36,6 +37,7 @@ function nameChange (names, callback) {
   callback(sillyNames);
 };
 
+// invoking the function
 sillyNames(["Mary", "Kevin", "Leo"], function(names) {
   names.forEach(function(name) {
     console.log(name);
@@ -83,9 +85,10 @@ Elephant.paradeHelper = function (elephant) {
 
 function dinerBreakfast () {
   let order = "I'd like cheesy scrambled eggs and bacon please.";
+  console.log(order);
 
   return function (food) {
     order = `${order.slice(0, order.length - 8)} and ${food} please.`;
-    return order;
+    console.log(order);
   };
 };
