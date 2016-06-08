@@ -179,7 +179,5 @@ returnHi(); // undefined
 returnHi = () => "hi";
 
 returnHi(); // "hi"
-<<<<<<< HEAD
 ```
-=======
->>>>>>> es6
+

@@ -65,7 +65,7 @@ Our first look at CSS and how to be efficient CSS developers. Before we dive int
 
 ### Exercise (10 mins)
 
-+ [Hack Academy](homeworks/css_intro/css_workflow_exercise.md)
++ [Hack Academy](homeworks/css_intro/exercise.md)
 
 ## CSS Syntax (Day 2)
 
@@ -85,7 +85,7 @@ selector {
 
 ### Exercise (10 mins)
 
-+ [Recipe Styles](homeworks/css_syntax/css_syntax_exercise.md)
++ [Recipe Styles](homeworks/css_syntax/exercise.md)
 
 ## CSS Reset & Advanced Selectors (Day 3)
 
@@ -101,7 +101,11 @@ Now that we have some understanding of CSS syntax we can review the css_reset fi
 
 ### Exercise (10 mins)
 
-+ [More Recipe Styles](homeworks/css_syntax/css_advanced_selectors_exercise.md)
++ [More Recipe Styles](homeworks/advanced_selectors/exercise.md)
+
+### Additional Resources
+
++ [Pseudo Content Video](https://vimeo.com/album/3732382/video/151190178)
 
 ## The Display Property & The Box Model (Day 4)
 
@@ -140,10 +144,6 @@ The box model describes how space is calculated with CSS. This model combined wi
 ### Exercise (10 mins)
 
 + [Fluid Flex Recipe](homeworks/float_fluid_flex/exercise.md)
-
-### Additional Resources
-
-+ [Pseudo Content Video](https://vimeo.com/album/3732382/video/151190178)
 
 ## Positioning & Media Queries (Day 6)
 
