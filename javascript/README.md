@@ -17,12 +17,11 @@
 * [Debugging Node.js][debugging-node] (10 min)
 
 ### Homeworks (30 min)
-* [Intro to JavaScript Problem Set][intro-problem-set]
-
-* [Intro to JavaScript Problem Set][intro-problem-set]
+* [Intro to JavaScript Problem Set][intro-problem-set] (30 min)
 *  Acquire [Effective JavaScript][effective-js] (readings begin tomorrow).
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
+
 ### Additional Resources
 * [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
 * [ReactiveX][reactivex] - additional practice so you can be a star.
