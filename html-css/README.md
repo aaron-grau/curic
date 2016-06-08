@@ -50,13 +50,9 @@ Providing specific information and loading external files to your webpage.
 
 + [Recipe Head Section](homeworks/head_section/html_head_section_exercise.md)
 
-## CSS
+## CSS Intro Workflow  (Day 1)
 
-The look and layout of your web pages: Cascading Style Sheets.
-
-### CSS Intro Workflow  (Day 1)
-
-Our first look at CSS and how to be efficient CSS developers. Before we dive into CSS syntax, watch the introduction video explaining some CSS history and then the Workflow video to learn about the Chrome Developer Tools.
+Our first look at cascading style sheets and how to be efficient CSS developers. Before we dive into CSS syntax, watch the introduction video explaining some CSS history and then the Workflow video to learn about the Chrome Developer Tools.
 
 ### Video (20 mins)
 
@@ -119,7 +115,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 ### Reading (10 mins)
 
 + [Box Model](readings/box_model.md)
-+ [Display Properties](readings/display.md) (Save flex for day 5)
++ [Display Properties](readings/display.md) (Save Flex for day 5)
 
 ### Exercise (10 mins)
 
@@ -139,7 +135,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 ### Reading (10 mins)
 
 + [Floating](readings/floats_clear_fix.md)
-+ [Flexbox](readings/display.md) (Just Flexbox)
++ [Flexbox](readings/display.md) (Just Flex)
 
 ### Exercise (10 mins)
 
@@ -147,9 +143,22 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 ## Positioning & Media Queries (Day 6)
 
+### Video (25 mins)
+
++ Coming Soon
+
+### Reading (10 mins)
+
++ Coming Soon
+
+### Exercise (10 mins)
+
++ Coming soon
+
 ## Bonus Materials
 
 ### Readings
+
 [Bootstrap][bootstrap]
 [SASS][sass]
 [Responsive Design][responsive]
