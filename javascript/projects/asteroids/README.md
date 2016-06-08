@@ -11,7 +11,7 @@ classes/sourcefiles:
 
 * `Util` (`lib/utils.js`)
     * Utility code, especially vector math stuff.
-* `MovingObject` (`lib/movingObject.js`)
+* `MovingObject` (`lib/moving_object.js`)
     * Base class for anything that moves.
     * Most important methods are `#move`, `#draw(ctx)`,
       `#isCollidedWith(otherMovingObject)`.
@@ -28,7 +28,7 @@ classes/sourcefiles:
     * `#draw(ctx)` draws the game.
     * Keeps track of dimensions of the space; wraps objects around when
       they drift off the screen.
-* `GameView` (`lib/gameView.js`)
+* `GameView` (`lib/game_view.js`)
     * Stores a `Game` instance.
     * Stores a `canvas` context to draw the game into.
     * Installs key listeners to move the ship and fire bullets.
@@ -74,20 +74,20 @@ Don't forget to [webpack][browser-modules] your modules.
 
 ### `MovingObject`
 
-Write a `MovingObject` class in `lib/movingObject.js`.
+Write a `MovingObject` class in `lib/moving_object.js`.
 
 Store key instance variables:
 
 * 2D `pos`ition.
 * 2D `vel`ocity.
-* `radius` (everything in the  game is a circle).
+* `radius` (everything in the game is a circle).
 * `color`
 
 Rather than pass all these as separate arguments, write your
 `MovingObject` constructor function so that you can pass in an options object:
 
 ```js
-let mo = new MovingObject(
+const mo = new MovingObject(
   { pos: [30, 30], vel: [10, 10], radius: 5, color: "#00FF00"}
 );
 ```
@@ -111,6 +111,20 @@ judiciously. Instead, let's create a general utilities module in
 `lib/util.js` and add our first utility function to it as
 `Util.inherits = function (ChildClass, ParentClass) { ... }`.
 
+**Note:** You should export a POJO (plain old JavaScript object) from Util, not a constructor function. We don't need to create instances of `Util`.
+
+```javascript
+
+const Util = {
+  inherits () {
+    //...
+  }
+}
+
+module.exports = Util;
+
+```
+
 ### `Asteroid`
 
 Write an `Asteroid` class in a `lib/asteroid.js` file. This should be
@@ -121,7 +135,7 @@ properties of the `Asteroid` class: `Asteroid.COLOR` and
 `Asteroid.RADIUS`.
 
 Write your `Asteroid` constructor so that the caller specifies the
-`pos` and it will call the `MovingObject` superconstructor, setting
+`pos` and calls the `MovingObject` superconstructor, setting
 `color` and `radius` to the `Asteroid` defaults, and choosing a random
 vector for `vel`. You may want to consider writing a `Util.randomVec(length)` helper function.
 
@@ -140,7 +154,7 @@ on the `Game` class: `DIM_X`, `DIM_Y`, and `NUM_ASTEROIDS`.
 Write a `Game#addAsteroids` method. Randomly place the asteroids
 within the dimensions of the game grid. You may also wish to write a  `Game#randomPosition` method. Store the asteroids in an instance variable array `asteroids`. Call `#addAsteroids` in your constructor.
 
-Write a `Game#draw(ctx)` method. It should use `clearRect` to wipe down
+Write a `Game#draw(ctx)` method. It should call `clearRect` on the `ctx` to wipe down
 the entire space. Call the `#draw` method on each of the `asteroids`.
 
 Write a `Game#moveObjects` method. It should call `#move` on each of
@@ -148,10 +162,14 @@ the `asteroids`.
 
 ### `GameView`
 
-Define an `GameView` class in `lib/gameView.js`. The `GameView` should store a `Game` and a drawing `ctx`.
+
+Your `GameView` class will be responsible for keeping track of the canvas context, the game, and the ship. Your `GameView` will be in charge of setting an interval to animate your game. In addition, it will eventually bind key handlers to the ship so that we can move it around.
+
+Define an `GameView` class in `lib/game_view.js`. The
+`GameView` should store a `Game` and take in and store a drawing `ctx`.
 
 Write a `GameView#start` method. It should call `setInterval` to call
-`Game#moveObjects` and `Game#draw` once every 20ms, say.
+`Game#moveObjects` and `Game#draw` once every 20ms or so.
 
 ### Adding a canvas to `index.html`
 
@@ -159,9 +177,14 @@ In the body of your HTML file, add a `<canvas id="game-canvas">` tag
 with the width and height you defined in `Game`.
 
 ### Create your entry file
-Create a new file called "asteroids.js".
+Create a new file called `asteroids.js`.
 
-In it, use `document.getElementById()` to find the canvas element. It should use `getContext` to extract a canvas context. It should construct `Game` and `GameView` object and call `GameView#start`.
+In the file, add an event listener for the `DOMContentLoaded` event.
+Within the callback, use
+`document.getElementById()` to find the canvas element. Call
+`getContext` on the canvas element with "2d" as the argument to extract a canvas context.
+
+Once you have your canvas context, construct a `GameView` object and call `GameView#start`.
 
 This is your webpack entry point, so start webpack (or restart it, if you're already running webpack --watch) with the "asteroids.js" file as your new entry point.
 
@@ -191,7 +214,7 @@ implement asteroids colliding with asteroids.
 
 Write a `MovingObject#isCollidedWith(otherObject)` method. Two circles
 have collided if the distance between their center points is less than
-the sum of their radii. This is why I picked circles.
+the sum of their radii.
 
 Next, write a `Game#checkCollisions` that iterates through the
 asteroids and `alert("COLLISION");` whenever two collide. Make
@@ -217,7 +240,7 @@ away**.
 ## Phase IIIa: `Ship`
 
 In `lib/ship.js`, write an `Ship` class; this should be
-another subclass of `MovingObject`. I defined `Ship.RADIUS` and
+another subclass of `MovingObject`. Define `Ship.RADIUS` and
 `Ship.COLOR` as before. I default initialize the `vel` to the zero
 vector.
 
@@ -230,10 +253,10 @@ I wrote a `Game#allObjects` method that returned the array of
 `Game#moveObjects`, and `Game#checkCollisions`
 
 Update the `MovingObject#collideWith(otherObject)` logic. Stop removing
-colliding asteroids; in fact, my `MovingObject#collideWith` was empty.
-However, I wrote an override of `Asteroid#collideWith(otherObject)`: if
-`otherObject instanceof Ship`, I called `Ship#relocate`. My
-`Ship#relocate` method reset the `Ship`'s position to
+colliding asteroids; your `MovingObject#collideWith` should be empty.
+Instead, overwrite the superclass's method with `Asteroid#collideWith(otherObject)`: if
+`otherObject instanceof Ship`, call `Ship#relocate`. The
+`Ship#relocate` method should reset the `Ship`'s position to
 `game.randomPosition()` and reset velocity to the zero vector.
 
 ## Phase IIIb: Moving the ship
@@ -242,8 +265,8 @@ Add a `Ship#power(impulse)`. The impulse should be added to the
 current velocity of the ship.
 
 Add a `GameView#bindKeyHandlers` method. Check out the
-[`keymaster`][keymaster] library. Bind keys to call `Ship#power` on
-the game's `ship`. Install the handlers on `GameView#start`.
+[`keymaster`][keymaster] library. You should include `keymaster.js` in your javascripts folder and use a `script src` tag to require it above your `bundle.js` file. The `keymaster` library will expose a global method `key` which takes a key and a callback that will be triggered when the key is pressed. Use it to bind keys to call `Ship#power` on
+the game's `ship`. Call your `#bindKeyHandlers` method in `GameView#start`.
 
 [keymaster]: https://github.com/madrobby/keymaster
 
@@ -277,14 +300,14 @@ Write the override of `Bullet#collideWith`.
 Your `Bullet` should not wrap like other objects. When it leaves the
 visible grid, it should be removed.
 
-I wrote a `Game#isOutOfBounds(pos)` to return `true` if an object
+Write a `Game#isOutOfBounds(pos)` to return `true` if an object
 slips off screen.
 
-I defined a property `MovingObject.prototype.isWrappable = true`.
-However, I overrode this prototype property in `Bullet` to be false.
+Define a property `MovingObject.prototype.isWrappable = true`.
+However, you can overwrite this in `Bullet` to be false.
 
-In `MovingObject#move`, after updating the position I check if the
-object is out of bounds. If so, I either (A) wrap the object if it
+In `MovingObject#move`, after updating the position, check if the
+object is out of bounds. If so, either (A) wrap the object if it
 `isWrappable` or (B) call `Game#remove` if not.
 
 ## Phase VI (Bonus): Drawing an image
@@ -292,7 +315,8 @@ object is out of bounds. If so, I either (A) wrap the object if it
 Oftentimes people want to draw a background image on their game.
 
 ```javascript
-let img = new Image();
+
+const img = new Image();
 img.onload = function () {
   ctx.drawImage(img, xOffset, yOffset);
 };
@@ -337,11 +361,12 @@ Write a `GameView#animate` method. It should:
 Refactor your `GameView#start` method. It will make the first call to `requestAnimationFrame`,
 passing in the `GameView#animate`.
 
-**NB**: You'll notice that all of your moving objects are moving way too fast. Go back to `MovingObject#move` and divide the delta by some number before adding it to the velocity. My code looked something like:
+**NB**: You'll notice that all of your moving objects are moving way too fast. Go back to `MovingObject#move` and divide the delta by some number before adding it to the velocity. Your code might look something like:
 
 ```js
-let velX = this.vel[0] * delta/20;
-let velY = this.vel[1] * delta/20;
+
+const velX = this.vel[0] * delta/20;
+const velY = this.vel[1] * delta/20;
 
 this.pos = [this.pos[0] + velX, this.pos[1] + velY];
 ```
