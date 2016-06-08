@@ -112,7 +112,7 @@ console.log(silly); //=> THIS IS MY EXPORTED STRING
 Because the value of `module.exports` is what is returned by `require`,
 `cat.js` exports the `Cat` constructor function by setting
 `module.exports = Cat` and `animals.js` calls
-`var Cat = require("./cat");` to save the `Cat` class to a variable to
+`const Cat = require("./cat");` to save the `Cat` class to a variable to
 use.
 
 ## In Detail: Loading Multiple Classes
@@ -222,8 +222,8 @@ export default Dog;
 import Cat from "./cat";
 import Dog from "./dog";
 
-var cat = new Cat();
-var dog = new Dog();
+const cat = new Cat();
+const dog = new Dog();
 
 cat.meow();
 dog.bark();
