@@ -270,6 +270,37 @@
 
 ## w6d4
 
+### Video Lectures (55 min)
+* :movie_camera: [AJAX Video Lecture][ajax-lecture]  (20 min)
+* :movie_camera: [AJAX Demo][ajax-demo] (35 min)
+* [complete demo from video][ajax-demo-code]
+
+### Readings (35 min)
+* [Basic AJAX][basic-ajax] (10 min)
+* [AJAX Remote Forms][ajax-remote-forms] (10 min)
+* [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
+
+### Additional Resources
+* [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
+
+### Projects
+* [Your First Ajax Request][first-ajax]
+* [AjaxTwitter][ajax-twitter]
+
+[assessment-practice]: https://github.com/appacademy/assessment-prep
+[ajax-lecture]: https://vimeo.com/162860823
+[ajax-demo]: https://vimeo.com/162764008
+[ajax-demo-code]: demos/chat_demo
+[css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
+[jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
+[basic-ajax]: readings/basic-ajax.md
+
+[ajax-remote-forms]: readings/ajax-remote-forms.md
+[underscore-templates]: readings/underscore-templates.md
+[ajax-twitter]: projects/ajax_twitter
+
+## w6d5
+
 ### Video Lectures (27 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] You can ignore the last part, which has Backbone code. (27 min)
@@ -285,7 +316,6 @@
 ### Homeworks
 
 ### Projects
-* [Your First Ajax Request][first-ajax]
 * [jQuery Lite][jquery-lite]
 * [Snake][snake-project] using your jQuery Lite
 
@@ -297,37 +327,6 @@
 [jquery-lite]: projects/jquery_lite
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md
-
-## w6d5
-
-### Video Lectures (55 min)
-* :movie_camera: [AJAX Video Lecture][ajax-lecture]  (20 min)
-* :movie_camera: [AJAX Demo][ajax-demo] (35 min)
-* [complete demo from video][ajax-demo-code]
-
-### Readings (35 min)
-* [Basic AJAX][basic-ajax] (10 min)
-* [AJAX Remote Forms][ajax-remote-forms] (10 min)
-* [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
-
-### Additional Resources
-* [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
-
-### Projects
-* [AjaxTwitter][ajax-twitter]
-
-
-[assessment-practice]: https://github.com/appacademy/assessment-prep
-[ajax-lecture]: https://vimeo.com/162860823
-[ajax-demo]: https://vimeo.com/162764008
-[ajax-demo-code]: demos/chat_demo
-[css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
-[jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
-[basic-ajax]: readings/basic-ajax.md
-
-[ajax-remote-forms]: readings/ajax-remote-forms.md
-[underscore-templates]: readings/underscore-templates.md
-[ajax-twitter]: projects/ajax_twitter
 
 ## w6d6 - w6d7
 
