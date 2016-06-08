@@ -60,13 +60,12 @@
 * [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
 
 ## Homeworks
-* [CSS Curriculum Day 1][css-day1]
+* [CSS Curriculum Day 1][css-day1] (30 min)
 
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
 
-[css-day1]: ../html-css/README.md##css-intro-workflow--day-1
 [arrows]: readings/fat-arrows.md
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
@@ -94,6 +93,9 @@
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
 * **Bonus Reading**: [Promises][promises]
+
+## Homeworks
+* [CSS Curriculum Day 2][css-day2] (30 min)
 
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
@@ -128,6 +130,10 @@
 * [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Github Pages][github-pages] (5 min)
 * **NYC**: Finish up [CSS Warm Up][css-warm-up]
+
+## Homeworks
+* [CSS Curriculum Day 3][css-day3] (30 min)
+* [CSS Curriculum Day 4][css-day4] (30 min)
 
 ### Additional Resources
 * [CSS Diner][css-diner] Fun!
@@ -165,6 +171,7 @@
 
 ### Homeworks (20 min)
 * [Webpack tutorial][webpack] complete up to 'The First Loader' (20 min)
+* [CSS Curriculum Day 5][css-day5] (30 min)
 
 ### Additional Resources
 * [Asynchronous Client-side Code][asynchronous-js]
@@ -209,6 +216,10 @@
 * **Project**: [CSS Friends][css-friends]
 * **Bonus Project**: [Google Homepage][css-bonus-assignment]
 * **Bonus Reading**: [CSS Transform property][css-transform]
+
+### Homeworks (20 min)
+* [CSS Curriculum Day 6][css-day6] (30 min)
+
 
 [semantic-html]: ../html-css/readings/semantic-html.md
 [selectors]: ../html-css/readings/selectors.md
@@ -330,3 +341,11 @@ Complete the React/Flux [w7d1 readings][react-link]. There is a lot of material,
 
 [react-link]: ../react
 [effective-js]: http://effectivejs.com/
+
+[css-day1]: ../html-css/README.md#css-intro-workflow--day-1
+[css-day2]: ../html-css/README.md#css-syntax-day-2
+[css-day3]: ../html-css/README.md#css-reset--advanced-selectors-day-3
+[css-day4]: ../html-css/README.md#the-display-property--the-box-model-day-4
+[css-day5]: ../html-css/README.md#float-fluid-layouts--flexbox-day-5
+[css-day6]: ../html-css/README.md#positioning--media-queries-day-6
+
