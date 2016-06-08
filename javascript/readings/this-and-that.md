@@ -1,39 +1,32 @@
 # `this`
 
-Recall our `Kitten` class from [the Objects and Primitives][oop] reading.
-
-[oop]: objects-and-primitives.md
-
-When we call a function like `cat.purr()` or `cat.ageOneYear()`, a magical variable named `this` gets set. Through the `this` variable, the method can access the object it was called on. `this` is a lot like `self` in Ruby.
-
-We do not use `this` in the `purr` method, but we will in `ageOneYear`. In `ageOneYear`, we use `this` to access the object the method was called upon to modify the `age` attribute.
-
-Unlike Ruby's `self`, `this` is not optional if you want to access the attributes of the object that a method is called on. Here's another example:
+Consider this example: 
 
 ```javascript
 let cat = {
   purr: function () {
     console.log("meow");
   },
-
   purrMore: function () {
     for (let i = 0; i < 10; i ++) {
-      // using just `purr` without `this` won't work
       this.purr();
     }
   }
 };
+
+cat.purr();
+cat.purrMore();
 ```
 
-If you used `purr` instead of `this.purr`, the function will look for
-a **variable** named `purr` in the enclosing scope. There is no such
-variable; the only variable is `cat`. However, `cat` is an object with
-two **keys**: `purr` and `purrMore`. So by using `this.purr`,
-`purrMore` can access another method.
+When we call a function like `cat.purr()` or `cat.purrMore()`, a magical variable named `this` gets set. Through the `this` variable, the method can access the object it was called on. `this` is a lot like `self` in Ruby.
 
-**Note the difference between a variable and a key.**
+We do not use `this` in the `purr` method, but we do in `purrMore`. In `purrMore`, we use `this` to access the `cat` object that has a `purr` method.
 
-Methods are always called like this: `object.method(arguments, ...)`. This is because, we use the dot notation, `this` gets set to the object preceding the dot.
+Unlike Ruby's `self`, `this` is not optional if you want to access the attributes of the object. In other words, `purr()` instead of `this.purr()` would not work.
+
+If we had used `purr()` instead of `this.purr()`, the function would have looked for a **local variable** named `purr` in the scope of `purrMore`. `this.purr()` tells `purrMore` to look at `cat`, the object it was invoked on, to find `purr`.
+
+This is because invoking a function **method-style**, i.e. `object.method(arguments, ...)`. Using method-style invocation (a.k.a. dot-notation) sets `this` to the object preceding the dot. 
 
 Calling a function in the traditional **function style** (`f(a, b,
 c)`) **does not** set `this` properly. In such cases, `this` will be set to the global scope (either `window` or `global`). 
