@@ -1,181 +1,5 @@
 # Object-oriented JavaScript
 
-## JavaScript is functional
-
-JavaScript treats functions like other values:
-
-```javascript
-var num = 42;
-var fun = function (name) {
-  console.log("I'm sorry, " + name + ", I can't do that");
-};
-
-// short-hand for previous variable definition. There is a
-// slight functional difference to how the two work, but we don't care
-// right now.
-
-function fun(name) {
- // ...
-}
-```
-
-Ruby sort-of supports functional programming through blocks:
-
-```ruby
-# a method can not be stored in a variable or passed to another method.
-def my_method(name)
-  # ...
-end
-
-# a Proc is sort-of an object oriented version of a method.
-my_proc = Proc.new { |name| puts "I'm sorry, #{name}..." }
-```
-
-However, in Ruby there is a world of difference between a `Proc` and a
-method, which is not an object at all.
-
-In JavaScript, it is idiomatic to pass functions to other functions:
-
-```javascript
-function logIfEven(num) {
-  if ((num % 2) == 0) {
-    console.log("Found an even number!");
-  }
-}
-
-[1, 2, 3].forEach(logIfEven);
-```
-
-Here we pass the function `logIfEven` to `Array`'s `forEach`
-method. `forEach` will call `logIfEven` for each element in the array,
-passing in the value. Let's write our own `forEach`:
-
-```javascript
-function forEach(array, fun) {
-  for (var i = 0; i < array.length; i++) {
-    fun(array[i]);
-  }
-}
-
-forEach([1, 2, 3], logIfEven);
-```
-
-It is very common to pass function-arguments as *anonymous
-functions*:
-
-```javascript
-// **Notice the formatting!**
-[1, 2, 3].forEach(function (num) {
-  if ((num % 2) == 0) {
-    console.log(num);
-  }
-});
-```
-
-## JavaScript is Object-oriented
-
-The JavaScript equivalent to a Ruby `Hash` is called (somewhat
-confusingly) an **object**:
-
-```javascript
-var cat = {
-  name: "Breakfast",
-  age: 8
-};
-
-console.log(cat['name']); // => Breakfast
-// can also use dot-notation as a shortcut for bracket notation.
-console.log(cat.age); // => 8
-
-cat.name = "Earl";
-cat['age'] += 1;
-```
-
-Like Ruby hashes, JavaScript objects are good for collecting up
-packages of data. Unlike Ruby, we can also assign functions as the
-values inside a JavaScript object. These functions are JavaScript's
-version of *methods* (which are, strictly speaking, functions called
-on an object).
-
-```javascript
-var cat = {
-  name: "Breakfast",
-  age: 8,
-
-  purr: function () {
-    console.log("meow!");
-  },
-
-  ageOneYear: function () {
-    // more about `this` momentarily
-    this.age += 1;
-  }
-};
-
-cat.purr(); // logs 'meow!'
-cat.ageOneYear(); // ages cat one year
-```
-
-`cat.purr()` should be pretty non-magical to you. Let me write it this
-way:
-
-```javascript
-// extract the function from the object
-var catPurrFunction = cat['purr'];
-// call the function
-catPurrFunction();
-```
-
-This pulls out the value in cat associated with the key `purr`. This
-is a function, so in the next line we call it. We can write this more
-succinctly as merely `cat.purr()`, of course.
-
-### `this`
-
-Now comes the magic. When we call a function like `cat.purr()` or
-`cat.ageOneYear()`, a magical variable named `this` gets
-set. Through the `this` variable, the method can access the object it
-was called on. `this` is a lot like `self` in Ruby.
-
-We do not use `this` in the `purr` method, but we will in
-`ageOneYear`. In `ageOneYear`, we use `this` to access the
-object the method was called upon, and modify the `age` attribute.
-
-Unlike Ruby, `this` is not optional if you want to access attributes
-of the object a method is called on. Here's another example:
-
-```javascript
-var cat = {
-  purr: function () {
-    console.log("meow");
-  },
-
-  purrMore: function () {
-    for (var i = 0; i < 10; i ++) {
-      // using just `purr` without `this` won't work
-      this.purr();
-    }
-  }
-};
-```
-
-If you used `purr` instead of `this.purr`, the function will look for
-a **variable** named `purr` in the enclosing scope. There is no such
-variable; the only variable is `cat`. However, `cat` is an object with
-two **keys**: `purr` and `purrMore`. So by using `this.purr`,
-`purrMore` can access another method.
-
-**Note the difference between a variable and a key.**
-
-Methods are always called like so: `object.method(arguments, ...)`. It
-is because we use the dot notation that the `this` variable gets set
-properly (with `object`).
-
-Calling a function in the traditional **function style** (`f(a, b,
-c)`) **does not** set `this` properly. It's only if we call a function
-**method style** (`obj.method(a, b, c)`) that `this` gets set to
-`obj`.
-
 ## Classes in JavaScript: constructor functions
 
 JavaScript does not have a traditional class system like Ruby
@@ -192,7 +16,7 @@ function Kitten(name, age) {
   };
 }
 
-var kitten = new Kitten("Earl", 2);
+let kitten = new Kitten("Earl", 2);
 ```
 
 Invoking a function with the special `new` keyword calls the function
@@ -200,31 +24,29 @@ with `this` set to a new blank object. This blank object will be
 returned by the constructor as the new `Kitten` instance.
 
 We can set attributes inside the constructor with `this.key =
-value`. Note that we don't declare any variables with `var`; those
+value`. Note that we don't declare any local variables; those
 would be temporary and thrown away at the end of construction. Instead,
-we persist data by saving it to object attributes.
+we persist data by saving it to object attributes using `this`.
 
 Notice that `Kitten` **does not return anything**. Like `initialize`
 in Ruby, *constructor functions* in JS shouldn't return a
 value.
 
 Because constructor functions are invoked differently than normal
-functions, make sure to name constructor functions in CamelCase, so
-they're clearly different than normal functions. A common mistake is
-to call constructor functions without the `new`. If you do that,
-`this` will not be set properly, and no new object will be created.
+functions, make sure to name constructor functions in capitalized CamelCase to distinguish them clearly from normal functions. A common mistake is to call constructor functions without using `new`. If you do that, `this` will not be set properly, and no new object will be created.
 
 ## Methods and Prototype
 
 Our previous example added a `meow` method to our `Kitten` object by
 saving a function to the `meow` attribute of the newly constructed
 `Kitten` object. This is OK, but each time you build a `Kitten`
-object, you'll create a new function object to save as `meow`.
+object, you'll create a new function object for that kitten's `meow`.
 
-This is redundant, all the `Kitten` objects should share a single
-`meow` method. In particular, it will take more and more memory as we
-create more-and-more objects. We can eliminate the redundancy by using
-the constructor's `prototype`.
+This is redundant; all `Kitten` objects should share a single
+`meow` method. First, it will take more memory as we
+create more `Kittens`. Secondly, if we want to change our method, we have to update all our objects because they will individually have out-of-date copies.
+
+We can eliminate the redundancy by using the constructor's `prototype`.
 
 ```javascript
 function Kitten(name, age) {
@@ -284,9 +106,9 @@ Kitten.prototype.purr = function () {
 k1.purr();
 ```
 
-In this way, even though the `meow` method is only defined once,
-because it is stored in `Kitten.prototype`, every `Kitten` instance
-can access it via the `__proto__` property.
+In this way, **even though the `meow` method is only defined once,**
+because it is stored in `Kitten.prototype`, **every `Kitten` instance
+can access it** via the `__proto__` property.
 
 ## Class Methods
 
@@ -310,7 +132,7 @@ Kitten.parade();
 
 ## Constructor Steps: Recap
 
-Say we call `var cat = new Cat()`. Here's what JS does:
+Say we call `let cat = new Cat()`. Here's what JS does:
 
 1. JavaScript creates a new blank object.
 2. JavaScript sets a special `cat.__proto__` property to

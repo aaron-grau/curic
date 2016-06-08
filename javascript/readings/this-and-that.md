@@ -1,3 +1,49 @@
+### `this`
+
+Recall our `Kitten` class from [this][oop] reading.
+
+[oop]: object-oriented-js.md
+
+When we call a function like `cat.purr()` or `cat.ageOneYear()`, a magical variable named `this` gets set. Through the `this` variable, the method can access the object it was called on. `this` is a lot like `self` in Ruby.
+
+We do not use `this` in the `purr` method, but we will in `ageOneYear`. In `ageOneYear`, we use `this` to access the object the method was called upon, and modify the `age` attribute.
+
+Unlike Ruby, `this` is not optional if you want to access attributes
+of the object a method is called on. Here's another example:
+
+```javascript
+var cat = {
+  purr: function () {
+    console.log("meow");
+  },
+
+  purrMore: function () {
+    for (var i = 0; i < 10; i ++) {
+      // using just `purr` without `this` won't work
+      this.purr();
+    }
+  }
+};
+```
+
+If you used `purr` instead of `this.purr`, the function will look for
+a **variable** named `purr` in the enclosing scope. There is no such
+variable; the only variable is `cat`. However, `cat` is an object with
+two **keys**: `purr` and `purrMore`. So by using `this.purr`,
+`purrMore` can access another method.
+
+**Note the difference between a variable and a key.**
+
+Methods are always called like so: `object.method(arguments, ...)`. It
+is because we use the dot notation that the `this` variable gets set
+properly (with `object`).
+
+Calling a function in the traditional **function style** (`f(a, b,
+c)`) **does not** set `this` properly. It's only if we call a function
+**method style** (`obj.method(a, b, c)`) that `this` gets set to
+`obj`.
+
+
 # `this` and that
 
 We've learned about the special [`this`][this] variable. When we call a

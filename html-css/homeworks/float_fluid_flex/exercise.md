@@ -9,7 +9,6 @@ Use your latest html recipe page with the latest external stylesheet and update 
 5. Continue to replace px with your grid system in your review form
 
 Compare your results to [this example](./example.html), [this stylesheet](../../assets/float_fluid_flex.css) and [this grid stylesheet](../../assets/custom_grid.css).
->>>>>>> css-restructure
 
 **Challenge:** there is likely a styling problem with our radio button stars. Find it by inspecting the element with the developer tools and then make the correction in our css.
  

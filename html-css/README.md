@@ -117,6 +117,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 + [Box Model](readings/box_model.md)
 + [Display Properties](readings/display.md) (Save Flex for day 5)
 
+
 ### Exercise (10 mins)
 
 + [Recipe Display](homeworks/display_box_model/exercise.md)
