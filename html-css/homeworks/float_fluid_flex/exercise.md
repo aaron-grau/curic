@@ -8,6 +8,7 @@ Use your latest html recipe page with the latest external stylesheet and update 
 4. You may need to give your recipe image a width of 100% so it takes up the figure and does not have its natural static px width. Do this for all images in your cutom reset file.
 5. Continue to replace px with your grid system in your review form
 
+Compare your results to [this example](./example.html), [this stylesheet](../../assets/float_fluid_flex.css) and [this grid stylesheet](../../assets/custom_grid.css).
 
 **Challenge:** there is likely a styling problem with our radio button stars. Find it by inspecting the element with the developer tools and then make the correction in our css.
  
