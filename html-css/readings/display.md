@@ -1,7 +1,7 @@
 # Display Types
 
 A special CSS attribute one can give to any selector is `display`. The
-options for `display` are `inline`, `block`, `inline-block` and
+options for `display` are `inline`, `block`, `inline-block`, `flex` and
 `none`.
 
 ## Inline
@@ -36,8 +36,7 @@ properties on inline elements.
 _NB_: See how the text in our `strong` tag is bold, even though we did
 not specify a `font-weight` property in our CSS? This is an example of
 a User Agent Stylesheet. Most browsers have default styling that is
-applied to many tags. It is fairly common to clear the UAS in your
-CSS.
+applied to many tags.
 
 ## Block
 
@@ -84,7 +83,7 @@ This gives each text input its own line, growing to the width of its container.
 ## Inline block
 
 Inline block elements are a combination of the block and inline
-elements (shocking!). They do remain inline, but they force elements
+elements. They do remain inline, but they force elements
 around them to respect both horizontal and vertical space. You can set
 the `width` and `height` properties of an inline block element.
 
@@ -128,31 +127,41 @@ ul {
 ## None
 
 `display: none` totally removes the content from the (visual) page.
-Note that the element is still in the DOM, and viewable from the
+Note that the element is still in the html, and viewable from the
 source of the page, it just isn't rendered.
 
-This produces:
 
-<br><br><br><br><br><br>
+## Flex
 
-That's a joke.
+The `display: flex` is provided by a W3C Last Call Working Draft module called Flexbox (Flexible Box). This means that it is still not fully supported but it is so close and so powerful that it can be widely used by modern web pages.
 
-### Demo
+The purpose of the Flexbox Layout is to provide a more efficient way to layout, align and distribute space by styling "Flex containers" that automatically calculate the sizes of their children.
 
-Check out this [positioning demo][positioning_demo]
-([code][positioning_demo_code]). Note the use of `display: none` to hide the
-cat's glasses until the user hovers over the picture:
+This brings up two main categories for all Flexbox properties: 
+  1. "Properties for the Parent" (Flex Containers)
+  2. "Properties for the Children" (Flex Items)
+
+To make an element into a Flex Container we simply give it the display flex property. This immediately makes all child elements into Flex Items. The size of each flex item is then calculated to always fit within the container. The default direction of these elements is horizontal but can be easily changed with flex-direction.
 
 ```css
-.img-glasses {
-  display: none;
-  ...
-}
-
-figure:hover .img-glasses {
-  display: block;
-}
+  /* Imagine this class is given to an element we want to be a flex container */
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
 ```
 
-[positioning_demo]: http://appacademy.github.io/css-demos/positioning.html
-[positioning_demo_code]: https://github.com/appacademy/css-demos/blob/gh-pages/positioning.html
+The two next most common flex properties for the Flex Container are `justify-content` and `align-items`. 
+
+Justifying content helps distribute sapce left over when items are eighet inflexible or have reached their maximum size. We can have them all be aligned to the start of the container, end of the container, centered, or even calculate the space between/around to position the elements equally based on their size.
+
+![From CSS Tricks Flexbox Guide](https://css-tricks.com/wp-content/uploads/2013/04/justify-content.svg)
+
+Align Items is very similar to justify content except for the cross axis perpendicular to the main axis.
+
+![From CSS Tricks Flexbox Guide](https://css-tricks.com/wp-content/uploads/2014/05/align-items.svg) 
+
+This is already powerful enough to make for great CSS layouts. For the remaining properties, refer to the great [CSS Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).  Also for additional practice you may want to check out [Flexbox Froggy](http://flexboxfroggy.com/).
+
+
