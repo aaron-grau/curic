@@ -2,9 +2,7 @@
 
 ## Quick Hits
 
-So far, we've written all our code in a single file. We'd like to learn how to split code up in Node modules.
-
-Node is different from Ruby. In Ruby, you can do like so:
+So far, we've written all our code in a single file. We'd like to learn how to split code up in Node modules. Node is different from Ruby. In Ruby, you can do like so:
 
 ```ruby
 # ./cat.rb
@@ -197,9 +195,9 @@ module.exports.Bishop = require("./bishop");
 I like our way of reassigning the whole `module.exports` better. But
 this way would also work.
 
-## One More One More Thing
+## ES6 Syntax (Bonus)
 
-In ES6, we can write export statements a differently. These new ways of writing export statements don't work in Node, but are starting to be used in frontend development. The command `export default` is similar to `module.exports`, as shown below.
+In ES6, we can write export statements differently. These new ways of writing export statements don't work in Node, but are starting to be used in front-end development. The command `export default` is similar to `module.exports`, as shown below.
 
 ```js
 // ./cat.js

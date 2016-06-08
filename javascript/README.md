@@ -4,7 +4,7 @@
 
 ### Video Lectures (12 min)
 :closed_lock_with_key: `go_video_go`
-* [:movie_camera: Intro to JS](https://vimeo.com/169645510) (12 min)
+* :movie_camera: [Intro to JS](https://vimeo.com/169645510) (12 min)
 
 ### Readings (70 min)
 * [Intro to JavaScript][intro-js] (5 min)
@@ -19,6 +19,10 @@
 ### Homeworks (30 min)
 * [Intro to JavaScript Problem Set][intro-problem-set]
 
+* [Intro to JavaScript Problem Set][intro-problem-set]
+*  Acquire [Effective JavaScript][effective-js] (readings begin tomorrow).
+    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
+    * A **lot** of JS interview questions come from this book.
 ### Additional Resources
 * [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
 * [ReactiveX][reactivex] - additional practice so you can be a star.
@@ -26,12 +30,10 @@
 * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics]
   * Just the first chapter. Another great intro reading.
 * [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
-* Acquire and begin reading [Effective JavaScript][effective-js].
-    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, I highly encourage you to read the whole book.
-    * A **lot** of JS interview questions come from this book.
 * [Style Guide][airbnb-style] - Air BnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
 
 [intro-js]: readings/js-intro.md
+
 [server-side-js]: readings/server-side-javascript.md
 [syntax]: readings/syntax.md
 [data-types]: readings/data-types-and-truthiness.md
@@ -46,14 +48,22 @@
 
 ## w5d4
 
-* [Linting JavaScript][linting-js]
-* [Object-oriented JavaScript][oo-js]
-* [Function invocation][function-invocation]
-* [Closures and Scope][closures]
-* [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9
-* [:movie_camera: (cc) node-01-module-exports][node-01-vid]
-* **Project**: [Intro JavaScript problems][intro-javascript-problems]
+### Video Lectures (10 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
+
+### Readings (70 min)
+* [Linting JavaScript][linting-js] (10 min)
+* [Object-oriented JavaScript][oo-js] (15 min)
+* [Function invocation][function-invocation] (5 min)
+* [Closures and Scope][closures] (10 min)
+* [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9 (15 min)
+### Homeworks
+
+### Projects
+* [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus Project**: [Reversi][reversi]
+
 
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
@@ -67,13 +77,13 @@
 
 ## w5d5
 
-### Readings
-* [Intro to Callbacks: File I/O][file-io]
-* [`this` and that][this-and-that]
-* [Ways to Call a Function][function-calling]
-* [The Module Pattern][module-pattern]
-* [Event Loop Visualization][loupe]
-* [Effective JavaScript][effective-js]: Items 11, 12, 61, 65
+### Readings (70 min)
+* [Intro to Callbacks: File I/O][file-io] (15 min)
+* [`this` and that][this-and-that] (10 min)
+* [Ways to Call a Function][function-calling] (10 min)
+* [The Module Pattern][module-pattern] (10 min)
+* [Event Loop Visualization][loupe] (10 min)
+* [Effective JavaScript][effective-js]: Items 11, 12, 61, 65 (15 min)
 
 ### Additional Resources
 * Style
@@ -89,31 +99,41 @@
 * [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
 
-Write user interaction with node's `readline` library.
-
 [file-io]: readings/intro-to-callbacks.md
 [this-and-that]: readings/this-and-that.md
 [function-calling]: readings/function-calling.md
 [module-pattern]: readings/module-pattern.md
+[promises]: readings/promises.md
+
 [hanoi_node]: projects/hanoi_node
-[functions_exercises]: projects/functions_exercises
 [ttt_node]: projects/ttt_node
+[functions_exercises]: projects/functions_exercises
+
+[loupe]: http://latentflip.com/loupe
 [crockford-style]: http://javascript.crockford.com/code.html
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
 [airbnb-style]: https://github.com/airbnb/javascript
 [loupe]: http://latentflip.com/loupe
-[promises]: readings/promises.md
 
 ## w5d6-w5d7
 
+### Video Lectures (173 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
+* :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (18 min)
+* :movie_camera: [CSS lectures][css-lectures] - skip 10 Navbar and 12 Glasses (140 min)
+
+### Readings
+* [Chrome Dev Tools][chrome-dev-tools] (10 min)
+* [Github Pages][github-pages] (5 min)
+* **NYC**: Finish up [CSS Warm Up][css-warm-up]
+
+### Homeworks
+
+### Additional Resources
 * [CSS Diner][css-diner] Fun!
-* Read about [Chrome Dev Tools][chrome-dev-tools].
-* [Github Pages][github-pages]
-* [:movie_camera: (cc)  Debugging JS in Dev Tools (15 min)][chrome-debugging-vid]
-* [:movie_camera: (cc)  Debugging with node-inspector (18 min)][node-inspector-vid]
-* Watch all [CSS lectures][css-lectures], except for 10 Navbar and 12 Glasses.
-* **NYC**:
-   * Finish up [CSS Warm Up][css-warm-up].
+
+### Projects
 
 [css-diner]: http://flukeout.github.io/
 [eloquent-javascript]: http://eloquentjavascript.net/
@@ -208,20 +228,20 @@ Write user interaction with node's `readline` library.
 
 ## w6d3
 
-### Required Readings
-  * [The Document Object Model][dom]
-  * [jQuery I: Selection and Manipulation][jquery-01-selection]
-  * [jQuery II: Events][jquery-02-events]
-  * [jQuery III: Ready][jquery-03-ready]
-  * [jQuery IV: All The Ways][jquery-04-all-the-ways]
-  * [jQuery V: Data Attributes][jquery-05-data-attributes]
-  * [Effective JavaScript][effective-js]: Items 34 - 37
+### Readings (75 min)
+  * [The Document Object Model][dom] (10 min)
+  * [jQuery I: Selection and Manipulation][jquery-01-selection] (15 min)
+  * [jQuery II: Events][jquery-02-events] (10 min)
+  * [jQuery III: Ready][jquery-03-ready] (10 min)
+  * [jQuery IV: All The Ways][jquery-04-all-the-ways] (5 min)
+  * [jQuery V: Data Attributes][jquery-05-data-attributes] (10 min)
+  * [Effective JavaScript][effective-js]: Items 34 - 37 (15 min)
 
-### Homework Project
-  * [wacky jQuery exercises][wacky-project]
+### Homeworks
+  * [wacky jQuery exercises][wacky-project] (45 min)
 
-### Bonus Readings
-  * **Resource**: [jQuery Documentation][jquery-docs]
+### Additional Resources
+  * [jQuery Documentation][jquery-docs]
   * [jQuery Fundamentals][jquery-fundamentals]
     * Skip JS Basics (ch1).
     * Read jQuery Basics (ch2).
@@ -230,11 +250,11 @@ Write user interaction with node's `readline` library.
     * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
 
 ### Projects
-  * **Project**: [jQuery Tic-Tac-Toe and Towers of Hanoi][ttt-ui]
+  * [jQuery Tic-Tac-Toe and Towers of Hanoi][ttt-ui]
   * **Bonus Project**: [Snake][snake-project]
 
 
-[wacky-project]: readings/jquery-wacky-homework.md
+[wacky-project]: homeworks/questions/jquery-wacky-homework.md
 [dom]: readings/document-object-model.md
 [jquery-01-selection]: readings/jquery-01-selection-and-manipulation.md
 [jquery-02-events]: readings/jquery-02-events.md
@@ -249,48 +269,22 @@ Write user interaction with node's `readline` library.
 
 ## w6d4
 
-* [jQuery VI: Event Delegation][jquery-06-event-delegation]
-* [jQuery VII: Triggering][jquery-07-triggering]
-* [:movie_camera: (cc) backbone-14: jQuery event delegation][backbone-14-vid] (You can ignore the last part, which has Backbone code)
-* [Effective JavaScript][effective-js]: Items 46, 50, 52
-
-* **Exercise**: [Your First Ajax Request][first-ajax]
-* **Bonus Reading**:[Vanilla AJAX][vanilla-ajax]
-
-* **Project**: [jQuery Lite][jquery-lite]
-* **Project**: Build [Snake][snake-project] using your jQuery Lite
-
-[jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
-[jquery-07-triggering]: readings/jquery-07-triggering.md
-[backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
-
-[first-ajax]: projects/first_ajax
-[jquery-lite]: projects/jquery_lite
-[snake-project]: projects/snake
-[vanilla-ajax]: readings/vanilla_ajax.md
-
-## w6d5
-
-#### Video Lectures (Prioritize These)
-* :movie_camera: [AJAX Video Lecture (20 min)][ajax-lecture] (`go_video_go`)
-* :movie_camera: [AJAX Demo (35 min)][ajax-demo] (`go_video_go`)
+### Video Lectures (55 min)
+* :movie_camera: [AJAX Video Lecture][ajax-lecture]  (20 min)
+* :movie_camera: [AJAX Demo][ajax-demo] (35 min)
 * [complete demo from video][ajax-demo-code]
 
-#### Readings
-* [Basic AJAX][basic-ajax]
-* [AJAX Remote Forms][ajax-remote-forms]
-* [Effective JavaScript][effective-js]: Items 46, 50, 52
+### Readings (35 min)
+* [Basic AJAX][basic-ajax] (10 min)
+* [AJAX Remote Forms][ajax-remote-forms] (10 min)
+* [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
 
-#### Bonus Readings
+### Additional Resources
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
-    * Save deferreds for later.
 
-#### Assessment
-* **Assessment05** ([practice][assessment-practice])
-
-#### Project
-* **Project**: [AjaxTwitter][ajax-twitter]
-
+### Projects
+* [Your First Ajax Request][first-ajax]
+* [AjaxTwitter][ajax-twitter]
 
 [assessment-practice]: https://github.com/appacademy/assessment-prep
 [ajax-lecture]: https://vimeo.com/162860823
@@ -303,6 +297,35 @@ Write user interaction with node's `readline` library.
 [ajax-remote-forms]: readings/ajax-remote-forms.md
 [underscore-templates]: readings/underscore-templates.md
 [ajax-twitter]: projects/ajax_twitter
+
+## w6d5
+
+### Video Lectures (27 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] You can ignore the last part, which has Backbone code. (27 min)
+
+### Readings (35 min)
+* [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
+* [jQuery VII: Triggering][jquery-07-triggering] (5 min)
+* [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
+
+### Additional Resources
+* [Vanilla AJAX][vanilla-ajax]
+
+### Homeworks
+
+### Projects
+* [jQuery Lite][jquery-lite]
+* [Snake][snake-project] using your jQuery Lite
+
+[jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
+[jquery-07-triggering]: readings/jquery-07-triggering.md
+[backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
+
+[first-ajax]: projects/first_ajax
+[jquery-lite]: projects/jquery_lite
+[snake-project]: projects/snake
+[vanilla-ajax]: readings/vanilla_ajax.md
 
 ## w6d6 - w6d7
 
