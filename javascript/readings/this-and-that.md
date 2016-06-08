@@ -1,24 +1,23 @@
-### `this`
+# `this`
 
 Recall our `Kitten` class from [the Object Oriented Programming][oop] reading.
 
-[oop]: object-oriented-js.md
+[oop]: objects-and-primitives.md
 
 When we call a function like `cat.purr()` or `cat.ageOneYear()`, a magical variable named `this` gets set. Through the `this` variable, the method can access the object it was called on. `this` is a lot like `self` in Ruby.
 
-We do not use `this` in the `purr` method, but we will in `ageOneYear`. In `ageOneYear`, we use `this` to access the object the method was called upon, and modify the `age` attribute.
+We do not use `this` in the `purr` method, but we will in `ageOneYear`. In `ageOneYear`, we use `this` to access the object the method was called upon to modify the `age` attribute.
 
-Unlike Ruby, `this` is not optional if you want to access attributes
-of the object a method is called on. Here's another example:
+Unlike Ruby's `self`, `this` is not optional if you want to access the attributes of the object that a method is called on. Here's another example:
 
 ```javascript
-var cat = {
+let cat = {
   purr: function () {
     console.log("meow");
   },
 
   purrMore: function () {
-    for (var i = 0; i < 10; i ++) {
+    for (let i = 0; i < 10; i ++) {
       // using just `purr` without `this` won't work
       this.purr();
     }
@@ -34,25 +33,14 @@ two **keys**: `purr` and `purrMore`. So by using `this.purr`,
 
 **Note the difference between a variable and a key.**
 
-Methods are always called like so: `object.method(arguments, ...)`. It
-is because we use the dot notation that the `this` variable gets set
-properly (with `object`).
+Methods are always called like this: `object.method(arguments, ...)`. This is because, we use the dot notation, `this` gets set to the object preceding the dot.
 
 Calling a function in the traditional **function style** (`f(a, b,
-c)`) **does not** set `this` properly. It's only if we call a function
-**method style** (`obj.method(a, b, c)`) that `this` gets set to
-`obj`.
-
+c)`) **does not** set `this` properly. In such cases, `this` will be set to the global scope (either `window` or `global`). 
 
 # `this` and that
 
-We've learned about the special [`this`][this] variable. When we call a
-function "method style" (`object.method()`), the special variable
-`this` gets set to `object`. `this` is a lot like `self` in Ruby.
-
-[this]: https://github.com/appacademy/curriculum/blob/es6/javascript/readings/object-oriented-js.md#this
-
-There is one evil thing about `this`, and it comes up when we pass
+There is one tricky thing about `this`, and it comes up when passing
 callbacks. Observe, dear reader:
 
 ```javascript
@@ -82,28 +70,11 @@ Calling cat.ageOneYear() method style works. But the calls to increment the cat'
 { age: 6, ageTenYears: [Function] }
 ```
 
-The `ageOneYear` method uses the special `this` variable. But the
-`this` variable **will not be set properly unless we call a function
-"method-style"**.
-
-```javascript
-obj.method(); // called method style; `this` set properly
-
-let m = obj.method;
-m(); // called function style; `this` not set properly
-```
-
 In the example, we pull out the `cat.ageOneYear` method and pass it
 to `times`. `times` calls the method, **but it calls it
-function-style**. When we call a function "function-style", `this` is
-set to `window`, which is the top-level JavaScript object. Global
-variables are defined on `window`.
+function-style**. Recall that function-style method calls use `window` or `global` as `this`.
 
-More simply, `this` will not be set to `cat` if we call `ageOneYear`
-function style.
-
-There are two ways around this problem. The first is to introduce a
-closure to capture `cat`:
+There are two ways around this problem. The first is to introduce an anonymous closure function to capture `cat`:
 
 ```javascript
 // `times` is the same:
@@ -138,29 +109,20 @@ alternative:
 times(10, cat.ageOneYear.bind(cat));
 ```
 
-`bind` is a method you can call on JS functions. JS functions are
-objects, too! Methods of `Function` objects live in
-`Function.prototype`.
+`bind` is a method you can call on JS functions. Other methods of `Function` objects live in `Function.prototype`. Check them out!
 
-`bind` creates the anonymous function we had made by hand, in which
-the function `cat#ageOneYear` is called method style on the `cat`
-object. The function returned by `cat.ageOneYear.bind(cat)` will
-still be called function style, but inside it will call `ageOneYear`
-on `cat` method style.
+`bind` works just like anonymous closure we made, in which
+`cat#ageOneYear` is called method style on the `cat`
+object. `cat.ageOneYear.bind(cat)` returns a closure that will
+still be called function style, but that calls `cat.ageOneYear` method style inside of it.
 
-Note that we could do crazy things like this:
+Note that you can bind functions to any scope, not just `this`: 
 
 ```javascript
 const crazyMethod = cat.ageOneYear.bind(dog);
 ```
 
-Here, `crazyMethod()` will call the `Cat#ageOneYear` method, but
-`this` will be bound to the object `dog`. You don't want to do this,
-but I want to illustrate how the `bind` method works.
-
-We'll soon define our own `Function#myBind` method. Soon!
-
-## More trouble
+# More trouble
 
 Let's see the same problem in another context:
 
