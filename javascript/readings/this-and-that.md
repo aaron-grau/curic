@@ -24,11 +24,10 @@ const cat = {
 
 cat.ageOneYear(); // works
 
-times(10, cat.ageOneYear); // does not work!
+times(10, cat.ageOneYear); // ReferenceError; this.age is not defined
 ```
 
-The first call to age the cat works. But the calls to increment the
-cat's age ten times don't.
+Calling cat.ageOneYear() method style works. But the calls to increment the cat's age ten times don't.
 
 ```
 ~$ node test.js
@@ -142,15 +141,11 @@ function is not even a method of `SumCalculator`!
 
 This problem can be hard to spot, because even though we are using
 `this` in a method of `SumCalculator`, we're also inside an anonymous,
-nested function which will be called function style. **That makes the
-problem hard to spot**. In particular, the correct use of `this` in
-scope 1 will mean something different than the incorrect use in scope
-2.
+nested function which will be called function style. In particular, the correct use of `this` in scope 1 will mean something different than the incorrect use in scope 2.
 
 This sort of runs counter to the philosophy of closures: that they can
 access variables defined in the enclosing scope. `this` is special
-because **it doesn't get captured; it gets reset everytime a function
-is called**.
+because **`this` doesn't get captured; it gets reset everytime a function is called**.
 
 The ES5 solution is to introduce a normal variable to hold `this`
 in a way that can be captured:
@@ -193,4 +188,4 @@ function call**.
 
 ## The ES6 Solution
 
-Though it is still important to understand the scope of `this` and know how to use it, ES6 provides a more elegant solution for scoping some callbacks using Arrow Functions. Carry on in the following readings for more details.
+Though it is still important to understand the scope of `this` and know how to use it, ES6 provides a more elegant solution for scoping some callbacks using [Arrow Functions](fat-arrows.md).
