@@ -1,30 +1,30 @@
-const React = require('react');
-const PokemonStore = require('../../stores/pokemon.js');
-const PokemonActions = require('../../actions/pokemon_actions.js');
-const PokemonIndexItem = require('./index_item.jsx');
+var React = require('react');
+var PokemonStore = require('../../stores/pokemon.js');
+var ClientActions = require('../../actions/clientActions.js');
+var PokemonIndexItem = require('./indexItem.jsx');
 
 module.exports = React.createClass({
-  getInitialState () {
+  getInitialState: function () {
     return { pokemons: PokemonStore.all() };
   },
 
-  _onChange () {
+  _onChange: function () {
     this.setState({ pokemons: PokemonStore.all() });
   },
 
-  componentDidMount () {
+  componentDidMount: function () {
     this.pokemonListener = PokemonStore.addListener(this._onChange);
-    PokemonActions.fetchAllPokemons();
+    ClientActions.fetchAllPokemons();
   },
 
-  compomentWillUnmount () {
+  compomentWillUnmount: function () {
     this.pokemonListener.remove();
   },
 
-  render () {
+  render: function () {
     return(
       <ul>
-        {this.state.pokemons.map((pokemon) => {
+        {this.state.pokemons.map(function (pokemon) {
           return <PokemonIndexItem key={pokemon.id} pokemon={pokemon} />;
         })}
       </ul>
