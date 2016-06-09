@@ -1,16 +1,16 @@
 ## CSS Syntax
 
-The syntax of a single style declaration in your stylesheet is as follows:
+Observe the syntax of a single style declaration in your stylesheet:
 
 ```css
 selector {
-  property: value; /* This is a comment. Don't forget your semicolons! */ 
+  property: value; /* This is a comment. Don't forget your semicolons! */
 }
 ```
 
 The **values** of the **properties** apply to any HTML elements that match the given **selector**.
 
-Example of styling all `<p>` elements with blue and bolded, sans serif font.
+Here's how to style all `<p>` elements with blue, bold, sans-serif font.
 
 ```css
 p {
@@ -20,7 +20,7 @@ p {
 }
 ```
 
-You can have as many style declarations as you wish in a CSS document. You may encounter situations where several selectors match similar elements. This is a feature explaining the "cascading" in Cascading Style Sheets.
+You can have as many style declarations as you wish in a CSS document. In some situations several selectors match similar elements, hence the name **Cascading** Style Sheets.
 
 ### Cascading Styles
 
@@ -39,27 +39,27 @@ p span.highlight {
 
 ```html
 <p>
-This is some text in a paragraph element. <span>This text has been styled bold because it is in a span element and a child of a paragraph element.</span><span class="highlight">This text is yellow because the class selector overides the tag selector. It is still bold though!</span>
+This is some text in a paragraph element. <span>This text has been styled bold because it is in a span element that's a child of a paragraph element.</span><span class="highlight">This text is yellow because the class selector overrides the tag selector when multiple style declarations apply to the same attribute (`color`) of the same element. It's still bold though!</span>
 </p>
 ```
 
-The example introduces another type of selector and how we can maintain DRY CSS with the use of cascading/overiding styles.
+The above example introduces another type of selector and hints at how we can maintain DRY CSS using cascading/overiding styles.
 
 ### CSS Basic Selectors
 
 **Element Selector**
 
-You can directly select html elements by stating their name. 
- 
+You can directly select html elements by stating their name.
+
 Example: Select all `<h1>` elements and make their font size 24px.
 
 ```css
 h1 {
-    font-size: 36px;
+    font-size: 24px;
 }
 ```
 
-Select children of elements by using a space between names
+Select children of elements by using a space between the names of parents and children.
 
 Example: Select all `<a>` elements that are children of `<li>` elements that are children of `<ul>` elements and remove all text-decoration.
 
@@ -71,24 +71,24 @@ ul li a {
 
 **Class Selector**
 
-Classes are used to create logical groups of elements together for styling purposes. These are extremely popular in front-end development and key to making our style code DRY. 
+Classes group elements together for styling purposes. Classes are extremely popular in front-end development and are key to making our style code DRY.
 
-You reference a class selector with a `.` period. 
+Reference a class selector with a `.`
 
 ```html
 <section>This is a normal section</section>
-<section class="bg-grey">This is a section with a grey background</section>
+<section class="bg-grey">This section has a grey background</section>
 ```
 
-```css 
+```css
 .bg-grey {
-    background-color: whitesmoke; /* there are a lot of color names */
+    background-color: whitesmoke; /* there are many color names */
 }
 ```
 
 **Bad Selectors**
 
-These are selectors that you may see but should never use in practice because they disobey the CSS principle of being only as specific as we need to be.
+You may see these selectors in the wild, but you should almost never use them in practice because they're more or less specific than necessary.
 
 Universal selectors are usually too broad and are rarely necessary. They are also not as descriptive as classes.
 
@@ -98,33 +98,31 @@ Universal selectors are usually too broad and are rarely necessary. They are als
 }
 ```
 
-ID attributes are provided in HTML and should be unique to their element. This makes ID selectors inherintly too specific and will only lead to repetitive styling. They are declared using a `#`.
+ID attributes should be unique to their element. ID selectors are thus inherently too specific and often lead to repetitive styling. They're declared in CSS using a `#`.
 
 ```html
 <img id="logo"/>
 ```
 
-```css 
+```css
 #logo {
     width: 100px;
 }
 ```
 
-Class and Element selectors will get you very far in CSS styling. More advanced selectors will be discussed later in the curriculum.
+Class and Element selectors will get you very far in CSS styling. We'll discuss more advanced selectors later in the curriculum.
 
 ### Overspecificity
 
 If you want to override properties defined for a "specific"
-(high specificity) selector, you must use an _even more_ specific
-selector. If you have multiple overrides happening in your styles, this
-can start to get difficult to manage, so it's important to
-follow this simple rule: **Be only as specific as necessary.**
+(high-specificity) selector, you must use an _even more_ specific
+selector. Multiple overrides in your styles can become difficult to manage, so it's important to follow this simple rule: **Be only as specific as necessary.**
 
 ### Precedence
 
-When we speak of overiding CSS styles and specificity we are inferring to the idea of precedence. The more specific a selector is, the higher it's precedence. Selectors with higher precedence overide lower ones.
+Precedence governs which styles are overridden. The more specific a selector is, the higher its precedence. Selectors with higher precedence override those with lower ones.
 
-Specifity is determined both by the type of selector and by how it is applied to the HTML document. From most specific to least the heirarchy is:
+Both the type of selector and how it's applied to the HTML document determine specificity. Here's the hierarchy of specificity (from most to least):
 
 *  inline styles
 *  id selectors
@@ -133,7 +131,7 @@ Specifity is determined both by the type of selector and by how it is applied to
 
 **Inline Styles**
 
-Inline styling violates the CSS rule of being too specific and therefore should not be used in practice. Inline styles are applied directly to the HTML document with a style attribute.
+Inline styling is simply too specific and should not be used in practice. Inline styles are applied directly to the HTML document with a style attribute.
 
 ```html
 <span style="font-weight:bold;color:black;">Bold and Black Text</span>
