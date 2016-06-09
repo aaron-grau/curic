@@ -1,4 +1,4 @@
-# Closures and scope
+# Closures and Scope
 
 ## Scope
 
@@ -12,12 +12,12 @@ Consider this example:
 
 
 ```javascript
-function sayHelloNTimes(name, n){
-  function greet(){
-   console.log( `Hi, ${name}!`);
+function sayHelloNTimes(name, n) {
+  function greet() {
+    console.log( `Hi, ${name}!`);
   }
 
-  for(let i=0; i<n; i++) {
+  for (let i = 0; i < n; i++) {
     greet();
   }
 }
@@ -26,7 +26,7 @@ sayHelloNTimes("Sally", 6); // logs 'Hi, Sally!' x6
 ```
 In the example above, the variable `name` is referenced by `greet`, even though it was never declared within `greet`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.** 
 
-Functions such as `greet` that capture (a.k.a. use) such variables (a.k.a. free variables) are called **closures**. 
+Functions such as `greet` that capture (a.k.a. use) such variables (a.k.a. _free variables_) are called **closures**. 
 
 **Free variables can be modified** by closures. Consider this function: 
 
@@ -55,8 +55,8 @@ sum([1, 3, 5]) // => 9
 We can use closures to pass down arguments to helper functions without explicitly listing them as arguments.
 
 ```javascript
-function isAnagram(string){
-  function reverse(){
+function isAnagram(string) {
+  function reverse() {
     return string.split('').reverse().join('');
   }
 
@@ -64,10 +64,9 @@ function isAnagram(string){
 }
 ```
 
-### Private state
+### Private State
 
-Another major use of closures is to create private state. For
-example:
+Another major use of closures is to create private states. For example:
 
 ```javascript
 function Counter() {
@@ -150,14 +149,14 @@ Thankfully, modern JS runtimes support *strict mode*, which prohibits variable d
 
 window.local; // undefined
 
-function subroutine(){
+function subRoutine(){
   local = 'oops'; 
 }
 
-subroutine(); // ReferenceError: 'local' is not defined
+subRoutine(); // ReferenceError: 'local' is not defined
 ```
 
-**Note**: "use strict" does not work in the Node CLI or the Dev Tools console. 
+**Note**: `"use strict"` does not work in the Node CLI or the Dev Tools console. 
 
 ## References
 
