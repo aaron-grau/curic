@@ -25,10 +25,10 @@ class Bicycle {
   }
 }
 
-const cruiser = new Bicycle("Schwinn", "turquoise"),
-    salsaFargo = new Bicycle("Salsa Fargo", "burnt orange"),
-    flyingMerkel = new Bicycle("Flying Merkel", "green"),
-    bianchiVolpe = new Bicycle("Bianchi Volpe", "slate blue");
+const cruiser = new Bicycle("Schwinn", "turquoise");
+const salsaFargo = new Bicycle("Salsa Fargo", "burnt orange");
+const flyingMerkel = new Bicycle("Flying Merkel", "green");
+const bianchiVolpe = new Bicycle("Bianchi Volpe", "slate blue");
 
 Bicycle.funBicycles = [cruiser, salsaFargo, flyingMerkel, bianchiVolpe];
 
