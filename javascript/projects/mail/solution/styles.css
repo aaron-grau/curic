@@ -53,12 +53,14 @@ table {
 /* Styles */
 
 body {
-  overflow: hidden
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
 }
+
+/* Layout */
 
 .sidebar {
   float: left;
-  background: green;
   height: 100%;
   width: 200px;
   border: 2px solid red;
@@ -67,4 +69,15 @@ body {
 .content {
   height: 100%;
   border: 2px solid red;
+}
+
+/* Sidebar */
+
+.sidebar-nav {
+  border: 2px solid yellow;
+  padding: 5px;
+}
+
+.sidebar-nav li {
+  margin: 5px;
 }
