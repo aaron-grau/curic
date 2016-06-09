@@ -52,3 +52,5 @@ Game.prototype.start = function (canvasEl) {
   //the function using requestAnimationFrame
   animateCallback();
 };
+
+module.exports = Game;

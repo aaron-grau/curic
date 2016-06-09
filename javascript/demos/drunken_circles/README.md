@@ -14,5 +14,5 @@
 ## Instructions to Run Locally
 
 0. Navigate to the project directory in your terminal.
-0. `$ webpack lib/game.js bundle.js`
+0. `$ webpack main.js bundle.js`
 0. `$ open index.html`
