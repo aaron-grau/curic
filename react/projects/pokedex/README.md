@@ -9,13 +9,9 @@ In this project, we'll write an app to manage your `Pokemon` and their
 
 We've already setup migrations/models/controllers/views for you to
 start with in a skeleton that we will email to you at the beginning of
-the day.  **Set things up with a `bundle install`, then `rake db:setup` (this is
-equivalent to `rake
-db:create db:migrate db:seed`)**.
+the day.  **Set things up with a `bundle install`, then `rake db:setup` (this is equivalent to `rake db:create db:migrate db:seed`)**.
 
-Take a look at the schema, the routes file, and the jbuilder views to get
-yourself oriented. Navigate
-to the api routes to see the json that's sent up.
+Take a look at the schema, the routes file, and the jbuilder views to get yourself oriented. Navigate to the api routes to see the json that's sent up.
 
 **Note the `defaults: {format: :json}`**. This means that HTTP
 requests that Rails handles for the `pokemon` resource should be
