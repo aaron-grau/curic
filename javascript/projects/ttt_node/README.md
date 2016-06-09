@@ -10,7 +10,7 @@
     * Write the `Game` constructor such that it takes a reader interface
       as an argument. As in the previous exercise, write a
       `#run` method that takes in both this reader and a completion callback (`#run(reader, completionCallback)`).
-* Copy your `playScript.js` from [Hanoi Node][node-ttt]. It should work for TOH as well. 
+* Copy your `playScript.js` from [Hanoi Node][node-ttt]. It should work for Tic Tac Toe as well. 
 
 [ruby-ttt]: ruby_ttt.md
 [node-ttt]: ../hanoi_node

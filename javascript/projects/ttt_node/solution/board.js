@@ -6,11 +6,11 @@ function Board () {
 
 Board.prototype.isEmptyPos = function(pos) {
   if (!Board.isValidPos(pos)) {
-    throw new MoveError("Is not valid position!");
+    throw new MoveError('Is not valid position!');
   }
 
   return (this.grid[pos[0]][pos[1]] === null);
-};
+}
 
 Board.prototype.isOver = function() {
   if (this.winner() != null) {
@@ -26,15 +26,15 @@ Board.prototype.isOver = function() {
   }
 
   return true;
-};
+}
 
 Board.prototype.placeMark = function(pos, mark) {
   if (!this.isEmptyPos(pos)) {
-    throw new MoveError("Is not an empty position!");
+    throw new MoveError('Is not an empty position!');
   }
 
   this.grid[pos[0]][pos[1]] = mark;
-};
+}
 
 
 Board.prototype.print = function() {
@@ -46,12 +46,11 @@ Board.prototype.print = function() {
         this.grid[rowIdx][colIdx] ? this.grid[rowIdx][colIdx] : " "
       );
     }
-
-    strs.push(`${marks.join("|")}\n`);
+    strs.push(`${marks.join('|')}\n`);
   }
 
-  console.log(strs.join("-----\n"));
-};
+  console.log(strs.join('-----\n'));
+}
 
 Board.prototype.winner = function() {
   const posSeqs = [
@@ -76,7 +75,7 @@ Board.prototype.winner = function() {
   }
 
   return null;
-};
+}
 
 
 Board.prototype.winnerHelper = function(posSeq) {
@@ -98,6 +97,25 @@ Board.prototype.winnerHelper = function(posSeq) {
   }
 
   return null;
+}
+
+Board.isValidPos = pos =>
+  {return (0 <= pos[0]) &&
+  (pos[0] < 3) &&
+  (0 <= pos[1]) &&
+  (pos[1] < 3);}
+
+Board.makeGrid = () => {
+  const grid = [];
+
+  for (let i = 0; i < 3; i++) {
+    grid.push([]);
+    for (let j = 0; j < 3; j++) {
+      grid[i].push(null);
+    }
+  }
+
+  return grid;
 };
 
 Board.isValidPos = function(pos) {
@@ -120,6 +138,6 @@ Board.makeGrid = function() {
   return grid;
 };
 
-Board.marks = ["x", "o"];
+Board.marks = ['x', 'o'];
 
 module.exports = Board;

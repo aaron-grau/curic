@@ -6,7 +6,9 @@ function Game () {
   this.currentPlayer = Board.marks[0];
 }
 
-Game.prototype.isOver = () => this.board.isOver;
+Game.prototype.isOver = function () {
+  this.board.isOver;
+};
 
 Game.prototype.playMove = function(pos) {
   this.board.placeMark(pos, this.currentPlayer);
@@ -20,14 +22,14 @@ Game.prototype.promptMove = function(reader, callback) {
   this.board.print();
   console.log(`Current Turn: ${this.currentPlayer}`)
 
-  reader.question("Enter rowIdx: ", rowIdxStr => {
+  reader.question('Enter rowIdx: ', rowIdxStr => {
     const rowIdx = parseInt(rowIdxStr);
-    reader.question("Enter colIdx: ", colIdxStr => {
+    reader.question('Enter colIdx: ', colIdxStr => {
       const colIdx = parseInt(colIdxStr);
       callback([rowIdx, colIdx]);
     });
   });
-};
+}
 
 Game.prototype.run = function(reader, gameCompletionCallback) {
   this.promptMove(reader, move => {
@@ -46,7 +48,7 @@ Game.prototype.run = function(reader, gameCompletionCallback) {
       if (this.winner()) {
         console.log(`${this.winner()} has won!`);
       } else {
-        console.log("NO ONE WINS!");
+        console.log('NO ONE WINS!');
       }
       gameCompletionCallback();
     } else {
@@ -62,11 +64,12 @@ Game.prototype.swapTurn = function() {
   } else {
     this.currentPlayer = Board.marks[0];
   }
-};
+}
 
 Game.prototype.winner = function() {
   return this.board.winner();
-};
+}
+
 
 
 module.exports = Game;
