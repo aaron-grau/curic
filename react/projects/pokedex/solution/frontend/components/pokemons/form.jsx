@@ -1,8 +1,13 @@
-const React = require('react');
-const PokemonActions = require('../../actions/pokemon_actions.js');
-const HashHistory = require('react-router').hashHistory;
+var React = require('react');
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
+var ClientActions = require('../../actions/clientActions.js');
 
 module.exports = React.createClass({
+  mixins: [LinkedStateMixin],
+
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
 
   blankAttrs: {
     name: '',
@@ -14,58 +19,25 @@ module.exports = React.createClass({
     move_2: ''
   },
 
-  getInitialState () {
+  getInitialState: function () {
     return this.blankAttrs;
   },
 
-  createPokemon (event) {
+  createPokemon: function (event) {
     event.preventDefault();
-    const pokemon = {};
-
-    Object.keys(this.state).forEach((key) => {
-      if(key !== "move_1" && key !== "move_2") {
-        pokemon[key] = this.state[key];
-      }
-    });
-
+    var pokemon = {};
+    Object.keys(this.state).forEach(function (key) {
+      if(key != "move_1" && key != "move_2") { pokemon[key] = this.state[key]; }
+    }.bind(this))
     pokemon.moves = [this.state.move_1, this.state.move_2];
-
-    PokemonActions.createPokemon(pokemon, (poke) => {
-      HashHistory.push(`/pokemon/${poke.id}`);
-    });
-
+    
+    ClientActions.createPokemon(pokemon, function (id) {
+      this.context.router.push("/pokemon/" + id);
+    }.bind(this));
     this.setState(this.blankAttrs);
   },
 
-  onNameChange (e) {
-    this.setState({name: e.target.value});
-  },
-
-  onImageChange (e) {
-    this.setState({image_url: e.target.value});
-  },
-
-  onAttackChange (e) {
-    this.setState({attack: e.target.value});
-  },
-
-  onDefenseChange (e) {
-    this.setState({defense: e.target.value});
-  },
-
-  onPokeTypeChange (e) {
-    this.setState({poke_type: e.target.value});
-  },
-
-  onMove1Change (e) {
-    this.setState({move_1: e.target.value});
-  },
-
-  onMove2Change (e) {
-    this.setState({move_2: e.target.value});
-  },
-
-  render () {
+  render: function () {
     return(
       <form className='new-pokemon' onSubmit={this.createPokemon}>
         <div>
@@ -73,8 +45,7 @@ module.exports = React.createClass({
           <input
             type='text'
             id='pokemon_name'
-            value={this.state.name}
-            onChange={this.onNameChange}
+            valueLink={this.linkState("name")}
           />
         </div>
 
@@ -83,18 +54,14 @@ module.exports = React.createClass({
           <input
             type='text'
             id='pokemon_image_url'
-            value={this.state.image_url}
-            onChange={this.onImageChange}
+            valueLink={this.linkState("image_url")}
           />
         </div>
 
         <div>
           <label htmlFor='pokemon_poke_type'>Type:</label>
-          <select className='type-selector'
-                  id='pokemon_poke_type'
-                  value={this.state.type}
-                  onChange={this.onPokeTypeChange}>
-            {window.pokemonTypes.map((type, i) => {
+          <select className='type-selector' id='pokemon_poke_type' valueLink={this.linkState("poke_type")}>
+            {window.pokemonTypes.map(function (type, i) {
               return <option value={type} key={i}>{type}</option>;
             })}
           </select>
@@ -105,8 +72,7 @@ module.exports = React.createClass({
           <input
             type='number'
             id='pokemon_attack'
-            value={this.state.attack}
-            onChange={this.onAttackChange}
+            valueLink={this.linkState("attack")}
           />
         </div>
 
@@ -115,8 +81,7 @@ module.exports = React.createClass({
           <input
             type='number'
             id='pokemon_defense'
-            value={this.state.defense}
-            onChange={this.onDefenseChange}
+            valueLink={this.linkState("defense")}
           />
         </div>
 
@@ -125,8 +90,7 @@ module.exports = React.createClass({
           <input
             type='text'
             id='pokemon_move_1'
-            value={this.state.move_1}
-            onChange={this.onMove1Change}
+            valueLink={this.linkState("move_1")}
           />
         </div>
 
@@ -135,8 +99,7 @@ module.exports = React.createClass({
           <input
             type='text'
             id='pokemon_move_2'
-            value={this.state.move_2}
-            onChange={this.onMove2Change}
+            valueLink={this.linkState("move_2")}
           />
         </div>
 

@@ -1,10 +1,10 @@
-const React = require('react');
-const PokemonForm = require('./pokemons/form');
-const PokemonIndex = require('./pokemons/index');
+var React = require('react');
+var PokemonForm = require('./pokemons/form');
+var PokemonIndex = require('./pokemons/index');
 
 module.exports = React.createClass({
 
-  render () {
+  render: function () {
     return(
       <div id="pokedex">
         <div className="pokemon-index-pane">

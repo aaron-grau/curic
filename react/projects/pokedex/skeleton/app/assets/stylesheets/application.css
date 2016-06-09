@@ -41,7 +41,6 @@ ul {
 #pokedex {
   /* height: 100%; */
   width: 100%;
-  height: 600px;
   background-color: mintcream;
   border: thin solid darkseagreen;
 }
@@ -55,7 +54,6 @@ ul {
 #pokedex > div {
   padding: 10px;
   height: 100%;
-  overflow-y: scroll;
 }
 
 #pokedex > div:nth-child(2) {
