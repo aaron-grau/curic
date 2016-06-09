@@ -2,7 +2,7 @@
 
 ## w7d1
 
-###Readings
+### Readings
 * [Intro to react][react-intro]
 * [My first component][first-component]
 * [Intro to JSX][react-jsx]
@@ -12,7 +12,7 @@
 * **Exercise:** [Getting Started with NPM and Webpack][npm-exercise] **(Do this over the weekend)**
 * [Using Git with NPM][npm-git]
 
-###Lecture
+### Lecture
 **Watch these before class and come prepared with questions.**
 
 The password is `go_video_go`
@@ -23,7 +23,7 @@ The password is `go_video_go`
 * :movie_camera: [Part 5 (Babel/Transpiling JSX)][lec-w7d1-05]
 * :movie_camera: [Part 6 (The Grand Demo)][lec-w7d1-06][:computer: demo source code][watch-demo]
 
-###Projects
+### Projects
 * [Getting Started with NPM and Webpack][npm-exercise] (This was in the readings, but do it again. The set up is tricky)
 * [Widgets!][react-widgets]
 * [Minesweeper][react-minesweeper]
