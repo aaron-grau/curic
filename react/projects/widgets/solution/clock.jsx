@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var Clock = React.createClass({
+const Clock = React.createClass({
   getInitialState: function () {
     return { time: new Date() };
   },
@@ -26,8 +26,8 @@ var Clock = React.createClass({
 });
 
 function toQueryString(obj) {
-  var parts = [];
-  for (var i in obj) {
+  let parts = [];
+  for (let i in obj) {
       if (obj.hasOwnProperty(i)) {
           parts.push(encodeURIComponent(i) + "=" + encodeURIComponent(obj[i]));
       }
@@ -35,7 +35,7 @@ function toQueryString(obj) {
   return parts.join("&");
 };
 
-var Weather = React.createClass({
+const Weather = React.createClass({
   getInitialState: function () {
     return {weather: null};
   },
@@ -45,23 +45,24 @@ var Weather = React.createClass({
   },
 
   pollWeather: function (location) {
-    var lat = location.coords.latitude;
-    var long = location.coords.longitude;
-    var url = "http://api.openweathermap.org/data/2.5/weather?";
-    var params = {
+    let lat = location.coords.latitude;
+    let long = location.coords.longitude;
+    let url = "http://api.openweathermap.org/data/2.5/weather?";
+    let params = {
       lat: location.coords.latitude,
       lon: location.coords.longitude
     };
     url += toQueryString(params)
-    url += "&APPID=YOUR_API_KEY_HERE"
+    const apiKey = "f816d7f39052e3a98b21952097a43076";
+    // This is our API key; please use your own!
+    url += `&APPID=${apiKey}`
 
-    var xmlhttp = new XMLHttpRequest();
-    var that = this;
-    xmlhttp.onreadystatechange = function () {
-      //ready state of means this is complete
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = () => {
+      //ready state of DONE means this is complete
       if (xmlhttp.status == 200 && xmlhttp.readyState == XMLHttpRequest.DONE) {
-        var data = JSON.parse(xmlhttp.responseText);
-        that.setState({ weather: data });
+        const data = JSON.parse(xmlhttp.responseText);
+        this.setState({ weather: data });
       }
     }
 
@@ -70,11 +71,11 @@ var Weather = React.createClass({
   },
 
   render: function () {
-    var content = "";
+    let content = "";
 
     if (this.state.weather) {
-      var weather = this.state.weather;
-      var temp = (weather.main.temp - 273.15) * 1.8 + 32;
+      let weather = this.state.weather;
+      let temp = (weather.main.temp - 273.15) * 1.8 + 32;
       content += weather.name + "\n";
       content += temp.toFixed(1)  + " degrees";
     } else {

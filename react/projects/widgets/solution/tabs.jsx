@@ -1,12 +1,11 @@
-var React = require('react');
+const React = require('react');
 
-var Headers = React.createClass({
+const Headers = React.createClass({
   render: function () {
-    var selected = this.props.selectedPane;
-    var that = this;
-    var headers = this.props.panes.map(function (pane, index) {
-      var title = pane.title;
-      var klass = ""
+    let selected = this.props.selectedPane;
+    let headers = this.props.panes.map((pane, index) => {
+      let title = pane.title;
+      let klass = ""
       if (index === selected) {
         klass = "active"
       }
@@ -15,7 +14,7 @@ var Headers = React.createClass({
         <span
           key={ index }
           className={klass}
-          onClick={that.props.onTabChosen.bind(null, index)}>
+          onClick={this.props.onTabChosen.bind(null, index)}>
           {title}{' '}
         </span>
       );
@@ -29,7 +28,7 @@ var Headers = React.createClass({
  }
 });
 
-var Tabs = React.createClass({
+const Tabs = React.createClass({
   getInitialState: function () {
     return {selectedPane: 0};
   },
@@ -37,7 +36,7 @@ var Tabs = React.createClass({
     this.setState({selectedPane: num});
   },
   render: function () {
-    var pane = this.props.panes[this.state.selectedPane];
+    let pane = this.props.panes[this.state.selectedPane];
 
     return (
       <div>
