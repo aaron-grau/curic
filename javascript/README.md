@@ -117,9 +117,9 @@
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
-* **Bonus**: [Promises][promises]
-* **Bonus**: [ES6 class syntax][es6-classes]
-* **Bonus**: [Tagging template literals][taggings]
+* **Bonus Reading**: [Promises][promises]
+* **Bonus Reading**: [ES6 class syntax][es6-classes]
+* **Bonus Reading**: [Tagging template literals][taggings]
 
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
@@ -222,8 +222,6 @@
 
 ## w6d2
 
-<!-- TODO set agenda for this day -->
-
 ### Assessment05 Practice
 * [Practice Assessment][assessment-prep]
 
@@ -270,7 +268,8 @@
     * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
 
 ### Projects
-  * [jQuery Tic-Tac-Toe and Towers of Hanoi][ttt-ui]
+  * [jQuery Towers of Hanoi][hanoi-jquery]
+  * [jQuery Tic Tac Toe][ttt-jquery]
   * **Bonus**: [Snake][snake-project]
 
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
@@ -283,7 +282,8 @@
 [jquery-docs]: http://api.jquery.com/
 [jquery-fundamentals]: http://jqfundamentals.com/
 
-[ttt-ui]: projects/ttt_jquery
+[hanoi-jquery]: projects/hanoi_jquery
+[ttt-jquery]: projects/ttt_jquery
 [snake-project]: projects/snake
 
 ## w6d4
