@@ -5,7 +5,7 @@
 function printChildren (parent, ...children) {
   console.log(`${parent}'s children are:`);
 
-  for(var i = 0; i < children.length; i++) {
+  for( let i = 0; i < children.length; i++ ) {
     console.log(children[i]);
   }
 }
@@ -16,7 +16,7 @@ function addThree (a, b, c) {
   return a + b + c;
 }
 
-var arr = [1,2,3];
+let arr = [1,2,3];
 
 addThree(...arr);
 
@@ -30,21 +30,15 @@ function dinnerTonightIs (food = "pizza") {
 
 // defining the function
 function sillyNames (names, callback) {
-  let sillyNames = names.map(function(name) {
-    return `Mx. ${name} Sillypants`;
-  });
-
+  let sillyNames = names.map(name => `Dr. ${name} Sillypants`);
   callback(sillyNames);
 };
 
 // invoking the function
-sillyNames(["Mary", "Kevin", "Leo"], function(names) {
-  names.forEach(function(name) {
-    console.log(name);
-  });
-});
 
-
+sillyNames(["Mary", "Brian", "Leo"], (names) => {
+  names.forEach(name => console.log(name));
+}
 
 // Constructors, Prototypes, and `this`
 
