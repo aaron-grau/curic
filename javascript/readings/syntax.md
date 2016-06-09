@@ -10,7 +10,7 @@ let x = 5; // expression
 
 function(){} // statement
 
-if (x ===5 ) {
+if (x === 5) {
   console.log("hello"); // expression
 }  // 'if' block is a statement
 ```
@@ -34,7 +34,7 @@ while (condition) {
 }
 
 // function definition
-function doIfTrue () {
+function doIfTrue() {
   // code block
 }
 
@@ -53,7 +53,7 @@ Use blocks to delineate the code within loops.
 ### `for` Loops
 
 ```js
-for (let i = 0 ; i < 10 ; i++){
+for (let i = 0; i < 10; i++) {
   // code block
 }
 ```
@@ -73,7 +73,7 @@ Skips the current iteration.
 
 ```javascript
 let result = [];
-for  ( let i = 1 ; i < 10 ; i++ )
+for (let i = 1; i < 10; i++) {
   if (i % 3 === 0) {
     continue;
   }
@@ -88,7 +88,7 @@ result; // [1,2,4,5,7,8]
 Exits the loop.
 ```js
 let result = [];
-for  ( let i = 1 ; i < 10 ; i++ )
+for (let i = 1 ;i < 10 ;i++) {
   if (i % 3 === 0) {
     break;
   }
@@ -102,15 +102,15 @@ result; // [1,2]
 ## `switch` statements
 
 ```js
-switch(expression) {
-case x:
-  // code block
-  break;
-case y:
-  // code block
-  break;
-default:
-  // code block
+switch (expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
 }
 ```
 
@@ -119,19 +119,19 @@ default:
 There are multiple ways to declare a function in Javascript.
 
 **Function-style**
-```javascript
-function nameOfFunction(arg1, arg2, arg3, argN){
+```js
+function nameOfFunction(arg1, arg2, arg3, argN) {
   //code block
 }
 ```
 **Expression-style**
-```javascript
-const nameOfFunction = function(arg1, arg2, arg3, argN){
+```js
+const nameOfFunction = function(arg1, arg2, arg3, argN) {
   //code block
 };
 ```
 **Fat Arrow-style (ES6)**
-```javascript
+```js
 const nameOfFunction = (arg1, arg2, arg3, argN) => {
   // code block
 };
@@ -152,14 +152,14 @@ Functions are called a bit differently in JavaScript than in Ruby. In Ruby, afte
 In Javascript, referencing the function name by itself will only return a pointer to the function; to execute it, you must invoke the function **with arguments**. If no arguments are required, this looks like `()` appended to the function name.
 
 ```javascript
-  function ReturnHello() {
+  function returnHello() {
     return "hello";
   }
 
-  ReturnHello ; //=> [Function: ReturnHello]
-                // (a pointer to the function)
+  returnHello; //=> [Function: ReturnHello]
+               // (a pointer to the function)
 
-  ReturnHello(); //=> "hello"
+  returnHello(); //=> "hello"
 ```
 
 ### No Implicit Returns
@@ -167,7 +167,7 @@ In Javascript, referencing the function name by itself will only return a pointe
 In JavaScript, **there is usually no implicit `return`**.
 
 ```javascript
-function returnHi(){
+function returnHi() {
   "hi";
 }
 
