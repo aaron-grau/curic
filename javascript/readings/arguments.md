@@ -55,7 +55,7 @@ This is infuriating: we can't use any of our favorite `Array` methods. We can, h
 
 function(){
   arguments instanceof Array; // false
-  let args = Array.slice.call(arguments);
+  let args = Array.prototype.slice.call(arguments);
   args instanceof Array; // true
 }
 ```
