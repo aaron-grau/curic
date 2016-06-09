@@ -37,10 +37,10 @@ that were anticipated in the function definition, plus the extras.
 ```javascript
 function logArguments(arg1, arg2) {
   let result = [];
-  for (var i = 0; i < arguments.length; i++) {
+  for (let i = 0; i < arguments.length; i++) {
     result.push(arguments[i]);
   }
-};
+}
 
 logArguments("boop", "candle", 3); // ["boop", "candle", 3]
 ```
@@ -52,8 +52,7 @@ with integers and has a `length` property.
 This is infuriating: we can't use any of our favorite `Array` methods. We can, however, use `Array#slice` to create a copy of `arguments` that is an array by calling it on `arguments`:
 
 ```javascript
-
-function(){
+function() {
   arguments instanceof Array; // false
   let args = Array.prototype.slice.call(arguments);
   args instanceof Array; // true
@@ -68,7 +67,7 @@ the `slice` method to work. Wow.
 If you thought the trick above was hacky, [Ecma International](https://en.wikipedia.org/wiki/Ecma_International) would agree. That's why ES6 includes a new method `Array#from`, that accomplishes the same thing as our trick above.
 
 ```js
-function(){
+function() {
   Array.from(arguments) instanceof Array; // true
 }
 ``` 
@@ -86,7 +85,7 @@ Let's write a quick example method that will start by logging the first argument
 
 ```javascript
 
-function oldWay (firstArg) {
+function oldWay(firstArg) {
   console.log(`The first arg is ${firstArg}!`);
 
   // We grab the arguments and call slice with 1 to eliminate the firstArg
@@ -98,7 +97,7 @@ function oldWay (firstArg) {
   });
 }
 
-function newWay (firstArg, ...otherArgs) {
+function newWay(firstArg, ...otherArgs) {
   console.log(`The first arg is ${firstArg}!`);
 
   console.log(`The other args are:`);
@@ -116,9 +115,8 @@ Rest arguments are often simpler to use than the old `arguments` keyword and are
 ES6 also allows us to use Spread Parameters, which is similar to the Ruby splat operator (`*`) for de-structuring parameters. We can now pass an array into a function with the `...` as shown below:
 
 ```javascript
-
-function madLib (verb, pluralNoun1, pluralNoun2, place) {
-  return `I like to ${verb} ${pluralNoun1} with ${pluralNoun2} by the ${place}.`
+function madLib(verb, pluralNoun1, pluralNoun2, place) {
+  return `I like to ${verb} ${pluralNoun1} with ${pluralNoun2} by the ${place}.`;
 }
 
 var words = ["eat", "socks", "rabbits", "sea"];
@@ -129,11 +127,9 @@ console.log(madLib(...words));
 We can de-structure arguments multiple times in a function call.
 
 ```javascript
-
-function myFunction(v, w, x, y, z) { }
-var args = [0, 1];
+const myFunction = (v, w, x, y, z) => { }
+const args = [0, 1];
 myFunction(-1, ...args, 2, ...[3]);
-
 ```
 
 ### Default Values
@@ -141,11 +137,10 @@ myFunction(-1, ...args, 2, ...[3]);
 Default values are new to ES6. We can now set default values in a way similar to Ruby.
 
 ```javascript
-
 function add(x, y = 17) {
-  // y is 12 if not passed (or passed as undefined)
+  // y is 17 if not passed (or passed as undefined)
   return x + y;
 }
-f(3) === 20;
 
+f(3) === 20;
 ```
