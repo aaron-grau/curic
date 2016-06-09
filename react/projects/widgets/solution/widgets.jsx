@@ -1,12 +1,12 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+const React = require('react');
+const ReactDOM = require('react-dom');
 
-var AutoComplete = require('./auto.jsx');
-var Clock = require('./clock.jsx').Clock;
-var Weather = require('./clock.jsx').Weather;
-var Tabs = require('./tabs.jsx');
+const AutoComplete = require('./auto.jsx');
+const Clock = require('./clock.jsx').Clock;
+const Weather = require('./clock.jsx').Weather;
+const Tabs = require('./tabs.jsx');
 
-var names = [
+const Names = [
   'Abba',
   'Barney',
   'Barbara',
@@ -17,20 +17,20 @@ var names = [
   'Xander'
 ];
 
-var panes = [
+const Panes = [
   {title: 'one', content: 'I am the first'},
   {title: 'two', content: 'Second pane here'},
   {title: 'three', content: 'Third pane here'}
 ];
 
-var MyComponent = React.createClass({
+const MyComponent = React.createClass({
   render: function () {
     return(
       <div>
-        <AutoComplete names={names} />
+        <AutoComplete names={Names} />
         <Clock />
         <Weather />
-        <Tabs panes={panes} />
+        <Tabs panes={Panes} />
       </div>
     );
   }
