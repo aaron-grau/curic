@@ -92,6 +92,8 @@ One note: JavaScript will raise a `SyntaxError` if you try to declare the same `
 
 For a more detailed description of `let`, please refer to the [MDN Documentation][mdn-let].
 
+[mdn-let]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+
 ## `const`
 
 `const` is a new feature in ES6.
