@@ -59,10 +59,10 @@ type conversion which can lead to confusing results. Learn more about it in *Eff
 
 ## Array Methods
 
-* `Array.prototype.pop`
-* `Array.prototype.push`
-* `Array.prototype.unshift`
-* `Array.prototype.shift`
-* `Array.prototype.indexOf`: similar to `Array#index` in Ruby, but returns -1 when it does not find an item. 
+* `Array#pop` ex. [1,2,3].pop() //=> 3
+* `Array#push` ex. [3,2,4].push(1) //=> 4 (length of array)
+* `Array#shift` ex. [1,2,3].shift() //=> 1
+* `Array#unshift` ex. [1,2,3].unshift(1) //=> 4 (length of array)
+* `Array#indexOf`: similar to `Array#index` in Ruby, but returns -1 when it does not find an item.
 * `[]`: bracket notation similar to Ruby.
-* `Array.prototype.slice([start, [end]])`: Makes a copy of an array from the start index up to but not including the end index. Both arguments are optional (the first and last elements are used by default).
+* `Array#slice([start, [end]])`: Makes a copy of an array from the start index up to but not including the end index. Both arguments are optional (the first and last elements are used by default).
