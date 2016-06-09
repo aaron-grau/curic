@@ -62,9 +62,9 @@ function() {
 Holy cow. This works because `arguments` is `Array`-like enough for
 the `slice` method to work. Wow.
 
-### `Array.prototype.from`
+### `Array.from`
 
-If you thought the trick above was hacky, [Ecma International](https://en.wikipedia.org/wiki/Ecma_International) would agree. That's why ES6 includes a new method `Array.prototype.from`, that accomplishes the same thing as our trick above.
+If you thought the trick above was hacky, [Ecma International](https://en.wikipedia.org/wiki/Ecma_International) would agree. That's why ES6 includes a new method `Array.from`, that accomplishes the same thing as our trick above.
 
 ```js
 function() {
