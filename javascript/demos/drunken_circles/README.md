@@ -7,6 +7,12 @@
 * [lib/game.js][game.js]
 
 [live-demo]: http://appacademy.github.io/DrunkenCircles/
-[index.html]: https://github.com/appacademy/DrunkenCircles/blob/gh-pages/index.html
-[circle.js]: https://github.com/appacademy/DrunkenCircles/blob/gh-pages/lib/circle.js
-[game.js]: https://github.com/appacademy/DrunkenCircles/blob/gh-pages/lib/game.js
+[index.html]: index.html
+[circle.js]: lib/circle.js
+[game.js]: lib/game.js
+
+## Instructions to Run Locally
+
+0. Navigate to the project directory in your terminal.
+0. `$ webpack lib/game.js bundle.js`
+0. `$ open index.html`

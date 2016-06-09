@@ -11,12 +11,12 @@ For example, lets say we had a React component that rendered a list of posts. We
 ```javascript
 // frontend/components/postIndex.js
 
-  var PostIndex = React.createClass({
-    getInitialState: function () {
+  const PostIndex = React.createClass({
+    getInitialState () {
       return { posts: [] };
     },
 
-    render: function () {
+    render () {
       return(
         <ul>
           {this.state.posts.map(function (post) {
@@ -34,11 +34,11 @@ We start our initial state with an empty array of posts, because we haven't fetc
 
 Now let's get our store set up to hold some posts once we fetch them. We'll keep them in a private variable so that the variable can only be edited via the store.
 
-Let's also write some utility functions so we read the contents of the store, or check for a specific post in the store. We should also write functions to add a post to the store, reset all of the posts, or remove a post. Some example code is included below.
+Let's also write some utility functions so we can read the contents of the store, or check for a specific post in the store. We should also write functions to add a post to the store, reset all of the posts, or remove a post. Some example code is included below.
 
 ```javascript
 // private variable where we will store posts
-var _posts = [];
+let _posts = [];
 
 PostStore.all = function () {
   // Gives us a copy of all the posts
@@ -47,7 +47,7 @@ PostStore.all = function () {
 
 PostStore.find = function (id) {
   // Allows us to get a single post
-  for (var i = 0; i < _posts.length; i++) {
+  for (let i = 0; i < _posts.length; i++) {
     if (_posts[i].id === id) {
       return _post;
     }
@@ -89,18 +89,18 @@ Great - so at this point we have a function that can fetch all of posts then add
 
 ```javascript
 // frontend/components/postIndex.js
-  var PostStore = require('../stores/postStore');
+  const PostStore = require('../stores/postStore');
 
-  var PostIndex = React.createClass({
-    getInitialState: function () {
+  const PostIndex = React.createClass({
+    getInitialState () {
       return { posts: [] };
     },
 
-    componentDidMount: function () {
+    componentDidMount () {
       PostStore.fetchPosts();
     },
 
-    render: function () {
+    render () {
       return(
         <ul>
           {this.state.posts.map(function (post) {
@@ -125,8 +125,8 @@ a) grab all the posts from the store and b) set our state to those posts. We wil
 // frontend/stores/postStore.js
 
 //...etc.
-_posts = [];
-_callbacks = [];
+let _posts = [];
+let _callbacks = [];
 
 PostStore.addListener = function (callback) {
   _callbacks.push(callback);
@@ -135,7 +135,7 @@ PostStore.addListener = function (callback) {
 PostStore.executeListeners = function () {
   // Call all the callbacks!!!
 
-  for (var i = 0; i < _callbacks.length; i++) {
+  for (let i = 0; i < _callbacks.length; i++) {
     _callbacks[i]();
   }
 };
@@ -158,9 +158,9 @@ And, in our component:
 
 ```javascript
 // frontend/components/postIndex.js
-  var PostStore = require('../stores/postStore');
+  const PostStore = require('../stores/postStore');
 
-  var PostIndex = React.createClass({
+  const PostIndex = React.createClass({
     getInitialState: function () {
       return { posts: [] };
     },
