@@ -59,6 +59,12 @@ body {
 
 /* Layout */
 
+.navbar {
+  width: 100%;
+  height: 40px;
+  background: grey;
+}
+
 .sidebar {
   float: left;
   height: 100%;
