@@ -39,7 +39,12 @@ p span.highlight {
 
 ```html
 <p>
-This is some text in a paragraph element. <span>This text has been styled bold because it is in a span element that's a child of a paragraph element.</span><span class="highlight">This text is yellow because the class selector overrides the tag selector when multiple style declarations apply to the same attribute (`color`) of the same element. It's still bold though!</span>
+This is some text in a paragraph element. 
+<span>This text has been styled bold because it is in a span element 
+that's a child of a paragraph element.</span>
+<span class="highlight">This text is yellow because the class selector overrides 
+the tag selector when multiple style declarations apply to the same attribute (`color`) of the same element. 
+It's still bold though!</span>
 </p>
 ```
 
@@ -61,7 +66,7 @@ h1 {
 
 Select children of elements by using a space between the names of parents and children.
 
-Example: Select all `<a>` elements that are children of `<li>` elements that are children of `<ul>` elements and remove all text-decoration.
+Example: Select all `<a>` elements that are descendants of `<li>` elements that are descendants of `<ul>` elements and remove all text-decoration.
 
 ``` css
 ul li a {
@@ -71,7 +76,7 @@ ul li a {
 
 **Class Selector**
 
-Classes group elements together for styling purposes. Classes are extremely popular in front-end development and are key to making our style code DRY.
+Classes group elements together for styling purposes. Classes are extremely popular in front-end development and are key to making our style code DRY. They are also helpful by making our stylesheets more readable.
 
 Reference a class selector with a `.`
 
