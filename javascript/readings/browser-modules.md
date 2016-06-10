@@ -16,13 +16,12 @@ document **must** list `animal.js` before `lion.js`.
 
 ```html
 <body>
-...
-
-<script src="zoo/animal.js"></script>
-<script src="zoo/lion.js"></script>
-<script src="app.js"></script>
+  ...
+  
+  <script src="zoo/animal.js"></script>
+  <script src="zoo/lion.js"></script>
+  <script src="app.js"></script>
 </body>
-</head>
 ```
 
 Unlike Node, where each file has its own global namespace, in the
