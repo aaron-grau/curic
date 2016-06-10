@@ -3,6 +3,10 @@
 Write a [chess game][wiki-chess] in an object-oriented way. **Please
 read all through the various phases before proceeding.**
 
+Review the [Chess UML][chess-uml] to get an overview of what you'll be creating.
+
+[chess-uml]: ../assets/Chess_Diagram.png
+
 Please split your program into multiple files. Use
 [require_relative](http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative)
 to load files. Make separate files for each class. Give files
