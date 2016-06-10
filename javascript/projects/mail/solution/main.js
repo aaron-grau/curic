@@ -10,6 +10,8 @@ let routes = {
   sent: Sent
 };
 
+
+//TODO Refactor
 document.addEventListener("DOMContentLoaded", () => {
   let content = document.querySelector(".content");
   router = new Router(content, routes);
