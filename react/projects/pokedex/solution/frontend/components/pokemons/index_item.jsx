@@ -1,16 +1,15 @@
-var React = require('react');
-
+const React = require('react');
 
 module.exports = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
 
-  showDetail: function () {
+  showDetail () {
     this.context.router.push('/pokemon/'+ this.props.pokemon.id);
   },
 
-  render: function () {
+  render () {
     return(
       <li onClick={this.showDetail} className="poke-list-item">
         <p>Name: {this.props.pokemon.name}</p>
