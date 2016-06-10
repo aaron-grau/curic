@@ -3,7 +3,7 @@
 Write a [chess game][wiki-chess] in an object-oriented way. **Please
 read all through the various phases before proceeding.**
 
-Review the [Chess UML][chess-uml] to get an overview of what you'll be creating.
+Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating.
 
 [chess-uml]: ../assets/Chess_Diagram.png
 
