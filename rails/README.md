@@ -234,6 +234,7 @@
 
 ### Additional Resources
 * **Bonus Topic:** [Decorators][decorators]
+* [Checkboxes and Id Setters Reference][checkboxes-id-setters]
 
 ### Projects
 * [RedditClone][reddit-clone]
@@ -246,6 +247,7 @@
 [19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
 [20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
 [decorators]: readings/decorators.md
+[readings]: readings/checkboxes.md
 [polymorphism-and-concerns-hw]: homeworks/questions/polymorphism-concerns/polymorphism-concerns.md
 
 [reddit-clone]: projects/reddit_on_rails
