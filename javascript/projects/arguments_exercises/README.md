@@ -126,9 +126,9 @@ Hint: `curriedSum(numArgs)` should:
 
 If you're confused, think of it this way: `_curriedSum` function keeps collecting arguments and returning itself until it has enough arguments, at which point it actually does the required work of summing.
 
-## `Function#curry`
+## `Function.prototype.curry`
 
-Write a method `Function#curry(numArgs)`. This should return a function that will:
+Write a method `Function.prototype.curry(numArgs)`. This should return a function that will:
 
 * Collect up arguments until there are `numArgs` of them,
 * If there are too few arguments still, it should return itself.
