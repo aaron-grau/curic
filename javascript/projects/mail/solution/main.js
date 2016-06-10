@@ -18,10 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   navItems.forEach(navItem => {
     navItem.addEventListener("click", () => {
       let name = navItem.innerText.toLowerCase();
-      let i = Math.max(1, window.location.href.indexOf("#"));
-      window.location.replace(
-        window.location.href.slice(0, i) + '#' + name
-      );
+      location.hash = name;
     });
   });
 });
