@@ -183,7 +183,7 @@
 
 ### Readings (85 min)
 * [Arguments][arguments] (10 min)
-* [Prototypal Inheritance exercises][prototypal-inheritance] (15 min)
+* [Prototypal Inheritance][prototypal-inheritance] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
 * [Effective JavaScript][effective-js]: Items 18-23, 30 (15 min)
 * [Modules in the Browser][browser-modules] (15 min)
