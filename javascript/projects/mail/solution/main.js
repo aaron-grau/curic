@@ -2,6 +2,7 @@ let Router = require("./router");
 let Compose = require("./Compose");
 let Inbox = require("./Inbox");
 let Sent = require("./Sent");
+
 let routes = {
   index: Compose,
   compose: Compose,
