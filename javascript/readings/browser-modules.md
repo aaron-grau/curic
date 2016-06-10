@@ -126,5 +126,4 @@ To do this, navigate to your app directory and run `webpack app.js bundle.js`. W
 Your html file would then have a script tag for the bundled file like:
 `<script src="bundle.js"></script>`
 
-Work through [this
-tutorial](http://webpack.github.io/docs/tutorials/getting-started/) up to 'The First Loader` to practice this.
+Work through tonight's homework to practice this!
