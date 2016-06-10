@@ -30,7 +30,7 @@ practice.
 
 ### Apply
 
-`Function#apply` takes two arguments: an object to bind `this` to, and
+`Function.prototype.apply` takes two arguments: an object to bind `this` to, and
 an array of arguments to be passed to the method `apply` is being
 called on. This is what it looks like:
 
@@ -59,7 +59,7 @@ be passed to the function, `greet`.
 
 ### Call
 
-`Function#call` is really similar to `apply`, but instead of taking in
+`Function.prototype.call` is really similar to `apply`, but instead of taking in
 an array of parameters, it takes them individually. For example:
 
 ```javascript
