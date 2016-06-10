@@ -61,7 +61,7 @@ function thisBreaks() {
 We can, however, use `Array#slice` to create a copy of `arguments` that is an
 array by calling it on `arguments`:
 
-```
+```javascript
 function thisWorks() {
   let args = Array.prototype.slice.call(arguments);  
   args instanceof Array; // true
@@ -79,7 +79,7 @@ International](https://en.wikipedia.org/wiki/Ecma_International) would agree.
 That's why ES6 includes a new method, `Array.from`, that accomplishes the same
 thing as our `Array.prototype.slice.call` trick above.
 
-```
+```javascript
 function thisWorksToo() {
   let args = Array.from(arguments);  
   args instanceof Array; // true
