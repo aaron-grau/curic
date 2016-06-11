@@ -55,12 +55,20 @@ sum([1, 3, 5]) // => 9
 We can use closures to pass down arguments to helper functions without explicitly listing them as arguments.
 
 ```javascript
+<<<<<<< HEAD
 function isAnagram(string){
   function reverse(){
     return string.split('').reverse().join('');
   }
 
   return string === reverse();
+=======
+function greetTenTimes(name) {
+  _.times(10, () => {
+    // captures `name` from outside.
+    console.log(`Hello, ${name}!`);
+  });
+>>>>>>> react-minesweeper-es6-swinter
 }
 ```
 
@@ -70,16 +78,26 @@ Another major use of closures is to create private state. For
 example:
 
 ```javascript
+<<<<<<< HEAD
 function Counter() {
+=======
+function makeCounter() {
+>>>>>>> react-minesweeper-es6-swinter
   let count = 1;
 
   return () => count++;
 }
 
+<<<<<<< HEAD
 let counter = new Counter();
 console.log(counter()); // => 1
 console.log(counter()); // => 2
 counter.count; // undefined
+=======
+const counterFn = makeCounter();
+console.log(counterFn()); // => 1
+console.log(counterFn()); // => 2
+>>>>>>> react-minesweeper-es6-swinter
 ```
 
 By **closing over** (or **capturing**) the `count` variable, the `Counter` functions has private, mutable state that cannot be accessed externally.
@@ -87,10 +105,12 @@ By **closing over** (or **capturing**) the `count` variable, the `Counter` funct
 Compare that implementation against this one:
 
 ```javascript
-function Counter () {
-  this._count = 0;
-}
+class Counter {
+  constructor() {
+    this._count = 0;
+  }
 
+<<<<<<< HEAD
 Counter.prototype.fire = function () {
   this._count += 1;
   return this._count;
@@ -101,6 +121,18 @@ counter.fire(); // 1
 counter.fire(); // 2
 counter._count // 2
 counter._count = 0 // 0 (this works);
+=======
+  fire() {
+    this._count += 1;
+    return this._count;
+  }
+}
+
+const counter = new Counter();
+counter.fire(); // => 1
+counter.fire(); // => 2
+
+>>>>>>> react-minesweeper-es6-swinter
 ```
 
 One advantage of the closure way is that the count is **truly
@@ -129,6 +161,7 @@ While useful on occasion, global variables are usually best avoided, as they giv
 ### `"use strict";`
 
 A common mistake new JS developers commit is to unintentionally create
+<<<<<<< HEAD
 global variables. This happens if you declare a variable without the `var`, `let`, or `const` keywords anywhere in your code, and can lead to strange behavior. Consider: 
 
 ```javascript
@@ -153,6 +186,24 @@ window.local; // undefined
 function subroutine(){
   local = 'oops'; 
 }
+=======
+global variables. This happens if you declare a variable without the
+`var`, `let`, or `const` keywords anywhere in your code, and can lead to strange behavior.
+Thankfully, modern JS runtimes support *strict mode*, a state in which
+the runtime disallows dangerous practices like declaring variables
+without `var`, `let`, or `const`.
+
+Simply place `"use strict";` at the start of your file or function,
+and Node or the browser will throw a helpful error whenever you forget
+`var`, `let`, or `const`:
+
+```javascript
+"use strict";
+const test = () => {
+  something = 'hello';
+  console.log(something);
+};
+>>>>>>> react-minesweeper-es6-swinter
 
 subroutine(); // ReferenceError: 'local' is not defined
 ```
