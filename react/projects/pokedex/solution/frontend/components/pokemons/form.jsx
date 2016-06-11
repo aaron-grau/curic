@@ -1,3 +1,4 @@
+'use strict';
 const React = require('react');
 const PokemonActions = require('../../actions/pokemon_actions.js');
 const HashHistory = require('react-router').hashHistory;
