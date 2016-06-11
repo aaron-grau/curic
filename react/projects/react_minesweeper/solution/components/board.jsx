@@ -28,7 +28,7 @@ const Board = React.createClass({
       }
       </div>
     );
-}
+  }
 });
 
 module.exports = Board;
