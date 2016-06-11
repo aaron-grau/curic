@@ -14,7 +14,7 @@ Tile.prototype.adjacentBombCount = function() {
     }
   });
   return bombCount;
-}
+};
 
 Tile.prototype.explore = function() {
   if (this.flagged || this.explored) {
@@ -28,7 +28,7 @@ Tile.prototype.explore = function() {
     });
   }
 
-}
+};
 
 Tile.prototype.neighbors = function() {
   const adjacentCoords = [];
@@ -40,11 +40,11 @@ Tile.prototype.neighbors = function() {
   });
 
   return adjacentCoords.map(coord => this.board.grid[coord[0]][coord[1]]);
-}
+};
 
 Tile.prototype.plantBomb = function() {
   this.bombed = true;
-}
+};
 
 Tile.prototype.toggleFlag = function() {
   if (!this.explored) {
@@ -53,7 +53,7 @@ Tile.prototype.toggleFlag = function() {
   }
 
   return false;
-}
+};
 
 
 Tile.DELTAS = [[-1, -1], [-1,  0], [-1,  1], [ 0, -1],
@@ -75,14 +75,14 @@ Board.prototype.generateBoard = function() {
       this.grid[i].push(tile);
     }
   }
-}
+};
 
 Board.prototype.onBoard = function(pos) {
   return (
     pos[0] >= 0 && pos[0] < this.gridSize &&
       pos[1] >= 0 && pos[1] < this.gridSize
   );
-}
+};
 
 Board.prototype.plantBombs = function() {
   let totalPlantedBombs = 0;
@@ -96,7 +96,7 @@ Board.prototype.plantBombs = function() {
       totalPlantedBombs++;
     }
   }
-}
+};
 
 Board.prototype.lost = function() {
   let lost = false;
@@ -108,7 +108,7 @@ Board.prototype.lost = function() {
     });
   });
   return lost;
-}
+};
 
 Board.prototype.won = function() {
   let won = true;
@@ -120,7 +120,7 @@ Board.prototype.won = function() {
     });
   });
   return won;
-}
+};
 
 module.exports = {
   Board: Board,
