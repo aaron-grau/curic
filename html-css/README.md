@@ -78,6 +78,7 @@ selector {
 ### Video (10 mins)
 
 + [CSS Syntax](https://vimeo.com/album/3732382/video/151185331)
++ [Inherit Property](https://vimeo.com/album/3732382/video/151190179)
 
 ### Exercise (10 mins)
 
@@ -117,7 +118,6 @@ The box model describes how space is calculated with CSS. This model combined wi
 + [Box Model](readings/box_model.md)
 + [Display Properties](readings/display.md) (Save Flex for day 5)
 
-
 ### Exercise (10 mins)
 
 + [Recipe Display](homeworks/display_box_model/exercise.md)
@@ -130,7 +130,8 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 ### Video (25 mins)
 
-+ [Floating Fluid Grid System](???)
++ [Floats & Clearfix](https://vimeo.com/album/3732382/video/151190182)
++ [CSS Grid System](???)
 + [Flexbox](???)
 
 ### Reading (10 mins)
@@ -142,11 +143,16 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 + [Fluid Flex Recipe](homeworks/float_fluid_flex/exercise.md)
 
+### Additional Resources
+
++ [Tic-Tac-Toe Float Demo](https://vimeo.com/album/3732382/video/151190183)
++ [Navbar Demo](https://vimeo.com/album/3732382/video/158975002)
+
 ## Positioning & Media Queries (Day 6)
 
 ### Video (25 mins)
 
-+ Coming Soon
++ [Positioning](https://vimeo.com/album/3732382/video/151190184)
 
 ### Reading (10 mins)
 
