@@ -4,7 +4,7 @@ _Everything_ rendered on the DOM is a box. Every `header`,
 `div`, and `article` (along with every other tag!) is a box. Every box
 has three major properties: `padding`, `border`, and `margin`.
 
-![Box Model](./images/box-model.png?raw=true)
+![Box Model](../assets/box_model.png?raw=true)
 
 The overall width of a box is given by `border-left + border-right +
 padding-left + padding-right + content`, where `content` is the inner
