@@ -1,3 +1,5 @@
+'use strict';
+
 const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher.js');
 const PokemonConstants = require('../constants/pokemon_constants.js');
@@ -19,7 +21,9 @@ const resetPokemon = function (pokemon) {
 PokemonStore.all = function () {
   const pokemons = [];
   for (let id in _pokemons) {
-    pokemons.push(_pokemons[id]);
+    if (_pokemons.hasOwnProperty(id)) {
+      pokemons.push(_pokemons[id]);
+    }
   }
   return pokemons;
 };

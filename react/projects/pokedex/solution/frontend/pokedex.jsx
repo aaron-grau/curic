@@ -1,3 +1,5 @@
+'use strict';
+
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 
 const React = require('react');

@@ -1,3 +1,4 @@
+'use strict';
 const ApiUtil = require('../util/api_util.js');
 const PokemonActions = require('./pokemon_actions.js');
 const Dispatcher = require('../dispatcher/dispatcher.js');

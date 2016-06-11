@@ -1,3 +1,4 @@
+'use strict';
 const React = require('react');
 const ToyIndexItem = require('./index_item.jsx');
 

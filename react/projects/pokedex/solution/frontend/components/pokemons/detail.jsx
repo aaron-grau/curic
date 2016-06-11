@@ -1,3 +1,4 @@
+'use strict';
 const React = require('react');
 const PokemonStore = require('../../stores/pokemon.js');
 const ToysIndex = require('../toys/index.jsx');
