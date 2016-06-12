@@ -27,7 +27,7 @@ Lorem ipsum dolor sit <strong>amet, consectetur</strong> adipisicing elit, sed d
 
 This produces:
 
-![Inline](./images/inline-padding.png?raw=true)
+![Inline](../assets/images/inline-padding.png?raw=true)
 
 These properties only push away other elements
 horizontally, not vertically. You cannot specify `height` and `width`
@@ -59,7 +59,7 @@ Lorem ipsum dolor sit <strong>amet, consectetur</strong> adipisicing elit, sed d
 
 This produces:
 
-![Block](./images/block-padding.png?raw=true)
+![Block](../assets/images/block-padding.png?raw=true)
 
 ### Demo
 
@@ -101,7 +101,7 @@ Lorem ipsum dolor sit <strong>amet, consectetur</strong> adipisicing elit, sed d
 
 This produces:
 
-![Inline Block](./images/inline-block.png?raw=true)
+![Inline Block](../assets/images/inline-block.png?raw=true)
 
 ### Demo
 
