@@ -131,8 +131,8 @@ The box model describes how space is calculated with CSS. This model combined wi
 ### Video (25 mins)
 
 + [Floats & Clearfix](https://vimeo.com/album/3732382/video/151190182)
-+ [CSS Grid System](???)
-+ [Flexbox](???)
++ [CSS Grid System](https://vimeo.com/170320160)
++ [Flexbox](https://vimeo.com/170512344)
 
 ### Reading (10 mins)
 
@@ -153,14 +153,16 @@ The box model describes how space is calculated with CSS. This model combined wi
 ### Video (25 mins)
 
 + [Positioning](https://vimeo.com/album/3732382/video/151190184)
++ [Glasses Demo](https://vimeo.com/album/3732382/video/151190185)
 
 ### Reading (10 mins)
 
-+ Coming Soon
++ [Positioning](readings/positioning.md)
++ [Responsive Design & Media Queries](readings/responsive_design.md)
 
 ### Exercise (10 mins)
 
-+ Coming soon
++ [Hamburger Icon](homeworks/positioning_media_queries/exercise.md)
 
 ## Bonus Materials
 
@@ -168,8 +170,6 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 [Bootstrap][bootstrap]
 [SASS][sass]
-[Responsive Design][responsive]
 
 [bootstrap]: readings/bootstrap.md
 [sass]: readings/sass.md
-[responsive]: readings/responsive_design.md

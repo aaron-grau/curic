@@ -117,3 +117,45 @@ label {
     display: block;
 }
 
+/* Hamburger Icon */
+
+.hamburger-dropdown {
+  display: none;
+}
+
+@media all and (max-width: 900px) {
+  nav ul {
+    display: none;
+  }
+  .hamburger-dropdown {
+    display: block;
+  }
+  .hamburger {
+    background: url(https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png);
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    width: 50px;
+    height:50px;
+    position: relative;
+    cursor: pointer;
+  }
+  .hamburger-dropdown ul {
+    position: absolute;
+    top: 50px;
+    left: -15px;
+    flex-direction: column;
+    visibility: none;
+  }
+  /* This is how we make pure css dropdowns! */
+  .hamburger-dropdown:hover ul {
+    display: flex;
+  }
+
+  .hamburger-dropdown ul li {
+    background: gainsboro;
+  }
+
+};
+
+
+
