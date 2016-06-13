@@ -67,8 +67,10 @@ as its only argument.
   * This should be an object where the key is the `benchID` and the
     value is the `bench` object.
 * Write a `BenchStore.all` function that returns a copy of the `_benches` object.
-* Write a `reset` function that receives a `benches` argument and sets
-`_benches` to `benches`. `BenchStore` should close over this function.
+* Write a `resetAllBenches` function that receives a `benches` argument and sets
+`_benches` to `benches`. `BenchStore` should close over this function. Closure 
+lets us keep the method private and prevents components from bypassing our flux 
+loop.
 
 Your `BenchStore` should look something like this: 
 
@@ -177,8 +179,9 @@ module.exports = BenchActions;
 We want the `BenchStore` to update itself whenever we call our `BenchActions`, which we can accomplish through `BenchStore.__onDispatch`.
 
 * Define `BenchStore.__onDispatch`; it should take a single `payload` argument.
-* Write a `switch` statement that listens for `payload.actionType`.
-* When `payload.ActionType` equals `BenchConstants.BENCHES_RECEIVED, call 
+* In the function body, write a `switch` statement that listens for `
+payload.actionType`.
+* When `payload.ActionType` equals `BenchConstants.BENCHES_RECEIVED, call `resetAllBenches` with `payload.benches`.
 
 ```javascript
 //stores/bench.js
@@ -187,132 +190,144 @@ We want the `BenchStore` to update itself whenever we call our `BenchActions`, w
   BenchStore.__onDispatch = function(payload) {
     switch(payload.actionType) {
       case BenchConstants.BENCHES_RECEIVED:
-        resetBenches(payload.benches);
+        resetAllBenches(payload.benches);
         break;
     }
   };
 
 ```
+Let's do one final test before moving on.
+* Assign `window.BenchActions` in `bench_bnb.jsx`.
+* In the console, call `BenchActions.fetchAllBenches()`, then `BenchStore.all()`.
+* `BenchStore.all()` should return the benches in your DB.
+* Remove all your global testing variables before moving on.
 
-* Finally we should be able to test this thing. In the console, call
-  `BenchActions.fetchAllBenches()`. Then, `BenchStore.all()`. If it returns an
-  object containing all the benches in the database we have won.
-* Make sure that everything is working before moving on
-* Once you've tested that it works, remove the lines from the BenchStore and
-  ApiUtil that exported them to the window.
+## Phase 3: `BenchIndex`: Our First React Component
 
-![the story so far](../../assets/api_store_diagram.png)
+### Emitting Events from the Store
+* When the contents of the `BenchStore` change, we need to inform all interested components that the `BenchStore` has changed. Add a call to `BenchStore.__emitChange` in `resetAllBenches`.
 
-## Phase 3: Our First React Component
-
-#### Emitting Events from the Store
-* Return to our store, when the contents of the `BenchStore` change,
-  we need to inform all interested parties that the `BenchStore` has changed.
 ```javascript
 //stores/bench.js
-  BenchStore.__onDispatch = function (payload) {
-   switch(payload.actionType) {
-     case BenchConstants.BENCHES_RECEIVED:
-       resetBenches(payload.benches);
-       BenchStore.__emitChange();
-       break;
-    }
-  };
+resetAllBenches(benches){
+  _benches = benches;
+  BenchStore.__emitChange();
+}
 ```
-
 Since our BenchStore is an instance of the `Flux/Utils` Store we have access to
-the `addListener` method which will add a callback function to be invoked when
+the `addListener` method which registers a callback function to be invoked when
 the store runs `__emitChange()`;
 
-#### React Component
-* Make an `Index` React component
+### React Component
+
+Let's render a component that shows our benches.
+
+* Make a `BenchIndex` React component
 * In `bench_bnb.jsx`, add a `ReactDOM.render` call that creates the
   `Index` and places it into the `#content` div
 * Give it an initial state of `{ benches: BenchStore.all() }`
 * As part of the `componentDidMount` lifecycle method, let's do two things:
-  * Register a listener on the `BenchStore` using it's new `addListener` function.
-    When the store changes, update the state.
+  * Register a listener on the `BenchStore` using its `addListener` function. The listener function should `setState` on the `BenchIndex` and update its benches.
   * Call `BenchActions#fetchAllBenches`. It should look like:
 
   ```javascript
+  const BenchIndex = React.createClass({
+    getInitialState(){
+      // get the benches from benchstore
+    },
     componentDidMount(){
       BenchStore.addEventListener(this._handleChange);
       BenchActions.fetchAllBenches();
+    },
+    _handleChange(){
+      // reset the benches state
     }
+  })
   ```
 
 * Here's the summary:
-  * The index component calls our client-side action-creator.
-  * `BenchActions` calls the `ApiUtil`, which fetches bench data.
-  * `ApiUtil` then invokes the callback on `BenchActions`, which triggers a dispatch.
-  * The dispatcher hits the `BenchStore`, which should cause the store to emit a change.
-  * When the store changes, our `Index` component's callback function is triggered, which should set the state of our `Index` component.
-  * When the `Index` component's state changes, it re-renders. Phew!
+  * The `BenchIndex` component calls our client-side action-creator, 
+  `BenchActions.fetchAllBenches`.
+  * `BenchActions.fetchAllBenches` calls the `BenchesApiUtil`, which fetches bench data, passing it `BenchActions.receiveAllBenches` as a callback.
+  * `BenchesApiUtil` then invokes the callback on `BenchActions`, which triggers a dispatch.
+  * The dispatcher hits the `BenchStore`, which should cause the store to update its `_benches` and `__emitChange()`.
+  * When the store emits change, our `BenchIndex` component's callback function is triggered, which should reseset the state of our `BenchIndex` component.
+  * When the `BenchIndex` component's state changes, it re-renders. Phew!
 
 ## Phase 4: The Map
-* Create a new React component, `Map`
-* Its `render` function should return a `div` with class `map` and `ref`
-  `map`
-* In the `css` file, make sure to set the `width` and `height` of the
-  `.map` to `500px`
-* Read [the google maps documentation][google-map-doc]
-* Get a new API key for a JavaScript Google Map
-* Add a script tag including your API key to your `application.html.erb`
+
+Now we're going to add a map alongside our index to visually convey our bench 
+information.
+
+### Create a `BenchMap` component.
+
+* Create a new React component, `BenchMap`.
+* Its `render` function should return a `div` with `className='map'` and 
+`ref='map'`.
+* In the `application.css` file, make sure to set the `width` and `height` of the
+`.map` to `500px`
+
+### Create a parent component: `Search`
+
+* Create a new React component, `Search`
+* `Search` should render a `div` with a `BenchMap` and `BenchIndex` as children
+* In `bench_bnb.jsx` render a `Search` component instead of `BenchIndex`
+  at the root. This should cause the `Map` to be rendered into the page.
+* Verify that your `Search` component contains both the `BenchIndex` and `BenchMap` before moving on.
+
+### Attach a Google Map to `BenchMap`.
+* Read [the google maps documentation][google-map-doc].
+* Get a new API key for a JavaScript Google Map.
+* Add a script tag (including your API key) to your `application.html.erb`
   * When including the google script tag, be sure to put it above `yield` and
     remove the `async defer` bit. This way, the script will load synchronously
     so it's guaranteed to be defined when the rest of your page loads.
-* Create a new React component, `Search`
-* `Search` should render a `div` with a `Map` and `Index` as children
-* In `bench_bnb.jsx` render a `Search` component instead of `Index`
-  at the root. This should cause the `Map` to be rendered into the page
-* When the `Map` component mounts, instantiate the map as follows
-* We will just use the default location of San Francisco instead of
-  trying to geolocate
-
+* When the `Map` component mounts, instantiate the map as follows: 
 ```javascript
-    //components/map.jsx
+    BenchMap = React.createClass({
     //...
     componentDidMount(){
-      const map = ReactDOM.findDOMNode(this.refs.map);
+      const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
       const mapOptions = {
-        center: {lat: 37.7758, lng: -122.435},
+        center: {lat: 37.7758, lng: -122.435}, // this is SF
         zoom: 13
       };
       this.map = new google.maps.Map(mapDOMNode, mapOptions);
     },
+    //...
 ```
 
-* This should cause a genuine Google Map to be rendered to the screen.  If
-  you have API key issues, you may need to enable the Google Maps JavaScript
-  API key.
+This should cause a genuine Google Map to be rendered to the screen.
 
 ## Phase 5: Markers on the Map
-* When the `Map` component is mounted, register an event listener on
-  change of the `BenchStore`
-* Read about [map markers here][map-markers]
-* When the event occurs, create markers for every bench in the array
-* Move on when all your benches are represented by markers on the map
+
+We're now going to implement map markers for our benches. Read the documentation 
+on [map markers][map-markers] before continuing.
+
+* When the `BenchMap` component is mounted, register an event listener on
+  change of the `BenchStore`.
+* When the event occurs, create markers for every bench in the array.
+* Confirm that your bench markers appear on your map. Nice!
 * One last change: since it doesn't make sense to fetch any markers from
-  the API until we know where the map is, move the
-  `BenchActions.fetchAllBenches` from the `Index` to the idle event of the map
-   [read this documentation][event-doc] to learn about Google Map events
-* If everything still works, move on to the next phase
+  the API until we know where the map is, move the `BenchActions.fetchAllBenches` 
+  from the `Index` to the `idle` event of the map. 
+  [Read this documentation][event-doc] to learn about Google Map events.
 
 ## Phase 6: Filtering by Map Location
 
-* When the map idles, we are going to use its current bounds to request
-  only benches within the map bounds
-* First, let's prepare the back end to search by bounds
+When the map idles, we are going to use its current bounds to request only
+benches within the map bounds. First, let's prepare the back end to search by
+bounds.
 
 ### Back End Prep
 
-* I wrote an `Bench.in_bounds` method that returned all the benches that
-  were within the boundaries specified by the argument.
+* On your `Bench` model, Write a `Bench.in_bounds` method that returns all the 
+benches that are within the boundaries specified by the argument. See the example below for what arguments to expect.
 
 ```ruby
 #...
   def self.in_bounds(bounds)
-  # bounds in the following format:
+  # google map bounds will be in the following format:
   # {
   #   "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
   #   "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
@@ -323,41 +338,40 @@ the store runs `__emitChange()`;
 ```
 
 * In the controller, we can expect that these boundaries will be passed
-  in as a query string and therefore available in the `params` hash
-* Instead of rendering `Bench.all` we can instead use
-  `Bench.in_bounds(params[:bounds])`
+  in as a query string and therefore available in the `params` hash.
+* Instead of rendering `Bench.all` in our `index` action,  we can instead use
+  `Bench.in_bounds(params[:bounds])`.
 
 ### Sending the Correct Params
-* So now our back end is expecting a `GET` request to the `index`
-  including a query string, so we must now furnish this request
-* Return to our map `idle` event handler. Call `getBounds` on the map
+
+We now need to write a front-end request conforming to your new API hook.
+Your API is expecting a `GET` request to the bench `index` with a query string containing 'bounds'.
+
+* Return to your map `idle` event handler. Call `getBounds` on the map
   instance to get a `LatLngBounds` instance. Call `getNorthEast` and
   `getSouthWest` to get these coordinate pairs. Get their latitude and
-  longitude and format these coordinates into exactly the format our back
-  end is expecting. Check [this documentation][lat-lng-docs] for more
+  longitude and format these coordinates into exactly the format your API is 
+  expecting. Check [this documentation][lat-lng-docs] for more
   info.
-* Now, armed with an object containing the current bounds of the map, we
-  can use this object in our AJAX call
-* Pass this bounds object we have created as an argument to
-  `ApiUtil.fetchAllBenches`. Inside `fetchAllBenches` we can now pass this
-  argument to our AJAX call so it can be used as a query string
-* Verify that when the map moves the correct request including the query
-  string is being sent to the server, and the server is responding with
-  the correct benches. The `Index` React component should be correctly
-  updating with `benches` being added and removed as the map is dragged
+* Package these coordinates into a `bounds` object.
+* Pass`bounds`to `ApiUtil.fetchAllBenches`. Inside`fetchAllBenches`, pass it to 
+  your AJAX call as `data`.
+* Verify that, when the map moves, you are sending a properly `bound` request and 
+  receiving the right benches in response. 
+* Moving your map around should now trigger updates to your `BenchStore` and `BenchIndex`. Verify this before moving on to updating your markers.
 
 ### Adding and Removing Markers
-* So the map move causes the store to emit a change event, but the map
-  needs special treatment. When we detect that the contents of the store
-  have changed, we should find out if any markers need to be added or
-  removed.
-* When a change event occurs, figure out which benches in the store have
-  markers representing them on the map. Those without markers should
-  have markers created and added. Markers for benches NOT in the store
-  should be removed.
-* This is expected to be a somewhat difficult problem
-* When the only markers on the map are those appearing in the index, you
-  may move on
+
+Moving your map should trigger changes in your store. However, our implementation
+as it stands won't update map markers correctly without a little modification.
+
+Recall that, every time the map idles, we add new markers for every bench in the store. This has two problems: 
+  0. If a bench was already in the store, a new, extraneous marker is added.
+  0. If a bench that was in the store moved out of bounds, its marker still lives on.
+
+Update your listener so that, as `BenchStore` changes, `BenchMap` only adds markers for new benches and removes them for benches that have left the map bounds.
+
+Note: If your benches are flickering when you move the map, you're probably removing too many markers, and if out-of-bounds benches seem to be appearing before you've `idled`, you're probably not removing enough!
 
 ![map bounds diagram](assets/map_idle_diagram.png)
 

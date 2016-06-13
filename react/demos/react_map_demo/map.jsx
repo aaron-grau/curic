@@ -69,7 +69,7 @@ const Map = React.createClass({
     return (
       <div>
         <span>MAP DEMO</span>
-        <div id="map" ref='map'/>
+        <div id='map' ref='map'/>
         <p>
           Hey! Here are a few good burrito places in SF. Click on them
           to find their name. Move the map and check the console to see
