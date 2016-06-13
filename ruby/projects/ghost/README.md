@@ -56,7 +56,7 @@ keep things clean:
 I wrote `initialize`, `guess`, and `alert_invalid_guess` methods. You'll
 probably want each `Player` to have a `name`, as well.
 
-[ghost-dictionary]: ./ghost-dictionary.txt
+[ghost-dictionary]: ./dictionary.txt
 
 ## Phase 2: Playing a Full Game
 
