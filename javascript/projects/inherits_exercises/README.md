@@ -24,7 +24,7 @@ function Asteroid () {};
 Asteroid.inherits(MovingObject);
 ```
 
-How would you test `Function#inherits`? A few specs to consider:
+How would you test `Function.prototype.inherits`? A few specs to consider:
 
 * You should be able to define methods/attributes on `MovingObject`
    that ship and asteroid instances can use.
