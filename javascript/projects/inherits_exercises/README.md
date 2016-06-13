@@ -37,4 +37,4 @@ How would you test `Function#inherits`? A few specs to consider:
 
 After you have written this, you may look up [our answer][inherits-answer] so you can use it (in a slightly modified format) for Asteroids.
 
-[inherits-answer]: ../projects/inherits_exercises/solution/inherits.js
+[inherits-answer]: ../inherits_exercises/solution/inherits.js
