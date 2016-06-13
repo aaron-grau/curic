@@ -1,6 +1,6 @@
 let messages = [
-  "Check this out",
-  "Free candy"
+  {to: "friend@mail.com", subject: "Check this out"},
+  {to: "person@mail.com", subject: "zzz"}
 ];
 module.exports = {
   // render: function () {
@@ -21,10 +21,9 @@ module.exports = {
   },
   render: function() {
     let container = document.createElement("ul");
-
     messages.forEach(message => {
       let messageEl = document.createElement("li");
-      messageEl.innerText = message;
+      messageEl.innerHTML = `<strong>To:</strong> ${message.to} <strong>Subject:</strong> ${message.subject}`;
       container.appendChild(messageEl);
     });
     return container;
