@@ -1,114 +1,126 @@
 # Bench BnB
 
 ## Setup Checklist
-Feel free to use the master checklist for reference during Bench BnB and during your final project.
+Refer to [the master checklist][checklist] during Bench BnB and your final project.
 
-* [Checklist](../../readings/checklist.md)
+[checklist]: ../../readings/checklist.md
 
 ## Phase 0: Rails Backend
 * Create a new rails project using Postgres and **skipping Turbolinks.**
 * Make a `Bench` model with `description`, `lat` and `lng`
 * `lat` and `lng` should be of type `float`
-* Make a JSON api for this resource, it will need `index` and `create`
-* Make some seed data with real coordinates in SF using
-  `seeds.rb`
+* Make a JSON API for this resource, it will need `index` and `create`
+* Populate `seeds.rb` with bench seed data using [real coordinates in SF][maps-sf] (click around to get coordinates).
+* Boot up your server and open your app in the browser. Test your API in the console using `$.ajax` calls (Hint: you may want to save these calls for later).
+
+[maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
 
 ## Phase 1: Flux Structure
-* Create a frontend folder at the root of your project to contain your frontend
-  code
+
+* Make a `StaticPagesController`, have it serve a `root` view with a `<div
+id="content"/>`.
+
+* Update `routes.rb` to `root` to `"Staticpages#root"`.
+* Create a `/frontend` folder at the root directory of your project to hold your
+frontend:
+
+  ```
+  frontend
+    + actions
+    + components
+    + constants
+    + dispatcher
+    + stores
+    + util
+    bench_bnb.jsx
+  ```
 * `npm install --save react react-dom flux`
-* Make a `StaticPagesController`, have it serve a root view with a
-  `#content` `div`
+* setup `bench_bnb.jsx` to render your app into the `#content` `div`..
+* Test this rendering setup before moving on.
+* Create the dispatcher file that exports a Dispatcher singleton: 
 
-```
-frontend
-  + actions
-  + components // all React components, both views and controller-views
-  + constants
-  + dispatcher
-  + stores
-  + util
-  bench_bnb.jsx
-```
-* Create the folders such that your assets folder resembles the diagram
-  above
-* These folders will store all of our front end goodies
-* Create the dispatcher file as follows:
-
-```javascript
-//dispatcher/dispatcher.js
-const Dispatcher = require('flux').dispatcher;
-module.exports = new Dispatcher();
-```
-* This file will now create and export a new Dispatcher
+  ```javascript
+  //dispatcher/dispatcher.js
+  const Dispatcher = require('flux').dispatcher;
+  module.exports = new Dispatcher();
+  ```
 
 ## Phase 2: The Bench Store and Web API
-#### Bench Store
-* We will now start building the pieces necessary for us to display a
-  basic benches index using React components
-* Start by making a BenchStore
-* This object should provide access to all the client side benches
-* Make a local variable, \_benches, that will hold all of our bench objects.
-  * This should be a javascript object, where the key is the benchID and the
-    value is the bench object
 
+In this phase, you will build the pieces necessary to display a basic index of benches. Refer to the [Flux Utils Docs][flux-docs] as necessary for this section.
+
+[flux-docs]: https://facebook.github.io/flux/docs/flux-utils.html#content
+
+### Bench Store
+
+* create `//stores/BenchStore.js` that exports a `BenchStore`.
+* `BenchStore` should be a `new Store` that accepts your `AppDispatcher` singleton
+as its only argument.
+  *  This tells the `BenchStore` to listen to `AppDispatcher` for dispatches.
+* `BenchStore` will provide access to all the client side benches.
+* Use a local variable, `_benches` , to hold your benches.
+  * This should be an object where the key is the `benchID` and the
+    value is the `bench` object.
+* Write a `BenchStore.all` function that returns a copy of the `_benches` object.
+  * Don't worry about receiving and storing new benches yet; we'll get there in a minute. 
+
+Your `BenchStore` should look something like this: 
 
 ```javascript
-//stores/bench.js
+// stores/bench.js
 const Store = require('flux/utils').store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 let _benches = {};
 const BenchStore = new Store(AppDispatcher);
 
-window.BenchStore = BenchStore; //Just for testing
-
 BenchStore.all = function () {
-  return Object.assign({}, _benches);
+  // return a copy of `_benches` using `Object.assign`
 };
 
 module.exports = BenchStore;
 ```
-We require the `Store` class from the `flux` npm module and then create a new
-store by passing in our `AppDispatcher`. This links the store to the dispatcher
-so it will receive actions that are dispatched.
 
-[Flux Utils Docs](https://facebook.github.io/flux/docs/flux-utils.html#content)
+Assign `window.BenchStore` to your `BenchStore` in `bench_bnb.jsx`. This exports
+the `BenchStore` to the `window` so we can test it in the console before we get
+to our components.
 
-* All this store can do is return all the benches it currently contains
-* We are going to temporarily export the BenchStore to the window so we can test
-  it in the console before we get our components working
+### Api Utility
 
-#### Api Utility
-* Next, lets make a utility file, `bench_api_util.js` to help us populate this store with
-  content from the server
+Create a `\util\` file, `bench_api_util.js` that exports a `BenchApiUtil` object 
+that can `fetchAllBenches` from your API using `$.ajax`. `fetchAllBenches` should
+take one argument, the `success` callback to invoke.
 
+Your `BenchApiUtil` should look something like this.
 ```javascript
-//util/bench_api_util.js
-ApiUtil = {
-  fetchAllBenches(success){
-    //make an api call using AJAX in here
+// util/bench_api_util.js
+BenchApiUtil = {
+  fetchAllBenches(successCb){
+    $.ajax({
+      url: //,
+      method: // ,
+      success: function(response){
+        // invoke the `successCb` callback
+      }
+    })
   }
 }
 
-window.ApiUtil = ApiUtil; //Just for testing
-
-module.exports = ApiUtil;
+module.exports = BenchApiUtil;
 ```
 
-* The success callback of the AJAX will contain all the bench objects,
-  but how do we insert them into our store? Refer to [the flux diagram][flux-diagram].
+* Add `window.BenchApiUtil` to `bench_bnb.jsx` for testing. Test that 
+`fetchAllBenches` can get your seed data and call its `successCb` with it.
 
-
-* As we can see, the only thing that can change a store is the
-  Dispatcher, and the way the Dispatcher interacts with the store is
-  through actions
-
+The success callback of the AJAX will contain all the bench objects, but how
+do we insert them into our store? Refer to [the flux diagram][flux-diagram]. As
+we can see, the only thing that can change a store is the `AppDispatcher`, and the
+way the `AppDispatcher` interacts with the store is through actions.
 
 #### Actions
 
 ##### Constants
-* Before we can create an action we need a constant to name the action
-* Constants are important because they ensure we see error messages if we ever
+* Before we can create an action we need a constant to name the action.
+* Constants are important because they ensure that we see error messages if we ever
   misspell an action type.
 * Create a new file, `constants/bench_constants.js`
 
