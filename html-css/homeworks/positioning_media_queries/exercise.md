@@ -19,4 +19,4 @@ Use your latest html recipe page with the latest external stylesheet and update 
  }
 ```
     
-Compare your results to [this example](./example.html), [this stylesheet](../../assets/positioning_media_queries.css).
+Compare your results to [this example](./example.html), [this stylesheet](../../assets/positioning_media_queries.css). [Live version here](http://appacademy.github.io/curriculum/positioning_media_queries.html).
