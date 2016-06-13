@@ -58,8 +58,8 @@ function thisBreaks() {
 }
 ```
 
-We can, however, use `Array#slice` to create a copy of `arguments` that is an
-array by calling it on `arguments`:
+We can, however, use `Array.prototype.slice` to create a copy of `arguments` 
+that is an array by `call`ing it on `arguments`:
 
 ```javascript
 function thisWorks() {
@@ -103,7 +103,6 @@ Let's write a quick example method that will start by logging the first
 argument, followed by a list of the remaining arguments.
 
 ```javascript
-
 function argumentsWay(firstArg) {
   console.log(`The first arg is ${firstArg}!`);
 
@@ -134,8 +133,9 @@ understand both forms of grabbing arguments.
 
 ### Spread Parameters
 
-ES6 also allows us to use Spread Parameters, which is the Ruby splat for de-structuring parameters. We can now pass an array into a
-function with the `...` as shown below:
+ES6 also allows us to use Spread Parameters, which is the Ruby splat for 
+de-structuring parameters. We can now pass an array into a function with the `...` 
+as shown below:
 
 ```javascript
 function madLib(verb, pluralNoun1, pluralNoun2, place) {
