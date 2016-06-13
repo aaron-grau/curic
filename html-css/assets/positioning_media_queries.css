@@ -4,6 +4,205 @@ body {
   background-color: #FEFFF1;
 }
 
+
+h1 {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  font-size: 38px;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  margin-bottom: 10px;
+
+}
+
+
+h2 {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  font-size: 32px;
+
+}
+
+
+ul li a, figcaption a {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  text-decoration: none;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  color: inherit;
+
+}
+
+
+header > img {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  width: 100px;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  float: left;
+
+}
+
+
+.ingredients-list {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  list-style: square inside;
+
+}
+
+
+ol {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  list-style: upper-roman inside;
+
+}
+
+
+.user_review h4 {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  font-size: 18px;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  font-weight: bold;
+
+}
+
+
+input[type="radio"] {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  -webkit-appearance: none;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  width: 27px;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  height: 27px;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  background-image: url(../assets/stars.png);
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  vertical-align: bottom;
+
+}
+
+
+input[type="radio"]:checked {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  background-position: 30px 30px;
+
+}
+
+
+input[type="submit"]:last-child {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  background: gold;
+
+}
+
+
+input:last-child:hover {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  -webkit-filter: brightness(90%);
+
+}
+
+
+ol li:nth-of-type(2n) {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  background-color: whitesmoke;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  margin: 10px 0;
+
+}
+
+
+h2 + .user_review {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  border-top: 1px solid black;
+
+}
+
+
+nav {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  float: right;
+
+}
+
+
+nav ul li {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  display: inline-block;
+
+}
+
+
+nav ul li a {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  padding: 20px;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  display: block;
+
+}
+
+
+body {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  margin: 0 auto;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  width: 60%;
+
+}
+
+
+aside {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  display: inline-block;
+
+}
+
+
+.ingredients-list li {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  margin: 15px 0px;
+
+}
+
+
+input[type="text"], select {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  display: block;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  width: 175px;
+
+}
+
+
+select {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  margin: 10px 0;
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  width: 180px;
+
+}
+
+
+textarea {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  width: 350px;
+
+}
+
+
+label {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  display: block;
+
+}
+
+
+.hamburger-dropdown {
+  /* If the user cannot load the Arial font, the sans-serif font is used */
+  display: none;
+
+}
+
+
+@media all and (max-width: 900px) {
+
+}
+
 h1 {
   font-size: 38px;
   margin-bottom: 10px;
@@ -142,20 +341,20 @@ label {
   .hamburger-dropdown ul {
     position: absolute;
     top: 50px;
-    left: -15px;
+    left: 0;
     flex-direction: column;
     visibility: none;
+    cursor: pointer;
+    box-shadow: black 5px 5px 10px;
   }
+
   /* This is how we make pure css dropdowns! */
   .hamburger-dropdown:hover ul {
     display: flex;
+    background: ghostwhite;
   }
 
-  .hamburger-dropdown ul li {
-    background: gainsboro;
+  .hamburger-dropdown ul li:hover a {
+    text-decoration: underline;
   }
-
 };
-
-
-
