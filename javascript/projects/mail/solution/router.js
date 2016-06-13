@@ -6,11 +6,14 @@ function Router(node, routes) {
 Router.prototype.start = function () {
   window.addEventListener("hashchange", () => {
     let component = this.activeRoute();
-    this.node.innerHTML = component.render();
+    // this.node.innerHTML = component.render();
+    this.node.innerHTML = "";
+    this.node.appendChild(component.render());
   });
   console.log("Router started");
   let component = this.activeRoute();
-  this.node.innerHTML = component.render();
+  // this.node.innerHTML = component.render();
+  this.node.appendChild(component.render());
 };
 
 Router.prototype.activeRoute = function () {
