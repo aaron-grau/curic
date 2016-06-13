@@ -6,16 +6,17 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 [checklist]: ../../readings/checklist.md
 
 ## Phase 0: Rails Backend
-* Create a new rails project using Postgres and **skipping Turbolinks.**
-* Make a `Bench` model with `description`, `lat` and `lng`
-* `lat` and `lng` should be of type `float`
-* Make a JSON API for this resource, it will need `index` and `create`
+
+* Create a new rails project using `--database=POSTGRESQL` and `--skip-turbolinks`.
+* Make a `Bench` model with `description`, `lat` and `lng`.
+* `lat` and `lng` should be of type `float`.
+* Make a JSON API for this resource, it will need `index` and `create`.
 * Populate `seeds.rb` with bench seed data using [real coordinates in SF][maps-sf] (click around to get coordinates).
-* Boot up your server and open your app in the browser. Test your API in the console using `$.ajax` calls (Hint: you may want to save these calls for later).
+* Boot up your server and open your app in the browser. Test your API in the Dev Tools console using `$.ajax` calls (Hint: you may want to save these calls for later).
 
 [maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
 
-## Phase 1: Flux Structure
+## Phase 1: `Frontend` Structure
 
 * Make a `StaticPagesController`, have it serve a `root` view with a `<div
 id="content"/>`.
@@ -37,7 +38,15 @@ frontend:
 * `npm install --save react react-dom flux`
 * setup `bench_bnb.jsx` to render your app into the `#content` `div`..
 * Test this rendering setup before moving on.
-* Create the dispatcher file that exports a Dispatcher singleton: 
+
+## Phase 2: `Bench` flux cycle
+
+In this phase, you will build the pieces necessary to display a basic index of benches. Refer to the [Flux Utils Docs][flux-docs] as necessary for this section.
+
+[flux-docs]: https://facebook.github.io/flux/docs/flux-utils.html#content
+
+### `AppDispatcher`
+* Create a file that exports a `Dispatcher` singleton: 
 
   ```javascript
   //dispatcher/dispatcher.js
@@ -45,30 +54,27 @@ frontend:
   module.exports = new Dispatcher();
   ```
 
-## Phase 2: The Bench Store and Web API
+### `BenchStore`
 
-In this phase, you will build the pieces necessary to display a basic index of benches. Refer to the [Flux Utils Docs][flux-docs] as necessary for this section.
+`BenchStore` will be the front-end cache of benches that your components use.
 
-[flux-docs]: https://facebook.github.io/flux/docs/flux-utils.html#content
-
-### Bench Store
-
-* create `//stores/BenchStore.js` that exports a `BenchStore`.
+* create a `/stores/bench_store.js` file that exports a `BenchStore`.
+* `require` `Store` from `'flux-utils'` as `Store`.
 * `BenchStore` should be a `new Store` that accepts your `AppDispatcher` singleton
 as its only argument.
   *  This tells the `BenchStore` to listen to `AppDispatcher` for dispatches.
-* `BenchStore` will provide access to all the client side benches.
 * Use a local variable, `_benches` , to hold your benches.
   * This should be an object where the key is the `benchID` and the
     value is the `bench` object.
 * Write a `BenchStore.all` function that returns a copy of the `_benches` object.
-  * Don't worry about receiving and storing new benches yet; we'll get there in a minute. 
+* Write a `reset` function that receives a `benches` argument and sets
+`_benches` to `benches`. `BenchStore` should close over this function.
 
 Your `BenchStore` should look something like this: 
 
 ```javascript
 // stores/bench.js
-const Store = require('flux/utils').store;
+const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 let _benches = {};
 const BenchStore = new Store(AppDispatcher);
@@ -77,18 +83,22 @@ BenchStore.all = function () {
   // return a copy of `_benches` using `Object.assign`
 };
 
+function reset (benches) {
+  // set `_benches` to `benches`
+}
+
 module.exports = BenchStore;
 ```
 
 Assign `window.BenchStore` to your `BenchStore` in `bench_bnb.jsx`. This exports
 the `BenchStore` to the `window` so we can test it in the console before we get
-to our components.
+to our components. Test `BenchStore.reset` and `BenchStore.all` before moving on. 
 
-### Api Utility
+### `BenchApiUtil`
 
-Create a `\util\` file, `bench_api_util.js` that exports a `BenchApiUtil` object 
+Create a `/util/bench_api_util.js` that exports a `BenchApiUtil` object 
 that can `fetchAllBenches` from your API using `$.ajax`. `fetchAllBenches` should
-take one argument, the `success` callback to invoke.
+have one parameter, the `successCb` callback to invoke when your request succeeds.
 
 Your `BenchApiUtil` should look something like this.
 ```javascript
@@ -108,21 +118,22 @@ BenchApiUtil = {
 module.exports = BenchApiUtil;
 ```
 
-* Add `window.BenchApiUtil` to `bench_bnb.jsx` for testing. Test that 
-`fetchAllBenches` can get your seed data and call its `successCb` with it.
+* Add `window.BenchApiUtil` to `bench_bnb.jsx` for testing. Test that
+`fetchAllBenches` can get your seed data and call its `successCb` with it. We
+will use this Util in our Action creator in the next step.
 
-The success callback of the AJAX will contain all the bench objects, but how
-do we insert them into our store? Refer to [the flux diagram][flux-diagram]. As
-we can see, the only thing that can change a store is the `AppDispatcher`, and the
-way the `AppDispatcher` interacts with the store is through actions.
+### `BenchActions`
 
-#### Actions
+`BenchActions` will be the interface through which your components interact with the BenchStore / Web API. 
 
-##### Constants
-* Before we can create an action we need a constant to name the action.
-* Constants are important because they ensure that we see error messages if we ever
-  misspell an action type.
-* Create a new file, `constants/bench_constants.js`
+#### Constants
+
+Before creating `BenchActions`, let's define action constants. Constants provide
+more clarity about what actions our app can handle and prevent certain syntax errors. [See this Stack Overflow question.][so-constants]
+
+[so-constants]: http://stackoverflow.com/questions/27109652/why-do-flux-architecture-examples-use-constants-for-action-types-instead-of-stri
+
+Create a new file, `constants/bench_constants.js`
 
 ```javascript
 BenchConstants = {
@@ -131,32 +142,29 @@ BenchConstants = {
 
 module.exports = BenchConstants;
 ```
-* This will be the _name_ of the action
 
-##### Back to the Action
-* Let's start by assessing how we want to build our ApiUtil <--> ActionCreators structure.
-  * If we only make two files, they can't require each other! So things can get tricky...
-  * Take a look at the slightly more detailed flux diagram:
+#### Back to the Action
 
-    ![better-flux-diagram](assets/better_flux_structure.png)
-
-* Let's create a `bench_actions.js` file in our actions folder
-  * `bench_actions` will require `api_util` and will be responsible for triggering api calls and dispatching the data that returns from the server
-* Inside of `bench_actions`, create an object and give it `#fetchAllBenches` and `#receiveAllBenches` methods
-* `#fetchAllBenches` should invoke `bench_api_util#fetchAllBenches`, and pass to it the success callback: `#receiveAllBenches`
-* `#receiveAllBenches` should dispatch an object with an `actionType` of
-  `BenchConstants.BENCHES_RECEIVED`
+* Start by creating `//actions/bench_actions.js` and defining and exporting your
+`BenchActions` object inside it.
+* `require` your `BenchApiUtil`; `BenchActions` will use it to interact with the API.
+* `BenchActions` should have `fetchAllBenches` and `receiveAllBenches` methods.
+  * `fetchAllBenches` should invoke `BenchApiUtil.fetchAllBenches`, and pass
+  `receiveAllBenches` as a callback.
+  * `receiveAllBenches` should call `AppDispatcher.dispatch` with an object with 
+  an `actionType` of `BenchConstants.BENCHES_RECEIVED` and a `benches` attribute 
+  containing the benches returned by the API.
 
 ```javascript
 const AppDispatcher = require('../dispatcher/dispatcher');
 const BenchConstants = require('../constants/bench_constants');
 BenchActions = {
   fetchAllBenches(){
-    BenchApiUtil.fetchAllBenches(this.receiveAllBenches)
+   // call BenchApiUtil.fetchAllBenches
   },
   receiveAllBenches(benches){
     AppDispatcher.dispatch({
-      actionType: BenchConstants.BENCHES_RECEIVED,
+      actionType: // use a `BenchConstant`,
       benches: benches
     });
   }
@@ -164,15 +172,13 @@ BenchActions = {
 
 module.exports = BenchActions;
 ```
+### `BenchStore.__onDispatch`
 
-##### Putting it all together
-* In the success callback of your AJAX call in the `ApiUtil#fetchAllBenches`,
-  we can invoke the success callback that was passed.
-* Call `BenchStore.all`, it's still empty, right? The Dispatcher fired
-  (hopefully) but the store wasn't listening to the Dispatcher.
-* Tell the `BenchStore` to listen to the dispatcher by doing the
-  following
-* Remember to `require` the BenchConstants
+We want the `BenchStore` to update itself whenever we call our `BenchActions`, which we can accomplish through `BenchStore.__onDispatch`.
+
+* Define `BenchStore.__onDispatch`; it should take a single `payload` argument.
+* Write a `switch` statement that listens for `payload.actionType`.
+* When `payload.ActionType` equals `BenchConstants.BENCHES_RECEIVED, call 
 
 ```javascript
 //stores/bench.js
@@ -198,6 +204,7 @@ module.exports = BenchActions;
 ![the story so far](../../assets/api_store_diagram.png)
 
 ## Phase 3: Our First React Component
+
 #### Emitting Events from the Store
 * Return to our store, when the contents of the `BenchStore` change,
   we need to inform all interested parties that the `BenchStore` has changed.
