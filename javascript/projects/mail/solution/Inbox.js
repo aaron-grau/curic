@@ -1,28 +1,17 @@
 let messages = [
-  "Hey there",
-  "$$$$$",
+  {from: "grandma@mail.com", subject: "Fwd: Fwd: Fwd: Check this out"},
+  {from: "person@mail.com", subject: "zzz"}
 ];
-
 module.exports = {
-  // render: function () {
-  //   return (
-  //     `
-  //     Inbox
-  //     <ul>
-  //       <li>Hi there</li>
-  //       <li>Email</li>
-  //       <li>Message</li>
-  //     </ul>
-  //     `
-  //   );
-  // }
-  render: function () {
+  render: function() {
     let container = document.createElement("ul");
     messages.forEach(message => {
       let messageEl = document.createElement("li");
-      messageEl.innerText = message;
+      messageEl.innerHTML = `<strong>From:</strong> ${message.from} <strong>Subject:</strong> ${message.subject}`;
       container.appendChild(messageEl);
     });
     return container;
   }
 };
+
+
