@@ -1,7 +1,7 @@
 const React = require('react');
 const IndexItem = require('./IndexItem');
 
-const Index = React.createClass({
+const BenchIndex = React.createClass({
   render() {
     const benches = this.props.benches;
     const benchKeys = Object.keys(benches);
@@ -20,4 +20,4 @@ const Index = React.createClass({
   }
 });
 
-module.exports = Index;
+module.exports = BenchIndex;

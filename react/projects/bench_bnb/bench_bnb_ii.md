@@ -1,11 +1,12 @@
 # BenchBnB Day 2
 
 ## Phase 7: React Router
-* install the react router using `npm install --save --save-exact react-router@2.0.1`
-  * This ensures you use that exact version, as other versions differ a bit.
-* instead of using `ReactDOM.render` to directly place your `Search`
+
+* Install the React Router using `npm install --save --save-exact react-router@2.0.1`.
+  * Use that exact version, as other versions might cause compatibility issues.
+* Instead of using `ReactDOM.render` to directly place your `Search`
   component directly into `#content`, set up the router to render
-  `Search` as the default route
+  `Search` as the default route.
 * create an `App` react component that renders `{this.props.children}`, mine looked
   like this:
 

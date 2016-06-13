@@ -7,16 +7,20 @@ let _benches = {};
 
 window.BenchStore = BenchStore;
 
-BenchStore.all = () => Object.assign({}, _benches);
+BenchStore.all = function(){
+  return Object.assign({}, _benches);
+};
 
-BenchStore.find = id => Object.assign({}, _benches[id]);
+BenchStore.find = function(id){
+  return Object.assign({}, _benches[id]);
+};
 
-BenchStore.addFavorite = (benchId, userId) => {
+BenchStore.addFavorite = function(benchId, userId) {
   _benches[benchId].favorite_users.push(parseInt(userId));
   BenchStore.__emitChange();
 };
 
-BenchStore.removeFavorite = (benchId, userId) => {
+BenchStore.removeFavorite = function(benchId, userId) {
   const userIdx = _benches[benchId].favorite_users.indexOf(parseInt(userId));
   _benches[benchId].favorite_users.splice(userIdx, 1);
   BenchStore.__emitChange();
@@ -32,13 +36,13 @@ function resetSingleBench(bench){
   BenchStore.__emitChange();
 }
 
-BenchStore.__onDispatch = payload => {
+BenchStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case BenchConstants.BENCHES_RECEIVED:
       resetAllBenches(payload.benches);
       break;
     case BenchConstants.BENCH_RECEIVED:
-      resetSingleBench(payload.bench)
+      resetSingleBench(payload.bench);
       break;
     case FavoriteConstants.FAVORITE_RECEIVED:
       BenchStore.addFavorite(payload.favorite.benchId, payload.favorite.userId);

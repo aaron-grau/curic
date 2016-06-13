@@ -92,7 +92,7 @@ const MapContainer = React.createClass({
   },
 
   render() {
-    return ( <div className="half" ref="map">Map</div>);
+    return ( <div className="map" ref="map">Map</div>);
   }
 });
 
