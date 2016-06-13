@@ -5,16 +5,17 @@ function Router(node, routes) {
 
 Router.prototype.start = function () {
   window.addEventListener("hashchange", () => {
-    let component = this.activeRoute();
-    // this.node.innerHTML = component.render();
-    this.node.innerHTML = "";
-    this.node.appendChild(component.render());
+    this.render();
   });
   console.log("Router started");
-  let component = this.activeRoute();
-  // this.node.innerHTML = component.render();
-  this.node.appendChild(component.render());
+  this.render();
 };
+
+Router.prototype.render = function () {
+  let component = this.activeRoute();
+  this.node.innerHTML = "";
+  this.node.appendChild(component.render());
+}
 
 Router.prototype.activeRoute = function () {
   let hash = location.hash.substr(1);
