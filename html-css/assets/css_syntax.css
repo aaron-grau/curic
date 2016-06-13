@@ -15,14 +15,14 @@ h2 {
 }
 
 /* This selector selects ALL anchor tag children of ALL list elements that
-are children of an Unordered Lsit element */
+are children of an Unordered List element */
 ul li a {
   text-decoration: none;
   color: inherit;
 }
 
-/* This selector selects only IMMEDIATE (1 level deep) image element children
-of the header element */
+/* This selector selects all image elements that are children (1 level deep)
+of a header element */
 header > img {
   width: 100px;
 }
