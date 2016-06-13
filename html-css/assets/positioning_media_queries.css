@@ -329,12 +329,12 @@ label {
   .hamburger-dropdown {
     display: block;
   }
-  .hamburger {
-    background: url(https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png);
+  .hamburger-dropdown > li {
+    background: url(../../assets/images/hamburger.png);
     background-repeat: no-repeat;
     background-size: 50px 50px;
     width: 50px;
-    height:50px;
+    height: 50px;
     position: relative;
     cursor: pointer;
   }
@@ -343,7 +343,6 @@ label {
     top: 50px;
     left: 0;
     flex-direction: column;
-    visibility: none;
     cursor: pointer;
     box-shadow: black 5px 5px 10px;
   }
