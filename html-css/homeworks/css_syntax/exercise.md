@@ -16,4 +16,4 @@ Take your HTML Recipe page from the end of the HTML curriculum and add a new ext
 
 **Challenge:** Come up with a way to select and style your reviews after they are submitted. For now just some simple font-styling is fine. Make sure you have the latest [javascript file](../../assets/external_javascript_example.js) to implement the review functionality.
 
-Compare your recipe page to [this example](./example.html) and [this stylesheet](../../assets/css_syntax.css).
+Compare your recipe page to [this example](./example.html) and [this stylesheet](../../assets/css_syntax.css). [Live version here](http://appacademy.github.io/curriculum/css_syntax.html).
