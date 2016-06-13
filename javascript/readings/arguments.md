@@ -152,7 +152,7 @@ We can de-structure arguments multiple times in a function call.
 ```javascript
 const myFunction = (v, w, x, y, z) => { }
 const args = [2, 3];
-myFunction(1, ...args, 4, ...[5]); // v = -1, w = 2, x = 3, y = 4, z = 5
+myFunction(1, ...args, 4, ...[5]); // v = 1, w = 2, x = 3, y = 4, z = 5
 ```
 
 ### Default Values
