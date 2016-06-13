@@ -86,4 +86,11 @@ body {
 
 .sidebar-nav li {
   margin: 5px;
+  cursor: pointer;
+}
+
+/* Compose */
+
+textarea {
+  resize: none;
 }
