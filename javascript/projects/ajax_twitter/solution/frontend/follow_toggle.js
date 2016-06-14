@@ -1,15 +1,15 @@
-var FollowToggle = function (el, options) {
+function FollowToggle(el, options) {
   this.$el = $(el);
   this.userId = this.$el.data("user-id") || options.userId;
-  this.followState = (this.$el.data("initial-follow-state")
-                      || options.followState);
+  this.followState = (this.$el.data("initial-follow-state") ||
+                      options.followState);
   this.render();
 
   this.$el.on("click", this.handleClick.bind(this));
-};
+}
 
 FollowToggle.prototype.handleClick = function (event) {
-  var followToggle = this;
+  const followToggle = this;
 
   event.preventDefault();
 
@@ -21,7 +21,7 @@ FollowToggle.prototype.handleClick = function (event) {
       url: "/users/" + this.userId + "/follow",
       dataType: "json",
       method: "DELETE",
-      success: function () {
+      success() {
         followToggle.followState = "unfollowed";
         followToggle.render();
       }
@@ -34,7 +34,7 @@ FollowToggle.prototype.handleClick = function (event) {
       url: "/users/" + this.userId + "/follow",
       dataType: "json",
       method: "POST",
-      success: function () {
+      success() {
         followToggle.followState = "followed";
         followToggle.render();
       }
@@ -43,18 +43,23 @@ FollowToggle.prototype.handleClick = function (event) {
 };
 
 FollowToggle.prototype.render = function () {
-  if (this.followState === "followed") {
-    this.$el.prop("disabled", false);
-    this.$el.html("Unfollow!");
-  } else if (this.followState === "unfollowed") {
-    this.$el.prop("disabled", false);
-    this.$el.html("Follow!");
-  } else if (this.followState === "following") {
-    this.$el.prop("disabled", true);
-    this.$el.html("Following...");
-  } else if (this.followState === "unfollowing") {
-    this.$el.prop("disabled", true);
-    this.$el.html("Unfollowing...");
+  switch(this.followState){
+    case "followed":
+      this.$el.prop("disabled", false);
+      this.$el.html("Unfollow!");
+      break;
+    case "unfollowed":
+      this.$el.prop("disabled", false);
+      this.$el.html("Follow!");
+      break;
+    case "following":
+      this.$el.prop("disabled", true);
+      this.$el.html("Following...");
+      break;
+    case "unfollowing":
+      this.$el.prop("disabled", true);
+      this.$el.html("Unfollowing...");
+      break;
   }
 };
 

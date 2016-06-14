@@ -2,22 +2,11 @@
 
 **[Live Demo!](http://appacademy.github.io/hanoi.js/solution/index.html)**
 
-As before, use the Towers of Hanoi skeleton. As before, there is a `game.js` 
-file in `hanoi-core-solution/`. The only class defined is `Game`. Look in 
-the file and become familiar with the API. Notice that the `Game` 
-constructor is exported at the bottom of the file.
+[hanoi-node]: https://www.github.com/appacademy/curriculum/tree/master/javascript/projects/hanoi_node/solution.zip
 
-You will work in the skeleton directory. This time though, you'll have to 
-create more of your files from scratch. Setup the directory structure as 
-before: make `css`, `html` and `js` directories. Remember to load all the 
-relevant CSS and JQuery in your `index.html`. Move the `main.js` file into
-the `js` directory. Open the file and require the `game.js` file, storing 
-the result into `HanoiGame`.
+You will work in the skeleton directory. Setup the directory structure as before: make `css`, `html` and `js` directories. Remember to load all the relevant CSS and JQuery in your `index.html`. Move the provided 'main.js' file in your 'js' directory. Download the [hanoi_node solution][hanoi-node] (`View Raw`) and put the 'game.js' file from that project into your 'js' folder as well. Then require 'game.js' as `HanoiGame` in main.js.
 
-Before we start writing the view class we will setup webpack. Make sure
-you have it installed, then open `webpack.config.js`. Fill in all the
-fields with their appropriate values. Our entry file will be the `main.js`
-file.
+Before we start writing the `HanoiView` class we will set up webpack. Make sure you have it installed (`npm install -g webpack`), and then open `webpack.config.js`. Fill in all the fields with their appropriate values. Our entry file will be the `main.js` file.
 
 Once you've completed the `webpack.config.js` file, run the 
 `webpack --watch` command and include the resulting bundled file in your

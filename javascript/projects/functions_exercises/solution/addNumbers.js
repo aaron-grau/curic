@@ -1,6 +1,6 @@
-var readline = require("readline");
+const readline = require("readline");
 
-var reader = readline.createInterface({
+const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -8,13 +8,13 @@ var reader = readline.createInterface({
 function addNumbers(sum, numsLeft, completionCallback) {
   if (numsLeft > 0) {
     reader.question("Give me num: ", function (numStr) {
-      var thisNumber = parseInt(numStr);
+      const thisNumber = parseInt(numStr);
 
       sum += thisNumber;
       console.log("Partial sum: " + sum);
 
       addNumbers(sum, numsLeft - 1, completionCallback);
-    })
+    });
   } else {
     completionCallback(sum);
   }

@@ -1,33 +1,35 @@
+"use strict";
+
 function Cat (name, owner) {
   this.name = name;
   this.owner = owner;
 }
 
 Cat.prototype.cuteStatement = function () {
-  return this.owner + " loves " + this.name;
+  return `${this.owner} loves ${this.name}. :3`;
 };
 
-var cat1 = new Cat("Markov", "Ned");
-var cat2 = new Cat("Breakfast", "Devon");
+const cat1 = new Cat('Markov', 'Ned');
+const cat2 = new Cat('Breakfast', 'Devon');
 
 console.log(cat1.cuteStatement());
 console.log(cat2.cuteStatement());
 
 Cat.prototype.cuteStatement = function () {
-  return "Everyone loves " + this.name;
+  return `Everyone loves ${this.name}!`;
 };
 
 console.log(cat1.cuteStatement());
 console.log(cat2.cuteStatement());
 
 Cat.prototype.meow = function () {
-  return "meow";
+  return 'meow';
 };
 
 console.log(cat1.meow());
 
 cat1.meow = function () {
-  return "purr";
+  return 'purr';
 };
 
 console.log(cat1.meow());
