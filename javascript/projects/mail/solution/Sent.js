@@ -1,6 +1,6 @@
 let messages = [
-  {to: "friend@mail.com", subject: "Check this out"},
-  {to: "person@mail.com", subject: "zzz"}
+  {to: "friend@mail.com", subject: "Check this out", body: "It's so cool"},
+  {to: "person@mail.com", subject: "zzz", body: "so booring"}
 ];
 
 module.exports = {
@@ -12,7 +12,8 @@ module.exports = {
     messageEl.className = "message";
     messageEl.innerHTML = `
     <span class="from">To: ${message.to}</span>
-    <span>${message.subject}</span>
+    <span class="subject">${message.subject}</span> -
+    <span class="body">${message.body}
     `;
     return messageEl;
   },
