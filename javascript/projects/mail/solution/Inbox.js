@@ -10,7 +10,8 @@ module.exports = {
       let messageEl = document.createElement("li");
       messageEl.className = "message";
       messageEl.innerHTML =`
-        <span class='from'>${message.from}</span><span>${message.subject}</span>
+        <span class='from'>${message.from}</span>
+        <span>${message.subject}</span>
       `;
       container.appendChild(messageEl);
     });
