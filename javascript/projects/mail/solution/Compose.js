@@ -10,7 +10,7 @@ function Message (to = "", subject = "", body = "") {
 let currentMessage = new Message();
 
 module.exports = {
-  composeForm: function () {
+  renderForm: function () {
     let html = `
     <p class="new-message-header">New Message</p>
     <form class="compose-form">
@@ -39,7 +39,7 @@ module.exports = {
   render: function () {
     let container = document.createElement("div");
     container.className = "new-message";
-    container.innerHTML = this.composeForm();
+    container.innerHTML = this.renderForm();
     container.addEventListener('change', e => {
       let target = e.target;
       currentMessage[target.name] = target.value;
