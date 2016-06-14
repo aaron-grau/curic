@@ -149,18 +149,35 @@ textarea {
 }
 
 .message {
-  min-width: 300px;
+  /* min-width: 300px; */
   padding: 10px 30px;
   border: 1px solid lightgray;
   border-top: none;
+  display: inline-block;
+  width: 100%;
 }
 
-.from {
+.messages .from {
+  display: inline-block;
+  /* width: 250px; */
+  padding-right: 20px;
+}
+
+.messages .to {
   display: inline-block;
   width: 250px;
 }
 
-.to {
+.messages .subject {
+  font-weight: bold;
+  width: 150px;
+}
+
+.messages .body {
+  width: calc(100% - 400px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: inline-block;
-  width: 250px;
+  vertical-align: bottom;
 }
