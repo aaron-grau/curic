@@ -1,5 +1,4 @@
-var Ship = require("./ship");
-var MovingObject = require("./movingObject");
+var MovingObject = require("./moving_object");
 var Util = require("./util");
 var Bullet = require("./bullet");
 
@@ -21,8 +20,6 @@ var Ship = function (options) {
 
   MovingObject.call(this, options);
 };
-
-Ship.prototype.type = "Ship";
 
 Ship.RADIUS = 15;
 
@@ -64,7 +61,5 @@ Ship.prototype.relocate = function () {
   this.pos = this.game.randomPosition();
   this.vel = [0, 0];
 };
-
-Ship.prototype.type = "Ship";
 
 module.exports = Ship;

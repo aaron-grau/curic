@@ -25,12 +25,13 @@ BenchStore.removeFavorite = function(benchId, userId) {
 BenchStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case BenchConstants.BENCHES_RECEIVED:
-      _benches = payload.benches;
+      payload.benches.forEach(function(bench){
+        _benches[bench.id] = bench;
+      });
       BenchStore.__emitChange();
       break;
     case BenchConstants.BENCH_RECEIVED:
-      var bench_id = payload.bench.id;
-      _benches[bench_id] = payload.bench;
+      _benches[payload.bench.id] = payload.bench;
       BenchStore.__emitChange();
       break;
     case FavoriteConstants.FAVORITE_RECEIVED:

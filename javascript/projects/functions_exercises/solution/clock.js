@@ -2,7 +2,7 @@
 
 function Clock () {
   // 1. Create a Date object.
-  var currentTime = new Date();
+  const currentTime = new Date();
 
   // 2. Store the hour, minute, and second.
   this.hours = currentTime.getHours();
@@ -18,7 +18,7 @@ function Clock () {
 
 Clock.prototype.printTime = function () {
   // Format the time in HH:MM:SS
-  var timeString = [this.hours, this.minutes, this.seconds].join(":");
+  const timeString = [this.hours, this.minutes, this.seconds].join(":");
 
   // Use console.log to print it.
   console.log(timeString);
@@ -53,4 +53,4 @@ Clock.prototype._incrementHours = function () {
   this.hours = (this.hours + 1) % 24;
 };
 
-var clock = new Clock();
+const clock = new Clock();

@@ -14,21 +14,14 @@ and `this.props.name`. When it comes time to `render` this dog, the
 values of these properties would be included in the element tree.
 
 ```javascript
-var Dog = React.createClass({
-  render: function(){
+const Dog = React.createClass({
+  render () {
     return (
       <div>Name: {this.props.name}, Breed: {this.props.breed}</div>
     );
   }
 });
 ```
-
-It's worth mentioning that any element created during a component's
-`render` is said to be **owned** by the creator. If this dog's `render`
-method rendered a more sophisticated tree, each node of the tree would
-be **owned** by their creator, the `Dog`. **Children**, on the other
-hand, are the nodes **surrounded** by another node.
-
 ### Where do props come from?
 
 `props` are assigned when instances of the component are created. Using
@@ -61,14 +54,14 @@ is controlled, that value is most likely part of the component's
 **NB: using `this.setState` will cause the component to re-render.**
 
 ```javascript
-var Input = React.createClass({
-  getInitialState: function(){
+const Input = React.createClass({
+  getInitialState () {
     return ({word: ""});
   },
-  handleChange: function(event){
+  handleChange (event) {
     this.setState({word: event.currentTarget.value});
   },
-  render: function(){
+  render () {
     return (
       <div>
         <input onChange={this.handleChange} value={this.state.word}/>
@@ -101,17 +94,17 @@ A comprehensive list is [available here][react-events].
 ## Lifecycle Methods
 
 Often, we want to do something once a component has successfully been
-mounted in the DOM or when it is about to be removed. 
+mounted in the DOM or when it is about to be removed.
 Luckily there is a handy callback we can harness to
 run our code at this time.
 
 ```javascript
-var MyAjaxComponent = React.createClass({
-  getInitialState: function(){
+const MyAjaxComponent = React.createClass({
+  getInitialState () {
     return {items: []};
   },
-  componentDidMount: function(){
-    var that = this;
+  componentDidMount () {
+    const that = this;
     $.ajax({
       url: "/items",
       success: function(response){
@@ -125,7 +118,7 @@ var MyAjaxComponent = React.createClass({
 
 Above, we use the `componentDidMount` method to fire our AJAX request.
 This method is invoked when the component has been rendered into the
-DOM. There are several more [_lifecycle_ methods][lifecycle-methods] 
+DOM. There are several more [_lifecycle_ methods][lifecycle-methods]
 available to React programmers:
 
 * componentWillMount
