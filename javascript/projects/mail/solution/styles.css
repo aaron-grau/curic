@@ -138,3 +138,29 @@ textarea {
   resize: none;
   border: 1px solid lightgray;
 }
+
+/* Messages */
+
+.messages {
+  margin-top: 10px;
+  margin-right: 30px;
+  border-top: 1px solid lightgray;
+  background: #E0E0E0;
+}
+
+.message {
+  min-width: 300px;
+  padding: 10px 30px;
+  border: 1px solid lightgray;
+  border-top: none;
+}
+
+.from {
+  display: inline-block;
+  width: 250px;
+}
+
+.to {
+  display: inline-block;
+  width: 250px;
+}

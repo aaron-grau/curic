@@ -5,9 +5,13 @@ let messages = [
 module.exports = {
   render: function() {
     let container = document.createElement("ul");
+    container.className = "messages";
     messages.forEach(message => {
       let messageEl = document.createElement("li");
-      messageEl.innerHTML = `<strong>From:</strong> ${message.from} <strong>Subject:</strong> ${message.subject}`;
+      messageEl.className = "message";
+      messageEl.innerHTML =`
+        <span class='from'>${message.from}</span><span>${message.subject}</span>
+      `;
       container.appendChild(messageEl);
     });
     return container;
