@@ -110,12 +110,20 @@ outerBubbleSortLoop)`. This recursive function should:
 * Call `outerBubbleSortLoop` if `i == (arr.length - 1)`. It should
   receive `madeAnySwaps` as an argument.
 
-This method should now perform a single pass of bubble sort.  Test out `innerBubbleSortLoop`, passing in dummy variables.  For example, instead of actually writing the `outerBubbleSortLoop` method, pass in a dummy method that console.logs "In outer bubble sort".
+This method should now perform a single pass of bubble sort.  Test out 
+`innerBubbleSortLoop`, passing in dummy variables.  For example, instead 
+of actually writing the `outerBubbleSortLoop` method, pass in a dummy 
+method that console.logs "In outer bubble sort".
 
-This idea (testing methods on their own by passing in dummy arguments) is *crucial* to understand larger chunks of code that you write.  Don't be embarrassed to test out methods after you've only written one line of them.  It's very bad software practice to write many lines of code before testing anything, especially if you're a junior developer.
+This idea (testing methods on their own by passing in dummy arguments) 
+is *crucial* to understand larger chunks of code that you write.  Don't 
+be embarrassed to test out methods after you've only written one line of 
+them.  It's very bad software practice to write many lines of code before 
+testing anything, especially if you're a junior developer.
 
-Lastly, write a method `absurdBubbleSort(arr, sortCompletionCallback)`. Define a function `outerBubbleSortLoop`
-inside of `absurdBubbleSort`. It should:
+Lastly, write a method `absurdBubbleSort(arr, sortCompletionCallback)`. 
+Define a function `outerBubbleSortLoop` inside of `absurdBubbleSort`. 
+It should:
 
 * If `madeAnySwaps == true`, call `innerBubbleSortLoop`. It should
   pass in `arr`, an index of `0`, and `false` to indicate that no
@@ -180,7 +188,7 @@ Write your own `myBind(context)` method. Add it to
 
 1. Return an arrow function.
 2. The arrow function captures `this` and `context`.
-3. In the anonymous function, call `Function#apply` on `this`, passing
+3. In the anonymous function, call `Function.prototype.apply` on `this`, passing
    the `context`.
 
 Assume the method you're binding doesn't take any arguments; we'll see
@@ -212,6 +220,8 @@ myBoundTurnOn(); // should say "Turning on a lamp"
 
 ## Bonus Round
 
-After you finish the remaining projects for the day (Tic Tac Toe and Hanoi), go back and refactor the asynchronous exercises to use [ES6 Promises][promise].
+After you finish the remaining projects for the day 
+(Tic Tac Toe and Hanoi), go back and refactor the asynchronous 
+exercises to use [ES6 Promises][promise].
 
 [promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
