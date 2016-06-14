@@ -154,6 +154,7 @@ You should already know how to do this. Create a `User` model, `UsersController`
 and `SessionsController`. Follow the pattern you used during the [Rails curriculum][rails], keeping in mind the following:
   * Your controllers should live under an `Api` namespace and return JSON formatted responses.
   * `Sessions#show` should render an object of the `current_user` if they exist.
+    * If no one is logged in, 
     * We'll use this to see who's logged in.
   *  You'll probably want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions.
   * If any auth errors arise (e.g. 'invalid credentials' or 'username already exists'), render those errors in your response with a corresponding error status.
