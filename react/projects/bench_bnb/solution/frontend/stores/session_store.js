@@ -5,24 +5,24 @@ const FavoriteConstants = require('../constants/favorite_constants');
 
 const SessionStore = new Store(AppDispatcher);
 
-let _currentUser = {},
-    _currentUserHasBeenFetched = false;
+let _currentUser = {};
+let _currentUserHasBeenFetched = false;
 
-const _login = currentUser => {
+const _login = function(currentUser) {
   _currentUser = currentUser;
   _currentUserHasBeenFetched = true;
 };
 
-const _logout = () => {
+const _logout = function() {
   _currentUser = {};
   _currentUserHasBeenFetched = true;
 };
 
-const _addFavorite = benchId => {
+const _addFavorite = function(benchId) {
   _currentUser.favorite_benches.push(parseInt(benchId));
 };
 
-const _removeFavorite = benchId => {
+const _removeFavorite = function(benchId) {
   const benchIdx = _currentUser.favorite_benches.indexOf(parseInt(benchId));
   _currentUser.favorite_benches.splice(benchIdx, 1);
 };
@@ -48,10 +48,16 @@ SessionStore.__onDispatch = payload => {
   }
 };
 
-SessionStore.currentUser = () => Object.assign({}, _currentUser);
+SessionStore.currentUser = function() {
+  return Object.assign({}, _currentUser);
+};
 
-SessionStore.currentUserHasBeenFetched = () => _currentUserHasBeenFetched;
+SessionStore.currentUserHasBeenFetched = function () {
+  return !!_currentUserHasBeenFetched;
+};
 
-SessionStore.isUserLoggedIn = () => !!_currentUser.id;
+SessionStore.isUserLoggedIn = function() {
+  return !!_currentUser.id;
+};
 
 module.exports = SessionStore;
