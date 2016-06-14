@@ -87,7 +87,7 @@ can also be done in HTML by setting a `data-*` HTML attribute:
 
 <script>
   // Install click handlers on the li.dog elements.
-  $("li").on("click", function (event) {
+  $("li").on("click", event => {
     const $dogLi = $(event.currentTarget);
 
     // pull dog attributes out of the DOM to identify the dog.
