@@ -21,9 +21,11 @@ module.exports = {
   },
   render: function() {
     let container = document.createElement("ul");
+    container.className = "messages";
     messages.forEach(message => {
       let messageEl = document.createElement("li");
-      messageEl.innerHTML = `<strong>To:</strong> ${message.to} <strong>Subject:</strong> ${message.subject}`;
+      messageEl.className = "message";
+      messageEl.innerHTML = `<span class="from">To: ${message.to}</span><span>${message.subject}</span>`;
       container.appendChild(messageEl);
     });
     return container;
