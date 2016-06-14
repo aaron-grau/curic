@@ -4,7 +4,6 @@ let Inbox = require("./Inbox");
 let Sent = require("./Sent");
 
 let routes = {
-  index: Compose,
   compose: Compose,
   inbox: Inbox,
   sent: Sent
@@ -16,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let content = document.querySelector(".content");
   router = new Router(content, routes);
   router.start();
+  location.hash = "#inbox";
   let navItems = Array.from(document.querySelectorAll(".sidebar li"));
   navItems.forEach(navItem => {
     navItem.addEventListener("click", () => {
