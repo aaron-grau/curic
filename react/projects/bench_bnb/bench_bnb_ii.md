@@ -2,108 +2,110 @@
 
 ## Phase 7: React Router
 
-* Install the React Router using `npm install --save --save-exact react-router@2.0.1`.
+We'll need to modify our entry file, `bench_bnb.jsx`, to add routes.
+
+* Install `ReactRouter`: `npm install --save --save-exact react-router@2.0.1`.
   * Use that exact version, as other versions might cause compatibility issues.
-* Instead of using `ReactDOM.render` to directly place your `Search`
-  component directly into `#content`, set up the router to render
-  `Search` as the default route.
-* create an `App` react component that renders `{this.props.children}`, mine looked
-  like this:
+* In your entry file, require `Router`, `Route`, `IndexRoute`, and `hashHistory` from the `ReactRouter`.
+* Create a `<Router>` that gets rendered by `ReactDom` when the page loads. 
+* Create an `App` react component that renders `{this.props.children}`. Set this component to your root `<Route>`.
+* Inside your `App` `<Route>`, render the `Search` component as the default 
+`<IndexRoute>`.
 
-```javascript
-  // frontend/bench_bnb.js.jsx
-const React = require('react');
-const ReactDOM = require('react-dom');
 
-const ReactRouter = require('react-router');
-const Router = ReactRouter.Router;
-const Route = ReactRouter.Route;
-const IndexRoute = ReactRouter.IndexRoute;
-const hashHistory = ReactRouter.hashHistory;
+Your entry file should now roughly resemble this:
 
-const Search = require('./components/Search');
+  ```javascript
+    // frontend/bench_bnb.js.jsx
+  const React = require('react');
+  const ReactDOM = require('react-dom');
 
-const App = React.createClass({
-  render() {
-    return (
-        <div>
-          <header><h1>Bench BnB</h1></header>
-          {this.props.children}
-        </div>
-    );
-  }
-});
+  const ReactRouter = require('react-router');
+  const Router = ReactRouter.Router;
+  const Route = ReactRouter.Route;
+  const IndexRoute = ReactRouter.IndexRoute;
+  const hashHistory = ReactRouter.hashHistory;
 
-const Router = (
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Search}/>
-    </Route>
-  </Router>
-);
+  const Search = require('./components/Search');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.getElementById('content');
-  ReactDOM.render(Router, root);
-});
-```
-* `this.props.children` will contain all components from nested routes.
+  const App = React.createClass({
+    render() {
+      return (
+          <div>
+            <header><h1>Bench BnB</h1></header>
+            {this.props.children}
+          </div>
+      );
+    }
+  });
 
-* when your app works exactly as before we introduced the router, you
-  may move on
+  const Router = (
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Search}/>
+      </Route>
+    </Router>
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('content');
+    ReactDOM.render(Router, root);
+  });
+  ```
+
+Verify that your app still renders correctly before moving on.
 
 ## Phase 8: Creating Benches
-### Adding a Bench Form ###
-* create a new React component, `BenchForm`. This should render a simple form
+
+### Adding a Bench Form
+
+* Create a new React component, `BenchForm`. This should render a simple form
   with 4 fields:
     * Description
     * Number of seats
     * Latitude
     * Longitude
-* add a new column to the `benches` table, `seating`
-  * this new column will store how many people can sit together on the
-    bench at the same time
-* create a new route, `/benches/new`, for this new `BenchForm` component
-* test the route by navigating to `/#/benches/new`, the map should disappear
-* add a `createBench` function to the `BenchApiUtil`. It should make a `POST`
-  request and then add the newly created bench using a new action that
-  you must create
-* submission of the form should run `BenchActions.createBench`
-* test that this works by creating a new bench through the form before moving on
+* Add a new `seating` column to the `benches` table.
+  * This new column will store how many people can sit together on the
+    bench at the same time.
+* Create a new `<Route>`, `/benches/new`, for your `BenchForm` component.
+  *  Test the route by navigating to `/#/benches/new`; the map should disappear.
+* Write a `create` method on your `BenchesController` and give it a corresponding
+  route in `routes.rb`.
+* Add a `createBench` function to the `BenchApiUtil`. It should make a `POST`
+  request to your API. 
+* Test `BenchApiUtil.createBench` from the console.
+* Add `BenchActions` to `createBench` and `receiveBench`.
+* `BenchForm` should call `BenchActions.createBench` upon submission.
 
-#### Navigating to the BenchForm ###
 
-Filling in coordinates manually is a major pain. Users probably won't
-even bother. Then we'll have no business and our marketing team will
-hate us.
+### Navigating to the BenchForm
 
-Let's make things a little easier by bringing up a new bench form when a
-user clicks on the map and pre-fill it with latitude and longitude based
-on where they clicked.
+Filling in coordinates manually is a major pain; Let's make things a little easier 
+by bringing up a new bench form when a user clicks on the map and pre-filling it 
+with latitude and longitude based on where they clicked.
 
-But how can we accomplish this? How are we going to get that data from
-the map page to the new bench form? Well, the React Router has a really
-useful feature here. Notably, you can encode parameters in a client-side
-query string.
 
-##### Redirecting with coordinates
+Because `BenchMap` and `BenchForm` live under different routes, We can't simply pass props between them to convey our click information. We will need to encode our parameters in a client-side query string.
+
+
+#### Redirecting with coordinates
 
 Let's get down to business. Add a `"click"` handler to the map. It
 should:
 
 * Grab the coordinates from the click event.
 * Use the router's [hashHistory][react-history] to redirect to the `BenchForm`
-  URL...
-* In order to pass the lat / lng data from the `Map` to the `BenchForm` component,
-  we need to include that data in the query string.
-  * First, make sure the `Map` requires the hashHistory module.
+  URL, providing the `lat` and lng` as query params.
+
+To pass `lat` and `lng` as query params: 
+  0.  Require the `hashHistory` module in the `BenchMap`.
 
   ```javascript
     const hashHistory = require('react-router').hashHistory;
   ```
 
-  * Then, we can use the `hashHistory#push` method to send some data in the query
-    string when we click on the map.
+  0.  Use `hashHistory#push` to send data along with the new `pathname`.
 
   ```javascript
     _handleClick(coords){
@@ -114,49 +116,67 @@ should:
     }
   ```
 
-Make sure that this works before moving on. You should be able to click the map and
-the browser should redirect to a URL that looks something like:
+Test this before moving on. You should be able to click the map and make the
+browser redirect to a URL that looks something like:
 
   */#/benches/new?lat=37.79153217974085&lng=-122.40194320678711*
 
-##### Pre-filling the form
+### Pre-filling the form
+Inside of the `BenchForm` component, pre-fill the value of the lat/lng input 
+fields by accessing `this.props.location.query`. Then make sure the lat/lng input 
+fields are disabled so that users can't edit them.
 
-  * Inside of the `BenchForm` component, pre-fill the value of the lat/lng
-    input fields by accessing `this.props.location.query`
-  * Also make sure the lat/lng input fields are disabled so that users can't edit them
+Awesome! Now users can easily create new benches.
 
-Awesome! Now users can easily create new benches to their hearts'
-content. Hopefully that will keep the marketing team off our backs.
+## Phase 9: Front-End User Authentication
 
-## Phase 9: Front End User Authentication
-In this phase, we are going to implement front-end user sign-up and login. Goodbye Rails views; hello, single-page app! Read the instructions for this whole phase first, before building anything. This will give you context to understand each individual step.
+In this phase, we are going to implement front-end user sign-up and login.
+Goodbye Rails views; hello, single-page app! **Read through the instructions for
+the entire phase before building anything.** This will give you the context to
+understand each individual step.
 
-At the end of the day, we want to have methods to create users, log users in, see who's logged in, log them out, and restrict access to certain `Route`s based on whether someone is logged in. Now read the rest of the phase before starting on this.
+Our authentication pattern must: 
+  * sign up new users,
+  * know who's logged in, 
+  * log users in, 
+  * log them out, and 
+  * restrict access to certain `Routes` based on whether someone is logged in.
 
 ### 1. Build Your Backend.
-You should already know how to do this. Create a `User` model, `UsersController`, and `SessionsController`. The big difference is that now your controllers will be in the Api namespace (ie: `Api::SessionsController < ApplicationController`), and they will render json.jbuilder views instead of rendering html views or redirecting.
 
-[rails]: ../../../rails#readings-after-you-finish-all-videos
+Create an api with the following endpoints: 
+  * [POST] api/user: "users#create" (signup),
+  * [POST] api/session: "session#create" (login),
+  * [DELETE] api/session: "session#destroy" (logout),
+  * [GET] api/session: "session#show" (fetch current user)
 
-Follow the pattern you used during the [Rails curriculum][rails], keeping in mind the following:
-  * Your controllers should live under an `Api` namespace now and return JSON formatted responses.
-  * We only care about one user (the current user), so adjust your routes and controllers accordingly (i.e. you have a single user `resource`, not `resources`).
-  * `Sessions#show` should render the `current_user` if they exist.
-    * We'll use this to see who's logged in
-    * Make an api/users/show.json.jbuilder
+You should already know how to do this. Create a `User` model, `UsersController`, 
+and `SessionsController`. Follow the pattern you used during the [Rails curriculum][rails], keeping in mind the following:
+  * Your controllers should live under an `Api` namespace and return JSON formatted responses.
+  * `Sessions#show` should render an object of the `current_user` if they exist.
+    * We'll use this to see who's logged in.
+  *  You'll probably want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions.
   * If any auth errors arise (e.g. 'invalid credentials' or 'username already exists'), render those errors in your response with a corresponding error status.
-    * You can `render json: ["error 1", "error 2"]`
-  * Protect your Rails actions the way we always have, especially any API routes that send down data.
-    * `before_action :do_some_stuff, only: [:this_action, :that_action]`
+    * ex `render json: ["error 1", "error 2"], status: 404`
+  * Protect any routes that get or post user-specific information with `before_action` filters:
+    * `before_action :ensure_correct_user, only: [:this_action, :that_action]`
+
+Test your routes using `$.ajax` in the console before moving on.
 
 ### 2. Build Your Frontend
+
 Set up the following flux architecture components.
+
 ####SessionApiUtil
-  * `#signup` a user
-    * Goes to `Api::UsersController#create`
-    * Can use the same `render "api/users/show.json.jbuilder"` as the SessionsController!
-    * On success, call `SessionAction#receiveCurrentUser` so store also knows they're logged in.
-  * `#login` and `#logout` via AJAX!
+
+Create a `SessionApiUtil` with the following methods: 
+  * `signup`
+    * POST to 'api/users'
+    * On success, call `SessionAction#receiveCurrentUser`.
+  * `login`
+    * POST to 'api/session'
+  * `logout`
+   and `#logout` via AJAX!
     * AJAX calls like any other. Remember you might need the credentials in the `Api::SessionController`, so have to send those.
   * `#fetchCurrentUser`
     * AJAX request to `Api::SessionsController#show`
@@ -318,6 +338,7 @@ Let's make sure users can't get to our "/benches/new" or "benches/:id/review" ro
 * display the score as a list of star images!
 * users can favorite benches
 
+[rails]: ../../../rails#readings-after-you-finish-all-videos
 [google-map-doc]: https://developers.google.com/maps/documentation/javascript/tutorial
 [event-doc]: https://developers.google.com/maps/documentation/javascript/events#MarkerEvents
 [map-markers]: https://developers.google.com/maps/documentation/javascript/markers

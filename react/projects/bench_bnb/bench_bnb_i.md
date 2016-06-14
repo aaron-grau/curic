@@ -10,7 +10,9 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 * Create a new rails project using `--database=POSTGRESQL` and `--skip-turbolinks`.
 * Make a `Bench` model with `description`, `lat` and `lng`.
 * `lat` and `lng` should be of type `float`.
-* Make a JSON API for this resource, it will need `index` and `create`.
+* Make a `BenchesController` to handle API requests. It will need `index` and `
+create` to start.
+* Add routes for your `BenchController` actions. These should be namespaced under `api/benches` and return JSON by default.
 * Populate `seeds.rb` with bench seed data using [real coordinates in SF][maps-sf] (click around to get coordinates).
 * Boot up your server and open your app in the browser. Test your API in the Dev Tools console using `$.ajax` calls (Hint: you may want to save these calls for later).
 
