@@ -2,11 +2,11 @@ console.log("Console has been opened.");
 
 $.ajax({
   type: 'GET',
-  url: 'http://api.census.gov/data/timeseries/poverty/histpov2?' +
+  url: 'http://api.census.gov/data/2013/language?' +
    'key=5eac739dc334cf11fdd846b87988ea41591abd29',
-  data: {RACE: 1,
-        time: '2014',
-        get: 'PCTPOV'},
+  data: {LAN: 620,
+        for: 'us',
+        get: 'EST,LANLABEL'},
   success(data) {
     console.log("The census data has arrived.");
     console.log(data[0]);
