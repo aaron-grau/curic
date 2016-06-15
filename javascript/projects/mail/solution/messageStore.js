@@ -1,4 +1,14 @@
+const user = "2cool4u123@gmail.com";
+function Message (from = user, to = "", subject = "", body = "") {
+  this.from = from;
+  this.to = to;
+  this.subject = subject;
+  this.body = body;
+}
+
 let messages = JSON.parse(localStorage.getItem('messages'));
+let messageDraft = new Message();
+
 if(!messages) {
   messages = {
     sent: [
@@ -19,9 +29,16 @@ const MessageStore = {
   getSentMessages: function () {
     return messages.sent.slice();
   },
-  addSentMessage: function (message) {
-    messages.sent.push(message);
+  getMessageDraft: function () {
+    return messageDraft;
+  },
+  sendDraft: function () {
+    messages.sent.push(messageDraft);
+    messageDraft = new Message();
     localStorage.setItem('messages', JSON.stringify(messages));
+  },
+  updateDraftField: function (field, value) {
+    messageDraft[field] = value;
   }
 };
 
