@@ -1,10 +1,11 @@
 # Intro Algorithms and Data Structures
 
-If you need a refresher on algos and data structures, refer to the [reading][intro-algos] from last night!
+If you need a refresher on algorithms and data structures, refer to the
+[reading][intro-algos] from last night!
 
 Estimated time: 2hrs
 
-[intro-algos]: ./intro-algorithms.md
+[intro-algos]: ../../readings/intro-algorithms-and-data-structures.md
 
 ## Phase 0: Description
 
@@ -93,5 +94,5 @@ Write `add_child(child_node)` and `remove_child(child)` methods. These methods s
 
 [wiki-data-structure]: http://en.wikipedia.org/wiki/Data_structure
 [wiki-algorithm]: http://en.wikipedia.org/wiki/Algorithm
-[tree-node-rspec]: https://github.com/appacademy/solutions/blob/master/w1/w1d5/00_tree_node_blank.zip
-[overriding-inspect]: ./overriding_inspect.md
+[tree-node-rspec]: ./skeleton.zip
+[overriding-inspect]: ../../readings/overriding_inspect.md
