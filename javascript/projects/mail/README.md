@@ -21,10 +21,10 @@ You will also practice managing client-side data using good modular code design.
   console
 
 ## Phase I: Routing
-In order to have a single-page application we need some system for "routing" to
-different parts of our application. We need to create a system that looks like
-you are navigating to different pages, but instead of making a new HTTP request
-for a new web page is actually just using JavaScript to manipulate the DOM.
+In order to have a single-page application we need a system for "routing" to
+different parts of our application. We need to create a system that makes it
+look like you are navigating to different pages, but just uses JavaScript to
+manipulate the DOM instead of making a new HTTP request.
 
 There are different ways of accomplishing this "routing" process. We are going
 to use a commonly used technique of changing the [hash
@@ -33,10 +33,10 @@ the page you are on changes in such a way that **only** the hash fragment
 changes, your browser will not make a new request.
 
 Your browser will simply trigger a `hashchange` event. We will add an event
-listener for this event, and then change the DOM according to what the hash was
+listener for this event, and then update the DOM based on what the hash was
 changed to.
 
-This scheme will allow to programatically change routes and react to the changes
+This scheme will allow us to programatically change routes and react to the changes
 without trigger a redirect.
 
 ### Triggering Route Changes
