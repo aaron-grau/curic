@@ -2,7 +2,7 @@
 
 In this project we'll start playing with Rails routing and making this: 
 
-[Live Demo][aa-contactsapi]
+[**Live Demo**][aa-contactsapi]
 
 To start, generate a new, blank Rails project.
 
