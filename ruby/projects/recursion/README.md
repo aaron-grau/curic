@@ -34,7 +34,9 @@ value and multiply it by itself. **So don't cheat and use
 exponentiation in your solution**.
 
 
-**Suggestion**: Try walking through your code with
+**Suggestion**: [Break the methods down into parts.][Breaking into parts]
+
+**Suggestion 2**: Try walking through your code with
 [Simple Examples][Simple Examples].
 
 If the `n == 256`, about how many nested recursive steps will we run
@@ -68,6 +70,7 @@ examples.
 How many examples do you need to walk through to be confident that it works?
 
 [Simple Examples]: https://github.com/appacademy/curriculum/blob/master/ruby/readings/testing-small.md
+[Breaking into parts]: https://github.com/appacademy/curriculum/blob/master/ruby/projects/recursion/breaking-into-parts.md
 
 ### Deep dup
 
