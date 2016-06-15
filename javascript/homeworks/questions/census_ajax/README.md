@@ -18,6 +18,6 @@ Once you get your request working, you can play around with your data options to
 
 Now celebrate! You're AJAX-ing!
 
-[skeleton]: ../../questions/census_ajax.zip
+[skeleton]: ../../questions/census_ajax/census_ajax.zip
 [language-list]: http://www.census.gov/hhes/socdemo/language/about/02_Primary_list.pdf
 [basic-ajax]: https://github.com/appacademy/curriculum/blob/master/javascript/readings/basic-ajax.md
