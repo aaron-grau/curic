@@ -300,7 +300,7 @@
 * [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
 
 ### Homeworks (15 min)
-* [Census Ajax][census-ajax]
+* [Census Ajax][census-ajax] (15 min)
 
 ### Additional Resources
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
