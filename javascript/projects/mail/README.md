@@ -204,8 +204,19 @@ will make this easier as you can treat it sort like of an `html.erb` file.
 ## Phase III: Sent Component
 
 ### `Sent.js`
+* The `Sent` component should be almost identical to the `Inbox` component. It
+  should look exactly the same, but make the following changes
+  * `render`
+    * Retrieve the sent messages instead of the inbox by calling `messageStore.getSentMessages`
+  * `renderMessage`
+    * Replace `<span class="from">${message.from}</span>` with `<span
+      class="to">To: ${message.}</span>` so we display the recipient instead of
+the sender in the sent folder
 
 ### `main.js`
+* Add a route for the `Sent` component by adding a property to `routes` called
+  `sent` with a value of the `Sent` component **Remember to require the Sent
+component**
 
 ## Phase IV: Compose Component
 
