@@ -2,8 +2,8 @@ const React = require('react');
 const BenchStore = require('../stores/bench');
 const FilterParamsStore = require('../stores/filter_params');
 const Link = require('react-router').Link;
-const Bench = require('./Bench');
-const Map = require('./Map');
+const BenchDetail = require('./bench_detail');
+const BenchMap = require('./bench_map');
 const BenchActions = require('../actions/bench_actions');
 
 const BenchShow = React.createClass({
@@ -41,7 +41,7 @@ const BenchShow = React.createClass({
             benches={benches}
             onMapClick={this.handleMapClick}
             onMarkerClick={this.handleMarkerClick} />
-          <Bench bench={this.state.bench} className="half" />
+          <BenchDetail bench={this.state.bench} className="half" />
           {
             this.props.children ||
               <Link to={reviewURL}>Leave a Review</Link>

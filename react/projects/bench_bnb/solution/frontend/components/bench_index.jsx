@@ -1,5 +1,5 @@
 const React = require('react');
-const IndexItem = require('./IndexItem');
+const IndexItem = require('./index_item');
 
 const BenchIndex = React.createClass({
   render() {
