@@ -8,12 +8,12 @@ const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 //Components
-const App = require('./components/App');
-const Search = require('./components/Search');
-const BenchForm = require('./components/BenchForm');
-const BenchShow = require('./components/BenchShow');
-const ReviewForm = require('./components/ReviewForm');
-const LoginForm = require('./components/LoginForm');
+const App = require('./components/app');
+const Search = require('./components/search');
+const BenchForm = require('./components/bench_form');
+const BenchShow = require('./components/bench_show');
+const ReviewForm = require('./components/review_form');
+const LoginForm = require('./components/login_form');
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
