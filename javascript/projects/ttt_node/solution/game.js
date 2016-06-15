@@ -7,7 +7,7 @@ function Game () {
 }
 
 Game.prototype.isOver = function () {
-  this.board.isOver;
+  return this.board.isOver();
 };
 
 Game.prototype.playMove = function(pos) {
