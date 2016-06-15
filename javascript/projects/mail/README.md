@@ -43,12 +43,15 @@ without trigger a redirect.
 #### `main.js`
 
 * Add an event listener for `DOMContentLoaded`
-  * In the callback add an event listener on `.sidebar-nav li` for `click`
+  * In the callback add an event listener on `.sidebar-nav li` for a `click`
+    event which will do the following:
     * Get the name of the location from the `innerText` of the element
     * Call `toLowerCase` on the name to make sure there aren't case differences
     * Set `location.hash` to be the lower cased location name
 * Test that clicking on the sidebar elements changes the hash
-* Test that this isn't making a new request
+* Test that this isn't making a new request. You can do this easily by setting a
+  variable in the console in the dev tools. If it is still defined after
+clicking the sidebar element, you have not made a new request.
 
 ### Handling Route Changes
 #### `router.js`
