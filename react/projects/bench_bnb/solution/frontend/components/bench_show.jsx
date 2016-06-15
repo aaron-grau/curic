@@ -30,6 +30,7 @@ const BenchShow = React.createClass({
   },
 
   render() {
+    debugger;
     const reviewURL = "/benches/" + this.state.bench.id + "/review";
     const benches = {};
     benches[this.state.bench.id] = this.state.bench;

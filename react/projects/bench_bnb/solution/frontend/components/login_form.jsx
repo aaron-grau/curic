@@ -75,7 +75,7 @@ const LoginForm = React.createClass({
 
 		return (
 			<form onSubmit={this.handleSubmit}>
-        Welcome to AirBnB! Please { this.formType() } or { navLink }
+        Welcome to BenchBnB! Please { this.formType() } or { navLink }
 
         { this.fieldErrors("base") }
 

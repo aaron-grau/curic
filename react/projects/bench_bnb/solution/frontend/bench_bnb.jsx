@@ -24,8 +24,8 @@ const appRouter = (
       <IndexRoute component={ Search } />
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
-      <Route path="benches/new" component={ BenchForm } onEnter={ _ensureLoggedIn }/>
-      <Route path="benches/:benchId" component={ BenchShow} >
+      <Route path="/benches/new" component={ BenchForm } onEnter={ _ensureLoggedIn }/>
+      <Route path="/benches/:benchId" component={ BenchShow} >
         <Route path="review" component={ ReviewForm } onEnter={ _ensureLoggedIn }/>
       </Route>
     </Route>
