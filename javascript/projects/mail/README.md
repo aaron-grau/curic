@@ -197,6 +197,8 @@ message you are iterating over.
     * A `<span>` with class `body` with content `message.body`
   * Return the `<li> DOM Node
 
+* Test that clicking on the inbox link displays all your messages
+
 ## Phase III: Sent Component
 
 ### `Sent.js`
