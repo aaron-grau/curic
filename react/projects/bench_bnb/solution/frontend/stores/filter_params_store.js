@@ -9,20 +9,20 @@ FilterParamsStore.params = function() {
   return Object.assign({}, _params);
 };
 
-function setMaxSeating = function(max){
+function setMaxSeating(max){
   _params.maxSeating = max;
   FilterParamsStore.__emitChange();
-};
+}
 
-function setMinSeating = function(min){
+function setMinSeating(min){
   _params.minSeating = min;
   FilterParamsStore.__emitChange();
-};
+}
 
-function setBounds = function(bounds){
+function setBounds(bounds){
   _params.bounds = bounds;
   FilterParamsStore.__emitChange();
-};
+}
 
 FilterParamsStore.__onDispatch = function(payload) {
   switch(payload.actionType){
