@@ -9,7 +9,7 @@
 #### `main.js`
 
 * Add an event listener for `DOMContentLoaded`
-  * In the callback add an event listener on `.sidebar li` for `click`
+  * In the callback add an event listener on `.sidebar-nav li` for `click`
     * Get the name of the location from the `innerText` of the element
     * Call `toLowerCase` on the name to make sure there aren't case differences
     * Set `location.hash` to be the lower cased location name
