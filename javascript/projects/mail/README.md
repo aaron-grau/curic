@@ -5,7 +5,7 @@ Some of the benefits of a single-page application include:
 * More responsive user experience because you don't need to complete a
   request/response cycle with every user interaction
 * Similar feeling to a native, desktop application
-* Decoupling of server architecture from user-interface allows gives flexibility
+* Decoupling of server architecture from user-interface gives flexibility
   and opportunity for scaling.
 
 There are several frameworks that facilitate the process of creating single-page
