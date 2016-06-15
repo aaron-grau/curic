@@ -330,9 +330,10 @@
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (27 min)
   * You can ignore the last part, which has Backbone code
 
-### Readings (35 min)
+### Readings (45 min)
 * [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
 * [jQuery VII: Triggering][jquery-07-triggering] (5 min)
+* [Event Propagation][event-propagation] (10 min)
 * [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
 
 ### Additional Resources
@@ -344,6 +345,7 @@
 
 [jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
 [jquery-07-triggering]: readings/jquery-07-triggering.md
+[event-propagation]: readings/event-propagation.md
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 
 [jquery-lite]: projects/jquery_lite
