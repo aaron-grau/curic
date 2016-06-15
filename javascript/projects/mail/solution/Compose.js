@@ -1,5 +1,5 @@
 let content = "";
-let Sent = require("./Sent");
+const MessageStore = require('./messageStore');
 
 function Message (to = "", subject = "", body = "") {
   this.to = to;
@@ -47,7 +47,7 @@ module.exports = {
 
     container.addEventListener('submit', e => {
       e.preventDefault();
-      Sent.addSentMessage(currentMessage);
+      MessageStore.addSentMessage(currentMessage);
       currentMessage = new Message();
       location.hash = "inbox";
     });
