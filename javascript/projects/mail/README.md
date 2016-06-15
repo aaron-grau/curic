@@ -1,9 +1,43 @@
 # Mail
+The goal of this project is to learn the basics of how to make a
+[single-page application](https://en.wikipedia.org/wiki/Single-page_application).
+Some of the benefits of a single-page application include:
+* More responsive user experience because you don't need to complete a
+  request/response cycle with every user interaction
+* Similar feeling to a native, desktop application
+* Decoupling of server architecture from user-interface allows gives flexibility
+  and opportunity for scaling.
 
+There are several frameworks that facilitate the process of creating single-page
+applications, but it is important to understand the fundamental WebAPIs and
+logic they all use.
+
+You will also practice managing client-side data using good modular code design.
 ## Phase 0: Setup
-* Download skeleton
+* Download the skeleton
+* Create a `main.js` file that contains `console.log("It's working")`
+* Open up a new terminal tab and run `webpack --watch main.js bundle.js`
+* Open `index.html` in your browser and test that you see `It's working` in the
+  console
 
 ## Phase I: Routing
+In order to have a single-page application we need some system for "routing" to
+different parts of our application. We need to create a system that looks like
+you are navigating to different pages, but instead of making a new HTTP request
+for a new web page is actually just using JavaScript to manipulate the DOM.
+
+There are different ways of accomplishing this "routing" process. We are going
+to use a commonly used technique of changing the [hash
+fragment](https://en.wikipedia.org/wiki/Fragment_identifier). When the URL of
+the page you are on changes in such a way that **only** the hash fragment
+changes, your browser will not make a new request.
+
+Your browser will simply trigger a `hashchange` event. We will add an event
+listener for this event, and then change the DOM according to what the hash was
+changed to.
+
+This scheme will allow to programatically change routes and react to the changes
+without trigger a redirect.
 
 ### Triggering Route Changes
 #### `main.js`
