@@ -6,7 +6,7 @@ module.exports = {
     messageEl.className = "message";
     messageEl.innerHTML =`
     <span class='from'>${message.from}</span>
-    <span class="subject">${message.subject}</span>
+    <span class="subject">${message.subject}</span> -
     <span class="body">${message.body}</span>
     `;
     return messageEl;
