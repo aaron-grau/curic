@@ -94,5 +94,5 @@ Write `add_child(child_node)` and `remove_child(child)` methods. These methods s
 
 [wiki-data-structure]: http://en.wikipedia.org/wiki/Data_structure
 [wiki-algorithm]: http://en.wikipedia.org/wiki/Algorithm
-[tree-node-rspec]: ./skeleton.zip
+[tree-node-rspec]: ./skeleton.zip?raw=true
 [overriding-inspect]: ../../readings/overriding_inspect.md
