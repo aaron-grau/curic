@@ -77,7 +77,6 @@ Verify that your app still renders correctly before moving on.
 * Add `BenchActions` to `createBench` and `receiveBench`.
 * `BenchForm` should call `BenchActions.createBench` upon submission.
 
-
 ### Navigating to the BenchForm
 
 Filling in coordinates manually is a major pain; Let's make things a little easier 
@@ -86,7 +85,6 @@ with latitude and longitude based on where they clicked.
 
 
 Because `BenchMap` and `BenchForm` live under different routes, We can't simply pass props between them to convey our click information. We will need to encode our parameters in a client-side query string.
-
 
 #### Redirecting with coordinates
 
