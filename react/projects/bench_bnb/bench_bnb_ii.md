@@ -307,16 +307,19 @@ Modify your app to provide a greeting to users when they are signed in.
 ### 5. Fetch the current user before the app mounts.
 
 We want our App to confirm whether someone is logged in before rendering. This 
-will prevent weird rendering glitches caused by the asynchronous nature of the
+will prevent weird rendering glitches caused by the asynchronous nature of 
 `SessionApiUtil.fetchCurrentUser`. To do this, we'll rely on our React Routes' 
 [`onEnter`][on-enter] prop. 
 
 Complete the following steps in your entry file (`bench_bnb.jsx`):
 
-0. Add an `onEnter` prop to the root route.
+0. Add an `onEnter` prop to the root route that calls `_ensureUserFetched` (we'll 
+write this shortly).
+
   ```javascript
     <Route path="/" component={ App } onEnter={ _ensureUserFetched }>
   ```
+
 0. Define an `_ensureUserFetched` function that takes 3 arguments: `nextState`, `replace`, and `asyncDoneCallback`. Leave the body empty except for a `debugger` for now.
   * Test your hook by re-navigating to your root directory (`/`). You should hit the debugger because `onEnter` is called whenever a Route is matched.
   * Check out your `arguments`. They should resemble the ones from the `onEnter` reading linked above.
@@ -328,16 +331,7 @@ Complete the following steps in your entry file (`bench_bnb.jsx`):
   (see next step below) as its `complete` argumenet. This will block rendering 
   until the AJAX call completes.
 
-0. Modify your `SessionActions` and `SessionApiUtil`.
-Our `asyncDoneCallback` needs to run regardless of whether 
-`SessionActions.fetchCurrentUser` succeeds or fails. We can accomplish this by 
-passing it to our `SessionApiUtil` AJAX call as a [`complete`][jquery-ajax] callback.
-
-  * Modify `SessionActions.fetchCurrentUser` to take a `complete` callback, which it passes as the second argument to its `SessionApiUtil.fetchCurrentUser` call.
-  * Modify `SessionApiUtil.fetchCurrentUser` to take a `complete` callback as it's second argument.
-  * Set the `$.ajax` `complete` property to the `complete` callback.
-
-Your `_ensureUserFetched` function should look something like this:
+  Your `_ensureUserFetched` function should look something like this:
 
   ```javascript
     function _ensureUserFetched(nextState, replace, asyncDoneCallback){
@@ -351,70 +345,113 @@ Your `_ensureUserFetched` function should look something like this:
     }
   ```
 
+0. Modify your `SessionActions` and `SessionApiUtil`.
+  * Our `asyncDoneCallback` needs to run regardless of whether 
+  `SessionActions.fetchCurrentUser` succeeds or fails. We can accomplish this by 
+  passing it to our `SessionApiUtil` AJAX call as a [`complete`][jquery-ajax] callback.
 
-### 6. Protect your front-end routes
-Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in.
+  * Modify `SessionActions.fetchCurrentUser` to take a `complete` callback, which it passes as the second argument to its `SessionApiUtil.fetchCurrentUser` call.
+  * Modify `SessionApiUtil.fetchCurrentUser` to take a `complete` callback as it's second argument.
+  * Set the `$.ajax` `complete` property to the `complete` callback.
 
-  * Add an `onEnter` prop to the Routes we want to protect (ie: `<Route path="something" onEnter={ _ensureLoggedIn } />`).
-  * In your `_ensureLoggedIn` function, check `SessionStore#isUserLoggedIn`
-    * If they are logged in, we don't have to do anything! If they are _not_ logged in, let's `replace` the path with "/login"
-    * We don't need to define this method to accept the 3rd parameter, since `_ensureLoggedIn` runs synchronously
+Refresh your app and check your work.
 
+### 6. Protect your front-end routes.
+
+Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in. 
+
+  * Add an `onEnter` prop to the Routes we want to protect:
+
+    ```
+    <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />`
+    ```
+  * Define an `_ensureLoggedIn` function in your entry file. It should:
+    * have `nextState` and `replace` parameters.
+    * check `SessionStore#isUserLoggedIn`.
+    * If `true`, do nothing.
+    * Otherwise, `replace` the path with "/login". (Remember that `replace` won't
+    add a "fake" entry to the browser's history, whereas `push` will.)
+    * We don't need an `asyncDoneCallback` because `_ensureLoggedIn` runs synchronously.
+
+Test your work before continuing.
 
 ## Phase 10: Filtering By Seating
-### FilterParams store ###
-* create a new store for the filter params. This will contain the data about the bounds and the min and max seating params.
-* it should store this information as a POJO with keys of the param name and values of the param's value.
-* make a new `filter_actions.js` file to contain the actions relevant to the filter store.
-* your filter store should register a callback with the dispatcher and update it's data according to the action that was dispatched
-* your search component should hold the params as part of it's state and register a change listener on the filter params store so that it re-fetches the benches when the params in the FilterParams store changes.
-* refactor your map component to use a FilterParams action to change the FilterParams store when the map idles
-*  the search component should listen to the filter params store for a change event and update it's state to always contain the current parameters.
-* the search component should also re-fetch the benches when the filter params store emits a change event
-* your ApiUtil function should get the current params from the FilterParams store when it is called and make a get request using the params as a query string
-* once you can properly change the benches in the index by moving the map, move on to the FilterParams component.
 
-### FilterParams component ###
+We're going to implement search filters on our `Search` components to filter benches by their geographic bounds and number of seats.
 
-* create a new React Component that will be used to filter benches by
-  seating
-* this should be a child component of the Search view (not a child route, but a child component) and have a field for minSeats and a field for maxSeats
-* when the user changes the values of the fields in the component, call one of the filter actions you wrote to update the FilterParams store with the new values
-* when the FilterParams store is update and emits a change event, this should cause the Search component to update its state and fetch the benches with the current params
-* when the response from the server comes back with the new benches, this should cause the index to re-render displaying the filtered benches
-* move on when you can filter by number of seats
+### Update your API.
+
+* Update your `Benches#index`: 
+  * Modify `bench_params` to accept `:max_seating` and `:min_seating`.
+  * Filter your `@benches` by `params[:max_seating]` and 
+  `filters[:min_seating]`, if present.
+
+### `FilterParamsStore`
+
+* Create a `FilterParamsStore`. Your store should keep track of `minSeats`, `maxSeats`, and `bounds`, and `emitChange` whenever those values change.
+
+* Create a public method for retrieving the store's information.
+
+* Create `FilterConstants` for updating your max seats, min seats, and bounds. Dispatch the appropriate actions in your `FilterStore`.
+
+
+### `FilterActions`
+
+* Create `FilterActions` that `updateMaxSeating`, `updateMinSeating`, and `updateBounds` by dispatching to your `FilterStore`.
+
+### Update your `Search` components.
+
+**`Search`:**
+  * Modify `Search` to hold `filterParams` information in its state. 
+  * Add a `FilterStoreParams` listener to `Search` that: 
+    * calls `setState` for `filterParams`.
+    * calls `BenchActions.fetchAllBenches` with `FilterStore.params` to update the `BenchStore`.
+
+**`BenchMap`:**
+  * Refactor your `BenchMap` component to call `FilterActions.updateBounds` 
+  whenever it idles. 
+
+Check that your map is correctly rendering benches before moving on.
+
+### `Filters` component ###
+
+Create a `Filters` component that will render a form for filtering benches by 
+seating.
+* It should be a child component of the `Search` view (not a child route, but 
+component rendered within `Search` itself).
+* It should input fields for `maxSeats` and `minSeats`.
+* When the user types in any field, call an appropriate `FilterAction` to update your `FilterStore`.
+
+Verify that your `Filters` form can cause your `BenchIndex` and `BenchMap` to re-populate before moving on.
 
 ## Phase 11: Show Page
-* when the bench is clicked on in the index, you will now show the Show
-  page which is a page dedicated to a single bench
-* clicking a marker on the map search view should also navigate to the
-  show page
-* create a new component for your show page
-* create a new route that will render your new component into the App component's `{this.props.children}`
-* this component should have the information about the bench as well as a map with a marker for the single bench
-* you will want to nest a map component inside of the showPage component's render function, and make sure this bench ends up in the map's `props`
-* center the map on the single bench and prevent the map from being dragged
+Create a `BenchShow` component. It should be a full-page component displaying a 
+single bench's information and a map showing the bench. Your `BenchShow` page should mount whenever someone clicks on an item in your `BenchIndex` or a marker in your `BenchMap`.
+
+* Create a new `Route` for your `BenchShow` that takes a `benchId` param.
+* Nest a `BenchMap` in your `BenchShow`, passing the bench as a prop.
+* Center the map on the single bench and prevent the map from being dragged.
 
 ## Phase 12: Reviews
-* on the show page, a user should be able to add reviews
-* create a new component for the review form
-* create a new route that is nested under the show page route to render this component
-* update your show page to either render the new review component or a link to the new route
-* change the showPage component to either render the nested route component for the form or a link to the route for the form
-* you will also have to add reviews to your backend. They have a text body and a score from 1 to 5
-* in the index, show the average score for each bench
+
+Show reviews of a bench on `BenchShow`. Reviews for a bench should comprise:
+* A rating from 1 to 5
+* A comment field 
+
+Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average score for a bench and also list the reviews for that bench. Modify and add the appropriate API endpoints, actions, utils, and components.
+
 
 ## Phase 13: Pictures!
 * when you create a new bench, allow a user to also add a photo using
   [Cloudinary][cloudinary-js]!
-* you will need to create a new column in your benches table
-* display these pictures on both the show page and the index
+* You will need to create a new column in your benches table.
+* Display these pictures on both the show page and the index.
 
 ## Bonus
-* every bench can have multiple photos
-* show page should have a carousel
-* display the score as a list of star images!
-* users can favorite benches
+* Every bench can have multiple photos!
+* Show page should have a carousel!
+* Display the score as a list of star images!
+* Users can favorite benches!
 
 [rails]: ../../../rails#readings-after-you-finish-all-videos
 [google-map-doc]: https://developers.google.com/maps/documentation/javascript/tutorial
