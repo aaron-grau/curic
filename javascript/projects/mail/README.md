@@ -87,7 +87,8 @@ now, but it's better to separate each separate "view" into it's own module(JS
 file) that will be responsible for returning a DOM Node. We conventionally call
 these modules components.
 
-### `Inbox.js`
+### Routing to Components
+#### `Inbox.js`
 * Create an `Inbox.js` file that will export our `Inbox` component
   * The `Inbox` component will be a Javascript object
   * Create a property on the object called `render` which will be a function
@@ -99,7 +100,7 @@ these modules components.
       can test that the component works
     * return the container
 
-### `main.js`
+#### `main.js`
 Now we are going to create a mapping from `routes` to `components`. This will
 allow us to specify the routing configuration outside of the router. Separating
 the configuration from the logic that uses that configuration is good
@@ -118,7 +119,7 @@ file, but it's simple enough that we will just make it in main.
   * Pass the `routes` object as a second argument to the `Router` constructor
     function. We will make use of this additional argument in the next part.
 
-### `router.js`
+#### `router.js`
 * `Router`
   * Update your `Router` to store the `routes`
   * Add a second parameter to the constructor function called `routes`
@@ -148,7 +149,7 @@ sure you have removed the "#" from the name.
   Message` onto the page.
 * Test that clicking on the other sidebar links clears the page
 
-### `messageStore.js`
+### Rendering Data from Components
 Now that we have the core pieces of our single page application working together
 cohesively, we can add any cool new component and corresponding route that we
 want and everything should work.
@@ -159,6 +160,8 @@ however, we need a data source to give them something to work with.
 Just like we separated the code that matched routes into the `router` and the
 code that rendered views into `components`, we are going to a separate module
 that will store our data and expose an API for retrieving and manipulating it.
+
+#### `messageStore.js`
 
 * Create a file called `messageStore.js`.
 * Create a variable in this file called `messages`. This variable will actually
@@ -199,9 +202,9 @@ will have access to it.
     * `getSentMessages` should return the array at `messages.sent`
   * Make sure you export the `MessageStore` at the end of the file
 
-### `Inbox.js`
+#### `Inbox.js`
 Now that we have a data source to work with let's change our `Inbox` component
-to render something more interesting.
+to render it.
 
 * `render`
   * Instead of just inserting `"An Inbox Message"` into the `innerHTML` of the
