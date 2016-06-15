@@ -47,9 +47,11 @@ Let's focus on the `onEnter` hook
 the `onEnter` callback function can accept up to 3 arguments:
   * `nextState` --> the next [router state][router-state]
   * `replace` --> a function that, when invoked, will tell the router to redirect to the path passed to `replace`
+
       ```javascript
         replace('/go/here/instead');
       ```
+      
   * `asyncDoneCallback` --> this one is optional, but important to understand. It **completely changes** how the callback is executed.
 
 ---
