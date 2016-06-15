@@ -132,7 +132,7 @@ don't).
 
 ## Traversal
 
-Just like `HTMLElement`s have `#parentElement` and `#children`
+Just like `HTMLElement`s have `parentElement` and `children`
 attributes, there are `jQuery#parent`, `jQuery#children`, and
 `jQuery#siblings` methods.
 
@@ -162,7 +162,7 @@ jQuery methods typically return jQuery objects: `#parent`,
 you to **chain** jQuery methods. If methods returned a `NodeList` we
 would need to drop back down to the DOM API.
 
-This is what lets us use the `jQuery#attr` method in the above
+This is what let's us use the `jQuery#attr` method in the above
 example.
 
 ## Inserting and Removing Elements
