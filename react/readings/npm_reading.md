@@ -1,48 +1,72 @@
 # Getting Started With Node Package Manager
 
-During the React/Flux curriculum, we're going to continue to use Webpack to compile
-all of our resources into one large bundled JavaScript file. We now need to
-solve a separate problem, though: getting access to the React.js library and to
-a compiler for the JSX we're going to write. As you've seen, we _could_ get the
-React library from a CDN by loading it in a `<script>` tag, but we're going to
-take this opportunity to work with Node Package Manager for the first time.
+You've already seen NPM and Webpack, but today we're going to explore a few more features that we will need for writing React apps.
 
-Create a new project directory called `hello_world_app`. Go ahead and run `npm
-init --yes`. The `--yes` flag will give us a reasonable default setup.  If npm still asks you for input, just hit enter bunch of times to choose the default settings.  This command creates a `package.json` file.
+## Transpiling
 
-Package.json has two main purposes: identifying key
-information about the project to npm, and specifying the dependencies of the
-project (the libraries that need to be loaded). You can read more on each
-property of `package.json` [here][packageurl], but many of them are only
-relevant if we're exporting our own package, which we won't be doing today. The
-most important property for us right now is `dependencies`. Think of this as
-your Gemfile.
+**Transpiling** is taking source code written in one language or syntax and transforming it into another one. When using React, our source code will be written in JSX and ES2015. Because many browsers do not fully support these syntaxes, we need to transpile our code to ES5 Javascript for compatibility.
 
-Now that we have a `package.json` file, we need to actually install some
-packages. The two key ones for our Hello World app are `react` and `webpack`.
-Install React by using the following command: `npm install --save react`.
+## NPM Init and `package.json`
+
+We're going to use `npm` to facilitate our transpiling. As you've already seen, `npm` allows us to install dependencies to individual JS projects, similar to ruby's `bundler` gem. 
+
+To set up `npm` for a project, navigate to the project directory and run: 
+
+```
+npm init --yes
+```
+
+This command creates a `package.json` file representing the NPM configuration of your project. The `--yes` flag tells `npm` to use a reasonable default setup. 
+
+`package.json` has two main purposes: identifying key information about the project to NPM, and specifying the dependencies of the project (the libraries that need to be loaded). You can read more on each property of `package.json` [here][packageurl], but many of them are only relevant if we're exporting our own package, which we won't be doing in this course. **The most important property for us right now is `dependencies`.** Think of it as your Gemfile.
+
+Now that we have a `package.json` file, we need to actually install some dependencies. **To install a package as a dependency, run the following command:**
+
+```
+npm install --save name_of_package
+```
 Breaking down the command:
-  * `npm install`: this installs the actual package and places it in your 
-  `node_modules` folder.
-  * `--save`: the package is installed, but in order to get it listed as a 
-  dependency in your `package.json`, we need to include the `--save` option.
-  * `react`: the name of the package to install. You can find package names on 
-  [npmjs.com][npm-site] if you're not sure what the package you might want is 
-  called.
+  * `npm install`: this installs the actual package and places it in your `node_modules` folder. It will create the folder if it doesn't already exist.
+  * `--save`: the package is installed, but in order to get it listed as a dependency in your `package.json`, we need to include the `--save` option. Later, someone cloning your project can run `npm install` to get all the listed dependencies, similar to `bundle install`.
+  * `name_of_package`: the name of the package to install. You can find package names on [npmjs.com][npm-site] if you're not sure what the package you might want is called.
 
-We also need `react-dom` so we can call `ReactDOM.render`. Run the same command
-for this pacakge: `npm install --save react-dom`. Lastly, install Webpack: `npm
-install --save webpack`. You might ask why we're doing this when we've likely
-already installed Webpack globally. Think of it as the difference between
-installing a gem globally on your machine and putting it in your Gemfile. The
-latter allows much greater project-specific control. What if someone removed the
-global version of Webpack on a shared machine, or updated it to a version with
-breaking changes? We want to make sure our project will still work.
+You will need to `npm install --save` the following packages for a React project: 
+  * `webpack`
+  * `react`: provides component creation methods
+  * `react-dom`: provides DOM-interaction methods
 
-Before we move on, take another look at the `package.json` file. It should look
-very similar to this:
+By the way, you can install multiple packages at once like this: 
 
-```javascript
+```
+npm install --save package1 package2 package3
+```
+
+## Adding a `webpack` script
+
+Recall that, in Ruby, running `bundle exec some_command` is **not the same** as running `some_command`. In the former, the `Gemfile`-specified version of `some_command` is run, while in the latter, the local version is run. Omitting `bundle exec` when running commands can cause errors if our app isn't compatible with the local version.
+
+To solve this issue with NPM packages, we need to add `"scripts"` for any packages that we intend to call from the command line. Once we've added a script for a package, we can 
+
+```
+npm run that_package
+```
+
+to ensure that we run the `package.json` specified version.
+
+To create a `webpack` script, add the following attribute to your `package.json`:
+```
+"scripts": {
+  "webpack": "webpack"
+},
+```
+
+When building your app, always use `npm run webpack` instead of simply `webpack` to avoid compatibility problems.
+
+## Try it yourself
+
+Before we move on, **try setting up a new project** in a folder called `hello_world_app`. Install the dependencies listed above and then add a script for `webpack`. Your `package.json` should look very similar to this (you may have higher version numbers):
+
+```json
 {
   "name": "hello_world_app",
   "version": "1.0.0",
@@ -58,18 +82,26 @@ very similar to this:
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "webpack": "^1.12.4"
-  }
+  },
+  "scripts": {
+    "webpack": "webpack"
+  },
 }
 ```
 
-We're almost ready. We've loaded React, but what about JSX? Well, JSX is not
-itself a library that we install, but is rather a syntax extension of JavaScript
-that we need to then compile into vanilla JavaScript. If we send JSX to the
-browser without compiling it, the browser won't know what to do with our code
---- it doesn't speak the language. There's good news: Webpack makes this really
-easy. What we're going to do is add a transpiler called `babel` to our Webpack
-configuration. If you haven't already, create a `webpack.config.js` file. Copy
-this config to start, the format of which will look familiar.
+## Loaders
+
+With the steps above, we've loaded React, but what about JSX? the `react` package itself doesn't provide JSX transpiling, and there's still the issue of our ES2015 code confusing older browsers.
+
+We can address our transpiling problems by adding **Babel** to our dependencies. Babel translates various syntaxes into browser-compatible javascript. 
+
+To get Babel, install these packages: 
+  * `babel-core`
+  * `babel-loader`
+  * `babel-preset-react`
+  * `babel-preset-es2015`
+
+Once everything is installed, create a `webpack.config.js` file. Copy this config to start, which should look familiar.
 
 ```javascript
 module.exports = {
@@ -82,8 +114,7 @@ module.exports = {
 };
 ```
 
-What we're going to add is something called a **loader**. Extend your config to 
-match this: 
+Now we need to add a **loader**. Loaders preprocess our source files before Webpack bundles them. Naturally, they're the perfect vehicle for transpiling. Extend your config to match this:
 
 ```javascript
 module.exports = {
@@ -96,84 +127,82 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['react']
-        }
-      }
-    ]
-  }
-};
-```
-
-What does this do? It tells Webpack that, when compiling the `bundle.js` file,
-it should first use `babel` to process any file whose name matches the regex. We
-add an `exclude` property for `node_modules` since we don't want to mess with
-other packages while doing this. This won't quite work yet -- we need to
-actually install babel, and its `react` presets. Do this now by running `npm
-install --save babel-core`, `npm install --save babel-loader`, and `npm install
---save babel-preset-react`.
-
-Now we want to add source-maps, as well as point webpack at the right files to copy over to bundle.js:
-
-```javascript
-module.exports = {
-  context: __dirname,
-  entry: "./hello_world.jsx",
-  output: {
-    path: "./",
-    filename: "bundle.js"
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['react']
+          presets: ['react', 'es2015']
         }
       }
     ]
   },
-  devtool: 'source-map',
   resolve: {
     extensions: ["", ".js", ".jsx"]
-  }
+  }  
 };
 ```
 
-The `devtool: 'source-map'` line:  This saves us boatloads of time debugging.  When there's an error in our app, the console will point us at the original file that has the error instead of bundle.js.  Look at the difference [without][without-source-maps] and [with][with-source-maps] source maps.  See how much more confusing it is to track down the error without source maps?
+What does this do? It tells Webpack that, when compiling the `bundle.js` file, it should first use Babel to process any file whose name matches the regex. Babel will apply the `react` and `es2015` presets to our files and convert them into ES5 in the bundle. We add an `exclude` property for `node_modules` since we don't want to mess with other packages while doing this. The `resolve: ...` line tells Webpack what types of files to include in bundle.js.
 
-The `resolve: ...` line: tells us what types of files to look at and eventually copy into bundle.js.
+## Source Maps
 
+When Webpack bundles our files, the resulting bundle doesn't have the same file names and line numbers as our source code. This makes locating errors difficult, since error messages will point to the bundle and not the original source file.  
 
-We're almost there! Create an `index.html` and a `hello_world.jsx` file. It's
-important that the latter matches our `entry` in our Webpack config, as we'll
-require all of our React components from here. Using a standard script tag,
-source `bundle.js` in your HTML page. Put the following code in
-`hello_world.jsx`:
+We can fix this by adding a **source map**, which map lines of bundle code to their corresponding source file locations. Look at the difference [without][without-source-maps] and [with][with-source-maps] a source map.
+
+Add a source map to your webpack config by extending it as follows: 
 
 ```javascript
-var React = require('react');
-var ReactDOM = require('react-dom');
+module.exports = {
+  context: __dirname,
+  entry: "./hello_world.jsx",
+  output: {
+    path: "./",
+    filename: "bundle.js"
+  },
+  module: {
+    loaders: [
+      {
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions: ["", ".js", ".jsx"]
+  },
+  devtool: 'source-map'
+};
+```
+
+## Sourcing the bundle
+
+We're almost there! Let's finish our example app by creating an `index.html` and a `hello_world.jsx` file. It's important that the latter matches the `entry` in our Webpack config, as we'll require all of our React components from here. Put the following code in `hello_world.jsx`:
+
+```javascript
+const React = require('react');
+const ReactDOM = require('react-dom');
 
 var MyComponent = React.createClass({
-  render: function () {
+  render() {
     return(
       <div>Hello World</div>
     );
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<MyComponent />, document.getElementById('main'));
 });
 ```
 
-Run `webpack` in your terminal, then open index.html. Congratulations: you're
+Lastly, using a standard script tag, source `bundle.js` in `index.html`. 
+
+Run `webpack` in your terminal, then open `index.html`. Congratulations: you're
 up and running!
 
 [npm-site]: https://www.npmjs.com/

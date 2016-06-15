@@ -13,17 +13,6 @@
 
   <body>
     <canvas></canvas>
-
-    <script src="lib/circle.js"></script>
-    <script src="lib/game.js"></script>
-    <script>
-      var canvasEl = document.getElementsByTagName("canvas")[0];
-      canvasEl.height = window.innerHeight;
-      canvasEl.width = window.innerWidth;
-      new Circles.Game(
-        canvasEl.width,
-        canvasEl.height
-      ).start(canvasEl);
-    </script>
+    <script src="bundle.js"></script>
   </body>
 </html>

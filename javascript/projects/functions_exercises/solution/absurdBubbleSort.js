@@ -1,6 +1,6 @@
-var readline = require("readline");
+const readline = require("readline");
 
-var reader = readline.createInterface({
+const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -37,7 +37,7 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
 
   askIfGreaterThan(arr[i], arr[i + 1], function (isGreaterThan) {
     if (isGreaterThan) {
-      var tmp = arr[i];
+      const tmp = arr[i];
       arr[i] = arr[i + 1];
       arr[i + 1] = tmp;
 

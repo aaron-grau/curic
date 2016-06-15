@@ -1,20 +1,52 @@
-# `this` and that
+# `this`
 
-We've learned about the special `this` variable. When we call a
-function "method style" (`object.method()`), the special variable
-`this` gets set to `object`. `this` is a lot like `self` in Ruby.
+Consider this example: 
 
-There is one evil thing about `this`, and it comes up when we pass
-callbacks. Observe, dear reader:
+```javascript
+let cat = {
+  purr: function () {
+    console.log("meow");
+  },
+  purrMore: function () {
+    for (let i = 0; i < 10; i ++) {
+      this.purr();
+    }
+  }
+};
+
+cat.purr();
+cat.purrMore();
+```
+
+When we call a function like `cat.purr()` or `cat.purrMore()`, a variable named `this` gets set. Through the `this` variable, the method can access the object it was called on. `this` is a lot like `self` in Ruby.
+
+We do not use `this` in the `purr` method, but we do in `purrMore`. In `purrMore`, we use `this` to access the `cat` object that has a `purr` method.
+
+Unlike Ruby's `self`, `this` is not optional if you want to access the attributes of the object. In other words, `purr()` instead of `this.purr()` would not work.
+
+If we had used `purr()` instead of `this.purr()` in `purrMore`, the function would have first looked for a **local variable** named `purr` in the scope of `purrMore` and if it hadn't found it there, it would have then looked up its scope chain. `this.purr()` tells `purrMore` to look at `cat`, the object it was invoked on, to find `purr`.
+
+This is because `cat.purrMore` function is called **method-style**, i.e. `object.method(arguments, ...)`. Using method-style invocation (a.k.a. dot-notation) sets `this` to the object preceding the dot. 
+
+Calling a function in the traditional **function style** (`f(a, b, c)`) **does not** set `this` properly. In such cases, `this` is set to the global scope (either `window` or `global`). 
+
+```js
+var purrLots = cat.purrMore;
+purrLots(); // this evaluates to the global scope
+```
+
+# Scope Issues with `this`
+
+There is one tricky thing about `this`, and it comes up when passing callbacks. Observe, dear reader:
 
 ```javascript
 function times(num, fun) {
-  for (var i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     fun(); // call is made "function-style"
   }
 }
 
-var cat = {
+const cat = {
   age: 5,
 
   ageOneYear: function () {
@@ -24,49 +56,30 @@ var cat = {
 
 cat.ageOneYear(); // works
 
-times(10, cat.ageOneYear); // does not work!
+times(10, cat.ageOneYear); // ReferenceError; this.age is not defined
 ```
 
-The first call to age the cat works. But the calls to increment the
-cat's age ten times don't.
+Calling `cat.ageOneYear()` method style works. But the calls to increment the cat's `age` ten times don't.
 
 ```
 ~$ node test.js
 { age: 6, ageTenYears: [Function] }
 ```
 
-The `ageOneYear` method uses the special `this` variable. But the
-`this` variable **will not be set properly unless we call a function
-"method-style"**.
+In the example, we pull out the `cat.ageOneYear` method and pass it to `times`. `times` calls the method, **but it calls it
+function-style**. Recall that function-style method calls use `window` or `global` as `this`.
 
-```javascript
-obj.method(); // called method style; `this` set properly
-
-var m = obj.method;
-m(); // called function style; `this` not set properly
-```
-
-In the example, we pull out the `cat.ageOneYear` method and pass it
-to `times`. `times` calls the method, **but it calls it
-function-style**. When we call a function "function-style", `this` is
-set to `window`, which is the top-level JavaScript object. Global
-variables are defined on `window`.
-
-More simply, `this` will not be set to `cat` if we call `ageOneYear`
-function style.
-
-There are two ways around this problem. The first is to introduce a
-closure to capture `cat`:
+There are two ways around this problem. The first is to introduce an **anonymous closure** to capture `cat`:
 
 ```javascript
 // `times` is the same:
 function times(num, fun) {
-  for (var i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     fun(); // call is made "function-style"
   }
 }
 
-var cat = {
+const cat = {
   age: 5,
 
   ageOneYear: function () {
@@ -80,40 +93,26 @@ times(10, function () {
 });
 ```
 
-`times` will still call the passed function function-style, so `this`
-will still be set to `window`. But the closure doesn't care, **because
-inside it explicitly calls `ageOneYear` method style on `cat`**.
+`times` will still call the passed function function-style, so `this` will still be set to `window`. But the closure doesn't care, **because inside, it explicitly calls `ageOneYear` method style on `cat`**.
 
-This is a very common pattern, so there is another, less verbose
-alternative:
+This is a very common pattern, so there is another, less verbose alternative using `Function.prototype.bind`.
 
 ```javascript
 times(10, cat.ageOneYear.bind(cat));
 ```
 
-`bind` is a method you can call on JS functions. JS functions are
-objects, too! Methods of `Function` objects live in
-`Function.prototype`.
+`bind` is a method you can call on JS functions. Other methods defined on `Function` objects live in `Function.prototype`.
 
-`bind` creates the anonymous function we had made by hand, in which
-the function `cat#ageOneYear` is called method style on the `cat`
-object. The function returned by `cat.ageOneYear.bind(cat)` will
-still be called function style, but inside it will call `ageOneYear`
-on `cat` method style.
+`bind` works just like the closure we made, in which `cat#ageOneYear` is called method style on the `cat`
+object. `cat.ageOneYear.bind(cat)` returns a closure that will still be called function-style, but which calls `cat.ageOneYear` method-style inside of it.
 
-Note that we could do crazy things like this:
+Note that you can bind functions to any scope, not just `this`: 
 
 ```javascript
-var crazyMethod = cat.ageOneYear.bind(dog);
+const crazyMethod = cat.ageOneYear.bind(dog);
 ```
 
-Here, `crazyMethod()` will call the `Cat#ageOneYear` method, but
-`this` will be bound to the object `dog`. You don't want to do this,
-but I want to illustrate how the `bind` method works.
-
-We'll soon define our own `Function#myBind` method. Soon!
-
-## More trouble
+# Nested `this` Problems
 
 Let's see the same problem in another context:
 
@@ -136,24 +135,15 @@ SumCalculator.prototype.addNumbers = function (numbers) {
 
 For the same reason as before, the use of `this` in scope 2 will not
 work. Because the anonymous function will not be called method style
-by `Array#forEach`, the special `this` variable will not be set
-properly. That makes sense if you think about it: the anonymous
-function is not even a method of `SumCalculator`!
+by `Array.prototype.forEach`, `this` will not be set properly. That makes sense if you think about it: the anonymous function is not even a method of `SumCalculator`!
 
 This problem can be hard to spot, because even though we are using
 `this` in a method of `SumCalculator`, we're also inside an anonymous,
-nested function which will be called function style. **That makes the
-problem hard to spot**. In particular, the correct use of `this` in
-scope 1 will mean something different than the incorrect use in scope
-2.
+nested function which will be called function style. In particular, the correct use of `this` in scope 1 will mean something different than the incorrect use in scope 2.
 
-This sort of runs counter to the philosophy of closures: that they can
-access variables defined in the enclosing scope. `this` is special
-because **it doesn't get captured; it gets reset everytime a function
-is called**.
+This sort of runs counter to our basic understanding of closures: that they can access variables defined in the enclosing scope. However, `this` is special because **`this` doesn't get captured; it gets reset everytime a function is called**.
 
-The typical solution is to introduce a normal variable to hold `this`
-in a way that can be captured:
+If we do want to close over `this`, we need to store it in a normal, capturable local variable:
 
 ```javascript
 function SumCalculator() {
@@ -162,7 +152,7 @@ function SumCalculator() {
 }
 
 SumCalculator.prototype.addNumbers = function (numbers) {
-  var sumCalculator = this;
+  const sumCalculator = this;
 
   numbers.forEach(function (number) {
     sumCalculator.sum += number; // will work as intended
@@ -191,8 +181,10 @@ is a normal variable captured according to typical rules, while `this`
 is a special variable **which is never captured and is reset on every
 function call**.
 
-Some people consider the error-prone nature of `this` to be a bad part
-of JavaScript and a mistake. I'm not sure if I agree with them: the
-existing behavior is (with practice!) easy to understand, even if it
-is error-prone. I'm not sure a more complicated solution would have
-really been better. People debate this.
+## The ES6 Solution
+
+ES6 provides an elegant solution to callback scoping issues through [Arrow Functions](fat-arrows.md).
+
+## References
+
+* [Useful Stack Overflow](http://stackoverflow.com/questions/4886632/what-does-var-that-this-mean-in-javascript)

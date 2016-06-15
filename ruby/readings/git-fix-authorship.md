@@ -1,4 +1,4 @@
-# Fixing Git Commits' Authorship
+# Fixing Git Commit Authorship
 
 So you and your pair are doing it right, committing each piece of functionality
 for the day's project as you go along. Then the day ends, and you decide to

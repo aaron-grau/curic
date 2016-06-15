@@ -82,15 +82,6 @@
 
 ## w4d2
 
-### Video Lectures (90 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera: (cc) 00 User Models][auth-00-user-model] (21 min)
-* [:movie_camera: (cc) 01 Basic Sessions][auth-01-basic-sessions] (21 min)
-* [:movie_camera: (cc) 02 Password Digest][auth-02-password-digest] (20 min)
-* [:movie_camera: (cc) 03 Password Pseudo Attribute][auth-03-password-pseudo-attribute] (11 min)
-* [:movie_camera: (cc) 04 Session Token][auth-04-session-token] (16 min)
-* [Demo code for videos][auth-github]
-
 ### Readings (90 min)
 * [Basic views][basic-views] (15 min)
 * [Partials][partials] (15 min)
@@ -259,26 +250,9 @@
 
 [reddit-clone]: projects/reddit_on_rails
 
-## SF w4d6-w4d7
+## w4d6-w4d7
 
-* [CSS Brief Notes][css-demos-notes] (**Read up to Reset**)
-* **Bonus**: [SASS][sass]
-* **Bonus**: [Responsive Design][responsive-design]
-
-[bootstrap-examples]: http://getbootstrap.com/getting-started/#examples
-[build-with-bootstrap]: ../html-css/projects/bootstrap_lite
-[sass]: readings/sass.md
-[responsive-design]: readings/responsive_design.md
-
-## NYC w4d6-w4d7
-* [CSS Brief Notes][css-demos-notes] (**Read up to Reset**)
-* **Game**: [CSS Diner][css-diner]
-* **Project**: [CSS Warm Up][css-warm-up]
-
-[css-demos-notes]: https://github.com/appacademy/css-demos#brief-notes
-[css-diner]: http://flukeout.github.io/
-[css-warm-up]: https://github.com/appacademy/css-warm-up
-
+<!--TODO (maybe move capybara here and then move curriculum up one day, gives us a free day to spend on react or js or whatever) -->
 
 ## w5d1
 
@@ -348,21 +322,33 @@
 ## w5d3
 
 ### Breakfast
-* :joy_cat:**Bagels and Coffee 8:30am**:joy_cat:
+* :joy_cat: **Bagels @ 8:30am** :joy_cat:
 
-### Video lectures (53 min)
+### Video lectures (65 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
 * [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
+* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
+	* [:computer: demo code][middleware-demo] (22 min)
+* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
+* [:movie_camera: Watch W5D3 Javascript Video Lectures][js-videos] (12 min)
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
 
-### Readings & Homeworks
-* [Middleware][middleware] (12 min)
-* Complete [W5D3 readings and Homework][js-curriculum] in js-curriculum
+### Readings (70 min)
+* Complete [Javascript W5D3 Readings][js-readings] (70 min)
+
+### Homeworks (30 min)
+* Complete [Javascript W5D3 Homework][js-hw] (30 min)
+
+### Additional Resources
+* [Middleware][middleware]
 
 ### Projects
 * **Solo**: Finish ActiveRecordLite and RailsLite.
 
+[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/rails_lite/video/demos/rack_middleware/middleware.rb
 [middleware]: readings/middleware.md
-[js-curriculum]: ../javascript
+[js-videos]: ../javascript#video-lectures-12-min
+[js-readings]: ../javascript#readings-70-min
+[js-hw]: ../javascript#homeworks-30-min

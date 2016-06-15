@@ -10,7 +10,7 @@ example:
 <ul id="dogs"></ul>
 
 <script>
-  var DOGS = {
+  const DOGS = {
     101: {
       id: 101,
       name: "Sable",
@@ -25,11 +25,11 @@ example:
   };
 
   // Fill $dogsUl with list items; one per dog.
-  var $dogsUl = $("ul#dogs");
-  Object.keys(DOGS).forEach(function (id) {
-    var dog = DOGS[id];
+  const $dogsUl = $("ul#dogs");
+  Object.keys(DOGS).forEach( id => {
+    const dog = DOGS[id];
 
-    var $dogLi = $("<li class='dog'></li>");
+    const $dogLi = $("<li class='dog'></li>");
     $dogLi.text(dog.name + " -- " + dog.genus);
 
     // store the dog's id in a **data-* attribute**
@@ -39,12 +39,12 @@ example:
   });
 
   // Install click handlers on the li.dog elements.
-  $("li.dog").on("click", function (event) {
-    var $dogLi = $(event.currentTarget);
+  $("li.dog").on("click", event => {
+    const $dogLi = $(event.currentTarget);
 
     // pull dog id out of the DOM to identify the dog.
-    var dogId = $dogLi.data("id");
-    var dog = DOGS[dogId];
+    const dogId = $dogLi.data("id");
+    const dog = DOGS[dogId];
 
     alert(dog.name + " loves you!");
   });
@@ -87,11 +87,11 @@ can also be done in HTML by setting a `data-*` HTML attribute:
 
 <script>
   // Install click handlers on the li.dog elements.
-  $("li").on("click", function (event) {
-    var $dogLi = $(event.currentTarget);
+  $("li").on("click", event => {
+    const $dogLi = $(event.currentTarget);
 
     // pull dog attributes out of the DOM to identify the dog.
-    var dog = $dogLi.data("dog");
+    const dog = $dogLi.data("dog");
     console.log(dog);
 
     alert(dog.name + " loves you!");
