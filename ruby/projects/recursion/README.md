@@ -70,7 +70,7 @@ examples.
 How many examples do you need to walk through to be confident that it works?
 
 [Break things down into parts]: ./breaking-into-parts.md
-[Simple Examples]: ../w1d2/testing-small.md
+[Simple Examples]: https://github.com/appacademy/curriculum/blob/master/ruby/readings/testing-small.md
 
 ### Deep dup
 
