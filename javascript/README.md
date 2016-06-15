@@ -300,13 +300,12 @@
 * [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
 
 ### Homeworks (15 min)
-* [Census Ajax][census-ajax] (15 min)
+* [Your First Ajax Request][first-ajax] (15 min)
 
 ### Additional Resources
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
 
 ### Projects
-* [Your First Ajax Request][first-ajax]
 * [AjaxTwitter][ajax-twitter]
 
 [assessment-practice]: https://github.com/appacademy/assessment-prep
