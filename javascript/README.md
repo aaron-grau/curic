@@ -299,8 +299,8 @@
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
 * [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
 
-### Homeworks (15 min)
-* [Your First Ajax Request][first-ajax] (15 min)
+### Homeworks (30 min)
+* [Your First Ajax Request][first-ajax] (30 min)
 
 ### Additional Resources
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
@@ -315,9 +315,9 @@
 [css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
 [jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
 [basic-ajax]: readings/basic-ajax.md
-[census-ajax]: homeworks/questions/census_ajax
 [ajax-remote-forms]: readings/ajax-remote-forms.md
 [underscore-templates]: readings/underscore-templates.md
+[first-ajax]: homeworks/questions/first_ajax.md
 [ajax-twitter]: projects/ajax_twitter
 
 ## w6d5
@@ -346,7 +346,6 @@
 [jquery-07-triggering]: readings/jquery-07-triggering.md
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 
-[first-ajax]: projects/first_ajax
 [jquery-lite]: projects/jquery_lite
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md

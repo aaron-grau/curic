@@ -41,4 +41,4 @@ Make sure you can answer the following questions:
 
 [weather-api-signup]: http://home.openweathermap.org/users/sign_up
 [simple-ajax-example]: ../../readings/simple-ajax-example.md
-[skeleton]: ./skeleton.zip?raw=true
+[skeleton]: ./first_ajax_skeleton.zip?raw=true
