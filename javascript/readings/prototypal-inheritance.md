@@ -2,27 +2,20 @@
 
 ## Classes & Prototypes
 
-JavaScript has an unusual system for implementing
-inheritance. JavaScript's version of inheritance is called
-**prototypal inheritance**, and it differs from the **classical
-inheritance** that we are familiar with from Ruby.
+JavaScript has an unusual system for implementing inheritance. JavaScript's version of inheritance is called **prototypal inheritance**, and it differs from the **classical inheritance** that we are familiar with from Ruby.
 
 When you call any property on any JavaScript object, the interpreter
 will first look for that property in the object itself; if it does not
-find it there, it will look in the object's prototype (which is pointed to
-by the object's internal `__proto__` property).
+find it there, it will look in the object's prototype (which is pointed to by the object's internal `__proto__` property).
 
 If it does not find the property in the prototype, it will recursively
 look at the prototype's `__proto__` property to continue up the
-*prototype chain*. How does the chain stop?
-`Object.prototype.__proto__ == null`, so eventually the chain ends.
+*prototype chain*. How does the chain stop? `Object.prototype.__proto__ == null`, so eventually the chain ends.
 
 It is for this reason that we call `Object` the "top level class" in
 JavaScript.
 
-Inheritance in JavaScript is all about setting up the prototype
-chain. Let's suppose we have `Animal`s and we'd like to have `Dog`s
-that inherit from `Animal` and `Poodle`s that inherit from `Dog`.
+Inheritance in JavaScript is all about setting up the prototype chain. Let's suppose we have `Animal`s and we'd like to have `Dog`s that inherit from `Animal` and `Poodle`s that inherit from `Dog`.
 
 Well, we know that we'll instantiate each of these constructor style:
 
@@ -31,9 +24,9 @@ function Animal () {};
 function Dog () {};
 function Poodle () {};
 
-var myAnimal = new Animal();
-var myDog = new Dog();
-var myPoodle = new Poodle();
+const myAnimal = new Animal();
+const myDog = new Dog();
+const myPoodle = new Poodle();
 ```
 
 * `myAnimal`'s `__proto__` references `Animal.prototype`.
@@ -72,9 +65,9 @@ function Poodle() {};
 // Likewise with `Poodle.prototype`.
 Poodle.prototype = new Dog();
 
-var myAnimal = new Animal();
-var myDog = new Dog();
-var myPoodle = new Poodle();
+const myAnimal = new Animal();
+const myDog = new Dog();
+const myPoodle = new Poodle();
 ```
 
 *Voila.* Prototypal inheritance.
@@ -124,7 +117,7 @@ Dog.prototype.bark = function () {
 
 // We're not even going to run `Animal`'s constructor, so why bother
 // passing the name?
-var dog1 = new Dog("James");
+const dog1 = new Dog("James");
 
 // `this.name` is `undefined`
 dog1.sayHello();
@@ -134,9 +127,9 @@ dog1.sayHello();
 
 Let's summarize our goals:
 
-0. `Dog.prototype.__proto__` **must be** `Animal.prototype` so that we
+1. `Dog.prototype.__proto__` **must be** `Animal.prototype` so that we
    can call `Animal` methods on a `Dog` instance.
-0. Constructing `Dog.prototype` **must not** involve calling the
+2. Constructing `Dog.prototype` **must not** involve calling the
    `Animal` constructor function.
 
 The classic trick to accomplish this is to introduce a third class,
@@ -199,85 +192,4 @@ object. We just want to run the `Animal` initialization logic **on the
 current `Dog` instance**. That's why we use `call` to call the
 `Animal` constructor, setting `this` to the current `Dog` instance.
 
-## Bonus: Object.create
-
-You can accomplish the above without the surrogate using ECMAScript 5's
-`Object.create` method, which returns a new object with its `__proto__`
-set to its first argument. Here's the modified code:
-
-```javascript
-function Animal (name) {
-  this.name = name;
-}
-
-Animal.prototype.sayHello = function () {
-  console.log("Hello, my name is " + this.name);
-};
-
-function Dog (name, coatColor) {
-  Animal.call(this, name);
-  this.coatColor = coatColor;
-};
-
-// Set Dog.prototype to a new object whose
-// __proto__ points to Animal.prototype.
-Dog.prototype = Object.create(Animal.prototype);
-
-Dog.prototype.bark = function () {
-  console.log("Bark!");
-};
-```
-
-ECMAScript 5 adds nice new features like this, but I want you to
-understand JS very deeply, so we're not going to use `Object.create`.
-Also, IE8 doesn't have this feature, so `Object.create` is sadly not
-backward compatible.
-
-But the future is bright!
-
 Bonus reading: [from `new Cat()` to `Cat.new()`](./new_cat-vs-cat.new.md)
-
-## Exercises
-
-### `inherits`
-
-We learned how to implement class inheritance using a
-`Surrogate`. There are a number of steps:
-
-* Define a `Surrogate` class
-* Set the prototype of the `Surrogate` (`Surrogate.prototype =
-  SuperClass.prototype`)
-* Set `Subclass.prototype = new Surrogate()`
-* Set `Subclass.prototype.constructor = Subclass`
-
-Write a `Function#inherits` method that will do this for you. Do not use
-`Object.create` for this, you should deeply understand what the `new` keyword
-does and how the `__proto__` chain is constructed. This
-will help you in Asteroids today:
-
-```javascript
-function MovingObject () {};
-
-function Ship () {};
-Ship.inherits(MovingObject);
-
-function Asteroid () {};
-Asteroid.inherits(MovingObject);
-```
-
-How would you test `Function#inherits`? A few specs to consider:
-
-0. You should be able to define methods/attributes on `MovingObject`
-   that ship and asteroid instances can use.
-0. Defining a method on `Asteroid`'s prototype should not mean that a
-   ship can call it.
-0. Adding to `Ship`/`Asteroid`'s prototypes should not change
-   `MovingObject`'s prototype.
-0. The `Ship` and `Asteroid` prototypes should not be instances of
-   `MovingObject`.
-
-After you have written this, you may look up
-[my answer][inherits-answer] so you can use it (in a slightly modified
-format) for Asteroids.
-
-[inherits-answer]: ../projects/inherits_exercises/solution/inherits.js

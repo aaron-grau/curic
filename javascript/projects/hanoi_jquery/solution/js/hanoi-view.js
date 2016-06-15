@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 function View (game, $el) {
   this.game = game;
   this.$el = $el;
@@ -12,12 +14,12 @@ function View (game, $el) {
 
   this.setupTowers();
   this.render();
-};
+}
 
 View.prototype.clickTower = function (event) {
-  var clickedTowerIdx = $(event.currentTarget).index();
+  const clickedTowerIdx = $(event.currentTarget).index();
 
-  if (this.fromTowerIdx == null) {
+  if (this.fromTowerIdx === null) {
     this.fromTowerIdx = clickedTowerIdx;
   } else {
     if (!this.game.move(this.fromTowerIdx, clickedTowerIdx)) {
@@ -52,12 +54,12 @@ View.prototype.setupTowers = function () {
   this.$el.empty();
   this.$el.addClass("group");
 
-  var $tower, $disk;
+  let $tower, $disk;
 
-  for (var towerIdx = 0; towerIdx < 3; towerIdx++) {
+  for (let towerIdx = 0; towerIdx < 3; towerIdx++) {
     $tower = $("<ul>");
 
-    for (var diskIdx = 0; diskIdx < 3; diskIdx++) {
+    for (let diskIdx = 0; diskIdx < 3; diskIdx++) {
       $disk = $("<li>");
       $tower.append($disk);
     }
@@ -74,18 +76,18 @@ View.prototype.render = function () {
   more light-weight approach and will speed up the
   redrawing in the browser.
   */
-  var $towers = this.$el.find("ul");
+  const $towers = this.$el.find("ul");
   $towers.removeClass();
 
   if (this.fromTowerIdx !== null) {
     $towers.eq(this.fromTowerIdx).addClass("selected");
   }
 
-  this.game.towers.forEach(function(disks, towerIdx){
-    var $disks = $towers.eq(towerIdx).children();
+  this.game.towers.forEach( (disks, towerIdx) => {
+    const $disks = $towers.eq(towerIdx).children();
     $disks.removeClass();
 
-    disks.forEach(function(diskWidth, diskIdx) {
+    disks.forEach( (diskWidth, diskIdx) => {
       /*
       Since our disks are stacked from bottom to top
       as [3, 2, 1], we have to select from the back

@@ -2,10 +2,7 @@
 
 ## Quick Hits
 
-So far, we've written all our code in a single file. We'd like to learn
-how to split code up in Node modules.
-
-Node is different from Ruby. In Ruby, you can do like so:
+So far, we've written all our code in a single file. We'd like to learn how to split code up in Node modules. Node is different from Ruby. In Ruby, you can do like so:
 
 ```ruby
 # ./cat.rb
@@ -59,11 +56,11 @@ Dog.prototype.bark = function () {
 module.exports = Dog;
 
 // ./animals.js
-var Cat = require("./cat");
-var Dog = require("./dog");
+const Cat = require("./cat");
+const Dog = require("./dog");
 
-var cat = new Cat();
-var dog = new Dog();
+const cat = new Cat();
+const dog = new Dog();
 
 cat.meow();
 dog.bark();
@@ -108,14 +105,14 @@ another file. Let's have a look:
 module.exports = "THIS IS MY EXPORTED STRING";
 
 // ./main.js
-var silly = require("./silly");
+const silly = require("./silly");
 console.log(silly); //=> THIS IS MY EXPORTED STRING
 ```
 
 Because the value of `module.exports` is what is returned by `require`,
 `cat.js` exports the `Cat` constructor function by setting
 `module.exports = Cat` and `animals.js` calls
-`var Cat = require("./cat");` to save the `Cat` class to a variable to
+`const Cat = require("./cat");` to save the `Cat` class to a variable to
 use.
 
 ## In Detail: Loading Multiple Classes
@@ -142,14 +139,14 @@ module.exports = Bishop;
 // ... more piece files ...
 
 // ./lib/chess-board.js
-var Pawn   = require("./pieces/pawn");
-var Knight = require("./pieces/knight");
-var Bishop = require("./pieces/bishop");
+const Pawn   = require("./pieces/pawn");
+const Knight = require("./pieces/knight");
+const Bishop = require("./pieces/bishop");
 // ...
 
-var p = new Pawn();
-var k = new Knight();
-var b = new Bishop();
+const p = new Pawn();
+const k = new Knight();
+const b = new Bishop();
 ```
 
 This is kind of annoying. Anyone who wants to use all of our pieces
@@ -168,11 +165,11 @@ module.exports = {
 };
 
 // chess-board.js
-var Pieces = require("./pieces");
+const Pieces = require("./pieces");
 
-var p = new Pieces.Pawn();
-var k = new Pieces.Knight();
-var b = new Pieces.Bishop();
+const p = new Pieces.Pawn();
+const k = new Pieces.Knight();
+const b = new Pieces.Bishop();
 ```
 
 When we `require("./pieces")`, Node will realize that `./pieces` is a
@@ -197,3 +194,48 @@ module.exports.Bishop = require("./bishop");
 
 I like our way of reassigning the whole `module.exports` better. But
 this way would also work.
+
+## ES6 Syntax (Bonus)
+
+In ES6, we can write export statements differently. These new ways of writing export statements don't work in Node, but are starting to be used in front-end development. The command `export default` is similar to `module.exports`, as shown below.
+
+```js
+// ./cat.js
+class Cat () {
+  meow () {
+    // ...
+  }
+};
+
+export default Cat;
+
+// ./dog.js
+class Dog () {
+  bark () {
+    // ...
+  };
+};
+
+export default Dog;
+
+// ./animals.js
+import Cat from "./cat";
+import Dog from "./dog";
+
+const cat = new Cat();
+const dog = new Dog();
+
+cat.meow();
+dog.bark();
+```
+
+ES6 also allows us to export specific named functions and constants, and load them by name in other files.
+
+```js
+// ./silly.js
+export const funString = "THIS IS MY EXPORTED STRING";
+
+// ./main.js
+import {funString} from "./silly";
+console.log(funString); //=> THIS IS MY EXPORTED STRING
+```

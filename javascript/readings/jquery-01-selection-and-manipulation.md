@@ -49,23 +49,21 @@ fundamentally an array of `HTMLElements`:
 </ul>
 
 <script>
-(function () {
   // Two ways of doing the same thing:
 
   console.log("DOM WAY");
-  var listItems = document.querySelectorAll("li");
-  for (var i = 0; i < listItems.length; i++) {
+  const listItems = document.querySelectorAll("li");
+  for (let i = 0; i < listItems.length; i++) {
     console.log(listItems[i].textContent);
   }
 
   console.log("JQUERY WAY");
   // returns a jQuery object; the leading dollar-sign in front of
   // $listItems is conventional; it is just part of the variable name.
-  var $listItems = $("li");
-  for (var i = 0; i < $listItems.length; i++) {
+  const $listItems = $("li");
+  for (let i = 0; i < $listItems.length; i++) {
     console.log($listItems[i].textContent);
   }
-})();
 </script>
 ```
 
@@ -94,29 +92,27 @@ has all sorts of useful methods:
 </ul>
 
 <script>
-(function () {
-  var $listItems = $("li");
+  const $listItems = $("li");
 
   // you can iterate with the each method
-  $listItems.each(function (index) {
+  $listItems.each( index => {
     // The function is called for each `HTMLElement` in `$listItems`;
     // each time it sets `this` to the next `HTMLElement` in the set.
     console.log([index, this.textContent].join(" "));
   });
 
   // after one second, make the list green
-  window.setTimeout(function () {
-    // $listItems.each(function (index) {
+  window.setTimeout( () => {
+    // $listItems.each( (_, obj) => {
     //   // in the low-level DOM API, `element.classList` returns a
     //   // `ClassList` object; calling `ClassList#add` adds the class to
     //   // the element.
-    //   this.classList.add("green");
+    //   obj.classList.add("green");
     // });
 
     // more convenient; uses **implicit iteration**
     $listItems.addClass("green");
   }, 1000);
-})();
 </script>
 ```
 
@@ -136,7 +132,7 @@ don't).
 
 ## Traversal
 
-Just like `HTMLElement`s have `#parentElement` and `#children`
+Just like `HTMLElement`s have `parentElement` and `children`
 attributes, there are `jQuery#parent`, `jQuery#children`, and
 `jQuery#siblings` methods.
 
@@ -154,12 +150,10 @@ attributes, there are `jQuery#parent`, `jQuery#children`, and
 </div>
 
 <script>
-(function () {
-  var $ul = $("ul");
+  const $ul = $("ul");
   $ul.children().attr("style", "background-color: red");
   $ul.parent().attr("style", "background-color: green");
   $ul.siblings().attr("style", "color: blue");
-})();
 </script>
 ```
 
@@ -168,7 +162,7 @@ jQuery methods typically return jQuery objects: `#parent`,
 you to **chain** jQuery methods. If methods returned a `NodeList` we
 would need to drop back down to the DOM API.
 
-This is what lets us use the `jQuery#attr` method in the above
+This is what let's us use the `jQuery#attr` method in the above
 example.
 
 ## Inserting and Removing Elements
@@ -183,16 +177,15 @@ Just like the DOM, we can insert/remove elements into/from the DOM:
 </div>
 
 <script>
-(function () {
-  var coolThings = [
+  const coolThings = [
     "racecars",
     "lasers",
     "aeroplanes"
   ];
 
-  var i = 0;
-  window.setInterval(function () {
-    var $ul = $("ul");
+  let i = 0;
+  window.setInterval( () => {
+    const $ul = $("ul");
     if ($ul.children().length == 10) {
       // $ul.children() returns a jQuery object containing all the
       // children; we then call `#remove`, which implicitly iterates
@@ -200,14 +193,13 @@ Just like the DOM, we can insert/remove elements into/from the DOM:
       $ul.children().remove();
     }
 
-    var li = document.createElement("li");
+    const li = document.createElement("li");
     li.textContent = coolThings[i];
     // jQuery#append is just like HTMLElement#appendChild
     $ul.append(li);
 
     i = (i + 1) % 3;
   }, 1000);
-})();
 </script>
 ```
 
@@ -217,13 +209,13 @@ In our prior example we used `document.createElement`. This is another
 appearance of the low-level DOM API, and jQuery is here to help.
 Instead, we could write:
 
-```js
-var $li = $("<li></li>");
-// sets the textContent property
-$li.text(coolThings[i]);
-$li.attr("style", "background-color: green");
-$ul.append($li)
-```
+  ```js
+    const $li = $("<li></li>");
+    // sets the textContent property
+    $li.text(coolThings[i]);
+    $li.attr("style", "background-color: green");
+    $ul.append($li)
+  ```
 
 **Note that we are using the same jQuery function a new way**. jQuery
 is weird in that the same function, if passed different types of
@@ -255,8 +247,8 @@ the current attr/text/val value. Here's an example:
 <input type="text" id="cool-input">
 
 <script>
-window.setInterval(function () {
-  var $coolInput = $("#cool-input");
+window.setInterval( () => {
+  const $coolInput = $("#cool-input");
 
   if ($coolInput.val() == "racecars") {
     // Reset the input on them!
@@ -288,20 +280,20 @@ And another, zanier one:
 
 
 <script>
-window.setInterval(function () {
-  var $coolInputs = $("input");
+window.setInterval( () => {
+  const $coolInputs = $("input");
 
   // unselect any item.
   $coolInputs.prop("checked", false);
 
   // randomly samples a number 0...3.
-  var i = Math.floor(3 * Math.random());
+  const i = Math.floor(3 * Math.random());
 
   // Indexing takes us out of jQuery world!
-  var coolInput = $coolInputs[i];
+  const coolInput = $coolInputs[i];
   // We can **wrap** an HTMLElement to create a jQuery object with one
   // item; the wrapped element.
-  var $coolInput = $(coolInput);
+  const $coolInput = $(coolInput);
   $coolInput.prop("checked", true);
 }, 200);
 </script>

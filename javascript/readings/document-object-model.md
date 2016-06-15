@@ -13,9 +13,9 @@ Let's see a simple HTML page:
 </ul>
 
 <script>
-window.setTimeout(function () {
-  var ul = document.getElementById("cats");
-  var li = document.createElement("li");
+window.setTimeout( () => {
+  const ul = document.getElementById("cats");
+  const li = document.createElement("li");
   li.textContent = "This is injected by JavaScript";
   ul.appendChild(li);
 }, 1000);
@@ -65,15 +65,15 @@ We can also get or set element attributes:
 </label>
 
 <script>
-window.setTimeout(function () {
-  var reds = document.getElementsByClassName("red");
-  var greens = document.getElementsByClassName("green");
+window.setTimeout( () => {
+  const reds = document.getElementsByClassName("red");
+  const greens = document.getElementsByClassName("green");
 
   // swap the `HTMLElement#className` property
-  for (var i = 0; i < reds.length; i++) {
+  for (let i = 0; i < reds.length; i++) {
     reds[i].className = "green";
   }
-  for (var i = 0; i < greens.length; i++) {
+  for (let i = 0; i < greens.length; i++) {
     greens[i].className = "red";
   }
 
@@ -81,7 +81,7 @@ window.setTimeout(function () {
   document.getElementById("cat_name").disabled = true;
 
   // Remove a paragraph from the document.
-  var paragraph = document.querySelector("p");
+  const paragraph = document.querySelector("p");
   paragraph.parentElement.removeChild(paragraph);
 }, 1000);
 </script>
@@ -107,30 +107,28 @@ handling**.
 </form>
 
 <script>
-(function () {
-  var catFormEl = document.getElementById("cat-form");
-  catFormEl.addEventListener("submit", function (event) {
+  const catFormEl = document.getElementById("cat-form");
+  catFormEl.addEventListener("submit", event => {
     // **cancel** the event; if the event were not canceled the browser
     // would try to submit the form for real.
     event.preventDefault();
 
     // Get the name input element (type `HTMLInputElement`), get the
     // value, and clear it.
-    var catNameInputEl = document.getElementById("cat_name")
-    var catName = catNameInputEl.value;
+    const catNameInputEl = document.getElementById("cat_name")
+    const catName = catNameInputEl.value;
     catNameInputEl.value = "";
 
     // Get the ul of cats.
-    var ul = document.getElementById("cats");
+    const ul = document.getElementById("cats");
     // create an li element
-    var li = document.createElement("li");
+    const li = document.createElement("li");
     // set the text of the li to be the value of the input field
     li.textContent = catName;
 
     // insert it as the last item in the ul.
     ul.appendChild(li);
   });
-})();
 </script>
 ```
 
@@ -169,23 +167,21 @@ Let's close out with one last demo:
 <p id="mystring-reversed"></p>
 
 <script>
-(function () {
-  var buttonEl = document.getElementById("alert-button");
-  buttonEl.addEventListener("click", function (event) {
+  const buttonEl = document.getElementById("alert-button");
+  buttonEl.addEventListener("click", event => {
     alert("HELLO");
   });
 
-  var inputEl = document.getElementById("mystring");
-  var pEl = document.getElementById("mystring-reversed");
-  inputEl.addEventListener("input", function () {
-    var value = inputEl.value;
+  const inputEl = document.getElementById("mystring");
+  const pEl = document.getElementById("mystring-reversed");
+  inputEl.addEventListener("input", () => {
+    const value = inputEl.value;
     pEl.textContent = value.split("").reverse().join("");
   });
 
-  pEl.addEventListener("mouseover", function () {
+  pEl.addEventListener("mouseover", () => {
     alert("YOU MOUSED OVER ME!");
   });
-})();
 </script>
 ```
 
