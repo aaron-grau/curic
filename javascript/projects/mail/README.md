@@ -47,7 +47,7 @@
   that we are still on a single page that is not making new requests
 
 ## Phase II: Displaying Messages
-Let's make something more interesting happening when the route changes. We could
+Let's make something more interesting happen when the route changes. We could
 do all the logic of creating DOM Nodes for each route  in the router like we are
 now, but it's better to separate each separate "view" into it's own module(JS
 file) that will be responsible for returning a DOM Node. We conventionally call
@@ -67,8 +67,10 @@ these modules components.
 
 ### `main.js`
 Now we are going to create a mapping from `routes` to `components`. This will
-allow us to create this mapping outside of the `router`, so that we can freely
-modify this mapping elsewhere and treat the `router` like a black box.
+allow us to specify the routing configuration outside of the router. Separating
+the configuration from the logic that uses that configuration is good
+practice because it follows the principle of [separation of
+concerns](https://en.wikipedia.org/wiki/Separation_of_concerns).
 
 * Create the `routes`
   * Create an object called `routes`. You don't need to create this inside the
@@ -77,14 +79,14 @@ file, but it's simple enough that we will just make it in main.
   * We are going to format this object so that property names will be the names of
   routes ie. (`compose`, `inbox`, and `sent`)
   * For now just create one route by setting an `inbox` property with a value of
-  the `Inbox` component itself. **Make sure you require the `Compose` module**
+  the `Inbox` component itself. **Make sure you require the `Inbox` module**
 * Give the routes to the router
   * Pass the `routes` object as a second argument to the `Router` constructor
-    function
+    function. We will make use of this additional argument in the next part.
 
 ### `router.js`
 * `Router`
-  * Let's update our `Router` to store the `routes`
+  * Update your `Router` to store the `routes`
   * Add a second parameter to the constructor function called `routes`
   * Save `routes` to `this.routes`
 * `activeRoute`
@@ -142,7 +144,7 @@ will have access to it.
     `from`, `subject`, `body`.
   * Here is an example. Feel free to use this or get creative
   ```js
-  messages = {
+  let messages = {
     sent: [
       {to: "friend@mail.com", subject: "Check this out", body: "It's so cool"},
       {to: "person@mail.com", subject: "zzz", body: "so booring"}
@@ -152,6 +154,7 @@ will have access to it.
 "Stay at home mom discovers cure for leg cramps. Doctors hate her"},
       {from: "person@mail.com", subject: "Questionnaire", body: "Take this free quiz win $1000 dollars"}
     ]
+  };
   ```
 
 * Now that we have some data, let's create functionality for working with it.
