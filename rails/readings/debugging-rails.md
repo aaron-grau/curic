@@ -41,10 +41,8 @@ Therefore to debug them, we make use of our good friend: `byebug`.
 
 Add `gem 'byebug'` to your `Gemfile` and `bundle install`.
 
-If you need a refresher on byebug, be sure to have a look over the
-previous readings:
-
-https://github.com/appacademy/ruby-curriculum/blob/master/w1d1/debugging/debugger.md
+If you need a refresher on byebug and debugging, be sure to have a 
+look over the previous [reading][debugging-reading].
 
 You can also type
 
@@ -54,6 +52,8 @@ You can also type
 
 inside of byebug to get a list of commands that are
 available for use.
+
+[debugging-reading]: ../../ruby/readings/debugger.md
 
 ## Better Errors
 
