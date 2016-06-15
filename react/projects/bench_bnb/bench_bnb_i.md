@@ -349,6 +349,10 @@ benches that are within the boundaries specified by the argument. See the exampl
 We now need to write a front-end request conforming to your new API hook.
 Your API is expecting a `GET` request to the bench `index` with a query string containing 'bounds'.
 
+* Modify `BenchActions.fetchAllBenches` to take a parameter `bounds`. Have it pass 
+`bounds` to `BenchApiUtil.fetchAllBenches`, which should pass `bounds` to its `
+$.ajax` call.
+
 * Return to your map `idle` event handler. Call `getBounds` on the map
   instance to get a `LatLngBounds` instance. Call `getNorthEast` and
   `getSouthWest` to get these coordinate pairs. Get their latitude and
@@ -356,9 +360,8 @@ Your API is expecting a `GET` request to the bench `index` with a query string c
   expecting. Check [this documentation][lat-lng-docs] for more
   info.
 * Package these coordinates into a `bounds` object.
-* Pass`bounds`to `ApiUtil.fetchAllBenches`. Inside`fetchAllBenches`, pass it to 
-  your AJAX call as `data`.
-* Verify that, when the map moves, you are sending a properly `bound` request and 
+* Call `BenchActions.fetchAllBenches`, passing `bounds`.
+* Verify that, when the map moves, you are sending a properly 'bound' request and 
   receiving the right benches in response. 
 * Moving your map around should now trigger updates to your `BenchStore` and `BenchIndex`. Verify this before moving on to updating your markers.
 
