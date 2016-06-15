@@ -195,6 +195,8 @@ message you are iterating over.
     * A `<span>` with class `from` with content `message.from`
     * A `<span>` with class `subject` with content `message.subject`
     * A `<span>` with class `body` with content `message.body`
+  * Using a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+will make this easier as you can treat it sort like of an `html.erb` file.
   * Return the `<li> DOM Node
 
 * Test that clicking on the inbox link displays all your messages
