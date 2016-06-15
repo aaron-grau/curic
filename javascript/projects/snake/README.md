@@ -6,8 +6,12 @@ We're going to write a Snake game!
 
 ## Phase 0: Webpack Setup
 
-* Create a `main.js` file in the `js` folder. This will be the file that requires your game's classes and begins the game once the DOM is loaded. It will also be the entry point for webpack.
-* Create your `webpack.config.js` file. Specify a context, an entry file, and an output object. The output object should have a `path` and `filename`. See your other games for guidance on contructing this file.
+* Create a `main.js` file in the `js` folder. This will be the file that
+requires your game's classes and begins the game once the DOM is loaded. It
+will also be the entry point for webpack.
+* Create your `webpack.config.js` file. Specify a context, an entry file, and an
+output object. The output object should have a `path` and `filename`. See your
+other games for guidance on constructing this file.
 
 ## Phase I: `Snake` and `Board`
 
@@ -20,15 +24,15 @@ We're going to write a Snake game!
       `equals`, and `isOpposite`.
       * An alternative would be writing helper methods that take two
         array arguments.
-    * Write a `Snake#move` function that will move the snake in the
+    * Write a `Snake.prototype.move` function that will move the snake in the
       current direction.
     * I wrote a simple `turn` method that took a new direction and
       updated `direction`.
 * Write a `Board` class.
     * The board should construct and hold a `Snake`.
-    * Later, your `Board` can hold on to the apples that are on the
-      board.
-    * At the bottom on `snake.js`, export the `Board` class because it will be used in the `View` class.
+    * Later, your `Board` can hold on to the apples that are on the board.
+    * At the bottom on `snake.js`, export the `Board` class because it will be
+    used in the `View` class.
 
 ## Phase II: Write a simple `View` class
 
@@ -39,18 +43,20 @@ We're going to write a Snake game!
       browser events.
 * Write a `View` class that takes in an HTML element which will hold
   the display. Save this in a `$el` instance variable.
-* In the constructor, build a `Board`. In order to acceess the board, you must `require` it at the top of the file. 
+* In the constructor, build a `Board`. In order to access the board, you must
+ `require` it at the top of the file.
 * In the constructor, bind a listener to detect key events, so you
   know when the user wants to turn the snake.
     * I used jQuery's `on` method with event `"keydown"`.
     * Lookup and read the relevant jQuery docs as needed.
     * I wrote a helper method `handleKeyEvent(event)`. It looked up
       `event.keyCode` and passed the appropriate direction to
-      `Snake#turn`.
-* In the constructor, also use `setInterval` to run a `#step` method
-  every half second. Each turn it should call `Snake#move` and redraws
-  the whole board.
-* Render the board using divs or lis with CSS classes. Redraw the board each turn.
+      `Snake.prototype.turn`.
+* In the constructor, also use `setInterval` to run a `View.prototype.step`
+ method every half second. Each turn it should call `Snake.prototype.move` and
+ redraws the whole board.
+* Render the board using divs or lis with CSS classes. Redraw the board each
+turn.
 * Export the `View` class. In `main.js`, require the exported `View`.
 * Run `webpack` to create `bundle.js`. Be to include it in your html.
 
