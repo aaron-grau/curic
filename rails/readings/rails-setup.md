@@ -27,13 +27,13 @@ rails new MyProjectName --database postgresql
 When using postgresql, you must also change the configs in
 `config/database.yml` by adding `host:localhost`.
 
-[See this earlier reading for an example][setting-up-postgresql].
+See this earlier [reading][setting-up-postgresql] for an example.
 
 When using postgresql, you should also run the command `rake
 db:create` in the terminal before trying to run migrations.  This
 actually creates the database for your application.
 
-[setting-up-postgresql]: https://github.com/appacademy/sql-curriculum/blob/master/w3d3/first-rails-project.md#postgres
+[setting-up-postgresql]: ../../sql/readings/first-rails-project.md#postgres
 
 ## Stop the loading of unused assets
 
