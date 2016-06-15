@@ -27,7 +27,7 @@ const xhr = new XMLHttpRequest();
 xhr.open('POST', 'api/path/to/resource');
 
 // step 3 - register a callback
-xhr.onload = () => {
+xhr.onload = function () {
   console.log(xhr.status) // for status info
   console.log(xhr.responseType) //the type of data that was returned
   console.log(xhr.response) //the actual response. For json api calls, this will be a json string
@@ -37,3 +37,7 @@ xhr.onload = () => {
 const optionalData = { name: "User1", password : "123456" };
 xhr.send(optionalData);
 ```
+
+Check out the [MDN Documentation][xhr-docs] for more information.
+
+[xhr-docs]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
