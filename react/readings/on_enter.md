@@ -51,7 +51,7 @@ the `onEnter` callback function can accept up to 3 arguments:
       ```javascript
         replace('/go/here/instead');
       ```
-      
+
   * `asyncDoneCallback` --> this one is optional, but important to understand. It **completely changes** how the callback is executed.
 
 ---
@@ -69,7 +69,7 @@ If your callback function's signature contains 2 or fewer parameters, then the r
 If, however, your function's signature contains all 3 parameters, then the route will wait until `asyncDoneCallback` is invoked, before rendering.
 
   ```javascript
-    function someCallback(nextState, replace asyncDoneCallback){
+    function someCallback(nextState, replace, asyncDoneCallback){
       doAsyncThing({
         success: asyncDoneCallback
       })
