@@ -12,7 +12,7 @@ Go back to our [Memory solutions][memory-solutions] from w1d2 and harden the cod
 * [Skorks on exceptions][skorks-exceptions]
 * [Ruby Patterns][Ruby-Patterns]
 
-[error-reading]: ./errors.md
+[error-reading]: ../readings/errors.md
 [skorks-exceptions]: http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/
 [Ruby-Patterns]: https://github.com/adomokos/DesignPatterns-Ruby/
-[memory-solutions]: https://github.com/appacademy/solutions/tree/master/w1/w1d2/memory
+[memory-solutions]: ../projects/memory/solution/
