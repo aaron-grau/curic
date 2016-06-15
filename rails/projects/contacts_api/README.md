@@ -1,6 +1,6 @@
 # ContactsAPI
 
-* **[Live version](http://aa-contactsapi.herokuapp.com/users)**
+* **[Live Demo](http://aa-contactsapi.herokuapp.com)**
 
 # Layering on Contacts
 
