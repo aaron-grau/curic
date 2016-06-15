@@ -1,16 +1,8 @@
-let content = "";
 const MessageStore = require('./messageStore');
-
-function Message (to = "", subject = "", body = "") {
-  this.to = to;
-  this.subject = subject;
-  this.body = body;
-}
-
-let currentMessage = new Message();
 
 module.exports = {
   renderForm: function () {
+    let currentMessage = MessageStore.getMessageDraft();
     let html = `
     <p class="new-message-header">New Message</p>
     <form class="compose-form">
@@ -28,7 +20,6 @@ module.exports = {
 
     <textarea
       name='body'
-      class='body'
       rows='20'>${currentMessage.body}</textarea>
 
     <button type="submit" class="btn btn-primary submit-message">Send</button>
@@ -42,13 +33,12 @@ module.exports = {
     container.innerHTML = this.renderForm();
     container.addEventListener('change', e => {
       let target = e.target;
-      currentMessage[target.name] = target.value;
+      MessageStore.updateDraftField(target.name, target.value);
     });
 
     container.addEventListener('submit', e => {
       e.preventDefault();
-      MessageStore.addSentMessage(currentMessage);
-      currentMessage = new Message();
+      MessageStore.sendDraft();
       location.hash = "inbox";
     });
 

@@ -11,7 +11,8 @@
 * Add an event listener for `DOMContentLoaded`
   * In the callback add an event listener on `.sidebar li` for `click`
     * Get the name of the location from the `innerText` of the element
-    * Set `location.hash` to be the new location
+    * Call `toLowerCase` on the name to make sure there aren't case differences
+    * Set `location.hash` to be the lower cased location name
 * Test that clicking on the sidebar elements changes the hash
 * Test that this isn't making a new request
 
@@ -157,11 +158,8 @@ will have access to it.
   * Create a new object called `MessageStore`. This object will be what this
     module exports
   * Create the follow functions as properties on this object:
-    `getInboxMessages`, `getSentMessages`, and `addSentMessages`.
     * `getInboxMessages` should return the array at `messages.inbox`
     * `getSentMessages` should return the array at `messages.sent`
-    * `addSentMessage` should take a message as a parameter and `push` it into
-      the array of sent messages at `messages.sent`
   * Make sure you export the `MessageStore` at the end of the file
 
 ### `Inbox.js`
@@ -200,6 +198,9 @@ will make this easier as you can treat it sort like of an `html.erb` file.
   * Return the `<li> DOM Node
 
 * Test that clicking on the inbox link displays all your messages
+* Now that your inbox works, make the application immediately route to the inbox
+  by using `location.hash` to route to `#inbox` inside the `DOMContentLoaded`
+callback. **Make sure this happens after the router starts**
 
 ## Phase III: Sent Component
 
@@ -219,7 +220,108 @@ the sender in the sent folder
 component**
 
 ## Phase IV: Compose Component
+Now let's add a new component that will allow us to write new e-mails. The
+process will be the same as making the `Inbox` and `Sent` components with a few
+key differences:
+* The component will have more complicated structure for the Node it needs to
+  render
+* We will need to add event listeners in order to give to give our component a
+  couple key pieces of functionality
+  1. We want to store the message being drafted somewhere in memory. If the
+     currently drafted messaged only existed as a values in the fields of a
+form, then as soon as the form was unmounted from the DOM then you would lose
+the contents of your draft. So for example if you were writing a message and
+then clicked on the inbox tab, this would delete your drafted message. We need
+to a listener to the form that every time the value changes we update the copy
+that we're storing in memory.
+  2. The default behavior when a form is submitted is to make a new request with
+     the contents of the form to the current url (or the one specified in the
+form). This would cause a reload of the entire page and completely ruin the
+single page application architecture we are going for. Therefore we are going to
+another listener on the form so that when it is submitted, we prevent the
+default behavior and handle the submission according to our own logic.
+
+### `messageStore.js`
+Let's make a couple additions to our `messageStore` to provide the logic for
+storing message drafts.
+* We are going to make a constructor object to facilitate creating new message
+  objects. Every time we send a message, we need to create a new message object,
+and making a constructor function will make this easier to do.
+  * Create a constructor function `Message`. This message should the following
+  paramters: `from`, `to`, `subject`, `body`. Make sure to save these values to
+the object being constructed inside the constructor function.
+* Now we need a place to store the current message draft. Create a variable
+  called `messageDraft` and set it equal to a new `Message` object by calling
+`Message` constructor style. Drafts always start off blank so it is okay if the
+fields start off blank.
+* This object will be in scope inside this file, but out of scope outside so we
+  will next create the following functions on our `MessageStore` to update it:
+  * `updateDraftField` should take two parameters `field` and `value` and set the
+      property of `messageDraft` specified in `field` to `value`.
+  * `sentDraft` should do the following:
+    * Add the current draft to the sent folder by pushing
+    `messageDraft` onto the `messages.sent` array.
+    * Reset `messageDraft` to a **new** blank message object by calling the
+      `Message` constructor.
 
 ### `Compose.js`
-
+* Make a new file as you did for the other components.
+* Make sure to require the `messageStore` immediately since we know we are going
+  to need it.
+* As with the other components the `Compose` component will be an object with a
+  `render` method and a helper method for doing the work of creating the
+complicated DOM structure.
+* `render`
+  * Create a `<div>` DOM Node that will be returned from this function.
+  * Set the class of this node to `new-message` using `className` for styling
+    purposes
+  * Set the `innerHTML` of this node to the result of calling `this.renderForm`
+    which we will have return the `html` string of our form.
+* `renderForm`
+  * First get the current message draft so we can make sure to render it into
+    the form by calling `MessageStore.getMessageDraft()`
+  * Next we need to build up an `HTML` string for the form. Use a template
+    literal to build up the following elements since template literals handle
+multi-line strings
+    * A `<p>` with class "new-message-header" and content `New Message`
+    * A `<form>` tag with class "compose-form" with the following nested inside
+      it:
+      * An input tag with the following attributes `placeholder` = `Recipient`, `name` = `to`, `type` = `text`, and `value` = the `to` property of the current draft
+      * An input tag with the following attributes `placeholder` = `Subject`, `name` = `subject`, `type` = `text`, and `value` = the `subject` property of the current draft
+      * A textarea with the following attributes `name` = `body` and `rows` = `20`.  In order to change the inside of the `<textarea>` to contain the `body` of the current message, you need to put it between the two tags. `<textarea>Here's some text</textarea>`. `<textarea value="Here's some text"></textarea>` will not work.
+      * A button with the following attributes `type` = `submit`, `class` = `btn
+        btn-primary submit-message` and content `Send`.
+    * Return the string at the end of the function
+* `render`
+  * Add an event listener to the container `<div>` on a `change` event.
+    * This event listener will be called any time one of the fields in the form
+      fires a `change` event because the event will propagate up.
+    * The handler function receive one argument for the `event`.
+    * You can retrieve the element that fired the event by accessing the
+      `target` property of the event.
+    * This allows you to get the name of the field that changed through the
+      `name` property of the `target` and the value of the field that changed
+through the `value` property of the `target` element.
+    * Tell the `MessageStore` to update the contents of the message draft to
+      match the form by calling `MessageStore.updateDraftField` passing in the
+name of the field to change as the first argument and the value of the field to
+change as the second argument
+  * Add an event listener to the container `<div>` on a `submit` event.
+    * This event listener will be called when the `form` fires a `submit` event.
+    * The handler function should do the following:
+      * Prevent the default behavior of the `submit` event by calling
+        `preventDefault()` on the event object.
+      * Tell the `MessageStore` to send the current draft by calling
+        `MessageStore.sendDraft()`
+      * Navigate back to the inbox by changing the hash fragment using
+        `location.hash`
 ### `main.js`
+* Now all we have to do is add a new route for our `Compose` component by adding
+  a new `compose` property to `routes` object with a value of the `Compose`
+component **Make sure to require the `Compose` component**
+* Test the following:
+  1. Clicking the compose button renders your compose form
+  2. If you fill out the form and click `Inbox` or `Sent` before submitting and
+     then navigate back to compose form, the form is still filled out
+  3. When you submit the form, you are directed to the `Inbox`
+  4. Your `Sent` folder contains the message you sent
