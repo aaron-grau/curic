@@ -268,8 +268,8 @@
     * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
 
 ### Projects
-  * [jQuery Towers of Hanoi][hanoi-jquery]
   * [jQuery Tic Tac Toe][ttt-jquery]
+  * [jQuery Towers of Hanoi][hanoi-jquery]
   * **Bonus**: [Snake][snake-project]
 
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
