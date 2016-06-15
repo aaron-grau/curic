@@ -11,7 +11,7 @@ Download [the skeleton][skeleton].  Open `index.html` in the browser and pop ope
 Write an [AJAX request][simple-ajax-example] underneath the top `console.log`. Some guidelines:
 
 - It should be a GET request.
-- It should get the new york weather from this url: `http://api.openweathermap.org/data/2.5/weather?q=NY,NY&appid=bcb83c4b54aee8418983c2aff3073b3b`
+- It should get the New York weather from this url: `http://api.openweathermap.org/data/2.5/weather?q=NY,NY&appid=bcb83c4b54aee8418983c2aff3073b3b`
     - If the request fails, sign up for your own API key [here][weather-api-signup] and stick that key in place of `bcb83c4b54aee8418983c2aff3073b3b`.
 - It should take a success callback
     - In the success callback, `console.log` out what the weather is.
@@ -29,7 +29,7 @@ Write another console.log at the bottom of the file (outside of the ajax request
 
 ```
 
-Notice the order that the console.logs run.
+Notice the order that the `console.log`s run.
 
 Make sure you can answer the following questions:
 
@@ -41,4 +41,4 @@ Make sure you can answer the following questions:
 
 [weather-api-signup]: http://home.openweathermap.org/users/sign_up
 [simple-ajax-example]: ../../readings/simple-ajax-example.md
-[skeleton]: ./skeleton.zip?raw=true
+[skeleton]: ./first_ajax_skeleton.zip?raw=true
