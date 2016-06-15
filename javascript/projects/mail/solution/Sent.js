@@ -1,12 +1,6 @@
-let messages = [
-  {to: "friend@mail.com", subject: "Check this out", body: "It's so cool"},
-  {to: "person@mail.com", subject: "zzz", body: "so booring"}
-];
+const messageStore = require('./messageStore');
 
 module.exports = {
-  addSentMessage: function (message) {
-    messages.push(message);
-  },
   renderMessage: function (message) {
     let messageEl = document.createElement("li");
     messageEl.className = "message";
@@ -20,6 +14,7 @@ module.exports = {
   render: function() {
     let container = document.createElement("ul");
     container.className = "messages";
+    let messages = messageStore.getSentMessages();
     messages.forEach(message => {
       container.appendChild(this.renderMessage(message));
     });
