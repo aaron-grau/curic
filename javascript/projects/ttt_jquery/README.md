@@ -64,7 +64,7 @@ Display a congratulatory message when a player wins!
 
 **Note:** Since the solution classes are written for the node console,
 the `Game` class has a `#run` and a `#promptMove` method. Ignore
-these. You're going to call `Game#makeMove` directly from your
+these. You're going to call `Game#playMove` directly from your
 `View#makeMove` method.
 
 [ttt-demo]: http://appacademy.github.io/ttt.js/solution/index.html
