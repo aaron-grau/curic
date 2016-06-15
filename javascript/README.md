@@ -299,6 +299,9 @@
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
 * [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
 
+### Homeworks (15 min)
+* [Census Ajax][census-ajax] (15 min)
+
 ### Additional Resources
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
 
@@ -313,7 +316,7 @@
 [css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
 [jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
 [basic-ajax]: readings/basic-ajax.md
-
+[census-ajax]: homeworks/questions/census_ajax
 [ajax-remote-forms]: readings/ajax-remote-forms.md
 [underscore-templates]: readings/underscore-templates.md
 [ajax-twitter]: projects/ajax_twitter
