@@ -1,4 +1,4 @@
-const FilterParamsStore = require('../stores/filter_params');
+const FilterParamsStore = require('../stores/filter_params_store');
 
 const ApiUtil = {
   fetchAllBenches(filters, success){

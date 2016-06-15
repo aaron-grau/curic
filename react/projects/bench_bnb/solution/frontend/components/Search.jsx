@@ -1,9 +1,9 @@
 const React = require('react');
-const BenchStore = require('../stores/bench');
-const FilterParamsStore = require('../stores/filter_params');
+const BenchStore = require('../stores/bench_store');
+const FilterParamsStore = require('../stores/filter_params_store');
 const BenchActions = require('../actions/bench_actions');
 const FilterForm = require('./filter_form');
-const Index = require('./index');
+const BenchIndex = require('./bench_index');
 const BenchMap = require('./bench_map');
 const hashHistory = require('react-router').hashHistory;
 
@@ -47,7 +47,7 @@ const Search = React.createClass({
           benches={this.state.benches}/>
         <div className="half">
           <FilterForm filterParams={this.state.filterParams}/>
-          <Index benches={this.state.benches}/>
+          <BenchIndex benches={this.state.benches}/>
         </div>
       </div>
     );
