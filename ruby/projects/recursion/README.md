@@ -33,10 +33,8 @@ need to do anything special to square a number, just calculate the
 value and multiply it by itself. **So don't cheat and use
 exponentiation in your solution**.
 
-**Suggestion**: [Break the methods down into parts][Break things down into
-parts].
 
-**Suggestion 2**: After breaking into parts, try walking through your code with
+**Suggestion**: Try walking through your code with
 [Simple Examples][Simple Examples].
 
 If the `n == 256`, about how many nested recursive steps will we run
@@ -69,7 +67,6 @@ examples.
 
 How many examples do you need to walk through to be confident that it works?
 
-[Break things down into parts]: ./breaking-into-parts.md
 [Simple Examples]: https://github.com/appacademy/curriculum/blob/master/ruby/readings/testing-small.md
 
 ### Deep dup
