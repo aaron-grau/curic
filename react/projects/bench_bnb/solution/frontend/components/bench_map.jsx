@@ -3,10 +3,12 @@ const ReactDOM = require('react-dom');
 const FilterActions = require('../actions/filter_actions');
 const hashHistory = require('react-router').hashHistory;
 
-const _getCoordsObj = latLng => ({
-  lat: latLng.lat(),
-  lng: latLng.lng()
-});
+const _getCoordsObj = function(latLng) {
+  return ({
+    lat: latLng.lat(),
+    lng: latLng.lng()
+  });
+}
 
 const mapOptions = {
   center: {lat: 37.773972, lng: -122.431297}, //San Francisco
