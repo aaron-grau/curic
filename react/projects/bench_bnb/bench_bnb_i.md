@@ -277,6 +277,7 @@ information.
 `ref='map'`.
 * In the `application.css` file, make sure to set the `width` and `height` of the
 `.map` to `500px`
+* We'll return to this component in a bit.
 
 ### Create a parent component: `Search`
 
