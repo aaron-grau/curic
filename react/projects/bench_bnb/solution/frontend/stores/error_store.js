@@ -37,7 +37,6 @@ ErrorStore.formErrors = function (form) {
 
   // copies the _errors object into a new object
   const result = {};
-  debugger
   for (let field in _errors) {
     result[field] = Array.from(_errors[field]);
   }

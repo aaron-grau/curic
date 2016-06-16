@@ -452,6 +452,7 @@ Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average scor
 * Show page should have a carousel!
 * Display the score as a list of star images!
 * Users can favorite benches!
+* Style your page!
 
 [rails]: ../../../rails#readings-after-you-finish-all-videos
 [google-map-doc]: https://developers.google.com/maps/documentation/javascript/tutorial
