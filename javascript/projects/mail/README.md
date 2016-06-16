@@ -55,21 +55,31 @@ clicking the sidebar element, you have not made a new request.
 
 ### Handling Route Changes
 #### `router.js`
-* Create a constructor function `Router` that takes an argument `node`
-  * Save `node` to `this.node`
+* Create a constructor function `Router` that takes an argument `node` which
+  will be a pointer to the DOM Node that the router should be operating on
+  * Save `node` to `this.node` so we can use it later.
 * Create prototype methods `start`, `activeRoute`, and `render`
   * `start`
-    * Immediately call `render` upon start
-    * Add event listener for `hashchange` and call `render` in callback
-  * `render`
-    * Clear `this.node` using `innerHTML = ""`
-    * Call `activeRoute` to get the name of the current route
+    * Immediately call `render` upon start so that if someone is linked to a URL
+      with a hashfragment or if they refresh with a hashfragment the router will
+still update the DOM
+    * Add an event listener for `hashchange` and call `render` in the callback
+      * This will make the Router update the DOM every time the hash fragment
+        changes
+  * `render` - This function is responsible for actually updating the DOM by
+    changing the content of the DOM Node that was given to the router when it
+was constructed
+    * Clear `this.node` using `innerHTML = ""`. This will remove anything left
+      over from a previous route.
+    * Call `this.activeRoute` to get the name of the current route. We will write
+      this function soon.
     * Create a new `<p>` DOM Node using `document.createElement` to contain
       the new route we are going to insert into the DOM
     * Set the innerText of the new DOM Node to the route name returned from
       `activeRoute`
     * Insert the new DOM Node into `this.node` with `appendChild`
-  * `activeRoute`
+  * `activeRoute` - This function will initially just return the name of the
+    currently active route
     * Get the hash fragment using `location.hash`
     * Remove the `#` character
     * Return the result
