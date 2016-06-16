@@ -87,7 +87,7 @@ BenchStore.all = function () {
   // return a copy of `_benches` using `Object.assign`
 };
 
-function reset (benches) {
+function resetAllBenches (benches) {
   // set `_benches` to `benches`
 }
 
