@@ -306,9 +306,9 @@
   * old news at this point; recommended speed >= 2x
 * [:movie_camera: (cc) 02-http][02-http] (43 min)
 
-### Projects
-* **Solo**: [Rails Lite][rails-lite]
-* **Bonus**: [Rails Lite II][rails-lite-ii]
+### Solo Projects
+* [Rails Lite][rails-lite]
+* [Rails Lite II][rails-lite-ii]
 
 [assessment-prep-4]: http://github.com/appacademy/assessment-prep#assessment-4
 
@@ -319,7 +319,7 @@
 [01-protocols]: http://vimeo.com/groups/appacademy/videos/100169898
 [02-http]: http://vimeo.com/groups/appacademy/videos/100267302
 [rails-lite]: projects/rails_lite
-[rails-lite-ii]: projects/rails_lite
+[rails-lite-ii]: projects/rails_lite/rails-lite-ii.md
 
 ## w5d3
 
