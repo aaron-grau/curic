@@ -1,89 +1,80 @@
 # Using `onEnter` Hooks
 
-The `react-router` api provides us 3 hooks -- or event listeners -- that we can use to trigger callbacks whenever our front end routes change. They include:
+The React Router API provides route hooks that we can use to trigger callbacks 
+whenever our routes change. Read the official documentation [here][documentation]. 
+As the docs indicate, there are several of these route hooks, but we will concern 
+ourselves with **`onEnter`** today.
 
-  * `onEnter`
-  * `onChange`
-  * `onLeave`
+We can use `onEnter` hooks to accomplish things like:
+  * Requesting the `current_user` from our API when our App first mounts.
+  * Redirecting anonymous users to a sign-in page if they try to access certain 
+  pages.
+  * Initiating a new AJAX request when a route's query parameters change.
 
-Read the official documentation [here][documentation]
+These tasks could be accomplished -- to some degree -- with lifecycle methods, but 
+route hooks help simplify our components.
 
-We might use these hooks in the following ways:
-  * Check if a user is logged in before rendering a route
-  * Initiate an ajax request when a route's query parameters change
-  * Pop up a super annoying "Are you suuure!?" modal when the user tries to leave a page
+## Syntax
 
-These tasks could be accomplished - to some degree - with lifecycle methods, but the route hooks can simplify our components for us.
-
----
-
-### Syntax
-
-Using the hooks looks something like this:
+Route hooks are passed as props to the `Route` they are concerned with: 
 
 ```javascript
   <Route path="/path" component={ someComponent } onEnter={ someCallback } />
 ```
 
-`someCallback` will fire whenever we enter the `/path` route
+In this example, `someCallback` will fire whenever our Router first matches the `"/path"` route.
 
-Note that hooks with nested routes will tigger accordingly:
+## Parameters
 
-```javascript
-    <Route path="/" component={ someComponent } onChange={ someCallback }>
-      <Route path="path1" component={ someComponent }/>
-      <Route path="path2" component={ someComponent }/>
-    </Route>
-```
+When an `onEnter` callback function is invoked by the React Router, it is passed 3 
+arguments:
+  * **`nextState`:** the next [router state][router-state].
+  * **`replace`:** a function that, when invoked, tells the `Route` to navigate 
+  to the path passed to `replace` instead of the original `path`:
 
-Here, `someCallback` will fire whenever we change from `path1` to `path2` (or vice versa)
-
-Let's focus on the `onEnter` hook
-
----
-
-### Parameters
-
-the `onEnter` callback function can accept up to 3 arguments:
-  * `nextState` --> the next [router state][router-state]
-  * `replace` --> a function that, when invoked, will tell the router to redirect to the path passed to `replace`
-
-      ```javascript
-        replace('/go/here/instead');
-      ```
-
-  * `asyncDoneCallback` --> this one is optional, but important to understand. It **completely changes** how the callback is executed.
-
----
+    ```javascript
+      replace('/go/here/instead');
+    ```
+  * **`asyncDoneCallback`:** This argument is optional and **completely changes** how the callback is executed. Read on below.
 
 ### The `asyncDoneCallback`
 
-If your callback function's signature contains 2 or fewer parameters, then the route will render synchronously.
+If your callback function's signature contains 2 or fewer parameters, then the `Route` will render asynchronously.
 
   ```javascript
+    <Route path="/path" onEnter={someCallback} component={Page}/>
+
     function someCallback(nextState, replace){
-      ...
+      asyncTask();
     }
+
+    // Navigate to '/path'
+    // Page renders while asyncTask() is running
   ```
 
-If, however, your function's signature contains all 3 parameters, then the route will wait until `asyncDoneCallback` is invoked, before rendering.
+If, however, your function's signature contains all 3 parameters, then the
+`Route` will wait until `asyncDoneCallback` is invoked before rendering. In
+other words, we will **block rendering** until our `onEnter` callback says to
+continue.
 
   ```javascript
+
     function someCallback(nextState, replace, asyncDoneCallback){
-      doAsyncThing({
+      asyncTask({
         success: asyncDoneCallback
       })
     }
+
+    // Navigate to '/path'
+    // Rendering is blocked until asynTask.success() is invoked
   ```
 
-If we want to do something asynchronous in our `onEnter` or `onChange` hooks, we need to supply the appropriate number of parameters in the function definition so that the `react-router` will know to wait before rendering.
-
----
+This behavior makes it important to be very careful when defining parameters 
+for your `onEnter` callbacks.
 
 ### Example:
 
 Check out React's official [auth-flow][auth-flow] example.
-
 
 [auth-flow]: https://github.com/reactjs/react-router/tree/efac1a8ff4c26d6b7379adf2ab903f1892276362/examples/auth-flow
 
