@@ -13,7 +13,7 @@
 ## w4d1
 
 ### Assessment03
-+ [Practice Assessment][assessment-prep]
++ [Practice Assessment][assessment-prep-3]
 
 ### Video Lectures (60 min)
 :closed_lock_with_key: `go_video_go`
@@ -50,7 +50,7 @@
 + [First Routes and Controllers][first-routes]
 + [Contacts API][contacts-api]
 
-[assessment-prep]: http://github.com/appacademy/assessment-prep
+[assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
 
 [api-video]: https://vimeo.com/168498417
 [http-req-res-video]: https://vimeo.com/168498424
@@ -284,7 +284,7 @@
 ## w5d2
 
 ### Assessment04
-* [Practice Assessment][assessment-prep]
+* [Practice Assessment][assessment-prep-4]
 
 ### Video lectures (67 min)
 :closed_lock_with_key: `go_video_go`
@@ -309,6 +309,8 @@
 ### Projects
 * **Solo**: [Rails Lite][rails-lite]
 * **Bonus**: [Rails Lite II][rails-lite-ii]
+
+[assessment-prep-4]: http://github.com/appacademy/assessment-prep#assessment-4
 
 [http]: readings/http.md
 [rack]: readings/rack.md
