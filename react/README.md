@@ -148,8 +148,9 @@
 
 ## w7d5
 
-### Readings (15 min)
+### Readings (30 min)
 * [React Map Demo][react_map_demo] (15 min)
+* [Route Hooks: `onEnter`][on-enter] (15 min)
 
 ### Homework (90 min)
 * [Jbuilder Exercise][jbuilder-demo] (90 min)
@@ -163,6 +164,7 @@
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
 
+[on-enter]: readings/on_enter.md
 [bench-bnb]: projects/bench_bnb
 [react_map_demo]: demos/react_map_demo
 [jbuilder-link]: https://github.com/rails/jbuilder
