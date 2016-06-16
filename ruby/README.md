@@ -144,6 +144,7 @@
 + [Git tutorial][interactive-git] (30 min)
 
 ### Additional Resources
++ Using [Git add][git-add]
 + [Git Repository Clean Up][git-cleanup]
 + [Faster Git with aliases][aliases]
 + [Fixing Git commit authorship][git-fix-authorship]
