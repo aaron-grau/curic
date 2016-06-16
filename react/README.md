@@ -110,7 +110,7 @@
 [flux-demo-with-api]: demos/recipes_flux_api
 [flux-lecture]: https://vimeo.com/163485520
 [flux-demo-screencast]: https://vimeo.com/163486476
-[click-counter-flux]: homeworks/flux_homework.md
+[click-counter-flux]: homeworks/click_counter
 [tentative-proposal]: readings/tentative-project-proposal.md
 [flux-intro]: readings/intro_to_flux.md
 [flux-video]: https://www.youtube.com/watch?v=Bic_sFiaNDI
