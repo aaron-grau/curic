@@ -1,6 +1,8 @@
+"use strict";
+
 const React = require("react");
-const ClickActions = require("../actions/clickActions.js");
-const ClickStore = require("../stores/clickStore.js");
+const ClickActions = require("../actions/click_actions.js");
+const ClickStore = require("../stores/click_store.js");
 
 const ClickCounter = React.createClass({
   getInitialState() {

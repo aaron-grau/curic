@@ -1,7 +1,9 @@
-var _clickCount = 0,
-    _handlers = [];
+"use strict";
 
-var ClickStore = {
+let _clickCount = 0;
+let _handlers = [];
+
+const ClickStore = {
   count: function () {
     return _clickCount;
   },
@@ -13,7 +15,7 @@ var ClickStore = {
     _handlers.push(handler);
   },
   removeChangeHandler: function(handler){
-    var idx = _handlers.indexOf(handler);
+    let idx = _handlers.indexOf(handler);
     if (idx !== -1){
       _handlers.splice(idx, 1);
     }
