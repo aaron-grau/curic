@@ -301,10 +301,14 @@ default behavior and handle the submission according to our own logic.
 ### `messageStore.js`
 Let's make a couple additions to our `messageStore` to provide the logic for
 storing message drafts.
-* We are going to make a constructor object to facilitate creating new message
+* We are going to make a constructor function to facilitate creating new message
   objects. Every time we send a message, we need to create a new message object,
-and making a constructor function will make this easier to do.
-  * Create a constructor function `Message`. This message should the following
+and making a constructor function will make this easier to do in a DRY manner.
+This conflicts with the way we wrote our seed data, but since the seed data only
+really exists for testing purposes, it's alright. In a real mail application we
+would not be hard coding messages, but instead fetching them from a server. So
+you can leave the seed data as is for now.
+  * Create a constructor function `Message`. This function should have the following
   paramters: `from`, `to`, `subject`, `body`. Make sure to save these values to
 the object being constructed inside the constructor function.
 * Now we need a place to store the current message draft. Create a variable
@@ -315,7 +319,7 @@ fields start off blank.
   will next create the following functions on our `MessageStore` to update it:
   * `updateDraftField` should take two parameters `field` and `value` and set the
       property of `messageDraft` specified in `field` to `value`.
-  * `sentDraft` should do the following:
+  * `sendDraft` should do the following:
     * Add the current draft to the sent folder by pushing
     `messageDraft` onto the `messages.sent` array.
     * Reset `messageDraft` to a **new** blank message object by calling the
@@ -326,15 +330,15 @@ fields start off blank.
 * Make sure to require the `messageStore` immediately since we know we are going
   to need it.
 * As with the other components the `Compose` component will be an object with a
-  `render` method and a helper method for doing the work of creating the
+  `render` function and a helper function for doing the work of creating the
 complicated DOM structure.
 * `render`
   * Create a `<div>` DOM Node that will be returned from this function.
   * Set the class of this node to `new-message` using `className` for styling
     purposes
   * Set the `innerHTML` of this node to the result of calling `this.renderForm`
-    which we will have return the `html` string of our form.
-* `renderForm`
+    which we will return the `html` string of our form.
+* `renderForm` - This helper function will build up the HTML for the form.
   * First get the current message draft so we can make sure to render it into
     the form by calling `MessageStore.getMessageDraft()`
   * Next we need to build up an `HTML` string for the form. Use a template
@@ -349,21 +353,34 @@ multi-line strings
       * A button with the following attributes `type` = `submit`, `class` = `btn
         btn-primary submit-message` and content `Send`.
     * Return the string at the end of the function
+### `main.js`
+* Now all we have to do is add a new route for our `Compose` component by adding
+  a new `compose` property to `routes` object with a value of the `Compose`
+component **Make sure to require the `Compose` component**
+* Test that clicking the compose button renders your compose form
+
+### `Compose.js`
+Finally we will add the event listeners to our `Compose` function to make it
+response to user actions
 * `render`
-  * Add an event listener to the container `<div>` on a `change` event.
+   * Update the message draft when the form changes
+    * Add an event listener to the container `<div>` on a `change` event.
     * This event listener will be called any time one of the fields in the form
       fires a `change` event because the event will propagate up.
     * The handler function receive one argument for the `event`.
     * You can retrieve the element that fired the event by accessing the
       `target` property of the event.
     * This allows you to get the name of the field that changed through the
-      `name` property of the `target` and the value of the field that changed
+      `name` property of the `target` element and the value of the field that changed
 through the `value` property of the `target` element.
     * Tell the `MessageStore` to update the contents of the message draft to
       match the form by calling `MessageStore.updateDraftField` passing in the
 name of the field to change as the first argument and the value of the field to
 change as the second argument
-  * Add an event listener to the container `<div>` on a `submit` event.
+    * Test that if you fill out the form and click `Inbox` or `Sent` before 
+submitting and then navigate back to compose form, the form is still filled out
+  * Send the new message when the form is submitted
+    * Add an event listener to the container `<div>` on a `submit` event.
     * This event listener will be called when the `form` fires a `submit` event.
     * The handler function should do the following:
       * Prevent the default behavior of the `submit` event by calling
@@ -372,13 +389,5 @@ change as the second argument
         `MessageStore.sendDraft()`
       * Navigate back to the inbox by changing the hash fragment using
         `location.hash`
-### `main.js`
-* Now all we have to do is add a new route for our `Compose` component by adding
-  a new `compose` property to `routes` object with a value of the `Compose`
-component **Make sure to require the `Compose` component**
-* Test the following:
-  1. Clicking the compose button renders your compose form
-  2. If you fill out the form and click `Inbox` or `Sent` before submitting and
-     then navigate back to compose form, the form is still filled out
-  3. When you submit the form, you are directed to the `Inbox`
-  4. Your `Sent` folder contains the message you sent
+    * Test that when you submit the form you are redirected to the `Inbox`
+    * Test that your `Sent` folder contains the message you sent
