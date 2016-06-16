@@ -162,7 +162,7 @@ subRoutine(); // ReferenceError: 'local' is not defined
 
 **Read these!**
 
-* [JavaScript Closures for Dummies][closures-with-ease]
+* [JavaScript Closures with Ease][closures-with-ease]
 * [SO: How Do JS Closures Work][so-closures] (the first answer)
 
 [closures-with-ease]: http://javascriptissexy.com/understand-javascript-closures-with-ease/
