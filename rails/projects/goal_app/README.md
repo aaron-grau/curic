@@ -38,10 +38,10 @@ anything else that will cause a conflict with a model class name.
 Feel free to consult the [reading on git][git-reading].
 
 Git Tip: To add all changes, use `git add -A`. Prefer this to other
-methods for adding all changes. Reading [here][git-add].
+methods for adding all changes. Read more about it [here][git-add].
 
 [git-reading]: ../../../ruby/readings/git-summary.md
-[git-add]: ../../readings/git-add.md
+[git-add]:  ../../../ruby/readings/git-add.md
 
 ## Phase I: User Creation & Login
 
