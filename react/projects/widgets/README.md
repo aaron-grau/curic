@@ -46,8 +46,7 @@ We can now load the server by simply running `http-server`. Do this in
 another terminal tab, then navigate to `http://localhost:8080` and
 ensure you can still see your modified "Hello World" component.
 
-**Tricky Bug**: If you change your javascript code and the sourcemap 
-doesn't change in the browser, check out [this stackoverflow][sourcemap-cache-fail].
+**Tricky Bug**: If you change your javascript code and the sourcemap doesn't change in the browser, check out [this stackoverflow][sourcemap-cache-fail].
 
 [sourcemap-cache-fail]: http://stackoverflow.com/questions/15505311/how-to-get-chrome-to-reload-source-maps
 
@@ -134,7 +133,7 @@ weather.
   `XMLHttpRequest`.
 
   - See [here][vanilla-ajax] and [here][nojquery] if you need help.
-    For more in-depth details, look [here][xmlhttpdocs].
+    For more in-depth details, look [here][xmlhttpdocs]
 
   - Common pitfall: You need to include `http://` in your request URI
 
@@ -195,14 +194,11 @@ name.
 * Add a click handler to the `<li>`s you've created for each name using
   onClick. In the click handler, use `setState` to update the widget's
   search string. You will need to turn your `<input>` into a [controlled
-  component][controlled-component-docs] for this to work.
+  compenent][controlled-component-docs] for this to work.
 
 ### Bonus: React-Transitions
 
-Right now, the matched names instantly appear on the screen and the 
-filtered names instantly disappear. This is abrupt and ugly. We want 
-the names to fade out or in when they are entering or leaving the page. 
-How can we achieve that with React? With the [ReactCSSTransitionGroup][react-transitions]!
+Right now, the matched names instantly appear on the screen and the filtered names instantly disappear. This is abrupt and ugly. We want the names to fade out or in when they are entering or leaving the page. How can we achieve that with React? With the [ReactCSSTransitionGroup][react-transitions]!
 
 * First we need to import the `ReactCSSTransitionGroup` module into our project. In the console, run `npm install --save react-addons-css-transition-group`.
 
