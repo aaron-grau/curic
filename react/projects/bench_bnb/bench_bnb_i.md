@@ -128,7 +128,7 @@ will use this Util in our Action creator in the next step.
 
 ### `BenchActions`
 
-`BenchActions` will be the interface through which your components interact with the BenchStore / Web API. 
+`BenchActions` will be the interface through which your components interact with the `BenchStore` / Web API. 
 
 #### Constants
 
