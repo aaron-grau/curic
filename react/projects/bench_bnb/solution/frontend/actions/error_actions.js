@@ -1,16 +1,16 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
-var ErrorConstants = require('../constants/error_constants');
+const AppDispatcher = require('../dispatcher/dispatcher');
+const ErrorConstants = require('../constants/error_constants');
 
-var ErrorActions = {
-  setErrors: function (form, errors) {
+const ErrorActions = {
+  setErrors(form, errors) {
     AppDispatcher.dispatch({
       actionType: ErrorConstants.SET_ERRORS,
       form: form,
       errors: errors
     });
   },
-  
-  clearErrors: function () {
+
+  clearErrors() {
     AppDispatcher.dispatch({
       actionType: ErrorConstants.CLEAR_ERRORS
     });
