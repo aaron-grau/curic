@@ -361,7 +361,7 @@ component **Make sure to require the `Compose` component**
 
 ### `Compose.js`
 Finally we will add the event listeners to our `Compose` function to make it
-response to user actions
+respond to user actions
 * `render`
    * Update the message draft when the form changes
     * Add an event listener to the container `<div>` on a `change` event.
