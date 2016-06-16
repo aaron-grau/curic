@@ -96,15 +96,15 @@ was constructed
 
 ## Phase II: Displaying Messages
 Let's make something more interesting happen when the route changes. We could
-do all the logic of creating DOM Nodes for each route  in the router like we are
-now, but it's better to separate each separate "view" into it's own module(JS
+do all the logic of creating DOM Nodes for each route in the router itself like
+we are now, but it's better to separate each separate "view" into it's own module(JS
 file) that will be responsible for returning a DOM Node. We conventionally call
 these modules components.
 
 ### Routing to Components
 #### `Inbox.js`
 * Create an `Inbox.js` file that will export our `Inbox` component
-  * The `Inbox` component will be a Javascript object
+  * The `Inbox` component will be a JavaScript object
   * Create a property on the object called `render` which will be a function
     that returns a DOM Node
     * Create a container `<ul>` DOM Node using `document.createElement`
@@ -112,7 +112,7 @@ these modules components.
       property so our styles will apply
     * For now set the `innerHTML` of the container to `"An Inbox Message"` so we
       can test that the component works
-    * return the container
+    * Return the container
 
 #### `main.js`
 Now we are going to create a mapping from `routes` to `components`. This will
@@ -124,8 +124,8 @@ concerns](https://en.wikipedia.org/wiki/Separation_of_concerns).
 * Create the `routes`
   * Create an object called `routes`. You don't need to create this inside the
   `DOMContentLoaded` callback. We could theoretically load this in from another
-file, but it's simple enough that we will just make it in main.
-  * We are going to format this object so that property names will be the names of
+file, but it's simple enough that we will just make it in `main.js`
+  * We are going to format this object so that its properties will be the names of
   routes ie. (`compose`, `inbox`, and `sent`)
   * For now just create one route by setting an `inbox` property with a value of
   the `Inbox` component itself. **Make sure you require the `Inbox` module**
@@ -135,14 +135,13 @@ file, but it's simple enough that we will just make it in main.
 
 #### `router.js`
 * `Router`
-  * Update your `Router` to store the `routes`
   * Add a second parameter to the constructor function called `routes`
   * Save `routes` to `this.routes`
 * `activeRoute`
   * Now we are going to change `activeRoute` to return the component that
     matches the current route instead of just returning the name of the route
-  * Look up the appropriate component for the current route by accessing
-    `this.routes` using the location name you retrieved from the hash. **Make
+  * Look up the appropriate component for the current route by accessing the
+    `this.routes` object using the location name you retrieved from the hash. **Make
 sure you have removed the "#" from the name.
   * Return the component
 * `render`
@@ -157,7 +156,7 @@ sure you have removed the "#" from the name.
     `this.node`
     * Clear `this.node` as before
     * Call `component.render()` to retrieve the DOM Node returned by the
-      componet
+      component
     * Use `appendChild` to insert the DOM Node into `this.node`
 * Test that clicking on the `Inbox` link in the sidebar inserts `An Inbox
   Message` onto the page.
@@ -172,7 +171,7 @@ Before we have components that render anything particularly interesting,
 however, we need a data source to give them something to work with.
 
 Just like we separated the code that matched routes into the `router` and the
-code that rendered views into `components`, we are going to a separate module
+code that rendered views into `components`, we are going to make a separate module
 that will store our data and expose an API for retrieving and manipulating it.
 
 #### `messageStore.js`
@@ -180,9 +179,9 @@ that will store our data and expose an API for retrieving and manipulating it.
 * Create a file called `messageStore.js`.
 * Create a variable in this file called `messages`. This variable will actually
   store all of the e-mail messages for our application, but instead of directly
-exporting the object itself, we are going to export an object with functions to
-access this variable. Code in other modules will not be able to directly change this variable since
-  it is only in scope inside the file, but any function that we define (and then
+exporting the object itself, we are going to export a different object with functions to
+access this variable. Code in other modules will not be able to directly change the `messages` 
+variable since it is only in scope inside the file, but any function that we define (and then
 export) from this module will have closed over the variable so those functions
 will have access to it.
 * Let's fill the `messages` object with some seed data that our components will
@@ -192,7 +191,7 @@ will have access to it.
     folder
   * Each `array` will contain objects that represent each individual message
   * You should format the messages so they have the following properties: `to`,
-    `from`, `subject`, `body`.
+    `from`, `subject`, and `body`.
   * Here is an example. Feel free to use this or get creative
   ```js
   let messages = {
@@ -208,7 +207,7 @@ will have access to it.
   };
   ```
 
-* Now that we have some data, let's create functionality for working with it.
+* Now that we have some data, let's create the functionality for working with it.
   * Create a new object called `MessageStore`. This object will be what this
     module exports
   * Create the follow functions as properties on this object:
@@ -222,19 +221,21 @@ to render it.
 
 * `render`
   * Instead of just inserting `"An Inbox Message"` into the `innerHTML` of the
-    container `<ul>` DOM Node, we are going to append a new DOM Node for each message
-in the inbox
+    container `<ul>` DOM Node, we are going to append a new DOM Node into the container 
+for each message in the inbox
   * First we need to get all of the messages in the inbox. Call
     `messageStore.getInboxMessages()` to retrieve them from the store. **Make
 sure you require the `messageStore` at the top of the file.
-  * Now iterate over the inbox messages so we can put each message into the
+  * Now iterate over the inbox messages array so we can put each message into the
     container.
-  * In order to keep `render` nice and clean, we're going to rely on a
+    * In order to keep `render` nice and clean, we're going to rely on a
     `renderMessage` function that we will write later which will
 render a DOM Node for a given message
-  * When you iterate over each message call `appendChild` on the container and
-    pass it the result of calling `this.renderMessage` passing in the current
-message you are iterating over.
+    * When you iterate over each message first call `this.renderMessage` and
+      pass in the current message you are iterating over to get a DOM Node for
+that message.
+    * Next call `appendChild` on the container and pass it the DOM Node returned
+from `renderMessage`
 
 * `renderMessage`
   * Add a new function to the `Inbox` component that takes a `message` object as
