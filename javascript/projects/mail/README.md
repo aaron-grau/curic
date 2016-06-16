@@ -1,100 +1,116 @@
 # Mail
+
 The goal of this project is to learn the basics of how to make a
-[single-page application](https://en.wikipedia.org/wiki/Single-page_application).
+[single-page application][single-page-app]. Today, you're going to make an email 
+client similar to Gmail.
+
 Some of the benefits of a single-page application include:
 * More responsive user experience because you don't need to complete a
-  request/response cycle with every user interaction
-* Similar feeling to a native, desktop application
+  request/response cycle for every user interaction.
+* Similar feeling to a native, desktop application.
 * Decoupling of server architecture from user-interface gives flexibility
   and opportunity for scaling.
 
 There are several frameworks that facilitate the process of creating single-page
 applications, but it is important to understand the fundamental WebAPIs and
-logic they all use.
+logic that they all use.
 
 You will also practice managing client-side data using good modular code design.
+
 ## Phase 0: Setup
-* Download the skeleton
-* Create a `main.js` file that contains `console.log("It's working")`
-* Open up a new terminal tab and run `webpack --watch main.js bundle.js`
+
+* Download the skeleton.
+* Create a `main.js` file that contains `console.log("It's working")`.
+* Open up a new terminal tab and run `webpack --watch main.js bundle.js`.
 * Open `index.html` in your browser and test that you see `It's working` in the
-  console
+  console.
 
 ## Phase I: Routing
+
 In order to have a single-page application we need a system for "routing" to
 different parts of our application. We need to create a system that makes it
 look like you are navigating to different pages, but just uses JavaScript to
 manipulate the DOM instead of making a new HTTP request.
 
-There are different ways of accomplishing this "routing" process. We are going
-to use a commonly used technique of changing the [hash
-fragment](https://en.wikipedia.org/wiki/Fragment_identifier). When the URL of
-the page you are on changes in such a way that **only** the hash fragment
-changes, your browser will not make a new request.
+There are different ways of accomplishing this "routing" process. We will employ
+the common technique of changing the [hash fragment][hash-fragment]. When
+the URL of a page changes so that **only** the hash fragment changes, your browser 
+will not make a new HTTP request. Instead, it will emit a `hashchange` event. We 
+will add an event listener for this event, and then use javascript to update the 
+DOM based on the new hash fragment.
 
-Your browser will simply trigger a `hashchange` event. We will add an event
-listener for this event, and then update the DOM based on what the hash was
-changed to.
-
-This scheme will allow us to programatically change routes and react to the changes
-without trigger a redirect.
+This way, we can modify both the URL and the DOM without triggering a new HTTP 
+request.
 
 ### Triggering Route Changes
+
+We're going let users navigate our site by clicking on the items in the sidebar.
+Clicking a sidebar item will change the hash fragment and content of our page.
+
 #### `main.js`
 
-* Add an event listener for `DOMContentLoaded`
-  * In the callback add an event listener on `.sidebar-nav li` for a `click`
-    event which will do the following:
-    * Get the name of the location from the `innerText` of the element
-    * Call `toLowerCase` on the name to make sure there aren't case differences
-    * Set `location.hash` to be the lower cased location name
-* Test that clicking on the sidebar elements changes the hash
-* Test that this isn't making a new request. You can do this easily by setting a
-  variable in the console in the dev tools. If it is still defined after
-clicking the sidebar element, you have not made a new request.
+* Remove your `console.log` test.
+* Use the WebAPI (i.e. vanilla DOM method) to add an event listener for `
+DOMContentLoaded`.
+  * In the callback, add an `click` event listener for each `.sidebar-nav li` that does the following:
+    * Gets the `innerText` of the element; this will be our new location.
+    * Call `toLowerCase` on the name to make sure there aren't case differences.
+    * Set `window.location.hash` to the lower-cased location name.
+
+Test that clicking on your sidebar items: 
+* Changes the hash fragment in the URL.
+* Doesn't make a new request. You can do this easily by setting avariable in the
+  console in the Dev Tools. If it is still defined after clicking the sidebar
+  element, you have not made a new request.
 
 ### Handling Route Changes
-#### `router.js`
-* Create a constructor function `Router` that takes an argument `node` which
-  will be a pointer to the DOM Node that the router should be operating on
+
+#### Create a `Router`
+
+* Create a `router.js` file.
+* In `router.js`, create a constructor function `Router` that takes a `node` 
+argument. This `node` will be a pointer to the DOM Node that the router should 
+be modifying the contents of.
   * Save `node` to `this.node` so we can use it later.
-* Create prototype methods `start`, `activeRoute`, and `render`
+* Create prototype methods `start`, `activeRoute`, and `render`.
   * `start`
-    * Immediately call `render` upon start so that if someone is linked to a URL
-      with a hashfragment or if they refresh with a hashfragment the router will
-still update the DOM
     * Add an event listener for `hashchange` and call `render` in the callback
       * This will make the Router update the DOM every time the hash fragment
-        changes
-  * `render` - This function is responsible for actually updating the DOM by
-    changing the content of the DOM Node that was given to the router when it
-was constructed
+        changes.
+    * Immediately call `render` upon `start()` so that if someone opens a link to 
+    a URL with a hash fragment, or if they refresh with a hash fragment, the 
+    router will still update the DOM.
+  * `render` - This function will update the DOM by changing the content of `
+  this.node`.
     * Clear `this.node` using `innerHTML = ""`. This will remove anything left
       over from a previous route.
-    * Call `this.activeRoute` to get the name of the current route. We will write
+    * Call `this.activeRoute()` to get the name of the current route. We will write
       this function soon.
-    * Create a new `<p>` DOM Node using `document.createElement` to contain
-      the new route we are going to insert into the DOM
-    * Set the innerText of the new DOM Node to the route name returned from
-      `activeRoute`
+    * Create a new `<p>` DOM Node using `document.createElement` to display
+      the new route name that is being inserted into the DOM.
+    * Set the `innerHTML` of the new DOM Node to the route name returned from
+      `this.activeRoute`.
     * Insert the new DOM Node into `this.node` with `appendChild`
   * `activeRoute` - This function will initially just return the name of the
-    currently active route
-    * Get the hash fragment using `location.hash`
-    * Remove the `#` character
-    * Return the result
+    currently active route.
+    * Get the hash fragment using `window.location.hash`.
+    * Remove the `#` character.
+    * Return the result.
 
-#### `main.js`
-* Require the `router` constructor function
-* In the `DOMContentLoaded` callback
+#### Use your `Router` in `main.js`
+
+* Require your `Router` constructor.
+* Modify the `DOMContentLoaded` callback: 
   * Get the `.content` DOM Node with `document.querySelector`. This is DOM Node
-    we are going to give our `router` to be responsible for updating.
-  * Create a new instance of the `Router` passing in the `.content` DOM Node
-  * Start the `router` with `Router.prototype.start`
-* Test that clicking on the sidebar items changes the content of the page AND
-  that we are still on a single page that is not making new requests
+    we'll be updating with the `Router`.
+  * Create a `new Router`, passing in the `.content` node.
+  * `start()` your new router.
+
+Test that clicking on the sidebar items changes the content of the page AND that 
+we are not making new HTTP requests.
 
 ## Phase II: Displaying Messages
+
 Let's make something more interesting happen when the route changes. We could
 do all the logic of creating DOM Nodes for each route in the router itself like
 we are now, but it's better to separate each separate "view" into it's own module(JS
@@ -391,3 +407,7 @@ submitting and then navigate back to compose form, the form is still filled out
         `location.hash`
     * Test that when you submit the form you are redirected to the `Inbox`
     * Test that your `Sent` folder contains the message you sent
+
+[hash-fragment]: https://en.wikipedia.org/wiki/Fragment_identifier
+[single-page-app]: https://en.wikipedia.org/wiki/Single-page_application
+
