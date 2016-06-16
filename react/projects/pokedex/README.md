@@ -1,11 +1,11 @@
 # Pokedex: An Introduction to the React Router
 
-Live version available [here](http://aa-pokedex.herokuapp.com/)!
+[**Live Demo!**](http://aa-pokedex.herokuapp.com/)
 
 **Gotta Fetch 'em All**
 
 In this project, we'll write an app to manage your `Pokemon` and their
-`Toy`s. Check out the live version [here](http://aa-pokedex.herokuapp.com)!
+`Toy`s.
 
 We've already setup migrations/models/controllers/views for you to
 start with in a skeleton that we will email to you at the beginning of
