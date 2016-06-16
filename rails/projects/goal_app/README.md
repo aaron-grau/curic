@@ -40,7 +40,7 @@ Feel free to consult the [reading on git][git-reading].
 Git Tip: To add all changes, use `git add -A`. Prefer this to other
 methods for adding all changes. Reading [here][git-add].
 
-[git-reading]: ../../readings/git-summary.md
+[git-reading]: ../../../ruby/readings/git-summary.md
 [git-add]: ../../readings/git-add.md
 
 ## Phase I: User Creation & Login
