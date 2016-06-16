@@ -38,7 +38,7 @@ frontend:
     bench_bnb.jsx
   ```
 * `npm install --save react react-dom flux`
-* setup `bench_bnb.jsx` to render your app into the `#content` `div`..
+* setup your entry file (`bench_bnb.jsx`) to render your app into the `#content` `div`..
 * Test this rendering setup before moving on.
 
 ## Phase 2: `Bench` flux cycle
@@ -94,7 +94,7 @@ function resetAllBenches (benches) {
 module.exports = BenchStore;
 ```
 
-Assign `window.BenchStore` to your `BenchStore` in `bench_bnb.jsx`. This exports
+Assign `window.BenchStore` to your `BenchStore` in your entry file. This exports
 the `BenchStore` to the `window` so we can test it in the console before we get
 to our components. Test `BenchStore.resetAllBenches` and `BenchStore.all` before moving on. 
 
@@ -122,7 +122,7 @@ BenchApiUtil = {
 module.exports = BenchApiUtil;
 ```
 
-* Add `window.BenchApiUtil` to `bench_bnb.jsx` for testing. Test that
+* Add `window.BenchApiUtil` to your entry file for testing. Test that
 `fetchAllBenches` can get your seed data and call `success` with it. We
 will use this Util in our Action creator in the next step.
 
@@ -212,7 +212,7 @@ resetAllBenches(benches){
 ```
 
 Let's do another test before moving on.
-* Assign `window.BenchActions` in `bench_bnb.jsx`.
+* Assign `window.BenchActions` in your entry file.
 * In the console, call `BenchActions.fetchAllBenches()`, then `BenchStore.all()`.
 * `BenchStore.all()` should return the benches in your DB.
 * Remove all your global testing variables before moving on.
@@ -222,7 +222,7 @@ Let's do another test before moving on.
 Let's render a component that shows our benches.
 
 * Make a `BenchIndex` React component
-* In `bench_bnb.jsx`, add a `ReactDOM.render` call that creates the
+* In your entry file, add a `ReactDOM.render` call that creates the
   `Index` and places it into the `#content` div
 * Give it an initial state of `{ benches: BenchStore.all() }`
 * In your `componentDidMount` method, do two things:
@@ -282,12 +282,14 @@ information.
 ### Create a parent component: `Search`
 
 * Create a new React component, `Search`
-* `Search` should render a `div` with a `BenchMap` and `BenchIndex` as children
-* In `bench_bnb.jsx` render a `Search` component instead of `BenchIndex`
-  at the root. This should cause the `Map` to be rendered into the page.
-* Verify that your `Search` component contains both the `BenchIndex` and `BenchMap` before moving on.
+* `Search` should render a `div` containing `BenchMap` and `BenchIndex`.
+* In your entry file, render a `Search` component instead of 
+  `BenchIndex`. This should cause both the `BenchMap` and the `BenchIndex` to be 
+  rendered on the page.
+* Verify your work before moving on.
 
 ### Attach a Google Map to `BenchMap`.
+
 * Read [the google maps documentation][google-map-doc].
 * Get a new API key for a JavaScript Google Map.
 * Add a script tag (including your API key) to your `application.html.erb`
