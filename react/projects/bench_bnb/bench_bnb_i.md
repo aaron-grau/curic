@@ -199,8 +199,9 @@ payload.actionType`.
 
 ```
 
-### Emitting Events from the Store
-* When the contents of the `BenchStore` change, we need to inform all interested components that the `BenchStore` has changed. Add a call to `BenchStore.__emitChange` in `resetAllBenches`.
+### Emitting Events from the `BenchStore`
+
+When the contents of the `BenchStore` change, we need to inform all interested components that the `BenchStore` has changed. Add a call to `BenchStore.__emitChange` in `resetAllBenches`.
 
 ```javascript
 //stores/bench.js
@@ -210,9 +211,6 @@ resetAllBenches(benches){
 }
 ```
 
-Since our BenchStore is an instance of the `Flux/Utils` Store we have access to
-the `addListener` method which registers a callback function to be invoked when
-the store runs `__emitChange()`;
 Let's do one final test before moving on.
 * Assign `window.BenchActions` in `bench_bnb.jsx`.
 * In the console, call `BenchActions.fetchAllBenches()`, then `BenchStore.all()`.
@@ -227,8 +225,8 @@ Let's render a component that shows our benches.
 * In `bench_bnb.jsx`, add a `ReactDOM.render` call that creates the
   `Index` and places it into the `#content` div
 * Give it an initial state of `{ benches: BenchStore.all() }`
-* As part of the `componentDidMount` lifecycle method, let's do two things:
-  * Register a listener on the `BenchStore` using its `addListener` function. The listener function should `setState` on the `BenchIndex` and update its benches.
+* In your `componentDidMount` method, do two things:
+  * Call `addlistener` on the `BenchStore`, passing it a callback that calls `setState` on the `BenchIndex` to update its benches.
   * Call `BenchActions#fetchAllBenches`. It should look like:
 
   ```javascript
