@@ -1,15 +1,17 @@
-# Capstone Project Proposals
-* **IMPORTANT**: [Capstone Project Proposals][project-proposals] (due by 9am W8D1)
-* **IMPORTANT**: [Capstone Project Checklist][capstone-check]
-* [Capstone Project Advice][capstone-projects]
-* [Suggested Capstone Projects][good-projects]
-* [Sample Proposal][sample-proposal]
+# Capstone Projects
 
-[capstone-check]: ./readings/capstone-checklist.md
-[good-projects]: https://github.com/appacademy/backbone-curriculum/blob/master/w7d3/projects-to-clone.md
-[capstone-projects]: ./capstone-projects/capstone-projects.md
-[project-proposals]: ./capstone-projects/capstone-project-proposal.md
-[sample-proposal]: https://github.com/appacademy/sample-project-proposal
+## Important Dates
+  * W7D4: Submit [tentative project proposal][tentative-proposal] by 9am
+    * [Suggested Capstone Projects][good-projects]
+  * W8D1: [Capstone Project Proposals][project-proposals] due by 9am
+    * [Sample Proposal][sample-proposal]
+  * W9D2: Peer Review #1
+  * W9D5: Peer Review #2
+
+[capstone-check]: readings/capstone-checklist.md
+[good-projects]: project-proposals/projects-to-clone.md
+[project-proposals]: capstone-projects/capstone-project-proposal.md
+[sample-proposal]: project-proposals/sample.md
 
 # Important Dates
 * W9D2 - Peer Review #1
