@@ -87,8 +87,9 @@ was constructed
 #### `main.js`
 * Require the `router` constructor function
 * In the `DOMContentLoaded` callback
-  * Get the `.content` DOM Node with `document.querySelector`
-  * Create a new instance of the `router` passing in the `.content` DOM Node
+  * Get the `.content` DOM Node with `document.querySelector`. This is DOM Node
+    we are going to give our `router` to be responsible for updating.
+  * Create a new instance of the `Router` passing in the `.content` DOM Node
   * Start the `router` with `Router.prototype.start`
 * Test that clicking on the sidebar items changes the content of the page AND
   that we are still on a single page that is not making new requests
