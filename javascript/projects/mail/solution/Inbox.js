@@ -1,4 +1,4 @@
-const messageStore = require('./messageStore');
+const MessageStore = require('./message_store');
 
 module.exports = {
   renderMessage: function(message) {
@@ -14,7 +14,7 @@ module.exports = {
   render: function() {
     let container = document.createElement("ul");
     container.className = "messages";
-    let messages = messageStore.getInboxMessages();
+    let messages = MessageStore.getInboxMessages();
     messages.forEach(message => {
       container.appendChild(this.renderMessage(message));
     });

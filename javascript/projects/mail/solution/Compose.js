@@ -1,4 +1,4 @@
-const MessageStore = require('./messageStore');
+const MessageStore = require('./message_store');
 
 module.exports = {
   renderForm: function () {
