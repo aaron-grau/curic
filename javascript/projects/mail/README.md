@@ -325,7 +325,7 @@ single page application architecture we are going for. Therefore we will add
 another listener on the form so that when it is submitted, we prevent the
 default behavior and handle the submission according to our own logic.
 
-### Add message drafts to `messageStore.js`
+### Add message drafts to `MessageStore`
 
 Let's make a couple additions to our `messageStore` to provide the logic for
 storing message drafts. We are going to make a constructor function to
@@ -338,79 +338,78 @@ really exists for testing purposes, it's alright. In a real mail application we
 would not be hard coding messages, but instead fetching them from a server. So
 you can leave the seed data as is for now.
 
-In `message_store.js`: 
+**In `message_store.js`:**
 * Create a `Message` constructor function. 
   * This function should have the following parameters: `from`, `to`, `subject`, 
   `body`. Make sure to save these values as instance variables.
 * Now we need a place to store the current message draft. Create a variable
-  called `messageDraft` and set it equal to a new `Message` object by calling
-`Message` constructor style. Drafts always start off blank so it is okay if the
-fields start off blank.
-* This object will be in scope inside this file, but out of scope outside so we
-  will next create the following functions on our `MessageStore` to update it:
-  * `updateDraftField` should take two parameters `field` and `value` and set the
+  called `messageDraft` and set `new Message`. Drafts always start off blank so it is okay if the fields start off blank.
+* Add accessor functions to your `MessageStore`  for updating/reading `messageDraft`:
+  * `updateDraftField`
+    * This should take two parameters, `field` and `value`, and set the
       property of `messageDraft` specified in `field` to `value`.
-  * `sendDraft` should do the following:
-    * Add the current draft to the sent folder by pushing
-    `messageDraft` onto the `messages.sent` array.
+  * `sendDraft`
+    * Add the current draft to the sent folder by pushing `messageDraft` onto the 
+      `messages.sent` array.
     * Reset `messageDraft` to a **new** blank message object by calling the
       `Message` constructor.
 
-### `Compose.js`
-* Make a new file as you did for the other components.
-* Make sure to require the `messageStore` immediately since we know we are going
-  to need it.
-* As with the other components the `Compose` component will be an object with a
-  `render` function and a helper function for doing the work of creating the
+### Create the `Compose` component.
+
+As with the other components, the `Compose` component will be an object with a
+`render` function and a helper function for doing the work of creating the
 complicated DOM structure.
+
+* Make a new file as you did for the other components.
+* Require the `MessageStore`.
 * `render`
   * Create a `<div>` DOM Node that will be returned from this function.
-  * Set the class of this node to `new-message` using `className` for styling
-    purposes
-  * Set the `innerHTML` of this node to the result of calling `this.renderForm`
-    which we will return the `html` string of our form.
-* `renderForm` - This helper function will build up the HTML for the form.
+  * Set the class of this node to `new-message` using `className`.
+  * Set the `innerHTML` of this node to the result of calling `this.renderForm`.
+* `renderForm` - This helper function will build and return the HTML for the form.
   * First get the current message draft so we can make sure to render it into
-    the form by calling `MessageStore.getMessageDraft()`
+    the form by calling `MessageStore.getMessageDraft()`.
   * Next we need to build up an `HTML` string for the form. Use a template
-    literal to build up the following elements since template literals handle
-multi-line strings
+    literal to build up the following elements:
     * A `<p>` with class "new-message-header" and content `New Message`
     * A `<form>` tag with class "compose-form" with the following nested inside
       it:
-      * An input tag with the following attributes `placeholder` = `Recipient`, `name` = `to`, `type` = `text`, and `value` = the `to` property of the current draft
-      * An input tag with the following attributes `placeholder` = `Subject`, `name` = `subject`, `type` = `text`, and `value` = the `subject` property of the current draft
-      * A textarea with the following attributes `name` = `body` and `rows` = `20`.  In order to change the inside of the `<textarea>` to contain the `body` of the current message, you need to put it between the two tags. `<textarea>Here's some text</textarea>`. `<textarea value="Here's some text"></textarea>` will not work.
-      * A button with the following attributes `type` = `submit`, `class` = `btn
-        btn-primary submit-message` and content `Send`.
-    * Return the string at the end of the function
-### `main.js`
-* Now all we have to do is add a new route for our `Compose` component by adding
-  a new `compose` property to `routes` object with a value of the `Compose`
-component **Make sure to require the `Compose` component**
-* Test that clicking the compose button renders your compose form
+      * An `<input>` tag with the following attributes: `placeholder` = `Recipient`, `name` = `to`, `type` = `text`, and `value` = the `to` property of the current draft.
+      * An `<input>` tag with the following attributes: `placeholder` = `Subject`, `name` = `subject`, `type` = `text`, and `value` = the `subject` property of the current draft.
+      * A `<textarea>` with the following attributes: `name` = `body` and `rows` = `20`. 
+        * In order to change the inside of the `<textarea>` to contain the `body` of the current message, you need to put it between the two tags. `<textarea>Here's some text</textarea>`. 
+        * `<textarea value="Here's some text"></textarea>` will not work.
+      * A `<button>` with the following attributes: `type` = `submit`, `class` = `btn btn-primary submit-message` and content `Send`.
+        * Set the content by placing it between the tags, as we did with `<textarea>`.
+    * Return this content string at the end of the function.
 
-### `Compose.js`
+### Add `Compose` to `main.js`
+
+
+Require `Compose` in `main.js` and add a new route for your `Compose` component by adding it to your `routes` object. Test that clicking the compose button renders your compose form.
+
+### Add User I/O to `Compose`
+
 Finally we will add the event listeners to our `Compose` function to make it
-respond to user actions
+respond to user actions.
+
+Update the message draft whenever the form changes: 
 * `render`
-   * Update the message draft when the form changes
     * Add an event listener to the container `<div>` on a `change` event.
     * This event listener will be called any time one of the fields in the form
       fires a `change` event because the event will propagate up.
-    * The handler function receive one argument for the `event`.
+    * The handler function should receive one `event` argument.
     * You can retrieve the element that fired the event by accessing the
-      `target` property of the event.
-    * This allows you to get the name of the field that changed through the
-      `name` property of the `target` element and the value of the field that changed
-through the `value` property of the `target` element.
-    * Tell the `MessageStore` to update the contents of the message draft to
-      match the form by calling `MessageStore.updateDraftField` passing in the
-name of the field to change as the first argument and the value of the field to
-change as the second argument
+      `target` property of the `event`.
+    * Get the name of the field that changed through the `name` property of the `target` element.
+    * Get the value of the field that changed through the `value` property of the `target` element.
+    * Tell the `MessageStore` to update the contents of the `messageDraft` to
+      match the form by calling `MessageStore.updateDraftField`.  
+      * Pass in the name of the field to change as the first argument and the value of the field to change as the second argument.
     * Test that if you fill out the form and click `Inbox` or `Sent` before 
-submitting and then navigate back to compose form, the form is still filled out
-  * Send the new message when the form is submitted
+      submitting and then navigate back to compose form, the form is still filled 
+      out.
+  * Send the new message when the form is submitted: 
     * Add an event listener to the container `<div>` on a `submit` event.
     * This event listener will be called when the `form` fires a `submit` event.
     * The handler function should do the following:
@@ -419,9 +418,9 @@ submitting and then navigate back to compose form, the form is still filled out
       * Tell the `MessageStore` to send the current draft by calling
         `MessageStore.sendDraft()`
       * Navigate back to the inbox by changing the hash fragment using
-        `location.hash`
-    * Test that when you submit the form you are redirected to the `Inbox`
-    * Test that your `Sent` folder contains the message you sent
+        `window.location.hash`.
+    * Test that when you submit the form you are redirected to the `Inbox`.
+    * Test that your `Sent` folder contains the message you sent.
 
 [template-literals]: ../readings/template-literals.md
 [separation-of-concerns]: https://en.wikipedia.org/wiki/Separation_of_concerns
