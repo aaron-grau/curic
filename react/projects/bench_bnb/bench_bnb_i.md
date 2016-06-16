@@ -296,6 +296,26 @@ information.
   * When including the google script tag, be sure to put it above `yield` and
     remove the `async defer` bit. This way, the script will load synchronously
     so it's guaranteed to be defined when the rest of your page loads.
+
+    ```
+      // application.html.erb
+      <!DOCTYPE html>
+        <html>
+        <head>
+          <title>BenchBnb</title>
+
+          <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY}" %>
+          <%= stylesheet_link_tag    'application', media: 'all' %>
+          <%= csrf_meta_tags %>
+          <%= javascript_include_tag 'application' %>
+        </head>
+        <body>
+
+        <%= yield %>
+
+        </body>
+        </html>
+    ```
 * When the `Map` component mounts, instantiate the map as follows: 
 ```javascript
     BenchMap = React.createClass({
