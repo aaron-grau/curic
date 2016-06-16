@@ -69,7 +69,7 @@ completionCallback)`:
 To test, try out:
 
 ```javascript
-addNumbers(0, 3, sum => console.log("Total Sum: " + sum));
+addNumbers(0, 3, sum => console.log(`Total Sum: ${sum}`));
 ```
 
 This should prompt for three numbers, printing out the partial sums
