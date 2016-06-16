@@ -211,7 +211,7 @@ resetAllBenches(benches){
 }
 ```
 
-Let's do one final test before moving on.
+Let's do another test before moving on.
 * Assign `window.BenchActions` in `bench_bnb.jsx`.
 * In the console, call `BenchActions.fetchAllBenches()`, then `BenchStore.all()`.
 * `BenchStore.all()` should return the benches in your DB.
@@ -227,7 +227,12 @@ Let's render a component that shows our benches.
 * Give it an initial state of `{ benches: BenchStore.all() }`
 * In your `componentDidMount` method, do two things:
   * Call `addlistener` on the `BenchStore`, passing it a callback that calls `setState` on the `BenchIndex` to update its benches.
-  * Call `BenchActions#fetchAllBenches`. It should look like:
+  * Call `BenchActions#fetchAllBenches`. 
+* `render` a list of your benches. You may want to create a `BenchIndexItem` 
+  component that receives a `bench` prop and returns a `<div>` containing a single 
+  bench's information. 
+
+  You should have something like: 
 
   ```javascript
   const BenchIndex = React.createClass({
@@ -241,16 +246,23 @@ Let's render a component that shows our benches.
     _handleChange(){
       // reset the benches state
     }
+    render(){
+      // ...
+    }
   })
   ```
 
-* Here's the summary:
+Here's a summary of your flux loop so far: 
   * The `BenchIndex` component calls our client-side action-creator, 
-  `BenchActions.fetchAllBenches`.
-  * `BenchActions.fetchAllBenches` calls the `BenchesApiUtil`, which fetches bench data, passing it `BenchActions.receiveAllBenches` as a callback.
-  * `BenchesApiUtil` then invokes the callback on `BenchActions`, which triggers a dispatch.
-  * The dispatcher hits the `BenchStore`, which should cause the store to update its `_benches` and `__emitChange()`.
-  * When the store emits change, our `BenchIndex` component's callback function is triggered, which should reseset the state of our `BenchIndex` component.
+    `BenchActions.fetchAllBenches`.
+  * `BenchActions.fetchAllBenches` calls the `BenchesApiUtil`, which fetches bench 
+    data from your API, passing it `BenchActions.receiveAllBenches` as a callback.
+  * `BenchesApiUtil` then invokes the callback on `BenchActions`, which triggers a 
+    dispatch.
+  * The dispatcher hits the `BenchStore`, which should cause the store to update 
+    its `_benches` and `__emitChange()`.
+  * When the store emits change, our `BenchIndex` component's callback function is 
+    triggered, which should reseset the state of our `BenchIndex` component.
   * When the `BenchIndex` component's state changes, it re-renders. Phew!
 
 ## Phase 4: The Map
