@@ -294,8 +294,8 @@ information.
 * Get a new API key for a JavaScript Google Map.
 * Add a script tag (including your API key) to your `application.html.erb`
   * When including the google script tag, be sure to put it above `yield` and
-    remove the `async defer` bit. This way, the script will load synchronously
-    so it's guaranteed to be defined when the rest of your page loads.
+    remove the `async defer` bit. This way, the script will fully load before the 
+    rest of your page and be ready to use as soon as your app mounts.
 
     ```
       // application.html.erb
