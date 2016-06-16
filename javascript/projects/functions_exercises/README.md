@@ -63,15 +63,13 @@ completionCallback)`:
         * the increased `sum`,
         * the decreased `numsLeft`,
         * and the same `completionCallback`.
-* If `numsLeft == 0`, call `completionCallback(sum)` so that the total
+* If `numsLeft === 0`, call `completionCallback(sum)` so that the total
   sum can be used.
 
 To test, try out:
 
 ```javascript
-addNumbers(0, 3, function (sum) {
-  console.log("Total Sum: " + sum);
-});
+addNumbers(0, 3, sum => console.log("Total Sum: " + sum));
 ```
 
 This should prompt for three numbers, printing out the partial sums
