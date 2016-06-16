@@ -102,18 +102,18 @@ to our components. Test `BenchStore.resetAllBenches` and `BenchStore.all` before
 
 Create a `/util/bench_api_util.js` that exports a `BenchApiUtil` object 
 that can `fetchAllBenches` from your API using `$.ajax`. `fetchAllBenches` should
-have one parameter, the `successCb` callback to invoke when your request succeeds.
+have one parameter, the `success` callback to invoke when your request succeeds.
 
 Your `BenchApiUtil` should look something like this.
 ```javascript
 // util/bench_api_util.js
 BenchApiUtil = {
-  fetchAllBenches(successCb){
+  fetchAllBenches(success){
     $.ajax({
       url: //,
       method: // ,
       success: function(response){
-        // invoke the `successCb` callback
+        // invoke the `success` callback
       }
     })
   }
