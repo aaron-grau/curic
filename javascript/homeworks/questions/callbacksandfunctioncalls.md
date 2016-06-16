@@ -4,9 +4,9 @@ Let's walk through writing some asynchronous functions!
 
 ## Simple Timeout
 
-Let's write a simple setTimeout function!
+Let's write a simple `setTimeout` function!
 
-First, set a simple timeout for 5000 ms (use `window.setTimeout`).
+First, set a simple timeout for `5000` ms (use `window.setTimeout`).
 Pass in a callback function that calls `alert('HAMMERTIME')`.
 
 Open up Chrome Devtools and copy your code into the console to test it. (Open a chrome window then press `cmd + option + i`. Press `esc` to show the console.)
@@ -15,7 +15,7 @@ Note: while we're waiting for our timeout, we can still scroll around the websit
 
 ## Timeout Plus Closure
 
-Next, we are going to write a function `hammerTime` that takes in one argument - `time`. When the function is run, it should set a timeout on the window. Pass a callback to the timeout that creates an alert `${time} is hammertime!`.
+Next, we are going to write a function `hammerTime` that takes in one argument - `time`. When the function is run, it should set a timeout on the `window`. Pass a callback to the timeout that creates an alert `${time} is hammertime!`.
 
 Notice that the callback function closed over the `time` variable in the outer scope of `hammerTime`.
 
@@ -31,7 +31,7 @@ We are going to write a simple function that asks a user if they'd like tea and 
 4. `console.log` their complete response: `So you ${firstAns} want tea and you ${secondAns} want coffee.`
 5. Close the reader.
 
-How do we achieve this? First off, require the readline library.
+How do we achieve this? First off, require the `readline` library.
 
 ```javascript
 const readline = require('readline');
@@ -51,13 +51,13 @@ Test that your first question works. Next, we'll need another `reader.question` 
 function teaAndBiscuits () {
   let first, second;
 
-  reader.question('Would you like some tea?', function (res) {
+  reader.question('Would you like some tea?', (res) => {
     first = res;
     console.log(`You replied ${res}.`);
   });
 
-  reader.question('Would you like some biscuits?', function (res2) {
-    second = res2;
+  reader.question('Would you like some biscuits?', (res) => {
+    second = res;
     console.log(`You replied ${res2}.`);
   });
 
