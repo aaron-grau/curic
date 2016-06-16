@@ -242,7 +242,7 @@
 [css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-warmup]: ../html-css/projects/css_warm_up
-[assessment-prep]: http://github.com/appacademy/assessment-prep
+[assessment-prep]: http://github.com/appacademy/assessment-prep#assessment-5
 
 ## w6d3
 
