@@ -45,7 +45,7 @@
 [lec-w7d1-06]: https://vimeo.com/album/3686654/video/147900885
 [react-widgets]: projects/widgets
 [react-minesweeper]: projects/react_minesweeper
-[examples]: demos/five_examples
+[examples]: demos/five_examples.zip?raw=true
 [watch-demo]: demos/watch_webpack_demo
 
 ## w7d2
