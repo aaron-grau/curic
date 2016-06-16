@@ -258,6 +258,8 @@ will make this easier as you can treat it sort like of an `html.erb` file.
 callback. **Make sure this happens after the router starts**
 
 ## Phase III: Sent Component
+After setting up routing and creating a store for our data creating another
+component should be easy.
 
 ### `Sent.js`
 * The `Sent` component should be almost identical to the `Inbox` component. It
@@ -278,21 +280,21 @@ component**
 Now let's add a new component that will allow us to write new e-mails. The
 process will be the same as making the `Inbox` and `Sent` components with a few
 key differences:
-* The component will have more complicated structure for the Node it needs to
+* The component will have a more complicated structure for the DOM Node it needs to
   render
 * We will need to add event listeners in order to give to give our component a
   couple key pieces of functionality
   1. We want to store the message being drafted somewhere in memory. If the
-     currently drafted messaged only existed as a values in the fields of a
-form, then as soon as the form was unmounted from the DOM then you would lose
-the contents of your draft. So for example if you were writing a message and
-then clicked on the inbox tab, this would delete your drafted message. We need
-to a listener to the form that every time the value changes we update the copy
+     currently drafted messaged only exists as a values in the fields of a
+form, then as soon as the form is unmounted from the DOM then you will lose
+the contents of your draft. So for example if you are writing a message and you
+then click on the inbox tab, this will delete your drafted message. We need
+to add a listener to the form so that every time the value changes we update the copy
 that we're storing in memory.
-  2. The default behavior when a form is submitted is to make a new request with
-     the contents of the form to the current url (or the one specified in the
-form). This would cause a reload of the entire page and completely ruin the
-single page application architecture we are going for. Therefore we are going to
+  2. The default behavior when a form is submitted is to make a new request
+to the current url (or the one specified in the form) with the contents of the
+form . This would cause a reload of the entire page and completely ruin the
+single page application architecture we are going for. Therefore we will add
 another listener on the form so that when it is submitted, we prevent the
 default behavior and handle the submission according to our own logic.
 
