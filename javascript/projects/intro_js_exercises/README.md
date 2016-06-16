@@ -52,16 +52,16 @@ except `deepDup`.
 * Define a `Cat` class
     * The constructor method should take a name and owner.
     * It should save these in attributes of the object.
-    * Write a `Cat#cuteStatement` method that returns "[owner] loves
+    * Write a `Cat.prototype.cuteStatement` method that returns "[owner] loves
       [name]".
-    * `#cuteStatement` should be defined on the prototype.
+    * `cuteStatement` method should be defined on the prototype.
 * Prototypes example:
     * Create several `Cat`s, test out their `cuteStatement` method.
     * Reassign the `Cat.prototype.cuteStatement` method with a function
       that returns "Everyone loves [name]!"
-    * Run `Cat#cuteStatement` on your old cats; the new method should
+    * Run the `cuteStatement` method on your old cats; the new method should
       be invoked.
-* Add a `Cat#meow` method to the `Cat` prototype. You can now call
+* Add a `meow` method to the `Cat` prototype. You can now call
   `meow` on your previously constructed `Cat`s.
 * Take one of your cats and set the `meow` property **on the instance**
   (`cat1.meow = function () { ... }`. Call `meow` on this `Cat`
