@@ -13,7 +13,6 @@ const Search = React.createClass({
     return {
       benches: BenchStore.all(),
       filterParams: FilterParamsStore.params(),
-      clickedLoc: null,
     };
   },
 
@@ -40,6 +39,7 @@ const Search = React.createClass({
   },
 
   render() {
+    console.log(this.props.params);
     return(
       <div>
         <h5>Click Map to Add Bench!</h5>

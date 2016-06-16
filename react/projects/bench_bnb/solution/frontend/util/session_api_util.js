@@ -7,7 +7,8 @@ const SessionApiUtil = {
 			success,
 			error(xhr) {
 				const errors = xhr.responseJSON;
-				error("Login", errors);
+
+				error("login", errors);
 			}
 		});
 	},

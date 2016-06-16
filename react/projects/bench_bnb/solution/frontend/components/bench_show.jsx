@@ -30,14 +30,14 @@ const BenchShow = React.createClass({
   },
 
   render() {
-    debugger;
+    // return <div>{JSON.stringify(this.props.params)}</div>
     const reviewURL = "/benches/" + this.state.bench.id + "/review";
     const benches = {};
     benches[this.state.bench.id] = this.state.bench;
     return (
         <div>
           <Link to="/" >Back to Benches Index</Link>
-          <Map className="half"
+          <BenchMap className="half"
             singleBench={true}
             benches={benches}
             onMapClick={this.handleMapClick}

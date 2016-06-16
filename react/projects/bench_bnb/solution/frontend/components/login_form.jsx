@@ -52,6 +52,7 @@ const LoginForm = React.createClass({
 
   fieldErrors(field) {
     const errors = ErrorStore.formErrors(this.formType());
+
     if (!errors[field]) { return; }
 
     const messages = errors[field].map( (errorMsg, i) => {
@@ -66,6 +67,8 @@ const LoginForm = React.createClass({
   },
 
 	render() {
+    console.log(ErrorStore.formErrors(this.formType()));
+
     let navLink;
     if (this.formType() === "login") {
       navLink = <Link to="/signup">sign up instead</Link>;
