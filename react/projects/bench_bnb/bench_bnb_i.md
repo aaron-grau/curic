@@ -123,7 +123,7 @@ module.exports = BenchApiUtil;
 ```
 
 * Add `window.BenchApiUtil` to `bench_bnb.jsx` for testing. Test that
-`fetchAllBenches` can get your seed data and call its `successCb` with it. We
+`fetchAllBenches` can get your seed data and call `success` with it. We
 will use this Util in our Action creator in the next step.
 
 ### `BenchActions`
