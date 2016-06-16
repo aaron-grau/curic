@@ -149,7 +149,7 @@ module.exports = BenchConstants;
 
 #### Back to the Action
 
-* Start by creating `//actions/bench_actions.js` and defining and exporting your
+* Start by creating `/actions/bench_actions.js` and defining and exporting your
 `BenchActions` object inside it.
 * `require` your `BenchApiUtil`; `BenchActions` will use it to interact with the API.
 * `BenchActions` should have `fetchAllBenches` and `receiveAllBenches` methods.
@@ -198,13 +198,6 @@ payload.actionType`.
   };
 
 ```
-Let's do one final test before moving on.
-* Assign `window.BenchActions` in `bench_bnb.jsx`.
-* In the console, call `BenchActions.fetchAllBenches()`, then `BenchStore.all()`.
-* `BenchStore.all()` should return the benches in your DB.
-* Remove all your global testing variables before moving on.
-
-## Phase 3: `BenchIndex`: Our First React Component
 
 ### Emitting Events from the Store
 * When the contents of the `BenchStore` change, we need to inform all interested components that the `BenchStore` has changed. Add a call to `BenchStore.__emitChange` in `resetAllBenches`.
@@ -216,11 +209,17 @@ resetAllBenches(benches){
   BenchStore.__emitChange();
 }
 ```
+
 Since our BenchStore is an instance of the `Flux/Utils` Store we have access to
 the `addListener` method which registers a callback function to be invoked when
 the store runs `__emitChange()`;
+Let's do one final test before moving on.
+* Assign `window.BenchActions` in `bench_bnb.jsx`.
+* In the console, call `BenchActions.fetchAllBenches()`, then `BenchStore.all()`.
+* `BenchStore.all()` should return the benches in your DB.
+* Remove all your global testing variables before moving on.
 
-### React Component
+## Phase 3: `BenchIndex`: Our First React Component
 
 Let's render a component that shows our benches.
 
