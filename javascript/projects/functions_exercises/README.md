@@ -10,11 +10,14 @@ can only query the system time once. Your clock must store that time,
 increment it, and display it in `HH:MM:SS` (use 24hr format).
 
 Make a `Clock` class. Calling `new Date()` will give us an object that
-represents the current system time. Because you can only do this once, do it in your `Clock` constructor. Don't bother keeping this `Date` object around because you won't need it anymore. Just store the hours, minutes, and seconds. Look at the [`Date` docs][date-docs] for help here.
+represents the current system time. Because you can only do this once, 
+do it in your `Clock` constructor. Don't bother keeping this `Date` object 
+around because you won't need it anymore. Just store the hours, minutes, 
+and seconds. Look at the [`Date` docs][date-docs] for help here.
 
-You'll also need to schedule a `#_tick` callback that updates the time
-and calls `#printTime`. Don't worry about padding zeroes in the format.
-Just focus on the basic logic and functionality.
+You'll also need to schedule a `Clock.prototype._tick` callback that 
+updates the time and calls `printTime` method. Don't worry about padding 
+zeroes in the format. Just focus on the basic logic and functionality.
 
 ```javascript
 function Clock () {
@@ -91,7 +94,8 @@ You'll want to set up a global `reader` variable (use
 `readline.createInterface`). `askIfGreaterThan` should use the `question`
 method.
 
-Test it out.  Make sure you can ask for input and that the input passes to the callback correctly.
+Test it out.  Make sure you can ask for input and that the input passes 
+to the callback correctly.
 
 Next, write a method `innerBubbleSortLoop(arr, i, madeAnySwaps,
 outerBubbleSortLoop)`. This recursive function should:
