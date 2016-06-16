@@ -1,10 +1,10 @@
 "use strict";
 
-const dispatcher = require('../dispatcher');
+const Dispatcher = require('../dispatcher');
 
 module.exports = {
   createRecipe: function (recipe) {
-    dispatcher.dispatch({
+    Dispatcher.dispatch({
       actionType: "CREATE_RECIPE",
       recipe: recipe
     });
