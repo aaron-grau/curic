@@ -59,7 +59,7 @@ but it's also a little frustrating. URL encoding is difficult for us
 to manipulate on the client side; just about the only thing we can do
 with it is submit it to the server.
 
-One ~~pastability~~ possibility is to use the
+One possibility is to use the
 [serializeJSON][serializeJSON] jQuery plug-in. It creates a JavaScript
 object following the Rails parameter conventions.
 
