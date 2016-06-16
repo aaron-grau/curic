@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let content = document.querySelector(".content");
   router = new Router(content, routes);
   router.start();
-  location.hash = "#inbox";
+  window.location.hash = "#inbox";
   let navItems = Array.from(document.querySelectorAll(".sidebar-nav li"));
   navItems.forEach(navItem => {
     navItem.addEventListener("click", () => {

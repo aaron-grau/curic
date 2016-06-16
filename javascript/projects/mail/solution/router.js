@@ -19,7 +19,7 @@ Router.prototype.render = function () {
 }
 
 Router.prototype.activeRoute = function () {
-  let hash = location.hash.substr(1);
+  let hash = window.location.hash.substr(1);
   let component = this.routes[hash];
   return component;
 };
