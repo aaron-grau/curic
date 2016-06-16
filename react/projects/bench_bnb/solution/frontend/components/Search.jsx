@@ -39,7 +39,6 @@ const Search = React.createClass({
   },
 
   render() {
-    console.log(this.props.params);
     return(
       <div>
         <h5>Click Map to Add Bench!</h5>
