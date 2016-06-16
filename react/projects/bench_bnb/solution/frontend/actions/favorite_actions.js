@@ -1,3 +1,5 @@
+"use strict";
+
 const FavoriteApiUtil = require('../util/favorite_api_util');
 const FavoriteConstants = require('../constants/favorite_constants');
 const AppDispatcher = require('../dispatcher/dispatcher');

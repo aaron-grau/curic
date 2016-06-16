@@ -1,10 +1,10 @@
-var React = require('react');
-var RecipesForm = require('./RecipesForm');
-var RecipesList = require('./RecipesList');
-var RecipeStore = require('../stores/recipe');
-var recipeActions = require('../actions/recipe_actions');
+const React = require('react');
+const RecipesForm = require('./RecipesForm');
+const RecipesList = require('./RecipesList');
+const RecipeStore = require('../stores/recipe');
+const recipeActions = require('../actions/recipe_actions');
 
-var Recipes = React.createClass({
+const Recipes = React.createClass({
   getInitialState: function () {
     return { recipes: RecipeStore.all() };
   },

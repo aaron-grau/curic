@@ -1,3 +1,5 @@
+"use strict";
+
 const SessionApiUtil = {
 	logIn(user, success, error) {
 		$.ajax({

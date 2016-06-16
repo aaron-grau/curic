@@ -1,3 +1,5 @@
+"use strict";
+
 const React = require('react');
 const LinkedStateMixin = require('react-addons-linked-state-mixin');
 const BenchActions = require('../actions/bench_actions');

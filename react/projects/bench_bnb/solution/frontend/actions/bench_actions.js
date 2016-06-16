@@ -1,3 +1,5 @@
+"use strict";
+
 const AppDispatcher = require('../dispatcher/dispatcher');
 const BenchConstants = require('../constants/bench_constants');
 const BenchApiUtil = require('../util/bench_api_util');

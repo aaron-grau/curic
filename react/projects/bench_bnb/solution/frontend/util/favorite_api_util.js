@@ -1,3 +1,5 @@
+"use strict";
+
 const FavoriteApiUtil = {
   createFavorite: function(data, success) {
     $.ajax({

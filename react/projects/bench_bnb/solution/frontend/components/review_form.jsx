@@ -1,3 +1,5 @@
+"use strict";
+
 const React = require('react');
 const LinkedStateMixin = require('react-addons-linked-state-mixin');
 const hashHistory = require('react-router').hashHistory;

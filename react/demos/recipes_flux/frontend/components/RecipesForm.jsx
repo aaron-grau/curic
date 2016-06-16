@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var RecipesForm = React.createClass({
+const RecipesForm = React.createClass({
   getInitialState: function(){
     return { name: "" };
   },

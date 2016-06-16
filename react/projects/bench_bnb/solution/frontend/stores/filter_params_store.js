@@ -1,3 +1,5 @@
+"use strict";
+
 const AppDispatcher = require('../dispatcher/dispatcher');
 const Store = require('flux/utils').Store;
 const FilterConstants = require('../constants/filter_constants');
