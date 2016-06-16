@@ -342,7 +342,8 @@
 
 ### Projects
 * [jQuery Lite][jquery-lite]
-* [Snake][snake-project] using your jQuery Lite
+* [Mail][mail]
+* **Bonus:** [Snake][snake-project] using your jQuery Lite
 
 [jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
 [jquery-07-triggering]: readings/jquery-07-triggering.md
@@ -350,6 +351,7 @@
 [history-location]: readings/history-location.md
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 
+[mail]: projects/mail
 [jquery-lite]: projects/jquery_lite
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md
