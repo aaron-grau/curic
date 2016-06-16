@@ -37,6 +37,6 @@ How would you test `Function.prototype.inherits`? A few specs to consider:
 * The `Ship` and `Asteroid` prototypes should not be instances of
    `MovingObject`.
 
-After you have written this, you may look up [our answer][inherits-answer] so you can use it (in a slightly modified format) for Asteroids.
+After you have written this, look at [our answer][inherits-answer] so you can use it (in a slightly modified format) for Asteroids. Make sure you understand how we're using it.
 
 [inherits-answer]: ../inherits_exercises/solution/inherits.js
