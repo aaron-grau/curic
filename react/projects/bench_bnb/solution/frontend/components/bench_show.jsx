@@ -34,6 +34,7 @@ const BenchShow = React.createClass({
     const reviewURL = "/benches/" + this.state.bench.id + "/review";
     const benches = {};
     benches[this.state.bench.id] = this.state.bench;
+    debugger
     return (
         <div>
           <Link to="/" >Back to Benches Index</Link>
