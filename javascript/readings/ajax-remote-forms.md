@@ -1,8 +1,6 @@
 # AJAX Remote Forms
 
-Okay, cool kid, so you know how to use AJAX. Color me impressed.
-
-Let's up our game. Let's write a form that, when the user clicks the
+Using AJAX, let's write a form that, when the user clicks the
 "submit" button, will submit the form data in the background.
 
 The key is the jQuery [`serialize`] [jquery-serialize-doc] method. If
