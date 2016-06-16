@@ -1,33 +1,33 @@
-var AppDispatcher = require('../dispatcher/dispatcher.js');
-var Store = require('flux/utils').Store;
-var SessionConstants = require('../constants/session_constants');
-var FavoriteConstants = require('../constants/favorite_constants');
+const AppDispatcher = require('../dispatcher/dispatcher.js');
+const Store = require('flux/utils').Store;
+const SessionConstants = require('../constants/session_constants');
+const FavoriteConstants = require('../constants/favorite_constants');
 
-var SessionStore = new Store(AppDispatcher);
+const SessionStore = new Store(AppDispatcher);
 
-var _currentUser = {}, 
-    _currentUserHasBeenFetched = false;
+let _currentUser = {};
+let _currentUserHasBeenFetched = false;
 
-function _login(currentUser) {
+const _login = function(currentUser) {
   _currentUser = currentUser;
   _currentUserHasBeenFetched = true;
-}
+};
 
-function _logout() {
+const _logout = function() {
   _currentUser = {};
   _currentUserHasBeenFetched = true;
-}
+};
 
-function _addFavorite(benchId) {
+const _addFavorite = function(benchId) {
   _currentUser.favorite_benches.push(parseInt(benchId));
 };
 
-function _removeFavorite(benchId) {
-  var benchIdx = _currentUser.favorite_benches.indexOf(parseInt(benchId));
+const _removeFavorite = function(benchId) {
+  const benchIdx = _currentUser.favorite_benches.indexOf(parseInt(benchId));
   _currentUser.favorite_benches.splice(benchIdx, 1);
 };
 
-SessionStore.__onDispatch = function (payload) {
+SessionStore.__onDispatch = payload => {
   switch(payload.actionType) {
     case SessionConstants.LOGIN:
       _login(payload.currentUser);
@@ -48,15 +48,15 @@ SessionStore.__onDispatch = function (payload) {
   }
 };
 
-SessionStore.currentUser = function () {
-	return $.extend({}, _currentUser);
+SessionStore.currentUser = function() {
+  return Object.assign({}, _currentUser);
 };
 
 SessionStore.currentUserHasBeenFetched = function () {
-  return _currentUserHasBeenFetched;
+  return !!_currentUserHasBeenFetched;
 };
 
-SessionStore.isUserLoggedIn = function () {
+SessionStore.isUserLoggedIn = function() {
   return !!_currentUser.id;
 };
 

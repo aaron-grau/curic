@@ -1,26 +1,30 @@
-var React = require('react');
-var Link = require('react-router').Link;
-var SessionStore = require('./../stores/session_store');
-var SessionApiUtil = require('./../util/session_api_util');
+const React = require('react');
+const Link = require('react-router').Link;
+const SessionStore = require('../stores/session_store');
+const SessionActions = require('../actions/session_actions');
 
-var App = React.createClass({
-  
-  componentDidMount: function () {
+const App = React.createClass({
+
+  componentDidMount() {
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
-  
-  greeting: function(){
+
+  _handleLogOut(){
+    SessionActions.logOut();
+  },
+
+  greeting() {
     if (SessionStore.isUserLoggedIn()) {
-      var numFavoriteBenches = SessionStore.currentUser().favorite_benches.length;
-      
+      const numFavoriteBenches = SessionStore.currentUser().favorite_benches.length;
+
     	return (
     		<hgroup>
     			<h2>Hi, {SessionStore.currentUser().username}!</h2>
-    			<input type="submit" value="logout" onClick={ SessionApiUtil.logout } />
+    			<input type="submit" value="logout" onClick={ this._handleLogOut } />
     			<h3>You have {numFavoriteBenches} favorite benches!</h3>
     		</hgroup>
     	);
-    } else if (["/login", "/signup"].indexOf(this.props.location.pathname) === -1) {
+    } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {
       return (
         <nav>
           <Link to="/login" activeClassName="current">Login</Link>
@@ -30,8 +34,8 @@ var App = React.createClass({
       );
     }
   },
-  
-  render: function() {
+
+  render() {
     return (
       <div>
         <header>

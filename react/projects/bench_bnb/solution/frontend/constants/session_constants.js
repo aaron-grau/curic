@@ -1,4 +1,4 @@
-var SessionConstants = {
+const SessionConstants = {
 	LOGIN: "LOGIN",
 	LOGOUT: "LOGOUT"
 };
