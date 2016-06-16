@@ -5,19 +5,19 @@ const RecipeStore = require('../stores/recipe');
 const recipeActions = require('../actions/recipe_actions');
 
 const Recipes = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return { recipes: RecipeStore.all() };
   },
-  createRecipe: function(recipe){
+  createRecipe(recipe){
     recipeActions.createRecipe(recipe);
   },
-  _recipesChanged: function () {
+  _recipesChanged () {
     this.setState({recipes: RecipeStore.all()});
   },
-  componentDidMount: function(){
+  componentDidMount(){
     RecipeStore.addListener(this._recipesChanged);
   },
-  render: function () {
+  render() {
     return (
       <div>
           <RecipesForm create={this.createRecipe}/>
