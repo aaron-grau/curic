@@ -111,222 +111,237 @@ we are not making new HTTP requests.
 
 ## Phase II: Displaying Messages
 
-Let's make something more interesting happen when the route changes. We could
-do all the logic of creating DOM Nodes for each route in the router itself like
-we are now, but it's better to separate each separate "view" into it's own module(JS
-file) that will be responsible for returning a DOM Node. We conventionally call
-these modules components.
+Let's make something more interesting happen when the route changes. We could do
+all the logic of creating DOM Nodes for each route in the router itself like we
+are now, but it's better to separate "view" logic into separate modules that will
+be responsible for returning a DOM Node to display. These modules are called 
+"components".
 
 ### Routing to Components
-#### `Inbox.js`
-* Create an `Inbox.js` file that will export our `Inbox` component
-  * The `Inbox` component will be a JavaScript object
-  * Create a property on the object called `render` which will be a function
-    that returns a DOM Node
-    * Create a container `<ul>` DOM Node using `document.createElement`
+
+#### `Inbox`
+
+* Create an `Inbox.js` file that will export our `Inbox` component.
+  * The `Inbox` component should be a JavaScript object.
+  * Create a property on the `Inbox` called `render` that is a function that 
+  returns a DOM Node.
+    * In `render`, create a container `<ul>` DOM Node using 
+    `document.createElement`.
     * Set the class name of the container to `messages` using the `className`
-      property so our styles will apply
-    * For now set the `innerHTML` of the container to `"An Inbox Message"` so we
-      can test that the component works
-    * Return the container
+      property. This puts our CSS styles onto the node.
+    * For now, set the `innerHTML` of the container to `"An Inbox Message"` so we
+      can test that the component works.
+    * Return the `<ul>` container.
 
 #### `main.js`
-Now we are going to create a mapping from `routes` to `components`. This will
-allow us to specify the routing configuration outside of the router. Separating
-the configuration from the logic that uses that configuration is good
-practice because it follows the principle of [separation of
-concerns](https://en.wikipedia.org/wiki/Separation_of_concerns).
+
+Let's create a mapping from `routes` to `components`. This will allow us to 
+specify the routing configuration from outside of the router. Separating
+the configuration logic from the routing logic promotes 
+[separation ofconcerns][separation-of-concerns].
 
 * Create the `routes`
   * Create an object called `routes`. You don't need to create this inside the
   `DOMContentLoaded` callback. We could theoretically load this in from another
-file, but it's simple enough that we will just make it in `main.js`
+file, but our `routes` will be simple enough to include in `main.js`.
   * We are going to format this object so that its properties will be the names of
-  routes ie. (`compose`, `inbox`, and `sent`)
+  routes, i.e. `compose`, `inbox`, and `sent`.
   * For now just create one route by setting an `inbox` property with a value of
-  the `Inbox` component itself. **Make sure you require the `Inbox` module**
-* Give the routes to the router
+  the `Inbox` component (**Make sure you require the `Inbox` module**).
+* Let's give the routes to the router.
   * Pass the `routes` object as a second argument to the `Router` constructor
     function. We will make use of this additional argument in the next part.
 
 #### `router.js`
-* `Router`
-  * Add a second parameter to the constructor function called `routes`
-  * Save `routes` to `this.routes`
-* `activeRoute`
-  * Now we are going to change `activeRoute` to return the component that
-    matches the current route instead of just returning the name of the route
+* Change the `Router`.
+  * Add a second parameter to the constructor function called `routes`.
+  * Save `routes` to `this.routes`.
+* Change `activeRoute`.
+  * `activeRoute` should return the component that matches the current route 
+    instead of just returning the name of the route.
   * Look up the appropriate component for the current route by accessing the
-    `this.routes` object using the location name you retrieved from the hash. **Make
-sure you have removed the "#" from the name.
-  * Return the component
-* `render`
-  * Now that `activeRoute` returns a `component` instead of just text we need to
-    tweak `render`
-  * Save the result of calling `activeRoute` to a variable called `component`
-  * There is a chance that no component will be returned from `activeRoute` in the
-    case of a navigating to an incorrect hash fragment.
+    `this.routes` object using the location name you retrieved from the hash. 
+    **Make sure you have removed "#" from the name.**
+  * Return the component.
+* Change `render`.
+  * Now that `activeRoute` returns a `component`, we need to tweak `render`.
+  * Save the result of calling `activeRoute` to a variable called `component`.
+  * There is a chance that no component will be returned from `activeRoute` if a
+    user navigates to an incorrect hash fragment.
   * If `component` is not defined, then `render` should just clear `this.node`
     with `this.node.innerHTML = ""`
   * If `component` is defined, then we want to render the component into
     `this.node`
-    * Clear `this.node` as before
+    * Clear `this.node` as before.
     * Call `component.render()` to retrieve the DOM Node returned by the
-      component
-    * Use `appendChild` to insert the DOM Node into `this.node`
+      component.
+    * Use `appendChild` to insert the DOM Node into `this.node`.
 * Test that clicking on the `Inbox` link in the sidebar inserts `An Inbox
   Message` onto the page.
-* Test that clicking on the other sidebar links clears the page
+* Test that clicking on the other sidebar links clears the page.
 
 ### Rendering Data from Components
-Now that we have the core pieces of our single page application working together
-cohesively, we can add any cool new component and corresponding route that we
-want and everything should work.
 
-Before we have components that render anything particularly interesting,
-however, we need a data source to give them something to work with.
+Now that we have the core pieces of our single-page application, we can add any 
+cool new component and corresponding route that we want, and everything should 
+work.
 
-Just like we separated the code that matched routes into the `router` and the
-code that rendered views into `components`, we are going to make a separate module
-that will store our data and expose an API for retrieving and manipulating it.
+Before our components can render anything particularly interesting,
+however, we will need a data source to give them something to work with.
 
-#### `messageStore.js`
+Just like we separated our `router` from our `components`, we are going to make
+a separate module to store our data and expose an API for retrieving and
+manipulating it.
 
-* Create a file called `messageStore.js`.
-* Create a variable in this file called `messages`. This variable will actually
-  store all of the e-mail messages for our application, but instead of directly
-exporting the object itself, we are going to export a different object with functions to
-access this variable. Code in other modules will not be able to directly change the `messages` 
-variable since it is only in scope inside the file, but any function that we define (and then
-export) from this module will have closed over the variable so those functions
-will have access to it.
+#### `MessageStore`
+
+* Create a file called `message_store.js`.
+
+* Create a local variable in this file called `messages`. This variable will
+  store all of the e-mail messages for our application.  Instead of directly
+  exporting `messages` itself, we are going to export a separate `MessageStore`
+  object that closes around `messages`. This way, code in other modules will not
+  be able to directly change `messages`; instead, they will have to go through
+  `MessageStore`, which will act as our API for accessing `messages`.
+
 * Let's fill the `messages` object with some seed data that our components will
   able to display.
-  * Create two properties on the object: `sent` and `inbox`
+  * Create two properties on the object: `sent` and `inbox`.
   * These two properties will store an `array` of messages for their particular
-    folder
-  * Each `array` will contain objects that represent each individual message
+    folder.
+  * Each `array` will contain objects representing individual messages.
   * You should format the messages so they have the following properties: `to`,
     `from`, `subject`, and `body`.
-  * Here is an example. Feel free to use this or get creative
-  ```js
-  let messages = {
-    sent: [
-      {to: "friend@mail.com", subject: "Check this out", body: "It's so cool"},
-      {to: "person@mail.com", subject: "zzz", body: "so booring"}
-    ],
-    inbox: [
-      {from: "grandma@mail.com", subject: "Fwd: Fwd: Fwd: Check this out", body:
-"Stay at home mom discovers cure for leg cramps. Doctors hate her"},
-      {from: "person@mail.com", subject: "Questionnaire", body: "Take this free quiz win $1000 dollars"}
-    ]
-  };
-  ```
+  * Here is an example: 
+
+    ```js
+    let messages = {
+      sent: [
+        {to: "friend@mail.com", subject: "Check this out", body: "It's so cool"},
+        {to: "person@mail.com", subject: "zzz", body: "so booring"}
+      ],
+      inbox: [
+        {from: "grandma@mail.com", subject: "Fwd: Fwd: Fwd: Check this out", body:
+  "Stay at home mom discovers cure for leg cramps. Doctors hate her"},
+        {from: "person@mail.com", subject: "Questionnaire", body: "Take this free quiz win $1000 dollars"}
+      ]
+    };
+    ```
 
 * Now that we have some data, let's create the functionality for working with it.
-  * Create a new object called `MessageStore`. This object will be what this
-    module exports
-  * Create the follow functions as properties on this object:
-    * `getInboxMessages` should return the array at `messages.inbox`
-    * `getSentMessages` should return the array at `messages.sent`
-  * Make sure you export the `MessageStore` at the end of the file
+  * Create a new object called `MessageStore`. 
+  * Create the following functions as properties on this object:
+    * `getInboxMessages`: a function that returns the array at `messages.inbox`.
+    * `getSentMessages`: a function that returns the array at `messages.sent`.
+  * Make sure set `module.exports` to `MessageStore` at the end of the file.
 
-#### `Inbox.js`
+#### Modify your `Inbox`
+
 Now that we have a data source to work with let's change our `Inbox` component
-to render it.
+to render it. 
 
+* Require the `MessageStore` so we can access our messages.
 * `render`
   * Instead of just inserting `"An Inbox Message"` into the `innerHTML` of the
-    container `<ul>` DOM Node, we are going to append a new DOM Node into the container 
-for each message in the inbox
+    container `<ul>` DOM Node, we are going to append a new DOM Node into the container for each message in the inbox.
   * First we need to get all of the messages in the inbox. Call
-    `messageStore.getInboxMessages()` to retrieve them from the store. **Make
-sure you require the `messageStore` at the top of the file.
+    `MessageStore.getInboxMessages()` to retrieve them from the store.
   * Now iterate over the inbox messages array so we can put each message into the
     container.
     * In order to keep `render` nice and clean, we're going to rely on a
-    `renderMessage` function that we will write later which will
-render a DOM Node for a given message
-    * When you iterate over each message first call `this.renderMessage` and
-      pass in the current message you are iterating over to get a DOM Node for
-that message.
-    * Next call `appendChild` on the container and pass it the DOM Node returned
-from `renderMessage`
+    `renderMessage` function that we will write later. This function will
+    render a DOM Node for a given message.
+    * When you iterate over each message, first call `this.renderMessage` and
+      pass in the current message to get a DOM Node for that message.
+    * Then call `appendChild` on the container and pass it the DOM Node returned
+      from `renderMessage`.
 
 * `renderMessage`
   * Add a new function to the `Inbox` component that takes a `message` object as
     a parameter and returns a new DOM Node for that message.
-  * First create a new `<li>` DOM Node that we will return when we've finished
-    populating it.
-  * Give the `<li>` a class of `message` using the `className` property so our
-    styling will apply.
-  * Now set the `innerHTML` of the `<li>` to the following
-    * A `<span>` with class `from` with content `message.from`
-    * A `<span>` with class `subject` with content `message.subject`
-    * A `<span>` with class `body` with content `message.body`
-  * Using a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-will make this easier as you can treat it sort like of an `html.erb` file.
-  * Return the `<li> DOM Node
+  * First create a new `<li>` DOM Node that we will return after we've populated
+    it.
+  * Give the `<li>` a class of `message` using the `className` property to apply
+    our styling.
+  * Now set the `innerHTML` of the `<li>` to the following:
+    * A `<span>` with class `from` with content `message.from`.
+    * A `<span>` with class `subject` with content `message.subject`.
+    * A `<span>` with class `body` with content `message.body`.
+  * Using a [template literal][template-literals] will make this easier by letting
+    you interpolate as you would with an `html.erb` file.
+  * Return the `<li>` DOM Node.
 
-* Test that clicking on the inbox link displays all your messages
+* Test that clicking on the inbox link displays all your messages.
 * Now that your inbox works, make the application immediately route to the inbox
   by using `location.hash` to route to `#inbox` inside the `DOMContentLoaded`
-callback. **Make sure this happens after the router starts**
+  callback. **Make sure this happens after the router starts**.
 
-## Phase III: Sent Component
-After setting up routing and creating a store for our data creating another
+## Phase III: `Sent` Component
+
+After setting up routing and creating a store for our data, creating another
 component should be easy.
 
-### `Sent.js`
+### `sent.js`
 * The `Sent` component should be almost identical to the `Inbox` component. It
-  should look exactly the same, but make the following changes
+  should look exactly the same, but make the following changes:
   * `render`
-    * Retrieve the sent messages instead of the inbox by calling `messageStore.getSentMessages`
+    * Retrieve the sent messages instead of the inbox by calling 
+    `MessageStore.getSentMessages`.
   * `renderMessage`
     * Replace `<span class="from">${message.from}</span>` with `<span
-      class="to">To: ${message.}</span>` so we display the recipient instead of
-the sender in the sent folder
+      class="to">To: ${message.}</span>`, so we display the recipient instead of
+      the sender in the sent folder.
 
 ### `main.js`
-* Add a route for the `Sent` component by adding a property to `routes` called
-  `sent` with a value of the `Sent` component **Remember to require the Sent
-component**
 
-## Phase IV: Compose Component
+* Add a route for the `Sent` component by adding a property to `routes` called
+  `sent` with a value of the `Sent` component. **Remember to require the Sent
+  component**.
+
+## Phase IV: `Compose` Component
+
+_(Read this entire section before coding, as there is more context to 
+process)._
+
 Now let's add a new component that will allow us to write new e-mails. The
 process will be the same as making the `Inbox` and `Sent` components with a few
 key differences:
+
 * The component will have a more complicated structure for the DOM Node it needs to
-  render
+  render.
 * We will need to add event listeners in order to give to give our component a
-  couple key pieces of functionality
+  couple key pieces of functionality: 
   1. We want to store the message being drafted somewhere in memory. If the
-     currently drafted messaged only exists as a values in the fields of a
-form, then as soon as the form is unmounted from the DOM then you will lose
-the contents of your draft. So for example if you are writing a message and you
-then click on the inbox tab, this will delete your drafted message. We need
-to add a listener to the form so that every time the value changes we update the copy
+currently drafted messaged only exists as a values in the fields of a form,
+then as soon as the form is unmounted from the DOM then you will lose the
+contents of your draft. So for example if you are writing a message and you then
+click on the inbox tab, this will delete your drafted message. We need to add a
+listener to the form so that every time the value changes we update the copy
 that we're storing in memory.
   2. The default behavior when a form is submitted is to make a new request
 to the current url (or the one specified in the form) with the contents of the
-form . This would cause a reload of the entire page and completely ruin the
+form. This would cause a reload of the entire page and completely ruin the
 single page application architecture we are going for. Therefore we will add
 another listener on the form so that when it is submitted, we prevent the
 default behavior and handle the submission according to our own logic.
 
-### `messageStore.js`
+### Add message drafts to `messageStore.js`
+
 Let's make a couple additions to our `messageStore` to provide the logic for
-storing message drafts.
-* We are going to make a constructor function to facilitate creating new message
-  objects. Every time we send a message, we need to create a new message object,
-and making a constructor function will make this easier to do in a DRY manner.
+storing message drafts. We are going to make a constructor function to
+facilitate creating new message objects. Every time we send a message, we need
+to create a new message object; making a constructor function will DRY out our
+code.
+
 This conflicts with the way we wrote our seed data, but since the seed data only
 really exists for testing purposes, it's alright. In a real mail application we
 would not be hard coding messages, but instead fetching them from a server. So
 you can leave the seed data as is for now.
-  * Create a constructor function `Message`. This function should have the following
-  paramters: `from`, `to`, `subject`, `body`. Make sure to save these values to
-the object being constructed inside the constructor function.
+
+In `message_store.js`: 
+* Create a `Message` constructor function. 
+  * This function should have the following parameters: `from`, `to`, `subject`, 
+  `body`. Make sure to save these values as instance variables.
 * Now we need a place to store the current message draft. Create a variable
   called `messageDraft` and set it equal to a new `Message` object by calling
 `Message` constructor style. Drafts always start off blank so it is okay if the
@@ -408,6 +423,8 @@ submitting and then navigate back to compose form, the form is still filled out
     * Test that when you submit the form you are redirected to the `Inbox`
     * Test that your `Sent` folder contains the message you sent
 
+[template-literals]: ../readings/template-literals.md
+[separation-of-concerns]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [hash-fragment]: https://en.wikipedia.org/wiki/Fragment_identifier
 [single-page-app]: https://en.wikipedia.org/wiki/Single-page_application
 
