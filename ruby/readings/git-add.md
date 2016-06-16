@@ -1,6 +1,6 @@
 # Using Git `add`
 
-<b>TL;DR: Use `git add -A` instead of `git add .` or `git add -u`.</b>
+Use `git add -A` instead of `git add .` or `git add -u`.
 
 ## The Background
 
