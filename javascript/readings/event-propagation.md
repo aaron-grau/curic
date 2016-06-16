@@ -117,4 +117,4 @@ Let's look at the above code one more time, stopping the event when we reach the
 Now, when we click on the innermost div, we will see the alerts "inner" and "middle", but because we have halted the event's propagation, we will never see the "outer" alert.
 
 
-[event-handling]: ./document-object-model#events
+[event-handling]: ./document-object-model.md#events
