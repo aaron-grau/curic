@@ -1,3 +1,5 @@
+"use strict";
+
 const React = require('react');
 const BenchStore = require('../stores/bench_store');
 const FilterParamsStore = require('../stores/filter_params_store');

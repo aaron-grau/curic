@@ -1,3 +1,5 @@
+"use strict";
+
 const Tile = require('./tile');
 const React = require('react');
 

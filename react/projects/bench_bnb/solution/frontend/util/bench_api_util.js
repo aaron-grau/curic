@@ -1,3 +1,5 @@
+"use strict";
+
 const FilterParamsStore = require('../stores/filter_params_store');
 
 const ApiUtil = {

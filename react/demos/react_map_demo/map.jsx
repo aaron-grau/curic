@@ -1,3 +1,5 @@
+"use strict";
+
 //we need to provide a center coordinate for our map, this is SF
 const mapCenter = { lat: 37.7758, lng: -122.435 },
      //I made some lat/lng points for some good burrito spots

@@ -1,3 +1,5 @@
+"use strict";
+
 const Store = require('flux/utils').Store;
 const BenchConstants = require('../constants/bench_constants');
 const FavoriteConstants = require('../constants/favorite_constants.js');

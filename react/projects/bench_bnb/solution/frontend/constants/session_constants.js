@@ -1,3 +1,5 @@
+"use strict";
+
 const SessionConstants = {
 	LOGIN: "LOGIN",
 	LOGOUT: "LOGOUT"

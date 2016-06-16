@@ -1,4 +1,6 @@
-var dispatcher = require('../dispatcher');
+"use strict";
+
+const dispatcher = require('../dispatcher');
 
 module.exports = {
   createRecipe: function (recipe) {
