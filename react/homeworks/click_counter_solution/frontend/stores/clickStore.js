@@ -1,19 +1,18 @@
-var AppDispatcher = require("../dispatcher/dispatcher.js"),
-    Store = require("flux/utils").Store,
-    _clickCount = 0;
+const AppDispatcher = require("../dispatcher/dispatcher.js");
+const Store = require("flux/utils").Store;
 
-var ClickStore = new Store(AppDispatcher);
+let _clickCount = 0;
 
-ClickStore.count = function () {
-    return _clickCount;
-};
+const ClickStore = new Store(AppDispatcher);
 
-ClickStore.increment = function () {
+ClickStore.count = () => _clickCount;
+
+ClickStore.increment = () => {
   _clickCount++;
   ClickStore.__emitChange();
 };
 
-ClickStore.__onDispatch = function(payload){
+ClickStore.__onDispatch = payload => {
   switch(payload.actionType){
     case 'INCREMENT':
     ClickStore.increment();

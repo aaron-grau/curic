@@ -1,20 +1,20 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
-var FilterConstants = require('../constants/filter_constants');
+const AppDispatcher = require('../dispatcher/dispatcher');
+const FilterConstants = require('../constants/filter_constants');
 
-var FilterActions = {
-  updateBounds: function (bounds) {
+const FilterActions = {
+  updateBounds(bounds) {
     AppDispatcher.dispatch({
       actionType: FilterConstants.UPDATE_BOUNDS,
       bounds: bounds
     });
   },
-  updateMinSeating: function (value){
+  updateMinSeating(value) {
     AppDispatcher.dispatch({
       actionType: FilterConstants.UPDATE_MIN_SEATING,
       minSeating: value,
     });
   },
-  updateMaxSeating: function (value){
+  updateMaxSeating(value) {
     AppDispatcher.dispatch({
       actionType: FilterConstants.UPDATE_MAX_SEATING,
       maxSeating: value,

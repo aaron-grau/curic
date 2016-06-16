@@ -1,8 +1,8 @@
-var React = require('react'),
-    ClickCounter = require('./components/clickCounter.jsx'),
-    ReactDOM = require('react-dom');
+const React = require('react');
+const ClickCounter = require('./components/clickCounter.jsx');
+const ReactDOM = require('react-dom');
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     React.createElement(ClickCounter, {}),
     document.getElementById('root')

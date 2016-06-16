@@ -1,7 +1,7 @@
-var AppDispatcher = require("../dispatcher/dispatcher.js");
+const AppDispatcher = require("../dispatcher/dispatcher.js");
 
-var ClickActions = {
-  increment: function(){
+const ClickActions = {
+  increment() {
     AppDispatcher.dispatch({
       actionType: 'INCREMENT'
     });
