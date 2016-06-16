@@ -96,7 +96,7 @@ module.exports = BenchStore;
 
 Assign `window.BenchStore` to your `BenchStore` in `bench_bnb.jsx`. This exports
 the `BenchStore` to the `window` so we can test it in the console before we get
-to our components. Test `BenchStore.reset` and `BenchStore.all` before moving on. 
+to our components. Test `BenchStore.resetAllBenches` and `BenchStore.all` before moving on. 
 
 ### `BenchApiUtil`
 
