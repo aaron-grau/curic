@@ -11,6 +11,8 @@ Want to add a feature to your capstone but not sure how?  Check out the below li
 * [:movie_camera: Front End Auth with Gon][gon-webcast]
 * [:file_folder: Complete Code for demo][cloudinary-demo]
 
+Not seeing what you need?  Let the instructional staff know, and if there's enough interest we'll make a video.  
+
 [likes-webcast]: https://vimeo.com/164327432
 [pusher-webcast]: https://vimeo.com/164515140
 [react-modal-webcast]: https://vimeo.com/164336429
