@@ -1,49 +1,54 @@
-var SessionActions = require('./../actions/session_actions');
-var ErrorActions = require('./../actions/error_actions');
-
-var SessionApiUtil = {
-	login: function (credentials) {
+const SessionApiUtil = {
+	logIn(user, success, error) {
 		$.ajax({
 			url: '/api/session',
 			type: 'POST',
-			data: {user: credentials},
-			success: function (currentUser) {
-        console.log("Login success (SessionApiUtil#login)");
-        SessionActions.receiveCurrentUser(currentUser);
-      },
-			error: function (xhr) {
-			  console.log("Login error in SessionApiUtil#login");
-        var errors = xhr.responseJSON;
-	      ErrorActions.setErrors("login", errors);
+			data: { user },
+			success,
+			error(xhr) {
+				const errors = xhr.responseJSON;
+
+				error("login", errors);
 			}
 		});
 	},
-  
-	logout: function () {
+
+	logOut(success) {
 		$.ajax({
 			url: '/api/session',
 			method: 'delete',
-			success: function () {
-        console.log("Logout success (SessionApiUtil#logout)");
-        SessionActions.removeCurrentUser();
-      },
+			success,
 			error: function () {
 			  console.log("Logout error in SessionApiUtil#logout");
 			}
 		});
 	},
-  
-	fetchCurrentUser: function (complete) {
+
+	signUp(user, success, error) {
+		$.ajax({
+			url: '/api/user',
+			type: 'POST',
+			dataType: 'json',
+			data: { user },
+			success,
+			error(xhr) {
+				const errors = xhr.responseJSON;
+				error("signup", errors);
+			}
+		});
+	},
+
+	fetchCurrentUser(success, complete) {
 		$.ajax({
 			url: '/api/session',
 			method: 'GET',
-			success: function (currentUser) {
-			  SessionActions.receiveCurrentUser(currentUser);
-			},
+			success,
 			error: function (xhr) {
 			  console.log("Error in SessionApiUtil#fetchCurrentUser");
 			},
-      complete: complete
+      complete: function(){
+				complete();
+			}
 		});
 	}
 };

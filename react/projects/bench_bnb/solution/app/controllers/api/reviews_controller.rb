@@ -1,9 +1,12 @@
 class Api::ReviewsController < ApplicationController
+  before_action :require_logged_in, only: [:create]
+
   def create
     review = Review.new(review_params)
 
     if review.save
-      render json: review.bench, include: :reviews
+      @bench = review.bench
+      render '/api/benches/show'
     else
       render json: review, status: :unprocessable_entity
     end

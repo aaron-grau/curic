@@ -1,22 +1,22 @@
-var React = require("react"),
-    ClickActions = require("../actions/clickActions.js"),
-    ClickStore = require("../stores/clickStore.js");
+const React = require("react");
+const ClickActions = require("../actions/clickActions.js");
+const ClickStore = require("../stores/clickStore.js");
 
-var ClickCounter = React.createClass({
-  getInitialState: function(){
+const ClickCounter = React.createClass({
+  getInitialState() {
     return {count: ClickStore.count()};
   },
-  _countChanged: function(){
+  _countChanged() {
     this.setState({count: ClickStore.count()});
   },
-  componentDidMount: function () {
+  componentDidMount() {
     ClickStore.addListener(this._countChanged);
   },
-  click: function(e){
+  click(e) {
     e.preventDefault();
     ClickActions.increment();
   },
-  render: function(){
+  render() {
     return (
       <div>
         <button onClick={this.click}>CLICK ME</button>

@@ -1,13 +1,13 @@
-var React = require('react');
+const React = require('react');
 
 var Review = React.createClass({
-  render: function () {
+  render() {
     return (
       <div>
-      <ul>
-        <li>Rating: {this.props.rating}</li>
-        <li>{this.props.body}</li>
-      </ul>
+        <ul>
+          <li>Rating: {this.props.rating}</li>
+          <li>{this.props.body}</li>
+        </ul>
       </div>
     );
   }
