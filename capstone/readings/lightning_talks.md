@@ -1,8 +1,10 @@
 # Lightning Talks
 
-Want to add a feature to your capstone but not sure how?  Check out the below list of lightning talks for help.  
+Want to add a feature to your capstone but not sure how?  Check out the below list of lightning talks for help!  
 
-Unless otherwise specified, demos are done on the BenchBnB project.  Complete solutions available [here][benchbnb-solution]
+Unless otherwise specified, demos are done on the BenchBnB project.  Complete solutions available [here][benchbnb-solution].
+
+:closed_lock_with_key: `go_video_go`
 
 * [:movie_camera: Likes][likes-webcast]
 * [:movie_camera: Pusher][pusher-webcast]
@@ -10,7 +12,7 @@ Unless otherwise specified, demos are done on the BenchBnB project.  Complete so
 * [:movie_camera: CSS Transitions][css-transitions-webcast]
 * [:movie_camera: Keeping API Keys Safe with Figaro][figaro-screencast]
 * [:movie_camera: Image Upload with Cloudinary][cloudinary-screencast]
-  * [:file_folder: Complete Code for demo][cloudinary-demo]
+  * [:file_folder: completed code from demo][cloudinary-demo]
 * [:movie_camera: Front End Auth with Gon][gon-webcast]
 
 Not seeing what you need?  Let the instructional staff know, and if there's enough interest we'll make a video.  
