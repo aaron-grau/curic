@@ -1,3 +1,5 @@
+"use strict";
+
 const React = require('react');
 const BenchStore = require('../stores/bench_store');
 const FilterParamsStore = require('../stores/filter_params_store');
@@ -30,14 +32,13 @@ const BenchShow = React.createClass({
   },
 
   render() {
-    debugger;
     const reviewURL = "/benches/" + this.state.bench.id + "/review";
     const benches = {};
     benches[this.state.bench.id] = this.state.bench;
     return (
         <div>
           <Link to="/" >Back to Benches Index</Link>
-          <Map className="half"
+          <BenchMap className="half"
             singleBench={true}
             benches={benches}
             onMapClick={this.handleMapClick}

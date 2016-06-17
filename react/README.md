@@ -45,7 +45,7 @@
 [lec-w7d1-06]: https://vimeo.com/album/3686654/video/147900885
 [react-widgets]: projects/widgets
 [react-minesweeper]: projects/react_minesweeper
-[examples]: demos/five_examples
+[examples]: demos/five_examples.zip?raw=true
 [watch-demo]: demos/watch_webpack_demo
 
 ## w7d2
@@ -79,10 +79,10 @@
 :closed_lock_with_key: `go_video_go`
 * [Flux video lecture][flux-lecture] (15 min)
 * [Flux code demo][flux-demo-screencast] (15 min)
-    * [pre-flux code][flux-demo-pre-flux]
-    * [complete project with flux][flux-demo-post-flux]
+  * [pre-flux code][recipes-pre-flux]
+  * [complete project with flux][recipes-post-flux]
 * [Flux web api demo (flux with rails)][flux-api-screencast] (5 min)
-    * [flux demo with API code][flux-demo-with-api]
+  * [flux demo with API code][recipes-api]
 
 ### Readings (40 min)
 * [Basic intro to flux][flux-intro] (5 min)
@@ -105,12 +105,12 @@
 * [Organ Grinder][organ-grinder]
 
 [flux-api-screencast]: https://vimeo.com/163488310
-[flux-demo-pre-flux]: demos/recipes_pre_flux
-[flux-demo-post-flux]: demos/recipes_flux
-[flux-demo-with-api]: demos/recipes_flux_api
+[recipes-pre-flux]: demos/recipes_demo/pre_flux
+[recipes-post-flux]: demos/recipes_demo/flux
+[recipes-with-api]: demos/recipes_demo/flux_api
 [flux-lecture]: https://vimeo.com/163485520
 [flux-demo-screencast]: https://vimeo.com/163486476
-[click-counter-flux]: homeworks/flux_homework.md
+[click-counter-flux]: homeworks/click_counter
 [tentative-proposal]: readings/tentative-project-proposal.md
 [flux-intro]: readings/intro_to_flux.md
 [flux-video]: https://www.youtube.com/watch?v=Bic_sFiaNDI

@@ -1,11 +1,12 @@
+"use strict";
 
-var FavoriteApiUtil = {
+const FavoriteApiUtil = {
   createFavorite: function(data, success) {
     $.ajax({
       url: 'api/favorites',
       type: 'POST',
       data: { favorite: data },
-      success: success
+      success
     });
   },
 
@@ -14,7 +15,7 @@ var FavoriteApiUtil = {
       url: 'api/favorites',
       type: 'DELETE',
       data: { favorite: data },
-      success: success
+      success
     });
   }
 };

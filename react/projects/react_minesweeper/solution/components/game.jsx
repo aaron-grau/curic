@@ -1,3 +1,5 @@
+"use strict";
+
 const Board = require('./board');
 const React = require('react');
 const Minesweeper = require('../minesweeper');

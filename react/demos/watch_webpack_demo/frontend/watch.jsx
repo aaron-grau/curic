@@ -1,37 +1,39 @@
-var React = require('react'),
-    Buttons = require('./buttons'),
-    Splits = require('./splits'),
-    Display = require('./display');
+"use strict";
 
-var Watch = React.createClass({
-  getInitialState: function(){
+const React = require('react');
+const Buttons = require('./buttons');
+const Splits = require('./splits');
+const Display = require('./display');
+
+const Watch = React.createClass({
+  getInitialState() {
     return {elapsed: 0, running: false, splits: []};
   },
-  tick: function(){
+  tick() {
     if (this.state.running){
       this.setState({elapsed: this.state.elapsed + 1});
     }
   },
-  button1Pressed: function(){
+  button1Pressed() {
     if (this.state.running){
-      var splits = this.state.splits;
+      let splits = this.state.splits;
       splits.push(this.state.elapsed);
       this.setState({splits: splits});
     } else {
       this.setState({running: true});
     }
   },
-  button2Pressed: function(){
+  button2Pressed() {
     if (this.state.running){
       this.setState({running: false});
     } else {
       this.setState({elapsed: 0, splits: []});
     }
   },
-  componentDidMount: function () {
+  componentDidMount() {
     setInterval(this.tick, 1000);
   },
-  render: function(){
+  render() {
     return (
       <div>
         <Display elapsed={this.state.elapsed}/>

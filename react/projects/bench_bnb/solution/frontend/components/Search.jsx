@@ -1,48 +1,54 @@
-var React = require('react');
-var BenchStore = require('../stores/bench');
-var FilterParamsStore = require('../stores/filter_params');
-var ClientActions = require('../actions/client_actions');
-var Filters = require('./Filters');
-var Index = require('./Index');
-var Map = require('./Map');
-var hashHistory = require('react-router').hashHistory;
+"use strict";
+
+const React = require('react');
+const BenchStore = require('../stores/bench_store');
+const FilterParamsStore = require('../stores/filter_params_store');
+const BenchActions = require('../actions/bench_actions');
+const FilterForm = require('./filter_form');
+const BenchIndex = require('./bench_index');
+const BenchMap = require('./bench_map');
+const hashHistory = require('react-router').hashHistory;
 
 
-var Search = React.createClass({
-  _benchesChanged: function(){
-    this.setState({benches: BenchStore.all()});
-  },
-  _filtersChanged: function () {
-    var newParams = FilterParamsStore.params();
-    this.setState({ filterParams: newParams });
-    ClientActions.fetchBenches(newParams);
-  },
-  getInitialState: function(){
+const Search = React.createClass({
+  getInitialState() {
     return {
       benches: BenchStore.all(),
       filterParams: FilterParamsStore.params(),
-      clickedLoc: null,
     };
   },
-  componentDidMount: function(){
+
+  _benchesChanged() {
+    this.setState({benches: BenchStore.all()});
+  },
+
+  _filtersChanged() {
+    const newFilters = FilterParamsStore.params();
+    this.setState({ filterParams: newFilters });
+    BenchActions.fetchAllBenches(newFilters);
+  },
+
+  componentDidMount() {
     this.benchListener = BenchStore.addListener(this._benchesChanged);
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
-    var filterParams = FilterParamsStore.params();
-    ClientActions.fetchBenches(filterParams);
+    const filterParams = FilterParamsStore.params();
+    BenchActions.fetchAllBenches(filterParams);
   },
-  componentWillUnmount: function(){
+
+  componentWillUnmount() {
     this.benchListener.remove();
     this.filterListener.remove();
   },
-  render: function(){
+
+  render() {
     return(
       <div>
         <h5>Click Map to Add Bench!</h5>
-        <Map
+        <BenchMap
           benches={this.state.benches}/>
         <div className="half">
-          <Filters filterParams={this.state.filterParams}/>
-          <Index benches={this.state.benches}/>
+          <FilterForm filterParams={this.state.filterParams}/>
+          <BenchIndex benches={this.state.benches}/>
         </div>
       </div>
     );

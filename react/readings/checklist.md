@@ -17,6 +17,7 @@ Here it is. The ultimate rails/react setup checklist. Be advised, this checklist
   * babel-core
   * babel-loader
   * babel-preset-react
+  * babel-preset-es2015
 * [ ] create a frontend folder and an entry point
 * [ ] create a webpack.config.js file
   * be sure to include devtool: 'source-maps'
