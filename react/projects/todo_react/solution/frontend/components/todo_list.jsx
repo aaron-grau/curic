@@ -1,9 +1,9 @@
-var React = require('react');
-var TodoStore = require('../stores/todo_store.js');
-var TodoListItem = require('./todo_list_item.jsx');
-var TodoForm = require('./todo_form.jsx');
+const React = require('react');
+const TodoStore = require('../stores/todo_store.js');
+const TodoListItem = require('./todo_list_item.jsx');
+const TodoForm = require('./todo_form.jsx');
 
-var TodoList = React.createClass({
+const TodoList = React.createClass({
   getInitialState: function(){
     return {todos: TodoStore.all()};
   },
@@ -18,7 +18,7 @@ var TodoList = React.createClass({
   },
 
   render: function() {
-    var todos = this.state.todos;
+    const todos = this.state.todos;
     return (
       <div className="Todolist">
         <h1>Todo!</h1>

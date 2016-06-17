@@ -1,10 +1,10 @@
-var React = require('react');
-var TodoStore = require('../stores/todo_store');
-var TodoDetailView = require('./todo_detail_view');
-var TodoDoneButton = require('./todo_done_button');
+const React = require('react');
+const TodoStore = require('../stores/todo_store');
+const TodoDetailView = require('./todo_detail_view');
+const TodoDoneButton = require('./todo_done_button');
 
 
-var TodoListItem = React.createClass({
+const TodoListItem = React.createClass({
   getInitialState: function(){
     return { detail: false };
   },
@@ -20,7 +20,7 @@ var TodoListItem = React.createClass({
   },
 
   render: function () {
-    var detail;
+    let detail, className;
     if(this.state.detail){
       detail = (
         <TodoDetailView handleDestroy={ this.handleDestroy } todo={this.props.todo} />

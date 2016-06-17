@@ -1,7 +1,7 @@
-var React = require('react');
-var TodoStore = require('../stores/todo_store');
+const React = require('react');
+const TodoStore = require('../stores/todo_store');
 
-var TodoForm = React.createClass({
+const TodoForm = React.createClass({
   getInitialState: function () {
     return {title: "", body: "", done: false};
   },
