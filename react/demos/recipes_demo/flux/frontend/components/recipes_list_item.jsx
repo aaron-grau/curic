@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var RecipesListItem = React.createClass({
+const RecipesListItem = React.createClass({
   getInitialState: function(){
     return { expanded: false };
   },
@@ -8,9 +8,9 @@ var RecipesListItem = React.createClass({
     this.setState({expanded: !this.state.expanded});
   },
   render: function () {
-    var steps = "";
+    let steps = "";
     if (this.state.expanded){
-      steps = this.props.recipe.ingredients.map(function(ingredient){
+      steps = this.props.recipe.ingredients.map((ingredient) =>{
         return <li key={ingredient.id}>{ingredient.name}</li>;
       });
     }

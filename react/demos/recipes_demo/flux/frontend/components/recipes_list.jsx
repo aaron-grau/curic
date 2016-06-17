@@ -1,12 +1,12 @@
-var React = require('react');
-var RecipesListItem = require('./RecipesListItem');
+const React = require('react');
+const RecipesListItem = require('./recipes_list_item');
 
-var RecipesList = React.createClass({
+const RecipesList = React.createClass({
   render: function () {
     return (
       <ul>
         {
-          this.props.recipes.map(function(recipe){
+          this.props.recipes.map( (recipe) =>{
             return <RecipesListItem key={recipe.id} recipe={recipe}/>
           })
         }
