@@ -1,7 +1,7 @@
 let _todos = [], _handlers = [];
 
 const TodoStore = {
-  changed: function(){
+  changed: function () {
     _handlers.forEach(function(cb){ cb(); });
   },
 
@@ -13,7 +13,7 @@ const TodoStore = {
     _handlers.splice(_handlers.indexof(callback), 1);
   },
 
-  fetch: function() {
+  fetch: function () {
     const that = this;
     $.ajax({
       method: 'GET',
@@ -26,7 +26,7 @@ const TodoStore = {
     });
   },
 
-  create: function(object) {
+  create: function (object) {
     const that = this;
     $.ajax({
       method: 'POST',
@@ -39,7 +39,7 @@ const TodoStore = {
     });
   },
 
-  find: function(id) {
+  find: function (id) {
     let idx = -1;
     for (let i = 0; i < _todos.length; i++) {
       if (_todos[i].id === id) {
@@ -51,7 +51,7 @@ const TodoStore = {
     return idx;
   },
 
-  destroy: function(id) {
+  destroy: function (id) {
     const that = this, idx = this.find(id), todo = _todos[idx];
 
     if (todo) {
@@ -66,11 +66,11 @@ const TodoStore = {
     }
   },
 
-  all: function(){
+  all: function () {
     return _todos.slice();
   },
 
-  toggleDone: function(id) {
+  toggleDone: function (id) {
     const that = this;
     const todo = _todos[this.find(id)];
     const done = !todo.done;

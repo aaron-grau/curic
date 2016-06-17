@@ -2,13 +2,13 @@ const React = require('react');
 const TodoStore = require('../stores/todo_store');
 
 const TodoDoneButton = React.createClass({
-  handleDone: function(event){
+  handleDone: function (event) {
     event.stopPropagation();
     TodoStore.toggleDone(this.props.todo.id);
   },
 
   render: function () {
-    if(this.props.todo.done) {
+    if (this.props.todo.done) {
       classname = "btn btn-xs btn-danger done-button";
     } else {
       classname = "btn btn-xs btn-success done-button";

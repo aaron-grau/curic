@@ -8,7 +8,7 @@ const StepForm = React.createClass({
   handleChange: function (e) {
     this.setState({title: e.target.value});
   },
-  submitForm: function(e) {
+  submitForm: function (e) {
     e.preventDefault();
     const data = {
       todo_id: this.props.todo_id,
@@ -18,8 +18,8 @@ const StepForm = React.createClass({
 
     this.setState({title: ""});
   },
-  render: function() {
-    return(
+  render: function () {
+    return (
       <form onSubmit={this.submitForm}>
         <input
           type="text"
