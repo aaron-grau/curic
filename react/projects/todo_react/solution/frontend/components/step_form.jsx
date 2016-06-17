@@ -1,7 +1,7 @@
-var React = require('react');
-var StepStore = require('../stores/step_store');
+const React = require('react');
+const StepStore = require('../stores/step_store');
 
-var StepForm = React.createClass({
+const StepForm = React.createClass({
   getInitialState: function () {
     return {title: ""};
   },
@@ -10,7 +10,7 @@ var StepForm = React.createClass({
   },
   submitForm: function(e) {
     e.preventDefault();
-    var data = {
+    const data = {
       todo_id: this.props.todo_id,
       title: this.state.title
     };

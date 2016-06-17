@@ -1,9 +1,9 @@
-var React = require('react');
-var StepStore = require('../stores/step_store');
-var StepList = require('./step_list');
-var StepForm = require('./step_form');
+const React = require('react');
+const StepStore = require('../stores/step_store');
+const StepList = require('./step_list');
+const StepForm = require('./step_form');
 
-var TodoDetailView = React.createClass({
+const TodoDetailView = React.createClass({
   getInitialState: function(){
     return { steps: StepStore.all(this.props.todo.id) };
   },

@@ -1,6 +1,6 @@
-var _todos = [], _handlers = [];
+let _todos = [], _handlers = [];
 
-var TodoStore = {
+const TodoStore = {
   changed: function(){
     _handlers.forEach(function(cb){ cb(); });
   },
@@ -14,7 +14,7 @@ var TodoStore = {
   },
 
   fetch: function() {
-    var that = this;
+    const that = this;
     $.ajax({
       method: 'GET',
       url: 'api/todos',
@@ -27,7 +27,7 @@ var TodoStore = {
   },
 
   create: function(object) {
-    var that = this;
+    const that = this;
     $.ajax({
       method: 'POST',
       url: 'api/todos',
@@ -40,8 +40,8 @@ var TodoStore = {
   },
 
   find: function(id) {
-    var idx = -1;
-    for (var i = 0; i < _todos.length; i++) {
+    let idx = -1;
+    for (let i = 0; i < _todos.length; i++) {
       if (_todos[i].id === id) {
         idx = i;
         break;
@@ -52,7 +52,7 @@ var TodoStore = {
   },
 
   destroy: function(id) {
-    var that = this, idx = this.find(id), todo = _todos[idx];
+    const that = this, idx = this.find(id), todo = _todos[idx];
 
     if (todo) {
       $.ajax({
@@ -71,9 +71,9 @@ var TodoStore = {
   },
 
   toggleDone: function(id) {
-    var that = this;
-    var todo = _todos[this.find(id)];
-    var done = !todo.done;
+    const that = this;
+    const todo = _todos[this.find(id)];
+    const done = !todo.done;
 
     if (todo) {
       $.ajax({
