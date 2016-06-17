@@ -69,16 +69,16 @@ On namecheap.com:
 
 0. Sign in.
 0. Under Domains click "Manage"
-<img src="../images/godaddy_manage.png" style="max-height: 100px">
+<img src="../assets/godaddy_manage.png" style="max-height: 100px">
 0. Click the "DNS Zone" tab
-<img src="../images/godaddy_dnszone.png" style="max-height: 100px">
+<img src="../assets/godaddy_dnszone.png" style="max-height: 100px">
 0. Click the pencil icon to the right of the `@` host'
-<img src="../images/godaddy_edit.png" style="max-height: 100px">
+<img src="../assets/godaddy_edit.png" style="max-height: 100px">
 0. Paste in the App IP Address from above
 0. Click "Add Record"
-<img src="../images/godaddy_addrecord.png" style="max-height: 100px">
+<img src="../assets/godaddy_addrecord.png" style="max-height: 100px">
 0. Select "CNAME"
-<img src="../images/godaddy_CNAME.png" style="max-height: 100px">
+<img src="../assets/godaddy_CNAME.png" style="max-height: 100px">
 0. Set `www` as the host
 0. Set `yourapp.herokuapp.com` as the points to
 0. Click finish
@@ -88,13 +88,13 @@ On namecheap.com:
 
 0. Sign in.
 0. Click the Icon in the DNS column for your domain.
-<img src="../images/google_settings.png" style="max-height: 100px">
+<img src="../assets/google_settings.png" style="max-height: 100px">
 0. Scroll down to "Custom resource records"
 0. Fill in `www` `CNAME` `1H` `yourapp.herokuapp.com`
-<img src="../images/google_CNAME.png" style="max-height: 100px">
+<img src="../assets/google_CNAME.png" style="max-height: 100px">
 0. Click "Add"
 0. Fill in `@` `A` `1H` `App IP Address`
-<img src="../images/google_A.png" style="max-height: 100px">
+<img src="../assets/google_A.png" style="max-height: 100px">
 0. Click "Add"
 
 ## HTTPS ($20/month heroku)

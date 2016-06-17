@@ -11,6 +11,7 @@ Inside of `ApiActions.saveUser`, hit `apiUtil.postUser(user)`.
 Once the server returns a successful response (200), dispatch an action (`ADD_USER`) to update the store.
 
 
-Make sure you know how the process maps to the Flux Architecture diagram: https://github.com/appacademy/react-flux-curriculum/blob/master/w7d3/flux-diagram.png?raw=true
+Make sure you know how the process maps to the [Flux Architecture diagram][flux-diagram].
 
 [on-submit]: https://facebook.github.io/react/docs/tutorial.html
+[flux-diagram]: ../assets/flux-diagram.png
