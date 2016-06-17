@@ -7,7 +7,7 @@ For all videos: :closed_lock_with_key: `go_video_go`
 * [Integrating Google Maps with React][google-maps-demo]
 
 [figaro-screencast]: https://vimeo.com/164602277
-[figaro]: ./readings/figaro.md
+[figaro]: ./figaro.md
 [google-maps-demo]: https://github.com/appacademy/react-flux-curriculum/blob/master/w7d5/react_map_demo.html
 
 ## Helpful React Components
@@ -21,17 +21,17 @@ For all videos: :closed_lock_with_key: `go_video_go`
 * [React-Paginate][react-paginate-github] (pagination)
 * [React-Joyride][react-joyride-github] (application tour/walkthrough [DEMO][react-joyride-demo])
 
-[react-modals]:https://github.com/appacademy/capstone-project-curriculum/blob/master/readings/react-modals.md
-[react-modal-demo]:https://reactcommunity.org/react-modal/bootstrap/
-[react-date-picker-github]:https://github.com/zippyui/react-date-picker
-[react-date-picker-demo]:http://zippyui.com/react-date-picker/
-[react-slick-github]:https://github.com/akiran/react-slick
-[react-quill-github]:https://github.com/zenoamaro/react-quill
-[react-masonry-github]:https://github.com/eiriklv/react-masonry-component
-[react-infinite-github]:https://github.com/seatgeek/react-infinite
-[react-paginate-github]:https://github.com/AdeleD/react-paginate
-[react-joyride-github]:https://github.com/gilbarbara/react-joyride
-[react-joyride-demo]:http://gilbarbara.github.io/react-joyride/
+[react-modals]: ./react-modals.md
+[react-modal-demo]: https://reactcommunity.org/react-modal/bootstrap/
+[react-date-picker-github]: https://github.com/zippyui/react-date-picker
+[react-date-picker-demo]: http://zippyui.com/react-date-picker/
+[react-slick-github]: https://github.com/akiran/react-slick
+[react-quill-github]: https://github.com/zenoamaro/react-quill
+[react-masonry-github]: https://github.com/eiriklv/react-masonry-component
+[react-infinite-github]: https://github.com/seatgeek/react-infinite
+[react-paginate-github]: https://github.com/AdeleD/react-paginate
+[react-joyride-github]: https://github.com/gilbarbara/react-joyride
+[react-joyride-demo]: http://gilbarbara.github.io/react-joyride/
 [react-modal-webcast]: https://vimeo.com/164336429
 
 ## Authentication
@@ -41,11 +41,11 @@ For all videos: :closed_lock_with_key: `go_video_go`
 * [CanCan authorization][cancan]
 * [Railscasts][auth-railscasts]
 
-[omniauth]: ./readings/omniauth.md
-[omniauth-ii]: ./readings/omniauth-ii.md
-[cancan]: ./readings/cancan.md
-[facebook-login]: ./readings/facebook-login.md
-[auth-railscasts]: ./readings/auth-railscasts.md
+[omniauth]: ./omniauth.md
+[omniauth-ii]: ./omniauth-ii.md
+[cancan]: ./cancan.md
+[facebook-login]: ./facebook-login.md
+[auth-railscasts]: ./auth-railscasts.md
 [omniauth-devise-demo]: https://github.com/appacademy/OmniAuthDevise
 
 ## Likes
@@ -56,7 +56,7 @@ For all videos: :closed_lock_with_key: `go_video_go`
 ## Emails
 * [Sendgrid][sendgrid]
 
-[sendgrid]: ./readings/sendgrid.md
+[sendgrid]: ./sendgrid.md
 
 ## File Upload and Security
 * :movie_camera: [Cloudinary Demo][cloudinary-screencast]
@@ -67,9 +67,9 @@ For all videos: :closed_lock_with_key: `go_video_go`
 
 [cloudinary-screencast]: https://vimeo.com/164612621
 [cloudinary-demo]: https://github.com/appacademy/react_cloudinary_demo
-[security-railscasts]: ./readings/security-railscasts.md
-[filepicker]: ./readings/filepicker.md
-[HTML Escaping]: ./readings/xss.md
+[security-railscasts]: ./security-railscasts.md
+[filepicker]: ./filepicker.md
+[HTML Escaping]: ./xss.md
 
 ## Real-Time Communication
 (eg. notifications, messages, etc.)
@@ -93,10 +93,10 @@ For all videos: :closed_lock_with_key: `go_video_go`
 * React Router [Examples][react-router-examples]
 
 [kaminari-github]: https://github.com/amatsuda/kaminari
-[kaminari-overview]: ./readings/kaminari.md
+[kaminari-overview]: ./kaminari.md
 [kaminari-railscast]: http://railscasts.com/episodes/254-pagination-with-kaminari
 [friendly-id-github]: https://github.com/norman/friendly_id
-[friendly-id-overview]: ./readings/friendly-id.md
+[friendly-id-overview]: ./friendly-id.md
 [friendly-id-railscast]: http://railscasts.com/episodes/314-pretty-urls-with-friendlyid
 [friendly-kaminari-delayed-demo]: https://github.com/appacademy/friendly-kaminari-demo
 [react-router-examples]:https://github.com/reactjs/react-router/tree/master/examples
@@ -109,10 +109,10 @@ For all videos: :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Delayed Job & Heroku Scheduler Screencast][delayed-job-screencast]
 * [Railscast][delayed-job-railscast]
 
-[sdks]: ./readings/sdks.md
-[delayed-job]: ./readings/delayed-job.md
-[delayed-job-overview]: ./readings/delayed-job-2.md
-[heroku-scheduler]: ./readings/heroku-scheduler.md
+[sdks]: ./sdks.md
+[delayed-job]: ./delayed-job.md
+[delayed-job-overview]: ./delayed-job-2.md
+[heroku-scheduler]: ./heroku-scheduler.md
 [delayed-job-screencast]: http://vimeo.com/groups/appacademy/videos/96533711
 [delayed-job-railscast]: http://railscasts.com/episodes/171-delayed-job-revised
 
