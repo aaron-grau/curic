@@ -20,7 +20,7 @@ with.
 
 ### Webpack
 
-`NPM install --save webpack` and create a `webpack.config.js` file. Also,
+`npm install --save webpack` and create a `webpack.config.js` file. Also,
 create a `/lib` folder where we will store all of our files.
 
 Create a file in `/lib` called, `main.js`. Set up `webpack.config.js` to use this file as the entry point. While you're at it, set up the output to be `jquery_lite.js`. This output file is what we want to source in the
