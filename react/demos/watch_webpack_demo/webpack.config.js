@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
   context: __dirname,
   entry: "./frontend/entry.jsx",
@@ -8,11 +10,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['react']
+          presets: ['react', 'es2015']
         }
       }
     ]
