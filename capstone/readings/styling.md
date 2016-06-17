@@ -13,11 +13,11 @@
  * [Blog][css-transitions-blog]
  * [CSS Generator][css-transitions-generator]
 
-[css-overview]: ./readings/css.md
+[css-overview]: ./css.md
 [css-demos]: https://github.com/jonathanlemuel/css-demos
-[styling-railscasts]: ./readings/styling-railscasts.md
-[sass-bootstrap-type]: ./readings/sass-bootstrap-typography.md
-[themes]: ./readings/themes.md
+[styling-railscasts]: ./styling-railscasts.md
+[sass-bootstrap-type]: ./sass-bootstrap-typography.md
+[themes]: ./themes.md
 [30-selectors]: http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
 [parallax-blog]:http://keithclark.co.uk/articles/pure-css-parallax-websites/
 [unsplash]:https://unsplash.com/
