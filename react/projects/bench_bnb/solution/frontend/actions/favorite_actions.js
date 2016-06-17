@@ -1,24 +1,26 @@
-var FavoriteApiUtil = require('../util/favorite_api_util');
-var FavoriteConstants = require('../constants/favorite_constants');
-var AppDispatcher = require('../dispatcher/dispatcher');
+"use strict";
 
-var FavoriteActions = {
-  createFavorite: function(data) {
+const FavoriteApiUtil = require('../util/favorite_api_util');
+const FavoriteConstants = require('../constants/favorite_constants');
+const AppDispatcher = require('../dispatcher/dispatcher');
+
+const FavoriteActions = {
+  createFavorite(data) {
     FavoriteApiUtil.createFavorite(data, this.receiveFavorite);
   },
 
-  deleteFavorite: function(data) {
+  deleteFavorite(data) {
     FavoriteApiUtil.deleteFavorite(data, this.removeFavorite);
   },
 
-  receiveFavorite: function(favorite){
+  receiveFavorite(favorite) {
     AppDispatcher.dispatch({
       actionType: FavoriteConstants.FAVORITE_RECEIVED,
       favorite: favorite
     });
   },
 
-  removeFavorite: function(favorite){
+  removeFavorite(favorite) {
     AppDispatcher.dispatch({
       actionType: FavoriteConstants.FAVORITE_REMOVED,
       favorite: favorite
