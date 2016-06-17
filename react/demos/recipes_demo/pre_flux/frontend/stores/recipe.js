@@ -1,22 +1,23 @@
-var _recipes = [], _handlers = [];
-var RecipeStore = {
-  all: function () {
+let _recipes = [], _handlers = [];
+
+const RecipeStore = {
+  all() {
     return _recipes.slice();
   },
-  create: function(recipe){
+  create(recipe) {
     _recipes.push(recipe);
     RecipeStore.changed();
   },
-  addChangeHandler: function(handler){
+  addChangeHandler(handler) {
     _handlers.push(handler);
   },
-  removeChangeHandler: function(handler){
-    var idx = _handlers.indexOf(handler);
+  removeChangeHandler(handler) {
+    let idx = _handlers.indexOf(handler);
     if (idx !== -1){
       _handlers.splice(idx, 1);
     }
   },
-  changed: function(){
+  changed() {
     _handlers.forEach(function(handler){
       handler();
     });

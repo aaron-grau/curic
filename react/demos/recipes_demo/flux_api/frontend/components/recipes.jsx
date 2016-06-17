@@ -1,22 +1,22 @@
-var React = require('react');
-var RecipesForm = require('./RecipesForm');
-var RecipesList = require('./RecipesList');
-var RecipeStore = require('../stores/recipe');
-var recipeActions = require('../actions/recipe_actions');
+const React = require('react');
+const RecipesForm = require('./recipes_form');
+const RecipesList = require('./recipes_list');
+const RecipeStore = require('../stores/recipe');
+const RecipeActions = require('../actions/recipe_actions');
 
-var Recipes = React.createClass({
+const Recipes = React.createClass({
   getInitialState: function () {
     return { recipes: RecipeStore.all() };
   },
   createRecipe: function(recipe){
-    recipeActions.createRecipe(recipe);
+    RecipeActions.createRecipe(recipe);
   },
   _recipesChanged: function () {
     this.setState({recipes: RecipeStore.all()});
   },
   componentDidMount: function(){
     RecipeStore.addListener(this._recipesChanged);
-    recipeActions.fetchRecipes();
+    RecipeActions.fetchRecipes();
   },
   render: function () {
     return (

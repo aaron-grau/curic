@@ -1,14 +1,14 @@
-var dispatcher = require('../dispatcher');
+const AppDispatcher = require('../dispatcher');
 
-var RecipeServerActions = {
+const RecipeServerActions = {
   receiveRecipes: function (recipes) {
-    dispatcher.dispatch({
+    AppDispatcher.dispatch({
       actionType: "RECEIVE_RECIPES",
       recipes: recipes
     });
   },
   receiveSingleRecipe: function (recipe) {
-    dispatcher.dispatch({
+    AppDispatcher.dispatch({
       actionType: "ADD_RECIPE",
       recipe: recipe
     });

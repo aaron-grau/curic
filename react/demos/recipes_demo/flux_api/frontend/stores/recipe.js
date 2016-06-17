@@ -1,8 +1,8 @@
-var Store = require('flux/utils').Store;
-var dispatcher = require('../dispatcher');
+const Store = require('flux/utils').Store;
+const dispatcher = require('../dispatcher');
+const RecipeStore = new Store(dispatcher);
 
-var _recipes = [];
-var RecipeStore = new Store(dispatcher);
+let _recipes = [];
 
 RecipeStore.all = function () {
   return _recipes.slice();
@@ -23,4 +23,5 @@ RecipeStore.__onDispatch = function (payload) {
 function resetRecipes(recipes) {
   _recipes = recipes;
 }
+
 module.exports = RecipeStore;

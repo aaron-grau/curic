@@ -1,11 +1,11 @@
-var RecipeWebApiUtil = require('../util/recipe_web_api_util');
+const RecipeWebApiUtil = require('../util/recipe_web_api_util');
 
-var RecipeActions = {
-  createRecipe: function (recipe) {
+const RecipeActions = {
+  createRecipe(recipe) {
     RecipeWebApiUtil.addRecipe(recipe);
 
   },
-  fetchRecipes: function () {
+  fetchRecipes() {
     RecipeWebApiUtil.getAll();
   }
 };
