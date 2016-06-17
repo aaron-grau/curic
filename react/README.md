@@ -111,7 +111,7 @@
 [flux-lecture]: https://vimeo.com/163485520
 [flux-demo-screencast]: https://vimeo.com/163486476
 [click-counter-flux]: homeworks/flux_homework.md
-[tentative-proposal]: readings/tentative-project-proposal.md
+[tentative-proposal]: ../capstone/project-proposals/tentative-project-proposal.md
 [flux-intro]: readings/intro_to_flux.md
 [flux-video]: https://www.youtube.com/watch?v=Bic_sFiaNDI
 [flux-todo-tutorial]: readings/todo_list_tutorial.md
@@ -178,8 +178,8 @@
 * See [Capstone Project Curriculum][capstone-project-curriculum] for readings.
 * Submit your [capstone project proposal][capstone-project-proposal] by 9am on Monday.
 
-[capstone-project-curriculum]: https://github.com/appacademy/capstone-project-curriculum
-[capstone-project-proposal]: https://github.com/appacademy/capstone-project-curriculum/blob/master/capstone-projects/capstone-project-proposal.md
+[capstone-project-curriculum]: ../capstone
+[capstone-project-proposal]: ../capstone/project-proposals/capstone-project-proposal.md
 [jest-basics]: readings/jest_basics.md
 [jest-config]: readings/jest_config.md
 
