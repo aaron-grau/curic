@@ -39,4 +39,4 @@ merit and that you have a game plan for making it happen.
 * Boards, lists, and cards can be destroyed or marked complete
   (archived)
 
-[clone-link]: ./projects_to_clone.md
+[clone-link]: ./projects-to-clone.md
