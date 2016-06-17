@@ -20,13 +20,8 @@ with.
 
 ### Webpack
 
-`npm install --save webpack` and create a `webpack.config.js` file. Also,
-create a `/lib` folder where we will store all of our files.
-
-Create a file in `/lib` called, `main.js`. Set up `webpack.config.js` to use this file as the entry point. While you're at it, set up the output to be `jquery_lite.js`. This output file is what we want to source in the
+Create a `/lib` folder where we will store all of our files. Create a file in `/lib` called, `main.js` and boot up `webpack --watch lib/main.js lib/jquery_lite.js`. This output file is what we want to source in the
 `<script>` tag of our html file. Go ahead and add that script tag now.
-
-Boot up `webpack --watch`.
 
 ### The core function
 
