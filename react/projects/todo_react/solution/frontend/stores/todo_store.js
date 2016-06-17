@@ -19,7 +19,7 @@ const TodoStore = {
       method: 'GET',
       url: 'api/todos',
       dataType: 'json',
-      success: function(resp) {
+      success: (resp) => {
         _todos = resp;
         that.changed();
       }
@@ -32,7 +32,7 @@ const TodoStore = {
       method: 'POST',
       url: 'api/todos',
       data: {todo: object},
-      success: function(resp) {
+      success: (resp) => {
         _todos.push(resp);
         that.changed();
       }
@@ -58,7 +58,7 @@ const TodoStore = {
       $.ajax({
         method: 'DELETE',
         url: 'api/todos/' + id,
-        success: function() {
+        success: () => {
           _todos.splice(idx, 1);
           that.changed();
         }
@@ -80,7 +80,7 @@ const TodoStore = {
         method: 'PATCH',
         url: 'api/todos/' + id,
         data: { todo: {done: done}},
-        success: function() {
+        success: () => {
           todo.done = done;
           that.changed();
         }

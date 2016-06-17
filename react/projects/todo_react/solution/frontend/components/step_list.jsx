@@ -10,7 +10,7 @@ const StepList = React.createClass({
     return (
       <div className="step-list">
         {
-          this.props.steps.map(function(step) {
+          this.props.steps.map( (step) => {
             return (
               <StepListItem key={step.id} step={step} todo_id={that.props.todo_id} />
             );
