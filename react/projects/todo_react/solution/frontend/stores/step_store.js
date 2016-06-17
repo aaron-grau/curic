@@ -18,7 +18,7 @@ const StepStore = {
     $.ajax({
       method: 'GET',
       url: 'api/todos/' + todo_id + '/steps' ,
-      success: function(resp) {
+      success: (resp) => {
         _steps[todo_id] = resp;
         that.changed();
       }
@@ -32,7 +32,7 @@ const StepStore = {
       method: 'POST',
       url: 'api/todos/' + todo_id + '/steps',
       data: {step: step},
-      success: function(resp) {
+      success: (resp) => {
         _steps[todo_id] = _steps[todo_id] || [];
         _steps[todo_id].push(resp);
         that.changed();
@@ -63,7 +63,7 @@ const StepStore = {
       $.ajax({
         method: 'DELETE',
         url: 'api/steps/'+ id,
-        success: function() {
+        success: () => {
           _steps[todo_id].splice(idx, 1);
           that.changed();
         }
@@ -86,7 +86,7 @@ const StepStore = {
         method: 'PATCH',
         url: 'api/steps/'+ id,
         data: { step: {done: done}},
-        success: function() {
+        success: () => {
           step.done = done;
           that.changed();
         }

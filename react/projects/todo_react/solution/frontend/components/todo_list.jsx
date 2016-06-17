@@ -25,7 +25,7 @@ const TodoList = React.createClass({
 
         <div className="todo-list">
           {
-            todos.map(function(todo) {
+            todos.map((todo) => {
               return (
                 <TodoListItem key={todo.id} todo={todo} />
               );
