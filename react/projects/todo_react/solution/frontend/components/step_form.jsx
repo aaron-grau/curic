@@ -2,13 +2,13 @@ const React = require('react');
 const StepStore = require('../stores/step_store');
 
 const StepForm = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {title: ""};
   },
-  handleChange: function (e) {
+  handleChange(e) {
     this.setState({title: e.target.value});
   },
-  submitForm: function (e) {
+  submitForm(e) {
     e.preventDefault();
     const data = {
       todo_id: this.props.todo_id,
@@ -18,7 +18,7 @@ const StepForm = React.createClass({
 
     this.setState({title: ""});
   },
-  render: function () {
+  render() {
     return (
       <form onSubmit={this.submitForm}>
         <input

@@ -2,17 +2,16 @@ const React = require('react');
 const StepListItem = require('./step_list_item');
 
 const StepList = React.createClass({
-  componentWillUnmount: function () {
+  componentWillUnmount() {
   },
 
-  render: function () {
-    const that = this;
+  render() {
     return (
       <div className="step-list">
         {
           this.props.steps.map( (step) => {
             return (
-              <StepListItem key={step.id} step={step} todo_id={that.props.todo_id} />
+              <StepListItem key={step.id} step={step} todo_id={this.props.todo_id} />
             );
           })
         }

@@ -5,21 +5,21 @@ const TodoDoneButton = require('./todo_done_button');
 
 
 const TodoListItem = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return { detail: false };
   },
 
-  handleDestroy: function (event) {
+  handleDestroy(event) {
     event.stopPropagation();
     TodoStore.destroy(this.props.todo.id);
   },
 
-  toggleDetail: function (event) {
+  toggleDetail(event) {
     event.preventDefault();
     this.setState({detail: !this.state.detail});
   },
 
-  render: function () {
+  render() {
     let detail, className;
     if (this.state.detail) {
       detail = (

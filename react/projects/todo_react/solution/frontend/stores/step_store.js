@@ -1,19 +1,19 @@
 let _steps = {}, _callbacks = [];
 
 const StepStore = {
-  changed: function () {
+  changed() {
     _callbacks.forEach(function(cb){ cb(); });
   },
 
-  addChangedHandler: function (callback) {
+  addChangedHandler(callback) {
     _callbacks.push(callback);
   },
 
-  removeChangedHandler: function (callback) {
+  removeChangedHandler(callback) {
     _callbacks.splice(_callbacks.indexOf(callback), 1);
   },
 
-  fetch: function (todo_id) {
+  fetch(todo_id) {
     const that = this;
     $.ajax({
       method: 'GET',
@@ -25,7 +25,7 @@ const StepStore = {
     });
   },
 
-  create: function (step) {
+  create(step) {
     const todo_id = step.todo_id;
     const that = this;
     $.ajax({
@@ -40,7 +40,7 @@ const StepStore = {
     });
   },
 
-  find: function (todo_id, id) {
+  find(todo_id, id) {
     let idx = -1;
     const steps = _steps[todo_id] || [];
 
@@ -54,7 +54,7 @@ const StepStore = {
     return idx;
   },
 
-  destroy: function (todo_id, id) {
+  destroy(todo_id, id) {
     const that = this;
     const idx = this.find(todo_id, id);
     const step = _steps[todo_id][idx];
@@ -71,12 +71,12 @@ const StepStore = {
     }
   },
 
-  all: function (id) {
+  all(id) {
     _steps[id] = _steps[id] || [];
     return _steps[id].slice();
   },
 
-  toggleDone: function (todo_id, id) {
+  toggleDone(todo_id, id) {
     const that = this;
     const step = _steps[todo_id][this.find(todo_id, id)];
     const done = !step.done;

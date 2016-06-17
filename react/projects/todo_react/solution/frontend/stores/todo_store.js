@@ -1,7 +1,7 @@
 let _todos = [], _handlers = [];
 
 const TodoStore = {
-  changed: function () {
+  changed() {
     _handlers.forEach(function(cb){ cb(); });
   },
 
@@ -13,33 +13,31 @@ const TodoStore = {
     _handlers.splice(_handlers.indexof(callback), 1);
   },
 
-  fetch: function () {
-    const that = this;
+  fetch() {
     $.ajax({
       method: 'GET',
       url: 'api/todos',
       dataType: 'json',
       success: (resp) => {
         _todos = resp;
-        that.changed();
+        this.changed();
       }
     });
   },
 
-  create: function (object) {
-    const that = this;
+  create(object) {
     $.ajax({
       method: 'POST',
       url: 'api/todos',
       data: {todo: object},
       success: (resp) => {
         _todos.push(resp);
-        that.changed();
+        this.changed();
       }
     });
   },
 
-  find: function (id) {
+  find(id) {
     let idx = -1;
     for (let i = 0; i < _todos.length; i++) {
       if (_todos[i].id === id) {
@@ -51,8 +49,8 @@ const TodoStore = {
     return idx;
   },
 
-  destroy: function (id) {
-    const that = this, idx = this.find(id), todo = _todos[idx];
+  destroy(id) {
+    const idx = this.find(id), todo = _todos[idx];
 
     if (todo) {
       $.ajax({
@@ -60,18 +58,17 @@ const TodoStore = {
         url: 'api/todos/' + id,
         success: () => {
           _todos.splice(idx, 1);
-          that.changed();
+          this.changed();
         }
       });
     }
   },
 
-  all: function () {
+  all() {
     return _todos.slice();
   },
 
-  toggleDone: function (id) {
-    const that = this;
+  toggleDone(id) {
     const todo = _todos[this.find(id)];
     const done = !todo.done;
 
@@ -82,7 +79,7 @@ const TodoStore = {
         data: { todo: {done: done}},
         success: () => {
           todo.done = done;
-          that.changed();
+          this.changed();
         }
       });
     }
