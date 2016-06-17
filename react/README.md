@@ -4,12 +4,12 @@
 
 ### Video Lectures (94 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Part 1: Intro to React)][lec-w7d1-01] (5 min)
-* :movie_camera: [Part 2: Anatomy/Physiology of Components)][lec-w7d1-02] (15 min)
-* :movie_camera: [Part 3: Rendering Components in the Browser)][lec-w7d1-03] (10 min)
+* :movie_camera: [Part 1: Intro to React][lec-w7d1-01] (5 min)
+* :movie_camera: [Part 2: Anatomy/Physiology of Components][lec-w7d1-02] (15 min)
+* :movie_camera: [Part 3: Rendering Components in the Browser][lec-w7d1-03] (10 min)
 * :movie_camera: [Part 4: JSX][lec-w7d1-04] (7 min)
 * :movie_camera: [Part 5: Babel/Transpiling JSX][lec-w7d1-05] (6 min)
-* :movie_camera: [Part 6: The Grand Demo)][lec-w7d1-06] (51 min)
+* :movie_camera: [Part 6: The Grand Demo][lec-w7d1-06] (51 min)
   * :computer: [demo source code][watch-demo]
 
 ### Readings (1hr, 5min)
