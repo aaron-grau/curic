@@ -1,0 +1,5 @@
+/node_modules/
+/tmp/
+/log/
+app/assets/javascripts/bundle.js
+app/assets/javascripts/bundle.map.js

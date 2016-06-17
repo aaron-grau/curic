@@ -54,13 +54,13 @@ Today we're going to practice many of the fundamentals of object-oriented progra
 
 ## Phase I: Callbacks
 
-Write a function `sillyNames` that takes an array of names and a function (callback). `sillyNames` should use `Array.prototype.map` to create a new array full of silly-fied versions of each name - silly-fied meaning "Roger" should be made to read "Mx. Roger Sillypants". Then pass this new array of silly names to the callback, which should use `Array.prototype.forEach` to print out each silly name.
+Write a function `sillyNames` that takes an array of names and a function (callback). `sillyNames` should use `Array.prototype.map` to create a new array full of silly-fied versions of each name - silly-fied meaning "Roger" should be made to read "Dr. Roger Sillypants". Then pass this new array of silly names to the callback, which should use `Array.prototype.forEach` to print out each silly name.
 
 ```js
 > sillyNames(["Mary", "Brian", "Leo"], printCallback);
-Mx. Mary Sillypants
-Mx. Brian Sillypants
-Mx. Leo Sillypants
+Dr. Mary Sillypants
+Dr. Brian Sillypants
+Dr. Leo Sillypants
 undefined
 ```
 

@@ -1,3 +1,5 @@
+"use strict";
+
 const React = require('react');
 
 const Tile = React.createClass({
@@ -12,7 +14,7 @@ const Tile = React.createClass({
     if (tile.explored) {
       if (tile.bombed) {
         klass = 'bombed';
-        text = "\u2622";
+        text = '\u2622';
       } else {
         klass = 'explored';
         count = tile.adjacentBombCount();
@@ -20,7 +22,7 @@ const Tile = React.createClass({
       }
     } else if (tile.flagged) {
       klass = 'flagged';
-      text = "\u2691";
+      text = '\u2691';
     } else {
       klass = 'unexplored';
     }

@@ -45,17 +45,27 @@ function logArguments(arg1, arg2) {
 logArguments("boop", "candle", 3); // ["boop", "candle", 3]
 ```
 
-One very annoying thing about `arguments` is that it is not a true
-`Array` object. It is only **Array-like** in that it can be indexed
-with integers and has a `length` property.
-
-This is infuriating: we can't use any of our favorite `Array` methods. We can, however, use `Array#slice` to create a copy of `arguments` that is an array by calling it on `arguments`:
+One very annoying thing about `arguments` is that it is not a true `Array`
+object. It is only **Array-like** in that it can be indexed with integers and
+has a `length` property. This is infuriating: we can't use any of our favorite
+`Array` methods.
 
 ```javascript
-function() {
+function thisBreaks() {
   arguments instanceof Array; // false
-  let args = Array.prototype.slice.call(arguments);
+  arguments.forEach((arg => console.log(arg)); 
+  // TypeError: arguments.forEach is not a function
+}
+```
+
+We can, however, use `Array.prototype.slice` to create a copy of `arguments` 
+that is an array by `call`ing it on `arguments`:
+
+```javascript
+function thisWorks() {
+  let args = Array.prototype.slice.call(arguments);  
   args instanceof Array; // true
+  args.forEach((arg)=> console.log(arg)); // works
 }
 ```
 
@@ -64,32 +74,40 @@ the `slice` method to work. Wow.
 
 ### `Array.from`
 
-If you thought the trick above was hacky, [Ecma International](https://en.wikipedia.org/wiki/Ecma_International) would agree. That's why ES6 includes a new method `Array.from`, that accomplishes the same thing as our trick above.
+If you thought the trick above was hacky, [Ecma
+International](https://en.wikipedia.org/wiki/Ecma_International) would agree.
+That's why ES6 includes a new method, `Array.from`, that accomplishes the same
+thing as our `Array.prototype.slice.call` trick above.
 
-```js
-function() {
-  Array.from(arguments) instanceof Array; // true
+```javascript
+function thisWorksToo() {
+  let args = Array.from(arguments);  
+  args instanceof Array; // true
+  args.forEach((arg)=> console.log(arg)); // works
 }
-``` 
+```
 
-## Rest Arguments in ES6
+## Rest Parameters
 
-Working with arguments in ES6 is easier than ever. Having to call slice `arguments` to work with it is kind of annoying - what if we could just use an actual array to capture the arguments? In ES6, we actually can capture remaining arguments using the `...` operator (Rest Operator).
+ES6 also introduces another way to handle arguments that deprecates the need to
+coerce `arguments` at all:  the `...` operator (Rest Operator). `...` works 
+just like Ruby's splat operator (`*`) and can be used to capture all a function's arguments 
+into an actual array.
 
 The differences between `arguments` and Rest Parameters are:
 
-* a) Rest Parameters only grab the un-named arguments
-* b) Rest Parameters give us back a real array, so we can use methods like `pop` and `sort`
+* a) Rest Parameters only grab un-named arguments. 
+* b) Rest Parameters give us back a real array, so we can use methods like `forEach`, `pop` and `sort`. 
 
-Let's write a quick example method that will start by logging the first argument, followed by a list of the remaining arguments.
+Let's write a quick example method that will start by logging the first
+argument, followed by a list of the remaining arguments.
 
 ```javascript
-
-function oldWay(firstArg) {
+function argumentsWay(firstArg) {
   console.log(`The first arg is ${firstArg}!`);
 
   // We grab the arguments and call slice with 1 to eliminate the firstArg
-  var otherArgs = Array.prototype.slice.call(arguments, 1);
+  let otherArgs = Array.prototype.slice.call(arguments, 1);
   console.log(`The other args are:`);
 
   otherArgs.forEach((arg) => {
@@ -97,7 +115,7 @@ function oldWay(firstArg) {
   });
 }
 
-function newWay(firstArg, ...otherArgs) {
+function restWay(firstArg, ...otherArgs) {
   console.log(`The first arg is ${firstArg}!`);
 
   console.log(`The other args are:`);
@@ -108,11 +126,16 @@ function newWay(firstArg, ...otherArgs) {
 }
 ```
 
-Rest arguments are often simpler to use than the old `arguments` keyword and are stylistically preferred by companies that have adopted ES6. However, for the sake of interviews and for understanding JavaScript, it is important to understand both forms of grabbing arguments.
+Rest arguments are often simpler to use than the old `arguments` keyword and 
+are stylistically preferred by companies that have adopted ES6. However, for 
+the sake of interviews and for understanding JavaScript, it is important to
+understand both forms of grabbing arguments.
 
 ### Spread Parameters
 
-ES6 also allows us to use Spread Parameters, which is similar to the Ruby splat operator (`*`) for de-structuring parameters. We can now pass an array into a function with the `...` as shown below:
+ES6 also allows us to use Spread Parameters, which is the Ruby splat for 
+de-structuring parameters. We can now pass an array into a function with the `...` 
+as shown below:
 
 ```javascript
 function madLib(verb, pluralNoun1, pluralNoun2, place) {
@@ -128,13 +151,14 @@ We can de-structure arguments multiple times in a function call.
 
 ```javascript
 const myFunction = (v, w, x, y, z) => { }
-const args = [0, 1];
-myFunction(-1, ...args, 2, ...[3]);
+const args = [2, 3];
+myFunction(1, ...args, 4, ...[5]); // v = 1, w = 2, x = 3, y = 4, z = 5
 ```
 
 ### Default Values
 
-Default values are new to ES6. We can now set default values in a way similar to Ruby.
+Default values are new to ES6. We can now set default values in a way similar 
+to Ruby.
 
 ```javascript
 function add(x, y = 17) {
@@ -142,5 +166,5 @@ function add(x, y = 17) {
   return x + y;
 }
 
-f(3) === 20;
+add(3) === 20;
 ```

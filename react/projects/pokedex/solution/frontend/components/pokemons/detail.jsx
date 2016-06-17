@@ -1,35 +1,36 @@
-var React = require('react');
-var PokemonStore = require('../../stores/pokemon.js');
-var ToysIndex = require('../toys/index.jsx');
-var ClientActions = require('../../actions/clientActions.js');
+'use strict';
+const React = require('react');
+const PokemonStore = require('../../stores/pokemon.js');
+const ToysIndex = require('../toys/index.jsx');
+const PokemonActions = require('../../actions/pokemon_actions.js');
 
 module.exports = React.createClass({
-  getStateFromStore: function () {
+  getStateFromStore () {
     return { pokemon: PokemonStore.find(parseInt(this.props.params.pokemonId)) };
   },
 
-  _onChange: function () {
+  _onChange () {
     this.setState(this.getStateFromStore());
   },
 
-  getInitialState: function () {
+  getInitialState () {
     return this.getStateFromStore();
   },
 
-  componentWillReceiveProps: function (newProps) {
-    ClientActions.fetchSinglePokemon(parseInt(newProps.params.pokemonId));
+  componentWillReceiveProps (newProps) {
+    PokemonActions.fetchSinglePokemon(parseInt(newProps.params.pokemonId));
   },
 
-  componentDidMount: function () {
+  componentDidMount () {
     this.pokemonListener = PokemonStore.addListener(this._onChange);
-    ClientActions.fetchSinglePokemon(parseInt(this.props.params.pokemonId));
+    PokemonActions.fetchSinglePokemon(parseInt(this.props.params.pokemonId));
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount () {
     this.pokemonListener.remove();
   },
 
-  render: function () {
+  render () {
     if(this.state.pokemon === undefined) { return <div></div>; }
 
     return(
@@ -37,9 +38,9 @@ module.exports = React.createClass({
         <div className="pokemon-detail-pane">
           <div className="detail">
             <img src={this.state.pokemon.image_url} />
-            {['name', 'attack', 'defense', 'poke_type', 'moves'].map(function (attr) {
+            {['name', 'attack', 'defense', 'poke_type', 'moves'].map((attr) => {
               return <p key={attr}>{attr}: {this.state.pokemon[attr]}</p>;
-            }.bind(this))}
+            })}
           </div>
 
           <h2 className='detail-header'>Toys: </h2>

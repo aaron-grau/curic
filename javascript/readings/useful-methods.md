@@ -66,3 +66,4 @@ type conversion which can lead to confusing results. Learn more about it in *Eff
 * `Array.prototype.indexOf`: similar to `Array#index` in Ruby, but returns -1 when it does not find an item. 
 * `[]`: bracket notation similar to Ruby.
 * `Array.prototype.slice([start, [end]])`: Makes a copy of an array from the start index up to but not including the end index. Both arguments are optional (the first and last elements are used by default).
+* `Array.isArray`: class method that accepts one argument and returns a boolean representing whether it is an array.

@@ -144,6 +144,7 @@
 + [Git tutorial][interactive-git] (30 min)
 
 ### Additional Resources
++ Using [Git add][git-add]
 + [Git Repository Clean Up][git-cleanup]
 + [Faster Git with aliases][aliases]
 + [Fixing Git commit authorship][git-fix-authorship]
@@ -218,12 +219,13 @@
   + If you need to use one of our machines, please just use a single
     monitor.
 
-### Readings (55 min)
+### Readings (65 min)
 + [Class inheritance][inheritance] (15 min)
 + [Exceptions, error handling][errors] (15 min)
 + [Decomposition into objects][object-decomposition] (10 min)
 + [Inheritance, Polymorphism and DRY][inheritance-design] (10 min)
 + [Information hiding/encapsulation][hiding] (5 min)
++ [UML][uml] (10 min)
 
 ### Projects
 + [Class inheritance][inheritance-exercises]
@@ -231,6 +233,7 @@
 + [Chess][chess]
     + Please read the project description the night before.
 
+[uml]: readings/uml.md
 [inheritance]: readings/inheritance.md
 [inheritance-exercises]: homeworks/inheritance_exercises.md
 [errors]: readings/errors.md

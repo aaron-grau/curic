@@ -25,10 +25,10 @@ class Bicycle {
   }
 }
 
-const cruiser = new Bicycle("Schwinn", "turquoise"),
-    salsaFargo = new Bicycle("Salsa Fargo", "burnt orange"),
-    flyingMerkel = new Bicycle("Flying Merkel", "green"),
-    bianchiVolpe = new Bicycle("Bianchi Volpe", "slate blue");
+const cruiser = new Bicycle("Schwinn", "turquoise");
+const salsaFargo = new Bicycle("Salsa Fargo", "burnt orange");
+const flyingMerkel = new Bicycle("Flying Merkel", "green");
+const bianchiVolpe = new Bicycle("Bianchi Volpe", "slate blue");
 
 Bicycle.funBicycles = [cruiser, salsaFargo, flyingMerkel, bianchiVolpe];
 
@@ -41,7 +41,7 @@ Bicycle.parade();
 
 ```
 
-:bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike:
+:bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike::bike:
 
 `prototype` methods (instance methods) are written right within the class object, as is the special `constructor` function that initializes a new object. `static` methods can also be defined within the class object; they mimic class methods by being called **without** instantiating the class.
 

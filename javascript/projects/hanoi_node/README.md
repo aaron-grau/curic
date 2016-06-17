@@ -2,7 +2,9 @@
 
 Let's rewrite the towers of Hanoi game we [previously wrote in Ruby][ruby-hanoi].
 
-Before you start, write out `HanoiGame#run` in pseudocode (using comments).  For example, if I were to write the pseudocode for `Chess#run`, it would look something like:
+Before you start, write out `HanoiGame.prototype.run` in pseudocode (using comments).
+For example, if I were to write the pseudocode for `Chess.prototype.run`, it would 
+look something like:
 
 ```javascript
   Chess.prototype.run = function() {
@@ -19,43 +21,48 @@ Now write a `Game` class and run it using Node:
 
 * In the initialization, set an ivar for the stacks.
 
-* Write a `#promptMove` method that (1) prints the stacks,
+* Write a `Game.prototype.promptMove` method that (1) prints the stacks,
   and (2) asks the user where they want to move a disc to/from. Pass
   the `startTowerIdx` and `endTowerIdx` to a callback.  
-    * Test it by passing in dummy variables and make sure it works before you move on.  For example, your callback should console.log out the `startTowerIdx` and `endTowerIdx` (and not run any other code).
+    * Test it by passing in dummy variables and make sure it works 
+    before you move on.  For example, your callback should `console.log` 
+    out the `startTowerIdx` and `endTowerIdx` (and not run any other code).
 
-* Write an `#isValidMove(startTowerIdx, endTowerIdx)` method that
+* Write an `isValidMove(startTowerIdx, endTowerIdx)` method that
   checks that you can move the top of `startTowerIdx` onto the top of
   `endTowerIdx`. 
   * Test it by passing in dummy variables and make sure it works before you move on.
 
 See the theme here?  Test each method, one at a time, before you move on.
 
-* Write a `#move(startTowerIdx, endTowerIdx)` method that only performs
+* Write a `move(startTowerIdx, endTowerIdx)` method that only performs
   the move if it is valid. Return true/false to indicate whether the
   move was performed.  Test it.
 
-* Write a `#print` method to print the stacks. I used `JSON.stringify`
+* Write a `print` method to print the stacks. I used `JSON.stringify`
   to turn the array of stacks to a string. This works sort of like
   Ruby's `#inspect` method (called by the Ruby `p` method). Test it.
 
-* Write an `#isWon` method that checks the stacks to see if all discs were moved to a new stack.  Test it by passing in dummy variables and make sure it works before you move on.
+* Write an `isWon` method that checks the stacks to see if all discs 
+  were moved to a new stack.  Test it by passing in dummy variables 
+  and make sure it works before you move on.
 
-* Write a `#run(completionCallback)` method.
+* Write a `Game.prototype.run(completionCallback)` method.
     * `promptMove` from the user.  
     * In the callback, try to perform the move. If it fails, print an
       error message.
-    * Test `#run` here (yes, just make sure `#promptMove` works within `#run`).
-    * If the game is not yet won, call `#run` again.
+    * Test `run` here (yes, just make sure `promptMove` works within `run`).
+    * If the game is not yet won, call `run` again.
     * Otherwise, log that the user has won, then call the
       `completionCallback`.
-    * Test this out, should we call `#isWon` in the top level of `#run` or in the callback to `#promptMove`?
+    * Test this out, should we call `isWon` in the top level of `run` or in the callback to `promptMove`?
 
-Compare the `#run` method you wrote to the pseudocode you originally had.  Does it look like what you expected?
+Compare the `run` method you wrote to the pseudocode you originally had. Does it look like what you expected?
 
-##Playing the Game
+## Playing the Game
 
-In order to play our game, we need to implement a layer of I/O to connect our game logic to user input. Create a `playScript.js` file. 
+In order to play our game, we need to implement a layer of I/O to connect our
+game logic to user input. Create a `playScript.js` file. 
   * Import your game by requiring `./game.js` as `Game`.
   * Instantiate a reader using node's [readline library][node-io].
   * Write a completion callback to ask the users if they want to play again.

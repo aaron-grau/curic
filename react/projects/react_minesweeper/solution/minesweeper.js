@@ -1,3 +1,5 @@
+"use strict";
+
 function Tile (board, pos) {
     this.board = board;
     this.pos = pos;

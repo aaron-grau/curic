@@ -31,7 +31,3 @@ Write the following tests:
 ## Phase 3: Refactor
 
 Make sure your code is modular.  Break each page in the application flow into its own class.  E.g., `Homepage`, `LoginPage`, `CourseCyclePage`, etc.
-
-## Phase 3: Go live
-
-Once all your tests work, push your repo up to github.  Email mihir (mihir@appacademy.io) a link to your repo with working tests.

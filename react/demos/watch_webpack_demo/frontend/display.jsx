@@ -1,7 +1,9 @@
-var React = require('react');
+"use strict";
 
-var Display = React.createClass({
-  render: function(){
+const React = require('react');
+
+const Display = React.createClass({
+  render(){
     return (
       <div>{this.props.elapsed}</div>
     );

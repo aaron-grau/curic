@@ -9,7 +9,7 @@ we're going to write a Ruby program to read in the puzzle files and let
 us solve them!
 
 [sudoku-wiki]: https://en.wikipedia.org/wiki/Sudoku
-[puzzles-zip]: ./sudoku-puzzles.zip
+[puzzles-zip]: https://github.com/appacademy/curriculum/tree/master/ruby/projects/sudoku/solution/puzzles
 
 ### Tile
 

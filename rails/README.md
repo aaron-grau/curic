@@ -13,7 +13,7 @@
 ## w4d1
 
 ### Assessment03
-+ [Practice Assessment][assessment-prep]
++ [Practice Assessment][assessment-prep-3]
 
 ### Video Lectures (60 min)
 :closed_lock_with_key: `go_video_go`
@@ -50,7 +50,7 @@
 + [First Routes and Controllers][first-routes]
 + [Contacts API][contacts-api]
 
-[assessment-prep]: http://github.com/appacademy/assessment-prep
+[assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
 
 [api-video]: https://vimeo.com/168498417
 [http-req-res-video]: https://vimeo.com/168498424
@@ -286,7 +286,7 @@
 ## w5d2
 
 ### Assessment04
-* [Practice Assessment][assessment-prep]
+* [Practice Assessment][assessment-prep-4]
 
 ### Video lectures (67 min)
 :closed_lock_with_key: `go_video_go`
@@ -308,9 +308,11 @@
   * old news at this point; recommended speed >= 2x
 * [:movie_camera: (cc) 02-http][02-http] (43 min)
 
-### Projects
-* **Solo**: [Rails Lite][rails-lite]
-* **Bonus**: [Rails Lite II][rails-lite-ii]
+### Solo Projects
+* [Rails Lite][rails-lite]
+* [Rails Lite II][rails-lite-ii]
+
+[assessment-prep-4]: http://github.com/appacademy/assessment-prep#assessment-4
 
 [http]: readings/http.md
 [rack]: readings/rack.md
@@ -319,7 +321,7 @@
 [01-protocols]: http://vimeo.com/groups/appacademy/videos/100169898
 [02-http]: http://vimeo.com/groups/appacademy/videos/100267302
 [rails-lite]: projects/rails_lite
-[rails-lite-ii]: projects/rails_lite
+[rails-lite-ii]: projects/rails_lite/rails-lite-ii.md
 
 ## w5d3
 
