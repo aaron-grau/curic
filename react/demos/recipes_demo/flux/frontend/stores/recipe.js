@@ -1,9 +1,9 @@
-var Store = require('flux/utils').Store;
-var dispatcher = require('../dispatcher');
+const Store = require('flux/utils').Store;
+const AppDispatcher = require('../dispatcher');
 
-var _recipes = [];
+let _recipes = [];
 
-var RecipeStore = new Store(dispatcher);
+const RecipeStore = new Store(AppDispatcher);
 
 RecipeStore.all = function () {
   return _recipes.slice();

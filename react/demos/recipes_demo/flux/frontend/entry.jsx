@@ -1,9 +1,9 @@
-var ReactDOM = require('react-dom');
-var React = require('react');
-var Recipes = require('./components/Recipes');
+const ReactDOM = require('react-dom');
+const React = require('react');
+const Recipes = require('./components/recipes');
 
 document.addEventListener("DOMContentLoaded", function () {
-  var root = document.querySelector('#root');
+  let root = document.querySelector('#root');
   ReactDOM.render(<Recipes />, root);
 });
 

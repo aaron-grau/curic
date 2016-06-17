@@ -1,2 +1,3 @@
-import { Dispatcher } from 'flux';
-export default new Dispatcher();
+const Dispatcher = require('flux').Dispatcher;
+
+module.exports = new Dispatcher();
