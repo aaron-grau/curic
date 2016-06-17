@@ -1,27 +1,29 @@
-var React = require('react');
-var StepStore = require('../stores/step_store');
-var StepList = require('./step_list');
-var StepForm = require('./step_form');
+"use strict";
 
-var TodoDetailView = React.createClass({
-  getInitialState: function(){
+const React = require('react');
+const StepStore = require('../stores/step_store');
+const StepList = require('./step_list');
+const StepForm = require('./step_form');
+
+const TodoDetailView = React.createClass({
+  getInitialState: () =>{
     return { steps: StepStore.all(this.props.todo.id) };
   },
 
-  stepsChanged: function(){
+  stepsChanged: () =>{
     this.setState({steps: StepStore.all(this.props.todo.id)});
   },
 
-  componentDidMount: function() {
+  componentDidMount: () => {
     StepStore.addChangedHandler(this.stepsChanged);
     StepStore.fetch(this.props.todo.id);
   },
 
-  componentWillUnmount: function() {
+  componentWillUnmount: () => {
     StepStore.removeChangedHandler(this.stepsChanged);
   },
 
-  render: function(){
+  render: () =>{
     return (
       <div>
         <p className="todo-body">{this.props.todo.body}</p>
