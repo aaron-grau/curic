@@ -8,26 +8,26 @@ This is based on the [Heroku Sendgrid docs][sendgrid-docs].
 
 First, run `heroku addons:add sendgrid:starter` from the command line.
 Sendgrid requires you to check some default boxes before it starts
-working. Run `heroku addons:open sendgrid` to **activate** your new 
+working. Run `heroku addons:open sendgrid` to **activate** your new
 sendgrid account.
 
 When the sendgrid addon portal is first opened:
 
-  **I. Click the "here" link.** 
+  **I. Click the "here" link.**
 
-<img src="../images/sendgrid_3.png" height="150px">
+<img src="../assets/sendgrid_3.png" height="150px">
 
   **II. Click the "Configure Account Settings" tab here**
 
-<img src="../images/sendgrid_4.png" height="350px">
+<img src="../assets/sendgrid_4.png" height="350px">
 
-  **III. Click the "here" link in the** 
+  **III. Click the "here" link in the**
 
-<img src="../images/sendgrid_5.png" height="250px">
+<img src="../assets/sendgrid_5.png" height="250px">
 
   **IV. Click the "Update settings" button**
 
-<img src="../images/sendgrid_6.png" height="350px">
+<img src="../assets/sendgrid_6.png" height="350px">
 
 **NB**: You might have to verify your heroku account with CC information,
 but starter is free; they won't charge you, they just want to tempt
@@ -107,12 +107,12 @@ Good work, you!
 [sendgrid-docs]: https://devcenter.heroku.com/articles/sendgrid.)
 [figaro]: figaro.md
 [wizard-signup]: https://sendgrid.com/account/wizardSignup
-[image-1]: ../images/sendgrid_1.png
-[image-2]: ../images/sendgrid_2.png
-[image-3]: ../images/sendgrid_3.png
-[image-4]: ../images/sendgrid_4.png
-[image-5]: ../images/sendgrid_5.png
-[image-6]: ../images/sendgrid_6.png
+[image-1]: ../assets/sendgrid_1.png
+[image-2]: ../assets/sendgrid_2.png
+[image-3]: ../assets/sendgrid_3.png
+[image-4]: ../assets/sendgrid_4.png
+[image-5]: ../assets/sendgrid_5.png
+[image-6]: ../assets/sendgrid_6.png
 
 ## Additional resources
 
