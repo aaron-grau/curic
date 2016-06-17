@@ -1,12 +1,10 @@
 "use strict";
 
 const React = require('react');
-const LinkedStateMixin = require('react-addons-linked-state-mixin');
 const hashHistory = require('react-router').hashHistory;
 const BenchActions = require('../actions/bench_actions');
 
 const ReviewForm = React.createClass({
-  mixins: [LinkedStateMixin],
   getInitialState() {
     return { rating: 5, body: "" };
   },
@@ -32,13 +30,19 @@ const ReviewForm = React.createClass({
     this.navigateToBenchShow();
   },
 
+  update(property) {
+    return (e) => this.setState({[property]: e.target.value});
+  },
+
   render() {
     return (
       <div className="review-form">
         <form onSubmit={this.handleSubmit}>
           <label>Rating</label>
           <br/>
-          <input type="number" valueLink={this.linkState('rating')}/>
+          <input type="number" 
+            value={this.state.rating}
+            onChange={this.update("rating")}/>
           <br/>
 
           <label>Comment</label>
@@ -46,7 +50,8 @@ const ReviewForm = React.createClass({
           <textarea
             cols='30'
             rows='10'
-            valueLink={this.linkState('body')}></textarea>
+            value={this.state.body}
+            onChange={this.update("body")}></textarea>
           <br/>
           <input type="submit"/>
         </form>

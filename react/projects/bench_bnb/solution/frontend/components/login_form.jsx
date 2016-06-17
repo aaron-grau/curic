@@ -2,13 +2,11 @@
 
 const React = require('react');
 const Link = require('react-router').Link;
-const LinkedStateMixin = require('react-addons-linked-state-mixin');
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 
 const LoginForm = React.createClass({
-	mixins: [LinkedStateMixin],
 
 	contextTypes: {
 		router: React.PropTypes.object.isRequired
@@ -68,8 +66,11 @@ const LoginForm = React.createClass({
     return this.props.location.pathname.slice(1);
   },
 
+  update(property) {
+    return (e) => this.setState({[property]: e.target.value});
+  },
+
 	render() {
-    console.log(ErrorStore.formErrors(this.formType()));
 
     let navLink;
     if (this.formType() === "login") {
@@ -87,13 +88,17 @@ const LoginForm = React.createClass({
         <br />
 				<label> Username:
           { this.fieldErrors("username") }
-					<input type="text" valueLink={this.linkState("username")} />
+					<input type="text" 
+            value={this.state.username} 
+            onChange={this.update("username")} />
 				</label>
 
         <br />
 				<label> Password:
           { this.fieldErrors("password") }
-					<input type="password" valueLink={this.linkState("password")} />
+          <input type="password" 
+            value={this.state.password} 
+            onChange={this.update("password")} />
 				</label>
 
         <br />

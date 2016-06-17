@@ -6,7 +6,7 @@ const Review = require('./Review');
 const SessionStore = require('../stores/session_store');
 const FavoriteActions = require('../actions/favorite_actions');
 
-var Bench = React.createClass({
+const Bench = React.createClass({
   getInitialState() {
     return { currentUser: SessionStore.currentUser() };
   },
