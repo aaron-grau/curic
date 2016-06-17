@@ -1,15 +1,13 @@
-"use strict";
+var React = require('react');
+var StepStore = require('../stores/step_store');
 
-const React = require('react');
-const StepStore = require('../stores/step_store');
-
-const StepDoneButton = React.createClass({
-  handleDone: (event) => {
+var StepDoneButton = React.createClass({
+  handleDone: function(event){
     event.stopPropagation();
     StepStore.toggleDone(this.props.todo_id, this.props.step.id);
   },
 
-  render: () => {
+  render: function () {
     if(this.props.step.done) {
       text = "Undo!";
       classname = "btn btn-xs btn-danger done-step-button";
@@ -17,7 +15,7 @@ const StepDoneButton = React.createClass({
       text = "Done!";
       classname = "btn btn-xs btn-success done-step-button";
     }
-    const text = this.props.step.done ? "Undo" : "Done";
+    var text = this.props.step.done ? "Undo" : "Done";
 
     return (
       <button

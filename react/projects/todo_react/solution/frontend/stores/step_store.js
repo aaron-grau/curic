@@ -1,8 +1,6 @@
-"use strict";
+var _steps = {}, _callbacks = [];
 
-const _steps = {}, _callbacks = [];
-
-const StepStore = {
+var StepStore = {
   changed: function(){
     _callbacks.forEach(function(cb){ cb(); });
   },
@@ -16,7 +14,7 @@ const StepStore = {
   },
 
   fetch: function(todo_id) {
-    const that = this;
+    var that = this;
     $.ajax({
       method: 'GET',
       url: 'api/todos/' + todo_id + '/steps' ,
@@ -28,8 +26,8 @@ const StepStore = {
   },
 
   create: function(step) {
-    const todo_id = step.todo_id;
-    const that = this;
+    var todo_id = step.todo_id;
+    var that = this;
     $.ajax({
       method: 'POST',
       url: 'api/todos/' + todo_id + '/steps',
@@ -43,10 +41,10 @@ const StepStore = {
   },
 
   find: function(todo_id, id) {
-    const idx = -1;
-    const steps = _steps[todo_id] || [];
+    var idx = -1;
+    var steps = _steps[todo_id] || [];
 
-    for (let i = 0; i < steps.length; i++) {
+    for (var i = 0; i < steps.length; i++) {
       if (steps[i].id === id) {
         idx = i;
         break;
@@ -57,9 +55,9 @@ const StepStore = {
   },
 
   destroy: function(todo_id, id) {
-    const that = this;
-    const idx = this.find(todo_id, id);
-    const step = _steps[todo_id][idx];
+    var that = this;
+    var idx = this.find(todo_id, id);
+    var step = _steps[todo_id][idx];
 
     if (step) {
       $.ajax({
@@ -79,9 +77,9 @@ const StepStore = {
   },
 
   toggleDone: function(todo_id, id) {
-    const that = this;
-    const step = _steps[todo_id][this.find(todo_id, id)];
-    const done = !step.done;
+    var that = this;
+    var step = _steps[todo_id][this.find(todo_id, id)];
+    var done = !step.done;
 
     if (step) {
       $.ajax({

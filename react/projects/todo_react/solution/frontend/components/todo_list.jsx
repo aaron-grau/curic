@@ -1,26 +1,24 @@
-"use strict";
+var React = require('react');
+var TodoStore = require('../stores/todo_store.js');
+var TodoListItem = require('./todo_list_item.jsx');
+var TodoForm = require('./todo_form.jsx');
 
-const React = require('react');
-const TodoStore = require('../stores/todo_store.js');
-const TodoListItem = require('./todo_list_item.jsx');
-const TodoForm = require('./todo_form.jsx');
-
-const TodoList = React.createClass({
-  getInitialState: () => {
+var TodoList = React.createClass({
+  getInitialState: function(){
     return {todos: TodoStore.all()};
   },
 
-  _todosChanged: () => {
+  _todosChanged: function(){
     this.setState({todos: TodoStore.all()});
   },
 
-  componentDidMount: () => {
+  componentDidMount: function() {
     TodoStore.addChangedHandler(this._todosChanged);
     TodoStore.fetch();
   },
 
-  render: () => {
-    const todos = this.state.todos;
+  render: function() {
+    var todos = this.state.todos;
     return (
       <div className="Todolist">
         <h1>Todo!</h1>

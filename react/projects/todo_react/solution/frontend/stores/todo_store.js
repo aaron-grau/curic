@@ -1,9 +1,7 @@
-"use strict";
+var _todos = [], _handlers = [];
 
-const _todos = [], _handlers = [];
-
-const TodoStore = {
-  changed: () => {
+var TodoStore = {
+  changed: function(){
     _handlers.forEach(function(cb){ cb(); });
   },
 
@@ -15,8 +13,8 @@ const TodoStore = {
     _handlers.splice(_handlers.indexof(callback), 1);
   },
 
-  fetch: () => {
-    const that = this;
+  fetch: function() {
+    var that = this;
     $.ajax({
       method: 'GET',
       url: 'api/todos',
@@ -29,7 +27,7 @@ const TodoStore = {
   },
 
   create: function(object) {
-    const that = this;
+    var that = this;
     $.ajax({
       method: 'POST',
       url: 'api/todos',
@@ -42,8 +40,8 @@ const TodoStore = {
   },
 
   find: function(id) {
-    let idx = -1;
-    for (let i = 0; i < _todos.length; i++) {
+    var idx = -1;
+    for (var i = 0; i < _todos.length; i++) {
       if (_todos[i].id === id) {
         idx = i;
         break;
@@ -54,13 +52,13 @@ const TodoStore = {
   },
 
   destroy: function(id) {
-    const that = this, idx = this.find(id), todo = _todos[idx];
+    var that = this, idx = this.find(id), todo = _todos[idx];
 
     if (todo) {
       $.ajax({
         method: 'DELETE',
         url: 'api/todos/' + id,
-        success: () => {
+        success: function() {
           _todos.splice(idx, 1);
           that.changed();
         }
@@ -68,21 +66,21 @@ const TodoStore = {
     }
   },
 
-  all: () => {
+  all: function(){
     return _todos.slice();
   },
 
   toggleDone: function(id) {
-    const that = this;
-    const todo = _todos[this.find(id)];
-    const done = !todo.done;
+    var that = this;
+    var todo = _todos[this.find(id)];
+    var done = !todo.done;
 
     if (todo) {
       $.ajax({
         method: 'PATCH',
         url: 'api/todos/' + id,
         data: { todo: {done: done}},
-        success: () => {
+        success: function() {
           todo.done = done;
           that.changed();
         }
