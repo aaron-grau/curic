@@ -1,7 +1,8 @@
 # Adding Features
+For all videos: :closed_lock_with_key: `go_video_go`
 
 ## Third Party APIs
-* :movie_camera: [Figaro Video Demo][figaro-screencast] (`go_video_go`)
+* :movie_camera: [Figaro Video Demo][figaro-screencast]
 * [API key management with Figaro][figaro]
 * [Integrating Google Maps with React][google-maps-demo]
 
@@ -10,8 +11,8 @@
 [google-maps-demo]: https://github.com/appacademy/react-flux-curriculum/blob/master/w7d5/react_map_demo.html
 
 ## Helpful React Components
+* :movie_camera: [React Modal Webcast][react-modal-webcast]
 * [React-Modal][react-modals] ([DEMO][react-modal-demo])
-* [React Modal Webcast][react-modal-webcast] :movie_camera:
 * [React-Date-Picker][react-date-picker-github] ([DEMO][react-date-picker-demo])
 * [React-Slick][react-slick-github] (photo carousel)
 * [React-Quill][react-quill-github] (text editor)
@@ -36,9 +37,9 @@
 ## Authentication
 * [OmniAuth authentication][omniauth]
 * [OmniAuth requests][omniauth-ii]
+* [OmniAuth Demo][omniauth-devise-demo]
 * [CanCan authorization][cancan]
 * [Railscasts][auth-railscasts]
-* **DEMO** [Auth Demo][omniauth-devise-demo]
 
 [omniauth]: ./readings/omniauth.md
 [omniauth-ii]: ./readings/omniauth-ii.md
@@ -48,7 +49,7 @@
 [omniauth-devise-demo]: https://github.com/appacademy/OmniAuthDevise
 
 ## Likes
-* [Likes Webcast][likes-webcast] :movie_camera:
+* :movie_camera: [Likes Webcast][likes-webcast]
 
 [likes-webcast]: https://vimeo.com/164327432
 
@@ -58,8 +59,8 @@
 [sendgrid]: ./readings/sendgrid.md
 
 ## File Upload and Security
-* [:movie_camera: Cloudinary Video Demo][cloudinary-screencast](`go_video_go`)
-  [:file_folder: Completed Code for Demo][cloudinary-demo]
+* :movie_camera: [Cloudinary Demo][cloudinary-screencast]
+  * :file_folder: [completed code from demo][cloudinary-demo]
 * [HTML Escaping and XSS (Cross-Site Scripting)][HTML Escaping]
 * [Security Railscasts][security-railscasts]
 
@@ -73,7 +74,7 @@
 ## Real-Time Communication
 (eg. notifications, messages, etc.)
 * [Pusher][pusher] - please use for WebSocket
-* [Pusher Webcast][pusher-webcast] :movie_camera:
+* :movie_camera: [Pusher Webcast][pusher-webcast]
 * [Blog][pusher-blog]
 
 [pusher]:https://pusher.com/
@@ -82,7 +83,7 @@
 
 ## Pagination and Custom Routes
 * [Kaminari][kaminari-github]
-    * NB: Even easier than it seems; really like three steps
+    * **NB**: Even easier than it seems; really like three steps
     * [Overview][kaminari-overview]
     * [Railscast][kaminari-railscast]
 * [FriendlyId][friendly-id-github]
@@ -105,18 +106,19 @@
 * [Background processing: delayed job][delayed-job]
 * [Delayed-job][delayed-job-overview]
 * [Heroku scheduler][heroku-scheduler]
-* [:movie_camera:  Delayed Job & Heroku Scheduler Screencast (25 min)][delayed-job-screencast]
-* http://railscasts.com/episodes/171-delayed-job-revised
+* :movie_camera: [Delayed Job & Heroku Scheduler Screencast][delayed-job-screencast]
+* [Railscast][delayed-job-railscast]
 
 [sdks]: ./readings/sdks.md
 [delayed-job]: ./readings/delayed-job.md
 [delayed-job-overview]: ./readings/delayed-job-2.md
 [heroku-scheduler]: ./readings/heroku-scheduler.md
 [delayed-job-screencast]: http://vimeo.com/groups/appacademy/videos/96533711
+[delayed-job-railscast]: http://railscasts.com/episodes/171-delayed-job-revised
 
 ## Text Editing and Formatting
-* [marked][marked]
-* [markdown-js][markdown-js]
+* [Marked][marked]
+* [Markdown-js][markdown-js]
 
 [marked]: https://github.com/chjj/marked
 [markdown-js]: https://github.com/evilstreak/markdown-js
