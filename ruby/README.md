@@ -251,7 +251,7 @@
 
 ## w2d3
 
-### Readings (90 min)
+### Readings (45 min)
 + [Introduction to RSpec][intro-rspec] (5 min)
 + [RSpec Syntax][rspec-syntax] (8 min)
 + [`subject` and `let`][subject-and-let] (5 min)
