@@ -66,6 +66,3 @@ var Component2 = React.createClass({
 
 1. ReactRouter.History
   * Add the `history` object to a component's `props`. Useful if a non-Route component needs to push state.
-
-2. React.addons.LinkedStateMixin
-  * Automatic binding between input fields and component state. Save a lot of time and makes code a lot DRYer. A must-use for large forms. For more info, see the [docs.](https://facebook.github.io/react/docs/two-way-binding-helpers.html#reactlink-before-and-after)

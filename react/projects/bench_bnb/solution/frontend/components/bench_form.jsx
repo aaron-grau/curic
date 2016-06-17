@@ -1,12 +1,10 @@
 "use strict";
 
 const React = require('react');
-const LinkedStateMixin = require('react-addons-linked-state-mixin');
 const BenchActions = require('../actions/bench_actions');
 const hashHistory = require('react-router').hashHistory;
 
 const BenchForm = React.createClass({
-  mixins: [LinkedStateMixin],
   getInitialState() {
     return {
       description: "",
@@ -29,6 +27,9 @@ const BenchForm = React.createClass({
   _coords() {
     return this.props.location.query;
   },
+  update(property) {
+    return (e) => this.setState({[property]: e.target.value});
+  },
   render() {
     const lat = this._coords().lat, lng = this._coords().lng;
     return (
@@ -36,10 +37,12 @@ const BenchForm = React.createClass({
           <h3>Create A Bench!</h3>
           <form onSubmit={this.handleSubmit}>
             <label>Description</label>
-            <input type="text" valueLink={this.linkState('description')}/>
+            <input type="text" value={this.state.description}
+              onChange={this.update("description")}/>
             <br/>
             <label>Number of Seats</label>
-            <input min='0' type="number" valueLink={this.linkState('seating')}/>
+            <input min='0' type="number" value={this.state.seating}
+              onChange={this.update("seating")}/>
             <br/>
             <label>Latitude</label>
             <input type="text" disabled value={lat}/>
