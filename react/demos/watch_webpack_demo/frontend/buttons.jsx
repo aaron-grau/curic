@@ -1,8 +1,10 @@
-var React = require('react');
+"use strict";
 
-var Buttons = React.createClass({
-  render: function () {
-    var btn1Text, btn2Text;
+const React = require('react');
+
+const Buttons = React.createClass({
+  render() {
+    let btn1Text, btn2Text;
     if (this.props.running){
         btn1Text = "split";
         btn2Text = "stop";
