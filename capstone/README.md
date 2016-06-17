@@ -23,6 +23,7 @@
   * [Polishing Up][polishing-up]
   * [Styling][styling]
   * [Performance][performance]
+  * [Additional Resources][resources]
 
 [heroku-deployment]: readings/heroku-deployment.md
 [asset-pipeline]: readings/asset-pipeline.md
@@ -32,6 +33,7 @@
 [polishing-up]: readings/polishing_up.md
 [styling]: readings/styling.md
 [performance]: readings/performance.md
+[resources]: readings/resources.md
 
 ## Bonus
 
