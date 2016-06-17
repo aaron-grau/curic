@@ -1,8 +1,8 @@
-var React = require('react');
-var RecipesListItem = require('./RecipesListItem');
+const React = require('react');
+const RecipesListItem = require('./recipes_list_item');
 
-var RecipesList = React.createClass({
-  render: function () {
+const RecipesList = React.createClass({
+  render() {
     return (
       <ul>
         {

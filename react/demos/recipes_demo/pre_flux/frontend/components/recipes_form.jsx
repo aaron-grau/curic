@@ -1,17 +1,17 @@
 var React = require('react');
 
 var RecipesForm = React.createClass({
-  getInitialState: function(){
+  getInitialState() {
     return { name: "" };
   },
-  inputChanged: function(e){
+  inputChanged(e) {
     this.setState({name: e.target.value});
   },
-  formSubmitted: function(e){
+  formSubmitted(e) { 
     e.preventDefault();
     this.props.create(this.state);
   },
-  render: function () {
+  render() {
     return (
       <form onSubmit={this.formSubmitted}>
         <input type="text" onChange={this.inputChanged} value={this.state.name}/>

@@ -1,6 +1,6 @@
-var RecipeServerActions = require('../actions/recipe_server_actions');
+const RecipeServerActions = require('../actions/recipe_server_actions');
 
-var RecipeWebApiUtil = {
+const RecipeWebApiUtil = {
   getAll: function () {
     $.ajax({
       url: "/api/recipes",
