@@ -358,7 +358,7 @@
 
 ## w6d6 - w6d7
 
-Complete the React/Flux [w7d1 readings][react-link]. There is a lot of material, so start early!
+Complete the [React/Flux w7d1][react-link] readings, video lectures, and homework. There is a lot of material, so start early!
 
 [react-link]: ../react
 [effective-js]: http://effectivejs.com/
