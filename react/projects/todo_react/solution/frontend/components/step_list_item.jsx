@@ -1,10 +1,8 @@
-"use strict";
+var React = require('react');
+var StepDoneButton = require('./step_done_button');
 
-const React = require('react');
-const StepDoneButton = require('./step_done_button');
-
-const StepListItem = React.createClass({
-  render: () => {
+var StepListItem = React.createClass({
+  render: function () {
     return (
       <div className="step-list-item">
         <div className="step-header">

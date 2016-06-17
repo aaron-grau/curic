@@ -1,15 +1,13 @@
-"use strict";
+var React = require('react');
+var TodoStore = require('../stores/todo_store');
 
-const React = require('react');
-const TodoStore = require('../stores/todo_store');
-
-const TodoDoneButton = React.createClass({
-  handleDone: (event) => {
+var TodoDoneButton = React.createClass({
+  handleDone: function(event){
     event.stopPropagation();
     TodoStore.toggleDone(this.props.todo.id);
   },
 
-  render: () => {
+  render: function () {
     if(this.props.todo.done) {
       text = "Undo!";
       classname = "btn btn-xs btn-danger done-button";
@@ -17,7 +15,7 @@ const TodoDoneButton = React.createClass({
       text = "Im done!";
       classname = "btn btn-xs btn-success done-button";
     }
-    let text = this.props.todo.done ? "Undo" : "Done";
+    var text = this.props.todo.done ? "Undo" : "Done";
     return (
       <button
         className={classname}

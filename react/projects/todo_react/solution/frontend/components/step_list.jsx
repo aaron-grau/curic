@@ -1,14 +1,12 @@
-"use strict";
+var React = require('react');
+var StepListItem = require('./step_list_item');
 
-const React = require('react');
-const StepListItem = require('./step_list_item');
-
-const StepList = React.createClass({
-  componentWillUnmount: () => {
+var StepList = React.createClass({
+  componentWillUnmount: function () {
   },
 
-  render: () => {
-    const that = this;
+  render: function () {
+    var that = this;
     return (
       <div className="step-list">
         {

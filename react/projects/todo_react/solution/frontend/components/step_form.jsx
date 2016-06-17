@@ -1,18 +1,16 @@
-"use strict";
+var React = require('react');
+var StepStore = require('../stores/step_store');
 
-const React = require('react');
-const StepStore = require('../stores/step_store');
-
-const StepForm = React.createClass({
-  getInitialState: () => {
+var StepForm = React.createClass({
+  getInitialState: function () {
     return {title: ""};
   },
-  handleChange: (e) => {
+  handleChange: function (e) {
     this.setState({title: e.target.value});
   },
-  submitForm: (e) => {
+  submitForm: function(e) {
     e.preventDefault();
-    const data = {
+    var data = {
       todo_id: this.props.todo_id,
       title: this.state.title
     };
@@ -20,7 +18,7 @@ const StepForm = React.createClass({
 
     this.setState({title: ""});
   },
-  render: () => {
+  render: function() {
     return(
       <form onSubmit={this.submitForm}>
         <input

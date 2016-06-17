@@ -1,8 +1,6 @@
-"use strict";
-
-const React = require('react');
-const ReactDOM = require('react-dom');
-const root = document.getElementById('root');
-const TodoList = require('./components/todo_list');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var root = document.getElementById('root');
+var TodoList = require('./components/todo_list');
 
 ReactDOM.render(<TodoList />, root);
