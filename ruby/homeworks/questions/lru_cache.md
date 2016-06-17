@@ -57,7 +57,7 @@ Once you have written your code, thoroughly test it to make sure it truly is an 
 
 After you finish, or if you get stuck in the process, you can view the solutions [here][lru-cache-solutions].
 
-[lru-cache-solutions]: ../solutions/lru_cache.rb
+[lru-cache-solutions]: ../solution/lru_cache.rb
 
 ## Time Complexity
 

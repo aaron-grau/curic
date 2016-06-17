@@ -16,13 +16,12 @@ document **must** list `animal.js` before `lion.js`.
 
 ```html
 <body>
-...
-
-<script src="zoo/animal.js"></script>
-<script src="zoo/lion.js"></script>
-<script src="app.js"></script>
+  ...
+  
+  <script src="zoo/animal.js"></script>
+  <script src="zoo/lion.js"></script>
+  <script src="app.js"></script>
 </body>
-</head>
 ```
 
 Unlike Node, where each file has its own global namespace, in the
@@ -126,5 +125,4 @@ To do this, navigate to your app directory and run `webpack app.js bundle.js`. W
 Your html file would then have a script tag for the bundled file like:
 `<script src="bundle.js"></script>`
 
-Work through [this
-tutorial](http://webpack.github.io/docs/tutorials/getting-started/) up to 'The First Loader` to practice this.
+Work through tonight's homework to practice this!

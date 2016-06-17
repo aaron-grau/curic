@@ -27,7 +27,7 @@ Lorem ipsum dolor sit <strong>amet, consectetur</strong> adipisicing elit, sed d
 
 This produces:
 
-![Inline](./images/inline-padding.png?raw=true)
+![Inline](../assets/images/inline-padding.png?raw=true)
 
 These properties only push away other elements
 horizontally, not vertically. You cannot specify `height` and `width`
@@ -59,7 +59,7 @@ Lorem ipsum dolor sit <strong>amet, consectetur</strong> adipisicing elit, sed d
 
 This produces:
 
-![Block](./images/block-padding.png?raw=true)
+![Block](../assets/images/block-padding.png?raw=true)
 
 ### Demo
 
@@ -101,7 +101,7 @@ Lorem ipsum dolor sit <strong>amet, consectetur</strong> adipisicing elit, sed d
 
 This produces:
 
-![Inline Block](./images/inline-block.png?raw=true)
+![Inline Block](../assets/images/inline-block.png?raw=true)
 
 ### Demo
 
@@ -160,4 +160,6 @@ The `align-items` property is very similar to `justify-content` except it positi
 
 ![From CSS Tricks Flexbox Guide](https://css-tricks.com/wp-content/uploads/2014/05/align-items.svg)
 
-You already know enough to make great CSS layouts. For the remaining properties, refer to the [CSS Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).  For additional practice check out [Flexbox Froggy](http://flexboxfroggy.com/).
+Lastly, please read about the [flex property](https://css-tricks.com/almanac/properties/f/flex/) which is shorthand for how a Flex Item grows/shrinks compared with remaining items inside its container. 
+
+This is all we need and more to make great CSS layouts. For the remaining properties, refer to the [CSS Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). For additional retention practice check out [Flexbox Froggy](http://flexboxfroggy.com/).

@@ -2,29 +2,31 @@
 
 ## w7d1
 
-### Readings
-* [Intro to react][react-intro]
-* [My first component][first-component]
-* [Intro to JSX][react-jsx]
-* [Components with JSX][jsx-components]
-* [5 practical examples][react-examples]
-* [working examples of these examples][examples]
-* **Exercise:** [Getting Started with NPM and Webpack][npm-exercise] **(Do this over the weekend)**
-* [Using Git with NPM][npm-git]
+### Video Lectures (94 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [Part 1: Intro to React)][lec-w7d1-01] (5 min)
+* :movie_camera: [Part 2: Anatomy/Physiology of Components)][lec-w7d1-02] (15 min)
+* :movie_camera: [Part 3: Rendering Components in the Browser)][lec-w7d1-03] (10 min)
+* :movie_camera: [Part 4: JSX][lec-w7d1-04] (7 min)
+* :movie_camera: [Part 5: Babel/Transpiling JSX][lec-w7d1-05] (6 min)
+* :movie_camera: [Part 6: The Grand Demo)][lec-w7d1-06] (51 min)
+  * :computer: [demo source code][watch-demo]
 
-### Lecture
-**Watch these before class and come prepared with questions.**
+### Readings (1hr, 5min)
+* [Intro to react][react-intro] (5 min)
+* [My first component][first-component] (10 min)
+* [Intro to JSX][react-jsx] (7 min)
+* [Components with JSX][jsx-components] (15 min)
+* [5 practical examples][react-examples] (25 min)
+  * [working examples of these examples][examples]
+* [Using Git with NPM][npm-git] (3 min)
 
-The password is `go_video_go`
-* :movie_camera: [Part 1 (Intro to React)][lec-w7d1-01]
-* :movie_camera: [Part 2 (Anatomy/Physiology of Components)][lec-w7d1-02]
-* :movie_camera: [Part 3 (Rendering Components in the Browser)][lec-w7d1-03]
-* :movie_camera: [Part 4 (JSX)][lec-w7d1-04]
-* :movie_camera: [Part 5 (Babel/Transpiling JSX)][lec-w7d1-05]
-* :movie_camera: [Part 6 (The Grand Demo)][lec-w7d1-06][:computer: demo source code][watch-demo]
+### Homeworks (35 min)
+* [Getting Started with NPM and Webpack][npm-exercise] (35 min)
 
 ### Projects
-* [Getting Started with NPM and Webpack][npm-exercise] (This was in the readings, but do it again. The set up is tricky)
+* [Getting Started with NPM and Webpack][npm-exercise]
+  * This was in the hw, but do it again. The set up is tricky!
 * [Widgets!][react-widgets]
 * [Minesweeper][react-minesweeper]
 
@@ -43,19 +45,24 @@ The password is `go_video_go`
 [lec-w7d1-06]: https://vimeo.com/album/3686654/video/147900885
 [react-widgets]: projects/widgets
 [react-minesweeper]: projects/react_minesweeper
-[examples]: demos/five_examples
+[examples]: demos/five_examples.zip?raw=true
 [watch-demo]: demos/watch_webpack_demo
 
 ## w7d2
 
-* [Full component tutorial][react-tutorial]
-* [Stores][store-reading]
-* [Think in React][think-in-react]
-* [Components in depth][components-in-depth]
-* [List diffing and the `key` prop][keys-reading]
-* [Effective JavaScript][effective-js]: Items 53 and 55
-* **Project:** [React Todos][react-todo]
-* **Lecture:** Capstone Projects Kickoff Lecture at 5PM
+### Readings (1hr, 55min)
+* [Full component tutorial][react-tutorial] (45 min)
+* [Stores][store-reading] (20 min)
+* [Think in React][think-in-react] (20 min)
+* [Components in depth][components-in-depth] (15 min)
+* [List diffing and the `key` prop][keys-reading] (5 min)
+* [Effective JavaScript][effective-js]: Items 53 and 55 (10 min)
+
+### Projects
+* [React Todos][react-todo]
+
+### Capstones
+* Capstone Projects Kickoff Lecture at 5PM!
 
 [react-tutorial]: https://zapier.com/engineering/react-js-tutorial-guide-gotchas/
 [think-in-react]: http://facebook.github.io/react/docs/thinking-in-react.html
@@ -68,39 +75,42 @@ The password is `go_video_go`
 
 ## w7d3
 
-#### Video Lectures
-* [Flux video lecture (15 min)][flux-lecture] (`go_video_go`)
-* [Flux code demo (15 min)][flux-demo-screencast] (`go_video_go`)
-  [pre-flux code][flux-demo-pre-flux], [complete project with flux][flux-demo-post-flux]
-* [Flux web api demo (flux with rails) (5 min)][flux-api-screencast] (`go_video_go`)
-  [flux demo with API code][flux-demo-with-api]
+### Video Lectures (35 min)
+:closed_lock_with_key: `go_video_go`
+* [Flux video lecture][flux-lecture] (15 min)
+* [Flux code demo][flux-demo-screencast] (15 min)
+  * [pre-flux code][recipes-pre-flux]
+  * [complete project with flux][recipes-post-flux]
+* [Flux web api demo (flux with rails)][flux-api-screencast] (5 min)
+  * [flux demo with API code][recipes-api]
 
-#### Important Readings
-* [Basic intro to flux][flux-intro]
-* [Flux component overview][flux-component-overview]
-* [Stores and Actions (quick reference)][stores-and-actions]
-* [Effective JavaScript][effective-js]: Items 56 58, and 59
+### Readings (40 min)
+* [Basic intro to flux][flux-intro] (5 min)
+* [Flux component overview][flux-component-overview] (5 min)
+* [Stores and Actions][stores-and-actions] (10 min)
+* [Effective JavaScript][effective-js]: Items 56, 58, and 59 (20 min)
 
-#### Homework Assignment
-* [Click Counter Flux Conversion Project!][click-counter-flux]
-* [Submit tentative project proposal (due w7d4 9AM)][tentative-proposal]
+### Homeworks (30 min)
+* [Click Counter Flux Conversion Project!][click-counter-flux] (30 min)
+* [Submit tentative project proposal][tentative-proposal]
+  * due w7d4 9AM
 
-#### Bonus Readings
+### Additional Resources
 * [Dispatcher][flux-dispatcher]
 * [Facebook Flux Todo List Tutorial][flux-todo-tutorial]
 * [Todo List source][flux-todo-source] | [How to run this project][how-to-run]
-* [Bonus Video: 'Facebook: react, flux by Bill Fisher'][flux-video]
+* [Video: 'Facebook: react, flux by Bill Fisher'][flux-video]
 
-#### Projects
-* **Project:** [Organ Grinder][organ-grinder]
+### Projects
+* [Organ Grinder][organ-grinder]
 
 [flux-api-screencast]: https://vimeo.com/163488310
-[flux-demo-pre-flux]: demos/recipes_pre_flux
-[flux-demo-post-flux]: demos/recipes_flux
-[flux-demo-with-api]: demos/recipes_flux_api
+[recipes-pre-flux]: demos/recipes_demo/pre_flux
+[recipes-post-flux]: demos/recipes_demo/flux
+[recipes-with-api]: demos/recipes_demo/flux_api
 [flux-lecture]: https://vimeo.com/163485520
 [flux-demo-screencast]: https://vimeo.com/163486476
-[click-counter-flux]: homeworks/flux_homework.md
+[click-counter-flux]: homeworks/click_counter
 [tentative-proposal]: readings/tentative-project-proposal.md
 [flux-intro]: readings/intro_to_flux.md
 [flux-video]: https://www.youtube.com/watch?v=Bic_sFiaNDI
@@ -114,14 +124,18 @@ The password is `go_video_go`
 
 ## w7d4
 
-* [Intro to react router][react-router-intro]
-* [Route Configuration][route-configuration]
-* [Route Matching][route-matching]
-* [Index Routes][index-routes]
-* [Component lifecycle][component-lifecycle]
-* [jbuilder][jbuilder-link] (read the documentation thoroughly!)
-* [Effective JavaScript][effective-js]: Items 66-68
-* **Project:** [Pokedex][pokedex]
+### Readings (91 min)
+* [Intro to react router][react-router-intro] (12 min)
+* [Route Configuration][route-configuration] (12 min)
+* [Route Matching][route-matching] (5 min)
+* [Index Routes][index-routes] (7 min)
+* [Component lifecycle][component-lifecycle] (15 min)
+* [jbuilder][jbuilder-link] (20 min)
+  * read the documentation thoroughly!
+* [Effective JavaScript][effective-js]: Items 66, 67, and 68 (20 min)
+
+### Projects
+* [Pokedex][pokedex]
 
 
 [react-router-intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
@@ -134,17 +148,23 @@ The password is `go_video_go`
 
 ## w7d5
 
-### Readings
-* [jbuilder][jbuilder-link]
-* [React Map Demo][react_map_demo]
+### Readings (30 min)
+* [React Map Demo][react_map_demo] (15 min)
+* [Route Hooks: `onEnter`][on-enter] (15 min)
 
-### Homework
-* [Jbuilder Exercise][jbuilder-demo] (instructions in README)
+### Homework (90 min)
+* [Jbuilder Exercise][jbuilder-demo] (90 min)
+  * instructions in README
+
+### Additional Resources
+* [Jbuilder Documentation][jbuilder-link]
 
 ### Projects
 * [BenchBnB Day 1][bench-bnb]
-* :joy_cat: **5pm Happy Hour!** :joy_cat:
 
+### :joy_cat: **Happy Hour!** :joy_cat:
+
+[on-enter]: readings/on_enter.md
 [bench-bnb]: projects/bench_bnb
 [react_map_demo]: demos/react_map_demo
 [jbuilder-link]: https://github.com/rails/jbuilder

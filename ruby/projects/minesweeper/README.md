@@ -180,7 +180,7 @@ info than you need, as the data for the `Board` it holds will also be
 printed. You can fix this by overriding (defining) the `inspect` method
 in your `Tile` class, having it return a string that contains just the
 info you want (e.g. the `Tile`s position and bombed, flagged, etc. state).
-See [here] for more info if you need a refresher on how to do this.
+See [here][overriding-inspect] for more info if you need a refresher on how to do this.
 
 If you use command line arguments and `ARGV` to specify the name of
 the save file to load, you may be surprised to find that console input
@@ -192,6 +192,6 @@ is broken. [This ruby-forum.com post][argv-description] explains how
 [argv-description]: https://www.ruby-forum.com/topic/185266#809660
 [keypress]: https://gist.github.com/acook/4190379
 [awesome-sweeper]: http://blog.appacademy.io/post/88410347996/thejaggedhedgehog-minesweeper-today-we-built
-[here]: ../w1d4/overriding_inspect.md
+[overriding-inspect]: ../../readings/overriding_inspect.md
 [github-create-repository]: https://help.github.com/articles/creating-a-new-repository/
 [git-authorship-script]: ../w1d5/git-fix-authorship.md

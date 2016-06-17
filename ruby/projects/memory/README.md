@@ -17,7 +17,7 @@ also wrote `#hide`, `#reveal`, `#to_s`, and `#==` methods.
 
 Common problem: Having issues with `#hide` and `#reveal`? See [here][testing-small].
 
-[testing-small]: ../w1d2/testing-small.md
+[testing-small]: https://github.com/appacademy/curriculum/blob/master/ruby/readings/testing-small.md
 
 ## Board
 

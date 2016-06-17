@@ -15,7 +15,7 @@ Using your latest HTML recipe page and the most recent external stylesheet, upda
 10. Use the display property to put input elements on their own row. At this point it probably looks better to remove the "Cooking Expertise" and "Rating" labels.
 11. Space out the `select` element with margin and assign widths to the `text` input, `select`, and `textarea` to finish up our form.
 
-Compare your results to [this example](./example.html) and [this stylesheet](../../assets/box_model.css).
+Compare your results to [this example](./example.html) and [this stylesheet](../../assets/box_model.css). [Live version here](http://appacademy.github.io/curriculum/display_box_model.html).
 
 The purpose of this exercise is to learn the box model and the differences between the three primary display properties (block, inline, inline-block). The anchor tags from step 2 are naturally inline elements, which is why act oddly when provided padding. Spacing with margin and padding is vital to mastering CSS design. We also used the `inline-block` property to get practice positioning elements to create a desired layout.
 

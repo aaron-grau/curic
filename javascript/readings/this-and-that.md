@@ -184,3 +184,7 @@ function call**.
 ## The ES6 Solution
 
 ES6 provides an elegant solution to callback scoping issues through [Arrow Functions](fat-arrows.md).
+
+## References
+
+* [Useful Stack Overflow](http://stackoverflow.com/questions/4886632/what-does-var-that-this-mean-in-javascript)

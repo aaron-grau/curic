@@ -155,7 +155,3 @@ Later, when a `cat.meow()` is requested
 0. `Cat.prototype.meow` is defined, so this is returned.
 0. The `meow` method is called method style on `cat`, so `this` is set
    to `cat`.
-
-## References
-
-* http://stackoverflow.com/questions/4886632/what-does-var-that-this-mean-in-javascript

@@ -1,7 +1,9 @@
-var React = require('react');
+"use strict";
 
-var Splits = React.createClass({
-  render: function () {
+const React = require('react');
+
+const Splits = React.createClass({
+  render() {
     return(
       <ul>
         {

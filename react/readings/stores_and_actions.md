@@ -43,14 +43,14 @@ When the contents of a store change, the store emits an event to notify any
 dependent objects (our React components).
 
 ```js
-var AppDispatcher = require('../dispatcher/Dispatcher.js');
-var Store = require('flux/utils').Store;
+const AppDispatcher = require('../dispatcher/Dispatcher.js');
+const Store = require('flux/utils').Store;
 
-var MyStore = new Store(AppDispatcher);
+const MyStore = new Store(AppDispatcher);
 
-var _objects = [];
+let _objects = [];
 
-var addObject = function (object) {
+const addObject = function (object) {
   _objects.push(object);
   MyStore.__emitChange();
 };
@@ -61,7 +61,7 @@ var addObject = function (object) {
 The Store class in Flux/Utils exposes the following API to manage events:
 
 - `addListener(callback)`: Adds a callback to be called when the Store
-  emits a change event. This can be called from our React views, commonly 
+  emits a change event. This can be called from our React views, commonly
   in `componentDidMount()`.
   - `remove()`: `addListener()` returns a token when called. By storing this
     value, we can remove the listener at a later date by calling
@@ -79,21 +79,21 @@ If we change a Store's data without emitting an event, our React components may
 not know that they should update. This is dangerous and allows discrepancies to
 creep into our presentation. In order to privatize the underlying data store, be
 sure to use a local variable and a closure to store data, rather than appending
-it as a property or instance variable on the store. Similarly, if we have 
+it as a property or instance variable on the store. Similarly, if we have
 functions that can mutate the store's data (like `addObject()`), we should also
 make those local variables and not accessible directly through the Store object.
 
 ```js
-var _data = [];
+let _data = [];
 
-var MyStore = // ...
+const MyStore = // ...
 ```
 
 In addition, don't pass a reference to the original `_data` variable to any
 components. If the data is needed, pass a copy:
 
 ```js
-var _data = [];
+let _data = [];
 
 // ...
 
@@ -112,7 +112,7 @@ and also by responses from the server to AJAX requests from our application.
 Here are a couple of sample actions:
 
 ```
-var TodoActions = {
+const TodoActions = {
   addTodo: function (todo) {
     AppDispatcher.dispatch({
       actionType: "ADD_TODO",

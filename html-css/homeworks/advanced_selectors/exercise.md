@@ -10,4 +10,4 @@ Using your latest HTML recipe page, update your most recent external stylesheet 
 6. Use the `+` operator to select the first review preceding the Reviews header element and give it a 1px, solid, black, top border.
 7. Style the radio buttons with stars! Use the `stars.png` file in the assets folder.
 
-Compare your recipe page to [this example](./example.html) and [this stylesheet](../../assets/advanced_selectors.css).
+Compare your recipe page to [this example](./example.html) and [this stylesheet](../../assets/advanced_selectors.css). [Live version here](http://appacademy.github.io/curriculum/advanced_selectors.html).

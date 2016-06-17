@@ -3,15 +3,20 @@
 Write a [chess game][wiki-chess] in an object-oriented way. **Please
 read all through the various phases before proceeding.**
 
-Please split your program into multiple files. Use
-[require_relative](http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative)
-to load files. Make separate files for each class. Give files
-`snake_case` titles.
+Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating.
 
-Don't forget to keep using Git. Look back at [Friday's
-instructions](./w1d5-minesweeper.md) and read the Git portions again if
+Please split your program into multiple files. Use
+[require-relative][require-relative] to load files. Make separate files for each
+class. Give files `snake_case` titles.
+
+Don't forget to keep using Git. Look back at
+[Friday's instructions][minesweeper] and read the Git portions again if
 you need a reminder. Committing and branching are important habits for
 any kind of software developer.
+
+[chess-uml]: ../../assets/Chess_Diagram.png
+[require-relative]: http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative
+[minesweeper]: ../minesweeper/
 
 ## Phase I: `Board`
 
@@ -215,6 +220,6 @@ style, encapsulation, and exception handling.
 
 [cursor-demo]: http://github.com/rglassett/ruby-cursor-game
 [wiki-chess]: http://en.wikipedia.org/wiki/Chess
-[recursion-exercises]: ../w1d4/recursion.md
+[recursion-exercises]: ../recursion/
 [colorize-gem]: https://github.com/fazibear/colorize
 [wiki-chess-unicode]: http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode

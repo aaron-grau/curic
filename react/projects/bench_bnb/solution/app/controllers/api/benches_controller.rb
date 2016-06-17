@@ -1,4 +1,5 @@
 class Api::BenchesController < ApplicationController
+  before_action :require_logged_in, only: [:create]
   def index
     benches = Bench.all
     if(bounds)
@@ -9,12 +10,12 @@ class Api::BenchesController < ApplicationController
       benches = benches.where(seating: seating_range)
     end
     @benches = benches.includes(:reviews, :favorite_users)
-    render 'index'
+    render :index
   end
 
   def create
-    bench = Bench.create!(bench_params)
-    render json: bench
+    @bench = Bench.create!(bench_params)
+    render :show
   end
 
   private

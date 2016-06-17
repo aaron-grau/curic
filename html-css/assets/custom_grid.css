@@ -3,9 +3,12 @@
   box-sizing: border-box;
 }
 
+/* Attribute selector targeting all elements
+with a class attribute containing 'col-' */
 [class*='col-'] {
   padding-right: 20px;
 }
+
 [class*='col-']:last-of-type {
   padding-right: 0;
 }
@@ -34,5 +37,12 @@
   content: '';
   display: block;
   clear: both;
+}
+
+/* CSS Day 6 media queries */
+@media all and (max-width: 900px) {
+  [class*='col-'] {
+    width: 100%;
+  }
 }
 

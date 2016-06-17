@@ -20,7 +20,6 @@
     "babel-preset-react": "^6.1.4",
     "flux": "^2.1.1",
     "react": "^0.14.2",
-    "react-addons-linked-state-mixin": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-router": "^2.0.0",
     "webpack": "^1.12.4"
