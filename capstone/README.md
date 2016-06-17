@@ -20,7 +20,6 @@
   * [Lightning talks][lightning-talks]
   * [Adding Features][adding-features]
   * [Common Bugs & FAQs][common-bugs]
-  * [Polishing Up][polishing-up]
   * [Styling][styling]
   * [Performance][performance]
   * [Additional Resources][resources]
