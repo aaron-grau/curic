@@ -1,32 +1,32 @@
-var React = require('react');
-var TodoStore = require('../stores/todo_store.js');
-var TodoListItem = require('./todo_list_item.jsx');
-var TodoForm = require('./todo_form.jsx');
+const React = require('react');
+const TodoStore = require('../stores/todo_store.js');
+const TodoListItem = require('./todo_list_item.jsx');
+const TodoForm = require('./todo_form.jsx');
 
-var TodoList = React.createClass({
-  getInitialState: function(){
+const TodoList = React.createClass({
+  getInitialState() {
     return {todos: TodoStore.all()};
   },
 
-  _todosChanged: function(){
+  _todosChanged() {
     this.setState({todos: TodoStore.all()});
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     TodoStore.addChangedHandler(this._todosChanged);
     TodoStore.fetch();
   },
 
-  render: function() {
-    var todos = this.state.todos;
+  render() {
+    const todos = this.state.todos;
     return (
       <div className="Todolist">
         <h1>Todo!</h1>
 
         <div className="todo-list">
           {
-            todos.map(function(todo) {
-              return(
+            todos.map((todo) => {
+              return (
                 <TodoListItem key={todo.id} todo={todo} />
               );
             })

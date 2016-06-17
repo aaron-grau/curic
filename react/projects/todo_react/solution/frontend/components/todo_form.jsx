@@ -1,26 +1,26 @@
-var React = require('react');
-var TodoStore = require('../stores/todo_store');
+const React = require('react');
+const TodoStore = require('../stores/todo_store');
 
-var TodoForm = React.createClass({
-  getInitialState: function () {
+const TodoForm = React.createClass({
+  getInitialState() {
     return {title: "", body: "", done: false};
   },
 
-  updateTitle: function (event) {
+  updateTitle(event) {
     this.setState({title: event.currentTarget.value});
   },
 
-  updateBody: function (event) {
+  updateBody(event) {
     this.setState({body: event.currentTarget.value});
   },
 
-  handleSubmit: function (event) {
+  handleSubmit(event) {
     event.preventDefault();
     TodoStore.create({title: this.state.title, body: this.state.body});
     this.setState({title: "", body: ""});
   },
 
-  render: function () {
+  render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
