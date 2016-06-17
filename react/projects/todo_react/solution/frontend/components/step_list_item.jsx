@@ -2,7 +2,7 @@ const React = require('react');
 const StepDoneButton = require('./step_done_button');
 
 const StepListItem = React.createClass({
-  render: function () {
+  render() {
     return (
       <div className="step-list-item">
         <div className="step-header">

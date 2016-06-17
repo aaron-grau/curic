@@ -4,20 +4,20 @@ const TodoListItem = require('./todo_list_item.jsx');
 const TodoForm = require('./todo_form.jsx');
 
 const TodoList = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {todos: TodoStore.all()};
   },
 
-  _todosChanged: function () {
+  _todosChanged() {
     this.setState({todos: TodoStore.all()});
   },
 
-  componentDidMount: function () {
+  componentDidMount() {
     TodoStore.addChangedHandler(this._todosChanged);
     TodoStore.fetch();
   },
 
-  render: function () {
+  render() {
     const todos = this.state.todos;
     return (
       <div className="Todolist">
