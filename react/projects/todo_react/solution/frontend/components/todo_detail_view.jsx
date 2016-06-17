@@ -4,24 +4,24 @@ const StepList = require('./step_list');
 const StepForm = require('./step_form');
 
 const TodoDetailView = React.createClass({
-  getInitialState: function(){
+  getInitialState: function () {
     return { steps: StepStore.all(this.props.todo.id) };
   },
 
-  stepsChanged: function(){
+  stepsChanged: function () {
     this.setState({steps: StepStore.all(this.props.todo.id)});
   },
 
-  componentDidMount: function() {
+  componentDidMount: function () {
     StepStore.addChangedHandler(this.stepsChanged);
     StepStore.fetch(this.props.todo.id);
   },
 
-  componentWillUnmount: function() {
+  componentWillUnmount: function () {
     StepStore.removeChangedHandler(this.stepsChanged);
   },
 
-  render: function(){
+  render: function () {
     return (
       <div>
         <p className="todo-body">{this.props.todo.body}</p>

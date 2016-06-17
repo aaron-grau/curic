@@ -5,7 +5,7 @@ const TodoDoneButton = require('./todo_done_button');
 
 
 const TodoListItem = React.createClass({
-  getInitialState: function(){
+  getInitialState: function () {
     return { detail: false };
   },
 
@@ -14,14 +14,14 @@ const TodoListItem = React.createClass({
     TodoStore.destroy(this.props.todo.id);
   },
 
-  toggleDetail: function(event){
+  toggleDetail: function (event) {
     event.preventDefault();
     this.setState({detail: !this.state.detail});
   },
 
   render: function () {
     let detail, className;
-    if(this.state.detail){
+    if (this.state.detail) {
       detail = (
         <TodoDetailView handleDestroy={ this.handleDestroy } todo={this.props.todo} />
       );
