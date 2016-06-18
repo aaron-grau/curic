@@ -65,7 +65,7 @@ on `Post`, Rails provides us with a `Post#tag_ids=` method that takes in an
 array of `tag_id`s.
 
 This method does a lot more than meets the eye. It:
-  * a.  Creates a new `Tagging` for the post for each new `tag_id`
+  * a.  Creates a new `Tagging` for the post for each new `tag_id`.
   * b.  Destroys existing taggings for that post that are not in the `tag_id`s 
         array.
 
@@ -115,11 +115,15 @@ class PostsController < ApplicationController
 end
 ```
 
-Looks familiar, with one key difference. In our post params, we include `tag_ids` as a permitted param, since we'll be passing an array of `tag_ids` from our form. We also must specify that `tag_ids` permits an array - otherwise, Rails will assume that we should only permit in simple params like strings.
+Looks familiar, with one key difference. In our post params, we include
+`tag_ids` as a permitted param, since we'll be passing an array of `tag_ids`
+from our form. We also must specify that `tag_ids` permits an array - otherwise,
+Rails will assume that we should only permit in simple params like strings.
 
 ## View
 
-Now for the actual checkboxes! In our new posts form, we will iterate through each of the tags and create a checkbox input field with the tag's id as a value.
+Now for the actual checkboxes! In our new posts form, we will iterate through
+each of the tags and create a checkbox input field with the tag's id as a value.
 
 Our new posts form might look a little like this:
 
@@ -150,6 +154,10 @@ Our new posts form might look a little like this:
 </form>
 ```
 
-Again, pretty familiar. The only thing to note is that the name of our checkbox inputs is `post[tag_ids][]`. This tells our form that when we submit, all the boxes we've checked will end up in the `tag_ids` array in our params.
+Again, pretty familiar. The only thing to note is that the name of our checkbox
+inputs is `post[tag_ids][]`. This tells our form that when we submit, all the
+boxes we've checked will end up in the `tag_ids` array in our params.
 
-In addition, note the hidden input with an empty string for `post[tag_ids][]`. This just make sure that, even if we uncheck every box, a param is sent through for `post[tag_ids]`. You can think of it as a harmless placeholder.
+In addition, note the hidden input with an empty string for `post[tag_ids][]`.
+This just make sure that, even if we uncheck every box, a param is sent through
+for `post[tag_ids]`. You can think of it as a harmless placeholder.
