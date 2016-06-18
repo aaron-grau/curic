@@ -2,7 +2,7 @@
 
 // printChildren
 
-function printChildren (parent, ...children) {
+function printChildren(parent, ...children) {
   console.log(`${parent}'s children are:`);
 
   for( let i = 0; i < children.length; i++ ) {
@@ -12,7 +12,7 @@ function printChildren (parent, ...children) {
 
 // addThree
 
-function addThree (a, b, c) {
+function addThree(a, b, c) {
   return a + b + c;
 }
 
@@ -22,23 +22,22 @@ addThree(...arr);
 
 // dinnerTonightIs
 
-function dinnerTonightIs (food = "pizza") {
+function dinnerTonightIs(food = "pizza") {
   return `Dinner tonight is ${food}.`
 }
 
 // Callbacks
 
 // defining the function
-function sillyNames (names, callback) {
-  let sillyNames = names.map(name => `Dr. ${name} Sillypants`);
-  callback(sillyNames);
+function titleize(names, callback) {
+  let titleized = names.map(name => `Mx. ${name} Jingleheimer Schmidt`);
+  callback(titleized);
 };
 
 // invoking the function
-
-sillyNames(["Mary", "Brian", "Leo"], (names) => {
+titleize(["Mary", "Brian", "Leo"], (names) => {
   names.forEach(name => console.log(name));
-}
+});
 
 // Constructors, Prototypes, and `this`
 
@@ -77,7 +76,7 @@ Elephant.paradeHelper = function (elephant) {
 
 // Closure
 
-function dinerBreakfast () {
+function dinerBreakfast() {
   let order = "I'd like cheesy scrambled eggs and bacon please.";
   console.log(order);
 
