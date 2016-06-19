@@ -1,4 +1,4 @@
-var TONES = {
+const TONES = {
   C5: 523.25,
   D5: 587.33,
   E5: 659.25,

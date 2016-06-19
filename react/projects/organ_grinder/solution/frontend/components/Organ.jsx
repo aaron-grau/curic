@@ -1,27 +1,25 @@
-var React = require('react'),
-    NoteKey = require('../components/NoteKey'),
-    JukeBox = require('../components/JukeBox'),
-    Recorder = require('../components/Recorder'),
-    TONES = require("../constants/Tones"),
-    KeyStore = require('../stores/KeyStore');
+const React = require('react');
+const NoteKey = require('../components/NoteKey');
+const JukeBox = require('../components/JukeBox');
+const Recorder = require('../components/Recorder');
+const TONES = require("../constants/Tones");
+const KeyStore = require('../stores/KeyStore');
 
-var Organ = React.createClass({
-  componentDidMount: function () {
+const Organ = React.createClass({
+  componentDidMount() {
     KeyStore.addListener(this._onChange);
   },
 
-  getInitialState: function () {
+  getInitialState() {
     return { notes: KeyStore.all() };
   },
 
-  render: function () {
+  render() {
     return (
       <div>
         <div className="keys group">
         {
-          Object.keys(TONES).map(function (noteName) {
-            return (<NoteKey noteName={noteName} key={noteName}/>);
-          })
+          Object.keys(TONES).map(noteName => <NoteKey noteName={noteName} key={noteName}/>)
         }
         </div>
         <Recorder />
@@ -30,7 +28,7 @@ var Organ = React.createClass({
    );
   },
 
-  _onChange: function () {
+  _onChange() {
     this.setState({notes: KeyStore.all()});
   }
 });

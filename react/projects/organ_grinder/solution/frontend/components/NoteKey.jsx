@@ -1,40 +1,41 @@
-var React = require('react'),
-    KeyStore = require('../stores/KeyStore'),
-    Note = require('../util/Note'),
-    TONES = require('../constants/Tones');
+const React = require('react');
+const KeyStore = require('../stores/KeyStore');
+const Note = require('../util/Note');
+const TONES = require('../constants/Tones');
 
-var NoteKey = React.createClass({
-  componentDidMount: function () {
+const NoteKey = React.createClass({
+  componentDidMount() {
     this.note = new Note(TONES[this.props.noteName]);
     KeyStore.addListener(this._onChange);
   },
 
-  getInitialState: function () {
+  getInitialState() {
     return { pressed: this.thisKeyPressed() };
   },
 
-  render: function () {
-    var className = "note-key";
+  render() {
+    let className = "note-key";
     if(this.state.pressed){
       className += " pressed";
     }
     return <div className={className}>{this.props.noteName}</div>;
   },
 
-  thisKeyPressed: function () {
-    var keys = KeyStore.all();
+  thisKeyPressed() {
+    const keys = KeyStore.all();
     return keys.indexOf(this.props.noteName) !== -1;
   },
 
-  _onChange: function () {
-    var pressed = this.thisKeyPressed();
+  _onChange() {
+    const pressed = this.thisKeyPressed();
     if (pressed) {
       this.note.start();
     } else {
       this.note.stop();
     }
-    this.setState({ pressed: pressed });
+    this.setState({ pressed });
   }
 });
+
 
 module.exports = NoteKey;

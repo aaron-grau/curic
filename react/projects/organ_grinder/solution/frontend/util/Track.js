@@ -1,9 +1,9 @@
-var $ = require("jquery"),
-    KeyActions = require('../actions/KeyActions'),
-    TrackActions = require('../actions/TrackActions');
+const $ = require("jquery");
+const KeyActions = require('../actions/KeyActions');
+const TrackActions = require('../actions/TrackActions');
 
 function Track(attrs) {
-  var defaults = {
+  const defaults = {
     name: "",
     roll: []
   };
@@ -12,8 +12,8 @@ function Track(attrs) {
 }
 
 Track.prototype = {
-  addNotes: function (notes) {
-    var timeSlice = { time: this._timeDelta() };
+  addNotes(notes) {
+    const timeSlice = { time: this._timeDelta() };
     if (notes.length > 0) {
       //there are actually some keys held down
       timeSlice.notes = notes;
@@ -21,28 +21,28 @@ Track.prototype = {
     this.attributes.roll.push(timeSlice);
   },
 
-  completeRecording: function () {
+  completeRecording() {
     //add an empty time slice to indicate the end
     this.addNotes([]);
   },
 
-  get: function (attr) {
+  get(attr) {
     return this.attributes[attr];
   },
 
-  isBlank: function () {
+  isBlank() {
     return this.attributes.roll.length === 0;
   },
 
-  play: function () {
+  play() {
     if (this.interval) { return; } // don't play if already in progress
 
-    var currentNote = 0,
-        playBackStartTime = Date.now(),
-        roll = this.attributes.roll,
-        delta;
+    let currentNote = 0;
+    const playBackStartTime = Date.now();
+    const roll = this.attributes.roll;
+    let delta;
 
-    this.interval = setInterval(function () {
+    this.interval = setInterval(() => {
       // if there are still notes to be played
       if (currentNote < roll.length) {
         delta = Date.now() - playBackStartTime;
@@ -50,7 +50,7 @@ Track.prototype = {
         // if we are at a timeslice with a note, play it and move forward
         if (delta >= roll[currentNote].time) {
           // memoize because the notes might not be set; thanks Rails!
-          var notes = roll[currentNote].notes || [];
+          const notes = roll[currentNote].notes || [];
           KeyActions.groupUpdate(notes);
           currentNote++;
         }
@@ -58,14 +58,14 @@ Track.prototype = {
         clearInterval(this.interval);
         delete this.interval;
       }
-    }.bind(this), 1);
+    }, 1);
   },
 
-  set: function (attr, val) {
+  set(attr, val) {
     this.attributes[attr] = val;
   },
 
-  save: function () {
+  save() {
     if (this.isBlank()) {
       throw "track can't be blank!";
     } else if (this.attributes.name === "") {
@@ -75,12 +75,12 @@ Track.prototype = {
     }
   },
 
-  startRecording: function () {
+  startRecording() {
     this.attributes.roll = [];
     this.start = Date.now();
   },
 
-  _timeDelta: function () {
+  _timeDelta() {
     return Date.now() - this.start;
   }
 };

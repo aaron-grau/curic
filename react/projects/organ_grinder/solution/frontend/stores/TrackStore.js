@@ -1,15 +1,13 @@
-var _tracks = [];
-    Store = require ("flux/utils").Store,
-    OrganConstants = require("../constants/OrganConstants"),
-    AppDispatcher = require('../dispatcher/Dispatcher'),
-    TrackStore = new Store(AppDispatcher);
+let _tracks = [];
+const Store = require ("flux/utils").Store;
+const OrganConstants = require("../constants/OrganConstants");
+const AppDispatcher = require('../dispatcher/Dispatcher');
+const TrackStore = new Store(AppDispatcher);
 
 
-TrackStore.all = function () {
-  return _tracks.slice(0);
-};
+TrackStore.all = () => _tracks.slice(0);
 
-TrackStore.__onDispatch = function (payload) {
+TrackStore.__onDispatch = payload => {
   switch(payload.actionType){
   case OrganConstants.ADD_TRACK:
     TrackStore._addTrack(payload.track);
@@ -22,7 +20,7 @@ TrackStore.__onDispatch = function (payload) {
 };
 
 TrackStore._addTrack = function (track) {
-  var idx = _tracks.indexOf(track);
+  const idx = _tracks.indexOf(track);
   if (idx == -1) {
     _tracks.push(track);
     this.__emitChange();
@@ -33,5 +31,6 @@ TrackStore._resetTracks = function (tracks) {
   _tracks = tracks.slice();
   this.__emitChange();
 };
+
 
 module.exports = TrackStore;

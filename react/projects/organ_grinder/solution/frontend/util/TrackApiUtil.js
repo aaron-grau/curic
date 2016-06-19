@@ -1,38 +1,37 @@
-var $ = require("jquery"),
-    Track = require("./Track"),
-    AppDispatcher = require('../dispatcher/Dispatcher'),
-    TrackActions = require("../actions/TrackActions");
+const $ = require("jquery");
+const Track = require("./Track");
+const AppDispatcher = require('../dispatcher/Dispatcher');
+const TrackActions = require("../actions/TrackActions");
+const OrganConstants = require("../constants/OrganConstants");
 
-var TrackApiUtil = {
-  createTrack: function (track) {
+const TrackApiUtil = {
+  createTrack(track) {
     $.ajax({
       url: '/api/tracks',
       method: 'POST',
-      data: JSON.stringify({ track: track }),
+      data: JSON.stringify({ track }),
       dataType: 'json',
       contentType: "application/json",
 
       // See http://stackoverflow.com/questions/7203304/warning-cant-verify-csrf-token-authenticity-rails
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      beforeSend(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
 
-      success: function (track) {
+      success(track) {
         TrackActions.addTrack(new Track(track));
       }
     });
   },
 
-  fetchTracks: function () {
-    $.getJSON('/api/tracks', function (trackObjects) {
-      var tracks = trackObjects.map(function (trackData) {
-        return new Track(trackData);
-      });
+  fetchTracks() {
+    $.getJSON('/api/tracks', trackObjects => {
+      const tracks = trackObjects.map(trackData => new Track(trackData));
 
       TrackActions.resetTracks(tracks);
     });
   }
 };
 
-AppDispatcher.register(function(payload) {
+AppDispatcher.register(payload => {
   switch(payload.actionType){
   case OrganConstants.CREATE_TRACK:
     TrackApiUtil.createTrack(payload.track);
@@ -40,6 +39,5 @@ AppDispatcher.register(function(payload) {
   default:
   }
 })
-
 
 module.exports = TrackApiUtil;

@@ -1,25 +1,25 @@
-var AppDispatcher = require("../dispatcher/Dispatcher"),
-    OrganConstants = require("../constants/OrganConstants");
+const AppDispatcher = require("../dispatcher/Dispatcher");
+const OrganConstants = require("../constants/OrganConstants");
 
-var TrackActions = {
-  addTrack: function (track) {
+const TrackActions = {
+  addTrack(track) {
     AppDispatcher.dispatch({
       actionType: OrganConstants.ADD_TRACK,
-      track: track
+      track
     });
   },
 
-  createTrack: function (track) {
+  createTrack(track) {
     AppDispatcher.dispatch({
       actionType: OrganConstants.CREATE_TRACK,
-      track: track
+      track
     });
   },
 
-  resetTracks: function (tracks) {
+  resetTracks(tracks) {
     AppDispatcher.dispatch({
       actionType: OrganConstants.RESET_TRACKS,
-      tracks: tracks
+      tracks
     });
   }
 };
