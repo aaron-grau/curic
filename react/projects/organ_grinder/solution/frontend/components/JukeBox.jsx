@@ -1,32 +1,30 @@
-var React = require('react'),
-    TrackStore = require('../stores/TrackStore'),
-    TrackApiUtil = require('../util/TrackApiUtil'),
-    TrackPlayer = require('../components/TrackPlayer');
+const React = require('react');
+const TrackStore = require('../stores/TrackStore');
+const TrackApiUtil = require('../util/TrackApiUtil');
+const TrackPlayer = require('../components/TrackPlayer');
 
-var JukeBox = React.createClass({
-  componentDidMount: function () {
+const JukeBox = React.createClass({
+  componentDidMount() {
     TrackStore.addListener(this._onChange);
     TrackApiUtil.fetchTracks();
   },
 
-  getInitialState: function () {
+  getInitialState() {
     return { tracks: TrackStore.all() };
   },
 
-  render: function () {
+  render() {
     return (
       <div className="jukebox">
         <h3>JUKEBOX</h3>
         {
-          this.state.tracks.map(function (track) {
-            return <TrackPlayer key={track.get('id')} track={track}/>
-          })
+          this.state.tracks.map(track => <TrackPlayer key={track.get('id')} track={track}/>)
         }
       </div>
     );
   },
 
-  _onChange: function () {
+  _onChange() {
     this.setState({ tracks: TrackStore.all() });
   }
 });

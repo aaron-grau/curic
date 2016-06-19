@@ -1,7 +1,7 @@
-var ctx = new (window.AudioContext || window.webkitAudioContext)();
+const ctx = new (window.AudioContext || window.webkitAudioContext)();
 
-var createOscillator = function (freq) {
-  var osc = ctx.createOscillator();
+const createOscillator = freq => {
+  const osc = ctx.createOscillator();
   osc.type = "sine";
   osc.frequency.value = freq;
   osc.detune.value = 0;
@@ -9,26 +9,26 @@ var createOscillator = function (freq) {
   return osc;
 };
 
-var createGainNode = function () {
-  var gainNode = ctx.createGain();
+const createGainNode = () => {
+  const gainNode = ctx.createGain();
   gainNode.gain.value = 0;
   gainNode.connect(ctx.destination);
   return gainNode;
 };
 
-var Note = function (freq) {
-  this.oscillatorNode = createOscillator(freq);
-  this.gainNode = createGainNode();
-  this.oscillatorNode.connect(this.gainNode);
-};
+function Note(freq) {
+    this.oscillatorNode = createOscillator(freq);
+    this.gainNode = createGainNode();
+    this.oscillatorNode.connect(this.gainNode);
+}
 
 Note.prototype = {
-  start: function () {
+  start() {
     // can't explain 0.3, it is a reasonable value
     this.gainNode.gain.value = 0.3;
   },
 
-  stop: function () {
+  stop() {
     this.gainNode.gain.value = 0;
   }
 };

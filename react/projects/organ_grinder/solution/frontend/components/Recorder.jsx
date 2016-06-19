@@ -1,39 +1,39 @@
-var React = require('react'),
-    Track = require("../util/Track"),
-    KeyStore = require('../stores/KeyStore');
+const React = require('react');
+const Track = require("../util/Track");
+const KeyStore = require('../stores/KeyStore');
 
-var Recorder = React.createClass({
-  componentDidMount: function () {
+const Recorder = React.createClass({
+  componentDidMount() {
     KeyStore.addListener(this._keysChanged);
   },
 
-  getInitialState: function () {
+  getInitialState() {
     return { recording: false, track: new Track() };
   },
 
-  isDoneRecording: function () {
+  isDoneRecording() {
     return !this.isTrackNew() && !this.state.recording;
   },
 
-  isRecording: function () {
+  isRecording() {
     return this.state.recording;
   },
 
-  isTrackNew: function () {
+  isTrackNew() {
     return this.state.track.isBlank();
   },
 
-  playClass: function () {
-    return "play-button" + this.isTrackNew() ? "" : " disabled";
+  playClass() {
+    return `play-button${this.isTrackNew()}` ? "" : " disabled";
   },
 
-  playClick: function (e) {
+  playClick(e) {
     if(!this.isTrackNew()){
       this.state.track.play();
     }
   },
 
-  recordingMessage: function () {
+  recordingMessage() {
     if (this.isRecording()) {
       return "Stop Recording";
     } else if (this.isDoneRecording()) {
@@ -43,7 +43,7 @@ var Recorder = React.createClass({
     }
   },
 
-  recordClick: function (e) {
+  recordClick(e) {
     if (this.state.recording) {
       this.state.track.completeRecording();
       this.setState({ recording: false });
@@ -53,8 +53,8 @@ var Recorder = React.createClass({
     }
   },
 
-  render: function () {
-    var hasTrack = this.isTrackNew();
+  render() {
+    const hasTrack = this.isTrackNew();
 
     return (
       <div className="controls">
@@ -70,12 +70,12 @@ var Recorder = React.createClass({
     );
   },
 
-  saveTrack: function (e) {
+  saveTrack(e) {
     this.state.track.set('name', prompt("please enter name"));
     this.state.track.save();
   },
 
-  trackSavingElements: function () {
+  trackSavingElements() {
     if (this.isDoneRecording()) {
       return (
         <button onClick={this.saveTrack} className="control">
@@ -85,7 +85,7 @@ var Recorder = React.createClass({
     }
   },
 
-  _keysChanged: function () {
+  _keysChanged() {
     if (this.state.recording){
       this.state.track.addNotes(KeyStore.all());
     }

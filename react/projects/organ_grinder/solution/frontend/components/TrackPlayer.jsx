@@ -1,10 +1,11 @@
-var React = require("react");
-var TrackPlayer = React.createClass({
-  playClick: function () {
+const React = require("react");
+
+const TrackPlayer = React.createClass({
+  playClick() {
     this.props.track.play();
   },
 
-  render: function () {
+  render() {
     return (
       <div className="track">
         <p className="track-name">{this.props.track.get('name')}</p>
@@ -13,6 +14,5 @@ var TrackPlayer = React.createClass({
     );
   }
 });
-
 
 module.exports = TrackPlayer;

@@ -1,22 +1,22 @@
-var AppDispatcher = require("../dispatcher/Dispatcher"),
-    OrganConstants = require("../constants/OrganConstants");
+const AppDispatcher = require("../dispatcher/Dispatcher");
+const OrganConstants = require("../constants/OrganConstants");
 
-var KeyActions = {
-  groupUpdate: function (notes) {
+const KeyActions = {
+  groupUpdate(notes) {
     AppDispatcher.dispatch({
       actionType: OrganConstants.GROUP_UPDATE,
-      notes: notes
+      notes
     });
   },
 
-  keyPressed: function (noteName) {
+  keyPressed(noteName) {
     AppDispatcher.dispatch({
       actionType: OrganConstants.KEY_PRESSED,
       note: noteName
     });
   },
 
-  keyReleased: function (noteName) {
+  keyReleased(noteName) {
     AppDispatcher.dispatch({
       actionType: OrganConstants.KEY_RELEASED,
       note: noteName
