@@ -2,25 +2,25 @@ const $ = require('jquery');
 const KeyActions = require('../actions/KeyActions');
 const TONES = require("../constants/Tones");
 
-$(() => {
-  const NOTE_MAP = {};
-  const tones = Object.keys(TONES);
-  const validKeys = [
-    65, // 'a'
-    83, // 's'
-    68, // 'd'
-    70, // 'f'
-    74, // 'j'
-    75, // 'k'
-    76, // 'l'
-    186 // ';'
-  ];
-  tones.forEach((tone, i) => {
-    NOTE_MAP[validKeys[i]] = tone;
-  });
+const NOTE_MAP = {};
+const tones = Object.keys(TONES);
+const validKeys = [
+  65, // 'a'
+  83, // 's'
+  68, // 'd'
+  70, // 'f'
+  74, // 'j'
+  75, // 'k'
+  76, // 'l'
+  186 // ';'
+];
+tones.forEach((tone, i) => {
+  NOTE_MAP[validKeys[i]] = tone;
+});
 
-  const _heldKeys = [];
+const _heldKeys = [];
 
+module.exports = () => {
   $(document).on('keydown', e => {
     const code = e.keyCode, valid = validKeys.indexOf(code) !== -1;
     if (_heldKeys.indexOf(code) === -1 && valid) {
@@ -36,4 +36,4 @@ $(() => {
       KeyActions.keyReleased(NOTE_MAP[code]);
     }
   });
-});
+};

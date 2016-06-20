@@ -4,10 +4,12 @@ const JukeBox = require('../components/JukeBox');
 const Recorder = require('../components/Recorder');
 const TONES = require("../constants/Tones");
 const KeyStore = require('../stores/KeyStore');
+const AddKeyListeners = require("../util/AddKeyListeners");
 
 const Organ = React.createClass({
   componentDidMount() {
     KeyStore.addListener(this._onChange);
+    AddKeyListeners();
   },
 
   getInitialState() {
