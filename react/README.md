@@ -52,7 +52,7 @@
 
 ### Video Lectures (1hr, 10min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Props and State][] (5 min)
+* :movie_camera: [Props and State][props-and-state] (10 min)
 * :movie_camera: [Reconciliation][] (10 min)
 * :movie_camera: [Lifecycle Methods Demo][lifecycle-methods-demo] (10 min)
 * :movie_camera: [Stores][] (10 min)
@@ -73,7 +73,7 @@
 * Capstone Projects Kickoff Lecture at 5PM!
 
 [lifecycle-methods-demo]: https://vimeo.com/171447663
-
+[pros-and-state]: https://vimeo.com/171453081
 [think-in-react]: http://facebook.github.io/react/docs/thinking-in-react.html
 [components-in-depth]: readings/components_in_depth.md
 [react-on-rails]: readings/react_on_rails.md
