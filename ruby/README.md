@@ -144,6 +144,7 @@
 + [Git tutorial][interactive-git] (30 min)
 
 ### Additional Resources
++ Using [Git add][git-add]
 + [Git Repository Clean Up][git-cleanup]
 + [Faster Git with aliases][aliases]
 + [Fixing Git commit authorship][git-fix-authorship]
@@ -250,7 +251,7 @@
 
 ## w2d3
 
-### Readings (90 min)
+### Readings (45 min)
 + [Introduction to RSpec][intro-rspec] (5 min)
 + [RSpec Syntax][rspec-syntax] (8 min)
 + [`subject` and `let`][subject-and-let] (5 min)

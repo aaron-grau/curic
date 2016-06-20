@@ -12,4 +12,4 @@ Click the link then click "view raw" to download.
 
 After you finish the homework, or if you get stuck on one of the problems, you can view the solutions [here][rspec-solutions].
 
-[rspec-solutions]: ../solutions/rspec-homework
+[rspec-solutions]: ../solution/rspec-homework

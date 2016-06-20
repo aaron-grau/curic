@@ -19,6 +19,7 @@ Materials are organized by topic and then type.
 	* [HTML/CSS][html-css]
 	* [Javascript][js]
 	* [React][react]
+	* [Capstone][capstone]
 
 * **Types**   
 	* **Readings**: markdown files for teaching material.   
@@ -36,3 +37,4 @@ Materials are organized by topic and then type.
 [js]: ./javascript
 [react]: ./react
 [html-css]: ./html-css
+[capstone]: ./capstone

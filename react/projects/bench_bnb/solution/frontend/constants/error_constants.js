@@ -1,4 +1,6 @@
-var ErrorConstants = {
+"use strict";
+
+const ErrorConstants = {
   SET_ERRORS: "SET_ERRORS",
   CLEAR_ERRORS: "CLEAR_ERRORS"
 };

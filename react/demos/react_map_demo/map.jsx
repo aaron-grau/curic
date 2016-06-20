@@ -1,3 +1,5 @@
+"use strict";
+
 //we need to provide a center coordinate for our map, this is SF
 const mapCenter = { lat: 37.7758, lng: -122.435 },
      //I made some lat/lng points for some good burrito spots
@@ -69,7 +71,7 @@ const Map = React.createClass({
     return (
       <div>
         <span>MAP DEMO</span>
-        <div id="map" ref='map'/>
+        <div id='map' ref='map'/>
         <p>
           Hey! Here are a few good burrito places in SF. Click on them
           to find their name. Move the map and check the console to see

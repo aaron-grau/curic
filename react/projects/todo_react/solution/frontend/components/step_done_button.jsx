@@ -1,21 +1,19 @@
-var React = require('react');
-var StepStore = require('../stores/step_store');
+const React = require('react');
+const StepStore = require('../stores/step_store');
 
-var StepDoneButton = React.createClass({
-  handleDone: function(event){
+const StepDoneButton = React.createClass({
+  handleDone(event) {
     event.stopPropagation();
     StepStore.toggleDone(this.props.todo_id, this.props.step.id);
   },
 
-  render: function () {
-    if(this.props.step.done) {
-      text = "Undo!";
+  render() {
+    if (this.props.step.done) {
       classname = "btn btn-xs btn-danger done-step-button";
     } else {
-      text = "Done!";
       classname = "btn btn-xs btn-success done-step-button";
     }
-    var text = this.props.step.done ? "Undo" : "Done";
+    const text = this.props.step.done ? "Undo" : "Done";
 
     return (
       <button

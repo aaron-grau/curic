@@ -63,7 +63,9 @@ That makes sense, because there are two arrays of `arguments` you care
 about: the extra `arguments` passed to `myBind`, and the `arguments`
 passed when the bound function is called.
 
-Once you've done that, **write a second version using the `...` rest operator.**
+Once you've done that, **write a second version using the `...` [rest][rest-op] operator.**
+
+[rest-op]: ../../readings/arguments.md#rest-parameters
 
 ## `curriedSum`
 
@@ -133,6 +135,8 @@ Write a method `Function.prototype.curry(numArgs)`. This should return a functio
 * Collect up arguments until there are `numArgs` of them,
 * If there are too few arguments still, it should return itself.
 * When there are `numArgs` arguments, it should call the original function. 
-* Write a version that uses `Function.prototype.apply` and another one that uses the spread `...` operator.
+* Write a version that uses `Function.prototype.apply` and another one that uses the [spread][spread-op] `...` operator.
 
 ** Make sure to call a TA to check over your work if you haven't already! **
+
+[spread-op]:../../readings/arguments.md#spread-parameters

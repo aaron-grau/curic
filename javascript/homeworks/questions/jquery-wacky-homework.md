@@ -41,14 +41,7 @@ The first exercise, `exercise0` has been completed for you. Click the button
 
 Complete the challenges in order.
 
-### Solutions
-
-The solutions for the exercises are at the bottom of `view.js`.
-Do NOT look at a solution until you have completed
-the exercise or are irrecoverably stuck.
-
-
 ### Have fun!
 
-[wacky-zip]: ./wacky_painter.zip
+[wacky-zip]: ./wacky_painter_skeleton.zip
 [wacky-project-intro-video]: https://vimeo.com/162618262

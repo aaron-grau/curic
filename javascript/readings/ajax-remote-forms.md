@@ -1,8 +1,6 @@
 # AJAX Remote Forms
 
-Okay, cool kid, so you know how to use AJAX. Color me impressed.
-
-Let's up our game. Let's write a form that, when the user clicks the
+Using AJAX, let's write a form that, when the user clicks the
 "submit" button, will submit the form data in the background.
 
 The key is the jQuery [`serialize`] [jquery-serialize-doc] method. If
@@ -59,7 +57,7 @@ but it's also a little frustrating. URL encoding is difficult for us
 to manipulate on the client side; just about the only thing we can do
 with it is submit it to the server.
 
-One ~~pastability~~ possibility is to use the
+One possibility is to use the
 [serializeJSON][serializeJSON] jQuery plug-in. It creates a JavaScript
 object following the Rails parameter conventions.
 
