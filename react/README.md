@@ -50,8 +50,16 @@
 
 ## w7d2
 
-### Readings (1hr, 55min)
-* [Full component tutorial][react-tutorial] (45 min)
+### Video Lectures (1hr, 10min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [Props and State][props-and-state] (10 min)
+* :movie_camera: Reconciliation (10 min) Available by 6pm
+* :movie_camera: [Lifecycle Methods Demo][lifecycle-methods-demo] (10 min)
+* :movie_camera: Stores (10 min) Available by 6pm
+* :movie_camera: React and Rails (5 min) Available by 6pm
+* :movie_camera: React and Rails Demo (30 min) Available by 6pm
+
+### Readings (1hr, 10min)
 * [Stores][store-reading] (20 min)
 * [Think in React][think-in-react] (20 min)
 * [Components in depth][components-in-depth] (15 min)
@@ -64,7 +72,8 @@
 ### Capstones
 * Capstone Projects Kickoff Lecture at 5PM!
 
-[react-tutorial]: https://zapier.com/engineering/react-js-tutorial-guide-gotchas/
+[lifecycle-methods-demo]: https://vimeo.com/171447663
+[props-and-state]: https://vimeo.com/171453081
 [think-in-react]: http://facebook.github.io/react/docs/thinking-in-react.html
 [components-in-depth]: readings/components_in_depth.md
 [react-on-rails]: readings/react_on_rails.md
