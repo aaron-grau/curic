@@ -1,10 +1,12 @@
+"use strict";
+
 // We need to require the libraries we'll use to write our code in the 
 // below 'CommonJS' style. These live in the node_modules folder
-var React = require('react');
-var ReactDOM = require('react-dom');
+const React = require('react');
+const ReactDOM = require('react-dom');
 
 // Write JSX here!
-var ClickCounter = React.createClass({
+const ClickCounter = React.createClass({
 
 });
 

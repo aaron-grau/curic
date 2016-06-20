@@ -180,5 +180,5 @@ path in your `~/.bashrc`.
 
 [sqlite-ruby-github]: https://github.com/luislavena/sqlite3-ruby
 [sqlite-ruby-demo]: ../demos/sqlite3_demo/school.rb
-[sqlite-ruby-faq]: https://web.archive.org/web/20130723020358/http://sqlite-ruby.rubyforge.org/sqlite3/faq.html
+[sqlite-ruby-faq]: http://sqlite-ruby.rubyforge.org/sqlite3/faq.html
 [sqlite-download]: http://sqlite.org/download.html

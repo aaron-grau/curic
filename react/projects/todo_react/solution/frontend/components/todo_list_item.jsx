@@ -1,27 +1,27 @@
-var React = require('react');
-var TodoStore = require('../stores/todo_store');
-var TodoDetailView = require('./todo_detail_view');
-var TodoDoneButton = require('./todo_done_button');
+const React = require('react');
+const TodoStore = require('../stores/todo_store');
+const TodoDetailView = require('./todo_detail_view');
+const TodoDoneButton = require('./todo_done_button');
 
 
-var TodoListItem = React.createClass({
-  getInitialState: function(){
+const TodoListItem = React.createClass({
+  getInitialState() {
     return { detail: false };
   },
 
-  handleDestroy: function (event) {
+  handleDestroy(event) {
     event.stopPropagation();
     TodoStore.destroy(this.props.todo.id);
   },
 
-  toggleDetail: function(event){
+  toggleDetail(event) {
     event.preventDefault();
     this.setState({detail: !this.state.detail});
   },
 
-  render: function () {
-    var detail;
-    if(this.state.detail){
+  render() {
+    let detail, className;
+    if (this.state.detail) {
       detail = (
         <TodoDetailView handleDestroy={ this.handleDestroy } todo={this.props.todo} />
       );

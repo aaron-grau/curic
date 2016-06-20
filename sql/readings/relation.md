@@ -34,8 +34,8 @@ because we can re-use the result without constantly hitting the
 database over-and-over.
 
 This can sometimes result in unexpected behavior. First, note that
-when accessing a relation (e.g., `user1.posts`), a `Relation` object
-is returned. The relation is itself cached inside model object (e.g.,
+when accessing a relation (e.g. `user1.posts`), a `Relation` object
+is returned. The relation is itself cached inside model object (e.g.
 `user1`) so that future invocations of the association will not hit
 the DB.
 

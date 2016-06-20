@@ -33,10 +33,10 @@ need to do anything special to square a number, just calculate the
 value and multiply it by itself. **So don't cheat and use
 exponentiation in your solution**.
 
-**Suggestion**: [Break the methods down into parts][Break things down into
-parts].
 
-**Suggestion 2**: After breaking into parts, try walking through your code with
+**Suggestion**: [Break the methods down into parts.][Breaking into parts]
+
+**Suggestion 2**: Try walking through your code with
 [Simple Examples][Simple Examples].
 
 If the `n == 256`, about how many nested recursive steps will we run
@@ -69,8 +69,8 @@ examples.
 
 How many examples do you need to walk through to be confident that it works?
 
-[Break things down into parts]: ./breaking-into-parts.md
-[Simple Examples]: ../w1d2/testing-small.md
+[Simple Examples]: ../../readings/testing-small.md
+[Breaking into parts]: ../../readings/breaking-into-parts.md
 
 ### Deep dup
 
@@ -199,7 +199,7 @@ https://en.wikipedia.org/wiki/Merge_sort#/media/File:Merge-sort-example-300px.gi
 
 ### Make Change
 
-RubyQuiz: [Make change][make-change-mirror]. 
+RubyQuiz: [Make change][make-change-mirror].
 
 Here's a game plan for solving the problem:
 
@@ -207,11 +207,11 @@ First, write a 'greedy' version of making change called `greedy_make_change`:
   - Take as many of the biggest coin as possible and add them to your result.
   - Add to the result by recursively calling your method on the remaining amount, leaving out the biggest coin, until the remainder is zero.
 
-Once you have a working greedy version, talk with your partner about refactoring this to `make_better_change`. What's wrong with `greedy_make_change`? 
+Once you have a working greedy version, talk with your partner about refactoring this to `make_better_change`. What's wrong with `greedy_make_change`?
 
 Consider the case of `greedy_make_change(24, [10,7,1])`. Because it takes as many `10` pieces as possible, `greedy_make_change` misses the correct answer of `[10,7,7]` (try it in pry).
 
-To `make_better_change`, we only take one coin at a time and never rule out denominations that we've already used. This allows each coin to be available each time we get a new remainder. By iterating over the denominations and continuing to search for the best change, we assure that we test for 'non-greedy' uses of each denomination. 
+To `make_better_change`, we only take one coin at a time and never rule out denominations that we've already used. This allows each coin to be available each time we get a new remainder. By iterating over the denominations and continuing to search for the best change, we assure that we test for 'non-greedy' uses of each denomination.
 
 Discuss the following game plan and then work together to implement your new method:
 
@@ -230,4 +230,3 @@ http://web.archive.org/web/20130215052843/http://rubyquiz.com/quiz154.html
 * [Wikipedia: Recursion][wiki-recursion]
 
 [wiki-recursion]: http://en.wikipedia.org/wiki/Recursion_(computer_science)
-

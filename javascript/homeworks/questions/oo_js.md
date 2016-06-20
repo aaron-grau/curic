@@ -3,7 +3,9 @@
 
 ### printChildren
 
-Write a function `printChildren` that takes a parent's name and an unspecified number of children. It should loop through the children and print each of their names.
+Write a function `printChildren` that takes a parent's name and an unspecified
+number of children. It should loop through the children and print each of their
+names.
 
 **Input**
 * 1) A string for the parent's name
@@ -37,7 +39,9 @@ var arr = [1,2,3];
 
 ### dinnerTonightIs
 
-Write a function that takes in a food and outputs "Dinner tonight is **food**". Caveat: if you don't specify a food, `dinnerTonightIs` should use the default argument "pizza".
+Write a function that takes in a food and outputs "Dinner tonight is **food**".
+Caveat: if you don't specify a food, `dinnerTonightIs` should use the default
+argument "pizza".
 
 ```
 > dinnerTonightIs('some inferior food')
@@ -50,17 +54,23 @@ Dinner tonight is pizza.
 
 # Object-Oriented JavaScript
 
-Today we're going to practice many of the fundamentals of object-oriented programming in JavaScript.
+Today we're going to practice many of the fundamentals of object-oriented
+programming in JavaScript.
 
 ## Phase I: Callbacks
 
-Write a function `sillyNames` that takes an array of names and a function (callback). `sillyNames` should use `Array.prototype.map` to create a new array full of silly-fied versions of each name - silly-fied meaning "Roger" should be made to read "Dr. Roger Sillypants". Then pass this new array of silly names to the callback, which should use `Array.prototype.forEach` to print out each silly name.
+Write a function `titleize` that takes an array of names and a function
+(callback). `titleize` should use `Array.prototype.map` to create a new array
+full of titleized versions of each name - titleize meaning "Roger" should be
+made to read "Mx. Roger Jingleheimer Schmidt". Then pass this new array of
+names to the callback, which should use `Array.prototype.forEach` to print out
+each titleized name.
 
 ```js
-> sillyNames(["Mary", "Brian", "Leo"], printCallback);
-Dr. Mary Sillypants
-Dr. Brian Sillypants
-Dr. Leo Sillypants
+> titleize(["Mary", "Brian", "Leo"], printCallback);
+Mx. Mary Jingleheimer Schmidt
+Mx. Brian Jingleheimer Schmidt
+Mx. Leo Jingleheimer Schmidt
 undefined
 ```
 
@@ -68,7 +78,9 @@ Test to make sure it works before moving on!
 
 ## Phase II: Constructors, Prototypes, and `this`
 
-First write a constructor function for an elephant. Each elephant should have a name, height (in inches), and array of tricks in gerund form (e.g. "painting a picture" rather than "paint a picture").
+First write a constructor function for an elephant. Each elephant should have a
+name, height (in inches), and array of tricks in gerund form (e.g. "painting a
+picture" rather than "paint a picture").
 
 Next write a few prototype functions that will be shared among all elephants:
 - `Elephant.prototype.trumpet`: should print "(name) the elephant goes 'phrRRRRRRRRRRR!!!!!!!'"

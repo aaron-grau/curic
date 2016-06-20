@@ -2,7 +2,7 @@
 
 After you finish the exercises, or if you get stuck on one of the problems, you can view the solutions [here][adt-solutions].
 
-[adt-solutions]: ../solutions/abstract_data_types.rb
+[adt-solutions]: ../solution/abstract_data_types.rb
 
 ## Exercise 1 - Stack
 

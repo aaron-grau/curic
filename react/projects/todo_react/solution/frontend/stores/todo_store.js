@@ -1,7 +1,7 @@
-var _todos = [], _handlers = [];
+let _todos = [], _handlers = [];
 
-var TodoStore = {
-  changed: function(){
+const TodoStore = {
+  changed() {
     _handlers.forEach(function(cb){ cb(); });
   },
 
@@ -13,35 +13,33 @@ var TodoStore = {
     _handlers.splice(_handlers.indexof(callback), 1);
   },
 
-  fetch: function() {
-    var that = this;
+  fetch() {
     $.ajax({
       method: 'GET',
       url: 'api/todos',
       dataType: 'json',
-      success: function(resp) {
+      success: (resp) => {
         _todos = resp;
-        that.changed();
+        this.changed();
       }
     });
   },
 
-  create: function(object) {
-    var that = this;
+  create(object) {
     $.ajax({
       method: 'POST',
       url: 'api/todos',
       data: {todo: object},
-      success: function(resp) {
+      success: (resp) => {
         _todos.push(resp);
-        that.changed();
+        this.changed();
       }
     });
   },
 
-  find: function(id) {
-    var idx = -1;
-    for (var i = 0; i < _todos.length; i++) {
+  find(id) {
+    let idx = -1;
+    for (let i = 0; i < _todos.length; i++) {
       if (_todos[i].id === id) {
         idx = i;
         break;
@@ -51,38 +49,37 @@ var TodoStore = {
     return idx;
   },
 
-  destroy: function(id) {
-    var that = this, idx = this.find(id), todo = _todos[idx];
+  destroy(id) {
+    const idx = this.find(id), todo = _todos[idx];
 
     if (todo) {
       $.ajax({
         method: 'DELETE',
         url: 'api/todos/' + id,
-        success: function() {
+        success: () => {
           _todos.splice(idx, 1);
-          that.changed();
+          this.changed();
         }
       });
     }
   },
 
-  all: function(){
+  all() {
     return _todos.slice();
   },
 
-  toggleDone: function(id) {
-    var that = this;
-    var todo = _todos[this.find(id)];
-    var done = !todo.done;
+  toggleDone(id) {
+    const todo = _todos[this.find(id)];
+    const done = !todo.done;
 
     if (todo) {
       $.ajax({
         method: 'PATCH',
         url: 'api/todos/' + id,
         data: { todo: {done: done}},
-        success: function() {
+        success: () => {
           todo.done = done;
-          that.changed();
+          this.changed();
         }
       });
     }

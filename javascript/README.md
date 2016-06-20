@@ -242,7 +242,7 @@
 [css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-warmup]: ../html-css/projects/css_warm_up
-[assessment-prep]: http://github.com/appacademy/assessment-prep
+[assessment-prep]: http://github.com/appacademy/assessment-prep#assessment-5
 
 ## w6d3
 
@@ -268,8 +268,8 @@
     * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
 
 ### Projects
-  * [jQuery Towers of Hanoi][hanoi-jquery]
   * [jQuery Tic Tac Toe][ttt-jquery]
+  * [jQuery Towers of Hanoi][hanoi-jquery]
   * **Bonus**: [Snake][snake-project]
 
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
@@ -299,6 +299,7 @@
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
 * [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
 
+
 ### Homeworks (15 min)
 * [Census Ajax][census-ajax] (15 min)
 
@@ -306,7 +307,6 @@
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
 
 ### Projects
-* [Your First Ajax Request][first-ajax]
 * [AjaxTwitter][ajax-twitter]
 
 [assessment-practice]: https://github.com/appacademy/assessment-prep
@@ -319,6 +319,7 @@
 [census-ajax]: homeworks/questions/census_ajax
 [ajax-remote-forms]: readings/ajax-remote-forms.md
 [underscore-templates]: readings/underscore-templates.md
+[first-ajax]: homeworks/questions/first_ajax.md
 [ajax-twitter]: projects/ajax_twitter
 
 ## w6d5
@@ -331,9 +332,11 @@
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (27 min)
   * You can ignore the last part, which has Backbone code
 
-### Readings (35 min)
+### Readings (45 min)
 * [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
 * [jQuery VII: Triggering][jquery-07-triggering] (5 min)
+* [Event Propagation][event-propagation] (5 min)
+* [History and Location][history-location] (5 min)
 * [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
 
 ### Additional Resources
@@ -341,20 +344,23 @@
 
 ### Projects
 * [jQuery Lite][jquery-lite]
-* [Snake][snake-project] using your jQuery Lite
+* [Mail][mail]
+* **Bonus:** [Snake][snake-project] using your jQuery Lite
 
 [jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
 [jquery-07-triggering]: readings/jquery-07-triggering.md
+[event-propagation]: readings/event-propagation.md
+[history-location]: readings/history-location.md
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 
-[first-ajax]: projects/first_ajax
+[mail]: projects/mail
 [jquery-lite]: projects/jquery_lite
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md
 
 ## w6d6 - w6d7
 
-Complete the React/Flux [w7d1 readings][react-link]. There is a lot of material, so start early!
+Complete the [React/Flux w7d1][react-link] readings, video lectures, and homework. There is a lot of material, so start early!
 
 [react-link]: ../react
 [effective-js]: http://effectivejs.com/

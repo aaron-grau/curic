@@ -18,9 +18,9 @@ function sum2(...nums) {
 
 Function.prototype.myBind1 = function (ctx) {
   const fn = this;
-  const bindArgs = Array.prototype.slice.call(arguments, 1);
+  const bindArgs = Array.from(arguments).slice(1);
   return function () {
-    const callArgs = Array.prototype.slice.call(arguments);
+    const callArgs = Array.from(arguments);
     return fn.apply(ctx, bindArgs.concat(callArgs));
   };
 };

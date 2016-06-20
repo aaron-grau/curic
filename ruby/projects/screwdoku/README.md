@@ -27,7 +27,7 @@ If you want to print something out, use the debugger instead. Stop the code and 
 
 If you get stuck and need ideas, reference our [debugging cheatsheet][debugging cheatsheet].
 
-[debugging cheatsheet]: https://github.com/appacademy/ruby-curriculum/blob/master/w1d5/debugging_cheatsheet.md
+[debugging cheatsheet]: ../../readings/debugging_cheatsheet.md
 
 
 ## Instructions
@@ -57,7 +57,7 @@ Starting with `level-1`, for each level:
 
 Make sure you do the `final-level` and `super-evil-level` at the end.  If you finish it, we'll put your picture on the wall and you'll get a free 12-inch sub (offer void in Nebraska...and California...and NY).
 
-[git-workflow]: ../w1d5/git-workflow.md
+[git-workflow]: ../../readings/git-workflow.md
 
 ## You finished???
 

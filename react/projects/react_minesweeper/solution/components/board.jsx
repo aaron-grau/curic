@@ -1,8 +1,12 @@
+"use strict";
+
 const Tile = require('./tile');
 const React = require('react');
 
 const Board = React.createClass({
   render() {
+    const board = this.props.board;
+    const that = this;
     return(
       <div id="board">
         {this.renderRows()}

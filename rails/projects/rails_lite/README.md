@@ -3,7 +3,7 @@
 ## Instructions
 
 *	[Part I][instructions-i]
-*	[Part II (Bonus)][instructions-ii]
+*	[Part II][instructions-ii]
 * [Skeleton][skeleton]
 
 ## Using The Specs
