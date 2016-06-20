@@ -90,8 +90,8 @@ sense to use a class, right? Indeed. React provides a helpful
 [`createClass`][create-class] method for this purpose.
 
 ```javascript
-var ClickCounter = React.createClass({
-  render: function(){
+const ClickCounter = React.createClass({
+  render() {
     return (
     React.createElement('div', {}, 
       React.createElement(
@@ -133,11 +133,11 @@ been clicked. Therefore, the initial state should be a count of 0. We
 can write a `getInitialState` method to define this.
 
 ```javascript
-var ClickCounter = React.createClass({
-  getInitialState: function(){
+const ClickCounter = React.createClass({
+  getInitialState() {
     return {count: 0};
   },
-  render: function(){
+  render() {
     return (
       React.createElement('div', {}, 
         React.createElement(
@@ -174,15 +174,15 @@ has the side effect of *automatically* re-rendering the component. So,
 we should just see it update before our very eyes!
 
 ```javascript
-var ClickCounter = React.createClass({
-  getInitialState: function(){
+const ClickCounter = React.createClass({
+  getInitialState() {
     return {count: 0};
   },
-  click: function(event){
+  click(event) {
     event.preventDefault();
     this.setState({count: this.state.count + 1});
   },
-  render: function(){
+  render() {
     return (
     React.createElement('div', {}, 
       React.createElement(

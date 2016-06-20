@@ -17,7 +17,7 @@ wrote HTML or XML right in the middle of their JavaScript code. For
 example:
 
 ```javascript
-var menu =
+const menu =
   <Restaurant>
     <Menu>
       <MenuItem>Carrots</MenuItem>
