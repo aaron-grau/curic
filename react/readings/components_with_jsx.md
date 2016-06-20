@@ -26,15 +26,15 @@ Our previous example created a button that counted clicks using the
 following snippet:
 
 ```javascript
-var ClickCounter = React.createClass({
-  getInitialState: function(){
+const ClickCounter = React.createClass({
+  getInitialState() {
     return {count: 0};
   },
-  click: function(event){
+  click(event) {
     event.preventDefault();
     this.setState({count: this.state.count + 1});
   },
-  render: function(){
+  render() {
     return (
     React.createElement('div', {},
       React.createElement(
@@ -57,15 +57,15 @@ If we used JSX instead to create this tree of React elements, our code
 would look like this:
 
 ```javascript
-var ClickCounter = React.createClass({
-  getInitialState: function(){
+const ClickCounter = React.createClass({
+  getInitialState() 
     return {count: 0};
   },
-  click: function(event){
+  click(event) {
     event.preventDefault();
     this.setState({count: this.state.count + 1});
   },
-  render: function(){
+  render() {
     return (
       <div>
         <button onClick={this.click}>CLICK ME</button>
@@ -131,7 +131,7 @@ rendering our components. How do we do that? Well, one strategy is to
 do the calculation outside the JSX:
 
 ```javascript
-render: function () {
+render() {
   if (typeof contents === 'undefined') {
     contents = 'nothing!'
   }
@@ -151,8 +151,7 @@ this frequently when mapping lists:
 ```javascript
 <ul>
   {
-    items.map(function (item) {
-      return <li key={ item.id }>{ item.name }</li>;
+    items.map( item => <li key={ item.id }>{ item.name }</li>;
     })
   }
 </ul>
