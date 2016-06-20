@@ -58,5 +58,5 @@ video lectures and provided readings.
 
 ### Have fun!
 
-[click-skeleton]: click_counter_skeleton.zip?raw=true
-[click-solution]: click_counter_solution.zip?raw=true
+[click-skeleton]: skeleton.zip?raw=true
+[click-solution]: solution.zip?raw=true
