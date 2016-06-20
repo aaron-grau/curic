@@ -66,6 +66,9 @@
 * [List diffing and the `key` prop][keys-reading] (5 min)
 * [Effective JavaScript][effective-js]: Items 53 and 55 (10 min)
 
+### Homeworks (35 min)
+* [Dollar Store][store-hw] (35 min)
+
 ### Projects
 * [React Todos][react-todo]
 
@@ -81,6 +84,7 @@
 [react-todo]: projects/todo_react
 [separate-js-from-html]: readings/separate_javascript_from_html.md
 [store-reading]: readings/stores.md
+[store-hw]: homeworks/questions/stores.md
 
 ## w7d3
 
