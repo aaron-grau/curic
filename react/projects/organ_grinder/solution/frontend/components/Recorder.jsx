@@ -40,8 +40,6 @@ const Recorder = React.createClass({
   recordingMessage() {
     if (this.isRecording()) {
       return "Stop Recording";
-    } else if (this.isDoneRecording()) {
-      return "Done Recording";
     } else {
       return "Start Recording";
     }
@@ -50,9 +48,9 @@ const Recorder = React.createClass({
   recordClick(e) {
     if (this.state.recording) {
       this.state.track.completeRecording();
-      this.setState({ recording: false });
+      this.setState({ recording: false});
     } else {
-      this.setState({ recording: true });
+      this.setState({ recording: true});
       this.state.track.startRecording();
     }
   },
