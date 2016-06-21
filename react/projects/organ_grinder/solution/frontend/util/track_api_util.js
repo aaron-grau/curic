@@ -1,8 +1,8 @@
 const $ = require("jquery");
-const Track = require("./Track");
-const AppDispatcher = require('../dispatcher/Dispatcher');
-const TrackActions = require("../actions/TrackActions");
-const OrganConstants = require("../constants/OrganConstants");
+const Track = require("./track");
+const AppDispatcher = require('../dispatcher/dispatcher');
+const TrackActions = require("../actions/track_actions");
+const OrganConstants = require("../constants/organ_constants");
 
 const TrackApiUtil = {
   createTrack(track) {

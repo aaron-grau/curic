@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Organ = require('./components/Organ');
+const Organ = require('./components/organ');
 const $ = require('jquery');
 
 $(function () {

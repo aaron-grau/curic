@@ -1,6 +1,6 @@
 const $ = require('jquery');
-const KeyActions = require('../actions/KeyActions');
-const TONES = require("../constants/Tones");
+const KeyActions = require('../actions/key_actions');
+const TONES = require("../constants/tones");
 
 const NOTE_MAP = {};
 const tones = Object.keys(TONES);

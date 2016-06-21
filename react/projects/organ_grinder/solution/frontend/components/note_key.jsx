@@ -1,7 +1,7 @@
 const React = require('react');
-const KeyStore = require('../stores/KeyStore');
-const Note = require('../util/Note');
-const TONES = require('../constants/Tones');
+const KeyStore = require('../stores/key_store');
+const Note = require('../util/note');
+const TONES = require('../constants/tones');
 
 const NoteKey = React.createClass({
   componentDidMount() {

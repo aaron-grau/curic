@@ -1,6 +1,6 @@
 const React = require('react');
-const Track = require("../util/Track");
-const KeyStore = require('../stores/KeyStore');
+const Track = require("../util/track");
+const KeyStore = require('../stores/key_store');
 
 const Recorder = React.createClass({
   componentDidMount() {

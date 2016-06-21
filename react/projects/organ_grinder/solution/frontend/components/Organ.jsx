@@ -1,10 +1,10 @@
 const React = require('react');
-const NoteKey = require('../components/NoteKey');
-const JukeBox = require('../components/JukeBox');
-const Recorder = require('../components/Recorder');
-const TONES = require("../constants/Tones");
-const KeyStore = require('../stores/KeyStore');
-const AddKeyListeners = require("../util/AddKeyListeners");
+const NoteKey = require('../components/note_key');
+const JukeBox = require('../components/juke_box');
+const Recorder = require('../components/recorder');
+const TONES = require("../constants/tones");
+const KeyStore = require('../stores/key_store');
+const AddKeyListeners = require("../util/add_key_listeners");
 
 const Organ = React.createClass({
   componentDidMount() {
