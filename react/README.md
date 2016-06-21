@@ -50,15 +50,6 @@
 
 ## w7d2
 
-### Video Lectures (1hr, 10min)
-:closed_lock_with_key: `go_video_go`
-* :movie_camera: [Props and State][props-and-state] (10 min)
-* :movie_camera: Reconciliation (10 min) Available by 6pm
-* :movie_camera: [Lifecycle Methods Demo][lifecycle-methods-demo] (10 min)
-* :movie_camera: Stores (10 min) Available by 6pm
-* :movie_camera: React and Rails (5 min) Available by 6pm
-* :movie_camera: React and Rails Demo (30 min) Available by 6pm
-
 ### Readings (1hr, 10min)
 * [Stores][store-reading] (20 min)
 * [Think in React][think-in-react] (20 min)
