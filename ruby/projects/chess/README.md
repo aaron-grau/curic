@@ -69,7 +69,8 @@ categories:
 0. Stepping pieces (Knight/King)
 0. The pawn (do this last)
 
-You should also have a `NullPiece` class that includes the `singleton` module. The null piece instance can then occupy any 'empty' spaces on the board.
+You should also have a `NullPiece` class that includes [the `singleton` module][singleton]. The null piece instance can then occupy any 'empty' spaces on the board.
+[singleton]: http://ruby-doc.org/stdlib-1.9.3/libdoc/singleton/rdoc/Singleton.html
 
 Start by writing a `Piece` parent class that contains the
 functionality common to all pieces. A key method of `Piece` is
