@@ -17,16 +17,16 @@ BenchStore.find = function(id){
   return Object.assign({}, _benches[id]);
 };
 
-BenchStore.addFavorite = function(benchId, userId) {
+function addFavorite(benchId, userId) {
   _benches[benchId].favorite_users.push(parseInt(userId));
   BenchStore.__emitChange();
-};
+}
 
-BenchStore.removeFavorite = function(benchId, userId) {
+function removeFavorite(benchId, userId) {
   const userIdx = _benches[benchId].favorite_users.indexOf(parseInt(userId));
   _benches[benchId].favorite_users.splice(userIdx, 1);
   BenchStore.__emitChange();
-};
+}
 
 function resetAllBenches(benches){
   _benches = benches;
