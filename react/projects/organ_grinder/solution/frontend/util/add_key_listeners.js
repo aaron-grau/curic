@@ -20,7 +20,7 @@ tones.forEach((tone, i) => {
 
 const _heldKeys = [];
 
-module.exports = () => {
+module.exports = function() {
   $(document).on('keydown', e => {
     const code = e.keyCode, valid = validKeys.indexOf(code) !== -1;
     if (_heldKeys.indexOf(code) === -1 && valid) {
