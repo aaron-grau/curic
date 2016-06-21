@@ -1,35 +1,56 @@
-h3 {
+h4 {
   color: gray;
 }
 
-h4 {
-  color: lightgray;
+#rainbow {
+  position: absolute;
+  top: 0;
+  left: 300px;
+}
+
+h3 {
+  position: absolute;
+  top: 1px;
 }
 
 .red {
-  color: red;
+  background-color: red;
+  width: 100px;
+  height: 100px;
 }
 
 .orange {
-  color: orange;
+  background-color: orange;
+  width: 50px;
+  height: 50px;
 }
 
 .yellow {
-  color: yellow;
+  background-color: yellow;
+  width: 50px;
+  height: 50px;
 }
 
 .green {
-  color: green;
+  background-color: green;
+  width: 100px;
+  height: 100px;
 }
 
 .blue {
-  color: blue;
+  background-color: blue;
+  width: 100px;
+  height: 100px;
 }
 
 .indigo {
-  color: mediumslateblue;
+  background-color: mediumslateblue;
+  width: 50px;
+  height: 50px;
 }
 
 .violet {
-  color: darkviolet;
+  background-color: darkviolet;
+  width: 100px;
+  height: 100px;
 }

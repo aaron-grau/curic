@@ -22,10 +22,10 @@ Notice in the demo that there are two different ways of nesting routes. One make
 
 ### Adding colors on click
 
-Now that we have our routes down, we need to make our buttons to add colors actually change the URL and render different components. All of the click handlers have already been added for you; simply write the corresponding functions to change the URL and therefore the components that are rendered.
+Now that we have our routes down, we need to make our buttons to add colors actually change the URL and render different components. We need these both within the parent component (in `entry.jsx`) and within all of the children components that have nested components. All of the click handlers have already been added for you; simply write the corresponding functions to change the URL and therefore the components that are rendered.
 
 Time to celebrate! :tada: :rainbow: :tada:
 
 
 [live-demo]: /
-[zip-skeleton]: /../../questions/rainbow_routes/skeleton.zip
+[zip-skeleton]: ./rainbow_routes.zip

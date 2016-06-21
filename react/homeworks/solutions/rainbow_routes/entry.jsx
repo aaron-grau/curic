@@ -19,11 +19,14 @@ const Rainbow = React.createClass({
       <div>
         <h1>Rainbow Router!</h1>
 
-        <h3 onClick={this.addRed}>Red</h3>
-        <h3 onClick={this.addGreen}>Green</h3>
-        <h3 onClick={this.addBlue}>Blue</h3>
-        <h3 onClick={this.addViolet}>Violet</h3>
-        {this.props.children}
+        <h4 onClick={this.addRed}>Red</h4>
+        <h4 onClick={this.addGreen}>Green</h4>
+        <h4 onClick={this.addBlue}>Blue</h4>
+        <h4 onClick={this.addViolet}>Violet</h4>
+
+        <div id="rainbow">
+          {this.props.children}
+        </div>
       </div>
     );
   },
