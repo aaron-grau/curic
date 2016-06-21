@@ -50,6 +50,7 @@ rails new TodoReact --skip-turbolinks
     "babel-core": "^6.1.21",
     "babel-loader": "^6.1.0",
     "babel-preset-react": "^6.1.18",
+    "babel-preset-es2015": "^6.9.0",
     "bootstrap": "^3.3.5",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
@@ -80,7 +81,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
-          presets: ["react"]
+          presets: ["es2015","react"]
         }
       }
     ]
@@ -119,9 +120,7 @@ PATCH api/todos/:id #update
 ```
 
 Now fill out your `Api::TodosController`. Since you only have to render
-JSON, this should be pretty quick to implement. Go ahead and use "bang"
-methods (`#create!`, `#update!`, `#destroy!`) to do the error handling
-for you.  Test out each endpoint to make sure it works (you might have to make some routes).
+JSON, this should be pretty quick to implement. Test out each endpoint to make sure it works (you might have to make some routes). For the requests that involve passing `todo` data through (`create`, `update`), you can use jQuery's `ajax` method in the console.
 
 **NB**: You might have to nest your Api controllers under an api folder.  For example, `app/controllers/api/todos_controller.rb`.
 
