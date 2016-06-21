@@ -14,7 +14,8 @@ you'd be redefining the Rails app module with the class `Todo`.
 
 #### Turbolinks
 
-We'll add an extra option this time when we init our Rails project: `--skip-turbolinks`
+We'll add an extra option this time when we init our Rails project: `--skip-
+turbolinks`.
 
 [Turbolinks][rails-turbolinks] is a gem included by default in Rails 4 that replaces
 synchronous links with asynchronously-loading ones. This speeds up the
@@ -108,7 +109,7 @@ module.exports = {
 
 #### Api::TodosController
 
-Create a rails JSON API with the following routes. You will need to nest
+Create a Rails JSON API with the following routes. You will need to nest
 the `:todos` `resources` inside the `:api` `namespace`.
 
 ```ruby
@@ -119,10 +120,15 @@ DELETE api/todos/:id #destroy
 PATCH api/todos/:id #update
 ```
 
-Now fill out your `Api::TodosController`. Since you only have to render
-JSON, this should be pretty quick to implement. Test out each endpoint to make sure it works (you might have to make some routes). For the requests that involve passing `todo` data through (`create`, `update`), you can use jQuery's `ajax` method in the console.
+Now fill out your `Api::TodosController`. Since you only have to render JSON,
+this should be pretty quick to implement. Test out each endpoint to make sure it
+works (you might have to make some routes). For requests that involve
+posting or patching `todo` data (`create`, `update`), use `$.ajax`
+method in the console to test.
 
-**NB**: You might have to nest your Api controllers under an api folder.  For example, `app/controllers/api/todos_controller.rb`.
+**NB**: You might have to nest your API controllers under an `api` folder.  For example, `app/controllers/api/todos_controller.rb`.
+
+#### StaticPagesController
 
 Next make a `StaticPagesController`. Give it a `root` action. Set your
 app's `root to:` the root action. You can leave it as a blank page for
