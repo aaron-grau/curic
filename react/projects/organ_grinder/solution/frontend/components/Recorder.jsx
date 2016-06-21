@@ -4,7 +4,11 @@ const KeyStore = require('../stores/KeyStore');
 
 const Recorder = React.createClass({
   componentDidMount() {
-    KeyStore.addListener(this._keysChanged);
+    this.keyListener = KeyStore.addListener(this._keysChanged);
+  },
+
+  componentWillUnmount() {
+    this.keyListener.remove();
   },
 
   getInitialState() {
