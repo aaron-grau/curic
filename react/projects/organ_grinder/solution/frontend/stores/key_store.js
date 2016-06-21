@@ -1,7 +1,7 @@
 let _keys = [];
 const Store =  require("flux/utils").Store;
-const OrganConstants = require("../constants/OrganConstants");
-const AppDispatcher = require('../dispatcher/Dispatcher');
+const OrganConstants = require("../constants/organ_constants");
+const AppDispatcher = require('../dispatcher/dispatcher');
 const KeyStore = new Store(AppDispatcher);
 
 KeyStore.all = () => _keys.slice(0);

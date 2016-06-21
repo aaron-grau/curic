@@ -1,5 +1,5 @@
-const AppDispatcher = require("../dispatcher/Dispatcher");
-const OrganConstants = require("../constants/OrganConstants");
+const AppDispatcher = require("../dispatcher/dispatcher");
+const OrganConstants = require("../constants/organ_constants");
 
 const KeyActions = {
   groupUpdate(notes) {

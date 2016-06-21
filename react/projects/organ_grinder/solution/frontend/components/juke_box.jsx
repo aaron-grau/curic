@@ -1,7 +1,7 @@
 const React = require('react');
-const TrackStore = require('../stores/TrackStore');
-const TrackApiUtil = require('../util/TrackApiUtil');
-const TrackPlayer = require('../components/TrackPlayer');
+const TrackStore = require('../stores/track_store');
+const TrackApiUtil = require('../util/track_api_util');
+const TrackPlayer = require('../components/track_player');
 
 const JukeBox = React.createClass({
   componentDidMount() {
