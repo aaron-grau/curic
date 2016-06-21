@@ -4,7 +4,7 @@ module.exports = React.createClass({
   render() {
     return(
       <div>
-        <h2 className="yellow">YELLOW</h2>
+        <h3 className="yellow"></h3>
       </div>
     );
   }
