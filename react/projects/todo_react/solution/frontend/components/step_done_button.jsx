@@ -1,5 +1,6 @@
 const React = require('react');
 const StepStore = require('../stores/step_store');
+let classname;
 
 const StepDoneButton = React.createClass({
   handleDone(event) {
