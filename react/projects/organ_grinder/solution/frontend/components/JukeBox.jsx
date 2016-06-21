@@ -5,8 +5,12 @@ const TrackPlayer = require('../components/TrackPlayer');
 
 const JukeBox = React.createClass({
   componentDidMount() {
-    TrackStore.addListener(this._onChange);
+    this.trackListener = TrackStore.addListener(this._onChange);
     TrackApiUtil.fetchTracks();
+  },
+
+  componentWillUnmount() {
+    this.trackListener.remove();
   },
 
   getInitialState() {

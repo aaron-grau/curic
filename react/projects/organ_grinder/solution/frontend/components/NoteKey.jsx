@@ -6,7 +6,11 @@ const TONES = require('../constants/Tones');
 const NoteKey = React.createClass({
   componentDidMount() {
     this.note = new Note(TONES[this.props.noteName]);
-    KeyStore.addListener(this._onChange);
+    this.keyListener = KeyStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount() {
+    this.keyListener.remove();
   },
 
   getInitialState() {
@@ -36,6 +40,5 @@ const NoteKey = React.createClass({
     this.setState({ pressed });
   }
 });
-
 
 module.exports = NoteKey;

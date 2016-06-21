@@ -8,8 +8,12 @@ const AddKeyListeners = require("../util/AddKeyListeners");
 
 const Organ = React.createClass({
   componentDidMount() {
-    KeyStore.addListener(this._onChange);
+    this.keyListener = KeyStore.addListener(this._onChange);
     AddKeyListeners();
+  },
+
+  componentWillUnmount() {
+    this.keyListener.remove();
   },
 
   getInitialState() {
