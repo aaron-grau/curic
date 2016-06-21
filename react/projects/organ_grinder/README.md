@@ -353,7 +353,8 @@ You'll also need a `createTrack` action to save tracks through your API Util.
 * It's a keyboard; have fun! Add more notes!
 * Make additional keys that play entire CHORDS.
 * **Looping**: Add a setting to allow tracks to play continuously.
-* **Jam Session**: Allow users to play on the organ while a track runs in the background.
+* **Jam Session**: Allow users to play on the organ while a track runs in the
+  background.
 * **Scales**: pentatonic, minor, etc.
 * **Playlists**: Queue up tracks to be played one after another.
 * Implement other octaves and waveforms.
