@@ -21,13 +21,13 @@
   },
   "homepage": "https://github.com/appacademy/OrganGrinder#readme",
   "dependencies": {
-    "babel-core": "^6.1.21",
-    "babel-loader": "^6.2.0",
-    "babel-preset-react": "^6.1.18",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
     "flux": "^2.1.1",
-    "jquery": "^2.1.4",
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2",
-    "webpack": "^1.12.6"
+    "jquery": "^2.2.4",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "webpack": "^1.13.1"
   }
 }
