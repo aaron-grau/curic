@@ -4,7 +4,7 @@ Today we're going to get our first experience using the React Router. The goal i
 
 ## Getting Started
 
-Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. **Run `npm install` to get it setup.**
+Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. Run `npm install` to get it setup. Then make sure webpack is watching (`webpack --watch`), and start up the `http-server`.
 
 ### Routing
 
