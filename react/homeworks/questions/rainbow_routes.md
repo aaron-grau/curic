@@ -10,7 +10,7 @@ Navigate to `http://localhost:8080` in your browser and verify you can see "Rain
 
 ## Phase 1: Basic Routing Structure
 
-Our first step is to build up the router structure we want.  Ultimately, we want our router structure to look like this:
+Our first step is to build up the router structure we want.  Ultimately, we want our router to look like this:
 
 URL                     | Components
 ------------------------|-----------
@@ -26,9 +26,9 @@ URL                     | Components
 
 To start, let's add our first level of routes (i.e. red, green, blue, & violet).  Scroll to the bottom of `entry.jsx` and you'll see the basic framework of a router has already been set up.  
 
-Now it's our job to add more routes.  For each desired route (red, green, blue, & violet), set the path attribute equal to the color name and assign the corresponding component.  
+Now it's our job to add more routes.  For each desired route (red, green, blue, & violet), set the path attribute equal to the color name and assign the corresponding component.  Refer to tonight's readings on [Route Configuration][route-config-reading] for guidance on how to build routes.
 
-You'll notice all the color components have already been required at the top of the page.  Refer to tonight's readings on [Route Configuration][route-config-reading] for guidance on how to build routes.
+**N.B.** All the color components have already been required at the top of the page.  
 
 Test that your code works!  Navigate to all the urls we just created, and you should see the color component pop up on the right-hand side.  Remember, these are React Routes, so the paths we created will come after the `#`.  For example, our red route will look like `localhost:8080/#/red`.
 
@@ -36,7 +36,7 @@ Test that your code works!  Navigate to all the urls we just created, and you sh
 
 ## Phase 2: Hash History
 
-Navigating to our newly created routes manually is tiresome, so let's add functionality to take care of this process for us.  Take a look at the `rainbow` component - you'll see that each `<h4>` has a click listener and corresponding method already created.  
+Manually navigating to our newly created routes is tiresome, so let's add functionality to take care of this process for us.  Take a look at the `rainbow` component in `entry.jsx` - you'll see that each `<h4>` has a click listener and corresponding method already created.  
 
 To make each of these click handlers change the path for us, we're going to use [`hashHistory`][hash-history], which allows us to dynamically change the hash portion of our url.  
 
@@ -50,7 +50,7 @@ To use `hashHistory`, we can simply push in the url we wish to navigate to.  For
   }
 ```
 
-Fill out the remaining `addColor` methods.  Test that your code works by clicking on the color names in your browser and seeing that you are redirected correctly.  
+Fill out the remaining `addColor` methods.  Test that your code works by clicking on the color names in your browser and seeing that you are rendering components correctly.  
 
 ## Phase 3: Nested Routes
 
@@ -58,7 +58,7 @@ Now let's add those nested routes (i.e. orange, yellow, & indigo).  No step-by-s
 
 Once you've added the nested routes, the next step is set up the click handlers to so we can actually get to these routes.  You probably noticed text below the red and blue square, prompting you to add another color.  Our job now is to make those links work!  
 
-Open up the `red.jsx` and `blue.jsx` files within the components folder.  You'll again see that click handlers and callbacks have already been set up.  Go ahead and add code to all the click handler callbacks.  When you push the new route in the `hashHistory`, make sure it's appropriately nested!
+Open up the `red.jsx` and `blue.jsx` files within the components folder.  You'll again see that click handlers and callbacks have already been set up.  Go ahead and add code to all the click handler callbacks.  When you push the new route in the `hashHistory`, make sure it's appropriately nested!  The nested colors should show up on top of the base color (i.e. we'll see a small orange square overlapping a larger red one).
 
 Test that your code works by navigating through all the routes.  Time to celebrate! :tada: :rainbow: :tada:
 
