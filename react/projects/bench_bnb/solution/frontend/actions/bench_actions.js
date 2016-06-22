@@ -6,13 +6,13 @@ const BenchApiUtil = require('../util/bench_api_util');
 
 const BenchActions = {
   fetchAllBenches(filters) {
-    BenchApiUtil.fetchAllBenches(filters, this.receiveAllBenches);
+    BenchApiUtil.fetchAllBenches(filters, BenchActions.receiveAllBenches);
   },
   createBench(bench){
-    BenchApiUtil.createBench(bench, this.receiveSingleBench);
+    BenchApiUtil.createBench(bench, BenchActions.receiveSingleBench);
   },
   createReview(review){
-    BenchApiUtil.createReview(review, this.receiveSingleBench);
+    BenchApiUtil.createReview(review, BenchActions.receiveSingleBench);
   },
 
   receiveAllBenches(benches) {
