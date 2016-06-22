@@ -21,6 +21,13 @@ const TrackActions = {
       actionType: OrganConstants.RESET_TRACKS,
       tracks
     });
+  },
+
+  deleteTrack(id) {
+    AppDispatcher.dispatch({
+      actionType: OrganConstants.DELETE_TRACK,
+      id
+    })
   }
 };
 

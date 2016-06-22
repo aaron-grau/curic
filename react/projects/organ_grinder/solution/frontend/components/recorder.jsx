@@ -67,10 +67,10 @@ const Recorder = React.createClass({
   trackSavingElements() {
     if (this.isDoneRecording()) {
       return [
-        <button onClick={this.playClick} className={this.playClass()}>
+        <button key="play" onClick={this.playClick} className={this.playClass()}>
           Play
         </button>,
-        <button onClick={this.saveTrack} className="save-button">
+        <button key="save" onClick={this.saveTrack} className="save-button">
           Save Track
         </button>
       ];
