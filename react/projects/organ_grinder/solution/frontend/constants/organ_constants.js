@@ -6,7 +6,8 @@ const OrganConstants = {
   PLAY_PRESSED: "PLAY_PRESSED",
   CREATE_TRACK: "CREATE_TRACK",
   ADD_TRACK: "ADD_TRACK",
-  RESET_TRACKS: "RESET_TRACKS"
+  RESET_TRACKS: "RESET_TRACKS",
+  DELETE_TRACK: "DELETE_TRACK"
 };
 
 module.exports = OrganConstants;
