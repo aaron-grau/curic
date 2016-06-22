@@ -1,4 +1,5 @@
 const React = require("react");
+const TrackApiUtil = require("../util/track_api_util");
 
 const TrackPlayer = React.createClass({
   playClick() {
@@ -6,7 +7,7 @@ const TrackPlayer = React.createClass({
   },
 
   deleteTrack() {
-
+    TrackApiUtil.deleteTrack(this.props.track.get('id'));
   },
 
   render() {

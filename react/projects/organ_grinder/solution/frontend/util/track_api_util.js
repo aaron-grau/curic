@@ -28,6 +28,18 @@ const TrackApiUtil = {
 
       TrackActions.resetTracks(tracks);
     });
+  },
+
+  deleteTrack(id) {
+    $.ajax({
+      url: `/api/tracks/${id}`,
+      method: 'DELETE',
+      dataType: 'JSON',
+      beforeSend(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      success(track) {
+        TrackActions.deleteTrack(track.id);
+      }
+    })
   }
 };
 
