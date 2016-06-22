@@ -2,7 +2,7 @@
 
 Live demo available [here][live-link]!
 
-[live-link]: http://www.aa-organ-grinder.herokuapp.com
+[live-link]: http://aa-organ-grinder.herokuapp.com/
 
 ## Overview
 
