@@ -14,7 +14,7 @@ const TrackPlayer = React.createClass({
     return (
       <div className="track">
         <p className="track-name">&#x266C; {this.props.track.get('name')}</p>
-        <button className="player-button" onClick={this.playClick}>Play</button>
+        <button className="player-button" onClick={this.playClick}>&#9658; Play</button>
         <button className="player-button delete" onClick={this.deleteTrack}>Delete</button>
       </div>
     );
