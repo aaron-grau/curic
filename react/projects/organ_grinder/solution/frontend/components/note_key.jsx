@@ -17,14 +17,6 @@ const NoteKey = React.createClass({
     return { pressed: this.thisKeyPressed() };
   },
 
-  render() {
-    let className = "note-key";
-    if(this.state.pressed){
-      className += " pressed";
-    }
-    return <div className={className}>{this.props.noteName}</div>;
-  },
-
   thisKeyPressed() {
     const keys = KeyStore.all();
     return keys.indexOf(this.props.noteName) !== -1;
@@ -38,7 +30,15 @@ const NoteKey = React.createClass({
       this.note.stop();
     }
     this.setState({ pressed });
-  }
+  },
+
+  render() {
+    let className = `note-key key-${this.props.idx}`;
+    if(this.state.pressed){
+      className += " pressed";
+    }
+    return <div className={className}>{this.props.noteName}</div>;
+    },
 });
 
 module.exports = NoteKey;
