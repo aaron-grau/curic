@@ -6,11 +6,11 @@ const AppDispatcher = require('../dispatcher/dispatcher');
 
 const FavoriteActions = {
   createFavorite(data) {
-    FavoriteApiUtil.createFavorite(data, this.receiveFavorite);
+    FavoriteApiUtil.createFavorite(data, FavoriteActions.receiveFavorite);
   },
 
   deleteFavorite(data) {
-    FavoriteApiUtil.deleteFavorite(data, this.removeFavorite);
+    FavoriteApiUtil.deleteFavorite(data, FavoriteActions.removeFavorite);
   },
 
   receiveFavorite(favorite) {

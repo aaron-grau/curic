@@ -9,24 +9,27 @@ const hashHistory = require('react-router').hashHistory;
 const SessionActions = {
 
   signUp(formData){
-    SessionApiUtil.signUp(formData,
-      this.receiveCurrentUser,
+    SessionApiUtil.signUp(
+      formData,
+      SessionActions.receiveCurrentUser,
       ErrorActions.setErrors);
   },
 
   logIn(formData){
-    SessionApiUtil.logIn(formData,
-      this.receiveCurrentUser,
+    SessionApiUtil.logIn(
+      formData,
+      SessionActions.receiveCurrentUser,
       ErrorActions.setErrors);
   },
 
   logOut() {
-    SessionApiUtil.logOut(this.removeCurrentUser);
+    SessionApiUtil.logOut(SessionActions.removeCurrentUser);
 
   },
 
   fetchCurrentUser(complete){
-    SessionApiUtil.fetchCurrentUser(this.receiveCurrentUser, complete);
+    SessionApiUtil.fetchCurrentUser(
+      SessionActions.receiveCurrentUser, complete);
   },
 
   receiveCurrentUser(currentUser) {
