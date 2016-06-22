@@ -140,8 +140,8 @@
 * :movie_camera: [Git: Useful Commands][git-useful-commands-video] (4 min)
 * :movie_camera: [Git: Wrapup][git-wrapup-video] (2 min)
 
-[git-overview-video]: vimeo.com/171666454
-[git-mental-models-video]: vimeo.com/171666455
+[git-overview-video]: https://vimeo.com/171666454
+[git-mental-models-video]: https://vimeo.com/171666455
 [git-useful-commands-video]: https://vimeo.com/171666453
 [git-wrapup-video]: https://vimeo.com/171666456
 
