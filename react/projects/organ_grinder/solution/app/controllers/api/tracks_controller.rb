@@ -13,6 +13,16 @@ class Api::TracksController < ApplicationController
     end
   end
 
+  def destroy
+    @track = Track.find(params[:id])
+
+    if @track.destroy
+      render json: @track, status: 200
+    else
+      render json: @track.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   private
 
   ROLL_FILTER = {:roll => [:time, :notes => []]}
