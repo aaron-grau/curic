@@ -3,16 +3,16 @@ const Track = require("../util/track");
 const KeyStore = require('../stores/key_store');
 
 const Recorder = React.createClass({
+  getInitialState() {
+    return { recording: false, track: new Track() };
+  },
+
   componentDidMount() {
     this.keyListener = KeyStore.addListener(this._keysChanged);
   },
 
   componentWillUnmount() {
     this.keyListener.remove();
-  },
-
-  getInitialState() {
-    return { recording: false, track: new Track() };
   },
 
   isDoneRecording() {
@@ -28,7 +28,11 @@ const Recorder = React.createClass({
   },
 
   playClass() {
-    return `play-button${this.isTrackNew()}` ? "" : " disabled";
+    let klass = "play-button";
+    if(this.isTrackNew()) {
+      klass += " disabled";
+    }
+    return klass;
   },
 
   playClick(e) {
@@ -55,23 +59,6 @@ const Recorder = React.createClass({
     }
   },
 
-  render() {
-    const hasTrack = this.isTrackNew();
-
-    return (
-      <div className="controls">
-        <h3>Recorder</h3>
-        <button onClick={this.recordClick} className="record-button">
-          { this.recordingMessage() }
-        </button>
-        { this.trackSavingElements() }
-        <button onClick={this.playClick} className={this.playClass()}>
-          Play
-        </button>
-      </div>
-    );
-  },
-
   saveTrack(e) {
     this.state.track.set('name', prompt("please enter name"));
     this.state.track.save();
@@ -79,11 +66,14 @@ const Recorder = React.createClass({
 
   trackSavingElements() {
     if (this.isDoneRecording()) {
-      return (
-        <button onClick={this.saveTrack} className="control">
+      return [
+        <button onClick={this.playClick} className={this.playClass()}>
+          Play
+        </button>,
+        <button onClick={this.saveTrack} className="save-button">
           Save Track
         </button>
-      );
+      ];
     }
   },
 
@@ -91,6 +81,20 @@ const Recorder = React.createClass({
     if (this.state.recording){
       this.state.track.addNotes(KeyStore.all());
     }
+  },
+
+  render() {
+    const hasTrack = this.isTrackNew();
+
+    return (
+      <div className="controls">
+        <span className="recorder-header">Recorder: </span>
+        <button onClick={this.recordClick} className="record-button">
+          { this.recordingMessage() }
+        </button>
+        { this.trackSavingElements() }
+      </div>
+    );
   }
 });
 
