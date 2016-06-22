@@ -74,7 +74,7 @@
 
 ## w3d3
 
-### Video Lectures (60 min)
+### Video Lectures (73 min)
 :closed_lock_with_key: `go_video_go`
 
 + :movie_camera: [Starting a new Rails Project][rails-intro-video] (7 min)
@@ -82,6 +82,7 @@
 + :movie_camera: [Models][models-video] (8 min)
 + :movie_camera: [Basic Associations (belongs_to, has_many)][associations-video]  (12 min)
 + :movie_camera: [More Associations (has_many through:...)][associations-2-video] (12 min)
++ :movie_camera: [Validations][validations-video] (13 min)
 + :movie_camera: [Indices][indices-video] (7 min)
 
 ### Homeworks (45 min)
@@ -117,6 +118,7 @@ until I give you leave to let Rails infer these.
 [models-video]: https://vimeo.com/167799436
 [associations-video]: https://vimeo.com/167799432
 [associations-2-video]: https://vimeo.com/167799430
+[validations-video]: https://vimeo.com/167799437
 [indices-video]: https://vimeo.com/167799431
 
 
