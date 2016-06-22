@@ -138,6 +138,9 @@
   * read the documentation thoroughly!
 * [Effective JavaScript][effective-js]: Items 66, 67, and 68 (20 min)
 
+### Homeworks (30 min)
+* [Rainbow Routes][rainbow-routes] (30 min)
+
 ### Projects
 * [Pokedex][pokedex]
 
@@ -148,6 +151,7 @@
 [index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
 [component-lifecycle]: https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
 [jbuilder-link]: https://github.com/rails/jbuilder
+[rainbow-routes]: homeworks/questions/rainbow_routes.md
 [pokedex]: projects/pokedex
 
 ## w7d5
