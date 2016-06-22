@@ -133,6 +133,18 @@
 
 ## w1d4
 
+### Video Lectures (29 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [Git: Overview and Why We Use Git][git-overview-video] (5 min)
+* :movie_camera: [Git: Mental Models][git-mental-models-video] (18 min)
+* :movie_camera: [Git: Useful Commands][git-useful-commands-video] (4 min)
+* :movie_camera: [Git: Wrapup][git-wrapup-video] (2 min)
+
+[git-overview-video]: vimeo.com/171666454
+[git-mental-models-video]: vimeo.com/171666455
+[git-useful-commands-video]: https://vimeo.com/171666453
+[git-wrapup-video]: https://vimeo.com/171666456
+
 ### Readings (40 min)
 + [Why Git][why-git] (10 min)
 + [Git Workflow][git-workflow] (10 min)
