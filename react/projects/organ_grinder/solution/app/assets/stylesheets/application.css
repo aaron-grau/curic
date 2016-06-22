@@ -75,6 +75,11 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
 h4 {
   text-align: center;
   margin-top: 0px;
@@ -98,7 +103,13 @@ button {
 
 .player-button {
   outline: 1px solid black;
-  margin: 20px;
+  margin-left: 25px;
+}
+
+.delete {
+  background: red;
+  color: white;
+  margin-left: 0px;
 }
 
 button:hover {
@@ -140,6 +151,9 @@ button:hover {
 .track {
   display: flex;
   justify-content: center;
+  height: 30px;
+  align-items: center;
+  padding-top: 5px;
 }
 
 .not-link {

@@ -1,5 +1,9 @@
 # Flux Organ Project
 
+Live demo available [here][live-link]!
+
+[live-link]: http://www.aa-organ-grinder.herokuapp.com
+
 ## Overview
 
 In this project we'll make a musical organ you can play on your keyboard! When
@@ -38,7 +42,7 @@ frontend
 * Model your `frontend` folder on the above diagram.
 * These folders will store our front-end goodies.
 * Configure your webpack setup in `webpack.config.js` to compile all JS
-  into `app/assets/javascripts/bundle.js`. Require this file in 
+  into `app/assets/javascripts/bundle.js`. Require this file in
   `application.js`
 * Create the dispatcher file as follows:
 
@@ -97,8 +101,8 @@ module.exports = Note;
 
 Test that you can play a note from the console by passing in a sample frequency.
 
-**NB**: If you can't play the note and can't figure out why, try playing 
-it in a new browser tab. Chrome's still resolving internal kinks with its 
+**NB**: If you can't play the note and can't figure out why, try playing
+it in a new browser tab. Chrome's still resolving internal kinks with its
 media APIs.
 
 ### `Tones`
@@ -137,7 +141,7 @@ store.
 How would you test that your listeners work on their own (without calling any
 other code in your app)?
 
-To know which key name to pass to our action, we'll need to map 
+To know which key name to pass to our action, we'll need to map
 [keycodes][keycode-list] (this information is available as part of the `event` object) to organ keys, e.g.
 
 ```js
@@ -159,7 +163,7 @@ Here's how an event propagates through our app:
 0. The `KeyActions.keyPressed` action sends a payload to the
    `AppDispatcher`. The payload should contain the `actionType` and a `noteName`.
 0. The dispatcher emits the event. The `KeyStore` catches the event, gets the `noteName`
-  out of the payload, and adds the `noteName` to its array of `keys`. The `KeyStore` 
+  out of the payload, and adds the `noteName` to its array of `keys`. The `KeyStore`
   also emits a change event.
 
 How do you grab the keycode? Put a debugger at the top of your key listener and
@@ -285,11 +289,11 @@ the `Track`. At the top of your `play` method, check if `this.interval` already
 exists. If it does, return immediately so we don't play the `Track` over itself.
 Next grab `Date.now()` and assign it to `playbackStartTime`. We'll also want to
 initialize the `currentNote` to `0`. Local variables are sufficient; the
-interval callback closes over them. 
+interval callback closes over them.
 
 Now for the meat of the method: set an interval, passing in an anonymous
 callback. The callback should check whether `currentNote` is still in range of
-the `roll`. **If so**: 
+the `roll`. **If so**:
 
 - Check whether `Date.now() - playBackStartTime` exceeds the current
   note's `timeSlice`. If it does:
