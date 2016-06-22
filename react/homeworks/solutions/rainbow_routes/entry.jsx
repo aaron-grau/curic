@@ -2,15 +2,20 @@
 
 const React = require('react');
 const ReactDOM = require('react-dom');
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+const ReactRouter = require('react-router');
 
-const Red = require('./red.jsx');
-const Orange = require('./orange.jsx');
-const Yellow = require('./yellow.jsx');
-const Green = require('./green.jsx');
-const Blue = require('./blue.jsx');
-const Indigo = require('./indigo.jsx');
-const Violet = require('./violet.jsx');
+const Router = ReactRouter.Router;
+const Route = ReactRouter.Route;
+const IndexRoute = ReactRouter.IndexRoute;
+const hashHistory = ReactRouter.hashHistory;
+
+const Red = require('./components/red.jsx');
+const Orange = require('./components/orange.jsx');
+const Yellow = require('./components/yellow.jsx');
+const Green = require('./components/green.jsx');
+const Blue = require('./components/blue.jsx');
+const Indigo = require('./components/indigo.jsx');
+const Violet = require('./components/violet.jsx');
 
 
 const Rainbow = React.createClass({
@@ -55,8 +60,7 @@ const routes = (
       <Route path="yellow" component={Yellow} />
     </Route>
     <Route path="green" component={Green} />
-    <Route path="blue" component={Blue}/>
-    <Route component={Blue}>
+    <Route path="blue" component={Blue}>
       <Route path="indigo" component={Indigo} />
     </Route>
     <Route path="violet" component={Violet} />

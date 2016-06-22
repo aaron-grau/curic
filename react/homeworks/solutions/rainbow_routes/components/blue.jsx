@@ -1,5 +1,6 @@
 const React = require('react');
-import { hashHistory } from 'react-router';
+const ReactRouter = require('react-router');
+const hashHistory = ReactRouter.hashHistory;
 
 module.exports = React.createClass({
   render() {
@@ -19,6 +20,6 @@ module.exports = React.createClass({
   },
 
   addIndigo() {
-    hashHistory.push('/indigo');
+    hashHistory.push('/blue/indigo');
   }
 });

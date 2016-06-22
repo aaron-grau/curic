@@ -6,7 +6,7 @@ Today we're going to get our first experience using the React Router. The goal i
 
 Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. Run `npm install` to get it setup. Then make sure webpack is watching (`webpack --watch`), and start up the `http-server`.  
 
-Navigate to `http://localhost:8080/` in your browser and verify you can see "Rainbow Router" header.  Currently there's no functionality - we'll fix that asap!
+Navigate to `http://localhost:8080` in your browser and verify you can see "Rainbow Router" header.  Currently there's no functionality - we'll fix that asap!
 
 ## Phase 1: Basic Routing Structure
 
@@ -32,19 +32,17 @@ You'll notice all the color components have already been required at the top of 
 
 Test that your code works!  Navigate to all the urls we just created, and you should see the color component pop up on the right-hand side.  Remember, these are React Routes, so the paths we created will come after the `#`.  For example, our red route will look like `localhost:8080/#/red`.
 
-Next, let's go ahead and add the nested routes (i.e. orange, yellow, and indigo).  Same principle follows for setting the path and component attributes to the corresponding color.  For the time being, we won't be able to test these out, but we'll get to that later.  
-
 [route-config-reading]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md  
 
 ## Phase 2: Hash History
 
 Navigating to our newly created routes manually is tiresome, so let's add functionality to take care of this process for us.  Take a look at the `rainbow` component - you'll see that each `<h4>` has a click listener and corresponding method already created.  
 
-To make each of these click handlers change the path for us, we're going to use [`HashHistory`][hash-history], which allows us to dynamically change the hash portion of our url.  
+To make each of these click handlers change the path for us, we're going to use [`hashHistory`][hash-history], which allows us to dynamically change the hash portion of our url.  
 
-**N.B.** Notice that the router was declared with its history property set to `HashHistory`.
+**N.B.** Notice that the router was declared with its history property set to `hashHistory`.
 
-To use `HashHistory`, we can simply push in the url we wish to navigate to.  For example, our `addRed` method might look as follows:
+To use `hashHistory`, we can simply push in the url we wish to navigate to.  For example, our `addRed` method might look as follows:
 
 ```js
   addRed() {
@@ -58,9 +56,9 @@ Fill out the remaining `addColor` methods.  Test that your code works by clickin
 
 Now let's add those nested routes (i.e. orange, yellow, & indigo).  No step-by-step instructions here - you got this!  
 
-Next step is set up the click handlers to allow us to get to these nested routes.  You probably noticed text below the red and blue square, prompting you to add another color.  Our job now is to make those links work!  
+Once you've added the nested routes, the next step is set up the click handlers to so we can actually get to these routes.  You probably noticed text below the red and blue square, prompting you to add another color.  Our job now is to make those links work!  
 
-Open up the `red.jsx` and `blue.jsx` files within the components folder.  You'll again see that click handlers have already been set up.  Go ahead and add code to all the click handler callbacks.  When you push the new route in the `hashHistory`, make sure it's appropriately nested!
+Open up the `red.jsx` and `blue.jsx` files within the components folder.  You'll again see that click handlers and callbacks have already been set up.  Go ahead and add code to all the click handler callbacks.  When you push the new route in the `hashHistory`, make sure it's appropriately nested!
 
 Test that your code works by navigating through all the routes.  Time to celebrate! :tada: :rainbow: :tada:
 
