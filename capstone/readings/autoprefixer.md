@@ -11,7 +11,7 @@ quickly become bloated with vendor-prefixes that are a pain to write by hand.
 browser-compatible CSS by automatically prefixing your CSS. This lets you write: 
 
 ```css
-a {
+.navbar {
   display: flex
 }
 ```
@@ -19,7 +19,7 @@ a {
 to get:
 
 ```css
-a {
+.navbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
