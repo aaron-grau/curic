@@ -22,7 +22,7 @@ const SessionActions = require('./actions/session_actions');
 
 const appRouter = (
   <Router history={ hashHistory }>
-    <Route path="/" component={ App } onEnter={ _ensureUserFetched }>
+    <Route path="/" component={ App }>
       <IndexRoute component={ Search } />
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
@@ -33,19 +33,6 @@ const appRouter = (
     </Route>
   </Router>
 );
-
-function _ensureUserFetched(nextState, replace, asyncDoneCallback){
-  //Any time we render the app, we want to ensure that we have already
-  //checked to see if the user is logged in. This should only fire once --
-  //when the user first visits our website / after a reload
-  if ( SessionStore.currentUserHasBeenFetched() ) {
-    //If the current user has already been fetched, we're done!
-    asyncDoneCallback();
-  } else {
-    //If not, let's initiate the fetch, and pass the asyncDoneCallback to be invoked upon completion
-    SessionActions.fetchCurrentUser(asyncDoneCallback);
-  }
-}
 
 function _ensureLoggedIn(nextState, replace) {
   // We don't want users to be able to visit our 'new' or 'review' routes
@@ -58,7 +45,11 @@ function _ensureLoggedIn(nextState, replace) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.currentUser) {
+    SessionActions.receiveCurrentUser(window.currentUser);
+  }
+  
   const root = document.getElementById('content');
   ReactDOM.render(appRouter, root);
 });
