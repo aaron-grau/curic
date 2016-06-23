@@ -142,13 +142,14 @@ understand each individual step.
 
 Read the instructions below, and then create an API with the following
 endpoints:
+
   * [POST] api/users: "users#create" (signup),
   * [POST] api/session: "session#create" (login),
   * [DELETE] api/session: "session#destroy" (logout)
 
- **Create a `User` model, `UsersController`, and `SessionsController`.** Follow
- the basic pattern you used during the [Rails curriculum][rails], with some key
- differences:
+**Create a `User` model, `UsersController`, and `SessionsController`.** Follow
+the basic pattern you used during the [Rails curriculum][rails], with some key
+differences:
 
 * **Namespace**: Your controllers should live under an `Api` namespace.
 * **Response Format**: render JSON formatted responses by default.
@@ -298,39 +299,84 @@ Modify your app to provide a greeting to users when they are signed in.
     * `onClick` of logout button, `preventDefault` and `SessionActions#logout`
   * If user IS NOT logged in, give them links to "#/login" and "#/signup"
 
-### 5. Fetch the current user before the app mounts.
+### 5. Bootstrap the current user before the app mounts.
 
-Since we're already making a request for `static_pages#root`, we can simply send down the current user during that request. What we want to do is add a `currentUser` property to the window as we render `root.html.erb`. We can then access that property in our entry file. We also want to use our jbuilder `_user` partial to render the current user.
+When our static `root` page loads, our app mounts without being aware of who the
+current user is.
 
-We will render our jbuilder partial same way we render html partials, with the `render` helper method. To prevent rails from automatically looking for a html partial, give the whole path including `.json.jbuilder`, and render the partial inside of script tag with a type of `"application/json"`. Your jbuilder partial relies on a `user` variable, so be sure to pass in `user: current_user`. Lastly we have to mark the result of the call to render `html_safe`, to avoid certain characters being automatically escaped. Give this script tag an id so we can access the contents later. You should have something like this.
+One solution to this problem is to create another API hook that returns the
+current user and then fetch that information when the app mounts. However, since
+the request would be asynchronous, our app would momentarily have no current
+user. This would cause it to briefly render in a 'not-logged-in' state and then
+re-render when the current user was received, causing a strange, flickering
+effect. To circumvent this, we'll bootstrap the current user alongside our html
+when the page initially loads.
 
-```javascript
-  // root.html.erb
-  <script id="bootstrap-current-user" type="application/json">
-    <% if logged_in? %>
-      <% current_user_json = render("api/users/user.json.jbuilder", user: current_user) %>
-      <%= current_user_json.html_safe %>
-    <% end %>
-  </script>
+#### Edit your `root.html.erb`
+
+Add a `<script></script>` element to the top of your `root.html.erb` file. Give
+it a `type="text/javascript"`.
+
+Inside your `<script>`, we're going to assign `window.currentUser`. In order to
+get the proper value, we'll need to ask our controller for the `current_user`
+and then `render` that information inside the script tag using `ERB`
+interpolation. The result will be a hard-coded assignment in our rendered html
+that looks something like this:
+
+```html
+...
+<script type="text/javascript">
+    window.currentUser = {"id":3,"username":"bobross"}
+</script>
+
+<main id="content"></main>
+...
+
+``` 
+
+where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
+
+#### Interpolate the current user information
+
+In your script, assign your `window.currentUser` to an erb expression:
+
+```js
+  window.currentUser = <%=  %>
 ```
 
-In a new script tag, select the tag we just created with and `JSON.parse` the `.innerText` property of that tag. Test out that this is returning the current user with a debugger. Once it is, set window.currentUser to the result. You should have something like this.
+Make sure to use `<%= %>` so that the result of your ruby code is rendered into the
+script ( it will eventually return a JSON object).
 
-```javascript
-  // root.html.erb
+Inside your erb expression, `render` your jbuilder `_user` partial, passing it
+the `current_user`. To prevent rails from automatically looking for a html
+partial, specify the whole path, including `.json.jbuilder`.Mark your `render`
+result `html_safe` to avoid escaping certain characters. You should get a JS-
+compatible object to assign to `window.currentUser`. Add interpolation around
+your  `window.currentUser=` assignment so that it only runs if someone is logged
+in. You should have something like this:
 
-  <script>
-    <% if logged_in? %>
-      var currentUserJSON = document.getElementById("bootstrap-current-user").innerText
-      window.currentUser = JSON.parse(currentUserJSON);
-    <% end %>
-  </script>
+```html
 
-  <main id"content"></main>
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = <%= render("api/users/user.json.jbuilder", 
+      user: current_user).html_safe %>
+  <% end %>
+</script>
+
 ```
 
-Last step, inside of your entry file, call `SessionActions.receiveCurrentUser(window.currentUser)`. Now before we mount any of our react components onto the page, the store has the correct value for current user.
+Log in, refresh your page, and check out your `elements` in the Dev Tools.
+Verify that the  `script` contains an object literal of the current user and
+properly assigns  `window.currentUser`.
 
+Finally, inside the `DOMContentLoaded` callback in your entry file, call
+`SessionActions.receiveCurrentUser(window.currentUser)` before
+`ReactDom.render`. This will ensure that the `SessionStore` has the
+`_currentUser` before any of your components render.
+
+Test that your bootstrapping worked by logging in and refreshing the page. If you 
+don't get logged out, it worked!
 
 ### 6. Protect your front-end routes.
 

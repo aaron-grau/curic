@@ -1,16 +1,8 @@
-<script id="bootstrap-current-user" type="application/json">
+<script id="bootstrap-current-user" type="text/javascript">
   <% if logged_in? %>
-    <% current_user_json = render("api/users/user.json.jbuilder", user: current_user) %>
-    <%= current_user_json.html_safe %>
+  	window.currentUser = <%= render("api/users/user.json.jbuilder", 
+  		user: current_user).html_safe %>
   <% end %>
 </script>
-
-<script>
-  <% if logged_in? %>
-    var currentUserJSON = document.getElementById("bootstrap-current-user").innerText
-    window.currentUser = JSON.parse(currentUserJSON);
-  <% end %>
-</script>
-
 
 <main id="content"></main>
