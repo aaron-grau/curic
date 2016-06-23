@@ -3,15 +3,15 @@
 ## Important Dates
   * **W7D4**: Submit [tentative project proposal][tentative-proposal] by 9am
     * [Suggested Capstone Projects][good-projects]
-  * **W8D1**: Submit [capstone project proposal][project-proposals] by 9am
+  * **W8D1**: Submit [capstone project proposal][readings] by 9am
     * [Sample Proposal][sample-proposal]
   * **W9D2**: Peer Review #1
   * **W9D5**: Peer Review #2
 
-[tentative-proposal]: project-proposals/tentative-project-proposal.md
-[good-projects]: project-proposals/projects-to-clone.md
-[project-proposals]: project-proposals/capstone-project-proposal.md
-[sample-proposal]: https://github.com/appacademy/sample-project-proposal
+[tentative-proposal]: readings/tentative-project-proposal.md
+[good-projects]: readings/projects-to-clone.md
+[readings]: readings/capstone-project-proposal.md
+[sample-proposal]: demos/sample_project_proposal
 [capstone-check]: readings/capstone-checklist.md
 
 ## Resources
