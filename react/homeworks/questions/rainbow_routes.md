@@ -46,7 +46,7 @@ To use `hashHistory`, we can simply push in the url we wish to navigate to.  For
 
 ```js
   addRed() {
-    HashHistory.push('/red');
+    hashHistory.push('/red');
   }
 ```
 
