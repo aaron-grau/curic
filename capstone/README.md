@@ -23,6 +23,7 @@
   * [Styling][styling]
   * [Performance][performance]
   * [Additional Resources][resources]
+  * [Autoprefixer][autoprefixer]
 
 [heroku-deployment]: readings/heroku-deployment.md
 [asset-pipeline]: readings/asset-pipeline.md
@@ -33,6 +34,7 @@
 [styling]: readings/styling.md
 [performance]: readings/performance.md
 [resources]: readings/resources.md
+[autoprefixer]: readings/autoprefixer.md
 
 ## Bonus
 
