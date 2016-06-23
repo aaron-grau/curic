@@ -8,7 +8,7 @@ In this project, we'll write an app to manage your `Pokemon` and their `Toy`s.
 Check out the live version [here](http://aa-pokedex.herokuapp.com)!
 
 We've already setup migrations/models/controllers/views for you to start with in
-a skeleton that we will email to you at the beginning of the day.  **Set things
+the skeleton provided in this folder.  **Set things
 up with a `bundle install`, then `rake db:setup` (this is equivalent to `rake
 db:create db:migrate db:seed`)**.
 
