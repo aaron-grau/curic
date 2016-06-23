@@ -2,7 +2,7 @@
 
 Capstone projects will be evaluated against the following "Minimal Viable Product" features. All 7 items must be complete in order for a capstone project to be considered finished.
 
-Make sure outline your MVP features using the following structure when writing your Capstone Proposal. "Feature 1" through "Feature 4" should be replaced with your app's 4 key feature. Required features for clones from our list of recommendations can be found below. For clones not included on the list, please check in with your TA mentor to clarify the app's key features.
+Make sure outline your MVP features using the following structure when writing your Capstone Proposal. "Feature 1" through "Feature 4" should be replaced with your app's four key features. Required features for clones from our list of recommendations can be found below. For clones not included on the list, please check in with your TA mentor to clarify the app's key features.
 
 ## MVP Checklist Format
 
