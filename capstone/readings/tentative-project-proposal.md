@@ -41,5 +41,5 @@ merit and that you have a game plan for making it happen.
 0. Bonus: Lists and cards are draggable
 
 
-[clone-link]: ./projects-to-clone.md
-[mvp-list]: ./mvp-list.md
+[clone-link]: projects-to-clone.md
+[mvp-list]: mvp-list.md
