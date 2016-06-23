@@ -153,7 +153,7 @@ In the constants folder, create a `pokemon_constants.js` file that exports an
 object with a key `POKEMONS_RECEIVED` pointing to the string
 "POKEMONS_RECEIVED".
 
-In the same file, write a `fetchAllPokemons` function. This is the function that
+In the `pokemon_actions.js` file, write a `fetchAllPokemons` function. This is the function that
 will call `ApiUtil.fetchAllPokemons`, passing in `receiveAllPokemons` as a
 callback.
 
