@@ -7,9 +7,9 @@ We'll need to modify our entry file, `bench_bnb.jsx`, to add routes.
 * Install `ReactRouter`: `npm install --save --save-exact react-router@2.0.1`.
   * Use that exact version, as other versions might cause compatibility issues.
 * In your entry file, require `Router`, `Route`, `IndexRoute`, and `hashHistory` from the `ReactRouter`.
-* Create a `<Router>` that gets rendered by `ReactDom` when the page loads. 
+* Create a `<Router>` that gets rendered by `ReactDom` when the page loads.
 * Create an `App` react component that renders `{this.props.children}`. Set this component to your root `<Route>`.
-* Inside your `App` `<Route>`, render the `Search` component as the default 
+* Inside your `App` `<Route>`, render the `Search` component as the default
 `<IndexRoute>`.
 
 Your entry file should now roughly resemble this:
@@ -72,15 +72,15 @@ Verify that your app still renders correctly before moving on.
 * Write a `create` method on your `BenchesController` and give it a corresponding
   route in `routes.rb`.
 * Add a `createBench` function to the `BenchApiUtil`. It should make a `POST`
-  request to your API. 
+  request to your API.
 * Test `BenchApiUtil.createBench` from the console.
 * Add `BenchActions` to `createBench` and `receiveBench`.
 * `BenchForm` should call `BenchActions.createBench` upon submission.
 
 ### Navigating to the BenchForm
 
-Filling in coordinates manually is a major pain; Let's make things a little easier 
-by bringing up a new bench form when a user clicks on the map and pre-filling it 
+Filling in coordinates manually is a major pain; Let's make things a little easier
+by bringing up a new bench form when a user clicks on the map and pre-filling it
 with latitude and longitude based on where they clicked.
 
 Because `BenchMap` and `BenchForm` live under different routes, We can't simply pass props between them to convey our click information. We will need to encode our parameters in a client-side query string.
@@ -94,7 +94,7 @@ should:
 * Use the router's [hashHistory][react-history] to redirect to the `BenchForm`
   URL, providing the `lat` and lng` as query params.
 
-To pass `lat` and `lng` as query params: 
+To pass `lat` and `lng` as query params:
   0.  Require the `hashHistory` module in the `BenchMap`.
 
   ```javascript
@@ -118,8 +118,8 @@ browser redirect to a URL that looks something like:
   */#/benches/new?lat=37.79153217974085&lng=-122.40194320678711*
 
 ### Pre-filling the form
-Inside of the `BenchForm` component, pre-fill the value of the lat/lng input 
-fields by accessing `this.props.location.query`. Then make sure the lat/lng input 
+Inside of the `BenchForm` component, pre-fill the value of the lat/lng input
+fields by accessing `this.props.location.query`. Then make sure the lat/lng input
 fields are disabled so that users can't edit them.
 
 Awesome! Now users can easily create new benches.
@@ -133,59 +133,56 @@ understand each individual step.
 
 **Our authentication pattern must:**
   * sign up new users,
-  * know who's logged in, 
-  * log users in, 
-  * log them out, and 
+  * know who's logged in,
+  * log users in,
+  * log them out, and
   * restrict access to certain routes based on whether someone is logged in.
 
 ### 1. Build Your Backend.
 
-Read the instructions below, and then create an API with the following 
+Read the instructions below, and then create an API with the following
 endpoints:
+
   * [POST] api/users: "users#create" (signup),
   * [POST] api/session: "session#create" (login),
-  * [DELETE] api/session: "session#destroy" (logout),
-  * [GET] api/session: "session#show" (fetch current user)
+  * [DELETE] api/session: "session#destroy" (logout)
 
- **Create a `User` model, `UsersController`, and `SessionsController`.** Follow
- the basic pattern you used during the [Rails curriculum][rails], with some key
- differences:
+**Create a `User` model, `UsersController`, and `SessionsController`.** Follow
+the basic pattern you used during the [Rails curriculum][rails], with some key
+differences:
 
 * **Namespace**: Your controllers should live under an `Api` namespace.
 * **Response Format**: render JSON formatted responses by default.
-* **Views**: You'll probably want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions.
-* **`Sessions#show`**: This action should render the `current_user`, if any.
-  * If no one is logged in, return an empty `{}`.
+* **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to partial **`api/users/_user.json.jbuilder`**, which we'll use later.
 * **`Sessions#destroy`**: render an empty `{}` upon successful logout.
   * Render a `404` message if there is no `current_user` to logout.
-* **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username 
+* **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username
 already exists') in your response with a corresponding error status.
   * Use `@user.errors` when applicable.
   * Render single errors in the format `{base: ['error message here']}`
   * ex. `render json: {base: ['invalid credentials']}, status: 401`
-  * **Caution**: Error responses are formatted differently than normal 
+  * **Caution**: Error responses are formatted differently than normal
   responses.
 
 Test your routes using `$.ajax` in the console before moving on.
 
 ### 2. Build Your Frontend
 
-Once your API is fully built and tested, set up the following flux architecture 
+Once your API is fully built and tested, set up the following flux architecture
 components.
 
 ####SessionApiUtil
 
-Create a `SessionApiUtil` with the following methods: 
+Create a `SessionApiUtil` with the following methods:
   * **`signup`:** POST 'api/users'
   * **`login`:** POST 'api/session'
-  * **`fetchCurrentUser`:** GET 'api/session'  
   * **`logout`:** DELETE 'api/session'
 
 Each `SessionApiUtil` method should take `success` and `error` callbacks.
 
-Before moving on, put `SessionApiUtil` on the window in your entry file and test 
-it out. Make sure all your endpoints behave properly for both successful and 
-erroneous requests. Pay attention to: 
+Before moving on, put `SessionApiUtil` on the window in your entry file and test
+it out. Make sure all your endpoints behave properly for both successful and
+erroneous requests. Pay attention to:
 * the `Network` tab of Dev Tools
 * the Rails server logs
 
@@ -193,20 +190,18 @@ erroneous requests. Pay attention to:
 
 Create a `SessionStore` that will keep track of the current user.
 
-**Variables:** 
+**Variables:**
   * `_currentUser`: should be `{}` if no one is logged in.
-  * `_currentUserHasBeenFetched`: a boolean of whether the API has been queried
-**Closures:** 
+**Closures:**
   * `_login`: set `_currentUser` and `__emitChange()`
   * `_logout`: set `_currentUser` to `{}` and `__emitChange()`
-**Public Methods:** 
-  * `currentUserHasBeenFetched`: a reader
+**Public Methods:**
   * `currentUser`: a reader
   * `isUserLoggedIn`: should return a boolean of whether a user is logged in
     * hint: you can check `_currentUser.id`
 `SessionStore.__onDispatch`
   * Define `SessionConstants` for `LOGIN` and `LOGOUT`
-  * Setup `SessionStore.__onDispatch` to call the appropriate methods 
+  * Setup `SessionStore.__onDispatch` to call the appropriate methods
 
 ####SessionActions
 
@@ -227,7 +222,7 @@ Create a `LoginForm` component and a React `Route` for it.
   * `render` a form for users to enter their username and password.
   * `onSubmit`, call your `SessionActions#login` and pass in the credentials.
   * After a successful login, redirect to your root Route (`/`)
-    * In `#componentDidMount`, register a listener with the `SessionStore`. 
+    * In `#componentDidMount`, register a listener with the `SessionStore`.
     * When the `SessionStore` emits change, check if a user is logged in.
     * If so, redirect them (`this.context.router.push("/")`).
 
@@ -239,9 +234,9 @@ Your forms should display errors if user submissions cause validation/authentica
 
 ####  Create an `ErrorStore`.
 
-Variables: 
-* `_errors`: This `{}` should store key-value pairs where: 
-  * each key is an error field, and 
+Variables:
+* `_errors`: This `{}` should store key-value pairs where:
+  * each key is an error field, and
   * each value is an array of error messages for that field.
     ```js
     _errors === {
@@ -262,34 +257,34 @@ Public Methods:
 if `form === _form`.
 * `form`: returns the current `_form`.
 
-Closures: 
+Closures:
 * `setErrors`: takes a `form` name and an `errors` object and saves them in `_form`
 and `_errors`; emits change.
 * `clearErrors`: sets `_form` and `_errors` to `""` and `{}` respectively; emits
 change.
 
-`__onDispatch`: 
-Create `ErrorConstants` and handle the following `actionTypes`: 
+`__onDispatch`:
+Create `ErrorConstants` and handle the following `actionTypes`:
 * `ErrorConstants.SET_ERRORS`
 * `ErrorConstants.CLEAR_ERRORS`
-* Wait until 
+* Wait until
 
 ####  Define `ErrorActions`.
 
-Define the following actions: 
+Define the following actions:
 * `setErrors`
 * `clearErrors`
 
 Both methods should take the raw API error response generated by your `$.ajax` call and dispatch the proper error information to your `ErrorStore`. Keep in mind that Rails error responses return XHR objects, not raw response data, which lives in the `.responseJSON` attribute of the XHR object returned.
 
-Once you've written these methods, return to your `SessionActions` and `SessionApiUtil`: 
+Once you've written these methods, return to your `SessionActions` and `SessionApiUtil`:
 * Modify `SessionApiUtil` so that your methods take an `error` callback to invoke in  the `error` response of your `$.ajax` call.
 * Modify `SessionActions` to pass `ErrorActions.setErrors` as the `error` argument to your `SessionApiUtil`.
 
 ####  Update your `LoginForm` and `SignupForm`
 
 Your components should listen to your `ErrorStore` on `componentDidMount`. Make
-sure they track `this.state.errors`. When the store changes, `setState` to 
+sure they track `this.state.errors`. When the store changes, `setState` to
 the new errors on the form. Make sure to check `ErrorStore.form` to ensure that
 your `LoginForm` doesn't render `SignupForm` errors and vice versa.
 
@@ -298,67 +293,94 @@ Update both forms to `render` their errors if any are present.
 ### 4. Create a greeting in the header.
 
 Modify your app to provide a greeting to users when they are signed in.
-  * In the `App` component, render a `<header>` with information about the 
+  * In the `App` component, render a `<header>` with information about the
   `SessionStore#currentUser`.
   * If a user is logged in, display their username and a logout button.
     * `onClick` of logout button, `preventDefault` and `SessionActions#logout`
   * If user IS NOT logged in, give them links to "#/login" and "#/signup"
 
-### 5. Fetch the current user before the app mounts.
+### 5. Bootstrap the current user before the app mounts.
 
-We want our App to confirm whether someone is logged in before rendering. This 
-will prevent weird rendering glitches caused by the asynchronous nature of 
-`SessionApiUtil.fetchCurrentUser`. To do this, we'll rely on our React Routes' 
-[`onEnter`][on-enter] prop. 
+When our static `root` page loads, our app mounts without being aware of who the
+current user is.
 
-Complete the following steps in your entry file (`bench_bnb.jsx`):
+One solution to this problem is to create another API hook that returns the
+current user and then fetch that information when the app mounts. However, since
+the request would be asynchronous, our app would momentarily have no current
+user. This would cause it to briefly render in a 'not-logged-in' state and then
+re-render when the current user was received, causing a strange, flickering
+effect. To circumvent this, we'll bootstrap the current user alongside our html
+when the page initially loads.
 
-0. Add an `onEnter` prop to the root route that calls `_ensureUserFetched` (we'll 
-write this shortly).
+#### Edit your `root.html.erb`
 
-  ```javascript
-    <Route path="/" component={ App } onEnter={ _ensureUserFetched }>
-  ```
+Add a `<script></script>` element to the top of your `root.html.erb` file. Give
+it a `type="text/javascript"`.
 
-0. Define an `_ensureUserFetched` function that takes 3 arguments: `nextState`, `replace`, and `asyncDoneCallback`. Leave the body empty except for a `debugger` for now.
-  * Test your hook by re-navigating to your root directory (`/`). You should hit the debugger because `onEnter` is called whenever a Route is matched.
-  * Check out your `arguments`. They should resemble the ones from the `onEnter` reading linked above.
+Inside your `<script>`, we're going to assign `window.currentUser`. In order to
+get the proper value, we'll need to ask our controller for the `current_user`
+and then `render` that information inside the script tag using `ERB`
+interpolation. The result will be a hard-coded assignment in our rendered html
+that looks something like this:
 
-0. Inside your `_ensureUserFetched` function, do the following: 
-  * Check if `SessionStore.currentUserHasBeenFetched()`.
-  * If so, invoke `asyncDoneCallback()` to continue rendering.
-  * If not, call `SessionActions.fetchCurrentUser` passing it `asyncDoneCallback` 
-  (see next step below) as its `complete` argumenet. This will block rendering 
-  until the AJAX call completes.
+```html
+...
+<script type="text/javascript">
+    window.currentUser = {"id":3,"username":"bobross"}
+</script>
 
-  Your `_ensureUserFetched` function should look something like this:
+<main id="content"></main>
+...
 
-  ```javascript
-    function _ensureUserFetched(nextState, replace, asyncDoneCallback){
-      if ( SessionStore.currentUserHasBeenFetched() ) {
-        //If the current user has already been fetched, we're done!
-        asyncDoneCallback();
-      } else {
-        //If not, let's initiate the fetch, and pass the asyncDoneCallback to be invoked upon completion
-        SessionActions.fetchCurrentUser(asyncDoneCallback);
-      }
-    }
-  ```
+``` 
 
-0. Modify your `SessionActions` and `SessionApiUtil`.
-  * Our `asyncDoneCallback` needs to run regardless of whether 
-  `SessionActions.fetchCurrentUser` succeeds or fails. We can accomplish this by 
-  passing it to our `SessionApiUtil` AJAX call as a [`complete`][jquery-ajax] callback.
+where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
 
-  * Modify `SessionActions.fetchCurrentUser` to take a `complete` callback, which it passes as the second argument to its `SessionApiUtil.fetchCurrentUser` call.
-  * Modify `SessionApiUtil.fetchCurrentUser` to take a `complete` callback as it's second argument.
-  * Set the `$.ajax` `complete` property to the `complete` callback.
+#### Interpolate the current user information
 
-Refresh your app and check your work.
+In your script, assign your `window.currentUser` to an erb expression:
+
+```js
+  window.currentUser = <%=  %>
+```
+
+Make sure to use `<%= %>` so that the result of your ruby code is rendered into the
+script ( it will eventually return a JSON object).
+
+Inside your erb expression, `render` your jbuilder `_user` partial, passing it
+the `current_user`. To prevent rails from automatically looking for a html
+partial, specify the whole path, including `.json.jbuilder`.Mark your `render`
+result `html_safe` to avoid escaping certain characters. You should get a JS-
+compatible object to assign to `window.currentUser`. Add interpolation around
+your  `window.currentUser=` assignment so that it only runs if someone is logged
+in. You should have something like this:
+
+```html
+
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = <%= render("api/users/user.json.jbuilder", 
+      user: current_user).html_safe %>
+  <% end %>
+</script>
+
+```
+
+Log in, refresh your page, and check out your `elements` in the Dev Tools.
+Verify that the  `script` contains an object literal of the current user and
+properly assigns  `window.currentUser`.
+
+Finally, inside the `DOMContentLoaded` callback in your entry file, call
+`SessionActions.receiveCurrentUser(window.currentUser)` before
+`ReactDom.render`. This will ensure that the `SessionStore` has the
+`_currentUser` before any of your components render.
+
+Test that your bootstrapping worked by logging in and refreshing the page. If you 
+don't get logged out, it worked!
 
 ### 6. Protect your front-end routes.
 
-Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in. 
+Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in.
 
   * Add an `onEnter` prop to the Routes we want to protect:
 
@@ -381,9 +403,9 @@ We're going to implement search filters on our `Search` components to filter ben
 
 ### Update your API.
 
-* Update your `Benches#index`: 
+* Update your `Benches#index`:
   * Modify `bench_params` to accept `:max_seating` and `:min_seating`.
-  * Filter your `@benches` by `params[:max_seating]` and 
+  * Filter your `@benches` by `params[:max_seating]` and
   `filters[:min_seating]`, if present.
 
 ### `FilterParamsStore`
@@ -402,22 +424,22 @@ We're going to implement search filters on our `Search` components to filter ben
 ### Update your `Search` components.
 
 **`Search`:**
-  * Modify `Search` to hold `filterParams` information in its state. 
-  * Add a `FilterStoreParams` listener to `Search` that: 
+  * Modify `Search` to hold `filterParams` information in its state.
+  * Add a `FilterStoreParams` listener to `Search` that:
     * calls `setState` for `filterParams`.
     * calls `BenchActions.fetchAllBenches` with `FilterStore.params` to update the `BenchStore`.
 
 **`BenchMap`:**
-  * Refactor your `BenchMap` component to call `FilterActions.updateBounds` 
-  whenever it idles. 
+  * Refactor your `BenchMap` component to call `FilterActions.updateBounds`
+  whenever it idles.
 
 Check that your map is correctly rendering benches before moving on.
 
 ### `Filters` component ###
 
-Create a `Filters` component that will render a form for filtering benches by 
+Create a `Filters` component that will render a form for filtering benches by
 seating.
-* It should be a child component of the `Search` view (not a child route, but 
+* It should be a child component of the `Search` view (not a child route, but
 component rendered within `Search` itself).
 * It should input fields for `maxSeats` and `minSeats`.
 * When the user types in any field, call an appropriate `FilterAction` to update your `FilterStore`.
@@ -425,7 +447,7 @@ component rendered within `Search` itself).
 Verify that your `Filters` form can cause your `BenchIndex` and `BenchMap` to re-populate before moving on.
 
 ## Phase 11: Show Page
-Create a `BenchShow` component. It should be a full-page component displaying a 
+Create a `BenchShow` component. It should be a full-page component displaying a
 single bench's information and a map showing the bench. Your `BenchShow` page should mount whenever someone clicks on an item in your `BenchIndex` or a marker in your `BenchMap`.
 
 * Create a new `Route` for your `BenchShow` that takes a `benchId` param.
@@ -436,7 +458,7 @@ single bench's information and a map showing the bench. Your `BenchShow` page sh
 
 Show reviews of a bench on `BenchShow`. Reviews for a bench should comprise:
 * A rating from 1 to 5
-* A comment field 
+* A comment field
 
 Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average score for a bench and also list the reviews for that bench. Modify and add the appropriate API endpoints, actions, utils, and components.
 
