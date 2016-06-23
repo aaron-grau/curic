@@ -11,29 +11,18 @@ quickly become bloated with vendor-prefixes that are a pain to write by hand.
 browser-compatible CSS by automatically prefixing your CSS. This lets you write: 
 
 ```css
-:fullscreen a {
-    display: flex
+a {
+  display: flex
 }
 ```
 
-and get 
+to get:
 
 ```css
-:-webkit-full-screen a {
-    display: -webkit-box;
-    display: flex
-}
-:-moz-full-screen a {
-    display: flex
-}
-:-ms-fullscreen a {
-    display: -ms-flexbox;
-    display: flex
-}
-:fullscreen a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex
+a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 ```
 
