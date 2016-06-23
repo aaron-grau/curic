@@ -80,30 +80,37 @@ const LoginForm = React.createClass({
     }
 
 		return (
-			<form onSubmit={this.handleSubmit}>
-        Welcome to BenchBnB! Please { this.formType() } or { navLink }
+			<div className="login-form-container">
+				<form onSubmit={this.handleSubmit} className="login-form-box">
+	        Welcome to BenchBnB!
+					<br/>
+					Please { this.formType() } or { navLink }
 
-        { this.fieldErrors("base") }
+	        { this.fieldErrors("base") }
+					<div className="login-form">
+		        <br />
+						<label> Username:
+		          { this.fieldErrors("username") }
+							<input type="text"
+		            value={this.state.username}
+		            onChange={this.update("username")}
+								className="login-input" />
+						</label>
 
-        <br />
-				<label> Username:
-          { this.fieldErrors("username") }
-					<input type="text" 
-            value={this.state.username} 
-            onChange={this.update("username")} />
-				</label>
+		        <br />
+						<label> Password:
+		          { this.fieldErrors("password") }
+		          <input type="password"
+		            value={this.state.password}
+		            onChange={this.update("password")}
+								className="login-input" />
+						</label>
 
-        <br />
-				<label> Password:
-          { this.fieldErrors("password") }
-          <input type="password" 
-            value={this.state.password} 
-            onChange={this.update("password")} />
-				</label>
-
-        <br />
-				<input type="submit" value="Submit" />
-			</form>
+		        <br />
+						<input type="submit" value="Submit" />
+					</div>
+				</form>
+			</div>
 		);
 	}
 });

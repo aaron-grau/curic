@@ -15,12 +15,20 @@ const IndexItem = React.createClass({
         <div className="bench-index-item"
              onClick={this.handleClick}
              key={this.props.key}>
-          {bench.description}
-          <br/>
-          Rating: {bench.average_rating || "No reviews yet"}
-          <br/>
-          Number of Likes: {bench.favorite_users.length}
-          <br/>
+          <div className="index-item-info">
+            <span className="index-item-category">Rating: </span>
+            <span className="index-item-copy">
+              {bench.average_rating || "No reviews yet"}
+            </span>
+            <span className="index-item-category">Number of Likes: </span>
+            <span className="index-item-copy">
+              {bench.favorite_users.length}
+            </span>
+            <span className="index-item-category">Description: </span>
+            <span className="index-item-copy">
+              {bench.description}
+            </span>
+          </div>
           <img src={bench.picture_url}/>
         </div>
     );
