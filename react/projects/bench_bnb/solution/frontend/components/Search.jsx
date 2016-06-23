@@ -42,11 +42,12 @@ const Search = React.createClass({
 
   render() {
     return(
-      <div>
-        <h5>Click Map to Add Bench!</h5>
-        <BenchMap
-          benches={this.state.benches}/>
-        <div className="half">
+      <div className="user-pane">
+        <div className="left-half">
+          <h5>Click Map to Add Bench!</h5>
+          <BenchMap benches={this.state.benches}/>
+        </div>
+        <div className="right-half">
           <FilterForm filterParams={this.state.filterParams}/>
           <BenchIndex benches={this.state.benches}/>
         </div>
