@@ -156,9 +156,8 @@
 
 ## w7d5
 
-### Readings (30 min)
+### Readings (15 min)
 * [React Map Demo][react_map_demo] (15 min)
-* [Route Hooks: `onEnter`][on-enter] (15 min)
 
 ### Homework (90 min)
 * [Jbuilder Exercise][jbuilder-demo] (90 min)
@@ -166,6 +165,7 @@
 
 ### Additional Resources
 * [Jbuilder Documentation][jbuilder-link]
+* [Route Hooks: `onEnter`][on-enter] (15 min)
 
 ### Projects
 * [BenchBnB Day 1][bench-bnb]
