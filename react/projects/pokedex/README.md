@@ -275,8 +275,8 @@ need to use the 'react-router' library to access the Router and Route
 components:
 
 ```js
-
-import { Router, Route } from 'react-router'
+const Router = require('react-router').Router
+const Route = require('react-router').Route
 ```
 
 Instead of rendering a `PokemonIndex`, render the `Router`. It should have a single
