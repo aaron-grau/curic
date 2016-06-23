@@ -165,7 +165,7 @@
 
 ### Additional Resources
 * [Jbuilder Documentation][jbuilder-link]
-* [Route Hooks: `onEnter`][on-enter] (15 min)
+* [Route Hooks: `onEnter`][on-enter]
 
 ### Projects
 * [BenchBnB Day 1][bench-bnb]
