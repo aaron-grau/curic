@@ -47,8 +47,9 @@ there. Push to Heroku ASAP!
 ### Minimum Viable Product
 
 Write a one-sentence summary of the project and a list of the features that
-would be absolutely necessary for the app to be marketable. Order these by
-importance and use the list to guide your development.
+would be absolutely necessary for the app to be marketable. Your MVP section must follow the format outlined [here][mvp-features].
+
+[mvp-features]: ./mvp-list.md
 
 ### Wireframes
 
