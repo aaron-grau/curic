@@ -14,7 +14,6 @@ class Api::BenchesController < ApplicationController
   end
 
   def create
-    debugger
     @bench = Bench.create!(bench_params)
     render :show
   end

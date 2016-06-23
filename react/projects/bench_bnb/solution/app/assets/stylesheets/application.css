@@ -135,6 +135,10 @@ h1, h5 {
   margin-top: 20px;
 }
 
+.review-button {
+  padding-top: 1px;
+}
+
 .header-name {
   margin: 7px 0 0 0;
 
