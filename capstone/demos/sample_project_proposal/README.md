@@ -35,11 +35,11 @@ FresherNote is a web application inspired by Evernote that will be build using R
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 
-[views]: ./docs/views.md
-[components]: ./docs/components.md
-[flux-cycles]: ./docs/flux-cycles.md
-[api-endpoints]: ./docs/api-endpoints.md
-[schema]: ./docs/schema.md
+[views]: docs/views.md
+[components]: docs/components.md
+[flux-cycles]: docs/flux-cycles.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
 
 ## Implementation Timeline
 
@@ -138,9 +138,8 @@ which has its own `Index` view.
 - [ ] Changelogs for Notes
 - [ ] Multiple sessions
 
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
-[link]: http://github.com/appacademy/curriculum/tree/master/capstone/demos/sample_project_proposal
+[phase-one]: docs/phases/phase1.md
+[phase-two]: docs/phases/phase2.md
+[phase-three]: docs/phases/phase3.md
+[phase-four]: docs/phases/phase4.md
+[phase-five]: docs/phases/phase5.md
