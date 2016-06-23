@@ -1,6 +1,6 @@
 # FresherNote
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku] **Note:** This should be a link to your production site
 
 [heroku]: http://www.herokuapp.com
 
@@ -8,27 +8,25 @@
 
 FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] New account creation, login, and guest/demo login
-- [ ] Smooth, bug-free navigation
-- [ ] Adequate seed data to demonstrate the site's features
-- [ ] The minimally necessary features for an Evernote-inspired site: note creation and saving, note editing, and notes organized into notebooks
 - [ ] Hosting on Heroku
-- [ ] CSS styling that is satisfactorily visually appealing
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](https://github.com/appacademy/sample-project-proposal/blob/master/docs/production_readme.md) -- you'll write this later)
-
-## Product Goals and Priorities
-
-FresherNote will allow users to do the following:
-
-<!-- This is a Markdown checklist. Use it to keep track of your
-progress. Put an x between the brackets for a checkmark: [x] -->
-
-- [ ] Create an account (MVP)
-- [ ] Log in / Log out, including as a Guest/Demo User (MVP)
-- [ ] Create, read, edit, and delete notes (MVP)
-- [ ] Organize notes within Notebooks (MVP)
-- [ ] Tag notes with multiple tags (expected feature, but not MVP)
-- [ ] Apply complex styling to notes while editing (expected feature, but not MVP)
+- [ ] New account creation, login, and guest/demo login
+- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
+- [ ] Notes
+  - [ ] Smooth, bug-free navigation
+  - [ ] Adequate seed data to demonstrate the site's features
+  - [ ] Adequate CSS styling
+- [ ] Notebooks for organizing notes
+  - [ ] Smooth, bug-free navigation
+  - [ ] Adequate seed data to demonstrate the site's features
+  - [ ] Adequate CSS styling
+- [ ] Tags for notes
+  - [ ] Smooth, bug-free navigation
+  - [ ] Adequate seed data to demonstrate the site's features
+  - [ ] Adequate CSS styling
+- [ ] Rich Text Editing of notes
+  - [ ] Smooth, bug-free navigation
+  - [ ] Adequate seed data to demonstrate the site's features
+  - [ ] Adequate CSS styling
 
 ## Design Docs
 * [View Wireframes][views]
@@ -45,7 +43,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and User Authentication (0.5 days)
+### Phase 1: Backend setup and Front End User Authentication (1 day, W1 Tu 6pm)
 
 **Objective:** Functioning rails project with Authentication
 
@@ -55,7 +53,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days)
+### Phase 2: Notes Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
 
 **Objective:** Notes can be created, read, edited and destroyed through
 the API.
@@ -68,7 +66,7 @@ the API.
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
-### Phase 3: Flux Architecture and Router (1.5 days)
+### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
 
 **Objective:** Notes can be created, read, edited and destroyed with the
 user interface.
@@ -82,15 +80,15 @@ user interface.
 - [ ] save Notes to the DB when the form loses focus or is left idle
   after editing.
 
-### Phase 4: Start Styling (0.5 days)
+### Phase 4: Start Styling (0.5 days, W2 M 12pm)
 
-**Objective:** Existing pages (including singup/signin) will look good.
+**Objective:** Existing pages (including signup/signin) will look good.
 
 - [ ] create a basic style guide
 - [ ] position elements on the page
 - [ ] add basic colors & styles
 
-### Phase 5: Notebooks (1 day)
+### Phase 5: Notebooks (1 day, W2 Tu 12pm)
 
 **Objective:** Notes belong to Notebooks, and can be viewed by notebook.
 
@@ -105,7 +103,7 @@ user interface.
 Phase 3 adds organization to the Notes. Notes belong to a Notebook,
 which has its own `Index` view.
 
-### Phase 6: Tags (1.5 days)
+### Phase 6: Tags (1 days, W2 Th 12pm)
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
@@ -117,7 +115,7 @@ which has its own `Index` view.
   - [ ] searching notebooks by tag
 - [ ] Style new elements
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days)
+### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
 
 **objective:** Enable complex styling of notes.
 
@@ -125,7 +123,7 @@ which has its own `Index` view.
 - [ ] Use Rails helpers to sanitize HTML before rendering.
 - [ ] Style the new Quill elements.
 
-### Phase 8: Styling Cleanup and Seeding (1 day)
+### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
 
 **objective:** Make the site feel more cohesive and awesome.
 
@@ -145,3 +143,4 @@ which has its own `Index` view.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
+[link]: http://github.com/appacademy/curriculum/tree/master/capstone/demos/sample_project_proposal
