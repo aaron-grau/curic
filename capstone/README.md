@@ -11,7 +11,7 @@
 [tentative-proposal]: readings/tentative-project-proposal.md
 [good-projects]: readings/projects-to-clone.md
 [readings]: readings/capstone-project-proposal.md
-[sample-proposal]: https://github.com/appacademy/sample-project-proposal
+[sample-proposal]: demos/sample-project-proposal
 [capstone-check]: readings/capstone-checklist.md
 
 ## Resources
