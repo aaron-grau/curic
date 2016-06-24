@@ -310,28 +310,28 @@ Make sure outline your MVP features using the following structure when writing y
 * Bonus: Import other registries
 
 #### Remember the Milk
-* Projects/Project Page
-* Stories
-* Story Workflow
-* Drag and Drop Prioritization
-* Bonus: Iterations
-* Bonus: Velocity
+* Tasks
+* Lists
+* List summary (time, num tasks, num completed)
+* Search
+* Bonus: Autocomplete SmartAdd of task properties
+* Bonus: Subtasks
 
 #### Slack
-* Projects/Project Page
-* Stories
-* Story Workflow
-* Drag and Drop Prioritization
-* Bonus: Iterations
-* Bonus: Velocity
+* Live chat
+* Channels
+* Direct Message
+* Teams or multi-person DM
+* Bonus: Search Messages
+* Bonus: Notifications
 
 #### Soundcloud
-* Projects/Project Page
-* Stories
-* Story Workflow
-* Drag and Drop Prioritization
-* Bonus: Iterations
-* Bonus: Velocity
+* Song CRUD
+* Continuous play while navigating site
+* Comments
+* User pages
+* Bonus: Wave Forms
+* Bonus: Likes
 
 #### SplitWise
 * Friending
