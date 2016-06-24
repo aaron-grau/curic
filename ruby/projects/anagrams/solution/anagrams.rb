@@ -43,19 +43,25 @@ def third_anagram?(str1, str2)
 end
 
 # O(n) linear time
-# O(n) linear space
+# O(1) constant space 
 def fourth_anagram?(str1, str2)
   letter_counts1 = Hash.new(0)
   letter_counts2 = Hash.new(0)
 
   str1.each_char { |letter| letter_counts1[letter] += 1 }
   str2.each_char { |letter| letter_counts2[letter] += 1 }
+  # Here, the intuitive answer to the space complexity is
+  # O(n) because we're adding a separate key in the hash
+  # for each character. But if the keys in the hash are single 
+  # characters, then how many different keys can we have? 
+  # How many different chars in the alphabet? A constant number 
+  # (26 + numbers and symbols for English alphabet).
 
   letter_counts1 == letter_counts2
 end
 
 # O(n) linear time
-# O(n) linear space
+# O(1) constant space (same logic as above)
 def fourth_anagram_one_hash?(str1, str2)
   letter_sums = Hash.new(0)
 
