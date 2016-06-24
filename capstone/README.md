@@ -5,6 +5,7 @@
     * [Suggested Capstone Projects][good-projects]
   * **W8D1**: Submit [capstone project proposal][readings] by 9am
     * [Sample Proposal][sample-proposal]
+    * [MVP Checklist][mvp-checklist]
   * **W9D2**: Peer Review #1
   * **W9D5**: Peer Review #2
 
@@ -13,6 +14,7 @@
 [readings]: readings/capstone-project-proposal.md
 [sample-proposal]: demos/sample_project_proposal
 [capstone-check]: readings/capstone-checklist.md
+[mvp-checklist]: readings/mvp-list.md
 
 ## Resources
   * [Deploying to Heroku][heroku-deployment]
@@ -23,7 +25,6 @@
   * [Styling][styling]
   * [Performance][performance]
   * [Additional Resources][resources]
-  * [Autoprefixer][autoprefixer]
 
 [heroku-deployment]: readings/heroku-deployment.md
 [asset-pipeline]: readings/asset-pipeline.md
@@ -34,7 +35,6 @@
 [styling]: readings/styling.md
 [performance]: readings/performance.md
 [resources]: readings/resources.md
-[autoprefixer]: readings/autoprefixer.md
 
 ## Bonus
 

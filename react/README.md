@@ -176,15 +176,22 @@
 [bench-bnb]: projects/bench_bnb
 [react_map_demo]: demos/react_map_demo
 [jbuilder-link]: https://github.com/rails/jbuilder
-[jbuilder-demo]: demos/jbuilder_demo
+[jbuilder-demo]: homeworks/questions/jbuilder_demo
 
 ## w7d6-w7d7
 
-* [Testing React][jest-basics]
-* [Running Jest Tests][jest-config]
-* Review the [Think in React][think-in-react] reading. This will be super helpful in designing your project.
-* See [Capstone Project Curriculum][capstone-project-curriculum] for readings.
-* Submit your [capstone project proposal][capstone-project-proposal] by 9am on Monday.
+### Readings (50 min)
+* [Testing React][jest-basics] (15 min)
+* [Running Jest Tests][jest-config] (15 min)
+* [Think in React][think-in-react] (20 min)
+  * Review this reading again.  It will be super helpful in designing your project.  
+
+### Homework (5 hours)
+* Submit your [capstone project proposal][capstone-project-proposal] (5 hours)
+  * **Due by 9am on Monday**
+
+### Additional Resources
+* See [capstone project curriculum][capstone-project-curriculum] for additional information and readings related to capstone projects.
 
 [capstone-project-curriculum]: ../capstone
 [capstone-project-proposal]: ../capstone/readings/capstone-project-proposal.md
@@ -193,8 +200,10 @@
 
 ## w8d1
 
-* **Solo Project:** [BenchBnB Day 2][bench-bnb2]
-* **Project Proposal Review Period for Instructional Staff**
+**Project Proposal Review Period for Instructional Staff**
+
+### Projects
+* **Solo:** [BenchBnB Day 2][bench-bnb2]
 
 [bench-bnb2]: projects/bench_bnb
 
