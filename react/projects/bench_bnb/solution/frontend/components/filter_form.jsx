@@ -29,12 +29,14 @@ const Filters = React.createClass({
   render() {
     return (
       <div>
-        <label>Minimum Seats</label>
+        <span className="filter">Filter results:</span>
+        <br/>
+        <label>Minimum Seats </label>
         <input type="number"
           onChange={this.minSeatingChanged}
           value={this.currentMin()}/>
          <br/>
-        <label>Maximum Seats</label>
+        <label>Maximum Seats </label>
         <input type="number"
           onChange={this.maxSeatingChanged}
           value={this.currentMax()}/>

@@ -27,4 +27,4 @@ Bench.create!(
 User.create!(
   username: "guest",
   password: "password"
-  )
+)

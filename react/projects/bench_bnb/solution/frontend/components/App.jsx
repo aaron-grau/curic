@@ -20,15 +20,15 @@ const App = React.createClass({
       const numFavoriteBenches = SessionStore.currentUser().favorite_benches.length;
 
     	return (
-    		<hgroup>
-    			<h2>Hi, {SessionStore.currentUser().username}!</h2>
-    			<input type="submit" value="logout" onClick={ this._handleLogOut } />
-    			<h3>You have {numFavoriteBenches} favorite benches!</h3>
+    		<hgroup className="header-group">
+    			<h2 className="header-name">Hi, {SessionStore.currentUser().username}!</h2>
+          <h3 className="header-favorites">You have {numFavoriteBenches} favorite benches</h3>
+    			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
     		</hgroup>
     	);
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {
       return (
-        <nav>
+        <nav className="login-signup">
           <Link to="/login" activeClassName="current">Login</Link>
           &nbsp;or&nbsp;
           <Link to="/signup" activeClassName="current">Sign up!</Link>
@@ -41,7 +41,7 @@ const App = React.createClass({
     return (
       <div>
         <header>
-          <h1>Bench BnB</h1>
+          <Link to="/" className="header-link"><h1>Bench BnB</h1></Link>
           { this.greeting() }
         </header>
         {this.props.children}
