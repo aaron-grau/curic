@@ -378,7 +378,7 @@ Let's finally start saving songs to the server. Write a Rails `Track` model, as
 well as a `TracksController`. The `Track` model should have columns for `name`
 (a string) and `roll` (a JSON object).
 
-In your `TracksController`, write actions for `create`, `index`, and `destroy`.
+In your `TracksController` write actions for `create`, `index`, and `destroy`.
 The `index` action should render a JSON representation of each saved `Track`
 object.
 
