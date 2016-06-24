@@ -33,64 +33,64 @@ Make sure outline your MVP features using the following structure when writing y
 * Comment
 * Upvote/Downvote
 * Tags
-* Bonus: Tags Index
-* Bonus: User Profile with past activity
+* *Bonus*: Tags Index
+* *Bonus*: User Profile with past activity
 
 #### 500px
 * Post Pictures
 * Follows
 * Home Feed
 * Profile Page
-* Bonus: Tags
-* Bonus: Discover
-* Bonus: Notifications
+* *Bonus*: Tags
+* *Bonus*: Discover
+* *Bonus*: Notifications
 
 #### AirBnB
 * Spots
 * Bookings
 * Spots search (by location & availability) & Google Maps on search
 * Reviews
-* Bonus: Messaging
-* Bonus: User/host profiles
+* *Bonus*: Messaging
+* *Bonus*: User/host profiles
 
 #### Asana
 * Projects
 * Tasks
 * Teams
 * Profile for each user
-* Bonus: Calendar
-* Bonus: Comments on tasks
+* *Bonus*: Calendar
+* *Bonus*: Comments on tasks
 
 #### Bandcamp
 * Artist page
 * Song player
 * Search
 * Upload/download songs
-* Bonus: Purchase songs
-* Bonus: Follows
+* *Bonus*: Purchase songs
+* *Bonus*: Follows
 
 #### Basecamp
 * To-do Lists
 * Basecamp Home View
 * Message Board (post questions and allow comments/answers)
 * Schedule
-* Bonus: Upload Documents & Files
-* Bonus: Messaging within a basecamp
+* *Bonus*: Upload Documents & Files
+* *Bonus*: Messaging within a basecamp
 
 #### BillPin
 * Friends
 * Feed with transactions
 * Owes me/ I owe
 * Split bill
-* Bonus: profile
+* *Bonus*: profile
 
 #### BrainScape
 * Create/Delete Decks
 * Study Decks
 * Tags/Categories
 * Search
-* Bonus: Badges (associated with progress)
-* Bonus: Animation
+* *Bonus*: Badges (associated with progress)
+* *Bonus*: Animation
 
 
 #### Chartio
@@ -98,7 +98,7 @@ Make sure outline your MVP features using the following structure when writing y
 * Logged in users can persist their data
 * Share charts with other users
 * Supports JSON, TSV, and CSV formats
-* Bonus: Premium users can create relational databases from their data sources
+* *Bonus*: Premium users can create relational databases from their data sources
 
 
 
@@ -107,313 +107,313 @@ Make sure outline your MVP features using the following structure when writing y
 * Bookings
 * Spots search (by location & availability) & Google Maps on search
 * Reviews
-* Bonus: Messaging
-* Bonus: User/host profiles
+* *Bonus*: Messaging
+* *Bonus*: User/host profiles
 
 #### Etsy
 * Product Listings
 * Shopping Cart
 * Comments / Reviews
 * Search
-* Bonus: Categories
-* Bonus: Favorites
+* *Bonus*: Categories
+* *Bonus*: Favorites
 
 #### Eventbrite
 * Events
 * Registration / Tickets
 * Categories
 * Bookmark events
-* Bonus: Google Maps integration
-* Bonus: Search
+* *Bonus*: Google Maps integration
+* *Bonus*: Search
 
 #### Evernote
 * Notes
 * Notebooks
 * Tags
 * Rich-text editing
-* Bonus: Reminders
-* Bonus: Search
-* Bonus: Auto save
+* *Bonus*: Reminders
+* *Bonus*: Search
+* *Bonus*: Auto save
 
 #### Facebook
 * Profiles
 * Friending
 * Comments/posting on each others’ walls
 * News Feed
-* Bonus: Notifications (Tommy Pickles commented on your wall)
-* Bonus: Likes
-* Bonus: Comments on a comment
-* Bonus: Search
-* Bonus: Messaging
-* Bonus: Pictures/albums
+* *Bonus*: Notifications (Tommy Pickles commented on your wall)
+* *Bonus*: Likes
+* *Bonus*: Comments on a comment
+* *Bonus*: Search
+* *Bonus*: Messaging
+* *Bonus*: Pictures/albums
 
 #### Feedly
 * Collections
 * RSS Feeds
 * Articles
 * Reads
-* Bonus: Favorites
-* Bonus: Search
+* *Bonus*: Favorites
+* *Bonus*: Search
 
 #### Flickr
 * Photos
 * Albums
 * Comments
 * Tags
-* Bonus: Favorites
-* Bonus: Follows
+* *Bonus*: Favorites
+* *Bonus*: Follows
 
 #### Genius
 * Tracks
 * Annotations
 * Comments
 * Upvotes
-* Bonus: Tags
-* Bonus: Search
+* *Bonus*: Tags
+* *Bonus*: Search
 
 #### Goodreads
 * Books
 * Bookshelves
 * Reviews
 * Read Status (will read, have read, etc.)
-* Bonus: Ratings
-* Bonus: Tags
+* *Bonus*: Ratings
+* *Bonus*: Tags
 
 #### Indiegogo
 * Profiles
 * Campaigns
 * Contributions
 * Rewards
-* Bonus: Categories
-* Bonus: Follows
+* *Bonus*: Categories
+* *Bonus*: Follows
 
 #### Instagram
 * Images
 * Likes
 * Commenting on images
 * Following & Photo feed
-* Bonus: direct messaging
-* Bonus: hashtags
+* *Bonus*: direct messaging
+* *Bonus*: hashtags
 
 #### Instructables
 * Projects
 * Commenting on projects
 * Adding photos and videos to projects
 * Searching projects by keyword
-* Bonus: Featured project channels
-* Bonus: Categories
+* *Bonus*: Featured project channels
+* *Bonus*: Categories
 
 #### Kickstarter
 * Projects
 * Backing projects & rewards
 * Search
 * Categories / Discover feature
-* Bonus: Likes
-* Bonus: Credit card payments
+* *Bonus*: Likes
+* *Bonus*: Credit card payments
 
 #### MapMyRun
 * Making running routes using map
 * Friending
 * Comments on runs
 * Dashboard that tracks completed runs
-* Bonus: cheers for friends
-* Bonus: Search for runs by location
-* Bonus: goals
+* *Bonus*: cheers for friends
+* *Bonus*: Search for runs by location
+* *Bonus*: goals
 
 #### Medium
 * Stories
 * Commenting on stories
 * Follows and feed
 * Likes
-* Bonus: Topics/categories
-* Bonus: Bookmarks
+* *Bonus*: Topics/categories
+* *Bonus*: Bookmarks
 
 #### Meetup
 * Groups and joining groups
 * Events and RSVPs
 * Calendar (on group page)
 * Search by location and group info (name, description)
-* Bonus: Categories
-* Bonus: Calendar (for all groups in search results)
+* *Bonus*: Categories
+* *Bonus*: Calendar (for all groups in search results)
 
 #### Newsblur
 * RSS feeds
 * Story tagging
 * Sharing on Blurblog/profile
 * Full text search of stories
-* Bonus: hide or highlight stories
-* Bonus: Real-time updating of RSS feeds
+* *Bonus*: hide or highlight stories
+* *Bonus*: Real-time updating of RSS feeds
 
 #### OKCupid
 * Browse and search other users by location and ‘looking for’
 * Messaging
 * Personality questions
 * Match percentages based on question answers
-* Bonus: block or hide other users
-* Bonus: mark importance of questions and weight accordingly in % match
+* *Bonus*: block or hide other users
+* *Bonus*: mark importance of questions and weight accordingly in % match
 
 #### OpenTable
 * Create and search restaurants
 * Reservations
 * Ratings/reviews
 * Favorites
-* Bonus: Discover/explore
-* Bonus: points for bookings and usage of site
+* *Bonus*: Discover/explore
+* *Bonus*: points for bookings and usage of site
 
 #### Pinterest
 * Profile
 * Boards and Pins
 * Follows
 * Discover feed on home page
-* Bonus: notifications
-* Bonus: private boards
-* Bonus: likes
+* *Bonus*: notifications
+* *Bonus*: private boards
+* *Bonus*: likes
 
 #### Pivotal Tracker
 * Projects/Project Page
 * Stories
 * Story Workflow
 * Drag and Drop Prioritization
-* Bonus: Iterations
-* Bonus: Velocity
+* *Bonus*: Iterations
+* *Bonus*: Velocity
 
 #### Poll Everywhere
 * Questions
 * Web URL to take poll
 * Live-update Poll view
 * Group/Ungroup Questions
-* Bonus: Text to polls
-* Bonus: Reports
+* *Bonus*: Text to polls
+* *Bonus*: Reports
 
 #### Product Hunt
 * Products
 * Profile Page
 * Product Discussion
 * Search (Users or Products)
-* Bonus: Collections
-* Bonus: Upvotes and Tags
+* *Bonus*: Collections
+* *Bonus*: Upvotes and Tags
 
 #### Quora
 * Questions
 * Answers/comments on answers
 * Search Questions
 * Topics/Tags
-* Bonus: Upvotes, order questions by popularity
-* Bonus: Replies to comments
+* *Bonus*: Upvotes, order questions by popularity
+* *Bonus*: Replies to comments
 
 #### Registry Love
 * Registry
 * Browse Gifts
 * Search Registries
 * Contribute to/select gift.
-* Bonus: Add gift from URL
-* Bonus: Import other registries
+* *Bonus*: Add gift from URL
+* *Bonus*: Import other registries
 
 #### Remember the Milk
 * Tasks
 * Lists
 * List summary (time, num tasks, num completed)
 * Search
-* Bonus: Autocomplete SmartAdd of task properties
-* Bonus: Subtasks
+* *Bonus*: Autocomplete SmartAdd of task properties
+* *Bonus*: Subtasks
 
 #### Slack
 * Live chat
 * Channels
 * Direct Message
 * Teams or multi-person DM
-* Bonus: Search Messages
-* Bonus: Notifications
+* *Bonus*: Search Messages
+* *Bonus*: Notifications
 
 #### Soundcloud
 * Song CRUD
 * Continuous play while navigating site
 * Comments
 * User pages
-* Bonus: Wave Forms
-* Bonus: Likes
+* *Bonus*: Wave Forms
+* *Bonus*: Likes
 
 #### SplitWise
 * Friending
 * Bills
 * Transaction History
 * Comments
-* Bonus: Groups
-* Bonus: Fake “checkout”
+* *Bonus*: Groups
+* *Bonus*: Fake “checkout”
 
 #### Stack Overflow
 * Ask Questions
 * Answer Questions
 * Search for Questions
 * Upvote / Downvote Answer
-* Bonus: Question Categories
-* Bonus: Comment on Questions / Answers
-* Bonus: Polymorphic Up/Down Votes: Questions, Answers, Comments
-* Bonus: Code Snippets in Answers
+* *Bonus*: Question Categories
+* *Bonus*: Comment on Questions / Answers
+* *Bonus*: Polymorphic Up/Down Votes: Questions, Answers, Comments
+* *Bonus*: Code Snippets in Answers
 
 #### Strava
 * Creating Routes
 * Saving Workouts
 * Workout Feed
 * Workout Stats/Totals
-* Bonus: Friends
-* Bonus: Workout Comments
-* Bonus: Social Feed
+* *Bonus*: Friends
+* *Bonus*: Workout Comments
+* *Bonus*: Social Feed
 
 #### TaskRabbit
 * Choose a task
 * Provide task details
 * Select price & confirm
 * Get assigned a tasker
-* Bonus: Become a Tasker
-* Bonus: Fake Payment & Billing
+* *Bonus*: Become a Tasker
+* *Bonus*: Fake Payment & Billing
 
 #### TeaWithStrangers
 * Choose City
 * Host Event
 * Join Event in your city
 * Dashboard of joined events/hosted events
-* Bonus: Google Map API showing events based on location
-* Bonus: Suggestions based on event details and user profiles
+* *Bonus*: Google Map API showing events based on location
+* *Bonus*: Suggestions based on event details and user profiles
 
 #### Tumblr
 * Posts form for various post types
 * Feed
 * Follows
 * Likes
-* Bonus: Reblog
-* Bonus: User show page (blog)
+* *Bonus*: Reblog
+* *Bonus*: User show page (blog)
 
 #### Untappd
 * Checkins / reviews
 * Review feed
 * Friends
 * Profile
-* Bonus: Search
-* Bonus: Venues
-* Bonus: Badges
+* *Bonus*: Search
+* *Bonus*: Venues
+* *Bonus*: Badges
 
 #### Yammer
 * News feed
 * Groups
 * Profile
 * Likes
-* Bonus: Reply
-* Bonus: Inbox (personal messages)
-* Bonus: Notifications
+* *Bonus*: Reply
+* *Bonus*: Inbox (personal messages)
+* *Bonus*: Notifications
 
 #### Yelp
 * Business Page
 * Search / filters
 * Reviews / ratings
 * Map
-* Bonus: Mark reviews funny, cool, useful etc.
-* Bonus: Profile
-* Bonus: Friends
+* *Bonus*: Mark reviews funny, cool, useful etc.
+* *Bonus*: Profile
+* *Bonus*: Friends
 
 #### Wufoo
 * Build Forms
 * Build various question types
 * Share Forms
 * Display Results
-* Bonus: Graph results
+* *Bonus*: Graph results
