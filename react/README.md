@@ -187,7 +187,7 @@
 * Submit your [capstone project proposal][capstone-project-proposal] by 9am on Monday.
 
 [capstone-project-curriculum]: ../capstone
-[capstone-project-proposal]: ../capstone/project-proposals/capstone-project-proposal.md
+[capstone-project-proposal]: ../capstone/readings/capstone-project-proposal.md
 [jest-basics]: readings/jest_basics.md
 [jest-config]: readings/jest_config.md
 
