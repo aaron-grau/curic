@@ -165,10 +165,10 @@ released, the listener should call our `keyReleased(noteName)` function to
 remove the key from the store.
 
 **NB:** A jQuery `'keydown'` listener triggers multiple times whenever the user
-**holds down a key. This would call our `KeyPressed` function multiple times and
-**would make our `KeyReleased` action out of sync because it can only trigger
-**once. We'd end up with undesirable keys left over in our `KeyStore`. How might
-**you ensure you only call the `KeyPressed`function once per key press?
+holds down a key. This would call our `KeyPressed` function multiple times and
+would make our `KeyReleased` action out of sync because it can only trigger
+once. We'd end up with undesirable keys left over in our `KeyStore`. How might
+you ensure you only call the `KeyPressed`function once per key press?
 
 Think of a way to test that your listeners work on their own (without calling
 any other code in your app). Our old friend `console.log` might be of
@@ -186,8 +186,8 @@ const Mapping = {
 ```
 
 **NB:** Do not create an instance of a `Note`. Only the key name ("C4", "D3",
-**etc) should be passed through the action and kept in the store. We'll store
-**`Note` objects as instance variables in our React components.
+etc.) should be passed through the action and kept in the store. We'll store
+`Note` objects as instance variables in our React components.
 
 Here's how a `keydown` event propagates through our app:
 
@@ -205,7 +205,7 @@ Go [here](http://keycode.info/) to find keycodes.
 In a moment we'll write a `NoteKey` React component, which will listen for
 changes in the `KeyStore`. When that change occurs, the `NoteKey` will
 conditionally re-render and either start or stop its `Note`. Make sure
-you've built out both the `KeyStore` and `AddKeyListeners` before
+you've built the `KeyActions`, `AddKeyListeners`, and the `KeyStore` before
 continuing.
 
 [keycode-list]: http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes#TABLE2
@@ -314,9 +314,9 @@ is stored in a `roll`, which contains objects of the form:
 over these objects because iteration happens (essentially) instantaneously.
 Instead, we want to **throttle** our iteration, such that we only move on to the
 next note once `Date.now() - playBackStartTime` exceeds the current note's
-`timeSlice`. What JavaScript function allows us to invoke a callback over
-(relatively) large spans of time? That's right: `setInterval`. Note that we
-don't want to run the interval forever--only until the end of the `Track`.
+`timeSlice`. `setInterval` allows us to invoke a callback over
+(relatively) large spans of time. Note that we don't want the interval to run
+forever--only until the end of the `Track`.
 
 Store a reference to the interval as an instance variable (`this.interval`) of
 the `Track`. At the top of your `play` method, check if `this.interval` already
