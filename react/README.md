@@ -176,7 +176,7 @@
 [bench-bnb]: projects/bench_bnb
 [react_map_demo]: demos/react_map_demo
 [jbuilder-link]: https://github.com/rails/jbuilder
-[jbuilder-demo]: questions/jbuilder_demo
+[jbuilder-demo]: homeworks/questions/jbuilder_demo
 
 ## w7d6-w7d7
 
