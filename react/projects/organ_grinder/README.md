@@ -24,7 +24,7 @@ entire section before figuring out how to make it run. Start small and append.
 * Test that you can access the root view.
 * NB: At this point we are NOT dealing with our backend beyond setting up this static page. Don't worry about database concerns until we get to the Recorder phase.
 * Run `npm init --yes` to set up your `package.json`
-* Run `npm install --save webpack react react-dom flux babel-core babel-loader babel-preset-react`
+* Run `npm install --save webpack react react-dom flux babel-core babel-loader babel-preset-react babel-preset-2015`
 * Run `npm install --save jquery`. We'll be using jQuery later.
 * Create a `frontend` folder at the root of your project to contain your front-end code.
 
@@ -125,24 +125,58 @@ phase, feel free to refer to this [reference material][stores-and-actions].
 [stores-and-actions]: ../../readings/stores_and_actions.md
 
 First, make a `KeyStore`. This should keep track of all the keys
-currently being played; we can store these by name (e.g., "C3").
+currently being played; we can store these by name (e.g., "C3"). Here's the setup:
 
-Next, make a `util/add_key_listeners.js` file. This file will hold jQuery
+```js
+const Store =  require("flux/utils").Store;
+const AppDispatcher = require('../dispatcher/dispatcher');
+const KeyStore = new Store(AppDispatcher);
+
+let _keys = [];
+```
+
+**NB**: You may assign `_keys` to either `[]` or `{}`. An object has O(1) lookup
+**but is slightly trickier to manipulate. Recall that we make `_keys` a local
+**variable to be less accessible.
+
+Create an `actions/key_actions.js` file. This file should export
+`keyPressed(noteName)` and `keyRelesed(noteName)` functions. Within each
+function the `Dispatcher` we instantiated in our `dispatcher.js` file should
+`dispatch` an object with `actionType` and `note` keys.
+
+Because we instantiated our `KeyStore` with the very same `Dispatcher`, it will
+invoke its `__onDispatch` method whenever that dispatcher dispatches an action
+object. `__onDispatch` in turn decides which of its methods to call in response
+to the action's `actionType` (typically in a switch statement), after which it
+calls `__emitChange`. `__emitChange` allows any React component listening (e.g.
+via `KeyStore.addListener(this.someComponentMethod)` to register a change in the
+`KeyStore` and react accordingly.
+
+Create a `util/add_key_listeners.js` file. This file will hold jQuery
 listeners for `keyup` and `keydown`. Install event handlers for these using `on`
-on `$(document)`. Wrap these two functions in a single function that will be
+on `$(document)`. Wrap these two listeners within a single function that will be
 your only export. We'll later call this function within a `ComponentDidMount`
 lifecycle method for our `Organ` component.
 
-When a user presses a key, the key listener should trigger an action, which--
-when dispatched--will add a key to the `KeyStore`. Likewise, when the key is
-released, the listener should trigger an action to remove the key from the
-store.
+When a user presses a key, the key listener should call our
+`keyPressed(noteName)` function from `key_actions.js`, which-- when
+dispatched--will add a key to the `KeyStore`. Likewise, when the key is
+released, the listener should call our `keyReleased(noteName)` function to
+remove the key from the store.
 
-How would you test that your listeners work on their own (without calling any
-other code in your app)?
+**NB:** A jQuery `'keydown'` listener triggers multiple times whenever the user
+**holds down a key. This would call our `KeyPressed` function multiple times and
+**would make our `KeyReleased` action out of sync because it can only trigger
+**once. We'd end up with undesirable keys left over in our `KeyStore`. How might
+**you ensure you only call the `KeyPressed`function once per key press?
 
-To know which key name to pass to our action, we'll need to map
-[keycodes][keycode-list] (this information is available as part of the `event` object) to organ keys, e.g.
+Think of a way to test that your listeners work on their own (without calling
+any other code in your app). Our old friend `console.log` might be of
+assistance.
+
+To know which `noteName` to pass to our action, we'll need to map
+[keycodes][keycode-list] (this information is available as part of the `event`
+object) to organ keys, e.g.
 
 ```js
 const Mapping = {
@@ -152,23 +186,21 @@ const Mapping = {
 ```
 
 **NB:** Do not create an instance of a `Note`. Only the key name ("C4", "D3",
-etc) should be passed through the action and kept in the store. `Note` objects
-will be kept as instance variables in our React components.
+**etc) should be passed through the action and kept in the store. We'll store
+**`Note` objects as instance variables in our React components.
 
-Here's how an event propagates through our app:
+Here's how a `keydown` event propagates through our app:
 
 0. User presses a key.
 0. The key listener catches the `keydown` event and invokes
    `KeyActions.keyPressed` with the appropriate key name.
 0. The `KeyActions.keyPressed` action sends a payload to the
    `AppDispatcher`. The payload should contain the `actionType` and a `noteName`.
-0. The dispatcher emits the event. The `KeyStore` catches the event, gets the `noteName`
-  out of the payload, and adds the `noteName` to its array of `keys`. The `KeyStore`
-  also emits a change event.
+0. The dispatcher emits the event. The `KeyStore` catches the event, gets the
+`noteName` out of the payload, and adds the `noteName` to its array of `keys`.
+The `KeyStore` also emits a change event.
 
-How do you grab the keycode? Put a debugger at the top of your key listener and
-poke around until you find the keycode: an effective strategy for investigating
-unknown objects.
+Go [here](http://keycode.info/) to find keycodes.
 
 In a moment we'll write a `NoteKey` React component, which will listen for
 changes in the `KeyStore`. When that change occurs, the `NoteKey` will
@@ -193,17 +225,19 @@ your `Tones` constant to convert it.
 
 The `NoteKey` should listen to the `KeyStore`. If the `noteName` for the
 `NoteKey` is in the `KeyStore`, the `NoteKey` should `start` its `Note`.
-Remember to remove the listener in `componentWillUnmount` -- refer
-back to the reference reading if you're unsure how to do this.
+Add the listener in `componentDidMount`. Remember to store it as an instance
+variable so you can remove it in `componentWillUnmount`--refer to the
+[reading](https://github.com/appacademy/curriculum/blob/master/react/readings/stores_and_actions.md)
+under "Stores are even emitters" for guidance.
 
 ### Organ
 
 Now let's add support for more than one `NoteKey`. We'll do this by writing
-a new React component, `Organ`. This should render an `NoteKey` for each of
+a new React component, `Organ`. This should render a `NoteKey` for each of
 the `TONES`.
 
 Now we can test our setup. When our `Organ` has mounted, it should call the
-method we exported from `add_key_listeners.js`. In `organ_grinder.jsx`, use
+method we exported from `add_key_listeners.js`. In `organ_grinder.jsx` use
 `ReactDOM` to put our `Organ` on the page. Fire up your rails server and press
 some keys. You should hopefully hear sound!
 
