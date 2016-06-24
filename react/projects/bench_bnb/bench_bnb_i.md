@@ -302,7 +302,7 @@ information.
     rest of your page and be ready to use as soon as your app mounts.
 
     ```html
-      // application.html.erb
+      <!-- application.html.erb -->
       <!DOCTYPE html>
         <html>
         <head>
