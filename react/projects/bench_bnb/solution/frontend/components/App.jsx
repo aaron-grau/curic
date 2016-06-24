@@ -41,7 +41,7 @@ const App = React.createClass({
     return (
       <div>
         <header>
-          <h1>Bench BnB</h1>
+          <Link to="/" className="header-link"><h1>Bench BnB</h1></Link>
           { this.greeting() }
         </header>
         {this.props.children}
