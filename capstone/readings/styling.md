@@ -1,5 +1,6 @@
 # Styling
 * [The Basics of CSS Syntax][css-overview]
+* [Autoprefixer][autoprefixer]
 * [CSS Transitions Webcast][css-transitions-webcast] :movie_camera:
 * [Pre-processing, Boilerplate Frameworks, and Type][sass-bootstrap-type]
 * [CSS Demos][css-demos]
@@ -13,6 +14,7 @@
  * [Blog][css-transitions-blog]
  * [CSS Generator][css-transitions-generator]
 
+[autoprefixer]: readings/autoprefixer.md
 [css-overview]: ./css.md
 [css-demos]: https://github.com/jonathanlemuel/css-demos
 [styling-railscasts]: ./styling-railscasts.md
