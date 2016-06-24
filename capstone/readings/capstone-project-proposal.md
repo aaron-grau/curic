@@ -15,7 +15,7 @@ have already thought carefully about the functionality and scope of each
 feature, allowing your future self to focus completely on writing the code for
 it.
 
-[sample-proposal]: https://github.com/appacademy/sample-project-proposal
+[sample-proposal]: ../demos/sample_project_proposal
 
 ## Setting up the Project Repo
 
