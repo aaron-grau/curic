@@ -203,7 +203,7 @@
 **Project Proposal Review Period for Instructional Staff**
 
 ### Projects
-* **Solo** [BenchBnB Day 2][bench-bnb2]
+* **Solo:** [BenchBnB Day 2][bench-bnb2]
 
 [bench-bnb2]: projects/bench_bnb
 
