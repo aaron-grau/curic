@@ -301,7 +301,7 @@ information.
     remove the `async defer` bit. This way, the script will fully load before the
     rest of your page and be ready to use as soon as your app mounts.
 
-    ```
+    ```html
       // application.html.erb
       <!DOCTYPE html>
         <html>
