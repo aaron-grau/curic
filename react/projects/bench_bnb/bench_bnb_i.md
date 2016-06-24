@@ -56,7 +56,7 @@ In this phase, you will build the pieces necessary to display a basic index of b
 
   ```javascript
   //dispatcher/dispatcher.js
-  const Dispatcher = require('flux').dispatcher;
+  const Dispatcher = require('flux').Dispatcher;
   module.exports = new Dispatcher();
   ```
 
