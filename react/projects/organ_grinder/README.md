@@ -24,7 +24,7 @@ entire section before figuring out how to make it run. Start small and append.
 * Test that you can access the root view.
 * NB: At this point we are NOT dealing with our backend beyond setting up this static page. Don't worry about database concerns until we get to the Recorder phase.
 * Run `npm init --yes` to set up your `package.json`
-* Run `npm install --save webpack react react-dom flux babel-core babel-loader babel-preset-react-es2015`
+* Run `npm install --save webpack react react-dom flux babel-core babel-loader babel-preset-es2015 babel-preset-react`
 * Run `npm install --save jquery`. We'll be using jQuery later.
 * Create a `frontend` folder at the root of your project to contain your front-end code.
 
