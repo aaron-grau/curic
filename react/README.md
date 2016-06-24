@@ -115,7 +115,7 @@
 [flux-lecture]: https://vimeo.com/163485520
 [flux-demo-screencast]: https://vimeo.com/163486476
 [click-counter-flux]: homeworks/click_counter
-[tentative-proposal]: ../capstone/project-proposals/tentative-project-proposal.md
+[tentative-proposal]: ../capstone/readings/tentative-project-proposal.md
 [flux-intro]: readings/intro_to_flux.md
 [flux-video]: https://www.youtube.com/watch?v=Bic_sFiaNDI
 [flux-todo-tutorial]: readings/todo_list_tutorial.md
