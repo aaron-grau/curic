@@ -2,7 +2,7 @@
 
 const React = require('react');
 const Link = require('react-router').Link;
-const Review = require('./Review');
+const Review = require('./review');
 const SessionStore = require('../stores/session_store');
 const FavoriteActions = require('../actions/favorite_actions');
 

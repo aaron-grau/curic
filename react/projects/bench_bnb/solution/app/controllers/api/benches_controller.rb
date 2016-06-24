@@ -29,7 +29,8 @@ class Api::BenchesController < ApplicationController
       :lat,
       :lng,
       :description,
-      :seating
+      :seating,
+      :picture_url
     )
   end
 

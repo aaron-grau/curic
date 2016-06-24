@@ -50,21 +50,31 @@ var Bench = React.createClass({
 
   render() {
     const reviews = this.props.bench.reviews || [];
+
+    let reviewText = "no reviews yet";
+    if(reviews.length > 0) {
+      reviewText = reviews.map( (review) => {
+        return <Review key={review.id} {...review} />;
+      });
+    }
+
     return (
       <div>
-        <ul>
-          <img height="200px" src={this.props.bench.picture_url}/>
+        <ul className="bench-list">
+          <img className="index-image" src={this.props.bench.picture_url}/>
           <li>Rating: {this.props.bench.average_rating || "No reviews yet"}</li>
           <li>Description: {this.props.bench.description}</li>
           <li>Seats: {this.props.bench.seating}</li>
           <li>Latitude: {this.props.bench.lat}</li>
           <li>Longitude: {this.props.bench.lng}</li>
         </ul>
-        <button onClick={this.toggleFavorite}>{this._isLiked()}</button>
+        <button onClick={this.toggleFavorite} className="like-button">
+          {this._isLiked()}
+        </button>
         <br/>
         <div className="reviews">
           <h3>Reviews</h3>
-          { reviews.map( review => <Review key={review.id} {...review} />) }
+          { reviewText }
         </div>
       </div>
     );

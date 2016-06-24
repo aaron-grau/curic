@@ -9,7 +9,7 @@ const BenchIndex = React.createClass({
     const benchKeys = Object.keys(benches);
     return (
       <div>
-        <h1>Index</h1>
+        <h1>Benches: </h1>
         {
           benchKeys.map( key => {
             return (<IndexItem
