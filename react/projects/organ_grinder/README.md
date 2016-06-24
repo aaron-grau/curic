@@ -12,7 +12,7 @@ React.js and Flux. Hitting a key will create an action that adds a key to the
 `KeyStore`. Changes to the `KeyStore` will cause your React components to update
 themselves.
 
-This is another Rails app, so start by running `rails new --skip-turbolinks --database=POSTGRESQL`.
+This is another Rails app, so start by running `rails new --skip-turbolinks --database=postgresql`.
 
 Make sure to test as you go. Your understanding will suffer if you code an
 entire section before figuring out how to make it run. Start small and append.

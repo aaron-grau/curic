@@ -11,7 +11,7 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 
 ## Phase 0: Rails Backend
 
-* Create a new rails project using `--database=POSTGRESQL` and `--skip-turbolinks`.
+* Create a new rails project using `--database=postgresql` and `--skip-turbolinks`.
 * Make a `Bench` model with `description`, `lat` and `lng`.
 * `lat` and `lng` should be of type `float`.
 * Make a `BenchesController` to handle API requests. It will need `index` and `
