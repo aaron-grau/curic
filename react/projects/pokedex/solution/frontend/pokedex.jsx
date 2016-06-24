@@ -1,9 +1,11 @@
 'use strict';
 
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
-
 const React = require('react');
 const ReactDOM = require('react-dom');
+const reactRouter = require('react-router');
+const Router = reactRouter.Router;
+const Route = reactRouter.Route;
+const hashHistory = reactRouter.hashHistory;
 const App = require('./components/app.jsx');
 const PokemonDetail = require('./components/pokemons/detail.jsx');
 const ToyDetail = require('./components/toys/detail.jsx');
