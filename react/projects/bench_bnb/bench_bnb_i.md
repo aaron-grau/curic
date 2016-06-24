@@ -308,7 +308,7 @@ information.
         <head>
           <title>BenchBnb</title>
 
-          <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY}" %>
+          <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key={YOUR_API_KEY}" %>
           <%= stylesheet_link_tag    'application', media: 'all' %>
           <%= csrf_meta_tags %>
           <%= javascript_include_tag 'application' %>
