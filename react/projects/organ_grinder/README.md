@@ -114,7 +114,7 @@ resource.
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
-## Phase 3: `KeyStore` and `KeyActions`
+## Phase 3: `KeyStore`, `KeyActions`, and `AddKeyListeners`
 
 In the Todo app, we built our own Store from scratch. To speed up
 our development process, we're going to use the one provided to us by
