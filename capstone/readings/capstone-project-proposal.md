@@ -19,13 +19,15 @@ it.
 
 ## Setting up the Project Repo
 
-0. Click "Download ZIP" on the sample proposal page.
+0. Clone the curriculum repo (if you haven't done this already).
 
-0. Save and extract the contents to whatever folder you want your project to
-   live in.
+0. Navigate to the [sample project proposal][sample-proposal] in the
+  curriculum file tree.
 
-0. `cd` into the folder and run this command, adding any other options you
-   might want:
+0. `cp -r . ~/destination/path/for/your/sample_project_proposal`
+
+0. `cd` into the place where you copied the proposal and run this
+  command, adding any other options you might want:
 
    `rails new . --skip-turbolinks --database=postgresql`
 
