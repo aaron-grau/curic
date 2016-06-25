@@ -24,7 +24,7 @@ it.
 0. Navigate to the [sample project proposal][sample-proposal] in the
   curriculum file tree.
 
-0. `cp -r . ~/destination/path/for/your/sample_project_proposal`
+0. `cp -r . ~/destination/path/for/your/project`
 
 0. `cd` into the place where you copied the proposal and run this
   command, adding any other options you might want:
