@@ -1,245 +1,173 @@
-# Node Modules
+# Modules
 
-## Quick Hits
+A Ruby **module** is like a class, except you don't instantiate a
+module. Modules consist of methods that can *mixed in* to a Ruby
+class. In Ruby, we use a module to collect methods that may be
+mixed in and shared by many classes to keep our code DRY.
 
-So far, we've written all our code in a single file. We'd like to learn
-how to split code up in Node modules.
-
-Node is different from Ruby. In Ruby, you can do like so:
+Let's see an example:
 
 ```ruby
-# ./cat.rb
+module Greetable
+  def greet
+    "Hello, my name is #{self.name}"
+  end
+end
+
+class Human
+  include Greetable
+  
+  def initialize(name)
+    @name = name
+  end
+  
+  def name
+    @name
+  end
+end
+
+class Robot
+  include Greetable
+  
+  def name
+    "Robot Model #2000"
+  end
+end
+```
+
+We "mix in" a module by using the `#include` method. This will
+take the methods defined in the module and make them available to
+instances of `Robot` and `Human`.
+
+Note that module methods may call methods of the class that they are
+mixed into. In this case, the `Greetable` module needs to access a
+`name` method. Both `Robot` and `Human` have `name` methods.
+
+The most famous module is `Enumerable`. All the various methods of
+`Enumerable` are defined in terms of an `each` method, which the class
+(be it `Array`, `Hash`, etc.) must define. I sometimes describe
+modules as "power packs", in that they extend the abilities of a
+class.
+
+### Include vs extend
+
+It is common to mix in a module to add instance methods to a class;
+we've used `include` to do this. You can also use the `Class#extend`
+method to mix in module methods *as class methods*. Here's an example:
+
+```ruby
+module Findable
+  def objects
+    @objects ||= {}
+  end
+
+  def find(id)
+    objects[id]
+  end
+
+  def track(id, object)
+    objects[id] = object
+  end
+end
+
 class Cat
-  def meow
-    # ...
+  extend Findable
+  
+  def initialize(name)
+    @name = name
+    Cat.track(@name, self)
   end
 end
 
-# ./dog.rb
-class Dog
-  def bark
-    # ...
+Cat.new("Gizmo")
+Cat.find("Gizmo") # finds Gizmo Cat object
+```
+
+## Mixins vs Multiple Inheritance
+
+Ruby doesn't support multiple inheritance: a class can only have one
+parent class. Only a few languages do support multiple inheritance;
+you can read about the "Diamond problem" if you want to learn why.
+
+Ruby's answer to multiple inheritance is the ability to mix in
+modules. If two classes should share methods, but it is not feasible
+for them to share a base class, we can instead factor the common
+methods out into a module and `include` this in both the classes.
+
+Again, the prototypical example is the `Enumerable` module:
+
+```ruby
+module Enumerable
+  def map(&prc)
+    results = []
+
+    # notice how we need `each` to write `map`
+    self.each { |el| results << prc.call(el) }
+
+    results
   end
+
+  ...
 end
 
-# ./animals.rb
-require_relative "cat"
-require_relative "dog"
+class Array < Object
+  include Enumerable
+  ...
+end
 
-cat = Cat.new
-dog = Dog.new
-
-cat.meow
-dog.bark
+class Hash < Object
+  include Enumerable
+  ...
+end
 ```
 
-In Node, things are a little different:
+Now all of the methods in the `Enumerable` module (e.g., `map`) are
+mixed in to Array and Hash.
 
-```js
-// ./cat.js
-function Cat () {
-  // ...
-};
+## Namespaces
 
-Cat.prototype.meow = function () {
-  // ...
-};
+Modules have a second, unrelated purpose: as
+**namespaces**. Namespaces prevent name collisions. Say you have a
+method `make_bacon` in file 'A.rb'. Later, you decide to define a
+method `make_bacon` in file 'B.rb'. If you're writing a program that
+`requires` both files, one `make_bacon` definition is going to
+overwrite the other and you'll be in trouble.
 
-module.exports = Cat;
+This is where modules come in; if you wrap the code in 'A.rb' and
+'B.rb' in modules, you won't have any difficulty. This is how 'A.rb'
+looks:
 
-// ./dog.js
-function Dog () {
-  // ...
-};
-
-Dog.prototype.bark = function () {
-  // ...
-};
-
-module.exports = Dog;
-
-// ./animals.js
-var Cat = require("./cat");
-var Dog = require("./dog");
-
-var cat = new Cat();
-var dog = new Dog();
-
-cat.meow();
-dog.bark();
+```ruby
+module A
+  def self.make_bacon
+    ...
+  end
+end
 ```
 
-## In Detail: Exporting a Class
+'B.rb' looks like this:
 
-Node uses `require` to allow one JS file to load a second JS file. For
-instance, `animals.js` used `require("./cat")` to load the `cat.js`
-file.
-
-When a file is `require`d, Node loads and executes its code. Normally,
-required files will define classes, like `cat.js` and `dog.js` defined
-`Cat` and `Dog` classes.
-
-That is all more or less the same as in Ruby, but note that in the JS
-example, we store the result of `require` in a variable, and we use that
-variable to access the module. That's because unlike Ruby's `require`,
-Node's `require` does not import a module's global scope:
-
-```js
-// DOES NOT WORK
-
-// ./cat.js
-function Cat () {
-  // ...
-}
-
-// ./animals.js
-require("./cat");
-
-Cat //=> undefined
+```ruby
+module B
+  def self.make_bacon
+    ...
+  end
+end
 ```
 
-So how do we export `Cat` from the module file? By setting
-`module.exports`. `module` is a pre-defined variable set up by Node,
-and its `exports` property is returned whenever we `require` it from
-another file. Let's have a look:
+Let's use A and B in a program to make some bacon.
 
-```js
-// ./silly.js
-module.exports = "THIS IS MY EXPORTED STRING";
+```ruby
+require "A"
+require "B"
 
-// ./main.js
-var silly = require("./silly");
-console.log(silly); //=> THIS IS MY EXPORTED STRING
+a_grade_bacon = A.make_bacon
+b_grade_bacon = B.make_bacon
 ```
 
-Because the value of `module.exports` is what is returned by `require`,
-`cat.js` exports the `Cat` constructor function by setting
-`module.exports = Cat` and `animals.js` calls
-`var Cat = require("./cat");` to save the `Cat` class to a variable to
-use.
+Yay! Two different kinds of bacon!
 
-## In Detail: Loading Multiple Classes
-
-The above pattern works great if each source file has a single class to
-export. What if we want to define many chess pieces?
-
-```js
-// ./lib/pieces/pawn.js
-function Pawn () {};
-// ...
-module.exports = Pawn;
-
-// ./lib/pieces/knight.js
-function Knight () {};
-// ...
-module.exports = Knight;
-
-// ./lib/pieces/bishop.js
-function Bishop () {};
-// ...
-module.exports = Bishop;
-
-// ... more piece files ...
-
-// ./lib/chess-board.js
-var Pawn   = require("./pieces/pawn");
-var Knight = require("./pieces/knight");
-var Bishop = require("./pieces/bishop");
-// ...
-
-var p = new Pawn();
-var k = new Knight();
-var b = new Bishop();
-```
-
-This is kind of annoying. Anyone who wants to use all of our pieces
-needs to load them by hand.
-
-There is a common trick. In addition, to our `./pieces/pawn.js`,
-`./pieces/knight.js`, etc., we'll define one extra file:
-
-```js
-// ./pieces/index.js
-module.exports = {
-  Pawn: require("./pawn"),
-  Knight: require("./knight"),
-  Bishop: require("./bishop"),
-  // ...
-};
-
-// chess-board.js
-var Pieces = require("./pieces");
-
-var p = new Pieces.Pawn();
-var k = new Pieces.Knight();
-var b = new Pieces.Bishop();
-```
-
-When we `require("./pieces")`, Node will realize that `./pieces` is a
-directory, not a file. Node will look for a file named
-`index.js` in `./pieces` and load it. The code we wrote in
-`./pieces/index.js` loads more files, and exports all the classes
-grouped in a single object. In `chess-board.js`, we assign this to the
-variable `Pieces`. Sometimes we call `Pieces` a **namespace**.
-
-## One More Thing
-
-Node sets `module.exports` to a blank object by default. So we could
-rewrite the above as:
-
-```js
-// ./pieces/index.js
-module.exports.Pawn   = require("./pawn");
-module.exports.Knight = require("./knight");
-module.exports.Bishop = require("./bishop");
-// ...
-```
-
-I like our way of reassigning the whole `module.exports` better. But
-this way would also work.
-
-## ES6 Module Syntax (NOT SUPPORTED YET)
-
-In ES6, we can write export statements differently. These new ways of writing export statements don't work in Node, but are starting to be used in frontend development. The command `export default` is similar to `module.exports`, as shown below.
-
-We are providing you this information only as a reference in case you encounter
-this syntax online.
-
-```js
-// ./cat.js
-let cat = {
-  meow: "meow!"
-};
-
-
-export default cat;
-
-// ./dog.js
-let dog = {
-  bark: 'woof!'
-};
-
-export default dog;
-
-// ./animals.js
-import cat from "./cat"; //cat is assigned to the cat object from cat.js
-import cuteDog from "./dog"; //cuteDog is assigned to the dog object from 'dog.js'
-//the name cuteDog doesn't have to be the same as the variable from dog.js
-
-console.log(cat.meow); // "meow!"
-console.log(dog.bark); // "woof!"
-```
-
-ES6 also allows us to export specific named functions and constants, and load them by name in other files. This allows us to export multiple different items from a single file.
-
-```js
-// ./silly.js
-export const funString = "THIS IS MY FUN STRING";
-export const coolString = "THIS IS MY COOL STRING";
-
-// ./main.js
-import {funString, coolString} from "./silly";
-//funString and coolString were the names of items exported in main.js
-console.log(funString); //=> THIS IS MY FUN STRING
-console.log(coolString); //=> THIS IS MY COOL STRING
-```
+It doesn't normally make sense to put your application code inside a
+module, but if you want to make your code widely available as a gem,
+you would want to wrap it in a module so as to minimize potential
+conflicts.
