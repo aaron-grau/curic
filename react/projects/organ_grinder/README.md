@@ -6,7 +6,7 @@ Live demo available [here][live-link]!
 
 ## Overview
 
-In this project we'll make a musical organ you can play on your keyboard! When
+Let's make a musical organ you can play on your keyboard! When
 we're finished a user will be able to save their track and replay it. We'll use
 React.js and Flux. Hitting a key will create an action that adds a key to the
 `KeyStore`. Changes to the `KeyStore` will cause your React components to update
@@ -87,7 +87,7 @@ const Note = function (freq) {
 };
 
 Note.prototype.start = function () {
-    // can't explain 0.3, it is a reasonable value
+    // can't explain 0.3, it's a reasonable value
     this.gainNode.gain.value = 0.3;
 };
 
@@ -125,7 +125,7 @@ phase, feel free to refer to this [reference material][stores-and-actions].
 [stores-and-actions]: ../../readings/stores_and_actions.md
 
 First, make a `KeyStore`. This should keep track of all the keys
-currently being played; we can store these by name (e.g., "C3"). Here's the setup:
+played; we can store these by name (e.g., "C3"). Here's the setup:
 
 ```js
 const Store =  require("flux/utils").Store;
@@ -144,7 +144,7 @@ Create an `actions/key_actions.js` file. This file should export
 function the `Dispatcher` we instantiated in our `dispatcher.js` file should
 `dispatch` an object with `actionType` and `note` keys.
 
-Because we instantiated our `KeyStore` with the very same `Dispatcher`, it will
+Because we instantiated our `KeyStore` with the same `Dispatcher`, it will
 invoke its `__onDispatch` method whenever that dispatcher dispatches an action
 object. `__onDispatch` in turn decides which of its methods to call in response
 to the action's `actionType` (typically in a switch statement), after which it
@@ -155,24 +155,23 @@ via `KeyStore.addListener(this.someComponentMethod)` to register a change in the
 Create a `util/add_key_listeners.js` file. This file will hold jQuery
 listeners for `keyup` and `keydown`. Install event handlers for these using `on`
 on `$(document)`. Wrap these two listeners within a single function that will be
-your only export. We'll later call this function within a `ComponentDidMount`
+your entire export. We'll later call this function within a `ComponentDidMount`
 lifecycle method for our `Organ` component.
 
 When a user presses a key, the key listener should call our
 `keyPressed(noteName)` function from `key_actions.js`, which-- when
-dispatched--will add a key to the `KeyStore`. Likewise, when the key is
-released, the listener should call our `keyReleased(noteName)` function to
+dispatched--will add a key to the `KeyStore`. Likewise, when a user released a
+key, the listener should call our `keyReleased(noteName)` function to
 remove the key from the store.
 
-**NB:** A jQuery `'keydown'` listener triggers multiple times whenever the user
-holds down a key. This would call our `KeyPressed` function multiple times and
-would make our `KeyReleased` action out of sync because it can only trigger
-once. We'd end up with undesirable keys left over in our `KeyStore`. How might
-you ensure you only call the `KeyPressed`function once per key press?
+**NB:** A jQuery `'keydown'` listener fires continually when the user holds down
+**a key, thereby repeatedly calling the `KeyPressed` function. The `KeyReleased`
+**function would become out of sync because it can fire only once. Undesirable
+**keys would remain in our `KeyStore`. How might you ensure you call the
+**`KeyPressed`function once per key press?
 
 Think of a way to test that your listeners work on their own (without calling
-any other code in your app). Our old friend `console.log` might be of
-assistance.
+any other code in your app). Our old friend `console.log` might help.
 
 To know which `noteName` to pass to our action, we'll need to map
 [keycodes][keycode-list] (this information is available as part of the `event`
@@ -185,9 +184,10 @@ const Mapping = {
 };
 ```
 
-**NB:** Do not create an instance of a `Note`. Only the key name ("C4", "D3",
-etc.) should be passed through the action and kept in the store. We'll store
-`Note` objects as instance variables in our React components.
+**NB:** Do not create an instance of a `Note`. The callback function of each
+**jQuery listener should pass the key name alone (e.g. "C4", "D3", etc.) to the
+**action. The store ultimately keeps key names in `_keys`. We'll store `Note`
+**objects as instance variables in our React components.
 
 Here's how a `keydown` event propagates through our app:
 
@@ -217,39 +217,41 @@ continuing.
 Let's write a `NoteKey` React class component (Note: we're calling it `NoteKey`
 to distinguish it from the keyboard's keys). This component will be the visual
 representation of a single note in your organ. It's also the component
-responsible for whether a `Note` is played. The component will be passed a
-single `noteName` as a prop. After the component has mounted, create a new
-`Note` instance and store it as an instance variable in your component. Notice
-that a `Note` is constructed with a frequency, not a `noteName` string, so use
-your `Tones` constant to convert it.
+responsible for whether to play a `Note`. The `Organ` component will pass to
+`NoteKey` a single `noteName` as a prop. After `NoteKey` has mounted, create a
+new `Note` instance and store it as an instance variable. Notice that the `Note`
+constructor takes  a frequency as a parameter, not a `noteName` string. Use your
+`Tones` constant to convert the string.
 
-The `NoteKey` should listen to the `KeyStore`. If the `noteName` for the
-`NoteKey` is in the `KeyStore`, the `NoteKey` should `start` its `Note`.
-Add the listener in `componentDidMount`. Remember to store it as an instance
-variable so you can remove it in `componentWillUnmount`--refer to the
-[reading](https://github.com/appacademy/curriculum/blob/master/react/readings/stores_and_actions.md)
-under "Stores are even emitters" for guidance.
+The `NoteKey` component should listen to the `KeyStore`. If the `NoteKey`'s
+`this.props.noteName` is in the `KeyStore`, the `NoteKey` should `start` its
+`Note`. Add the `KeyStore` listener in `componentDidMount`. Remember to store
+the listener as an instance variable so you can remove it in
+`componentWillUnmount`--refer to the [reading][stores_and_actions] under "Stores
+are even emitters" for guidance.
+
+[stores_and_actions]: https://github.com/appacademy/curriculum/blob/master/react/readings/stores_and_actions.md
 
 ### Organ
 
-Now let's add support for more than one `NoteKey`. We'll do this by writing
-a new React component, `Organ`. This should render a `NoteKey` for each of
-the `TONES`.
+Let's support more than one `NoteKey` by writing an `Organ` component. The
+`Organ` component will render a `NoteKey` for each of the `TONES`.
 
 Now we can test our setup. When our `Organ` has mounted, it should call the
-method we exported from `add_key_listeners.js`. In `organ_grinder.jsx` use
-`ReactDOM` to put our `Organ` on the page. Fire up your rails server and press
-some keys. You should hopefully hear sound!
+method we exported from `add_key_listeners.js`, thereby adding `'keydown'` and
+`'keyup'` event listeners. In `organ_grinder.jsx` use `ReactDOM` to position our
+`Organ` on the page. Remember to provide an HTML container as the second
+argument of `ReactDOM.render` Fire up your rails server and press some keys. You
+should hopefully hear sound!
 
-If no sonorous tones emerge, first check for errors in your console. Then follow
-the Flux pattern to debug piece by piece. The interaction chain is roughly
-`Event Listener -> Action Creator -> Dispatcher -> Store -> Component`. I
-recommend starting at the beginning and checking as you go through the Flux
-structure.
+If no sonorities emerge, first check for errors in your console. Then follow
+the Flux pattern to debug piece by piece. The interaction chain is rougly
+`Event Listener -> Action Creator -> Dispatcher -> Store -> Component`. Start at
+the beginning and debug your way through.
 
 At this point, you should be able to make beautiful music by typing on your
-keyboard! Using CSS rules and the `state` of your `NoteKey` component, update
-the `NoteKey` visually when its note is being played.
+keyboard! Using CSS rules and the `state` of your `NoteKey` component, visually update
+the `NoteKey` when the user plays its note.
 
 ## Phase 5: Track Recording and Playback
 
@@ -260,47 +262,45 @@ recording on the front end.
 
 Write a `Track` class to represent a recorded song. The constructor for this
 class should accept an attributes hash, which will contain a `name` and
-(optionally) a `roll`. The `roll` will be an array that holds the "recipe" for
+(optionally) a `roll`. The `roll` is be an array that holds the "recipe" for
 playing a track (more details later).
 
 Write a method to `startRecording`. Reset `this.roll` to an empty array and save
-the current time to an instance variable. You can use this instance variable to
-calculate when a note's played relative to the start of the recording.
+the current time to an instance variable. Later you'll use this instance variable to
+calculate when to play a note relative to the start of the recording.
 
-While the track is recorded, we'll need to update `this.roll` as new notes are
-pressed. Write an `addNotes` method that uses `push` to add into the `roll` an
+While the user records a track, we'll need to update `this.roll` as the user
+presses new notes. Write an `addNotes` method that `push`es into the `roll` an
 object with the following values:
 
-- `timeSlice`: how much time has elapsed since we started recording
-- `notes`: which note names (`['C3', 'E3', 'G3']`) are currently being pressed
+- `timeSlice`: the time elapsed since the user started recording
+- `notes`: which note names (`['C3', 'E3', 'G3']`) are currently pressed
 
-NB: we shouldn't be storing instances of `Note` in the roll, only the names of
-the notes. We'll create actions for each one of these note names when it's time
-to play them to leverage  our existing flux structure. Your program's like a
-player piano, which uses the same keys for live playing and playing back a roll.
+**NB:** we should store only the names of the notes in the roll, *not* instances
+**of `Note`. We'll dispatch actions for each note names when it's time
+to play them, thereby leveraging our existing flux structure. Your program's like a
+player piano, which uses the same keys for live playing and replaying a roll.
 
-Write another instance method to `stopRecording`. Simply
-call `this.addNotes` with an empty array, ensuring that the
-track is silent when it ends.
+Write another function to `stopRecording`. Call `this.addNotes` with an empty
+array, ensuring that the track is silent when it ends.
 
 ### `components/recorder.jsx`
 
 Make a new `Recorder` React component. The component's `state` should have two
-parts: `recording` (a boolean) and a blank `Track`. The component's visual
-interface should include buttons to start and stop recording: simply delegate to
-your Track's instance methods.
+keys: `recording` (a boolean) and a `track` whose value is initially a blank
+`Track`. The component's interface should include buttons to start and
+stop recording: delegate to your Track's instance methods for each button.
 
 The Recorder should also listen for changes in the `KeyStore`. When a change
-occurs, respond by invoking your Track's `addNotes` method, passing in the notes
-currently in the store.
+occurs, respond by invoking your Track's `addNotes` method, with the
+`KeyStore`'s `_keys` as its argument.
 
-Finally, we need to be able to replay the `Track`, which requires:
+We need to be able to replay a `Track`. We need:
 
 - a "Play" button for our Recorder component
 - a `play` instance method for our `Track` class
 
-Let's think about how to implement the `Track#play` method. Track data
-is stored in a `roll`, which contains objects of the form:
+How would you implement the `Track#play` method? The `roll` stores track data in the form:
 
 ```js
 {
@@ -309,77 +309,73 @@ is stored in a `roll`, which contains objects of the form:
 }
 ```
 
-`timeSlice` ensures that these objects are in ascending order (since
-`timeElapsed` increases between calls to `addNotes`). But we can't just iterate
-over these objects because iteration happens (essentially) instantaneously.
-Instead, we want to **throttle** our iteration, such that we only move on to the
-next note once `Date.now() - playBackStartTime` exceeds the current note's
-`timeSlice`. `setInterval` allows us to invoke a callback over
-(relatively) large spans of time. Note that we don't want the interval to run
-forever--only until the end of the `Track`.
+`timeSlice` ensures that the `roll`'s objects are in ascending order (since
+`timeElapsed` increases between calls to `addNotes`). But we can't simply
+iterate over these objects because iteration happens (essentially)
+instantaneously. We instead want to **throttle** our iteration, such that we
+continue to the next note once `Date.now() - playBackStartTime` exceeds the
+current note's `timeSlice`. `setInterval` allows us to invoke a callback over
+(relatively) large spans of time. Note that we want the interval to run until
+the end of the `Track`.
 
 Store a reference to the interval as an instance variable (`this.interval`) of
 the `Track`. At the top of your `play` method, check if `this.interval` already
-exists. If it does, return immediately so we don't play the `Track` over itself.
-Next grab `Date.now()` and assign it to `playbackStartTime`. We'll also want to
-initialize the `currentNote` to `0`. Local variables are sufficient; the
-interval callback closes over them.
+exists. If it does, `return` so that we don't play the `Track` over itself.
+Next grab `Date.now()` and assign it to a local variable `playbackStartTime`. Also
+initialize the local variable `currentNote` to `0`.
 
-Now for the meat of the method: set an interval, passing in an anonymous
+Now for the meat of the method: set an interval and pass in an anonymous
 callback. The callback should check whether `currentNote` is still in range of
 the `roll`. **If so**:
 
 - Check whether `Date.now() - playBackStartTime` exceeds the current
-  note's `timeSlice`. If it does:
+  note's `timeSlice`. **If so**:
     - Use one of your `KeyActions` to update the `KeyStore`.
     - Continue to the next note.
-    - _Hint:_ A new KeyAction might make this easier to manage.
+    - _Hint:_ A new KeyAction such as `groupUpdate(notes)` might simplify your task.
 
-**Else**, we've exceeded the range of the roll. Clear the interval and
+**Else**: we've exceeded the range of the roll. Clear the interval and
 `delete` it from the properties of `this`.
 
-Remember to cancel your interval when the `Track` is done playing:
+Remember to cancel your interval when the `Track` finishes playing:
 
 ```js
 const intervalId = setInterval(callback, 10);
 clearInterval(intervalId);
 ```
 
-Don't continue until you're able to record and play back tracks!
+Don't proceed until you're able to record and replay tracks!
 
 ### `TrackStore`
 
-Write a `TrackStore` to hold all the tracks that have been recorded (or
-fetched from the server). You'll also need an action to add tracks to
-the store. Invoke this action from your `Recorder` when a track is
-saved.
+Write a `TrackStore` to hold all the recorded tracks (or those fetched from the
+server). You'll also need an action to add tracks to the store. Invoke this
+action from your `Recorder` when the user saves a track.
 
 ### `Jukebox` and `TrackPlayer`
 
 Let's write a `Jukebox` component to display all the tracks in the
-`TrackStore`. Each track will be represented by a `TrackPlayer` component; the
-`Jukebox` will wrap these and group them together.
+`TrackStore`. A `TrackPlayer` component will represent each track; the
+`Jukebox` wraps each `TrackPlayer` and groups them together.
 
 The `TrackPlayer` should have a `track` as part of its `props`. Its `render`
 method should render buttons to "Play" or "Delete" the track.
 
-Once you're able to view and play tracks in your `Jukebox`, you're ready to move
-on!
+Proceed once you're able to view and play tracks in your `Jukebox`.
 
-But FIRST: look through every file you've written and make sure you know which
-part of [the flux pattern][flux-diagram] the file represents. Check that you and
-your partner agree.
+But FIRST: look through every file you've written and ensure you know where it
+fits into [the flux pattern][flux-diagram].
 
 [flux-diagram]: ../../assets/flux-diagram.png
 
 ## Phase 6: Adding Tracks to the DB
 
-Let's finally start saving songs to the server. Write a Rails `Track` model, as
-well as a `TracksController`. The `Track` model should have columns for `name`
-(a string) and `roll` (a JSON object).
+Let's save songs to the server. Write a Rails `Track` model, as well as a
+`TracksController`. The `Track` model should have columns for `name` (a string)
+and `roll` (a JSON object).
 
 In your `TracksController` write actions for `create`, `index`, and `destroy`.
-The `index` action should render a JSON representation of each saved `Track`
+The `index` action should render a JSON representation of every saved `Track`
 object.
 
 To connect everything, we'll need more actions and utilities. Write a
@@ -388,14 +384,14 @@ You'll also need a `createTrack` action to save tracks through your API Util.
 
 ## Bonus: Extra Awesome Features
 
-* It's a keyboard; have fun! Add more notes!
-* Make additional keys that play entire CHORDS.
+* It's a keyboard. Have fun! Add more notes!
+* Make keys that play entire chords.
 * **Looping**: Add a setting to allow tracks to play continuously.
 * **Jam Session**: Allow users to play on the organ while a track runs in the
   background.
 * **Scales**: pentatonic, minor, etc.
-* **Playlists**: Queue up tracks to be played one after another.
-* Implement other octaves and waveforms.
-* Make it beautiful. This could be a *key component* of your portfolio.
+* **Playlists**: Queue up tracks to be played sequentially.
+* Use other octaves and waveforms.
+* Prettify. This could be a *key component* of your portfolio.
 * Options to change volume/waveform of notes and tracks.
-* Export tracks as audio files so they can be saved to the client's machine.
+* Export tracks as audio files so the client's machine can save them.
