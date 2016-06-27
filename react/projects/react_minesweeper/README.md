@@ -19,7 +19,7 @@ the Tile and Board API through `Minesweeper.Board` and
 
 Alright, let's get started!
 
-[live-solution]: http://appacademy.github.io/react-minesweeper/
+[live-solution]: http://appacademy.github.io/curriculum/minesweeper/index.html
 [mineseeper-js]: http://appacademy.github.io/react-minesweeper/minesweeper.js
 
 ## Phase 0: Setup

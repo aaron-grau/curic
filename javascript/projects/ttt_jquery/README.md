@@ -5,6 +5,8 @@ games. We're not going to write any of the core game code, we'll just write
 **view classes** that display the game in the browser, and also handle browser
 user input.
 
+**[Live Demo](http://appacademy.github.io/curriculum/ttt_jquery/index.html)**
+
 ## Tic-Tac-Toe
 
 We're looking to build something like [this][ttt-demo] (don't look at the

@@ -1,6 +1,6 @@
 # Towers of Hanoi
 
-**[Live Demo!](http://appacademy.github.io/hanoi.js/solution/index.html)**
+**[Live Demo](http://appacademy.github.io/curriculum/toh_jquery/index.html)**
 
 [hanoi-node]: https://www.github.com/appacademy/curriculum/tree/master/javascript/projects/hanoi_node/solution.zip
 

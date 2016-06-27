@@ -2,7 +2,7 @@
 
 We're going to write a Snake game!
 
-**[Live Demo](http://appacademy.github.io/snake.js/index.html)**
+**[Live Demo](http://appacademy.github.io/curriculum/snake/index.html)**
 
 ## Phase 0: Webpack Setup
 
