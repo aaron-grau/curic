@@ -8,15 +8,15 @@
 
 ### Users
 
-- `GET /users/new`
-- `POST /users`
-- `PATCH /users`
+- `GET /api/users/new`
+- `POST /api/users`
+- `PATCH /api/users`
 
 ### Session
 
-- `GET /session/new`
-- `POST /session`
-- `DELETE /session`
+- `GET /api/session/new`
+- `POST /api/session`
+- `DELETE /api/session`
 
 ## JSON API
 
