@@ -238,17 +238,16 @@ www.mycoolurl.com to point to www.myuncoolurl.herokuapp.com.
 *On namecheap.com:*
 
 0. Log in.
-0. Hover over "My account" and click "manage domains".
-0. Click on your domain.
-0. Click "All Host records" in the blue menu on the left.
-0. In the "www" row
-    * Enter the URL you want to point to under the "IP Address/URL"
-      column.
-      * This should be in the format `www.google.com.`; no `http://` or
-        trailing slash. Namecheap will add the `.` at the end if you
-        don't.
-    * Select CNAME (Alias) under "Record Type".
-0. Click "Save Changes".
+0. Click on the "Domain List" tab in the left-side toolbar
+0. You should see your domain listed.  Click the "Manage" button on the far-right side.
+0. Click on "Advanced DNS" in the toolbar
+0. In the host records section, edit the "CName Record" row:
+    * Set the host to `www`
+    * Set the value to `myuncoolurl.herokuapp.com.` (no http or trailing slash!)
+    * Set the [TTL][ttl] to 60 min
+0. Make sure all your changes are saved.
+
+[ttl]: https://en.wikipedia.org/wiki/Time_to_live
 
 *In your terminal*
 
@@ -261,6 +260,8 @@ More detailed instructions:
 
 [heroku-tutorial]: https://devcenter.heroku.com/articles/custom-domains
 [namecheap-tutorial]: http://www.namecheap.com/support/knowledgebase/article.aspx/1031/2/
+
+**N.B.** The redirect will likely not be immediate.  Please wait at least a half hour before calling over a TA if the redirect is not working.  
 
 # Troubleshooting
 
