@@ -38,7 +38,7 @@ Your entry file should now roughly resemble this:
     }
   });
 
-  const Router = (
+  const appRouter = (
     <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Search}/>
@@ -48,7 +48,7 @@ Your entry file should now roughly resemble this:
 
   document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('content');
-    ReactDOM.render(Router, root);
+    ReactDOM.render(appRouter, root);
   });
   ```
 
