@@ -6,19 +6,17 @@
 
 - `GET /` - loads React web app
 
+## JSON API
+
 ### Users
 
-- `GET /api/users/new`
 - `POST /api/users`
 - `PATCH /api/users`
 
 ### Session
 
-- `GET /api/session/new`
 - `POST /api/session`
 - `DELETE /api/session`
-
-## JSON API
 
 ### Notes
 
