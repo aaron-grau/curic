@@ -2,7 +2,7 @@
 
 **[Live Demo][live-demo]**
 
-[live-demo]: http://appacademy.github.io/asteroids.js
+[live-demo]: http://appacademy.github.io/curriculum/asteroids/index.html
 
 ## Overview
 
