@@ -43,17 +43,22 @@ FresherNote is a web application inspired by Evernote that will be build using R
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (1 day, W1 Tu 6pm)
+### Phase 1: Backend setup and Front End User Authentication (2 days, W1 W 6pm)
 
-**Objective:** Functioning rails project with Authentication
+**Objective:** Functioning rails project with front-end Authentication
 
 - [ ] create new project
 - [ ] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [ ] authentication backend setup
+- [ ] create `StaticPages` controller and root view
+- [ ] set up webpack & flux scaffold with skeleton files
+- [ ] setup `APIUtil` to interact with the API
+- [ ] set up flux cycle for frontend auth
+- [ ] user signup/signin components
+- [ ] blank landing component after signin
+- [ ] style signin/signup components
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
+### Phase 2: Notes Model, API, and components (2 days, W1 F 6pm)
 
 **Objective:** Notes can be created, read, edited and destroyed through
 the API.
@@ -62,33 +67,15 @@ the API.
 - [ ] seed the database with a small amount of test data
 - [ ] CRUD API for notes (`NotesController`)
 - [ ] jBuilder views for notes
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
-
-### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
-
-**Objective:** Notes can be created, read, edited and destroyed with the
-user interface.
-
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
 - implement each note component, building out the flux loop as needed.
   - [ ] `NotesIndex`
   - [ ] `NoteIndexItem`
   - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
-  after editing.
+- [ ] save Notes to the DB when the form loses focus or is left idle after editing.
+- [ ] basic styling for existing components
 
-### Phase 4: Start Styling (0.5 days, W2 M 12pm)
-
-**Objective:** Existing pages (including signup/signin) will look good.
-
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
-
-### Phase 5: Notebooks (1 day, W2 Tu 12pm)
+### Phase 3: Notebooks (2 day, W2 Tu 6pm)
 
 **Objective:** Notes belong to Notebooks, and can be viewed by notebook.
 
@@ -98,12 +85,12 @@ user interface.
   - [ ] adding notes requires a notebook
   - [ ] moving notes to a different notebook
   - [ ] viewing notes by notebook
-- Use CSS to style new views
+- Use CSS to style new components
 
 Phase 3 adds organization to the Notes. Notes belong to a Notebook,
 which has its own `Index` view.
 
-### Phase 6: Tags (1 days, W2 Th 12pm)
+### Phase 5: Tags (1 days, W2 W 6pm)
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
@@ -115,7 +102,7 @@ which has its own `Index` view.
   - [ ] searching notebooks by tag
 - [ ] Style new elements
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
+### Phase 7: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
 
 **objective:** Enable complex styling of notes.
 
@@ -127,7 +114,6 @@ which has its own `Index` view.
 
 **objective:** Make the site feel more cohesive and awesome.
 
-- [ ] Get feedback on my UI from others
 - [ ] Refactor HTML classes & CSS rules
 - [ ] Add modals, transitions, and other styling flourishes.
 
