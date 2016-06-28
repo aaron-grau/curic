@@ -132,11 +132,11 @@ the entire phase before building anything.** This will give you the context to
 understand each individual step.
 
 **Our authentication pattern must:**
-  * sign up new users,
-  * know who's logged in,
-  * log users in,
-  * log them out, and
-  * restrict access to certain routes based on whether someone is logged in.
+  * sign up new users
+  * know who's logged in
+  * log users in
+  * log them out
+  * restrict access to certain routes based on whether someone is logged in
 
 ### 1. Build Your Backend.
 
@@ -191,10 +191,12 @@ erroneous requests. Pay attention to:
 Create a `SessionStore` that will keep track of the current user.
 
 **Variables:**
-  * `_currentUser`: should be `{}` if no one is logged in.
+  * `_currentUser`: should be `{}` if no one is logged in
+
 **Closures:**
   * `_login`: set `_currentUser` and `__emitChange()`
   * `_logout`: set `_currentUser` to `{}` and `__emitChange()`
+
 **Public Methods:**
   * `currentUser`: a reader
   * `isUserLoggedIn`: should return a boolean of whether a user is logged in
@@ -210,7 +212,7 @@ Each method should:
   * Invoke the appropriate `SessionApiUtil` action.
   * Pass `receiveCurrentUser` as a `success` callback.
 
-0. Write 'receiveCurrentUser'
+0. Write `receiveCurrentUser`
   * dispatch to the `SessionStore`
 
 Attach your `SessionActions` to the window and test them out before moving on.
@@ -269,7 +271,7 @@ Create `ErrorConstants` and handle the following `actionTypes`:
 * `ErrorConstants.CLEAR_ERRORS`
 * Wait until
 
-####  Define `ErrorActions`.
+####  Define `ErrorActions`
 
 Define the following actions:
 * `setErrors`
@@ -384,8 +386,8 @@ Let's make sure users can't get to our "/benches/new" or "benches/:id/review" ro
 
   * Add an `onEnter` prop to the Routes we want to protect:
 
-    ```
-    <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />`
+    ```html
+    <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />
     ```
   * Define an `_ensureLoggedIn` function in your entry file. It should:
     * have `nextState` and `replace` parameters.
