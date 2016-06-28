@@ -90,7 +90,7 @@ class Reply
 
   def save
     if @id
-      QuestionsDatabase.execute(<<-SQL, attrs.merge({ id: :id }))
+      QuestionsDatabase.execute(<<-SQL, attrs.merge({ id: @id }))
         UPDATE
           replies
         SET
