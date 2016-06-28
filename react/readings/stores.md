@@ -9,7 +9,7 @@ Stores contain application state and logic. They are somewhat similar to a model
 For example, lets say we had a React component that rendered a list of posts. We want to fetch our posts from the backend, then render them.
 
 ```javascript
-// frontend/components/postIndex.js
+// frontend/components/post_index.js
 
   const PostIndex = React.createClass({
     getInitialState () {
@@ -37,6 +37,8 @@ Now let's get our store set up to hold some posts once we fetch them. We'll keep
 Let's also write some utility functions so we can read the contents of the store, or check for a specific post in the store. We should also write functions to add a post to the store, reset all of the posts, or remove a post. Some example code is included below.
 
 ```javascript
+// frontend/stores/post_store.js
+
 // private variable where we will store posts
 let _posts = [];
 
@@ -67,7 +69,7 @@ Okay, cool. So we have the ability to add and read posts from our store... how d
 store file. (Note: ultimately calls to our server will live elsewhere, but for now, our store is a fine temporary home.) We would also write functions to delete posts, create a post, etc.
 
 ```javascript
-// frontend/stores/postStore.js
+// frontend/stores/post_store.js
 
 //...etc.
 
@@ -88,8 +90,8 @@ module.exports = PostStore;
 Great - so at this point we have a function that can fetch all of posts then add them to our store. Where and when do we actually invoke this? The answer is that we should fetch all of the posts (or whatever action we may be invoking) in the react component that needs them (in our case, the PostIndex). We can do this in the `componentDidMount` lifecycle method so that the component can fetch the posts right when it mounts to the page.
 
 ```javascript
-// frontend/components/postIndex.js
-  const PostStore = require('../stores/postStore');
+// frontend/components/post_index.js
+  const PostStore = require('../stores/post_store');
 
   const PostIndex = React.createClass({
     getInitialState () {
@@ -122,7 +124,7 @@ From our PostIndex component, we can set a callback on our PostStore that will:
 a) grab all the posts from the store and b) set our state to those posts. We will store the callback in a callback array in our store. Let's see what that would look like in code:
 
 ```javascript
-// frontend/stores/postStore.js
+// frontend/stores/post_store.js
 
 //...etc.
 let _posts = [];
@@ -130,7 +132,7 @@ let _callbacks = [];
 
 PostStore.addListener = function (callback) {
   _callbacks.push(callback);
-}
+};
 
 PostStore.executeListeners = function () {
   // Call all the callbacks!!!
@@ -150,15 +152,15 @@ PostStore.fetchPosts = function () {
       PostStore.executeListeners();
     }
   });
-}
+};
 
 ```
 
 And, in our component:
 
 ```javascript
-// frontend/components/postIndex.js
-  const PostStore = require('../stores/postStore');
+// frontend/components/post_index.js
+  const PostStore = require('../stores/post_store');
 
   const PostIndex = React.createClass({
     getInitialState: function () {
