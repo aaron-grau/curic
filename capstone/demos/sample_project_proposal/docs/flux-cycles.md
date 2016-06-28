@@ -11,6 +11,45 @@ finally to the **components** that update as a result. This is important
 because once you start implementing your flux loops, that's precisely
 what you'll need to do.
 
+## Auth Cycles
+
+### Session API Request Actions
+
+* `signUp`
+  0. invoked from `SignupForm` `onSubmit`
+  0. `POST /api/users` is called.
+  0. `receiveCurrentUser` is set as the success callback.
+* `logIn`
+  0. invoked from `Navbar` `onSubmit`
+  0. `POST /api/session` is called.
+  0. `receiveCurrentUser` is set as the callback.
+* `logOut`
+  0. invoked from `Navbar` `onClick`
+  0. `DELETE /api/session` is called.
+  0. `removeCurrentUser` is set as the success callback.
+* `fetchCurrentUser`
+  0. invoked from `App` in `didMount`
+  0. `GET /api/session` is called.
+  0. `receiveCurrentUser` is set as the success callback.
+
+### Session API Response Actions
+
+* `receiveCurrentUser`
+  0. invoked from an API callback
+  0. stores in `_currentUser` in `CurrentUserStore`
+* `removeCurrentUser`
+  0. invoked from an API callback
+  0. removes `_currentUser` in `CurrentUserStore`
+
+## Error Cycles
+
+### Error API Response Actions
+* `setErrors`
+  0. invoked from API callbacks on error for actions that generate POST requests
+  0. sets `form` and `_errors` in the `ErrorStore`
+* `removeErrors`
+  0. invoked from API callbacks on success for actions that generate POST requests
+  0. removes `_errors` for a given `form` in the `ErrorStore`
 
 ## Note Cycles
 
@@ -19,27 +58,27 @@ what you'll need to do.
 * `fetchAllNotes`
   0. invoked from `NotesIndex` `didMount`/`willReceiveProps`
   0. `GET /api/notes` is called.
-  0. `receiveAllNotes` is set as the callback.
+  0. `receiveAllNotes` is set as the success callback.
 
 * `createNote`
   0. invoked from new note button `onClick`
   0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
+  0. `receiveSingleNote` is set as the success callback.
 
 * `fetchSingleNote`
   0. invoked from `NoteDetail` `didMount`/`willReceiveProps`
   0. `GET /api/notes/:id` is called.
-  0. `receiveSingleNote` is set as the callback.
+  0. `receiveSingleNote` is set as the success callback.
 
 * `updateNote`
   0. invoked from `NoteForm` `onSubmit`
   0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
+  0. `receiveSingleNote` is set as the success callback.
 
 * `destroyNote`
   0. invoked from delete note button `onClick`
   0. `DELETE /api/notes/:id` is called.
-  0. `removeNote` is set as the callback.
+  0. `removeNote` is set as the success callback.
 
 ### Notes API Response Actions
 
@@ -68,7 +107,7 @@ what you'll need to do.
 * `fetchAllNotebooks`
   0. invoked from `NotebooksIndex` `didMount`/`willReceiveProps`
   0. `GET /api/notebooks` is called.
-  0. `receiveAllNotebooks` is set as the callback.
+  0. `receiveAllNotebooks` is set as the success callback.
 
 * `createNotebook`
   0. invoked from new notebook button `onClick`
@@ -78,17 +117,17 @@ what you'll need to do.
 * `fetchSingleNotebook`
   0. invoked from `NotebookDetail` `didMount`/`willReceiveProps`
   0. `GET /api/notebooks/:id` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+  0. `receiveSingleNotebook` is set as the success callback.
 
 * `updateNotebook`
   0. invoked from `NotebookForm` `onSubmit`
   0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+  0. `receiveSingleNotebook` is set as the success callback.
 
 * `destroyNotebook`
   0. invoked from delete notebook button `onClick`
   0. `DELETE /api/notebooks/:id` is called.
-  0. `removeNotebook` is set as the callback.
+  0. `removeNotebook` is set as the success callback.
 
 ### Notebooks API Response Actions
 
@@ -114,7 +153,7 @@ what you'll need to do.
 * `fetchSearchSuggestions`
   0. invoked from `NoteSearchBar` `onChange` when there is text
   0. `GET /api/notes` is called with `text` param.
-  0. `receiveSearchSuggestions` is set as the callback.
+  0. `receiveSearchSuggestions` is set as the success callback.
 
 * `receiveSearchSuggestions`
   0. invoked from an API callback.
