@@ -124,6 +124,8 @@ phase, feel free to refer to this [reference material][stores-and-actions].
 
 [stores-and-actions]: ../../readings/stores_and_actions.md
 
+### `KeyStore`
+
 First, make a `KeyStore`. This should keep track of all the keys
 played; we can store these by name (e.g., "C3"). Here's the setup:
 
@@ -136,11 +138,13 @@ let _keys = [];
 ```
 
 **NB**: You may assign `_keys` to either `[]` or `{}`. An object has O(1) lookup
-**but is slightly trickier to manipulate. Recall that we make `_keys` a local
-**variable to be less accessible.
+but is slightly trickier to manipulate. Recall that we make `_keys` a local
+variable to be less accessible.
+
+### `KeyActions`
 
 Create an `actions/key_actions.js` file. This file should export
-`keyPressed(noteName)` and `keyRelesed(noteName)` functions. Within each
+`keyPressed(noteName)` and `keyReleased(noteName)` functions. Within each
 function the `Dispatcher` we instantiated in our `dispatcher.js` file should
 `dispatch` an object with `actionType` and `note` keys.
 
@@ -152,30 +156,35 @@ calls `__emitChange`. `__emitChange` allows any React component listening (e.g.
 via `KeyStore.addListener(this.someComponentMethod)` to register a change in the
 `KeyStore` and react accordingly.
 
-Create a `util/add_key_listeners.js` file. This file will hold jQuery
-listeners for `keyup` and `keydown`. Install event handlers for these using `on`
-on `$(document)`. Wrap these two listeners within a single function that will be
-your entire export. We'll later call this function within a `ComponentDidMount`
-lifecycle method for our `Organ` component.
+### `AddKeyListeners`
 
-When a user presses a key, the key listener should call our
-`keyPressed(noteName)` function from `key_actions.js`, which-- when
-dispatched--will add a key to the `KeyStore`. Likewise, when a user released a
-key, the listener should call our `keyReleased(noteName)` function to
+Create a `util/add_key_listeners.js` file. This file will hold jQuery listeners
+for `keyup` and `keydown` events. Install event handlers by calling the
+`on`method on `$(document)`. Wrap these two listeners within a single function that will be your entire export. 
+
+```js
+  // addKeyListener.js
+  module.exports = function(){
+    $(document).on('keydown', (e) => {
+      // dispatch a keyAction to add the key 
+    });
+    $(document).on('keydown', (e) => {
+      // dispatch a keyAction to remove the key
+    });  
+  }
+```
+
+We'll call this function later within the `ComponentDidMount` lifecycle method for our `Organ` component.
+
+When a user presses a key, the key listener should call your
+`keyPressed(noteName)` function from `key_actions.js`, which--when
+dispatched--will add a key to the `KeyStore`. Likewise, when a user releases a
+key, the listener should call your `keyReleased(noteName)` function to
 remove the key from the store.
 
-**NB:** A jQuery `'keydown'` listener fires continually when the user holds down
-**a key, thereby repeatedly calling the `KeyPressed` function. The `KeyReleased`
-**function would become out of sync because it can fire only once. Undesirable
-**keys would remain in our `KeyStore`. How might you ensure you call the
-**`KeyPressed`function once per key press?
-
-Think of a way to test that your listeners work on their own (without calling
-any other code in your app). Our old friend `console.log` might help.
-
-To know which `noteName` to pass to our action, we'll need to map
+To know which `noteName` to pass to our action, you'll need to map
 [keycodes][keycode-list] (this information is available as part of the `event`
-object) to organ keys, e.g.
+object) to organ keys in an object, e.g.
 
 ```js
 const Mapping = {
@@ -183,36 +192,27 @@ const Mapping = {
   // ...
 };
 ```
-
-**NB:** Do not create an instance of a `Note`. The callback function of each
-**jQuery listener should pass the key name alone (e.g. "C4", "D3", etc.) to the
-**action. The store ultimately keeps key names in `_keys`. We'll store `Note`
-**objects as instance variables in our React components.
-
-Here's how a `keydown` event propagates through our app:
-
-0. User presses a key.
-0. The key listener catches the `keydown` event and invokes
-   `KeyActions.keyPressed` with the appropriate key name.
-0. The `KeyActions.keyPressed` action sends a payload to the
-   `AppDispatcher`. The payload should contain the `actionType` and a `noteName`.
-0. The dispatcher emits the event. The `KeyStore` catches the event, gets the
-`noteName` out of the payload, and adds the `noteName` to its array of `keys`.
-The `KeyStore` also emits a change event.
-
 Go [here](http://keycode.info/) to find keycodes.
 
-In a moment we'll write a `NoteKey` React component, which will listen for
-changes in the `KeyStore`. When that change occurs, the `NoteKey` will
-conditionally re-render and either start or stop its `Note`. Make sure
-you've built the `KeyActions`, `AddKeyListeners`, and the `KeyStore` before
-continuing.
+**Note:** Do not create an instance of a `Note` here. The callback function of
+each jQuery listener should pass the key name alone (e.g. "C4", "D3", etc.) to
+the action. The store ultimately keeps key names in `_keys`. We'll store `Note`
+objects as instance variables in our React components.
+
+**Note:** A jQuery `'keydown'` listener fires repeatedly when the user holds down
+a key, thereby repeatedly calling the `KeyPressed` function. Ensure that you
+call the `KeyPressed` function only once per key press by only adding the key to
+the `KeyStore` if it isn't already added.
+
+Test that your listeners work without relying on any other code in your app
+(`console.log` might help). Make sure you've built the `KeyActions`,
+`AddKeyListeners`, and the `KeyStore` before continuing.
 
 [keycode-list]: http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes#TABLE2
 
 ## Phase 4: React Components
 
-### NoteKey
+### `NoteKey`
 
 Let's write a `NoteKey` React class component (Note: we're calling it `NoteKey`
 to distinguish it from the keyboard's keys). This component will be the visual
@@ -232,7 +232,7 @@ are even emitters" for guidance.
 
 [stores_and_actions]: https://github.com/appacademy/curriculum/blob/master/react/readings/stores_and_actions.md
 
-### Organ
+### `Organ`
 
 Let's support more than one `NoteKey` by writing an `Organ` component. The
 `Organ` component will render a `NoteKey` for each of the `TONES`.
@@ -277,7 +277,7 @@ object with the following values:
 - `notes`: which note names (`['C3', 'E3', 'G3']`) are currently pressed
 
 **NB:** we should store only the names of the notes in the roll, *not* instances
-**of `Note`. We'll dispatch actions for each note names when it's time
+of `Note`. We'll dispatch actions for each note names when it's time
 to play them, thereby leveraging our existing flux structure. Your program's like a
 player piano, which uses the same keys for live playing and replaying a roll.
 
