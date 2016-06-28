@@ -11,7 +11,7 @@ config.log_level = :debug
 
 ```ruby
 # Gemfile
-group: production do
+group :production do
   gem 'newrelic_rpm'  
   gem 'rails_12factor' # error feedback
 end
@@ -22,7 +22,7 @@ end
 "engines": {
   // Your versions of node and npm should go here
   // Check this by running the `node -v` and `npm -v` commands in the root of your project
-  "node": "4.1.1", 
+  "node": "4.1.1",
   "npm": "2.1.x"
 },
 
