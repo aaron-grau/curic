@@ -90,7 +90,7 @@ the API.
 Phase 3 adds organization to the Notes. Notes belong to a Notebook,
 which has its own `Index` view.
 
-### Phase 5: Tags (1 days, W2 W 6pm)
+### Phase 4: Tags (1 days, W2 W 6pm)
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
@@ -102,7 +102,7 @@ which has its own `Index` view.
   - [ ] searching notebooks by tag
 - [ ] Style new elements
 
-### Phase 7: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
 
 **objective:** Enable complex styling of notes.
 
@@ -110,7 +110,7 @@ which has its own `Index` view.
 - [ ] Use Rails helpers to sanitize HTML before rendering.
 - [ ] Style the new Quill elements.
 
-### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
+### Phase 6: Styling Cleanup and Seeding (1 day, W2 F 6pm)
 
 **objective:** Make the site feel more cohesive and awesome.
 
