@@ -214,7 +214,7 @@ end
 * https://devcenter.heroku.com/articles/http-caching-ruby-rails
 * https://devcenter.heroku.com/articles/rack-cache-memcached-rails31
 * http://api.rubyonrails.org/classes/ActionController/Caching.html
-* http://robotmay.com/post/23161612605/everyone-should-be-using-low-level-caching
+* https://web.archive.org/web/20140617072441/http://robotmay.com/post/23161612605/everyone-should-be-using-low-level-caching
 * http://broadcastingadam.com/2012/07/advanced_caching_revised/
 * https://news.ycombinator.com/item?id=4873694
 * http://tutorials.jumpstartlab.com/topics/performance/caching.html
