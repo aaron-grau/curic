@@ -16,7 +16,7 @@
 
 [autoprefixer]: ./autoprefixer.md
 [css-overview]: ./css.md
-[css-demos]: https://github.com/jonathanlemuel/css-demos
+[css-demos]: https://github.com/appacademy/css-demos
 [styling-railscasts]: ./styling-railscasts.md
 [sass-bootstrap-type]: ./sass-bootstrap-typography.md
 [themes]: ./themes.md
