@@ -182,7 +182,7 @@ to Heroku, or Heroku will complain and your build may fail.
 
 [heroku-buildpacks]: https://devcenter.heroku.com/articles/buildpacks
 [multi-bp-link]: https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app
-[npm-git-reading]: https://github.com/appacademy/react-flux-curriculum/blob/master/w7d1/git_and_npm.md
+[npm-git-reading]: https://github.com/appacademy/curriculum/blob/master/react/readings/git_and_npm.md
 
 ### Push Your Code
 
