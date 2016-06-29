@@ -14,7 +14,7 @@
  * [Blog][css-transitions-blog]
  * [CSS Generator][css-transitions-generator]
 
-[autoprefixer]: readings/autoprefixer.md
+[autoprefixer]: ./autoprefixer.md
 [css-overview]: ./css.md
 [css-demos]: https://github.com/jonathanlemuel/css-demos
 [styling-railscasts]: ./styling-railscasts.md
