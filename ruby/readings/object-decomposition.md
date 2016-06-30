@@ -96,4 +96,4 @@ not a design mistake, but it's suspicious after that. 300+ lines is a
 behemoth. You should start looking for ways to break down a class that
 large.
 
-[1]: http://www.codinghorror.com/blog/2007/03/curlys-law-do-one-thing.html
+[1]: https://blog.codinghorror.com/curlys-law-do-one-thing/
