@@ -30,11 +30,11 @@ class CorgiPerk
 
   def self.define_perk(name)
     define_method(name) do
-    info = @shopping_list.send "get_#{name}_info" , @id
-    happiness = @data_source.send "get_#{name}_happiness" , @id
-    name = "#{name.split('_').map(&:capitalize).join(' ')}"
-    result = "#{name}: #{info}: #{happiness}"
-    happiness > 30 ? "* #{result}" : result
+      info = @shopping_list.send("get_#{name}_info", @id)
+      happiness = @shopping_list.send("get_#{name}_happiness", @id)
+      name = "#{name.split('_').map(&:capitalize).join(' ')}"
+      result = "#{name}: #{info}: #{happiness}"
+      happiness > 30 ? "* #{result}" : result
     end
   end
 
