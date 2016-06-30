@@ -7,10 +7,13 @@ associated routes, so the nesting of your bolded components must
 _**exactly**_ match the nesting of your routes.)
 
 * **App**
+  * Navbar
   * NotebooksIndex
     * Search
     * NotebookIndexItem
     * NotebookForm
+  * **LoginForm**
+  * **SignupForm**
   * **NotesIndex**
     * NoteForm
     * NoteIndexItem
@@ -22,6 +25,8 @@ _**exactly**_ match the nesting of your routes.)
 ## Routes
 
 * **component:** `App` **path:** `/`
+  * **component** `LoginForm` **path:** /login
+  * **component** `SignupForm` **path:** /signup
   * **component:** `NotesIndex` **path:** index
   * **component:** `NotesIndex` **path:** `notebooks/:notebookId`
     * **component:** `NoteDetail` **path:** `notes/:noteId`
