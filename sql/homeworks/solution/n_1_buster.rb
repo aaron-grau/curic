@@ -38,16 +38,16 @@ end
 # MUNI Routes, Buses, and Drivers
 
 def better_drivers_query
-  routes = self.routes.includes(:drivers)
+  buses = self.buses.includes(:drivers)
+  
   all_drivers = {}
-
-  routes.each do |route|
+  buses.each do |bus|
     drivers = []
     # will not fire a query for each route since drivers have already been prefetched
-    route.drivers.each do |driver|
+    bus.drivers.each do |driver|
       drivers << driver.name
     end
-    all_drivers[route] = drivers
+    all_drivers[bus.id] = drivers
   end
 
   all_drivers
