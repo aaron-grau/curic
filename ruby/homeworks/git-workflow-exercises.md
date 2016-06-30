@@ -67,7 +67,7 @@ Now checkout `master` and run `git merge magic` (you might have to run :q if a m
 
 ## Pushing to GitHub
 
-Make a new repo on [github](https://github.com/new).  Follow the instructions provided by github and push your code up.  You should be able to go to https://github.com/yourusername/yourproject and see your files there.
+Make a new repo on [github](https://github.com/new).  Follow the instructions provided by github and push your code up.  You should be able to go to `https://github.com/yourusername/yourproject` and see your files there.
 
 ## Do it visually
 
