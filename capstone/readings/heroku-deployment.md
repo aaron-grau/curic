@@ -233,7 +233,7 @@ well for students.
 #### Setting up a CNAME
 
 Canonical names make your hostname point to another. For example, want
-www.mycoolurl.com to point to www.myuncoolurl.herokuapp.com.
+`www.mycoolurl.com` to point to `www.myuncoolurl.herokuapp.com`.
 
 *On namecheap.com:*
 
