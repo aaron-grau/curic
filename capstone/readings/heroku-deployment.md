@@ -103,7 +103,10 @@ click "Add Key".
 
 [generate-ssh-key]: https://help.github.com/articles/generating-ssh-keys
 
-Link your repo to heroku with `git remote add heroku git@heroku.com:your_repo_name.git`
+Link your repo to heroku with `heroku git:remote --app your_app_name`.
+This will add a `heroku` git remote where you can push to deploy.
+If you're not sure what your app name is, use `heroku apps` to find it.
+
 
 ### Internal Server Errors
 
@@ -187,10 +190,8 @@ to Heroku, or Heroku will complain and your build may fail.
 ### Push Your Code
 
 In the command line; go to your project directory. We deploy to Heroku
-by pushing our Git repository to Heroku. In the Heroku settings for
-your application, find the Git repository URL. Add the Heroku Git
-repository as a destination to push code to: `git remote add heroku
-git@heroku.com:your-project-name.git`.
+by pushing our Git repository to Heroku. Make sure you've already
+[linked your app to Heroku](#setup-ssh-with-heroku).
 
 Deploy your code to Heroku by pushing to the Heroku Git repository:
 `git push heroku master`. In response to your code push, Heroku will
