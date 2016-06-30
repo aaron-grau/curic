@@ -1,7 +1,7 @@
 class Visit < ActiveRecord::Base
   validates :user_id, :shortened_url_id, presence: true
 
-  belongs_to :shortened_url, inverse_of: :visits
+  belongs_to :shortened_url
   belongs_to(
     :visitor,
     class_name: 'User',
