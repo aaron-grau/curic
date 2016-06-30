@@ -1,7 +1,7 @@
 class Response < ActiveRecord::Base
   validates :answer_choice, :respondent, presence: true
 
-  belongs_to :answer_choice, inverse_of: :responses
+  belongs_to :answer_choice
   # will infer `:foreign_key => :respondent_id` from association name.
   belongs_to :respondent, class_name: "User"
 
