@@ -1,18 +1,23 @@
-# Phase 4: Allow Complex Styling in Notes (1 day)
+# Phase 4: Tags (1 days, W2 W 6pm)
 
 ## Rails
+
 ### Models
+* Tag
+* Taggings
 
 ### Controllers
 
 ### Views
+* tags/show.json.jbuilder
+* SearchIndex
 
 ## Flux
 ### Views (React Components)
+* NoteTags
 
 ### Stores
 
 ### Actions
 
 ## Gems/Libraries
-* react-quill (npm)
