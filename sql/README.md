@@ -25,7 +25,7 @@
 [assessment-prep]: http://github.com/appacademy/assessment-prep
 
 [sql-intro]: readings/sql-intro.md
-[visual-joins]: http://www.codinghorror.com/blog/2007/10/a-visual-explanation-of-sql-joins.html
+[visual-joins]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
 [sql-formatting]: readings/formatting.md
 
 [learning-sql-setup]: readings/setup.md
