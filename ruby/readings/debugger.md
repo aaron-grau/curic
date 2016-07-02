@@ -715,11 +715,9 @@ verifies we don't make that mistake again.
 
 ## Resources
 
-* Read this -> [sitepoint][sitepoint]
-* Pivotal Labs [cheatsheet][cheatsheet].
-* Comprehensive (very long) [debugger documentation][debugger-documentation]
+* [why Pry is awesome][irb-v-pry]
+* [Byebug documentation][byebug-docs]
 
 [neo]: http://img1.wikia.nocookie.net/__cb20131002032735/matrix/images/b/b5/Matrix-neo-stops-bullets-wallpaper.jpg
-[cheatsheet]: http://pivotallabs.com/ruby-debug-in-30-seconds-we-don-t-need-no-stinkin-gui/
-[debugger-documentation]: http://bashdb.sourceforge.net/ruby-debug.html
-[sitepoint]: http://www.sitepoint.com/rubyists-time-pry-irb/
+[irb-v-pry]: http://www.sitepoint.com/rubyists-time-pry-irb/
+[byebug-docs]: https://github.com/deivid-rodriguez/byebug/blob/master/README.md
