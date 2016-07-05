@@ -4,7 +4,7 @@
 
 [hanoi-node]: https://www.github.com/appacademy/curriculum/tree/master/javascript/projects/hanoi_node/solution.zip
 
-Download the Download the [skeleton][skeleton]. Set up the directory structure as
+Download the [skeleton][skeleton]. Set up the directory structure as
 before: make `css`, `html` and `js` directories. Remember to load all the
 relevant CSS and JQuery in your `index.html`. Move the provided 'main.js' file
 in your 'js' directory. Download the [hanoi_node solution][hanoi-node] (`View
