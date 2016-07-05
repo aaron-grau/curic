@@ -26,7 +26,7 @@ code!
 A brief side-note here. We'll be using use Node's `module.exports` and `require`
 to separate our game into digestible modules. Since we can't actually use `require`
 in the browser, this is a considerable problem. To solve this, we'll use
-[Webpack][webpack] to bundle our files.
+[Webpack][webpack] to bundle our files. Ensure that you've installed webpack with `npm install -g webpack`.
 
 Make a `webpack.config.js` file in the top level of your skeleton directory.
 Fill it according to the following schema:
