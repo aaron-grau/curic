@@ -41,7 +41,7 @@ We can run scripts in node.js with the greatest of ease:
 
 ```javascript
 // script.js
-for (var i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
   console.log("The greatest of ease!");
 }
 ```
@@ -59,5 +59,26 @@ The greatest of ease!
 The greatest of ease!
 The greatest of ease!
 ```
+
+## Using In-Progress Features
+
+Not all ES6 features are fully compatible with the latest version of Node. Luckily, Node provides a way to use some of the in-progress features.
+
+Enter the following into your command line to see in-progress features:
+
+`$ node --v8-options | grep "in progress"`
+
+This should print a list of features and their corresponding flags.
+
+Example Output:
+```
+--harmony_object_values_entries (enable "harmony Object.values / Object.entries" (in progress))
+```
+
+Looks like `Object.values` is still in-progress! To run code using `Object.values`, we can use its flag as such:
+
+`node --harmony_object_values_entries example_code.js`
+
+Ta-da! Harmony.
 
 [node-js]: http://nodejs.org/
