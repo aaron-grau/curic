@@ -54,9 +54,6 @@
 + :movie_camera: [References][references-video]  (20 min)
   + Pro Tip: Watch these videos at 1.5x speed with [this video speed controller][speed-control] to save time!
 
-
-[speed-control]: https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en
-
 ### Readings (35 min)
 + [References][references] (5 min)
 + [Array/Hash Defaults][array-hash-defaults] (5 min)
@@ -73,7 +70,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-
+[speed-control]: https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en
 [references-video]: https://vimeo.com/165965713
 [prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
 [references]: readings/references.md
@@ -172,7 +169,7 @@
 [atom-cheatsheet]: ../course/readings/atom_cheatsheet.md
 [git-fix-authorship]: readings/git-fix-authorship.md
 [git-workflow]: readings/git-workflow.md
-[git-workflow-exercises]: homeworks/git-workflow-exercises.md
+[git-workflow-exercises]: homeworks/questions/git-workflow-exercises.md
 [git-cleanup]: readings/git-repository-cleanup.md
 [aliases]: readings/alias.md
 [interactive-git]: http://pcottle.github.io/learnGitBranching/
@@ -191,7 +188,6 @@
 
 * :movie_camera: [Data Structures][data-structures-video] (40 min)
 * :movie_camera: [DFS][dfs-video] (15 min)
-
 
 ### Readings (15 min)
 + [Intro data structures][intro-algorithms-and-data-structures] (15 min)
@@ -247,9 +243,9 @@
 
 [uml]: readings/uml.md
 [inheritance]: readings/inheritance.md
-[inheritance-exercises]: homeworks/inheritance_exercises.md
+[inheritance-exercises]: projects/inheritance_and_errors/inheritance_exercises.md
 [errors]: readings/errors.md
-[errors-exercises]: homeworks/errors_exercises.md
+[errors-exercises]: projects/inheritance_and_errors/errors_exercises.md
 [object-decomposition]: readings/object-decomposition.md
 [inheritance-design]: readings/inheritance-design.md
 [hiding]: readings/hiding.md
