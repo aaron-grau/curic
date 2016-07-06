@@ -60,25 +60,10 @@ The greatest of ease!
 The greatest of ease!
 ```
 
-## Using In-Progress Features
+## Using In-Progress and Staged Features
 
-Not all ES6 features are fully compatible with the latest version of Node. Luckily, Node provides a way to use some of the in-progress features.
-
-Enter the following into your command line to see in-progress features:
-
-`$ node --v8-options | grep "in progress"`
-
-This should print a list of features and their corresponding flags.
-
-Example Output:
-```
---harmony_object_values_entries (enable "harmony Object.values / Object.entries" (in progress))
-```
-
-Looks like `Object.values` is still in-progress! To run code using `Object.values`, we can use its flag as such:
-
-`node --harmony_object_values_entries example_code.js`
-
-Ta-da! Harmony.
+Not all ES6 features are fully compatible with the latest version of Node ([see compatibility tables][compatibility]). Luckily, Node provides a way to use staged features using the `--harmony` flag. Check out [node's docs on using staged features][node-harmony] for more information.
 
 [node-js]: http://nodejs.org/
+[node-harmony]: https://nodejs.org/en/docs/es6/
+[compatibility]: http://node.green/
