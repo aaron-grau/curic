@@ -47,6 +47,7 @@ store it and any smaller positive number.
   - e.g., the set `{ 0, 2, 3 }` will be stored as: `[true, false, true,
     true]`
   - The size of the array will remain constant!
+  - The `MaxIntSet` should raise an error if someone tries to insert, remove, or check inclusion of a number that is out of bounds.
 - Methods:
   - `#insert`
   - `#remove`
@@ -77,6 +78,7 @@ concept, create your new and improved set.
 - To look up a number in the set, modulo (%) the number by the set's
   length, and add it to the array at that index. If the integer is
   present in that bucket, that's how we know it's included in the set.
+- You should fill out the `#[]` method to easily look up a bucket in the store - calling `self[num]` will be more DRY than `@store[num % num_buckets]` at every step of the way!
 - Your new set should be able to keep track of an arbitrary range of
   integers, including negative integers. Test it out.
 
@@ -125,25 +127,27 @@ to the same value.
 So let's construct a nice hashing function that'll do that for us. Be
 creative here!
 
-**N.B.**: You may want to look into bitwise operators like
-[XOR][xor-info] (`^` in Ruby). XOR is a great tool for hashing because
-it's fast, and it provides a good, nearly uniform output of bits.
+#### Notes:
 
-**Hint**: Note that `Fixnum#hash` is provided for you. You can
+* **Don't spend more than 30 minutes working on hashing functions**. Great hashing functions are hard to write. Your goal is to write a good-enough hashing function and move forth to the fun stuff ahead! Call over a TA if needed.
+* **You may want to look into bitwise operators like
+[XOR][xor-info]** (`^` in Ruby). XOR is a great tool for hashing because
+it's fast, and it provides a good, nearly uniform output of bits.
+* **`Fixnum#hash` is provided for you**. You can
 use this on numerical values (for instance, the index of an array
-element). Don't try to overwrite Ruby's native `Fixnum#hash`; making a
-good hash function for numbers is something that's outside the scope
+element). Don't try to overwrite Ruby's native `Fixnum#hash`; making a hash function for numbers is something that's outside the scope
 of this assignment.
 
 [More reading on hash functions][hash-info].
-- Write hash functions for `Array`, `String`, and `Hash`. Build these up
-  sequentially.
+
+Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentially.
+
   - Order of elements is relevant for arrays and strings, but it's
     irrelevant for hashes (e.g. `[1, 2, 3]` should hash to a different value
     from `[3, 2, 1]`)
-    - Keep track of indices for arrays and strings.
-    - **Hint**: Can you write `String#hash` in terms of `Array#hash`?
-    - When you get to hashing hashes: one trick to make a hash function
+  - Keep track of indices for arrays and strings.
+  - **Hint**: Can you write `String#hash` in terms of `Array#hash`?
+  - When you get to hashing hashes: one trick to make a hash function
       order-agnostic is to turn the object into an array, stably sort
       the array, and then hash the array. This'll make it so every
       unordered version of that same object will hash to the same value.
@@ -160,7 +164,7 @@ integers. Let's make it so we can store any data type in our set.
 
 This will be a simple improvement on ResizingIntSet. Just hash every
 item before performing any operation on it. This will return an integer,
-which you can modulo by the number of buckets. With this simple
+which you can modulo by the number of buckets. Implement the `#[]` method to dry up your code. With this simple
 construction, you set will be able to handle keys of any data type.
 
 Easy as pie. We now have a fabulous set that works with any data type!
@@ -200,6 +204,10 @@ Your class should have the following methods:
 - `#get(key)`
 - `#include?(key)`
 - `#remove(key)`
+
+### Making Heads and Tails of `LinkedList`
+
+There are a few ways to implement `LinkedList`. You can either start with head and tail as `nil`, or start them off as sentinel links. You can pass the specs with either implementation, but we recommend using sentinel links because it can help you avoid type checking for `nil`.
 
 *Hint: any linked list method needs to check for two things: whether the
 head is nil (meaning the list is empty), and whether you've reached a
