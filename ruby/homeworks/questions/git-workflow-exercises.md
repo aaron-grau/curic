@@ -2,7 +2,7 @@
 
 This homework will apply the tools you learned in the [git workflow reading][git-workflow].
 
-[git-workflow]: ../readings/git-workflow.md
+[git-workflow]: ../../readings/git-workflow.md
 
 ## My first git
 
