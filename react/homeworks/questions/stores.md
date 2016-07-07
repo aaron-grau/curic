@@ -12,14 +12,14 @@ To get started download the [skeleton][currency-skeleton].  Make sure to run `np
 
 ## Phase 1: Build A `RatesStore`
 
-Create a `ratesStore.js` file within the `frontend` folder.  This is where we will relocate the logic to fetch and store the currency rates.
+Create a `rates_store.js` file within the `frontend` folder.  This is where we will relocate the logic to fetch and store the currency rates.
 
 To get started, use the below skeleton and fill out the logic for all the methods.  If you're not sure how to write these methods, refer to the [stores reading][stores-reading].
 
 [stores-reading]: ../../readings/stores.md
 
 ```js
-  // frontend/ratesStore.js
+  // frontend/rates_store.js
 
   let _callbacks = [];
   let _rates = {};
@@ -46,7 +46,7 @@ To get started, use the below skeleton and fill out the logic for all the method
 ```
 
 To test that your code works, throw your store on the window and call these methods directly from the devtools console
-  * set `window.RatesStore = RatesStore` in `ratesStore.js`, then you can run `RatesStore.fetchRates("USD")` from the browser terminal
+  * set `window.RatesStore = RatesStore` in `rates_store.js`, then you can run `RatesStore.fetchRates("USD")` from the browser terminal
 
 ## Phase 2: Refactor `Widget` Component
 
