@@ -46,7 +46,7 @@ To get started, use the below skeleton and fill out the logic for all the method
 ```
 
 To test that your code works, throw your store on the window and call these methods directly from the devtools console
-  * set `window.RatesStore = RatesStore` in `ratesStore.jsx`, then you can run `RatesStore.fetchRates("USD")` from the browser terminal
+  * set `window.RatesStore = RatesStore` in `ratesStore.js`, then you can run `RatesStore.fetchRates("USD")` from the browser terminal
 
 ## Phase 2: Refactor `Widget` Component
 
