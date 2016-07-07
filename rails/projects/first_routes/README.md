@@ -149,18 +149,22 @@ code is wrong. When you get a non-200 response check the Rails logs
 first to see if something went wrong on the Rails side.
 
 Require `addressable/uri` and `rest-client` so that we can construct
-our requests.
+our requests. Let's build (and then call) a method that will return all the users in the db. 
 
 ```ruby
 # bin/my_script.rb
-url = Addressable::URI.new(
-  scheme: 'http',
-  host: 'localhost',
-  port: 3000,
-  path: '/users.html'
-).to_s
+def index_users
+    url = Addressable::URI.new(
+      scheme: 'http',
+      host: 'localhost',
+      port: 3000,
+      path: '/users.html'
+    ).to_s
+    
+    puts RestClient.get(url)
+end
 
-puts RestClient.get(url)
+index_users
 ```
 
 Make sure your rails server is still running (keep it in a tab in
@@ -399,12 +403,12 @@ def create
 end
 ```
 
-Likewise, let's write a method in `my_script.rb` to send the
+Likewise, let's write and call a method in `my_script.rb` to send the
 attributes:
 
 ```ruby
 # my_script.rb
-def create_user
+def create_user(name, email)
   url = Addressable::URI.new(
     scheme: 'http',
     host: 'localhost',
@@ -414,9 +418,11 @@ def create_user
 
   puts RestClient.post(
     url,
-    { user: { name: "Gizmo", email: "gizmo@gizmo.gizmo" } }
+    { user: { name: name, email: email } }
   )
 end
+
+create_user("Gizmo", "gizmo@gizmo.gizmo")
 ```
 
 Notice how we've namespaced all the parameters of the user to create
