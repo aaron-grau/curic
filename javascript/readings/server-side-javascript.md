@@ -41,7 +41,7 @@ We can run scripts in node.js with the greatest of ease:
 
 ```javascript
 // script.js
-for (var i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
   console.log("The greatest of ease!");
 }
 ```
@@ -60,4 +60,10 @@ The greatest of ease!
 The greatest of ease!
 ```
 
+## Using In-Progress and Staged Features
+
+Not all ES6 features are fully compatible with the latest version of Node ([see compatibility tables][compatibility]). Luckily, Node provides a way to use staged features using the `--harmony` flag. Check out [node's docs on using staged features][node-harmony] for more information.
+
 [node-js]: http://nodejs.org/
+[node-harmony]: https://nodejs.org/en/docs/es6/
+[compatibility]: http://node.green/

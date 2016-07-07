@@ -107,15 +107,15 @@ Function.prototype.inherits = function (ParentClass) { ... };
 
 However, monkey-patching can cause problems and should be done judiciously.
 Instead, let's create a general utilities module in `lib/util.js` and add our
-first utility function to it as `Util.inherits = function (ChildClass,
-ParentClass) { ... }`.
+first utility function to it as `Util.inherits = function (childClass,
+parentClass) { ... }`.
 
 **Note:** You should export a POJO (plain old JavaScript object) from Util, not
 a constructor function. We don't need to create instances of `Util`.
 
 ```javascript
 const Util = {
-  inherits () {
+  inherits (childClass, parentClass) {
     //...
   }
 }
@@ -125,8 +125,7 @@ module.exports = Util;
 
 ### `Asteroid`
 
-Write an `Asteroid` class in a `lib/asteroid.js` file. This should be a subclass
-of `MovingObject`.
+Write an `Asteroid` class in a `lib/asteroid.js` file. This should inherit from `MovingObject`.
 
 Pick a default `COLOR` and `RADIUS` for `Asteroid`s. Set these as properties of
 the `Asteroid` class: `Asteroid.COLOR` and `Asteroid.RADIUS`.
@@ -140,6 +139,10 @@ consider writing a `Util.randomVec(length)` helper function.
 // Other properties are filled in for you.
 new Asteroid({ pos: [30, 30] });
 ```
+
+Why do we still need to call `MovingObject`'s constructor function from within `Asteroid`'s constructor function?
+
+Our `inherits` function sets up the prototype inheritance chain, which makes methods available on the parent's prototype available to instances of the child class. However, we still need to call `MovingObject`'s constructor function from within `Asteroid`'s constructor function to access the code that sets properties such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a class's `#initialize` method in Ruby.
 
 ### `Game`
 
