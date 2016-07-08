@@ -7,7 +7,7 @@ Make sure outline your MVP features using the following structure when writing y
 ## MVP Checklist Format
 
 0. New account creation, login, and guest/demo login
-0. A production README, replacing this README (NB: check out the sample production README -- you'll write this later)
+0. A production README, replacing this README (NB: check out the sample [production README][production-readme] -- you'll write this later)
 0. Hosting on Heroku
 0. Feature 1
   * Adequate styling
@@ -25,6 +25,8 @@ Make sure outline your MVP features using the following structure when writing y
   * Adequate styling
   * Smooth, bug-free navigation
   * Adequate and appropriate seeds to demonstrate the feature
+
+[production-readme]: https://github.com/appacademy/curriculum/blob/master/capstone/demos/sample_project_proposal/docs/production_readme.md
 
 ## Required Features for Approved Clones
 
