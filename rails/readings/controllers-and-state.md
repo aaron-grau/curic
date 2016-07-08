@@ -21,7 +21,7 @@ the example of Facebook:
    not logged in.
 0. User fills out the web form, presses "submit". The web browser
    makes an HTTP request to POST credentials to the Facebook's server
-   (perhaps to `/session/new`).
+   (perhaps to `/session`).
 0. Facebook server verifies username/password. Sends a redirect to the
    browser instructing it to GET `/feed`.
 0. Client makes GET request for `/feed`.
