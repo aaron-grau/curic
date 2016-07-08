@@ -28,7 +28,7 @@ the example of Facebook:
 
 The problem is in the last step. From the point of view of Facebook's
 server, the GET for `/feed` is entirely unrelated to the POST to
-`/session/new`. Not being able to connect these two requests means
+`/session`. Not being able to connect these two requests means
 that the GET for `/feed` looks like it's coming from an un-logged-in
 user.
 
@@ -45,7 +45,7 @@ data for us. Check it out:
    not logged in.
 0. User fills out the web form, presses "submit". The web browser
    makes an HTTP request to POST credentials to the Facebook's server
-   (perhaps to `/session/new`).
+   (perhaps to `/session`).
 0. Facebook server verifies username/password. Sends a redirect to the
    browser instructing it to GET `/feed`.
     * **Also, Facebook generates a temporary *login token* for the user**.
