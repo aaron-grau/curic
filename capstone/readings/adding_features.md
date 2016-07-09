@@ -8,7 +8,7 @@ For all videos: :closed_lock_with_key: `go_video_go`
 
 [figaro-screencast]: https://vimeo.com/164602277
 [figaro]: ./figaro.md
-[google-maps-demo]: https://github.com/appacademy/react-flux-curriculum/blob/master/w7d5/react_map_demo.html
+[google-maps-demo]: https://github.com/appacademy/curriculum/tree/master/react/demos/react_map_demo
 
 ## Helpful React Components
 * :movie_camera: [React Modal Webcast][react-modal-webcast]
