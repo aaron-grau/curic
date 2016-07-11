@@ -8,6 +8,8 @@ good resources in general, and useful reading during this first week.
 **Note:** Unlike in the prepwork, there are no specs to compare against.
 You'll have to test your code in `pry`.
 
+Start by opening iTerm and changing your directory to the Desktop using the `cd` command. Create a new directory titled W1D1 using the `mkdir` command and then open a new file in Atom called enumerables.rb using the `atom` command.
+
 ## [Enumerable][docs-enumerable]
 
 ### My Each
