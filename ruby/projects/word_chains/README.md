@@ -99,8 +99,6 @@ it came from (the value in the `@all_seen_words` hash). Make sure this
 output makes sense. You may want to use a longer word like `"market"`
 to reduce the verbosity of the output.
 
-**Check with your TA after this phase.**
-
 ## Phase IV: Backtracking
 
 Okay! Right now `#run` builds `@all_seen_words`, but it never
@@ -120,7 +118,7 @@ end of the path back to `source`.
 Have `#run` call `build_path` and return the array.
 
 **Make sure to request a code review from your TA once you can find
-adjacent words**.
+adjacent words**
 
 ## Bonus Phase: Stop Early
 
