@@ -1,4 +1,4 @@
-## Recursion Questions
+# Recursion
 
 Estimated time: 5hrs
 
@@ -46,22 +46,28 @@ How deep will we need to recurse for the second? Keep in mind that the
 first reduces the exponent by one for each recursion, while the second
 reduces it by half.
 
-
-
-In addition to testing out those methods by running the code, try the following
+In addition to testing your methods by running the code, try the following
 exercise:
 
-On paper, write out what the variables are at each step in the code, line by
-line:
+<!-- newlines between numbered list items are for github rendering -->
+On paper, write out the value of each variable for every line in the code:
+
 1.  Write out what happens with base 0 and power 0 as inputs (should be easy).
-    E.g., if you had run `exp(0,0)`.
-2.  Write out what happens for base 0 and power 1 (I swear there's a point).
-    E.g., if you had run `exp(0,1)`.
+    E.G., if you had run `exp(0,0)`.
+
+2.  Write out what happens for base 0 and power 1.
+    E.G., if you had run `exp(0,1)`.
+
 3.  Write out what happens for base 1 and power 0.
+
 4.  Write out what happens for base 1 and power 1.
+
 5.  Write out what happens for base 1 and power 2.
+
 6.  Write out what happens for base 2 and power 0.
+
 7.  Write out what happens for base 2 and power 1.
+
 8.  Write out what happens for base 2 and power 2.
 
 Make sure you can trace from the very beginning to the very end in these
@@ -110,7 +116,7 @@ custom classes, etc.), since this would require that we implement a deep
 dup method for each of those classes, as well.
 
 It's okay to iterate over array elements using the normal `each` for
-this one. :-)
+this one :-)
 
 **You should be able to handle "mixed" arrays**. For instance:
 `[1, [2], [3, [4]]]`.
@@ -160,7 +166,7 @@ bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
 
 ### Merge Sort
 
-Implement a method [`merge_sort`][wiki-merge-sort] that sorts an `Array`.
+Implement a method [`merge_sort`][wiki-merge-sort] that sorts an `Array`:
 * The base cases are for arrays of length zero or one. Do not use
   a length-two array as a base case. This is unnecessary.
 * You'll want to write a `merge` helper method to merge the sorted halves.
@@ -203,7 +209,7 @@ RubyQuiz: [Make change][make-change-mirror].
 
 Here's a game plan for solving the problem:
 
-First, write a 'greedy' version of making change called `greedy_make_change`:
+First, write a 'greedy' version called `greedy_make_change`:
   - Take as many of the biggest coin as possible and add them to your result.
   - Add to the result by recursively calling your method on the remaining amount, leaving out the biggest coin, until the remainder is zero.
 
