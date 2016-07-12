@@ -52,9 +52,9 @@ exercise:
 On paper, write out the value of each variable for every line in the code:
 
 1.  Write out what happens with base 0 and power 0 as inputs (should be easy).
-    E.G., if you had run `exp(0,0)`.
+    e.g., if you had run `exp(0,0)`.
 2.  Write out what happens for base 0 and power 1.
-    E.G., if you had run `exp(0,1)`.
+    e.g., if you had run `exp(0,1)`.
 3.  Write out what happens for base 1 and power 0.
 4.  Write out what happens for base 1 and power 1.
 5.  Write out what happens for base 1 and power 2.
