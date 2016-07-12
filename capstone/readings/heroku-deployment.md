@@ -40,7 +40,7 @@ git commit -m "update production.rb for assets on heroku"
 git push heroku master
 ```
 
-[npm-instructions]: https://github.com/appacademy/capstone-project-curriculum/blob/master/readings/heroku-deployment.md#configure-heroku-to-use-both-npm-and-rubygems-if-needed
+[npm-instructions]: https://github.com/appacademy/curriculum/blob/master/capstone/readings/heroku-deployment.md#configure-heroku-to-use-both-npm-and-rubygems
 
 # Deploying Your App to Heroku
 

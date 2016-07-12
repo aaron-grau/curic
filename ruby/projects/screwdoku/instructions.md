@@ -27,7 +27,7 @@ If you want to print something out, use the debugger instead. Stop the code and 
 
 If you get stuck and need ideas, reference our [debugging cheatsheet][debugging cheatsheet].
 
-[debugging cheatsheet]: https://github.com/appacademy/ruby-curriculum/blob/master/w1d5/debugging_cheatsheet.md
+[debugging cheatsheet]: https://github.com/appacademy/curriculum/blob/master/ruby/readings/debugging_cheatsheet.md
 
 
 ## Instructions
