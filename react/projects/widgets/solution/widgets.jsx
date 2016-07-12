@@ -4,8 +4,8 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 const AutoComplete = require('./auto.jsx');
-const Clock = require('./clock.jsx').Clock;
-const Weather = require('./clock.jsx').Weather;
+const Clock = require('./clock.jsx');
+const Weather = require('./weather.jsx');
 const Tabs = require('./tabs.jsx');
 
 const Names = [
@@ -26,7 +26,7 @@ const Panes = [
 ];
 
 const MyComponent = React.createClass({
-  render: function () {
+  render() {
     return(
       <div>
         <AutoComplete names={Names} />

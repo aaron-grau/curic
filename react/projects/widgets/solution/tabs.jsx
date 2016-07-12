@@ -3,13 +3,13 @@
 const React = require('react');
 
 const Headers = React.createClass({
-  render: function () {
+  render() {
     let selected = this.props.selectedPane;
     let headers = this.props.panes.map((pane, index) => {
       let title = pane.title;
-      let klass = ""
+      let klass = "";
       if (index === selected) {
-        klass = "active"
+        klass = "active";
       }
 
       return (
@@ -31,13 +31,13 @@ const Headers = React.createClass({
 });
 
 const Tabs = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {selectedPane: 0};
   },
-  selectTab: function (num) {
+  selectTab(num) {
     this.setState({selectedPane: num});
   },
-  render: function () {
+  render() {
     let pane = this.props.panes[this.state.selectedPane];
 
     return (

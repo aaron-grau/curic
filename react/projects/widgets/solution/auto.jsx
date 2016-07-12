@@ -5,15 +5,15 @@ const ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 const AutoComplete = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return { inputVal: "" };
   },
 
-  handleInput: function (event) {
+  handleInput(event) {
     this.setState({ inputVal: event.currentTarget.value });
   },
 
-  matches: function () {
+  matches() {
     const matches = [];
     if(this.state.inputVal.length === 0){
       return this.props.names;
@@ -33,12 +33,12 @@ const AutoComplete = React.createClass({
     return matches;
   },
 
-  selectName: function (event) {
+  selectName(event) {
     let name = event.currentTarget.innerText;
     this.setState({ inputVal: name });
   },
 
-  render: function () {
+  render() {
     let results = this.matches().map((result, i) => {
       return (
           <li key={i} onClick={this.selectName}>{result}</li>
