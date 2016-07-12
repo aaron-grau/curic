@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 const React = require('react');
 
 const Clock = React.createClass({
   getInitialState() {
-    return { time: new Date() };
+    return {time: new Date()};
   },
 
   componentDidMount() {
@@ -12,16 +12,14 @@ const Clock = React.createClass({
   },
 
   tick() {
-    this.setState({
-      time: new Date(),
-    });
+    this.setState({time: new Date()});
   },
 
   render() {
     return (
       <div className='clock'>
-        <p>Time: { this.state.time.toTimeString() }</p>
-        <p>Date: { this.state.time.toDateString() }</p>
+        <p>Time: {this.state.time.toTimeString()}</p>
+        <p>Date: {this.state.time.toDateString()}</p>
       </div>
     );
   }

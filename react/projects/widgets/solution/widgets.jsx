@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -38,6 +38,6 @@ const MyComponent = React.createClass({
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   ReactDOM.render(<MyComponent />, document.getElementById('main'));
 });

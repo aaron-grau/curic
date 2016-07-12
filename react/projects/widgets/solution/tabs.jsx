@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const React = require('react');
 
@@ -7,14 +7,14 @@ const Headers = React.createClass({
     let selected = this.props.selectedPane;
     let headers = this.props.panes.map((pane, index) => {
       let title = pane.title;
-      let klass = "";
+      let klass = '';
       if (index === selected) {
-        klass = "active";
+        klass = 'active';
       }
 
       return (
         <span
-          key={ index }
+          key={index}
           className={klass}
           onClick={this.props.onTabChosen.bind(null, index)}>
           {title}{' '}
