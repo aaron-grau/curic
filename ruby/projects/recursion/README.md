@@ -162,10 +162,7 @@ Implement a method [`merge_sort`][wiki-merge-sort] that sorts an `Array`:
 * The base cases are for arrays of length zero or one. Do not use
   a length-two array as a base case. This is unnecessary.
 * You'll want to write a `merge` helper method to merge the sorted halves.
-* Watch [this gif][wiki-merge-gif] to get a visual idea of how merge sort works.
-  Individually, draw out on paper what a version with a smaller array of numbers
-(say, four numbers instead of eight) would look like.  Then compare with your
-partner.
+* To get a visual idea of how merge sort works, watch [this gif][wiki-merge-gif] and check out [this diagram][merge-diagram].
 
 
 ### Array Subsets
@@ -194,6 +191,7 @@ You can implement this as an Array method if you prefer.
 [wiki-merge-sort]: http://en.wikipedia.org/wiki/Merge_sort
 [wiki-merge-gif]:
 https://en.wikipedia.org/wiki/Merge_sort#/media/File:Merge-sort-example-300px.gif
+[merge-diagram]: https://www.cise.ufl.edu/class/cis3023su08/codesamples/mergesort.gif
 
 ### Make Change
 
