@@ -31,7 +31,7 @@ feature "the signup process" do
       click_on "create user"
     end
 
-    scenario "shows username on the homepage after signup" do
+    scenario "renders the new user page after failed signup" do
       expect(page).to have_content "New User!"
     end
   end
