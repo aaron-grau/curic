@@ -182,43 +182,39 @@ have to build a subordinate, underlying data structure.
 ## Phase 4: Linked List
 
 A [linked list][linked-list-wiki] is a data structure that consists of a
-series of links. Each link holds a value and a pointer to the next link
-(or `nil`). Given a pointer to the first (or head) link, you can access
+series of links. Each link holds a value and a pointer to the previous and next links (or `nil`). Given a pointer to the first (or head) link, you can access
 any arbitrary link by traversing the links in order.
 
-Let's implement a LinkedList for our hash buckets. In order to make the
-HashMap work, each link in your linked list will need to store both a
-key and a value.
+We will be implementing a special type of linked list called a "doubly linked list" - this means that we should also keep a pointer to the last (or tail) link so that we can traverse the list in reverse order.
 
-If you're struggling to implement this, just think back to the TreeNode
-problems you did. This, too, is a recursive data structure; think of a
-link in a LinkedList as being a TreeNode with at most one child.
+Our LinkedLists will ultimately be used in lieu of arrays for our HashMap buckets. In order to make the HashMap work, each link in your linked list will need to store both a key and a value.
 
-The Link class is provided for you. It's up to you to implement the
-LinkedList.
+The `Link` class is provided for you. It's up to you to implement the
+`LinkedList`.
 
-Your class should have the following methods:
+### Making Heads and Tails of `LinkedList`
+
+There are a few ways to implement `LinkedList`. You can either start with head and tail of your list as `nil`, or start them off as sentinel links. We recommend using sentinel links because they can help you avoid unnecessary type checking for `nil`.
+
+A sentinel link is merely a "dummy" link that does not hold a value. Your `LinkedList` should keep track of pointers (read: instance variables) to sentinel links for its head and tail. The head and tail should never be reassigned.
+
+Given these properties of our `LinkedList`, how might we check if our list is empty? How might we check if we are at the end of our list? Think about how your linked list will function as you implement the methods below.
+
+### Methods to Implement
+
+Go forth and implement the following methods:
 - `first`
 - `empty?`
-- `#insert(key, val)`
+- `#insert(key, val)` (adds a link to the end of the list)
 - `#get(key)`
 - `#include?(key)`
 - `#remove(key)`
 
-### Making Heads and Tails of `LinkedList`
-
-There are a few ways to implement `LinkedList`. You can either start with head and tail as `nil`, or start them off as sentinel links. You can pass the specs with either implementation, but we recommend using sentinel links because it can help you avoid type checking for `nil`.
-
-*Hint: any linked list method needs to check for two things: whether the
-head is nil (meaning the list is empty), and whether you've reached a
-nil link (meaning you've reached the tail of the linked list). Make sure
-that you reassign the head if you ever remove it.*
+Specs await!
 
 Once you're done with those, we're going to also make your linked lists
 enumerable. We want them to be just as flexible as arrays. Remember back
 to when you wrote `Array#my_each`, and let's get this thing enumerating.
-
-- Write `#each` for your linked list
 
 Once you have `#each` defined, you can include the `Enumerable` module
 into your class. As long as you have `each` defined, the `Enumerable`
@@ -228,7 +224,7 @@ the other enumeration methods for free!
 ## Phase 5: Hash Map (reprise)
 
 So now let's incorporate our linked list into our hash buckets. Instead
-of Arrays, we'll use LinkedLists for our buckets. Each linked list will
+of Arrays, we'll use `LinkedLists` for our buckets. Each linked list will
 start out empty. But whenever we want to insert an item into that
 bucket, we'll just tack it into the end of that linked list.
 
