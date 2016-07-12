@@ -11,7 +11,7 @@ Read the [Word Chains RubyQuiz][quiz].
 Let's write a class `WordChainer`.
 
 Begin writing the `#initialize(dictionary_file_name)` method. Read in
-the [dictionary file](dictionary). Store the array of dictionary words in an
+the [dictionary file][dictionary]. Store the array of dictionary words in an
 instance variable (e.g., `@dictionary`).
 
 Next, write a helper method `adjacent_words(word)`. This should
@@ -21,7 +21,7 @@ current word. By "one letter different" we mean that both words have the same le
 Verify that your `adjacent_words` method is working.
 
 **Hint**: To speed up your search greatly, store your dictionary as a
-[`Set`](ruby-set). The `Set#include?` method is much faster than `Array#include?`,
+[`Set`][ruby-set]. The `Set#include?` method is much faster than `Array#include?`,
 since the `Array` version needs to iterate through all the elements of
 the array, whereas `Set` uses a cool trick we'll learn about when we
 get to the algorithms curriculum.
