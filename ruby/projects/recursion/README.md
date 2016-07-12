@@ -191,7 +191,7 @@ You can implement this as an Array method if you prefer.
 [wiki-merge-sort]: http://en.wikipedia.org/wiki/Merge_sort
 [wiki-merge-gif]:
 https://en.wikipedia.org/wiki/Merge_sort#/media/File:Merge-sort-example-300px.gif
-[merge-diagram]: ../../assets/merge-sort-diagram.png
+[merge-diagram]: ../../assets/merge-sort-diagram.png?raw=true
 
 ### Make Change
 
