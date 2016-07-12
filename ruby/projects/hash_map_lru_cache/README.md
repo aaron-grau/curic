@@ -205,7 +205,7 @@ Given these properties of our `LinkedList`, how might we check if our list is em
 Go forth and implement the following methods:
 - `first`
 - `empty?`
-- `#insert(key, val)` (adds a link to the end of the list)
+- `#insert(key, val)` - If a link with that key already exists in the list, replace its value with the new value. Otherwise, append a new link with the key and value to that bucket.
 - `#get(key)`
 - `#include?(key)`
 - `#remove(key)`
@@ -214,12 +214,12 @@ Specs await!
 
 Once you're done with those, we're going to also make your linked lists
 enumerable. We want them to be just as flexible as arrays. Remember back
-to when you wrote `Array#my_each`, and let's get this thing enumerating.
+to when you wrote `Array#my_each`, and let's get this thing enumerating. The block passed to `#each` will yield to a `link`.
 
 Once you have `#each` defined, you can include the `Enumerable` module
 into your class. As long as you have `each` defined, the `Enumerable`
 module gives you `map`, `each_with_index`, `select`, `any?` and all of
-the other enumeration methods for free!
+the other enumeration methods for free! (Note: you may wish to refactor your `#insert`, `#get`, and `#include` methods to use your `#each` method for cleaner code!)
 
 ## Phase 5: Hash Map (reprise)
 
@@ -229,15 +229,18 @@ start out empty. But whenever we want to insert an item into that
 bucket, we'll just tack it into the end of that linked list.
 
 So here again is a summary of how you use our hash map:
-- Hash the key, mod by the number of buckets
-- To **set**, append that key and value to the linked list
-  representing that bucket
+- Hash the key, mod by the number of buckets (implement the `#bucket` method first for cleaner code - it should return the correct bucket for a hashed key)
+- To **set**, append a new link with the key and value to that bucket. If a link with that key already exists in the bucket, delete it first, then append the new link.
 - To **get**, check whether the linked list contains the key you're
   looking up
 - To **delete**, remove the link corresponding to that key from the
   linked list
 
-Also make sure your hash map resizes! In order to resize properly, you
+Finally, let's make your hash map properly enumerable. You know the
+drill. Implement `#each`, and then include the `Enumerable` module.
+Your method should yield `[key, value]` pairs and maintain insertion order -- the same way the Ruby hash does!
+
+Also make sure your hash map resizes when the count exceeds the number of buckets! In order to resize properly, you
 have to double the size of the container for your buckets. Having done
 so, enumerate over each of your linked lists and re-insert their
 contents into your newly-resized hash map. If you don't re-hash them,
@@ -250,12 +253,6 @@ use numbers, strings, arrays, or hashes as keys. Show off your
 awesomeness by asking a TA for a **Code Review**.
 
 [linked-list-wiki]: https://en.wikipedia.org/wiki/Linked_list
-
-## Phase 5a: Enumerable Methods
-
-Finally, let's make your hash map properly enumerable. You know the
-drill. Implement `#each`, and then include the `Enumerable` module.
-Your method should yield `[key, value]` pairs and maintain insertion order -- the same way the Ruby hash does!
 
 ## Phase 6: LRU Cache
 
@@ -311,12 +308,6 @@ insert it into our hash or delete it from our hash (which both take
 
 ![](lru-cache-scaled500.png?raw=true)
 
-**NB**: We are about to ask you to go back and update your LinkedList
-implementation. However, you should **not** have to change the way it
-interacts with your HashMap. The LinkedList's interface should be mostly
-unchanged, and nothing we're about to ask you to do should break your
-HashMap implementation.
-
 We'll have two data structures to keep in sync now, which is a little
 more complicated. But the upside is that our hash map will allow us to
 jump into the middle of the linked list instantly, in `O(1)` time.
@@ -330,25 +321,13 @@ So let's map the same data in both a hash map and in a linked list.
 ### Instructions:
 
 - Let's say we're building an LRU cache that's going to cache the values
-  of the perfect squares. So our LRU cache will store a `@proc`, which
+  of the perfect squares. So our LRU cache will store a `@prc`, which
   in this case will be `Proc.new { |x| x ** 2 }`. If we don't have the
   value of any number's square, we'll use this Proc to actually compute
   it. But we don't want to compute it for the same number twice, so
   after I compute anything, I'll store it in my LRU cache. But if my LRU
   Cache gets an input that doesn't exist in the cache, it'll compute it
   using the Proc.
-- Before we go any further, your LRU cache will first require an
-  augmentation of your linked list. So far, all we've needed is a
-  *singly linked* list, meaning that each link points to a `next` link.
-  We now need it to go both ways, so we'll use a *doubly linked list*.
-  That will allow us to go backwards, and keep track of the tail.
-  Augment your linked list so now every link points to both a `next` and
-  a `prev`.
-- Add a `@tail` so you can keep track of it. With access to both the
-  tail and the head, you should be able to both `push` and `unshift`
-  onto the linked list in `O(1)` time without a full traversal (**NB**:
-  You won't actually need to implement `push` and `unshift` methods
-  here. But you could, if you so desired!)
 - Now build your LRU cache. Every time you add a new key-value pair to
   your cache, you'll take two steps.
   - First, look to see if the key points to any link in your hash map.
@@ -367,7 +346,7 @@ So let's map the same data in both a hash map and in a linked list.
         should delete the least recently used item so your LRU cache is
         back to `max` size.
       - Hint: to delete that item, you have to delete the *first* item
-        in your linked list (which may require some re-wiring), and
+        in your linked list, and
         delete that key from your hash. Implemented correctly, these
         should both happen in `O(1)` time.
 
