@@ -3,7 +3,6 @@
 ## Object-Oriented Projects
 
 ## w1d1
-
 + [First Day! **Read me!**][day1-instructions]
 
 ### Readings (65 min)
@@ -148,9 +147,8 @@
 + [Serialization (JSON and YAML)][serialization] (10 min)
 + [Gems and rbenv][gems] (10 min)
 
-### Homeworks (50 min)
+### Homeworks (20 min)
 + [Git Workflow Exercises][git-workflow-exercises] (20 min)
-+ [Git tutorial][interactive-git] (30 min)
 
 ### Additional Resources
 + Using [Git add][git-add]
@@ -293,6 +291,9 @@
 [poker-project]: projects/poker
 
 ## w2d4
+
+### In-Class Practice Assessment02
++ Please refer to the [assessment prep repo][assessment-practice]
 
 ### Readings (75 min)
 + [Introduction to Big-O Notation][intro-big-o] (25 min)

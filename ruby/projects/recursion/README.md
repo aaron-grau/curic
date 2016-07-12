@@ -1,4 +1,4 @@
-## Recursion Questions
+# Recursion
 
 Estimated time: 5hrs
 
@@ -46,17 +46,15 @@ How deep will we need to recurse for the second? Keep in mind that the
 first reduces the exponent by one for each recursion, while the second
 reduces it by half.
 
-
-
-In addition to testing out those methods by running the code, try the following
+In addition to testing your methods by running the code, try the following
 exercise:
 
-On paper, write out what the variables are at each step in the code, line by
-line:
+On paper, write out the value of each variable for every line in the code:
+
 1.  Write out what happens with base 0 and power 0 as inputs (should be easy).
-    E.g., if you had run `exp(0,0)`.
-2.  Write out what happens for base 0 and power 1 (I swear there's a point).
-    E.g., if you had run `exp(0,1)`.
+    e.g., if you had run `exp(0,0)`.
+2.  Write out what happens for base 0 and power 1.
+    e.g., if you had run `exp(0,1)`.
 3.  Write out what happens for base 1 and power 0.
 4.  Write out what happens for base 1 and power 1.
 5.  Write out what happens for base 1 and power 2.
@@ -110,7 +108,7 @@ custom classes, etc.), since this would require that we implement a deep
 dup method for each of those classes, as well.
 
 It's okay to iterate over array elements using the normal `each` for
-this one. :-)
+this one :-)
 
 **You should be able to handle "mixed" arrays**. For instance:
 `[1, [2], [3, [4]]]`.
@@ -160,14 +158,11 @@ bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
 
 ### Merge Sort
 
-Implement a method [`merge_sort`][wiki-merge-sort] that sorts an `Array`.
+Implement a method [`merge_sort`][wiki-merge-sort] that sorts an `Array`:
 * The base cases are for arrays of length zero or one. Do not use
   a length-two array as a base case. This is unnecessary.
 * You'll want to write a `merge` helper method to merge the sorted halves.
-* Watch [this gif][wiki-merge-gif] to get a visual idea of how merge sort works.
-  Individually, draw out on paper what a version with a smaller array of numbers
-(say, four numbers instead of eight) would look like.  Then compare with your
-partner.
+* To get a visual idea of how merge sort works, watch [this gif][wiki-merge-gif] and check out [this diagram][merge-diagram].
 
 
 ### Array Subsets
@@ -196,6 +191,7 @@ You can implement this as an Array method if you prefer.
 [wiki-merge-sort]: http://en.wikipedia.org/wiki/Merge_sort
 [wiki-merge-gif]:
 https://en.wikipedia.org/wiki/Merge_sort#/media/File:Merge-sort-example-300px.gif
+[merge-diagram]: ../../assets/merge-sort-diagram.png?raw=true
 
 ### Make Change
 
@@ -203,7 +199,7 @@ RubyQuiz: [Make change][make-change-mirror].
 
 Here's a game plan for solving the problem:
 
-First, write a 'greedy' version of making change called `greedy_make_change`:
+First, write a 'greedy' version called `greedy_make_change`:
   - Take as many of the biggest coin as possible and add them to your result.
   - Add to the result by recursively calling your method on the remaining amount, leaving out the biggest coin, until the remainder is zero.
 
