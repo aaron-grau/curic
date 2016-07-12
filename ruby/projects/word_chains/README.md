@@ -8,12 +8,10 @@ Read the [Word Chains RubyQuiz][quiz].
 
 ## Phase I: Adjacent Words
 
-**[Link to dictionary][dictionary]**
-
 Let's write a class `WordChainer`.
 
 Begin writing the `#initialize(dictionary_file_name)` method. Read in
-the dictionary file. Store the array of dictionary words in an
+the [dictionary file][dictionary]. Store the array of dictionary words in an
 instance variable (e.g., `@dictionary`).
 
 Next, write a helper method `adjacent_words(word)`. This should
@@ -23,7 +21,7 @@ current word. By "one letter different" we mean that both words have the same le
 Verify that your `adjacent_words` method is working.
 
 **Hint**: To speed up your search greatly, store your dictionary as a
-`Set`. The `Set#include?` method is much faster than `Array#include?`,
+[`Set`][ruby-set]. The `Set#include?` method is much faster than `Array#include?`,
 since the `Array` version needs to iterate through all the elements of
 the array, whereas `Set` uses a cool trick we'll learn about when we
 get to the algorithms curriculum.
@@ -42,7 +40,7 @@ strategy is:
   list of `new_current_words`. We're going to fill this up with new
   words (that aren't in `@all_seen_words`) that are adjacent (one step
   away) from a word in `@current_words`.
-* To fill up new_current_words, begin an inner loop through
+* To fill up `new_current_words`, begin an inner loop through
   `@current_words`.
 * For each `current_word`, iterate through all
   `adjacent_words(current_word)`. This is a triply nested loop.
@@ -101,8 +99,6 @@ it came from (the value in the `@all_seen_words` hash). Make sure this
 output makes sense. You may want to use a longer word like `"market"`
 to reduce the verbosity of the output.
 
-**Check with your TA after this phase.**
-
 ## Phase IV: Backtracking
 
 Okay! Right now `#run` builds `@all_seen_words`, but it never
@@ -122,7 +118,7 @@ end of the path back to `source`.
 Have `#run` call `build_path` and return the array.
 
 **Make sure to request a code review from your TA once you can find
-adjacent words**.
+adjacent words**
 
 ## Bonus Phase: Stop Early
 
@@ -134,3 +130,4 @@ contains the target.
 [quiz]: http://rubyquiz.com/quiz44.html
 [quiz-wayback]: http://web.archive.org/web/20130215052516/http://rubyquiz.com/quiz44.html
 [dictionary]: ./dictionary.txt
+[ruby-set]: http://ruby-doc.org/stdlib-2.3.1/libdoc/set/rdoc/Set.html
