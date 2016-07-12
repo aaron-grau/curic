@@ -49,25 +49,17 @@ reduces it by half.
 In addition to testing your methods by running the code, try the following
 exercise:
 
-<!-- newlines between numbered list items are for github rendering -->
 On paper, write out the value of each variable for every line in the code:
 
 1.  Write out what happens with base 0 and power 0 as inputs (should be easy).
     E.G., if you had run `exp(0,0)`.
-
 2.  Write out what happens for base 0 and power 1.
     E.G., if you had run `exp(0,1)`.
-
 3.  Write out what happens for base 1 and power 0.
-
 4.  Write out what happens for base 1 and power 1.
-
 5.  Write out what happens for base 1 and power 2.
-
 6.  Write out what happens for base 2 and power 0.
-
 7.  Write out what happens for base 2 and power 1.
-
 8.  Write out what happens for base 2 and power 2.
 
 Make sure you can trace from the very beginning to the very end in these
