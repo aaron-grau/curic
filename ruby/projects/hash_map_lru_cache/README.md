@@ -1,7 +1,7 @@
 # MyHashMap
 
 Today you will implement your very own HashMap. If this sounds tricky,
-don't worry--we've provided specs. Download the [skeleton] before you start.
+don't worry--we've provided specs. Download the [skeleton][skeleton] before you start.
 
 [skeleton]: skeleton.zip?raw=true
 
@@ -130,7 +130,7 @@ creative here!
 #### Notes:
 
 * **Don't spend more than 30 minutes working on hashing functions**. Great hashing functions are hard to write. Your goal is to write a good-enough hashing function and move forth to the fun stuff ahead! Call over a TA if needed.
-* **You may want to look into bitwise operators like
+* **You may want to refer to the resource on
 [XOR][xor-info]** (`^` in Ruby). XOR is a great tool for hashing because
 it's fast, and it provides a good, nearly uniform output of bits.
 * **`Fixnum#hash` is provided for you**. You can
@@ -230,7 +230,7 @@ bucket, we'll just tack it into the end of that linked list.
 
 So here again is a summary of how you use our hash map:
 - Hash the key, mod by the number of buckets (implement the `#bucket` method first for cleaner code - it should return the correct bucket for a hashed key)
-- To **set**, append a new link with the key and value to that bucket. If a link with that key already exists in the bucket, delete it first, then append the new link.
+- To **set**, insert a new link with the key and value into the correct bucket. (You can use your `LinkedList#insert` method.)
 - To **get**, check whether the linked list contains the key you're
   looking up
 - To **delete**, remove the link corresponding to that key from the
