@@ -71,7 +71,7 @@ Make a new repo on [github](https://github.com/new).  Follow the instructions pr
 
 ## Do it visually
 
-Draw out on paper how you would represent unstaged, staged, and committed changes.  Use boxes, circles, and arrows to represent what's going on.  It's OK if you don't have a perfect mental model.  You'll be comparing with partners tomorrow.
+Draw out on paper how you would represent unstaged, staged, and committed changes.  Use boxes, circles, and arrows to represent what's going on.  It's OK if you don't have a perfect mental model.
 
 ## Bonus
 
