@@ -92,7 +92,7 @@ function fizzBuzz (array) {
   const fizzBuzzArr = [];
 
   for (let i = 0; i < array.length; i++) {
-    const el = array[i];
+    let el = array[i];
     if ((el % 3 === 0) ^ (el % 5 === 0)) {
       fizzBuzzArr.push(el);
     }
