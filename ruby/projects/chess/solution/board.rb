@@ -11,15 +11,15 @@ class Board
   def [](pos)
     raise 'invalid pos' unless valid_pos?(pos)
 
-    i, j = pos
-    @rows[i][j]
+    row, col = pos
+    @rows[row][col]
   end
 
   def []=(pos, piece)
     raise 'invalid pos' unless valid_pos?(pos)
 
-    i, j = pos
-    @rows[i][j] = piece
+    row, col = pos
+    @rows[row][col] = piece
   end
 
   def add_piece(piece, pos)
