@@ -110,7 +110,7 @@ true
 > isSubstring("The cat went to the store", "he cat went")
 true
 
-> isSubstring("Time to program", "time")
+> isSubstring("time to program", "time")
 true
 
 > isSubstring("Jump for joy", "joys")
