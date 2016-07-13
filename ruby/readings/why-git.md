@@ -19,7 +19,7 @@ Two important concepts:
 
 1. Git stores data as a series of snapshots.
 
-Every time you make a commit, or store your data, Git takes a snapshot of all the files you've changed and stores a reference to that snapshot. We can easily look through previous commits and see what changes were made in each one. This concept of a "stream of snapshots" is what makes Git different from most other Version Control Systems.
+  * Every time you make a commit, or store your data, Git takes a snapshot of all the files you've changed and stores a reference to that snapshot. We can easily look through previous commits and see what changes were made in each one. This concept of a "stream of snapshots" is what makes Git different from most other Version Control Systems.
 
 2. Git performs most operations locally.
 
