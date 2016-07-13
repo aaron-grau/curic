@@ -335,9 +335,7 @@
 * [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
 	* [:computer: demo code][middleware-demo] (22 min)
-* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
 * [:movie_camera: Watch W5D3 Javascript Video Lectures][js-videos] (12 min)
-* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029) (22 min)
 
 ### Readings (70 min)
 * Complete [Javascript W5D3 Readings][js-readings] (70 min)
