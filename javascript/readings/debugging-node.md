@@ -89,7 +89,7 @@ So, fun fact: the Atom Text Editor is built on Node.js. Don't believe me?
 Just press `⌘⌥I` in an Atom window. Whoa! it's a JavaScript
 console just like in Chrome!
 
-Because of this, we can just use the Atom enironment to test our code
+Because of this, we can just use the Atom environment to test our code
 and debug it in the Atom console. There is an awesome `apm` package
 called [run-in-atom][run-in-atom] that does just this at the press of a
 hotkey. This is _super_ convenient, but there are a couple of things to
