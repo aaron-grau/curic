@@ -37,6 +37,29 @@ methods:
   face-up, in which case the method should do nothing). It should also
   return the value of the card it revealed (you'll see why later).
 
+#### Parallel Assignment
+
+In Ruby you can declare and assign multiple variables at once using commas to
+separate multiple variables and values. For example,
+```rb
+x, y, z = 1, 2, 3 # x = 1, y = 2, z = 3
+```
+And if there's not the same number of variables and values?
+```rb
+x, y = 1, 2, 3 # x = 1, y = 2, 3 is not assigned
+a, b, c = 10, 20 # a = 10, b = 20, c = nil
+```
+When there are multiple variables assigned to an array, Ruby expands the array
+so that each element becomes its own value! For example,
+```rb
+x, y, z = [1, 2, 3] # x = 1, y = 2, z = 3
+a, b, c = [10, 20] # a = 10, b = 20, c = nil
+```
+This is very helpful to use when writing `[](pos)` and `[]=(pos, value)` for
+your Board to access `row` and `col`. Because the `pos` exists as an array,
+it's better to pass it as an array in a method call, relying on the method to
+index the array.
+
 ## Game
 
 The Game should have instance variable for the Board and the
