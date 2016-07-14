@@ -37,9 +37,12 @@ that were anticipated in the function definition, plus the extras.
 ```javascript
 function logArguments(arg1, arg2) {
   let result = [];
+  
   for (let i = 0; i < arguments.length; i++) {
     result.push(arguments[i]);
   }
+  
+  return result
 }
 
 logArguments("boop", "candle", 3); // ["boop", "candle", 3]
