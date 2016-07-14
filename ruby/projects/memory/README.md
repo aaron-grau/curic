@@ -5,10 +5,8 @@ classic [Match 2 memory card game][match-memory].
 
 [match-memory]: http://games.aarp.org/games/metro-match/metro-match.aspx
 
-I wrote classes for Card, Board, and Game.
-
-Please put each class in its own file and use `require_relative` to include
-other files in your program.
+Write classes for Card, Board, and Game. Please put each class in its own file
+and use `require_relative` to include other files in your program.
 
 ## Card
 
