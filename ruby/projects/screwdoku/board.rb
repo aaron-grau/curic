@@ -22,13 +22,13 @@ class Board
   end
 
   def [](pos)
-    x, y = pos
-    grid[x][y]
+    row, col = pos
+    grid[row][col]
   end
 
   def []=(pos, value)
-    x, y = pos
-    tile = grid[x][y]
+    row, col = pos
+    tile = grid[row][col]
     tile.value = value
   end
 

@@ -10,13 +10,13 @@ class Board
   end
 
   def [](pos)
-    x, y = pos
-    rows[x][y]
+    row, col = pos
+    rows[row][col]
   end
 
   def []=(pos, value)
-    x, y = pos
-    rows[x][y] = value
+    row, col = pos
+    rows[row][col] = value
   end
 
   def hide(pos)
