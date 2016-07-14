@@ -25,7 +25,7 @@ know what do at the end of the timeout.
 ## Callbacks and closures
 The above function passes a **callback** to `setTimeout`. In this
 case, the callback is not a **closure**, since it uses no outside
-variables. That's because we've hard-coded string. Let's see an
+variables. That's because we've hard-coded the string 'hello'. Let's see an
 example that illustrates why closures are so commonly used as
 callbacks:
 
