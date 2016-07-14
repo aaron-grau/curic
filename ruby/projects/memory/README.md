@@ -103,6 +103,8 @@ writing some "dummy" methods on the `HumanPlayer` class. That's ok.
 
 ## Bonus
 
+**Come back to this after you finish Sudoku!**
+
 - Implement a simple command-line interface, allowing the user to
   determine the difficulty of the game (i.e., the size of the board).
   Do this **before** the Game is `initialize`d. Remember `if __FILE__ ==
