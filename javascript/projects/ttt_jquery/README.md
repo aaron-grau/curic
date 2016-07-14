@@ -20,44 +20,21 @@ solution][ttt-node].
 The Node solution contains all the game logic of Tic-Tac-Toe, so you can focus
 on building the UI. You will need to reference the files in the Node solution
 because you'll be using `Board`, `Game`, and `MoveError`. You shouldn't have to
-modify anything in the Node solution, but definitely read and refer to that
-code!
+change anything in the Node solution but read and refer to it!
 
-A brief side-note here. We'll be using use Node's `module.exports` and `require`
+A brief side note: we'll use Node's `module.exports` and `require`
 to separate our game into digestible modules. Since we can't actually use `require`
-in the browser, this is a considerable problem. To solve this, we'll use
+in the browser, this allocation is a considerable problem. To solve this, we'll use
 [Webpack][webpack] to bundle our files. Ensure that you've installed webpack with `npm install -g webpack`.
-
-Make a `webpack.config.js` file in the top level of your skeleton directory.
-Fill it according to the following schema:
-
-```js
-module.exports = {
-  context: /* the directory containing the entry file */,
-  entry: /* your `main` file */,
-  output: {
-    path: /* where `index.html` can find your bundle */,
-    filename:/* your `bundle` */
-  }
-  devtool: /* add 'source-map' to get line-sourced errors in Dev Tools*/
-};
-
-// NOTE: `context` and `path` are relative to this config file.
-```
-
-Set `__dirname` (the directory in which the currently executing script
-resides) as the `context`. `./js/main.js` is your entry file. Set `bundle.js`
-(within `./js`) as the output's filename.
 
 Complete the `require` statements in `main.js` to require as dependencies
 `ttt-view` and the `game` file in the Node solutions. When webpack processes
-`main.js`, it will include all required files within `bundle.js`.
+`main.js` (the entry file), it will include all required files within `bundle.js` (the output file).
 
 Webpack will output the bundled file as `js/bundle.js`, for which we have
 included a script tag in `index.html`.
 
-Open a new terminal tab or window and run `webpack --watch`. The `watch` flag
-ensures that webpack will re-bundle whenever you save a file in your bundle.
+Open a new terminal tab or window and run `webpack ./js/main.js ./js/bundle.js`.
 
 [webpack]: ../../readings/browser-modules.md#webpack
 
