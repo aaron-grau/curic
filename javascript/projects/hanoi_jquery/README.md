@@ -11,7 +11,7 @@ in your 'js' directory. Download the [hanoi_node solution][hanoi-node] (`View
 Raw`) and put the 'game.js' file from that project into your 'js' folder as
 well. Then require 'game.js' as `HanoiGame` in 'main.js'.
 
-Set up webpack as in Tic Tac Toe. Run `webpack --watch` when you're done.
+Set up webpack as in Tic Tac Toe. Run `webpack ./js/main.js ./js/bundle.js` when you're done.
 Include the resultant bundled file as a script in `index.html`. To ensure
 that all's well, add a `console.log()` to the `main.js` file and check if it
 prints in our browser's terminal.
