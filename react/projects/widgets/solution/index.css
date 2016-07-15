@@ -1,5 +1,27 @@
 /* AutoComplete */
 
+.auto{
+  width: 191px;
+  height: 200px;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 10px;
+}
+
+.auto > *{
+  margin-left: 30px;
+}
+
+.auto > input{
+  margin: 10px 30px 0 30px;
+  border: 1px solid black;
+}
+
+.auto li{
+  cursor: pointer;
+  list-style-type: square;
+}
+
 .auto-enter {
   opacity: 0.01;
   transform: translateY(500%);
@@ -22,44 +44,45 @@
   transition: opacity 700ms ease-in, transform 700ms ease-in;
 }
 
-.auto{
-  width: 191px;
-  height: 200px;
-  border: 2px solid black;
-  margin: 20px;
-  padding: 10px;
-}
-
-.auto > *{
-  margin-left: 30px;
-}
-
-.auto > input{
-  margin: 10px 30px 0 30px;
-}
+/* Clock */
 
 .clock{
   font-size: 28px;
-  font-weight: 700;
-  width: 450px;
+  font-family: Orbitron;
+  width: 550px;
   height: 94px;
   border: 2px solid black;
   margin: 20px;
   padding: 10px;
 }
 
-p{
-  margin: 10px;
+.clock p{
+  margin: 12px;
+  display: flex;
+  justify-content: space-between;
 }
+
+/* Weather */
 
 .weather{
   font-size: 28px;
-  width: 300px;
-  height: 100px;
+  width: 550px;
+  height: 94px;
   border: 2px solid black;
   margin: 20px;
   padding: 10px;
+  text-align: center;
 }
+
+.weather p{
+  margin: 8px;
+}
+
+.loading{
+  margin-top: 30px;
+}
+
+/* Tabs */
 
 .tab-header{
   width: 200px;
@@ -71,15 +94,32 @@ p{
 
 .tab-header > span{
   width: 65px;
-  border: 1px solid black;
+  border-top: 2px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 2px solid black;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding-top: 5px;
+  padding-top: 4px;
   text-align: center;
+  cursor: pointer;
+}
+
+.tab-header > span:first-child{
+  border-left: 2px solid black;
+}
+
+.tab-header > span:last-child{
+  border-right: 2px solid black;
 }
 
 .tab-header > span:hover{
-  background-color: #B9CBFF;
+  background-color: black;
+  color: white;
+}
+
+.active{
+  font-weight: bold;
 }
 
 .tabs{
@@ -88,14 +128,16 @@ p{
 }
 
 .tab-content{
+  height: 192px;
   margin: 0 20px;
-  padding-top: 10px;
-  border-left: 1px solid black;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tab-content p{
   text-align: center;
-  margin-top: 0;
 }

@@ -29,10 +29,12 @@ const MyComponent = React.createClass({
   render() {
     return(
       <div>
-        <AutoComplete names={Names} />
         <Clock />
         <Weather />
-        <Tabs panes={Panes} />
+        <div className='interactive'>
+          <Tabs panes={Panes} />
+          <AutoComplete names={Names} />
+        </div>
       </div>
     );
   }

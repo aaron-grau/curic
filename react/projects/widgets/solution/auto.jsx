@@ -50,7 +50,8 @@ const AutoComplete = React.createClass({
       <div className='auto'>
         <input
           onChange={this.handleInput}
-          value={this.state.inputVal} />
+          value={this.state.inputVal}
+          placeholder='Search...'/>
         <ul>
           <ReactCSSTransitionGroup
             transitionName='auto'

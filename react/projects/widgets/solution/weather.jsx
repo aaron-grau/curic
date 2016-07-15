@@ -58,7 +58,7 @@ const Weather = React.createClass({
                   <p>{temp.toFixed(1)} degrees</p>
                 </div>;
     } else {
-      content = <div>loading weather...</div>;
+      content = <div className='loading'>loading weather...</div>;
     }
     return (
       <div className='weather'>

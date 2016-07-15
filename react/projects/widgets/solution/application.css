@@ -9,6 +9,12 @@ html, body, h1, p {
   background: transparent;
 }
 
-.active {
-  font-weight: bold;
+body{
+  font-family: Open Sans;
+  line-height: 1.2;
+}
+
+.interactive{
+  display: flex;
+  justify-content: flex-start;
 }
