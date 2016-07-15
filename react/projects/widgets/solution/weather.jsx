@@ -48,15 +48,17 @@ const Weather = React.createClass({
   },
 
   render() {
-    let content = '';
+    let content = <div></div>;
 
     if (this.state.weather) {
       let weather = this.state.weather;
       let temp = (weather.main.temp - 273.15) * 1.8 + 32;
-      content += weather.name + '\n';
-      content += temp.toFixed(1)  + ' degrees';
+      content = <div>
+                  <p>{weather.name}</p>
+                  <p>{temp.toFixed(1)} degrees</p>
+                </div>;
     } else {
-      content = 'loading weather...';
+      content = <div>loading weather...</div>;
     }
     return (
       <div className='weather'>

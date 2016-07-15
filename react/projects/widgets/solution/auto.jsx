@@ -47,7 +47,7 @@ const AutoComplete = React.createClass({
 
 
     return(
-      <div>
+      <div className='auto'>
         <input
           onChange={this.handleInput}
           value={this.state.inputVal} />

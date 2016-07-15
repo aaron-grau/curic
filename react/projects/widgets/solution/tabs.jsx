@@ -22,7 +22,7 @@ const Headers = React.createClass({
       );
     });
     return (
-      <div>
+      <div className='tab-header'>
         {headers}
       </div>
 
@@ -41,15 +41,17 @@ const Tabs = React.createClass({
     let pane = this.props.panes[this.state.selectedPane];
 
     return (
-      <div>
+      <div className='tabs'>
         <Headers
           selectedPane={this.state.selectedPane}
           onTabChosen={this.selectTab}
           panes={this.props.panes}>
         </Headers>
-        <p>
-          {pane.content}
-        </p>
+        <div className='tab-content'>
+          <p>
+            {pane.content}
+          </p>
+        </div>
       </div>
     );
   }

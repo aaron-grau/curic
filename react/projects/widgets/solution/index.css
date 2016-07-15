@@ -21,3 +21,81 @@
   transform: translateY(500%);
   transition: opacity 700ms ease-in, transform 700ms ease-in;
 }
+
+.auto{
+  width: 191px;
+  height: 200px;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 10px;
+}
+
+.auto > *{
+  margin-left: 30px;
+}
+
+.auto > input{
+  margin: 10px 30px 0 30px;
+}
+
+.clock{
+  font-size: 28px;
+  font-weight: 700;
+  width: 450px;
+  height: 94px;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 10px;
+}
+
+p{
+  margin: 10px;
+}
+
+.weather{
+  font-size: 28px;
+  width: 300px;
+  height: 100px;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 10px;
+}
+
+.tab-header{
+  width: 200px;
+  height: 30px;
+  margin: 20px 20px 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tab-header > span{
+  width: 65px;
+  border: 1px solid black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.tab-header > span:hover{
+  background-color: #B9CBFF;
+}
+
+.tabs{
+  width: 240px;
+  height: 200px;
+}
+
+.tab-content{
+  margin: 0 20px;
+  padding-top: 10px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.tab-content p{
+  text-align: center;
+  margin-top: 0;
+}
