@@ -1,6 +1,6 @@
 # Floating
 
-Floating is a CSS positioning property different from `position` discussed separately in the curriculum. You should never have both `float` and `position attributes specified on the same element.
+Floating is a CSS positioning property different from `position` discussed separately in the curriculum. You should never have both `float` and `position` attributes specified on the same element.
 
 You can think of `float` like images in magazines that have text
 flowing around them. For example:
