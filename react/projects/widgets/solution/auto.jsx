@@ -47,19 +47,22 @@ const AutoComplete = React.createClass({
 
 
     return(
-      <div className='auto'>
-        <input
-          onChange={this.handleInput}
-          value={this.state.inputVal}
-          placeholder='Search...'/>
-        <ul>
-          <ReactCSSTransitionGroup
-            transitionName='auto'
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={500}>
-            {results}
-          </ReactCSSTransitionGroup>
-        </ul>
+      <div>
+        <h1>Autocomplete</h1>
+        <div className='auto'>
+          <input
+            onChange={this.handleInput}
+            value={this.state.inputVal}
+            placeholder='Search...'/>
+          <ul>
+            <ReactCSSTransitionGroup
+              transitionName='auto'
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={500}>
+              {results}
+            </ReactCSSTransitionGroup>
+          </ul>
+        </div>
       </div>
     );
   }

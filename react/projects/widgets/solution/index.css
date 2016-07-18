@@ -4,7 +4,7 @@
   width: 191px;
   height: 200px;
   border: 2px solid black;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   padding: 10px;
 }
 
@@ -52,7 +52,7 @@
   width: 550px;
   height: 94px;
   border: 2px solid black;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   padding: 10px;
 }
 
@@ -69,7 +69,7 @@
   width: 550px;
   height: 94px;
   border: 2px solid black;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   padding: 10px;
   text-align: center;
 }
@@ -87,7 +87,7 @@
 .tab-header{
   width: 200px;
   height: 30px;
-  margin: 20px 20px 0 20px;
+  margin: 0 20px;
   display: flex;
   justify-content: space-between;
 }

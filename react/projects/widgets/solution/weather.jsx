@@ -61,8 +61,11 @@ const Weather = React.createClass({
       content = <div className='loading'>loading weather...</div>;
     }
     return (
-      <div className='weather'>
-        {content}
+      <div>
+        <h1>Weather</h1>
+        <div className='weather'>
+          {content}
+        </div>
       </div>
     );
   }

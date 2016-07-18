@@ -41,16 +41,19 @@ const Tabs = React.createClass({
     let pane = this.props.panes[this.state.selectedPane];
 
     return (
-      <div className='tabs'>
-        <Headers
-          selectedPane={this.state.selectedPane}
-          onTabChosen={this.selectTab}
-          panes={this.props.panes}>
-        </Headers>
-        <div className='tab-content'>
-          <p>
-            {pane.content}
-          </p>
+      <div>
+        <h1>Tabs</h1>
+        <div className='tabs'>
+          <Headers
+            selectedPane={this.state.selectedPane}
+            onTabChosen={this.selectTab}
+            panes={this.props.panes}>
+          </Headers>
+          <div className='tab-content'>
+            <p>
+              {pane.content}
+            </p>
+          </div>
         </div>
       </div>
     );

@@ -16,10 +16,27 @@ const Clock = React.createClass({
   },
 
   render() {
+    let hours = this.state.time.getHours();
+    let minutes = this.state.time.getMinutes();
+    let seconds = this.state.time.getSeconds();
+
+    hours = (hours < 10) ? `0${hours}` : hours;
+    minutes = (minutes < 10) ? `0${minutes}` : minutes;
+    seconds = (seconds < 10) ? `0${seconds}` : seconds;
+
     return (
-      <div className='clock'>
-        <p>Time: {this.state.time.toTimeString()}</p>
-        <p>Date: {this.state.time.toDateString()}</p>
+      <div>
+        <h1>Clock</h1>
+        <div className='clock'>
+          <p><span>
+               Time:
+             </span>
+             <span>
+               {hours}:{minutes}:{seconds} PDT
+             </span>
+          </p>
+          <p>Date: {this.state.time.toDateString()}</p>
+        </div>
       </div>
     );
   }
