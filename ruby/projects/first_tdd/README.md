@@ -5,10 +5,11 @@
 Do all of the following exercises TDD.  That means writing specs **first**!  
 
 When approaching each problem, make sure to:
-1. Read the entire problem statement
-2. Talk with your partner to identify test cases and key functionality to expect from your code.
-3. Write RSpec tests
-4. Write the method you now have tests for.  Follow the red-green-refactor approach until all specs pass.  
+
+  1. Read the entire problem statement
+  2. Talk with your partner to identify test cases and key functionality to expect from your code.
+  3. Write RSpec tests
+  4. Write the method you now have tests for.  Follow the red-green-refactor approach until all specs pass.  
 
 ### Remove dups
 
@@ -100,7 +101,7 @@ my_transpose([
 
 Write a method that takes an array of stock prices (prices on days 0,
 1, ...), and outputs the most profitable pair of days on which to
-first buy the stock and then sell the stock.
+first buy the stock and then sell the stock.  Remember, you can't sell stock before you buy it!
 
 ### Towers of Hanoi
 
@@ -120,8 +121,9 @@ After each move, check to see if they have succeeded in moving all the
 discs, to the final pile. If so, they win!
 
 **Note:** don't worry about testing the UI. Testing console I/O is tricky (don't bother checking `gets` or `puts`). Focus on:
-    * `#move`
-    * `#won?`
+
+  * `#move`
+  * `#won?`
 
 ### Get a code review from a TA
 
