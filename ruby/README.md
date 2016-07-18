@@ -292,15 +292,15 @@
 
 ## w2d4
 
-### In-Class Practice Assessment02
-+ Please refer to the [assessment prep repo][assessment-practice]
+### Practice Assessment02
++ In-class practice assessment at 9am.  Please bring your own machine if possible.  
 
 ### Readings (75 min)
 + [Introduction to Big-O Notation][intro-big-o] (25 min)
 + [Plain English explanation of Big O][stack-overflow-big-o] (25 min)
   + Read first few answers
 + [Calculating Big-O][calculating-big-o] (10 min)
-+ [Algorithm Visualization][algorithm-visual] (15 min)
++ Algorithm Visualization (15 min)
   + [Merge Sort][merge-sort-visual]
   + [Bubble Sort][bubble-sort-visual]
 
