@@ -1,5 +1,5 @@
 # `two_sum?`
-*Goal: Given an array of unique integers and a target sum, determine whether any two integers in the array sum to that amount.*
+Given an array of unique integers and a target sum, determine whether any two integers in the array sum to that amount.
 
 
 ```ruby

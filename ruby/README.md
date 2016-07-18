@@ -369,13 +369,6 @@
 [hash-map]: projects/hash_map_lru_cache
 [xor-info]: http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/xor.html
 
-### w2d6-w2d7
-
-+ Begin [SQL Curriculum W3D1][sql-curriculum] readings
-+ **Study for Assessment 2** ([practice][assessment-prep])
-    + We'll implement a simple version of a well-known card game. We'll announce the specific game, and you can look up the basic rules ahead of time.
-[sql-curriculum]: ../sql
-
 ## Additional Bonus Topics
 
 + [Basic cursor input][cursor-demo]

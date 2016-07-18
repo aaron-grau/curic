@@ -63,7 +63,7 @@ the obvious, why take the time to write tests?
   specific task and reduces the need for expensive coordination. The
   specs themselves become an effective form of communication.
 
-4. Produce documentation
+4. *Produce documentation*
 
   If the tests are written well, the tests can serve as documentation
   for the codebase. Need to know what such and such module does?
