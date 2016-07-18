@@ -5,7 +5,8 @@ classic [Match 2 memory card game][match-memory].
 
 [match-memory]: http://games.aarp.org/games/metro-match/metro-match.aspx
 
-I wrote classes for Card, Board, and Game.
+Write classes for Card, Board, and Game. Please put each class in its own file
+and use `require_relative` to include other files in your program.
 
 ## Card
 
@@ -15,7 +16,8 @@ of this information. You'll also want a method to display information
 about the card: nothing when face-down, or its value when face-up. I
 also wrote `#hide`, `#reveal`, `#to_s`, and `#==` methods.
 
-Common problem: Having issues with `#hide` and `#reveal`? See [here][testing-small].
+Common problem: Having issues with `#hide` and `#reveal`? See
+[here][testing-small].
 
 [testing-small]: https://github.com/appacademy/curriculum/blob/master/ruby/readings/testing-small.md
 
@@ -32,6 +34,29 @@ methods:
 - `#reveal` should reveal a Card at `guessed_pos` (unless it's already
   face-up, in which case the method should do nothing). It should also
   return the value of the card it revealed (you'll see why later).
+
+#### Parallel Assignment
+
+In Ruby you can declare and assign multiple variables at once using commas to
+separate multiple variables and values. For example,
+```rb
+x, y, z = 1, 2, 3 # x = 1, y = 2, z = 3
+```
+And if there's not the same number of variables and values?
+```rb
+x, y = 1, 2, 3 # x = 1, y = 2, 3 is not assigned
+a, b, c = 10, 20 # a = 10, b = 20, c = nil
+```
+When there are multiple variables assigned to an array, Ruby expands the array
+so that each element becomes its own value! For example,
+```rb
+x, y, z = [1, 2, 3] # x = 1, y = 2, z = 3
+a, b, c = [10, 20] # a = 10, b = 20, c = nil
+```
+This is very helpful to use when writing `[](pos)` and `[]=(pos, value)` for
+your Board to access `row` and `col`. Because the `pos` exists as an array,
+it's better to pass it as an array in a method call, relying on the method to
+index the array.
 
 ## Game
 
@@ -51,18 +76,18 @@ memory/matching logic. Some tips on implementing this:
   - Else, flip both cards face-down.
   - In either case, reset `previous_guess`.
 
-It wouldn't be an interesting game if the player could see their
-previous moves. Run `system("clear")` before `render`ing the Board. This
-will hide any previous output from the player. `sleep(n)` will pause the
-program for `n` seconds. Use this method to (temporarily) show the
-player an incorrect guess before flipping the Cards face-down again.
+It wouldn't be an interesting game if the player could see their previous moves.
+Run `system("clear")` before `render`ing the Board. This will hide any previous
+output from the player. `sleep(n)` will pause the program for `n` seconds. Use
+this method to (temporarily) show the player an incorrect guess before flipping
+the Cards face-down again.
 
 ## AI
 
 #### Refactor game to include a HumanPlayer class
 
-Before actually implementing the computer player, let's make things easier
-on ourselves and refactor the game to accept player classes. In order to accomplish
+Before actually implementing the computer player, let's make things easier on
+ourselves and refactor the game to accept player classes. In order to accomplish
 this, move all of your user input logic into the player class. I moved the
 following methods out of the Game class into the player:
 - `prompt`
@@ -89,13 +114,17 @@ hash.
 - `receive_match` should take in two positions which are a successful match. I
 stored these in an instance variable `@matched_cards`
 
-The game should then call these methods on the player in addition to displaying the
-revealed cards to the terminal.
-**NB:** The game shouldn't have to know whether a human or computer is playing.
-Instead, it should use [duck typing](http://rubylearning.com/satishtalim/duck_typing.html).
-This may involve writing some "dummy" methods on the `HumanPlayer` class. That's ok.
+The game should then call these methods on the player in addition to displaying
+the revealed cards to the terminal.
+
+**NB:** The game shouldn't have to know
+whether a human or computer is playing. Instead, it should use [duck
+typing](http://rubylearning.com/satishtalim/duck_typing.html). This may involve
+writing some "dummy" methods on the `HumanPlayer` class. That's ok.
 
 ## Bonus
+
+**Come back to this after you finish Sudoku!**
 
 - Implement a simple command-line interface, allowing the user to
   determine the difficulty of the game (i.e., the size of the board).
