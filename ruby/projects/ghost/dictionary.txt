@@ -3400,10 +3400,6 @@ bison
 bisque
 bistro
 bit
-bitch
-bitchily
-bitchiness
-bitchy
 bite
 biter
 biting
@@ -4384,8 +4380,6 @@ bullishness
 bullock
 bullpen
 bullring
-bullshit
-bullshitter
 bully
 bulrush
 bulwark
@@ -8136,7 +8130,6 @@ cuneiform
 cunnilingus
 cunning
 cunningly
-cunt
 cup
 cupboard
 cupcake
@@ -12360,10 +12353,6 @@ faddish
 faddist
 fade
 faerie
-fag
-faggot
-fagot
-fagoting
 faience
 fail
 failing
@@ -13891,10 +13880,6 @@ frustum
 fry
 fryer
 fuchsia
-fuck
-fucker
-fucking
-fuddle
 fudge
 fuehrer
 fuel
@@ -15248,7 +15233,6 @@ gynecologic
 gynecological
 gynecologist
 gynecology
-gyp
 gypsum
 gypsy
 gyrate
@@ -22282,7 +22266,6 @@ muggy
 mugshot
 mugwump
 mukluk
-mulatto
 mulberry
 mulch
 mulct
@@ -22857,7 +22840,6 @@ nifty
 niggard
 niggardliness
 niggardly
-nigger
 niggle
 niggler
 niggling
@@ -27994,8 +27976,6 @@ rapacious
 rapaciously
 rapaciousness
 rapacity
-rape
-raper
 rapeseed
 rapid
 rapidity
@@ -28004,7 +27984,6 @@ rapidness
 rapids
 rapier
 rapine
-rapist
 rappel
 rapper
 rapport
@@ -31243,8 +31222,6 @@ shirtsleeve
 shirtsleeves
 shirttail
 shirtwaist
-shit
-shitty
 shiv
 shiver
 shivery
@@ -31898,9 +31875,6 @@ slurry
 slush
 slushiness
 slushy
-slut
-sluttish
-slutty
 sly
 slyly
 slyness
@@ -35678,15 +35652,11 @@ transportation
 transporter
 transpose
 transposition
-transsexual
-transsexualism
 transship
 transshipment
 transubstantiation
 transverse
 transversely
-transvestism
-transvestite
 trap
 trapdoor
 trapeze
@@ -38686,7 +38656,6 @@ westernmost
 westward
 westwards
 wet
-wetback
 wetland
 wetlands
 wetly
@@ -38850,10 +38819,6 @@ whoops
 whoosh
 whopper
 whopping
-whore
-whorehouse
-whoreish
-whorish
 whorl
 whorled
 whose
