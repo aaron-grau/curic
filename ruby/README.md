@@ -266,7 +266,7 @@
 + [TDD][intro-tdd] (3 min)
 + [guard-rspec][guard-rspec] (2 min)
 + **Demo Reading**: review spec files for A00 and A01 [assessment-prep][assessment-prep] (9 min)
-+ **Demo Reading**: [OO Robot RSpec Example][robot-demo] (6 min)
++ **Demo Reading**: review spec files for [OO Robot RSpec Example][robot-demo] (6 min)
 
 ### Homeworks (25 min)
 + [RSpec][rspec-homework] (25 min)
@@ -285,7 +285,7 @@
 [rspec-order]: readings/rspec-order.md
 
 [robot-demo]: demos/robot-rspec-demo
-[rspec-homework]: homeworks/questions/rspec-homework.md
+[rspec-homework]: homeworks/questions/rspec.md
 
 [first-tdd-projects]: projects/first_tdd
 [poker-project]: projects/poker

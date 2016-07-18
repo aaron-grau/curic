@@ -26,7 +26,7 @@ Each spec will usually be limited to testing a single file and so
 will require the file at the top of the spec. It will also have to
 require the rspec gem.
 
-```
+```ruby
 # hello_spec.rb
 
 require 'rspec'
@@ -46,7 +46,7 @@ This is another reason to follow the convention of using `lib/` and
 
 Here's what a simple 'Hello, World!' spec might look like.
 
-```
+```ruby
 # hello_spec.rb
 
 require 'rspec'
@@ -61,7 +61,7 @@ end
 
 And the code that would make it pass:
 
-```
+```ruby
 # hello.rb
 
 def hello_world
@@ -90,7 +90,7 @@ You can nest `describe` blocks arbitrarily deep. When nesting, also
 consider the use of `context`, which is an alias for `describe` that
 can be a bit more descriptive. Prefer `context` when it makes sense.
 
-```
+```ruby
 describe Student do
   context 'when a current student' do
     ...
@@ -113,7 +113,7 @@ expected value. You can specify the way in which it will match.
 
 There are negative and positive constructions:
 
-```
+```ruby
 expect(test_value).to ...
 expect(test_value).to_not ...
 ```
@@ -122,7 +122,7 @@ There are two constructions to expect: with an argument and with a
 block. We'll prefer the argument construction except when the block
 construction is necessary.
 
-```
+```ruby
 describe Integer do
   describe '#to_s' do
     it 'returns string representations of integers' do
@@ -135,7 +135,7 @@ end
 The block construction is necessary when you want to test that a
 certain method call will throw an error:
 
-```
+```ruby
 describe '#sqrt' do
   it 'throws an error if given a negative number' do
     expect { sqrt(-3) }.to raise_error(ArgumentError)
@@ -174,7 +174,7 @@ you to do.
 One thing that we often want to do is set up the context in which our
 specs will run. We usually do this in a `before` block.
 
-```
+```ruby
 describe Chess do
   let(:board) { Board.new }
 
@@ -223,7 +223,7 @@ How?
 
 Leave off the `do...end` from the `it`.
 
-```
+```ruby
 describe '#valid_move?' do
   it 'should return false for wrong colored pieces'
   it 'should return false for moves that are off the board'
