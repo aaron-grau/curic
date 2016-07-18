@@ -6,9 +6,9 @@ Do all of the following exercises TDD.  That means writing specs **first**!
 
 When approaching each problem, make sure to:
 
-  1. Read the entire problem statement
+  1. Read the entire problem statement.
   2. Talk with your partner to identify test cases and key functionality to expect from your code.
-  3. Write RSpec tests
+  3. Write RSpec tests.
   4. Write the method you now have tests for.  Follow the red-green-refactor approach until all specs pass.  
 
 ### Remove dups
@@ -20,23 +20,7 @@ returns the unique elements in the order in which they first appeared:
 [1, 2, 1, 3, 3].uniq # => [1, 2, 3]
 ```
 
-Write your own `uniq` method, called `my_uniq`; it should take in an
-Array and return a new array.
-
-One special feature of Ruby classes is that they are *open*; we can add
-new methods to existing classes. Take the `my_uniq` method that you just
-wrote and modify it slightly so that it can be called directly on an
-array:
-
-```ruby
-class Array
-  def my_uniq
-    # ...
-  end
-end
-```
-
-This is called *monkey patching*.
+Write your own version of this method called `my_uniq`; it should take in an Array and return a new array.
 
 ### Two sum
 
