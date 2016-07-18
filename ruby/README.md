@@ -356,6 +356,9 @@
 ### Homeworks (30 min)
 + [LRU Cache][lru-cache-hw] (30 min)
 
+### Additional Resources
++ [XOR][xor-info] (`^` in Ruby)
+
 ### Projects
 + [Hash Map & LRU Cache][hash-map]
 
@@ -364,6 +367,7 @@
 [lru-cache-hw]: homeworks/questions/lru_cache.md
 [dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
 [hash-map]: projects/hash_map_lru_cache
+[xor-info]: http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/xor.html
 
 ### w2d6-w2d7
 
