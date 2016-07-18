@@ -1,10 +1,10 @@
 # Poker
 
+Today we will be using TDD to write a poker game, specifically [five card draw][five-card-draw].  
+
+You'll want to use betterspecs as a cheatsheet/reference: http://betterspecs.org
+
 ## Rules
-
-Your job is to create a Poker game TDD.
-
-One of the simpler forms of Poker is [five card draw][five-card-draw].
 
 * Each player is dealt five cards.
 * Players bet; each player may fold, see the current bet, or raise.
@@ -19,13 +19,11 @@ One of the simpler forms of Poker is [five card draw][five-card-draw].
 
 ## Design
 
-You'll want to use betterspecs as a cheatsheet/reference: http://betterspecs.org
-
 Classes you will want:
 
 * Card
 * Deck
-    * Now would be a great time to request a TA Code review! 
+    * Now would be a great time to request a TA Code review!
 * Hand
     * The logic of calculating pair, three-of-a-kind, two-pair, etc. goes
       here.

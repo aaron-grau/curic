@@ -1,32 +1,6 @@
 require 'rspec'
 require 'robot.rb'
 
-# Assessments are for your benefit; they let us keep track of student
-# progress, areas students need help in, etc. Especially if you are
-# struggling, assessments help us know to figure that out.
-
-# This assignment is intended to take ~1hr to complete. After an hour
-# record how much you have finished by making a copy of your code at
-# that point. Then take additional time to complete the assignment.
-# Record how many hours this takes.
-
-# Make sure to record both where you were after 1hr, and how long it
-# takes to complete. It's really important for us to have accurate
-# information where everyone is, so that we can pair people
-# appropriately, know who to work closely with in the first couple
-# weeks, etc.
-
-# For the assignment, you'll need to know:
-# * How to create a class
-# * How to create instance variables
-# * How to synthesize readers/accessors (`attr_reader`, `attr_accessor`)
-# * How to write a method
-# * How to use if/else
-# * How to raise an exception
-# * How to write your own `initialize` method
-#   * How to use `super` to call a parent class' `initialize` method
-# * How to use inheritance to extend a class
-
 describe Robot do
   subject(:robot) { Robot.new }
 
