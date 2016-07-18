@@ -1,7 +1,7 @@
 # MyHashMap
 
 Today you will implement your very own HashMap. If this sounds tricky,
-don't worry--we've provided specs. Download the [skeleton] before you start.
+don't worry--we've provided specs. Download the [skeleton][skeleton] before you start.
 
 [skeleton]: skeleton.zip?raw=true
 
@@ -47,6 +47,7 @@ store it and any smaller positive number.
   - e.g., the set `{ 0, 2, 3 }` will be stored as: `[true, false, true,
     true]`
   - The size of the array will remain constant!
+  - The `MaxIntSet` should raise an error if someone tries to insert, remove, or check inclusion of a number that is out of bounds.
 - Methods:
   - `#insert`
   - `#remove`
@@ -77,6 +78,7 @@ concept, create your new and improved set.
 - To look up a number in the set, modulo (%) the number by the set's
   length, and add it to the array at that index. If the integer is
   present in that bucket, that's how we know it's included in the set.
+- You should fill out the `#[]` method to easily look up a bucket in the store - calling `self[num]` will be more DRY than `@store[num % num_buckets]` at every step of the way!
 - Your new set should be able to keep track of an arbitrary range of
   integers, including negative integers. Test it out.
 
@@ -125,25 +127,27 @@ to the same value.
 So let's construct a nice hashing function that'll do that for us. Be
 creative here!
 
-**N.B.**: You may want to look into bitwise operators like
-[XOR][xor-info] (`^` in Ruby). XOR is a great tool for hashing because
-it's fast, and it provides a good, nearly uniform output of bits.
+#### Notes:
 
-**Hint**: Note that `Fixnum#hash` is provided for you. You can
+* **Don't spend more than 30 minutes working on hashing functions**. Great hashing functions are hard to write. Your goal is to write a good-enough hashing function and move forth to the fun stuff ahead! Call over a TA if needed.
+* **You may want to refer to the resource on
+[XOR][xor-info]** (`^` in Ruby). XOR is a great tool for hashing because
+it's fast, and it provides a good, nearly uniform output of bits.
+* **`Fixnum#hash` is provided for you**. You can
 use this on numerical values (for instance, the index of an array
-element). Don't try to overwrite Ruby's native `Fixnum#hash`; making a
-good hash function for numbers is something that's outside the scope
+element). Don't try to overwrite Ruby's native `Fixnum#hash`; making a hash function for numbers is something that's outside the scope
 of this assignment.
 
 [More reading on hash functions][hash-info].
-- Write hash functions for `Array`, `String`, and `Hash`. Build these up
-  sequentially.
+
+Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentially.
+
   - Order of elements is relevant for arrays and strings, but it's
     irrelevant for hashes (e.g. `[1, 2, 3]` should hash to a different value
     from `[3, 2, 1]`)
-    - Keep track of indices for arrays and strings.
-    - **Hint**: Can you write `String#hash` in terms of `Array#hash`?
-    - When you get to hashing hashes: one trick to make a hash function
+  - Keep track of indices for arrays and strings.
+  - **Hint**: Can you write `String#hash` in terms of `Array#hash`?
+  - When you get to hashing hashes: one trick to make a hash function
       order-agnostic is to turn the object into an array, stably sort
       the array, and then hash the array. This'll make it so every
       unordered version of that same object will hash to the same value.
@@ -160,7 +164,7 @@ integers. Let's make it so we can store any data type in our set.
 
 This will be a simple improvement on ResizingIntSet. Just hash every
 item before performing any operation on it. This will return an integer,
-which you can modulo by the number of buckets. With this simple
+which you can modulo by the number of buckets. Implement the `#[]` method to dry up your code. With this simple
 construction, you set will be able to handle keys of any data type.
 
 Easy as pie. We now have a fabulous set that works with any data type!
@@ -178,62 +182,65 @@ have to build a subordinate, underlying data structure.
 ## Phase 4: Linked List
 
 A [linked list][linked-list-wiki] is a data structure that consists of a
-series of links. Each link holds a value and a pointer to the next link
-(or `nil`). Given a pointer to the first (or head) link, you can access
+series of links. Each link holds a value and a pointer to the previous and next links (or `nil`). Given a pointer to the first (or head) link, you can access
 any arbitrary link by traversing the links in order.
 
-Let's implement a LinkedList for our hash buckets. In order to make the
-HashMap work, each link in your linked list will need to store both a
-key and a value.
+We will be implementing a special type of linked list called a "doubly linked list" - this means that we should also keep a pointer to the last (or tail) link so that we can traverse the list in reverse order.
 
-If you're struggling to implement this, just think back to the TreeNode
-problems you did. This, too, is a recursive data structure; think of a
-link in a LinkedList as being a TreeNode with at most one child.
+Our LinkedLists will ultimately be used in lieu of arrays for our HashMap buckets. In order to make the HashMap work, each link in your linked list will need to store both a key and a value.
 
-The Link class is provided for you. It's up to you to implement the
-LinkedList.
+The `Link` class is provided for you. It's up to you to implement the
+`LinkedList`.
 
-Your class should have the following methods:
+### Making Heads and Tails of `LinkedList`
+
+There are a few ways to implement `LinkedList`. You can either start with head and tail of your list as `nil`, or start them off as sentinel links. We recommend using sentinel links because they can help you avoid unnecessary type checking for `nil`.
+
+A sentinel link is merely a "dummy" link that does not hold a value. Your `LinkedList` should keep track of pointers (read: instance variables) to sentinel links for its head and tail. The head and tail should never be reassigned.
+
+Given these properties of our `LinkedList`, how might we check if our list is empty? How might we check if we are at the end of our list? Think about how your linked list will function as you implement the methods below.
+
+### Methods to Implement
+
+Go forth and implement the following methods:
 - `first`
 - `empty?`
-- `#insert(key, val)`
+- `#insert(key, val)` - If a link with that key already exists in the list, replace its value with the new value. Otherwise, append a new link with the key and value to that bucket.
 - `#get(key)`
 - `#include?(key)`
 - `#remove(key)`
 
-*Hint: any linked list method needs to check for two things: whether the
-head is nil (meaning the list is empty), and whether you've reached a
-nil link (meaning you've reached the tail of the linked list). Make sure
-that you reassign the head if you ever remove it.*
+Specs await!
 
 Once you're done with those, we're going to also make your linked lists
 enumerable. We want them to be just as flexible as arrays. Remember back
-to when you wrote `Array#my_each`, and let's get this thing enumerating.
-
-- Write `#each` for your linked list
+to when you wrote `Array#my_each`, and let's get this thing enumerating. The block passed to `#each` will yield to a `link`.
 
 Once you have `#each` defined, you can include the `Enumerable` module
 into your class. As long as you have `each` defined, the `Enumerable`
 module gives you `map`, `each_with_index`, `select`, `any?` and all of
-the other enumeration methods for free!
+the other enumeration methods for free! (Note: you may wish to refactor your `#insert`, `#get`, and `#include` methods to use your `#each` method for cleaner code!)
 
 ## Phase 5: Hash Map (reprise)
 
 So now let's incorporate our linked list into our hash buckets. Instead
-of Arrays, we'll use LinkedLists for our buckets. Each linked list will
+of Arrays, we'll use `LinkedLists` for our buckets. Each linked list will
 start out empty. But whenever we want to insert an item into that
 bucket, we'll just tack it into the end of that linked list.
 
 So here again is a summary of how you use our hash map:
-- Hash the key, mod by the number of buckets
-- To **set**, append that key and value to the linked list
-  representing that bucket
+- Hash the key, mod by the number of buckets (implement the `#bucket` method first for cleaner code - it should return the correct bucket for a hashed key)
+- To **set**, insert a new link with the key and value into the correct bucket. (You can use your `LinkedList#insert` method.)
 - To **get**, check whether the linked list contains the key you're
   looking up
 - To **delete**, remove the link corresponding to that key from the
   linked list
 
-Also make sure your hash map resizes! In order to resize properly, you
+Finally, let's make your hash map properly enumerable. You know the
+drill. Implement `#each`, and then include the `Enumerable` module.
+Your method should yield `[key, value]` pairs and maintain insertion order -- the same way the Ruby hash does!
+
+Also make sure your hash map resizes when the count exceeds the number of buckets! In order to resize properly, you
 have to double the size of the container for your buckets. Having done
 so, enumerate over each of your linked lists and re-insert their
 contents into your newly-resized hash map. If you don't re-hash them,
@@ -246,12 +253,6 @@ use numbers, strings, arrays, or hashes as keys. Show off your
 awesomeness by asking a TA for a **Code Review**.
 
 [linked-list-wiki]: https://en.wikipedia.org/wiki/Linked_list
-
-## Phase 5a: Enumerable Methods
-
-Finally, let's make your hash map properly enumerable. You know the
-drill. Implement `#each`, and then include the `Enumerable` module.
-Your method should yield `[key, value]` pairs and maintain insertion order -- the same way the Ruby hash does!
 
 ## Phase 6: LRU Cache
 
@@ -307,12 +308,6 @@ insert it into our hash or delete it from our hash (which both take
 
 ![](lru-cache-scaled500.png?raw=true)
 
-**NB**: We are about to ask you to go back and update your LinkedList
-implementation. However, you should **not** have to change the way it
-interacts with your HashMap. The LinkedList's interface should be mostly
-unchanged, and nothing we're about to ask you to do should break your
-HashMap implementation.
-
 We'll have two data structures to keep in sync now, which is a little
 more complicated. But the upside is that our hash map will allow us to
 jump into the middle of the linked list instantly, in `O(1)` time.
@@ -326,25 +321,13 @@ So let's map the same data in both a hash map and in a linked list.
 ### Instructions:
 
 - Let's say we're building an LRU cache that's going to cache the values
-  of the perfect squares. So our LRU cache will store a `@proc`, which
+  of the perfect squares. So our LRU cache will store a `@prc`, which
   in this case will be `Proc.new { |x| x ** 2 }`. If we don't have the
   value of any number's square, we'll use this Proc to actually compute
   it. But we don't want to compute it for the same number twice, so
   after I compute anything, I'll store it in my LRU cache. But if my LRU
   Cache gets an input that doesn't exist in the cache, it'll compute it
   using the Proc.
-- Before we go any further, your LRU cache will first require an
-  augmentation of your linked list. So far, all we've needed is a
-  *singly linked* list, meaning that each link points to a `next` link.
-  We now need it to go both ways, so we'll use a *doubly linked list*.
-  That will allow us to go backwards, and keep track of the tail.
-  Augment your linked list so now every link points to both a `next` and
-  a `prev`.
-- Add a `@tail` so you can keep track of it. With access to both the
-  tail and the head, you should be able to both `push` and `unshift`
-  onto the linked list in `O(1)` time without a full traversal (**NB**:
-  You won't actually need to implement `push` and `unshift` methods
-  here. But you could, if you so desired!)
 - Now build your LRU cache. Every time you add a new key-value pair to
   your cache, you'll take two steps.
   - First, look to see if the key points to any link in your hash map.
@@ -363,7 +346,7 @@ So let's map the same data in both a hash map and in a linked list.
         should delete the least recently used item so your LRU cache is
         back to `max` size.
       - Hint: to delete that item, you have to delete the *first* item
-        in your linked list (which may require some re-wiring), and
+        in your linked list, and
         delete that key from your hash. Implemented correctly, these
         should both happen in `O(1)` time.
 
