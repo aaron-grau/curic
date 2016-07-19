@@ -35,8 +35,7 @@ Webpack will output the bundled file as `js/bundle.js`, for which we have
 included a script tag in `index.html`.
 
 Open a new terminal tab or window and run `webpack --watch ./js/main.js
-./js/bundle.js`. The `--watch` flag directs webpack to re-bundle your app every
-time you save a bundled file.
+./js/bundle.js`. The `--watch` flag directs webpack to re-bundle your app whenever you save a bundled file.
 
 [webpack]: ../../readings/browser-modules.md#webpack
 
