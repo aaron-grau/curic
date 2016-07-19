@@ -1,8 +1,8 @@
 # Anagrams
 
-The goal is to write a method that determines if two given words are anagrams. This means that the letters in one word can be rearranged to form the other word. For example:
+Our goal today is to write a method that determines if two given words are anagrams. This means that the letters in one word can be rearranged to form the other word. For example:
 
-```
+```ruby
 anagram?("gizmo", "sally")    #=> false
 anagram?("elvis", "lives")    #=> true
 ```

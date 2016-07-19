@@ -266,7 +266,7 @@
 + [TDD][intro-tdd] (3 min)
 + [guard-rspec][guard-rspec] (2 min)
 + **Demo Reading**: review spec files for A00 and A01 [assessment-prep][assessment-prep] (9 min)
-+ **Demo Reading**: [OO Robot RSpec Example][robot-demo] (6 min)
++ **Demo Reading**: review spec files for [OO Robot RSpec Example][robot-demo] (6 min)
 
 ### Homeworks (25 min)
 + [RSpec][rspec-homework] (25 min)
@@ -285,22 +285,22 @@
 [rspec-order]: readings/rspec-order.md
 
 [robot-demo]: demos/robot-rspec-demo
-[rspec-homework]: homeworks/questions/rspec-homework.md
+[rspec-homework]: homeworks/questions/rspec.md
 
 [first-tdd-projects]: projects/first_tdd
 [poker-project]: projects/poker
 
 ## w2d4
 
-### In-Class Practice Assessment02
-+ Please refer to the [assessment prep repo][assessment-practice]
+### Practice Assessment02
++ In-class practice assessment at 9am.  Please bring your own machine if possible.  
 
 ### Readings (75 min)
 + [Introduction to Big-O Notation][intro-big-o] (25 min)
 + [Plain English explanation of Big O][stack-overflow-big-o] (25 min)
   + Read first few answers
 + [Calculating Big-O][calculating-big-o] (10 min)
-+ [Algorithm Visualization][algorithm-visual] (15 min)
++ Algorithm Visualization (15 min)
   + [Merge Sort][merge-sort-visual]
   + [Bubble Sort][bubble-sort-visual]
 
@@ -368,13 +368,6 @@
 [dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
 [hash-map]: projects/hash_map_lru_cache
 [xor-info]: http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/xor.html
-
-### w2d6-w2d7
-
-+ Begin [SQL Curriculum W3D1][sql-curriculum] readings
-+ **Study for Assessment 2** ([practice][assessment-prep])
-    + We'll implement a simple version of a well-known card game. We'll announce the specific game, and you can look up the basic rules ahead of time.
-[sql-curriculum]: ../sql
 
 ## Additional Bonus Topics
 
