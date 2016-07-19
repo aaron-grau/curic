@@ -11,7 +11,7 @@ in your 'js' directory. Download the [hanoi_node solution][hanoi-node] (`View
 Raw`) and put the 'game.js' file from that project into your 'js' folder as
 well. Then require 'game.js' as `HanoiGame` in 'main.js'.
 
-Run `webpack ./js/main.js ./js/bundle.js`. Include the resultant bundled file as
+Run `webpack --watch ./js/main.js ./js/bundle.js`. Include the resultant bundled file as
 a `<script>` in `index.html`. To ensure that all's well, add a `console.log()` to
 the `main.js` file and check that it prints in our browser's terminal.
 
