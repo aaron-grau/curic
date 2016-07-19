@@ -4,17 +4,16 @@
 
 [hanoi-node]: https://www.github.com/appacademy/curriculum/tree/master/javascript/projects/hanoi_node/solution.zip
 
-You will work in the skeleton directory. Setup the directory structure as before: make `css`, `html` and `js` directories. Remember to load all the relevant CSS and JQuery in your `index.html`. Move the provided 'main.js' file in your 'js' directory. Download the [hanoi_node solution][hanoi-node] (`View Raw`) and put the 'game.js' file from that project into your 'js' folder as well. Then require 'game.js' as `HanoiGame` in 'main.js'.
+Download the [skeleton][skeleton]. Set up the directory structure as
+before: make `css`, `html` and `js` directories. Remember to load all the
+relevant CSS and JQuery in your `index.html`. Move the provided 'main.js' file
+in your 'js' directory. Download the [hanoi_node solution][hanoi-node] (`View
+Raw`) and put the 'game.js' file from that project into your 'js' folder as
+well. Then require 'game.js' as `HanoiGame` in 'main.js'.
 
-Before we start writing the `HanoiView` class we will set up webpack. Make sure
-you have it installed (`npm install -g webpack`), and then open
-`webpack.config.js`. Fill in all the fields with their appropriate values. Our
-entry file will be the `main.js` file.
-
-Once you've completed the `webpack.config.js` file, run the  `webpack --watch`
-command and include the resulting bundled file in your `index.html`. To make
-sure everything is set up properly, let's add a `console.log()` to the `main.js`
-file and see if it prints in our browser's terminal.
+Run `webpack --watch ./js/main.js ./js/bundle.js`. Include the resultant bundled file as
+a `<script>` in `index.html`. To ensure that all's well, add a `console.log()` to
+the `main.js` file and check that it prints in our browser's terminal.
 
 Write a `hanoi-view.js` file, and a `HanoiView` class. Pass in a `HanoiGame` and
 a DOM element. Require it in the `main.js` file.
@@ -43,3 +42,5 @@ First of all, it has super high specificity, so it can only be overridden with
 `!important` css rules. It is also really hard to read because it sprinkles
 presentation logic in with JS code. Toggling classes is the clean, best-practice
 way to do this.
+
+[skeleton]: skeleton.zip?raw=true

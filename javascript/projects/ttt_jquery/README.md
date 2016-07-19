@@ -20,26 +20,22 @@ solution][ttt-node].
 The Node solution contains all the game logic of Tic-Tac-Toe, so you can focus
 on building the UI. You will need to reference the files in the Node solution
 because you'll be using `Board`, `Game`, and `MoveError`. You shouldn't have to
-modify anything in the Node solution, but definitely read and refer to that
-code!
+change anything in the Node solution but read and refer to it!
 
-A brief side-note here. We'll be using use Node's `module.exports` and `require`
-to break our game into digestible modules. Since we can't actually use `require`
-in the browser, this is a considerable problem. To solve this, we'll use
-[Webpack][webpack] to bundle things up.
+A brief side note: we'll use Node's `module.exports` and `require`
+to separate our game into digestible modules. Since we can't actually use `require`
+in the browser, we'll use [Webpack][webpack] to bundle our files. Ensure that
+you've installed webpack with `npm install -g webpack`.
 
-Take a gander at the `webpack.config` and `js/main.js` files we've included for
-you. We included statements to `require` both the `ttt-view` and the `game` from
-the Node solution.
+Complete the `require` statements in `main.js` to require `ttt-view` and the
+`game` as dependencies. When webpack processes `main.js` (the entry file), it
+will include all required files within `bundle.js` (the output file).
 
-When this file is processed by webpack, it will include those files as
-dependencies so that we can use those classes _within_ this file.
+Webpack will output the bundled file as `js/bundle.js`, for which we have
+included a script tag in `index.html`.
 
-The bundled file will be output to `js/bundle.js`, for which we have included a
-script tag in `index.html`.
-
-Remember to run webpack, keep a terminal tab or window open running  `webpack
---watch` so webpack will re-bundle your app every time a file is saved.
+Open a new terminal tab or window and run `webpack --watch ./js/main.js
+./js/bundle.js`. The `--watch` flag directs webpack to re-bundle your app whenever you save a bundled file.
 
 [webpack]: ../../readings/browser-modules.md#webpack
 
