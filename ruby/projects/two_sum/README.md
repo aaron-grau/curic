@@ -1,13 +1,12 @@
-# two_sum?
-*Given an array of unique integers and a target sum, determine whether any two integers in the array sum to that amount.*
+# `two_sum?`
+Given an array of unique integers and a target sum, determine whether any two integers in the array sum to that amount.
 
 
 ```ruby
 def two_sum?(arr, target_sum)
-    # ...
+    # your code here...
 end
 
-# EX:
 arr = [0, 1, 5, 7]
 two_sum?(arr, 6) # => should be true
 two_sum?(arr, 10) # => should be false

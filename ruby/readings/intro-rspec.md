@@ -27,23 +27,18 @@ methods, syntax, and patterns that in the end are all Ruby code, but
 Ruby code built to support testing.
 
 You've seen what RSpec looks like already because all the specs for
-your assessments are written in RSpec.
-
-*NB: RSpec also happens to be the first important Ruby gem we've
-encountered. Gems are a Ruby-specific way of packaging and distributing
-Ruby libraries. We'll encounter many more gems, especially as we move
-into Rails.*
+your assessments are written in RSpec.  To use it, we just need to require the RSpec gem.   
 
 ## Why Test?
 
 Yes, making sure the dang thing actually works is important. But beyond
 the obvious, why take the time to write tests?
 
-1. To make sure the dang thing works
+1. *To make sure the dang thing works*
 
   Yes, that's obvious, but dagnabit, it's important!
 
-2. Increase flexibility & reduce fear (of code)
+2. *Increase flexibility & reduce fear (of code)*
 
   You've written a whole bunch of functionality, multiple other
   developers have worked on the code, you're deep into the project.
@@ -56,7 +51,7 @@ the obvious, why take the time to write tests?
   expectations are for the module you're refactoring, so as long as
   it meets the specs, you're good.
 
-3. Make collaboration easier
+3. *Make collaboration easier*
 
   Complex applications are built by teams of developers. It may be that
   not all those developers will actually get the chance to talk to one
@@ -68,13 +63,12 @@ the obvious, why take the time to write tests?
   specific task and reduces the need for expensive coordination. The
   specs themselves become an effective form of communication.
 
-4. Produce documentation
+4. *Produce documentation*
 
   If the tests are written well, the tests can serve as documentation
   for the codebase. Need to know what such and such module does?
   Check out the specs. Related to easing collaboration.
 
-Lots more. Trust.
 
 ## What to Test
 

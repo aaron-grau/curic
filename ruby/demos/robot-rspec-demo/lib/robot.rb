@@ -14,12 +14,15 @@ class Robot
   def move_left
     move(-1, 0)
   end
+
   def move_right
     move(1, 0)
   end
+
   def move_up
     move(0, 1)
   end
+
   def move_down
     move(0, -1)
   end
@@ -80,6 +83,7 @@ end
 
 class Weapon < Item
   attr_reader :damage
+
   def initialize(name, weight, damage)
     super(name, weight)
     @damage = damage
