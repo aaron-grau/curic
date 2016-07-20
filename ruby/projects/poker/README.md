@@ -23,7 +23,7 @@ Classes you will want:
 
 * Card
 * Deck
-    * Now would be a great time to request a TA Code review!
+    * **Request a TA Code review**
 * Hand
     * The logic of calculating pair, three-of-a-kind, two-pair, etc. goes
       here.
@@ -37,6 +37,3 @@ Classes you will want:
     * Holds the deck
     * Keeps track of whose turn it is
     * Keeps track of the amount in the pot.
-
-Make sure to request a code review from your TA once you have some of
-your classes implemented.
