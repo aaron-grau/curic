@@ -86,8 +86,10 @@ $.ajax({
   url: "/widgets.json",
   type: "POST",
   data: {
-    name: "The Best Widget",
-    maker: "The Widget King"
+    widget: {
+      name: "The Best Widget",
+      maker: "The Widget King"
+    }
   },
   success(widgetData) {
     console.log("Widget created!");
