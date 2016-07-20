@@ -295,19 +295,23 @@
 ### Practice Assessment02
 + In-class practice assessment at 9am.  Please bring your own machine if possible.  
 
-### Readings (75 min)
-+ [Introduction to Big-O Notation][intro-big-o] (25 min)
-+ [Plain English explanation of Big O][stack-overflow-big-o] (25 min)
-  + Read first few answers
-+ [Calculating Big-O][calculating-big-o] (10 min)
-+ Algorithm Visualization (15 min)
-  + [Merge Sort][merge-sort-visual]
-  + [Bubble Sort][bubble-sort-visual]
+### Video lectures (71 min)
+:closed_lock_with_key: `go_video_go`
++ [Motivations for Big-O][big-O-motivations] (7 min)
++ [RAM Model of Computation][big-O-ram] (5 min)
++ [Asymptotic Analysis][big-O-asymptotic] (22 min)
++ [The Worst Case][big-O-worst] (6 min)
++ [Common Classifications][big-O-classifications] (11 min)
++ [Set Definition][big-O-set] (8 min)
++ [Space Complexity][big-O-space] (12 min)
 
 ### Homeworks (15 min)
 + [Sorting Complexity][sorting-demo] (15 min)
 
 ### Additional Resources
++ [Plain English explanation of Big O][stack-overflow-big-o] (25 min)
+  + Read first few answers
++ [Merge Sort][merge-sort-visual] and [Bubble Sort][bubble-sort-visual] visualations
 + [Big O Cheatsheet][big-o-cheatsheet]
 
 ### Projects
@@ -317,9 +321,15 @@
 + [Windowed max range][max-windowed-range]
 + **Bonus**: [Benchmarking][benchmarking]
 
-[intro-big-o]: https://www.interviewcake.com/article/big-o-notation-time-and-space-complexity
+[big-O-motivations]: https://vimeo.com/175565088
+[big-O-ram]: https://vimeo.com/175565090
+[big-O-asymptotic]: https://vimeo.com/175565086
+[big-O-worst]: https://vimeo.com/175565094
+[big-O-classifications]: https://vimeo.com/175568501
+[big-O-set]: https://vimeo.com/175568481
+[big-O-space]: https://vimeo.com/175565092
+
 [stack-overflow-big-o]: http://stackoverflow.com/questions/487258/plain-english-explanation-of-big-o
-[calculating-big-o]: https://justin.abrah.ms/computer-science/how-to-calculate-big-o.html
 [big-o-cheatsheet]: http://bigocheatsheet.com/
 [algorithm-visual]: http://www.algomation.com/
 [merge-sort-visual]: http://www.algomation.com/player?algorithm=551321f6e1b6fa0300aae4d0
