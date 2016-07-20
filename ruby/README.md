@@ -297,21 +297,21 @@
 
 ### Video lectures (71 min)
 :closed_lock_with_key: `go_video_go`
-+ [Motivations for Big-O][big-O-motivations] (7 min)
-+ [RAM Model of Computation][big-O-ram] (5 min)
-+ [Asymptotic Analysis][big-O-asymptotic] (22 min)
-+ [The Worst Case][big-O-worst] (6 min)
-+ [Common Classifications][big-O-classifications] (11 min)
-+ [Set Definition][big-O-set] (8 min)
-+ [Space Complexity][big-O-space] (12 min)
++ :movie_camera: [Motivations for Big-O][big-O-motivations] (7 min)
++ :movie_camera: [RAM Model of Computation][big-O-ram] (5 min)
++ :movie_camera: [Asymptotic Analysis][big-O-asymptotic] (22 min)
++ :movie_camera: [The Worst Case][big-O-worst] (6 min)
++ :movie_camera: [Common Classifications][big-O-classifications] (11 min)
++ :movie_camera: [Set Definition][big-O-set] (8 min)
++ :movie_camera: [Space Complexity][big-O-space] (12 min)
 
 ### Homeworks (15 min)
 + [Sorting Complexity][sorting-demo] (15 min)
 
 ### Additional Resources
-+ [Plain English explanation of Big O][stack-overflow-big-o] (25 min)
++ [Plain English explanation of Big O][stack-overflow-big-o]
   + Read first few answers
-+ [Merge Sort][merge-sort-visual] and [Bubble Sort][bubble-sort-visual] visualations
++ [Merge Sort][merge-sort-visual] and [Bubble Sort][bubble-sort-visual] visualization
 + [Big O Cheatsheet][big-o-cheatsheet]
 
 ### Projects
