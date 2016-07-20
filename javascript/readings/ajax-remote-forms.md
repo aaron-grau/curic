@@ -31,7 +31,6 @@ Let's see it go!
       // `this == event.currentTarget`.
 
       var formData = $(event.currentTarget).serialize();
-      debugger
 
       // If you filled out name "Gizmo" and color "Black", then
       // `formData == "cat%5Bname%5D=Gizmo&cat%5Bcolor%5D=Black"`.
