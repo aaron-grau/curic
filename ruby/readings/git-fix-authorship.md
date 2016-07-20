@@ -30,24 +30,15 @@ code.
 Follow these steps to rewrite your history so all commits have
 your name and email.
 
-1. **Save a ref to the current branch's HEAD**.
+1. **Create a backup branch.** That way, if something goes wrong, you
+    can always get back to your original state.
 
     ```bash
-    git log -n 1 --pretty='%H' > /path/to/some_backup_file_not_in_your_repo.txt
+    git branch wrong-author
     ```
 
-    This serves as a backup since Git never actually deletes any commits.
-    But if you don't have a reference to it, it might as well have been
-    deleted. If you need to get back to where you were, checkout this
-    saved commit hash and then recreate your branch from it.
-    
-    ```bash
-    git branch -D my-messed-up-branch
-    git checkout -b my-messed-up-branch PASTE_SAVED_COMMIT_HASH_HERE
-    ```
-    
-    Seriously, any time you rewrite commits *for whatever reason*,
-    be sure to save the old ref first!
+    Seriously, any time you rewrite commits **for any reason**, backup
+    the branch first!
 
 2. Run this command in the Terminal from within your repo's root directory,
     *being sure to put your information in place of the placeholders*
