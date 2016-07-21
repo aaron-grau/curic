@@ -93,7 +93,7 @@ let promise = new Promise( (resolve, reject) => {
 
 ```javascript
 
-let resolve = msg => msg + '!!1one';
+let receiveResponse = msg => msg + '!!1one';
 
 let request = new Promise( resolve => {  
   AsyncRequest({
