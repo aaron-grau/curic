@@ -36,7 +36,7 @@ def my_min_2(list)
 end
 
 #O(n^3) cubic time
-#O(n^3) quadratic space
+#O(n^3) cubic space
 def largest_contiguous_subsum1(array)
   subs = []
 
