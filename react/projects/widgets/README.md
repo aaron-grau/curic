@@ -217,7 +217,7 @@ Right now, the matched names instantly appear on the screen and the filtered nam
   - Be sure to make a `link` tag in your `index.html` page so the transitions are applied.
   - The css below assumes you've given the `transitionName` attribute to `auto`. If you gave it a different name, just replace every `auto` with the name you gave.
 
-```
+```css
 /* AutoComplete */
 
  .auto-enter {
