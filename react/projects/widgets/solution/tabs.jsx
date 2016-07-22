@@ -1,20 +1,20 @@
-"use strict";
+'use strict';
 
 const React = require('react');
 
 const Headers = React.createClass({
-  render: function () {
+  render() {
     let selected = this.props.selectedPane;
     let headers = this.props.panes.map((pane, index) => {
       let title = pane.title;
-      let klass = ""
+      let klass = '';
       if (index === selected) {
-        klass = "active"
+        klass = 'active';
       }
 
       return (
         <span
-          key={ index }
+          key={index}
           className={klass}
           onClick={this.props.onTabChosen.bind(null, index)}>
           {title}{' '}
@@ -22,7 +22,7 @@ const Headers = React.createClass({
       );
     });
     return (
-      <div>
+      <div className='tab-header'>
         {headers}
       </div>
 
@@ -31,25 +31,30 @@ const Headers = React.createClass({
 });
 
 const Tabs = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {selectedPane: 0};
   },
-  selectTab: function (num) {
+  selectTab(num) {
     this.setState({selectedPane: num});
   },
-  render: function () {
+  render() {
     let pane = this.props.panes[this.state.selectedPane];
 
     return (
       <div>
-        <Headers
-          selectedPane={this.state.selectedPane}
-          onTabChosen={this.selectTab}
-          panes={this.props.panes}>
-        </Headers>
-        <p>
-          {pane.content}
-        </p>
+        <h1>Tabs</h1>
+        <div className='tabs'>
+          <Headers
+            selectedPane={this.state.selectedPane}
+            onTabChosen={this.selectTab}
+            panes={this.props.panes}>
+          </Headers>
+          <div className='tab-content'>
+            <p>
+              {pane.content}
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
