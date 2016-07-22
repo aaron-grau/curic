@@ -1,5 +1,7 @@
 # React Widgets
 
+[**Live Demo!**](https://appacademy.github.io/curriculum/widgets/)
+
 As an introduction to React, we're going to build some simple
 interactive widgets. Before we get started, however, we need to set up
 our project with `npm`.
