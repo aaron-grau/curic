@@ -143,8 +143,9 @@ of this assignment.
 Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentially.
 
   - Order of elements is relevant for arrays and strings, but it's
-    irrelevant for hashes (e.g. `[1, 2, 3]` should hash to a different value
-    from `[3, 2, 1]`)
+    irrelevant for the `Hash` instances (e.g. `[1, 2, 3]` should hash to
+    a different value from `[3, 2, 1]`, but `{a: 1, b: 2}` should hash
+    the same as `{b: 2, a: 1}`).
   - Keep track of indices for arrays and strings.
   - **Hint**: Can you write `String#hash` in terms of `Array#hash`?
   - When you get to hashing hashes: one trick to make a hash function
