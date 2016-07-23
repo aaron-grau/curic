@@ -1,6 +1,0 @@
-Gemfile.lock
-.DS_Store
-
-*/node_modules/
-*/bundle.js
-*/bundle.js.map
