@@ -58,7 +58,7 @@ would look like this:
 
 ```javascript
 const ClickCounter = React.createClass({
-  getInitialState() 
+  getInitialState() {
     return {count: 0};
   },
   click(event) {
