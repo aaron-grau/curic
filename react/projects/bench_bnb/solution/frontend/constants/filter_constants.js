@@ -1,9 +1,1 @@
-"use strict";
-
-const FilterConstants = {
-  UPDATE_BOUNDS: "UPDATE_BOUNDS",
-  UPDATE_MIN_SEATING: "UPDATE_MIN_SEATING",
-  UPDATE_MAX_SEATING: "UPDATE_MAX_SEATING"
-};
-
-module.exports = FilterConstants;
+export const UPDATE_FILTER = "UPDATE_FILTER";

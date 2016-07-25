@@ -1,8 +1,11 @@
-"use strict";
+// const BenchConstants = {
+//   RECEIVE_BENCHES: "RECEIVE_BENCHES",
+//   BENCH_RECEIVED: "BENCH_RECEIVED"
+// };
 
-const BenchConstants = {
-  BENCHES_RECEIVED: "BENCHES_RECEIVED",
-  BENCH_RECEIVED: "BENCH_RECEIVED"
-};
-
-module.exports = BenchConstants;
+export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
+export const RECEIVE_BENCH = "RECEIVE_BENCH";
+export const FETCH_BENCHES = "FETCH_BENCHES";
+export const CREATE_BENCH = "CREATE_BENCH";
+export const CREATE_REVIEW = "CREATE_REVIEW";
+// export const BENCH_RECEIVED = "BENCH_RECEIVED";

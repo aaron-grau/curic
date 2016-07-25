@@ -1,49 +1,42 @@
-"use strict";
+import React from 'react';
+import { hashHistory } from 'react-router';
 
-const React = require('react');
-const BenchActions = require('../actions/bench_actions');
-const hashHistory = require('react-router').hashHistory;
-
-const BenchForm = React.createClass({
-  getInitialState() {
-    return {
+class BenchForm extends React.Component{
+  constructor(props){
+    super(props);
+    this.coords = {lat: props.lat, lng: props.lng};
+    this.state = {
       description: "",
       picture_url: "",
       seating: 2
     };
-  },
-  handleSubmit(event) {
-    event.preventDefault();
-    const bench = Object.assign({}, this.state, this._coords());
-    BenchActions.createBench(bench);
-    this.navigateToSearch();
-  },
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
   navigateToSearch() {
     hashHistory.push("/");
-  },
-  handleCancel(event) {
-    event.preventDefault();
-    this.navigateToSearch();
-  },
-  _coords() {
-    return this.props.location.query;
-  },
+  }
   update(property) {
-    return (e) => this.setState({[property]: e.target.value});
-  },
+    return e => this.setState({[property]: e.target.value});
+  }
+  handleSubmit(e){
+    e.preventDefault();
+    const bench = Object.assign({}, this.state, this.coords);
+    this.props.createBench({bench});
+    this.navigateToSearch();
+  }
   render() {
-    const lat = this._coords().lat, lng = this._coords().lng;
     return (
         <div className="new-bench-container">
           <div className="new-bench-form">
             <h3 className="new-bench-title">Create A Bench!</h3>
+
             <form onSubmit={this.handleSubmit}>
               <label className="bench-field">Description</label>
               <input type="text" value={this.state.description}
                 onChange={this.update("description")} className="bench-field"/>
 
-              <label className="bench-field">Image URL</label>
-              <input type="text" value={this.state.imageURL}
+              <label className="bench-field">Picture URL</label>
+              <input type="text" value={this.state.picture_url}
                 onChange={this.update("picture_url")} className="bench-field"/>
 
               <label className="bench-field">Number of Seats</label>
@@ -51,15 +44,16 @@ const BenchForm = React.createClass({
                 onChange={this.update("seating")} className="bench-field"/>
 
               <label className="bench-field">Latitude</label>
-              <input type="text" disabled value={lat} className="bench-field"/>
+              <input type="text" disabled value={this.coords.lat} className="bench-field"/>
 
               <label className="bench-field">Longitude</label>
-              <input type="text" disabled value={lng} className="bench-field"/>
+              <input type="text" disabled value={this.coords.lng} className="bench-field"/>
 
               <div className="button-holder">
                 <input type="submit" value="Create Bench" className="new-bench-button"/>
               </div>
             </form>
+
             <div className="button-holder">
               <button className="new-bench-button" onClick={this.handleCancel}>Cancel</button>
             </div>
@@ -67,6 +61,6 @@ const BenchForm = React.createClass({
         </div>
     );
   }
-});
+}
 
-module.exports = BenchForm;
+export default BenchForm;

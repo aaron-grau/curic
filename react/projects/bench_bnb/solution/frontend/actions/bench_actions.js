@@ -1,32 +1,30 @@
-"use strict";
+import { RECEIVE_BENCHES,
+         RECEIVE_BENCH,
+         FETCH_BENCHES,
+         CREATE_BENCH,
+         CREATE_REVIEW
+       } from '../constants/bench_constants';
 
-const AppDispatcher = require('../dispatcher/dispatcher');
-const BenchConstants = require('../constants/bench_constants');
-const BenchApiUtil = require('../util/bench_api_util');
+export const fetchBenches = () => ({
+  type: FETCH_BENCHES
+});
 
-const BenchActions = {
-  fetchAllBenches(filters) {
-    BenchApiUtil.fetchAllBenches(filters, BenchActions.receiveAllBenches);
-  },
-  createBench(bench){
-    BenchApiUtil.createBench(bench, BenchActions.receiveSingleBench);
-  },
-  createReview(review){
-    BenchApiUtil.createReview(review, BenchActions.receiveSingleBench);
-  },
+export const receiveBenches = benches => ({
+  type: RECEIVE_BENCHES,
+  benches
+});
 
-  receiveAllBenches(benches) {
-    AppDispatcher.dispatch({
-      actionType: BenchConstants.BENCHES_RECEIVED,
-      benches: benches
-    });
-  },
-  receiveSingleBench(bench) {
-    AppDispatcher.dispatch({
-      actionType: BenchConstants.BENCH_RECEIVED,
-      bench: bench
-    });
-  }
-};
+export const receiveBench = bench => ({
+  type: RECEIVE_BENCH,
+  bench
+});
 
-module.exports = BenchActions;
+export const createBench = bench => ({
+  type: CREATE_BENCH,
+  bench
+});
+
+export const createReview = review => ({
+  type: CREATE_REVIEW,
+  review
+});

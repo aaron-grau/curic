@@ -1,58 +1,42 @@
-"use strict";
+import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
 
-const SessionApiUtil = {
-	logIn(user, success, error) {
-		$.ajax({
-			url: '/api/session',
-			type: 'POST',
-			data: { user },
-			success,
-			error(xhr) {
-				const errors = xhr.responseJSON;
-
-				error("login", errors);
-			}
-		});
-	},
-
-	logOut(success) {
-		$.ajax({
-			url: '/api/session',
-			method: 'delete',
-			success,
-			error: function () {
-			  console.log("Logout error in SessionApiUtil#logout");
-			}
-		});
-	},
-
-	signUp(user, success, error) {
-		$.ajax({
-			url: '/api/user',
-			type: 'POST',
-			dataType: 'json',
-			data: { user },
-			success,
-			error(xhr) {
-				const errors = xhr.responseJSON;
-				error("signup", errors);
-			}
-		});
-	},
-
-	fetchCurrentUser(success, complete) {
-		$.ajax({
-			url: '/api/session',
-			method: 'GET',
-			success,
-			error: function (xhr) {
-			  console.log("Error in SessionApiUtil#fetchCurrentUser");
-			},
-      complete: function(){
-				complete();
-			}
-		});
-	}
+export const login = function(user, dispatch) {
+	$.ajax({
+		method: 'POST',
+		url: '/api/session',
+		data: user,
+		success(user){
+			dispatch(receiveCurrentUser(user));
+		},
+		error(xhr) {
+			const errors = xhr.responseJSON;
+			dispatch(receiveErrors(errors));
+		}
+	});
 };
 
-module.exports = SessionApiUtil;
+export const signup = function(user, dispatch) {
+	$.ajax({
+		method: 'POST',
+		url: '/api/user',
+		data: user,
+		success(user){
+			dispatch(receiveCurrentUser(user));
+		},
+		error(xhr) {
+			const errors = xhr.responseJSON;
+			dispatch(receiveErrors(errors));
+		}
+	});
+};
+
+export const logout = function(success){
+	$.ajax({
+		method: 'delete',
+		url: '/api/session',
+		success,
+		error: function () {
+		  console.log("Logout error in SessionApiUtil#logout");
+		}
+	});
+};

@@ -1,51 +1,30 @@
-"use strict";
+import { LOGIN,
+         LOGOUT,
+         SIGNUP,
+         RECEIVE_CURRENT_USER,
+         RECEIVE_ERRORS
+       } from '../constants/session_constants';
 
-const AppDispatcher = require('../dispatcher/dispatcher');
-const SessionConstants = require('../constants/session_constants');
-const SessionApiUtil = require('../util/session_api_util');
-const ErrorActions = require('./error_actions');
-const hashHistory = require('react-router').hashHistory;
+export const signup = user => ({
+  type: SIGNUP,
+  user
+});
 
-const SessionActions = {
+export const login = user => ({
+  type: LOGIN,
+  user
+});
 
-  signUp(formData){
-    SessionApiUtil.signUp(
-      formData,
-      SessionActions.receiveCurrentUser,
-      ErrorActions.setErrors);
-  },
+export const logout = () => ({
+  type: LOGOUT
+});
 
-  logIn(formData){
-    SessionApiUtil.logIn(
-      formData,
-      SessionActions.receiveCurrentUser,
-      ErrorActions.setErrors);
-  },
+export const receiveCurrentUser = (currentUser) => ({
+  type: RECEIVE_CURRENT_USER,
+  currentUser
+});
 
-  logOut() {
-    SessionApiUtil.logOut(SessionActions.removeCurrentUser);
-
-  },
-
-  fetchCurrentUser(complete){
-    SessionApiUtil.fetchCurrentUser(
-      SessionActions.receiveCurrentUser, complete);
-  },
-
-  receiveCurrentUser(currentUser) {
-    AppDispatcher.dispatch({
-      actionType: SessionConstants.LOGIN,
-      currentUser: currentUser
-    });
-  },
-
-  removeCurrentUser() {
-    AppDispatcher.dispatch({
-      actionType: SessionConstants.LOGOUT
-    });
-    hashHistory.push("/login");
-  }
-
-};
-
-module.exports = SessionActions;
+export const receiveErrors = (errors) => ({
+  type: RECEIVE_ERRORS,
+  errors
+});
