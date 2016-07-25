@@ -8,11 +8,15 @@ straightforward.
 
 First, make sure that rails is installed:
 
-    gem install rails -v '~> 4.2.0'
+```sh
+  gem install rails -v '~> 4.2.0'
+```
 
 Next, generate a new Rails *project*:
 
-    rails new DemoProject
+```sh
+  rails new DemoProject
+```
 
 This will create a folder `DemoProject`, with a bunch of Rails
 directories in them.
@@ -22,13 +26,16 @@ Postgres, you can specify the database flag when generating the app.
 This will add the correct gem and have sensible defaults in
 `config/database.yml`.
 
-    rails new DemoProject --database postgresql
+```sh
+  rails new DemoProject --database postgresql
+```
 
 Open up the `Gemfile` file (located in your new `DemoProject` folder).
 Rails sets you up with a bunch of gems by default, but there are a few
 other gems we recommend that will make your life **much** easier. You
 may want to add some of the following gems to your `development` group:
 
+```ruby
     group :development do
       # Run 'annotate' in Terminal to add helpful comments to models.
       gem 'annotate'
@@ -44,6 +51,7 @@ may want to add some of the following gems to your `development` group:
       # pry > irb
       gem 'pry-rails'
     end
+```
 
 This will allow us to do things like interact with our Rails project
 using the pry console. Next, make sure you are in the DemoProject

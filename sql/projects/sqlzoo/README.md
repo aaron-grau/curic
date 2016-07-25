@@ -13,7 +13,7 @@ warned: we have made some changes, so don't let that trip you up.
 
 ## Getting Started
 
-You'll receive a .zip file containing the project skeleton. To set up the
+[Download the skeleton.zip](skeleton.zip?raw=true). To set up the
 database, navigate to the skeleton directory and run the following code:
 
 ```sh
