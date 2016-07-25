@@ -4,7 +4,8 @@
 
 ### Assessment02
 + [Practice][assessment-prep]
-  + We'll implement a simple version of a well-known card game. We'll announce the specific game, and you can look up the basic rules ahead of time.
+  + We'll implement a simple version of a well-known card game. We'll announce
+  the specific game, and you can look up the basic rules ahead of time.
 
 ### Readings (85 min)
 
@@ -142,7 +143,7 @@
 + [Scopes][scopes] (10 min)
 + [More on Querying][querying-ii] (15 min)
 
-### Homeworks (30 min)
+### Homeworks (45 min)
 + [N+1 Buster][n1-buster] (30 min)
 + [Implicit Bias Test][bias-quiz] (15 min)
   + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
