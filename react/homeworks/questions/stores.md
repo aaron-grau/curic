@@ -1,25 +1,27 @@
 # Dollar Store
 
-Tonight, we're going to build off of the currency demo from today's lecture by adding a store to keep track of conversion rates.  
+Tonight, we're going to adapt a React currency-conversion widget to use a store.  Take a look at the [live demo][live-demo] to see the app in its current state.  
 
-As the code currently stands, we make an ajax request to the `fixer` api and store the currency rates object directly in the state of the `Widget` component.  But what if we want to access this information in another component?  To do that, we need a store.  
+[live-demo]: https://appacademy.github.io/curriculum/currency_demo/
 
 ## Phase 0: Setup
 
-To get started download the [skeleton][currency-skeleton].  Make sure to run `npm install` to get all the required node modules.  To see the app, open `index.html` in your browser, and make sure to run `webpack --watch` to keep your code up to date.  
+To get started download the [project skeleton][currency-skeleton].  Make sure to run `npm install` to get all the required node modules.  To see the app, open `index.html` in your browser, and make sure to run `webpack --watch` to keep your code up to date.
 
-[currency-skeleton]: ./currency_demo_skeleton.zip
+As the code currently stands, we make an ajax request to the `fixer` api and store the currency rates object directly in the state of the `Widget` component.  But what if we want to access this information in another component?  To do that, we need a store.
+
+[currency-skeleton]: ./currency_demo_skeleton.zip?raw=true
 
 ## Phase 1: Build A `RatesStore`
 
-Create a `rates_store.js` file within the `frontend` folder.  This is where we will relocate the logic to fetch and store the currency rates.
+Create a `ratesStore.js` file within the `frontend` folder.  This is where we will relocate the logic to fetch and store the currency rates.
 
 To get started, use the below skeleton and fill out the logic for all the methods.  If you're not sure how to write these methods, refer to the [stores reading][stores-reading].
 
 [stores-reading]: ../../readings/stores.md
 
 ```js
-  // frontend/rates_store.js
+  // frontend/ratesStore.js
 
   let _callbacks = [];
   let _rates = {};
@@ -45,8 +47,10 @@ To get started, use the below skeleton and fill out the logic for all the method
   module.exports = RatesStore;
 ```
 
-To test that your code works, throw your store on the window and call these methods directly from the devtools console
-  * set `window.RatesStore = RatesStore` in `rates_store.js`, then you can run `RatesStore.fetchRates("USD")` from the browser terminal
+To test that your code works, throw your store on the window and call the above methods directly from the devtools console.  Here's how:
+  * In `widget.jsx`, require `ratesStore.js` and set `window.RatesStore = RatesStore`
+  * now you can run `RatesStore.fetchRates("USD")` from the browser terminal
+  * when you're done testing, remove the `RatesStore` from the window
 
 ## Phase 2: Refactor `Widget` Component
 
