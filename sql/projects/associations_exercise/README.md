@@ -1,6 +1,6 @@
 # Associations Exercise
 
-To get started, download the [project skeleton][skeleton].  You will want to unzip the file and `cd` into the `skeleton directory`, then run `bundle install`.
+To get started, download the [project skeleton][skeleton].  You will want to unzip the file and `cd` into the `skeleton` directory, then run `bundle install`.
 
 We are going to write active record associations to connect some models.
 A rails project has been created for your testing purposes with the database
