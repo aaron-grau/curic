@@ -55,7 +55,7 @@ def largest_contiguous_subsum2(array)
   largest = array.first
   current = array.first
 
-  array[1..-1].each do |el|
+  array.drop(1).each do |el|
     current = 0 if current < 0
     current += el
     largest = current if current > largest
