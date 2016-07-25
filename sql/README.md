@@ -97,7 +97,7 @@
   + [`has_one`][has-one]
   + [Unconventional Associations][unconventional-associations]
   + for now, always specify `class_name`/`primary_key`/`foreign_key`
-+ [Basic][validatins] and [Custom][custom-validations] Validations
++ [Basic][validations] and [Custom][custom-validations] Validations
   + [Miscellaneous][validations-misc]
 + [ActiveRecord and Indexes][ar-indexing]
 
@@ -172,7 +172,7 @@
 + [Demo: send][meta-send] (5 min)
 + [Demo: macros][meta-macros] (5 min)
 
-### Homework (45 min)
+### Homework (30 min)
 + [Metacorgis][metacorgi-hw] (30 min)
 
 ### Project

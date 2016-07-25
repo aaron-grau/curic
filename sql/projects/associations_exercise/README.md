@@ -1,9 +1,6 @@
 # Associations Exercise
 
-Download the [`skeleton.zip`](skeleton.zip) file in this repo (click the link and then click `View Raw` to start the download).
-
-* Unzip the file.
-* `cd` into the `skeleton` directory and run `bundle install` to ensure that you have all necessary gems.
+To get started, download the [project skeleton][skeleton].  You will want to unzip the file and `cd` into the `skeleton directory`, then run `bundle install`.
 
 We are going to write active record associations to connect some models.
 A rails project has been created for your testing purposes with the database
@@ -12,6 +9,8 @@ already set up for your convenience. In this project there are three models:
 active record associations.
 
 Be sure and check out the `db/schema.rb` to see what you are dealing with.
+
+[skeleton]: skeleton.zip?raw=true
 
 ## `Enrollment`
 
