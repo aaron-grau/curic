@@ -21221,7 +21221,7 @@
 	  },
 	  fetchRates: function fetchRates(currency) {
 	    $.ajax({
-	      url: "http://api.fixer.io/latest?base=" + currency,
+	      url: "https://api.fixer.io/latest?base=" + currency,
 	      type: "GET",
 	      dataType: "JSON",
 	      success: function (resp) {
