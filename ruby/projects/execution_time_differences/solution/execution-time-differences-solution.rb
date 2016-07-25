@@ -1,5 +1,5 @@
 #O(n^2) quadratic time
-#O(n^2) quadratic space 
+#O(n^2) quadratic space
 def my_min_1a(list)
   min_num = nil
 
@@ -52,13 +52,13 @@ end
 #O(n) linear time
 #O(1) constant space
 def largest_contiguous_subsum2(array)
-  largest = 0
-  current = 0
+  largest = array.first
+  current = array.first
 
-  array.each do |el|
+  array[1..-1].each do |el|
+    current = 0 if current < 0
     current += el
     largest = current if current > largest
-    current = 0 if current < 0
   end
 
   largest
