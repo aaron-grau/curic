@@ -20686,7 +20686,7 @@
 
 	    var lat = location.coords.latitude;
 	    var long = location.coords.longitude;
-	    var url = 'https://api.forecast.io/forecast/';
+	    var url = 'https://crossorigin.me/https://api.forecast.io/forecast/';
 	    var params = {
 	      lat: location.coords.latitude,
 	      lon: location.coords.longitude
