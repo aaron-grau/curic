@@ -8,7 +8,7 @@ think through the effects of what you write.
 
 Refer to the [joins demo][demo] for hints on what you might want to do!
 
-[demo]: https://github.com/appacademy/curriculum/tree/master/sql/demos/joins_demo/lib
+[demo]: ../../demos/joins_demo/lib
 
 ## Artists, Albums, and Tracks
 
@@ -34,7 +34,7 @@ class Album
     foreign_key: :artist_id,
     primary_key: :id
   )
-  
+
   has_many(
     :tracks,
     class_name: "Track",
@@ -52,7 +52,7 @@ class Artist
     foreign_key: :artist_id,
     primary_key: :id
   )
-  
+
   def n_plus_one_tracks
     albums = self.albums
     tracks_count = {}
@@ -184,7 +184,7 @@ class Bus
     foreign_key: :route_id,
     primary_key: :id,
   )
-    
+
   has_many(
     :drivers,
     class_name: "Driver",
@@ -202,10 +202,10 @@ class Route
     foreign_key: :route_id,
     primary_key: :id
   )
-  
+
   def n_plus_one_drivers
     buses = self.buses
-    
+
     all_drivers = {}
     buses.each do |bus|
       drivers = []
@@ -214,7 +214,7 @@ class Route
       end
       all_drivers[bus.id] = drivers
     end
-    
+
     all_drivers
   end
 
