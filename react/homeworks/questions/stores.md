@@ -14,14 +14,14 @@ As the code currently stands, we make an ajax request to the `fixer` api and sto
 
 ## Phase 1: Build A `RatesStore`
 
-Create a `ratesStore.js` file within the `frontend` folder.  This is where we will relocate the logic to fetch and store the currency rates.
+Create a `rates_store.js` file within the `frontend` folder.  This is where we will relocate the logic to fetch and store the currency rates.
 
 To get started, use the below skeleton and fill out the logic for all the methods.  If you're not sure how to write these methods, refer to the [stores reading][stores-reading].
 
 [stores-reading]: ../../readings/stores.md
 
 ```js
-  // frontend/ratesStore.js
+  // frontend/rates_store.js
 
   let _callbacks = [];
   let _rates = {};
@@ -48,7 +48,7 @@ To get started, use the below skeleton and fill out the logic for all the method
 ```
 
 To test that your code works, throw your store on the window and call the above methods directly from the devtools console.  Here's how:
-  * In `widget.jsx`, require `ratesStore.js` and set `window.RatesStore = RatesStore`
+  * In `widget.jsx`, require `rates_store.js` and set `window.RatesStore = RatesStore`
   * now you can run `RatesStore.fetchRates("USD")` from the browser terminal
   * when you're done testing, remove the `RatesStore` from the window
 
