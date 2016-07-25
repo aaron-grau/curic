@@ -1,5 +1,5 @@
 import React from 'react';
-import IndexItem from './index_item';
+import BenchIndexItem from './bench_index_item';
 
 const BenchIndex = function(props) {
   const benches = props.benches;
@@ -9,7 +9,7 @@ const BenchIndex = function(props) {
       <h1>Benches: </h1>
       {
         benchKeys.map( key => (
-          <IndexItem bench={benches[key]} key={key} />
+          <BenchIndexItem bench={benches[key]} key={key} />
         ))
       }
     </div>

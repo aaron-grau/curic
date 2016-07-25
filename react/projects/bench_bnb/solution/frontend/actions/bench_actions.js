@@ -1,12 +1,18 @@
 import { RECEIVE_BENCHES,
          RECEIVE_BENCH,
          FETCH_BENCHES,
+         FETCH_BENCH,
          CREATE_BENCH,
          CREATE_REVIEW
        } from '../constants/bench_constants';
 
 export const fetchBenches = () => ({
   type: FETCH_BENCHES
+});
+
+export const fetchBench = id => ({
+  type: FETCH_BENCH,
+  id
 });
 
 export const receiveBenches = benches => ({

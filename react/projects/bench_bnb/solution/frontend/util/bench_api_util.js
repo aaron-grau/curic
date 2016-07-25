@@ -11,6 +11,16 @@ export const fetchBenches = function(filters, dispatch){
   });
 };
 
+export const fetchBench = function(id, dispatch){
+  $.ajax({
+    method: 'GET',
+    url: `api/benches/${id}`,
+    success(bench){
+      dispatch(receiveBench(bench));
+    }
+  });
+};
+
 export const createReview = function(review, dispatch){
   $.ajax({
     method: 'POST',

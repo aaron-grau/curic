@@ -12,7 +12,7 @@ const Search = ({benches, minSeating, maxSeating, updateFilter}) => (
       <BenchMap
         benches={benches}
         updateFilter={updateFilter}
-        singleBench={true}/>
+        singleBench={false}/>
     </div>
     <div className="right-half">
       <FilterForm

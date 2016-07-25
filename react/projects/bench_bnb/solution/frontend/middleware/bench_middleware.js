@@ -1,7 +1,11 @@
-//TODO this seems ugly :(
-import { fetchBenches as apifetchBenches, createReview, createBench } from '../util/bench_api_util';
+import { fetchBenches as apifetchBenches,
+         fetchBench,
+         createReview,
+         createBench
+       } from '../util/bench_api_util';
 import { fetchBenches as actionfetchBenches } from '../actions/bench_actions';
 import { FETCH_BENCHES,
+         FETCH_BENCH,
          CREATE_BENCH,
          CREATE_REVIEW
        } from '../constants/bench_constants';
@@ -13,6 +17,9 @@ export default ({getState, dispatch}) => next => action => {
     case FETCH_BENCHES:
       const filters = getState().filters
       apifetchBenches(filters, dispatch)
+      break;
+    case FETCH_BENCH:
+      fetchBench(action.id, dispatch);
       break;
     case UPDATE_FILTER:
       next(action);

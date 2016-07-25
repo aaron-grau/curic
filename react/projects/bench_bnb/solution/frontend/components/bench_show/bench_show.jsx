@@ -5,13 +5,19 @@ import BenchDetail from './bench_detail';
 import BenchMap from '../bench_map/bench_map';
 import ReviewButton from './review_button';
 
-const BenchShow = function({bench, children}) {
+const BenchShow = function({bench, benchId, fetchBench, children, updateFilter}) {
   const benches = {[bench.id]: bench};
   return(
     <div className="single-bench-show">
       <div className="single-bench-map">
         <Link to="/" >Back to Benches Index</Link>
-        <BenchMap benches={benches} />
+        <BenchMap
+          benches={benches}
+          benchId={benchId}
+          singleBench={true}
+          updateFilter={updateFilter}
+          fetchBench={fetchBench}
+          />
       </div>
       <div className="right-half bench-details">
         <BenchDetail bench={bench} />

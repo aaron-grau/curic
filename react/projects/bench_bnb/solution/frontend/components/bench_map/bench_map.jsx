@@ -11,7 +11,7 @@ const _getCoordsObj = function(latLng) {
   });
 };
 
-const _mapOptions = {
+let _mapOptions = {
   center: {lat: 37.773972, lng: -122.431297}, //San Francisco
   zoom: 13
 };
@@ -28,8 +28,12 @@ class BenchMap extends React.Component{
     const map = ReactDOM.findDOMNode(this.refs.map);
     this.map = new google.maps.Map(map, _mapOptions);
     this.markers = [];
-    this._registerListeners();
-    this._updateMarkers();
+    if(this.props.singleBench){
+      this.props.fetchBench(this.props.benchId);
+    } else {
+      this._registerListeners();
+      this._updateMarkers();
+    }
   }
 
   componentDidUpdate(){
