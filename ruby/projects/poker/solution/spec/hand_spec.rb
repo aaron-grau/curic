@@ -1,13 +1,14 @@
 require 'rspec'
 require 'hand'
+require 'card'
 
 describe Hand do
   let(:cards) {[
-                double("card", :suit => :spades, :value => :ten),
-                double("card", :suit => :hearts, :value => :five),
-                double("card", :suit => :hearts, :value => :ace),
-                double("card", :suit => :diamonds, :value => :two),
-                double("card", :suit => :hearts, :value => :two)
+                Card.new(:spades, :ten),
+                Card.new(:hearts, :five),
+                Card.new(:hearts, :ace),
+                Card.new(:diamonds, :two),
+                Card.new(:hearts, :two)
               ]}
 
   subject(:hand) { Hand.new(cards) }
