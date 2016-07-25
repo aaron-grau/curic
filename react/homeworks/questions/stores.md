@@ -1,6 +1,6 @@
 # Dollar Store
 
-Tonight, we're going to adapt a React currency-conversion widget to use a store.  Take a look at the [live demo][live-demo] to see the app in its current state.  
+Tonight, we're going to adapt a React currency-conversion widget to use a store.  Take a look at the [live demo][live-demo] to see the app in action.  Try clicking on a currency to see its conversion rates.   
 
 [live-demo]: https://appacademy.github.io/curriculum/currency_demo/
 
