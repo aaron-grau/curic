@@ -16,7 +16,7 @@ As the code currently stands, we make an ajax request to the `fixer` api and sto
 
 Create a `rates_store.js` file within the `frontend` folder.  This is where we will relocate the logic to fetch and store the currency rates.
 
-To get started, use the below skeleton and fill out the logic for all the methods.  If you're not sure how to write these methods, refer to the [stores reading][stores-reading].
+To get started, use the skeleton below and fill out the logic for all the methods.  If you're not sure how to write these methods, refer to the [stores reading][stores-reading].
 
 [stores-reading]: ../../readings/stores.md
 
