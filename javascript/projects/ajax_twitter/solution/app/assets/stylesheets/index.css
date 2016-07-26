@@ -1,3 +1,7 @@
+body{
+  font-family: sans-serif;
+}
+
 h1{
   margin: 0;
   padding: 10px;
@@ -10,14 +14,16 @@ h1{
 
 .sidebar{
   flex: 1;
+  font-size: 20px;
+  padding: 30px 0 0 10px;
 }
 
 .content{
   flex: 5;
 }
 
-.logout{
-  margin-left: 40px;
+input[type="submit"]{
+  margin: 5px 35px;
 }
 
 .new-form{
@@ -50,8 +56,34 @@ h1{
   flex: 1;
 }
 
+.followers ul{
+  padding-left: 20px;
+}
+
 ul{
-  margin: 5px;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+}
+
+.tweets{
+  padding: 10px;
+}
+
+.tweets > li{
+  padding: 10px;
+  background-color: #F8F8FF;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+.tweets > li:nth-child(even){
+  background-color: #FBFBFB;
+}
+
+.tweets > li:last-child{
+  border-bottom: 1px solid #ddd;
 }
 
 .main-feed{
@@ -77,6 +109,30 @@ h3{
   padding: 10px;
 }
 
+h4{
+  margin: 30px 0 10px 0;
+}
+
 .fetch-more{
   padding: 10px;
+}
+
+.add-mentioned-user{
+  padding-left: 27px;
+}
+
+.mentioned-users{
+  margin: 10px 0;
+}
+
+.users-search{
+  padding: 10px;
+}
+
+.users > li{
+  padding: 5px;
+}
+
+.users > li button{
+  margin: 0 10px;
 }

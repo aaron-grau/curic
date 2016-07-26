@@ -4,8 +4,8 @@
 
 <div class="user-feed">
   <div class="user-tweets">
-    <b>Tweets</b>
-    <ul>
+    <h3>Tweets</h3>
+    <ul class="tweets">
       <% @user.tweets.each do |tweet| %>
         <li><%= render "tweets/tweet", tweet: tweet %></li>
       <% end %>
@@ -13,14 +13,14 @@
   </div>
 
   <div class="followers">
-    <b>Followers</b>
+    <h3>Followers</h3>
     <ul>
       <% @user.followers.each do |follower| %>
         <li><%= follower.username %></li>
       <% end %>
     </ul>
 
-    <b>Followees</b>
+    <h3>Followees</h3>
     <ul>
       <% @user.followees.each do |followee| %>
         <li><%= followee.username %></li>
