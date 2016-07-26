@@ -8,6 +8,7 @@ class TracksController < ApplicationController
       redirect_to track_url(@track)
     else
       @album = @track.album
+      flash.now[:errors] = @track.errors.full_messages
       render :new
     end
   end
@@ -39,6 +40,7 @@ class TracksController < ApplicationController
     if @track.update(track_params)
       redirect_to track_url(@track)
     else
+      flash.now[:errors] = @track.errors.full_messages
       render :edit
     end
   end

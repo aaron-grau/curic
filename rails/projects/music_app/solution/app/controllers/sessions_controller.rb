@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
+      flash[:errors] = ["Invalid credentials."]
       render :new
 
     # Notice we have User#activated? even though we didn't define it!

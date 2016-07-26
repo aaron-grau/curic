@@ -12,6 +12,7 @@ class UsersController < ApplicationController
         "Successfully created your account! Check your inbox for an activation email."
       redirect_to root_url
     else
+      flash.now[:errors] = @user.errors.full_messages
       render :new
     end
   end

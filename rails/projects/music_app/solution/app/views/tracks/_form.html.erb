@@ -2,14 +2,6 @@
 <% http_method = track.persisted? ? "PATCH" : "POST" %>
 
 
-<% if !track.errors.full_messages.empty? %>
-<ul>
-  <% track.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-
 <form action="<%= action_url %>" method="POST" %>
   <input type="hidden" name="_method" value="<%= http_method %>">
   <input
@@ -17,25 +9,33 @@
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
 
-  <input type="text" name="track[name]" value="<%= track.name %>">
-  <br>
+<p>
+  <label>Name
+    <input type="text" name="track[name]" value="<%= track.name %>">
+  </label>
+</p>
 
-<label>Album
-  <select name="track[album_id]">
-    <% Album.all.each do |album| %>
-      <option
-        <%= "selected" if track.album_id == album.id %>
-        value="<%= album.id %>">
-          <%= album.name %>
-      </option>
-    <% end %>
-  </select>
-</label>
-<br>
+<p>
+  <label>Album
+    <select name="track[album_id]">
+      <% Album.all.each do |album| %>
+        <option
+          <%= "selected" if track.album_id == album.id %>
+          value="<%= album.id %>">
+            <%= album.name %>
+        </option>
+      <% end %>
+    </select>
+  </label>
+</p>
 
+<p>
+  <label>Ord
   <input type="number" name="track[ord]" value="<%= track.ord %>">
-  <br>
+  </label>
+</p>
 
+<p>
   <input
     type="radio"
     name="track[bonus]"
@@ -51,11 +51,14 @@
     id="track_bonus_t"
     <%= "checked" if track.bonus %>>
   <label for="track_bonus_t">Bonus</label>
-  <br>
+</p>
 
-  <label for="track_lyrics">Lyrics</label>
-  <textarea id="track_lyrics" name="track[lyrics]"><%= track.lyrics %></textarea>
-  <br>
+<p>
+  <label for="track_lyrics">Lyrics</label><br>
+  <textarea id="track_lyrics"
+    rows="10" cols="40"
+    name="track[lyrics]"><%= track.lyrics %></textarea>
+</p>
 
   <input type="submit">
 </form>
