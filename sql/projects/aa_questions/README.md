@@ -62,11 +62,11 @@ gem 'sqlite3'
 ```
 
 Finally, run `bundle install` to install `sqlite3`. This gem will now
-be available when you run `bundle exec pry`.
+be available when you run `pry`.
 
 ## Ruby
 
-Keep a tab open with the sqlite3 gem's [documentation][sqlite3-docs]. Use these 
+Keep a tab open with the sqlite3 gem's [documentation][sqlite3-docs]. Use these
 docs to help you figure out what methods are available and how to use them!
 
 Write a `QuestionsDatabase` class similar to one created in last night's demo:
