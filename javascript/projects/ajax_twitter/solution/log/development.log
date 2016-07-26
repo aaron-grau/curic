@@ -12921,3 +12921,70 @@ Processing by FeedsController#show as JSON
   Rendered tweets/_tweet.json.jbuilder (1.1ms)
   Rendered feeds/show.json.jbuilder (46.4ms)
 Completed 200 OK in 56ms (Views: 43.0ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 11:52:24 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (1.4ms)
+  Rendered feeds/show.html.erb within layouts/application (3.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+Completed 200 OK in 36ms (Views: 30.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 11:52:25 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:25 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:25 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:25 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:25 -0700
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 11:52:25 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:25 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 11:52:25 -0700
+
+
+Started GET "/users/search" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
+Processing by UsersController#search as HTML
+  Rendered users/search.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 26.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 11:52:26 -0700
