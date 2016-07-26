@@ -490,13 +490,18 @@ presentational component should be fairly trivial!
 ```
 
 Let's recap how the `connect` function works. [See the docs][connect-docs]. Note
-that `connect` has 4 parameters, but we only need the first one here!
+that `connect` has 4 parameters, but we only need the first two here!
 
-`mapStateToProps` is a function, whose goal is to return an object that contains
+`mapStateToProps` is a function, whose goal is to create an object that contains
 information from the application state that the presentational component cares about.
 
+`mapDispatchToProps` is a function, whose goal is to create an object with methods
+that trigger dispatches. These methods will then be used in the presentational
+component as event listeners.
+
 Note that **we never explicitly invoke this function**. Instead, we pass `mapStateToProps`
-to `connect`, and `connect` invokes `mapStateToProps` whenever our application state changes.
+and `mapDispatchToProps` to `connect`, and `connect` invokes both functions whenever
+our application state changes.
 
 ---
 
@@ -513,22 +518,90 @@ needs the collection of benches!
 
 ---
 
+#### `mapDispatchToProps`
+
+What dispatches should the `BenchIndex` component trigger? Well! We should `requestBenches`
+whenever the component mounts!
+
+```javascript
+  const mapDispatchToProps = dispatch => ({
+    requestBenches: () => dispatch(requestBenches())
+  });
+```
+
+---
+
 #### Export it!
 
 Finally, let's use the `connect` function to export a new component that is connected
-to our application state.
+to our `Store`.
 
 ```javascript
   export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
   )(BenchIndex);
 ```
 
 [connect-docs]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
+
 ---
 
 ### The Presentational Component
 
+Let's create the `BenchIndex` presentational component.
+
+```javascript
+  import React from 'react';
+
+  class BenchIndex extends React.Component{
+    componentDidMount(){
+      // requestBenches() here!
+    }
+    render(){
+      // ...
+    }
+  };
+```
+
+You may want to consider creating another component, `BenchIndexItem`, to clean up
+your `BenchIndex` component. You make the call!
+
+---
+
+### Render Time!
+
+  * In your entry file, create a document ready callback.
+  * In that callback, invoke `ReactDOM.render`, and render the `BenchIndexContainer`
+  into the `#content` div
+  * Your app should now be populated with benches!!
+
+**Call over a TA** and show them your container and presentational components.
+**Explain when you should use container components.**
+
+---
+
+#### Recap
+
+Here's a summary of your redux loop so far:
+  * The document loads and our doc-ready callback is triggered.
+  * In the doc-ready callback, we tell `React` to render our `BenchIndex` component
+  * The `BenchIndex` component mounts and dispatches an `action` with type `REQUEST_BENCHES`
+  * Our `BenchMiddleware` intercepts this `action` and triggers an `ajax` request to our
+  rails api.
+  * On success, the `ajax` request dispatches an `action` with type `RECEIVE_BENCHES`
+  * When the `BenchReducer` receives this action, it updates the application state
+  with the bench data contained in the `action`
+  * When the application state changes, it triggers a callback that was provided by
+  the connect function.
+  * That callback runs our `mapStateToProps` and `mapDispatchToProps` functions. The
+  return values of these funcitons are then merged and the resulting object is passed
+  as new props to `BenchIndex`
+  * When `BenchIndex` these new props, it re-renders. Phew!
+
+---
+
+<!-- ########## not used :/
 Since our `BenchIndex` component only needs a render method, we can make it a
 [functional component][functional-comp-docs] with an implicit return! Remember,
 **anywhere we use JSX, we need to import `React`.**
@@ -549,72 +622,11 @@ You could also deconstruct your props (recommended) like so..
   const BenchIndex = {benches} => (
     //... JSX goes here!
   );
-```
-
-You may want to consider creating another component, `BenchIndexItem`, to clean up
-your `BenchIndex` component. You make the call!
+``` -->
 
 [functional-comp-docs]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 
----
 
-
-
-# Warning!!! Below is unfinished..
-
-
-  * In your entry file, add a `ReactDOM.render` call that instantiates a
-    `BenchIndex` component and places it into the `#content` div
-
-
-
-
-
----
-
-* Make a `BenchIndex` React component
-* In your entry file, add a `ReactDOM.render` call that creates the
-  `Index` and places it into the `#content` div
-* Give it an initial state of `{ benches: BenchStore.all() }`
-* In your `componentDidMount` method, do two things:
-  * Call `addlistener` on the `BenchStore`, passing it a callback that calls `setState` on the `BenchIndex` to update its benches.
-  * Call `BenchActions#fetchAllBenches`.
-* `render` a list of your benches. You may want to create a `BenchIndexItem`
-  component that receives a `bench` prop and returns a `<div>` containing a single
-  bench's information.
-
-  You should have something like:
-
-  ```javascript
-  const BenchIndex = React.createClass({
-    getInitialState(){
-      // get the benches from benchstore
-    },
-    componentDidMount(){
-      BenchStore.addEventListener(this._handleChange);
-      BenchActions.fetchAllBenches();
-    },
-    _handleChange(){
-      // reset the benches state
-    }
-    render(){
-      // ...
-    }
-  })
-  ```
-
-Here's a summary of your flux loop so far:
-  * The `BenchIndex` component calls our client-side action-creator,
-    `BenchActions.fetchAllBenches`.
-  * `BenchActions.fetchAllBenches` calls the `BenchesApiUtil`, which fetches bench
-    data from your API, passing it `BenchActions.receiveAllBenches` as a callback.
-  * `BenchesApiUtil` then invokes the callback on `BenchActions`, which triggers a
-    dispatch.
-  * The dispatcher hits the `BenchStore`, which should cause the store to update
-    its `_benches` and `__emitChange()`.
-  * When the store emits change, our `BenchIndex` component's callback function is
-    triggered, which should reseset the state of our `BenchIndex` component.
-  * When the `BenchIndex` component's state changes, it re-renders. Phew!
 
 ## Phase 4: The Map
 
