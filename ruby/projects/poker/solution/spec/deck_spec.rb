@@ -17,9 +17,9 @@ describe Deck do
   end
 
   let(:cards) do
-    [ Card.new(:spades, :king),
-      Card.new(:spades, :queen),
-      Card.new(:spades, :jack) ]
+    [ double("card", :suit => :spades, :value => :king),
+      double("card", :suit => :spades, :value => :queen),
+      double("card", :suit => :spades, :value => :jack) ]
   end
 
   describe "#initialize" do
@@ -63,9 +63,9 @@ describe Deck do
 
   describe "#return" do
     let(:more_cards) do
-      [ Card.new(:hearts, :four),
-        Card.new(:hearts, :five),
-        Card.new(:hearts, :six) ]
+      [ double("card", :suit => :hearts, :value => :four),
+        double("card", :suit => :hearts, :value => :five),
+        double("card", :suit => :hearts, :value => :six) ]
     end
 
     it "should return cards to the deck" do
