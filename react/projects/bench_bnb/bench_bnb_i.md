@@ -93,6 +93,7 @@ The function should accept two arguments:
   * Return the default state if no arguments are passed
   * Return the `oldState` if the reducer doesn't care about the `action`
 
+Let's just setup our `BenchReducer` to return it's default state:
 
 ```javascript
   const BenchReducer = function(oldState = {}, action){
