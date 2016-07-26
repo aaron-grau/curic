@@ -85,8 +85,7 @@
 * [Flux code demo][flux-demo-screencast] (15 min)
   * [pre-flux code][recipes-pre-flux]
   * [complete project with flux][recipes-post-flux]
-* [Flux web api demo (flux with rails)][flux-api-screencast] (5 min)
-  * [flux demo with API code][recipes-with-api]
+
 
 ### Readings (40 min)
 * [Basic intro to flux][flux-intro] (5 min)
