@@ -1,0 +1,82 @@
+h1{
+  margin: 0;
+  padding: 10px;
+}
+
+.main{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sidebar{
+  flex: 1;
+}
+
+.content{
+  flex: 5;
+}
+
+.logout{
+  margin-left: 40px;
+}
+
+.new-form{
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid black;
+  width: 500px;
+  text-align: center;
+}
+
+.new-form input{
+  margin: 5px;
+}
+
+.follow-toggle{
+  margin: 10px;
+  display: block;
+}
+
+.user-feed{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user-tweets{
+  flex: 2;
+}
+
+.followers{
+  flex: 1;
+}
+
+ul{
+  margin: 5px;
+}
+
+.main-feed{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.infinite-tweets{
+  flex: 2;
+}
+
+.tweet-form{
+  flex: 1;
+}
+
+h2{
+  margin: 0;
+  padding: 10px 0;
+}
+
+h3{
+  margin: 0;
+  padding: 10px;
+}
+
+.fetch-more{
+  padding: 10px;
+}

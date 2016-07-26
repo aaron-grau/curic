@@ -30,6 +30,6 @@ MESSAGES = [
 User.all.each do |user|
   40.times do
     msg = MESSAGES.sample
-    Tweet.create!(user_id: user.id, content: msg, created_at: rand(10.years).ago)
+    Tweet.create!(user_id: user.id, content: msg, created_at: rand(10).years.ago)
   end
 end
