@@ -111,7 +111,7 @@ Let's just setup our `BenchReducer` to return it's default state:
 
 ### The `Store`
 
-The redux store will hold a reference to our application state. The store will also handle updating our state when actions are dispatched and it will tell the necessary components to re-render.
+The redux `Store` will hold a reference to our application state. The `Store` will also handle updating our state when `actions` are dispatched and it will tell the necessary components to re-render.
 
 * create a `/store/store.js` file that exports a redux store.
 * import `createStore` and `combineReducers` from the redux library
@@ -136,7 +136,7 @@ The redux store will hold a reference to our application state. The store will a
 *Note: I'm leaving extra vertical space here, because later we'll add several more
 domain-specific reducers!*
 
-So far, our default application state is being might look something like this:
+So far, our default application state looks like this:
 
 ```
   {
@@ -162,10 +162,10 @@ add it to the window for testing!
 #### Recap
 
 So far, we have built our redux store and told it to use our bench reducing function.
-Test that everything works by:
+Test that everything works:
   0. Add your store somewhere to your entry point
   0. Visit localhost:3000
-  0. Open the console and type window.Store.getState()
+  0. Open the console and type Store.getState()
 
 Your state should look like the default state mentioned above!
 
@@ -201,8 +201,8 @@ are talking about the same thing and that nothing fails silently from typos.
 
 Next, we want to create another files that helps up create `action` objects in a
 reliable, tidy manner. Remember that `action` objects are just plain-old javascript
-objects that also have a `type` property. The value of the `type` property should
-always come from our constants file.
+objects that also have a `type` property. **The value of the `type` property should
+always come from our constants file.**
 
 We can start by importing the relevant constants:
 
