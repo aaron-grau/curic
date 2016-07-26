@@ -178,8 +178,8 @@ Before we move on to the fun stuff -- populating our store with benches from rai
 we need to write a couple of files that help our other major pieces function. First, let's
 create a constants file: `constants/bench_constants`
 
-From here, let's export just two constants that our `ActionCreators`, `Middleware`, and `Store`
-will all use.
+From here, let's export two constants that our `ActionCreators`, `Middleware`,
+and `Store` will all use.
 
 ```javascript
   export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
@@ -189,6 +189,10 @@ will all use.
 These constants will represent `actionTypes` and will be used in the `switch` statements
 in our `Store` and `Middleware`. They simply help ensure that all of our redux pieces
 are talking about the same thing and that nothing fails silently from typos.
+
+[See this Stack Overflow question.][so-constants]
+
+[so-constants]: http://stackoverflow.com/questions/27109652/why-do-flux-architecture-examples-use-constants-for-action-types-instead-of-stri
 
 ---
 
@@ -209,11 +213,11 @@ We need two actions: one that will tell our `Middleware` to go fetch all the ben
 from rails, and one that tells our store to change our application state to represent
 the bench data in our `action`.
 
-Note that the `action creators` don't directly interact with `Middleware` or the `Store`,
+Note that the `ActionCreators` don't directly interact with `Middleware` or the `Store`,
 they just produce objects. We then send those objects through our `Middleware` and
 to the `Store` by invoking `Store#dispatch`
 
-The first `action creator` doesn't need to accept any arguments. It should just
+The first `ActionCreator` doesn't need to accept any arguments. It should just
 produce an `action` with type `REQUEST_BENCHES`
 
 ```javascript
@@ -222,7 +226,7 @@ produce an `action` with type `REQUEST_BENCHES`
   });
 ```
 
-The second `action creator` should accept a single argument, `benches`, and produce
+The second `ActionCreator` should accept a single argument, `benches`, and produce
 an `action` with type `RECEIVE_BENCHES` and a `benches` property that represents
 all of our bench data.
 
@@ -285,6 +289,7 @@ sees a `REQUEST_BENCHES` action type.
     switch(action.type){
       case REQUEST_BENCHES:
         console.log('time to fetch!')
+        next(action);
       default:
         next(action);
     }
@@ -362,127 +367,98 @@ function.
 ### Bench Api Util
 
 We are getting close to finishing the redux loop! In this step, we need to tell
-our `BenchMiddleware` to use an api utility to make an `ajax request`, which should hit
-our rails server and get all of our bench data.
+our `BenchMiddleware` to use an api utility to make an `$.ajax` request, which should
+hit our rails server and get all of our bench data.
 
-Let's create a file, `/util/bench_api_util.js` that exports a function `#fetchBenches`
+Let's create a file, `/util/bench_api_util.js` that exports a function, `#fetchBenches`.
+This function should accept a single argument: `success` --> this is the method to
+be invoked if the request is successful.
 
-Create a `/util/bench_api_util.js` that exports a `BenchApiUtil` object
-that can `fetchAllBenches` from your API using `$.ajax`. `fetchAllBenches` should
-have one parameter, the `success` callback to invoke when your request succeeds.
+Your method should look something like this:
 
-Your `BenchApiUtil` should look something like this.
 ```javascript
-// util/bench_api_util.js
-BenchApiUtil = {
-  fetchAllBenches(success){
+  export const fetchBenches(success){
     $.ajax({
-      url: //,
       method: // ,
-      success: function(response){
-        // invoke the `success` callback
-      }
+      url: //,
+      success,
+      error: () => console.log('error')
     })
   }
-}
-
-module.exports = BenchApiUtil;
 ```
 
-* Add `window.BenchApiUtil` to your entry file for testing. Test that
-`fetchAllBenches` can get your seed data and call `success` with it. We
-will use this Util in our Action creator in the next step.
+As before, put this function on the window for testing, and make sure it works before
+moving on!
 
-### `BenchActions`
+---
 
-`BenchActions` will be the interface through which your components interact with the `BenchStore` / Web API.
+### Bench Api Util <--> BenchMiddleware
 
-#### Constants
+Let's connect our `BenchMiddleware` to this new `fetchBenches` function!
 
-Before creating `BenchActions`, let's define action constants. Constants provide
-more clarity about what actions our app can handle and prevent certain syntax errors. [See this Stack Overflow question.][so-constants]
-
-[so-constants]: http://stackoverflow.com/questions/27109652/why-do-flux-architecture-examples-use-constants-for-action-types-instead-of-stri
-
-Create a new file, `constants/bench_constants.js`
+Start by importing it. Then.. let's invoke it in our `BenchMiddleware`'s `switch`
+statement.
 
 ```javascript
-BenchConstants = {
-  BENCHES_RECEIVED: "BENCHES_RECEIVED",
-}
-
-module.exports = BenchConstants;
-```
-
-#### Back to the Action
-
-* Start by creating `/actions/bench_actions.js` and defining and exporting your
-`BenchActions` object inside it.
-* `require` your `BenchApiUtil`; `BenchActions` will use it to interact with the API.
-* `BenchActions` should have `fetchAllBenches` and `receiveAllBenches` methods.
-  * `fetchAllBenches` should invoke `BenchApiUtil.fetchAllBenches`, and pass
-  `receiveAllBenches` as a callback.
-  * `receiveAllBenches` should call `AppDispatcher.dispatch` with an object with
-  an `actionType` of `BenchConstants.BENCHES_RECEIVED` and a `benches` attribute
-  containing the benches returned by the API.
-
-```javascript
-const AppDispatcher = require('../dispatcher/dispatcher');
-const BenchConstants = require('../constants/bench_constants');
-BenchActions = {
-  fetchAllBenches(){
-   // call BenchApiUtil.fetchAllBenches
-  },
-  receiveAllBenches(benches){
-    AppDispatcher.dispatch({
-      actionType: // use a `BenchConstant`,
-      benches: benches
-    });
+  const BenchMiddleware = ({getState, dispatch}) => next => action => {
+    switch(action.type){
+      case REQUEST_BENCHES:
+        const success = data => console.log(data);
+        fetchBenches(success)
+      default:
+        next(action);
+    }
   }
-}
-
-module.exports = BenchActions;
 ```
-### `BenchStore.__onDispatch`
 
-We want the `BenchStore` to update itself whenever we call our `BenchActions`, which we can accomplish through `BenchStore.__onDispatch`.
-
-* Define `BenchStore.__onDispatch`; it should take a single `payload` argument.
-* In the function body, write a `switch` statement that listens for `
-payload.actionType`.
-* When `payload.ActionType` equals `BenchConstants.BENCHES_RECEIVED, call `resetAllBenches` with `payload.benches`.
+Check now that when we run this code in the console..
 
 ```javascript
-//stores/bench.js
-  const BenchConstants = require('../constants/bench_constants');
+  Store.dispatch(requestBenches())
+```
 
-  BenchStore.__onDispatch = function(payload) {
-    switch(payload.actionType) {
-      case BenchConstants.BENCHES_RECEIVED:
-        resetAllBenches(payload.benches);
-        break;
+We should see a `console.log` of all our bench data!
+
+Finally, we need to re-work our `BenchMiddleware` so that instead `console.log`ing
+the bench data, it dispatches it as part of an action!
+
+Import the `receiveBenches` function, and use it to create an action, passing the
+benches data as an argument. Then, dispatch the action!
+
+---
+
+### Back to the reducer
+
+We've come full circle, and now it's time to tell the `BenchReducer` how to update
+our application state when it receives the `RECEIVE_BENCHES` action. Make sure you
+import the appropriate constants. Your reducer should look something like:
+
+```javascript
+  const BenchReducer = function(oldState = {}, action){
+    switch(action.type){
+      case RECEIVE_BENCHES:
+        return action.benches;
+      default:
+        return oldState;
     }
   };
-
 ```
 
-### Emitting Events from the `BenchStore`
+---
 
-When the contents of the `BenchStore` change, we need to inform all interested components that the `BenchStore` has changed. Add a call to `BenchStore.__emitChange` in `resetAllBenches`.
+#### Recap
+
+We've done it! You should now be able to run the following in the console:
 
 ```javascript
-//stores/bench.js
-resetAllBenches(benches){
-  _benches = benches;
-  BenchStore.__emitChange();
-}
+  Store.getState(); // --> returns default state object
+  Store.dispatch(requestBenches());
+  Store.getState(); // --> returns a new state object, fully populated!
 ```
 
-Let's do another test before moving on.
-* Assign `window.BenchActions` in your entry file.
-* In the console, call `BenchActions.fetchAllBenches()`, then `BenchStore.all()`.
-* `BenchStore.all()` should return the benches in your DB.
-* Remove all your global testing variables before moving on.
+Congrats! **Call over a TA and explain the entire redux cycle.**
+
+---
 
 ## Phase 3: `BenchIndex`: Our First React Component
 

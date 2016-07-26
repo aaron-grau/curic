@@ -1,6 +1,3 @@
-
-import { receiveBenches, receiveBench } from '../actions/bench_actions';
-
 export const fetchBenches = function(filters, success){
   $.ajax({
     method: 'GET',
