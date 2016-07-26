@@ -211,7 +211,7 @@ We can start by importing the relevant constants:
 ```
 
 We need two actions: one that will tell our `Middleware` to go fetch all the benches
-from rails, and one that tells our store to change our application state to represent
+from rails, and one that tells our `Store` to change our application state to represent
 the bench data in our `action`.
 
 Note that the `ActionCreators` don't directly interact with `Middleware` or the `Store`,
@@ -253,7 +253,7 @@ Confirm that you get the appropriate object back by testing `#requestBenches` in
 ### `BenchMiddleware`
 
 Our `BenchMiddleware` will be responsible for a number of things, including triggering
-api calls that eventually populate our store with benches!
+api calls that eventually populate our `Store` with benches!
 
 Remember, `Middleware` receives dispatches before the store. It can decide to intercept
 the dispatch, trigger another dispatch, or simply pass on it and do nothing.
@@ -282,7 +282,7 @@ Here's what all the arguments do:
   * `next` --> function that passes an action on to the next middleware
   * `action` --> the original action object passed to `Store#dispatch`
 
-Let's start by writing some `Middleware` that just `console.log`s whenever it
+Let's start by writing some `Middleware` that will just `console.log` whenever it
 sees a `REQUEST_BENCHES` action type.
 
 ```javascript
@@ -297,7 +297,7 @@ sees a `REQUEST_BENCHES` action type.
   }
 ```
 
-It is **very** important that we carefully consider where we invoke our `next` function
+It is **very** important that we carefully consider where we invoke our `next` function.
 If our `Middleware` doesn't care about this `action`, then it should, by default,
 pass the action on to the next middleware in the chain.
 
@@ -323,10 +323,10 @@ Let's also import the `applyMiddleware` function from the redux library.
   import BenchMiddleware from '../middleware/bench_middleware';
 ```
 
-Next, let's create a middlewareChain by using the `applyMiddleware` function.
+Next, let's create a `middlewareChain` by using the `applyMiddleware` function.
 
 ```javascript
-  const masterMiddleware = applyMiddleware(
+  const middlewareChain = applyMiddleware(
     BenchMiddleware
   );
 ```
@@ -337,7 +337,7 @@ function.
 ```javascript
   const Store = createStore(
     masterReducer,
-    masterMiddleware
+    middlewareChain
   );
 ```
 
@@ -348,7 +348,7 @@ function.
   Since our last recap, we have: created `bench_constants` and `bench_actions` files.
   These help ensure that our `Views`, `Middleware`, and `Store` are communicating effectively.
 
-  We also created `BenchMiddleware`, with will be responsible for intercepting and
+  We also created `BenchMiddleware`, witch will be responsible for intercepting and
   triggering bench-related dispatches.
 
   Finally, we connected our `BenchMiddleware` to the `Store` using the `applyMiddleware`
@@ -371,11 +371,11 @@ We are getting close to finishing the redux loop! In this step, we need to tell
 our `BenchMiddleware` to use an api utility to make an `$.ajax` request, which should
 hit our rails server and get all of our bench data.
 
-Let's create a file, `/util/bench_api_util.js` that exports a function, `#fetchBenches`.
-This function should accept a single argument: `success` --> this is the method to
+Let's create a file, `/util/bench_api_util.js` that exports a function, `fetchBenches`.
+This function should accept a single argument: `success` - this is the callback to
 be invoked if the request is successful.
 
-Your method should look something like this:
+Your function should look something like this:
 
 ```javascript
   export const fetchBenches(success){
@@ -397,7 +397,7 @@ moving on!
 
 Let's connect our `BenchMiddleware` to this new `fetchBenches` function!
 
-Start by importing it. Then.. let's invoke it in our `BenchMiddleware`'s `switch`
+Start by importing `fetchBenches`. Then.. let's invoke it in our `BenchMiddleware`'s `switch`
 statement.
 
 ```javascript
@@ -420,8 +420,8 @@ Check now that when we run this code in the console..
 
 We should see a `console.log` of all our bench data!
 
-Finally, we need to re-work our `BenchMiddleware` so that instead `console.log`ing
-the bench data, it dispatches it as part of an action!
+Finally, we need to re-work our `BenchMiddleware` so that instead of a`console.log`ing
+the bench data, it dispatches the data as part of an action!
 
 Import the `receiveBenches` function, and use it to create an action, passing the
 benches data as an argument. Then, dispatch the action!
@@ -463,7 +463,110 @@ Congrats! **Call over a TA and explain the entire redux cycle.**
 
 ## Phase 3: `BenchIndex`: Our First React Component
 
-Let's render a component that shows our benches.
+Let's create a component that shows our benches.
+
+  * Let's start by making make two files: `components/bench_index.jsx` and
+  `components/bench_index_container.js`
+
+Here, we're going to follow the react/redux design principle of **separating
+presentational and container components** [Read more here][pres-cont-components].
+
+[pres-cont-components]: http://redux.js.org/docs/basics/UsageWithReact.html
+
+---
+
+### The Container Component
+
+We'll write our container component first. If we do a good job here, then our
+presentational component should be fairly trivial!
+
+  * Inside your container component, import the `connect` function from the
+  `react-redux` library. Also import your presentational component: `BenchIndex`.
+  (We haven't constructed `BenchIndex` yet.. but we'll need it here!)
+
+```javascript
+  import { connect } from 'react-redux';
+  import BenchIndex from './bench_index';
+```
+
+Let's recap how the `connect` function works. [See the docs][connect-docs]. Note
+that `connect` has 4 parameters, but we only need the first one here!
+
+`mapStateToProps` is a function, whose goal is to return an object that contains
+information from the application state that the presentational component cares about.
+
+Note that **we never explicitly invoke this function**. Instead, we pass `mapStateToProps`
+to `connect`, and `connect` invokes `mapStateToProps` whenever our application state changes.
+
+#### `mapStateToProps`
+
+What information does our `BenchIndex` component need from the state? Well.. it
+needs the collection of benches!
+
+```javascript
+  const mapStateToProps = state => ({
+    benches: state.benches
+  });
+```
+
+#### Export it!
+
+Finally, let's use the `connect` function to export a new component that is connected
+to our application state.
+
+```javascript
+  export default connect(
+    mapStateToProps
+  )(BenchIndex);
+```
+
+[connect-docs]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
+---
+
+### The Presentational Component
+
+Since our `BenchIndex` component only needs a render method, we can make it a
+[functional component][functional-comp-docs] with an implicit return! Remember,
+**anywhere we use JSX, we need to import `React`.**
+
+```javascript
+  import React from 'react';
+
+  const BenchIndex = props => (
+    //... JSX goes here!
+  );
+
+  export default BenchIndex
+```
+
+You could also deconstruct your props (recommended) like so..
+
+```javascript
+  const BenchIndex = {benches} => (
+    //... JSX goes here!
+  );
+```
+
+You may want to consider creating another component, `BenchIndexItem`, to clean up
+your `BenchIndex` component. You make the call!
+
+[functional-comp-docs]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
+
+---
+
+
+
+# Warning!!! Below is unfinished..
+
+
+  * In your entry file, add a `ReactDOM.render` call that instantiates a
+    `BenchIndex` component and places it into the `#content` div
+
+
+
+
+
+---
 
 * Make a `BenchIndex` React component
 * In your entry file, add a `ReactDOM.render` call that creates the

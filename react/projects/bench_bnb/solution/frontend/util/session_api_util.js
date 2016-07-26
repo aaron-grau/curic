@@ -25,7 +25,7 @@ export const logout = function(success){
 		method: 'delete',
 		url: '/api/session',
 		success,
-		error: function () {
+		error: () => {
 		  console.log("Logout error in SessionApiUtil#logout");
 		}
 	});
