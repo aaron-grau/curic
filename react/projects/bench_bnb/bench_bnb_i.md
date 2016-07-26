@@ -468,7 +468,7 @@ Let's create a component that shows our benches.
   * Let's start by making make two files: `components/bench_index.jsx` and
   `components/bench_index_container.js`
 
-Here, we're going to follow the react/redux design principle of **separating
+We're going to follow the react/redux design principle of **separating
 presentational and container components** [Read more here][pres-cont-components].
 
 [pres-cont-components]: http://redux.js.org/docs/basics/UsageWithReact.html
@@ -498,6 +498,8 @@ information from the application state that the presentational component cares a
 Note that **we never explicitly invoke this function**. Instead, we pass `mapStateToProps`
 to `connect`, and `connect` invokes `mapStateToProps` whenever our application state changes.
 
+---
+
 #### `mapStateToProps`
 
 What information does our `BenchIndex` component need from the state? Well.. it
@@ -508,6 +510,8 @@ needs the collection of benches!
     benches: state.benches
   });
 ```
+
+---
 
 #### Export it!
 
