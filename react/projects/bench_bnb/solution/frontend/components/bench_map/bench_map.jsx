@@ -29,7 +29,7 @@ class BenchMap extends React.Component{
     this.map = new google.maps.Map(map, _mapOptions);
     this.markers = [];
     if(this.props.singleBench){
-      this.props.fetchBench(this.props.benchId);
+      this.props.requestBench(this.props.benchId);
     } else {
       this._registerListeners();
       this._updateMarkers();

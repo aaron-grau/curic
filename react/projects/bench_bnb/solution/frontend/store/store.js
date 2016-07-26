@@ -13,14 +13,14 @@ const masterReducer = combineReducers({
   session: SessionReducer
 });
 
-const masterMiddleware = applyMiddleware(
+const middlewareChain = applyMiddleware(
   BenchMiddleware,
   SessionMiddleware
 );
 
 const Store = createStore(
   masterReducer,
-  masterMiddleware
+  middlewareChain
 );
 
 window.Store = Store;

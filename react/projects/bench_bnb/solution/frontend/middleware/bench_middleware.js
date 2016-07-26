@@ -1,35 +1,44 @@
-import { fetchBenches as apifetchBenches,
+// Bench API Util
+import { fetchBenches,
          fetchBench,
          createReview,
          createBench
        } from '../util/bench_api_util';
-import { fetchBenches as actionfetchBenches } from '../actions/bench_actions';
-import { FETCH_BENCHES,
-         FETCH_BENCH,
+// Bench Action
+import { requestBenches,
+         receiveBench,
+         receiveBenches
+       } from '../actions/bench_actions';
+// Bench Constants
+import { REQUEST_BENCHES,
+         REQUEST_BENCH,
          CREATE_BENCH,
          CREATE_REVIEW
        } from '../constants/bench_constants';
+// Filter Constants
 import { UPDATE_FILTER } from '../constants/filter_constants';
 
 
 export default ({getState, dispatch}) => next => action => {
+  const benchesSuccess = data => dispatch(receiveBenches(data));
+  const benchSuccess = data => dispatch(receiveBench(data));
   switch(action.type){
-    case FETCH_BENCHES:
+    case REQUEST_BENCHES:
       const filters = getState().filters
-      apifetchBenches(filters, dispatch)
+      fetchBenches(filters, benchesSuccess);
       break;
-    case FETCH_BENCH:
-      fetchBench(action.id, dispatch);
+    case REQUEST_BENCH:
+      fetchBench(action.id, benchSuccess);
       break;
     case UPDATE_FILTER:
       next(action);
-      dispatch(actionfetchBenches());
+      dispatch(requestBenches());
       break;
     case CREATE_BENCH:
-      createBench(action.bench, dispatch);
+      createBench(action.bench, benchSuccess);
       break;
     case CREATE_REVIEW:
-      createReview(action.review, dispatch)
+      createReview(action.review, benchSuccess)
       break;
     default:
       next(action)
