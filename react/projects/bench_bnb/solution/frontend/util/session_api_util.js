@@ -1,32 +1,22 @@
 import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
 
-export const login = function(user, dispatch) {
+export const login = function(user, success, error) {
 	$.ajax({
 		method: 'POST',
 		url: '/api/session',
 		data: user,
-		success(user){
-			dispatch(receiveCurrentUser(user));
-		},
-		error(xhr) {
-			const errors = xhr.responseJSON;
-			dispatch(receiveErrors(errors));
-		}
+		success,
+		error
 	});
 };
 
-export const signup = function(user, dispatch) {
+export const signup = function(user, success, error) {
 	$.ajax({
 		method: 'POST',
 		url: '/api/user',
 		data: user,
-		success(user){
-			dispatch(receiveCurrentUser(user));
-		},
-		error(xhr) {
-			const errors = xhr.responseJSON;
-			dispatch(receiveErrors(errors));
-		}
+		success,
+		error
 	});
 };
 
