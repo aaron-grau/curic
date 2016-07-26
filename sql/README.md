@@ -2,11 +2,13 @@
 
 ## w3d1
 
+### Assessment02
++ [Practice][assessment-prep]
+  + We'll implement a simple version of a well-known card game. We'll announce
+  the specific game, and you can look up the basic rules ahead of time.
+
 ### Readings (85 min)
 
-+ **Assessment02** ([practice][assessment-prep])
-    + We'll implement a simple version of a well-known card game. We'll announce
-      the specific game, and you can look up the basic rules ahead of time.
 + SQL Fundamentals - read these first!
     + [SQL For The Impatient][sql-intro] (20 min)
     + [A Visual Explanation of Joins][visual-joins] (5 min)
@@ -51,9 +53,6 @@
 ### Homeworks (35 min)
 + [Plays-Playwrights ORM][plays-orm] (35 min)
 
-### Additional Resources
-+ [sql-ex][sql-ex]
-
 ### Projects
 + [AA Questions][aa-questions]
 
@@ -93,21 +92,15 @@
 * [Creating a new rails project][first-rails-project]
 + [Migrations][ar-migrations]
 + [ORM Review and Intro to Active Record][ar-orm]
-+ Associations
++ Associations:  
   + [`belongs_to` and `has_many`][belongs-to-has-many]
-    * Learn this well; specify
-`class_name`/`primary_key`/`foreign_key` on all associations
-until I give you leave to let Rails infer these.
   + [`has_many :through`][has-many-through]
   + [`has_one`][has-one]
-  + [Rails Conventions][rails-conventions]
   + [Unconventional Associations][unconventional-associations]
-+ Validations
-  + [Basics][validations]
-  + [Custom Validations][custom-validations]
+  + for now, always specify `class_name`/`primary_key`/`foreign_key`
++ [Basic][validations] and [Custom][custom-validations] Validations
   + [Miscellaneous][validations-misc]
 + [ActiveRecord and Indexes][ar-indexing]
-    + This is also less vital and can be read the day of the project.
 
 ### Projects
 + [Associations Exercise][associations-exercise]
@@ -120,8 +113,6 @@ until I give you leave to let Rails infer these.
 [associations-2-video]: https://vimeo.com/167799430
 [validations-video]: https://vimeo.com/167799437
 [indices-video]: https://vimeo.com/167799431
-
-
 
 [first-rails-project]: readings/first-rails-project.md
 [ar-migrations]: readings/migrations.md
@@ -139,7 +130,7 @@ until I give you leave to let Rails infer these.
 
 [ar-indexing]: readings/indexing.md
 
-[intro-rails-homework]: homeworks/questions/intro-rails-homework.md
+[intro-rails-homework]: homeworks/questions/intro_rails.md
 
 [associations-exercise]: projects/associations_exercise
 [url-shortener]: projects/url_shortener
@@ -149,12 +140,13 @@ until I give you leave to let Rails infer these.
 ### Readings (65 min)
 + [ActiveRecord::Relation][relation] (15 min)
 + [ActiveRecord and Joins][ar-joins] (25 min)
-  + [JoinsDemo][joins-demo]
 + [Scopes][scopes] (10 min)
 + [More on Querying][querying-ii] (15 min)
 
-### Homeworks (30 min)
+### Homeworks (45 min)
 + [N+1 Buster][n1-buster] (30 min)
++ [Implicit Bias Test][bias-quiz] (15 min)
+  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
 
 ### Additional Resources
 + [Ternary Logic in SQL][sql-ternary-logic]
@@ -168,9 +160,8 @@ until I give you leave to let Rails infer these.
 [querying-ii]: readings/querying-ii.md
 [sql-ternary-logic]: readings/sql-ternary-logic.md
 
-[joins-demo]: demos/joins_demo
-
 [n1-buster]: homeworks/questions/n_1_buster.md
+[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [polls-app]: projects/polls_app
 
@@ -182,10 +173,8 @@ until I give you leave to let Rails infer these.
 + [Demo: send][meta-send] (5 min)
 + [Demo: macros][meta-macros] (5 min)
 
-### Homework (45 min)
+### Homework (30 min)
 + [Metacorgis][metacorgi-hw] (30 min)
-+ [Implicit Bias Test][bias-quiz] (15 min)
-  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
 
 ### Project
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
@@ -198,7 +187,6 @@ until I give you leave to let Rails infer these.
 [meta-macros]: demos/macros.rb
 [build-your-own-ar]: projects/active_record_lite
 [metacorgi-hw]: homeworks/questions/metacorgs.md
-[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 ## w3d6-w3d7
 

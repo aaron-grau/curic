@@ -1,13 +1,8 @@
 # Question Pairs
 
-Build an application that will help us handle questions from students.
-
 **Read the entire project description before beginning**.
 
-What we'll be doing is setting up the database and then overlaying
-Ruby code to map the data from the database into Ruby objects in
-memory that we can work with. Our database queries (written in SQL)
-will live within our Ruby code.
+Today, we're going to build an application that will help us handle questions from students.  To do this, we will set up the database and then overlay Ruby code to map the data from the database into Ruby objects in memory that we can work with. Our database queries (written in SQL) will live within our Ruby code.
 
 ## SQL
 
@@ -71,8 +66,8 @@ be available when you run `bundle exec pry`.
 
 ## Ruby
 
-Keep a tab open with the sqlite3 gem's [documentation][sqlite3-docs]. Use these docs
-to help you figure out what methods are available and how to use them!
+Keep a tab open with the sqlite3 gem's [documentation][sqlite3-docs]. Use these 
+docs to help you figure out what methods are available and how to use them!
 
 Write a `QuestionsDatabase` class similar to one created in last night's demo:
 [PlaysDatabase][plays.rb]. This class should inherit
