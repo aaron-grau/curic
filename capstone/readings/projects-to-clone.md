@@ -13,7 +13,6 @@
 - [Etsy] (http://www.etsy.com)
 - [Eventbrite] (http://www.eventbrite.com)
 - [Evernote] (http://www.evernote.com)
-- [Exec] (https://iamexec.com/)
 - [Facebook] (http://www.facebook.com)
 - [Feedly] (http://www.feedly.com)
 - [Flickr] (http://www.flickr.com)
