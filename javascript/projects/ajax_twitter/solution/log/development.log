@@ -14433,3 +14433,1139 @@ Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:
 
 
 Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 13:41:20 -0700
+
+
+Started GET "/users/4" for 127.0.0.1 at 2016-07-26 13:45:01 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mTweet Load (0.7ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (4)[0m
+  [1m[35mMention Load (2.6ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" IN (121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mFollow Exists (0.4ms)[0m  SELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 4 LIMIT 1  [["follower_id", 3]]
+  Rendered follows/_form.html.erb (2.8ms)
+  Rendered tweets/_tweet.html.erb (1.9ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (1.0ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.9ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (1.1ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (1.6ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1[0m  [["followee_id", 4]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1  [["follower_id", 4]]
+  Rendered users/show.html.erb within layouts/application (88.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+Completed 200 OK in 275ms (Views: 153.9ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 13:45:02 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (1.2ms)
+  Rendered feeds/show.html.erb within layouts/application (3.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:04 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 13:45:05 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 13:45:05 -0700
+Processing by FeedsController#show as JSON
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3)  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 281]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_tweet.json.jbuilder (3.3ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 184]]
+  Rendered tweets/_tweet.json.jbuilder (1.6ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 178]]
+  Rendered tweets/_tweet.json.jbuilder (1.6ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 169]]
+  Rendered tweets/_tweet.json.jbuilder (2.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 167]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 146]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 145]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 143]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 135]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 90]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 87]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 86]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 66]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 61]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 60]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 56]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 44]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 43]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 41]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 186]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  Rendered feeds/show.json.jbuilder (55.2ms)
+Completed 200 OK in 67ms (Views: 51.7ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/feed?max_created_at=2015-07-26T17%3A18%3A19.226Z" for 127.0.0.1 at 2016-07-26 13:45:07 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2015-07-26T17:18:19.226Z"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mSQL (4.1ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2015-07-26T17:18:19.226Z')  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 179]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 172]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 170]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 151]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 122]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 111]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.5ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 91]]
+  Rendered tweets/_tweet.json.jbuilder (2.0ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 88]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 82]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 72]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 197]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 164]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 162]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 150]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 134]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 118]]
+  Rendered tweets/_tweet.json.jbuilder (1.8ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 117]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 113]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 105]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 103]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  Rendered feeds/show.json.jbuilder (55.5ms)
+Completed 200 OK in 62ms (Views: 48.8ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/users/search" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+Processing by UsersController#search as HTML
+  Rendered users/search.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 13:45:11 -0700
+
+
+Started GET "/users/search?query=o" for 127.0.0.1 at 2016-07-26 13:45:13 -0700
+Processing by UsersController#search as JSON
+  Parameters: {"query"=>"o"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"  WHERE (username ~ 'o')[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mFollow Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 4 LIMIT 1[0m  [["follower_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mFollow Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 5 LIMIT 1[0m  [["follower_id", 3]]
+  Rendered users/search.json.jbuilder (10.9ms)
+Completed 200 OK in 18ms (Views: 14.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (1.1ms)
+  Rendered feeds/show.html.erb within layouts/application (3.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 13:45:15 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 13:45:16 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 13:45:17 -0700
+Processing by FeedsController#show as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mSQL (2.9ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3)  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (1.8ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 281]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_tweet.json.jbuilder (4.5ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 184]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 178]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 169]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 167]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 146]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 145]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 143]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 135]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 90]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 87]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 86]]
+  Rendered tweets/_tweet.json.jbuilder (1.7ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 66]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 61]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 60]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 56]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 44]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 43]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 41]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 186]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  Rendered feeds/show.json.jbuilder (52.1ms)
+Completed 200 OK in 63ms (Views: 48.3ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/feed?max_created_at=2015-07-26T17%3A18%3A19.226Z" for 127.0.0.1 at 2016-07-26 13:45:19 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2015-07-26T17:18:19.226Z"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mSQL (4.1ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2015-07-26T17:18:19.226Z')  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 179]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 172]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 170]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 151]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 122]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 111]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 91]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 88]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 82]]
+  Rendered tweets/_tweet.json.jbuilder (1.7ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 72]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 197]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 164]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 162]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 150]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 134]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 118]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 117]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 113]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 105]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 103]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  Rendered feeds/show.json.jbuilder (48.7ms)
+Completed 200 OK in 56ms (Views: 42.5ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/feed?max_created_at=2014-07-26T17%3A18%3A19.004Z" for 127.0.0.1 at 2016-07-26 13:45:21 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2014-07-26T17:18:19.004Z"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mSQL (5.0ms)[0m  SELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2014-07-26T17:18:19.004Z')  ORDER BY tweets.created_at DESC LIMIT 20
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 96]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 95]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 93]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 83]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.6ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 50]]
+  Rendered tweets/_tweet.json.jbuilder (1.8ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 180]]
+  Rendered tweets/_tweet.json.jbuilder (2.4ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 168]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 124]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 112]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 108]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 104]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 99]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[36mMention Load (0.6ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 97]]
+  Rendered tweets/_tweet.json.jbuilder (2.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 79]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 78]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 76]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 75]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 59]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 51]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.5ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 198]]
+  Rendered tweets/_tweet.json.jbuilder (2.2ms)
+  Rendered feeds/show.json.jbuilder (55.0ms)
+Completed 200 OK in 61ms (Views: 46.6ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/feed?max_created_at=2012-07-26T17%3A18%3A19.262Z" for 127.0.0.1 at 2016-07-26 13:45:23 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2012-07-26T17:18:19.262Z"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mSQL (2.3ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2012-07-26T17:18:19.262Z')  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 193]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 191]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 177]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 173]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 161]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 160]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 149]]
+  Rendered tweets/_tweet.json.jbuilder (1.9ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 125]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 120]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 110]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 98]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 69]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 57]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 192]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 183]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 166]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 159]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 148]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 140]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 131]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  Rendered feeds/show.json.jbuilder (53.1ms)
+Completed 200 OK in 62ms (Views: 49.6ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/feed?max_created_at=2011-07-26T17%3A18%3A19.077Z" for 127.0.0.1 at 2016-07-26 13:45:25 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2011-07-26T17:18:19.077Z"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  SELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2011-07-26T17:18:19.077Z')  ORDER BY tweets.created_at DESC LIMIT 20
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 129]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 123]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 115]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 102]]
+  Rendered tweets/_tweet.json.jbuilder (1.6ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 100]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 89]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 85]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 84]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 80]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 70]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 68]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 67]]
+  Rendered tweets/_tweet.json.jbuilder (1.6ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 53]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 48]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 165]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 157]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 156]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 153]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 139]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 137]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  Rendered feeds/show.json.jbuilder (48.2ms)
+Completed 200 OK in 57ms (Views: 45.0ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/feed?max_created_at=2010-07-26T17%3A18%3A19.094Z" for 127.0.0.1 at 2016-07-26 13:45:27 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2010-07-26T17:18:19.094Z"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mSQL (3.1ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2010-07-26T17:18:19.094Z')  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 128]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 126]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 71]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 64]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 63]]
+  Rendered tweets/_tweet.json.jbuilder (1.0ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 62]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 195]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 194]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 181]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 171]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 158]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 155]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 154]]
+  Rendered tweets/_tweet.json.jbuilder (1.6ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 132]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 130]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 107]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 81]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 77]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 65]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 45]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  Rendered feeds/show.json.jbuilder (48.7ms)
+Completed 200 OK in 57ms (Views: 44.5ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/feed?max_created_at=2009-07-26T17%3A18%3A18.849Z" for 127.0.0.1 at 2016-07-26 13:45:28 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2009-07-26T17:18:18.849Z"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mSQL (2.9ms)[0m  SELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2009-07-26T17:18:18.849Z')  ORDER BY tweets.created_at DESC LIMIT 20
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 42]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 200]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 199]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 196]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 189]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 188]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 185]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 182]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 174]]
+  Rendered tweets/_tweet.json.jbuilder (1.7ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 163]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 147]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 144]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 141]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 116]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 114]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 106]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 92]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 74]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 55]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 46]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  Rendered feeds/show.json.jbuilder (46.7ms)
+Completed 200 OK in 53ms (Views: 41.8ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/feed?max_created_at=2008-07-26T17%3A18%3A18.851Z" for 127.0.0.1 at 2016-07-26 13:45:29 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2008-07-26T17:18:18.851Z"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2008-07-26T17:18:18.851Z')  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 190]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 187]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 176]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 175]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 152]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 142]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 138]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 136]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 133]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 127]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 121]]
+  Rendered tweets/_tweet.json.jbuilder (2.0ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 119]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 109]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 101]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 94]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 73]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 58]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 54]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 52]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 49]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  Rendered feeds/show.json.jbuilder (46.4ms)
+Completed 200 OK in 53ms (Views: 42.9ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/feed?max_created_at=2007-07-26T17%3A18%3A18.859Z" for 127.0.0.1 at 2016-07-26 13:45:31 -0700
+Processing by FeedsController#show as JSON
+  Parameters: {"max_created_at"=>"2007-07-26T17:18:18.859Z"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  SELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3) AND (tweets.created_at < '2007-07-26T17:18:18.859Z')  ORDER BY tweets.created_at DESC LIMIT 20
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 47]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  Rendered feeds/show.json.jbuilder (5.6ms)
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 19:02:19 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (1.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (4.3ms)
+  Rendered feeds/show.html.erb within layouts/application (17.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+Completed 200 OK in 249ms (Views: 185.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:20 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:21 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:21 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:02:21 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 19:02:21 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 19:02:23 -0700
+Processing by FeedsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mSQL (4.7ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3)  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (1.2ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 281]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_tweet.json.jbuilder (7.5ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 184]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 178]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 169]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 167]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 146]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 145]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 143]]
+  Rendered tweets/_tweet.json.jbuilder (1.9ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 135]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 90]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 87]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 86]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 66]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 61]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 60]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 56]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 44]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 43]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 41]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 186]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  Rendered feeds/show.json.jbuilder (73.3ms)
+Completed 200 OK in 84ms (Views: 68.6ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 19:10:09 -0700
+Processing by FeedsController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  Rendered tweets/_form.html.erb (3.1ms)
+  Rendered feeds/show.html.erb within layouts/application (9.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+Completed 200 OK in 134ms (Views: 110.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 19:10:10 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-07-26 19:10:11 -0700
+Processing by FeedsController#show as JSON
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mSQL (3.9ms)[0m  SELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 3 OR follows.follower_id = 3)  ORDER BY tweets.created_at DESC LIMIT 20
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 281]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered tweets/_tweet.json.jbuilder (5.8ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 184]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 178]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 169]]
+  Rendered tweets/_tweet.json.jbuilder (1.9ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 167]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 146]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 145]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 143]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 135]]
+  Rendered tweets/_tweet.json.jbuilder (1.4ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 90]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[35mMention Load (0.2ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 87]]
+  Rendered tweets/_tweet.json.jbuilder (1.1ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 86]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 66]]
+  Rendered tweets/_tweet.json.jbuilder (4.6ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 61]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 60]]
+  Rendered tweets/_tweet.json.jbuilder (1.5ms)
+  [1m[36mMention Load (0.4ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 56]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 44]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 43]]
+  Rendered tweets/_tweet.json.jbuilder (1.2ms)
+  [1m[35mMention Load (0.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 41]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  [1m[36mMention Load (0.3ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 186]]
+  Rendered tweets/_tweet.json.jbuilder (1.3ms)
+  Rendered feeds/show.json.jbuilder (68.2ms)
+Completed 200 OK in 76ms (Views: 61.8ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2016-07-26 19:10:13 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mTweet Load (0.7ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (4)[0m
+  [1m[35mMention Load (2.4ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" IN (121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mFollow Exists (0.3ms)[0m  SELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 4 LIMIT 1  [["follower_id", 3]]
+  Rendered follows/_form.html.erb (2.3ms)
+  Rendered tweets/_tweet.html.erb (5.4ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (1.0ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (1.0ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.4ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1[0m  [["followee_id", 4]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1  [["follower_id", 4]]
+  Rendered users/show.html.erb within layouts/application (85.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+Completed 200 OK in 177ms (Views: 130.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 19:10:14 -0700
+
+
+Started GET "/users/search" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+Processing by UsersController#search as HTML
+  Rendered users/search.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:16 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 19:10:17 -0700
+
+
+Started GET "/users/search?query=m" for 127.0.0.1 at 2016-07-26 19:10:18 -0700
+Processing by UsersController#search as JSON
+  Parameters: {"query"=>"m"}
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users"  WHERE (username ~ 'm')[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mFollow Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 4 LIMIT 1[0m  [["follower_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mFollow Exists (1.6ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 5 LIMIT 1[0m  [["follower_id", 3]]
+  Rendered users/search.json.jbuilder (12.1ms)
+Completed 200 OK in 19ms (Views: 12.1ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mTweet Load (0.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (4)[0m
+  [1m[35mMention Load (0.6ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" IN (121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+  [1m[35mFollow Exists (0.4ms)[0m  SELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 4 LIMIT 1  [["follower_id", 3]]
+  Rendered follows/_form.html.erb (2.0ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.4ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (1.1ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1[0m  [["followee_id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1  [["follower_id", 4]]
+  Rendered users/show.html.erb within layouts/application (77.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'kh7SU84OHPxjea6dBOz8gA' LIMIT 1[0m
+Completed 200 OK in 121ms (Views: 105.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/css-reset.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+
+
+Started GET "/assets/index.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-07-26 19:10:20 -0700
