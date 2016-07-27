@@ -597,7 +597,7 @@ Here's a summary of your redux loop so far:
   * That callback runs our `mapStateToProps` and `mapDispatchToProps` functions. The
   return values of these funcitons are then merged and the resulting object is passed
   as new props to `BenchIndex`
-  * When `BenchIndex` these new props, it re-renders. Phew!
+  * When `BenchIndex` receives these new props, it re-renders. Phew!
 
 ---
 
@@ -610,8 +610,7 @@ information.
 
 ### Create a `BenchMap` component.
 
-* Create a new React component, `BenchMap`
-* You should make component using a `class`
+* Create a new React component class `BenchMap`
 * Its `render` function should return a `div` with `id='map-container'` and
 `ref='map'`
 * In the `application.css` file, make sure to set the `width` and `height` of the
@@ -637,7 +636,7 @@ Since our `Search` component only needs a render method, we can make it a
   import React from 'react';
 
   const Search = props => (
-  //... JSX goes here!
+    //... JSX goes here!
   );
 
   export default Search
@@ -647,7 +646,7 @@ You could also deconstruct your props (recommended) like so..
 
 ```javascript
   const Search = {benches} => (
-  //... JSX goes here!
+    //... JSX goes here!
   );
 ```
 
@@ -741,30 +740,20 @@ helper methods:
   * `_removeMarker` --> accepts a marker as an argument; removes marker from map
   and from `markers`
 
-We need to invoke `#_updateMarkers` when the component mounts and whenever the
-component receives new props. Use the appropriate `React` [lifecycle methods][lifecycle-methods].
+We need to invoke `#_updateMarkers` when `BenchMap` mounts and it receives new
+props. Use the appropriate `React` [lifecycle methods][lifecycle-methods].
 
 [lifecycle-methods]: https://facebook.github.io/react/docs/component-specs.html
 
 ---
 
-
-####### warning unfinished below!
-
-* When the `BenchMap` component is mounted, register an event listener on
-  change of the `BenchStore`.
-* When the event occurs, create markers for every bench in the array.
-* Confirm that your bench markers appear on your map. Nice!
-* One last change: since it doesn't make sense to fetch any markers from
-  the API until we know where the map is, move the `BenchActions.fetchAllBenches`
-  from the `Index` to the `idle` event of the map.
-  [Read this documentation][event-doc] to learn about Google Map events.
-
 ## Phase 6: Filtering by Map Location
 
 When the map idles, we are going to use its current bounds to request only
-benches within the map bounds. First, let's prepare the back end to search by
-bounds.
+benches within the boundaries of the map. First, let's prepare the back end to
+search by bounds.
+
+---
 
 ### Back End Prep
 
@@ -785,9 +774,21 @@ benches that are within the boundaries specified by the argument. See the exampl
 ```
 
 * In the controller, we can expect that these boundaries will be passed
-  in as a query string and therefore available in the `params` hash.
+  in as a query string and therefore available in the `params` hash
 * Instead of rendering `Bench.all` in our `index` action,  we can instead use
-  `Bench.in_bounds(params[:bounds])`.
+  `Bench.in_bounds(params[:bounds])`
+
+---
+
+######## Warning.. unfinished
+* When the `BenchMap` component is mounted, register an event listener on
+change of the `BenchStore`.
+* When the event occurs, create markers for every bench in the array.
+* Confirm that your bench markers appear on your map. Nice!
+* One last change: since it doesn't make sense to fetch any markers from
+the API until we know where the map is, move the `BenchActions.fetchAllBenches`
+from the `Index` to the `idle` event of the map.
+[Read this documentation][event-doc] to learn about Google Map events.
 
 ### Sending the Correct Params
 
