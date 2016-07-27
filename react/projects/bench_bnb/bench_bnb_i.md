@@ -703,12 +703,16 @@ You could also deconstruct your props (recommended) like so..
   }
   //...
 ```
+This should cause a Google Map to be rendered to the page.
+
+Read about the [findDOMNode method][findDOMNOde-docs]. Understand it before moving on!
+
+[findDOMNOde-docs]: https://facebook.github.io/react/docs/top-level-api.html#reactdom.finddomnode
 
 [functional-comp-docs]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 
 ---
 
-This should cause a Google Map to be rendered to the screen.
 
 ## Phase 5: Markers on the Map
 
