@@ -601,55 +601,64 @@ Here's a summary of your redux loop so far:
 
 ---
 
-<!-- ########## not used :/
-Since our `BenchIndex` component only needs a render method, we can make it a
+## Phase 4: The Map
+
+Now we're going to add a map alongside our index to visually convey our bench
+information.
+
+---
+
+### Create a `BenchMap` component.
+
+* Create a new React component, `BenchMap`
+* You should make component using a `class`
+* Its `render` function should return a `div` with `id='map-container'` and
+`ref='map'`
+* In the `application.css` file, make sure to set the `width` and `height` of the
+`#map-container` to `500px`
+* We'll return to this component in a bit
+
+---
+
+### Create a parent component: `Search`
+
+* Create a new React component, `Search`
+* `Search` should render a `div` containing `BenchMap` and `BenchIndex`
+* Remove your `BenchIndexContainer` and instead, create a `SearchContainer`
+* `Search` should then pass the appropriate props to `BenchIndex`
+* **You shouldn't have to change `BenchIndex`**
+
+
+Since our `Search` component only needs a render method, we can make it a
 [functional component][functional-comp-docs] with an implicit return! Remember,
 **anywhere we use JSX, we need to import `React`.**
 
 ```javascript
   import React from 'react';
 
-  const BenchIndex = props => (
-    //... JSX goes here!
+  const Search = props => (
+  //... JSX goes here!
   );
 
-  export default BenchIndex
+  export default Search
 ```
 
 You could also deconstruct your props (recommended) like so..
 
 ```javascript
-  const BenchIndex = {benches} => (
-    //... JSX goes here!
+  const Search = {benches} => (
+  //... JSX goes here!
   );
-``` -->
+```
 
-[functional-comp-docs]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
-
-
-
-## Phase 4: The Map
-
-Now we're going to add a map alongside our index to visually convey our bench
-information.
-
-### Create a `BenchMap` component.
-
-* Create a new React component, `BenchMap`.
-* Its `render` function should return a `div` with `className='map'` and
-`ref='map'`.
-* In the `application.css` file, make sure to set the `width` and `height` of the
-`.map` to `500px`
-* We'll return to this component in a bit.
-
-### Create a parent component: `Search`
-
-* Create a new React component, `Search`
-* `Search` should render a `div` containing `BenchMap` and `BenchIndex`.
-* In your entry file, render a `Search` component instead of
-  `BenchIndex`. This should cause both the `BenchMap` and the `BenchIndex` to be
-  rendered on the page.
+* In your entry file, render the `Search` component instead of `BenchIndex`.
+  This should cause both the `BenchMap` and the `BenchIndex` to be rendered on
+  the page.
 * Verify your work before moving on.
+
+**Call over a TA and explain when you use functional components.**
+
+---
 
 ### Attach a Google Map to `BenchMap`.
 
@@ -680,26 +689,63 @@ information.
         </html>
     ```
 * When the `Map` component mounts, instantiate the map as follows:
+
 ```javascript
-    BenchMap = React.createClass({
-    //...
-    componentDidMount(){
-      const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
-      const mapOptions = {
-        center: {lat: 37.7758, lng: -122.435}, // this is SF
-        zoom: 13
-      };
-      this.map = new google.maps.Map(mapDOMNode, mapOptions);
-    },
-    //...
+  class BenchMap extends React.Component {
+  //...
+  componentDidMount(){
+    const mapDOMNode = ReactDOM.findDOMNode(this);
+    const mapOptions = {
+      center: {lat: 37.7758, lng: -122.435}, // this is SF
+      zoom: 13
+    };
+    this.map = new google.maps.Map(mapDOMNode, mapOptions);
+  }
+  //...
 ```
 
-This should cause a genuine Google Map to be rendered to the screen.
+[functional-comp-docs]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
+
+---
+
+This should cause a Google Map to be rendered to the screen.
 
 ## Phase 5: Markers on the Map
 
 We're now going to implement map markers for our benches. Read the documentation
 on [map markers][map-markers] before continuing.
+
+  * Update the `Search` component to pass a 'benches' prop to `BenchMap`
+
+The `BenchMap` needs to update which markers are on the map when the component
+first mounts and whenever the state changes.
+
+  * Create an instance variable, `markers`, in your `#componentDidMount` method
+
+Next, we will create a method `#_updateMarkers`. This method will be responsible
+for making the markers on the map reflect the benches in the application state.
+
+To accomplish the goal of adding and removing markers appropriately, write the following
+helper methods:
+
+  * `#_benchesToAdd` --> returns an array of benches that are in the state, but
+  not on the map
+  * `#_markersToRemove` --> returns an array of markers that are on the map, but
+  the benches they represent are no in the state
+  * `#_createMarkerFromBench` --> accepts a bench object as an argument; adds a
+  marker to the map and to the `markers` array
+  * `_removeMarker` --> accepts a marker as an argument; removes marker from map
+  and from `markers`
+
+We need to invoke `#_updateMarkers` when the component mounts and whenever the
+component receives new props. Use the appropriate `React` [lifecycle methods][lifecycle-methods].
+
+[lifecycle-methods]: https://facebook.github.io/react/docs/component-specs.html
+
+---
+
+
+####### warning unfinished below!
 
 * When the `BenchMap` component is mounted, register an event listener on
   change of the `BenchStore`.
