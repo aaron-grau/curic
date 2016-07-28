@@ -82,21 +82,21 @@ class CorgiPerk
   def bone
     info = @shopping_list.get_bone_info(@id)
     happiness = @shopping_list.get_bone_happiness(@id)
-    result = "Bone: #{info}: #{happiness}"
+    result = "Bone: #{info}: #{happiness} licks"
     happiness > 30 ? "* #{result}" : result
   end
 
   def kibble
     info = @shopping_list.get_kibble_info(@id)  
     happiness = @shopping_list.get_kibble_happiness(@id)
-    result = "Kibble: #{info}: #{happiness}"
+    result = "Kibble: #{info}: #{happiness} licks"
     happiness > 30 ? "* #{result}" : result
   end
 
   def silly_outfit
     info = @shopping_list.get_silly_outfit_info(@id)
     happiness = @shopping_list.get_silly_outfit_happiness(@id)
-    result = "Silly Outfit: #{info}: #{happiness}"
+    result = "Silly Outfit: #{info}: #{happiness} licks"
     happiness > 30 ? "* #{result}" : result
   end
 

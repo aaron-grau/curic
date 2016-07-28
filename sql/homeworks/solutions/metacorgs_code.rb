@@ -1,10 +1,3 @@
-sl = ShoppingList.new
-cp = CorgiPerk.new(1, sl)
-cp2 = CorgiPerk2.new(2, sl)
-cp3 = CorgiPerk3.new(3, sl)
-
-require 'byebug'
-
 class ShoppingList
   DATA = {
     1 => {
@@ -89,21 +82,21 @@ class CorgiPerk
   def bone
     info = @shopping_list.get_bone_info(@id)
     happiness = @shopping_list.get_bone_happiness(@id)
-    result = "Bone: #{info}: #{happiness}"
+    result = "Bone: #{info}: #{happiness} licks"
     happiness > 30 ? "* #{result}" : result
   end
 
   def kibble
     info = @shopping_list.get_kibble_info(@id)  
     happiness = @shopping_list.get_kibble_happiness(@id)
-    result = "Kibble: #{info}: #{happiness}"
+    result = "Kibble: #{info}: #{happiness} licks"
     happiness > 30 ? "* #{result}" : result
   end
 
   def silly_outfit
     info = @shopping_list.get_silly_outfit_info(@id)
     happiness = @shopping_list.get_silly_outfit_happiness(@id)
-    result = "Silly Outfit: #{info}: #{happiness}"
+    result = "Silly Outfit: #{info}: #{happiness} licks"
     happiness > 30 ? "* #{result}" : result
   end
 
@@ -121,7 +114,7 @@ class CorgiPerk2
     info = @shopping_list.send("get_#{name}_info", @id)
     happiness = @shopping_list.send("get_#{name}_happiness", @id)
     name = "#{name.to_s.split('_').map(&:capitalize).join(' ')}"
-    result = "#{name}: #{info}: #{happiness}"
+    result = "#{name}: #{info}: #{happiness} licks"
     happiness > 30 ? "* #{result}" : result
   end
 
@@ -141,7 +134,7 @@ class CorgiPerk3
       info = @shopping_list.send("get_#{name}_info", @id)
       happiness = @shopping_list.send("get_#{name}_happiness", @id)
       display_name = "#{name.split('_').map(&:capitalize).join(' ')}"
-      result = "#{display_name}: #{info}: #{happiness}"
+      result = "#{display_name}: #{info}: #{happiness} licks"
       happiness > 30 ? "* #{result}" : result
     end
   end
