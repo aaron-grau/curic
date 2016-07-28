@@ -32,14 +32,14 @@ Take a minute to familiarize yourself with the class as it stands now. Look for 
 
 ## Phase 1: `#method_missing` (aka do it for the metacorgs)
 
-Employ `#method_missing` to refactor. The goal is for your `#method_missing` to be functionally equivalent to `#bone`, `#kibble`, and `#silly_outfit`.
+Use `#method_missing` to refactor the `CorgiPerk` class into a new class, `CorgiPerk2`. The goal is for your `#method_missing` to be functionally equivalent to `#bone`, `#kibble`, and `#silly_outfit`.
 
 **Hint:** Within `#method_missing` you can use `#send` to call methods on your `@shopping_list`. Note that you can pass `#send` a string, allowing for interpolation. Review the [metaprogramming][meta_reading] reading if you need a reminder on how to do this.
 [meta_reading]: ../../readings/metaprogramming.md
 
 ## Phase 2: Dynamic Dispatch (aka really do it for the metacorgs)
 
-Next try using `#send` in conjunction with `#define_method` within a class method, e.g. `::define_perk(perk)`, that dynamically builds all of your class' instance methods. You can call this method upon initialization. This technique is called dynamic dispatch.
+Use `#send` in conjunction with `#define_method` within a class method, e.g. `::define_perk(perk)` to refactor the `CorgiPerk` class into a new class called `CorgiPerk3`. The class method will dynamically build all of your class' instance methods. You can call this method upon initialization. This technique is called dynamic dispatch.
 
 ## Bonus Phase: Refactor the ShoppingList class using the same principles
 
