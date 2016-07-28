@@ -1,15 +1,17 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router';
 
-function showReviewForm(id) {
-  hashHistory.push(`/benches/${id}/review`);
-}
+const _handleClick = (router, url) => (
+  () => router.push(url)
+);
 
-export default ({benchId}) => {
+const ReviewButton = ({benchId, router}) => {
   return (
   <button className="review-button"
-          onClick={showReviewForm.bind(null, benchId)}
+          onClick={_handleClick(router, `/benches/${id}/review`)}
   >
     Leave a Review
   </button>
 )}
+
+export default withRouter(ReviewButton);

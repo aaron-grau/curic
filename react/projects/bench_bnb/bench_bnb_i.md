@@ -796,8 +796,8 @@ We now need to write a front-end request conforming to your new API hook.
 Your API is expecting a `GET` request to the bench `index` with a query string containing 'bounds'.
 
 * Modify `BenchActions.fetchAllBenches` to take a parameter `bounds`. Have it pass
-`bounds` to `BenchApiUtil.fetchAllBenches`, which should pass `bounds` to its `
-$.ajax` call.
+`bounds` to `BenchApiUtil.fetchAllBenches`, which should pass `bounds` to its
+`$.ajax` call.
 
 * Return to your map `idle` event handler. Call `getBounds` on the map
   instance to get a `LatLngBounds` instance. Call `getNorthEast` and

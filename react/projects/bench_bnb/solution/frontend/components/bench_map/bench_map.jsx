@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // import FilterActions from '../actions/filter_actions';
-import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router';
 
 const _getCoordsObj = function(latLng) {
   return ({
@@ -85,7 +85,7 @@ class BenchMap extends React.Component{
       benchId: bench.id
     });
     marker.addListener('click', () => {
-      hashHistory.push("benches/" + bench.id );
+      this.props.router.push("benches/" + bench.id );
     });
     this.markers.push(marker);
   }
@@ -97,7 +97,7 @@ class BenchMap extends React.Component{
   }
 
   _handleClick(coords) {
-    hashHistory.push({
+    this.props.router.push({
       pathname: "benches/new",
       query: coords
     });
@@ -108,4 +108,4 @@ class BenchMap extends React.Component{
   }
 }
 
-export default BenchMap;
+export default withRouter(BenchMap);
