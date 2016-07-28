@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
+    # this render is optional; if we don't explicitly render or redirect,
+    # rails magic will automatically look for a corresponding index view
+    # and render it
     render :index
   end
 
