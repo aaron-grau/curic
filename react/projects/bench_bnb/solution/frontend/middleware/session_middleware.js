@@ -1,9 +1,7 @@
-import { LOGIN,
-         LOGOUT,
-         SIGNUP
-       } from '../constants/session_constants';
-
-import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+import { receiveCurrentUser,
+         receiveErrors,
+         SessionConstants
+       } from '../actions/session_actions';
 
 import { login, signup, logout } from '../util/session_api_util';
 
@@ -13,15 +11,15 @@ export default ({getState, dispatch}) => next => action => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
   };
-  
+
   switch(action.type){
-    case LOGIN:
+    case SessionConstants.LOGIN:
       login(action.user, successCallback, errorCallback);
       break;
-    case LOGOUT:
+    case SessionConstants.LOGOUT:
       logout(() => next(action))
       break;
-    case SIGNUP:
+    case SessionConstants.SIGNUP:
       signup(action.user, successCallback, errorCallback);
       break;
     default:

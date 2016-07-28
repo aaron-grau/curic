@@ -1,7 +1,9 @@
-import { UPDATE_FILTER } from '../constants/filter_constants';
+export const FilterConstants = {
+  UPDATE_FILTER: "UPDATE_FILTER"
+};
 
 export const updateFilter = (filter, value) => ({
-  type: UPDATE_FILTER,
+  type: FilterConstants.UPDATE_FILTER,
   filter,
   value
 });

@@ -7,9 +7,6 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   let store;
   if (window.currentUser) {
@@ -22,8 +19,3 @@ document.addEventListener('DOMContentLoaded', function() {
   const root = document.getElementById('content');
   ReactDOM.render(<Root store={store}/>, root);
 });
-
-// {
-//   usernam:
-//   email:
-// }

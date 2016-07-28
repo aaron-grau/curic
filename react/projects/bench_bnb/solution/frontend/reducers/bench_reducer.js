@@ -1,10 +1,10 @@
-import { RECEIVE_BENCHES, RECEIVE_BENCH } from '../constants/bench_constants';
+import { BenchConstants } from '../actions/bench_actions';
 
 const BenchReducer = function(oldState = {}, action){
   switch(action.type){
-    case RECEIVE_BENCHES:
+    case BenchConstants.RECEIVE_BENCHES:
       return action.benches;
-    case RECEIVE_BENCH:
+    case BenchConstants.RECEIVE_BENCH:
       const newBench = {[action.bench.id]: action.bench};
       return Object.assign({}, oldState, newBench);
     default:

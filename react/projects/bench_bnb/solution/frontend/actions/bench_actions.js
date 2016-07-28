@@ -1,36 +1,37 @@
-import { RECEIVE_BENCHES,
-         RECEIVE_BENCH,
-         REQUEST_BENCHES,
-         REQUEST_BENCH,
-         CREATE_BENCH,
-         CREATE_REVIEW
-       } from '../constants/bench_constants';
+export const BenchConstants = {
+  RECEIVE_BENCHES: "RECEIVE_BENCHES",
+  RECEIVE_BENCH: "RECEIVE_BENCH",
+  REQUEST_BENCHES: "REQUEST_BENCHES",
+  REQUEST_BENCH: "REQUEST_BENCH",
+  CREATE_BENCH: "CREATE_BENCH",
+  CREATE_REVIEW: "CREATE_REVIEW"
+};
 
 export const requestBenches = () => ({
-  type: REQUEST_BENCHES
+  type: BenchConstants.REQUEST_BENCHES
 });
 
 export const requestBench = id => ({
-  type: REQUEST_BENCH,
+  type: BenchConstants.REQUEST_BENCH,
   id
 });
 
 export const receiveBenches = benches => ({
-  type: RECEIVE_BENCHES,
+  type: BenchConstants.RECEIVE_BENCHES,
   benches
 });
 
 export const receiveBench = bench => ({
-  type: RECEIVE_BENCH,
+  type: BenchConstants.RECEIVE_BENCH,
   bench
 });
 
 export const createBench = bench => ({
-  type: CREATE_BENCH,
+  type: BenchConstants.CREATE_BENCH,
   bench
 });
 
 export const createReview = review => ({
-  type: CREATE_REVIEW,
+  type: BenchConstants.CREATE_REVIEW,
   review
 });
