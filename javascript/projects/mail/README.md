@@ -1,7 +1,9 @@
 # Mail
 
+[**Live Demo!**](https://appacademy.github.io/curriculum/mail/)
+
 The goal of this project is to learn the basics of how to make a
-[single-page application][single-page-app]. Today, you're going to make an email 
+[single-page application][single-page-app]. Today, you're going to make an email
 client similar to Gmail.
 
 Some of the benefits of a single-page application include:
@@ -34,12 +36,12 @@ manipulate the DOM instead of making a new HTTP request.
 
 There are different ways of accomplishing this "routing" process. We will employ
 the common technique of changing the [hash fragment][hash-fragment]. When
-the URL of a page changes so that **only** the hash fragment changes, your browser 
-will not make a new HTTP request. Instead, it will emit a `hashchange` event. We 
-will add an event listener for this event, and then use javascript to update the 
+the URL of a page changes so that **only** the hash fragment changes, your browser
+will not make a new HTTP request. Instead, it will emit a `hashchange` event. We
+will add an event listener for this event, and then use javascript to update the
 DOM based on the new hash fragment.
 
-This way, we can modify both the URL and the DOM without triggering a new HTTP 
+This way, we can modify both the URL and the DOM without triggering a new HTTP
 request.
 
 ### Triggering Route Changes
@@ -57,7 +59,7 @@ DOMContentLoaded`.
     * Call `toLowerCase` on the name to make sure there aren't case differences.
     * Set `window.location.hash` to the lower-cased location name.
 
-Test that clicking on your sidebar items: 
+Test that clicking on your sidebar items:
 * Changes the hash fragment in the URL.
 * Doesn't make a new request. You can do this easily by setting avariable in the
   console in the Dev Tools. If it is still defined after clicking the sidebar
@@ -68,8 +70,8 @@ Test that clicking on your sidebar items:
 #### Create a `Router`
 
 * Create a `router.js` file.
-* In `router.js`, create a constructor function `Router` that takes a `node` 
-argument. This `node` will be a pointer to the DOM Node that the router should 
+* In `router.js`, create a constructor function `Router` that takes a `node`
+argument. This `node` will be a pointer to the DOM Node that the router should
 be modifying the contents of.
   * Save `node` to `this.node` so we can use it later.
 * Create prototype methods `start`, `activeRoute`, and `render`.
@@ -77,8 +79,8 @@ be modifying the contents of.
     * Add an event listener for `hashchange` and call `render` in the callback
       * This will make the Router update the DOM every time the hash fragment
         changes.
-    * Immediately call `render` upon `start()` so that if someone opens a link to 
-    a URL with a hash fragment, or if they refresh with a hash fragment, the 
+    * Immediately call `render` upon `start()` so that if someone opens a link to
+    a URL with a hash fragment, or if they refresh with a hash fragment, the
     router will still update the DOM.
   * `render` - This function will update the DOM by changing the content of `
   this.node`.
@@ -100,13 +102,13 @@ be modifying the contents of.
 #### Use your `Router` in `main.js`
 
 * Require your `Router` constructor.
-* Modify the `DOMContentLoaded` callback: 
+* Modify the `DOMContentLoaded` callback:
   * Get the `.content` DOM Node with `document.querySelector`. This is DOM Node
     we'll be updating with the `Router`.
   * Create a `new Router`, passing in the `.content` node.
   * `start()` your new router.
 
-Test that clicking on the sidebar items changes the content of the page AND that 
+Test that clicking on the sidebar items changes the content of the page AND that
 we are not making new HTTP requests.
 
 ## Phase II: Displaying Messages
@@ -114,7 +116,7 @@ we are not making new HTTP requests.
 Let's make something more interesting happen when the route changes. We could do
 all the logic of creating DOM Nodes for each route in the router itself like we
 are now, but it's better to separate "view" logic into separate modules that will
-be responsible for returning a DOM Node to display. These modules are called 
+be responsible for returning a DOM Node to display. These modules are called
 "components".
 
 ### Routing to Components
@@ -123,9 +125,9 @@ be responsible for returning a DOM Node to display. These modules are called
 
 * Create an `Inbox.js` file that will export our `Inbox` component.
   * The `Inbox` component should be a JavaScript object.
-  * Create a property on the `Inbox` called `render` that is a function that 
+  * Create a property on the `Inbox` called `render` that is a function that
   returns a DOM Node.
-    * In `render`, create a container `<ul>` DOM Node using 
+    * In `render`, create a container `<ul>` DOM Node using
     `document.createElement`.
     * Set the class name of the container to `messages` using the `className`
       property. This puts our CSS styles onto the node.
@@ -135,9 +137,9 @@ be responsible for returning a DOM Node to display. These modules are called
 
 #### `main.js`
 
-Let's create a mapping from `routes` to `components`. This will allow us to 
+Let's create a mapping from `routes` to `components`. This will allow us to
 specify the routing configuration from outside of the router. Separating
-the configuration logic from the routing logic promotes 
+the configuration logic from the routing logic promotes
 [separation ofconcerns][separation-of-concerns].
 
 * Create the `routes`
@@ -157,10 +159,10 @@ file, but our `routes` will be simple enough to include in `main.js`.
   * Add a second parameter to the constructor function called `routes`.
   * Save `routes` to `this.routes`.
 * Change `activeRoute`.
-  * `activeRoute` should return the component that matches the current route 
+  * `activeRoute` should return the component that matches the current route
     instead of just returning the name of the route.
   * Look up the appropriate component for the current route by accessing the
-    `this.routes` object using the location name you retrieved from the hash. 
+    `this.routes` object using the location name you retrieved from the hash.
     **Make sure you have removed "#" from the name.**
   * Return the component.
 * Change `render`.
@@ -182,8 +184,8 @@ file, but our `routes` will be simple enough to include in `main.js`.
 
 ### Rendering Data from Components
 
-Now that we have the core pieces of our single-page application, we can add any 
-cool new component and corresponding route that we want, and everything should 
+Now that we have the core pieces of our single-page application, we can add any
+cool new component and corresponding route that we want, and everything should
 work.
 
 Before our components can render anything particularly interesting,
@@ -212,7 +214,7 @@ manipulating it.
   * Each `array` will contain objects representing individual messages.
   * You should format the messages so they have the following properties: `to`,
     `from`, `subject`, and `body`.
-  * Here is an example: 
+  * Here is an example:
 
     ```js
     let messages = {
@@ -229,7 +231,7 @@ manipulating it.
     ```
 
 * Now that we have some data, let's create the functionality for working with it.
-  * Create a new object called `MessageStore`. 
+  * Create a new object called `MessageStore`.
   * Create the following functions as properties on this object:
     * `getInboxMessages`: a function that returns the array at `messages.inbox`.
     * `getSentMessages`: a function that returns the array at `messages.sent`.
@@ -238,7 +240,7 @@ manipulating it.
 #### Modify your `Inbox`
 
 Now that we have a data source to work with let's change our `Inbox` component
-to render it. 
+to render it.
 
 * Require the `MessageStore` so we can access our messages.
 * `render`
@@ -285,7 +287,7 @@ component should be easy.
 * The `Sent` component should be almost identical to the `Inbox` component. It
   should look exactly the same, but make the following changes:
   * `render`
-    * Retrieve the sent messages instead of the inbox by calling 
+    * Retrieve the sent messages instead of the inbox by calling
     `MessageStore.getSentMessages`.
   * `renderMessage`
     * Replace `<span class="from">${message.from}</span>` with `<span
@@ -300,7 +302,7 @@ component should be easy.
 
 ## Phase IV: `Compose` Component
 
-_(Read this entire section before coding, as there is more context to 
+_(Read this entire section before coding, as there is more context to
 process)._
 
 Now let's add a new component that will allow us to write new e-mails. The
@@ -310,7 +312,7 @@ key differences:
 * The component will have a more complicated structure for the DOM Node it needs to
   render.
 * We will need to add event listeners in order to give to give our component a
-  couple key pieces of functionality: 
+  couple key pieces of functionality:
   1. We want to store the message being drafted somewhere in memory. If the
 currently drafted messaged only exists as a values in the fields of a form,
 then as soon as the form is unmounted from the DOM then you will lose the
@@ -339,8 +341,8 @@ would not be hard coding messages, but instead fetching them from a server. So
 you can leave the seed data as is for now.
 
 **In `message_store.js`:**
-* Create a `Message` constructor function. 
-  * This function should have the following parameters: `from`, `to`, `subject`, 
+* Create a `Message` constructor function.
+  * This function should have the following parameters: `from`, `to`, `subject`,
   `body`. Make sure to save these values as instance variables.
 * Now we need a place to store the current message draft. Create a variable
   called `messageDraft` and set `new Message`. Drafts always start off blank so it is okay if the fields start off blank.
@@ -349,7 +351,7 @@ you can leave the seed data as is for now.
     * This should take two parameters, `field` and `value`, and set the
       property of `messageDraft` specified in `field` to `value`.
   * `sendDraft`
-    * Add the current draft to the sent folder by pushing `messageDraft` onto the 
+    * Add the current draft to the sent folder by pushing `messageDraft` onto the
       `messages.sent` array.
     * Reset `messageDraft` to a **new** blank message object by calling the
       `Message` constructor.
@@ -376,8 +378,8 @@ complicated DOM structure.
       it:
       * An `<input>` tag with the following attributes: `placeholder` = `Recipient`, `name` = `to`, `type` = `text`, and `value` = the `to` property of the current draft.
       * An `<input>` tag with the following attributes: `placeholder` = `Subject`, `name` = `subject`, `type` = `text`, and `value` = the `subject` property of the current draft.
-      * A `<textarea>` with the following attributes: `name` = `body` and `rows` = `20`. 
-        * In order to change the inside of the `<textarea>` to contain the `body` of the current message, you need to put it between the two tags. `<textarea>Here's some text</textarea>`. 
+      * A `<textarea>` with the following attributes: `name` = `body` and `rows` = `20`.
+        * In order to change the inside of the `<textarea>` to contain the `body` of the current message, you need to put it between the two tags. `<textarea>Here's some text</textarea>`.
         * `<textarea value="Here's some text"></textarea>` will not work.
       * A `<button>` with the following attributes: `type` = `submit`, `class` = `btn btn-primary submit-message` and content `Send`.
         * Set the content by placing it between the tags, as we did with `<textarea>`.
@@ -393,7 +395,7 @@ Require `Compose` in `main.js` and add a new route for your `Compose` component 
 Finally we will add the event listeners to our `Compose` function to make it
 respond to user actions.
 
-Update the message draft whenever the form changes: 
+Update the message draft whenever the form changes:
 * `render`
     * Add an event listener to the container `<div>` on a `change` event.
     * This event listener will be called any time one of the fields in the form
@@ -406,10 +408,10 @@ Update the message draft whenever the form changes:
     * Tell the `MessageStore` to update the contents of the `messageDraft` to
       match the form by calling `MessageStore.updateDraftField`.  
       * Pass in the name of the field to change as the first argument and the value of the field to change as the second argument.
-    * Test that if you fill out the form and click `Inbox` or `Sent` before 
-      submitting and then navigate back to compose form, the form is still filled 
+    * Test that if you fill out the form and click `Inbox` or `Sent` before
+      submitting and then navigate back to compose form, the form is still filled
       out.
-  * Send the new message when the form is submitted: 
+  * Send the new message when the form is submitted:
     * Add an event listener to the container `<div>` on a `submit` event.
     * This event listener will be called when the `form` fires a `submit` event.
     * The handler function should do the following:
@@ -426,4 +428,3 @@ Update the message draft whenever the form changes:
 [separation-of-concerns]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [hash-fragment]: https://en.wikipedia.org/wiki/Fragment_identifier
 [single-page-app]: https://en.wikipedia.org/wiki/Single-page_application
-
