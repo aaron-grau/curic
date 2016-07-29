@@ -169,6 +169,19 @@ Now that you've seen how to use `DBConnection::execute2`, write a
 Remember that DB queries are expensive, so we only want to make the
 query **once**, regardless of how often `::columns` gets called.
 
+Note: the `execute` and `execute2` methods **will not allow us to interpolate into the `FROM` statement.**
+
+```ruby
+DBConnection.execute(<<-SQL, cats)
+  SELECT
+    *
+  FROM
+    ?
+SQL
+```
+
+The above will not work. Use standard string interpolation instead: `#{}`.
+
 ## Phase Ic: Getters and Setters
 
 Now that we can list columns, we'll write a class method `::finalize!`
