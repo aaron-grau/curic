@@ -38,6 +38,7 @@ describe("a test that will", function () {
 });
 ```
 
+You can also specifically run a single test or block of tests by inserting an 'f' for 'focused'. That is, `fdescribe` or `fit` a test.
 
 ## Debugging Jest
 
