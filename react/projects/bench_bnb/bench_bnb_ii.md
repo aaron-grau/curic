@@ -127,9 +127,7 @@ Awesome! Now users can easily create new benches.
 ## Phase 9: Front-End User Authentication
 
 In this phase, we are going to implement front-end user sign-up and login.
-Goodbye Rails views; hello, single-page app! **Read through the instructions for
-the entire phase before building anything.** This will give you the context to
-understand each individual step.
+Goodbye Rails views; hello, single-page app!
 
 **Our authentication pattern must:**
   * sign up new users
@@ -137,6 +135,14 @@ understand each individual step.
   * log users in
   * log them out
   * restrict access to certain routes based on whether someone is logged in
+
+There are a few pieces to solving this puzzle. We still need backend auth to protect our rails routes. But we also need to communicate our logged-in status to the frontend so that we render the correct components. To do this, we will have a SessionStore which keeps track of our current user. We'll also have an ErrorStore to keep track of any login errors.
+
+The SessionStore and ErrorStore will each need their own flux cycles. Then we'll ensure that our SessionStore receives the current user by attaching some current user info to the window. Before rendering any component, we'll use an onEnter callback on our `<Route/>`s to check if a user is logged in.
+
+**Read through the instructions for
+the entire phase before building anything.** This will give you the context to
+understand each individual step.
 
 ### 1. Build Your Backend.
 
@@ -156,11 +162,10 @@ differences:
 * **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to partial **`api/users/_user.json.jbuilder`**, which we'll use later.
 * **`Sessions#destroy`**: render an empty `{}` upon successful logout.
   * Render a `404` message if there is no `current_user` to logout.
-* **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username
-already exists') in your response with a corresponding error status.
-  * Use `@user.errors` when applicable.
-  * Render single errors in the format `{base: ['error message here']}`
-  * ex. `render json: {base: ['invalid credentials']}, status: 401`
+* **Auth Errors**: Render auth errors in your response with a corresponding error status.
+  * Use `@user.errors.full_messages` when applicable.
+  * Render single errors in an array
+  * ex. `render json: ['Invalid credentials'], status: 401`
   * **Caution**: Error responses are formatted differently than normal
   responses.
 
@@ -171,14 +176,28 @@ Test your routes using `$.ajax` in the console before moving on.
 Once your API is fully built and tested, set up the following flux architecture
 components.
 
-####SessionApiUtil
+#### SessionApiUtil
 
 Create a `SessionApiUtil` with the following methods:
   * **`signup`:** POST 'api/users'
   * **`login`:** POST 'api/session'
   * **`logout`:** DELETE 'api/session'
 
-Each `SessionApiUtil` method should take `success` and `error` callbacks.
+Each `SessionApiUtil` method should take `success` and `error` arguments and use those for its ajax success/error callbacks. For example:
+
+```js
+anApiCall(otherArgs, success, error) {
+  $.ajax({
+    url: 'random/route'
+    // other ajax params
+    success
+    error
+    // this is ES6 shorthand for:
+    // success: success
+    // error: error
+  })
+}
+```
 
 Before moving on, put `SessionApiUtil` on the window in your entry file and test
 it out. Make sure all your endpoints behave properly for both successful and
@@ -186,14 +205,14 @@ erroneous requests. Pay attention to:
 * the `Network` tab of Dev Tools
 * the Rails server logs
 
-####SessionStore
+#### SessionStore
 
 Create a `SessionStore` that will keep track of the current user.
 
 **Variables:**
   * `_currentUser`: should be `{}` if no one is logged in
 
-**Closures:**
+**Closures** (i.e. private functions only available in this file):
   * `_login`: set `_currentUser` and `__emitChange()`
   * `_logout`: set `_currentUser` to `{}` and `__emitChange()`
 
@@ -201,16 +220,18 @@ Create a `SessionStore` that will keep track of the current user.
   * `currentUser`: a reader
   * `isUserLoggedIn`: should return a boolean of whether a user is logged in
     * hint: you can check `_currentUser.id`
-`SessionStore.__onDispatch`
+
+**`SessionStore.__onDispatch`**
   * Define `SessionConstants` for `LOGIN` and `LOGOUT`
   * Setup `SessionStore.__onDispatch` to call the appropriate methods
 
-####SessionActions
+#### SessionActions
 
-0. Create **`signup`, `login`, and `logout`** methods for client-generated actions:
+0. Create **`signup`, `login`, and `logout`** methods:
 Each method should:
   * Invoke the appropriate `SessionApiUtil` action.
   * Pass `receiveCurrentUser` as a `success` callback.
+  * We'll write the `error` callback later
 
 0. Write `receiveCurrentUser`
   * dispatch to the `SessionStore`
@@ -236,40 +257,25 @@ Your forms should display errors if user submissions cause validation/authentica
 
 ####  Create an `ErrorStore`.
 
-Variables:
-* `_errors`: This `{}` should store key-value pairs where:
-  * each key is an error field, and
-  * each value is an array of error messages for that field.
-    ```js
-    _errors === {
-      username: [
-        "has already been taken",
-        "is too short (minimum is 4 character)"
-      ],
-      password: [
-        "is too short (minimum is 6 characters)"
-      ]
-    }
-    ```
-*`_form`: The store should only ever have the errors for a single form. This
+**Variables:**
+* `_errors`: an `[]` for your errors
+* `_form`: The store should only ever have the errors for a single form. This
 variable should store the name of the form currently being tracked as a string.
 
-Public Methods:
-* `formErrors`: takes a `form` argument and returns a copy of `_errors` if and only
+**Public Methods:**
+* `errors`: takes a `form` argument and returns a copy of `_errors` if and only
 if `form === _form`.
-* `form`: returns the current `_form`.
 
-Closures:
-* `setErrors`: takes a `form` name and an `errors` object and saves them in `_form`
+**Closures:**
+* `_setErrors`: takes a `form` name and an `errors` object and saves them in `_form`
 and `_errors`; emits change.
-* `clearErrors`: sets `_form` and `_errors` to `""` and `{}` respectively; emits
+* `_clearErrors`: sets `_form` and `_errors` to `""` and `[]` respectively; emits
 change.
 
-`__onDispatch`:
-Create `ErrorConstants` and handle the following `actionTypes`:
-* `ErrorConstants.SET_ERRORS`
-* `ErrorConstants.CLEAR_ERRORS`
-* Wait until
+**`__onDispatch`:**
+* Create `ErrorConstants` and handle the following `actionTypes`:
+  * `ErrorConstants.SET_ERRORS`
+  * `ErrorConstants.CLEAR_ERRORS`
 
 ####  Define `ErrorActions`
 
@@ -280,19 +286,18 @@ Define the following actions:
 Both methods should take the raw API error response generated by your `$.ajax` call and dispatch the proper error information to your `ErrorStore`. Keep in mind that Rails error responses return XHR objects, not raw response data, which lives in the `.responseJSON` attribute of the XHR object returned.
 
 Once you've written these methods, return to your `SessionActions` and `SessionApiUtil`:
-* Modify `SessionApiUtil` so that your methods take an `error` callback to invoke in  the `error` response of your `$.ajax` call.
-* Modify `SessionActions` to pass `ErrorActions.setErrors` as the `error` argument to your `SessionApiUtil`.
+
+* Modify `SessionActions` to pass `ErrorActions.setErrors` as the `error` argument to your `SessionApiUtil` methods.
 
 ####  Update your `LoginForm` and `SignupForm`
 
 Your components should listen to your `ErrorStore` on `componentDidMount`. Make
 sure they track `this.state.errors`. When the store changes, `setState` to
-the new errors on the form. Make sure to check `ErrorStore.form` to ensure that
-your `LoginForm` doesn't render `SignupForm` errors and vice versa.
+the new errors on the form. Reminder:  `ErrorStore.errors` should check the `form` so that LoginForm doesn't render signup errors and vice versa.
 
 Update both forms to `render` their errors if any are present.
 
-### 4. Create a greeting in the header.
+### 5. Create a greeting in the header.
 
 Modify your app to provide a greeting to users when they are signed in.
   * In the `App` component, render a `<header>` with information about the
@@ -301,7 +306,7 @@ Modify your app to provide a greeting to users when they are signed in.
     * `onClick` of logout button, `preventDefault` and `SessionActions#logout`
   * If user IS NOT logged in, give them links to "#/login" and "#/signup"
 
-### 5. Bootstrap the current user before the app mounts.
+### 6. Bootstrap the current user before the app mounts.
 
 When our static `root` page loads, our app mounts without being aware of who the
 current user is.
@@ -334,7 +339,7 @@ that looks something like this:
 <main id="content"></main>
 ...
 
-``` 
+```
 
 where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
 
@@ -361,7 +366,7 @@ in. You should have something like this:
 
 <script type="text/javascript">
   <% if logged_in? %>
-    window.currentUser = <%= render("api/users/user.json.jbuilder", 
+    window.currentUser = <%= render("api/users/user.json.jbuilder",
       user: current_user).html_safe %>
   <% end %>
 </script>
@@ -377,10 +382,10 @@ Finally, inside the `DOMContentLoaded` callback in your entry file, call
 `ReactDom.render`. This will ensure that the `SessionStore` has the
 `_currentUser` before any of your components render.
 
-Test that your bootstrapping worked by logging in and refreshing the page. If you 
+Test that your bootstrapping worked by logging in and refreshing the page. If you
 don't get logged out, it worked!
 
-### 6. Protect your front-end routes.
+### 7. Protect your front-end routes.
 
 Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in.
 
@@ -390,12 +395,12 @@ Let's make sure users can't get to our "/benches/new" or "benches/:id/review" ro
     <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />
     ```
   * Define an `_ensureLoggedIn` function in your entry file. It should:
-    * have `nextState` and `replace` parameters.
+    * take `nextState` and `replace` arguments. React-Router will pass these arguments to any onEnter callback.
     * check `SessionStore#isUserLoggedIn`.
     * If `true`, do nothing.
-    * Otherwise, `replace` the path with "/login". (Remember that `replace` won't
+    * Otherwise, use the `replace` function to redirect to "/login". (Remember that `replace` won't
     add a "fake" entry to the browser's history, whereas `push` will.)
-    * We don't need an `asyncDoneCallback` because `_ensureLoggedIn` runs synchronously.
+    * onEnter functions take an optional third argument, an `asyncDoneCallback`. We don't need this because `_ensureLoggedIn` runs synchronously.
 
 Test your work before continuing.
 
