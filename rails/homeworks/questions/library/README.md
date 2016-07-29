@@ -49,4 +49,4 @@ Feeling stuck? Revisit the controllers videos and additional readings!
 Once you've got it working, celebrate by adding some of your favorite books! :books:
 
 [controlla-by-drake]: https://soundcloud.com/octobersveryown/drake-controlla
-[skeleton]: ./skeleton.zip?raw=true
+[skeleton]: ./library.zip?raw=true
