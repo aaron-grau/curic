@@ -1,12 +1,12 @@
 import { createStore } from 'redux';
-import masterReducer from '../reducers/master_reducer';
-import masterMiddleware from '../middleware/master_middleware';
+import MasterReducer from '../reducers/master_reducer';
+import MasterMiddleware from '../middleware/master_middleware';
 
 const configureStore = (preloadedState = {}) => (
   createStore(
-    masterReducer,
+    MasterReducer,
     preloadedState,
-    masterMiddleware
+    MasterMiddleware
   )
 );
 

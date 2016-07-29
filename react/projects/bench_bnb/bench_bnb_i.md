@@ -26,8 +26,8 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 
 ## Phase 1: `Frontend` Structure
 
-* Make a `StaticPagesController`, have it serve a `root` view with a `<div
-id="content"/>`.
+* Make a `StaticPagesController`, have it serve a `root` view with a `<main
+id="root"></main>`.
 
 * Update `routes.rb` to `root` to `"Staticpages#root"`.
 * Create a `/frontend` folder at the root directory of your project to hold your
@@ -37,7 +37,6 @@ frontend:
   frontend
     + actions
     + components
-    + constants
     + middleware
     + reducers
     + store
@@ -56,7 +55,7 @@ frontend:
   * `babel-preset-react`
   * `babel-preset-es2015`
 
-* setup your entry file (`bench_bnb.jsx`) to render your app into the `#content` `div`..
+* setup your entry file (`bench_bnb.jsx`) to render your app into the `#root` container..
 * Test this rendering setup before moving on.
 
 ---
@@ -93,7 +92,7 @@ The function should accept two arguments:
   * Return the default state if no arguments are passed
   * Return the `oldState` if the reducer doesn't care about the `action`
 
-Let's just setup our `BenchReducer` to return it's default state:
+Let's start by just setting up our `BenchReducer` to return it's default state:
 
 ```javascript
   const BenchReducer = function(oldState = {}, action){
@@ -109,52 +108,68 @@ Let's just setup our `BenchReducer` to return it's default state:
 
 ---
 
-### The `Store`
+### MasterReducer
 
-The redux `Store` will hold a reference to our application state. The `Store` will also handle updating our state when `actions` are dispatched and it will tell the necessary components to re-render.
+Create a new file, `reducers/master_reducer.js`. This file will be responsible for
+combining our multiple, domain-specific reducers. It will export a single `MasterReducer`.
 
-* create a `/store/store.js` file that exports a redux store.
-* import `createStore` and `combineReducers` from the redux library
-* also import the reducing function we just created!
+  * import `combineReducers` from the redux library
+  * also import the `BenchReducer` function we just created!
+
+  ```javascript
+    import { createStore, combineReducers } from 'redux';
+    import BenchReducer from '../reducers/bench_reducer';
+  ```
+
+  * Create a `MasterReducer` using the `combineReducers` function
+  * Remember, the `combineReducers` function accepts a single argument: an object
+    whose properties will represent properties of our application state, and values
+    that correspond to domain-specific reducing functions.
 
 ```javascript
-  import { createStore, combineReducers } from 'redux';
-  import BenchReducer from '../reducers/bench_reducer';
-```
-
-* Create a `masterReducer` using the `combineReducers` function
-* Remember, the `combineReducers` function accepts a single argument: an object
-  whose properties will represent properties of our application state, and values
-  that correspond to domain-specific reducing functions.
-
-```javascript
-  const masterReducer = combineReducers({
+  const MasterReducer = combineReducers({
     benches: BenchReducer
   });
 ```
 
-*Note: I'm leaving extra vertical space here, because later we'll add several more
-domain-specific reducers!*
+  *Note: I'm leaving extra vertical space here, because later we'll add several more
+  domain-specific reducers!*
 
-So far, our default application state looks like this:
+  So far, our default application state looks like this:
 
-```
-  {
-    benches: {}
-  }
-```
+  ```
+    {
+      benches: {}
+    }
+  ```
 
-Finally, let's use `createStore` to make a new redux store. `export default` and
-add it to the window for testing!
+  * `export default` the `MasterReducer`
+
+---
+
+### The `Store`
+
+The redux `Store` will hold a reference to our application state. The `Store` will also handle updating our state when `actions` are dispatched and it will tell the necessary components to re-render.
+
+  * create a new file, `/store/store.js`
+  * import `createStore` from the redux library
+  * import our `MasterReducer`
+
+We want to use a `configureStore` function that will allow us to instantiate our
+`Store` with different initial states.
+
+  * Define a new function, `configureStore`, that accepts a single argument, `preloadedState`
+  * `configureStore` should return a new `Store` with the `MasterReducer` and `preloadedState`
 
 ```javascript
-  const Store = createStore(
-    masterReducer,
-    masterMiddleware
-  );
+  const configureStore = (preloadedState = {}) => (
+    createStore(
+      MasterReducer,
+      preloadedState
+    );
+  )
 
-  window.Store = Store; //just for testing!
-  export default Store;
+  export default configureStore
 ```
 
 ---
@@ -163,7 +178,8 @@ add it to the window for testing!
 
 So far, we have built our redux store and told it to use our bench reducing function.
 Test that everything works:
-  0. Add your store somewhere to your entry point
+  0. Add a doc-ready callback to your entry point
+  0. Inside the callback, `configureStore()` and assign the store to the window
   0. Visit localhost:3000
   0. Open the console and type Store.getState()
 
@@ -176,20 +192,22 @@ Your state should look like the default state mentioned above!
 #### Constants
 
 Before we move on to the fun stuff -- populating our store with benches from rails --
-we need to write a couple of files that help our other major pieces function. First, let's
-create a constants file: `constants/bench_constants`
+we need to write an `actions` file that helps our other major pieces function.
 
-From here, let's export two constants that our `ActionCreators`, `Middleware`,
-and `Store` will all use.
+  * Create an actions file: `actions/bench_actions`
+  * Create and export a new object, `BenchConstants`
 
 ```javascript
-  export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
-  export const REQUEST_BENCHES = "REQUEST_BENCHES";
+  export const BenchConstants = {
+    RECEIVE_BENCHES: "RECEIVE_BENCHES",
+    REQUEST_BENCHES: "REQUEST_BENCHES"
+  };
 ```
 
-These constants will represent `actionTypes` and will be used in the `switch` statements
-in our `Store` and `Middleware`. They simply help ensure that all of our redux pieces
-are talking about the same thing and that nothing fails silently from typos.
+These constants will represent `actionTypes`. We will use them in our `action creators`,
+as well as in the `switch` statements in our `Store` and `Middleware`. They simply
+help ensure that all of our redux pieces are talking about the same thing and
+that nothing fails silently from typos.
 
 [See this Stack Overflow question.][so-constants]
 
