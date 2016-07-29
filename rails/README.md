@@ -24,11 +24,8 @@
 + [:movie_camera: Basic Controller Demo][basic-controller-demo-video] (15 min)
 + [:movie_camera: RESTful Controller Demo][restful-controller-demo-video] (15 min)
 
-### Homeworks (2 hr, 30 min)
-* [JumpStart Blogger][js-blogger] (90 min)
-    * Only do up through (and including) "I3: Tagging"
-    * Just this one time, don't delete `stylesheet_link_tag` or
-      `javascript_include_tag`.
+### Homeworks (1 hr, 30 min)
+* [Library Controller][library-hw] (30 min)
 * **Complete days 1 & 2 of [HTML-CSS Curriculum][html-readme]** (60 min)
 
 ### Additional Resources
@@ -69,7 +66,7 @@
 [10-form-partial]: http://vimeo.com/groups/appacademy/videos/100729434
 [11-form-encoding]: http://vimeo.com/groups/appacademy/videos/100729435
 
-[js-blogger]: http://tutorials.jumpstartlab.com/projects/blogger.html
+[library-hw]: ./homeworks/questions/library
 [html-readme]: ../html-css
 
 [routing-i]: readings/routing-part-i.md
