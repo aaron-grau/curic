@@ -1,20 +1,15 @@
 # Reddit On Rails
 
-* [Live Demo](http://aa-reddit.herokuapp.com)
+* [Project Demo](http://aa-reddit.herokuapp.com)
+* [Actual Reddit](http://www.reddit.com)
 
-# Reddit Clone
-
-If you don't know what the Reddit is, then you are probably someone with
-a life. You should cast that away now. Reddit is basically a bunch of
-subforums and posts.
-
-[Here, look at some cats](http://www.reddit.com/r/cats).
 
 ## Phase I: Auth
 
 Write a basic Auth implementation
-(`User`, `UsersController`, `SessionsController`). Use `BCrypt`. Go,
-student, go!
+(`User`, `UsersController`, `SessionsController`).
+
+**Do not looks at previous day's solutions.  Write Auth from scratch!**  It is important that you understand how each method works, and how to debug any errors you may encounter.  
 
 ## Phase II: `Sub`s and `Post`s
 
