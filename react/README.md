@@ -200,6 +200,8 @@
 ## w8d1
 
 **Project Proposal Review Period for Instructional Staff**
+### Homework (1 hour)
+* Do the first half of the a04 to review backend auth.
 
 ### Projects
 * **Solo:** [BenchBnB Day 2][bench-bnb2]
