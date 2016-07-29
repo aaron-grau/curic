@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router';
-import MarkerManager from './marker_manager';
+import MarkerManager from '../../util/marker_manager';
 
 const _getCoordsObj = function(latLng) {
   return ({
@@ -25,12 +25,12 @@ class BenchMap extends React.Component{
       this.props.requestBench(this.props.benchId);
     } else {
       this._registerListeners();
-      this.MarkerManager._updateMarkers(this.props.benches);
+      this.MarkerManager.updateMarkers(this.props.benches);
     }
   }
 
   componentDidUpdate(){
-    this.MarkerManager._updateMarkers(this.props.benches);
+    this.MarkerManager.updateMarkers(this.props.benches);
   }
 
   _registerListeners() {

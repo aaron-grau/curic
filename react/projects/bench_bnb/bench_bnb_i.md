@@ -204,7 +204,7 @@ we need to write an `actions` file that helps our other major pieces function.
   };
 ```
 
-These `constants` will represent `actionTypes`. We will use them in our `ActionCreators`,
+These `constants` will represent `actionTypes`. We will use them in our action-creators,
 as well as in the `switch` statements in our `Store` and `Middleware`. They simply
 help ensure that all of our redux pieces are talking about the same thing and
 that nothing fails silently from typos.
@@ -222,17 +222,17 @@ reliable, tidy manner. Remember that `action` objects are just plain-old javascr
 objects that also have a `type` property. **The value of the `type` property should
 always be a constant.**
 
-Note that `constants` and `ActionCreators` live in the same file!
+Note that `constants` and action-creators live in the same file!
 
 We need two `actions`: one that will tell our `Middleware` to go fetch all the benches
 from rails, and one that tells our `Store` to change our application state to represent
 the bench data in our `action`.
 
-Note that the `ActionCreators` don't directly interact with `Middleware` or the `Store`,
+Note that the action-creators don't directly interact with `Middleware` or the `Store`,
 they just produce objects. We then send those objects through our `Middleware` and
 to the `Store` by invoking `Store#dispatch`.
 
-The first `ActionCreator` doesn't need to accept any arguments. It should just
+The first action-creator doesn't need to accept any arguments. It should just
 produce an `action` with type `REQUEST_BENCHES`. Call this function `requestBenches`.
 
 ```javascript
@@ -241,7 +241,7 @@ produce an `action` with type `REQUEST_BENCHES`. Call this function `requestBenc
   });
 ```
 
-The second `ActionCreator` should accept a single argument, `benches`, and produce
+The second action-creator should accept a single argument, `benches`, and produce
 an `action` with type `RECEIVE_BENCHES` and a `benches` property that represents
 all of our bench data. Call this function `receiveBenches`.
 
@@ -379,7 +379,7 @@ function.
 
 #### Recap
 
-  Since our last recap, we have: created a `bench_actions` file, that holds `ActionCreators`
+  Since our last recap, we have: created a `bench_actions` file, that holds action-creators
   and `BenchConstants`. These help ensure that our `Views`, `Middleware`, and `Store`
   are communicating effectively.
 
@@ -461,7 +461,7 @@ We should see a `console.log` of all our bench data!
 Finally, we need to re-work our `BenchMiddleware` so that instead of a`console.log`ing
 the bench data, it dispatches the data as part of an action!
 
-  * Import the `receiveBenches` `ActionCreator`
+  * Import the `receiveBenches` action-creator
   * Re-write your success callback to dispatch a `RECEIVE_BENCHES` action
 
 
@@ -760,18 +760,84 @@ Read about the [findDOMNode method][findDOMNOde-docs]. Understand it before movi
 
 ## Phase 5: Markers on the Map
 
-We're now going to implement map markers for our benches. Read the documentation
-on [map markers][map-markers] before continuing.
+We're now going to implement map markers for our benches.
 
   * Update the `Search` component to pass a 'benches' prop to `BenchMap`
 
-The `BenchMap` needs to update which markers are on the map when the component
-first mounts and whenever the state changes.
+Managing the markers is going to require quite a bit of code, so we're going to
+create a helper class, `MarkerManager`.
 
-  * Create an instance variable, `markers`, in your `#componentDidMount` method
+---
 
-Next, we will create a method `#_updateMarkers`. This method will be responsible
-for making the markers on the map reflect the benches in the application state.
+### `MarkerManager`
+
+  * Create a new file `marker_manager.js`; this should probably live in our util folder
+  * In this file, create and export a new class, `MarkerManager`
+  * Define the constructor method to accept a map, and then create `map` and `markers`
+  instance variables
+
+```javascript
+class MarkerManager {
+  constructor(map){
+    this.map = map;
+    this.markers = [];
+  }
+  //...
+}
+```
+
+Next, we're going to define a method `#updateMarkers`. Start with just a simple `console.log`
+
+```javascript
+class MarkerManager {
+  //...
+  updateMarkers(benches){
+    console.log('time to update');
+  }
+  //...
+}
+```
+
+Let's put `MarkerManager` on the back-burner for now. We'll come back later.
+
+---
+
+### `BenchMap` <--> `MarkerManager`
+
+Let's see how the `BenchMap` is going to interact with our `MarkerManager`.
+
+  * Import the `MarkerManager` class
+  * Update the `BenchMap#componentDidMount` method to create a new `MarkerManager`
+
+```javascript
+  componentDidMount(){
+    //...
+    this.map = new google.maps.Map(mapDOMNode, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
+  }
+```
+
+We need to invoke `MarkerManager#updateMarkers` both when the `BenchMap` component
+first mounts **and** whenever the benches in the application state change.
+
+Use the appropriate `React` [lifecycle methods][lifecycle-methods].
+
+Confirm that the `MarkerManager` utility works by checking the console for our
+`console.log` **both before and after** running the following code.
+
+```javascript
+  Store.dispatch(requestBenches());
+```
+
+Make sure this works before moving on!
+
+[lifecycle-methods]: https://facebook.github.io/react/docs/component-specs.html
+
+---
+
+### `updateMarkers`
+
+Read the documentation on [map markers][map-markers] before continuing.
 
 To accomplish the goal of adding and removing markers appropriately, write the following
 helper methods:
@@ -779,16 +845,14 @@ helper methods:
   * `#_benchesToAdd` --> returns an array of benches that are in the state, but
   not on the map
   * `#_markersToRemove` --> returns an array of markers that are on the map, but
-  the benches they represent are no in the state
+  the benches they represent are not in the state
   * `#_createMarkerFromBench` --> accepts a bench object as an argument; adds a
-  marker to the map and to the `markers` array
+  marker to the `map` and to the `markers` array
   * `_removeMarker` --> accepts a marker as an argument; removes marker from map
   and from `markers`
 
-We need to invoke `#_updateMarkers` when `BenchMap` mounts and it receives new
-props. Use the appropriate `React` [lifecycle methods][lifecycle-methods].
-
-[lifecycle-methods]: https://facebook.github.io/react/docs/component-specs.html
+Make sure you can see markers before moving on! Don't worry if the removing methods
+are unfinished or untested, we'll use them soon.
 
 ---
 
@@ -825,7 +889,34 @@ benches that are within the boundaries specified by the argument. See the exampl
 
 ---
 
-######## Warning.. unfinished
+### `BenchMap` and `idle`
+
+Our goal in this step is to register a listened on the `idle` event of our Google
+`map` that grabs the bounds of the map and triggers a dispatch.
+
+---
+
+#### Filter Actions
+
+  * Create a new file, `actions/filter_actions`
+  * Create and export a FilterConstants object with property: `UPDATE_BOUNDS`
+  * Make and export an action-creator, `updateBounds`; this should accept a single
+  argument: `bounds`
+
+---
+
+#### `SearchContainer`
+
+Update your `SearchContainer`'s `mapDispatchToProps` function to use the newly
+constructed `updateBounds` action-creator.
+
+
+
+
+
+
+
+
 * When the `BenchMap` component is mounted, register an event listener on
 change of the `BenchStore`.
 * When the event occurs, create markers for every bench in the array.

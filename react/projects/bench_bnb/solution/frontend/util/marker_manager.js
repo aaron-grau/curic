@@ -8,7 +8,7 @@ export default class MarkerManager {
     this._removeMarker = this._removeMarker.bind(this);
   }
 
-  _updateMarkers(benches){
+  updateMarkers(benches){
     this.benches = benches;
     this._benchesToAdd().forEach(this._createMarkerFromBench);
     this._markersToRemove().forEach(this._removeMarker);
