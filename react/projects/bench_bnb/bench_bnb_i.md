@@ -641,7 +641,7 @@ Here's a summary of your redux loop so far:
   * When the application state changes, it triggers a callback that was provided by
   the connect function.
   * That callback runs our `mapStateToProps` and `mapDispatchToProps` functions. The
-  return values of these funcitons are then merged and the resulting object is passed
+  return values of these functions are then merged and the resulting object is passed
   as new props to `BenchIndex`
   * When `BenchIndex` receives these new props, it re-renders. Phew!
 
@@ -696,7 +696,7 @@ You could also deconstruct your props (recommended) like so..
   );
 ```
 
-* In your entry file, render the `Search` component instead of `BenchIndex`.
+* In your entry file, render the `SearchContainer` component instead of `BenchIndexContainer`.
   This should cause both the `BenchMap` and the `BenchIndex` to be rendered on
   the page.
 * Verify your work before moving on.
@@ -705,7 +705,7 @@ You could also deconstruct your props (recommended) like so..
 
 ---
 
-### Attach a Google Map to `BenchMap`.
+### Attach a Google Map to `BenchMap`
 
 * Read [the google maps documentation][google-map-doc].
 * Get a new API key for a JavaScript Google Map.
@@ -757,7 +757,6 @@ Read about the [findDOMNode method][findDOMNOde-docs]. Understand it before movi
 [functional-comp-docs]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 
 ---
-
 
 ## Phase 5: Markers on the Map
 
