@@ -6,7 +6,7 @@ actually works: how your ActiveRecord world is translated into SQL.
 
 ## Setup
 
-Please download the skeleton from the project directory on GitHub.
+Download the skeleton from the project directory on GitHub.
 
 There are specs in it which will guide you through the project. Because
 they're using a database, they run a little slow, so it might be helpful
