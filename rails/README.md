@@ -24,8 +24,8 @@
 + [:movie_camera: Basic Controller Demo][basic-controller-demo-video] (15 min)
 + [:movie_camera: RESTful Controller Demo][restful-controller-demo-video] (15 min)
 
-### Homeworks (1 hr, 30 min)
-* [Library Controller][library-hw] (30 min)
+### Homeworks (1 hr, 45 min)
+* [Library Controller][library-hw] (45 min)
 * Complete days 1 & 2 of [HTML-CSS Curriculum][html-readme] (60 min)
 
 ### Additional Resources

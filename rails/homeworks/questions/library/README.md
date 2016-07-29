@@ -3,7 +3,7 @@
 Today's homework is going to focus on controllers.
 
 **Things to know for this homework:**
-- Views are a new concept that you will be learning about in greater detail during tomorrow's homework. For now, just know that they access to instance variables defined by the corresponding controller action (e.g. the books' `index` view has access to instance variables defined in `BooksController#index`) and are what we actually see on the page.
+- Views are a new concept that you will be learning about in greater detail during tomorrow's homework. For now, just know that they have access to instance variables defined by the corresponding controller action (e.g. the books' `index` view has access to instance variables defined in `BooksController#index`) and are what we actually see on the page.
 - In the videos/readings on controllers so far, we have seen them `render :json`; for this assignment, we will be rendering templates instead. For example, to render the `index`, we simply `render :index`. To redirect to the index, we `redirect_to` the url that matches our intended route when we `rake routes` - in this case, the `books_url`.
 
 A basic rails project has already been made for you - except for the controllers. Download the [skeleton zip][skeleton]. To set up, navigate into the project directory and run:
