@@ -26,7 +26,7 @@ end
 
 Check those out by navigating to `localhost:3000/books`. Whoops! We get this error:
 
-![image of index error](./public/index_error.png)
+![image of index error](./index_error.png)
 
 Our books' `index` view is expecting there to be a `@books` variable that contains all the books from the database, but it's currently `nil`. This is a job for our controller's `index` action! Get your index working so that `@books` is correctly set to all books and we can see our library's index page.
 
