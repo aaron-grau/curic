@@ -65,7 +65,7 @@ In this phase, you will build the pieces necessary to display a basic index of b
 `BenchStore` will be the front-end cache of benches that your components use.
 
 * create a `/stores/bench_store.js` file that exports a `BenchStore`.
-* `require` `Store` from `'flux-utils'` as `Store`.
+* `require` `Store` from `'flux/utils'` as `Store`.
 * `BenchStore` should be a `new Store` that accepts your `AppDispatcher` singleton
 as its only argument.
   *  This tells the `BenchStore` to listen to `AppDispatcher` for dispatches.
