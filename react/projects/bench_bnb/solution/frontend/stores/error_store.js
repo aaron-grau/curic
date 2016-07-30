@@ -9,13 +9,13 @@ const ErrorStore = new Store(AppDispatcher);
 let _errors = [];
 let _form = "";
 
-function setErrors(payload){
+function _setErrors(payload){
   _errors = payload.errors;
   _form = payload.form;
   ErrorStore.__emitChange();
 }
 
-function clearErrors(){
+function _clearErrors(){
   _errors = [];
   _form = "";
   ErrorStore.__emitChange();
@@ -24,10 +24,10 @@ function clearErrors(){
 ErrorStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case ErrorConstants.SET_ERRORS:
-      setErrors(payload);
+      _setErrors(payload);
       break;
     case ErrorConstants.CLEAR_ERRORS:
-      clearErrors();
+      _clearErrors();
       break;
   }
 };
@@ -36,7 +36,7 @@ ErrorStore.errors = function (form) {
   if (form !== _form) {
     return [];
   }
-  
+
   return _errors.slice();
 };
 
