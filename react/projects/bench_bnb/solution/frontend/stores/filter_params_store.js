@@ -11,17 +11,17 @@ FilterParamsStore.params = function() {
   return Object.assign({}, _params);
 };
 
-function setMaxSeating(max){
+function _setMaxSeating(max){
   _params.maxSeating = max;
   FilterParamsStore.__emitChange();
 }
 
-function setMinSeating(min){
+function _setMinSeating(min){
   _params.minSeating = min;
   FilterParamsStore.__emitChange();
 }
 
-function setBounds(bounds){
+function _setBounds(bounds){
   _params.bounds = bounds;
   FilterParamsStore.__emitChange();
 }
@@ -29,13 +29,13 @@ function setBounds(bounds){
 FilterParamsStore.__onDispatch = function(payload) {
   switch(payload.actionType){
     case FilterConstants.UPDATE_MAX_SEATING:
-      setMaxSeating(payload.maxSeating);
+      _setMaxSeating(payload.maxSeating);
       break;
     case FilterConstants.UPDATE_MIN_SEATING:
-      setMinSeating(payload.minSeating);
+      _setMinSeating(payload.minSeating);
       break;
     case FilterConstants.UPDATE_BOUNDS:
-      setBounds(payload.bounds);
+      _setBounds(payload.bounds);
       break;
   }
 };
