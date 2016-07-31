@@ -201,7 +201,9 @@
 
 **Project Proposal Review Period for Instructional Staff**
 ### Homework (1 hour)
-* Do the first half of the a04 to review backend auth.
+* Do the auth part of A04 Prep
+  * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
+  * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
 * **Solo:** [BenchBnB Day 2][bench-bnb2]
