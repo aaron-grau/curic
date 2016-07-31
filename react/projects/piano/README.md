@@ -26,3 +26,6 @@ frontend/
   + store/
   + util/
   + piano.jsx
+```
+
+These folders will store our front-end goodies.
