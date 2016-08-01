@@ -168,7 +168,7 @@ for `keyup` and `keydown` events. Install event handlers by calling the
     $(document).on('keydown', (e) => {
       // dispatch a keyAction to add the key
     });
-    $(document).on('keydown', (e) => {
+    $(document).on('keyup', (e) => {
       // dispatch a keyAction to remove the key
     });  
   }
@@ -200,8 +200,8 @@ the action. The store ultimately keeps key names in `_keys`. We'll store `Note`
 objects as instance variables in our React components.
 
 **Note:** A jQuery `'keydown'` listener fires repeatedly when the user holds down
-a key, thereby repeatedly calling the `KeyPressed` function. Ensure that you
-call the `KeyPressed` function only once per key press by only adding the key to
+a key, thereby repeatedly calling the `keyPressed` function. Ensure that you
+call the `keyPressed` function only once per key press by only adding the key to
 the `KeyStore` if it isn't already added.
 
 Test that your listeners work without relying on any other code in your app

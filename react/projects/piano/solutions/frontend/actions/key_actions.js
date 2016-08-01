@@ -26,23 +26,23 @@
 //
 // module.exports = KeyActions;
 
-export const PianoConstants = {
+export const KeyConstants = {
   KEY_PRESSED: "KEY_PRESSED",
   KEY_RELEASED: "KEY_RELEASED",
   GROUP_UPDATE: "GROUP_UPDATE",
 }
 
 export const groupUpdate = keys => ({
-  type: PianoConstants.GROUP_UPDATE,
+  type: KeyConstants.GROUP_UPDATE,
   keys
 });
 
 export const keyPressed = key => ({
-  type: PianoConstants.KEY_PRESSED,
+  type: KeyConstants.KEY_PRESSED,
   key
 });
 
 export const keyReleased = key => ({
-  type: PianoConstants.KEY_RELEASED,
+  type: KeyConstants.KEY_RELEASED,
   key
 });

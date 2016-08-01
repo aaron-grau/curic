@@ -83,7 +83,7 @@ Create a `constants/tones.js` file. From there export a `TONES` constant, a Java
 
 ## Phase 3: Key
 
-#### State
+#### Actions
 
 #### Reducer
 
@@ -93,4 +93,22 @@ Create a `util/key_listeners.js` file. This file will hold jQuery listerner for 
 
 ```js
 // util/key_listerners.js
+module.exports = () => {
+  $(document).on('keydown', (e) => {
+    // dispatch a keyAction to add key
+  });
+  $(document).on('keyup', (e) => {
+    // dispatch a keyAction to remove key
+  });
+}
 ```
+
+When a user presses a key, the key listener should call your `keyPressed(key)` function from `key_actions.js`, which will change add a key to the state of your application. Likewise, when a user releases a key, the listener should call your `keyReleased(key)` function to remove the key from the state.
+
+There's a helpful property of the `KeyboardEvent` to determine which `key` to pass to your action.
+
+**NB:** Do not create an instance of a `Note` here. The callback function of each jQuery listener should pass the key alone to the action. The state keeps track of which keys are pressed. We'll store `Note` objects as instance variables in our React components.
+
+**NB:** A jQuery `'keydown'` listener fires repeatedly when the user holds down a key, which will repeatedly trigger our `keyPressed` function. Ensure that you call the `keyPressed` function only once per key by only adding the key to the state if it isn't already added!
+
+Make sure that your have your key actions, reducer and listeners working before continuing.

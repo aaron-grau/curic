@@ -15,20 +15,20 @@
 // export default Bench
 
 
-import { PianoConstants } from '../actions/key_actions';
+import { KeyConstants } from '../actions/key_actions';
 
 const keys = (state = [], action) => {
   switch(action.type) {
-    case PianoConstants.GROUP_UPDATE:
+    case KeyConstants.GROUP_UPDATE:
       return [
         ...action.keys
       ];
-    case PianoConstants.KEY_PRESSED:
+    case KeyConstants.KEY_PRESSED:
       return [
         ...state,
         action.key
       ];
-    case PianoConstants.KEY_RELEASED:
+    case KeyConstants.KEY_RELEASED:
       const idx = state.indexOf(action.key);
       return [
         ...state.slice(0, idx),
@@ -39,4 +39,4 @@ const keys = (state = [], action) => {
   }
 };
 
-export const keys;
+export default keys;
