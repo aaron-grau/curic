@@ -31,7 +31,7 @@
 + [Basic Controllers][basic-controllers]
 + [Basic JSON API][basic-json-api]
 + [Routing II: Nested Collections][routing-ii]
-+ [:movie_camera: Rails Screencasts][rails-screencasts]
++ [:movie_camera: Rails Screencasts (3 thru 11)][rails-screencasts]
   + [:computer: Code from demos][rails-videos-code]
 
 ### Projects
@@ -118,7 +118,7 @@
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
 ### Homeworks (60 min)
-* Complete day 4 of [HTML curriculum][html-readme] (30 min)
+* Complete day 4 of [HTML Curriculum][html-readme] (30 min)
 * [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources
