@@ -33,7 +33,7 @@ import union from 'lodash/union';
 let ids = [1,4,5];
 let newIds = [2,3,4];
 
-ids = union(ids, newIds); // [1,4,5,2,3]
+result = union(ids, newIds); // [1,4,5,2,3]
 
 ```
 
@@ -45,13 +45,18 @@ let ids = [1,4,5];
 let newIds = [2,3,4];
 
 // ES6
+
+result = ids.slice();
+
 newIds.forEach(newId => {
-	if (!newIds.includes(newId)) {
-		ids.push(newId)
+	if (!result.includes(newId)) {
+		result.push(newId)
 	}
 })
 
 // ES5
+
+result = ids.slice();
 
 newIds.forEach(function(newId){
 	var shouldInsert = true;
@@ -64,7 +69,7 @@ newIds.forEach(function(newId){
 	}
 
 	if (shouldInsert){
-		ids.push(newId);
+		result.push(newId);
 	}
 
 })
