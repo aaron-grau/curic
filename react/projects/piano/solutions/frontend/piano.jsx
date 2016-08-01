@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import Piano from './components/piano'; // app component
-import pianoApp from './reducers'; // app reducer
+import pianoApp from './reducers/index'; // app reducer
 
 const store = createStore(pianoApp);
 

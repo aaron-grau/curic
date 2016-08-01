@@ -112,3 +112,17 @@ There's a helpful property of the `KeyboardEvent` to determine which `key` to pa
 **NB:** A jQuery `'keydown'` listener fires repeatedly when the user holds down a key, which will repeatedly trigger our `keyPressed` function. Ensure that you call the `keyPressed` function only once per key by only adding the key to the state if it isn't already added!
 
 Make sure that your have your key actions, reducer and listeners working before continuing.
+
+## Phase 4: React Components
+
+### `NoteKey`
+
+Let's write a `NoteKey` React class component. We're calling it `NoteKey` to distinguish it from the keyboard's keys.
+
+This component will be the visual representation of a single note in your piano. It's also the component responsible for whether or not to play a `Note`. The `Piano` component will pass `NoteKey` a single `key` as a prop. After `NoteKey` has mounted, create a new `Note` instance and store it as an instance variable.
+
+Flashback: your `Note` constructor takes a frequency as a parameter, not a string. Use your `Tones` constant to convert the string to the right frequency.
+
+The `NoteKey` component listens to the store. If its `key` is in the state, then the `NoteKey` should `start` its `Note`.
+
+Add a listener in `componentDidMount`. Remember to store the listener as an instance variable so you can remove it in `componentWillUnmount`.
