@@ -12,7 +12,7 @@ validKeys.forEach((key, i) => {
 
 const heldKeys = [];
 
-module.exports = function () {
+let KeyListerners = ({ dispatch }) => {
   $(document).on('keydown', e => {
     const key = e.key;
     const valid = validKeys.indexOf(key) !== -1;
@@ -20,7 +20,7 @@ module.exports = function () {
     if (valid && !held) {
       heldKeys.push(key);
       // keyActions.keyPressed(keyMap[key]);
-      // dispatch(keyPressed(keyMap[key]));
+      dispatch(keyPressed(keyMap[key]));
     }
   });
 
@@ -30,7 +30,7 @@ module.exports = function () {
     if (idx !== -1) {
       heldKeys.splice(idx, 1);
       // keyActions.keyReleased(keyMap[key]);
-      // dispatch(keyReleased(keyMap[key]));
+      dispatch(keyReleased(keyMap[key]));
     }
   })
 }

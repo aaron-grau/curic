@@ -83,9 +83,23 @@ Create a `constants/tones.js` file. From there export a `TONES` constant, a Java
 
 ## Phase 3: Key
 
-#### Actions
+#### Action Creators
+Let's define the actions that represent what happened.
 
 #### Reducer
+Now that we've defined the actions that will send data from your app to the store, let's define the reducers that update the state base on the actions.
+
+#### Store
+Let's create a store that holds the state and calls the reducer when an action is dispatched.
+
+Recap, in Redux a store is responsible for:
++ holding your app's state
++ allowing access to state via `getState()`
++ allowing state to be updated via `dispatch(action)`
++ registering listeners via `subscribe(listener)`
++ handling the unregistering of listeners
+
+In `piano.jsx`, import `createStore()` from `redux`. To create the store, call `createStore` and pass it your app's reducer.
 
 ### KeyListeners
 
@@ -126,3 +140,18 @@ Flashback: your `Note` constructor takes a frequency as a parameter, not a strin
 The `NoteKey` component listens to the store. If its `key` is in the state, then the `NoteKey` should `start` its `Note`.
 
 Add a listener in `componentDidMount`. Remember to store the listener as an instance variable so you can remove it in `componentWillUnmount`.
+
+### `Piano`
+
+Let's support more than one `NoteKey` by creating a `Piano` component (`components/piano.jsx`). It will render a `NoteKey` for each of the `TONES`.
+
+Now we can test our setup. When your `Piano` is mounted it should call the method we exported from `util/key_listeners`, thereby adding `keydown` and `keyup` event listeners. In `piano.jsx` use `ReactDOM` to position our `Piano` on the page. Remember to provide an HTML container as the second argument of `ReactDOM.render`. Open your HTML file and press some keys. You should hopefully hear sound!
+
+If you don't here anything, first check for errors in your console and errors in the `webpack`ing. Follow the redux pattern to debug piece by piece. Start at the beginning and debug your way through.
+
+## Phase 5: Style your Piano
+
+Use your css knowledge and style your components so that it looks like a piano.
+
+Bonus:  Using CSS rules and the `state` of your `NoteKey` components, visually update
+a `NoteKey` when the user plays its note.
