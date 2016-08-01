@@ -2,7 +2,9 @@
 
 The following curriculum explores two Domain-Specific Languages: **HTML & CSS**. Throughout this curriculum, you will be building and styling your own recipe page! Each day's assignment contains brief readings and an exercise. Be sure to complete all assignments, as the exercises build on each other.
 
-## HTML Introduction (Day 1)
+# HTML
+
+## Day 1: Introduction
 
 The beginning of Front-End Development.
 
@@ -14,7 +16,7 @@ The beginning of Front-End Development.
 
 + [Recipe Page](homeworks/introduction/introduction_html_exercise.md)
 
-## HTML Containers (Day 2)
+## Day 2: Containers
 
 A look at containers in HTML and HTML5 semantic elements.
 
@@ -26,7 +28,7 @@ A look at containers in HTML and HTML5 semantic elements.
 
 + [Recipe Containers](homeworks/containers/containers_html_exercise.md)
 
-## Forms (Day 3)
+## Day 3: Forms
 
 Bringing user input to your HTML with Form and Input elements.
 
@@ -38,7 +40,7 @@ Bringing user input to your HTML with Form and Input elements.
 
 + [Recipe Review Form](homeworks/forms/forms_html_exercise.md)
 
-## Html Head Section (Day 4)
+## Day 4: Head Section
 
 Providing specific information and loading external files to your webpage.
 
@@ -50,7 +52,9 @@ Providing specific information and loading external files to your webpage.
 
 + [Recipe Head Section](homeworks/head_section/html_head_section_exercise.md)
 
-## CSS Intro Workflow  (Day 1)
+# CSS
+
+## Day 1: Intro Workflow
 
 Our first look at cascading style sheets and how to be efficient CSS developers. Before we dive into CSS syntax, watch the introduction video explaining some CSS history and then the Workflow video to learn about the Chrome Developer Tools.
 
@@ -63,7 +67,7 @@ Our first look at cascading style sheets and how to be efficient CSS developers.
 
 + [Hack Academy](homeworks/css_intro/exercise.md)
 
-## CSS Syntax (Day 2)
+## Day 2: Syntax
 
 ```css
 selector {
@@ -84,7 +88,7 @@ selector {
 
 + [Recipe Styles](homeworks/css_syntax/exercise.md)
 
-## CSS Reset & Advanced Selectors (Day 3)
+## Day 3: Reset & Advanced Selectors
 
 Now that we have some understanding of CSS syntax we can review the css_reset file and customize our own. We will also take a look at some more advanced selectors that will allow us to target other aspects of our HTML document.
 
@@ -104,7 +108,7 @@ Now that we have some understanding of CSS syntax we can review the css_reset fi
 
 + [Pseudo Content Video](https://vimeo.com/album/3732382/video/151190178)
 
-## The Display Property & The Box Model (Day 4)
+## Day 4: The Display Property & The Box Model
 
 The box model describes how space is calculated with CSS. This model combined with popular properties including display, margin, padding, width and height mark the beginning of styling the layout of our HTML document.
 
@@ -126,7 +130,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 + [Margin Gotchya Video](https://vimeo.com/album/3732382/video/151190180)
 
-## Float, Fluid Layouts & Flexbox (Day 5)
+## Day 5: Float, Fluid Layouts & Flexbox
 
 ### Video (25 mins)
 
@@ -148,7 +152,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 + [Tic-Tac-Toe Float Demo](https://vimeo.com/album/3732382/video/151190183)
 + [Navbar Demo](https://vimeo.com/album/3732382/video/158975002)
 
-## Positioning & Media Queries (Day 6)
+## Day 6: Positioning & Media Queries
 
 ### Video (25 mins)
 
@@ -168,8 +172,8 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 ### Readings
 
-[Bootstrap][bootstrap]
-[SASS][sass]
++ [Bootstrap][bootstrap]
++ [SASS][sass]
 
 [bootstrap]: readings/bootstrap.md
 [sass]: readings/sass.md
