@@ -8,6 +8,25 @@
 //
 // );
 //
+
+// written as a function component
+const NoteKey = (props) => {
+ const noteName = props.noteName;
+ const note = new Note(TONES[key]);
+
+ let className = `note-key key-${props.idx}`;
+ if(this.state.pressed){
+   className += " pressed";
+ }
+
+ return (
+   <div className={className}>
+   {noteName}
+   </div>
+ );
+}
+
+
 //
 // // import React from 'react';
 // // //Components

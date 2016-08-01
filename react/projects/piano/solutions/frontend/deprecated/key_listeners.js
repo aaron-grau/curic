@@ -1,18 +1,18 @@
 import $ from 'jquery';
-import { keyPressed, keyReleased } from '../actions/key_actions';
+// import { keyPressed, keyReleased } from '../actions/note_actions';
 import TONES from '../constants/tones';
 
-const tones = Object.keys(TONES);
+const notes = Object.keys(TONES);
 const validKeys = ['a', 's', 'd', 'f', 'j', 'k', 'l'];
 
 const keyMap = {};
 validKeys.forEach((key, i) => {
-  keyMap[key] = tones[i];
+  keyMap[key] = notes[i];
 });
 
 const heldKeys = [];
 
-let KeyListerners = ({ dispatch }) => {
+let KeyListerners = (dispatch) => {
   $(document).on('keydown', e => {
     const key = e.key;
     const valid = validKeys.indexOf(key) !== -1;
@@ -20,7 +20,7 @@ let KeyListerners = ({ dispatch }) => {
     if (valid && !held) {
       heldKeys.push(key);
       // keyActions.keyPressed(keyMap[key]);
-      dispatch(keyPressed(keyMap[key]));
+      dispatch(keyPressed(keyMap[key]);
     }
   });
 
