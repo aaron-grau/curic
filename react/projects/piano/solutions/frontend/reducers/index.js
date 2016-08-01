@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import keys from './keys';
+import notes from './notes';
 
 const pianoApp = combineReducers({
-  keys
+  notes
 });
 
 export default pianoApp;
