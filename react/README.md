@@ -2,7 +2,7 @@
 
 ## w7d1
 
-### Video Lectures (94 min)
+### Video Lectures
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Part 1: Intro to React][lec-w7d1-01] (5 min)
 * :movie_camera: [Part 2: Anatomy/Physiology of Components][lec-w7d1-02] (15 min)
@@ -12,16 +12,23 @@
 * :movie_camera: [Part 6: The Grand Demo][lec-w7d1-06] (51 min)
   * :computer: [demo source code][watch-demo]
 
-### Readings (1hr, 5min)
+### Readings
 * [Intro to react][react-intro] (5 min)
+  - Revise: this doesn't really cover much useful information
 * [My first component][first-component] (10 min)
+  - Remove: this teaches pure 'js' syntax, never to be used again
 * [Intro to JSX][react-jsx] (7 min)
+  - Revise for clarity
 * [Components with JSX][jsx-components] (15 min)
+  - Refactor to de-emphasize non-JSX syntax
+  - Combine with `Intro to JSX`
 * [5 practical examples][react-examples] (25 min)
   * [working examples of these examples][examples]
+  - Refactor or write in-house for focus, clarity
+  - Host live examples
 * [Using Git with NPM][npm-git] (3 min)
 
-### Homeworks (35 min)
+### Homeworks
 * [Getting Started with NPM and Webpack][npm-exercise] (35 min)
 
 ### Projects
@@ -52,10 +59,19 @@
 
 ### Readings (1hr, 10min)
 * [Stores][store-reading] (20 min)
+  - Deprecated
 * [Think in React][think-in-react] (20 min)
+  - Largely Deprecated; should be re-done in-house
 * [Components in depth][components-in-depth] (15 min)
+  - Needs decomposition / re-organization
+  - Separate the props/state discussion from
+    the life-cycle methods discussion
+  - Remove reference to mixins
+
 * [List diffing and the `key` prop][keys-reading] (5 min)
+  - Good information but way too much; refactor in-house
 * [Effective JavaScript][effective-js]: Items 53 and 55 (10 min)
+  - This seems remedial; suggest removal
 
 ### Homeworks (35 min)
 * [Dollar Store][store-hw] (35 min)
@@ -89,9 +105,14 @@
 
 ### Readings (40 min)
 * [Basic intro to flux][flux-intro] (5 min)
+  -Deprecated
+  -Replace diagram with this: https://facebook.github.io/flux/docs/overview.html
 * [Flux component overview][flux-component-overview] (5 min)
+  -Deprecated
 * [Stores and Actions][stores-and-actions] (10 min)
+  -Deprecated
 * [Effective JavaScript][effective-js]: Items 56, 58, and 59 (20 min)
+  -Not relevant
 
 ### Homeworks (30 min)
 * [Click Counter Flux Conversion Project!][click-counter-flux] (30 min)
@@ -136,6 +157,7 @@
 * [jbuilder][jbuilder-link] (20 min)
   * read the documentation thoroughly!
 * [Effective JavaScript][effective-js]: Items 66, 67, and 68 (20 min)
+  -Not relevant
 
 ### Homeworks (30 min)
 * [Rainbow Routes][rainbow-routes] (30 min)
