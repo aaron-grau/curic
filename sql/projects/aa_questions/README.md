@@ -1,6 +1,11 @@
 # Question Pairs
 
+Refer to the [Database documentation][database-docs] and last night's [joins reading][joins] to help cement your understanding during this project.
+
 Build an application that will help us handle questions from students.
+
+[database-docs]: http://sqlite-ruby.rubyforge.org/sqlite3/classes/SQLite3/Database.html
+[joins]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
 
 **Read the entire project description before beginning**.
 
@@ -40,7 +45,7 @@ in a SQL script named `import_db.sql`.
     * Have references to the user and the question in this table
 
 You will probably also want to write some `INSERT` statements at the
-bottom of your `import_db.sql` file, so that you have some data in 
+bottom of your `import_db.sql` file, so that you have some data in
 each table to play with. We call this '*seeding the database*.'
 
 After you've written the SQL, don't forget to run the SQL commands and
@@ -71,7 +76,7 @@ be available when you run `bundle exec pry`.
 
 ## Ruby
 
-Write a `QuestionsDatabase` class similar to one created in last night's demo: 
+Write a `QuestionsDatabase` class similar to one created in last night's demo:
 [PlaysDatabase][plays.rb]. This class should inherit
 from `SQLite3::Database`; you will only need one instance. If you use
 the `Singleton` module this will be available through a
@@ -249,9 +254,9 @@ you hand them through reader and writer methods (`attr_accessor`).
 ### ModelBase class
 
 So you've probably noticed that each of these classes shares a lot of
-functionality. Let's extract some common methods out into a superclass. 
-Easy stuff first, let's take `::find_by_id` out of the individual classes 
-and put it into our superclass. Let's also add a `::all` method while we're 
+functionality. Let's extract some common methods out into a superclass.
+Easy stuff first, let's take `::find_by_id` out of the individual classes
+and put it into our superclass. Let's also add a `::all` method while we're
 at it.
 
 Now for the fun part. Your `#save` method is very similar in each
@@ -267,11 +272,11 @@ project!
 
 Add a class method `where` which accepts an options hash as an argument
 and searches the database for records whose column matches the options key
-and whose value matches the options value. It should return all the records 
+and whose value matches the options value. It should return all the records
 which match the criteria:
 ```
 Question.where({author_id: 2})
-User.where({fname: "Tywin", lname: "Lannister"}) 
+User.where({fname: "Tywin", lname: "Lannister"})
 ```
 Add this to your base class.
 
@@ -291,7 +296,7 @@ Reply.find_by_question_id_and_author_id(3, 1)
 
 ### Improve your `where`
 
-Allow `where` to also accept a string fragment. The string fragment will 
+Allow `where` to also accept a string fragment. The string fragment will
 be used to directly define the 'WHERE' statement in the SQL query:
 ```
 User.where("lname = 'Stark'")
