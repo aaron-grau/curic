@@ -254,8 +254,6 @@
 
 ## w4d6-w4d7
 
-<!--TODO (maybe move capybara here and then move curriculum up one day, gives us a free day to spend on react or js or whatever) -->
-
 ## w5d1
 
 ### Readings (72 min)
