@@ -17,7 +17,7 @@ If you don't have a new enough version of Rails, run:
 gem install rails -v '~> 4.2.0'
 ```
 
-Now that you have Rails installed and ready, start your project 
+Now that you have Rails installed and ready, start your project
 with the following command:
 
 ```
