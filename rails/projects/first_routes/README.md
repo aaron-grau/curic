@@ -1,10 +1,7 @@
 # First Routes & Controllers
 
-In this project we'll start playing with Rails routing and making this:
-
-[**Live Demo**][aa-contactsapi]
-
-To start, generate a new, blank Rails project.
+In this project we'll start playing with Rails routing.  To start, generate a
+new, blank Rails project.
 
 
 [aa-contactsapi]: http://aa-contactsapi.herokuapp.com
