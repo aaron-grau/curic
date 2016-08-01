@@ -3,17 +3,19 @@ import React from 'react';
 import $ from 'jquery';
 // import KeyListeners from '../util/key_listeners';
 
-class Piano extends React.Component{
-  componentDidMount: () => {
-    // $(document).on('keydown', this.props.keyDown);
-    // $(document).on('keyup', this.props.keyUp);
+class Piano extends React.Component {
+  constructor(props) {
+     super(props);
+   }
+  componentDidMount() {
+    console.log(this);
   }
-  render: () {
+  render() {
     return (
       <div>
-      Piano
+        Piano
       </div>
-    )
+    );
   }
 };
 

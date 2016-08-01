@@ -24,12 +24,18 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    keyDown: e => dispatch(keyPressed(keyDown(e))
-    keyUp: e => dispatch(keyReleased(keyUp(e))
+    keyDown: e => dispatch(keyPressed(keyDown(e))),
+    keyUp: e => dispatch(keyReleased(keyUp(e)))
   };
 };
 
-const default connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Piano);
+
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(SessionForm);
