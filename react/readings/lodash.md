@@ -46,7 +46,7 @@ let newIds = [2,3,4];
 
 // ES6
 newIds.forEach(newId => {
-	if (!newIds.includes?(newId)) {
+	if (!newIds.includes(newId)) {
 		ids.push(newId)
 	}
 })
