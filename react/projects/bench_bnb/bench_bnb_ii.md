@@ -188,12 +188,12 @@ Each `SessionApiUtil` method should take `success` and `error` arguments and use
 ```js
 anApiCall(otherArgs, success, error) {
   $.ajax({
-    url: 'random/route'
+    url: 'random/route',
     // other ajax params
-    success
+    success,
     error
     // this is ES6 shorthand for:
-    // success: success
+    // success: success,
     // error: error
   })
 }
