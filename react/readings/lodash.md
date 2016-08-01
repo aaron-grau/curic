@@ -72,5 +72,5 @@ newIds.forEach(function(newId){
 ```
 
 
-[lodash]
+[lodash]: https://www.npmjs.com/package/lodash
 [dan-tweet]: https://twitter.com/dan_abramov/status/605691126549508096
