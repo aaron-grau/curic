@@ -160,13 +160,13 @@ via `KeyStore.addListener(this.someComponentMethod)` to register a change in the
 
 Create a `util/add_key_listeners.js` file. This file will hold jQuery listeners
 for `keyup` and `keydown` events. Install event handlers by calling the
-`on`method on `$(document)`. Wrap these two listeners within a single function that will be your entire export. 
+`on`method on `$(document)`. Wrap these two listeners within a single function that will be your entire export.
 
 ```js
-  // addKeyListener.js
+  // util/add_key_listeners.js
   module.exports = function(){
     $(document).on('keydown', (e) => {
-      // dispatch a keyAction to add the key 
+      // dispatch a keyAction to add the key
     });
     $(document).on('keydown', (e) => {
       // dispatch a keyAction to remove the key

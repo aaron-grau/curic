@@ -63,7 +63,6 @@ const Note = function (freq) {
 };
 
 Note.prototype.start = function () {
-  // can't explain the 0.3 - it's a reasonable value
   this.gainNode.gain.value = 0.3;
 };
 
@@ -82,4 +81,16 @@ Create a `constants/tones.js` file. From there export a `TONES` constant, a Java
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
-## Phase 3: 
+## Phase 3: Key
+
+#### State
+
+#### Reducer
+
+### KeyListeners
+
+Create a `util/key_listeners.js` file. This file will hold jQuery listerner for `keyup` and `keydown` events. Install event handlers by calling the `on` methods on `$(document)`. Wrap these two listeners within a single function that will be your entire export.
+
+```js
+// util/key_listerners.js
+```

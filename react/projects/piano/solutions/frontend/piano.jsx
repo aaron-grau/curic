@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Note from './util/note';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-// const Piano = require('./components/piano');
-// const $ = require('jquery');
-//
-// $(function () {
-//   const root = document.getElementById('root');
-//   console.log(root);
-//   // ReactDOM.render(<Organ/>, root);
-// });
+import Piano from './components/piano'; // app component
+import pianoApp from './reducers'; // app reducer
 
+const store = createStore(pianoApp);
 
 document.addEventListener('DOMContentLoaded', function() {
-  const root = document.getElementById('root');
-  window.Note = Note;
-  // ReactDOM.render(<Root store={store}/>, root);
-  console.log(root);
+  const rootEl = document.getElementById('root');
+  ReactDOM.render(
+    <Provider store={store}>
+      <Piano />
+    </Provider>,
+    rootEl
+  );
 });
