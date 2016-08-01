@@ -1,6 +1,6 @@
 # Lodash
 
-`lodash` is a Javascript utility library and [npm-package][lodash] that provides many useful helper functions for solving common problems. For this course, we're going to employ two `lodash` helper methods to write cleaner and more concise React/Redux code: 'merge()' and 'union()'.
+`lodash` is a Javascript utility library and [npm-package][lodash] that provides many useful helper functions for solving common problems. For this course, we're going to employ two `lodash` helper methods to write cleaner and more concise React/Redux code: `merge()` and `union()`.
 
 ## `merge`
 
