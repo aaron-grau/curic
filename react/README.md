@@ -6,13 +6,13 @@
 
 ### Readings
 
-- [Intro to React]
+- [Intro to React][intro-to-react]
+- [React Components]
 - [JSX]
 - [NPM]
 - [Webpack]
 - [Babel for ES6 and JSX]
 - [Import / Export]
-- [React Components]
 - [Components: Props vs. State]
 - [Components: Lifecycle Methods]
 
@@ -27,7 +27,8 @@
 
 - [Widgets][widgets]
 
-[widgets]: ../projects/widgets
+[intro-to-react]: readings/intro_to_react.md
+[widgets]: projects/widgets
 
 ## w7d2
 
@@ -47,7 +48,7 @@
 
 - [Redux Piano][redux-piano]
 
-[redux-piano]: ../projects/redux_piano
+[redux-piano]: projects/redux_piano
 [functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 
 ## w7d3
@@ -68,7 +69,7 @@
 
 - [Todos][todos]
 
-[todos]: ../projects/todos
+[todos]: projects/todos
 
 ## w7d4
 
@@ -86,7 +87,7 @@
 
 - [Pokedex][pokedex]
 
-[pokedex]: ../projects/pokedex
+[pokedex]: projects/pokedex
 
 ## w7d5
 
@@ -105,5 +106,5 @@
 
 - [BenchBNB][bench-bnb]
 
-[bench-bnb]: ../projects/bench_bnb
+[bench-bnb]: projects/bench_bnb
 
