@@ -3,6 +3,7 @@
 <head>
   <title>RedditOnRails</title>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
 </head>
 <body>
 
@@ -18,11 +19,13 @@
   <br><br>
 <% end %>
 
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <%= error %>
+<div class="errors">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <%= yield %>
 
