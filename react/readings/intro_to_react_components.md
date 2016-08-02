@@ -8,10 +8,15 @@ React Components are the building blocks of a React view-layer. They are Javascr
 
 Open [this example][simple_component] in another tab and read along below. 
 
-Start with `index.html`. It's a normal HTML document that contains a <div id='root'/>. This `#root` element will serve as the hook onto which we insert our React component. Don't worry about the script tags for now.
+Start with `index.html`. It's a normal HTML document that contains a `<div id='root'/>`. This `#root` element will serve as the 'hook' into which we insert our React component. 
 
-Now, take a look at `index.js`. Look at `React.createClass()` and `ReactDOM.render()`. These two functions allow you to create components and render them onto the DOM, respectively.
+Now, take a look at `index.js`. Note `React.createClass()` and `ReactDOM.render()`. `React.createClass()` is used to create a re-useable component called `SimpleComponent`, which is then passed to `ReactDOM.render()`, which inserts it into the DOM inside the `root`.
 
+Both `React.createClass()` and `ReactDOM.render()` contain JSX syntax (the parts that look like HTML). These expressions represent Javascript functions that ultimately render HTML. 
+
+The Demo also contains a `package.json` file, which is used to configure NPM. This package is similar to a `Gemfile` that lists all of an app's dependencies. You'll read more about this later.
+
+It also contains a `webpack.config.js` file, which configures Webpack. Note that the output file, `bundle.js`, is sourced in our `index.html` and represents all of our app's code, along with its dependencies.
 
 
 ## Dependencies

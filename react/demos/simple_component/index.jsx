@@ -10,6 +10,6 @@ const SimpleComponent = React.createClass({
 
 // Renders a SimpleComponent into #root.
 document.addEventListener("DOMContentLoaded", function(){
-	const hook = document.querySelector("#root");
-	ReactDOM.render(<SimpleComponent/>, hook);
+	const root = document.querySelector("#root");
+	ReactDOM.render(<SimpleComponent/>, root);
 });
