@@ -1,6 +1,6 @@
 # Reddit On Rails
 
-* [Live Demo](http://aa-reddit.herokuapp.com)
+* [Live Demo](http://aa-reddit-on-rails.herokuapp.com/)
 
 # Reddit Clone
 
@@ -261,4 +261,3 @@ likewise, sort each level of comments by score.
 
 [kaminari]: https://github.com/amatsuda/kaminari
 [friendly-id]: https://github.com/norman/friendly_id
-
