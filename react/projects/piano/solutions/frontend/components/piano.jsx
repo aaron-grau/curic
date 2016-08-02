@@ -1,11 +1,15 @@
 import React from 'react';
+import NoteKey from './note_key';
 import $ from 'jquery';
-import { NOTES } from '../constants/tones'
-
+import { NOTES, TONES } from '../constants/tones';
+import Note from '../util/note';
 
 class Piano extends React.Component {
   constructor(props) {
      super(props);
+     this.notes = NOTES.map(note => {
+       return new Note(TONES[note]);
+     })
   }
 
   componentDidMount() {
@@ -18,13 +22,22 @@ class Piano extends React.Component {
   }
 
   render() {
-    console.log(this.props.notes);
+    NOTES.forEach((note, idx) => {
+      if (this.props.notes.indexOf(note) !== -1) {
+        this.notes[idx].start();
+      } else {
+        this.notes[idx].stop();
+      }
+    });
     return (
       <div>
         <ul>
         {
           NOTES.map((note, idx) => {
-            return <li key={idx}>{note}</li>
+            return <NoteKey
+              note ={note}
+              key={idx}
+              pressed={this.props.notes.indexOf(note) !== -1}/>
           })
         }
         </ul>

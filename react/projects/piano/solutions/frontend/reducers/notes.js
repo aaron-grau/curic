@@ -8,8 +8,10 @@ validKeys.forEach((key, i) => {
 });
 
 const notes = (state = [], action) => {
-  const note = keyMap[action.key]; // convert key to note
-  const idx = state.indexOf(note); // check to see if it's in the state tree
+  // convert key to note
+  const note = keyMap[action.key];
+  // check to see if note is in the state tree
+  const idx = state.indexOf(note);
 
   switch(action.type) {
     case NoteConstants.KEY_PRESSED:
