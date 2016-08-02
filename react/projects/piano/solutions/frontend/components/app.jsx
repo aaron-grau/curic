@@ -2,9 +2,12 @@ import React from 'react';
 import PianoContainer from './piano_container';
 
 const App = () => {
-  <div>
-    <PianoContainer />
-  </div>
+  return (
+    <div>
+      Al Gore Rhythms
+      <PianoContainer />
+    </div>
+  )
 };
 
 export default App;

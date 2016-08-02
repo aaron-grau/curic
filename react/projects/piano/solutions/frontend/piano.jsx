@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const rootEl = document.getElementById('root');
   ReactDOM.render(
     <Provider store={store}>
-      <PianoContainer />
+      <App />
     </Provider>,
     rootEl
   );
