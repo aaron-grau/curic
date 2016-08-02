@@ -1,6 +1,7 @@
 import { RECEIVE_TODOS,
          RECEIVE_TODO,
-         REMOVE_TODO
+         REMOVE_TODO,
+         TODO_ERROR
        } from '../actions/todo_actions';
 
 const defaultState = {
@@ -25,6 +26,8 @@ const TodoReducer = function(oldState = {}, action){
       newState = Object.assign({}, oldState);
       delete newState[action.todo.id];
       return newState;
+    case TODO_ERROR:
+      alert(action.error);
     default:
       return oldState;
   }

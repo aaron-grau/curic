@@ -24,15 +24,16 @@ class StepForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="step-form" onSubmit={this.handleSubmit}>
         <label>Title:
           <input
+            className="input"
             ref="title"
             value={this.state.title}
             placeholder="walk to store"
             onChange={this.update('title')}/>
         </label>
-        <button className="submit-todo btn btn-primary">Create Step!</button>
+        <button className="button">Create Step!</button>
       </form>
     );
   }

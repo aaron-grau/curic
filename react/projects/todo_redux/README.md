@@ -35,7 +35,20 @@ frontend
 
 ## Phase 2: todos redux structure
 
++ store
++ reducers
++ action creators & constants
++ middleware
++ api utils
+
 ## Phase 3: todos components
+
++ root (provider)
++ app
++ `todo_list_container` & `todo_list`
++ `todo_list_item_container` & `todo_list_item`
++ `todo_form`
++ `todo_detail_view_container` & `todo_detail_view`
 
 ## Phase 4: steps redux structure
 

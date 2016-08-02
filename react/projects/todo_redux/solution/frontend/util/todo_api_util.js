@@ -14,12 +14,13 @@ export const fetchTodo = function(id, success){
   });
 };
 
-export const createTodo = function(todo, success){
+export const createTodo = function(todo, success, error){
   $.ajax({
     method: 'POST',
     url: 'api/todos',
     data: todo,
-    success
+    success,
+    error
   });
 };
 

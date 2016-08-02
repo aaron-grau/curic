@@ -24,9 +24,10 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="todo-form" onSubmit={this.handleSubmit}>
         <label>Title:
           <input
+            className="input"
             ref="title"
             value={this.state.title}
             placeholder="buy milk"

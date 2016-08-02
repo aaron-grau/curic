@@ -1,0 +1,87 @@
+$font-stack: Helvetica, sans-serif;
+$done-color: #456780;
+$undone-color: #ff6745;
+$grey: #666;
+
+// reset
+html,
+body,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+// styles
+.button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid $grey;
+  cursor: pointer;
+  margin: 0 20px;
+}
+.button:focus, a:focus {
+  outline: none;
+}
+.done {
+  @extend .button;
+  background-color: $undone-color;
+}
+.undone {
+  @extend .button;
+  background-color: $done-color;
+}
+.input {
+  padding: 5px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-list {
+  @extend .flex-col;
+  .todo-list-item {
+    padding: 10px;
+    background-color: #ccc;
+    margin: 10px 0;
+    .todo-header {
+      @extend .flex-row;
+      a {
+        width: 50%;
+      }
+    }
+    .todo-body {
+      margin: 10px;
+    }
+  }
+}
+
+.todo-form {
+  @extend .flex-col;
+}
+
+a {
+  cursor: pointer;
+}
+
+.step-list {
+  @extend .flex-col;
+  margin-left: 20px;
+  .step-header {
+    margin: 10px;
+    list-style: none;
+  }
+}
+
+.step-form {
+  @extend .flex-row;
+  margin: 15px;
+  min-width: 200px;
+}

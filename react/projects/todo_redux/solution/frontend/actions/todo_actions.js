@@ -7,6 +7,8 @@ export const CREATE_TODO = "CREATE_TODO";
 export const UPDATE_TODO = "UPDATE_TODO";
 export const DESTROY_TODO = "DESTROY_TODO";
 
+export const TODO_ERROR = "TODO_ERROR";
+
 export const requestTodos = () => ({
   type: REQUEST_TODOS
 });
@@ -50,3 +52,8 @@ export const destroyTodo = todo => ({
   type: DESTROY_TODO,
   todo
 });
+
+export const todoError = error => ({
+  type: TODO_ERROR,
+  error
+})

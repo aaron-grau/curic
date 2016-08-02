@@ -10,6 +10,7 @@ import { requestTodos,
          receiveTodo,
          receiveTodos,
          removeTodo,
+         todoError,
 // Todo Constants
          REQUEST_TODOS,
          REQUEST_TODO,
@@ -22,6 +23,7 @@ export default ({getState, dispatch}) => next => action => {
   const todosSuccess = data => dispatch(receiveTodos(data));
   const todoSuccess = data => dispatch(receiveTodo(data));
   const todoRemoved = data => dispatch(removeTodo(data));
+  const todoErrored = data => dispatch(todoError(data.responseJSON));
   switch(action.type){
     case REQUEST_TODOS:
       fetchTodos(todosSuccess);
@@ -30,7 +32,7 @@ export default ({getState, dispatch}) => next => action => {
       fetchTodo(action.id, todoSuccess);
       break;
     case CREATE_TODO:
-      createTodo(action.todo, todoSuccess);
+      createTodo(action.todo, todoSuccess, todoErrored);
       break;
     case UPDATE_TODO:
       updateTodo(action.todo, todoSuccess)

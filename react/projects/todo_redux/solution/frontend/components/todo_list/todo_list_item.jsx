@@ -14,24 +14,26 @@ class TodoListItem extends React.Component {
   }
 
   render() {
-    let detail, className;
+    let detail;
     if (this.state.detail) {
       detail = (
         <TodoDetailViewContainer todo={this.props.todo} />
       );
-      className = "list-item";
     } else {
       detail = "";
-      className = "list-item min";
     }
     return (
-      <div className={className}>
+      <li className="todo-list-item">
         <div className="todo-header">
           <a onClick={this.toggleDetail}>{ this.props.todo.title}</a>
-          <button onClick={this.props.toggleTodo.bind(null, this.props.todo)}>{this.props.todo.done ? "Undo" : "Done"}</button>
+          <button 
+            className={this.props.todo.done ? "done" : "undone"}
+            onClick={this.props.toggleTodo.bind(null, this.props.todo)}>
+            {this.props.todo.done ? "Undo" : "Done"}
+          </button>
         </div>
         { detail }
-      </div>
+      </li>
     );
   }
 };
