@@ -57,14 +57,29 @@ const myElement = (
 
 ```
 
-Note that, because only the return value is inserted into your element, only
+Note that, because the return value is inserted into your element, only
 single expressions are allowed.
 
+```
 
+const myElement = (
+	<h1>
+	{
+		1 + 2 + 3;
+		4 + 5 + 6;
+	}
+	</h1>
+);
+
+// SyntaxError
+
+```
 
 ## Transpilation
 
-JSX cannot be directly interpreted by browsers like Chrome or Firefox. Instead, JSX code must be passed through a preprocessor such as `Babel` that **transpiles** it into vanilla Javascript.
+JSX cannot be directly interpreted by browsers like Chrome or Firefox. Instead,
+JSX code must be passed through a preprocessor such as `Babel` that
+**transpiles** it into vanilla Javascript.
 
 You can read more about JSX [here][resources].
 
