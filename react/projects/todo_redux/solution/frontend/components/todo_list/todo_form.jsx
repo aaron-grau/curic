@@ -31,17 +31,20 @@ class TodoForm extends React.Component {
             ref="title"
             value={this.state.title}
             placeholder="buy milk"
-            onChange={this.update('title')}/>
+            onChange={this.update('title')}
+            required/>
         </label>
         <label>Body: 
           <textarea
+            className="input"
             ref="body"
             cols='20'
             value={this.state.body}
             rows='5'
-            onChange={this.update('body')}></textarea>
+            onChange={this.update('body')}
+            required></textarea>
         </label>
-        <button className="submit-todo btn btn-primary">Create Todo!</button>
+        <button className="create-button">Create Todo!</button>
       </form>
     );
   }

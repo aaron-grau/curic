@@ -17,7 +17,7 @@ class TodoDetailView extends React.Component {
         <p className="todo-body">{this.props.todo.body}</p>
         <StepListContainer todo_id={this.props.todo.id} />        
         <button
-          className="btn btn-danger delete-todo"
+          className="delete-button"
           onClick={this.props.destroyTodo.bind(null, this.props.todo)}>Delete</button>
       </div>
     );

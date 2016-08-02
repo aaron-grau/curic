@@ -11,6 +11,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const root = document.getElementById('content');
   ReactDOM.render(<Root store={store}/>, root);
-
-  store.subscribe(() => console.log(store.getState()));
 });

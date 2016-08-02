@@ -33,7 +33,7 @@ class StepForm extends React.Component {
             placeholder="walk to store"
             onChange={this.update('title')}/>
         </label>
-        <button className="button">Create Step!</button>
+        <button className="create-button">Create Step!</button>
       </form>
     );
   }
