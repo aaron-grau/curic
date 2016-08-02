@@ -11,7 +11,7 @@ const StepReducer = function(oldState = {}, action){
         newState[step.todo_id] = newState[step.todo_id] || {};
         newState[step.todo_id][step.id] = step;
       })
-      return newState;
+      return Object.assign({}, oldState, newState);
     case RECEIVE_STEP:
       newState = Object.assign({}, oldState);
       newState[action.step.todo_id] = newState[action.step.todo_id] || {};
