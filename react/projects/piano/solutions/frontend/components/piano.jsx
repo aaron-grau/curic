@@ -31,6 +31,7 @@ class Piano extends React.Component {
     });
     return (
       <div>
+        Piano
         <ul>
         {
           NOTES.map((note, idx) => {

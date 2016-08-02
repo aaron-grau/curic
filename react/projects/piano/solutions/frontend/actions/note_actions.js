@@ -2,7 +2,7 @@ export const NoteConstants = {
   KEY_PRESSED: "KEY_PRESSED",
   KEY_RELEASED: "KEY_RELEASED",
   GROUP_UPDATE: "GROUP_UPDATE",
-}
+};
 
 export const groupUpdate = keys => ({
   type: NoteConstants.GROUP_UPDATE,

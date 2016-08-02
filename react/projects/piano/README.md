@@ -189,3 +189,43 @@ Use your css knowledge and style your components so that it looks like a piano.
 
 Bonus:  Using CSS rules and the `state` of your `NoteKey` components, visually update
 a `NoteKey` when the user plays its note.
+
+
+## Phase 6: Track Recording
+
+`startRecoding` action instantiates a new instance of track in the store. A track contains
+
+```
+
+idx = 1;
+
+{ idx : {
+
+  }}
+obj = {}
+obj[idx] = {}
+
+tracks
+{
+  "1": {
+    id: 1
+    roll: []
+    timeStart: time
+  },
+  id: {
+    id:
+    roll: []
+    timeStart: time
+  }
+}
+```
+
+Roll starts as an empty array. Save the current time which we will use to calculate when to play a note relative to the start of the recording.
+
+While the user records a track, we'll need to update `roll` as the user presses new notes. `addNotes(notes)` that `pushes` into the `roll` an object with the following values:
+- `timeSlice`: the time elapsed since the user started recording
+- `notes`: an array of note names (eg. `['C3', 'E3', 'G3']`) are currently pressed
+
+**NB:** We storing only the names of the notes in the roll, *not* instances of `Note`. Your app's like a player piano, which uses the same keys for live playing and replaying a roll!
+
+Write another action called `stopRecording` which calls `addNotes` on an empty array, ensuring that the track is silent when it ends.
