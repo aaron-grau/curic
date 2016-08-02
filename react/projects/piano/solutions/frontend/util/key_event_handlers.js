@@ -9,25 +9,25 @@ import TONES from '../constants/tones';
    keyMap[key] = notes[i];
  });
 
- const heldKeys = [];
+const heldKeys = [];
 
-const keyDown = (e) => {
+export const keyDown = (e) => {
   const key = e.key;
   const valid = validKeys.indexOf(key) !== -1;
   const held = heldKeys.indexOf(key) !== -1;
   if (valid && !held) {
     heldKeys.push(key);
+    console.log("down", keyMap[key]);
     return keyMap[key]; // note to be added to the state
   }
 };
 
-export default keyDown;
-
-const keyUp = (e) => {
+export const keyUp = (e) => {
   const key = e.key;
   const idx = heldKeys.indexOf(key);
   if (idx !== -1) {
     heldKeys.splice(idx, 1);
+    console.log("up", keyMap[key]);
     return keyMap[key]; // note to be removed from the state
   }
 };
