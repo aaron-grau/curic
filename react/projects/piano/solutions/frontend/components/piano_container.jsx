@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    keyDown: e => dispatch(keyPressed(keyDown(e))),
-    keyUp: e => dispatch(keyReleased(keyUp(e)))
+    keyDown: key => dispatch(keyPressed(key)),
+    keyUp: key => dispatch(keyReleased(key))
   };
 };
 

@@ -9,8 +9,12 @@ class Piano extends React.Component {
   }
 
   componentDidMount() {
-    $(document).on('keydown', this.props.keyDown);
-    $(document).on('keyup', this.props.keyUp);
+    $(document).on('keydown', e => {
+      this.props.keyDown(e.key)
+    });
+    $(document).on('keyup', e => {
+      this.props.keyUp(e.key)
+    });
   }
 
   render() {

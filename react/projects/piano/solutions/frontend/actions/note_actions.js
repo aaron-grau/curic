@@ -4,17 +4,17 @@ export const NoteConstants = {
   GROUP_UPDATE: "GROUP_UPDATE",
 }
 
-export const groupUpdate = notes => ({
+export const groupUpdate = keys => ({
   type: NoteConstants.GROUP_UPDATE,
-  notes
+  keys
 });
 
-export const keyPressed = note => ({
+export const keyPressed = key => ({
   type: NoteConstants.KEY_PRESSED,
-  note
+  key
 });
 
-export const keyReleased = note => ({
+export const keyReleased = key => ({
   type: NoteConstants.KEY_RELEASED,
-  note
+  key
 });
