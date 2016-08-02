@@ -1,19 +1,27 @@
 import React from 'react';
+// Components
+import StepListContainer from '../step_list/step_list_container';
 
-const TodoDetailView = function({todo, requestSteps, destroyTodo}) {
-  return(
-    <div>
-      <p className="todo-body">{todo.body}</p>
-      
-      <button
-        className="btn btn-danger delete-todo"
-        onClick={destroyTodo.bind(null, todo)}>Delete</button>
-    </div>
-  );
+class TodoDetailView extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  componentDidMount() {
+    this.props.requestSteps(this.props.todo);
+  }
+
+  render() {
+    return(
+      <div>
+        <p className="todo-body">{this.props.todo.body}</p>
+        <StepListContainer todo_id={this.props.todo.id} />        
+        <button
+          className="btn btn-danger delete-todo"
+          onClick={this.props.destroyTodo.bind(null, this.props.todo)}>Delete</button>
+      </div>
+    );
+  }
 };
 
 export default TodoDetailView;
-
-// implement these next
-// <StepList todo_id={todo.id} steps={this.state.steps} />
-//       <StepForm todo_id={todo.id}/>

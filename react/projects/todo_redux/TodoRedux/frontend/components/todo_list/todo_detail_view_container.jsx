@@ -11,8 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestSteps: () => dispatch(requestSteps(todo.id)),
-  destroyTodo: (todo) => dispatch(destroyTodo(todo))
+  requestSteps: todo => dispatch(requestSteps(todo.id)),
+  destroyTodo: todo => dispatch(destroyTodo(todo))
 });
 
 export default connect(

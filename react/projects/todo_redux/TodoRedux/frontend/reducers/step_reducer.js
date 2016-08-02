@@ -1,13 +1,27 @@
-export const RECEIVE_STEPS = "RECEIVE_STEPS"
-export const RECEIVE_STEP = "RECEIVE_STEP"
+import { RECEIVE_STEPS,
+         RECEIVE_STEP,
+         REMOVE_STEP
+       } from '../actions/step_actions';
 
 const StepReducer = function(oldState = {}, action){
   switch(action.type){
     case RECEIVE_STEPS:
-      return action.steps;
+      let newState = {};
+      action.steps.forEach((step) => {
+        newState[step.todo_id] = newState[step.todo_id] || {};
+        newState[step.todo_id][step.id] = step;
+      })
+      return newState;
     case RECEIVE_STEP:
-      const newStep = {[action.step.id]: action.step};
-      return Object.assign({}, oldState, newStep);
+      newState = Object.assign({}, oldState);
+      newState[action.step.todo_id] = newState[action.step.todo_id] || {};
+      newState[action.step.todo_id][action.step.id] = action.step;
+      return newState;
+    case REMOVE_STEP:
+      newState = Object.assign({}, oldState);
+      newState[action.step.todo_id] = newState[action.step.todo_id] || {};
+      delete newState[action.step.todo_id][action.step.id];
+      return newState;
     default:
       return oldState;
   }
@@ -15,20 +29,26 @@ const StepReducer = function(oldState = {}, action){
 
 export default StepReducer;
 
-// STATE SHAPE NEEDS TO BE UPDATED
-
 // State Shape
   // {
   //   "1": {
-  //     id: 1,
-  //     title: "wash car",
-  //     body: "with soap",
-  //     done: false
+  //     1: {
+  //       title: "walk to store",
+  //       done: false
+  //     },
+  //     2: {
+  //       title: "buy soap",
+  //       done: false
+  //     }
   //   },
   //   "2": {
-  //     id: 2,
-  //     title: "wash dog",
-  //     body: "with shampoo",
-  //     done: true
-  //   },
+  //     3: {
+  //       title: "walk to park",
+  //       done: false
+  //     },
+  //     4: {
+  //       title: "play with dog",
+  //       done: false
+  //     }
+  //   }
   // };

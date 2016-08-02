@@ -1,24 +1,15 @@
-export const fetchSteps = function(success){
+export const fetchSteps = function(todo_id, success){
   $.ajax({
     method: 'GET',
-    url: 'api/steps',
-    data: filters,
+    url: `api/todos/${todo_id}/steps`,
     success
   });
 };
 
-export const fetchStep = function(id, success){
-  $.ajax({
-    method: 'GET',
-    url: `api/steps/${id}`,
-    success
-  });
-};
-
-export const createStep = function(step, success){
+export const createStep = function(todo_id, step, success){
   $.ajax({
     method: 'POST',
-    url: 'api/steps',
+    url: `api/todos/${todo_id}/steps`,
     data: {step},
     success
   });
@@ -30,5 +21,13 @@ export const updateStep = function(step, success){
     url: `api/steps/${step.id}`,
     data: {step},
     success
+  });
+};
+
+export const destroyStep = function(todo_id, step, success){
+  $.ajax({
+    method: 'DELETE',
+    url: `api/todos/${todo_id}/steps/${step.id}`,
+    success: success.bind(null, step)
   });
 };

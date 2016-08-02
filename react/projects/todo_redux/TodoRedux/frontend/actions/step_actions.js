@@ -1,16 +1,14 @@
-export const RECEIVE_STEPS = "RECEIVE_STEPS"
-export const RECEIVE_STEP = "RECEIVE_STEP"
-export const CREATE_STEP = "CREATE_STEP"
-export const UPDATE_STEP = "UPDATE_STEP"
-export const DESTROY_STEP = "DESTROY_STEP"
+export const REQUEST_STEPS = "REQUEST_STEPS";
+export const RECEIVE_STEPS = "RECEIVE_STEPS";
+export const RECEIVE_STEP = "RECEIVE_STEP";
+export const REMOVE_STEP = "REMOVE_STEP";
+export const CREATE_STEP = "CREATE_STEP";
+export const UPDATE_STEP = "UPDATE_STEP";
+export const DESTROY_STEP = "DESTROY_STEP";
 
-export const requestSteps = () => ({
-  type: REQUEST_STEPS
-});
-
-export const requestStep = id => ({
-  type: REQUEST_STEP,
-  id
+export const requestSteps = (todo_id) => ({
+  type: REQUEST_STEPS,
+  todo_id
 });
 
 export const receiveSteps = steps => ({
@@ -23,9 +21,15 @@ export const receiveStep = step => ({
   step
 });
 
+export const removeStep = step => ({
+  type: REMOVE_STEP,
+  step
+});
+
 export const createStep = step => ({
   type: CREATE_STEP,
-  step
+  step,
+  todo_id: step.todo_id
 });
 
 export const updateStep = step => ({
@@ -40,5 +44,6 @@ export const toggleStep = step => ({
 
 export const destroyStep = step => ({
   type: DESTROY_STEP,
-  step
+  step,
+  todo_id: step.todo_id
 });

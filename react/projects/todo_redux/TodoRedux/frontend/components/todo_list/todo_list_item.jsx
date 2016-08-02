@@ -1,15 +1,17 @@
 import React from 'react';
 import TodoDetailViewContainer from './todo_detail_view_container';
 
-const TodoListItem = React.createClass({
-  getInitialState() {
-    return { detail: false };
-  },
+class TodoListItem extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { detail: false };
+    this.toggleDetail = this.toggleDetail.bind(this);
+  }
 
   toggleDetail(event) {
     event.preventDefault();
     this.setState({detail: !this.state.detail});
-  },
+  }
 
   render() {
     let detail, className;
@@ -32,6 +34,6 @@ const TodoListItem = React.createClass({
       </div>
     );
   }
-});
+};
 
 export default TodoListItem;

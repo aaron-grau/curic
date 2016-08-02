@@ -1,12 +1,12 @@
 import React from 'react';
 
-class TodoForm extends React.Component {
+class StepForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      body: "", 
-      done: false
+      done: false,
+      todo_id: this.props.todo_id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -17,9 +17,9 @@ class TodoForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    const todo = Object.assign({}, this.state);
-    this.props.createTodo({todo});
-    this.setState({title: "", body: ""});
+    const step = Object.assign({}, this.state);
+    this.props.createStep(step);
+    this.setState({ title: "" });
   }
 
   render() {
@@ -29,21 +29,13 @@ class TodoForm extends React.Component {
           <input
             ref="title"
             value={this.state.title}
-            placeholder="buy milk"
+            placeholder="walk to store"
             onChange={this.update('title')}/>
         </label>
-        <label>Body: 
-          <textarea
-            ref="body"
-            cols='20'
-            value={this.state.body}
-            rows='5'
-            onChange={this.update('body')}></textarea>
-        </label>
-        <button className="submit-todo btn btn-primary">Create Todo!</button>
+        <button className="submit-todo btn btn-primary">Create Step!</button>
       </form>
     );
   }
 };
 
-export default TodoForm;
+export default StepForm;
