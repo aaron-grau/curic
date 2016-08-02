@@ -12,10 +12,11 @@ Consider the following examples, both of which represent the HTML
 ```jsx
 // jsx
 
-const quotes = 
-<div className="quotes">
-  <h1>I love JavaScript!</h1>
-</div>
+const quotes = (
+	<div className="quotes">
+	  <h1>I love JavaScript!</h1>
+	</div>
+);
 
 // plain Javascript
 
@@ -36,7 +37,8 @@ ReactDOM.render(quotes, document.body)
 
 ```
 
-In both examples above, `quotes` is assigned to a React component that renders the HTML onto the page when called in `ReactDOM.render(quotes, document.body)`.
+In both examples above, `quotes` is assigned to a React component that renders
+the HTML onto the page when passed to `ReactDOM.render(quotes, document.body)`.
 
 ## Interpolation
 
@@ -53,7 +55,7 @@ const myElement = (
 	</h1>
 );		
 
-// myElement renders as <h1 class=example>6<h1>
+// myElement renders as <h1 class='example'>6<h1>
 
 ```
 
@@ -79,8 +81,13 @@ const myElement = (
 
 JSX cannot be directly interpreted by browsers like Chrome or Firefox. Instead,
 JSX code must be passed through a preprocessor such as `Babel` that
-**transpiles** it into vanilla Javascript.
+**transpiles** it into vanilla Javascript. You'll learn more about these in a moment.
 
-You can read more about JSX [here][resources].
+
+## Official Documentation
+
+Although we'll only use JSX for developing React components, it can actually be
+used in other applications as well. You can read more about JSX
+[here][resources].
 
 [resources](http://facebook.github.io/jsx/)
