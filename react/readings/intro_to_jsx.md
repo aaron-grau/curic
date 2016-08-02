@@ -6,7 +6,8 @@ JSX is a JavaScript syntax extension that resembles HTML and XML. React
 code written in JSX mirrors the HTML it produces, improving
 readability and ease-of-development. 
 
-Consider the following examples, both of which represent the HTML `<div class='quotes'><h1>I Love JavaScript!</h1></div>`.
+Consider the following examples, both of which represent the HTML 
+`<div class='quotes'><h1>I Love JavaScript!</h1></div>`.
 
 ```jsx
 // jsx
@@ -39,12 +40,27 @@ In both examples above, `quotes` is assigned to a React component that renders t
 
 ## Interpolation
 
-Even though it looks like HTML, JSX is still Javascript at the core. As such, you can interpolate plain Javascript into JSx using `{}`.
+Even though it looks like HTML, JSX is still Javascript at the core. As such,
+you can interpolate plain Javascript into JSX using `{}` between element tags or
+for attribute values.
 
 ```js
-<Header>
-</Header>
+let myClass = 'example';
+
+const myElement = (
+	<h1 className={ myClass }>
+		{ 1 + 2 + 3 }
+	</h1>
+);		
+
+// myElement renders as <h1 class=example>6<h1>
+
 ```
+
+Note that, because only the return value is inserted into your element, only
+single expressions are allowed.
+
+
 
 ## Transpilation
 
