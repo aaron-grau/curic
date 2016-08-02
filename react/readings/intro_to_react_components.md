@@ -16,7 +16,7 @@ Both `React.createClass()` and `ReactDOM.render()` contain JSX syntax (the parts
 
 The Demo also contains a `package.json` file, which is used to configure NPM. This package is similar to a `Gemfile` that lists all of an app's dependencies. You'll read more about this later.
 
-It also contains a `webpack.config.js` file, which configures Webpack. Note that the output file, `bundle.js`, is sourced in our `index.html` and represents all of our app's code, along with its dependencies.
+It also contains a `webpack.config.js` file, which configures Webpack. Note that the output file, `bundle.js`, is sourced in our `index.html` and represents all of our app's code, along with its dependencies (`react` and `react-dom`. Webpack is also responsible for transpiling our JSX into raw Javascript for the browser.
 
 
 ## Dependencies
