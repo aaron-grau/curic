@@ -29,7 +29,7 @@ const NoteKey = React.createClass({
     } else {
       this.note.stop();
     }
-    this.setState({ pressed });
+    this.setState({ pressed: pressed });
   },
 
   render() {

@@ -85,8 +85,7 @@
 * [Flux code demo][flux-demo-screencast] (15 min)
   * [pre-flux code][recipes-pre-flux]
   * [complete project with flux][recipes-post-flux]
-* [Flux web api demo (flux with rails)][flux-api-screencast] (5 min)
-  * [flux demo with API code][recipes-with-api]
+
 
 ### Readings (40 min)
 * [Basic intro to flux][flux-intro] (5 min)
@@ -201,6 +200,10 @@
 ## w8d1
 
 **Project Proposal Review Period for Instructional Staff**
+### Homework (1 hour)
+* Do the auth part of A04 Prep
+  * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
+  * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
 * **Solo:** [BenchBnB Day 2][bench-bnb2]

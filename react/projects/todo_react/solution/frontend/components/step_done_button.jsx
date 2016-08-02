@@ -9,6 +9,7 @@ const StepDoneButton = React.createClass({
   },
 
   render() {
+    let classname;
     if (this.props.step.done) {
       classname = "btn btn-xs btn-danger done-step-button";
     } else {

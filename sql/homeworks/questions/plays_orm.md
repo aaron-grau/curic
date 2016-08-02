@@ -1,6 +1,6 @@
 # Plays-Playwrights ORM
 
-In tonight's videos, we saw how to implement an ORM for the `plays` database.  Your homework is to expand this ORM!  You can find all the code from the video lectures [here][plays-demo].  Click "view raw" to download.  
+In tonight's videos, we saw how to implement an ORM for the `plays` database.  Your homework is to expand this ORM!  You can find all the code from the video lectures [here][plays-demo].
 
 Let's add the following methods to our ORM:
   * `Playwright::all`
@@ -18,5 +18,5 @@ As always, thoroughly test your ORM to make sure all the methods are functioning
 
 Solutions can be found in the [homework solutions folder][hw-solutions].  Please wait until you have completed the exercise to check the solutions.  
 
-[plays-demo]: plays_demo.zip
-[hw-solutions]: ../solution
+[plays-demo]: plays_demo.zip?raw=true
+[hw-solutions]: ../solutions
