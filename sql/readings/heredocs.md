@@ -1,6 +1,8 @@
 # Heredocs
 
-We know how to format SQL code in a `.sql` file, but what if we mix SQL into our Ruby code? The answer is to use a **heredoc** to write multi-line strings with ease:
+We know how to format SQL code in a `.sql` file, but what if we mix SQL into
+our Ruby code? The answer is to use a **heredoc** to write multi-line strings
+with ease:
 
 ```ruby
 query = <<-SQL
@@ -15,9 +17,13 @@ SQL
 db.execute(query)
 ```
 
-This replaces `<<-SQL` with the text on the next line, up to the closing `SQL`. We could use any string for the start and end of a heredoc; `SQL` is just the convention when we are embedding SQL code.
+This replaces `<<-SQL` with the text on the next line, up to the closing
+`SQL`. We could use any string for the start and end of a heredoc; `SQL` is
+just the convention when we are embedding SQL code.
 
-A heredoc produces a string just like quotes does, and it will return into the place where the opening statement is. You can think of the above code as looking like this:
+A heredoc produces a string just like quotes do, and returns it into the place
+where the opening statement is. You can think of the above code as looking
+like this:
 
 ```ruby
 query = "SELECT * FROM posts JOIN comments ON comments.post_id = posts.id"
@@ -40,7 +46,9 @@ WHERE
 SQL
 ```
 
-Notice the use of the `?` interpolation mark; the Ruby variable `post_id` will be inserted into the query at the `?`. Remember that this sanitizes the variable to help prevent SQL injection attacks.
+Notice the use of the `?` interpolation mark; the Ruby variable `post_id` will
+be inserted into the query at the `?`. Remember that this sanitizes the
+variable to help prevent SQL injection attacks.
 
 Passing the input in as a hash will also sanitize it:
 
@@ -57,10 +65,28 @@ WHERE
 SQL
 ```
 
-And while you can interpolate directly into the heredoc (it is just a string, after all), it leaves your code vulnerable to SQL injection. Don't do it.
+And while you can interpolate directly into the heredoc (it is just a string,
+after all), it leaves your code vulnerable to SQL injection. Don't do it.
+
+The one exception is in the from clause, where you have to interpolate. For
+example:
+
+```ruby
+query = <<-SQL
+SELECT
+  *
+FROM
+  #{table_name}
+SQL
+
+db.execute(query)
+```
+
+Because the table name can come directly from your database without user
+interference, this is usually safe to do.
 
 ## References
 
 * [More on heredocs][heredocs]
 
-[heredocs]: https://makandracards.com/makandra/1675-using-heredoc-for-prettier-ruby-code
+[heredocs]:https://makandracards.com/makandra/1675-using-heredoc-for-prettier-ruby-code
