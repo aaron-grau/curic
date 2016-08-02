@@ -1,0 +1,143 @@
+body{
+  font-family: sans-serif;
+  background-color: #FBFAFA;
+}
+
+h1{
+  font-size: 36px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+h2{
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+h3{
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+h4{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 30px 0 10px 0;
+}
+
+input[type="submit"]{
+  margin: 5px 35px;
+}
+
+ul{
+  padding: 5px;
+  list-style: none;
+}
+
+.main{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sidebar{
+  flex: 1;
+  font-size: 20px;
+  padding: 30px 0 0 10px;
+}
+
+.content{
+  flex: 5;
+}
+
+.new-form{
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid black;
+  width: 500px;
+  text-align: center;
+}
+
+.new-form input{
+  margin: 5px;
+}
+
+.follow-toggle{
+  margin: 10px;
+  display: block;
+}
+
+.user-feed{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user-tweets{
+  flex: 2;
+}
+
+.followers{
+  flex: 1;
+}
+
+.followers ul{
+  padding-left: 20px;
+}
+
+.tweets{
+  padding: 10px;
+}
+
+.tweets > li{
+  padding: 10px;
+  background-color: #F8F8FF;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+.tweets > li:nth-child(even){
+  background-color: #FBFBFB;
+}
+
+.tweets > li:last-child{
+  border-bottom: 1px solid #ddd;
+}
+
+.main-feed{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.infinite-tweets{
+  flex: 2;
+}
+
+.tweet-form{
+  flex: 1;
+}
+
+.fetch-more{
+  padding: 10px;
+}
+
+.add-mentioned-user{
+  padding-left: 27px;
+}
+
+.mentioned-users{
+  margin: 10px 0;
+}
+
+.users-search{
+  padding: 10px;
+}
+
+.users > li{
+  padding: 5px;
+}
+
+.users > li button{
+  margin: 0 10px;
+}

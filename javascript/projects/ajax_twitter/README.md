@@ -1,6 +1,6 @@
 # w6d5: AJAX Twitter
 
-[live-demo]: http://aa-twitter.herokuapp.com/
+[**Live demo!**](http://aa-ajax-twitter.herokuapp.com/) (test username: curie, password: curiecurie)
 
 ## Phase 0: Setup
 

@@ -1,28 +1,31 @@
-<h1>Sign up!</h1>
+<div class="new-form">
 
-<ul>
-  <% @user.errors.full_messages.each do |err_msg| %>
-    <li><%= err_msg %></li>
-  <% end %>
-</ul>
+  <h1>Sign up!</h1>
 
-<form action="/users" method="POST">
-  <input
-    type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>">
+  <ul>
+    <% @user.errors.full_messages.each do |err_msg| %>
+      <li><%= err_msg %></li>
+    <% end %>
+  </ul>
 
-  <label for="user_username">Username</label>
-  <input
-    type="text"
-    name="user[username]"
-    id="user_username"
-    value="<%= @user.username %>">
-  <br>
+  <form action="/users" method="POST">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
 
-  <label for="user_password">Password</label>
-  <input type="password" name="user[password]" id="user_password">
-  <br>
+    <label for="user_username">Username</label>
+    <input
+      type="text"
+      name="user[username]"
+      id="user_username"
+      value="<%= @user.username %>">
+    <br>
 
-  <input type="submit" value="Create User!">
-</form>
+    <label for="user_password">Password</label>
+    <input type="password" name="user[password]" id="user_password">
+    <br>
+
+    <input type="submit" value="Create User!">
+  </form>
+</div>
