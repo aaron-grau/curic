@@ -1,8 +1,10 @@
 # 99 Cats II: Auth
 
-* [Live Demo](http://aa-99cats.herokuapp.com/)
+**[Live Demo!][live-demo]**
 
 Today we add a users and login to our 99Cats application.
+
+[live-demo]: https://ninetyninecats.herokuapp.com/
 
 ##### Key concepts:
 * Digest/hash

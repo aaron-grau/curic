@@ -1,12 +1,12 @@
 # MusicApp
 
-[Live Demo](http://aa-musicapp.herokuapp.com)
-
-# Music app
+**[Live Demo!][live-demo]**
 
 We're going to build an inventory system for record labels. This app
 will let them track their `Band`s, `Album`s and `Track`s. Additionally
 we'll offer user accounts so users can comment on our inventory.
+
+[live-demo]: http://aa-musicapp.herokuapp.com
 
 ##### Key Concepts
   * CSRF
@@ -18,7 +18,7 @@ we'll offer user accounts so users can comment on our inventory.
 
 ## Warm Up: Authentication
 
-Today, you will create a new rails application yourself, no 
+Today, you will create a new rails application yourself, no
 skeleton is provided! We recommend using `postgresql` for your
 database.
 

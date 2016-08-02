@@ -47,6 +47,13 @@ Example 2:
     largest_contiguous_subsum(list) # => 8 (from [7, -6, 7])
 ```
 
+Example 3:
+
+```ruby
+    list = [-5, -1, -3]
+    largest_contiguous_subsum(list) # => -1 (from [-1])
+```
+
 ## Phase I
 Write a function that iterates through the array and finds all sub-arrays using
 nested loops. First make an array to hold all sub-arrays. Then find the

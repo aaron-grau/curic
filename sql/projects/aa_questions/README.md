@@ -1,5 +1,6 @@
 # Question Pairs
 
+<<<<<<< HEAD
 Refer to the [Database documentation][database-docs] and last night's [joins reading][joins] to help cement your understanding during this project.
 
 Build an application that will help us handle questions from students.
@@ -7,12 +8,11 @@ Build an application that will help us handle questions from students.
 [database-docs]: http://sqlite-ruby.rubyforge.org/sqlite3/classes/SQLite3/Database.html
 [joins]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
 
+=======
+>>>>>>> master
 **Read the entire project description before beginning**.
 
-What we'll be doing is setting up the database and then overlaying
-Ruby code to map the data from the database into Ruby objects in
-memory that we can work with. Our database queries (written in SQL)
-will live within our Ruby code.
+Today, we're going to build an application that will help us handle questions from students.  To do this, we will set up the database and then overlay Ruby code to map the data from the database into Ruby objects in memory that we can work with. Our database queries (written in SQL) will live within our Ruby code.
 
 ## SQL
 
@@ -72,15 +72,24 @@ gem 'sqlite3'
 ```
 
 Finally, run `bundle install` to install `sqlite3`. This gem will now
-be available when you run `bundle exec pry`.
+be available when you run `pry`.
 
 ## Ruby
 
+<<<<<<< HEAD
+=======
+Keep a tab open with the sqlite3 gem's [documentation][sqlite3-docs]. Use these
+docs to help you figure out what methods are available and how to use them!
+
+>>>>>>> master
 Write a `QuestionsDatabase` class similar to one created in last night's demo:
 [PlaysDatabase][plays.rb]. This class should inherit
 from `SQLite3::Database`; you will only need one instance. If you use
 the `Singleton` module this will be available through a
 `QuestionsDatabase::instance` method.
+
+
+[sqlite3-docs]: http://www.rubydoc.info/github/luislavena/sqlite3-ruby/SQLite3/Database
 
 [plays.rb]: https://github.com/appacademy/curriculum/blob/master/sql/homeworks/solutions/plays_demo/plays.rb
 

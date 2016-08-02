@@ -168,7 +168,7 @@ for `keyup` and `keydown` events. Install event handlers by calling the
     $(document).on('keydown', (e) => {
       // dispatch a keyAction to add the key 
     });
-    $(document).on('keydown', (e) => {
+    $(document).on('keyup', (e) => {
       // dispatch a keyAction to remove the key
     });  
   }
