@@ -1,9 +1,19 @@
 
 # ReduxTodos
-## Phase 0: rails backend
+
+## Overview
+
+In this project, you will create an app that lets people create and manage a todo list. Users of your app will be able to add items to their todo list, delete items from it, and mark items as either "done" or "not done."
+Eventually, every item in the list will be able to have its own sub-list of "steps" that can be added, deleted, and marked as "done."
+
+Similarly to the Redux Piano app, you will be using React and Redux on your frontend, but this project will also have a Rails backend so that every change made on the frontend will persist.
+
+## Phase 0: Rails backend
+
+Create a Rails app that stores Todos and serves JSON in response to HTTP requests.
 
 + create a new rails project using `--database=postgresql` and `--skip-turbolinks`
-+ update your gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
+  + update your gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
 + create a `Todo` model with `title`, `body`, and a boolean `done`
 + create a `TodosController` to handle API requests
   + nest under `api/` and call it `Api::TodosController`
@@ -13,7 +23,9 @@
   + don't forget to update `routes.rb` to `root to: Staticpages#root`
 + start your server so that it can respond to HTTP requests
 
-## Phase 1: frontend structure
+## Phase 1: Frontend structure
+
+Create a file system to structure your frontend, configure your npm packages and webpack, and test that your frontend configuration works. 
 
 + create a `/frontend` folder at the root directory of your project to hold your frontend:
 ```
@@ -33,26 +45,46 @@ frontend
 + set up your entry file (`redux_todos.jsx`) to render a message into your `#content` container
   + test this setup by viewing your page at `localhost:3000`
 
-## Phase 2: todos redux structure
+## Phase 2: Todos Redux structure
+
+Create a Redux loop, including a store with reducers, action creators and constants, and middleware and API utils. This is how your frontend will get information from your backend, store it, and pass it to your frontend components.
 
 + store
-+ reducers
+  + reducers
+  + selectors
 + action creators & constants
 + middleware
 + api utils
 
-## Phase 3: todos components
+## Phase 3: Todos Components
+
+Create React components to display your todo list and its items, as well as a form that allows users to create new items. 
 
 + root (provider)
 + app
 + `todo_list_container` & `todo_list`
 + `todo_list_item_container` & `todo_list_item`
+  + `todo_detail_view_container` & `todo_detail_view`
 + `todo_form`
-+ `todo_detail_view_container` & `todo_detail_view`
 
-## Phase 4: steps redux structure
+## Phase 4: Steps Redux structure
+
+Create another Redux loop for "steps," the sub-items within a given todo.
+
++ store
+  + reducers
+  + selectors
++ action creators & constants
++ middleware
++ api utils
 
 ## Phase 5: steps components
+
+Create React components to display the steps for a given todo list item, as well as a form that allows users to create new steps. (They will probably live in that item's TodoDetailView.)
+
++ `step_list_container` & `step_list`
++ `step_list_item_container` & `step_list_item`
++ `step_form`
 
 ## Bonus
 
