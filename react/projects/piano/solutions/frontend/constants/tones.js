@@ -1,4 +1,4 @@
-const TONES = {
+export const TONES = {
   C5: 523.25,
   D5: 587.33,
   E5: 659.25,
@@ -9,4 +9,4 @@ const TONES = {
   C6: 1046.50
 };
 
-module.exports = TONES;
+export const NOTES = Object.keys(TONES);

@@ -1,5 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
+import { NOTES } from '../constants/tones'
+
 
 class Piano extends React.Component {
   constructor(props) {
@@ -12,9 +14,16 @@ class Piano extends React.Component {
   }
 
   render() {
+    console.log(this.props.notes);
     return (
       <div>
-        Piano
+        <ul>
+        {
+          NOTES.map((note, idx) => {
+            return <li key={idx}>{note}</li>
+          })
+        }
+        </ul>
       </div>
     );
   }

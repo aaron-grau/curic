@@ -1,13 +1,12 @@
 import $ from 'jquery';
-import TONES from '../constants/tones';
+import { NOTES } from '../constants/tones';
 
- const notes = Object.keys(TONES);
- const validKeys = ['a', 's', 'd', 'f', 'j', 'k', 'l'];
+const validKeys = ['a', 's', 'd', 'f', 'j', 'k', 'l'];
 
- const keyMap = {};
- validKeys.forEach((key, i) => { // maps keyboard keys to notes
-   keyMap[key] = notes[i];
- });
+const keyMap = {};
+validKeys.forEach((key, i) => { // maps keyboard keys to notes
+  keyMap[key] = NOTES[i];
+});
 
 const heldKeys = [];
 
