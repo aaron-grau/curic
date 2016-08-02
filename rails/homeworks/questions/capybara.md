@@ -41,7 +41,7 @@ Make sure to run your specs (`bundle exec rspec spec/models`) and [review the so
 
 ## Controller Tests
 
-Run `rails generate rspec:controller UsersController` to generate a spec file for the `UsersController`.
+Run `rails generate rspec:controller Users` to generate a spec file for the `UsersController`.
 
 Use the following skeleton. Fill in the pending specs to test each action in your `UsersController`. The first spec filled in for you:
 
