@@ -27,10 +27,10 @@ downsides][factories-bad] of their own.
 ## FactoryGirl
 
 The best solution is to use factories. **FactoryGirl** is [the top
-library][f-girl-is-top] for replacing fixtures. It allows us to write:
+library][factories-good] for replacing fixtures. It allows us to write:
 
 [factories-bad]: https://semaphoreapp.com/blog/2014/01/14/rails-testing-antipatterns-fixtures-and-factories.html
-[f-girl-is-top]: https://www.ruby-toolbox.com/categories/rails_fixture_replacement
+[factories-good]: https://www.ruby-toolbox.com/categories/rails_fixture_replacement
 
 ```ruby
 # GOOD

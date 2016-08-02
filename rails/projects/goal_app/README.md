@@ -13,6 +13,7 @@ while watching Netflix on the couch all weekend.
 
 ## Project Objectives
 
+ * Know how to write model and controller tests using RSpec. 
  * Know how to write integration tests using Capybara and RSpec.
  * Know what and when to test.
  * Understand how to test *behavior* rather than *implementation*.
@@ -231,4 +232,3 @@ $ git merge "polymorphic-comments"
 [railsguides-polymorph-assoc]: http://guides.rubyonrails.org/v3.2.14/association_basics.html#polymorphic-associations
 [shoulda-matchers]: https://github.com/thoughtbot/shoulda-matchers
 [factory-girl]: https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
-

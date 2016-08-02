@@ -21,8 +21,18 @@ Add the following to the Gemfile of your Ruby on Rails application:
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 ```
+
+Right now, we'll be focusing on `rspec-rails`. The rest of the gems will be explained in future readings.
 
 Next run bundle from the command line to install the gems:
 ``
@@ -79,9 +89,6 @@ default configuration will work just fine for testing with RSpec.
 If you are using postgresql, you must run `rake db:create` on the
 command line to create your development and test databases.
 
-**Important:** Each time you migrate your database or change it, you
-must also update the test database by calling `rake db:test:prepare`.
-
 ## Configure RSpec
 
 Next, install RSpec by entering the following on the command line:
@@ -131,7 +138,6 @@ config.generators do |g|
     :routing_specs => false,
     :controller_specs => true,
     :request_specs => false
-  g.fixture_replacement :factory_girl, :dir => "spec/factories"
 end
 ```
 You can probably guess what these settings do:
@@ -140,19 +146,13 @@ You can probably guess what these settings do:
 
  * `:fixtures => false` means Rails should not generate fixtures for
  each model. (Fixtures are the default Rails way of creating sample data
- for tests.) Instead, the line below, `g.fixture_replacement
- :factory_girl` will cause the creation of a FactoryGirl factory in
- `spec/factories` whenever we generate a model. (You'll learn about
- FactoryGirl in another reading.)
+ for tests.)
 
  *  `xxxxx_specs => false` means that we won't auto-generate spec files
-for views, helpers, routes, controllers, or requests.  To start with, we
-will focus on testing our models and the user interface/API (feature
-specs). As you become more comfortable testing, you may want to change
-these settings and use tests for the other components, too.
+for views, helpers, routes, or requests.  To start with, we
+will focus on testing our models, controllers and the user interface/API (feature specs). As you become more comfortable testing, you may want to change these settings and use tests for the other components, too.
 
-Now you are done! Model specs will automatically be generated in
-`spec/models` when you `rails g model ...`. We will manually create a
+Now you are done! Model specs and controller specs will automatically be generated in the `spec` directory when you `rails g model ...` or `rails g controller ...`. We will manually create a
 directory for our feature specs, `spec/features`. This is a special
 directory; spec files within it will be given access to Capybara helper
 methods. As usual, spec files should follow the naming convention

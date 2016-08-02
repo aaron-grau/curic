@@ -261,10 +261,14 @@
 * [RSpec and Rails Setup][rspec-setup] (15 min)
 * [Testing Models][rspec-models] (15 min)
 * [FactoryGirl and Faker Gems][fac-grl-faker] (20 min)
+* [Testing Controllers][rspec-controllers] (5 min)
 * [Testing with Capybara][capybara] (15 min)
 
 ### Homeworks (45 min)
 * [Capybara][capybara-hw] (45 min)
+
+### Additional Resources
+* [Spring and Guard Setup][spring-guard]
 
 ### Projects
 * [Goal App][goaling-app]
@@ -273,8 +277,10 @@
 [integration-testing]: readings/integration-testing.md
 [rspec-setup]: readings/rspec-and-rails-setup.md
 [rspec-models]: readings/rspec-models.md
+[rspec-models]: readings/rspec-controllers.md
 [fac-grl-faker]: readings/factorygirl-and-faker.md
 [capybara]: readings/capybara.md
+[spring-guard]: readings/guard-spring-setup.md
 
 [capybara-hw]: homeworks/questions/capybara.md
 
