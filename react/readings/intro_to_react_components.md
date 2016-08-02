@@ -1,6 +1,35 @@
 # Introduction to React Components
 
-Components are the fundamental packages of React logic. Their most
+## What are Components?
+
+React Components are the building blocks of a React view-layer. They are Javascript functions that return HTML to be rendered onto a document. Because they are typically written in JSX (more on that later), components often look like HTML dropped into a Javascript file. 
+
+## A Simple Example
+
+Open [this example][simple_component] in another tab and read along below. 
+
+Start with `index.html`. It's a normal HTML document that contains a <div id='root'/>. This `#root` element will serve as the hook onto which we insert our React component. Don't worry about the script tags for now.
+
+Now, take a look at `index.js`. Look at `React.createClass()` and `ReactDOM.render()`. These two functions allow you to create components and render them onto the DOM, respectively.
+
+
+
+## Dependencies
+
+In order to create React components, you will need to require the `react` and `react-dom` packages from `npm`. 
+
+
+
+
+
+## How are Components used?
+
+## 
+
+Components are the fundamental packages of React logic. 
+
+
+Their most
 important duty is their `render` method, which should aways return a
 tree of React elements that reflects the values of their `state` and
 `props`.
@@ -129,6 +158,7 @@ available to React programmers:
 * componentDidUpdate
 * componentWillUnmount
 
+
 [react-events]: http://facebook.github.io/react/docs/events.html
 [lifecycle-methods]: http://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
 
@@ -149,3 +179,7 @@ I would come up with a great example, but the good folks at Facebook
 have provided a [fantastic one for me][mixins].
 
 [mixins]: http://facebook.github.io/react/docs/reusable-components.html#mixins
+
+
+
+[simple_component]: ../demos/simple_component
