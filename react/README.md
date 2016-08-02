@@ -6,13 +6,13 @@
 
 ### Readings
 
-- [Intro to React][intro-to-react]
-- [React Components]
-- [JSX]
-- [NPM]
-- [Webpack]
-- [Babel for ES6 and JSX]
-- [Import / Export]
+- [Intro to React][intro_to_react]
+- [Intro to React Components]
+- [Intro to JSX][intro_to_jsx]
+- [Configuring NPM]
+- [Configuring Webpack]
+- [Configuring Babel for ES6 and JSX]
+- [ES6 Syntax: Import / Export]
 - [Components: Props vs. State]
 - [Components: Lifecycle Methods]
 
@@ -27,7 +27,8 @@
 
 - [Widgets][widgets]
 
-[intro-to-react]: readings/intro_to_react.md
+[intro_to_jsx]: readings/intro_to_jsx.md
+[intro_to_react]: readings/intro_to_react.md
 [widgets]: projects/widgets
 
 ## w7d2

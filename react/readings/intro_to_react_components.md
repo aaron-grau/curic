@@ -1,4 +1,4 @@
-# Components In Depth
+# Introduction to React Components
 
 Components are the fundamental packages of React logic. Their most
 important duty is their `render` method, which should aways return a
