@@ -9,7 +9,7 @@ class Piano extends React.Component {
      super(props);
      this.notes = NOTES.map(note => {
        return new Note(TONES[note]);
-     })
+     });
   }
 
   componentDidMount() {

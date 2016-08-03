@@ -266,8 +266,9 @@ class should accept an attributes hash, which will contain a `name` and
 playing a track (more details later).
 
 Write a method to `startRecording`. Reset `this.roll` to an empty array and save
-the current time to an instance variable. Later you'll use this instance variable to
-calculate when to play a note relative to the start of the recording.
+the current time to an instance variable. Later you'll use this instance
+variable to calculate when to play a note relative to the start of the
+recording.
 
 While the user records a track, we'll need to update `this.roll` as the user
 presses new notes. Write an `addNotes` method that `push`es into the `roll` an
@@ -277,8 +278,8 @@ object with the following values:
 - `notes`: which note names (`['C3', 'E3', 'G3']`) are currently pressed
 
 **NB:** we should store only the names of the notes in the roll, *not* instances
-of `Note`. We'll dispatch actions for each note names when it's time
-to play them, thereby leveraging our existing flux structure. Your program's like a
+of `Note`. We'll dispatch actions for each note names when it's time to play
+them, thereby leveraging our existing flux structure. Your program's like a
 player piano, which uses the same keys for live playing and replaying a roll.
 
 Write another function to `stopRecording`. Call `this.addNotes` with an empty
