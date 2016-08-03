@@ -32,7 +32,7 @@ end
 ```
 
 ```sh
-heroku apps:create mycapstoneprojectapp
+heroku apps:create myfullstackprojectapp
 heroku buildpacks:set heroku/ruby
 heroku buildpacks:add --index 1 heroku/nodejs
 git add -A
@@ -40,7 +40,7 @@ git commit -m "update production.rb for assets on heroku"
 git push heroku master
 ```
 
-[npm-instructions]: https://github.com/appacademy/curriculum/blob/master/capstone/readings/heroku-deployment.md#configure-heroku-to-use-both-npm-and-rubygems
+[npm-instructions]: ./heroku-deployment.md
 
 # Deploying Your App to Heroku
 

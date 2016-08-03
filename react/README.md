@@ -63,8 +63,8 @@
 ### Projects
 * [React Todos][react-todo]
 
-### Capstones
-* Capstone Projects Kickoff Lecture at 5PM!
+### Full-Stack Projects
+* Full-Stack Projects Kickoff Lecture at 5PM!
 
 [lifecycle-methods-demo]: https://vimeo.com/171447663
 [props-and-state]: https://vimeo.com/171453081
@@ -114,7 +114,7 @@
 [flux-lecture]: https://vimeo.com/163485520
 [flux-demo-screencast]: https://vimeo.com/163486476
 [click-counter-flux]: homeworks/click_counter
-[tentative-proposal]: ../capstone/readings/tentative-project-proposal.md
+[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 [flux-intro]: readings/intro_to_flux.md
 [flux-video]: https://www.youtube.com/watch?v=Bic_sFiaNDI
 [flux-todo-tutorial]: readings/todo_list_tutorial.md
@@ -186,14 +186,14 @@
   * Review this reading again.  It will be super helpful in designing your project.  
 
 ### Homework (5 hours)
-* Submit your [capstone project proposal][capstone-project-proposal] (5 hours)
+* Submit your [full-stack project proposal][full-stack-project-proposal] (5 hours)
   * **Due by 9am on Monday**
 
 ### Additional Resources
-* See [capstone project curriculum][capstone-project-curriculum] for additional information and readings related to capstone projects.
+* See [full-stack project curriculum][full-stack-project-curriculum] for additional information and readings related to full-stack projects.
 
-[capstone-project-curriculum]: ../capstone
-[capstone-project-proposal]: ../capstone/readings/capstone-project-proposal.md
+[full-stack-project-project-curriculum]: ../full-stack-project
+[full-stack-project-project-proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
 [jest-basics]: readings/jest_basics.md
 [jest-config]: readings/jest_config.md
 
