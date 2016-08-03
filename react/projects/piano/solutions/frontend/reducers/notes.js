@@ -1,7 +1,7 @@
 import { NotesConstants } from '../actions/notes_actions';
 import { NOTES } from '../constants/tones';
 
-const validKeys = ['a', 's', 'd', 'f', 'j', 'k', 'l'];
+const validKeys = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'"];
 const keyMap = {}; // maps keyboard keys to notes
 validKeys.forEach((key, i) => {
   keyMap[key] = NOTES[i];
