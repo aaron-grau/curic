@@ -7,7 +7,21 @@ const JukeBox = (props) => {
       JukeBox
       <ul>
         {Object.keys(props.tracks).map(id => {
-          return <li>{id}</li>
+          return (
+            <li key={id}>
+              {id}
+              <button
+                disabled={props.recording}
+              >
+                Play
+              </button>
+              <button
+                disabled={props.recording}
+              >
+                Delete
+              </button>
+            </li>
+          );
         })}
       </ul>
     </div>

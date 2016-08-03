@@ -3,7 +3,8 @@ import JukeBox from './juke_box';
 
 const mapStateToProps = (state) => {
   return {
-    tracks: state.tracks
+    tracks: state.tracks,
+    recording: state.recording
   };
 };
 
