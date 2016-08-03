@@ -13,6 +13,7 @@ while watching Netflix on the couch all weekend.
 
 ## Project Objectives
 
+ * Know how to write model and controller tests using RSpec.
  * Know how to write integration tests using Capybara and RSpec.
  * Know what and when to test.
  * Understand how to test *behavior* rather than *implementation*.
@@ -45,6 +46,20 @@ methods for adding all changes. Read more about it [here][git-add].
 
 ## Phase I: User Creation & Login
 
+### Model and Controller Tests
+
+Today's main focus will be integration tests, but we will write some model and controller specs as an RSpec warm up!
+
+ 1. Generate the models and controllers needed for authentication and user creation. If RSpec setup went according to plan, spec files should be generated for you automatically. Do not write out your `User` model just yet - we are going to write this app TDD style!
+ 2. Write model specs for `User`. Remember, model specs should test your model's validations, associations, and class scope methods (eg. `User::find_by_credentials`). Use `shoulda-matchers` to write tests for each of the validations in your user model. You won't have any associations written on your user model to begin with; go back and fill these in as you go. Refer to the reading on [RSpec Model Testing](../../readings/rspec-models) and last night's homework as needed.
+ 3. Next, write controller tests for each action in your `UsersController`. Refer to the [RSpec Controller reading](../../readings/rspec-controllers) and last night's homework as needed.
+
+Run your specs and watch them fail. Now, implement `User` and `UsersController` and experience the joy of turning your specs green!
+
+### Integration Tests
+
+For the remainder of the day, we'll be writing integration tests and utilizing the joyous creature that is Capybara!
+
  1. Write integration tests for just this feature. (Tests should fail at
  beginning.) Write only one test at a time before implementing the
  corresponding feature logic.
@@ -60,11 +75,11 @@ methods for adding all changes. Read more about it [here][git-add].
 
   feature "the signup process" do
 
-    it "has a new user page"
+    scenario "has a new user page"
 
     feature "signing up a user" do
 
-      it "shows username on the homepage after signup"
+      scenario "shows username on the homepage after signup"
 
     end
 
@@ -72,21 +87,21 @@ methods for adding all changes. Read more about it [here][git-add].
 
   feature "logging in" do
 
-    it "shows username on the homepage after login"
+    scenario "shows username on the homepage after login"
 
   end
 
   feature "logging out" do
 
-    it "begins with logged out state"
+    scenario "begins with a logged out state"
 
-    it "doesn't show username on the homepage after logout"
+    scenario "doesn't show username on the homepage after logout"
 
   end
 
   ```
 
-  Start filling in the missing test logic, one test at a time.
+Start filling in the missing test logic, one test at a time.
 
  2. After you fill in each test, implement enough of the application
  logic to make the test pass. Then go back and write the next test.

@@ -8,9 +8,10 @@ Follow the instructions for setting up [RSpec-Rails][rspec-rails], [Shoulda Matc
 
 Note: if you're having difficulty getting your config to work, don't hesitate to check out the `spec_helper.rb`, `Gemfile`, and specs from the solutions.
 
-Run `rails generate rspec:model User` to generate spec files for the `User` model.
 
 ## Model Tests
+
+Run `rails generate rspec:model User` to generate a spec file for the `User` model.
 
 Let's write some simple tests for the `User` model. Your test files should live in `spec/models/user_spec.rb`. Use shoulda-matchers to test all of the user's validations and associations, using the following as a blueprint:
 
@@ -37,6 +38,37 @@ Refer to [the docs][shoulda-matchers-docs] as needed.
 Next, it's time for a review of plain old RSpec! Write methods to test `#is_password?`, `#reset_session_token`, and `::find_by_credentials`.
 
 Make sure to run your specs (`bundle exec rspec spec/models`) and [review the solutions][users-solutions] for the users model before moving on.
+
+## Controller Tests
+
+Run `rails generate rspec:controller Users` to generate a spec file for the `UsersController`.
+
+Use the following skeleton. Fill in the pending specs to test each action in your `UsersController`. The first spec filled in for you:
+
+```ruby
+RSpec.describe UsersController, :type => :controller do
+
+  describe "GET #new" do
+    it "renders the new template" do
+      get :new, {}
+      expect(response).to render_template("new")
+    end
+  end
+
+  describe "POST #create" do
+    context "with invalid params" do
+      it "validates the presence of the user's username and password"
+
+      it "validates that the password is at least 6 characters long"
+    end
+
+    context "with valid params" do
+      it "redirects user to links index on success"
+    end
+  end
+end
+
+```
 
 ## Integration Tests
 
@@ -68,14 +100,14 @@ feature "the signup process" do
 
     scenario "shows username on the homepage after signup"
   end
-  
+
   feature "with an invalid user" do
     before(:each) do
       visit new_user_url
       fill_in 'Username', :with => "testing_username"
       click_on "create user"
     end
-    
+
     scenario "re-renders the signup page if an invalid user is given"
   end
 
