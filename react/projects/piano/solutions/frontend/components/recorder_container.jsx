@@ -4,7 +4,7 @@ import Recorder from './recorder';
 
 const mapStateToProps = (state) => {
   return {
-    tracks: state.tracks;
+    tracks: state.tracks
   };
 };
 
