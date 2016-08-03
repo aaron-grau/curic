@@ -1,33 +1,31 @@
 import { TrackConstants } from '../actions/track_actions';
 
-let index = 0;
+let currTrackId = 0;
 
 const track = (state, action) => {
   switch(action.type) {
     case TrackConstants.START_RECORDING:
-      let trackId = index++; // increment id
-      let newTrack = {}
-      return newTrack[trackId] = {
-        id: trackId,
+      return {
+        id: currTrackId,
         roll: [],
         timeStart: action.timeStart
-      }
+      };
     case TrackConstants.STOP_RECORDING:
-      let timeSlice = action.timeNow - state.timeStart;
-      return Object.assign({}, state,
+      const timeSlice = action.timeNow - state.timeStart;
+      return Object.assign({}, state, {
         roll: [
           ...state.roll,
           { notes: [], timeSlice: timeSlice }
         ]
-      );
+      });
     case TrackConstants.ADD_NOTES:
-      let timeSlice = action.timeNow - state.timeStart;
-      return Object.assign({}, state,
+      const timeSlice = action.timeNow - state.timeStart;
+      return Object.assign({}, state, {
         roll: [
           ...state.roll,
-          { notes: state.notes, timeSlice: timeSlice }
+          { notes: action.notes, timeSlice: timeSlice }
         ]
-      );
+      });
     default:
       return state;
   }
@@ -36,18 +34,40 @@ const track = (state, action) => {
 const tracks = (state = {}, action) => {
   switch(action.type) {
     case TrackConstants.START_RECORDING:
-      return Object.assign({}, state,
-        track(undefined, action)
-      );
+      currTrackId++; // increment id of current (newest) track
+      return Object.assign({}, state, {
+        [currTrackId]: track(undefined, action)
+      });
     case TrackConstants.STOP_RECORDING:
-      return Object.assign({}, state,
-        track(state[index], action)
-      );
+      return Object.assign({}, state, {
+        [currTrackId]: track(state[currTrackId], action)
+      });
     case TrackConstants.ADD_NOTES:
-      return Object.assign({}, state,
-        track(state[index], action)
-      );
+      return Object.assign({}, state, {
+        [currTrackId]: track(state[currTrackId], action)
+      });
     default:
       return state;
   }
 };
+
+// tracks:
+// {
+//   "1":
+//   {
+//     id: 1,
+//     roll:
+//     [ { notes: [ 'A5' ], timeSlice: 1250191 },
+//       { notes: [ 'C5', 'D5' ], timeSlice: 1265180 }
+//       { notes: [], timeSlice: 1279511 } ],
+//     timeStart: 1470164117527
+//   },
+//   "2":
+//   {
+//     id: 2,
+//     roll:
+//     [ { notes: [ 'B5', 'C6', 'C6' ], timeSlice: 253386 },
+//       { notes: [], timeSlice: 265216 } ],
+//     timeStart: 1470173676236
+//   },
+// };

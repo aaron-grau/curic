@@ -29,6 +29,7 @@ class Piano extends React.Component {
         this.notes[idx].stop();
       }
     });
+
     return (
       <div>
         Piano
@@ -36,8 +37,8 @@ class Piano extends React.Component {
         {
           NOTES.map((note, idx) => {
             return <NoteKey
-              note ={note}
-              key = {idx}
+              note={note}
+              key={idx}
               pressed={this.props.notes.indexOf(note) !== -1}/>
           })
         }

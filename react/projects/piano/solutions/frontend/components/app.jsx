@@ -4,7 +4,7 @@ import PianoContainer from './piano_container';
 const App = () => {
   return (
     <div>
-      Treble Maker
+      App
       <PianoContainer />
     </div>
   )
