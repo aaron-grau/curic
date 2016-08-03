@@ -1,6 +1,6 @@
 # Goal App
 
-* [Live Demo](http://aa-goalapp.herokuapp.com)
+* [Live Demo](http://aa-goals.herokuapp.com/)
 
 # Goal Setter App
 

@@ -1,9 +1,9 @@
-# Capstone Projects
+# Full-Stack Projects
 
 ## Important Dates
   * **W7D4**: Submit [tentative project proposal][tentative-proposal] by 9am
-    * [Suggested Capstone Projects][good-projects]
-  * **W8D1**: Submit [capstone project proposal][readings] by 9am
+    * [Suggested Full-Stack Projects][good-projects]
+  * **W8D1**: Submit [full-stack project proposal][readings] by 9am
     * [Sample Proposal][sample-proposal]
     * [MVP Checklist][mvp-checklist]
   * **W9D2**: Peer Review #1
@@ -11,9 +11,8 @@
 
 [tentative-proposal]: readings/tentative-project-proposal.md
 [good-projects]: readings/projects-to-clone.md
-[readings]: readings/capstone-project-proposal.md
+[readings]: readings/full-stack-project-proposal.md
 [sample-proposal]: demos/sample_project_proposal
-[capstone-check]: readings/capstone-checklist.md
 [mvp-checklist]: readings/mvp-list.md
 
 ## Resources

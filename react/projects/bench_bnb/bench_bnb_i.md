@@ -16,7 +16,7 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 * `lat` and `lng` should be of type `float`.
 * Make a `BenchesController` to handle API requests. It will need `index` and `
 create` to start.
-* Add routes for your `BenchController` actions. These should be namespaced under `api/benches` and return JSON by default.
+* Add routes for your `BenchesController` actions. These should be namespaced under `api/benches` and return JSON by default.
 * Populate `seeds.rb` with bench seed data using [real coordinates in SF][maps-sf] (click around to get coordinates).
 * Boot up your server and open your app in the browser. Test your API in the Dev Tools console using `$.ajax` calls (Hint: you may want to save these calls for later).
 
@@ -244,7 +244,7 @@ Let's render a component that shows our benches.
       // get the benches from benchstore
     },
     componentDidMount(){
-      BenchStore.addEventListener(this._handleChange);
+      BenchStore.addListener(this._handleChange);
       BenchActions.fetchAllBenches();
     },
     _handleChange(){
@@ -308,7 +308,7 @@ information.
         <head>
           <title>BenchBnb</title>
 
-          <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key={YOUR_API_KEY}" %>
+          <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" %>
           <%= stylesheet_link_tag    'application', media: 'all' %>
           <%= csrf_meta_tags %>
           <%= javascript_include_tag 'application' %>

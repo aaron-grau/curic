@@ -1,6 +1,6 @@
 # 99cats
 
-* [Live Demo](http://aa-99cats.herokuapp.com/)
+**[Live Demo!][live-demo]**
 
 This project asks you to clone the (now defunct) dress rental website
 99dresses. We'll make it cat oriented.
@@ -11,6 +11,7 @@ We won't worry about CSRF attacks today (you're not supposed to know
 what that is yet!). Take a walk on the wild side by commenting out
 `protect_from_forgery` in `app/controllers/application_controller.rb`.
 
+[live-demo]: https://ninetyninecats.herokuapp.com/
 [rails-setup]: ../../readings/rails-setup.md
 
 ## Phase I: Cat

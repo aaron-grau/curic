@@ -6,7 +6,7 @@ const hashHistory = require('react-router').hashHistory;
 const IndexItem = React.createClass({
   handleClick() {
     const benchID = this.props.bench.id;
-    hashHistory.push("benches/" + benchID );
+    hashHistory.push("/benches/" + benchID );
   },
 
   render() {

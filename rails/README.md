@@ -3,12 +3,10 @@
 * [Setup][rails-setup]
 * Rails Api [api.rubyonrails.org][rails-api]
 * Rails Guides [guides.rubyonrails.org][rails-guides]
-* [Code for Rails Videos][rails-videos-code]
 
 [rails-setup]: readings/rails-setup.md
 [rails-api]: http://api.rubyonrails.org/v4.0.2/
 [rails-guides]: http://guides.rubyonrails.org/v4.0.2/
-[rails-videos-code]: demos/intro_rails_video_demo
 
 ## w4d1
 
@@ -26,22 +24,15 @@
 
 ### Homeworks (1 hr, 45 min)
 * [Library Controller][library-hw] (45 min)
-* Complete days 1 & 2 of [HTML-CSS Curriculum][html-readme] (60 min)
+* Complete days 1 & 2 of [HTML Curriculum][html-readme] (60 min)
 
 ### Additional Resources
 + [Routing I: Basics][routing-i]
 + [Basic Controllers][basic-controllers]
 + [Basic JSON API][basic-json-api]
 + [Routing II: Nested Collections][routing-ii]
-+ [:movie_camera: (cc) 03-basic-rails-routing][03-basic-rails-routing] (24 min)
-+ [:movie_camera: (cc) 04-strong-params][04-strong-params] (25 min)
-+ [:movie_camera: (cc) 05-nested-resources][05-nested-resources] (15 min)
-* [:movie_camera: (cc) 06-erb-and-views][06-erb-and-views] (16 min)
-* [:movie_camera: (cc) 07-basic-forms][07-basic-forms] (19 min)
-* [:movie_camera: (cc) 08-form-request-cycle][08-form-request-cycle] (13 min)
-* [:movie_camera: (cc) 09-select][09-select] (21 min)
-* [:movie_camera: (cc) 10-form-partial][10-form-partial] (13 min)
-* [:movie_camera: (cc) 11-form-encoding][11-form-encoding] (12 min)
++ [:movie_camera: Rails Screencasts (3 thru 11)][rails-screencasts]
+  + [:computer: Code from demos][rails-videos-code]
 
 ### Projects
 + [First Routes and Controllers][first-routes]
@@ -56,15 +47,8 @@
 [basic-controller-demo-video]: https://vimeo.com/168501163
 [restful-controller-demo-video]: https://vimeo.com/168505535
 
-[03-basic-rails-routing]: http://vimeo.com/groups/appacademy/videos/100267303
-[04-strong-params]: http://vimeo.com/groups/appacademy/videos/100267304
-[05-nested-resources]: http://vimeo.com/groups/appacademy/videos/100267305
-[06-erb-and-views]: http://vimeo.com/groups/appacademy/videos/100267306
-[07-basic-forms]: http://vimeo.com/groups/appacademy/videos/100358537
-[08-form-request-cycle]: http://vimeo.com/groups/appacademy/videos/100359278
-[09-select]: http://vimeo.com/groups/appacademy/videos/100729432
-[10-form-partial]: http://vimeo.com/groups/appacademy/videos/100729434
-[11-form-encoding]: http://vimeo.com/groups/appacademy/videos/100729435
+[rails-screencasts]: https://vimeo.com/album/2953690/sort:alphabetical
+[rails-videos-code]: demos/intro_rails_video_demo
 
 [library-hw]: ./homeworks/questions/library
 [html-readme]: ../html-css
@@ -90,7 +74,7 @@
 * [Debugging][debugging-rails] (10 min)
 
 ### Homeworks (30 min)
-* Complete day 3 of [html curriculum][html-readme] (30 min)
+* Complete day 3 of [HTML Curriculum][html-readme] (30 min)
 
 ### Additional Resources
 * [Easy Forms Demo][easy-forms-demo]
@@ -134,7 +118,7 @@
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
 ### Homeworks (60 min)
-* Complete day 4 of [html curriculum][html-readme] (30 min)
+* Complete day 4 of [HTML Curriculum][html-readme] (30 min)
 * [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources

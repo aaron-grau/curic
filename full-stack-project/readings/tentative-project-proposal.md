@@ -1,10 +1,10 @@
 # Tentative Project Proposal
 
 Before we ask you to pour your heart and soul into crafting a polished,
-thorough blueprint for your capstone project, we want to be doubly sure
+thorough blueprint for your full-stack project, we want to be doubly sure
 that your core idea is strong enough not only to stand on its own, but
 to really wow employers. We also want to encourage some variety among
-capstone projects; this helps distinguish graduates from each other and
+full-stack projects; this helps distinguish graduates from each other and
 is good for the class as a whole.
 
 To facilitate this, we're going to have you submit to us your top three

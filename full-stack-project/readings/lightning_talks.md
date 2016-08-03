@@ -1,6 +1,6 @@
 # Lightning Talks
 
-Want to add a feature to your capstone but not sure how?  Check out the below list of lightning talks for help!  
+Want to add a feature to your full-stack project but not sure how?  Check out the below list of lightning talks for help!  
 
 Most demos are done on the BenchBnB project.  Complete solutions available [here][benchbnb-solution].
 
