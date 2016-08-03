@@ -2,7 +2,7 @@
 
 **Let's create a simple Rails project and try out what we've learned so far!**
 
-In this project we'll be creating a simple Rails project to model the relationships between `People` and `Houses`. By the end of this project, each `Person` will live in a house and each `House` will have an `address`. You will be able to call `House.people` and get a list of the `people` that live in that `House`. You will also be able to call `Person.house` and get the `House` that that `Person` lives in.
+In this project we'll be creating a simple Rails project to model the relationships between `People` and `Houses`. By the end of this project, each `Person` will live in a house and each `House` will have an `address`. You will be able to call `House.residents` and get a list of the `people` that live in that `House`. You will also be able to call `Person.house` and get the `House` that that `Person` lives in.
 
 ## Phase 1: `rails new`
 * Create a new rails project [using PostgreSQL][rails-with-pg-reading]
@@ -17,7 +17,8 @@ In this project we'll be creating a simple Rails project to model the relationsh
 * Create a `House` model and a `houses` table (each `House` should have an `address`)
 
 ## Phase 3: Create associations
-* [Associate][associations-reading] `Houses` with `People` such that `Houses` can have many `People` and each `Person` belongs to a `House`.
+* [Associate][associations-reading] `Houses` with `People` such that `Houses` can have many `Residents` and each `Person` belongs to a `House`.
+  + This relies on you specifying the correct `primary_key`, `foreign_key`, and `class_name`; otherwise, when you call `House.residents` rails will assume you are following conventions and look for a `residents` table rather than a `people` table!
 
 ## Phase 4: Try it out!
 * Use [`rails console`][orm-reading] to create some data and run some basic queries
