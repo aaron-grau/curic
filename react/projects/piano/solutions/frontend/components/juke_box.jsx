@@ -1,17 +1,26 @@
-import { connect } from 'react-redux';
-import JukeBox from './juke_box';
+import React from 'react';
 
-const mapStateToProps = (state) => {
-  return {
-    tracks: state.tracks
-  };
+const JukeBox = (props) => {
+  // console.log(props.tracks);
+  return (
+    <div>
+      JukeBox
+      <ul>
+        {Object.keys(props.tracks).map(id => {
+          return <li>{id}</li>
+        })}
+      </ul>
+    </div>
+  )
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
+export default JukeBox;
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(JukeBox);
+
+// <ul>
+//   {
+//     props.tracks.map((t) => {
+//       return <li>{t.id}</li>
+//     })
+//   }
+// </ul>
