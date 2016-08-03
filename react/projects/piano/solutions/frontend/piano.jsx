@@ -9,6 +9,7 @@ import pianoApp from './reducers'; // app reducer
 import PianoContainer from './components/piano_container';
 
 const store = createStore(pianoApp);
+console.log(store.getState());
 
 document.addEventListener('DOMContentLoaded', function() {
   const rootEl = document.getElementById('root');

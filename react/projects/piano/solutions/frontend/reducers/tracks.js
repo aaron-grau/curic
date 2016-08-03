@@ -11,19 +11,17 @@ const track = (state, action) => {
         timeStart: action.timeStart
       };
     case TrackConstants.STOP_RECORDING:
-      const timeSlice = action.timeNow - state.timeStart;
       return Object.assign({}, state, {
         roll: [
           ...state.roll,
-          { notes: [], timeSlice: timeSlice }
+          { notes: [], timeSlice: action.timeNow - state.timeStart }
         ]
       });
     case TrackConstants.ADD_NOTES:
-      const timeSlice = action.timeNow - state.timeStart;
       return Object.assign({}, state, {
         roll: [
           ...state.roll,
-          { notes: action.notes, timeSlice: timeSlice }
+          { notes: action.notes, timeSlice: action.timeNow - state.timeStart }
         ]
       });
     default:
@@ -51,7 +49,9 @@ const tracks = (state = {}, action) => {
   }
 };
 
-// tracks:
+export default tracks;
+
+// sample state tree - tracks:
 // {
 //   "1":
 //   {
