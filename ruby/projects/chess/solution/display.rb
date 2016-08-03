@@ -1,14 +1,13 @@
 require "colorize"
-require_relative "cursorable"
+require_relative "cursor"
 
 class Display
-  include Cursorable
 
-  attr_reader :board, :notifications
+  attr_reader :board, :notifications, :cursor
 
   def initialize(board)
     @board = board
-    @cursor_pos = [0, 0]
+    @cursor = Cursor.new([0,0], board)
     @notifications = {}
   end
 
@@ -26,7 +25,7 @@ class Display
   end
 
   def colors_for(i, j)
-    if [i, j] == @cursor_pos
+    if [i, j] == cursor.cursor_pos
       bg = :light_red
     elsif (i + j).odd?
       bg = :light_blue

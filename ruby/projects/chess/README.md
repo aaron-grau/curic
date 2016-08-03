@@ -33,31 +33,43 @@ the piece cannot move to `end_pos`.
 
 ## Phase II: `Display`
 
-Next, you'll want to make a `Display` class to handle your rendering
-logic. Your `Display` class should have access to the board, and
-eventually to the game. You'll want to require the `colorize` gem so you
-can render in color.
+Write a `Display` class to handle your rendering logic. Your `Display` class
+should access the board. Require the `colorize` gem so you can render in color.
 
-In your `Display` class, you'll want to create a cursor that you can
-move around with the keyboard. Eventually, your `Player` class should
-encapsulate some of this logic, but for now you can put it in `Display`.
+Download this `cursorable.rb` [skeleton][cursorable] and require it within
+`display.rb`. In `display.rb` initialize the instance variable `@cursor_pos` to
+`[0,0]`.
 
-A cursor will generally require three things:
-1. Using `STDIN#getch` along with a mapping of keys to process your
-   cursor actions/movements (this [demo][cursor-demo] will help you out)
-2. An `@cursor` that remembers the coordinates of the cursor at all
-   times
-3. A boolean `@selected` for storing whether the cursor has selected a
-   piece and is now trying to move it.
+In `cursorable.rb` we've provided a `KEYMAP` that translates your keypresses
+into actions and movements and a `MOVES` hash of possible movement
+differentials. You can use the `#get_input` method as is. `#read_char` handles
+console input. Gloss over `#read_char` to gain a general understanding of how
+the method works. It's all right if the `STDIN` methods are unfamiliar. Don't
+fret over the details.
 
-As you render your board, you'll want to have the cursor be highlighted
-in a different color from the rest of your board. You should be able to
-handle this in your render logic just by checking whether the square
-you're rendering is your `@cursor`.
+Fill in the `#handle_key(key)` method. Use a case statement that switches on the
+value of `key`. Depending on the `key`, `#handle_key(key)` will a) exit* from
+the terminal process (in case of `:ctrl_c`), b) return the `@cursor_pos` (in
+case of `:return` or `:space`), or c) `update_pos` by the appropriate movement
+differential from `MOVES` and return `nil` (in case of `:left`, `:right`, `:up`,
+and `:down`).
 
-**Note:** if you're stuck on cursor for more than ~30 minutes, please call for help from a TA. Fancy cursors are cool, but the main purpose of today is to become more familiar with Object Oriented Programming.
+\*Use the `Process.exit` method. Pass it the status code `0` as an argument. You
+can read more about `exit` [here](http://ruby-doc.org/core-2.2.0/Process.html#method-c-exit).
 
-**Code Review Time:** Before moving on to piece logic, get a code review from a TA! How you've set up your Board and Display Classes will greatly affect your game moving forward, so make sure that these classes are solid and well-written before continuing.
+Fill in the `#update_pos(diff)` method. It should use the `diff` to reassign
+`@cursor_pos` to a new position. You may wish to write a `Board#in_bounds`
+method and invoke it to ensure you update `@cursor_pos` only when the new position
+is on the board.
+
+Make the square at the `@cursor_pos` display in a different color. Implement this feature in your render logic.
+
+**Note:** if you're stuck on making a cursor for more than ~30 minutes, please
+call for help from a TA. Fancy cursors are cool, but the purpose of today is
+to become more familiar with Object-oriented Programming.
+
+**Code Review Time:** Before moving on to piece logic, get a code review from a
+TA! Confirm that your `Board` and `Display` classes are reliable before continuing.
 
 ## Phase III: `Pieces`
 
@@ -224,3 +236,4 @@ style, encapsulation, and exception handling.
 [recursion-exercises]: ../recursion/
 [colorize-gem]: https://github.com/fazibear/colorize
 [wiki-chess-unicode]: http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
+[cursorable]: ./cursorable.rb
