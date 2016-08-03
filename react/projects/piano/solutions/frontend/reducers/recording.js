@@ -1,4 +1,4 @@
-import { TracksConstants } from '../actions/track_actions';
+import { TracksConstants } from '../actions/tracks_actions';
 
 const recording = (state = false, action) => {
   // console.log("recording", action.type);

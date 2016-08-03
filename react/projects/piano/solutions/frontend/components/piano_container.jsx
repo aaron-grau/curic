@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { keyPressed, keyReleased } from '../actions/note_actions';
-import { addNotes } from '../actions/track_actions'
+import { keyPressed, keyReleased } from '../actions/notes_actions';
+import { addNotes } from '../actions/tracks_actions'
 import Piano from './piano';
 
 const mapStateToProps = (state) => {

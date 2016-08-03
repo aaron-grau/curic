@@ -1,5 +1,5 @@
 import $ from 'jquery';
-// import { keyPressed, keyReleased } from '../actions/note_actions';
+// import { keyPressed, keyReleased } from '../actions/notes_actions';
 import TONES from '../constants/tones';
 
 const notes = Object.keys(TONES);

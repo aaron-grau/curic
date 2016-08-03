@@ -118,7 +118,7 @@ module.exports = () => {
 }
 ```
 
-When a user presses a key, the key listener should call your `keyPressed(key)` function from `note_actions.js`, which will change add a key to the state of your application. Likewise, when a user releases a key, the listener should call your `keyReleased(key)` function to remove the key from the state.
+When a user presses a key, the key listener should call your `keyPressed(key)` function from `notes_actions.js`, which will change add a key to the state of your application. Likewise, when a user releases a key, the listener should call your `keyReleased(key)` function to remove the key from the state.
 
 There's a helpful property of the `KeyboardEvent` to determine which `key` to pass to your action.
 
