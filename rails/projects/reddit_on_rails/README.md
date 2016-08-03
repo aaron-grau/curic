@@ -1,14 +1,7 @@
 # Reddit On Rails
 
-* [Live Demo](http://aa-reddit-on-rails.herokuapp.com/)
-
-# Reddit Clone
-
-If you don't know what the Reddit is, then you are probably someone with
-a life. You should cast that away now. Reddit is basically a bunch of
-subforums and posts.
-
-[Here, look at some cats](http://www.reddit.com/r/cats).
+* [Project Demo](http://aa-reddit-on-rails.herokuapp.com/)
+* [Actual Reddit](http://www.reddit.com)
 
 ## Phase I: Auth
 
