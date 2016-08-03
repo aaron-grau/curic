@@ -1,4 +1,3 @@
-
 # ReduxTodos
 
 ## Overview
@@ -62,11 +61,75 @@ The Redux Store will hold a reference to our application state. The Store will a
 
 ### Reducers
 
-The reducers manage the shape of our application state
+The reducers manage the shape of our application state.
 
-  + reducers
+We want to build a state that has the following shape:
+
+```
+{
+  "1": {
+    id: 1,
+    title: "wash car",
+    body: "with soap",
+    done: false
+  },
+  "2": {
+    id: 2,
+    title: "wash dog",
+    body: "with shampoo",
+    done: true
+  },
+}
+```
+
+** Note that todo.id is the primary identifier **
+
+#### TodoReducer
+
++ Create a file, `reducers/todo_reducer.js` that exports a reducing function. The function should accept two arguments:
+
+  + `oldState` --> the previous application state.
+  + `action` --> the action object being dispatched.
+
++ Remember that reducing functions should:
+
+  + Never modify the oldState object
+  + Return the default state if no arguments are passed
+  + Return the oldState if the reducer doesn't care about the action
+
+Let's start by just setting up our `TodoReducer` to return its default state:
+
+```javascript
+const TodoReducer = function(oldState = {}, action){
+  switch(action.type){
+    //...
+    default:
+      return oldState
+  }
+}
+
+export default TodoReducer;
+```
+
+#### rootReducer
+
+Create a new file, `reducers/root_reducer.js`. This file will be responsible for combining our multiple, domain-specific reducers. It will `export default` a single `rootReducer`.
+
+  + Import `combineReducers` from `redux`
+
+So far, our default application state looks like this:
+
+```
+{
+  todos: {}
+}
+```
 
 ### Selectors
+
+Selectors allow components to get pieces of the application state formatted in a specific way - I think of them as the application state's "views." We'll be writing a selector called `allTodos` to present the todos as an array, rather than as values in an object.
+
+Selectors don't have to be long functions - I used `map` in conjunction with `Object.keys` for this function, and set a reasonable default of `[]`.
 
   + selectors
 
@@ -75,6 +138,8 @@ The reducers manage the shape of our application state
 + action creators & constants
 
 ### Middleware
+
+
 
 + middleware
 
