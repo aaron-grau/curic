@@ -253,5 +253,18 @@ likewise, sort each level of comments by score.
 * Write a score that includes "hotness" by multiplying the value of
   recent votes.
 
+## Bonus Phase III:
+
+* Users should be able to subscribe to specific `subs` and only see `posts`
+from those `subs` on the `index` page.
+* Users should be able to search for any `sub`, including ones they aren't
+subscribed to.
+* The user `show` page should display all of a user's `posts`, `comments`,
+and the total number of `votes` they've received from other people for their
+`posts` and `comments`.
+* Add lots of seeds with Faker.
+* Style your Reddit app! Try to make it look as much like actual Reddit as
+you can.
+
 [kaminari]: https://github.com/amatsuda/kaminari
 [friendly-id]: https://github.com/norman/friendly_id

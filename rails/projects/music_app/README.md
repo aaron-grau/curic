@@ -295,4 +295,21 @@ properties.
   * Put a button next to each user which, when clicked, makes that
     user an admin.
 
+### Bonus III: More bonuses!
+
+* Implement `tags`. Use polymorphic associations to associate `tags` with
+`bands`, `albums`, and `tracks`.
+* Implement searching.
+  * Users should be able pick which model they want to search from.
+  * Users should be able to just search in all three models at once.
+  * Users should be able to search by `tags`.
+* Read up on the [Faker][faker] gem and use it to create seed data for all
+your models.
+* Style your app!
+  * Change the colors and font sizes for different elements.
+  * Put your content in tables and play around with the positioning.
+  * See if you can make your sign up and log in forms look nicer. Try
+  centering them or adding a border.
+
+[faker]: https://github.com/stympy/faker
 [pre-tag]:https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
