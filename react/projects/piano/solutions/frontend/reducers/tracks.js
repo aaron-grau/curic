@@ -1,3 +1,4 @@
+import merge from 'lodash/merge';
 import { TracksConstants } from '../actions/tracks_actions';
 
 let currTrackId = 0;
@@ -11,14 +12,14 @@ const track = (state, action) => {
         timeStart: action.timeStart
       };
     case TracksConstants.STOP_RECORDING:
-      return Object.assign({}, state, {
+      return merge({}, state, {
         roll: [
           ...state.roll,
           { notes: [], timeSlice: action.timeNow - state.timeStart }
         ]
       });
     case TracksConstants.ADD_NOTES:
-      return Object.assign({}, state, {
+      return merge({}, state, {
         roll: [
           ...state.roll,
           { notes: action.notes, timeSlice: action.timeNow - state.timeStart }
@@ -30,21 +31,24 @@ const track = (state, action) => {
 };
 
 const tracks = (state = {}, action) => {
-  // console.log("tracks", action.type);
   switch(action.type) {
     case TracksConstants.START_RECORDING:
       currTrackId++; // increment id of current (newest) track
-      return Object.assign({}, state, {
+      return merge({}, state, {
         [currTrackId]: track(undefined, action)
       });
     case TracksConstants.STOP_RECORDING:
-      return Object.assign({}, state, {
+      return merge({}, state, {
         [currTrackId]: track(state[currTrackId], action)
       });
     case TracksConstants.ADD_NOTES:
-      return Object.assign({}, state, {
+      return merge({}, state, {
         [currTrackId]: track(state[currTrackId], action)
       });
+    case TracksConstants.DELETE_TRACK:
+      let nextState = merge({}, state);
+      delete nextState[action.id]
+      return nextState;
     default:
       return state;
   }

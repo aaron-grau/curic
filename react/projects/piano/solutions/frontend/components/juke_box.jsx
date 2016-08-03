@@ -1,32 +1,30 @@
 import React from 'react';
 
-const JukeBox = (props) => {
-  // console.log(props.tracks);
-  return (
-    <div>
-      JukeBox
-      <ul>
-        {Object.keys(props.tracks).map(id => {
-          return (
-            <li key={id}>
-              {id}
-              <button
-                disabled={props.recording}
-              >
-                Play
-              </button>
-              <button
-                disabled={props.recording}
-              >
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  )
-};
+const JukeBox = ({ tracks, recording , onDelete }) => (
+  <div>
+    JukeBox
+    <ul>
+      {Object.keys(tracks).map(id => {
+        return (
+          <li key={id}>
+            {id}
+            <button
+              disabled={recording}
+            >
+              Play
+            </button>
+            <button
+              disabled={recording}
+              onClick={onDelete(id)}
+            >
+              Delete
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+);
 
 export default JukeBox;
 
