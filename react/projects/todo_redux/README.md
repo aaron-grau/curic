@@ -115,7 +115,8 @@ export default TodoReducer;
 
 Create a new file, `reducers/root_reducer.js`. This file will be responsible for combining our multiple, domain-specific reducers. It will `export default` a single `rootReducer`.
 
-  + Import `combineReducers` from `redux`
+  + Import `combineReducers` from `redux` and your `TodoReducer` function
+  + Create a `rootReducer` using `combineReducers`
 
 So far, our default application state looks like this:
 
@@ -131,21 +132,135 @@ Selectors allow components to get pieces of the application state formatted in a
 
 Selectors don't have to be long functions - I used `map` in conjunction with `Object.keys` for this function, and set a reasonable default of `[]`.
 
-  + selectors
-
 ### Action Creators
 
-+ action creators & constants
+Now you'll write the code that creates the `action`s that tell your `TodoReducer` how to update the state. 
+
+Remember that: 
+  + `action` objects are just plain-old javascript objects that also have a `type` property.
+  + Action creators don't directly interact with `Middleware` or the `Store`; they just produce objects. We then send those objects through our `Middleware` and to the `Store` by invoking `Store#dispatch`.
+
+Now let's write a couple action creators. The first one will request `todos` from the backend, and the second one will receive the requested `todos`.
+
+#### requestTodos
+
+In order to request `todos` from the backend, we need to send a `GET` request to the appropriate URL. We don't need to pass any information in order for this request to succeed, so the `action` that triggers this event will only need the appropriate `type` (I'd recommend `REQUEST_TODOS`).
+
+#### receiveTodos
+
+This action lets our state know to reset its list of `todos` and, as such, will also need to pass along a new set of `todos`. Therefore, our `receiveTodos` action creator should accept an argument `todos` and return an `action` with `type` `RECEIVE_BENCHES` and a `todos` property that represents all of our todo data.
+
+#### Constants
+
+We use constants to represent `actionTypes`. They are used whenever `actionTypes` are being set or read (i.e., in our action creators and in the `switch` statements in our reducers and middleware).
+
++ Create and export constants both for `REQUEST_BENCHES` and `RECEIVE_BENCHES`.
+  + Technically, the values of these constants could be any unique value, but our convention is to use the string literal of the constant (e.g., `const REQUEST_BENCHES = "REQUEST_BENCHES"`) 
+
+Don't forget to export both of the functions you just made, as well as the constants we created!
 
 ### Middleware
 
+#### TodoMiddleware
 
+Our `TodoMiddleware` will be responsible for triggering the api calls that populate our `Store` with `todos`. Remember, Middleware receives dispatches before the store. It can decide to intercept the dispatch, trigger another dispatch, or simply pass on it and do nothing.
 
-+ middleware
++ Create a file `middleware/todo_middleware.js`
++ Import the relevant constants from your `todo_actions` file
++ Refer to the [Middleware]:'../../readings/middleware.md' reading and set up the basic structure of a redux middleware function
++ Implement a `switch` statement on `action.type` with a `default` that simply calls `next` with the `action` given to it
++ Now let's add a `case` for `REQUEST_BENCHES` that `console.log`s "here is where todos would be fetched"
++ Export your `TodoMiddleware`
+
+#### MasterMiddleware
+
+`MasterMiddleware` is similar to the `rootReducer` that we implemented earlier in that this object will collect at least one middleware function and connect it to our `Store`.
+
+The pattern for implementing it is relatively simple:
+
++ Create a file `middleware/master_middleware.js`
++ Import `applyMiddleware` from `redux`
++ Import your `TodoMiddleware`
++ Use the `applyMiddleware` function to create a `MasterMiddleware`
++ Export your `MasterMiddleware` 
+
+Now that you've created a `MasterMiddleware`, add it to your `createStore` function in `store/store.js`
+
+** Test this out by setting `window.Store = Store` and `window.requestTodos = requestTodos` and running `Store.dispatch(requestBenches())` - you should see the logged statement in your console. **
 
 ### API Utils
 
-+ api utils
+Your API utilities are what actually make the `$.ajax` requests that will hit your backend and fetch or (eventually) update your data. They are called by your middleware, and the data they receive is passed on to the store. In general, these utility functions will accept one argument: a callback that they should call if the request is successful.
+
++ Create a file `util/todo_api_util.js`
++ Write a function that accepts a `success` argument and passes that function as the success callback to a `$.ajax` call
+
+Your function should look something like the following:
+```javascript
+export const fetchTodos(success){
+  $.ajax({
+    method: // ,
+    url: //,
+    success,
+    error: () => console.log('error')
+  })
+}
+```  
+
+#### Using API Utils in Middleware
+
+Let's adjust our middleware so that it calls this new utility function if the `actionType` matches `REQUEST_TODOS`.
+
++ Start by importing `fetchTodos`
++ Invoke `fetchTodos` in your `switch` statement instead of `console.log`ging
+
+Your code should look similar to the following:
+```javascript
+export default ({getState, dispatch}) => next => action => {
+  switch(action.type){
+    case REQUEST_TODOS:
+      const success = data => console.log(data);
+      fetchTodos(success);
+      break;
+    default:
+      next(action);
+  }
+};
+```
+
+** Test your code: running `Store.dispatch(requestTodos())` in your console should prompt a `console.log` of all your `todo` data! **
+
+Once the above test works, update your middleware so that it dispatches the received data as part of an action instead of `console.log`ging it.
+
++ Import the `receiveTodos` action creator
++ Redefine your `success` callback to dispatch a `RECEIVE_TODOS` action 
+
+#### Receiving and Reducing data
+
+Now that you're `fetch`ing data from your backend and `dispatch`ing it to your `Store` with an `actionType` of `RECEIVE_TODOS`, it's time to tell your reducers what to do with that type of action.
+Remember to import the appropriate constants! Your code will now probably look similar to the following:
+
+```javascript
+const TodoReducer = function(oldState = {}, action){
+  switch(action.type){
+    case RECEIVE_TODOS:
+      return action.todos;
+    default:
+      return oldState;
+  }
+};
+```
+
+** Test your code! You should now be able to run the following in the console: **
+```javascript
+Store.getState(); // --> returns default state object
+Store.dispatch(requestTodos());
+Store.getState(); // --> returns a new state object, fully populated!
+```
+
+Examine your state object - is it the shape you had decided it should be back in the `Reducers` section? Specifically, are the `todos` being stored as values in an object?
+
+** You've now implemented a full Redux cycle - call over a TA for a code review **
 
 ## Phase 3: Todos Components
 

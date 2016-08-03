@@ -41,6 +41,6 @@ export default ({getState, dispatch}) => next => action => {
       destroyTodo(action.todo, todoRemoved);
       break;
     default:
-      next(action)
+      next(action);
   }
 };

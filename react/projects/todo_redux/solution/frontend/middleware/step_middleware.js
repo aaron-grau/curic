@@ -34,6 +34,6 @@ export default ({getState, dispatch}) => next => action => {
       destroyStep(action.todo_id, action.step, stepRemoved);
       break;
     default:
-      next(action)
+      next(action);
   }
 };
