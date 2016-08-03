@@ -4,15 +4,6 @@ import { RECEIVE_TODOS,
          TODO_ERROR
        } from '../actions/todo_actions';
 
-const defaultState = {
-    "1": {
-      id: 1,
-      title: "wash car",
-      body: "with soap",
-      done: false
-    }
-};
-
 const TodoReducer = function(oldState = {}, action){
   switch(action.type){
     case RECEIVE_TODOS:
