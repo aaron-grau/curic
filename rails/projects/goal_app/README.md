@@ -1,6 +1,6 @@
 # Goal App
 
-* [Live Demo](http://aa-goalapp.herokuapp.com)
+* [Live Demo](http://aa-goals.herokuapp.com/)
 
 # Goal Setter App
 
@@ -231,4 +231,3 @@ $ git merge "polymorphic-comments"
 [railsguides-polymorph-assoc]: http://guides.rubyonrails.org/v3.2.14/association_basics.html#polymorphic-associations
 [shoulda-matchers]: https://github.com/thoughtbot/shoulda-matchers
 [factory-girl]: https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
-
