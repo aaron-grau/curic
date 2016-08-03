@@ -1,21 +1,21 @@
-export const TrackConstants = {
+export const TracksConstants = {
   START_RECORDING: "START_RECORDING",
   STOP_RECORDING: "STOP_RECORDING",
   ADD_NOTES: "ADD_NOTES"
 };
 
-export const startRecording = timeStart => ({
-  type: TrackConstants.START_RECORDING,
-  timeStart
+export const startRecording = () => ({
+  type: TracksConstants.START_RECORDING,
+  timeStart: Date.now()
 });
 
-export const stopRecording = (timeNow) => ({
-  type: TrackConstants.STOP_RECORDING,
-  timeNow
+export const stopRecording = () => ({
+  type: TracksConstants.STOP_RECORDING,
+  timeNow: Date.now()
 });
 
-export const addNotes = (timeNow, notes) => ({
-  type: TrackConstants.ADD_NOTES,
-  timeNow,
+export const addNotes = (notes) => ({
+  type: TracksConstants.ADD_NOTES,
+  timeNow: Date.now(),
   notes
 });

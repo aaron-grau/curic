@@ -1,10 +1,11 @@
-import { RecordingConstants } from '../actions/recording_actions';
+import { TracksConstants } from '../actions/track_actions';
 
 const recording = (state = false, action) => {
+  // console.log("recording", action.type);
   switch(action.type) {
-    case RecordingConstants.START_RECORDING:
+    case TracksConstants.START_RECORDING:
       return true;
-    case RecordingConstants.STOP_RECORDING:
+    case TracksConstants.STOP_RECORDING:
       return false;
     default:
       return state;

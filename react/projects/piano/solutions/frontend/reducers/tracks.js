@@ -1,23 +1,23 @@
-import { TrackConstants } from '../actions/track_actions';
+import { TracksConstants } from '../actions/track_actions';
 
 let currTrackId = 0;
 
 const track = (state, action) => {
   switch(action.type) {
-    case TrackConstants.START_RECORDING:
+    case TracksConstants.START_RECORDING:
       return {
         id: currTrackId,
         roll: [],
         timeStart: action.timeStart
       };
-    case TrackConstants.STOP_RECORDING:
+    case TracksConstants.STOP_RECORDING:
       return Object.assign({}, state, {
         roll: [
           ...state.roll,
           { notes: [], timeSlice: action.timeNow - state.timeStart }
         ]
       });
-    case TrackConstants.ADD_NOTES:
+    case TracksConstants.ADD_NOTES:
       return Object.assign({}, state, {
         roll: [
           ...state.roll,
@@ -30,17 +30,18 @@ const track = (state, action) => {
 };
 
 const tracks = (state = {}, action) => {
+  // console.log("tracks", action.type);
   switch(action.type) {
-    case TrackConstants.START_RECORDING:
+    case TracksConstants.START_RECORDING:
       currTrackId++; // increment id of current (newest) track
       return Object.assign({}, state, {
         [currTrackId]: track(undefined, action)
       });
-    case TrackConstants.STOP_RECORDING:
+    case TracksConstants.STOP_RECORDING:
       return Object.assign({}, state, {
         [currTrackId]: track(state[currTrackId], action)
       });
-    case TrackConstants.ADD_NOTES:
+    case TracksConstants.ADD_NOTES:
       return Object.assign({}, state, {
         [currTrackId]: track(state[currTrackId], action)
       });

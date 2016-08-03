@@ -1,18 +1,25 @@
 import { connect } from 'react-redux';
 import { startRecording, stopRecording, addNotes } from '../actions/track_actions';
+// import { startRecording, stopRecording } from '../actions/recording_actions'
 import Recorder from './recorder';
 
 const mapStateToProps = (state) => {
   return {
-    tracks: state.tracks
+    tracks: state.tracks,
+    recording: state.recording
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startRecording: timeStart => dispatch(startRecording(timeStart)),
-    stopRecording: timeNow => dispatch(startRecording(timeNow)),
-    addNotes: (timeNow, notes) => dispatch(addNotes(timeNow, notes))
+    startRecording: () => {
+      console.log('startRecording');
+      dispatch(startRecording());
+    },
+    stopRecording: () => {
+      console.log('stopRecording');
+      dispatch(stopRecording());
+    },
   };
 };
 
