@@ -48,13 +48,13 @@ methods for adding all changes. Read more about it [here][git-add].
 
 ### Model and Controller Tests
 
-Today's main focus will be integration test, but we will write some model and controller specs as an RSpec warm up!
+Today's main focus will be integration tests, but we will write some model and controller specs as an RSpec warm up!
 
  1. Generate the models and controllers needed for authentication and user creation. If RSpec setup went according to plan, spec files should be generated for you automatically. Do not write out your `User` model just yet - we are going to write this app TDD style!
  2. Write model specs for `User`. Remember, model specs should test your model's validations, associations, and class scope methods (eg. `User::find_by_credentials`). Use `shoulda-matchers` to write tests for each of the validations in your user model. You won't have any associations written on your user model to begin with; go back and fill these in as you go. Refer to the reading on [RSpec Model Testing](../../readings/rspec-models) and last night's homework as needed.
  3. Next, write controller tests for each action in your `UsersController`. Refer to the [RSpec Controller reading](../../readings/rspec-controllers) and last night's homework as needed.
 
-Run your specs and watch them fail. Now, implement `User` and `UsersController` and experience the joy of passing green specs!
+Run your specs and watch them fail. Now, implement `User` and `UsersController` and experience the joy of turning your specs green!
 
 ### Integration Tests
 
