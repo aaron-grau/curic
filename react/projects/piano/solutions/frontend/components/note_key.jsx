@@ -5,7 +5,7 @@ import Note from '../util/note';
 const NoteKey = ({ note, pressed }) => {
   return (
     <li>{note}</li>
-  )
+  );
 };
 
 export default NoteKey;
