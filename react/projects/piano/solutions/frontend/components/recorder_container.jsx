@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { startRecording, stopRecording, addNotes } from '../actions/track_actions';
+import { startRecording, stopRecording } from '../actions/track_actions';
 // import { startRecording, stopRecording } from '../actions/recording_actions'
 import Recorder from './recorder';
 
