@@ -13,13 +13,15 @@ class Piano extends React.Component {
   }
 
   componentDidMount() {
-    $(document).on('keydown', e => this.keyDown(e));
-    $(document).on('keyup', e => {
-      this.props.keyUp(e.key)
-    });
+    $(document).on('keydown', e => this.onKeyDown(e));
+    $(document).on('keyup', e => this.onKeyUp(e));
   }
 
-  keyDown(e) {
+  onKeyUp(e) {
+    this.props.keyUp(e.key);
+  }
+
+  onKeyDown(e) {
     this.props.keyDown(e.key);
 
     if (this.props.recording) {
@@ -27,7 +29,7 @@ class Piano extends React.Component {
     }
   }
 
-  render() {
+  playNotes () {
     NOTES.forEach((note, idx) => {
       if (this.props.notes.indexOf(note) !== -1) {
         this.notes[idx].start();
@@ -35,6 +37,10 @@ class Piano extends React.Component {
         this.notes[idx].stop();
       }
     });
+  }
+
+  render() {
+    this.playNotes();
 
     return (
       <div>

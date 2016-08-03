@@ -3,25 +3,21 @@ import { startRecording, stopRecording } from '../actions/tracks_actions';
 // import { startRecording, stopRecording } from '../actions/recording_actions'
 import Recorder from './recorder';
 
-const mapStateToProps = (state) => {
-  return {
-    tracks: state.tracks,
-    recording: state.recording
-  };
-};
+const mapStateToProps = ({ tracks, recording }) => ({
+  tracks,
+  recording
+})
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    startRecording: () => {
-      console.log('startRecording');
-      dispatch(startRecording());
-    },
-    stopRecording: () => {
-      console.log('stopRecording');
-      dispatch(stopRecording());
-    },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  startRecording: () => {
+    console.log('startRecording');
+    dispatch(startRecording());
+  },
+  stopRecording: () => {
+    console.log('stopRecording');
+    dispatch(stopRecording());
+  }
+});
 
 export default connect(
   mapStateToProps,

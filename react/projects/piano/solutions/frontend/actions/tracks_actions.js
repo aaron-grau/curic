@@ -16,18 +16,18 @@ export const stopRecording = () => ({
   timeNow: Date.now()
 });
 
-export const addNotes = (notes) => ({
+export const addNotes = notes => ({
   type: TracksConstants.ADD_NOTES,
   timeNow: Date.now(),
   notes
 });
 
-export const playTrack = (id) => ({
+export const playTrack = id => ({
   type: TracksConstants.PLAY_TRACK,
   id
 });
 
-export const deleteTrack = (id) => ({
+export const deleteTrack = id => ({
   type: TracksConstants.DELETE_TRACK,
   id
 });
