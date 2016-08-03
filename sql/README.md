@@ -143,10 +143,8 @@
 + [Scopes][scopes] (10 min)
 + [More on Querying][querying-ii] (15 min)
 
-### Homeworks (45 min)
+### Homeworks (30 min)
 + [N+1 Buster][n1-buster] (30 min)
-+ [Implicit Bias Test][bias-quiz] (15 min)
-  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
 
 ### Additional Resources
 + [Ternary Logic in SQL][sql-ternary-logic]
@@ -161,7 +159,6 @@
 [sql-ternary-logic]: readings/sql-ternary-logic.md
 
 [n1-buster]: homeworks/questions/n_1_buster.md
-[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [polls-app]: projects/polls_app
 

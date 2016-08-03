@@ -1,8 +1,6 @@
 # ContactsAPI
 
-**[Live Demo](http://aa-contactsapi.herokuapp.com)**
-
-# Layering on Contacts
+## Layering on Contacts
 
 We're going to continue building on the API we built in the first
 routes project.

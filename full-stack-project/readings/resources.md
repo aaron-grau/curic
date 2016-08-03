@@ -39,7 +39,7 @@ use Rack::Deflater
 ```
 
 
-This is a collection of useful gems / libraries / guides and resources that may be of use to you in your capstone project.
+This is a collection of useful gems / libraries / guides and resources that may be of use to you in your full-stack project.
 ## Rails
   * __Devise__
     * Devise is a gem for setting up all of your authentication. It adds everything for login and registration as well as many other extra features.

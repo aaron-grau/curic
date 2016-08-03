@@ -38,24 +38,16 @@ const LoginForm = React.createClass({
 	handleSubmit(e) {
 		e.preventDefault();
 
-		const formData = {
-			username: this.state.username,
-			password: this.state.password
-		};
-
     if (this.props.location.pathname === "/login") {
-      SessionActions.logIn(formData);
+      SessionActions.logIn(this.state);
     } else {
-      SessionActions.signUp(formData);
+      SessionActions.signUp(this.state);
     }
 	},
 
-  fieldErrors(field) {
-    const errors = ErrorStore.formErrors(this.formType());
-
-    if (!errors[field]) { return; }
-
-    const messages = errors[field].map( (errorMsg, i) => {
+  errors() {
+    const errors = ErrorStore.errors(this.formType());
+    const messages = errors.map( (errorMsg, i) => {
       return <li key={ i }>{ errorMsg }</li>;
     });
 
@@ -66,8 +58,8 @@ const LoginForm = React.createClass({
     return this.props.location.pathname.slice(1);
   },
 
-  update(property) {
-    return (e) => this.setState({[property]: e.target.value});
+  inputHandler(property, e) {
+		return (e) => this.setState({[property]: e.target.value});
   },
 
 	render() {
@@ -86,23 +78,21 @@ const LoginForm = React.createClass({
 					<br/>
 					Please { this.formType() } or { navLink }
 
-	        { this.fieldErrors("base") }
+	        { this.errors() }
 					<div className="login-form">
 		        <br />
 						<label> Username:
-		          { this.fieldErrors("username") }
 							<input type="text"
 		            value={this.state.username}
-		            onChange={this.update("username")}
+		            onChange={this.inputHandler("username")}
 								className="login-input" />
 						</label>
 
 		        <br />
 						<label> Password:
-		          { this.fieldErrors("password") }
 		          <input type="password"
 		            value={this.state.password}
-		            onChange={this.update("password")}
+		            onChange={this.inputHandler("password")}
 								className="login-input" />
 						</label>
 
