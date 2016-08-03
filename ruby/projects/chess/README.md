@@ -21,7 +21,7 @@ any kind of software developer.
 ## Phase I: `Board`
 
 Your `Board` class should hold a 2-dimensional array (an array of
-arrays). Each position in the board either holds a `Piece`, or `nil` if
+arrays). Each position in the board either holds a `Piece`, or `NullPiece` if
 no piece is present there. You may want to create an empty Piece class
 as a placeholder for now. Write code to setup the board correctly on
 `initialize`.
@@ -36,19 +36,19 @@ the piece cannot move to `end_pos`.
 Write a `Display` class to handle your rendering logic. Your `Display` class
 should access the board. Require the `colorize` gem so you can render in color.
 
-Download this `cursorable.rb` [skeleton][cursorable] and require it within
-`display.rb`. In `display.rb` initialize the instance variable `@cursor_pos` to
-`[0,0]`.
+Download this `cursor.rb` [file][cursorable]. An instance of `Cursor`
+initializes with a `cursor_pos` and an instance of `Board`. Within `display.rb`
+require `cursor.rb` and set the instance variable `@cursor` to
+`Cursor.new([0,0], board)`.
 
-In `cursorable.rb` we've provided a `KEYMAP` that translates your keypresses
-into actions and movements and a `MOVES` hash of possible movement
-differentials. You can use the `#get_input` method as is. `#read_char` handles
-console input. Gloss over `#read_char` to gain a general understanding of how
-the method works. It's all right if the `STDIN` methods are unfamiliar. Don't
-fret over the details.
+In `cursor.rb` we've provided a `KEYMAP` that translates keypresses into actions
+and movements. The `MOVES` hash maps possible movement differentials. You can
+use the `#get_input` method as is. `#read_char` handles console input. Gloss
+over `#read_char` to gain a general understanding of how the method works. It's
+all right if the `STDIN` methods are unfamiliar. Don't fret the details.
 
 Fill in the `#handle_key(key)` method. Use a case statement that switches on the
-value of `key`. Depending on the `key`, `#handle_key(key)` will a) exit* from
+value of `key`. Depending on the `key`, `#handle_key(key)` will a) exit from
 the terminal process (in case of `:ctrl_c`), b) return the `@cursor_pos` (in
 case of `:return` or `:space`), or c) `update_pos` by the appropriate movement
 differential from `MOVES` and return `nil` (in case of `:left`, `:right`, `:up`,
@@ -67,6 +67,10 @@ Make the square at the `@cursor_pos` display in a different color. Implement thi
 **Note:** if you're stuck on making a cursor for more than ~30 minutes, please
 call for help from a TA. Fancy cursors are cool, but the purpose of today is
 to become more familiar with Object-oriented Programming.
+
+Test that you can move your cursor around the board by creating and calling a
+method that loops through `Display#render` and `Cursor#get_input` (much as
+`Player#make_move` will function later!).
 
 **Code Review Time:** Before moving on to piece logic, get a code review from a
 TA! Confirm that your `Board` and `Display` classes are reliable before continuing.
@@ -236,4 +240,4 @@ style, encapsulation, and exception handling.
 [recursion-exercises]: ../recursion/
 [colorize-gem]: https://github.com/fazibear/colorize
 [wiki-chess-unicode]: http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
-[cursorable]: ./cursorable.rb
+[cursor]: ./cursor.rb
