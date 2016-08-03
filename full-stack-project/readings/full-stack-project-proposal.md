@@ -1,6 +1,6 @@
-# Capstone Project Proposals
+# Full-Stack Project Proposals
 
-Welcome to capstone projects! This is a hectic and exciting time, and it represents
+Welcome to full-stack projects! This is a hectic and exciting time, and it represents
 the culmination of your education at App Academy. Now that you've chosen your
 project, we want to help you build the best projects possible; so we'll help you
 come up with a road map to keep yourself on track.
@@ -34,7 +34,7 @@ it.
    This will generate your Rails app in the current folder, rather than
    creating a new directory.
 
-0. `git init` and push to your remote repository. A capstone project is born!
+0. `git init` and push to your remote repository. A full-stack project is born!
 
 ## Fleshing Out the Proposal
 
@@ -42,7 +42,7 @@ The README of your project repo MUST include the following:
 
 ### Heroku Link
 
-At the end of the first day of capstone projects, you should have a link to the
+At the end of the first day of full-stack projects, you should have a link to the
 live version of your site. It doesn't have to be pretty, but it has to be
 there. Push to Heroku ASAP!
 
@@ -108,7 +108,7 @@ third-party APIs, front-end and back-end components you will need to implement.
 
 ## Submission
 
-When you've finished setting up your capstone project repo, add it to Progress
+When you've finished setting up your full-stack project repo, add it to Progress
 Tracker and email your instructors (instructors-sf@appacademy.io or
 instructors-ny@appacademy.io).  A TA will review each proposal and leave
 their comments in issues on the project repo. Be prepared to respond to

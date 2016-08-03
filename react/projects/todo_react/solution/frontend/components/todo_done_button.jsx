@@ -8,6 +8,7 @@ const TodoDoneButton = React.createClass({
   },
 
   render() {
+    let classname;
     if (this.props.todo.done) {
       classname = "btn btn-xs btn-danger done-button";
     } else {

@@ -17,23 +17,23 @@ BenchStore.find = function(id){
   return Object.assign({}, _benches[id]);
 };
 
-function addFavorite(benchId, userId) {
+function _addFavorite(benchId, userId) {
   _benches[benchId].favorite_users.push(parseInt(userId));
   BenchStore.__emitChange();
 }
 
-function removeFavorite(benchId, userId) {
+function _removeFavorite(benchId, userId) {
   const userIdx = _benches[benchId].favorite_users.indexOf(parseInt(userId));
   _benches[benchId].favorite_users.splice(userIdx, 1);
   BenchStore.__emitChange();
 }
 
-function resetAllBenches(benches){
+function _resetAllBenches(benches){
   _benches = benches;
   BenchStore.__emitChange();
 }
 
-function resetSingleBench(bench){
+function _resetSingleBench(bench){
   _benches[bench.id] = bench;
   BenchStore.__emitChange();
 }
@@ -41,16 +41,16 @@ function resetSingleBench(bench){
 BenchStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case BenchConstants.BENCHES_RECEIVED:
-      resetAllBenches(payload.benches);
+      _resetAllBenches(payload.benches);
       break;
     case BenchConstants.BENCH_RECEIVED:
-      resetSingleBench(payload.bench);
+      _resetSingleBench(payload.bench);
       break;
     case FavoriteConstants.FAVORITE_RECEIVED:
-      BenchStore.addFavorite(payload.favorite.benchId, payload.favorite.userId);
+      _addFavorite(payload.favorite.benchId, payload.favorite.userId);
       break;
     case FavoriteConstants.FAVORITE_REMOVED:
-      BenchStore.removeFavorite(payload.favorite.benchId, payload.favorite.userId);
+      _removeFavorite(payload.favorite.benchId, payload.favorite.userId);
       break;
   }
 };

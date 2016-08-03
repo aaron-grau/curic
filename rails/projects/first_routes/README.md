@@ -1,10 +1,7 @@
 # First Routes & Controllers
 
-In this project we'll start playing with Rails routing and making this: 
-
-[**Live Demo**][aa-contactsapi]
-
-To start, generate a new, blank Rails project.
+In this project we'll start playing with Rails routing.  To start, generate a
+new, blank Rails project.
 
 
 [aa-contactsapi]: http://aa-contactsapi.herokuapp.com
@@ -13,7 +10,9 @@ To start, generate a new, blank Rails project.
 
 Go to `config/routes.rb` and generate your first routes with:
 
+```ruby
     resources :users
+```
 
 Remember that this one line actually generates **eight routes** for
 us. Run `rake routes` to see what those routes are.
@@ -65,7 +64,7 @@ in your application that you will be CRUDing.
 
 Let's go take a look at the controller that was generated.
 
-```
+```ruby
 # app/controllers/users_controller.rb
 class UsersController < ApplicationController
 end
@@ -77,7 +76,7 @@ itself, but one that never actually handles any requests directly.
 want to share across all controllers. Take a look at it (it's right
 there in the `app/controllers` folder):
 
-```
+```ruby
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 end
@@ -88,7 +87,9 @@ controllers have; it's like `ActiveRecord::Base` in that respect.  All
 your controllers will inherit the features it provides since it is in
 the inheritance chain:
 
+```
     UsersController < ApplicationController < ActionController::Base
+```
 
 `protect_from_forgery` helps protect against cross-site request
 forgery (CSRF) by checking the authenticity of a certain token for
@@ -149,7 +150,7 @@ code is wrong. When you get a non-200 response check the Rails logs
 first to see if something went wrong on the Rails side.
 
 Require `addressable/uri` and `rest-client` so that we can construct
-our requests. Let's build (and then call) a method that will return all the users in the db. 
+our requests. Let's build (and then call) a method that will return all the users in the db.
 
 ```ruby
 # bin/my_script.rb
@@ -160,7 +161,7 @@ def index_users
       port: 3000,
       path: '/users.html'
     ).to_s
-    
+
     puts RestClient.get(url)
 end
 
@@ -344,7 +345,7 @@ Try it out a few times with both GETs and POSTs.
 
 For a few requests, play around with rendering JSON.
 
-```
+```ruby
 render json: {'a_key' => 'a value'}
 ```
 
@@ -391,7 +392,7 @@ Let's begin to provide a way to create a new user through the
 API. Below is a start for a `create` action. Note that we are not
 using an instance variable for user: we will see why these are
 very useful when we start working with views, but they aren't
-strictly necessary for the controller to work with models or to 
+strictly necessary for the controller to work with models or to
 interact with the database.
 
 ```ruby
@@ -435,7 +436,7 @@ hash to use for mass assignment.
 
 What if the user doesn't upload valid parameters for a new user?
 
-```
+```ruby
 puts RestClient.post(
   url,
   { user: { name: "Gizmo" } }

@@ -256,9 +256,9 @@ class CatsController
 
     redirect_to params[:redirect_to] || cat_url(cat)
   end
-  
+
   private
-  
+
   def cat_params
     params.require(:cat).permit(:first_name, :last_name, :biography, :coat_color)
   end
@@ -271,7 +271,7 @@ themselves. That's the prototypical case for `hidden`.
 
 Note that if the user opens up Chrome's HTML inspector, they can
 change the value of the hidden field. `hidden` inputs are **not
-secure** in the sense that they are un-editable.
+secure** because they are editable.
 
 ## `radio` input type
 

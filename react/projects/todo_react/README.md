@@ -30,9 +30,6 @@ rails new TodoReact --skip-turbolinks
 
 #### NPM Setup
 * Follow the [npm readings][react-rails] to get React and JSX set up in your project.
-* Also npm install `bootstrap` so we can use cool html class names like `form-control`,
-  `btn btn-success` and `btn btn-danger` to make our app look nice.  Check out
-  more about Bootstrap [here][bootstrap].
 * Your `package.json` file should look like this:
 ```
 #package.json
@@ -42,7 +39,7 @@ rails new TodoReact --skip-turbolinks
   "description": "remember what to do!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -57,7 +54,7 @@ rails new TodoReact --skip-turbolinks
     "react-dom": "^0.14.2",
     "webpack": "^1.12.6"
   }
-};
+}
 ```
 * Create a new folder `frontend` inside your TodoApp's main directory and create the file `todo_react.jsx` there.  This folder will hold all of our components and stores.
 * In `webpack.config.js`, have the `entry:` point to our `todo_react.jsx` file and the `output:` point to `./app/assets/javascripts/bundle.js`.  The `webpack.config.js` file should look similar to this:
@@ -78,8 +75,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /node_modules/,
         loader: 'babel',
         query: {
           presets: ["es2015","react"]
@@ -91,7 +88,7 @@ module.exports = {
   resolve: {
     extensions: ["", ".js", ".jsx" ]
   }
-};
+}
 
 ```
 * Run `webpack --watch` in a separate terminal.  `--watch` mode recompiles when there are any changes to your dependencies, creating an updated `bundle.js` file.

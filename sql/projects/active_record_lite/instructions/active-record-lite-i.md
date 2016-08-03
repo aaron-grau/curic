@@ -6,7 +6,7 @@ actually works: how your ActiveRecord world is translated into SQL.
 
 ## Setup
 
-We will email you the skeleton project to work from - check your email!
+Download the skeleton from the project directory on GitHub.
 
 There are specs in it which will guide you through the project. Because
 they're using a database, they run a little slow, so it might be helpful
@@ -168,6 +168,19 @@ Now that you've seen how to use `DBConnection::execute2`, write a
 `::table_name`), and returns the array of columns as **symbols**.
 Remember that DB queries are expensive, so we only want to make the
 query **once**, regardless of how often `::columns` gets called.
+
+Note: the `execute` and `execute2` methods **will not allow us to interpolate into the `FROM` statement.**
+
+```ruby
+DBConnection.execute(<<-SQL, cats)
+  SELECT
+    *
+  FROM
+    ?
+SQL
+```
+
+The above will not work. Use standard string interpolation instead: `#{}`.
 
 ## Phase Ic: Getters and Setters
 

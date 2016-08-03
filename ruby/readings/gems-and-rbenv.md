@@ -57,15 +57,17 @@ ERROR:  While executing gem ... (Gem::FilePermissionError)
 This is because the built-in Ruby that comes with OS X installs gems
 in a system directory where you need superuser permissions to create
 files. You'll read in some places that you should use `sudo gem
-install awesome_print`; [**don't do that**][no-sudo-dummy].
+install awesome_print`; **DO NOT DO THIS!**
 
-[no-sudo-dummy]: http://stackoverflow.com/a/2119413/2501181
+Instead, setup rbenv (See [our Dotfiles repo][dotfiles] for more
+details). Once rbenv is installed, there will be no need to use `sudo`
+and you should no longer get this error. However, you must **never** use
+`sudo gem install` with rbenv or you'll wind up with [permissions issues
+again][sudo-with-rbenv].
 
-Instead, setup rbenv ([see Ruby Setup instructions][ruby-setup]). You
-should no longer get this error. You should not use `sudo gem install`
-when using rbenv.
+[dotfiles]: https://github.com/appacademy/dotfiles
+[sudo-with-rbenv]: http://stackoverflow.com/questions/28846165/permission-error-when-trying-to-install-rails-osx
 
-[ruby-setup]: https://github.com/appacademy/meta/blob/master/setup/ruby.md
 
 ## Using gems
 

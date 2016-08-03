@@ -6,13 +6,14 @@
 ## Phase I: Auth
 
 Write a basic Auth implementation
-(`User`, `UsersController`, `SessionsController`). Use `BCrypt`. Go,
-student, go!
+(`User`, `UsersController`, `SessionsController`).
 
-## Phase II: `Sub`s and `Post`s
+**Do not looks at previous day's solutions.  Write Auth from scratch!**  It is important that you understand how each method works, and how to debug any errors you may encounter.  
 
-A `Sub` is a topic-specific subforum to which users submit
-`Post`s. Start by writing a `Sub` model and `SubsController`. The
+## Phase II: `Sub` and `Post`
+
+A `Sub` is a topic-specific subforum to which users submit a
+`Post`. Start by writing a `Sub` model and `SubsController`. The
 `Sub` should have `title` and `description` attributes and a
 `moderator` association. The creator of the `Sub` is the
 `moderator`.
@@ -24,7 +25,7 @@ Write an `edit` route where the moderator is allowed to
 update the `title` and `description`. Use a `before_action` to
 prohibit non-moderators from editing or updating the `Sub`.
 
-The point of `Sub`s is for users to share `Post`s. A `Post` should
+The point of a `Sub` is for users to share posts. A `Post` should
 consist of:
 
 * A `title` attribute (required)
@@ -37,17 +38,17 @@ Again, write all the standard `PostsController` actions, excepting
 `index` (the `subs#show` can list `posts`).
 
 Write `posts#edit` and `posts#update` controller actions (and routes)
-that only the `Post`'s author can use.
+that only the `Post` author can use.
 
-## Phase III: Cross-posting to multiple `Sub`s
+## Phase III: Cross-posting to multiple Subs
 
-Let's allow a `Post` to be posted to multiple `Sub`s. This will
+Let's allow a `Post` to be posted to multiple subs. This will
 involve a `PostSub` join table to describe the many-to-many
 relationship. Add appropriate DB constraints and model validations to
 `PostSub`. Require that a `Post` has at least one associated sub.
 Create appropriate associations between `Post`, `PostSub`, and `Sub`.
 
-Edit your 'Post' new/edit views to allow the user to select multiple `Sub`s
+Edit your 'Post' new/edit views to allow the user to select multiple subs
 via checkboxes
 * Structure your HTML form to upload an array of `sub_ids` nested under `post`
 * Update the `PostsController#post_params` to accept an array of `sub_ids`
@@ -63,9 +64,9 @@ or `Post#update`, so if one of the keys in our attributes hash is
 Lastly, make sure your form can be used for editing. Make sure to use
 the boolean `checked` HTML attribute.
 
-## Phase IV: `Comment`s
+## Phase IV: `Comment`
 
-Users should be allowed write `Comment`s. There are two kinds of
+Users should be allowed write a `Comment`. There are two kinds of
 comments:
 
 * Top-level comments that are in direct response to the `Post`.

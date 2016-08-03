@@ -3,6 +3,8 @@
 In the spirit of enfranchisement, we're going to build a polling app
 today!
 
+Make sure to refer to the [ActiveRecord documentation][ar-docs] and this [ActiveRecord query guide][ar-guide] for help with writing your queries.
+
 Generate a new rails project called `PollApp`. Refer to yesterday's instructions if you need a reminder. Don't forget to include a PostgreSQL flag:  `rails new PollApp --database=postgresql`.
 
 ## Schema
@@ -247,3 +249,5 @@ of your code will shed, but it's a good brain-twister.
   [relational callback][relational-callback].
 
 [relational-callback]: http://guides.rubyonrails.org/active_record_callbacks.html#relational-callbacks
+[ar-docs]: http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html
+[ar-guide]: http://guides.rubyonrails.org/active_record_querying.html

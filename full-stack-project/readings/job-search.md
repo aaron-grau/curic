@@ -1,20 +1,20 @@
 ##  Eye on the Prize: Gearing Up for Your Job Search
 
-In just two short weeks, you'll be exiting the App Academy coding curriculum and entering the exciting world of applying for jobs as a software developer.  It's important to keep this in mind while you build your capstone so that you set yourself up for success in the job search.
+In just two short weeks, you'll be exiting the App Academy coding curriculum and entering the exciting world of applying for jobs as a software developer.  It's important to keep this in mind while you build your full-stack so that you set yourself up for success in the job search.
 
-###  The Importance of Your Capstone
+###  The Importance of Your Full-Stack Project
 
-When it comes time to write your post-a/A resume, your capstone will be at the very top.  It's the best evidence that you will have of your competence as a software developer.  Many employers will look at your capstone and decide whether or not to interview you based on how impressed they are by your site.  Here are the most important goals to keep in mind when you're creating your project:
+When it comes time to write your post-a/A resume, your full-stack project will be at the very top.  It's the best evidence that you will have of your competence as a software developer.  Many employers will look at your full-stack project and decide whether or not to interview you based on how impressed they are by your site.  Here are the most important goals to keep in mind when you're creating your project:
 
 1.  **Make the frontend beautiful, polished and professional**.  Like it or not, employers (especially non-technical folks, like HR managers) will judge your site by its cover.  No one will get to hear about your amazing backend magic if they disregard you because of your ugly frontend.  If you don't have a good eye for design, that's ok!  Use the site you're cloning as a template and make minor changes (or no changes) so that your coding skills shine through and aren't dragged down by poor design choices.
 
-2.  **Favor bug fixes over additional functionality**.  Chances are that any potential employer won't spend more than 1-2 minutes perusing your site.  When they do this, it's imperative that no bugs are apparent.  Test your site frequently towards the end of the capstone curriculum by browsing for about 90 seconds -- no bugs should appear.  Remember to test on different devices (iPad, mobile phones, laptops, desktops) and using different monitor sizes.  
+2.  **Favor bug fixes over additional functionality**.  Chances are that any potential employer won't spend more than 1-2 minutes perusing your site.  When they do this, it's imperative that no bugs are apparent.  Test your site frequently towards the end of the full-stack project curriculum by browsing for about 90 seconds -- no bugs should appear.  Remember to test on different devices (iPad, mobile phones, laptops, desktops) and using different monitor sizes.  
 
 3.  **Make the demo/guest login obvious and easy to use**.  Employers will go to the trouble of making an account and signing in.  The demo user is a fast track -- remember, these folks are looking at hundreds of applications a day.  Make it efficient for them to enjoy your site.
 
 ### Bugs, Bugs, Bugs!  (And Features)
 
-Not only will your capstone be key to getting your foot in the door at potential companies, it'll also come up in interviews, a lot.  You must be prepared to talk about it in a fluent, technical way.  Here are some questions you might encounter:
+Not only will your full-stack project be key to getting your foot in the door at potential companies, it'll also come up in interviews, a lot.  You must be prepared to talk about it in a fluent, technical way.  Here are some questions you might encounter:
 
 1.  What was the toughest bug you've ever encountered, and how did you fix it?
 

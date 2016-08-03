@@ -27,6 +27,7 @@ FresherNote is a web application inspired by Evernote that will be build using R
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
+- [ ] Infinite Scroll for Notes
 
 ## Design Docs
 * [View Wireframes][views]
@@ -57,6 +58,7 @@ FresherNote is a web application inspired by Evernote that will be build using R
 - [ ] user signup/signin components
 - [ ] blank landing component after signin
 - [ ] style signin/signup components
+- [ ] seed users
 
 ### Phase 2: Notes Model, API, and components (2 days, W1 F 6pm)
 
@@ -73,7 +75,8 @@ the API.
   - [ ] `NoteIndexItem`
   - [ ] `NoteForm`
 - [ ] save Notes to the DB when the form loses focus or is left idle after editing.
-- [ ] basic styling for existing components
+- [ ] style notes components
+- [ ] seed notes
 
 ### Phase 3: Notebooks (2 day, W2 Tu 6pm)
 
@@ -85,7 +88,8 @@ the API.
   - [ ] adding notes requires a notebook
   - [ ] moving notes to a different notebook
   - [ ] viewing notes by notebook
-- Use CSS to style new components
+- [ ] Use CSS to style new components
+- [ ] Seed Notebooks
 
 Phase 3 adds organization to the Notes. Notes belong to a Notebook,
 which has its own `Index` view.
@@ -101,6 +105,7 @@ which has its own `Index` view.
   - [ ] creating tags while adding to notebooks
   - [ ] searching notebooks by tag
 - [ ] Style new elements
+- [ ] Seed tags and tag the seeded Notebooks
 
 ### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
 
@@ -109,17 +114,19 @@ which has its own `Index` view.
 - [ ] Integrate `react-quill` (based on Quill.js).
 - [ ] Use Rails helpers to sanitize HTML before rendering.
 - [ ] Style the new Quill elements.
+- [ ] Add Quill styling to seeded notes
 
-### Phase 6: Styling Cleanup and Seeding (1 day, W2 F 6pm)
+### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
 
-**objective:** Make the site feel more cohesive and awesome.
+**objective:** Add infinite scroll to Notes Index
 
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
+- [ ] Paginate Notes Index API to send 20 results at a time
+- [ ] Append next set of results when user scrolls and is near bottom
+- [ ] Make sure styling still looks good
+- [ ] Ensure we have enough seeded notes to demo infinite scroll
 
 ### Bonus Features (TBD)
 - [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
 - [ ] Set reminders on notes
 - [ ] Changelogs for Notes
 - [ ] Multiple sessions
