@@ -2,11 +2,13 @@
 
 <%= ugly_lyrics(@track.lyrics) %>
 
+<%= render "note/form", track: @track %>
+
+<h2>Notes</h2>
 <% @track.notes.each do |note| %>
   <%= render "note/note", note: note %>
 <% end %>
 
-<%= render "note/form", track: @track %>
 
 <h4>Links</h4>
 <ul>

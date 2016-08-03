@@ -6,7 +6,7 @@ We're going to build an inventory system for record labels. This app
 will let them track their `Band`s, `Album`s and `Track`s. Additionally
 we'll offer user accounts so users can comment on our inventory.
 
-[live-demo]: http://aa-musicapp.herokuapp.com
+[live-demo]: https://aamusicapp.herokuapp.com
 
 ##### Key Concepts
   * CSRF

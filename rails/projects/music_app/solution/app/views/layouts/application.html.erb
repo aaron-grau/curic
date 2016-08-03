@@ -9,12 +9,19 @@
 <body>
 
 <% if logged_in? %>
-  <p>Logged in as: <%= current_user.email %></p>
-  <%= button_to "Sign Out", session_url, method: :delete %>
+  <nav>
+    <p>Logged in as: <%= current_user.email %></p>
+    <%= button_to "Sign Out", session_url, method: :delete %>
+    <p><%= link_to "Back to All Bands", bands_url %></p>
+  </nav>
 <% end %>
 
 <% if flash[:notice] %>
   <p><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:errors] %>
+  <p><%= flash[:errors].join(", ") %></p>
 <% end %>
 
 <%= yield %>

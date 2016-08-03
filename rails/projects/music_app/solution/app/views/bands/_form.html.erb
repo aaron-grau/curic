@@ -1,14 +1,6 @@
 <% action_url = band.persisted? ? band_url(band) : bands_url %>
 <% http_method = band.persisted? ? "PATCH" : "POST" %>
 
-<% if !band.errors.full_messages.empty? %>
-<ul>
-  <% band.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-
 <form action="<%= action_url %>" method="POST">
   <input type="hidden" name="_method" value="<%= http_method %>">
   <input
@@ -16,10 +8,11 @@
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
 
-  <label>Name
-  <input type="text" name="band[name]" value="<%= band.name %>">
-  </label>
-  <br>
+  <p>
+    <label>Name
+    <input type="text" name="band[name]" value="<%= band.name %>">
+    </label>
+  </p>
 
   <input type="submit">
 </form>
