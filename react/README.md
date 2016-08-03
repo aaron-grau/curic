@@ -192,8 +192,8 @@
 ### Additional Resources
 * See [full-stack project curriculum][full-stack-project-curriculum] for additional information and readings related to full-stack projects.
 
-[full-stack-project-project-curriculum]: ../full-stack-project
-[full-stack-project-project-proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[full-stack-project-curriculum]: ../full-stack-project
+[full-stack-project-proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
 [jest-basics]: readings/jest_basics.md
 [jest-config]: readings/jest_config.md
 
