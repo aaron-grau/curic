@@ -1,8 +1,7 @@
 # Reddit On Rails
 
-* [Project Demo](http://aa-reddit.herokuapp.com)
+* [Project Demo](http://aa-reddit-on-rails.herokuapp.com/)
 * [Actual Reddit](http://www.reddit.com)
-
 
 ## Phase I: Auth
 

@@ -1,0 +1,53 @@
+.notices {
+  border: 1px solid red;
+  width: 20%;
+  color: red;
+  margin-bottom: 10px;
+  padding: 0 30px;
+}
+
+
+.pull-right {
+  border: 1px solid black;
+  width: 20%;
+  padding: 0 30px;
+}
+
+.profile-section {
+  border: 1px solid black;
+  width: 90%;
+  padding-left: 30px;
+  margin-bottom: 10px;
+}
+
+.profile {
+  border: 1px solid black;
+  padding: 30px;
+  margin: 20px 0px;
+  width: 400px;
+}
+
+.goal {
+  border: 1px black solid;
+  padding: 10px;
+  margin: 10px 0;
+  width: 40%;
+}
+
+.goal-comments {
+  border: 1px black solid;
+  padding-left: 10px;
+}
+
+.cheer {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.all-users {
+  border: 1px solid black;
+  padding: 15px;
+  width: 70px;
+  margin-bottom: 30px;
+}

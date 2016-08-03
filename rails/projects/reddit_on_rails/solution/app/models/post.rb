@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   has_many :comments, inverse_of: :post
 
   # Using polymorphic assocations without a concern
-  # has_many :user_votes, as: :votable, class_name: "UserVote"
+  has_many :user_votes, as: :votable, class_name: "UserVote"
 
   belongs_to(
     :author,
