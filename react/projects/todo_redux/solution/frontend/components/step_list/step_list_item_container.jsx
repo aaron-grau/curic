@@ -3,9 +3,9 @@ import StepListItem from './step_list_item';
 // Actions
 import { toggleStep, destroyStep } from '../../actions/step_actions';
 
-const mapDispatchToProps = dispatch => ({
-  destroyStep: (step) => dispatch(destroyStep(step)),
-  toggleStep: (todo) => dispatch(toggleStep(todo))
+const mapDispatchToProps = (dispatch, { step }) => ({
+  destroyStep: () => dispatch(destroyStep(step)),
+  toggleStep: () => dispatch(toggleStep(step))
 });
 
 export default connect(

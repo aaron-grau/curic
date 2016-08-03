@@ -8,23 +8,24 @@ class StepForm extends React.Component {
       done: false,
       todo_id: this.props.todo_id
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-    const step = Object.assign({}, this.state);
-    this.props.createStep(step);
-    this.setState({ title: "" });
+  handleSubmit(){
+    return (e) => {
+      e.preventDefault();
+      const step = Object.assign({}, this.state);
+      this.props.createStep(step);
+      this.setState({ title: "" });
+    }
   }
 
   render() {
     return (
-      <form className="step-form" onSubmit={this.handleSubmit}>
+      <form className="step-form" onSubmit={this.handleSubmit()}>
         <label>Title:
           <input
             className="input"

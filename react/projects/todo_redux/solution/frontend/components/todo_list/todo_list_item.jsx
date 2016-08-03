@@ -5,12 +5,13 @@ class TodoListItem extends React.Component {
   constructor(props){
     super(props);
     this.state = { detail: false };
-    this.toggleDetail = this.toggleDetail.bind(this);
   }
 
-  toggleDetail(event) {
-    event.preventDefault();
-    this.setState({detail: !this.state.detail});
+  toggleDetail() {
+    return (e) => {
+      event.preventDefault();
+      this.setState({detail: !this.state.detail});
+    }
   }
 
   render() {
@@ -25,7 +26,7 @@ class TodoListItem extends React.Component {
     return (
       <li className="todo-list-item">
         <div className="todo-header">
-          <a onClick={this.toggleDetail}>{ this.props.todo.title}</a>
+          <a onClick={this.toggleDetail()}>{ this.props.todo.title}</a>
           <button 
             className={this.props.todo.done ? "done" : "undone"}
             onClick={this.props.toggleTodo.bind(null, this.props.todo)}>

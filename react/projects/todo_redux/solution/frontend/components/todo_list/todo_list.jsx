@@ -1,24 +1,22 @@
 import React from 'react';
 // Components
-import TodoListItemContainer from './todo_list_item_container';
+import TodoListItem from './todo_list_item';
 import TodoForm from './todo_form';
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.requestTodos();
   }
 
   render() {
+    const { todos, createTodo, handleDestroy, toggleTodo } = this.props;
     return(
       <div>
         <ul className="todo-list">
-          {this.props.todos.map(todo => <TodoListItemContainer key={todo.id} todo={todo} />)}
+          {todos.map(todo => <TodoListItem key={todo.id} todo={todo}
+            handleDestroy={handleDestroy} toggleTodo={toggleTodo} />)}
         </ul>
-        <TodoForm createTodo={this.props.createTodo}/>
+        <TodoForm createTodo={createTodo}/>
       </div>
     );
   }

@@ -4,18 +4,12 @@ import TodoDetailView from './todo_detail_view';
 import { destroyTodo } from '../../actions/todo_actions';
 import { requestSteps } from '../../actions/step_actions';
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    todo: ownProps.todo
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  requestSteps: todo => dispatch(requestSteps(todo.id)),
-  destroyTodo: todo => dispatch(destroyTodo(todo))
+const mapDispatchToProps = (dispatch, { todo }) => ({
+  requestSteps: () => dispatch(requestSteps(todo.id)),
+  destroyTodo: () => dispatch(destroyTodo(todo))
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(TodoDetailView);

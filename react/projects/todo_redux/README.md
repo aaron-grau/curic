@@ -38,7 +38,7 @@ frontend
   + util
   redux_todos.jsx
 ```
-+ `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015`
++ Run `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015` to set up React and Redux
   + this command installs the npm packages that we will be using to create our app` 
 + set up your `webpack.config.js` file so that your bundle.js ends up in `app/assets/javascripts`
   + run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them
@@ -49,11 +49,37 @@ frontend
 
 Create a Redux loop, including a store with reducers, action creators and constants, and middleware and API utils. This is how your frontend will get information from your backend, store it, and pass it to your frontend components.
 
-+ store
+### Store
+
+The Redux Store will hold a reference to our application state. The Store will also handle updating our state when actions are dispatched and it will tell the necessary components to re-render.
+
++ create a new file, `/store/store.js`
++ import `createStore` from the redux library
++ import our `rootReducer` from `../reducers/root_reducer`
+
++ define a new function, `configureStore`
++ `configureStore` should return a new `Store` with the `rootReducer`
+
+### Reducers
+
+The reducers manage the shape of our application state
+
   + reducers
+
+### Selectors
+
   + selectors
+
+### Action Creators
+
 + action creators & constants
+
+### Middleware
+
 + middleware
+
+### API Utils
+
 + api utils
 
 ## Phase 3: Todos Components
