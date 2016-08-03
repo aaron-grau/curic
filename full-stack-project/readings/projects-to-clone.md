@@ -51,7 +51,7 @@
 ## Choosing a Project
 
 You **may not** clone an app that we have already partially cloned in
-class. That would defeat part of the purpose of your capstone project,
+class. That would defeat part of the purpose of your full-stack project,
 which is to give you the experience of architecting and building an app
 from the ground up. Projects that we have already cloned include
 **Twitter**, **Reddit**, and an RSS feed reader app. You

@@ -1,4 +1,4 @@
-# Capstone Checklist
+# Full Stack Project Checklist
 
 ## Layout and CSS
 - [ ] NY: Make sure the layout is EXACTLY like the site you're cloning.
