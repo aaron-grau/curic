@@ -2,10 +2,9 @@ import React from 'react';
 import { TONES } from '../constants/tones';
 import Note from '../util/note';
 
-const NoteKey = ({ note, pressed }) => {
-  return (
-    <li>{note}</li>
-  );
-};
+const NoteKey = ({ note, pressed }) => (
+  <li>{note}</li>
+);
+
 
 export default NoteKey;
