@@ -13,12 +13,18 @@ class Piano extends React.Component {
   }
 
   componentDidMount() {
-    $(document).on('keydown', e => {
-      this.props.keyDown(e.key)
-    });
+    $(document).on('keydown', e => this.keyDown(e));
     $(document).on('keyup', e => {
       this.props.keyUp(e.key)
     });
+  }
+
+  keyDown(e) {
+    this.props.keyDown(e.key);
+
+    if (this.props.recording) {
+      this.props.addNotes(this.props.notes);
+    }
   }
 
   render() {

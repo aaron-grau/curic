@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { keyPressed, keyReleased } from '../actions/note_actions';
-import { addNotes } from '..actions/track_actions'
+import { addNotes } from '../actions/track_actions'
 import Piano from './piano';
 
 const mapStateToProps = (state) => {
@@ -12,9 +12,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    keyDown: key => dispatch(keyPressed(key)),
+    keyDown: key => {
+      console.log('keyPressed');
+      dispatch(keyPressed(key));
+    },
     keyUp: key => dispatch(keyReleased(key)),
-    addNotes: notes => dispatch(addNotes(notes))
+    addNotes: notes => {
+      console.log('addNotes');
+      dispatch(addNotes(notes));
+    }
   };
 };
 
