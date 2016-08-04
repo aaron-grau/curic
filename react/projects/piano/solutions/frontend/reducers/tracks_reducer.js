@@ -8,6 +8,7 @@ const track = (state, action) => {
     case TracksConstants.START_RECORDING:
       return {
         id: currTrackId,
+        name: `Track ${currTrackId}`,
         roll: [],
         timeStart: action.timeStart
       };

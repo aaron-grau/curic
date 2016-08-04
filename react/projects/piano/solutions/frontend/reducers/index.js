@@ -6,7 +6,8 @@ import recording from './recording_reducer';
 const pianoApp = combineReducers({
   notes,
   tracks,
-  recording
+  recording,
+  playing
 });
 
 export default pianoApp;

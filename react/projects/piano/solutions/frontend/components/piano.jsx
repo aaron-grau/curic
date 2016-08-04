@@ -19,6 +19,10 @@ class Piano extends React.Component {
 
   onKeyUp(e) {
     this.props.keyUp(e.key);
+
+    if (this.props.recording) {
+      this.props.addNotes(this.props.notes);
+    }
   }
 
   onKeyDown(e) {
@@ -30,7 +34,6 @@ class Piano extends React.Component {
   }
 
   playNotes () {
-    console.log("play", this.props.notes);
     NOTES.forEach((note, idx) => {
       if (this.props.notes.indexOf(note) !== -1) {
         this.notes[idx].start();

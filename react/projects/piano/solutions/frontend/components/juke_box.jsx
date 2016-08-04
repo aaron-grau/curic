@@ -7,7 +7,7 @@ const JukeBox = ({ tracks, recording , onDelete, onPlay }) => (
       {Object.keys(tracks).map(id => {
         return (
           <li key={id}>
-            {id}
+            {tracks[id].name}
             <button
               disabled={recording}
               onClick={onPlay(tracks[id])}

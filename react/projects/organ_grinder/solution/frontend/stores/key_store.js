@@ -11,15 +11,14 @@ KeyStore.__onDispatch = payload => {
   switch(payload.actionType) {
   case OrganConstants.KEY_PRESSED:
     KeyStore._addKey(payload.note);
-    console.log(_keys);
     break;
   case OrganConstants.KEY_RELEASED:
     KeyStore._removeKey(payload.note);
-    console.log(_keys);
     break;
   case OrganConstants.GROUP_UPDATE:
+
     KeyStore._groupUpdate(payload.notes);
-    console.log(_keys);
+    console.log("groupUpdate", payload.notes);
     break;
   }
 };
