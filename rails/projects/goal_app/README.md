@@ -242,6 +242,7 @@ $ git merge "polymorphic-comments"
  * Go back and add integration tests to previous day's project
  * Write unit tests for your models using [shoulda-matchers][shoulda-matchers]
    and [FactoryGirl][factory-girl].
+ * Style your app. 
 
 [railsguides-polymorph-assoc]: http://guides.rubyonrails.org/v3.2.14/association_basics.html#polymorphic-associations
 [shoulda-matchers]: https://github.com/thoughtbot/shoulda-matchers
