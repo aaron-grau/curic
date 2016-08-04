@@ -346,26 +346,40 @@ You've already set up a redux cycle - now it's time to flesh it out so that a us
 
 ** Test your code: try creating a new todo list item using your form. Does it appear on your page? Call over a TA for a code review **
 
-## Phase 5: Steps Redux structure
+## Phase 5: Updating and Deleting Todos
+
+Add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them.
+
+## Phase 6: Steps Redux structure
+
+### Refactoring and setup
 
 Update your app so that each todo list item can have its own sub-list of `steps`. You will need to build out your backend, your redux cycle, as well as add several new components for this to work.
 
-Let's start by getting your `TodoListItem`s ready for their own sub-lists by refactoring their display into multiple parts - one part, the top-level `TodoListItem`, will now hold another part, a `TodoDetailView`. The `Steps` for a given `TodoListItem` will live inside its `TodoDetailView`.
+Let's start by getting your `TodoListItem`s ready for their own sub-lists by refactoring their display into multiple parts - one part, the top-level `TodoListItem`, will now hold another part, a `TodoDetailView`. The `TodoDetailView` should hold everything about the todo list item other than its title and a button to change its current status, and will eventually hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Eventually we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `Store`.
 
-  + `todo_detail_view_container` & `todo_detail_view`
+### Redoing Rails
 
-Create another Redux loop for "steps," the sub-items within a given todo.
+Create a new set of API endpoints that will serve `Steps` (each with a `title`, a `todo_id`, and a boolean `done` value) as JSON. You should be able to do this with very little instruction.
 
-+ store
-  + reducers
-  + selectors
-+ action creators & constants
-+ middleware
-+ api utils
+### Redoing Redux
 
-## Phase 5: steps components
+Create another Redux cycle for `Step`s, the sub-items within a given todo. You will need to:
+
++ Update the store
+  + Add another reducer to our `rootReducer` that manages the `steps` part of the application state
+  + Add another selector that will allow components to get the steps as an array
++ Create a new `actions` file to hold `steps` action creators
+  + Create new `step` constants
++ Create new API utility functions that will make `$.ajax` requests to your backend's new API endpoints
++ Add a new `StepMiddleware` to your `MasterMiddleware`
+  + This middleware will use the API utility functions that you just wrote and pass along the HTTP Responses to your `Store`
+
+## Phase 6: steps components
 
 Create React components to display the steps for a given todo list item, as well as a form that allows users to create new steps. (They will probably live in that item's TodoDetailView.)
+
+Suggested components include:
 
 + `step_list_container` & `step_list`
 + `step_list_item_container` & `step_list_item`
