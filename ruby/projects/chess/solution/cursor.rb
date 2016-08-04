@@ -1,4 +1,3 @@
-require "byebug"
 require "io/console"
 
 KEYMAP = {
@@ -45,6 +44,8 @@ class Cursor
     handle_key(key)
   end
 
+  private
+
   def handle_key(key)
     case key
     when :ctrl_c
@@ -68,7 +69,7 @@ class Cursor
       input << STDIN.read_nonblock(3) rescue nil
       input << STDIN.read_nonblock(2) rescue nil
     end
-  ensure
+
     STDIN.echo = true
     STDIN.cooked!
 
