@@ -4,11 +4,11 @@ import tracks from './tracks_reducer';
 import recording from './recording_reducer';
 import playing from './playing_reducer';
 
-const pianoApp = combineReducers({
+const reducer = combineReducers({
   notes,
   tracks,
   recording,
   playing
 });
 
-export default pianoApp;
+export default reducer;
