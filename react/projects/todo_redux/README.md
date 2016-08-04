@@ -266,10 +266,68 @@ Examine your state object - is it the shape you had decided it should be back in
 
 Create React components to display your todo list and its items, as well as a form that allows users to create new items. 
 
-+ root (provider)
-+ app
-+ `todo_list_container` & `todo_list`
-+ `todo_list_item_container` & `todo_list_item`
+### Root
+
+The `Root` component serves to wrap your `App` component with a `Provider`. The `Provider` gives all of your components access to your `Store`, allowing them to read the application state and dispatch actions.
+
+This component is very easy to write.
+
++ Create a file `components/root.jsx`
++ Import React and the `react-redux` `Provider`
++ Even though you haven't written your `App` component yet, import it
++ This component can be a functional component, receiving (and destructuring) its props (your `Store`) as an argument, and returning a block of `jsx` code.
+
+Your `Root` will probably end up looking like the following:
+```javascript
+const Root = ({store}) => (
+  <Provider store={store}>
+    <App/>
+  </Provider>
+);
+```
+
+Don't forget to update your entry file to render your `Root` component into `#content`!
+
+### App
+
+This component will hold all of the top-level concerns of your app. In this case, that will only be the TodoList, but nonetheless it's a good design pattern to get used to.
+
+Your `App` component can also be functional, because it doesn't need to use any of React's lifecycle hooks. Because it doesn't rely on any of its props, the component doesn't need to receive any arguments.
+
+** Test your code: make your `App` component return an `h1` tag with the name of your app. You should be able see your app's name appear on the page. **
+
+### TodoList
+
+This component will show the items in our todo list. 
+
+** N.B. ** Because we're using the react/redux design principle of separating container and presentational components, this will actually be two components!
+
+#### TodoListContainer
+
+The goal of a container component is to allow the presentational component to be as simple and lightweight as possible. To this end, we map the application state and the `Store`'s dispatch to a set of props that get passed to the presentational component.
+
+Refer to the [components]:'../../readings/components.md' and [connect]:'../../readings/redux_connect.md' reading if you need a refresher on container components.
+
++ Create a file `components/todo_list_container.js`
++ Import both the `connect` function and the (as of yet unwritten) `TodoList` presentational component
++ Create `mapStateToProps` and `mapDispatchToProps` functions for your `TodoList` component
+  + Think about what part of the state this component will need access to
+    + Use the `allTodos` selector you created
+  + Plan out what actions this component will need to dispatch
+    + Use the `fetchTodos` action you created
++ Pass your `mapStateToProps` and `mapDispatchToProps` functions to `connect`
++ Call this `connect` function with your `TodoList` component as an argument
++ Export the result of that function call
+
+#### TodoList
+
+If we've done our job with our container component, all this presentational component will have to do is:
+
++ dispatch a `fetchTodos` action on `componentDidMount`
++ render the `todos` information passed to it as props
+
+** N.B. ** You may want to consider creating another component, `TodoListItem`, to further simplify your `TodoList` component.
+
   + `todo_detail_view_container` & `todo_detail_view`
 + `todo_form`
 
