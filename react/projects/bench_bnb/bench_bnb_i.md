@@ -888,11 +888,16 @@ benches that are within the boundaries specified by the argument. See the exampl
   `Bench.in_bounds(params[:bounds])`
 
 ---
+### `fetchBenches`
 
-### `BenchMap` and `idle`
+Update our `fetchBenches` function in `bench_api_util.js` to accept two arguments:
+  * filters
+  * success
 
-Our goal in this step is to register a listened on the `idle` event of our Google
-`map` that grabs the bounds of the map and triggers a dispatch.
+Eventually, we want to be able to filter our benches by multiple parameters, but
+for now we'll just use the lat/lng bounds.
+
+Test your updated `fetchBenches` methods to see that it applies the filters!
 
 ---
 
@@ -919,7 +924,7 @@ the `BenchMap` component
 
 ---
 
-#### `BenchMap`
+### `BenchMap`
 
   * In the `BenchMap` component, add a listener to the map's idle event
     * You should add the listener during `componentDidMount`
@@ -934,56 +939,59 @@ the `BenchMap` component
 
 ---
 
-#### `FilterReducer`
+### `FilterReducer`
 
 We need to build out our application state to reflect the map's `bounds`.
 
-Ultimately, let's go for something like this..
+We want a default state that looks something like:
 
 ```
   {
-    benches: {0: {...}, 1: {...} ... }
-    filters: {bounds: {...} }
+    benches: {},
+    filters: {
+      bounds: {}
+    }
   }
 ```
 
   * Create a new file, `reducers/filter_reducer.js`
+  * Build and export a `FilterReducer`
+    * You're reducer should update the application state when an `UPDATE_BOUNDS`
+    action is dispatched
+  * Update your `MasterReducer`
+
+Test that the application is being successfully updated by moving the map around
+and then calling `Store.getState()` in the console.
 
 ---
 
-### Sending the Correct Params
+### `BenchMiddleware`
 
-We now need to write a front-end request conforming to your new API hook.
-Your API is expecting a `GET` request to the bench `index` with a query string containing 'bounds'.
+Before moving on, you should remove the call to `requestBenches` from the `BenchIndex`
+component's `componentDidMount`. **We no longer need to dispatch this actions from
+our view.** Instead, we'll rely on our `BenchMiddleware` to `requestBenches` after
+it sees an `UPDATE_BOUNDS` action.
 
-* Modify `BenchActions.fetchAllBenches` to take a parameter `bounds`. Have it pass
-`bounds` to `BenchApiUtil.fetchAllBenches`, which should pass `bounds` to its
-`$.ajax` call.
+Update your `BenchMiddleware` so that it intercepts the `UPDATE_BOUNDS` action. Here
+is our goal:
 
+  * Use `next` to pass the action on through to the store.
+  * Then, use `dispatch` and `requestBenches` to trigger a new dispatch
+  * When `BenchMiddleware` sees a `REQUEST_BENCHES` dispatch collect the filters
+  from the store using `getState`
+  * Pass the filters and the appropriate callback on to `fetchBenches`
 
-* Call `BenchActions.fetchAllBenches`, passing `bounds`.
-* Verify that, when the map moves, you are sending a properly 'bound' request and
-  receiving the right benches in response.
-* Moving your map around should now trigger updates to your `BenchStore` and `BenchIndex`. Verify this before moving on to updating your markers.
+---
 
-### Adding and Removing Markers
+That's it! The markers and bench index should now only display for benches that
+are within the bounds of the map. Move the map around to prove this! **Show your
+TA!**
 
-Moving your map should trigger changes in your store. However, our implementation
-as it stands won't update map markers correctly without a little modification.
-
-Recall that, every time the map idles, we add new markers for every bench in the store. This has two problems:
-  0. If a bench was already in the store, a new, extraneous marker is added.
-  0. If a bench that was in the store moved out of bounds, its marker still lives on.
-
-Update your listener so that, as `BenchStore` changes, `BenchMap` only adds markers for new benches and removes them for benches that have left the map bounds.
-
-Note: If your benches are flickering when you move the map, you're probably removing too many markers, and if out-of-bounds benches seem to be appearing before you've `idled`, you're probably not removing enough!
-
-![map bounds diagram](assets/map_idle_diagram.png)
+---
 
 ## BONUS!
-* When you hover over an index item it should highlight the marker on
-  the map. This should require creating a new store.
+* When you hover over an index item it should highlight the marker on the map in
+  a different color. This should require creating a new reducer.
 
 * Look at your app, then look at the real AirBNB. See any differences?
   Give your project a makeover and add a ton of CSS so that it resembles
@@ -993,6 +1001,3 @@ Note: If your benches are flickering when you move the map, you're probably remo
 [event-doc]: https://developers.google.com/maps/documentation/javascript/events#MarkerEvents
 [map-markers]: https://developers.google.com/maps/documentation/javascript/markers
 [lat-lng-docs]: https://developers.google.com/maps/documentation/javascript/reference#LatLngBounds
-[react-router-source]: https://raw.githubusercontent.com/rackt/react-router/master/lib/umd/ReactRouter.min.js
-[better-flux-diagram]: better_flux_structure.png
-[flux-diagram]: https://raw.githubusercontent.com/facebook/flux/master/docs/img/flux-diagram-white-background.png
