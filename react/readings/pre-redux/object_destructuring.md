@@ -19,10 +19,10 @@ const { a, c } = { a: 1, b: 2, c: 3 };
 This works even if we have a variable or function that returns an object.
 
 ```javascript
-function time() {
+const time = () => ({
   // calculate current time
   return { h: hours, m: minutes, s: seconds };
-};
+});
 const { m, s } = time();
 // m = minutes
 // s = seconds
@@ -42,17 +42,17 @@ const review = {
 }
 ```
 
-Well, first it would be nice to get some more information about our user. Let's take the `userId` and send it to one function that will retrieve user information. And then let's take the rest of the information and print it out to the console.
+It would be nice to get some more information about our user. Let's take the `userId` and send it to one function that will retrieve user information. And then let's take the rest of the information and print it out to the console.
 
 ```javascript
-function printUser({ userId }) {
+const printUser = ({ userId }) => ({
   // fetch user object via userId
   // print it to the console
-}
+});
 
-function printReview({ movie, comment, rating }) {
+const printReview = ({ movie, comment, rating }) => ({
   // print review
-}
+});
 
 printUser(review);
 printReview(review);
