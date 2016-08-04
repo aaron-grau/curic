@@ -30,6 +30,10 @@ const notes = (state = [], action) => {
         ];
       }
       return state;
+    case NotesConstants.GROUP_UPDATE:
+      return [
+        ...action.notes
+      ];
     default:
       return state;
   }

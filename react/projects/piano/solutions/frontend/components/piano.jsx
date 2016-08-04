@@ -30,6 +30,7 @@ class Piano extends React.Component {
   }
 
   playNotes () {
+    console.log("play", this.props.notes);
     NOTES.forEach((note, idx) => {
       if (this.props.notes.indexOf(note) !== -1) {
         this.notes[idx].start();

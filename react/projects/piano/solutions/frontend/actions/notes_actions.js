@@ -4,9 +4,9 @@ export const NotesConstants = {
   GROUP_UPDATE: "GROUP_UPDATE",
 };
 
-export const groupUpdate = keys => ({
+export const groupUpdate = notes => ({
   type: NotesConstants.GROUP_UPDATE,
-  keys
+  notes
 });
 
 export const keyPressed = key => ({

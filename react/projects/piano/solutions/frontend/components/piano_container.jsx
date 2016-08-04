@@ -11,10 +11,7 @@ const mapStateToProps = ({ notes, recording }) => ({
 const mapDispatchToProps = dispatch => ({
   keyDown: key => dispatch(keyPressed(key)),
   keyUp: key => dispatch(keyReleased(key)),
-  addNotes: notes => {
-    console.log('addNotes');
-    dispatch(addNotes(notes));
-  }
+  addNotes: notes => dispatch(addNotes(notes))
 });
 
 export default connect(

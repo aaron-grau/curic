@@ -229,3 +229,48 @@ While the user records a track, we'll need to update `roll` as the user presses 
 **NB:** We storing only the names of the notes in the roll, *not* instances of `Note`. Your app's like a player piano, which uses the same keys for live playing and replaying a roll!
 
 Write another action called `stopRecording` which calls `addNotes` on an empty array, ensuring that the track is silent when it ends.
+
+## Playing a Track
+
+We need a "Play" button for our `JukeBox` tracks and a `playTrack` action for our tracks.
+
+Remember the `roll` array stores track data in the form:
+
+```js
+{
+  timeSlice: (timeElapsed),
+  notes: (notesArray)
+}
+```
+
+`timeSlice` ensures that the `roll`'s objects are in ascending order (since `timeElapsed` increases between calls to `addNotes`). But we can't simply iterate over these objects because iteration happens (essentially) instantenously. We instead want to *throttle* our iteration, such that we continue the next note once `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. `setInterval` allows us to invoke a callback over (relatively) large spans of time.
+
+We want the interval to run until the end of the `track`.
+
+Store a reference to the interval as an instance variable (`this.interval`) of the `track`. At the top of your `play` method, check if `this.interval` already exists. If it does, `return` so that we don't play the `track` over itself. Next grab `Date.now()` and assign it to a local variable `playBackStartTime`. Also initialize the local variable `currentNote` to `0`.
+
+Now for the meat of the method: set an interval and pass in an anonymous callback. The callback should check whether `currentNote` is still in range of the `roll`. **If so**:
+- Check whether `Date.now() - playBackStartTime` excessed the current note's `timeSlice`. **If so**:
+  - Use one of your `KeyActions` to update the `KeyStore`.
+  - Continue to the next note.
+  - *Hint:* A new KeyAction such as `groupUpdate(notes)` might simplify your task.
+
+**Else**: we've exceeeded the range of the roll. Clear the interval and `delete` it from the properties of `this`.
+
+Remember to cancel your interval when the `track` finishes playing.
+```js
+const intervalId = setINterval(callback, 10);
+clearINterval(intervalId);
+```
+Don't proceed until you're about to play all of your tracks!
+
+BONUS:
+```
+"[{"notes":["A5"],"timeSlice":901},{"notes":["A5"],"timeSlice":1408},{"notes":["G5"],"timeSlice":1431},{"notes":["C6"],"timeSlice":1664},{"notes":["B5"],"timeSlice":1903},{"notes":["A5"],"timeSlice":2170},{"notes":["G5"],"timeSlice":2396},{"notes":["B5"],"timeSlice":2692},{"notes":["G5"],"timeSlice":3183},{"notes":["G5"],"timeSlice":3679},{"notes":["G5"],"timeSlice":3764},{"notes":["G5"],"timeSlice":3848},{"notes":["G5"],"timeSlice":3932},{"notes":["A5"],"timeSlice":4476},{"notes":["A5"],"timeSlice":4699},{"notes":["G5"],"timeSlice":4933},{"notes":["C6"],"timeSlice":5215},{"notes":["B5"],"timeSlice":5475},{"notes":["A5"],"timeSlice":5702},{"notes":["G5"],"timeSlice":5923},{"notes":["B5"],"timeSlice":6199},{"notes":["G5"],"timeSlice":6651},{"notes":["E5"],"timeSlice":7140},{"notes":["G5"],"timeSlice":7596},{"notes":["E5"],"timeSlice":7910},{"notes":["A5"],"timeSlice":8364},{"notes":["A5"],"timeSlice":8612},{"notes":["G5"],"timeSlice":8836},{"notes":["C6"],"timeSlice":9102},{"notes":["B5"],"timeSlice":9340},{"notes":["A5"],"timeSlice":9620},{"notes":["G5"],"timeSlice":9846},{"notes":["B5"],"timeSlice":10113},{"notes":["G5"],"timeSlice":10628},{"notes":["G5"],"timeSlice":11126},{"notes":["G5"],"timeSlice":11210},{"notes":["G5"],"timeSlice":11293},{"notes":["G5"],"timeSlice":11376},{"notes":["A5"],"timeSlice":11930},{"notes":["A5"],"timeSlice":12149},{"notes":["G5"],"timeSlice":12378},{"notes":["C6"],"timeSlice":12612},{"notes":["B5"],"timeSlice":12835},{"notes":["A5"],"timeSlice":13116},{"notes":["G5"],"timeSlice":13334},{"notes":["B5"],"timeSlice":13597},{"notes":["G5"],"timeSlice":14056},{"notes":["E5"],"timeSlice":14466},{"notes":["G5"],"timeSlice":14919},{"notes":["E5"],"timeSlice":15217},{"notes":["G5"],"timeSlice":16469},{"notes":["G5"],"timeSlice":16714},{"notes":["G5"],"timeSlice":16943},{"notes":["E5"],"timeSlice":17178},{"notes":["G5"],"timeSlice":17423},{"notes":["G5"],"timeSlice":17638},{"notes":["A5"],"timeSlice":17983},{"notes":["C5"],"timeSlice":19616},{"notes":["E5"],"timeSlice":19905},{"notes":["D5"],"timeSlice":20161},{"notes":["C5"],"timeSlice":20401},{"notes":["D5"],"timeSlice":20648},{"notes":["D5"],"timeSlice":20883},{"notes":["E5"],"timeSlice":21155},{"notes":["G5"],"timeSlice":22235},{"notes":["G5"],"timeSlice":22484},{"notes":["G5"],"timeSlice":22701},{"notes":["E5"],"timeSlice":22943},{"notes":["G5"],"timeSlice":23227},{"notes":["G5"],"timeSlice":23460},{"notes":["B5"],"timeSlice":23720},{"notes":[],"timeSlice":25642}]"
+```
+
+Figure out what song this is.
+
+```
+"{"id":3,"roll":[{"notes":["A5"],"timeSlice":901},{"notes":["A5"],"timeSlice":1408},{"notes":["G5"],"timeSlice":1431},{"notes":["C6"],"timeSlice":1664},{"notes":["B5"],"timeSlice":1903},{"notes":["A5"],"timeSlice":2170},{"notes":["G5"],"timeSlice":2396},{"notes":["B5"],"timeSlice":2692},{"notes":["G5"],"timeSlice":3183},{"notes":["G5"],"timeSlice":3679},{"notes":["G5"],"timeSlice":3764},{"notes":["G5"],"timeSlice":3848},{"notes":["G5"],"timeSlice":3932},{"notes":["A5"],"timeSlice":4476},{"notes":["A5"],"timeSlice":4699},{"notes":["G5"],"timeSlice":4933},{"notes":["C6"],"timeSlice":5215},{"notes":["B5"],"timeSlice":5475},{"notes":["A5"],"timeSlice":5702},{"notes":["G5"],"timeSlice":5923},{"notes":["B5"],"timeSlice":6199},{"notes":["G5"],"timeSlice":6651},{"notes":["E5"],"timeSlice":7140},{"notes":["G5"],"timeSlice":7596},{"notes":["E5"],"timeSlice":7910},{"notes":["A5"],"timeSlice":8364},{"notes":["A5"],"timeSlice":8612},{"notes":["G5"],"timeSlice":8836},{"notes":["C6"],"timeSlice":9102},{"notes":["B5"],"timeSlice":9340},{"notes":["A5"],"timeSlice":9620},{"notes":["G5"],"timeSlice":9846},{"notes":["B5"],"timeSlice":10113},{"notes":["G5"],"timeSlice":10628},{"notes":["G5"],"timeSlice":11126},{"notes":["G5"],"timeSlice":11210},{"notes":["G5"],"timeSlice":11293},{"notes":["G5"],"timeSlice":11376},{"notes":["A5"],"timeSlice":11930},{"notes":["A5"],"timeSlice":12149},{"notes":["G5"],"timeSlice":12378},{"notes":["C6"],"timeSlice":12612},{"notes":["B5"],"timeSlice":12835},{"notes":["A5"],"timeSlice":13116},{"notes":["G5"],"timeSlice":13334},{"notes":["B5"],"timeSlice":13597},{"notes":["G5"],"timeSlice":14056},{"notes":["E5"],"timeSlice":14466},{"notes":["G5"],"timeSlice":14919},{"notes":["E5"],"timeSlice":15217},{"notes":["G5"],"timeSlice":16469},{"notes":["G5"],"timeSlice":16714},{"notes":["G5"],"timeSlice":16943},{"notes":["E5"],"timeSlice":17178},{"notes":["G5"],"timeSlice":17423},{"notes":["G5"],"timeSlice":17638},{"notes":["A5"],"timeSlice":17983},{"notes":["C5"],"timeSlice":19616},{"notes":["E5"],"timeSlice":19905},{"notes":["D5"],"timeSlice":20161},{"notes":["C5"],"timeSlice":20401},{"notes":["D5"],"timeSlice":20648},{"notes":["D5"],"timeSlice":20883},{"notes":["E5"],"timeSlice":21155},{"notes":["G5"],"timeSlice":22235},{"notes":["G5"],"timeSlice":22484},{"notes":["G5"],"timeSlice":22701},{"notes":["E5"],"timeSlice":22943},{"notes":["G5"],"timeSlice":23227},{"notes":["G5"],"timeSlice":23460},{"notes":["B5"],"timeSlice":23720},{"notes":[],"timeSlice":25642}],"timeStart":1470268928733}"
+```
