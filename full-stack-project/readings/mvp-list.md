@@ -78,7 +78,16 @@ Make sure outline your MVP features using the following structure when writing y
 * Schedule
 * **Bonus**: Upload Documents & Files
 * **Bonus**: Messaging within a basecamp
-
+ 
+#### Behance
+* Portfolio Viewing
+* Explore Portfolios
+* Likes
+* Comments
+* **Bonus**: Tags
+* **Bonus**: Follows
+* **Bonus**: Views
+ 
 #### BillPin
 * Friends
 * Feed with transactions
@@ -342,6 +351,14 @@ Make sure outline your MVP features using the following structure when writing y
 * Comments
 * **Bonus**: Groups
 * **Bonus**: Fake “checkout”
+
+#### Spotify
+* Song/Playlist CRUD
+* Playlist sharing
+* Continuous play while navigating site
+* Following/Friending
+* **Bonus**: Radio (shuffle play)
+* **Bonus**: Explore Page
 
 #### Stack Overflow
 * Ask Questions
