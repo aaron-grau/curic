@@ -3,9 +3,10 @@ import { startRecording, stopRecording } from '../actions/tracks_actions';
 // import { startRecording, stopRecording } from '../actions/recording_actions'
 import Recorder from './recorder';
 
-const mapStateToProps = ({ tracks, recording }) => ({
+const mapStateToProps = ({ tracks, recording, playing }) => ({
   tracks,
-  recording
+  recording,
+  playing
 })
 
 const mapDispatchToProps = dispatch => ({

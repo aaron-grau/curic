@@ -1,10 +1,10 @@
-import { PlayingConstant } from '../actions/playing_actions'
+import { PlayingConstants } from '../actions/playing_actions';
 
 const playing = (state = false, action) => {
   switch(action.type) {
-    case PlayingConstant.START_PLAYING:
+    case PlayingConstants.START_PLAYING:
       return true;
-    case PlayingConstant.STOP_PLAYING:
+    case PlayingConstants.STOP_PLAYING:
       return false;
     default:
       return state;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JukeBox = ({ tracks, recording , onDelete, onPlay }) => (
+const JukeBox = ({ tracks, recording, playing, onDelete, onPlay }) => (
   <div>
     JukeBox
     <ul>
@@ -9,13 +9,13 @@ const JukeBox = ({ tracks, recording , onDelete, onPlay }) => (
           <li key={id}>
             {tracks[id].name}
             <button
-              disabled={recording}
+              disabled={recording || playing}
               onClick={onPlay(tracks[id])}
             >
               Play
             </button>
             <button
-              disabled={recording}
+              disabled={recording || playing}
               onClick={onDelete(id)}
             >
               Delete

@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Recorder = ({ recording, startRecording, stopRecording}) => (
+const Recorder = ({ recording, playing, startRecording, stopRecording}) => (
     <div>
     <button
       onClick={startRecording}
-      disabled={recording}>
+      disabled={recording || playing}>
     Start
     </button>
     <button
       onClick={stopRecording}
-      disabled={!recording}>
+      disabled={!recording || playing}>
     Stop
     </button>
   </div>
