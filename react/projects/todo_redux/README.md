@@ -388,8 +388,8 @@ Suggested components include:
 ## Bonus
 
 + style your site so that it looks presentable to VCs
-  + potential inspiration: [trello]: https://trello.com/, [todoist]: https://todoist.com/, [google keep]: https://keep.google.com/, [any.do]: http://www.any.do/anydo/, [wunderlist]: https://www.wunderlist.com/
+  + potential inspiration: [trello][trello] [trello]:https://trello.com/, [todoist][todoist] [todoist]:https://todoist.com/, [google keep][google keep] [google keep]:https://keep.google.com/, [any.do][any.do] [any.do]:http://www.any.do/anydo/, [wunderlist][wunderlist] [wunderlist]:https://www.wunderlist.com/
 + add additional features
   + tags for todos
   + steps can have sub-steps (polymorphic associations)
-  + allow markdown or text styling in todos ([quill.js]: https://quilljs.com/)
+  + allow markdown or text styling in todos ([quill.js][quill.js] [quill.js]:https://quilljs.com/)
