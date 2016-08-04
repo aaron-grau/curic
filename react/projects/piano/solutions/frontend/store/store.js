@@ -7,5 +7,5 @@ const configureStore = (preloadedState = {}) => (
     preloadedState
   )
 );
-console.log(configureStore);
+
 export default configureStore;
