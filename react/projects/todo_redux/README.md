@@ -337,7 +337,7 @@ Create a form that allows users to create new todo items.
 You've already set up a redux cycle - now it's time to flesh it out so that a user can create todo list items. You will need to:
 
 + Create new action creator methods (in `actions/todo_actions`)
-+ Create a new API utility helper functions (in `util/todo_api_util`) that `POST`s a todo list item
++ Create a new API utility helper function (in `util/todo_api_util`) that `POST`s a todo list item
 + Add new `case`s to your middleware's `switch` statement that use your new API utility function 
 + Add new `case`s to your reducer's `switch` statement that handle the reception of a newly created todo list item
 + Create a new component (`components/todo_form`) that dispatches actions with your new `actionType`s
@@ -348,7 +348,13 @@ You've already set up a redux cycle - now it's time to flesh it out so that a us
 
 ## Phase 5: Updating and Deleting Todos
 
-Add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them.
+Add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them. This will require you to:
+
++ Create new action creator methods (in `actions/todo_actions`)
++ Create new API utility helper functions (in `util/todo_api_util`) that `PATCH` or `DELETE` a todo list item
++ Add new `case`s to your middleware's `switch` statement that use your new API utility functions
++ Add a new `case` to your reducer's `switch` statement that handles the deletion of a todo list item
+  + Your `case` that receives a newly created todo list item should work for `PATCH`ed items as well
 
 ## Phase 6: Steps Redux structure
 
