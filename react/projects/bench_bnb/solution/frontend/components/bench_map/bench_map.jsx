@@ -20,7 +20,7 @@ class BenchMap extends React.Component{
   componentDidMount() {
     const map = ReactDOM.findDOMNode(this);
     this.map = new google.maps.Map(map, _mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
     if(this.props.singleBench){
       this.props.requestBench(this.props.benchId);
     } else {
@@ -45,6 +45,10 @@ class BenchMap extends React.Component{
       const coords = _getCoordsObj(event.latLng);
       this._handleClick(coords);
     });
+  }
+
+  _handleMarkerClick(bench){
+    this.props.router.push("benches/" + bench.id );
   }
 
   _handleClick(coords) {

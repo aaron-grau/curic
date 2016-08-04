@@ -1,8 +1,8 @@
 export default class MarkerManager {
-  constructor(map){
+  constructor(map, handleClick){
     this.map = map;
+    this.handleClick = handleClick;
     this.markers = [];
-    this.benches = {};
     //permanently bind instance methods
     this._createMarkerFromBench = this._createMarkerFromBench.bind(this);
     this._removeMarker = this._removeMarker.bind(this);
@@ -39,9 +39,7 @@ export default class MarkerManager {
       map: this.map,
       benchId: bench.id
     });
-    marker.addListener('click', () => {
-      this.props.router.push("benches/" + bench.id );
-    });
+    marker.addListener('click', () => this.handleClick(bench));
     this.markers.push(marker);
   }
 

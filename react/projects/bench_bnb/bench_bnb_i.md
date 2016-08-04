@@ -910,21 +910,46 @@ Our goal in this step is to register a listened on the `idle` event of our Googl
 Update your `SearchContainer`'s `mapDispatchToProps` function to use the newly
 constructed `updateBounds` action-creator.
 
+---
 
+#### `Search`
 
+Update your `Search` presentational component to pass the `updateBounds` prop to
+the `BenchMap` component
 
+---
 
+#### `BenchMap`
 
+  * In the `BenchMap` component, add a listener to the map's idle event
+    * You should add the listener during `componentDidMount`
+  * [Read this documentation][event-doc] to learn about Google Map events.
+  * Call `getBounds` on the map instance to get a `LatLngBounds` instance. Call
+    `getNorthEast` and `getSouthWest` to get these coordinate pairs. Get their
+    latitude and longitude and format these coordinates into exactly the format
+    your API is expecting. Check [this documentation][lat-lng-docs] for more
+    info.
+  * Package these coordinates into a `bounds` object.
+  * Invoke `this.props.updateBounds`, and pass your newly constructed bounds object
 
+---
 
-* When the `BenchMap` component is mounted, register an event listener on
-change of the `BenchStore`.
-* When the event occurs, create markers for every bench in the array.
-* Confirm that your bench markers appear on your map. Nice!
-* One last change: since it doesn't make sense to fetch any markers from
-the API until we know where the map is, move the `BenchActions.fetchAllBenches`
-from the `Index` to the `idle` event of the map.
-[Read this documentation][event-doc] to learn about Google Map events.
+#### `FilterReducer`
+
+We need to build out our application state to reflect the map's `bounds`.
+
+Ultimately, let's go for something like this..
+
+```
+  {
+    benches: {0: {...}, 1: {...} ... }
+    filters: {bounds: {...} }
+  }
+```
+
+  * Create a new file, `reducers/filter_reducer.js`
+
+---
 
 ### Sending the Correct Params
 
@@ -935,13 +960,7 @@ Your API is expecting a `GET` request to the bench `index` with a query string c
 `bounds` to `BenchApiUtil.fetchAllBenches`, which should pass `bounds` to its
 `$.ajax` call.
 
-* Return to your map `idle` event handler. Call `getBounds` on the map
-  instance to get a `LatLngBounds` instance. Call `getNorthEast` and
-  `getSouthWest` to get these coordinate pairs. Get their latitude and
-  longitude and format these coordinates into exactly the format your API is
-  expecting. Check [this documentation][lat-lng-docs] for more
-  info.
-* Package these coordinates into a `bounds` object.
+
 * Call `BenchActions.fetchAllBenches`, passing `bounds`.
 * Verify that, when the map moves, you are sending a properly 'bound' request and
   receiving the right benches in response.
