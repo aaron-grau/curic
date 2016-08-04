@@ -12,8 +12,24 @@ const mapDispatchToProps = dispatch => ({
   onDelete: id => e => {
     dispatch(deleteTrack(id));
   },
-  groupUpdate: notes => {
-    dispatch(groupUpdate(notes));
+  onPlay: track => e => {
+    const roll = track.roll;
+    const playBackStartTime = Date.now();
+    let currNote = 0;
+    let timeElapsed;
+
+    let interval = setInterval(() => {
+      if (currNote < roll.length) {
+        timeElapsed = Date.now() - playBackStartTime;
+
+        if (timeElapsed >= roll[currNote].timeSlice) {
+          dispatch(groupUpdate(roll[currNote].notes));
+          currNote++;
+        }
+      } else {
+        clearInterval(interval);
+      }
+    }, 1);
   }
 });
 
