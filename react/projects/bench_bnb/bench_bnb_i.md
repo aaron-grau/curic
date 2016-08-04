@@ -981,6 +981,20 @@ is our goal:
   from the store using `getState`
   * Pass the filters and the appropriate callback on to `fetchBenches`
 
+Your middleware's switch statement should look something like this:
+
+```javascript
+  switch(action.type){
+    case BenchConstants.REQUEST_BENCHES:
+      const filters = getState().filters
+      fetchBenches(filters, benchesSuccess);
+      break;
+    case FilterConstants.UPDATE_BOUNDS:
+      next(action);
+      dispatch(requestBenches());
+      break;
+```
+
 ---
 
 That's it! The markers and bench index should now only display for benches that
