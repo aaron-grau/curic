@@ -264,7 +264,7 @@ Examine your state object - is it the shape you had decided it should be back in
 
 ## Phase 3: Todos Components
 
-Create React components to display your todo list and its items, as well as a form that allows users to create new items. 
+Create React components to display your todo list and its items 
 
 ### Root
 
@@ -326,12 +326,33 @@ If we've done our job with our container component, all this presentational comp
 + dispatch a `fetchTodos` action on `componentDidMount`
 + render the `todos` information passed to it as props
 
+** Test your code: reload your app and see a list of `todo`s! **
+
 ** N.B. ** You may want to consider creating another component, `TodoListItem`, to further simplify your `TodoList` component.
 
-  + `todo_detail_view_container` & `todo_detail_view`
-+ `todo_form`
+## Phase 4: TodoForm
 
-## Phase 4: Steps Redux structure
+Create a form that allows users to create new todo items.
+
+You've already set up a redux cycle - now it's time to flesh it out so that a user can create todo list items. You will need to:
+
++ Create new action creator methods (in `actions/todo_actions`)
++ Create a new API utility helper functions (in `util/todo_api_util`) that `POST`s a todo list item
++ Add new `case`s to your middleware's `switch` statement that use your new API utility function 
++ Add new `case`s to your reducer's `switch` statement that handle the reception of a newly created todo list item
++ Create a new component (`components/todo_form`) that dispatches actions with your new `actionType`s
+  + Render this component in your `TodoList` component
++ Update your `TodoListContainer` to pass in the props that your `TodoForm` will need
+
+** Test your code: try creating a new todo list item using your form. Does it appear on your page? Call over a TA for a code review **
+
+## Phase 5: Steps Redux structure
+
+Update your app so that each todo list item can have its own sub-list of `steps`. You will need to build out your backend, your redux cycle, as well as add several new components for this to work.
+
+Let's start by getting your `TodoListItem`s ready for their own sub-lists by refactoring their display into multiple parts - one part, the top-level `TodoListItem`, will now hold another part, a `TodoDetailView`. The `Steps` for a given `TodoListItem` will live inside its `TodoDetailView`.
+
+  + `todo_detail_view_container` & `todo_detail_view`
 
 Create another Redux loop for "steps," the sub-items within a given todo.
 
