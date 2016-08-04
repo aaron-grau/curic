@@ -11,9 +11,7 @@ const mapStateToProps = ({ tracks, recording, playing }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onDelete: id => e => {
-    dispatch(deleteTrack(id));
-  },
+  onDelete: id => e => dispatch(deleteTrack(id)),
   onPlay: track => e => {
     dispatch(startPlaying());
     const roll = track.roll;
@@ -22,14 +20,14 @@ const mapDispatchToProps = dispatch => ({
     let timeElapsed;
 
     let interval = setInterval(() => {
-      if (currNote < roll.length) {
+      if (currNote < roll.length) { // keep playing
         timeElapsed = Date.now() - playBackStartTime;
 
         if (timeElapsed >= roll[currNote].timeSlice) {
           dispatch(groupUpdate(roll[currNote].notes));
           currNote++;
         }
-      } else {
+      } else { // done playing
         clearInterval(interval);
         dispatch(stopPlaying());
       }

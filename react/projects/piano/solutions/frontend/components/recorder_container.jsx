@@ -7,17 +7,11 @@ const mapStateToProps = ({ tracks, recording, playing }) => ({
   tracks,
   recording,
   playing
-})
+});
 
 const mapDispatchToProps = dispatch => ({
-  startRecording: () => {
-    console.log('startRecording');
-    dispatch(startRecording());
-  },
-  stopRecording: () => {
-    console.log('stopRecording');
-    dispatch(stopRecording());
-  }
+  startRecording: () => dispatch(startRecording()),
+  stopRecording: () => dispatch(stopRecording())
 });
 
 export default connect(

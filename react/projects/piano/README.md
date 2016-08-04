@@ -275,3 +275,21 @@ Figure out what song this is.
 * **Looping***: Add a setting to allow tracks to play continuously.
 * **Jam Session**: Allow users to play while a track runs in the background.
 * **Playlists**: Queue up tracks to be played sequentially.
+
+
+classes:
++ `app`
+
++ `piano`
++ `note-key-list`
++ `note-key`
+
++ `recorder`
++ `start-button`
++ `stop-button`
+
++ `juke-box`
++ `track-list`
++ `track`
++ `play-button`
++ `delete-button`

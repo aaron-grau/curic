@@ -7,9 +7,7 @@ import Note from '../util/note';
 class Piano extends React.Component {
   constructor(props) {
      super(props);
-     this.notes = NOTES.map(note => {
-       return new Note(TONES[note]);
-     });
+     this.notes = NOTES.map(note => new Note(TONES[note])); // array of Note instances
   }
 
   componentDidMount() {
@@ -35,7 +33,7 @@ class Piano extends React.Component {
 
   playNotes () {
     NOTES.forEach((note, idx) => {
-      if (this.props.notes.indexOf(note) !== -1) {
+      if (this.props.notes.indexOf(note) !== -1) { // play notes present in state
         this.notes[idx].start();
       } else {
         this.notes[idx].stop();
@@ -45,20 +43,18 @@ class Piano extends React.Component {
 
   render() {
     this.playNotes();
+    const noteKeys = NOTES.map((note, idx) => (
+      <NoteKey
+        key={idx}
+        note={note}
+        pressed={this.props.notes.indexOf(note) !== -1} />
+    ));
 
     return (
-      <div>
-        Piano
-        <ul>
-        {
-          NOTES.map((note, idx) => {
-            return <NoteKey
-              note={note}
-              key={idx}
-              pressed={this.props.notes.indexOf(note) !== -1}/>
-          })
-        }
-        </ul>
+      <div className="piano">
+        <div className='note-key-list'>
+          {noteKeys}
+        </div>
       </div>
     );
   }

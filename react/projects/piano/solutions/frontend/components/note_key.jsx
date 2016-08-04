@@ -3,7 +3,9 @@ import { TONES } from '../constants/tones';
 import Note from '../util/note';
 
 const NoteKey = ({ note, pressed }) => (
-  <li>{note}</li>
+  <div className='note-key'>
+    {note}
+  </div>
 );
 
 
