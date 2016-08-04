@@ -1,4 +1,4 @@
-## Events
+# React SyntheticEvents
 
 Event handling in the React world is very convenient and easy. Have a
 second look at the `input` example above. We have registered an event

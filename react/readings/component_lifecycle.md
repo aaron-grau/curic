@@ -1,4 +1,4 @@
-## Lifecycle Methods
+# Component Lifecycle Hooks
 
 Often, we want to do something once a component has successfully been
 mounted in the DOM or when it is about to be removed.
