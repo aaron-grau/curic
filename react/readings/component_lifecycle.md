@@ -1,26 +1,28 @@
-# Component Lifecycle Hooks
+# Component Lifecycle
 
-Often, we want to do something once a component has successfully been
-mounted in the DOM or when it is about to be removed.
-Luckily there is a handy callback we can harness to
-run our code at this time.
+Components oftentimes need to dispatch methods or run other bits of code at
+certain points during their lifecycle. For example, a component might need to
+fetch data from the server once it has been mounted to the DOM. Code for these
+actions live in a components **lifecycle methods**.
 
 ```javascript
-const MyAjaxComponent = React.createClass({
-  getInitialState () {
-    return {items: []};
-  },
-  componentDidMount () {
-    const that = this;
+
+class MyAjaxComponent extends React.Component {
+  constructor() {
+    this.state = {items: []};
+    super();
+  }
+  componentDidMount() {
     $.ajax({
-      url: "/items",
-      success: function(response){
-        that.setState({items: response});
-      }
-    });
-  },
-  render: //...
-});
+      url: '/items',
+      success: response => this.setState({items: response});
+    })
+  }
+  render() {
+    ...
+  }
+};
+
 ```
 
 Above, we use the `componentDidMount` method to fire our AJAX request.
