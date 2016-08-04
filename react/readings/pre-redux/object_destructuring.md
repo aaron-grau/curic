@@ -35,14 +35,14 @@ const { m, s } = time();
 this.props = {
   userId: 1,
   user: {
-    fname: "Ned",
-    lname: "Ruggeri"
+    fname: 'Ned',
+    lname: 'Ruggeri'
   }
 };
 { userId, user: { fname } } = this.props;
 
 // userId = 1
-// fname = "Ned"
+// fname = 'Ned'
 ```
 
 It's much nicer to have these variables to refer to instead of having to call
@@ -62,9 +62,15 @@ few different places.
 const review = {
   id: 1,
   userId: 1,
-  movie: "Star Trek",
-  comment: "Excellent!",
+  movie: 'Star Trek',
+  comment: 'It was excellent!',
   rating: 5
+}
+
+const user = {
+  id: 1,
+  fname: 'Ned',
+  lname: 'Ruggeri'
 }
 ```
 
@@ -75,15 +81,23 @@ then let's take the rest of the information and print it out to the console.
 ```javascript
 const printUser = ({ userId }) => ({
   // fetch user object via userId
-  // print it to the console
+  console.log(`${fname} ${lname}`);
 });
 
 const printReview = ({ movie, comment, rating }) => ({
-  // print review
+  console.log(`Watched ${movie}`);
+  console.log(`Gave it ${rating} stars!`);
+  console.log(`${comment}`);
 });
 
 printUser(review);
 printReview(review);
+
+// output:
+// Ned Ruggeri
+// Watched Star Trek
+// Gave it 5 stars!
+// It was excellent!
 ```
 
 All we have to do is pass in the whole object! Each function can extract
