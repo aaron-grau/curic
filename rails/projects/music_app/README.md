@@ -300,7 +300,7 @@ properties.
 * Implement `tags`. Use polymorphic associations to associate `tags` with
 `bands`, `albums`, and `tracks`.
 * Implement searching.
-  * Users should be able pick which model they want to search from.
+  * Users should be able to pick which model they want to search from.
   * Users should be able to just search in all three models at once.
   * Users should be able to search by `tags`.
 * Read up on the [Faker][faker] gem and use it to create seed data for all
