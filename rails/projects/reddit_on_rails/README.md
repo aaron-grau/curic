@@ -262,9 +262,10 @@ subscribed to.
 * The user `show` page should display all of a user's `posts`, `comments`,
 and the total number of `votes` they've received from other people for their
 `posts` and `comments`.
-* Add lots of seeds with Faker.
+* Add lots of seeds with [Faker][faker].
 * Style your Reddit app! Try to make it look as much like actual Reddit as
 you can.
 
+[faker]: https://github.com/stympy/faker
 [kaminari]: https://github.com/amatsuda/kaminari
 [friendly-id]: https://github.com/norman/friendly_id

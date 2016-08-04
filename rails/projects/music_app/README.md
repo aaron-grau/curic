@@ -297,7 +297,7 @@ properties.
 
 ### Bonus III: More bonuses!
 
-* Implement `tags`. Use polymorphic associations to associate `tags` with
+* Implement `tags`. Use [polymorphic associations][poly-assoc] to associate `tags` with
 `bands`, `albums`, and `tracks`.
 * Implement searching.
   * Users should be able to pick which model they want to search from.
@@ -312,4 +312,5 @@ your models.
   centering them or adding a border.
 
 [faker]: https://github.com/stympy/faker
+[poly-assoc]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
 [pre-tag]:https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
