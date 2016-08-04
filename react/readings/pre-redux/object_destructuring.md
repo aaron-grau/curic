@@ -19,6 +19,22 @@ const { a, c } = { a: 1, b: 2, c: 3 };
 This works even if we have a variable or function that returns an object.
 
 ```javascript
+this.props = {
+  userId: 1,
+  user: {
+    fname: "Ned",
+    lname: "Ruggeri"
+  }
+};
+{ userId, user: { fname } } = this.props;
+
+// userId = 1
+// fname = "Ned"
+```
+
+It's much nicer to have these variables to refer to instead of having to call `this.props.userId` every time we want the `userId`. Note that we can extract nested objects too!
+
+```javascript
 const time = () => ({
   // calculate current time
   return { h: hours, m: minutes, s: seconds };
