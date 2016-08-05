@@ -6,6 +6,9 @@
 
 ### Readings
 
+- [ES6 Syntax: Import / Export]
+- [ES6 Syntax: Object Destructuring]
+
 - [Intro to React][intro_to_react]
 - [Intro to JSX][intro_to_jsx]
 
@@ -17,12 +20,10 @@
 
 - [Configuring NPM][npm_configuration]
 - [Configuring Webpack][webpack_configuration]
-- [Configuring Babel for ES6 and JSX]
-- [ES6 Syntax: Import / Export]
+- [Configuring Babel for ES6 and JSX][babel_configuration]
 
 ### Additional Resources
 - [`lodash`]
-- [Object Destructuring]
 
 ### Homeworks
 - [Getting Started with NPM]
@@ -31,14 +32,16 @@
 
 - [Widgets][widgets]
 
-[npm_configuration]: readings/npm_configuration.md
-[webpack_configuration]: readings/webpack_configuration.md
-[intro_to_jsx]: readings/intro_to_jsx.md
 [intro_to_react]: readings/intro_to_react.md
+[intro_to_jsx]: readings/intro_to_jsx.md
 [intro_to_react_components]: readings/intro_to_react_components.md
 [props_and_state]: readings/props_and_state.md
 [component_lifecycle]: readings/component_lifecycle.md
 [synthetic_events]: readings/synthetic_events.md
+[npm_configuration]: readings/npm_configuration.md
+[webpack_configuration]: readings/webpack_configuration.md
+[babel_configuration]: readings/babel_configuration.md
+
 [widgets]: projects/widgets
 
 ## w7d2
