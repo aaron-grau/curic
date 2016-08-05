@@ -166,7 +166,7 @@ Things you should never do inside a reducer:
 + Perform side effects like API calls and routing transitions;
 + Call non-pure functions, e.g. `Date.now()` or `Math.random()`.
 
-**TL;DR:** Reducers are pure functions. Given the same arguments for `state` and
+**TL;DR**: Reducers are pure functions. Given the same arguments for `state` and
 `action`, a reducer should calculate the next state and return it. No side
 effects.
 
@@ -215,17 +215,44 @@ Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
 see if a `action.key` is also a valid key. If not in both cases, return the
 previous state.
 
-#### Store
-Let's create a store that holds the state and calls the reducer when an action is dispatched.
+#### Root Reducer
 
-Recap, in Redux a store is responsible for:
-+ holding your app's state
-+ allowing access to state via `getState()`
-+ allowing state to be updated via `dispatch(action)`
-+ registering listeners via `subscribe(listener)`
-+ handling the unregistering of listeners
+Now the `notes` reducer just updates and returns to the store a single slice of
+the state: the `notes` in play.
 
-In `piano.jsx`, import `createStore()` from `redux`. To create the store, call `createStore` and pass it your app's reducer. Now the store will call the reducer function you gave it whenever `dispatch(action)` is called within your app. The store saves the complete state tree that is returned by the root reducer, and every listener registered will be called in response to the new state.
+**NB**: When we have state fields that are independent of each other, we split
+the reducer into multiple reducers that each handle its own slice of the state.
+This is called **reducer composition**, and it’s the fundamental pattern of
+building Redux apps.
+
+We only have one reducer right now, but later as our app grows we'll be adding
+more. For now, let's define the root reducer that calls all of the reducers
+managing parts of the state, and combines them into a single function.
+
+Create a new file called `reducers/index.js` file and import
+[`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
+
+**TL;DR**: All `combineReducers` does is generate a function that calls your
+ reducers with the slices of state selected according to their keys, and
+ combining their results into a single object again.
+
+Using it, define and `export default` a root `reducer` function.
+
+[combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
+
+### Store
+In Redux, the store calls the reducer function you give it whenever
+`dispatch(action)` is called within your app. The store saves the complete state
+tree that is returned by the root reducer, and every listener registered will be
+called in response to the new state!
+
+Create a `store/store.js` file and import [`createStore`][create-store] from
+`redux` and your root `reducer`. Define and `export default` a function called
+`configureStore` that returns a new store with the root reducer.
+
+[create-store]: http://redux.js.org/docs/api/createStore.html
+
+#### `Synth` Components
 
 ### KeyListeners
 
