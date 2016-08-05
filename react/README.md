@@ -7,14 +7,18 @@
 ### Readings
 
 - [Intro to React][intro_to_react]
-- [Intro to React Components]
 - [Intro to JSX][intro_to_jsx]
-- [Configuring NPM]
-- [Configuring Webpack]
+
+- [Intro to React Components][intro_to_react_components]
+-	[Declaring Components][component_declaration]
+- [Components: Props and State][props_and_state.md]
+- [Components: Lifecycle Methods][component_lifecyle]
+- [Components: Synthetic Events][synthetic_events]
+
+- [Configuring NPM][npm_configuration]
+- [Configuring Webpack][webpack_configuration]
 - [Configuring Babel for ES6 and JSX]
 - [ES6 Syntax: Import / Export]
-- [Components: Props vs. State]
-- [Components: Lifecycle Methods]
 
 ### Additional Resources
 - [`lodash`]
@@ -27,8 +31,14 @@
 
 - [Widgets][widgets]
 
+[npm_configuration]: readings/npm_configuration.md
+[webpack_configuration]: readings/webpack_configuration.md
 [intro_to_jsx]: readings/intro_to_jsx.md
 [intro_to_react]: readings/intro_to_react.md
+[intro_to_react_components]: readings/intro_to_react_components.md
+[props_and_state]: readings/props_and_state.md
+[component_lifecycle]: readings/component_lifecycle.md
+[synthetic_events]: readings/synthetic_events.md
 [widgets]: projects/widgets
 
 ## w7d2

@@ -83,7 +83,6 @@ JSX cannot be directly interpreted by browsers like Chrome or Firefox. Instead,
 JSX code must be passed through a preprocessor such as `Babel` that
 **transpiles** it into vanilla Javascript. You'll learn more about these in a moment.
 
-
 ## Official Documentation
 
 Although we'll only use JSX for developing React components, it can actually be

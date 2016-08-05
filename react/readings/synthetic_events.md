@@ -1,8 +1,24 @@
-# React SyntheticEvents
+# React SyntheticEvents (a.k.a. Event Handlers)
 
-Event handling in the React world is very convenient and easy. Have a
-second look at the `input` example above. We have registered an event
-`onChange` of the `input`. We did this by passing in a prop with the
-key `onChange`. The value for this must be a callback that will be
-executed when the event occurs. Every event I can think of is supported.
-A comprehensive list is [available here][react-events].
+SyntheticEvents are the React equivalent of the vanilla DOM's
+`addEventListener()`. Using SyntheticEvents, you can pass event listeners
+directly to your components via props.
+
+```js
+handleClick = event => {
+	event.preventDefault();
+	alert("clicked!")
+};
+
+<input type="submit" onClick={handleClick}>Click Me! </input>
+```
+
+Whenever the above component is clicked, it will call `handleClick()` before
+doing any of the normal things a submit button would do (like issue a POST
+request). The click `event`, which represents the vanilla DOM event, is passed
+in. By calling `event.preventDefault()`, we are disabling the button from trying
+to submit as it normally would. Most of your event handlers will
+`preventDefault()`, since you almost always want to halt the normal HTTP request
+and dispatch an asynchronous javascript request instead.
+
+A complete list of SyntheticEvents is [available here][react-events].

@@ -82,6 +82,11 @@ prop. Whenever the `input` changes its value (via user input), it will call
 component then re-renders with the new state, updating the text inside the
 `span`.
 
+You should always use `this.setState()` rather than `this.state =` anywhere
+outside of your constructor, because `this.setState()` also re-renders your
+component, causing it to reflect the new state. Reassigning `this.state` alone
+won't trigger re-rendering, leaving your component out of sync.
+
 Note that because `setState()` triggers a re-render, it cannot be called during
 a `render()`, as that would trigger an infinite loop. Here, `setState()` works
 because the change handler returned by `linkState()` is called by user-input
@@ -91,5 +96,5 @@ because the change handler returned by `linkState()` is called by user-input
 
 State should be used whenever a component must keep track of mutable, internal
 data. Most of the time, state will be used for form components. If a piece of
-information is never going to change or is needed across the entire app (such as
-the `currentUser`), props are preferred.
+information is never going to change, or if it is needed across the entire app
+(such as the `currentUser`), use props instead.
