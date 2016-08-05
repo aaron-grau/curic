@@ -5,12 +5,12 @@ Live demo available [here]!
 [here]:https://www.youtube.com/watch?v=J---aiyznGQ
 
 ## Overview
+
 Today we're using React.js and Redux to create our own musical keyboard!
 
 **NB**: Make sure to test as you go and refer to the Redux readings if you get
 stuck. Your understanding will suffer if you code an entire section before
 figuring out how to make it run. Start small and append.
-
 
 ## Phase 1: Frontend Structure
 
@@ -48,9 +48,11 @@ figuring out how to make it run. Start small and append.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`.
 * Run `wepback --watch` and test that your app renders before moving on.
----
+
 ## Phase 2: Notes and Tones
+
 #### `Note` Class
+
 Make a `note.js` file inside of your `util` folder. This file will contain the
 code for your `Note` class which you will use to actually play tones using the
 `start` and `stop` functions. We'll provide the code for this phase. Copy and
@@ -94,6 +96,7 @@ class Note {
 
 module.exports = Note;
 ```
+
 Before moving on, test that you can instantiate and play a `Note` from the
 console. Try passing in a sample frequency of 800.
 
@@ -106,10 +109,11 @@ constant, an array of all of the keys in `TONES`.
 Feel free to use [this table][note-frequencies] as a resource!
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
----
+
 ## Phase 3: Notes Redux Structure
 
 #### Designing the State Shape - the Redux Store
+
 In Redux, all app state is stored as a single JavaScript object. It's good practice to think about its shape before writing any code. Ask yourself what's the minimal representation of your app's state as an object?
 
 For our synthesizer app, we first and foremost want to store the notes in play.
