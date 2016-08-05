@@ -2,7 +2,7 @@ var path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/piano.jsx",
+  entry: "./frontend/synthesizer.jsx",
   output: {
     path: path.join(__dirname),
     filename: "bundle.js"

@@ -1,20 +1,18 @@
 # Redux Synthesizer
 
+Live demo available [here]!
 
-Live demo available [here][demo]!
-
-[demo]: http://aa-synthesizer.herokuapp.com
+[here]:https://www.youtube.com/watch?v=J---aiyznGQ
 
 ## Overview
-We'll use React.js and Redux to create our own musical keyboard!
+Today we're using React.js and Redux to create our own musical keyboard!
 
 **NB**: Make sure to test as you go and refer to the Redux readings if you get
 stuck. Your understanding will suffer if you code an entire section before
 figuring out how to make it run. Start small and append.
 
----
 
-## Phase 1: Redux Structure
+## Phase 1: Frontend Structure
 
 * Create a project directory.
 * Create an `index.html` file and give it a `<div id="root"></div>` container.
@@ -31,8 +29,9 @@ figuring out how to make it run. Start small and append.
   * `babel-preset-es2015`
 * Run `npm install --save jquery`. We'll be using jQuery later.
 * Create a `/frontend` folder at the root directory of your project to contain
-all of your front-end code.
+ all of your front-end code.
 * Model your `/frontend` folder to look like the directory tree below:
+
   ```
   /frontend
     + /actions
@@ -43,15 +42,19 @@ all of your front-end code.
     + /util
     + synthesizer.jsx
   ```
-* Setup your entry file `syntehsizer.jsx` to render your app into the into the
-`root` container.
+
+* Setup your entry file `synthesizer.jsx` to render your app into the into the
+ `root` container.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
-into a `bundle.js`.
-* Test that your app renders before moving on.
-
-## Phase 2: Notes!
-
-First, make a `note.js` file inside of your `util` folder. We'll provide the code for this phase. Copy and paste the following into `note.js`
+ into a `bundle.js`.
+* Run `wepback --watch` and test that your app renders before moving on.
+---
+## Phase 2: Notes and Tones
+#### `Note` Class
+Make a `note.js` file inside of your `util` folder. This file will contain the
+code for your `Note` class which you will use to actually play tones using the
+`start` and `stop` functions. We'll provide the code for this phase. Copy and
+paste the following into your `note.js`.
 
 ```js
 // util/note.js
@@ -73,35 +76,54 @@ const createGainNode = () => {
   return gainNode;
 };
 
-const Note = function (freq) {
-  this.oscillatorNode = createOscillator(freq);
-  this.gainNode = createGainNode();
-  this.oscillatorNode.connect(this.gainNode);
-};
+class Note {
+  constructor(freq) {
+    this.oscillatorNode = createOscillator(freq);
+    this.gainNode = createGainNode();
+    this.oscillatorNode.connect(this.gainNode);
+  }
 
-Note.prototype.start = function () {
-  this.gainNode.gain.value = 0.3;
-};
+  start() {
+    this.gainNode.gain.value = 0.3;
+  }
 
-Note.prototype.stop = function () {
-  this.gainNode.gain.value = 0;
-}
+  stop() {
+    this.gainNode.gain.value = 0;
+  }
+};
 
 module.exports = Note;
 ```
+Before moving on, test that you can instantiate and play a `Note` from the
+console. Try passing in a sample frequency of 800.
 
-Test that you can play a note from the console by passing in a sample frequency, like 800.
+#### `TONES` and `NOTES` Constants
 
-#### `Tones`
+Create a `constants/tones.js` file. From there export a `TONES` constant, a
+JavaScript object mapping note names to frequencies. Also export a `NOTES`
+constant, an array of all of the keys in `TONES`.
 
-Create a `constants/tones.js` file. From there export a `TONES` constant, a JavaScript object mapping note names to frequencies. Feel free to use [this table][note-frequencies] as a resource!
+Feel free to use [this table][note-frequencies] as a resource!
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
+---
+## Phase 3: Notes Redux Structure
 
-## Phase 3: Key
+#### Designing the State Shape - the Redux Store
+In Redux, all app state is stored as a single JavaScript object. It's good practice to think about its shape before writing any code. Ask yourself what's the minimal representation of your app's state as an object?
 
-#### Action Creators
+For our synthesizer app, we first and foremost want to store the notes in play.
+
+#### Actions
 Let's define the actions that represent what happened.
+
+
+####
+
+#### Handling Actions
+Now that we’ve decided what our minimal state object looks like, we’re ready to write a reducer for it. Remember that the reducer is a pure function that takes the previous state and an action, and returns the next state.
+
+
 
 #### Reducer
 Now that we've defined the actions that will send data from your app to the store, let's define the reducers that update the state base on the actions.
