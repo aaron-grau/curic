@@ -261,7 +261,7 @@
 [integration-testing]: readings/integration-testing.md
 [rspec-setup]: readings/rspec-and-rails-setup.md
 [rspec-models]: readings/rspec-models.md
-[rspec-models]: readings/rspec-controllers.md
+[rspec-controllers]: readings/rspec-controllers.md
 [fac-grl-faker]: readings/factorygirl-and-faker.md
 [capybara]: readings/capybara.md
 [spring-guard]: readings/guard-spring-setup.md
