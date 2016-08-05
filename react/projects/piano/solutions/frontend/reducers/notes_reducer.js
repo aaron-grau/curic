@@ -8,14 +8,12 @@ validKeys.forEach((key, i) => {
 });
 
 const notes = (state = [], action) => {
-  // convert key to note
-  const note = keyMap[action.key];
-  // check to see if note is in the state tree
-  const idx = state.indexOf(note);
+  const note = keyMap[action.key]; // convert key to note
+  const alreadyPlaying = state.indexOf(note) !== -1; // check to see if note is in previous state
 
   switch(action.type) {
     case NotesConstants.KEY_PRESSED:
-      if (note && idx === -1) {
+      if (note && !alreadyPlaying) {
         return [
           ...state,
           note
@@ -23,7 +21,7 @@ const notes = (state = [], action) => {
       }
       return state;
     case NotesConstants.KEY_RELEASED:
-      if (idx !== -1) {
+      if (alreadyPlaying) {
         return [
           ...state.slice(0, idx),
           ...state.slice(idx + 1)

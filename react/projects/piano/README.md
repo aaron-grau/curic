@@ -98,40 +98,122 @@ module.exports = Note;
 ```
 
 Before moving on, test that you can instantiate and play a `Note` from the
-console. Try passing in a sample frequency of 800.
+console.
 
 #### `TONES` and `NOTES` Constants
 
 Create a `constants/tones.js` file. From there export a `TONES` constant, a
 JavaScript object mapping note names to frequencies. Also export a `NOTES`
-constant, an array of all of the keys in `TONES`.
+constant, an array of all of the keys in `TONES`. We'll be using these constants
+later to map our keyboard keys to notes names to tones!
 
-Feel free to use [this table][note-frequencies] as a resource!
+Feel free to use [this table][note-frequencies] as a resource.
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
 ## Phase 3: Notes Redux Structure
 
-### Designing the State Shape - the Redux Store
+### Designing the State Shape
 
 In Redux, all app state is stored as a single JavaScript object. It's good
 practice to think about its shape before writing any code. Ask yourself what's
 the minimal representation of your app's state as an object?
 
-For our synthesizer app, we first and foremost want to store the notes in play.
+For our synthesizer app, we first and foremost want to store the `notes` in play, as an array of note names.
 
-### Actions
-Let's define the actions that represent what happened.
+### Action Creators
 
+We need to define our first action creators. Remember, an action creator is
+simply a function that returns an action. Actions define what we can do in our
+app. In Redux, they are POJOs that have a `type` property indicating the type of
+action being performed.
+
+Create an `actions/note_actions.js` file which will house our action creators for `notes`.
+
+#### `NOTES_CONSTANTS`
+
+Action `type`s are typically defined as string constants. In our new file, let's export a `NOTES_CONSTANTS`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`. Technically, the values of these keys can be anything, but our convention is to use the string literal of the key. For example,
+
+```js
+export const NotesConstants = {
+  KEY_PRESSED: "KEY_PRESSED",
+  ...
+};
+```
+
+#### `keyPressed`
+
+Export a `keyPressed` function which takes the keyboard `key` pressed and
+returns an action of `type` `KEY_PRESSED`. Add `key` as a property to the action
+to let the store know which `key` to add to its `notes` array.
+
+#### `keyReleased`
+
+Export a `keyReleased` function which takes the keyboard `key` released and
+returns an action of `type` `KEY_RELEASED`. Add `key` as a property to the
+action to let the store know which `key` to remove from its `notes` array.
 
 ### Handling Actions - Reducers
-Now that we’ve decided what our minimal state object looks like, we’re ready to write a reducer for it. Remember that the reducer is a pure function that takes the previous state and an action, and returns the next state.
+Now that we’ve decided what our state shape looks like and defined the actions
+that will send data from your app to the store, we need reducers that
+update the state base on the actions.
 
+A reducer is a *pure* function that takes the previous state and an action,
+and returns the next state. It manages the shape of our application's state.
 
+Things you should never do inside a reducer:
++ Mutate its arguments;
++ Perform side effects like API calls and routing transitions;
++ Call non-pure functions, e.g. `Date.now()` or `Math.random()`.
 
-#### Reducer
-Now that we've defined the actions that will send data from your app to the store, let's define the reducers that update the state base on the actions.
+**TL;DR:** Reducers are pure functions. Given the same arguments for `state` and
+`action`, a reducer should calculate the next state and return it. No side
+effects.
 
+Let's write a reducer for our app which handles the actions we defined above.
+
+#### `notes` Reducer
+
+Create a `reducers/notes_reducer.js` file that exports a `notes` reducer. Import `NotesConstants` from `notes_actions`.
+
+`notes` is a pure function that takes two arguments:
++ `state` - the previous `notes` state
++ `action` - the action object dispatched
+
+Redux will call our reducer with an `undefined` state for the first time so use
+the [ES6 default arguments syntax][default-args] to return an empty array as the
+ initial state.
+
+Add a `switch` statement evaluating `action.type`. Return the previous `state`
+as the `default` case. Then add a case for each key (i.e. action type) defined
+in `NOTES_CONSTANTS`. For `KEY_PRESSED`, if the `action.key` isn't already in
+the state (i.e. already playing) then return a new state with the new key
+appended to the previous state, else return the previous state. For
+`KEY_RELEASED`, return a new state with the `action.key` removed only if it's
+currently playing (i.e. in the state), else return the previous state.
+
+**NB**: State is never mutated in Redux. Thus, we must return a new array when
+ our state changes. Make sure your `notes` reducer creates and returns a new
+ array when adding or removing a note. Here's a good [reference][array-mutation]
+ on how to avoid array mutation.
+
+[default-args]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/default_parameters
+[array-mutation]: https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread
+
+We're almost there. You might have noticed that `action.key` evaluates to the
+keyboard key pressed or released while our state's `notes` store an array of
+note names. So we must map our `key`s to a note names using our constant `NOTES`
+and an array of valid keyboard keys.
+
+Define an array called `validKeys` which stores the strings of all of your
+synthesizer's keyboard keys (e.g. `a`, `s`). The number of valid keys must equal
+the number of notes you plan on having. Define an object called `keyMap` which
+stores as keys, valid keys and as values, corresponding note names (e.g.
+`keyMap['a'] = 'C5'`).
+
+Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
+see if a `action.key` is also a valid key. If not in both cases, return the
+previous state.
 
 #### Store
 Let's create a store that holds the state and calls the reducer when an action is dispatched.
