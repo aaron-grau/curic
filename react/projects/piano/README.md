@@ -112,19 +112,19 @@ Feel free to use [this table][note-frequencies] as a resource!
 
 ## Phase 3: Notes Redux Structure
 
-#### Designing the State Shape - the Redux Store
+### Designing the State Shape - the Redux Store
 
-In Redux, all app state is stored as a single JavaScript object. It's good practice to think about its shape before writing any code. Ask yourself what's the minimal representation of your app's state as an object?
+In Redux, all app state is stored as a single JavaScript object. It's good
+practice to think about its shape before writing any code. Ask yourself what's
+the minimal representation of your app's state as an object?
 
 For our synthesizer app, we first and foremost want to store the notes in play.
 
-#### Actions
+### Actions
 Let's define the actions that represent what happened.
 
 
-####
-
-#### Handling Actions
+### Handling Actions - Reducers
 Now that we’ve decided what our minimal state object looks like, we’re ready to write a reducer for it. Remember that the reducer is a pure function that takes the previous state and an action, and returns the next state.
 
 
