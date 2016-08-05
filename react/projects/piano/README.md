@@ -1,36 +1,53 @@
-# Redux Piano Project
+# Redux Synthesizer
+
 
 Live demo available [here][demo]!
 
-[demo]:
+[demo]: http://aa-synthesizer.herokuapp.com
 
 ## Overview
 We'll use React.js and Redux to create our own musical keyboard!
 
-**NB:** Make sure to test as you go. Your understanding will suffer if you code an entire section before figuring out how to make it run. Start small and append.
+**NB**: Make sure to test as you go and refer to the Redux readings if you get
+stuck. Your understanding will suffer if you code an entire section before
+figuring out how to make it run. Start small and append.
+
+---
 
 ## Phase 1: Redux Structure
 
 * Create a project directory.
+* Create an `index.html` file and give it a `<div id="root"></div>` container.
 * Run `npm init --yes` to set up your `package.json`.
-* Run `npm install --save webpack react react-dom react-redux redux babel-core babel-loader babel-preset-es2015 babel-preset-react` to set up React and Redux.
+* To set up React and Redux `npm install --save` the following packages:
+  * `webpack`
+  * `react`
+  * `react-dom`
+  * `react-redux`
+  * `redux`
+  * `babel-core`
+  * `babel-loader`
+  * `babel-preset-react`
+  * `babel-preset-es2015`
 * Run `npm install --save jquery`. We'll be using jQuery later.
-* Create a `frontend` folder at the root of your project to contain your front-end code.
-* Model your `frontend` folder on the diagram below:
-
-```
-frontend/
-  + actions/
-  + components/
-  + constants/
-  + reducers/
-  + store/
-  + util/
-  + piano.jsx
-```
-
-These folders will store our front-end goodies.
-* Next, configure your webpack setup in `webpack.config.js` to compile all of your JS into a `bundle.js`.
+* Create a `/frontend` folder at the root directory of your project to contain
+all of your front-end code.
+* Model your `/frontend` folder to look like the directory tree below:
+  ```
+  /frontend
+    + /actions
+    + /components
+    + /constants
+    + /reducers
+    + /store
+    + /util
+    + synthesizer.jsx
+  ```
+* Setup your entry file `syntehsizer.jsx` to render your app into the into the
+`root` container.
+* Configure your webpack setup in `webpack.config.js` to compile all of your JS
+into a `bundle.js`.
+* Test that your app renders before moving on.
 
 ## Phase 2: Notes!
 
@@ -167,7 +184,7 @@ Using `connect()` from `react-redux`:
 
 Let's write a `NoteKey` React class component. We're calling it `NoteKey` to distinguish it from the keyboard's keys.
 
-This component will be the visual representation of a single note in your piano. It's also the component responsible for whether or not to play a `Note`. The `Piano` component will pass `NoteKey` a single `key` as a prop. After `NoteKey` has mounted, create a new `Note` instance and store it as an instance variable.
+This component will be the visual representation of a single note in your piano. It's also the component responsible for whether or not to play a `Note`. The `Synthesizer` component will pass `NoteKey` a single `key` as a prop. After `NoteKey` has mounted, create a new `Note` instance and store it as an instance variable.
 
 Flashback: your `Note` constructor takes a frequency as a parameter, not a string. Use your `Tones` constant to convert the string to the right frequency.
 
@@ -175,15 +192,15 @@ The `NoteKey` component listens to the store. If its `key` is in the state, then
 
 Add a listener in `componentDidMount`. Remember to store the listener as an instance variable so you can remove it in `componentWillUnmount`.
 
-### `Piano`
+### `Synthesizer`
 
-Let's support more than one `NoteKey` by creating a `Piano` component (`components/piano.jsx`). It will render a `NoteKey` for each of the `TONES`.
+Let's support more than one `NoteKey` by creating a `Synthesizer` component (`components/piano.jsx`). It will render a `NoteKey` for each of the `TONES`.
 
-Now we can test our setup. When your `Piano` is mounted it should call the method we exported from `util/key_listeners`, thereby adding `keydown` and `keyup` event listeners. In `piano.jsx` use `ReactDOM` to position our `Piano` on the page. Remember to provide an HTML container as the second argument of `ReactDOM.render`. Open your HTML file and press some keys. You should hopefully hear sound!
+Now we can test our setup. When your `Synthesizer` is mounted it should call the method we exported from `util/key_listeners`, thereby adding `keydown` and `keyup` event listeners. In `piano.jsx` use `ReactDOM` to position our `Synthesizer` on the page. Remember to provide an HTML container as the second argument of `ReactDOM.render`. Open your HTML file and press some keys. You should hopefully hear sound!
 
 If you don't here anything, first check for errors in your console and errors in the `webpack`ing. Follow the redux pattern to debug piece by piece. Start at the beginning and debug your way through.
 
-## Phase 5: Style your Piano
+## Phase 5: Style your Synthesizer
 
 Use your css knowledge and style your components so that it looks like a piano.
 
@@ -273,7 +290,6 @@ Figure out what song this is.
 ```
 
 * **Looping***: Add a setting to allow tracks to play continuously.
-* **Jam Session**: Allow users to play while a track runs in the background.
 * **Playlists**: Queue up tracks to be played sequentially.
 
 

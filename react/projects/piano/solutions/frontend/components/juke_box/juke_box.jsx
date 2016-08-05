@@ -1,6 +1,5 @@
 import React from 'react';
 import Track from './track';
-// import merge from 'lodash/merge';
 
 const JukeBox = ({ tracks, recording, playing, onDelete, onPlay }) => (
   <div className="juke-box">

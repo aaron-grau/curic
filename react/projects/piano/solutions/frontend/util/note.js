@@ -31,4 +31,20 @@ Note.prototype.stop = function () {
   this.gainNode.gain.value = 0;
 }
 
+// class Note {
+//   constructor(freq) {
+//     this.oscillatorNode = createOscillator(freq);
+//     this.gainNode = createGainNode();
+//     this.oscillatorNode.connect(this.gainNode);
+//   }
+//
+//   start() {
+//     this.gainNode.gain.value = 0.3;
+//   }
+//
+//   stop() {
+//     this.gainNode.gain.value = 0;
+//   }
+// };
+
 module.exports = Note;

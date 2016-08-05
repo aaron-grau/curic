@@ -1,10 +1,10 @@
 import React from 'react';
 import NoteKey from './note_key';
 import $ from 'jquery';
-import { NOTES, TONES } from '../constants/tones';
-import Note from '../util/note';
+import { NOTES, TONES } from '../../constants/tones';
+import Note from '../../util/note';
 
-class Piano extends React.Component {
+class Synth extends React.Component {
   constructor(props) {
      super(props);
      this.notes = NOTES.map(note => new Note(TONES[note])); // array of Note instances
@@ -51,7 +51,7 @@ class Piano extends React.Component {
     ));
 
     return (
-      <div className="piano">
+      <div className="synth">
         <div className='note-key-list'>
           {noteKeys}
         </div>
@@ -60,4 +60,4 @@ class Piano extends React.Component {
   }
 };
 
-export default Piano;
+export default Synth;
