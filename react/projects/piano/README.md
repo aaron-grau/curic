@@ -143,15 +143,15 @@ export const NotesConstants = {
 
 #### `keyPressed`
 
-Export a `keyPressed` function which takes the keyboard `key` pressed and
-returns an action of `type` `KEY_PRESSED`. Add `key` as a property to the action
-to let the store know which `key` to add to its `notes` array.
++ Export a `keyPressed` function which takes the keyboard `key` pressed and
+returns an action of `type` `KEY_PRESSED`.
++ Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
 #### `keyReleased`
 
-Export a `keyReleased` function which takes the keyboard `key` released and
-returns an action of `type` `KEY_RELEASED`. Add `key` as a property to the
-action to let the store know which `key` to remove from its `notes` array.
++ Export a `keyReleased` function which takes the keyboard `key` released and
+returns an action of `type` `KEY_RELEASED`.
++ Add `key` as a property to the action to let the store know which `key` to remove from its `notes` array.
 
 ### Handling Actions - Reducers
 Now that we’ve decided what our state shape looks like and defined the actions
@@ -184,13 +184,14 @@ Redux will call our reducer with an `undefined` state for the first time so use
 the [ES6 default arguments syntax][default-args] to return an empty array as the
  initial state.
 
-Add a `switch` statement evaluating `action.type`. Return the previous `state`
-as the `default` case. Then add a case for each key (i.e. action type) defined
-in `NOTES_CONSTANTS`. For `KEY_PRESSED`, if the `action.key` isn't already in
-the state (i.e. already playing) then return a new state with the new key
-appended to the previous state, else return the previous state. For
-`KEY_RELEASED`, return a new state with the `action.key` removed only if it's
-currently playing (i.e. in the state), else return the previous state.
++ Add a `switch` statement evaluating `action.type`.
++ Return the previous `state` as the `default` case.
++ Then add a case for each key (i.e. action type) defined in `NOTES_CONSTANTS`.
+  + `KEY_PRESSED` - if the `action.key` isn't already in the state (i.e. already
+  playing) then return a new state with the new key appended to the previous
+  state, else return the previous state.
+  + `KEY_RELEASED` - return a new state with the `action.key` removed only if
+  it's currently playing (i.e. in the state), else return the previous state.
 
 **NB**: State is never mutated in Redux. Thus, we must return a new array when
  our state changes. Make sure your `notes` reducer creates and returns a new
@@ -205,13 +206,12 @@ keyboard key pressed or released while our state's `notes` store an array of
 note names. So we must map our `key`s to a note names using our constant `NOTES`
 and an array of valid keyboard keys.
 
-Define an array called `validKeys` which stores the strings of all of your
++ Define an array called `validKeys` which stores the strings of all of your
 synthesizer's keyboard keys (e.g. `a`, `s`). The number of valid keys must equal
-the number of notes you plan on having. Define an object called `keyMap` which
-stores as keys, valid keys and as values, corresponding note names (e.g.
-`keyMap['a'] = 'C5'`).
-
-Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
+the number of notes you plan on having.
++ Define an object called `keyMap` which stores as keys, valid keys and as
+values, corresponding note names (e.g. `keyMap['a'] = 'C5'`).
++ Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
 see if a `action.key` is also a valid key. If not in both cases, return the
 previous state.
 
