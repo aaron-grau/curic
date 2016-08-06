@@ -236,8 +236,6 @@
 
 [reddit-clone]: projects/reddit_on_rails
 
-## w4d6-w4d7
-
 ## w5d1
 
 ### Readings (72 min)
