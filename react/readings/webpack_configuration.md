@@ -45,12 +45,12 @@ file extensions to process without specifically naming them.
 module.exports = {
 	...
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['','.js', '.jsx']
 	}
 };
 ```
 
-This allows you to import more succinctly: 
+By including an empty string, you can write import statements more succinctly: 
 
 ```js
 import App from './components/app';

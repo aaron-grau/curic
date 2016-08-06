@@ -20,14 +20,14 @@ npm install --save <packages>
 
 You'll need the following packages: 
 
+- `webpack`
 - `react`
 - `react-dom`
 - `babel-core`
 - `babel-preset-es2015`
 - `babel-preset-react`
-- `webpack`
 
-You might also need (for other projects): 
+You might also need (in other projects): 
 
 - `redux`
 - `react-redux`

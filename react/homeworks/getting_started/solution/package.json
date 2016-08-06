@@ -4,7 +4,8 @@
   "description": "This homework covers configuration of a new React project. Download the skeleton [here][skeleton].",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack"
   },
   "keywords": [],
   "author": "",
