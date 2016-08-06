@@ -246,13 +246,51 @@ In Redux, the store calls the reducer function you give it whenever
 tree that is returned by the root reducer, and every listener registered will be
 called in response to the new state!
 
-Create a `store/store.js` file and import [`createStore`][create-store] from
-`redux` and your root `reducer`. Define and `export default` a function called
-`configureStore` that returns a new store with the root reducer.
++ Create a `store/store.js` file and import [`createStore`][create-store] from
+`redux` and your root `reducer`.
++ Define and `export default` a function called `configureStore` that returns a
+new store with the root reducer.
++ In your entry file, import `configureStore` and create your app's `store`.
 
 [create-store]: http://redux.js.org/docs/api/createStore.html
 
-#### `Synth` Components
+## Phase 4: `Synth` Components
+
+### `App` Component
+The `App` component will hold all of the top-level components of your app.
+
++ Create a file `components/app.jsx` and `React` from `react`.
++ Define and `export default` a functional `App` component.
+
+### `Root` Component
+
+The `Root` component serves to wrap your `App` component with a
+[`Provider`][provider] component. The Provider is a special React Redux
+component that gives all of your container components access to your app's store
+without passing it explicitly to each container, allowing all of them to read
+your app's state and dispatch actions.
+
++ Create a file `components/root.jsx`.
++ Import `Provider` from `react-redux`, `React` and your `App` component.
++ Define and export a `Root` component which takes as an argument `store` and
+wraps your `App` with a `Provider`. Like so:
+
+```js
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <App/>
+  </Provider>
+);
+
+export default Root;
+```
+
++ Update your entry file to render your `Root` component, passing it the store
+returned by `configureStore`.
+
+[provider]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store
+
+<!--
 
 ### KeyListeners
 
@@ -307,7 +345,7 @@ Make sure that your have your key actions, reducer and listeners working before 
 Why to introduce containers?
 + start with presentational components
 + when you start passing too may props down to immediate components and some components don't use the props they receive, but merely forward them down and you have to rewire all of those intermediate components - it's a good time to create container components
-+ need containers to connect presentational components to the Redux store
++ need containers to connect presentational components to the Redux store -->
 
 Using `connect()` from `react-redux`:
 1. define a function called `mapStateToProps` that tells the container how to transform the current Redux store state into the props you want to pass the presentational component(s) wrapped
