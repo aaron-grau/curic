@@ -57,3 +57,19 @@ import App from './components/app';
 import { createTodos } from './actions/todos';
 
 ```
+
+## `.gitignore`
+
+Running Webpack creates a lot of redundant and very large files in your local directory. Use a `.gitignore` file to prevent these files from being pushing and pulled from your remote Git repositories. Create a `.gitignore` and list the files or directories you want to ignore, one per line.
+
+```
+node_modules
+bundle.js
+bundle.js.map
+```
+
+You can view App Academy's full `.gitignore` [here][gitignore].
+
+[gitignore]: https://github.com/appacademy/dotfiles/blob/master/dot/gitignore
+
+
