@@ -22,16 +22,15 @@ You'll need the following packages:
 
 - `react`
 - `react-dom`
-- `redux`
-- `react-redux`
-
-- `webpack`
 - `babel-core`
 - `babel-preset-es2015`
 - `babel-preset-react`
+- `webpack`
 
-You might also need: 
+You might also need (for other projects): 
 
+- `redux`
+- `react-redux`
 - `react-router`
 - `lodash`
 
@@ -44,8 +43,6 @@ In `webpack.config.js`:
 - Add a source map.
 - Ensure that `.js` and `.jsx` files resolve automatically.
 - Add a `webpack` script to your `package.json`.
-
-```
 
 ## Boot it Up!
 
