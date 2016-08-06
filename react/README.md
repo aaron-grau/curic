@@ -6,8 +6,8 @@
 
 ### Readings
 
-- [ES6 Syntax: Import / Export]
-- [ES6 Syntax: Object Destructuring]
+- [ES6 Syntax: Import / Export][import_export]
+- [ES6 Syntax: Object Destructuring][object_destructuring]
 
 - [Intro to React][intro_to_react]
 - [Intro to JSX][intro_to_jsx]
@@ -23,15 +23,17 @@
 - [Configuring Babel for ES6 and JSX][babel_configuration]
 
 ### Additional Resources
-- [`lodash`]
+- [Lodash][lodash]
 
 ### Homeworks
-- [Getting Started with NPM]
+- [Getting Started with NPM][getting_started]
 
 ### Projects
 
 - [Widgets][widgets]
 
+[import_export]: readings/import_export.md
+[object_destructuring]: readings/object_destructuring.md
 [intro_to_react]: readings/intro_to_react.md
 [intro_to_jsx]: readings/intro_to_jsx.md
 [intro_to_react_components]: readings/intro_to_react_components.md
@@ -41,6 +43,8 @@
 [npm_configuration]: readings/npm_configuration.md
 [webpack_configuration]: readings/webpack_configuration.md
 [babel_configuration]: readings/babel_configuration.md
+[lodash]: readings/lodash.md
+[getting_started]: homeworks/getting_started
 
 [widgets]: projects/widgets
 
