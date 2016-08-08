@@ -96,8 +96,7 @@ class Note {
 module.exports = Note;
 ```
 
-Before moving on, test that you can initialize and play a `Note` from the
-console.
+Before moving on, test that you can initialize and play an instance of a `Note` from the console. Try a frequency of 800!
 
 #### `TONES` and `NOTES` Constants
 
@@ -606,13 +605,14 @@ To play the notes in a track, we can't simply iterate over these objects because
 
 * In the body of your function, `dispatch` a `startPlaying` action.
 * Grab `Date.now()` and assign it to a `playBackStartTime` variable.
-* Initialize a ``
+* Initialize a `currNote` to `0`.
+* Declare a `timeElapsed` variable
+* We want the interval to run until the end of the `track`. Declare a `interval` variable.
 
-
-We want the interval to run until the end of the `track`. Store a reference to the interval as a variable. At the top of your `play` method, check if `this.interval` already exists. If it does, `return` so that we don't play the `track` over itself. Next grab `Date.now()` and assign it to a local variable `playBackStartTime`. Also initialize the local variable `currentNote` to `0`.
-
-Now for the meat of the method: set an interval and pass in an anonymous callback. The callback should check whether `currentNote` is still in range of the `roll`. **If so**:
-- Check whether `Date.now() - playBackStartTime` excessed the current note's `timeSlice`. **If so**:
+Now for the meat of the method:
+* Set `interval` and pass it an anonymous callback.
+* The callback should check whether `currNote` is still in range of the `roll`. **If so**:
+  * Check whether `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. **If so**:
   - Use one of your `KeyActions` to update the `KeyStore`.
   - Continue to the next note.
   - *Hint:* A new KeyAction such as `groupUpdate(notes)` might simplify your task.
