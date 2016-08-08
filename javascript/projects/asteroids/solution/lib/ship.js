@@ -1,65 +1,63 @@
-var MovingObject = require("./moving_object");
-var Util = require("./util");
-var Bullet = require("./bullet");
+const MovingObject = require("./moving_object");
+const Bullet = require("./bullet");
+const Util = require("./util");
 
 function randomColor() {
-  var hexDigits = "0123456789ABCDEF";
+  const hexDigits = "0123456789ABCDEF";
 
-  var color = "#";
-  for (var i = 0; i < 3; i ++) {
+  let color = "#";
+  for (let i = 0; i < 3; i ++) {
     color += hexDigits[Math.floor((Math.random() * 16))];
   }
 
   return color;
 }
 
-var Ship = function (options) {
-  options.radius = Ship.RADIUS;
-  options.vel = options.vel || [0, 0];
-  options.color = options.color || randomColor();
-
-  MovingObject.call(this, options);
-};
-
-Ship.RADIUS = 15;
-
-Util.inherits(Ship, MovingObject);
-
-Ship.prototype.fireBullet = function () {
-  var norm = Util.norm(this.vel);
-
-  if (norm == 0) {
-    // Can't fire unless moving.
-    return;
+class Ship extends MovingObject {
+  constructor(options) {
+    options.radius = Ship.RADIUS;
+    options.vel = options.vel || [0, 0];
+    options.color = options.color || randomColor();
+    super(options);
   }
 
-  var relVel = Util.scale(
-    Util.dir(this.vel),
-    Bullet.SPEED
-  );
+  fireBullet() {
+    const norm = Util.norm(this.vel);
 
-  var bulletVel = [
-    relVel[0] + this.vel[0], relVel[1] + this.vel[1]
-  ];
+    if (norm == 0) {
+      // Can't fire unless moving.
+      return;
+    }
 
-  var bullet = new Bullet({
-    pos: this.pos,
-    vel: bulletVel,
-    color: this.color,
-    game: this.game
-  });
+    const relVel = Util.scale(
+      Util.dir(this.vel),
+      Bullet.SPEED
+    );
 
-  this.game.add(bullet);
-};
+    const bulletVel = [
+      relVel[0] + this.vel[0], relVel[1] + this.vel[1]
+    ];
 
-Ship.prototype.power = function (impulse) {
-  this.vel[0] += impulse[0];
-  this.vel[1] += impulse[1];
-};
+    const bullet = new Bullet({
+      pos: this.pos,
+      vel: bulletVel,
+      color: this.color,
+      game: this.game
+    });
 
-Ship.prototype.relocate = function () {
-  this.pos = this.game.randomPosition();
-  this.vel = [0, 0];
-};
+    this.game.add(bullet);
+  }
 
+  power(impulse) {
+    this.vel[0] += impulse[0];
+    this.vel[1] += impulse[1];
+  }
+
+  relocate() {
+    this.pos = this.game.randomPosition();
+    this.vel = [0, 0];
+  }
+}
+
+Ship.RADIUS = 15;
 module.exports = Ship;
