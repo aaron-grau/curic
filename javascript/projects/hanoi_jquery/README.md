@@ -45,6 +45,10 @@ way to do this.
 
 ## Bonus
 
-* Style your game. Try adding a few transition effects.
+* Style your game. Try adding a few transition effects. Take a look at these links for some fun transitions you can implement!
+  * [Transitions and Transforms][thoughtbot-transitions]
+  * [CSS-Tricks Transitions][css-tricks]
 
 [skeleton]: skeleton.zip?raw=true
+[thoughtbot-transitions]: https://robots.thoughtbot.com/transitions-and-transforms
+[css-tricks]: https://css-tricks.com/almanac/properties/t/transition/

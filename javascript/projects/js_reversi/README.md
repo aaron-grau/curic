@@ -25,7 +25,7 @@ Download the [skeleton][reversi-skeleton].
 
 * Begin writing a run-loop.
 * `Game` should be modified to support `HumanPlayer`s and `AIPlayer`s.
-* Make your AI make random, but valid moves to start. Once that's working, have it make smarter moves.
+* Your AI should make random, but valid moves to start. Once that's working, have it make smarter moves.
 
 ## Bonus
 
