@@ -9,15 +9,18 @@
 **ES6**
 - [ES6 Syntax: Import / Export][import_export]
 - [ES6 Syntax: Object Destructuring][object_destructuring]
+
 **React and JSX**
 - [Intro to React][intro_to_react]
 - [Intro to JSX][intro_to_jsx]
 - [Intro to React Components][intro_to_react_components]
+
 **Components in Detail**
 -	[Declaring Components][component_declaration]
 - [Components: Props and State][props_and_state]
 - [Components: Lifecycle Methods][component_lifecycle]
 - [Components: Synthetic Events][synthetic_events]
+
 **Configuration**
 - [Configuring NPM][npm_configuration]
 - [Configuring Webpack][webpack_configuration]
