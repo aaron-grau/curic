@@ -14,8 +14,8 @@
 
 - [Intro to React Components][intro_to_react_components]
 -	[Declaring Components][component_declaration]
-- [Components: Props and State][props_and_state.md]
-- [Components: Lifecycle Methods][component_lifecyle]
+- [Components: Props and State][props_and_state]
+- [Components: Lifecycle Methods][component_lifecycle]
 - [Components: Synthetic Events][synthetic_events]
 
 - [Configuring NPM][npm_configuration]
@@ -38,6 +38,7 @@
 [intro_to_jsx]: readings/intro_to_jsx.md
 [intro_to_react_components]: readings/intro_to_react_components.md
 [props_and_state]: readings/props_and_state.md
+[component_declaration]: readings/component_declaration.md
 [component_lifecycle]: readings/component_lifecycle.md
 [synthetic_events]: readings/synthetic_events.md
 [npm_configuration]: readings/npm_configuration.md
