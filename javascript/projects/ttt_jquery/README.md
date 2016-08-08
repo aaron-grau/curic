@@ -77,6 +77,10 @@ Display a congratulatory message when a player wins!
 `Game.prototype.promptMove` method. Ignore these. You're going to call
 `Game.prototype.makeMove` directly from your `View.prototype.makeMove` method.
 
+## Bonus
+
+* Your game looks pretty drab. Go crazy with the styling!
+
 [ttt-demo]: http://appacademy.github.io/ttt.js/solution/index.html
 [ttt-node]: http://github.com/appacademy/curriculum/tree/master/javascript/projects/ttt_node/solution.zip?raw=true
 [skeleton]: skeleton.zip?raw=true

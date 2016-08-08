@@ -391,6 +391,11 @@ const velY = this.vel[1] * delta / 20;
 this.pos = [this.pos[0] + velX, this.pos[1] + velY];
 ```
 
+## Bonus
+* Your ship's acceleration is probably still way faster than it needs to be. Make the ship more responsive to your keypresses.
+* Give your ship a number of lives. Keep track of this number and display it at the top.
+* Keep score! Render a high scores table whenever the game is over and present the player with an option to start a new game.
+
 ## Resources
 
 * [Canvas tutorial](https://developer.mozilla.org/en-US/docs/HTML/Canvas/Tutorial?redirectlocale=en-US&redirectslug=Canvas_tutorial)

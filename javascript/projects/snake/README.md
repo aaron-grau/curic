@@ -78,6 +78,7 @@ spare. Here are some fun things you can add:
       game.
 * Tron Snake: 2 player snake (use the 'wasd' keys for one and arrow
   keys for the other) with both snakes running at the same time.
+* Style it!
 
 Feel free to come up with extensions of your own. Have fun with it
 (and show off to your classmates)!

@@ -43,4 +43,8 @@ First of all, it has super high specificity, so it can only be overridden with
 presentation logic in with JS code. Toggling classes is the clean, best-practice
 way to do this.
 
+## Bonus
+
+* Style your game. Try adding a few transition effects.
+
 [skeleton]: skeleton.zip?raw=true
