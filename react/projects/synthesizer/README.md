@@ -490,6 +490,7 @@ While the user records a track, we'll need to update `roll` as the user presses 
 + `timeSlice` - the time elapsed since the track started recording;
 + `notes` - an array of note names (eg. `['C3', 'E3', 'G3']`) are currently pressed.
 
+
 + Create a `reducers/tracks_reducer.js` file and import your `TrackConstants`, and `merge` from `lodash/merge`
 + Initialize a variable `currTrackId` to `0`. This variable will be used set track ids and add notes to the newest recording.
 + `export default` a `tracks` reducer.
