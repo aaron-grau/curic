@@ -115,7 +115,8 @@ In Redux, all app state is stored as a single JavaScript object. It's good
 practice to think about its shape before writing any code. Ask yourself what's
 the minimal representation of your app's state as an object?
 
-For our synthesizer app, we first and foremost want to store the `notes` in play, as an array of note names.
+For our synthesizer app, we first and foremost want to store the `notes` in
+play, as an array of note names.
 
 ### Action Creators
 
@@ -155,35 +156,28 @@ returns an action of `type` `KEY_RELEASED`.
 
 ### Handling Actions - Reducers
 Now that we’ve decided what our state shape looks like and defined the actions
-that will send data from your app to the store, we need reducers that
-update the state base on the actions.
+that will send data from your app to the store, we need reducers that update the
+state base on the actions.
 
-A reducer is a *pure* function that takes the previous state and an action,
-and returns the next state. It manages the shape of our application's state.
+A reducer is a *pure* function that takes the previous state and an action, and
+returns the next state. It manages the shape of our application's state. Given
+the same arguments for `state` and `action`, a reducer should calculate the next
+state and return it. No side effects, such as mutating its arguments!
 
-Things you should never do inside a reducer:
-+ Mutate its arguments;
-+ Perform side effects like API calls and routing transitions;
-+ Call non-pure functions, e.g. `Date.now()` or `Math.random()`.
-
-*TL;DR*: Reducers are pure functions. Given the same arguments for `state` and
-`action`, a reducer should calculate the next state and return it. No side
-effects.
+*TL;DR*: Reducers are pure functions.
 
 Let's write a reducer for our app which handles the actions we defined above.
 
 #### `notes` Reducer
 
-Create a `reducers/notes_reducer.js` file that exports a `notes` reducer. Import `NotesConstants` from `notes_actions`.
-
-`notes` is a pure function that takes two arguments:
-+ `state` - the previous `notes` state
-+ `action` - the action object dispatched
-
-Redux will call our reducer with an `undefined` state for the first time so use
++ Create a `reducers/notes_reducer.js` file that exports a `notes` reducer.
+  `notes` is going to be a pure function that takes two arguments:
+  + `state` - the previous `notes` state;
+  + `action` - the action object dispatched.
++ Import `NotesConstants` from `notes_actions`.
++ Redux will call our reducer with an `undefined` state for the first time so use
 the [ES6 default arguments syntax][default-args] to return an empty array as the
  initial state.
-
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
 + Then add a case for each key (i.e. action type) defined in `NOTES_CONSTANTS`.
@@ -326,7 +320,9 @@ define key listeners on the window.
 
 * Redefine your `Synth` component so that it extends the `React.Component`.
 * Import your `NOTES` and `TONES` constants, and `Note` class.
-* In the `constructor`, instantiate an array of `Note` instances and setting it to `this.notes.` Flashback, your `Note` constructor takes a frequency as a parameter, not a string. Hint: Use `NOTES` and `TONES` to return an array mapping note names to the right frequency.
+* In the `constructor`, instantiate an array of `Note` instances and setting it to `this.notes.` Flashback, your `Note` constructor takes a frequency as a
+parameter, not a string. Hint: Use `NOTES` and `TONES` to return an array
+mapping note names to the right frequency.
 * In the `render` function, render a list of `this.notes` to test.
 
 #### Key Listeners
@@ -345,7 +341,9 @@ $(document).on('keydown', e => this.onKeyDown(e));
 
 When a user presses a key, the key listener calls your `onKeyDown(e)` function, which dispatches a `keyPressed(key)` action to the store. Likewise, when a user releases a key, the listener calls your `onKeyUp(e)`, which dispatches a `keyReleased(key)` action to the store. Make sure your follow this before moving on.
 
-*NB*: A jQuery `'keydown'` listener fires repeatedly when the user holds down a key, which will repeatedly trigger our `keyPressed` function. Does this explain some of the overhead in our `notes` reducer?
+*NB*: A jQuery `'keydown'` listener fires repeatedly when the user holds down a
+key, which will repeatedly trigger our `keyPressed` function. Does this explain
+some of the overhead in our `notes` reducer?
 
 #### Playing `Note`s
 
@@ -359,7 +357,8 @@ Ok let's actually start jamming.
 [keyboard-event]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 ### `NoteKey` Component
 
-Let's write a pure presentational component, `NoteKey`. This component will be the visual representation of a single note in your piano.
+Let's write a pure presentational component, `NoteKey`. This component will be
+the visual representation of a single note in your piano.
 
 * Create a new file, `components/synth/note_key.jsx`.
 * Define and export a new functional component called `NoteKey`.
@@ -412,7 +411,7 @@ Let's save discussing the details of our track objects for a little later.
 
 ### Action Creators
 
-+ Create an `action.tracks_actions.js` file which will house our action creators for `tracks` and `recording`.
++ Create an `action/tracks_actions.js` file which will house our action creators for `tracks` and `recording`.
 
 #### `TracksConstants`
 
@@ -437,6 +436,8 @@ Let's save discussing the details of our track objects for a little later.
 ### Reducers
 
 #### `tracks` Reducer
+
++ 
 
 #### `recording` Reducer
 
