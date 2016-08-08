@@ -565,7 +565,8 @@ add to the state a boolean `playing` to indicate if a track is playing or not.
 * Create a `reducers/playing_reducer.js` file.
 * Import your `PlayingConstants` and export a `playing` reducer.
 * Set the initial state to `false` and return the state by default.
-* Create switch cases for `START_PLAYING` and `STOP_PLAYING`, setting the state to the appropriate boolean value.
+* Create switch cases for `START_PLAYING` and `STOP_PLAYING`, setting the `recording` to the appropriate boolean value.
+* In your `notes` reducer, add a new switch case for `GROUP_UPDATE`, setting the replacing the `notes` in the state with `action.notes`.
 * Update your root reducer to combine all of your reducers.
 
 ### Components
@@ -586,7 +587,10 @@ add to the state a boolean `playing` to indicate if a track is playing or not.
 
 ##### `onPlay`
 
-`onPlay` is a [curried function][currying]. It takes as an argument a `track` object and returns a function. This function takes as an argument an event `e`. Your function definition should look like this:
+`onPlay` is a [curried function][currying]. It takes as an argument a `track`
+object and returns a function. This function takes as an argument an event `e`.
+Your function definition should look like this:
+
 ```js
 const onPlay = track => e => {
   ...
@@ -602,7 +606,11 @@ Remember a track's `roll` array stores track data in the form of:
 }
 ```
 
-To play the notes in a track, we can't simply iterate over these objects because iteration happens (essentially) instantaneously. We instead want to *throttle* our iteration, such that we continue the next note once `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. `setInterval` allows us to invoke a callback over (relatively) large spans of time.
+To play the notes in a track, we can't simply iterate over these objects because
+iteration happens (essentially) instantaneously. We instead want to *throttle*
+our iteration, such that we continue the next note once `Date.now() -
+playBackStartTime` exceeds the current note's `timeSlice`. `setInterval` allows
+us to invoke a callback over (relatively) large spans of time.
 
 * In the body of your function, `dispatch` a `startPlaying` action.
 * Grab `Date.now()` and assign it to a `playBackStartTime` variable.

@@ -1,7 +1,7 @@
 {
-  "name": "Piano",
+  "name": "Synth",
   "version": "1.0.0",
-  "description": "frontend piano using react and redux",
+  "description": "frontend synth using react and redux",
   "main": "index.js",
   "engines": {
     "node": "4.2.1",
