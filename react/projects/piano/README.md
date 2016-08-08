@@ -134,7 +134,8 @@ action being performed.
 
 Action `type`s are typically defined as string constants.
 
-* In our new file, let's export a `NOTES_CONSTANTS`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`. Technically, the values of these keys can be anything, but our convention is to use the string literal of the key.
+* In our new file, let's export a `NOTES_CONSTANTS`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`. Technically, the values of these keys can
+be anything, but our convention is to use the string literal of the key.
 
 For example,
 
@@ -187,9 +188,9 @@ the initial state.
   it's currently playing (i.e. in the state), else return the previous state.
 
 *NB*: State is never mutated in Redux. Thus, we must return a new array when
- our state changes. Make sure your `notes` reducer creates and returns a new
- array when adding or removing a note. Here's a good [reference][array-mutation]
- on how to avoid array mutation.
+our state changes. Make sure your `notes` reducer creates and returns a new
+array when adding or removing a note. Here's a good [reference][array-mutation]
+on how to avoid array mutation.
 
 [default-args]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/default_parameters
 [array-mutation]: https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread
@@ -210,7 +211,7 @@ previous state.
 
 #### Root Reducer
 
-Now the `notes` reducer just updates and returns to the store a single slice of
+The `notes` reducer updates and returns to the store only a single slice of
 the state: the `notes` in play.
 
 *NB*: When we have state fields that are independent of each other, we split
@@ -339,7 +340,11 @@ Now let's create a jQuery listener for `keyup` and `keydown` events.
   $(document).on('keydown', e => this.onKeyDown(e));
   ```
 
-When a user presses a key, the key listener calls your `onKeyDown(e)` function, which dispatches a `keyPressed(key)` action to the store. Likewise, when a user releases a key, the listener calls your `onKeyUp(e)`, which dispatches a `keyReleased(key)` action to the store. Make sure your follow this before moving on.
+When a user presses a key, the key listener calls your `onKeyDown(e)` function,
+which dispatches a `keyPressed(key)` action to the store. Likewise, when a user
+releases a key, the listener calls your `onKeyUp(e)`, which dispatches a
+`keyReleased(key)` action to the store. Make sure your follow this before moving
+on.
 
 *NB*: A jQuery `'keydown'` listener fires repeatedly when the user holds down a
 key, which will repeatedly trigger our `keyPressed` function. Does this explain
@@ -368,7 +373,8 @@ the visual representation of a single note in your piano.
 
 Cool, you now have the core of your Redux Synthesizer done! Let's start adding additional features.
 
-## Phase 5: Recording Tracks Redux Structure
+# Recording Tracks
+## Phase 5: Recorder Redux Structure
 
 Let's give our synthesizer the ability to record tracks.
 
@@ -465,7 +471,9 @@ Let's take a closer look at a track object.
 },
 ```
 
-`roll` starts as an empty array. We need to know the current time a note is played to calculate when to play a note relative to the `timeStart` of the recording.
+`roll` starts as an empty array. We need to know the current time a note is
+played to calculate when to play a note relative to the `timeStart` of the
+recording.
 
 While the user records a track, we'll need to update `roll` as the user presses new notes. We append into the `roll` an object with the following values:
 + `timeSlice` - the time elapsed since the track started recording;
@@ -477,11 +485,16 @@ While the user records a track, we'll need to update `roll` as the user presses 
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
 + Add a `switch` statement and return `state` as the `default` case.
 + Add a case for each action type.
-  + `START_RECORDING` - Increment `currTrackId`. Create a new track with the appropriate key-value pairs for `id`, `name`, `roll` and `timeStart`. SUse [`merge`][merge-lodash] to create a new object with the new track added to the state. Return this object.
-  + `STOP_RECORDING` - Add a new roll to the current track's `roll` containing an empty array of `notes`, ensuring that the track is silent when it ends. Calculate `timeSlice` from `action.timeNow - state[currTrackId].timeStart`. Return the new state.
+  + `START_RECORDING` - Increment `currTrackId`. Create a new track with the appropriate key-value pairs for `id`, `name`, `roll` and `timeStart`. SUse
+ [`merge`][merge-lodash] to create a new object with the new track added to the
+ state. Return this object.
+  + `STOP_RECORDING` - Add a new roll to the current track's `roll` containing an empty array of `notes`, ensuring that the track is silent when it ends.
+  Calculate `timeSlice` from `action.timeNow - state[currTrackId].timeStart`. Return the new state.
   + `ADD_NOTES` - Add a new roll to the current track's `roll`. Grab the `notes` played from the `action` and calculate the `timeSlice` as you did above. Return the new state.
 
-*NB*: State must never be mutated in the redux, so make sure you are creating and returning new objects and arrays. `Object.assign` returns a shallow copy of an object which is why for nest objects, we must rely on `merge` from `lodash`.
+*NB*: State must never be mutated in the redux, so make sure you are creating
+and returning new objects and arrays. `Object.assign` returns a shallow copy of
+an object which is why for nest objects, we must rely on `merge` from `lodash`.
 
 [merge-lodash]:https://lodash.com/docs#merge
 
@@ -498,9 +511,9 @@ While the user records a track, we'll need to update `roll` as the user presses 
 ### `RecorderContainer` Component
 
 * Create a file `components/recorder/recorder.jsx`.
-* Define and export `Recorder`, a functional componen to start.
+* Define and export `Recorder`, a functional component to start.
 * Create a file `components/recorder/recorder_container.jsx`.
-* Import [`connect`] from `react-redux` and your `Recorder`.
+* Import [`connect`][connect] from `react-redux` and your `Recorder`.
 * Define a `mapStateToProps(state)` function returning an object mapping the state's `tracks` and `recording`
 * Import your `startRecording` and `stopRecording` action creators.
 * Define a `mapDispatchToProps(dispatch)` function returning an object containing callback props for each of your action creators.
@@ -532,11 +545,22 @@ store.
   + Whenever the user presses/releases a key, the corresponding actions are dispatched to the store;
   + If you're recording, the notes currently in the store are saved to the end of the roll of the newest track in the state.
 
-Now your Synthesizer plays musical notes and records tracks!
+Now your Synthesizer plays musical notes and records tracks! Nice!
+
+# Playing Tracks
+
+## Phase 7: Jukebox
+
+Let's create a `Jukebox` to display and play our recorded tracks.
+
+### Action Creators
+* Create a `actions/playing_actions.js` file.
+* Export `PlayingConstants` with `START_PLAYING` and `STOP_PLAYING` key-value pairs.
 
 
-<!--
-## Playing a Track
+### Reducers
+
+### Components
 
 We need a "Play" button for our `JukeBox` tracks and a `playTrack` action for our tracks.
 
@@ -568,11 +592,18 @@ Remember to cancel your interval when the `track` finishes playing.
 const intervalId = setINterval(callback, 10);
 clearINterval(intervalId);
 ```
-Don't proceed until you're about to play all of your tracks! -->
+Don't proceed until you're about to play all of your tracks!
 
-## Style Your App
 
-+ I added these css classes to my components.
+## Phase 8: Style Your App
+
+Now that you have your cool app with recording and playing track features, let's make your app look nice.
+
++ Create a new file `application.css`.
++ Add a reference to it in `index.html`.
++ Style your app. Refer to our [HTML/CSS Curriculum][html-curriculum].
+
+Hint: I added these css classes to my components.
 ```
   + app
 
@@ -590,12 +621,10 @@ Don't proceed until you're about to play all of your tracks! -->
   + play-button
   + delete-button
 ```
-+ Create a new file `application.css`.
-+ Add a reference to it in `index.html`.
-+ Style your app. Refer to our [HTML/CSS Curriculum][html-curriculum].
 
 [html-curriculum]:https://github.com/appacademy/curriculum/tree/master/html-css
 
 ## Bonus Phase
+* **Name your Tracks:** Add a feature to rename your tracks.
 * **Looping***: Add a setting to allow tracks to play continuously.
 * **Playlists**: Queue up tracks to be played sequentially.
