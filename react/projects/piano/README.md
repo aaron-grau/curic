@@ -44,7 +44,7 @@ Today we're using React.js and Redux to create our own musical keyboard!
  `root` container.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`.
-* Run `wepback --watch` and test that your app renders before moving on.
+* Run `wepback --watch` and test that your app renders before moving on. Make sure to `source` your bundle in `index.html`.
 
 [lodash]:https://lodash.com/docs
 
@@ -96,7 +96,7 @@ class Note {
 module.exports = Note;
 ```
 
-Before moving on, test that you can instantiate and play a `Note` from the
+Before moving on, test that you can initialize and play a `Note` from the
 console.
 
 #### `TONES` and `NOTES` Constants
@@ -315,13 +315,13 @@ on.
 
 `Synth` is an example of a presentational component. Presentational components
 are typically written as functional components unless they require internal
-state, lifecycle hooks, etc. Your `Synth` component will instantiate an array of
+state, lifecycle hooks, etc. Your `Synth` component will initialize an array of
 `Note`s, calling `start` and `stop` depending on the notes in the store and
 define key listeners on the window.
 
 * Redefine your `Synth` component so that it extends the `React.Component`.
 * Import your `NOTES` and `TONES` constants, and `Note` class.
-* In the `constructor`, instantiate an array of `Note` instances and setting it to `this.notes.` Flashback, your `Note` constructor takes a frequency as a
+* In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback, your `Note` constructor takes a frequency as a
 parameter, not a string. Hint: Use `NOTES` and `TONES` to return an array
 mapping note names to the right frequency.
 * In the `render` function, render a list of `this.notes` to test.
@@ -481,7 +481,7 @@ While the user records a track, we'll need to update `roll` as the user presses 
 + `notes` - an array of note names (eg. `['C3', 'E3', 'G3']`) are currently pressed.
 
 + Create a `reducers/tracks_reducer.js` file and import your `TrackConstants`, and `merge` from `lodash/merge`
-+ Instantiate a variable `currTrackId` to `0`. This variable will be used set track ids and add notes to the newest recording.
++ Initialize a variable `currTrackId` to `0`. This variable will be used set track ids and add notes to the newest recording.
 + `export default` a `tracks` reducer.
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
 + Add a `switch` statement and return `state` as the `default` case.
@@ -580,7 +580,52 @@ add to the state a boolean `playing` to indicate if a track is playing or not.
 * Create a file `components/juke_box/juke_box_container.jsx`.
 * Import `connect` from `react-redux`, your `groupUpdate`, `startPlaying` and `stopPlaying` action creators, and your `JukeBox` component.
 * Define `mapStateToProps` returning an object which maps the state's `tracks`, `recording`, and `playing`.
+* Define `mapDispatchToProps` returning an object containing a callback prop for `onPlay` which dispatches both action creators.
 
+##### `onPlay`
+
+`onPlay` is going to be a [curried function][currying].
+
+It takes as an argument a `track` object and returns a function. This function takes as an argument an event `e`. Your function definition should look like this:
+```js
+const onPlay = track => e => {
+  ...
+}
+```
+
+Remember a track's `roll` array stores track data in the form of:
+
+```js
+{
+  notes: (notesArray),
+  timeSlice: (time elapsed since startTime)
+}
+```
+
+To play the notes in a track, we can't simply iterate over these objects because iteration happens (essentially) instantaneously. We instead want to *throttle* our iteration, such that we continue the next note once `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. `setInterval` allows us to invoke a callback over (relatively) large spans of time.
+
+* In the body of your function, `dispatch` a `startPlaying` action.
+* Grab `Date.now()` and assign it to a `playBackStartTime` variable.
+* Initialize a ``
+
+
+We want the interval to run until the end of the `track`. Store a reference to the interval as a variable. At the top of your `play` method, check if `this.interval` already exists. If it does, `return` so that we don't play the `track` over itself. Next grab `Date.now()` and assign it to a local variable `playBackStartTime`. Also initialize the local variable `currentNote` to `0`.
+
+Now for the meat of the method: set an interval and pass in an anonymous callback. The callback should check whether `currentNote` is still in range of the `roll`. **If so**:
+- Check whether `Date.now() - playBackStartTime` excessed the current note's `timeSlice`. **If so**:
+  - Use one of your `KeyActions` to update the `KeyStore`.
+  - Continue to the next note.
+  - *Hint:* A new KeyAction such as `groupUpdate(notes)` might simplify your task.
+
+**Else**: we've exceeded the range of the roll. Clear the interval and `delete` it from the properties of `this`.
+
+Remember to cancel your interval when the `track` finishes playing.
+```js
+const intervalId = setINterval(callback, 10);
+clearINterval(intervalId);
+```
+
+[currying]: https://www.sitepoint.com/currying-in-functional-javascript/
 #### `JukeBox`
 
 #### `Track`
