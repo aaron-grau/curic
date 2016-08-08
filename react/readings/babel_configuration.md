@@ -10,7 +10,7 @@ convert our code into universal, vanilla Javascript.
 
 Webpack can be configured to transpile your JSX and ES6 source code into browser-compatible Javascript when creating the bundle.
 
-**0.	Install the appropriate NPM packages:**
+**Install the appropriate NPM packages:**
 
 ```
 	npm install --save babel-core babel-preset-es2015 babel-preset-react
@@ -20,7 +20,7 @@ Webpack can be configured to transpile your JSX and ES6 source code into browser
 preset-react` are configurations that tell the core transpiler how to interpret
 ES6 and JSX, respectively.
 
-**0.	Configure the `module` key of your `webpack.config.js`:**
+**Configure the `module` key of your `webpack.config.js`:**
 
 ```js
 module.exports = {
