@@ -232,10 +232,6 @@ managing parts of the state, and combines them into a single function.
 Create a new file called `reducers/index.js` file and import
 [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
 
-**TL;DR**: All `combineReducers` does is generate a function that calls your
- reducers with the slices of state selected according to their keys, and
- combining their results into a single object again.
-
 Using it, define and `export default` a root `reducer` function.
 
 [combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
@@ -290,6 +286,31 @@ returned by `configureStore`.
 
 [provider]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store
 
+### `SynthContainer` Component
+
+The goal of a container component is to allow the presentational component to be as simple and lightweight as possible. To create a container, we need map the application state and the Store's dispatch to a set of props that get passed to the presentational component. Fortunately, `react-redux` provides a function that does this for us: [`connect`][connect].
+
+* Create a new directory `components/synth`.
+* Create a file `components/synth/synth.jsx`, and define and export `Synth`, a function component to start.
+* Create a file `components/synth/synth_container.jsx`, and import [`connect`] from `react-redux` and your `Synth` component.
+* Define a `mapStateToProps(state)` function. Return an object mapping `state.notes` to a `notes` key.
+* Import your `keyPressed` and `keyReleased` action creators.
+* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For example,
+
+```js
+const mapDispatchToProps = dispatch => ({
+  keyDown: key => dispatch(keyPressed(key)),
+  ...
+});
+```
+* `mapStateToProps` reads the state held by the store and `mapDispatchToProps` dispatches actions to the store. Call `connect(mapStateToProps, mapDispatchToProps)` on your `Synth` component to connect it to your Redux store.
+* Export the result of this call.
+
+[connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
+
+### `Synth` Component
+
+### `NoteKey` Component
 <!--
 
 ### KeyListeners
@@ -347,12 +368,7 @@ Why to introduce containers?
 + when you start passing too may props down to immediate components and some components don't use the props they receive, but merely forward them down and you have to rewire all of those intermediate components - it's a good time to create container components
 + need containers to connect presentational components to the Redux store -->
 
-Using `connect()` from `react-redux`:
-1. define a function called `mapStateToProps` that tells the container how to transform the current Redux store state into the props you want to pass the presentational component(s) wrapped
-2. define a function called `mapDispatchToProps` that receives the `dispatch` method and returns callback props that you want to inject into the presentational component(s) wrapped
-3. call `connect(mapStateToProps, mapDispatchToProps) `
 
-*TL;DR:* `mapStateToProps` reads the state held by the store and `mapDispatchToProps` dispatches actions to the store.
 ### `NoteKey`
 
 Let's write a `NoteKey` React class component. We're calling it `NoteKey` to distinguish it from the keyboard's keys.
