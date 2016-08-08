@@ -45,14 +45,10 @@ describe Flash do
       expect(updated_flash["best_pizza"]).to eq("Arizmendi")
     end
 
-    it "can read keys of different data types" do
-      flash[:foo] = "symbol"
-      flash[[1,2,3]] = "array"
-      flash[{a: 1, b: 2, c: 3}] = "hash"
-
-      expect(flash[:foo]).to eq("symbol")
-      expect(flash[[1,2,3]]).to eq("array")
-      expect(flash[{a: 1, b: 2, c: 3}]).to eq("hash")
+    it "can be accessed using either strings or symbols" do
+      flash = Flash.new(req)
+      flash["notice"] = "test"
+      expect(flash[:notice]).to eq("test")
     end
   end
 
@@ -60,6 +56,7 @@ describe Flash do
     before(:each) do
       flash.now["abc"] = "xyz"
     end
+
     it "reads data from flash.now" do
       expect(flash["abc"]).to eq("xyz")
     end

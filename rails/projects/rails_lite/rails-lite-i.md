@@ -434,7 +434,7 @@ MyApp::Application.routes.draw do
   get "/cats/:id/statuses", "statuses_controller#index"
 end
 ```
-Let's write a method to help us emulate Rails's routes file. Just like Rails, our `Router#draw` method will allow us to define groups of routes with ease.
+Let's write a method to help us emulate Rails's routes file. Just like in Rails, our `Router#draw` method will be syntactic sugar to allow us to define groups of routes with ease.
 
 Have your `#draw` method take a block. Inside the block, we'll be calling the `#get`, `#post`, `#put`, and `#delete` methods we previously defined on our router to add new routes.
 
@@ -455,8 +455,8 @@ Well, yes, ordinarily it would, but we've got a nice trick up our sleeve
 to get around this.
 
 Remember our old friend `Binding#eval` from the template section? Well
-she has a cousin `Object#instance_eval` who will take a proc and
-evaluate it in the context of his object. Let's watch him work his
+it has a cousin `Object#instance_eval` that takes a proc and
+evaluate it in the context of the object. Let's watch it work its
 magic:
 
 ```ruby
