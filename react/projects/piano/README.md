@@ -23,7 +23,8 @@ Today we're using React.js and Redux to create our own musical keyboard!
   * `babel-loader`
   * `babel-preset-react`
   * `babel-preset-es2015`
-* Run `npm install --save jquery`. We'll be using jQuery later.
+* Run `npm install --save jquery`. We'll be using jQuery later to install key listeners.
+* Run `npm install --save lodash`. We'll be using `merge` from the [lodash][lodash] library later to help prevent object mutation.
 * Create a `/frontend` folder at the root directory of your project to contain
  all of your front-end code.
 * Model your `/frontend` folder to look like the directory tree below:
@@ -44,6 +45,8 @@ Today we're using React.js and Redux to create our own musical keyboard!
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`.
 * Run `wepback --watch` and test that your app renders before moving on.
+
+[lodash]:https://lodash.com/docs
 
 ## Phase 2: Notes and Tones
 
@@ -164,20 +167,16 @@ returns the next state. It manages the shape of our application's state. Given
 the same arguments for `state` and `action`, a reducer should calculate the next
 state and return it. No side effects, such as mutating its arguments!
 
-*TL;DR*: Reducers are pure functions.
-
 Let's write a reducer for our app which handles the actions we defined above.
 
 #### `notes` Reducer
 
-+ Create a `reducers/notes_reducer.js` file that exports a `notes` reducer.
-  `notes` is going to be a pure function that takes two arguments:
++ Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
   + `state` - the previous `notes` state;
   + `action` - the action object dispatched.
-+ Import `NotesConstants` from `notes_actions`.
-+ Redux will call our reducer with an `undefined` state for the first time so use
-the [ES6 default arguments syntax][default-args] to return an empty array as the
- initial state.
++ Import `NotesConstants` from `notes_actions.js`.
++ Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
+the initial state.
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
 + Then add a case for each key (i.e. action type) defined in `NOTES_CONSTANTS`.
@@ -220,12 +219,13 @@ This is called **reducer composition**, and it’s the fundamental pattern of
 building Redux apps.
 
 We only have one reducer right now, but later as our app grows we'll be adding
-more. For now, let's define the root reducer that calls all of the reducers
+more. For now, let's define a root reducer that calls all of the reducers
 managing parts of the state, and combines them into a single function.
 
-* Create a new file called `reducers/index.js` file and import
+* Create a new file called `reducers/index.js` file.
+* Import
 [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
-* Using it, define and `export default` a root `reducer` function.
+* Using them, define and `export default` a root `reducer` function.
 
 [combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
 
@@ -368,7 +368,7 @@ the visual representation of a single note in your piano.
 
 Cool, you now have the core of your Redux Synthesizer done! Let's start adding additional features.
 
-## Phase 5: Track Recording
+## Phase 5: Recording Tracks
 
 Let's give our synthesizer the ability to record tracks.
 
@@ -385,6 +385,7 @@ Here's a sample of our new state shape:
   tracks: {
     "1": {
       id: 1,
+      name: 'Track 1',
       roll:
       [
         { notes: [ 'A5' ], timeSlice: 1250191 },
@@ -396,6 +397,7 @@ Here's a sample of our new state shape:
     },
     "2": {
       id: 2,
+      name: 'Track 2',
       roll:
       [
         { notes: [ 'B5', 'C6', 'C6' ], timeSlice: 253386 },
@@ -407,7 +409,8 @@ Here's a sample of our new state shape:
 }
 ```
 
-Let's save discussing the details of our track objects for a little later.
+Take a good look at what your app's state could look like, but let's save discussing the details of our track
+objects for a little later.
 
 ### Action Creators
 
@@ -435,22 +438,61 @@ Let's save discussing the details of our track objects for a little later.
 
 ### Reducers
 
+#### `recording` Reducer
++ Create a `reducers/recording_reducer.js` file that exports a `recording(state, action)` reducer.
++ Import your `TrackConstants`.
++ Use the ES6 default arguments syntax to return `false` as the initial state.
++ Add a `switch` statement evaluating `action.type` and return `state` as the `default` case.
++ The recording is only concerned with two types of actions: `START_RECORDING` and `STOP_RECORDING`. Return the appropriate next state for each case.
+
 #### `tracks` Reducer
 
-+ 
+`tracks` in the state is an object storing as keys, track ids. As values, it stores track objects.
 
-#### `recording` Reducer
+Let's take a closer look at a track object.
+```
+{
+  id: 1,
+  name: 'Track 1'
+  roll:
+  [
+    { notes: [ 'A5' ], timeSlice: 1250191 },
+    { notes: [], timeSlice: 1255000 },
+    { notes: [ 'C5', 'D5' ], timeSlice: 1265180 }
+    { notes: [], timeSlice: 1279511 }
+  ],
+  timeStart: 1470164117527
+},
+```
 
-Roll starts as an empty array. Save the current time which we will use to calculate when to play a note relative to the start of the recording.
+`roll` starts as an empty array. We need to know the current time a note is played to calculate when to play a note relative to the `timeStart` of the recording.
 
-While the user records a track, we'll need to update `roll` as the user presses new notes. `addNotes(notes)` that `pushes` into the `roll` an object with the following values:
-- `timeSlice`: the time elapsed since the user started recording
-- `notes`: an array of note names (eg. `['C3', 'E3', 'G3']`) are currently pressed
+While the user records a track, we'll need to update `roll` as the user presses new notes. We append into the `roll` an object with the following values:
++ `timeSlice` - the time elapsed since the track started recording;
++ `notes` - an array of note names (eg. `['C3', 'E3', 'G3']`) are currently pressed.
 
-*NB:* We storing only the names of the notes in the roll, *not* instances of `Note`. Your app's like a player piano, which uses the same keys for live playing and replaying a roll!
++ Create a `reducers/tracks_reducer.js` file and import your `TrackConstants`, and `merge` from `lodash/merge`
++ Instantiate a variable `currTrackId` to `0`. This variable will be used set track ids and add notes to the newest recording.
++ `export default` a `tracks` reducer.
++ Use the ES6 default arguments syntax to return an empty object as the initial state.
++ Add a `switch` statement and return `state` as the `default` case.
++ Add a case for each action type.
+  + `START_RECORDING` - Increment `currTrackId`. Create a new track with the appropriate key-value pairs for `id`, `name`, `roll` and `timeStart`. SUse [`merge`][merge-lodash] to create a new object with the new track added to the state. Return this object.
+  + `STOP_RECORDING` - Add a new roll to the current track's `roll` containing an empty array of `notes`, ensuring that the track is silent when it ends. Calculate `timeSlice` from `action.timeNow - state[currTrackId].timeStart`. Return the new state.
+  + `ADD_NOTES` - Add a new roll to the current track's `roll`. Grab the `notes` played from the `action` and calculate the `timeSlice` as you did above. Return the new state.
 
-Write another action called `stopRecording` which calls `addNotes` on an empty array, ensuring that the track is silent when it ends.
+*NB*: State must never be mutated in the redux, so make sure you are creating and returning new objects and arrays. `Object.assign` returns a shallow copy of an object which is why for nest objects, we must rely on `merge` from `lodash`.
 
+[merge-lodash]:https://lodash.com/docs#merge
+
+#### Root Reducer
+
++ Import your `tracks` and `recording` reducer.
++ Update your root reducer so it combines your `notes`, `tracks` and `recording` reducers.
++ Test that this works by looking at your initial application state.
+
+
+<!--
 ## Playing a Track
 
 We need a "Play" button for our `JukeBox` tracks and a `playTrack` action for our tracks.
@@ -483,7 +525,7 @@ Remember to cancel your interval when the `track` finishes playing.
 const intervalId = setINterval(callback, 10);
 clearINterval(intervalId);
 ```
-Don't proceed until you're about to play all of your tracks!
+Don't proceed until you're about to play all of your tracks! -->
 
 ### Style Your App
 
