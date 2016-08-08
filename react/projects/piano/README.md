@@ -288,10 +288,14 @@ returned by `configureStore`.
 
 ### `SynthContainer` Component
 
-The goal of a container component is to allow the presentational component to be as simple and lightweight as possible. To create a container, we need map the application state and the Store's dispatch to a set of props that get passed to the presentational component. Fortunately, `react-redux` provides a function that does this for us: [`connect`][connect].
+The goal of a container component is to allow the presentational component to be
+as simple and lightweight as possible. To create a container, we need map the
+application state and the Store's dispatch to a set of props that get passed to
+the presentational component. Fortunately, `react-redux` provides a function
+that does this for us: [`connect`][connect].
 
 * Create a new directory `components/synth`.
-* Create a file `components/synth/synth.jsx`, and define and export `Synth`, a function component to start.
+* Create a file `components/synth/synth.jsx`. Define and export `Synth`, a function component to start.
 * Create a file `components/synth/synth_container.jsx`, and import [`connect`] from `react-redux` and your `Synth` component.
 * Define a `mapStateToProps(state)` function. Return an object mapping `state.notes` to a `notes` key.
 * Import your `keyPressed` and `keyReleased` action creators.
@@ -303,13 +307,51 @@ const mapDispatchToProps = dispatch => ({
   ...
 });
 ```
-* `mapStateToProps` reads the state held by the store and `mapDispatchToProps` dispatches actions to the store. Call `connect(mapStateToProps, mapDispatchToProps)` on your `Synth` component to connect it to your Redux store.
+* `mapStateToProps` reads the state held by the store and `mapDispatchToProps` dispatches actions to the store. Call `connect(mapStateToProps,
+mapDispatchToProps)` on your `Synth` component to connect it to your Redux
+store.
 * Export the result of this call.
 
 [connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
 
 ### `Synth` Component
 
+`Synth` is an example of a presentational component. Presentational components
+are typically written as functional components unless they require internal
+state, lifecycle hooks, etc. Your `Synth` component will instantiate an array of
+`Note`s, calling `start` and `stop` depending on the notes in the store and
+define key listeners on the window.
+
+* Redefine your `Synth` component so that it extends the `React.Component`.
+* Import your `NOTES` and `TONES` constants, and `Note` class.
+* In the `constructor`, instantiate an array of `Note` instances and setting it to `this.notes.` Remember, `Note` takes as an argument a frequency. Hint: Use `NOTES`
+to map notes to `TONES`.
+* In the `render` function, render a list of `this.notes` to test.
+
+#### Key Listeners
+Now let's create a jQuery listener for `keyup` and `keydown` events.
+
+* In your `Synth` class define a `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the event and call `this.props.keyUp`. Remember `keyUp` is the function you defined in `mapDispatchToProps` in your `SynthContainer`.
+* Define another function called `onKeyDown(e)`. Call `this.props.keyDown` passing it the key from the KeyboardEvent.
+* In `componentDidMount`, install the two event handlers by calling the `on` methods on `$(document)`. For example,
+```js
+$(document).on('keydown', e => this.onKeyDown(e));
+```
+
+When a user presses a key, the key listener calls your `onKeyDown(e)` function, which dispatches a `keyPressed(key)` action to the store. Likewise, when a user releases a key, the listener calls your `onKeyUp(e)`, which dispatches a `keyReleased(key)` action to the store. Make sure your follow this before moving on.
+
+**NB**: A jQuery `'keydown'` listener fires repeatedly when the user holds down a key, which will repeatedly trigger our `keyPressed` function. Does this explain some of the overhead in our `notes` reducer?
+
+#### Playing `Note`s
+
+Ok let's actually start jamming.
+
+* Define a `playNotes` function.
+* Iterate through `this.notes`, calling `start` and `stop` on all of the notes present in the store and `stop` on all the other notes.
+* Call `playNotes` in `render`.
+* Test your `Synth`! Make sure that your have your key actions, reducer and listeners working before continuing.
+
+[keyboard-event]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 ### `NoteKey` Component
 <!--
 
@@ -337,7 +379,7 @@ There's a helpful property of the `KeyboardEvent` to determine which `key` to pa
 
 **NB:** A jQuery `'keydown'` listener fires repeatedly when the user holds down a key, which will repeatedly trigger our `keyPressed` function. Ensure that you call the `keyPressed` function only once per key by only adding the key to the state if it isn't already added!
 
-Make sure that your have your key actions, reducer and listeners working before continuing.
+
 
 ## Phase 4: React Components
 
@@ -383,18 +425,8 @@ Add a listener in `componentDidMount`. Remember to store the listener as an inst
 
 ### `Synthesizer`
 
-Let's support more than one `NoteKey` by creating a `Synthesizer` component (`components/piano.jsx`). It will render a `NoteKey` for each of the `TONES`.
-
-Now we can test our setup. When your `Synthesizer` is mounted it should call the method we exported from `util/key_listeners`, thereby adding `keydown` and `keyup` event listeners. In `piano.jsx` use `ReactDOM` to position our `Synthesizer` on the page. Remember to provide an HTML container as the second argument of `ReactDOM.render`. Open your HTML file and press some keys. You should hopefully hear sound!
-
-If you don't here anything, first check for errors in your console and errors in the `webpack`ing. Follow the redux pattern to debug piece by piece. Start at the beginning and debug your way through.
-
 ## Phase 5: Style your Synthesizer
 
-Use your css knowledge and style your components so that it looks like a piano.
-
-Bonus:  Using CSS rules and the `state` of your `NoteKey` components, visually update
-a `NoteKey` when the user plays its note.
 
 
 ## Phase 6: Track Recording
