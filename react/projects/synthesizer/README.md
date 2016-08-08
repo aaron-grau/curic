@@ -44,7 +44,7 @@ Today we're using React.js and Redux to create our own musical keyboard!
  `root` container.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`.
-* Run `wepback --watch` and test that your app renders before moving on. Make sure to `source` your bundle in `index.html`.
+* Run `wepback --watch` and test that your app renders before moving on. Make sure to source your bundle file in `index.html`.
 
 [lodash]:https://lodash.com/docs
 
@@ -52,10 +52,8 @@ Today we're using React.js and Redux to create our own musical keyboard!
 
 #### `Note` Class
 
-Make a `note.js` file inside of your `util` folder. This file will contain the
-code for your `Note` class which you will use to actually play tones using the
-`start` and `stop` functions. We'll provide the code for this phase. Copy and
-paste the following into your `note.js`.
+* Make a `note.js` file inside of your `util` folder.
+* Copy and paste the following into your `note.js`.
 
 ```js
 // util/note.js
@@ -96,16 +94,20 @@ class Note {
 module.exports = Note;
 ```
 
-Before moving on, test that you can initialize and play an instance of a `Note` from the console. Try a frequency of 800!
+This file will contain the code for your `Note` class which you will use to
+actually play tones using the `start` and `stop` functions. We are providing the
+code for this phase.
+
+Before moving on, test that you can initialize and play an instance of a `Note`
+from the console. Try a frequency of 800!
 
 #### `TONES` and `NOTES` Constants
 
-Create a `constants/tones.js` file. From there export a `TONES` constant, a
-JavaScript object mapping note names to frequencies. Also export a `NOTES`
-constant, an array of all of the keys in `TONES`. We'll be using these constants
-later to map our keyboard keys to notes names to tones!
+* Create a `constants/tones.js` file.
+* From there export a `TONES` constant, a JavaScript object mapping note names to frequencies.
+* Export a `NOTES` constant, an array of all of the keys in `TONES`. We'll be using these constants later to map our keyboard keys to notes names to tones.
 
-Feel free to use [this table][note-frequencies] as a resource.
+Use [this table][note-frequencies] as a resource.
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
@@ -113,28 +115,29 @@ Feel free to use [this table][note-frequencies] as a resource.
 
 ### Designing the State Shape
 
-In Redux, all app state is stored as a single JavaScript object. It's good
-practice to think about its shape before writing any code. Ask yourself what's
-the minimal representation of your app's state as an object?
+In Redux, all of your application's state is stored as a single JavaScript
+object. It's really good practice to think about its shape before writing any
+code. Ask yourself, what's the minimal representation of your app's state as an
+object?
 
 For our synthesizer app, we first and foremost want to store the `notes` in
-play, as an array of note names.
+play as an array of note names.
 
 ### Action Creators
 
-We need to define our first action creators. Remember, an action creator is
-simply a function that returns an action. Actions define what we can do in our
-app. In Redux, they are POJOs that have a `type` property indicating the type of
+We need start by to defining action creators. Remember, an *action creator* is
+simply a function that returns an action. *Actions* define what we can do in our
+app. They are POJOs that have a `type` property indicating the type of
 action being performed.
 
-* Create an `actions/note_actions.js` file which will house our action creators for `notes`.
+* Create an `actions/note_actions.js` file which will house our action creators changing the app's `notes`.
 
 #### `NOTES_CONSTANTS`
 
 Action `type`s are typically defined as string constants.
 
 * In our new file, let's export a `NOTES_CONSTANTS`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`. Technically, the values of these keys can
-be anything, but our convention is to use the string literal of the key.
+be anything, but our convention is to use the string literals of keys.
 
 For example,
 
@@ -151,6 +154,15 @@ export const NotesConstants = {
 returns an action of `type` `KEY_PRESSED`.
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
+Your action creator should look like this:
+
+```js
+export const keyPressed = key => {
+  action.NoteConstants.KEY_PRESSED,
+  key
+};
+```
+
 #### `keyReleased`
 
 + Export a `keyReleased` function which takes the keyboard `key` released and
@@ -162,7 +174,7 @@ Now that we’ve decided what our state shape looks like and defined the actions
 that will send data from your app to the store, we need reducers that update the
 state base on the actions.
 
-A reducer is a *pure* function that takes the previous state and an action, and
+A *reducer* is a pure function that takes the previous state and an action, and
 returns the next state. It manages the shape of our application's state. Given
 the same arguments for `state` and `action`, a reducer should calculate the next
 state and return it. No side effects, such as mutating its arguments!
@@ -180,10 +192,10 @@ the initial state.
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
 + Then add a case for each key (i.e. action type) defined in `NOTES_CONSTANTS`.
-  + `KEY_PRESSED` - if the `action.key` isn't already in the state (i.e. already
+  + `KEY_PRESSED` - If the `action.key` isn't already in the state (i.e. already
   playing) then return a new state with the new key appended to the previous
   state, else return the previous state.
-  + `KEY_RELEASED` - return a new state with the `action.key` removed only if
+  + `KEY_RELEASED` - Return a new state with the `action.key` removed only if
   it's currently playing (i.e. in the state), else return the previous state.
 
 *NB*: State is never mutated in Redux. Thus, we must return a new array when
@@ -215,7 +227,7 @@ the state: the `notes` in play.
 
 *NB*: When we have state fields that are independent of each other, we split
 the reducer into multiple reducers that each handle its own slice of the state.
-This is called **reducer composition**, and it’s the fundamental pattern of
+This is called *reducer composition*, and it’s the fundamental pattern of
 building Redux apps.
 
 We only have one reducer right now, but later as our app grows we'll be adding
@@ -223,8 +235,7 @@ more. For now, let's define a root reducer that calls all of the reducers
 managing parts of the state, and combines them into a single function.
 
 * Create a new file called `reducers/index.js` file.
-* Import
-[`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
+* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
 * Using them, define and `export default` a root `reducer` function.
 
 [combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
@@ -370,7 +381,7 @@ the visual representation of a single note in your piano.
 * Render a list of `NoteKey`s instead of list `this.notes`, passing as a prop the note name.
 * Change your `NoteKey` component to display the name of the note.
 
-Cool, you now have the core of your Redux Synthesizer done! Let's start adding additional features.
+Cool, you now have the core of your Redux Synthesizer done. Let's start adding additional features!
 
 ---
 
@@ -415,8 +426,8 @@ Here's a sample of our new state shape:
 }
 ```
 
-Take a good look at what your app's state could look like, but let's save discussing the details of our track
-objects for a little later.
+Take a good look at what your app's state could look like, but let's save
+discussing the details of our track objects for a little later.
 
 ### Action Creators
 
@@ -545,7 +556,7 @@ store.
   + Whenever the user presses/releases a key, the corresponding actions are dispatched to the store;
   + If you're recording, the notes currently in the store are saved to the end of the roll of the newest track in the state.
 
-Now your Synthesizer plays musical notes and records tracks! Nice!
+Now your Synthesizer plays musical notes and records tracks! Nice.
 
 ---
 
@@ -641,6 +652,8 @@ Now for the meat of the method:
 * Create a file `components/juke_box/track.jsx`.
 * Define and export a `Track` component, a `div` containing the name of the `track` and a "Play" button.
 * Disable the "Play" button if `recording` or already `playing`, and `onClick` `onPlay(track)`.
+
+---
 
 ## Phase 8: Style Your App
 
