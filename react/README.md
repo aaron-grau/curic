@@ -24,7 +24,7 @@
 **Configuration**
 - [Configuring NPM][npm_configuration]
 - [Configuring Webpack][webpack_configuration]
-- [Configuring Babel for ES6 and JSX][babel_configuration]
+- [Configuring Babel][babel_configuration]
 
 ### Additional Resources
 - [Lodash][lodash]
