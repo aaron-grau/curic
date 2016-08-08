@@ -8,16 +8,13 @@
 
 - [ES6 Syntax: Import / Export][import_export]
 - [ES6 Syntax: Object Destructuring][object_destructuring]
-
 - [Intro to React][intro_to_react]
 - [Intro to JSX][intro_to_jsx]
-
 - [Intro to React Components][intro_to_react_components]
 -	[Declaring Components][component_declaration]
 - [Components: Props and State][props_and_state]
 - [Components: Lifecycle Methods][component_lifecycle]
 - [Components: Synthetic Events][synthetic_events]
-
 - [Configuring NPM][npm_configuration]
 - [Configuring Webpack][webpack_configuration]
 - [Configuring Babel for ES6 and JSX][babel_configuration]
