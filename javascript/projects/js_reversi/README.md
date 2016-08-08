@@ -2,7 +2,7 @@
 
 Download the [skeleton][reversi-skeleton].
 
-[reversi-skeleton]: skeleton.zip?raw=true 
+[reversi-skeleton]: skeleton.zip?raw=true
 
 ## Reversi: Part I
 
@@ -25,3 +25,8 @@ Download the [skeleton][reversi-skeleton].
 
 * Begin writing a run-loop.
 * `Game` should be modified to support `HumanPlayer`s and `AIPlayer`s.
+* Your AI should make random, but valid moves to start. Once that's working, have it make smarter moves.
+
+## Bonus
+
+* Use [colors.js](https://github.com/marak/colors.js/) to make your game look nice!

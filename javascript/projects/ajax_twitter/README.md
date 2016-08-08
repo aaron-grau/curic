@@ -186,3 +186,7 @@ But don't forget to use double-percents (`%%`) so ERB doesn't try to interpret y
 As you did for `TweetCompose`, have your `InfiniteTweets` find the template and extract it. Modify the `#insertTweets` method. Take the template code and pass it to the `_.template` method, which will build a function from your Underscore template code. Call the compiled template function, passing in `{ tweets: tweets }`, which makes the tweets variable available to the template. Insert the rendered partial.
 
 Check that this works. Call your TA over to double check your work.
+
+## Bonus: CSS
+
+Pull up Twitter. Try to get your app to look exactly like it. Start with the feed.
