@@ -291,7 +291,7 @@ that does this for us: [`connect`][connect].
 * Create a new directory `components/synth`.
 * Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component to start.
 * Create a file `components/synth/synth_container.jsx`, and import [`connect`] from `react-redux` and your `Synth` component.
-* Define a `mapStateToProps(state)` function. Return an object mapping `state.notes` to a `notes` key.
+* Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key.
 * Import your `keyPressed` and `keyReleased` action creators.
 * Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For example,
 
@@ -373,7 +373,8 @@ the visual representation of a single note in your piano.
 
 Cool, you now have the core of your Redux Synthesizer done! Let's start adding additional features.
 
-# Recording Tracks
+---
+
 ## Phase 5: Recorder Redux Structure
 
 Let's give our synthesizer the ability to record tracks.
@@ -514,7 +515,7 @@ an object which is why for nest objects, we must rely on `merge` from `lodash`.
 * Define and export `Recorder`, a functional component to start.
 * Create a file `components/recorder/recorder_container.jsx`.
 * Import [`connect`][connect] from `react-redux` and your `Recorder`.
-* Define a `mapStateToProps(state)` function returning an object mapping the state's `tracks` and `recording`
+* Define a `mapStateToProps(state)` function returning an object that maps the state's `tracks` and `recording`
 * Import your `startRecording` and `stopRecording` action creators.
 * Define a `mapDispatchToProps(dispatch)` function returning an object containing callback props for each of your action creators.
 * Call `connect(mapStateToProps,
@@ -534,7 +535,7 @@ store.
 
 ### `SynthContainer`
 
-* Rewrite `mapStateToProps` to return an object mapping both the state's `notes` and `recording`.
+* Rewrite `mapStateToProps` to return an object that maps both the state's `notes` and `recording`.
 * Import your `addNotes` action creator.
 * Rewrite `mapDispatchToProps` to return an object containing a callback prop for `keyPressed(key)`, `keyReleased(key)`, and `addNotes(notes)`.
 
@@ -547,20 +548,42 @@ store.
 
 Now your Synthesizer plays musical notes and records tracks! Nice!
 
-# Playing Tracks
+---
 
 ## Phase 7: Jukebox
 
-Let's create a `Jukebox` to display and play our recorded tracks.
+Let's create a `Jukebox` to display and play our recorded tracks. We're going to
+add to the state a boolean `playing` to indicate if a track is playing or not.
 
 ### Action Creators
 * Create a `actions/playing_actions.js` file.
 * Export `PlayingConstants` with `START_PLAYING` and `STOP_PLAYING` key-value pairs.
-
+* Export `startPlaying` and `stopPlaying` action creators.
+* Add a new `GROUP_UPDATE` key-value pair to your `NotesConstants`.
+* Export a `groupUpdate` action creator which takes as an arguments an array of `notes`.
 
 ### Reducers
+* Create a `reducers/playing_reducer.js` file.
+* Import your `PlayingConstants` and export a `playing` reducer.
+* Set the initial state to `false` and return the state by default.
+* Create switch cases for `START_PLAYING` and `STOP_PLAYING`, setting the state to the appropriate boolean value.
+* Update your root reducer to combine all of your reducers.
 
 ### Components
+
+* Create a new directory `components/juke_box`.
+
+#### `JukeBoxContainer`
+
+* Create a file `components/juke_box/juke_box.jsx`.
+* Define and export `JukeBox`, a functional component to start.
+* Create a file `components/juke_box/juke_box_container.jsx`.
+* Import `connect` from `react-redux`, your `groupUpdate`, `startPlaying` and `stopPlaying` action creators, and your `JukeBox` component.
+* Define `mapStateToProps` returning an object which maps the state's `tracks`, `recording`, and `playing`.
+
+#### `JukeBox`
+
+#### `Track`
 
 We need a "Play" button for our `JukeBox` tracks and a `playTrack` action for our tracks.
 
@@ -592,8 +615,8 @@ Remember to cancel your interval when the `track` finishes playing.
 const intervalId = setINterval(callback, 10);
 clearINterval(intervalId);
 ```
-Don't proceed until you're about to play all of your tracks!
 
+Don't proceed until you can play all of your recorded tracks!
 
 ## Phase 8: Style Your App
 
@@ -625,6 +648,7 @@ Hint: I added these css classes to my components.
 [html-curriculum]:https://github.com/appacademy/curriculum/tree/master/html-css
 
 ## Bonus Phase
-* **Name your Tracks:** Add a feature to rename your tracks.
+* **Delete Tracks**: Add a feature to delete any track from your JukeBox.
+* **Name your Tracks**: Add a feature to rename the tracks in your JukeBox.
 * **Looping***: Add a setting to allow tracks to play continuously.
 * **Playlists**: Queue up tracks to be played sequentially.
