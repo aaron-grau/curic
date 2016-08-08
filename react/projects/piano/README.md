@@ -8,10 +8,6 @@ Live demo available [here]!
 
 Today we're using React.js and Redux to create our own musical keyboard!
 
-*NB*: Make sure to test as you go and refer to the Redux readings if you get
-stuck. Your understanding will suffer if you code an entire section before
-figuring out how to make it run. Start small and append.
-
 ## Phase 1: Frontend Structure
 
 * Create a project directory.
@@ -128,11 +124,15 @@ simply a function that returns an action. Actions define what we can do in our
 app. In Redux, they are POJOs that have a `type` property indicating the type of
 action being performed.
 
-Create an `actions/note_actions.js` file which will house our action creators for `notes`.
+* Create an `actions/note_actions.js` file which will house our action creators for `notes`.
 
 #### `NOTES_CONSTANTS`
 
-Action `type`s are typically defined as string constants. In our new file, let's export a `NOTES_CONSTANTS`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`. Technically, the values of these keys can be anything, but our convention is to use the string literal of the key. For example,
+Action `type`s are typically defined as string constants.
+
+* In our new file, let's export a `NOTES_CONSTANTS`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`. Technically, the values of these keys can be anything, but our convention is to use the string literal of the key.
+
+For example,
 
 ```js
 export const NotesConstants = {
@@ -166,7 +166,7 @@ Things you should never do inside a reducer:
 + Perform side effects like API calls and routing transitions;
 + Call non-pure functions, e.g. `Date.now()` or `Math.random()`.
 
-**TL;DR**: Reducers are pure functions. Given the same arguments for `state` and
+*TL;DR*: Reducers are pure functions. Given the same arguments for `state` and
 `action`, a reducer should calculate the next state and return it. No side
 effects.
 
@@ -371,32 +371,74 @@ Cool, you now have the core of your Redux Synthesizer done! Let's start adding a
 
 ## Phase 5: Track Recording
 
-`startRecoding` action instantiates a new instance of track in the store. A track contains
+Let's give our synthesizer the ability to record tracks.
 
+### Re-Designing the State Shape
+This means in addition to storing `notes`, our state needs to store:
++ `recording` - a boolean to indicate if your app is recording or not;
++ `tracks` - an object of tracks objects.
+
+Here's a sample of our new state shape:
 ```
-
-idx = 1;
-
-{ idx : {
-
-  }}
-obj = {}
-obj[idx] = {}
-
-tracks
 {
-  "1": {
-    id: 1
-    roll: []
-    timeStart: time
-  },
-  id: {
-    id:
-    roll: []
-    timeStart: time
+  notes: ['C5', 'D6'],
+  recording: false,
+  tracks: {
+    "1": {
+      id: 1,
+      roll:
+      [
+        { notes: [ 'A5' ], timeSlice: 1250191 },
+        { notes: [], timeSlice: 1255000 },
+        { notes: [ 'C5', 'D5' ], timeSlice: 1265180 }
+        { notes: [], timeSlice: 1279511 }
+      ],
+      timeStart: 1470164117527
+    },
+    "2": {
+      id: 2,
+      roll:
+      [
+        { notes: [ 'B5', 'C6', 'C6' ], timeSlice: 253386 },
+        { notes: [], timeSlice: 265216 }
+      ],
+      timeStart: 1470173676236
+    }
   }
 }
 ```
+
+Let's save discussing the details of our track objects for a little later.
+
+### Action Creators
+
++ Create an `action.tracks_actions.js` file which will house our action creators for `tracks` and `recording`.
+
+#### `TracksConstants`
+
++ Export `TrackConstants`, an object containing keys for `START_RECORDING`, `STOP_RECORDING`, and `ADD_NOTES`. Remember, values are the string literals of the keys.
+
+#### `startRecording`
+
++ Export a `startRecording` function which takes 0 arguments and returns an action of `type` `START_RECORDING`.
++ Add `timeNow` as a property to the action and assign `Date.now()` as its value.
+
+#### `stopRecording`
+
++ Export a `stopRecording` function which takes 0 arguments and returns an action of the appropriate type.
++ Add `timeNow` as a property to the action and assign `Date.now()` as its value.
+
+#### `addNotes`
+
++ Export a `addNotes` function which takes an array of `notes` as an argument and returns an action of the appropriate type.
++ Add `timeNow` as a property to the action and assign `Date.now()` as its value.
++ Add `notes` as a property to let the store know which `notes` to add to the track's roll.
+
+### Reducers
+
+#### `tracks` Reducer
+
+#### `recording` Reducer
 
 Roll starts as an empty array. Save the current time which we will use to calculate when to play a note relative to the start of the recording.
 
@@ -404,7 +446,7 @@ While the user records a track, we'll need to update `roll` as the user presses 
 - `timeSlice`: the time elapsed since the user started recording
 - `notes`: an array of note names (eg. `['C3', 'E3', 'G3']`) are currently pressed
 
-**NB:** We storing only the names of the notes in the roll, *not* instances of `Note`. Your app's like a player piano, which uses the same keys for live playing and replaying a roll!
+*NB:* We storing only the names of the notes in the roll, *not* instances of `Note`. Your app's like a player piano, which uses the same keys for live playing and replaying a roll!
 
 Write another action called `stopRecording` which calls `addNotes` on an empty array, ensuring that the track is silent when it ends.
 
