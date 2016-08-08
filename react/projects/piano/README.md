@@ -8,7 +8,7 @@ Live demo available [here]!
 
 Today we're using React.js and Redux to create our own musical keyboard!
 
-**NB**: Make sure to test as you go and refer to the Redux readings if you get
+*NB*: Make sure to test as you go and refer to the Redux readings if you get
 stuck. Your understanding will suffer if you code an entire section before
 figuring out how to make it run. Start small and append.
 
@@ -193,7 +193,7 @@ the [ES6 default arguments syntax][default-args] to return an empty array as the
   + `KEY_RELEASED` - return a new state with the `action.key` removed only if
   it's currently playing (i.e. in the state), else return the previous state.
 
-**NB**: State is never mutated in Redux. Thus, we must return a new array when
+*NB*: State is never mutated in Redux. Thus, we must return a new array when
  our state changes. Make sure your `notes` reducer creates and returns a new
  array when adding or removing a note. Here's a good [reference][array-mutation]
  on how to avoid array mutation.
@@ -220,7 +220,7 @@ previous state.
 Now the `notes` reducer just updates and returns to the store a single slice of
 the state: the `notes` in play.
 
-**NB**: When we have state fields that are independent of each other, we split
+*NB*: When we have state fields that are independent of each other, we split
 the reducer into multiple reducers that each handle its own slice of the state.
 This is called **reducer composition**, and it’s the fundamental pattern of
 building Redux apps.
@@ -229,10 +229,9 @@ We only have one reducer right now, but later as our app grows we'll be adding
 more. For now, let's define the root reducer that calls all of the reducers
 managing parts of the state, and combines them into a single function.
 
-Create a new file called `reducers/index.js` file and import
+* Create a new file called `reducers/index.js` file and import
 [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
-
-Using it, define and `export default` a root `reducer` function.
+* Using it, define and `export default` a root `reducer` function.
 
 [combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
 
@@ -307,10 +306,13 @@ const mapDispatchToProps = dispatch => ({
   ...
 });
 ```
+
 * `mapStateToProps` reads the state held by the store and `mapDispatchToProps` dispatches actions to the store. Call `connect(mapStateToProps,
 mapDispatchToProps)` on your `Synth` component to connect it to your Redux
 store.
 * Export the result of this call.
+* In your `App` component, import your `SynthContainer` and render it. Make sure your app `webpack`s and that there are no errors in the console before moving
+on.
 
 [connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
 
@@ -361,9 +363,9 @@ Let's write a presentational component, `NoteKey`. This component will be the vi
 * Render a list of `NoteKey`s instead of list `this.notes`, passing as a prop the note name.
 * Change your `NoteKey` component to display the name of the note.
 
-Cool, your now have the core of your Redux Synthesizer done! Let's start adding additional features.
+Cool, you now have the core of your Redux Synthesizer done! Let's start adding additional features.
 
-## Phase 6: Track Recording
+## Phase 5: Track Recording
 
 `startRecoding` action instantiates a new instance of track in the store. A track contains
 
@@ -436,31 +438,32 @@ clearINterval(intervalId);
 ```
 Don't proceed until you're about to play all of your tracks!
 
-BONUS:
+### Style Your App
 
-Figure out what song this is.
-
++ I added these css classes to my components.
 ```
-"{"id":3,"roll":[{"notes":["A5"],"timeSlice":901},{"notes":["A5"],"timeSlice":1408},{"notes":["G5"],"timeSlice":1431},{"notes":["C6"],"timeSlice":1664},{"notes":["B5"],"timeSlice":1903},{"notes":["A5"],"timeSlice":2170},{"notes":["G5"],"timeSlice":2396},{"notes":["B5"],"timeSlice":2692},{"notes":["G5"],"timeSlice":3183},{"notes":["G5"],"timeSlice":3679},{"notes":["G5"],"timeSlice":3764},{"notes":["G5"],"timeSlice":3848},{"notes":["G5"],"timeSlice":3932},{"notes":["A5"],"timeSlice":4476},{"notes":["A5"],"timeSlice":4699},{"notes":["G5"],"timeSlice":4933},{"notes":["C6"],"timeSlice":5215},{"notes":["B5"],"timeSlice":5475},{"notes":["A5"],"timeSlice":5702},{"notes":["G5"],"timeSlice":5923},{"notes":["B5"],"timeSlice":6199},{"notes":["G5"],"timeSlice":6651},{"notes":["E5"],"timeSlice":7140},{"notes":["G5"],"timeSlice":7596},{"notes":["E5"],"timeSlice":7910},{"notes":["A5"],"timeSlice":8364},{"notes":["A5"],"timeSlice":8612},{"notes":["G5"],"timeSlice":8836},{"notes":["C6"],"timeSlice":9102},{"notes":["B5"],"timeSlice":9340},{"notes":["A5"],"timeSlice":9620},{"notes":["G5"],"timeSlice":9846},{"notes":["B5"],"timeSlice":10113},{"notes":["G5"],"timeSlice":10628},{"notes":["G5"],"timeSlice":11126},{"notes":["G5"],"timeSlice":11210},{"notes":["G5"],"timeSlice":11293},{"notes":["G5"],"timeSlice":11376},{"notes":["A5"],"timeSlice":11930},{"notes":["A5"],"timeSlice":12149},{"notes":["G5"],"timeSlice":12378},{"notes":["C6"],"timeSlice":12612},{"notes":["B5"],"timeSlice":12835},{"notes":["A5"],"timeSlice":13116},{"notes":["G5"],"timeSlice":13334},{"notes":["B5"],"timeSlice":13597},{"notes":["G5"],"timeSlice":14056},{"notes":["E5"],"timeSlice":14466},{"notes":["G5"],"timeSlice":14919},{"notes":["E5"],"timeSlice":15217},{"notes":["G5"],"timeSlice":16469},{"notes":["G5"],"timeSlice":16714},{"notes":["G5"],"timeSlice":16943},{"notes":["E5"],"timeSlice":17178},{"notes":["G5"],"timeSlice":17423},{"notes":["G5"],"timeSlice":17638},{"notes":["A5"],"timeSlice":17983},{"notes":["C5"],"timeSlice":19616},{"notes":["E5"],"timeSlice":19905},{"notes":["D5"],"timeSlice":20161},{"notes":["C5"],"timeSlice":20401},{"notes":["D5"],"timeSlice":20648},{"notes":["D5"],"timeSlice":20883},{"notes":["E5"],"timeSlice":21155},{"notes":["G5"],"timeSlice":22235},{"notes":["G5"],"timeSlice":22484},{"notes":["G5"],"timeSlice":22701},{"notes":["E5"],"timeSlice":22943},{"notes":["G5"],"timeSlice":23227},{"notes":["G5"],"timeSlice":23460},{"notes":["B5"],"timeSlice":23720},{"notes":[],"timeSlice":25642}],"timeStart":1470268928733}"
-```
+  + app
 
+  + synth
+  + note-key-list
+  + note-key
+
+  + recorder
+  + start-button
+  + stop-button
+
+  + juke-box
+  + track-list
+  + track
+  + play-button
+  + delete-button
+```
++ Create a new file `application.css`.
++ Add a reference to it in `index.html`.
++ Style your app. Refer to our [HTML/CSS Curriculum][html-curriculum].
+
+[html-curriculum]:https://github.com/appacademy/curriculum/tree/master/html-css
+
+## Bonus Phase
 * **Looping***: Add a setting to allow tracks to play continuously.
 * **Playlists**: Queue up tracks to be played sequentially.
-
-
-classes:
-+ `app`
-
-+ `piano`
-+ `note-key-list`
-+ `note-key`
-
-+ `recorder`
-+ `start-button`
-+ `stop-button`
-
-+ `juke-box`
-+ `track-list`
-+ `track`
-+ `play-button`
-+ `delete-button`
