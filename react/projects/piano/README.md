@@ -332,16 +332,20 @@ define key listeners on the window.
 #### Key Listeners
 Now let's create a jQuery listener for `keyup` and `keydown` events.
 
-* In your `Synth` class define a `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the event and call `this.props.keyUp`. Remember `keyUp` is the function you defined in `mapDispatchToProps` in your `SynthContainer`.
+* In your `Synth` class, import `$` from `jquery`.
+* Define a `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the event and call
+`this.props.keyUp`. Recap, `keyUp` is the function you defined in
+`mapDispatchToProps` in your `SynthContainer`.
 * Define another function called `onKeyDown(e)`. Call `this.props.keyDown` passing it the key from the KeyboardEvent.
-* In `componentDidMount`, install the two event handlers by calling the `on` methods on `$(document)`. For example,
+* In `componentDidMount`, install the two listeners by calling the `on` methods on `$(document)`. For example,
+
 ```js
 $(document).on('keydown', e => this.onKeyDown(e));
 ```
 
 When a user presses a key, the key listener calls your `onKeyDown(e)` function, which dispatches a `keyPressed(key)` action to the store. Likewise, when a user releases a key, the listener calls your `onKeyUp(e)`, which dispatches a `keyReleased(key)` action to the store. Make sure your follow this before moving on.
 
-**NB**: A jQuery `'keydown'` listener fires repeatedly when the user holds down a key, which will repeatedly trigger our `keyPressed` function. Does this explain some of the overhead in our `notes` reducer?
+*NB*: A jQuery `'keydown'` listener fires repeatedly when the user holds down a key, which will repeatedly trigger our `keyPressed` function. Does this explain some of the overhead in our `notes` reducer?
 
 #### Playing `Note`s
 
@@ -355,7 +359,7 @@ Ok let's actually start jamming.
 [keyboard-event]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 ### `NoteKey` Component
 
-Let's write a presentational component, `NoteKey`. This component will be the visual representation of a single note in your piano.
+Let's write a pure presentational component, `NoteKey`. This component will be the visual representation of a single note in your piano.
 
 * Create a new file, `components/synth/note_key.jsx`.
 * Define and export a new functional component called `NoteKey`.
