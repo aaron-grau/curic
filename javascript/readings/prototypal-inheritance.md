@@ -2,20 +2,25 @@
 
 ## Classes & Prototypes
 
-JavaScript has an unusual system for implementing inheritance. JavaScript's version of inheritance is called **prototypal inheritance**, and it differs from the **classical inheritance** that we are familiar with from Ruby.
+JavaScript has an unusual system for implementing inheritance. JavaScript's
+version of inheritance is called **prototypal inheritance**, and it differs from
+the **classical inheritance** that we are familiar with from Ruby.
 
 When you call any property on any JavaScript object, the interpreter
 will first look for that property in the object itself; if it does not
-find it there, it will look in the object's prototype (which is pointed to by the object's internal `__proto__` property).
+find it there, it will look in the object's prototype (which is pointed to by
+the object's internal `__proto__` property).
 
 If it does not find the property in the prototype, it will recursively
 look at the prototype's `__proto__` property to continue up the
-*prototype chain*. How does the chain stop? `Object.prototype.__proto__ == null`, so eventually the chain ends.
+*prototype chain*. How does the chain stop? `Object.prototype.__proto__ ==
+*null`, so eventually the chain ends.
 
-It is for this reason that we call `Object` the "top level class" in
-JavaScript.
+It is for this reason that we call `Object` the "top level class" in JavaScript.
 
-Inheritance in JavaScript is all about setting up the prototype chain. Let's suppose we have `Animal`s and we'd like to have `Dog`s that inherit from `Animal` and `Poodle`s that inherit from `Dog`.
+Inheritance in JavaScript is all about setting up the prototype chain. Let's
+suppose we have `Animal`s and we'd like to have `Dog`s that inherit from
+`Animal` and `Poodle`s that inherit from `Dog`.
 
 Well, we know that we'll instantiate each of these constructor style:
 
@@ -191,5 +196,27 @@ Note that we write `Animal.call` and not `new Animal`. Inside the
 object. We just want to run the `Animal` initialization logic **on the
 current `Dog` instance**. That's why we use `call` to call the
 `Animal` constructor, setting `this` to the current `Dog` instance.
+
+## Inheritance in ES2015
+
+ES2015 greatly simplifies JavaScript inheritance. `class Dog extends Animal` is
+the syntactic-sugar equivalent of the surrogate trick from above.
+
+One can also invoke the original version of an overridden method using
+`super.methodName()`. This `super` is slightly different from Ruby, where
+`super` invokes the original method directly without having to include
+`.methodName`.
+
+Note the use of `extends` and `super` below.
+
+```js
+class RaceBicycle extends Bicycle {
+  action() {
+    const oldAction = super.action(); //oldAction === "rolls along"
+    return `${oldAction} at a blistering pace!`
+  }
+}
+
+```
 
 Bonus reading: [from `new Cat()` to `Cat.new()`](./new_cat-vs-cat.new.md)
