@@ -26,11 +26,12 @@
 - [Configuring Webpack][webpack_configuration]
 - [Configuring Babel][babel_configuration]
 
-### Additional Resources
-- [Lodash][lodash]
 
 ### Homeworks
 - [Getting Started with NPM][getting_started]
+
+### Additional Resources
+- [Lodash][lodash]
 
 ### Projects
 
