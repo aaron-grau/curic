@@ -264,15 +264,15 @@ your app's state and dispatch actions.
 + Define and export a `Root` component which takes as an argument `store` and
 wraps your `App` with a `Provider`. Like so:
 
-```js
-const Root = ({ store }) => (
-  <Provider store={store}>
-    <App/>
-  </Provider>
-);
+  ```js
+  const Root = ({ store }) => (
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  );
 
-export default Root;
-```
+  export default Root;
+  ```
 
 + Update your entry file to render your `Root` component, passing it the store
 returned by `configureStore`.
@@ -294,12 +294,12 @@ that does this for us: [`connect`][connect].
 * Import your `keyPressed` and `keyReleased` action creators.
 * Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For example,
 
-```js
-const mapDispatchToProps = dispatch => ({
-  keyDown: key => dispatch(keyPressed(key)),
-  ...
-});
-```
+  ```js
+  const mapDispatchToProps = dispatch => ({
+    keyDown: key => dispatch(keyPressed(key)),
+    ...
+  });
+  ```
 
 * `mapStateToProps` reads the state held by the store and `mapDispatchToProps` dispatches actions to the store. Call `connect(mapStateToProps,
 mapDispatchToProps)` on your `Synth` component to connect it to your Redux
@@ -335,9 +335,9 @@ Now let's create a jQuery listener for `keyup` and `keydown` events.
 * Define another function called `onKeyDown(e)`. Call `this.props.keyDown` passing it the key from the KeyboardEvent.
 * In `componentDidMount`, install the two listeners by calling the `on` methods on `$(document)`. For example,
 
-```js
-$(document).on('keydown', e => this.onKeyDown(e));
-```
+  ```js
+  $(document).on('keydown', e => this.onKeyDown(e));
+  ```
 
 When a user presses a key, the key listener calls your `onKeyDown(e)` function, which dispatches a `keyPressed(key)` action to the store. Likewise, when a user releases a key, the listener calls your `onKeyUp(e)`, which dispatches a `keyReleased(key)` action to the store. Make sure your follow this before moving on.
 
@@ -490,6 +490,8 @@ While the user records a track, we'll need to update `roll` as the user presses 
 + Import your `tracks` and `recording` reducer.
 + Update your root reducer so it combines your `notes`, `tracks` and `recording` reducers.
 + Test that this works by looking at your initial application state.
+
+## `Recorder` Components
 
 
 <!--
