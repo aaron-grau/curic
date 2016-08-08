@@ -525,7 +525,7 @@ store.
 
 ### `Recorder` Component
 
-* Return a `div` containing two buttons: a "Start" and a "Stop".
+* Return a `div` containing a "Start" and a "Stop" button.
 * [De-structure][destructure] its `props` argument.
 * Disable the "Start" button if `recording`, and `onClick` `startRecording`.
 * Disable the "Stop" button if not `recording`, and `onClick` `stopRecording`.
@@ -579,13 +579,14 @@ add to the state a boolean `playing` to indicate if a track is playing or not.
 * Create a file `components/juke_box/juke_box_container.jsx`.
 * Import `connect` from `react-redux`, your `groupUpdate`, `startPlaying` and `stopPlaying` action creators, and your `JukeBox` component.
 * Define `mapStateToProps` returning an object which maps the state's `tracks`, `recording`, and `playing`.
-* Define `mapDispatchToProps` returning an object containing a callback prop for `onPlay` which dispatches both action creators.
+* Define `mapDispatchToProps` returning an object containing a callback prop for `onPlay` which dispatches both action creators. We'll come back to defining it next.
+* Call `connect`on your `JukeBox` component to connect it to your Redux store.
+* Export the result of this call.
+* Render your `JukeBoxContainer` in your `App` component.
 
 ##### `onPlay`
 
-`onPlay` is going to be a [curried function][currying].
-
-It takes as an argument a `track` object and returns a function. This function takes as an argument an event `e`. Your function definition should look like this:
+`onPlay` is a [curried function][currying]. It takes as an argument a `track` object and returns a function. This function takes as an argument an event `e`. Your function definition should look like this:
 ```js
 const onPlay = track => e => {
   ...
@@ -607,71 +608,41 @@ To play the notes in a track, we can't simply iterate over these objects because
 * Grab `Date.now()` and assign it to a `playBackStartTime` variable.
 * Initialize a `currNote` to `0`.
 * Declare a `timeElapsed` variable
-* We want the interval to run until the end of the `track`. Declare a `interval` variable.
+* We want the interval to run until the end of the `track`. Declare an `interval` variable.
 
 Now for the meat of the method:
-* Set `interval` and pass it an anonymous callback.
-* The callback should check whether `currNote` is still in range of the `roll`. **If so**:
-  * Check whether `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. **If so**:
-  - Use one of your `KeyActions` to update the `KeyStore`.
-  - Continue to the next note.
-  - *Hint:* A new KeyAction such as `groupUpdate(notes)` might simplify your task.
-
-**Else**: we've exceeded the range of the roll. Clear the interval and `delete` it from the properties of `this`.
-
-Remember to cancel your interval when the `track` finishes playing.
-```js
-const intervalId = setINterval(callback, 10);
-clearINterval(intervalId);
-```
+* [Set][set-interval] `interval` and pass it an anonymous callback and a delay of `1`.
+* The callback should check whether `currNote` is still in range of the `roll`. *If so*,
+  * Check whether `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. *If so*,
+    * `dispatch` a `groupUpdate` action with the current note's `notes`.
+    * Continue to the next note.
+* *Else*, we've exceeded the range of the roll and finished playing the track. [Clear][clear-interval] `interval`.
+* `dispatch` a `stopPlaying` action.
 
 [currying]: https://www.sitepoint.com/currying-in-functional-javascript/
+[set-interval]:https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval
+[clear-interval]: https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval
+
 #### `JukeBox`
+
+* [De-structure][destructure] its `props` argument.
+* Return a `div` containing a list of `Track` components, which we will write next.
 
 #### `Track`
 
-We need a "Play" button for our `JukeBox` tracks and a `playTrack` action for our tracks.
-
-Remember the `roll` array stores track data in the form:
-
-```js
-{
-  timeSlice: (timeElapsed),
-  notes: (notesArray)
-}
-```
-
-`timeSlice` ensures that the `roll`'s objects are in ascending order (since `timeElapsed` increases between calls to `addNotes`). But we can't simply iterate over these objects because iteration happens (essentially) instantaneously. We instead want to *throttle* our iteration, such that we continue the next note once `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. `setInterval` allows us to invoke a callback over (relatively) large spans of time.
-
-We want the interval to run until the end of the `track`.
-
-Store a reference to the interval as an instance variable (`this.interval`) of the `track`. At the top of your `play` method, check if `this.interval` already exists. If it does, `return` so that we don't play the `track` over itself. Next grab `Date.now()` and assign it to a local variable `playBackStartTime`. Also initialize the local variable `currentNote` to `0`.
-
-Now for the meat of the method: set an interval and pass in an anonymous callback. The callback should check whether `currentNote` is still in range of the `roll`. **If so**:
-- Check whether `Date.now() - playBackStartTime` excessed the current note's `timeSlice`. **If so**:
-  - Use one of your `KeyActions` to update the `KeyStore`.
-  - Continue to the next note.
-  - *Hint:* A new KeyAction such as `groupUpdate(notes)` might simplify your task.
-
-**Else**: we've exceeded the range of the roll. Clear the interval and `delete` it from the properties of `this`.
-
-Remember to cancel your interval when the `track` finishes playing.
-```js
-const intervalId = setINterval(callback, 10);
-clearINterval(intervalId);
-```
-
-Don't proceed until you can play all of your recorded tracks!
+* Create a file `components/juke_box/track.jsx`.
+* Define and export a `Track` component, a `div` containing the name of the `track` and a "Play" button.
+* Disable the "Play" button if `recording` or already `playing`, and `onClick` `onPlay(track)`.
 
 ## Phase 8: Style Your App
 
-Now that you have your cool app with recording and playing track features, let's make your app look nice.
+Now that you have your cool redux app with recording and playing track features, let's make your app look nice.
 
 + Create a new file `application.css`.
 + Add a reference to it in `index.html`.
 + Style your app. Refer to our [HTML/CSS Curriculum][html-curriculum].
 
-Hint: I added these css classes to my components.
+I added these css classes to my components.
 ```
   + app
 
@@ -695,5 +666,5 @@ Hint: I added these css classes to my components.
 ## Bonus Phase
 * **Delete Tracks**: Add a feature to delete any track from your JukeBox.
 * **Name your Tracks**: Add a feature to rename the tracks in your JukeBox.
-* **Looping***: Add a setting to allow tracks to play continuously.
+* **Looping**: Add a setting to allow tracks to play continuously.
 * **Playlists**: Queue up tracks to be played sequentially.

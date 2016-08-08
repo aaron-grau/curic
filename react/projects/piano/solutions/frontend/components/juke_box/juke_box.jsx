@@ -9,8 +9,8 @@ const JukeBox = ({ tracks, recording, playing, onDelete, onPlay }) => (
           key={id}
           track={tracks[id]}
           disabled={recording || playing}
-          onPlay={onPlay}
-          onDelete={onDelete} />
+          onPlay={onPlay(tracks[id])}
+          onDelete={onDelete(id)} />
       ))}
     </div>
   </div>
