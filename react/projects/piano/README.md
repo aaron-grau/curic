@@ -243,7 +243,7 @@ new store with the root reducer.
 
 [create-store]: http://redux.js.org/docs/api/createStore.html
 
-## Phase 4: `Synth` Components
+## Phase 4: Synth Components
 
 ### `App` Component
 The `App` component will hold all of the top-level components of your app.
@@ -288,7 +288,7 @@ the presentational component. Fortunately, `react-redux` provides a function
 that does this for us: [`connect`][connect].
 
 * Create a new directory `components/synth`.
-* Create a file `components/synth/synth.jsx`. Define and export `Synth`, a function component to start.
+* Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component to start.
 * Create a file `components/synth/synth_container.jsx`, and import [`connect`] from `react-redux` and your `Synth` component.
 * Define a `mapStateToProps(state)` function. Return an object mapping `state.notes` to a `notes` key.
 * Import your `keyPressed` and `keyReleased` action creators.
@@ -368,7 +368,7 @@ the visual representation of a single note in your piano.
 
 Cool, you now have the core of your Redux Synthesizer done! Let's start adding additional features.
 
-## Phase 5: Recording Tracks
+## Phase 5: Recording Tracks Redux Structure
 
 Let's give our synthesizer the ability to record tracks.
 
@@ -491,9 +491,33 @@ While the user records a track, we'll need to update `roll` as the user presses 
 + Update your root reducer so it combines your `notes`, `tracks` and `recording` reducers.
 + Test that this works by looking at your initial application state.
 
-## `Recorder` Components
+## Phase 6: Recording Track Components
 
++ Create a new directory `components/recorder`.
 
+### `RecorderContainer` Component
+
+* Create a file `components/recorder/recorder.jsx`.
+* Define and export `Recorder`, a functional componen to start.
+* Create a file `components/recorder/recorder_container.jsx`.
+* Import [`connect`] from `react-redux` and your `Recorder`.
+* Define a `mapStateToProps(state)` function returning an object mapping the state's `tracks` and `recording`
+* Import your `startRecording` and `stopRecording` action creators.
+* Define a `mapDispatchToProps(dispatch)` function returning an object containing callback props for your action creators.
+* Call `connect(mapStateToProps,
+mapDispatchToProps)` on your `Recorder` component to connect it to your Redux
+store.
+* `export default` the result of this call.
+* In your `App` component, import your `RecorderContainer` and render it.
+
+### `Recorder` Component
+
+* Return a `div` containing two buttons: a "Start" and a "Stop".
+* [De-structure][destructure] its `props` argument.
+* Disable the "Start" button if `recording`, and `onClick` `startRecording`.
+* Disable the "Stop" button if not `recording`, and `onClick` `stopRecording`.
+
+[destructure]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Pulling_fields_from_objects_passed_as_function_parameter
 <!--
 ## Playing a Track
 
@@ -529,7 +553,7 @@ clearINterval(intervalId);
 ```
 Don't proceed until you're about to play all of your tracks! -->
 
-### Style Your App
+## Style Your App
 
 + I added these css classes to my components.
 ```
