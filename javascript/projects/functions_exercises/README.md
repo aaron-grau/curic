@@ -10,32 +10,34 @@ can only query the system time once. Your clock must store that time,
 increment it, and display it in `HH:MM:SS` (use 24hr format).
 
 Make a `Clock` class. Calling `new Date()` will give us an object that
-represents the current system time. Because you can only do this once, 
-do it in your `Clock` constructor. Don't bother keeping this `Date` object 
-around because you won't need it anymore. Just store the hours, minutes, 
+represents the current system time. Because you can only do this once,
+do it in your `Clock` constructor. Don't bother keeping this `Date` object
+around because you won't need it anymore. Just store the hours, minutes,
 and seconds. Look at the [`Date` docs][date-docs] for help here.
 
-You'll also need to schedule a `Clock.prototype._tick` callback that 
-updates the time and calls `printTime` method. Don't worry about padding 
+You'll also need to schedule a `Clock.prototype._tick` callback that
+updates the time and calls `printTime` method. Don't worry about padding
 zeroes in the format. Just focus on the basic logic and functionality.
 
 ```javascript
-function Clock () {
-  // 1. Create a Date object.
-  // 2. Store the hours, minutes, and seconds.
-  // 3. Call printTime.
-  // 4. Schedule the tick at 1 second intervals.
+class Clock {
+  constructor() {
+    // 1. Create a Date object.
+    // 2. Store the hours, minutes, and seconds.
+    // 3. Call printTime.
+    // 4. Schedule the tick at 1 second intervals.  
+  }
+
+  printTime() {
+    // Format the time in HH:MM:SS
+    // Use console.log to print it.
+  }
+
+  _tick() {
+    // 1. Increment the time by one second.
+    // 2. Call printTime.
+  }
 }
-
-Clock.prototype.printTime = function () {
-  // Format the time in HH:MM:SS
-  // Use console.log to print it.
-};
-
-Clock.prototype._tick = function () {
-  // 1. Increment the time by one second.
-  // 2. Call printTime.
-};
 
 const clock = new Clock();
 ```
@@ -94,7 +96,7 @@ You'll want to set up a global `reader` variable (use
 `readline.createInterface`). `askIfGreaterThan` should use the `question`
 method.
 
-Test it out.  Make sure you can ask for input and that the input passes 
+Test it out.  Make sure you can ask for input and that the input passes
 to the callback correctly.
 
 Next, write a method `innerBubbleSortLoop(arr, i, madeAnySwaps,
@@ -112,19 +114,19 @@ outerBubbleSortLoop)`. This recursive function should:
 * Call `outerBubbleSortLoop` if `i == (arr.length - 1)`. It should
   receive `madeAnySwaps` as an argument.
 
-This method should now perform a single pass of bubble sort.  Test out 
-`innerBubbleSortLoop`, passing in dummy variables.  For example, instead 
-of actually writing the `outerBubbleSortLoop` method, pass in a dummy 
+This method should now perform a single pass of bubble sort.  Test out
+`innerBubbleSortLoop`, passing in dummy variables.  For example, instead
+of actually writing the `outerBubbleSortLoop` method, pass in a dummy
 method that console.logs "In outer bubble sort".
 
-This idea (testing methods on their own by passing in dummy arguments) 
-is *crucial* to understand larger chunks of code that you write.  Don't 
-be embarrassed to test out methods after you've only written one line of 
-them.  It's very bad software practice to write many lines of code before 
+This idea (testing methods on their own by passing in dummy arguments)
+is *crucial* to understand larger chunks of code that you write.  Don't
+be embarrassed to test out methods after you've only written one line of
+them.  It's very bad software practice to write many lines of code before
 testing anything, especially if you're a junior developer.
 
-Lastly, write a method `absurdBubbleSort(arr, sortCompletionCallback)`. 
-Define a function `outerBubbleSortLoop` inside of `absurdBubbleSort`. 
+Lastly, write a method `absurdBubbleSort(arr, sortCompletionCallback)`.
+Define a function `outerBubbleSortLoop` inside of `absurdBubbleSort`.
 It should:
 
 * If `madeAnySwaps == true`, call `innerBubbleSortLoop`. It should
@@ -199,8 +201,10 @@ tomorrow how to use the rest and spread operators to fix this.
 How would you test your "bind" method out?  Try out this example code:
 
 ```js
-function Lamp() {
-   this.name = "a lamp";
+class Lamp {
+  constructor() {
+    this.name = "a lamp";
+  }
 }
 
 const turnOn = function() {
@@ -222,8 +226,8 @@ myBoundTurnOn(); // should say "Turning on a lamp"
 
 ## Bonus Round
 
-After you finish the remaining projects for the day 
-(Tic Tac Toe and Hanoi), go back and refactor the asynchronous 
+After you finish the remaining projects for the day
+(Tic Tac Toe and Hanoi), go back and refactor the asynchronous
 exercises to use [ES6 Promises][promise].
 
 [promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
