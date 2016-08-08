@@ -19,7 +19,7 @@ Save the pseudocode to a separate file.  We'll come back to it later.
 
 Now write a `Game` class and run it using Node:
 
-* In the constructor, set an ivar for the stacks.
+* In the `constructor`, set an ivar for the stacks.
 
 * Write a `Game.prototype.promptMove` method that (1) prints the stacks,
   and (2) asks the user where they want to move a disc to/from. Pass

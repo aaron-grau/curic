@@ -7,7 +7,7 @@
       `console.log` a representation of the grid.
 * Write a `Game` class in `ttt/game.js`. You'll want to require your
   `ttt/board.js` file.
-    * Write the `Game` constructor such that it takes a reader interface
+    * Write the `Game` `constructor` such that it takes a reader interface
       as an argument. As in the previous exercise, write a `run` method that takes in both this reader
       and a completion callback (`Game.prototype.run(reader, completionCallback)`).
 * Copy your `playScript.js` from [Hanoi Node][node-ttt]. It should work for Tic Tac Toe as well.

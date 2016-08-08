@@ -11,7 +11,7 @@ increment it, and display it in `HH:MM:SS` (use 24hr format).
 
 Make a `Clock` class. Calling `new Date()` will give us an object that
 represents the current system time. Because you can only do this once,
-do it in your `Clock` constructor. Don't bother keeping this `Date` object
+do it in your `Clock` `constructor`. Don't bother keeping this `Date` object
 around because you won't need it anymore. Just store the hours, minutes,
 and seconds. Look at the [`Date` docs][date-docs] for help here.
 
