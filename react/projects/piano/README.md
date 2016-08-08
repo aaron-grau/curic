@@ -503,7 +503,7 @@ While the user records a track, we'll need to update `roll` as the user presses 
 * Import [`connect`] from `react-redux` and your `Recorder`.
 * Define a `mapStateToProps(state)` function returning an object mapping the state's `tracks` and `recording`
 * Import your `startRecording` and `stopRecording` action creators.
-* Define a `mapDispatchToProps(dispatch)` function returning an object containing callback props for your action creators.
+* Define a `mapDispatchToProps(dispatch)` function returning an object containing callback props for each of your action creators.
 * Call `connect(mapStateToProps,
 mapDispatchToProps)` on your `Recorder` component to connect it to your Redux
 store.
@@ -518,6 +518,23 @@ store.
 * Disable the "Stop" button if not `recording`, and `onClick` `stopRecording`.
 
 [destructure]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Pulling_fields_from_objects_passed_as_function_parameter
+
+### `SynthContainer`
+
+* Rewrite `mapStateToProps` to return an object mapping both the state's `notes` and `recording`.
+* Import your `addNotes` action creator.
+* Rewrite `mapDispatchToProps` to return an object containing a callback prop for `keyPressed(key)`, `keyReleased(key)`, and `addNotes(notes)`.
+
+### `Synth` Component
+
+* Rewrite `onKeyUp` and `onKeyDown` so that if `recording`, call `addNotes` passing it the store's `notes`.
+* Don't remove the calls to `keyUp` and `keyDown` though! Two things are now happening:
+  + Whenever the user presses/releases a key, the corresponding actions are dispatched to the store;
+  + If you're recording, the notes currently in the store are saved to the end of the roll of the newest track in the state.
+
+Now your Synthesizer plays musical notes and records tracks!
+
+
 <!--
 ## Playing a Track
 
