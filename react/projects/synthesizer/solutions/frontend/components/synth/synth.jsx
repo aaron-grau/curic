@@ -35,7 +35,7 @@ class Synth extends React.Component {
 
   playNotes () {
     NOTES.forEach((note, idx) => {
-      if (this.props.notes.includes(notes)) { // play notes present in state
+      if (this.props.notes.includes(note)) { // play notes present in state
         this.notes[idx].start();
       } else {
         this.notes[idx].stop();
@@ -46,10 +46,7 @@ class Synth extends React.Component {
   render() {
     this.playNotes();
     const noteKeys = NOTES.map((note, idx) => (
-      <NoteKey
-        key={idx}
-        note={note}
-        pressed={this.props.notes.indexOf(note) !== -1} />
+      <NoteKey key={idx} note={note} />
     ));
 
     return (
