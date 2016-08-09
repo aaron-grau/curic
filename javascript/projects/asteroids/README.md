@@ -34,6 +34,10 @@ classes/sourcefiles:
     * Installs key listeners to move the ship and fire bullets.
     * Installs a timer to call `Game.prototype.step`.
 
+**Note:** Do not use ES2015 class syntax in this project. Explanation incoming (above the
+[game
+section](https://github.com/appacademy/curriculum/tree/master/javascript/projects/asteroids#game)) :)
+
 ## A Refresher on Vectors
 
 You'll use a lot of **vectors** in this assignment.
@@ -82,7 +86,7 @@ Store key instance variables:
 * `color`
 
 Rather than pass all these as separate arguments, write your `MovingObject`
-`constructor` function so that you can pass in an options object:
+constructor function so that you can pass in an options object:
 
 ```js
 const mo = new MovingObject(
@@ -130,7 +134,7 @@ Write an `Asteroid` class in a `lib/asteroid.js` file. This should inherit from 
 Pick a default `COLOR` and `RADIUS` for `Asteroid`s. Set these as properties of
 the `Asteroid` class: `Asteroid.COLOR` and `Asteroid.RADIUS`.
 
-Write your `Asteroid` `constructor` so that the caller specifies the `pos` and
+Write your `Asteroid` constructor so that the caller specifies the `pos` and
 calls the `MovingObject` superconstructor, setting `color` and `radius` to the
 `Asteroid` defaults, and choosing a random vector for `vel`. You may want to
 consider writing a `Util.randomVec(length)` helper function.
@@ -140,9 +144,19 @@ consider writing a `Util.randomVec(length)` helper function.
 new Asteroid({ pos: [30, 30] });
 ```
 
-Why do we still need to call `MovingObject`'s `constructor` function from within `Asteroid`'s `constructor` function?
+Why do we still need to call `MovingObject`'s constructor function from within `Asteroid`'s constructor function?
 
-Our `inherits` function sets up the prototype inheritance chain, which makes methods available on the parent's prototype available to instances of the child class. However, we still need to call `MovingObject`'s `constructor` function from within `Asteroid`'s `constructor` function to access the code that sets properties such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a class's `#initialize` method in Ruby.
+Our `inherits` function sets up the prototype inheritance chain, which makes
+methods available on the parent's prototype available to instances of the child
+class. However, we still need to call `MovingObject`'s constructor function from
+within `Asteroid`'s constructor function to access the code that sets properties
+such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a
+class's `#initialize` method in Ruby.
+
+**Note:** Using `inherits` forces one to call the base class's constructor function
+from within the child class's constructor function. But invoking an ES2015 class
+constructor without `new` (such as `MovingObject` with `call()`) throws an
+error.
 
 ### `Game`
 
