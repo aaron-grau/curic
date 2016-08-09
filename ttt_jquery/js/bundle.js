@@ -58,69 +58,71 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	function View (game, $el) {
-	  this.game = game;
-	  this.$el = $el;
+	class View {
+	  constructor(game, $el) {
+	    this.game = game;
+	    this.$el = $el;
 	
-	  this.setupBoard();
-	  this.bindEvents();
+	    this.setupBoard();
+	    this.bindEvents();
+	  }
+	
+	  bindEvents() {
+	    // install a handler on the `li` elements inside the board.
+	    this.$el.on("click", "li", ( event => {
+	      const $square = $(event.currentTarget);
+	      this.makeMove($square);
+	    }));
+	  }
+	
+	  makeMove($square) {
+	    const pos = $square.data("pos");
+	    const currentPlayer = this.game.currentPlayer;
+	
+	    try {
+	      this.game.playMove(pos);
+	    } catch (e) {
+	      alert("Invalid move! Try again.");
+	      return;
+	    }
+	
+	    $square.addClass(currentPlayer);
+	
+	    if (this.game.isOver()) {
+	      // cleanup click handlers.
+	      this.$el.off("click");
+	      this.$el.addClass("game-over");
+	
+	      const winner = this.game.winner();
+	      const $figcaption = $("<figcaption>");
+	
+	      if (winner) {
+	        this.$el.addClass(`winner-${winner}`);
+	        $figcaption.html(`You win, ${winner}!`);
+	      } else {
+	        $figcaption.html("It's a draw!");
+	      }
+	
+	      this.$el.append($figcaption);
+	    }
+	  }
+	
+	  setupBoard() {
+	    const $ul = $("<ul>");
+	    $ul.addClass("group");
+	
+	    for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
+	      for (let colIdx = 0; colIdx < 3; colIdx++) {
+	        let $li = $("<li>");
+	        $li.data("pos", [rowIdx, colIdx]);
+	
+	        $ul.append($li);
+	      }
+	    }
+	
+	    this.$el.append($ul);
+	  }
 	}
-	
-	View.prototype.bindEvents = function () {
-	  // install a handler on the `li` elements inside the board.
-	  this.$el.on("click", "li", ( event => {
-	    const $square = $(event.currentTarget);
-	    this.makeMove($square);
-	  }));
-	};
-	
-	View.prototype.makeMove = function ($square) {
-	  var pos = $square.data("pos");
-	  var currentPlayer = this.game.currentPlayer;
-	
-	  try {
-	    this.game.playMove(pos);
-	  } catch (e) {
-	    alert("Invalid move! Try again.");
-	    return;
-	  }
-	
-	  $square.addClass(currentPlayer);
-	
-	  if (this.game.isOver()) {
-	    // cleanup click handlers.
-	    this.$el.off("click");
-	    this.$el.addClass("game-over");
-	
-	    const winner = this.game.winner();
-	    const $figcaption = $("<figcaption>");
-	
-	    if (winner) {
-	      this.$el.addClass("winner-" + winner);
-	      $figcaption.html("You win, " + winner + "!");
-	    } else {
-	      $figcaption.html("It's a draw!");
-	    }
-	
-	    this.$el.append($figcaption);
-	  }
-	};
-	
-	View.prototype.setupBoard = function () {
-	  const $ul = $("<ul>");
-	  $ul.addClass("group");
-	
-	  for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
-	    for (let colIdx = 0; colIdx < 3; colIdx++) {
-	      let $li = $("<li>");
-	      $li.data("pos", [rowIdx, colIdx]);
-	
-	      $ul.append($li);
-	    }
-	  }
-	
-	  this.$el.append($ul);
-	};
 	
 	module.exports = View;
 
@@ -132,76 +134,75 @@
 	const Board = __webpack_require__(3);
 	const MoveError = __webpack_require__(4);
 	
-	function Game () {
-	  this.board = new Board();
-	  this.currentPlayer = Board.marks[0];
-	}
-	
-	Game.prototype.isOver = function () {
-	  return this.board.isOver();
-	};
-	
-	Game.prototype.playMove = function(pos) {
-	  this.board.placeMark(pos, this.currentPlayer);
-	  this.swapTurn();
-	};
-	
-	// TODO: are these "const" uses okay?
-	Game.prototype.promptMove = function(reader, callback) {
-	  const game = this;
-	
-	  this.board.print();
-	  console.log(`Current Turn: ${this.currentPlayer}`)
-	
-	  reader.question('Enter rowIdx: ', rowIdxStr => {
-	    const rowIdx = parseInt(rowIdxStr);
-	    reader.question('Enter colIdx: ', colIdxStr => {
-	      const colIdx = parseInt(colIdxStr);
-	      callback([rowIdx, colIdx]);
-	    });
-	  });
-	}
-	
-	Game.prototype.run = function(reader, gameCompletionCallback) {
-	  this.promptMove(reader, move => {
-	    try {
-	      this.playMove(move);
-	    } catch (e) {
-	      if (e instanceof MoveError) {
-	        console.log(e.msg);
-	      } else {
-	        throw e;
-	      }
-	    }
-	
-	    if (this.isOver()) {
-	      this.board.print();
-	      if (this.winner()) {
-	        console.log(`${this.winner()} has won!`);
-	      } else {
-	        console.log('NO ONE WINS!');
-	      }
-	      gameCompletionCallback();
-	    } else {
-	      // continue loop
-	      this.run(reader, gameCompletionCallback);
-	    }
-	  });
-	}
-	
-	Game.prototype.swapTurn = function() {
-	  if (this.currentPlayer === Board.marks[0]) {
-	    this.currentPlayer = Board.marks[1];
-	  } else {
+	class Game {
+	  constructor() {
+	    this.board = new Board();
 	    this.currentPlayer = Board.marks[0];
 	  }
+	
+	  isOver() {
+	    return this.board.isOver();
+	  }
+	
+	  playMove(pos) {
+	    this.board.placeMark(pos, this.currentPlayer);
+	    this.swapTurn();
+	  }
+	
+	  promptMove(reader, callback) {
+	    const game = this;
+	
+	    this.board.print();
+	    console.log(`Current Turn: ${this.currentPlayer}`)
+	
+	    reader.question('Enter rowIdx: ', rowIdxStr => {
+	      const rowIdx = parseInt(rowIdxStr);
+	      reader.question('Enter colIdx: ', colIdxStr => {
+	        const colIdx = parseInt(colIdxStr);
+	        callback([rowIdx, colIdx]);
+	      });
+	    });
+	  }
+	
+	  run(reader, gameCompletionCallback) {
+	    this.promptMove(reader, move => {
+	      try {
+	        this.playMove(move);
+	      } catch (e) {
+	        if (e instanceof MoveError) {
+	          console.log(e.msg);
+	        } else {
+	          throw e;
+	        }
+	      }
+	
+	      if (this.isOver()) {
+	        this.board.print();
+	        if (this.winner()) {
+	          console.log(`${this.winner()} has won!`);
+	        } else {
+	          console.log('NO ONE WINS!');
+	        }
+	        gameCompletionCallback();
+	      } else {
+	        // continue loop
+	        this.run(reader, gameCompletionCallback);
+	      }
+	    });
+	  }
+	
+	  swapTurn() {
+	    if (this.currentPlayer === Board.marks[0]) {
+	      this.currentPlayer = Board.marks[1];
+	    } else {
+	      this.currentPlayer = Board.marks[0];
+	    }
+	  }
+	
+	  winner() {
+	    return this.board.winner();
+	  }
 	}
-	
-	Game.prototype.winner = function() {
-	  return this.board.winner();
-	}
-	
-	
 	
 	module.exports = Game;
 
@@ -212,143 +213,124 @@
 
 	const MoveError = __webpack_require__(4);
 	
-	function Board () {
-	  this.grid = Board.makeGrid();
-	}
-	
-	Board.prototype.isEmptyPos = function(pos) {
-	  if (!Board.isValidPos(pos)) {
-	    throw new MoveError('Is not valid position!');
+	class Board {
+	  constructor() {
+	    this.grid = Board.makeGrid();
 	  }
 	
-	  return (this.grid[pos[0]][pos[1]] === null);
-	}
+	  isEmptyPos(pos) {
+	    if (!Board.isValidPos(pos)) {
+	      throw new MoveError('Is not valid position!');
+	    }
 	
-	Board.prototype.isOver = function() {
-	  if (this.winner() != null) {
+	    return (this.grid[pos[0]][pos[1]] === null);
+	  }
+	
+	  isOver() {
+	    if (this.winner() != null) {
+	      return true;
+	    }
+	
+	    for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
+	      for (let colIdx = 0; colIdx < 3; colIdx++) {
+	        if (this.isEmptyPos([rowIdx, colIdx])) {
+	          return false;
+	        }
+	      }
+	    }
+	
 	    return true;
 	  }
 	
-	  for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
-	    for (let colIdx = 0; colIdx < 3; colIdx++) {
-	      if (this.isEmptyPos([rowIdx, colIdx])) {
-	        return false;
+	  placeMark(pos, mark) {
+	    if (!this.isEmptyPos(pos)) {
+	      throw new MoveError('Is not an empty position!');
+	    }
+	
+	    this.grid[pos[0]][pos[1]] = mark;
+	  }
+	
+	  print() {
+	    const strs = [];
+	    for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
+	      const marks = [];
+	      for (let colIdx = 0; colIdx < 3; colIdx++) {
+	        marks.push(
+	          this.grid[rowIdx][colIdx] ? this.grid[rowIdx][colIdx] : " "
+	        );
 	      }
+	      strs.push(`${marks.join('|')}\n`);
 	    }
+	
+	    console.log(strs.join('-----\n'));
 	  }
 	
-	  return true;
-	}
+	  winner() {
+	    const posSeqs = [
+	      // horizontals
+	      [[0, 0], [0, 1], [0, 2]],
+	      [[1, 0], [1, 1], [1, 2]],
+	      [[2, 0], [2, 1], [2, 2]],
+	      // verticals
+	      [[0, 0], [1, 0], [2, 0]],
+	      [[0, 1], [1, 1], [2, 1]],
+	      [[0, 2], [1, 2], [2, 2]],
+	      // diagonals
+	      [[0, 0], [1, 1], [2, 2]],
+	      [[2, 0], [1, 1], [0, 2]]
+	    ];
 	
-	Board.prototype.placeMark = function(pos, mark) {
-	  if (!this.isEmptyPos(pos)) {
-	    throw new MoveError('Is not an empty position!');
-	  }
-	
-	  this.grid[pos[0]][pos[1]] = mark;
-	}
-	
-	
-	Board.prototype.print = function() {
-	  const strs = [];
-	  for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
-	    const marks = [];
-	    for (let colIdx = 0; colIdx < 3; colIdx++) {
-	      marks.push(
-	        this.grid[rowIdx][colIdx] ? this.grid[rowIdx][colIdx] : " "
-	      );
-	    }
-	    strs.push(`${marks.join('|')}\n`);
-	  }
-	
-	  console.log(strs.join('-----\n'));
-	}
-	
-	Board.prototype.winner = function() {
-	  const posSeqs = [
-	    // horizontals
-	    [[0, 0], [0, 1], [0, 2]],
-	    [[1, 0], [1, 1], [1, 2]],
-	    [[2, 0], [2, 1], [2, 2]],
-	    // verticals
-	    [[0, 0], [1, 0], [2, 0]],
-	    [[0, 1], [1, 1], [2, 1]],
-	    [[0, 2], [1, 2], [2, 2]],
-	    // diagonals
-	    [[0, 0], [1, 1], [2, 2]],
-	    [[2, 0], [1, 1], [0, 2]]
-	  ];
-	
-	  for (let i = 0; i < posSeqs.length; i++) {
-	    const winner = this.winnerHelper(posSeqs[i]);
-	    if (winner != null) {
-	      return winner;
-	    }
-	  }
-	
-	  return null;
-	}
-	
-	
-	Board.prototype.winnerHelper = function(posSeq) {
-	  for (let markIdx = 0; markIdx < Board.marks.length; markIdx++) {
-	    const targetMark = Board.marks[markIdx];
-	    let winner = true;
-	    for (let posIdx = 0; posIdx < 3; posIdx++) {
-	      const pos = posSeq[posIdx];
-	      const mark = this.grid[pos[0]][pos[1]];
-	
-	      if (mark != targetMark) {
-	        winner = false;
+	    for (let i = 0; i < posSeqs.length; i++) {
+	      const winner = this.winnerHelper(posSeqs[i]);
+	      if (winner != null) {
+	        return winner;
 	      }
 	    }
 	
-	    if (winner) {
-	      return targetMark;
-	    }
+	    return null;
 	  }
 	
-	  return null;
+	  winnerHelper(posSeq) {
+	    for (let markIdx = 0; markIdx < Board.marks.length; markIdx++) {
+	      const targetMark = Board.marks[markIdx];
+	      let winner = true;
+	      for (let posIdx = 0; posIdx < 3; posIdx++) {
+	        const pos = posSeq[posIdx];
+	        const mark = this.grid[pos[0]][pos[1]];
+	
+	        if (mark != targetMark) {
+	          winner = false;
+	        }
+	      }
+	
+	      if (winner) {
+	        return targetMark;
+	      }
+	    }
+	
+	    return null;
+	  }
+	
+	  static isValidPos(pos) {
+	    return (0 <= pos[0]) &&
+	    (pos[0] < 3) &&
+	    (0 <= pos[1]) &&
+	    (pos[1] < 3);
+	  }
+	
+	  static makeGrid() {
+	    const grid = [];
+	
+	    for (let i = 0; i < 3; i++) {
+	      grid.push([]);
+	      for (let j = 0; j < 3; j++) {
+	        grid[i].push(null);
+	      }
+	    }
+	
+	    return grid;
+	  }
 	}
-	
-	Board.isValidPos = pos =>
-	  {return (0 <= pos[0]) &&
-	  (pos[0] < 3) &&
-	  (0 <= pos[1]) &&
-	  (pos[1] < 3);}
-	
-	Board.makeGrid = () => {
-	  const grid = [];
-	
-	  for (let i = 0; i < 3; i++) {
-	    grid.push([]);
-	    for (let j = 0; j < 3; j++) {
-	      grid[i].push(null);
-	    }
-	  }
-	
-	  return grid;
-	};
-	
-	Board.isValidPos = function(pos) {
-	  return (0 <= pos[0]) &&
-	  (pos[0] < 3) &&
-	  (0 <= pos[1]) &&
-	  (pos[1] < 3);
-	};
-	
-	Board.makeGrid = function() {
-	  const grid = [];
-	
-	  for (let i = 0; i < 3; i++) {
-	    grid.push([]);
-	    for (let j = 0; j < 3; j++) {
-	      grid[i].push(null);
-	    }
-	  }
-	
-	  return grid;
-	};
 	
 	Board.marks = ['x', 'o'];
 	
