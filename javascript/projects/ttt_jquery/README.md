@@ -42,11 +42,11 @@ Open a new terminal tab or window and run `webpack --watch ./js/main.js
 **Instructions**
 
 We've given you the outline of a `View` class in `js/ttt-view.js`. The
-constructor takes in a `Game` object and a jQuery object in which to display the
+`constructor` takes in a `Game` object and a jQuery object in which to display the
 grid.
 
 Let's create our `View` and `Game` objects in the entry point (`js/main.js`).
-Since we have required these constructor functions, we can create a new Game
+Since we have required these classes, we can create a new Game
 with `new Game()`.
 
 Use jQuery to find the container element in the view that we created in
@@ -61,7 +61,7 @@ nicely wrap around to form a 3x3 grid. Set a border on the cells to make it look
 like a real grid. Style unclicked cells with a gray `background`. Change the
 background to yellow while the user `:hover`s over an unclicked cell.
 
-Call View's `setupBoard` method in your constructor and place the new `<ul>` inside your
+Call View's `setupBoard` method in your `constructor` and place the new `<ul>` inside your
 container `$el`; check that this is drawing a grid.
 
 Write a `View.prototype.bindEvents` method. When a user clicks on a cell, call

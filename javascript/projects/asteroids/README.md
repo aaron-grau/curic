@@ -82,7 +82,7 @@ Store key instance variables:
 * `color`
 
 Rather than pass all these as separate arguments, write your `MovingObject`
-constructor function so that you can pass in an options object:
+`constructor` function so that you can pass in an options object:
 
 ```js
 const mo = new MovingObject(
@@ -111,7 +111,7 @@ first utility function to it as `Util.inherits = function (childClass,
 parentClass) { ... }`.
 
 **Note:** You should export a POJO (plain old JavaScript object) from Util, not
-a constructor function. We don't need to create instances of `Util`.
+a class. We don't need to create instances of `Util`.
 
 ```javascript
 const Util = {
@@ -130,7 +130,7 @@ Write an `Asteroid` class in a `lib/asteroid.js` file. This should inherit from 
 Pick a default `COLOR` and `RADIUS` for `Asteroid`s. Set these as properties of
 the `Asteroid` class: `Asteroid.COLOR` and `Asteroid.RADIUS`.
 
-Write your `Asteroid` constructor so that the caller specifies the `pos` and
+Write your `Asteroid` `constructor` so that the caller specifies the `pos` and
 calls the `MovingObject` superconstructor, setting `color` and `radius` to the
 `Asteroid` defaults, and choosing a random vector for `vel`. You may want to
 consider writing a `Util.randomVec(length)` helper function.
@@ -140,9 +140,9 @@ consider writing a `Util.randomVec(length)` helper function.
 new Asteroid({ pos: [30, 30] });
 ```
 
-Why do we still need to call `MovingObject`'s constructor function from within `Asteroid`'s constructor function?
+Why do we still need to call `MovingObject`'s `constructor` function from within `Asteroid`'s `constructor` function?
 
-Our `inherits` function sets up the prototype inheritance chain, which makes methods available on the parent's prototype available to instances of the child class. However, we still need to call `MovingObject`'s constructor function from within `Asteroid`'s constructor function to access the code that sets properties such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a class's `#initialize` method in Ruby.
+Our `inherits` function sets up the prototype inheritance chain, which makes methods available on the parent's prototype available to instances of the child class. However, we still need to call `MovingObject`'s `constructor` function from within `Asteroid`'s `constructor` function to access the code that sets properties such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a class's `#initialize` method in Ruby.
 
 ### `Game`
 
