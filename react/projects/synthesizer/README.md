@@ -378,7 +378,7 @@ some of the overhead in our `notes` reducer?
 
 #### Playing `Note`s
 
-Ok let's actually start jamming.
+Ok, let's actually start jamming.
 
 * Define a `playNotes` function.
 * Iterate through `this.notes`, calling `start` and `stop` on all of the notes present in the store and `stop` on all the other notes.
