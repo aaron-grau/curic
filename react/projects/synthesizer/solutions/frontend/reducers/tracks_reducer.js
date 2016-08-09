@@ -48,7 +48,7 @@ const tracks = (state = {}, action) => {
       });
     case TracksConstants.DELETE_TRACK:
       let nextState = merge({}, state);
-      delete nextState[action.id]
+      delete nextState[action.id];
       return nextState;
     default:
       return state;
