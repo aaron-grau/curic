@@ -1,65 +1,125 @@
 # BenchBnB Day 2
-
+---
 ## Phase 7: React Router
 
-We'll need to modify our entry file, `bench_bnb.jsx`, to add routes.
+If you haven't already done so..
 
-* Install `ReactRouter`: `npm install --save --save-exact react-router@2.0.1`.
-  * Use that exact version, as other versions might cause compatibility issues.
-* In your entry file, require `Router`, `Route`, `IndexRoute`, and `hashHistory` from the `ReactRouter`.
-* Create a `<Router>` that gets rendered by `ReactDom` when the page loads.
-* Create an `App` react component that renders `{this.props.children}`. Set this component to your root `<Route>`.
-* Inside your `App` `<Route>`, render the `Search` component as the default
-`<IndexRoute>`.
+```
+  npm install --save react-router
+```
 
-Your entry file should now roughly resemble this:
+Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a bit.
 
-  ```javascript
-    // frontend/bench_bnb.js.jsx
-  const React = require('react');
-  const ReactDOM = require('react-dom');
+Define 3 new files, these can all live at the root of the components folder:
 
-  const ReactRouter = require('react-router');
-  const Router = ReactRouter.Router;
-  const Route = ReactRouter.Route;
-  const IndexRoute = ReactRouter.IndexRoute;
-  const hashHistory = ReactRouter.hashHistory;
+* `app.jsx`
+* `root.jsx`
+* `router.jsx`
+---
 
-  const Search = require('./components/Search');
+### The `App` component
 
-  const App = React.createClass({
-    render() {
-      return (
-          <div>
-            <header><h1>Bench BnB</h1></header>
-            {this.props.children}
-          </div>
-      );
-    }
-  });
+Create and export a new **functional component** that renders an `<h1>` tag with
+"Bench BnB" and `props.children`. It might look something like..
 
-  const appRouter = (
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Search}/>
-      </Route>
+```javascript
+  const App = ({children}) => (
+    <div>
+      <h1>Bench BnB</h1>
+      {children}
+    </div>
+  );
+```
+---
+### The `AppRouter`
+
+Start by importing the following:
+    * `React`
+    * `Router`, `Route`, `IndexRoute`, `hashHistory`
+    * `App`
+    * `SearchContainer`
+
+Next, we want to define and export a **functional component** that renders a
+`Router`. Setup your `Router` to use `hashHistory`
+
+```javascript
+  const AppRouter = () => (
+    <Router history={ hashHistory }>
+      // Routes go here...
     </Router>
   );
+```
+---
+#### Routes
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('content');
-    ReactDOM.render(appRouter, root);
+Let's define a new `Route` that tells the `Router` to render our `App` component
+when the url matches '/'
+
+```javascript
+  <Router history={ hashHistory }>
+    <Route path="/" component={ App } />
+  </Router>
+```
+---
+#### `IndexRoute`
+
+Next, let's make sure that our `SearchContainer` is the default component rendered
+inside `App`. Use an `IndexRoute` to accomplish this.
+
+```javascript
+const AppRouter = () => (
+  <Router history={ hashHistory }>
+    <Route path="/" component={ App }>
+      <IndexRoute component={ SearchContainer } />
+    </Route>
+  </Router>
+)
+```
+
+---
+### The `Root` component
+
+Create and export a **functional component** called `Root`. The component should accept
+the `Store` as a prop, and it should render the `AppRouter` wrapped in the `Provider`
+
+```javascript
+  const Root = ({store}) => (
+    <Provider store={store}>
+      <AppRouter/>
+    </Provider>
+  );
+```
+
+---
+### The Entry Point
+
+Let's modify our entry file, `bench_bnb.jsx`, to only import the following:
+  * `React` & `ReactDOM`
+  * `Root`
+  * `configureStore`
+
+In the document-ready callback, you should simply invoke `configureStore` and then
+render the `Root` component into the `#root` container. Pass the `Store` to the
+`Root` component as a prop.
+
+```javascript
+  document.addEventListener('DOMContentLoaded', function() {
+    store = configureStore();
+    const root = document.getElementById('root');
+    ReactDOM.render(<Root store={store}/>, root);
   });
-  ```
+```
 
-Verify that your app still renders correctly before moving on.
+Test that everything works before moving on!
+
+---
 
 ## Phase 8: Creating Benches
 
 ### Adding a Bench Form
 
-* Create a new React component, `BenchForm`. This should render a simple form
-  with 4 fields:
+* Create a new React component & container, `BenchForm` & `BenchFormContainer`.
+  This should render a simple form with 4 fields:
     * Description
     * Number of seats
     * Latitude
@@ -71,58 +131,104 @@ Verify that your app still renders correctly before moving on.
   *  Test the route by navigating to `/#/benches/new`; the map should disappear.
 * Write a `create` method on your `BenchesController` and give it a corresponding
   route in `routes.rb`.
-* Add a `createBench` function to the `BenchApiUtil`. It should make a `POST`
-  request to your API.
-* Test `BenchApiUtil.createBench` from the console.
-* Add `BenchActions` to `createBench` and `receiveBench`.
-* `BenchForm` should call `BenchActions.createBench` upon submission.
 
+---
 ### Navigating to the BenchForm
 
 Filling in coordinates manually is a major pain; Let's make things a little easier
 by bringing up a new bench form when a user clicks on the map and pre-filling it
 with latitude and longitude based on where they clicked.
 
-Because `BenchMap` and `BenchForm` live under different routes, We can't simply pass props between them to convey our click information. We will need to encode our parameters in a client-side query string.
+Because `BenchMapContainer` and `BenchFormContainer` live under different routes, We can't simply pass props between them to convey our click information. We will need to encode our parameters in a client-side query string.
 
+---
+#### `withRouter`
+
+Since our `BenchMap` will need access to the `Router`, import the `withRouter`
+function from `react-router`. Chance the export statement in `bench_map.jsx` so
+that we are exporting a wrapped component.
+
+```javascript
+  export default withRouter(BenchMap);
+```
+
+Our `BenchMap` component will now have a `router` prop.
+
+---
 #### Redirecting with coordinates
 
-Let's get down to business. Add a `"click"` handler to the map. It
-should:
-
-* Grab the coordinates from the click event.
-* Use the router's [hashHistory][react-history] to redirect to the `BenchForm`
-  URL, providing the `lat` and lng` as query params.
+Add a `"click"` handler to the map. It should:
+  * Grab the coordinates from the click event.
+  * Use the router to redirect to the `BenchForm` URL, providing the `lat` and
+  `lng` as query params.
 
 To pass `lat` and `lng` as query params:
-  0.  Require the `hashHistory` module in the `BenchMap`.
 
-  ```javascript
-    const hashHistory = require('react-router').hashHistory;
-  ```
+  0.  Use `router#push` to send data along with the new `pathname`.
 
-  0.  Use `hashHistory#push` to send data along with the new `pathname`.
-
-  ```javascript
-    _handleClick(coords){
-      hashHistory.push({
-        pathname: "benches/new",
-        query: coords
-      });
-    }
-  ```
+```javascript
+  _handleClick(coords){
+    this.props.router.push({
+      pathname: "benches/new",
+      query: coords
+    });
+  }
+```
 
 Test this before moving on. You should be able to click the map and make the
 browser redirect to a URL that looks something like:
 
   */#/benches/new?lat=37.79153217974085&lng=-122.40194320678711*
 
+---
 ### Pre-filling the form
-Inside of the `BenchForm` component, pre-fill the value of the lat/lng input
-fields by accessing `this.props.location.query`. Then make sure the lat/lng input
-fields are disabled so that users can't edit them.
 
-Awesome! Now users can easily create new benches.
+Inside of the `BenchFormContainer`...
+  * Define a `mapStateToProps` function that accepts `state` and `ownProps` as arguments
+  * pass `lat` and `lng` props to the `BenchForm` component by deconstructing
+  `ownProps.location.query`
+
+```javascript
+  const mapStateToProps = (state, ownProps) => ({
+    lat: ownProps.location.query.lat,
+    lng: ownProps.location.query.lng
+  });
+```
+
+Restructure your `BenchForm` component to accept `lat` and `lng` as props. Use
+these values to pre-fill the fields on your form. Make the input tags disabled
+so that our users don't try to edit them!
+
+**Call a TA over and show them your form in action!!**
+
+---
+### Api Util and Action-Creators
+
+  * Add a `createBench` function to `bench_api_util.js`. It should make a `POST`
+    request to your API.
+  * Create the following constants:
+    * `BenchConstants.CREATE_BENCH`
+    * `BenchConstants.RECEIVE_BENCH`
+  * Add the following action-creators to `bench_actions.js`:
+    * `createBench`
+    * `receiveBench`
+  * Add a `mapDispatchToProps` function to your `BenchFormContainer`; this should
+  pass a `handleSubmit` prop to `BenchForm`
+---
+### `BenchMiddleware`
+
+Update your `BenchMiddleware` to invoke `createBench` from the `bench_api_util.js`
+when it receives a `CREATE_BENCH` dispatch. Your success callback should dispatch
+a `RECEIVE_BENCH` action.
+---
+### `BenchReducer`
+
+Finally, update your `BenchReducer` to respond to the `RECEIVE_BENCH` action.
+---
+#### `BenchMap`
+Finally finally, update your `BenchMap` to redirect to the search page after a new
+bench is created.
+---
 
 ## Phase 9: Front-End User Authentication
 
@@ -138,7 +244,7 @@ understand each individual step.
   * log them out
   * restrict access to certain routes based on whether someone is logged in
 
-### 1. Build Your Backend.
+### Auth Backend
 
 Read the instructions below, and then create an API with the following
 endpoints:
@@ -153,155 +259,127 @@ differences:
 
 * **Namespace**: Your controllers should live under an `Api` namespace.
 * **Response Format**: render JSON formatted responses by default.
-* **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to partial **`api/users/_user.json.jbuilder`**, which we'll use later.
+* **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to a partial: **`api/users/_user.json.jbuilder`**, which we'll use later.
 * **`Sessions#destroy`**: render an empty `{}` upon successful logout.
   * Render a `404` message if there is no `current_user` to logout.
 * **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username
 already exists') in your response with a corresponding error status.
   * Use `@user.errors` when applicable.
-  * Render single errors in the format `{base: ['error message here']}`
-  * ex. `render json: {base: ['invalid credentials']}, status: 401`
-  * **Caution**: Error responses are formatted differently than normal
+  * **Caution**: Error responses should be formatted differently than normal
   responses.
 
 Test your routes using `$.ajax` in the console before moving on.
 
-### 2. Build Your Frontend
+---
 
-Once your API is fully built and tested, set up the following flux architecture
-components.
+### Session Api Util
 
-####SessionApiUtil
-
-Create a `SessionApiUtil` with the following methods:
+Create a new file, `session_api_util.js` with the following functions:
   * **`signup`:** POST 'api/users'
   * **`login`:** POST 'api/session'
   * **`logout`:** DELETE 'api/session'
 
-Each `SessionApiUtil` method should take `success` and `error` callbacks.
+Each function should take `success` and `error` callbacks.
 
-Before moving on, put `SessionApiUtil` on the window in your entry file and test
-it out. Make sure all your endpoints behave properly for both successful and
-erroneous requests. Pay attention to:
-* the `Network` tab of Dev Tools
-* the Rails server logs
+Test each of your api util functions before moving on!
 
-####SessionStore
+---
 
-Create a `SessionStore` that will keep track of the current user.
+### Session Actions
 
-**Variables:**
-  * `_currentUser`: should be `{}` if no one is logged in
+We need the following action-creators:
+  * `login`
+  * `logout`
+  * `signup`
+  * `receiveCurrentUser`
+  * `receiveErrors`
 
-**Closures:**
-  * `_login`: set `_currentUser` and `__emitChange()`
-  * `_logout`: set `_currentUser` to `{}` and `__emitChange()`
+Build the corresponding `SessionConstants` as well. All of our action-creators (other
+than `logout`) should accept an argument.
 
-**Public Methods:**
-  * `currentUser`: a reader
-  * `isUserLoggedIn`: should return a boolean of whether a user is logged in
-    * hint: you can check `_currentUser.id`
-`SessionStore.__onDispatch`
-  * Define `SessionConstants` for `LOGIN` and `LOGOUT`
-  * Setup `SessionStore.__onDispatch` to call the appropriate methods
+---
 
-####SessionActions
+### `SessionMiddleware`
 
-0. Create **`signup`, `login`, and `logout`** methods for client-generated actions:
-Each method should:
-  * Invoke the appropriate `SessionApiUtil` action.
-  * Pass `receiveCurrentUser` as a `success` callback.
+Your `SessionMiddleware` should only listen for 3 of our action types:
+  * `LOGIN`
+  * `LOGOUT`
+  * `SIGNUP`
 
-0. Write `receiveCurrentUser`
-  * dispatch to the `SessionStore`
+Your middleware should be responsible for invoking the appropriate session api util
+function and passing the appropriate callbacks. The success callback for `login` and
+`signup` requests should `dispatch` a `receiveCurrentUser` action. The error callbacks
+should dispatch `receiveErrors`.
 
-Attach your `SessionActions` to the window and test them out before moving on.
+The success callback of `logout` should simply be to invoke `next(action)`
 
-### 3. Create `LoginForm` and `SignupForm`
+Test that your `SessionMiddleware` works by dispatching `login`, `logout`, and
+`signup` actions from the console.
 
-Create a `LoginForm` component and a React `Route` for it.
+---
 
-  * `render` a form for users to enter their username and password.
-  * `onSubmit`, call your `SessionActions#login` and pass in the credentials.
-  * After a successful login, redirect to your root Route (`/`)
-    * In `#componentDidMount`, register a listener with the `SessionStore`.
-    * When the `SessionStore` emits change, check if a user is logged in.
-    * If so, redirect them (`this.context.router.push("/")`).
+### `SessionReducer`
 
-Once your `LoginForm` works, make a similar `SignupForm` component and route that calls `SessionActions#signup`.
+Let's create a new reducer to keep track of our current user and error messages.
+The default application shape should look like:
 
-### 4. Errors
+```
+{
+  currentUser: null,
+  errors: []
+}
+```
 
-Your forms should display errors if user submissions cause validation/authentication errors.
+The `SessionReducer` should listen for 3 action types:
+  * `RECEIVE_CURRENT_USER`
+  * `RECEIVE_ERRORS`
+  * `LOGOUT`
 
-####  Create an `ErrorStore`.
+Test that your `SessionReducer` works by dispatching session actions and then
+checking your application state!
 
-Variables:
-* `_errors`: This `{}` should store key-value pairs where:
-  * each key is an error field, and
-  * each value is an array of error messages for that field.
-    ```js
-    _errors === {
-      username: [
-        "has already been taken",
-        "is too short (minimum is 4 character)"
-      ],
-      password: [
-        "is too short (minimum is 6 characters)"
-      ]
-    }
-    ```
-*`_form`: The store should only ever have the errors for a single form. This
-variable should store the name of the form currently being tracked as a string.
+---
 
-Public Methods:
-* `formErrors`: takes a `form` argument and returns a copy of `_errors` if and only
-if `form === _form`.
-* `form`: returns the current `_form`.
+### `Greeting` Component
 
-Closures:
-* `setErrors`: takes a `form` name and an `errors` object and saves them in `_form`
-and `_errors`; emits change.
-* `clearErrors`: sets `_form` and `_errors` to `""` and `{}` respectively; emits
-change.
+* Create a new react component, `Greeting`, and a container, `GreetingContainer`
 
-`__onDispatch`:
-Create `ErrorConstants` and handle the following `actionTypes`:
-* `ErrorConstants.SET_ERRORS`
-* `ErrorConstants.CLEAR_ERRORS`
-* Wait until
+If the user **is logged in**, then the `Greeting` should contain:
+  * A welcome message including the user's username
+  * A button to logout
 
-####  Define `ErrorActions`
+If the user **is not logged in**, then the `Greeting` should contain:
+  * A link to the `/#/signup`
+  * A link to the `/#/login`
 
-Define the following actions:
-* `setErrors`
-* `clearErrors`
+Change your `App` to render the `GreetingContainer` above our other content.
 
-Both methods should take the raw API error response generated by your `$.ajax` call and dispatch the proper error information to your `ErrorStore`. Keep in mind that Rails error responses return XHR objects, not raw response data, which lives in the `.responseJSON` attribute of the XHR object returned.
+---
 
-Once you've written these methods, return to your `SessionActions` and `SessionApiUtil`:
-* Modify `SessionApiUtil` so that your methods take an `error` callback to invoke in  the `error` response of your `$.ajax` call.
-* Modify `SessionActions` to pass `ErrorActions.setErrors` as the `error` argument to your `SessionApiUtil`.
+### `SessionForm` Component
 
-####  Update your `LoginForm` and `SignupForm`
+  * Create a new component, `SessionForm`, and a container, `SessionFormContainer`
+  * Create new routes for these components in your `router.jsx` file
 
-Your components should listen to your `ErrorStore` on `componentDidMount`. Make
-sure they track `this.state.errors`. When the store changes, `setState` to
-the new errors on the form. Make sure to check `ErrorStore.form` to ensure that
-your `LoginForm` doesn't render `SignupForm` errors and vice versa.
+The `SessionFormContainer` should provide `SessionForm` with the following props:
+  * loggedIn --> (boolean) is there currentUser property of the application state?
+  * errors --> (array) list of errors from the state
+  * formType --> ('login' or 'signup')
+  * processForm --> function that should dispatch `login` or `signup` based on formType
 
-Update both forms to `render` their errors if any are present.
+The `SessionForm` component should be responsible for a number of tasks:
+  * Render a controlled component with UI state
+  * Invoke the `processForm` prop when the 'submit' button is clicked
+  * Render a "Log in" or "Sign up" header based on the formType prop
+  * Provide a link to `/#/signup` or `/#/login` (whichever isn't the current address!)
+  * Render a list of error messages if any are present
+  * Redirect the user to the `/#/` route if they are logged in
 
-### 4. Create a greeting in the header.
+**Call a TA over and show them your `SessionForm` before moving on!**
 
-Modify your app to provide a greeting to users when they are signed in.
-  * In the `App` component, render a `<header>` with information about the
-  `SessionStore#currentUser`.
-  * If a user is logged in, display their username and a logout button.
-    * `onClick` of logout button, `preventDefault` and `SessionActions#logout`
-  * If user IS NOT logged in, give them links to "#/login" and "#/signup"
+---
 
-### 5. Bootstrap the current user before the app mounts.
+### Bootstrapping the Current User
 
 When our static `root` page loads, our app mounts without being aware of who the
 current user is.
@@ -314,10 +392,11 @@ re-render when the current user was received, causing a strange, flickering
 effect. To circumvent this, we'll bootstrap the current user alongside our html
 when the page initially loads.
 
+---
+
 #### Edit your `root.html.erb`
 
-Add a `<script></script>` element to the top of your `root.html.erb` file. Give
-it a `type="text/javascript"`.
+Add a `<script></script>` element to the top of your `root.html.erb` file.
 
 Inside your `<script>`, we're going to assign `window.currentUser`. In order to
 get the proper value, we'll need to ask our controller for the `current_user`
@@ -326,17 +405,18 @@ interpolation. The result will be a hard-coded assignment in our rendered html
 that looks something like this:
 
 ```html
-...
-<script type="text/javascript">
-    window.currentUser = {"id":3,"username":"bobross"}
-</script>
+  ...
+  <script type="text/javascript">
+      window.currentUser = {"id":3,"username":"bobross"}
+  </script>
 
-<main id="content"></main>
-...
-
-``` 
+  <main id="root"></main>
+  ...
+```
 
 where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
+
+---
 
 #### Interpolate the current user information
 
@@ -361,7 +441,7 @@ in. You should have something like this:
 
 <script type="text/javascript">
   <% if logged_in? %>
-    window.currentUser = <%= render("api/users/user.json.jbuilder", 
+    window.currentUser = <%= render("api/users/user.json.jbuilder",
       user: current_user).html_safe %>
   <% end %>
 </script>
@@ -372,26 +452,39 @@ Log in, refresh your page, and check out your `elements` in the Dev Tools.
 Verify that the  `script` contains an object literal of the current user and
 properly assigns  `window.currentUser`.
 
-Finally, inside the `DOMContentLoaded` callback in your entry file, call
-`SessionActions.receiveCurrentUser(window.currentUser)` before
-`ReactDom.render`. This will ensure that the `SessionStore` has the
-`_currentUser` before any of your components render.
+---
 
-Test that your bootstrapping worked by logging in and refreshing the page. If you 
-don't get logged out, it worked!
+### `preloadedState`
 
-### 6. Protect your front-end routes.
+Finally, inside the `DOMContentLoaded` callback in your entry file...
+  * check to see if there is a `window.currentUser`
+  * If there is, create a `preloadedState` like below:
 
-Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend if they're not logged in.
+```javascript
+  if (window.currentUser) {
+    const preloadedState = {session: {currentUser: window.currentUser}};
+    ...
+```
+
+  * Pass this `preloadedState` to `configureStore`
+  * If there is no `window.currentUser`, then `configureStore` without any arguments
+
+---
+
+### Protect your front-end routes.
+
+Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend unless they're logged in.
+
+Refer to the `onEnter` [reading][onEnter] for this part.
 
   * Add an `onEnter` prop to the Routes we want to protect:
-
     ```html
     <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />
     ```
-  * Define an `_ensureLoggedIn` function in your entry file. It should:
-    * have `nextState` and `replace` parameters.
-    * check `SessionStore#isUserLoggedIn`.
+  * Give your `Router` direct access to the `Store` by using [React context][context-docs]
+    * Note that this is [established by the provider][store-context]
+  * Define an `_ensureLoggedIn` function in your `router.jsx` file. It should:
+    * Check to see if the application state has a `currentUser` property
     * If `true`, do nothing.
     * Otherwise, `replace` the path with "/login". (Remember that `replace` won't
     add a "fake" entry to the browser's history, whereas `push` will.)
@@ -399,54 +492,78 @@ Let's make sure users can't get to our "/benches/new" or "benches/:id/review" ro
 
 Test your work before continuing.
 
+[onEnter]: https://github.com/appacademy/curriculum/blob/master/react/readings/on_enter.md
+[context-docs]: https://facebook.github.io/react/docs/context.html
+[store-context]: https://egghead.io/lessons/javascript-redux-passing-the-store-down-implicitly-via-context
+
+---
+
 ## Phase 10: Filtering By Seating
 
-We're going to implement search filters on our `Search` components to filter benches by their geographic bounds and number of seats.
+In this section, we want to build the functionality that will allow our users to filter
+benches by both their geographic bounds and their number of seats.
 
-### Update your API.
+---
+
+### Update your API
 
 * Update your `Benches#index`:
   * Modify `bench_params` to accept `:max_seating` and `:min_seating`.
   * Filter your `@benches` by `params[:max_seating]` and
-  `filters[:min_seating]`, if present.
+  `params[:min_seating]`, if present.
 
-### `FilterParamsStore`
+---
 
-* Create a `FilterParamsStore`. Your store should keep track of `minSeats`, `maxSeats`, and `bounds`, and `emitChange` whenever those values change.
+### Filter Actions
 
-* Create a public method for retrieving the store's information.
+Next, let's write a new action-creator. We're going to define a single action-creator,
+`updateFilter`, that will be invoked whenever we update one of the following:
+  * bounds
+  * min seating
+  * max seating
 
-* Create `FilterConstants` for updating your max seats, min seats, and bounds. Dispatch the appropriate actions in your `FilterStore`.
+It should look like this:
 
+```javascript
+  export const updateFilter = (filter, value) => ({
+    type: FilterConstants.UPDATE_FILTER,
+    filter,
+    value
+  });
+```
 
-### `FilterActions`
+The first parameter, filter, will tell our `FilterReducer` which property to update,
+and the second parameter, value, will specify the value of that filter.
 
-* Create `FilterActions` that `updateMaxSeating`, `updateMinSeating`, and `updateBounds` by dispatching to your `FilterStore`.
+Start by refactoring the `FilterReducer` and `SearchContainer` to use this new
+action-creator instead of `updateBounds`. Your `FilterReducer` should have a default
+state that looks like:
 
-### Update your `Search` components.
+```
+  {
+    bounds:{},
+    minSeating: 1,
+    maxSeating: 10
+  }
+```
 
-**`Search`:**
-  * Modify `Search` to hold `filterParams` information in its state.
-  * Add a `FilterStoreParams` listener to `Search` that:
-    * calls `setState` for `filterParams`.
-    * calls `BenchActions.fetchAllBenches` with `FilterStore.params` to update the `BenchStore`.
+Also be sure to refactor `FilterConstants`.
+---
 
-**`BenchMap`:**
-  * Refactor your `BenchMap` component to call `FilterActions.updateBounds`
-  whenever it idles.
+### `FilterForm`
 
-Check that your map is correctly rendering benches before moving on.
+Create a new component, `FilterForm`. It should be a sub-component of `Search`.
+`FilterForm` should render a two input tags, one for `minSeating` and one for
+`maxSeating`.
 
-### `Filters` component ###
+Update your `SearchContainer` to pull `minStating` and `maxSeating` from the state
+to pass as props. `SearchContainer` should also pass an `updateFilter` prop to `Search`,
+which should then pass it on to `BenchMap` and `FilterForm`. `updateFilter` should be the
+`onChange` handler of the input tags.
 
-Create a `Filters` component that will render a form for filtering benches by
-seating.
-* It should be a child component of the `Search` view (not a child route, but
-component rendered within `Search` itself).
-* It should input fields for `maxSeats` and `minSeats`.
-* When the user types in any field, call an appropriate `FilterAction` to update your `FilterStore`.
-
-Verify that your `Filters` form can cause your `BenchIndex` and `BenchMap` to re-populate before moving on.
+You should be able to see the markers change on the screen as you toggle the values
+in the form!
+---
 
 ## Phase 11: Show Page
 Create a `BenchShow` component. It should be a full-page component displaying a

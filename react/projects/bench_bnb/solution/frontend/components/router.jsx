@@ -9,7 +9,7 @@ import BenchShowContainer from './bench_show/bench_show_container';
 import ReviewFormContainer from './bench_show/review_form_container';
 import SessionFormContainer from './session_form/session_form_container';
 
-const AppRouter = (props, {store}) => (
+const AppRouter = (_, {store}) => (
   <Router history={ hashHistory }>
     <Route path="/" component={ App }>
       <IndexRoute component={ SearchContainer } />

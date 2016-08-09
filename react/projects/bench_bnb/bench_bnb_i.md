@@ -180,6 +180,9 @@ So far, we have built our redux store and told it to use our bench reducing func
 Test that everything works:
   0. Add a doc-ready callback to your entry point
   0. Inside the callback, `configureStore()` and assign the store to the window
+    ```javascript
+      window.Store = configureStore();
+    ```
   0. Visit localhost:3000
   0. Open the console and type Store.getState()
 
@@ -215,7 +218,7 @@ that nothing fails silently from typos.
 
 ---
 
-#### Action Creators
+#### Action-Creators
 
 Next, we want to create a couple functions that create `action` objects in a
 reliable, tidy manner. Remember that `action` objects are just plain-old javascript
@@ -458,7 +461,7 @@ Check now that when we run this code in the console..
 
 We should see a `console.log` of all our bench data!
 
-Finally, we need to re-work our `BenchMiddleware` so that instead of a`console.log`ing
+Finally, we need to re-work our `BenchMiddleware` so that instead of `console.log`ing
 the bench data, it dispatches the data as part of an action!
 
   * Import the `receiveBenches` action-creator
@@ -617,9 +620,21 @@ your `BenchIndex` component. You make the call!
 
 ### Render Time!
 
-  * In your entry file, create a document ready callback.
-  * In that callback, invoke `ReactDOM.render`, and render the `BenchIndexContainer`
-  into the `#content` div
+In your entry file, let's edit the document-ready callback.
+
+  * Import the `Provider` from the `react-redux` library
+
+```javascript
+  import { Provider } from `react-redux`
+```
+
+Remember, the Provider's sole purpose is to make the `Store` globally available in
+our component hierarchy. Without the `Provider`, our `connect` functions won't work.
+
+  * Wrap the `BenchIndexContainer` in the `Provider` and pass the `Provider` the
+  configured `Store` as a prop; let's call this `root`
+  * In the callback, invoke `ReactDOM.render`, and render the `root` into the
+  `#content` div
   * Your app should now be populated with benches!!
 
 **Call over a TA** and show them your container and presentational components.
