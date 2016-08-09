@@ -5,28 +5,30 @@
 In this project, you will create an app that lets people create and manage a todo list. Users of your app will be able to add items to their todo list, delete items from it, and mark items as either "done" or "not done."
 Eventually, every item in the list will be able to have its own sub-list of "steps" that can be added, deleted, and marked as "done."
 
-Similarly to the Redux Piano app, you will be using React and Redux on your frontend, but this project will also have a Rails backend so that every change made on the frontend will persist.
+Today's project uses the React/Redux frontend that you used on the Redux Piano app yesterday. However, this project will also have a Rails backend so that every change made on the frontend will persist.
 
 ## Phase 0: Rails backend
 
-Create a Rails app that stores Todos and serves JSON in response to HTTP requests.
+In this phase you will create a Rails app that stores Todos and serves JSON in response to HTTP requests.
 
-+ create a new rails project using `--database=postgresql` and `--skip-turbolinks`
-  + update your gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
-+ create a `Todo` model with `title`, `body`, and a boolean `done`
-+ create a `TodosController` to handle API requests
-  + nest under `api/` and call it `Api::TodosController`
-  + it will need `index`, `create`, `update`, and `destroy` actions
-  + don't forget that it will be serving JSON
-+ create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`
-  + don't forget to update `routes.rb` to `root to: Staticpages#root`
-+ start your server so that it can respond to HTTP requests
++ Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
+  + Update your gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
++ Create a `Todo` model with `title`, `body`, and a boolean `done`
++ Create a `TodosController` to handle API requests
+  + Nest your routes under `api/` and call your controller `Api::TodosController`
+  + Your controller will need `index`, `create`, `update`, and `destroy` actions
+  + Make your controller actions serve JSON-formatted responses
++ Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`
+  + Don't forget to update `routes.rb` to `root to: Staticpages#root`
++ Start your server so that it can respond to HTTP requests
+
+** Test your API: Try out your API endpoints using Postman. You should be able to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive appropriate responses. **
 
 ## Phase 1: Frontend structure
 
-Create a file system to structure your frontend, configure your npm packages and webpack, and test that your frontend configuration works. 
+In this phase you will create a file system to structure your frontend, configure your npm packages and webpack, and test that your frontend configuration works.
 
-+ create a `/frontend` folder at the root directory of your project to hold your frontend:
++ Create a `/frontend` folder at the root directory of your project:
 ```
 frontend
   + actions
@@ -38,15 +40,15 @@ frontend
   redux_todos.jsx
 ```
 + Run `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015` to set up React and Redux
-  + this command installs the npm packages that we will be using to create our app` 
-+ set up your `webpack.config.js` file so that your bundle.js ends up in `app/assets/javascripts`
-  + run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them
-+ set up your entry file (`redux_todos.jsx`) to render a message into your `#content` container
-  + test this setup by viewing your page at `localhost:3000`
+  + This command installs the npm packages that we will be using to create our app` 
++ Set up your `webpack.config.js` file so that your bundle.js ends up in `app/assets/javascripts`
+  + Run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them
+
+** Test your setup: Set up your entry file (`redux_todos.jsx`) to render an `<h1>it worked</h1>` into your `#content` container. You should be able to visit `localhost:3000` and confirm that you can see that `it worked`. **
 
 ## Phase 2: Todos Redux structure
 
-Create a Redux loop, including a store with reducers, action creators and constants, and middleware and API utils. This is how your frontend will get information from your backend, store it, and pass it to your frontend components.
+In this phase you will create a Redux loop, including a store with reducers, action creators and constants, and middleware and API utils. This is how your frontend will get information from your backend, store it, and pass it to your frontend components.
 
 ### Store
 
@@ -63,7 +65,7 @@ The Redux Store will hold a reference to our application state. The Store will a
 
 The reducers manage the shape of our application state.
 
-We want to build a state that has the following shape:
+We want to build a state that allows us to easily add, remove, and update todos. In a hash, we get O(1) querying, updating, and deleting if we know the id - in an array, all of these operations would be O(n). Therefore, we'll be using the following shape:
 
 ```
 {
@@ -93,9 +95,11 @@ We want to build a state that has the following shape:
 
 + Remember that reducing functions should:
 
-  + Never modify the oldState object
+  + Never modify the `oldState` object
   + Return the default state if no arguments are passed
-  + Return the oldState if the reducer doesn't care about the action
+  + Return the `oldState` if the reducer doesn't care about the action
+
+** N.B. ** You can use [`Object.freeze`][object.freeze] to prevent yourself from accidentally mutating the `oldState`.
 
 Let's start by just setting up our `TodoReducer` to return its default state:
 
@@ -115,12 +119,13 @@ export default TodoReducer;
 
 Create a new file, `reducers/root_reducer.js`. This file will be responsible for combining our multiple, domain-specific reducers. It will `export default` a single `rootReducer`.
 
-  + Import `combineReducers` from `redux` and your `TodoReducer` function
+  + Import `combineReducers` from `redux`
+  + Import your `TodoReducer` function as `TodoReducer`
   + Create a `rootReducer` using `combineReducers`
 
 So far, our default application state looks like this:
 
-```
+```js
 {
   todos: {}
 }
@@ -128,25 +133,27 @@ So far, our default application state looks like this:
 
 ### Selectors
 
-Selectors allow components to get pieces of the application state formatted in a specific way - I think of them as the application state's "views." We'll be writing a selector called `allTodos` to present the todos as an array, rather than as values in an object.
+Selectors are "getter" methods for the application state. They often return a subset of the state data formatted in a specific way. 
 
-Selectors don't have to be long functions - I used `map` in conjunction with `Object.keys` for this function, and set a reasonable default of `[]`.
++ Write a selector called `allTodos` to present the todos as an array, rather than as values in an object.
+
+** N.B. ** Selectors don't have to be long functions - a one-line function that uses `map` in conjunction with `Object.keys` and sets a reasonable default of `[]` would work just fine.
 
 ### Action Creators
 
-Now you'll write the code that creates the `action`s that tell your `TodoReducer` how to update the state. 
-
-Remember that: 
-  + `action` objects are just plain-old javascript objects that also have a `type` property.
-  + Action creators don't directly interact with `Middleware` or the `Store`; they just produce objects. We then send those objects through our `Middleware` and to the `Store` by invoking `Store#dispatch`.
+Now you'll write the code that creates the `actions` that tell your `TodoReducer` how to update the state.
 
 Now let's write a couple action creators. The first one will request `todos` from the backend, and the second one will receive the requested `todos`.
 
-#### requestTodos
+Remember that: 
+  + `action` objects are plain-old javascript objects that also have a `type` property.
+  + Action creators don't directly interact with `Middleware` or the `Store`; they just produce objects. We then send those objects through our `Middleware` and to the `Store` by invoking `Store#dispatch`.
 
-In order to request `todos` from the backend, we need to send a `GET` request to the appropriate URL. We don't need to pass any information in order for this request to succeed, so the `action` that triggers this event will only need the appropriate `type` (I'd recommend `REQUEST_TODOS`).
+#### `requestTodos`
 
-#### receiveTodos
+In order to request `todos` from the backend, we need to send a `GET` request to the appropriate URL. We don't need to pass any information in order for this request to succeed, so the `action` that triggers this event will only need the appropriate `type` (`REQUEST_TODOS`).
+
+#### `receiveTodos`
 
 This action lets our state know to reset its list of `todos` and, as such, will also need to pass along a new set of `todos`. Therefore, our `receiveTodos` action creator should accept an argument `todos` and return an `action` with `type` `RECEIVE_BENCHES` and a `todos` property that represents all of our todo data.
 
@@ -155,7 +162,7 @@ This action lets our state know to reset its list of `todos` and, as such, will 
 We use constants to represent `actionTypes`. They are used whenever `actionTypes` are being set or read (i.e., in our action creators and in the `switch` statements in our reducers and middleware).
 
 + Create and export constants both for `REQUEST_BENCHES` and `RECEIVE_BENCHES`.
-  + Technically, the values of these constants could be any unique value, but our convention is to use the string literal of the constant (e.g., `const REQUEST_BENCHES = "REQUEST_BENCHES"`) 
+  + `export const REQUEST_BENCHES = "REQUEST_BENCHES";`
 
 Don't forget to export both of the functions you just made, as well as the constants we created!
 
@@ -167,7 +174,7 @@ Our `TodoMiddleware` will be responsible for triggering the api calls that popul
 
 + Create a file `middleware/todo_middleware.js`
 + Import the relevant constants from your `todo_actions` file
-+ Refer to the [Middleware]:'../../readings/middleware.md' reading and set up the basic structure of a redux middleware function
++ Refer to the [Middleware][middleware_reading] reading and set up the basic structure of a redux middleware function
 + Implement a `switch` statement on `action.type` with a `default` that simply calls `next` with the `action` given to it
 + Now let's add a `case` for `REQUEST_BENCHES` that `console.log`s "here is where todos would be fetched"
 + Export your `TodoMiddleware`
@@ -186,23 +193,23 @@ The pattern for implementing it is relatively simple:
 
 Now that you've created a `MasterMiddleware`, add it to your `createStore` function in `store/store.js`
 
-** Test this out by setting `window.Store = Store` and `window.requestTodos = requestTodos` and running `Store.dispatch(requestBenches())` - you should see the logged statement in your console. **
+** Test this out by setting `window.Store = Store` and `window.requestTodos = requestTodos` in your entry file. Then, run `Store.dispatch(requestBenches())` in your browser console - you should see the logged statement in your console. **
 
 ### API Utils
 
-Your API utilities are what actually make the `$.ajax` requests that will hit your backend and fetch or (eventually) update your data. They are called by your middleware, and the data they receive is passed on to the store. In general, these utility functions will accept one argument: a callback that they should call if the request is successful.
+Your API utilities are what actually make the `$.ajax` requests that will hit your backend and fetch or (eventually) update your data. They are called by your middleware, and the data they receive is passed on to the store. In general, these utility functions will accept two arguments: a callback to run if the request is successful, and a callback to run in case of an error.
 
 + Create a file `util/todo_api_util.js`
 + Write a function that accepts a `success` argument and passes that function as the success callback to a `$.ajax` call
 
 Your function should look something like the following:
 ```javascript
-export const fetchTodos(success){
+export const fetchTodos(success, error){
   $.ajax({
     method: // ,
     url: //,
     success,
-    error: () => console.log('error')
+    error
   })
 }
 ```  
@@ -270,14 +277,12 @@ Create React components to display your todo list and its items
 
 The `Root` component serves to wrap your `App` component with a `Provider`. The `Provider` gives all of your components access to your `Store`, allowing them to read the application state and dispatch actions.
 
-This component is very easy to write.
-
 + Create a file `components/root.jsx`
 + Import React and the `react-redux` `Provider`
 + Even though you haven't written your `App` component yet, import it
 + This component can be a functional component, receiving (and destructuring) its props (your `Store`) as an argument, and returning a block of `jsx` code.
 
-Your `Root` will probably end up looking like the following:
+Your `Root` should look like the following:
 ```javascript
 const Root = ({store}) => (
   <Provider store={store}>
@@ -290,7 +295,7 @@ Don't forget to update your entry file to render your `Root` component into `#co
 
 ### App
 
-This component will hold all of the top-level concerns of your app. In this case, that will only be the TodoList, but nonetheless it's a good design pattern to get used to.
+This component will hold all of the top-level concerns of your app. A top-level concern is a feature of the app that functions on its own and as such is not nested under any other features. In this case, that will only be the TodoList, but nonetheless it's a good design pattern to get used to.
 
 Your `App` component can also be functional, because it doesn't need to use any of React's lifecycle hooks. Because it doesn't rely on any of its props, the component doesn't need to receive any arguments.
 
@@ -306,15 +311,13 @@ This component will show the items in our todo list.
 
 The goal of a container component is to allow the presentational component to be as simple and lightweight as possible. To this end, we map the application state and the `Store`'s dispatch to a set of props that get passed to the presentational component.
 
-Refer to the [components]:'../../readings/components.md' and [connect]:'../../readings/redux_connect.md' reading if you need a refresher on container components.
+Refer to the [components][components_reading] and [connect][connect_reading]reading if you need a refresher on container components.
 
 + Create a file `components/todo_list_container.js`
 + Import both the `connect` function and the (as of yet unwritten) `TodoList` presentational component
 + Create `mapStateToProps` and `mapDispatchToProps` functions for your `TodoList` component
-  + Think about what part of the state this component will need access to
-    + Use the `allTodos` selector you created
-  + Plan out what actions this component will need to dispatch
-    + Use the `fetchTodos` action you created
+  + Use the `allTodos` selector you created to give this component access to a list of todos
+  + Use the `fetchTodos` action you created to allow this component to dispatch an action to load todos from the database
 + Pass your `mapStateToProps` and `mapDispatchToProps` functions to `connect`
 + Call this `connect` function with your `TodoList` component as an argument
 + Export the result of that function call
@@ -332,12 +335,12 @@ If we've done our job with our container component, all this presentational comp
 
 ## Phase 4: TodoForm
 
-Create a form that allows users to create new todo items.
+In this phase you will create a form that allows users to create new todo items.
 
 You've already set up a redux cycle - now it's time to flesh it out so that a user can create todo list items. You will need to:
 
 + Create new action creator methods (in `actions/todo_actions`)
-+ Create a new API utility helper function (in `util/todo_api_util`) that `POST`s a todo list item
++ Create a new API utility helper function (in `util/todo_api_util`) that sends `POST` requests to create a todo list item
 + Add new `case`s to your middleware's `switch` statement that use your new API utility function 
 + Add new `case`s to your reducer's `switch` statement that handle the reception of a newly created todo list item
 + Create a new component (`components/todo_form`) that dispatches actions with your new `actionType`s
@@ -348,19 +351,20 @@ You've already set up a redux cycle - now it's time to flesh it out so that a us
 
 ## Phase 5: Updating and Deleting Todos
 
-Add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them. This will require you to:
+In this phase, you will add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them. This will require you to:
 
 + Create new action creator methods (in `actions/todo_actions`)
 + Create new API utility helper functions (in `util/todo_api_util`) that `PATCH` or `DELETE` a todo list item
 + Add new `case`s to your middleware's `switch` statement that use your new API utility functions
 + Add a new `case` to your reducer's `switch` statement that handles the deletion of a todo list item
   + Your `case` that receives a newly created todo list item should work for `PATCH`ed items as well
++ Disable the button while the dispatch is pending
 
 ## Phase 6: Steps Redux structure
 
 ### Refactoring and setup
 
-Update your app so that each todo list item can have its own sub-list of `steps`. You will need to build out your backend, your redux cycle, as well as add several new components for this to work.
+In this phase you will update your app so that each todo list item can have its own sub-list of `steps`. You will need to build out your backend, your redux cycle, as well as add several new components for this to work.
 
 Let's start by getting your `TodoListItem`s ready for their own sub-lists by refactoring their display into multiple parts - one part, the top-level `TodoListItem`, will now hold another part, a `TodoDetailView`. The `TodoDetailView` should hold everything about the todo list item other than its title and a button to change its current status, and will eventually hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Eventually we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `Store`.
 
@@ -370,10 +374,10 @@ Create a new set of API endpoints that will serve `Steps` (each with a `title`, 
 
 ### Redoing Redux
 
-Create another Redux cycle for `Step`s, the sub-items within a given todo. You will need to:
+Create another Redux cycle for `Steps`, the sub-items within a given todo. You will need to:
 
 + Update the store
-  + Add another reducer to our `rootReducer` that manages the `steps` part of the application state
+  + Create another reducer called `StepsReducer` and add it to your reducer via `combineReducers`
   + Add another selector that will allow components to get the steps as an array
 + Create a new `actions` file to hold `steps` action creators
   + Create new `step` constants
@@ -404,3 +408,9 @@ Suggested components include:
   + adding a time when something is due
     + sort by due date
     + item pops up when it is due
+
+
+[object.freeze]: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze'
+[middleware_reading]: '../../readings/middleware.md'
+[components_reading]: 'https://github.com/appacademy/curriculum/react#w7d1'
+[connect_reading]: 'https://github.com/appacademy/curriculum/react#w7d1'
