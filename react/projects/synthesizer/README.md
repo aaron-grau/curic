@@ -654,6 +654,9 @@ Now for the meat of the method:
 * Define and export a `Track` component, a `div` containing the name of the `track` and a "Play" button.
 * Disable the "Play" button if `recording` or already `playing`, and `onClick` `onPlay(track)`.
 
+#### Update Buttons
+* Don't forget to update your "Start", "Stop", and "Play" buttons so that they are disabled if a track is playing.
+
 ---
 
 ## Phase 8: Style Your App
