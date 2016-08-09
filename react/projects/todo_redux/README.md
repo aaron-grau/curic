@@ -204,9 +204,24 @@ Remember that:
 
 In order to request `todos` from the backend, we need to send a `GET` request to the appropriate URL. We don't need to pass any information in order for this request to succeed, so the `action` that triggers this event will only need the appropriate `type` (`REQUEST_TODOS`).
 
+Your code will look like the following:
+```js
+export const requestTodos = () => ({
+  type: REQUEST_TODOS
+});
+```
+
 #### `receiveTodos`
 
 This action lets our state know to reset its list of `todos` and, as such, will also need to pass along a new set of `todos`. Therefore, our `receiveTodos` action creator should accept an argument `todos` and return an `action` with `type` `RECEIVE_TODOS` and a `todos` property that represents all of our todo data.
+
+Your code will look like the following:
+```js
+export const receiveTodos = todos => ({
+  type: RECEIVE_TODOS,
+  todos
+});
+```
 
 #### Constants
 
@@ -459,28 +474,102 @@ Follow these steps:
 
 In this phase you will update your app so that each todo list item can have its own sub-list of `steps`. You will need to build out your backend, your redux cycle, as well as add several new components for this to work.
 
-Let's start by getting your `TodoListItem`s ready for their own sub-lists by refactoring their display into multiple parts - one part, the top-level `TodoListItem`, will now hold another part, a `TodoDetailView`. The `TodoDetailView` should hold everything about the todo list item other than its title and a button to change its current status, and will eventually hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Eventually we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `Store`.
+Let's start by getting your `TodoListItem`s ready for their own sub-lists by refactoring their display into multiple parts. Follow these steps:
 
-### Redoing Rails
++ Create a file `components/todo_detail_view.jsx` to hold a component `TodoDetailView`
+  + Refactor your `TodoListItem` so that it only renders the item's title and a button to change its status
+  + Fill out your `TodoDetailView` so that it renders all of the todo item's other information 
 
-Create a new set of API endpoints that will serve `Steps` (each with a `title`, a `todo_id`, and a boolean `done` value) as JSON. You should be able to do this with very little instruction.
+** N.B. ** Eventually, your `TodoDetailView` will hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Also, we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `Store`.
+
+### Adding a Steps API
+
+In this section you will create a new set of API endpoints that will serve `Steps` (each with a `title`, a `todo_id`, and a boolean `done` value) as JSON.
+
++ Create a `Step` model with `title`, `todo_id`, and a boolean `done`
++ Create a `StepsController` to handle API requests
+  + Nest your routes under `api/` and call your controller `Api::StepsController`
+    + Nest your `create` and `index` actions under `:todos`
+    + Don't nest your `update` and `destroy` actions under `:todos`
+  + Make your controller actions serve JSON-formatted responses
+
+** Test your code: in the console, test out your new API endpoints by making `$.ajax` calls to them. **
 
 ### Redoing Redux
 
-Create another Redux cycle for `Steps`, the sub-items within a given todo. You will need to:
+In this section you will create another Redux cycle for `Steps`, the sub-items within a given todo.
 
-+ Update the store
-  + Create another reducer called `StepsReducer` and add it to your reducer via `combineReducers`
-  + Add another selector that will allow components to get the steps as an array
-+ Create a new `actions` file to hold `steps` action creators
-  + Create new `step` constants
-+ Create new API utility functions that will make `$.ajax` requests to your backend's new API endpoints
-+ Add a new `StepMiddleware` to your `MasterMiddleware`
+Follow these steps:
+
+#### API Utils
+
+In this section you will create parallel API utils to those in your `todo_api_util.js` file, but for interacting with your new `Steps` API.
+
++ Create a file `util/step_api_util.js` to hold step-related API utility functions
+  + Write `fetchSteps`, `createStep`, `updateStep`, and `destroyStep` functions
+  + These functions will make `$.ajax` requests to your backend's new API endpoints
+
+** Test your code **
+
+#### Update the store
+
+Because each `step` belongs to a todo item, we are going to nest each `step` under its `todo_id`. We could store each todo's steps as an array, but we'd run into the same problems we discussed earlier with our collection of todos. Because we want O(1) insertion, updating, and removing for a single step, we would be better off if we stored them as value pairs in an object with their ids as their keys.
+
+Your application state will end up looking like this:
+```js
+{
+  todos: {
+    1: {
+      id: 1,
+      title: "take a shower",
+      body: "and be clean",
+      done: false
+    }
+  },
+  steps: {
+    1: { // this is the todo_id for all of the following steps
+      1: { // this is the step with id = 1
+        id: 1,
+        title: "walk to store",
+        done: false,
+        todo_id: 1
+      },
+      2: { // this is the step with id = 2
+        id: 2,
+        title: "buy soap",
+        done: false,
+        todo_id: 1
+      }
+    }
+  }
+}
+```
+
++ Create another reducer called the `StepsReducer` in `reducers/step_reducer.js`
+  + Set a default action to take in its `switch` statement
+  + Add this reducer to your `rootReducer` via `combineReducers`
++ Add another selector to your `reducers/selectors.js` file that will allow components to get the steps as an array
+
+#### Action Creators
+
+In this section you will create essentially parallel action creators to those in your `todo_actions` file, but for steps instead.
+
++ Create a file `actions/steps_actions.js`
+  + Write action creators `requestSteps`, `receiveSteps`, `createStep`, `toggleStep`, `receiveStep`, and `destroyStep` 
+  + Create new `step` constants for all of the action creators above
+  + Export all of your action creators and constants
+
+#### Middleware
+
+In this section you will create a new middleware to use your Step API utils in case it receives an action with the correct type. This will also be very similar to your `TodoMiddleware`.
+
++ Create a file `middleware/step_middleware.js` to hold a `StepMiddleware`
   + This middleware will use the API utility functions that you just wrote and pass along the HTTP Responses to your `Store`
+  + Add your new `StepMiddleware` to your `MasterMiddleware` call
 
 ## Phase 7: steps components
 
-Create React components to display the steps for a given todo list item, as well as a form that allows users to create new steps. (They will probably live in that item's TodoDetailView.)
+In this phase, you will create React components to display the steps for a given todo list item, as well as a form that allows users to create new steps. These components will be rendered inside your `TodoDetailView` component.
 
 Suggested components include:
 
