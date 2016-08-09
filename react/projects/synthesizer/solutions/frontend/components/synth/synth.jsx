@@ -16,26 +16,24 @@ class Synth extends React.Component {
   }
 
   onKeyUp(e) {
-    const { notes, recording, keyReleased, addNotes } = this.props;
-    keyReleased(e.key);
+    this.props.keyUp(e.key);
 
-    if (recording) {
-      addNotes(notes);
+    if (this.props.recording) {
+      this.props.addNotes(this.props.notes);
     }
   }
 
   onKeyDown(e) {
-    const { notes, recording, keyPressed, addNotes } = this.props;
-    keyPressed(e.key);
+    this.props.keyDown(e.key);
 
-    if (recording) {
-      addNotes(notes);
+    if (this.props.recording) {
+      this.props.addNotes(this.props.notes);
     }
   }
 
   playNotes () {
     NOTE_NAMES.forEach((note, idx) => {
-      if (this.props.notes.includes(note)) { // play notes present in state
+      if (this.props.notes.indexOf(note) !== -1) { // play notes present in state
         this.notes[idx].start();
       } else {
         this.notes[idx].stop();
