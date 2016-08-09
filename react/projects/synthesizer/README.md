@@ -103,15 +103,29 @@ from the console. Try a frequency of 800!
 #### `TONES` and `NOTE_NAMES` Constants
 
 * Create a `util/tones.js` file.
-* From there export a `TONES` constant, a JavaScript object mapping note names to frequencies.
+* From there export a `TONES` constant, a JavaScript object mapping note names to frequencies. Something like this,
+
+  ```js
+  {
+    C5: 523.25,
+    D5: 587.33,
+    E5: 659.25,
+    F5: 698.46,
+    G5: 783.99,
+  }
+  ```
+
+Feel free to copy and paste the object above. Use [this table][note-frequencies] as a resource for additional keys, if you're interested.
 * Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
 
 We'll be using these constants later to map our keyboard keys to notes names to
 tones.
 
-Use [this table][note-frequencies] as a resource.
+
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
+
+---
 
 ## Phase 3: Notes Redux Structure
 
@@ -499,7 +513,7 @@ names of the notes actually played (`notes`).
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
 + Add a `switch` statement and return `state` as the `default` case.
 + Add a case for each action type.
-  + `START_RECORDING` - Increment `currTrackId`. Create a new track with the appropriate key-value pairs for `id`, `name`, `roll` and `timeStart`. SUse
+  + `START_RECORDING` - Increment `currTrackId`. Create a new track with the appropriate key-value pairs for `id`, `name`, `roll` and `timeStart`. Use
  [`merge`][merge-lodash] to create a new object with the new track added to the
  state. Return this object.
   + `STOP_RECORDING` - Add a new roll to the current track's `roll` containing an empty array of `notes`, ensuring that the track is silent when it ends.
