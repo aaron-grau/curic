@@ -1,18 +1,69 @@
 const Board = require('./board.js');
 
-const View = function ($el) {
-  this.$el = $el;
+class View {
+  constructor($el) {
+    this.$el = $el;
 
-  this.board = new Board(20);
-  this.setupGrid();
+    this.board = new Board(20);
+    this.setupGrid();
 
-  this.intervalId = window.setInterval(
-    this.step.bind(this),
-    View.STEP_MILLIS
-  );
+    this.intervalId = window.setInterval(
+      this.step.bind(this),
+      View.STEP_MILLIS
+    );
 
-  $(window).on("keydown", this.handleKeyEvent.bind(this));
-};
+    $(window).on("keydown", this.handleKeyEvent.bind(this));
+  }
+
+  handleKeyEvent(event) {
+    if (View.KEYS[event.keyCode]) {
+      this.board.snake.turn(View.KEYS[event.keyCode]);
+    }
+  }
+
+  render() {
+    // simple text based rendering
+    // this.$el.html(this.board.render());
+
+    this.updateClasses(this.board.snake.segments, "snake");
+    this.updateClasses([this.board.apple.position], "apple");
+  }
+
+  updateClasses(coords, className) {
+    this.$li.filter(`.${className}`).removeClass();
+
+    coords.forEach( coord => {
+      const flatCoord = (coord.i * this.board.dim) + coord.j;
+      this.$li.eq(flatCoord).addClass(className);
+    });
+  }
+
+  setupGrid() {
+    let html = "";
+
+    for (let i = 0; i < this.board.dim; i++) {
+      html += "<ul>";
+      for (let j = 0; j < this.board.dim; j++) {
+        html += "<li></li>";
+      }
+      html += "</ul>";
+    }
+
+    this.$el.html(html);
+    this.$li = this.$el.find("li");
+  }
+
+  step() {
+    if (this.board.snake.segments.length > 0) {
+      this.board.snake.move();
+      this.render();
+    } else {
+      alert("You lose!");
+      window.clearInterval(this.intervalId);
+    }
+  }
+
+}
 
 View.KEYS = {
   38: "N",
@@ -22,53 +73,5 @@ View.KEYS = {
 };
 
 View.STEP_MILLIS = 100;
-
-View.prototype.handleKeyEvent = function (event) {
-  if (View.KEYS[event.keyCode]) {
-    this.board.snake.turn(View.KEYS[event.keyCode]);
-  } 
-};
-
-View.prototype.render = function () {
-  // simple text based rendering
-  // this.$el.html(this.board.render());
-
-  this.updateClasses(this.board.snake.segments, "snake");
-  this.updateClasses([this.board.apple.position], "apple");
-};
-
-View.prototype.updateClasses = function(coords, className) {
-  this.$li.filter("." + className).removeClass();
-
-  coords.forEach( coord => {
-    const flatCoord = (coord.i * this.board.dim) + coord.j;
-    this.$li.eq(flatCoord).addClass(className);
-  });
-};
-
-View.prototype.setupGrid = function () {
-  let html = "";
-
-  for (let i = 0; i < this.board.dim; i++) {
-    html += "<ul>";
-    for (let j = 0; j < this.board.dim; j++) {
-      html += "<li></li>";
-    }
-    html += "</ul>";
-  }
-
-  this.$el.html(html);
-  this.$li = this.$el.find("li");
-};
-
-View.prototype.step = function () {
-  if (this.board.snake.segments.length > 0) {
-    this.board.snake.move();
-    this.render();
-  } else {
-    alert("You lose!");
-    window.clearInterval(this.intervalId);
-  }
-};
 
 module.exports = View;
