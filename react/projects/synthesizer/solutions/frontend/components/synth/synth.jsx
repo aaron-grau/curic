@@ -16,7 +16,8 @@ class Synth extends React.Component {
   }
 
   onKeyUp(e) {
-    this.props.keyUp(e.key);
+    // let { recording, notes, keyDown, addNotes } = this.props;
+    this.props.keyReleased(e.key);
 
     if (this.props.recording) {
       this.props.addNotes(this.props.notes);
@@ -24,7 +25,8 @@ class Synth extends React.Component {
   }
 
   onKeyDown(e) {
-    this.props.keyDown(e.key);
+    // let { recording, notes, keyDown, addNotes } = this.props;
+    this.props.keyPressed(e.key);
 
     if (this.props.recording) {
       this.props.addNotes(this.props.notes);
