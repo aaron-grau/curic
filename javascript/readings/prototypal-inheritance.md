@@ -202,21 +202,36 @@ current `Dog` instance**. That's why we use `call` to call the
 ES2015 greatly simplifies JavaScript inheritance. `class Dog extends Animal` is
 the syntactic-sugar equivalent of the surrogate trick from above.
 
-One can also invoke the original version of an overridden method using
-`super.methodName()`. This `super` is slightly different from Ruby, where
-`super` invokes the original method directly without having to include
-`.methodName`.
+One can access a parent class's overwritten functions using `super`. Within a
+child class's `constructor` function, simply call `super` with the necessary
+parameters for the base class's `constructor`. Less commonly, one can invoke the
+base-class version of an overwritten (non-constructor) function using
+`super.methodName()`.
 
 Note the use of `extends` and `super` below.
 
 ```js
-class RaceBicycle extends Bicycle {
+class Bicycle {
+  constructor(color, model) {
+    this.color = color;
+    this.model = model;
+  }
+
   action() {
-    const oldAction = super.action(); //oldAction === "rolls along"
+    return "rolls along";
+  }
+}
+
+class RaceBicycle extends Bicycle {
+  constructor(color, model, gears) {
+    super(color, model);
+    this.gears = gears;
+  }
+
+  action() {
+    const oldAction = super.action();
     return `${oldAction} at a blistering pace!`
   }
 }
 
 ```
-
-Bonus reading: [from `new Cat()` to `Cat.new()`](./new_cat-vs-cat.new.md)
