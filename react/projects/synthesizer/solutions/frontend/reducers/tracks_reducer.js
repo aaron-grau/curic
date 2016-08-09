@@ -62,6 +62,7 @@ export default tracks;
 //   "1":
 //   {
 //     id: 1,
+//     name: 'Track 1'
 //     roll:
 //     [ { notes: [ 'A5' ], timeSlice: 1250191 },
 //       { notes: [ 'C5', 'D5' ], timeSlice: 1265180 }
@@ -71,6 +72,7 @@ export default tracks;
 //   "2":
 //   {
 //     id: 2,
+//     name: 'Track 2'
 //     roll:
 //     [ { notes: [ 'B5', 'C6', 'C6' ], timeSlice: 253386 },
 //       { notes: [], timeSlice: 265216 } ],
