@@ -34,24 +34,21 @@ In Node, things are a little different:
 
 ```js
 // ./cat.js
-function Cat () {
-  // ...
-};
-
-Cat.prototype.meow = function () {
-  // ...
-};
+class Cat {
+  meow() {
+    // ...
+  }
+}
 
 module.exports = Cat;
 
 // ./dog.js
-function Dog () {
-  // ...
+class Dog {
+  bark() {
+    // ...
+  }
 };
 
-Dog.prototype.bark = function () {
-  // ...
-};
 
 module.exports = Dog;
 
@@ -85,7 +82,7 @@ Node's `require` does not import a module's global scope:
 // DOES NOT WORK
 
 // ./cat.js
-function Cat () {
+class Cat {
   // ...
 }
 
@@ -122,17 +119,17 @@ export. What if we want to define many chess pieces?
 
 ```js
 // ./lib/pieces/pawn.js
-function Pawn () {};
+class Pawn {};
 // ...
 module.exports = Pawn;
 
 // ./lib/pieces/knight.js
-function Knight () {};
+class Knight {};
 // ...
 module.exports = Knight;
 
 // ./lib/pieces/bishop.js
-function Bishop () {};
+class Bishop {};
 // ...
 module.exports = Bishop;
 
