@@ -33,7 +33,6 @@ Today we're using React.js and Redux to create our own musical keyboard!
   /frontend
     + /actions
     + /components
-    + /constants
     + /reducers
     + /store
     + /util
