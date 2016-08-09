@@ -2,6 +2,9 @@ import React from 'react';
 
 const Recorder = ({ recording, playing, startRecording, stopRecording}) => (
     <div className='recorder'>
+      <div className='recorder-title'>
+        Recorder
+      </div>
       <button
         className ='start-button'
         onClick={startRecording}

@@ -13,4 +13,4 @@ export const TONES = {
   G6: 1567.98
 };
 
-export const NOTES_NAMES = Object.keys(TONES);
+export const NOTE_NAMES = Object.keys(TONES);

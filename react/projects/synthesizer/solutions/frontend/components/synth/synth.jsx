@@ -45,12 +45,15 @@ class Synth extends React.Component {
 
   render() {
     this.playNotes();
-    const noteKeys = NOTE_NAMES.map((note, idx) => (
-      <NoteKey key={idx} note={note} />
-    ));
+    const noteKeys = NOTE_NAMES.map((note, idx) => {
+      return (<NoteKey key={idx} note={note} pressed={this.props.notes.includes(note)}/>);
+    });
 
     return (
       <div className="synth">
+        <div className="synth-title">
+          Redux Synthesizer
+        </div>
         <div className='note-key-list'>
           {noteKeys}
         </div>
