@@ -307,7 +307,7 @@ that does this for us: [`connect`][connect].
 
   ```js
   const mapDispatchToProps = dispatch => ({
-    keyDown: key => dispatch(keyPressed(key)),
+    keyPressed: key => dispatch(keyPressed(key)),
     ...
   });
   ```
@@ -341,9 +341,9 @@ Now let's create a jQuery listener for `keyup` and `keydown` events.
 
 * In your `Synth` class, import `$` from `jquery`.
 * Define a `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the event and call
-`this.props.keyUp`. Recap, `keyUp` is the function you defined in
+`this.props.keyPressed`. Recap, `keyPressed` is the function you defined in
 `mapDispatchToProps` in your `SynthContainer`.
-* Define another function called `onKeyDown(e)`. Call `this.props.keyDown` passing it the key from the KeyboardEvent.
+* Define another function called `onKeyUp(e)`. Call `this.props.keyReleased` passing it the key from the KeyboardEvent.
 * In `componentDidMount`, install the two listeners by calling the `on` methods on `$(document)`. For example,
 
   ```js
@@ -553,11 +553,11 @@ store.
 ### `Synth` Component
 
 * Rewrite `onKeyUp` and `onKeyDown` so that if `recording`, call `addNotes` passing it the store's `notes`.
-* Don't remove the calls to `keyUp` and `keyDown` though! Two things are now happening:
+* Don't remove the calls to `keyReleased` and `keyPressed` though! Two things are now happening:
   + Whenever the user presses/releases a key, the corresponding actions are dispatched to the store;
   + If you're recording, the notes currently in the store are saved to the end of the roll of the newest track in the state.
 
-Now your Synthesizer plays musical notes and records tracks! Nice.
+Now your synthesizer plays musical notes and records tracks! Nice.
 
 ---
 
