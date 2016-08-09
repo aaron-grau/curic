@@ -482,14 +482,14 @@ Let's take a closer look at a track object.
 },
 ```
 
-`roll` starts as an empty array. We need to know the current time a note is
-played to calculate when to play a note relative to the `timeStart` of the
-recording.
-
-While the user records a track, we'll need to update `roll` as the user presses new notes. We append into the `roll` an object with the following values:
+`roll` starts as an empty array.  While the user records a track, we'll need to
+update `roll` as the user presses new notes. We append into the `roll` an object
+with the following values:
 + `timeSlice` - the time elapsed since the track started recording;
-+ `notes` - an array of note names (eg. `['C3', 'E3', 'G3']`) are currently pressed.
-
++ `notes` - an array of note names (eg. `['C3', 'E3', 'G3']`)
+We need to know the current time a note is played to calculate when to
+play a note relative to the `timeStart` of the recording (`timeSlice`) and the
+names of the notes actually played (`notes`).
 
 + Create a `reducers/tracks_reducer.js` file and import your `TrackConstants`, and `merge` from `lodash/merge`
 + Initialize a variable `currTrackId` to `0`. This variable will be used set track ids and add notes to the newest recording.
@@ -597,7 +597,7 @@ add to the state a boolean `playing` to indicate if a track is playing or not.
 * Export the result of this call.
 * Render your `JukeBoxContainer` in your `App` component.
 
-##### `onPlay`
+#### `onPlay`
 
 `onPlay` is a [curried function][currying]. It takes as an argument a `track`
 object and returns a function. This function takes as an argument an event `e`.
@@ -643,12 +643,12 @@ Now for the meat of the method:
 [set-interval]:https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval
 [clear-interval]: https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval
 
-#### `JukeBox`
+#### `JukeBox` Component
 
 * [De-structure][destructure] its `props` argument.
 * Return a `div` containing a list of `Track` components, which we will write next.
 
-#### `Track`
+#### `Track` Component
 
 * Create a file `components/juke_box/track.jsx`.
 * Define and export a `Track` component, a `div` containing the name of the `track` and a "Play" button.
