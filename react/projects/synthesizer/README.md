@@ -101,11 +101,14 @@ code for this phase.
 Before moving on, test that you can initialize and play an instance of a `Note`
 from the console. Try a frequency of 800!
 
-#### `TONES` and `NOTES` Constants
+#### `TONES` and `NOTE_NAMES` Constants
 
 * Create a `util/tones.js` file.
 * From there export a `TONES` constant, a JavaScript object mapping note names to frequencies.
-* Export a `NOTES` constant, an array of all of the keys in `TONES`. We'll be using these constants later to map our keyboard keys to notes names to tones.
+* Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
+
+We'll be using these constants later to map our keyboard keys to notes names to
+tones.
 
 Use [this table][note-frequencies] as a resource.
 
@@ -208,7 +211,7 @@ on how to avoid array mutation.
 
 We're almost there. You might have noticed that `action.key` evaluates to the
 keyboard key pressed or released while our state's `notes` store an array of
-note names. So we must map our `key`s to a note names using our constant `NOTES`
+note names. So we must map our `key`s to a note names using our constant `NOTES_NAMES`
 and an array of valid keyboard keys.
 
 + Define an array called `validKeys` which stores the strings of all of your
@@ -330,9 +333,9 @@ state, lifecycle hooks, etc. Your `Synth` component will initialize an array of
 define key listeners on the window.
 
 * Redefine your `Synth` component so that it extends the `React.Component`.
-* Import your `NOTES` and `TONES` constants, and `Note` class.
+* Import your `NOTES_NAMES` and `TONES` constants, and `Note` class.
 * In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback, your `Note` constructor takes a frequency as a
-parameter, not a string. Hint: Use `NOTES` and `TONES` to return an array
+parameter, not a string. Hint: Use `NOTES_NAMES` and `TONES` to return an array
 mapping note names to the right frequency.
 * In the `render` function, render a list of `this.notes` to test.
 
