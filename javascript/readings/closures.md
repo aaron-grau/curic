@@ -86,15 +86,13 @@ By **closing over** (or **capturing**) the `count` variable, the `Counter` funct
 Compare that implementation against this one:
 
 ```javascript
-class Counter {
-  constructor() {
-    this._count = 0;
-  }
+function Counter () {
+  this._count = 0;
+}
 
-  fire() {
-    this._count += 1;
-    return this._count;
-  }
+Counter.prototype.fire = function () {
+  this._count += 1;
+  return this._count;
 }
 
 let counter = new Counter();
