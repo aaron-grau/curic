@@ -103,7 +103,7 @@ from the console. Try a frequency of 800!
 
 #### `TONES` and `NOTES` Constants
 
-* Create a `constants/tones.js` file.
+* Create a `util/tones.js` file.
 * From there export a `TONES` constant, a JavaScript object mapping note names to frequencies.
 * Export a `NOTES` constant, an array of all of the keys in `TONES`. We'll be using these constants later to map our keyboard keys to notes names to tones.
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteKey from './note_key';
 import $ from 'jquery';
-import { NOTES, TONES } from '../../constants/tones';
+import { NOTES, TONES } from '../../util/tones';
 import Note from '../../util/note';
 
 class Synth extends React.Component {
