@@ -381,7 +381,7 @@ Create another Redux cycle for `Step`s, the sub-items within a given todo. You w
 + Add a new `StepMiddleware` to your `MasterMiddleware`
   + This middleware will use the API utility functions that you just wrote and pass along the HTTP Responses to your `Store`
 
-## Phase 6: steps components
+## Phase 7: steps components
 
 Create React components to display the steps for a given todo list item, as well as a form that allows users to create new steps. (They will probably live in that item's TodoDetailView.)
 
@@ -399,3 +399,8 @@ Suggested components include:
   + tags for todos
   + steps can have sub-steps (polymorphic associations)
   + allow markdown or text styling in todos ([quill.js](https://quilljs.com/)
+  + update todo title & bodies
+  + sorting by priority
+  + adding a time when something is due
+    + sort by due date
+    + item pops up when it is due
