@@ -78,12 +78,16 @@ Last, we want to add follow toggle buttons for each of these results. When build
 You could make this work by setting data attributes on the button for `user-id` and `initial-follow-state`. In this context, that's kind of annoying. Instead, it is common to allow jQuery plugins to take options. I modified my `FollowToggle` like so:
 
 ```js
-const FollowToggle = function (el, options) {
-  this.$el = $(el);
-  this.userId = this.$el.data("user-id") || options.userId;
-  this.followState = this.$el.data("initial-follow-state") || options.followState;
-  // ...
-};
+
+class FollowToggle {
+  constructor(el, options) {
+    this.$el = $(el);
+    this.userId = this.$el.data("user-id") || options.userId;
+    this.followState = (this.$el.data("initial-follow-state") ||
+                        options.followState);
+    // ...
+  }
+}
 ```
 
 See if this helps you set up the follow toggle.
