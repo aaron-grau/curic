@@ -153,10 +153,8 @@ within `Asteroid`'s constructor function to access the code that sets properties
 such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a
 class's `#initialize` method in Ruby.
 
-**Note:** Using `inherits` forces one to call the base class's constructor function
-from within the child class's constructor function. But invoking an ES2015 class
-constructor without `new` (such as `MovingObject` with `call()`) throws an
-error.
+**Note:** Invoking an ES2015 class constructor without `new` (such as `MovingObject` with
+`call()`) throws an error. Hence the need to use ES5 syntax for this project. 
 
 ### `Game`
 

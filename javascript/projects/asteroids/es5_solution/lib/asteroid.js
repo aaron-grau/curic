@@ -9,25 +9,27 @@ const DEFAULTS = {
 	SPEED: 4
 };
 
-class Asteroid extends MovingObject {
-    constructor(options = {}) {
-      options.color = DEFAULTS.COLOR;
-      options.pos = options.pos || options.game.randomPosition();
-      options.radius = DEFAULTS.RADIUS;
-      options.vel = options.vel || Util.randomVec(DEFAULTS.SPEED);
-			super(options);
-    }
+const Asteroid = function (options = {}) {
+  options.color = DEFAULTS.COLOR;
+  options.pos = options.pos || options.game.randomPosition();
+  options.radius = DEFAULTS.RADIUS;
+  options.vel = options.vel || Util.randomVec(DEFAULTS.SPEED);
 
-    collideWith(otherObject) {
-      if (otherObject instanceof Ship) {
-        otherObject.relocate();
-            return true;
-      } else if (otherObject instanceof Bullet) {
-            this.remove();
-            otherObject.remove();
-            return true;
-        }
-    }
-}
+  MovingObject.call(this, options);
+};
+
+Util.inherits(Asteroid, MovingObject);
+
+Asteroid.prototype.collideWith = function (otherObject) {
+  if (otherObject instanceof Ship) {
+    otherObject.relocate();
+		return true;
+  } else if (otherObject instanceof Bullet) {
+		this.remove();
+		otherObject.remove();
+		return true;
+	}
+};
+
 
 module.exports = Asteroid;

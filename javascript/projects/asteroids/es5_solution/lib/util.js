@@ -23,6 +23,11 @@ const Util = {
   scale (vec, m) {
     return [vec[0] * m, vec[1] * m];
   },
+  inherits (ChildClass, BaseClass) {
+    function Surrogate () { this.constructor = ChildClass; }
+    Surrogate.prototype = BaseClass.prototype;
+    ChildClass.prototype = new Surrogate();
+  },
 
   wrap (coord, max) {
     if (coord < 0) {
