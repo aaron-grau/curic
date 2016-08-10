@@ -227,10 +227,12 @@ on how to avoid array mutation.
 
 [default-args]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/default_parameters
 [array-mutation]: https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread
+[union-lodash]: https://lodash.com/docs#union
 
-We're almost there. You might have noticed that `action.key` evaluates to the
-keyboard key pressed or released while our state's `notes` store an array of
-note names. So we must map our `key`s to a note names using our constant `NOTES_NAMES`
+
+We're almost there. Note that `action.key` references keyboard keys while
+`NOTE_NAMES` stores note names, so we must map any keyboard input to note names
+when calling our action creators. Let's do this using our constant `NOTES_NAMES`
 and an array of valid keyboard keys.
 
 + Define an array called `validKeys` which stores the strings of all of your
@@ -247,10 +249,9 @@ previous state.
 The `notes` reducer updates and returns to the store only a single slice of
 the state: the `notes` in play.
 
-*NB*: When we have state fields that are independent of each other, we split
-the reducer into multiple reducers that each handle its own slice of the state.
-This is called **reducer composition**, and it’s the fundamental pattern of
-building Redux apps.
+*NB*: When we have state fields that are independent of each other, we split the reducer into multiple reducers that each
+handle their own slices of the state. This is called **reducer composition**,
+and it’s the fundamental pattern of building Redux apps.
 
 We only have one reducer right now, but later as our app grows we'll be adding
 more. For now, let's define a root reducer that calls all of the reducers
@@ -289,8 +290,8 @@ The `App` component will hold all of the top-level components of your app.
 The `Root` component serves to wrap your `App` component with a
 [`Provider`][provider] component. The Provider is a special React Redux
 component that gives all of your container components access to your app's store
-without passing it explicitly to each container, allowing all of them to read
-your app's state and dispatch actions.
+without passing it explicitly to each component, allowing all of them to read
+your app's state and dispatch actions. These components that connect to the store are known as **container** components.
 
 + Create a file `components/root.jsx`.
 + Import `Provider` from `react-redux`, `React` and your `App` component.
@@ -314,18 +315,24 @@ returned by `configureStore`.
 
 ### `SynthContainer` Component
 
-The goal of a container component is to allow the presentational component to be
-as simple and lightweight as possible. To create a container, we need map the
-application state and the Store's dispatch to a set of props that get passed to
-the presentational component. Fortunately, `react-redux` provides a function
-that does this for us: [`connect`][connect].
+Container components are concerned with how things work such as data fetching
+and changes in your app's state. Presentational components are concerted with
+how things looks. Their distinctions allow for better separation of concerns and
+better usability of components.
+
+To create a container, we need map the application state and the Store's
+dispatch to a set of props that get passed to the presentational component.
+Fortunately, `react-redux` provides a function that does this for us: [`connect`][connect].
 
 * Create a new directory `components/synth`.
-* Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component to start.
-* Create a file `components/synth/synth_container.jsx`, and import [`connect`] from `react-redux` and your `Synth` component.
+* Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component. Have it render `<div>Synth</div>` to
+start and test.
+* Create a file `components/synth/synth_container.jsx`, and import [`connect`] from
+`react-redux` and your `Synth` component.
 * Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key.
 * Import your `keyPressed` and `keyReleased` action creators.
-* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For example,
+* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For
+example,
 
   ```js
   const mapDispatchToProps = dispatch => ({
@@ -334,12 +341,20 @@ that does this for us: [`connect`][connect].
   });
   ```
 
-* `mapStateToProps` reads the state held by the store and `mapDispatchToProps` dispatches actions to the store. Call `connect(mapStateToProps,
-mapDispatchToProps)` on your `Synth` component to connect it to your Redux
-store.
-* Export the result of this call.
-* In your `App` component, import your `SynthContainer` and render it. Make sure your app `webpack`s and that there are no errors in the console before moving
-on.
+* `mapStateToProps` reads the state held by the store and `mapDispatchToProps` dispatches actions to the store. Call
+`connect(mapStateToProps, mapDispatchToProps)` on your `Synth` component to
+connect it to your Redux store.
+* Export the result of this call, like so:
+
+  ```js
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Synth);
+  ```
+
+* In your `App` component, import your `SynthContainer` and render it. Make sure your app `webpack`s and that there are
+no errors in the console before moving on.
 
 [connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
 
@@ -353,19 +368,21 @@ define key listeners on the window.
 
 * Redefine your `Synth` component so that it extends the `React.Component`.
 * Import your `NOTES_NAMES` and `TONES` constants, and `Note` class.
-* In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback, your `Note` constructor takes a frequency as a
-parameter, not a string. Hint: Use `NOTES_NAMES` and `TONES` to return an array
-mapping note names to the right frequency.
+* In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback: your `Note`
+constructor takes a frequency as a parameter, not a string. Hint: Use
+`NOTES_NAMES` and `TONES` to return an array mapping note names to the right
+frequency.
 * In the `render` function, render a list of `this.notes` to test.
 
 #### Key Listeners
 Now let's create a jQuery listener for `keyup` and `keydown` events.
 
 * In your `Synth` class, import `$` from `jquery`.
-* Define a `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the event and call
-`this.props.keyPressed`. Recap, `keyPressed` is the function you defined in
-`mapDispatchToProps` in your `SynthContainer`.
-* Define another function called `onKeyUp(e)`. Call `this.props.keyReleased` passing it the key from the KeyboardEvent.
+* Define a `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the
+event and call `this.props.keyPressed`. Recap: `keyPressed` is the function you
+defined in `mapDispatchToProps` in your `SynthContainer`.
+* Define another function called `onKeyUp(e)`. Call `this.props.keyReleased` passing it the key from the
+KeyboardEvent.
 * In `componentDidMount`, install the two listeners by calling the `on` methods on `$(document)`. For example,
 
   ```js
