@@ -174,7 +174,7 @@ We need two `actions`: one that will tell our `Middleware` to go fetch all the b
 The first action creator doesn't need to accept any arguments. It should just
 return an `action` with type `REQUEST_BENCHES`. Call this function `requestBenches`.
 
-The second action-creator should accept a single argument, `benches`, and produce
+The second action creator should accept a single argument, `benches`, and produce
 an `action` with type `RECEIVE_BENCHES` and a `benches` property that represents
 all of our bench data. Call this function `receiveBenches`.
 
@@ -278,7 +278,7 @@ function.
 #### Recap
 
 Since our last recap, we have: created a `bench_actions` file, that holds
-action-creators and `BenchConstants`. These help ensure that our `Views`,
+action creators and `BenchConstants`. These help ensure that our `Views`,
 `Middleware`, and `Store` are communicating effectively. We also created
 `BenchesMiddleware`, witch will be responsible for intercepting and triggering
 bench-related dispatches. We created a `RootMiddleware` using the
@@ -412,9 +412,9 @@ Our `BenchIndex` component needs `state` information about the `benches` in orde
 
 #### `mapDispatchToProps`
 
-The `BenchIndex` also needs a way to trigger a request for benches when it has
-mounted. Let's give it a `requestBenches` prop that it can call to dispatch the
-`requestBenches()` action creator.
+The `BenchIndex` also needs a way to trigger a request for benches once it has
+mounted. Let's give it a `requestBenches` prop that it use to call a dispatch with
+the `requestBenches()` action creator.
 
 ```javascript
   const mapDispatchToProps = dispatch => ({
@@ -424,8 +424,8 @@ mounted. Let's give it a `requestBenches` prop that it can call to dispatch the
 
 #### Export it!
 
-Finally, let's use the `connect` function to export a new component that is connected
-to our `Store`.
+Finally, let's use the `connect` function to export a new component that is 
+connected to our `Store`.
 
 ```javascript
   export default connect(
@@ -434,18 +434,16 @@ to our `Store`.
   )(BenchIndex);
 ```
 
-[connect-docs]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
-
 ### The Presentational Component
 
-Let's create the `BenchIndex` presentational component.
+Let's create the `BenchIndex` presentational component. It should render a list of benches, showing the description of each bench. 
 
 ```javascript
   import React from 'react';
 
   class BenchIndex extends React.Component{
     componentDidMount(){
-      // requestBenches() here!
+      // request benches from your API here
     }
     render(){
       // ...
@@ -453,8 +451,7 @@ Let's create the `BenchIndex` presentational component.
   };
 ```
 
-You may want to consider creating another component, `BenchIndexItem`, to clean up
-your `BenchIndex` component. You make the call!
+Create another `BenchIndexItem`, to clean up your `BenchIndex` component's `render()` function.
 
 ### Render Time!
 
@@ -470,30 +467,27 @@ Remember, the Provider's sole purpose is to make the `Store` globally available 
 our component hierarchy. Without the `Provider`, our `connect` functions won't work.
 
   * Wrap the `BenchIndexContainer` in the `Provider` and pass the `Provider` the
-  configured `Store` as a prop; let's call this `root`
+  configured `Store` as a prop; store this in a variable called `root`.
   * In the callback, invoke `ReactDOM.render`, and render the `root` into the
   `#content` div
   * Your app should now be populated with benches!!
 
-**Call over a TA** and show them your container and presentational components.
-**Explain when you should use container components.**
+**Call over a TA** and walk them through your `BenchIndex` container and presentational components.
 
 #### Recap
 
 Here's a summary of your redux loop so far:
   * The document loads and our doc-ready callback is triggered.
-  * In the doc-ready callback, we tell `React` to render our `BenchIndex` component
-  * The `BenchIndex` component mounts and dispatches an `action` with type `REQUEST_BENCHES`
-  * Our `BenchesMiddleware` intercepts this `action` and triggers an `ajax` request to our
-  rails api.
-  * On success, the `ajax` request dispatches an `action` with type `RECEIVE_BENCHES`
+  * In the doc-ready callback, we tell `React` to render our `BenchIndex` component.
+  * The `BenchIndex` component mounts and dispatches an `action` with type `REQUEST_BENCHES`.
+  * Our `BenchesMiddleware` intercepts this `action` and triggers an `ajax` request to our rails api.
+  * On success, the `ajax` request dispatches an `action` with type `RECEIVE_BENCHES.`
   * When the `BenchesReducer` receives this action, it updates the application state
-  with the bench data contained in the `action`
+  with the bench data contained in the `action`.
   * When the application state changes, it triggers a callback that was provided by
   the connect function.
   * That callback runs our `mapStateToProps` and `mapDispatchToProps` functions. The
-  return values of these functions are then merged and the resulting object is passed
-  as new props to `BenchIndex`
+  return values of these functions are then merged and the resulting object is passed as new props to `BenchIndex`.
   * When `BenchIndex` receives these new props, it re-renders. Phew!
 
 ## Phase 4: The Map
@@ -503,50 +497,30 @@ information.
 
 ### Create a `BenchMap` component.
 
-* Create a new React component class `BenchMap`
+* Create a new React component class `BenchMap`.
 * Its `render` function should return a `div` with `id='map-container'` and
-`ref='map'`
+`ref='map'`.
 * In the `application.css` file, make sure to set the `width` and `height` of the
-`#map-container` to `500px`
-* We'll return to this component in a bit
+`#map-container` to `500px`.
+* We'll return to this component in a bit. 
 
 ### Create a parent component: `Search`
 
-* Create a new React component, `Search`
-* `Search` should render a `div` containing `BenchMap` and `BenchIndex`
-* Remove your `BenchIndexContainer` and instead, create a `SearchContainer`
-* `Search` should then pass the appropriate props to `BenchIndex`
-* **You shouldn't have to change `BenchIndex`**
+* Create a new React component, `Search`.
+* `Search` should render a `div` containing a `BenchMap` and `BenchIndex`.
+* Remove your `BenchIndexContainer` and instead, create a `SearchContainer`.
+* `Search` should then pass the appropriate props to `BenchIndex`.
+* **You shouldn't have to change `BenchIndex`**.
 
 
 Since our `Search` component only needs a render method, we can make it a
-[functional component][functional-comp-docs] with an implicit return! Remember,
-**anywhere we use JSX, we need to import `React`.**
+[functional component][functional-comp-docs] with an implicit return! Make sure to 
+deconstruct your props for cleaner syntax.
 
-```javascript
-  import React from 'react';
+### Render your `SearchContainer`
 
-  const Search = props => (
-    //... JSX goes here!
-  );
-
-  export default Search
-```
-
-You could also deconstruct your props (recommended) like so..
-
-```javascript
-  const Search = {benches} => (
-    //... JSX goes here!
-  );
-```
-
-* In your entry file, render the `SearchContainer` component instead of `BenchIndexContainer`.
-  This should cause both the `BenchMap` and the `BenchIndex` to be rendered on
-  the page.
+* In your entry file, render the `SearchContainer` component instead of `BenchIndexContainer`. This should cause both the `BenchMap` and the `BenchIndex` to be rendered on the page.
 * Verify your work before moving on.
-
-**Call over a TA and explain when you use functional components.**
 
 ### Attach a Google Map to `BenchMap`
 
@@ -582,22 +556,21 @@ You could also deconstruct your props (recommended) like so..
   class BenchMap extends React.Component {
   //...
   componentDidMount(){
-    const mapDOMNode = ReactDOM.findDOMNode(this);
+    // find the `<map>` node on the DOM
+    const mapDOMNode = this.refs.map;
+
+    // set the map to show SF
     const mapOptions = {
       center: {lat: 37.7758, lng: -122.435}, // this is SF
       zoom: 13
     };
+
+    // wrap the mapDOMNode in a Google Map
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
   }
   //...
 ```
 This should cause a Google Map to be rendered to the page.
-
-Read about the [findDOMNode method][findDOMNOde-docs]. Understand it before moving on!
-
-[findDOMNOde-docs]: https://facebook.github.io/react/docs/top-level-api.html#reactdom.finddomnode
-
-[functional-comp-docs]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 
 ## Phase 5: Markers on the Map
 
@@ -610,10 +583,10 @@ create a helper class, `MarkerManager`.
 
 ### `MarkerManager`
 
-  * Create a new file `marker_manager.js`; this should probably live in our util folder
-  * In this file, create and export a new class, `MarkerManager`
-  * Define the constructor method to accept a map, and then create `map` and `markers`
-  instance variables
+* Create a new file `marker_manager.js`; it should live in your `util` folder.
+* In this file, create and export a new class, `MarkerManager`.
+* Define the constructor method to accept a map, and then create `map` and `markers`
+instance variables.
 
 ```javascript
 class MarkerManager {
@@ -625,7 +598,7 @@ class MarkerManager {
 }
 ```
 
-Next, we're going to define a method `#updateMarkers`. Start with just a simple `console.log`
+Next, we're going to define an instance method `updateMarkers()`. Start with just a simple `console.log`
 
 ```javascript
 class MarkerManager {
@@ -639,12 +612,12 @@ class MarkerManager {
 
 Let's put `MarkerManager` on the back-burner for now. We'll come back later.
 
-### `BenchMap` : `MarkerManager`
+### Connect `BenchMap` to `MarkerManager`
 
 Let's see how the `BenchMap` is going to interact with our `MarkerManager`.
 
-  * Import the `MarkerManager` class
-  * Update the `BenchMap#componentDidMount` method to create a new `MarkerManager`
+  * Import the `MarkerManager` class.
+  * Update the `BenchMap#componentDidMount` method to create a new `MarkerManager`.
 
 ```javascript
   componentDidMount(){
@@ -654,7 +627,7 @@ Let's see how the `BenchMap` is going to interact with our `MarkerManager`.
   }
 ```
 
-We need to invoke `MarkerManager#updateMarkers` both when the `BenchMap` component
+We need to invoke `updateMarkers()` both when the `BenchMap` component
 first mounts **and** whenever the benches in the application state change.
 
 Use the appropriate `React` [lifecycle methods][lifecycle-methods].
@@ -670,24 +643,20 @@ Make sure this works before moving on!
 
 [lifecycle-methods]: https://facebook.github.io/react/docs/component-specs.html
 
-### `updateMarkers`
+### `updateMarkers()`
 
 Read the documentation on [map markers][map-markers] before continuing.
 
-To accomplish the goal of adding and removing markers appropriately, write the following
-helper methods:
+To accomplish the goal of adding and removing markers appropriately, write the following helper methods.
 
-  * `#_benchesToAdd`: returns an array of benches that are in the state, but
-  not on the map
-  * `#_markersToRemove`: returns an array of markers that are on the map, but
-  the benches they represent are not in the state
-  * `#_createMarkerFromBench`: accepts a bench object as an argument; adds a
-  marker to the `map` and to the `markers` array
-  * `_removeMarker`: accepts a marker as an argument; removes marker from map
-  and from `markers`
+* `_benchesToAdd()`: returns an array of benches that are in the state, but
+not already on the map.
+* `_createMarkerFromBench()`: accepts a bench object as an argument; adds a
+marker to the `map` and to the `markers` array.
 
-Make sure you can see markers before moving on! Don't worry if the removing methods
-are unfinished or untested, we'll use them soon.
+Use your helper methods in `updateMarkers()` to create markers for any new benches that appear in your store. Take care to only add a marker once per bench, as extra markers won't be visible on the map, but will affect your ability to remove benches in the next step.
+
+Make sure you can see markers before moving on! 
 
 ## Phase 6: Filtering by Map Location
 
@@ -717,6 +686,7 @@ benches that are within the boundaries specified by the argument. See the exampl
   in as a query string and therefore available in the `params` hash
 * Instead of rendering `Bench.all` in our `index` action,  we can instead use
   `Bench.in_bounds(params[:bounds])`
+
 ### `fetchBenches`
 
 Update our `fetchBenches` function in `bench_api_util.js` to accept two arguments:
@@ -724,21 +694,21 @@ Update our `fetchBenches` function in `bench_api_util.js` to accept two argument
   * success
 
 Eventually, we want to be able to filter our benches by multiple parameters, but
-for now we'll just use the lat/lng bounds.
+for now we'll just use the lat/lng `bounds`.
 
 Test your updated `fetchBenches` methods to see that it applies the filters!
 
 #### Filter Actions
 
   * Create a new file, `actions/filter_actions`
-  * Create and export a FilterConstants object with property: `UPDATE_BOUNDS`
-  * Make and export an action-creator, `updateBounds`; this should accept a single
+  * Create and export a `FilterConstants` object with property: `UPDATE_BOUNDS`
+  * Make and export an action creator, `updateBounds`; this should accept a single
   argument: `bounds`
 
 #### `SearchContainer`
 
 Update your `SearchContainer`'s `mapDispatchToProps` function to use the newly
-constructed `updateBounds` action-creator.
+constructed `updateBounds` action creator.
 
 #### `Search`
 
@@ -747,8 +717,8 @@ the `BenchMap` component
 
 ### `BenchMap`
 
-  * In the `BenchMap` component, add a listener to the map's idle event
-    * You should add the listener during `componentDidMount`
+  * In the `BenchMap` component, add a listener to the map's idle event when 
+  `componentDidMount` is called.
   * [Read this documentation][event-doc] to learn about Google Map events.
   * Call `getBounds` on the map instance to get a `LatLngBounds` instance. Call
     `getNorthEast` and `getSouthWest` to get these coordinate pairs. Get their
@@ -756,7 +726,7 @@ the `BenchMap` component
     your API is expecting. Check [this documentation][lat-lng-docs] for more
     info.
   * Package these coordinates into a `bounds` object.
-  * Invoke `this.props.updateBounds`, and pass your newly constructed bounds object
+  * Invoke `this.props.updateBounds()`, and pass your newly constructed bounds object
 
 ### `FilterReducer`
 
@@ -782,21 +752,33 @@ We want a default state that looks something like:
 Test that the application is being successfully updated by moving the map around
 and then calling `Store.getState()` in the console.
 
+### `MarkerManager`
+
+Now that we've handled our state, we need to beef up `MarkerManager/updateMarkers()` to handle removing markers for benches that have been moved outside our bounds.
+
+Add the following helper methods to your class: 
+
+* `_markersToRemove()`: returns an array of markers that are on the map, but
+the benches they represent are not in the state.
+* `_removeMarker()`: accepts a marker as an argument; removes marker from map
+and from `markers`.
+
+Call these methods in `updateMarkers()` to ensure that benches that leave our store have their markers removed from the map. RIP, benches.
+
 ### `BenchesMiddleware`
 
-Before moving on, you should remove the call to `requestBenches` from the `BenchIndex`
-component's `componentDidMount`. **We no longer need to dispatch this actions from
+Before moving on, remove the call to `requestBenches()` from the `BenchIndex`
+component's `componentDidMount`. **We no longer need to dispatch this action from
 our view.** Instead, we'll rely on our `BenchesMiddleware` to `requestBenches` after
 it sees an `UPDATE_BOUNDS` action.
 
-Update your `BenchesMiddleware` so that it intercepts the `UPDATE_BOUNDS` action. Here
-is our goal:
+Update your `BenchesMiddleware` so that it intercepts the `UPDATE_BOUNDS` action. Here is our goal:
 
   * Use `next` to pass the action on through to the store.
-  * Then, use `dispatch` and `requestBenches` to trigger a new dispatch
+  * Then, use `dispatch` and `requestBenches` to trigger a new dispatch.
   * When `BenchesMiddleware` sees a `REQUEST_BENCHES` dispatch collect the filters
-  from the store using `getState`
-  * Pass the filters and the appropriate callback on to `fetchBenches`
+  from the store using `getState`.
+  * Pass the filters and the appropriate callback on to `fetchBenches`.
 
 Your middleware's switch statement should look something like this:
 
