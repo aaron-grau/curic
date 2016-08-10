@@ -32,13 +32,13 @@ FresherNote is a web application inspired by Evernote that will be build using R
 ## Design Docs
 * [View Wireframes][views]
 * [React Components][components]
-* [Flux Cycles][flux-cycles]
+* [Redux Structure][redux-structure]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 
 [views]: docs/views.md
 [components]: docs/components.md
-[flux-cycles]: docs/flux-cycles.md
+[redux-structure]: docs/redux-structure.md
 [api-endpoints]: docs/api-endpoints.md
 [schema]: docs/schema.md
 
@@ -52,7 +52,7 @@ FresherNote is a web application inspired by Evernote that will be build using R
 - [ ] create `User` model
 - [ ] authentication backend setup
 - [ ] create `StaticPages` controller and root view
-- [ ] set up webpack & Redux scaffold with skeleton files
+- [ ] set up webpack & Redux structure with skeleton files
 - [ ] setup `APIUtil` to interact with the API
 - [ ] set up Redux for frontend auth
 - [ ] user signup/signin components
@@ -70,7 +70,7 @@ the API.
 - [ ] CRUD API for notes (`NotesController`)
 - [ ] jBuilder views for notes
 - [ ] test out API interaction in the console.
-- implement each note component, building out the Redux scaffold as needed.
+- implement each note component, building out the Redux structure as needed.
   - [ ] `NotesIndex`
   - [ ] `NoteIndexItem`
   - [ ] `NoteForm`
@@ -83,7 +83,7 @@ the API.
 **Objective:** Notes belong to Notebooks, and can be viewed by notebook.
 
 - [ ] create `Notebook` model
-- build out API, Redux scaffold, and components for:
+- build out API, Redux structure, and components for:
   - [ ] Notebook CRUD
   - [ ] adding notes requires a notebook
   - [ ] moving notes to a different notebook
@@ -99,7 +99,7 @@ which has its own `Index` view.
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
 - [ ] create `Tag` model and join table
-- build out API, Redux scaffold, and components for:
+- build out API, Redux structure, and components for:
   - [ ] fetching tags for notebook
   - [ ] adding tags to notebook
   - [ ] creating tags while adding to notebooks

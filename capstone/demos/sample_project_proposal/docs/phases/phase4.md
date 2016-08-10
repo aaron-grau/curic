@@ -12,11 +12,11 @@
 * tags/show.json.jbuilder
 * SearchIndex
 
-## Flux
+## Redux
 ### Views (React Components)
 * NoteTags
 
-### Stores
+### Reducers
 
 ### Actions
 
