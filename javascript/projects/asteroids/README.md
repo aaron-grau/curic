@@ -34,6 +34,15 @@ classes/sourcefiles:
     * Installs key listeners to move the ship and fire bullets.
     * Installs a timer to call `Game.prototype.step`.
 
+## Important Note Regarding ES6
+ 
+** Do not use ES6 class syntax in this project.**  Understanding prototypal
+inheritance is a main focus of today's project. Because ES6 class syntax
+obscures how prototypal inheritance works, and has some incompatibilities with
+the instructions below, avoid using it while working today. After the project is
+over, review both the ES5 and ES6 solutions to see how they differ. Ask your TA
+for a more nuanced explanation of this if you need more information.
+
 ## A Refresher on Vectors
 
 You'll use a lot of **vectors** in this assignment.
@@ -111,7 +120,7 @@ first utility function to it as `Util.inherits = function (childClass,
 parentClass) { ... }`.
 
 **Note:** You should export a POJO (plain old JavaScript object) from Util, not
-a constructor function. We don't need to create instances of `Util`.
+a class. We don't need to create instances of `Util`.
 
 ```javascript
 const Util = {
@@ -142,7 +151,15 @@ new Asteroid({ pos: [30, 30] });
 
 Why do we still need to call `MovingObject`'s constructor function from within `Asteroid`'s constructor function?
 
-Our `inherits` function sets up the prototype inheritance chain, which makes methods available on the parent's prototype available to instances of the child class. However, we still need to call `MovingObject`'s constructor function from within `Asteroid`'s constructor function to access the code that sets properties such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a class's `#initialize` method in Ruby.
+Our `inherits` function sets up the prototype inheritance chain, which makes
+methods available on the parent's prototype available to instances of the child
+class. However, we still need to call `MovingObject`'s constructor function from
+within `Asteroid`'s constructor function to access the code that sets properties
+such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a
+class's `#initialize` method in Ruby.
+
+**Note:** Invoking an ES2015 class constructor without `new` (such as `MovingObject` with
+`call()`) throws an error. Hence the need to use ES5 syntax for this project. 
 
 ### `Game`
 

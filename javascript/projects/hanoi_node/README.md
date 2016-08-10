@@ -3,7 +3,7 @@
 Let's rewrite the towers of Hanoi game we [previously wrote in Ruby][ruby-hanoi].
 
 Before you start, write out `HanoiGame.prototype.run` in pseudocode (using comments).
-For example, if I were to write the pseudocode for `Chess.prototype.run`, it would 
+For example, if I were to write the pseudocode for `Chess.prototype.run`, it would
 look something like:
 
 ```javascript
@@ -19,18 +19,18 @@ Save the pseudocode to a separate file.  We'll come back to it later.
 
 Now write a `Game` class and run it using Node:
 
-* In the initialization, set an ivar for the stacks.
+* In the `constructor`, set an ivar for the stacks.
 
 * Write a `Game.prototype.promptMove` method that (1) prints the stacks,
   and (2) asks the user where they want to move a disc to/from. Pass
   the `startTowerIdx` and `endTowerIdx` to a callback.  
-    * Test it by passing in dummy variables and make sure it works 
-    before you move on.  For example, your callback should `console.log` 
+    * Test it by passing in dummy variables and make sure it works
+    before you move on.  For example, your callback should `console.log`
     out the `startTowerIdx` and `endTowerIdx` (and not run any other code).
 
 * Write an `isValidMove(startTowerIdx, endTowerIdx)` method that
   checks that you can move the top of `startTowerIdx` onto the top of
-  `endTowerIdx`. 
+  `endTowerIdx`.
   * Test it by passing in dummy variables and make sure it works before you move on.
 
 See the theme here?  Test each method, one at a time, before you move on.
@@ -43,8 +43,8 @@ See the theme here?  Test each method, one at a time, before you move on.
   to turn the array of stacks to a string. This works sort of like
   Ruby's `#inspect` method (called by the Ruby `p` method). Test it.
 
-* Write an `isWon` method that checks the stacks to see if all discs 
-  were moved to a new stack.  Test it by passing in dummy variables 
+* Write an `isWon` method that checks the stacks to see if all discs
+  were moved to a new stack.  Test it by passing in dummy variables
   and make sure it works before you move on.
 
 * Write a `Game.prototype.run(completionCallback)` method.
@@ -62,7 +62,7 @@ Compare the `run` method you wrote to the pseudocode you originally had. Does it
 ## Playing the Game
 
 In order to play our game, we need to implement a layer of I/O to connect our
-game logic to user input. Create a `playScript.js` file. 
+game logic to user input. Create a `playScript.js` file.
   * Import your game by requiring `./game.js` as `Game`.
   * Instantiate a reader using node's [readline library][node-io].
   * Write a completion callback to ask the users if they want to play again.

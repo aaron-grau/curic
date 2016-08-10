@@ -21,12 +21,12 @@ a DOM element. Require it in the `main.js` file.
 Write a `View.prototype.setupTowers` method to fill the main DOM element with a
 "naive" representation of the game (i.e., not reflecting the current game
 state). Use `<ul>` elements to store three piles. Inside, use `<li>`s to store
-the discs. Call this in your constructor.
+the discs. Call this in your `constructor`.
 
 Write a `View.prototype.render` to alter the DOM elements to reflect the current
-game state. You should call this in your constructor, too.
+game state. You should call this in your `constructor`, too.
 
-In the constructor, install a click handler on each pile. I wrote a `clickTower`
+In the `constructor`, install a click handler on each pile. I wrote a `clickTower`
 method. On the first click to a pile, get the pile number and store this in an
 instance variable. On the second click (which you can identify because the ivar
 has been set), perform the move. Reset the ivar after. Alert the user if this

@@ -100,9 +100,10 @@
 
 ## w5d5
 
-### Readings (60 min)
+### Readings (65 min)
 * [Intro to Callbacks: File I/O][file-io] (15 min)
 * [Function Invocation In Depth][function-invocation-in-depth] (10 min)
+* [ES6 class syntax][es6-classes] (5 min)
 * [The Module Pattern][module-pattern] (10 min)
 * [Event Loop Visualization][loupe] (10 min)
 * [Effective JavaScript][effective-js]: Items 11, 12, 61, 65 (15 min)
@@ -117,7 +118,6 @@
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
 * **Bonus Reading**: [Promises][promises]
-* **Bonus Reading**: [ES6 class syntax][es6-classes]
 * **Bonus Reading**: [Tagging template literals][taggings]
 
 ### Projects
