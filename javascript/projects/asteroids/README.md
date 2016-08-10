@@ -34,9 +34,14 @@ classes/sourcefiles:
     * Installs key listeners to move the ship and fire bullets.
     * Installs a timer to call `Game.prototype.step`.
 
-**Note:** Do not use ES2015 class syntax in this project. Explanation incoming (above the
-[game
-section](https://github.com/appacademy/curriculum/tree/master/javascript/projects/asteroids#game)) :)
+## Important Note Regarding ES6
+ 
+** Do not use ES6 class syntax in this project.**  Understanding prototypal
+inheritance is a main focus of today's project. Because ES6 class syntax
+obscures how prototypal inheritance works, and has some incompatibilities with
+the instructions below, avoid using it while working today. After the project is
+over, review both the ES5 and ES6 solutions to see how they differ. Ask your TA
+for a more nuanced explanation of this if you need more information.
 
 ## A Refresher on Vectors
 
