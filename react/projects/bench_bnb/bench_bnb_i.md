@@ -55,12 +55,13 @@ frontend:
 
 ## Phase 2: `Bench` redux cycle
 
-In this phase, you will build the pieces necessary to display a basic index of benches.
+In this phase, you will build the pieces necessary to display a basic index of
+benches.
 
-### `BenchReducer`
+### `BenchesReducer`
 
-In this step, we're going to create a reducer that manages the `benches` section of our application state.
-We want to build a state that has the following shape:
+In this step, we're going to create a reducer that manages the `benches` section
+of our application state. We want to build a state that has the following shape:
 
 ```
   benches: {
@@ -72,52 +73,43 @@ We want to build a state that has the following shape:
 
 Note that our `benches` object will use `bench_id` as the primary key.
 
-* Create a file, `reducers/bench_reducer.js` that exports a `BenchesReducer` function.
-The function should accept two arguments:
-  * `oldState`: the previous application state.
-  * `action`: the action object being dispatched.
+* Create a file, `reducers/benches_reducer.js` that exports a `BenchesReducer` function.
 
-
-* Remember that reducing functions should:
-  * Never modify the `oldState` object
-  * Return the default state if no arguments are passed
-  * Return the `oldState` if the reducer doesn't care about the `action`
-
-Let's start by just setting up our `BenchReducer` to return it's default state:
+Let's start by just setting up our `BenchesReducer` to return it's default state:
 
 ```javascript
-  const BenchReducer = function(oldState = {}, action){
+  const BenchesReducer = function(state = {}, action){
     switch(action.type){
       //...
       default:
-        return oldState
+        return state
     }
   }
 
-  export default BenchReducer;
+  export default BenchesReducer;
 ```
 
-### MasterReducer
+### rootReducer
 
 Create a new file, `reducers/master_reducer.js`. This file will be responsible for
-combining our multiple, domain-specific reducers. It will export a single `MasterReducer`.
+combining our multiple, domain-specific reducers. It will export a single `rootReducer`.
 
-  * import `combineReducers` from the redux library
-  * also import the `BenchReducer` function we just created!
+  * import `combineReducers` from the `redux` library
+  * also import the `BenchesReducer` function we just created!
 
   ```javascript
     import { createStore, combineReducers } from 'redux';
-    import BenchReducer from '../reducers/bench_reducer';
+    import BenchesReducer from '../reducers/benches_reducer';
   ```
 
-  * Create a `MasterReducer` using the `combineReducers` function
+  * Create a `rootReducer` using the `combineReducers` function
   * Remember, the `combineReducers` function accepts a single argument: an object
     whose properties will represent properties of our application state, and values
     that correspond to domain-specific reducing functions.
 
 ```javascript
-  const MasterReducer = combineReducers({
-    benches: BenchReducer
+  const rootReducer = combineReducers({
+    benches: BenchesReducer
   });
 ```
 
@@ -132,7 +124,7 @@ combining our multiple, domain-specific reducers. It will export a single `Maste
     }
   ```
 
-  * `export default` the `MasterReducer`
+  * `export default` the `rootReducer`
 
 ### The `Store`
 
@@ -140,18 +132,18 @@ The redux `Store` will hold a reference to our application state. The `Store` wi
 
   * create a new file, `/store/store.js`
   * import `createStore` from the redux library
-  * import our `MasterReducer`
+  * import our `rootReducer`
 
 We want to use a `configureStore` function that will allow us to instantiate our
 `Store` with different initial states.
 
   * Define a new function, `configureStore`, that accepts a single argument, `preloadedState`
-  * `configureStore` should return a new `Store` with the `MasterReducer` and `preloadedState`
+  * `configureStore` should return a new `Store` with the `rootReducer` and `preloadedState`
 
 ```javascript
   const configureStore = (preloadedState = {}) => (
     createStore(
-      MasterReducer,
+      rootReducer,
       preloadedState
     );
   )
@@ -310,7 +302,7 @@ Let's establish the link between our `Middleware` and the `Store`.
 
 #### `MasterMiddleware`
 
-Similar to our pattern for creating a `MasterReducer`, we'll create a `MasterMiddleware`.
+Similar to our pattern for creating a `rootReducer`, we'll create a `MasterMiddleware`.
 
   * create a new file, `middleware/master_middleware.js`
   * import `applyMiddleware` from `redux`
@@ -345,7 +337,7 @@ function.
 
 ```javascript
   createStore(
-    MasterReducer,
+    RootReducer,
     preloadedState,
     MasterMiddleware
   );
@@ -444,17 +436,17 @@ the bench data, it dispatches the data as part of an action!
 
 ### Back to the reducer
 
-We've come full circle, and now it's time to tell the `BenchReducer` how to update
+We've come full circle, and now it's time to tell the `BenchesReducer` how to update
 our application state when it receives the `RECEIVE_BENCHES` action. Make sure you
 import the appropriate `constants`. Your reducer should look something like:
 
 ```javascript
-  const BenchReducer = function(oldState = {}, action){
+  const BenchesReducer = function(state = {}, action){
     switch(action.type){
       case BenchConstants.RECEIVE_BENCHES:
         return action.benches;
       default:
-        return oldState;
+        return state;
     }
   };
 ```
@@ -598,7 +590,7 @@ Here's a summary of your redux loop so far:
   * Our `BenchMiddleware` intercepts this `action` and triggers an `ajax` request to our
   rails api.
   * On success, the `ajax` request dispatches an `action` with type `RECEIVE_BENCHES`
-  * When the `BenchReducer` receives this action, it updates the application state
+  * When the `BenchesReducer` receives this action, it updates the application state
   with the bench data contained in the `action`
   * When the application state changes, it triggers a callback that was provided by
   the connect function.
@@ -888,7 +880,7 @@ We want a default state that looks something like:
   * Build and export a `FilterReducer`
     * You're reducer should update the application state when an `UPDATE_BOUNDS`
     action is dispatched
-  * Update your `MasterReducer`
+  * Update your `rootReducer`
 
 Test that the application is being successfully updated by moving the map around
 and then calling `Store.getState()` in the console.
