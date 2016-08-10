@@ -335,7 +335,7 @@
 ### Projects
 * **Solo**: Finish ActiveRecordLite and RailsLite.
 
-[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/rails_lite/video/demos/rack_middleware/middleware.rb
+[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [middleware]: readings/middleware.md
 [js-videos]: ../javascript#video-lectures-12-min
 [js-readings]: ../javascript#readings-70-min

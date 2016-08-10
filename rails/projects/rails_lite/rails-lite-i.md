@@ -131,7 +131,7 @@ Consider this code from 99cats:
 class CatsController < ApplicationController
   def new
     @cat = Cat.new
-    
+
     render :new
     render :new
   end
@@ -154,8 +154,8 @@ docs for how to set response header fields and statuses. Again, set
 `@already_built_response` to avoid a double render.
 
 Run `bundle exec ruby bin/p02_controller_server.rb`. Look at it to see
-what it does: it tests `render_content` and `redirect_to`. Make sure
-this works to your satisfaction.
+what it does: it tests `render_content` and `redirect_to`. Go to localhost:3000 and make sure
+it works to your satisfaction.
 
 Lastly, run the spec: `bundle exec rspec spec/p02_controller_spec.rb`.
 
@@ -268,7 +268,7 @@ attributes.
   Doing this by hand involves setting a header of `Set-Cookie`, but it's a pain
   to set the value of this header properly by hand.
 * Rack gives a convenient method `Rack::Response#set_cookie` that will setup
-  this header in the response properly for you if you give it the name and 
+  this header in the response properly for you if you give it the name and
   value of the cookie to set.
 
 **Instructions:**
@@ -282,13 +282,13 @@ should be set to `{}`.
 
 Provide methods `#[]` and `#[]=` that will modify the session content;
 in this way the Session is Hash-like. Finally, write a method
-`store_session(response)` that will put the session into a cookie and set it 
+`store_session(response)` that will put the session into a cookie and set it
 using `Rack::Response#set_cookie`. The first argument to
 `set_cookie` is the name of the cookie which should be `_rails_lite_app`.
 The second argument is the cookie attributes. You specify the cookie's
 attributes using a hash. You should make sure to specify the `path` and `value`
 attributes. The path should be `/` so the cookie will available at
-every path and the value should be the JSON serialized content of the ivar 
+every path and the value should be the JSON serialized content of the ivar
 that contains the session data.
 
 **NB:** In order for this to work properly, the `path` and `value` keys in your
@@ -303,7 +303,7 @@ Make sure that the `#redirect_to` and `#render_content` methods call
 after the response is done being built.
 
 
-Test your work: 
+Test your work:
 
 1. Run `bin/p04_session_server.rb` and open localhost:3000.  When you first load the page, it should look like [this](http://imgur.com/8GODpwD).  
 2. Now refresh.  It should look like [this](http://imgur.com/TfXGke7).  
@@ -399,7 +399,7 @@ Consider this code from a normal rails project:
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    
+
     render :new
   end
 end
@@ -425,11 +425,22 @@ So when we hit the corresponding route (i.e., when we go to `localhost:3000/post
 
 ### Phase Vd: `Router#draw`
 
-Write a method, `Router#draw` that takes a block:
+Think back to the `routes.rb` file in your previous Rails projects:
 
 ```ruby
-router = Router.new
-router.draw do
+# Rails routes.rb example
+MyApp::Application.routes.draw do
+  get "/cats", "cats_controller#index"
+  get "/cats/:id/statuses", "statuses_controller#index"
+end
+```
+Let's write a method to help us emulate Rails's routes file. Just like in Rails, our `Router#draw` method will be syntactic sugar to allow us to define groups of routes with ease.
+
+Have your `#draw` method take a block. Inside the block, we'll be calling the `#get`, `#post`, `#put`, and `#delete` methods we previously defined on our router to add new routes.
+
+```ruby
+routes = Router.new
+routes.draw do
   get Regexp.new("^/cats$"), Cats2Controller, :index
   get Regexp.new("^/cats/(\\d+)/statuses$"), StatusesController, :index
 end
@@ -444,8 +455,8 @@ Well, yes, ordinarily it would, but we've got a nice trick up our sleeve
 to get around this.
 
 Remember our old friend `Binding#eval` from the template section? Well
-she has a cousin `Object#instance_eval` who will take a proc and
-evaluate it in the context of his object. Let's watch him work his
+it has a cousin `Object#instance_eval` that takes a proc and
+evaluate it in the context of the object. Let's watch it work its
 magic:
 
 ```ruby
