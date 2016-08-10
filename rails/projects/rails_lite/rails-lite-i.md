@@ -25,7 +25,7 @@ receiving one argument of the request environment or `env` packaged up by Rack a
 return a properly formatted response.
 
 An extremely simple Rack app could be:
-```
+```ruby
 Rack::Server.start(
   app: Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['hello world']] }
 )
@@ -43,7 +43,7 @@ In order to make our code a bit more readable we are going to create the `app`
 first and then pass it into `Rack::Server#start`. Let's make a very simple app
 that does that.
 
-```
+```ruby
 app = Proc.new do |env|
   req = Rack::Request.new(env)
   res = Rack::Response.new
@@ -63,7 +63,7 @@ the `res` is done being built so Rack knows to wrap everything up for you.
 In order to actually have a functioning web application we need to actually give
 `app` to Rack.
 
-```
+```ruby
 Rack::Server.start(
   app: app,
   Port: 3000
