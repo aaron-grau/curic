@@ -95,7 +95,7 @@ See below for an example `package.json` with the update `scripts` value.
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
     "babel-preset-react": "^6.5.0",
-    "flux": "^2.1.1",
+    "redux": "^2.1.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-router": "^2.3.0",
