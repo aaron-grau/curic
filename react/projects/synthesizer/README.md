@@ -155,17 +155,16 @@ action being performed.
 
 * Create an `actions/note_actions.js` file which will house our action creators changing the app's `notes`.
 
-#### `NoteConstants`
+#### `NotesConstants`
 
 Action `type`s are typically expressed as string constants.
 
-* In our new file, let's export a `NoteConstants`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`. Technically, the values of these keys can
-be anything, but our convention is to use the string literals of keys.
+* In our new file, let's export a `NotesConstants`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`.
 
 For example,
 
 ```js
-export const NoteConstants = {
+export const NotesConstants = {
   KEY_PRESSED: "KEY_PRESSED",
   ...
 };
@@ -174,14 +173,14 @@ export const NoteConstants = {
 #### `keyPressed`
 
 + Export a `keyPressed` function which takes the keyboard `key` pressed and
-returns an action of `type` `KEY_PRESSED`.
+returns an action of `type` `"KEY_PRESSED"` using your `NotesConstants`.
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
 Your action creator should look like this:
 
 ```js
 export const keyPressed = key => {
-  action.NoteConstants.KEY_PRESSED,
+  action: NotesConstants.KEY_PRESSED,
   key
 };
 ```
@@ -189,7 +188,7 @@ export const keyPressed = key => {
 #### `keyReleased`
 
 + Export a `keyReleased` function which takes the keyboard `key` released and
-returns an action of `type` `KEY_RELEASED`.
+returns an action of `type` `"KEY_RELEASED"`.
 + Add `key` as a property to the action to let the store know which `key` to remove from its `notes` array.
 
 ### Handling Actions - Reducers
@@ -209,12 +208,12 @@ Let's write a reducer for our app which handles the actions we defined above.
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
   + `state` - the previous `notes` state;
   + `action` - the action object dispatched.
-+ Import `NoteConstants` from `notes_actions.js`.
++ Import `NotesConstants` from `notes_actions.js`.
 + Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
 the initial state.
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
-+ Then add a case for each key (i.e. action type) defined in `NoteConstants`.
++ Then add a case for each key (i.e. action type) defined in `NotesConstants`.
   + `KEY_PRESSED` - If the `action.key` isn't already in the state (i.e. already
   playing) then return a new state with the new key appended to the previous
   state, else return the previous state.
@@ -593,7 +592,7 @@ add to the state a boolean `playing` to indicate if a track is playing or not.
 * Create a `actions/playing_actions.js` file.
 * Export `PlayingConstants` with `START_PLAYING` and `STOP_PLAYING` key-value pairs.
 * Export `startPlaying` and `stopPlaying` action creators.
-* Add a new `GROUP_UPDATE` key-value pair to your `NoteConstants`.
+* Add a new `GROUP_UPDATE` key-value pair to your `NotesConstants`.
 * Export a `groupUpdate` action creator which takes as an arguments an array of `notes`.
 
 ### Reducers

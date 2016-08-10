@@ -1,4 +1,4 @@
-import { NoteConstants } from '../actions/notes_actions';
+import { NotesConstants } from '../actions/notes_actions';
 import { NOTE_NAMES } from '../util/tones';
 
 const validKeys = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'"];
@@ -12,7 +12,7 @@ const notes = (state = [], action) => {
   const idx = state.indexOf(note); // check to see if note is in previous state
 
   switch(action.type) {
-    case NoteConstants.KEY_PRESSED:
+    case NotesConstants.KEY_PRESSED:
       if (note && idx === -1) {
         return [
           ...state,
@@ -20,7 +20,7 @@ const notes = (state = [], action) => {
         ];
       }
       return state;
-    case NoteConstants.KEY_RELEASED:
+    case NotesConstants.KEY_RELEASED:
       if (idx !== -1) {
         return [
           ...state.slice(0, idx),
@@ -28,7 +28,7 @@ const notes = (state = [], action) => {
         ];
       }
       return state;
-    case NoteConstants.GROUP_UPDATE:
+    case NotesConstants.GROUP_UPDATE:
       return [
         ...action.notes
       ];
