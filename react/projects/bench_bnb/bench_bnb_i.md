@@ -89,61 +89,47 @@ Let's start by just setting up our `BenchesReducer` to return it's default state
   export default BenchesReducer;
 ```
 
-### rootReducer
+### `RootReducer`
 
-Create a new file, `reducers/master_reducer.js`. This file will be responsible for
-combining our multiple, domain-specific reducers. It will export a single `rootReducer`.
+Create a new file, `reducers/root_reducer.js`. This file will be responsible for
+combining our multiple, domain-specific reducers. It will export a single `RootReducer`.
 
-  * import `combineReducers` from the `redux` library
-  * also import the `BenchesReducer` function we just created!
-
-  ```javascript
-    import { createStore, combineReducers } from 'redux';
-    import BenchesReducer from '../reducers/benches_reducer';
-  ```
-
-  * Create a `rootReducer` using the `combineReducers` function
+  * Import `combineReducers` from the `redux` library.
+  * Also import the `BenchesReducer` function we just created!
+  * Create a `RootReducer` using the `combineReducers` function.
   * Remember, the `combineReducers` function accepts a single argument: an object
     whose properties will represent properties of our application state, and values
     that correspond to domain-specific reducing functions.
+  * `export default RootReducer`.
 
 ```javascript
-  const rootReducer = combineReducers({
+  const RootReducer = combineReducers({
     benches: BenchesReducer
   });
 ```
 
-  *Note: I'm leaving extra vertical space here, because later we'll add several more
-  domain-specific reducers!*
+So far, our default application state should look something like this:
 
-  So far, our default application state looks like this:
-
-  ```
-    {
-      benches: {}
-    }
-  ```
-
-  * `export default` the `rootReducer`
+```
+  {
+    benches: {}
+  }
+```
 
 ### The `Store`
 
-The redux `Store` will hold a reference to our application state. The `Store` will also handle updating our state when `actions` are dispatched and it will tell the necessary components to re-render.
+Setup a `configureStore` method for initializing our Store:
 
-  * create a new file, `/store/store.js`
-  * import `createStore` from the redux library
-  * import our `rootReducer`
-
-We want to use a `configureStore` function that will allow us to instantiate our
-`Store` with different initial states.
-
-  * Define a new function, `configureStore`, that accepts a single argument, `preloadedState`
-  * `configureStore` should return a new `Store` with the `rootReducer` and `preloadedState`
+  * Create a new file, `/store/store.js`.
+  * Import `createStore` from the redux library.
+  * Import our `RootReducer`.
+  * Define a new function, `configureStore`, that accepts a single argument, `preloadedState`.
+  * `configureStore` should return a new `Store` with the `RootReducer` and `preloadedState` passed in.
 
 ```javascript
   const configureStore = (preloadedState = {}) => (
     createStore(
-      rootReducer,
+      RootReducer,
       preloadedState
     );
   )
@@ -155,25 +141,24 @@ We want to use a `configureStore` function that will allow us to instantiate our
 
 So far, we have built our redux store and told it to use our bench reducing function.
 Test that everything works:
-  0. Add a doc-ready callback to your entry point
-  0. Inside the callback, `configureStore()` and assign the store to the window
+  0. Add a `'DOMContentLoaded'` callback to your entry point if you don't already 
+  have one.
+  0. Inside the callback, call `configureStore()` and assign the result to the `window`:
     ```javascript
       window.Store = configureStore();
     ```
-  0. Visit localhost:3000
-  0. Open the console and type Store.getState()
+  0. Run `Store.getState()` in the console and inspect the results.
 
 Your state should look like the default state mentioned above!
 
-### Constants and Actions Creators
+### Actions Creators
 
 #### Constants
 
-Before we move on to the fun stuff -- populating our store with benches from rails --
-we need to write an `actions` file that helps our other major pieces function.
+Before we move on to the fun stuff -- populating our store with benches from rails -- we need to write an `actions` file that helps our other major pieces function.
 
-  * Create an `actions` file: `actions/bench_actions`
-  * Create and export a new object, `BenchConstants`
+  * Create an `actions` file: `actions/bench_actions`.
+  * Create and export a new object, `BenchConstants`.
 
 ```javascript
   export const BenchConstants = {
@@ -182,98 +167,45 @@ we need to write an `actions` file that helps our other major pieces function.
   };
 ```
 
-These `constants` will represent `actionTypes`. We will use them in our action-creators,
-as well as in the `switch` statements in our `Store` and `Middleware`. They simply
-help ensure that all of our redux pieces are talking about the same thing and
-that nothing fails silently from typos.
+#### Action Creators
 
-[See this Stack Overflow question.][so-constants]
+We need two `actions`: one that will tell our `Middleware` to go fetch all the benches from our Rails API, and one that tells our `Store` to change our application state to represent the bench data in our `action`.
 
-[so-constants]: http://stackoverflow.com/questions/27109652/why-do-flux-architecture-examples-use-constants-for-action-types-instead-of-stri
-
-#### Action-Creators
-
-Next, we want to create a couple functions that create `action` objects in a
-reliable, tidy manner. Remember that `action` objects are just plain-old javascript
-objects that also have a `type` property. **The value of the `type` property should
-always be a constant.**
-
-Note that `constants` and action-creators live in the same file!
-
-We need two `actions`: one that will tell our `Middleware` to go fetch all the benches
-from rails, and one that tells our `Store` to change our application state to represent
-the bench data in our `action`.
-
-Note that the action-creators don't directly interact with `Middleware` or the `Store`,
-they just produce objects. We then send those objects through our `Middleware` and
-to the `Store` by invoking `Store#dispatch`.
-
-The first action-creator doesn't need to accept any arguments. It should just
-produce an `action` with type `REQUEST_BENCHES`. Call this function `requestBenches`.
-
-```javascript
-  const requestBenches = () => ({
-    type: BenchConstants.REQUEST_BENCHES
-  });
-```
+The first action creator doesn't need to accept any arguments. It should just
+return an `action` with type `REQUEST_BENCHES`. Call this function `requestBenches`.
 
 The second action-creator should accept a single argument, `benches`, and produce
 an `action` with type `RECEIVE_BENCHES` and a `benches` property that represents
 all of our bench data. Call this function `receiveBenches`.
 
-```javascript
-  export const receiveBenches = benches => ({
-    type: BenchConstants.RECEIVE_BENCHES,
-    benches
-  });
-```
+Export these two functions. Before continuing, test that they return the correct objects.
 
-Finally, export these two functions and add `#requestBenches` to the window for testing
+### `BenchesMiddleware`
 
-```javascript
-  window.requestBenches = requestBenches; //Just for testing
-  export requestBenches;
-  export receiveBenches;
-```
+Our `BenchesMiddleware` will be responsible for a number of things, including triggering api calls that eventually populate our `Store` with benches!
 
-Confirm that you get the appropriate object back by testing `#requestBenches` in the console.
+Remember, `Middleware` receives dispatches before the store. It can decide to intercept the dispatch, trigger another dispatch, or simply pass on it and do nothing.
 
-### `BenchMiddleware`
-
-Our `BenchMiddleware` will be responsible for a number of things, including triggering
-api calls that eventually populate our `Store` with benches!
-
-Remember, `Middleware` receives dispatches before the store. It can decide to intercept
-the dispatch, trigger another dispatch, or simply pass on it and do nothing.
-
-  * Create a file, `middleware/bench_middleware.js`
+  * Create a file, `middleware/benches_middleware.js`
   * Import the relevant `constants`.
 
 ```javascript
   import { BenchConstants } from '../actions/bench_actions';
 ```
 
-[Redux Middleware][middleware-docs] employs a currying strategy to link several
-`Middleware` to each other and ultimately to the store. You need to define 3
-functions that wrap one-another like so:
+Recall that [Redux Middleware][middleware-docs] employs a currying strategy to link 
+several `Middleware` to each other and ultimately to the store. You'll need to define 3 functions that wrap one-another like so:
 
 ```javascript
-  const BenchMiddleware = ({getState, dispatch}) => next => action => {
+  const BenchesMiddleware = ({getState, dispatch}) => next => action => {
     // ...
   }
 ```
-
-Here's what all the arguments do:
-  * `getState`: function that returns the current state from the `Store`
-  * `dispatch`: function that allows you to dispatch new actions
-  * `next`: function that passes an action on to the next middleware
-  * `action`: the original action object passed to `Store#dispatch`
-
 Let's start by writing some `Middleware` that will just `console.log` whenever it
 sees a `REQUEST_BENCHES` action type.
 
 ```javascript
-  const BenchMiddleware = ({getState, dispatch}) => next => action => {
+  const BenchesMiddleware = ({getState, dispatch}) => next => action => {
     switch(action.type){
       case BenchConstants.REQUEST_BENCHES:
         console.log('time to fetch!')
@@ -284,97 +216,93 @@ sees a `REQUEST_BENCHES` action type.
   }
 ```
 
-It is **very** important that we carefully consider where we invoke our `next` function.
-If our `Middleware` doesn't care about this `action`, then it should, by default,
-pass the action on to the next middleware in the chain.
+It is **very** important that we carefully consider where we invoke our `next` function. Once our middleware is finished doing whatever it needs to do, it needs to call the `next` middleware in the chain, passing it the same `action`. If our `Middleware` doesn't care about this `action`, then it should, by default, pass the action on to the next middleware in the chain.
 
-Export your `BenchMiddleware`!
+Export your `BenchesMiddleware`!
 
 ```javascript
-  export default BenchMiddleware;
+  export default BenchesMiddleware;
 ```
+
+We'll come back to our `BenchesMiddleware` to flesh it out later.
 
 [middleware-docs]: http://redux.js.org/docs/advanced/Middleware.html
 
-#### `BenchMiddleware` and the `Store`
+#### `BenchesMiddleware` and the `Store`
 
 Let's establish the link between our `Middleware` and the `Store`.
 
-#### `MasterMiddleware`
+#### `RootMiddleware`
 
-Similar to our pattern for creating a `rootReducer`, we'll create a `MasterMiddleware`.
+Similar to our pattern for creating a `RootReducer`, we'll create a `RootMiddleware`.
 
-  * create a new file, `middleware/master_middleware.js`
+  * create a new file, `middleware/root_middleware.js`
   * import `applyMiddleware` from `redux`
-  * import your `BenchMiddleware`
+  * import your `BenchesMiddleware`
 
 ```javascript
   import { applyMiddleware } from 'redux';
-  import BenchMiddleware from '../middleware/bench_middleware';
+  import BenchesMiddleware from '../middleware/benches_middleware';
 ```
 
-  * Use the `applyMiddleware` function to create a `MasterMiddleware`
-  * `export default` `MasterMiddleware`
+  * Use the `applyMiddleware` function to create a `RootMiddleware`
+  * `export default` `RootMiddleware`
 
 ```javascript
-  const MasterMiddleware = applyMiddleware(
-    BenchMiddleware
+  const RootMiddleware = applyMiddleware(
+    BenchesMiddleware
   );
 
-  export default MasterMiddleware;
+  export default RootMiddleware;
 ```
 
-#### Add `MasterMiddleware` to the `Store`
+#### Add `RootMiddleware` to the `Store`
 
-For starters, let's navigate to `store.js`, and let's import our MasterMiddleware.
+For starters, let's open `store.js` and import our `RootMiddleware`.
 
 ```javascript
-  import MasterMiddleware from '../middleware/master_middleware';
+  import RootMiddleware from '../middleware/root_middleware';
 ```
 
-Finally, let's add our `MasterMiddleware` as the third argument to the `createStore`
+Finally, let's add our `RootMiddleware` as the third argument to the `createStore`
 function.
 
 ```javascript
   createStore(
     RootReducer,
     preloadedState,
-    MasterMiddleware
+    RootMiddleware
   );
 ```
 
 #### Recap
 
-  Since our last recap, we have: created a `bench_actions` file, that holds action-creators
-  and `BenchConstants`. These help ensure that our `Views`, `Middleware`, and `Store`
-  are communicating effectively.
+Since our last recap, we have: created a `bench_actions` file, that holds
+action-creators and `BenchConstants`. These help ensure that our `Views`,
+`Middleware`, and `Store` are communicating effectively. We also created
+`BenchesMiddleware`, witch will be responsible for intercepting and triggering
+bench-related dispatches. We created a `RootMiddleware` using the
+`applyMiddleware` function from the `redux` library. Finally, we connected our
+`RootMiddleware` to the `Store` using the `createStore` function.
 
-  We also created `BenchMiddleware`, witch will be responsible for intercepting and
-  triggering bench-related dispatches.
+Let's check that our setup works! Go to the console, and type:
 
-  We created a `MasterMiddleware` using the `applyMiddleware` function from the `redux` library.
+```javascript
+  Store.dispatch(requestBenches())
+```
 
-  Finally, we connected our `MasterMiddleware` to the `Store` using the `createStore` function.
+You should see the `console.log` that we imbedded in our `BenchesMiddleware`!
+Make sure this works before moving on.
 
-  Let's check that our setup works! Go to the console, and type:
+### `BenchApiUtil`
 
-  ```javascript
-    Store.dispatch(requestBenches())
-  ```
+We are getting close to finishing the redux loop! In this step, we'll create an API utility for `BenchesMiddleware` to use that will request data via AJAX from our Rails server.
 
-  You should see the `console.log` that we imbedded in our `BenchMiddleware`! Make
-  sure this works before moving on.
+Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`.
 
-### Bench Api Util
-
-We are getting close to finishing the redux loop! In this step, we need to tell
-our `BenchMiddleware` to use an api utility to make an `$.ajax` request, which should
-hit our rails server and get all of our bench data.
-
-  * Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`
-
-This function should accept a single argument: `success` - this is the callback to
-be invoked if the request is successful.
+This function should accept a single argument: `success`, a callback. It should
+then dispatch an `$.ajax` request, passing `success` to the `$.ajax` call.
+Define an error callback, to, for debugging.
 
 Your function should look something like this:
 
@@ -389,18 +317,17 @@ Your function should look something like this:
   }
 ```
 
-As before, put this function on the window for testing, and make sure it works before
-moving on!
+As before, put this function on the window for testing, and make sure it works
+before moving on!
 
-### Bench Api Util : BenchMiddleware
+### Connect`BenchesMiddleware` to `BenchAPIUtil` 
 
-Let's connect our `BenchMiddleware` to this new `fetchBenches` function!
+Let's connect our `BenchesMiddleware` to this new `fetchBenches` function!
 
-Start by importing `fetchBenches`. Then.. let's invoke it in our `BenchMiddleware`'s `switch`
-statement.
+Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware` whenever a `BenchConstants.REQUEST_BENCHES` action is received. For now, make `success` a function that logs the data from the response.
 
 ```javascript
-  const BenchMiddleware = ({getState, dispatch}) => next => action => {
+  const BenchesMiddleware = ({getState, dispatch}) => next => action => {
     switch(action.type){
       case BenchConstants.REQUEST_BENCHES:
         const success = data => console.log(data);
@@ -420,11 +347,11 @@ Check now that when we run this code in the console..
 
 We should see a `console.log` of all our bench data!
 
-Finally, we need to re-work our `BenchMiddleware` so that instead of `console.log`ing
-the bench data, it dispatches the data as part of an action!
+Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.log`ing the bench data, it dispatches the data as part of an action.
 
-  * Import the `receiveBenches` action-creator
-  * Re-write your success callback to dispatch a `RECEIVE_BENCHES` action
+  * Import the `receiveBenches` Action Creator.
+  * Re-write your success callback to dispatch a `RECEIVE_BENCHES` action with the 
+  response `data`.
 
 
 ```javascript
@@ -436,9 +363,7 @@ the bench data, it dispatches the data as part of an action!
 
 ### Back to the reducer
 
-We've come full circle, and now it's time to tell the `BenchesReducer` how to update
-our application state when it receives the `RECEIVE_BENCHES` action. Make sure you
-import the appropriate `constants`. Your reducer should look something like:
+Update your `BenchesReducer` to update the `benches` in your state when it receives the `RECEIVE_BENCHES` action. Your reducer should look something like:
 
 ```javascript
   const BenchesReducer = function(state = {}, action){
@@ -453,7 +378,7 @@ import the appropriate `constants`. Your reducer should look something like:
 
 #### Recap
 
-We've done it! You should now be able to run the following in the console:
+You should now be able to run the following in the console:
 
 ```javascript
   Store.getState(); //: returns default state object
@@ -461,52 +386,23 @@ We've done it! You should now be able to run the following in the console:
   Store.getState(); //: returns a new state object, fully populated!
 ```
 
-Congrats! **Call over a TA and explain the entire redux cycle.**
+Congrats! **Call over a TA and explain your benches redux cycle.**
 
-## Phase 3: `BenchIndex`: Our First React Component
+## Phase 3: `BenchIndex`
 
 Let's create a component that shows our benches.
 
   * Let's start by making make two files: `components/bench_index.jsx` and
   `components/bench_index_container.js`
 
-We're going to follow the react/redux design principle of **separating
-presentational and container components** [Read more here][pres-cont-components].
-
-[pres-cont-components]: http://redux.js.org/docs/basics/UsageWithReact.html
-
 ### The Container Component
 
 We'll write our container component first. If we do a good job here, then our
-presentational component should be fairly trivial!
-
-  * Inside your container component, import the `connect` function from the
-  `react-redux` library. Also import your presentational component: `BenchIndex`.
-  (We haven't constructed `BenchIndex` yet.. but we'll need it here!)
-
-```javascript
-  import { connect } from 'react-redux';
-  import BenchIndex from './bench_index';
-```
-
-Let's recap how the `connect` function works. [See the docs][connect-docs]. Note
-that `connect` has 4 parameters, but we only need the first two here!
-
-`mapStateToProps` is a function, whose goal is to create an object that contains
-information from the application state that the presentational component cares about.
-
-`mapDispatchToProps` is a function, whose goal is to create an object with methods
-that trigger dispatches. These methods will then be used in the presentational
-component as event listeners.
-
-Note that **we never explicitly invoke this function**. Instead, we pass `mapStateToProps`
-and `mapDispatchToProps` to `connect`, and `connect` invokes both functions whenever
-our application state changes.
+presentational component should be fairly trivial! Inside your container component,  `connect` your `BenchIndex` as outlined below. Don't worry that we haven't constructed `BenchIndex` yet; but we'll fix that in the next step!
 
 #### `mapStateToProps`
 
-What information does our `BenchIndex` component need from the state? Well.. it
-needs the collection of benches!
+Our `BenchIndex` component needs `state` information about the `benches` in order to render.
 
 ```javascript
   const mapStateToProps = state => ({
@@ -516,8 +412,9 @@ needs the collection of benches!
 
 #### `mapDispatchToProps`
 
-What dispatches should the `BenchIndex` component trigger? Well! We should `requestBenches`
-whenever the component mounts!
+The `BenchIndex` also needs a way to trigger a request for benches when it has
+mounted. Let's give it a `requestBenches` prop that it can call to dispatch the
+`requestBenches()` action creator.
 
 ```javascript
   const mapDispatchToProps = dispatch => ({
@@ -587,7 +484,7 @@ Here's a summary of your redux loop so far:
   * The document loads and our doc-ready callback is triggered.
   * In the doc-ready callback, we tell `React` to render our `BenchIndex` component
   * The `BenchIndex` component mounts and dispatches an `action` with type `REQUEST_BENCHES`
-  * Our `BenchMiddleware` intercepts this `action` and triggers an `ajax` request to our
+  * Our `BenchesMiddleware` intercepts this `action` and triggers an `ajax` request to our
   rails api.
   * On success, the `ajax` request dispatches an `action` with type `RECEIVE_BENCHES`
   * When the `BenchesReducer` receives this action, it updates the application state
@@ -880,24 +777,24 @@ We want a default state that looks something like:
   * Build and export a `FilterReducer`
     * You're reducer should update the application state when an `UPDATE_BOUNDS`
     action is dispatched
-  * Update your `rootReducer`
+  * Update your `RootReducer`
 
 Test that the application is being successfully updated by moving the map around
 and then calling `Store.getState()` in the console.
 
-### `BenchMiddleware`
+### `BenchesMiddleware`
 
 Before moving on, you should remove the call to `requestBenches` from the `BenchIndex`
 component's `componentDidMount`. **We no longer need to dispatch this actions from
-our view.** Instead, we'll rely on our `BenchMiddleware` to `requestBenches` after
+our view.** Instead, we'll rely on our `BenchesMiddleware` to `requestBenches` after
 it sees an `UPDATE_BOUNDS` action.
 
-Update your `BenchMiddleware` so that it intercepts the `UPDATE_BOUNDS` action. Here
+Update your `BenchesMiddleware` so that it intercepts the `UPDATE_BOUNDS` action. Here
 is our goal:
 
   * Use `next` to pass the action on through to the store.
   * Then, use `dispatch` and `requestBenches` to trigger a new dispatch
-  * When `BenchMiddleware` sees a `REQUEST_BENCHES` dispatch collect the filters
+  * When `BenchesMiddleware` sees a `REQUEST_BENCHES` dispatch collect the filters
   from the store using `getState`
   * Pass the filters and the appropriate callback on to `fetchBenches`
 
