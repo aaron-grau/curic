@@ -1,8 +1,8 @@
 # Webpack Configuration 
 
 Just like with NPM, you can use a configuration file to set up your webpack
-options.  You'll have to create this file by hand. It should be named
-`webpack.config.js` and export a single object.
+options.  You'll have to create this file by hand. It should live in the project's root directory, be named
+`webpack.config.js`, and export a single object.
 
 ## Specifying Entry and Output Files
 
@@ -18,6 +18,7 @@ module.exports = {
       path: "app/assets/javascripts",
       filename: "bundle.js"
   }	
+  ...
 };
 ```
 
@@ -30,7 +31,9 @@ impossible otherwise due to bundling.
 
 ```js
 module.exports = {
+  ...
 	devtool: 'source-map';
+  ...
 }
 ```
 
@@ -45,10 +48,11 @@ module.exports = {
 	resolve: {
 		extensions: ['','.js', '.jsx']
 	}
+  ...
 };
 ```
 
-By including an empty string, you can write import statements more succinctly: 
+By including an empty string, you can write import statements more succinctly:
 
 ```js
 import App from './components/app';
@@ -58,7 +62,11 @@ import { createTodos } from './actions/todos';
 
 ## `.gitignore`
 
-Running Webpack creates a lot of redundant and very large files in your local directory. Use a `.gitignore` file to prevent these files from being pushed and pulled from your remote Git repositories. Create a `.gitignore` and list the files or directories you want to ignore, one per line.
+Running Webpack creates a lot of redundant and very large files in your local
+directory. Use a `.gitignore` file to prevent these files from being pushed and
+pulled from your remote Git repositories. Create a `.gitignore` in your
+project's root directory and list the files or directories you want to ignore,
+one per line. Put a trailing `/` to indicate a directory name to ignore.
 
 ```
 node_modules/
