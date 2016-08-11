@@ -200,15 +200,15 @@ const TodosReducer = (state = defaultState, action) => {
 
 ### Selectors
 
-Selectors are "getter" methods for the application state. They receive the state as an argument and often return a subset of the state data formatted in a specific way. In this case, we wil want to present the todos as an array, rather than as values in an object.
+Selectors are "getter" methods for the application state. They receive the state as an argument and often return a subset of the state data formatted in a specific way. In this case, we will want to present the `todos` as an array, rather than as values in an object.
 
 + Create a file `reducers/selector.js`
   + Write a method named `allTodos` that receives the state as an argument
-    + Use `Object.keys(state.todos)` to get the keys for the `todos` part of the state
+    + Use `Object.keys(state.todos)` to get the keys for the `state.todos`
     + Map the array of todo ids to an array of todos
     + Return your new array
 
-** N.B. ** Selectors don't have to be long functions - a one-line function that uses `map` in conjunction with `Object.keys` and sets a reasonable default of `[]` would work just fine.
+**NB**: Selectors don't have to be long functions - a one-line function that uses `map` in conjunction with `Object.keys` and sets a reasonable default of `[]` would work just fine.
 
 ** Test your code: pass the value of `window.store.getState()` into your selector. Does it format the data into an array? **
 
@@ -314,7 +314,7 @@ Once the above test works, update your middleware so that it dispatches the rece
 #### Receiving and Reducing data
 
 Now that you can `fetch` data from your backend and `dispatch` it to your `Store` with an `actionType` of `RECEIVE_TODOS`, it's time to tell your reducers what to do with that type of action.
-** N.B. ** Remember to import the appropriate constants!
+**NB**: Remember to import the appropriate constants!
 
 + Add a new `case` to the `switch` statement in your `TodosReducer`
   + This case will execute if the `actionType` is `RECEIVE_TODOS`
@@ -387,7 +387,7 @@ Your `App` component can also be functional, because it doesn't need to use any 
 
 This component will show the items in our todo list.
 
-** N.B. ** Because we're using the react/redux design principle of separating container and presentational components, this will actually be two components!
+**NB**: Because we're using the react/redux design principle of separating container and presentational components, this will actually be two components!
 
 #### TodoListContainer
 
@@ -512,7 +512,7 @@ Let's start by getting your `TodoListItem`s ready for their own sub-lists by ref
     + Create a `MapDispatchToProps` function that passes `destroyTodo` as a prop to `TodoDetailView`
     + Export `connect( null, mapDispatchToProps )(TodoDetailView);`
 
-** N.B. ** Eventually, your `TodoDetailView` will hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Also, we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `Store`.
+**NB**: Eventually, your `TodoDetailView` will hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Also, we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `Store`.
 
 ### Adding a Steps API
 
