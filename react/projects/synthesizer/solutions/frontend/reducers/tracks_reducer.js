@@ -31,7 +31,7 @@ const track = (state, action) => {
   }
 };
 
-const tracks = (state = {}, action) => {
+const tracks = (state = rugratsTheme, action) => {
   switch(action.type) {
     case TracksConstants.START_RECORDING:
       currTrackId++; // increment id of current (newest) track
@@ -79,3 +79,5 @@ export default tracks;
 //     timeStart: 1470173676236
 //   },
 // };
+
+let rugratsTheme = {"1":{"id":1,"name":"Rugrats Theme","roll":[{"notes":["E5"],"timeSlice":755},{"notes":["E5","C5"],"timeSlice":763},{"notes":["C5"],"timeSlice":848},{"notes":[],"timeSlice":856},{"notes":["F5"],"timeSlice":1027},{"notes":["F5","D5"],"timeSlice":1032},{"notes":["D5"],"timeSlice":1138},{"notes":[],"timeSlice":1146},{"notes":["E5"],"timeSlice":1300},{"notes":["E5","G5"],"timeSlice":1309},{"notes":["G5"],"timeSlice":1406},{"notes":[],"timeSlice":1414},{"notes":["F5"],"timeSlice":1584},{"notes":["F5","A5"],"timeSlice":1591},{"notes":["F5"],"timeSlice":1728},{"notes":[],"timeSlice":1752},{"notes":["B5"],"timeSlice":1988},{"notes":["B5","G5"],"timeSlice":1994},{"notes":["G5"],"timeSlice":2124},{"notes":[],"timeSlice":2151},{"notes":["A5"],"timeSlice":2440},{"notes":["A5","C6"],"timeSlice":2445},{"notes":["A5"],"timeSlice":2574},{"notes":[],"timeSlice":2592},{"notes":["D6"],"timeSlice":3003},{"notes":["D6","B5"],"timeSlice":3007},{"notes":["B5"],"timeSlice":3118},{"notes":[],"timeSlice":3139},{"notes":["E5"],"timeSlice":3506},{"notes":["E5","G5"],"timeSlice":3513},{"notes":["E5"],"timeSlice":3617},{"notes":[],"timeSlice":3633},{"notes":["A5"],"timeSlice":3823},{"notes":["A5","F5"],"timeSlice":3828},{"notes":["F5"],"timeSlice":4005},{"notes":[],"timeSlice":4028},{"notes":["G5"],"timeSlice":4231},{"notes":["G5","E5"],"timeSlice":4251},{"notes":["E5"],"timeSlice":4364},{"notes":[],"timeSlice":4395},{"notes":["F5"],"timeSlice":4643},{"notes":["F5","D5"],"timeSlice":4651},{"notes":["D5"],"timeSlice":4835},{"notes":[],"timeSlice":4858},{"notes":[],"timeSlice":6202}],"timeStart":1470955099976}};
