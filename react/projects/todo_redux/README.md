@@ -474,11 +474,21 @@ Follow these steps:
 
 In this phase you will update your app so that each todo list item can have its own sub-list of `steps`. You will need to build out your backend, your redux cycle, as well as add several new components for this to work.
 
+** You should be testing your code regularly as you finish features. It will save you a lot of time if you debug as you code. **
+
 Let's start by getting your `TodoListItem`s ready for their own sub-lists by refactoring their display into multiple parts. Follow these steps:
 
 + Create a file `components/todo_detail_view.jsx` to hold a component `TodoDetailView`
   + Refactor your `TodoListItem` so that it only renders the item's title and a button to change its status
-  + Fill out your `TodoDetailView` so that it renders all of the todo item's other information 
+  + Fill out your `TodoDetailView` so that it renders all of the todo item's other information
+  + Conditionally render the `TodoDetailView` so that a user can show or hide a todo's details
+    + Add a boolean value `detail` to the internal state of your `TodoListItem`
+    + Initially, set that value to false
+    + Allow users to change that value to true by clicking on the item's title
+    + Render the `TodoDetailView` only if `detail` is true 
+  + Create a container for your `TodoDetailView` component
+    + Create a `MapDispatchToProps` function that passes `destroyTodo` as a prop to `TodoDetailView`
+    + Export `connect( null, mapDispatchToProps )(TodoDetailView);` 
 
 ** N.B. ** Eventually, your `TodoDetailView` will hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Also, we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `Store`.
 
@@ -509,7 +519,7 @@ In this section you will create parallel API utils to those in your `todo_api_ut
   + Write `fetchSteps`, `createStep`, `updateStep`, and `destroyStep` functions
   + These functions will make `$.ajax` requests to your backend's new API endpoints
 
-** Test your code **
+** Test your code. **
 
 #### Update the store
 
@@ -550,6 +560,8 @@ Your application state will end up looking like this:
   + Add this reducer to your `rootReducer` via `combineReducers`
 + Add another selector to your `reducers/selectors.js` file that will allow components to get the steps as an array
 
+** Test your code. **
+
 #### Action Creators
 
 In this section you will create essentially parallel action creators to those in your `todo_actions` file, but for steps instead.
@@ -559,6 +571,8 @@ In this section you will create essentially parallel action creators to those in
   + Create new `step` constants for all of the action creators above
   + Export all of your action creators and constants
 
+** Test your code. **
+
 #### Middleware
 
 In this section you will create a new middleware to use your Step API utils in case it receives an action with the correct type. This will also be very similar to your `TodoMiddleware`.
@@ -567,15 +581,40 @@ In this section you will create a new middleware to use your Step API utils in c
   + This middleware will use the API utility functions that you just wrote and pass along the HTTP Responses to your `Store`
   + Add your new `StepMiddleware` to your `MasterMiddleware` call
 
-## Phase 7: steps components
+** Test your code. **
+
+## Phase 7: Steps components
 
 In this phase, you will create React components to display the steps for a given todo list item, as well as a form that allows users to create new steps. These components will be rendered inside your `TodoDetailView` component.
 
-Suggested components include:
+Follow these steps, ** testing your code as you go **:
 
-+ `step_list_container` & `step_list`
-+ `step_list_item_container` & `step_list_item`
-+ `step_form`
++ Add `requestSteps` to the `MapDispatchToProps` in your `TodoDetailViewContainer`
++ Create a pair of files `components/step_list.jsx` and `components/step_list_container.jsx`
+  + Create `MapDispatchToProps` and `MapStateToProps` functions in the container file
+    + `MapDispatchToProps` will pass `createStep` as a prop
+    + `MapStateToProps` will pass `steps` and `todo_id` as props
+  + The presentational component should render: 
+    + A `<ul>` of `StepListItemContainers`
+    + A `StepForm`
++ Create a pair of files `components/step_list_item_container.jsx` and `components/step_list_item.jsx`
+  + Create a `MapDispatchToProps` function in the container file
+    + `MapDispatchToProps` will pass `destroyStep` and `toggleStep` as props
+  + The presentational component should render:
+    + The Step's `title`
+    + Buttons to toggle and delete the step
++ Create a file `components/step_form.jsx`
+  + The `StepForm` component should render:
+    + A form with a labeled input and a button that creates a new step
+  + The `StepForm` component should control the input by
+    + Storing its value in state
+    + Updating its state when the input triggers `onChange`
+  + The `StepForm` should `handleSubmit`
+    + Clear the value of the input
+    + Create a local `step` object
+    + Pass that object to `this.props.createStep`
+
+** Test your code: you should be able to create, toggle, and destroy steps. **
 
 ## Bonus
 
@@ -586,7 +625,7 @@ Suggested components include:
   + Tags for todos
   + Steps can have sub-steps (polymorphic associations)
   + Allow markdown or text styling in todos ([quill.js](https://quilljs.com/)
-  + Allow users to update todo title & bodies
+  + Allow users to update todo title & body
   + Sorting by priority
   + Adding a time when something is due
     + Sort by due date
