@@ -22,6 +22,7 @@ You'll need the following packages:
 - `react`
 - `react-dom`
 - `babel-core`
+- `babel-loader`
 - `babel-preset-es2015`
 - `babel-preset-react`
 
