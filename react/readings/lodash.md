@@ -27,11 +27,10 @@ console.log(original); // {a: {b: 'changed'}}
 
 `union()` creates an array of unique values, in insertion order, from two given arrays.
 
-Be careful with non-primitive elements, since objects with identical key-value
+Consider using `union()` when you want to add items to a unique array that
+might already contain them. Be careful with non-primitive elements, since objects with identical key-value
 pairs are unique vis-a-vis each other.
 
-Consider using `union()` when you want to add items to an array that
-might already contain them. 
 
 ```js
 import union from 'lodash/union';
@@ -67,12 +66,12 @@ result = ids.slice();
 newIds.forEach(function(newId){
 	var shouldInsert = true;
 
-	for (id in ids) {
-		if (id === newId ) {
+	ids.forEach(function(oldId){
+		if (oldId === newId) {
 			shouldInsert = false;
 			break;
 		}
-	}
+	});
 
 	if (shouldInsert){
 		result.push(newId);
