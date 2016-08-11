@@ -621,7 +621,7 @@ add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 * Create a `actions/playing_actions.js` file.
 * Export `PlayingConstants` with `START_PLAYING` and `STOP_PLAYING` key-value pairs.
 * Export `startPlaying` and `stopPlaying` action creators.
-* Add a new `GROUP_UPDATE` key-value pair to your `NotesConstants`.
+* Add a new `GROUP_UPDATE` key-value pair to your `NotesConstants`. We'll be using this action to replace the `notes` in the store with notes from a track's roll.
 * Export a `groupUpdate` action creator which takes as an arguments an array of `notes`.
 
 ### Reducers
@@ -643,7 +643,7 @@ add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 * Create a file `components/juke_box/juke_box_container.jsx`.
 * Import `connect` from `react-redux`, your `groupUpdate`, `startPlaying` and `stopPlaying` action creators, and your `JukeBox` component.
 * Define `mapStateToProps` returning an object which maps the state's `tracks`, `isRecording`, and `isPlaying`.
-* Define `mapDispatchToProps` returning an object containing a callback prop for `onPlay` which dispatches both action creators. We'll come back to defining it next.
+* Define `mapDispatchToProps` returning an object containing a callback prop for `onPlay` which dispatches both action creators. We'll come back to defining it the following section.
 * Call `connect`on your `JukeBox` component to connect it to your Redux store.
 * Export the result of this call.
 * Render your `JukeBoxContainer` in your `App` component.
@@ -740,7 +740,10 @@ I added these css classes to my components.
 [html-curriculum]:https://github.com/appacademy/curriculum/tree/master/html-css
 
 ## Bonus Phase
+* Rewrite your Track to use [ES6 generators][generators] for recording and playback.
 * **Delete Tracks**: Add a feature to delete any track from your JukeBox.
 * **Name your Tracks**: Add a feature to rename the tracks in your JukeBox.
 * **Looping**: Add a setting to allow tracks to play continuously.
 * **Playlists**: Queue up tracks to be played sequentially.
+
+[generators]:https://davidwalsh.name/es6-generators
