@@ -73,17 +73,17 @@ In addition to the view wireframes, you should diagram a tree indicating your
 application's overall component structure. See the sample project proposal for
 an example of this.
 
-### Flux Cycles
+### Redux Structure
 
-Flux loops are organized by data type. Under each data type, there may be sub-
-categories, and each action is listed with the sequence of events that result
-from its invocation, ending with the API or store. Finally, store listeners are
-listed at the end.
+The application's state is organized by data type. Under each data type, there
+may be sub-states. Each action is listed with the sequence of events that
+results from its invocation, ending with the API or a reducer. Subscribing
+components, i.e. connectors, are listed at the end.
 
-You should be able to use this document trace an action starting with where it
-was invoked, through the API/store involved, and finally to the components that
-update as a result. This is important because once you start implementing your
-flux loops, that's precisely what you'll need to do.
+Using this document, you should be able to trace an **action** starting with
+where it was invoked, through the **API**/**reducer** involved, and finally to
+the **components** that update as a result. Once you start implementing your
+Redux structure, you'll need to do the same.
 
 ### DB Schema
 

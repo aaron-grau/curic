@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days, W1 F 6pm)
+# Phase 2: Redux Architecture and Note CRUD (2 days, W1 F 6pm)
 
 ## Rails
 ### Models
@@ -11,13 +11,13 @@
 * notes/index.json.jbuilder
 * notes/show.json.jbuilder
 
-## Flux
+## Redux
 ### Views (React Components)
 * NotesIndex
   - NotesIndexItem
 * NoteForm
 
-### Stores
+### Reducers
 * Note
 
 ### Actions
