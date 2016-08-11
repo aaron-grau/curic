@@ -6,26 +6,25 @@
 
 ### Readings
 
-**ES6**
+#### ES6
 - [ES6 Syntax: Import / Export][import_export]
 - [ES6 Syntax: Object Destructuring][object_destructuring]
 
-**React and JSX**
-- [Intro to React][intro_to_react]
-- [Intro to JSX][intro_to_jsx]
-- [Intro to React Components][intro_to_react_components]
+#### Intro React and JSX
+- [React][intro_to_react]
+- [JSX][intro_to_jsx]
+- [React Components][intro_to_react_components]
 
-**Components in Detail**
--	[Declaring Components][component_declaration]
-- [Components: Props and State][props_and_state]
-- [Components: Lifecycle Methods][component_lifecycle]
-- [Components: Synthetic Events][synthetic_events]
+#### Components in Detail
+-	[Declaration][component_declaration]
+- [Props and State][props_and_state]
+- [Lifecycle Methods][component_lifecycle]
+- [Synthetic Events][synthetic_events]
 
-**Configuration**
-- [Configuring NPM][npm_configuration]
-- [Configuring Webpack][webpack_configuration]
-- [Configuring Babel][babel_configuration]
-
+#### Configuration
+- [NPM][npm_configuration]
+- [Webpack][webpack_configuration]
+- [Babel][babel_configuration]
 
 ### Homeworks
 - [Getting Started with NPM][getting_started]
