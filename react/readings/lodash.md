@@ -27,6 +27,12 @@ console.log(original); // {a: {b: 'changed'}}
 
 `union()` creates an array of unique values, in insertion order, from two given arrays.
 
+Be careful with non-primitive elements, since objects with identical key-value
+pairs are unique vis-a-vis each other.
+
+Consider using `union()` when you want to add items to an array that
+might already contain them. 
+
 ```js
 import union from 'lodash/union';
 
@@ -41,8 +47,8 @@ Contrast this to vanilla JS:
 
 ```js
 
-let ids = [1,4,5];
-let newIds = [2,3,4];
+let ids = [1, 4, 5];
+let newIds = [2, 3, 4];
 
 // ES6
 
@@ -75,7 +81,6 @@ newIds.forEach(function(newId){
 })
 
 ```
-
 
 [lodash]: https://www.npmjs.com/package/lodash
 [dan-tweet]: https://twitter.com/dan_abramov/status/605691126549508096
