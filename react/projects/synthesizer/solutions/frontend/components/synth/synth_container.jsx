@@ -3,9 +3,9 @@ import { keyPressed, keyReleased } from '../../actions/notes_actions';
 import { addNotes } from '../../actions/tracks_actions';
 import Synth from './synth';
 
-const mapStateToProps = ({ notes, recording }) => ({
+const mapStateToProps = ({ notes, isRecording }) => ({
   notes,
-  recording
+  isRecording
 });
 
 const mapDispatchToProps = dispatch => ({

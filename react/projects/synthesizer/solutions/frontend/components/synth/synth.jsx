@@ -16,19 +16,19 @@ class Synth extends React.Component {
   }
 
   onKeyUp(e) {
-    // let { recording, notes, keyDown, addNotes } = this.props;
+    // let { isRecording, notes, keyDown, addNotes } = this.props;
     this.props.keyReleased(e.key);
 
-    if (this.props.recording) {
+    if (this.props.isRecording) {
       this.props.addNotes(this.props.notes);
     }
   }
 
   onKeyDown(e) {
-    // let { recording, notes, keyDown, addNotes } = this.props;
+    // let { isRecording, notes, keyDown, addNotes } = this.props;
     this.props.keyPressed(e.key);
 
-    if (this.props.recording) {
+    if (this.props.isRecording) {
       this.props.addNotes(this.props.notes);
     }
   }

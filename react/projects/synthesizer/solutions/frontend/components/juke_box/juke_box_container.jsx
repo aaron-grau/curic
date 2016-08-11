@@ -4,9 +4,9 @@ import { groupUpdate } from '../../actions/notes_actions';
 import { startPlaying, stopPlaying } from '../../actions/playing_actions';
 import JukeBox from './juke_box';
 
-const mapStateToProps = ({ tracks, recording, playing }) => ({
+const mapStateToProps = ({ tracks, isRecording, playing }) => ({
   tracks,
-  recording,
+  isRecording,
   playing
 });
 

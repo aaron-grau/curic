@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Recorder = ({ recording, playing, startRecording, stopRecording}) => (
+const Recorder = ({ isRecording, playing, startRecording, stopRecording}) => (
     <div className='recorder'>
       <div className='recorder-title'>
         Recorder
@@ -8,13 +8,13 @@ const Recorder = ({ recording, playing, startRecording, stopRecording}) => (
       <button
         className ='start-button'
         onClick={startRecording}
-        disabled={recording || playing}>
+        disabled={isRecording || playing}>
         Start
       </button>
       <button
         className='stop-button'
         onClick={stopRecording}
-        disabled={!recording || playing}>
+        disabled={!isRecording || playing}>
         Stop
       </button>
   </div>
