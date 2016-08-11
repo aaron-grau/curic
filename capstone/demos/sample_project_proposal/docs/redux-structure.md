@@ -1,15 +1,14 @@
-# Flux Cycles
+# Redux Structure
 
-Flux loops are organized by data type. Under each data type, there may
-be sub-categories, and each action is listed with the sequence of events
-that result from its invocation, ending with the API or store. Finally,
-store listeners are listed at the end.
+The application's state is organized by data type. Under each data type, there
+may be sub-states. Each action is listed with the sequence of events that
+results from its invocation, ending with the API or a reducer. Subscribed
+components, i.e. containers, are listed at the end.
 
-You should be able to use this document trace an **action** starting
-with where it was invoked, through the **API**/**store** involved, and
-finally to the **components** that update as a result. This is important
-because once you start implementing your flux loops, that's precisely
-what you'll need to do.
+Using this document, you should be able to trace an **action** starting with
+where it was invoked, through the **API**/**reducer** involved, and finally to
+the **components** that update as a result. Once you start implementing your
+Redux structure, you'll need to do the same.
 
 ## Auth Cycles
 
@@ -36,20 +35,20 @@ what you'll need to do.
 
 * `receiveCurrentUser`
   0. invoked from an API callback
-  0. stores in `_currentUser` in `CurrentUserStore`
+  0. the `SessionReducer` stores `currentUser` in the application's state.
 * `removeCurrentUser`
   0. invoked from an API callback
-  0. removes `_currentUser` in `CurrentUserStore`
+  0. the `SessionReducer` removes `currentUser` from the application's state.
 
 ## Error Cycles
 
 ### Error API Response Actions
 * `setErrors`
   0. invoked from API callbacks on error for actions that generate POST requests
-  0. sets `form` and `_errors` in the `ErrorStore`
+  0. the `ErrorReducer` stores the `form` in the application's state; `errors` are mapped to their respective forms
 * `removeErrors`
   0. invoked from API callbacks on success for actions that generate POST requests
-  0. removes `_errors` for a given `form` in the `ErrorStore`
+  0. the `ErrorReducer` removes `errors` for a given `form` in the application's state.
 
 ## Note Cycles
 
@@ -83,21 +82,21 @@ what you'll need to do.
 ### Notes API Response Actions
 
 * `receiveAllNotes`
-  0. invoked from an API callback.
-  0. `Note` store updates `_notes` and emits change.
+  0. invoked from an API callback
+  0. the `NoteReducer` updates `notes` in the application's state.
 
 * `receiveSingleNote`
-  0. invoked from an API callback.
-  0. `Note` store updates `_notes[id]` and emits change.
+  0. invoked from an API callback
+  0. the `NoteReducer` updates `notes[id]` in the application's state.
 
 * `removeNote`
-  0. invoked from an API callback.
-  0. `Note` store removes `_notes[id]` and emits change.
+  0. invoked from an API callback
+  0. the `NoteReducer` removes `notes[id]` from the application's state.
 
-### Store Listeners
+### Containers
 
-* `NotesIndex` component listens to `Note` store.
-* `NoteDetail` component listens to `Note` store.
+* `NotesIndex` component subscribes to the Redux store.
+* `NoteDetail` component subscribes to the Redux store.
 
 
 ## Notebook Cycles
@@ -133,19 +132,19 @@ what you'll need to do.
 
 * `receiveAllNotebooks`
   0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks` and emits change.
+  0. The `Notebook` reducer updates `notebooks` in the application's state.
 
 * `receiveSingleNotebook`
   0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks[id]` and emits change.
+  0. The `Notebook` reducer updates `notebooks[id]` in the application's state.
 
 * `removeNotebook`
   0. invoked from an API callback.
-  0. `Notebook` store removes `_notebooks[id]` and emits change.
+  0. The `Notebook` reducer removes `notebooks[id]` from the application's state.
 
-### Store Listeners
+### Containers
 
-* `NotebooksIndex` component listens to `Notebook` store.
+* `NotebooksIndex` component subscribes to the Redux store.
 
 
 ## SearchSuggestion Cycles
@@ -157,12 +156,12 @@ what you'll need to do.
 
 * `receiveSearchSuggestions`
   0. invoked from an API callback.
-  0. `SearchSuggestion` store updates `_suggestions` and emits change.
+  0. The `SearchSuggestion` reducer updates `suggestions` in the application's state.
 
 * `removeSearchSuggestions`
   0. invoked from `NoteSearchBar` `onChange` when empty
-  0. `SearchSuggestion` store resets `_suggestions` and emits change.
+  0. The `SearchSuggestion` reducer resets `suggestions` in the application's state.
 
-### Store Listeners
+### Containers
 
-* `SearchBarSuggestions` component listens to `SearchSuggestion` store.
+* The `SearchBarSuggestions` component subscribes to the Redux store.

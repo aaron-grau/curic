@@ -13,13 +13,13 @@
 * notebooks/index.json.jbuilder
 * notebooks/show.json.jbuilder
 
-## Flux
+## Redux
 ### Views (React Components)
 * NotebooksIndex
   - NotebookIndexItem
 * NotebookForm
 
-### Stores
+### Reducers
 * Notebook
 
 ### Actions
