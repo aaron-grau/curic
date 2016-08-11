@@ -103,7 +103,7 @@ To create a `webpack` script, add the following attribute to your `package.json`
 },
 ```
 
-Now, when you run `webpack` in the terminal, the `package.json`-specified
+Now, when you run `npm run webpack` in the terminal, the `package.json`-specified
 version will run. Always run `npm run webpack` rather than `webpack` to minimize
 the chance of compatibility issues.
 
