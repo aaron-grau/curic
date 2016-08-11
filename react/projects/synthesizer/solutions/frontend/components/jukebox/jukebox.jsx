@@ -1,7 +1,7 @@
 import React from 'react';
 import Track from './track';
 
-const JukeBox = ({ tracks, isRecording, isPlaying, onDelete, onPlay }) => (
+const Jukebox = ({ tracks, isRecording, isPlaying, onDelete, onPlay }) => (
   <div className="juke-box">
     <div className='juke-box-title'>
       Jukebox
@@ -19,4 +19,4 @@ const JukeBox = ({ tracks, isRecording, isPlaying, onDelete, onPlay }) => (
   </div>
 );
 
-export default JukeBox;
+export default Jukebox;

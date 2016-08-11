@@ -634,19 +634,19 @@ add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 
 ### Components
 
-* Create a new directory `components/juke_box`.
+* Create a new directory `components/jukebox`.
 
-#### `JukeBoxContainer`
+#### `JukeboxContainer`
 
-* Create a file `components/juke_box/juke_box.jsx`.
-* Define and export `JukeBox`, a functional component to start.
-* Create a file `components/juke_box/juke_box_container.jsx`.
-* Import `connect` from `react-redux`, your `groupUpdate`, `startPlaying` and `stopPlaying` action creators, and your `JukeBox` component.
+* Create a file `components/jukebox/jukebox.jsx`.
+* Define and export `Jukebox`, a functional component to start.
+* Create a file `components/jukebox/jukebox_container.jsx`.
+* Import `connect` from `react-redux`, your `groupUpdate`, `startPlaying` and `stopPlaying` action creators, and your `Jukebox` component.
 * Define `mapStateToProps` returning an object which maps the state's `tracks`, `isRecording`, and `isPlaying`.
 * Define `mapDispatchToProps` returning an object containing a callback prop for `onPlay` which dispatches both action creators. We'll come back to defining it the following section.
-* Call `connect`on your `JukeBox` component to connect it to your Redux store.
+* Call `connect`on your `Jukebox` component to connect it to your Redux store.
 * Export the result of this call.
-* Render your `JukeBoxContainer` in your `App` component.
+* Render your `JukeboxContainer` in your `App` component.
 
 #### `onPlay`
 
@@ -694,14 +694,14 @@ Now for the meat of the method:
 [set-interval]:https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval
 [clear-interval]: https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval
 
-#### `JukeBox` Component
+#### `Jukebox` Component
 
 * [De-structure][destructure] its `props` argument.
 * Return a `div` containing a list of `Track` components, which we will write next.
 
 #### `Track` Component
 
-* Create a file `components/juke_box/track.jsx`.
+* Create a file `components/jukebox/track.jsx`.
 * Define and export a `Track` component, a `div` containing the name of the `track` and a "Play" button.
 * Disable the "Play" button if `isRecording` or already `isPlaying`, and `onClick` `onPlay(track)`.
 
@@ -740,8 +740,8 @@ I added these css classes to my components.
 [html-curriculum]:https://github.com/appacademy/curriculum/tree/master/html-css
 
 ## Bonus Phase
-* **Delete Tracks**: Add a feature to delete any track from your JukeBox.
-* **Name your Tracks**: Add a feature to rename the tracks in your JukeBox.
+* **Delete Tracks**: Add a feature to delete any track from your Jukebox.
+* **Name your Tracks**: Add a feature to rename the tracks in your Jukebox.
 * **Looping**: Add a setting to allow tracks to play continuously.
 * **Playlists**: Queue up tracks to be played sequentially.
 * Rewrite your Track to use [ES6 generators][generators] for recording and playback.

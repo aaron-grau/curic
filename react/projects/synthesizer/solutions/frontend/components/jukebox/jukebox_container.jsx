@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { deleteTrack } from '../../actions/tracks_actions';
 import { groupUpdate } from '../../actions/notes_actions';
 import { startPlaying, stopPlaying } from '../../actions/playing_actions';
-import JukeBox from './juke_box';
+import Jukebox from './jukebox';
 
 const mapStateToProps = ({ tracks, isRecording, isPlaying }) => ({
   tracks,
@@ -38,4 +38,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(JukeBox);
+)(Jukebox);
