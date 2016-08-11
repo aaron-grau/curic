@@ -6,7 +6,7 @@ component needs in order to render.
 
 ## Props
 
-Props are properties of a component that are assigned at the time of
+Props are properties of a component that are passed in at the time of
 initialization.
 
 ```js
@@ -42,12 +42,20 @@ parent.
 
 # State
 
-Unlike props, `this.state` represents the properties of a component that can
-change over the course of its life-cycle.
+Unlike props, `this.state` represents the properties of a component that can be altered by the component itself.
+
+### When to Use State
+
+State should be used whenever a component must keep track of mutable, internal
+data. Most of the time, state will be used for form components. If a piece of
+information is never going to change, or if it is needed across the entire app
+(such as the `currentUser`), use props instead.
+
+### How State is Set
 
 Although a component's state can be defined at initialization, it may also reset
 its own state at certain points in its lifecycle using `this.setState()`. Every
-time `this.setState()` is called, the component is re-rendered with the new
+time `this.setState()` is called, the component calls `render()` again with the new
 state. 
 
 ```javascript
@@ -77,7 +85,7 @@ In this example `WordInput` has an initial state of `{word: ""}`. When it is
 rendered, we register an **event listener** on the `input` via its `onChange`
 prop. Whenever the `input` changes its value (via user input), it will call
 `onChange`, which in this case is set to the function returned by
-`linkState('word'). That function, called a **change handler**, calls
+`linkState('word')`. That function, called a **change handler**, calls
 `this.setState()` and sets `this.state.word` to the input's current value. The
 component then re-renders with the new state, updating the text inside the
 `span`.
@@ -91,10 +99,3 @@ Note that because `setState()` triggers a re-render, it cannot be called during
 a `render()`, as that would trigger an infinite loop. Here, `setState()` works
 because the change handler returned by `linkState()` is called by user-input
 *after* the element is rendered.
-
-### When to Use State
-
-State should be used whenever a component must keep track of mutable, internal
-data. Most of the time, state will be used for form components. If a piece of
-information is never going to change, or if it is needed across the entire app
-(such as the `currentUser`), use props instead.
