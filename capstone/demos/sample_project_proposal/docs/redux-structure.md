@@ -2,8 +2,8 @@
 
 The application's state is organized by data type. Under each data type, there
 may be sub-states. Each action is listed with the sequence of events that
-results from its invocation, ending with the API or a reducer. Subscribing
-components, i.e. connectors, are listed at the end.
+results from its invocation, ending with the API or a reducer. Subscribed
+components, i.e. containers, are listed at the end.
 
 Using this document, you should be able to trace an **action** starting with
 where it was invoked, through the **API**/**reducer** involved, and finally to
@@ -94,7 +94,7 @@ nested under the `form`.
   0. invoked from an API callback
   0. the `NoteReducer` removes `notes[id]` from the application's state.
 
-### Store Subscribers/Connectors
+### Containers
 
 * `NotesIndex` component subscribes to the Redux store.
 * `NoteDetail` component subscribes to the Redux store.
@@ -143,7 +143,7 @@ nested under the `form`.
   0. invoked from an API callback.
   0. The `Notebook` reducer removes `notebooks[id]` from the application's state.
 
-### Store Subscribers/Connectors
+### Containers
 
 * `NotebooksIndex` component subscribes to the Redux store.
 
@@ -163,6 +163,6 @@ nested under the `form`.
   0. invoked from `NoteSearchBar` `onChange` when empty
   0. The `SearchSuggestion` reducer resets `suggestions` in the application's state.
 
-### Store Subscribers/Connectors
+### Containers
 
 * The `SearchBarSuggestions` component subscribes to the Redux store.

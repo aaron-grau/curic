@@ -33,12 +33,14 @@ FresherNote is a web application inspired by Evernote that will be build using R
 * [View Wireframes][views]
 * [React Components][components]
 * [Redux Structure][redux-structure]
+* [Sample State][sample-state]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 
 [views]: docs/views.md
 [components]: docs/components.md
 [redux-structure]: docs/redux-structure.md
+[sample-state]: docs/sample-state.md
 [api-endpoints]: docs/api-endpoints.md
 [schema]: docs/schema.md
 
