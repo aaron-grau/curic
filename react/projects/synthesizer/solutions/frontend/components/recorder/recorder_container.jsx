@@ -2,10 +2,9 @@ import { connect } from 'react-redux';
 import { startRecording, stopRecording } from '../../actions/tracks_actions';
 import Recorder from './recorder';
 
-const mapStateToProps = ({ tracks, isRecording, playing }) => ({
-  tracks,
+const mapStateToProps = ({ isRecording, isPlaying }) => ({
   isRecording,
-  playing
+  isPlaying
 });
 
 const mapDispatchToProps = dispatch => ({

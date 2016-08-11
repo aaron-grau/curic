@@ -249,9 +249,9 @@ previous state.
 The `notes` reducer updates and returns to the store only a single slice of
 the state: the `notes` in play.
 
-*NB*: When we have state fields that are independent of each other, we split the reducer into multiple reducers that each
-handle their own slices of the state. This is called **reducer composition**,
-and it’s the fundamental pattern of building Redux apps.
+*NB*: When we have state fields that are independent of each other, we split the reducer into multiple reducers that each handle their own slices of the state.
+This is called **reducer composition**, and it’s the fundamental pattern of
+building Redux apps.
 
 We only have one reducer right now, but later as our app grows we'll be adding
 more. For now, let's define a root reducer that calls all of the reducers
@@ -291,7 +291,8 @@ The `Root` component serves to wrap your `App` component with a
 [`Provider`][provider] component. The Provider is a special React Redux
 component that gives all of your container components access to your app's store
 without passing it explicitly to each component, allowing all of them to read
-your app's state and dispatch actions. These components that connect to the store are known as **container** components.
+your app's state and dispatch actions. These components that connect to the
+store are known as **container** components.
 
 + Create a file `components/root.jsx`.
 + Import `Provider` from `react-redux`, `React` and your `App` component.
@@ -503,7 +504,7 @@ discussing the details of our track objects for a little later.
 
 #### `tracks` Reducer
 
-`tracks` in the state is an object storing as keys, track ids. As values, it stores track objects.
+`tracks` should be an object that stores track objects using their `id`s as keys.
 
 Let's take a closer look at a track object.
 ```
@@ -530,22 +531,30 @@ We need to know the current time a note is played to calculate when to
 play a note relative to the `timeStart` of the recording (`timeSlice`) and the
 names of the notes actually played (`notes`).
 
-+ Create a `reducers/tracks_reducer.js` file and import your `TracksConstants`, and `merge` from `lodash/merge`
++ Create a `reducers/tracks_reducer.js` file; import your `TracksConstants`, and `merge` from `lodash/merge`.
 + Initialize a variable `currTrackId` to `0`. This variable will be used set track ids and add notes to the newest recording.
-+ `export default` a `tracks` reducer.
++ `export default` your `tracks` reducer.
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
 + Add a `switch` statement and return `state` as the `default` case.
 + Add a case for each action type.
-  + `START_RECORDING` - Increment `currTrackId`. Create a new track with the appropriate key-value pairs for `id`, `name`, `roll` and `timeStart`. Use
- [`merge`][merge-lodash] to create a new object with the new track added to the
- state. Return this object.
-  + `STOP_RECORDING` - Add a new roll to the current track's `roll` containing an empty array of `notes`, ensuring that the track is silent when it ends.
-  Calculate `timeSlice` from `action.timeNow - state[currTrackId].timeStart`. Return the new state.
-  + `ADD_NOTES` - Add a new roll to the current track's `roll`. Grab the `notes` played from the `action` and calculate the `timeSlice` as you did above. Return the new state.
+  + `START_RECORDING` -
+    + Increment `currTrackId`.
+    + Create a new track with the appropriate key-value pairs for `id`, `name`, `roll` and `timeStart`.
+    + Use [`merge`][merge-lodash] to create a new object with the new track added to the state.
+    + Return this object.
+  + `STOP_RECORDING` -
+    + Add a new roll to the current track's `roll` containing an empty array of `notes`, ensuring that the track is silent when it ends.
+    + Calculate `timeSlice` from `action.timeNow - state[currTrackId].timeStart`.
+    + Return the new state.
+  + `ADD_NOTES` -
+    + Add a new roll to the current track's `roll`.
+    + Grab the `notes` played from the `action` and calculate the `timeSlice` as you did above.
+    + Return the new state.
 
 *NB*: State must never be mutated in the redux, so make sure you are creating
 and returning new objects and arrays. `Object.assign` returns a shallow copy of
-an object which is why for nest objects, we must rely on `merge` from `lodash`.
+an object which is why for nested objects, we must rely on `merge` from
+`lodash`.
 
 [merge-lodash]:https://lodash.com/docs#merge
 
@@ -553,9 +562,11 @@ an object which is why for nest objects, we must rely on `merge` from `lodash`.
 
 + Import your `tracks` and `isRecording` reducer.
 + Update your root reducer so it combines your `notes`, `tracks` and `isRecording` reducers.
-+ Test that this works by looking at your initial application state.
++ Test that this works by looking at your initial application state. Hint: `console.log(store.getState())`.
 
 ## Phase 6: Recording Track Components
+
+Now let's build the interface that users will use to add tracks to our store.
 
 + Create a new directory `components/recorder`.
 
@@ -577,11 +588,12 @@ store.
 ### `Recorder` Component
 
 * Return a `div` containing a "Start" and a "Stop" button.
-* [De-structure][destructure] its `props` argument.
-* Disable the "Start" button if `isRecording`, and `onClick` `startRecording`.
-* Disable the "Stop" button if not `isRecording`, and `onClick` `stopRecording`.
+* [De-structure][destructure] all of its `props` argument passed from the `RecorderContainer`.
+* [Disable][disable] the "Start" button if `isRecording`, and `onClick`, `startRecording`.
+* Disable the "Stop" button if not `isRecording`, and `onClick`, `stopRecording`.
 
 [destructure]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Pulling_fields_from_objects_passed_as_function_parameter
+[disable]:http://www.w3schools.com/tags/att_button_disabled.asp
 
 ### `SynthContainer`
 
@@ -603,7 +615,7 @@ Now your synthesizer plays musical notes and records tracks! Nice.
 ## Phase 7: Jukebox
 
 Let's create a `Jukebox` to display and play our recorded tracks. We're going to
-add to the state a boolean `playing` to indicate if a track is playing or not.
+add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 
 ### Action Creators
 * Create a `actions/playing_actions.js` file.
@@ -614,7 +626,7 @@ add to the state a boolean `playing` to indicate if a track is playing or not.
 
 ### Reducers
 * Create a `reducers/playing_reducer.js` file.
-* Import your `PlayingConstants` and export a `playing` reducer.
+* Import your `PlayingConstants` and export a `isPlaying` reducer.
 * Set the initial state to `false` and return the state by default.
 * Create switch cases for `START_PLAYING` and `STOP_PLAYING`, setting the `isRecording` to the appropriate boolean value.
 * In your `notes` reducer, add a new switch case for `GROUP_UPDATE`, setting the replacing the `notes` in the state with `action.notes`.
@@ -630,7 +642,7 @@ add to the state a boolean `playing` to indicate if a track is playing or not.
 * Define and export `JukeBox`, a functional component to start.
 * Create a file `components/juke_box/juke_box_container.jsx`.
 * Import `connect` from `react-redux`, your `groupUpdate`, `startPlaying` and `stopPlaying` action creators, and your `JukeBox` component.
-* Define `mapStateToProps` returning an object which maps the state's `tracks`, `isRecording`, and `playing`.
+* Define `mapStateToProps` returning an object which maps the state's `tracks`, `isRecording`, and `isPlaying`.
 * Define `mapDispatchToProps` returning an object containing a callback prop for `onPlay` which dispatches both action creators. We'll come back to defining it next.
 * Call `connect`on your `JukeBox` component to connect it to your Redux store.
 * Export the result of this call.
@@ -691,7 +703,7 @@ Now for the meat of the method:
 
 * Create a file `components/juke_box/track.jsx`.
 * Define and export a `Track` component, a `div` containing the name of the `track` and a "Play" button.
-* Disable the "Play" button if `isRecording` or already `playing`, and `onClick` `onPlay(track)`.
+* Disable the "Play" button if `isRecording` or already `isPlaying`, and `onClick` `onPlay(track)`.
 
 #### Update Buttons
 * Don't forget to update your "Start", "Stop", and "Play" buttons so that they are disabled if a track is playing.
