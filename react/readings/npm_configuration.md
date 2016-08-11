@@ -11,7 +11,7 @@ installation for apps that have several dependencies.
 
 Much like Ruby's `Gemfile`, NPM can be used with a manifest file that lists all
 of an app's dependencies. This file is called `package.json`. While you can
-generate write this file by hand, NPM's CLI (command line interface) simplifies
+ write this file by hand, NPM's CLI (command line interface) simplifies
 the process a lot.
 
 To intialize an app with NPM, run this in the directory of the app: 
