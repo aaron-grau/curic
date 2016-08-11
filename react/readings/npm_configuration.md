@@ -44,7 +44,7 @@ you can always adjust them later.
 
 Once you've generated a `package.json`, you can start installing npm packages such as `react` and `redux` via the command:
 
-```sh
+```
 npm install package_name
 ```
 
@@ -57,7 +57,7 @@ server), the package will be missing!
 Adding the `--save` flag to your `npm install` command will install the package
 *and* list it in your `package.json`:
 
-```sh
+```
 npm install --save react redux
 ```
 
@@ -78,7 +78,7 @@ adds the following to your `package.json`:
 Now, anyone who gets a copy of your app can download all your dependencies in
 one fell swoop by running the following (with no arguments):
 
-```sh
+```
 npm install
 ```
 
@@ -89,7 +89,7 @@ Recall that, in Ruby, running `bundle exec some_command` is **not the same** as 
 
 To solve this issue with NPM packages, we need to add `"scripts"` for any packages that we intend to call from the command line. Once we've added a script for a package, we can 
 
-```sh
+```
 npm run that_package
 ```
 
@@ -104,13 +104,12 @@ To create a `webpack` script, add the following attribute to your `package.json`
 ```
 
 Now, when you run `webpack` in the terminal, the `package.json`-specified
-version will run.
-
-Always run `npm run webpack` rather than `webpack` to minimize the chance of
-compatibility issues.
+version will run. Always run `npm run webpack` rather than `webpack` to minimize
+the chance of compatibility issues.
 
 # Summary
 
-`npm init --yes`:  create `package.json`
-`npm install --save <package>`: install and list a package as a dependency
-`npm install`: download all dependencies listed in `package.json`
+- `npm init --yes`:  create `package.json`.
+- `npm install --save <package>`: install and list a package as a dependency.
+- `npm install`: download all dependencies listed in `package.json`.
+- Add a `webpack` script to enable `npm run webpack`.
