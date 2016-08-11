@@ -4,7 +4,7 @@ import { RECEIVE_TODOS,
          TODO_ERROR
        } from '../actions/todo_actions';
 
-const TodoReducer = function(oldState = {}, action){
+const TodosReducer = (state = {}, action) => {
   switch(action.type){
     case RECEIVE_TODOS:
       let newState = {};
@@ -12,19 +12,19 @@ const TodoReducer = function(oldState = {}, action){
       return newState;
     case RECEIVE_TODO:
       const newTodo = {[action.todo.id]: action.todo};
-      return Object.assign({}, oldState, newTodo);
+      return Object.assign({}, state, newTodo);
     case REMOVE_TODO:
-      newState = Object.assign({}, oldState);
+      newState = Object.assign({}, state);
       delete newState[action.todo.id];
       return newState;
     case TODO_ERROR:
       alert(action.error);
     default:
-      return oldState;
+      return state;
   }
 };
 
-export default TodoReducer;
+export default TodosReducer;
 
 // State Shape
   // {

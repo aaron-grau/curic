@@ -3,31 +3,31 @@ import { RECEIVE_STEPS,
          REMOVE_STEP
        } from '../actions/step_actions';
 
-const StepReducer = function(oldState = {}, action){
-  switch(action.type){
+const StepsReducer = (state = {}, action) => {
+  switch(action.type) {
     case RECEIVE_STEPS:
       let newState = {};
       action.steps.forEach((step) => {
         newState[step.todo_id] = newState[step.todo_id] || {};
         newState[step.todo_id][step.id] = step;
-      })
-      return Object.assign({}, oldState, newState);
+      });
+      return Object.assign({}, state, newState);
     case RECEIVE_STEP:
-      newState = Object.assign({}, oldState);
+      newState = Object.assign({}, state);
       newState[action.step.todo_id] = newState[action.step.todo_id] || {};
       newState[action.step.todo_id][action.step.id] = action.step;
       return newState;
     case REMOVE_STEP:
-      newState = Object.assign({}, oldState);
+      newState = Object.assign({}, state);
       newState[action.step.todo_id] = newState[action.step.todo_id] || {};
       delete newState[action.step.todo_id][action.step.id];
       return newState;
     default:
-      return oldState;
+      return state;
   }
 };
 
-export default StepReducer;
+export default StepsReducer;
 
 // State Shape
   // {
