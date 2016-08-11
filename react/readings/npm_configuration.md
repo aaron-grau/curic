@@ -16,7 +16,7 @@ the process a lot.
 
 To intialize an app with NPM, run this in the directory of the app: 
 
-```bash
+```
 	npm init --yes
 ``` 
 
@@ -44,7 +44,9 @@ you can always adjust them later.
 
 Once you've generated a `package.json`, you can start installing npm packages such as `react` and `redux` via the command:
 
-```npm install <package>```
+```sh
+npm install package_name
+```
 
 This will look up a package by its name and automatically download it into a
 folder in your app called `node_modules`, kind of like `gem install <gem>`.
@@ -55,14 +57,13 @@ server), the package will be missing!
 Adding the `--save` flag to your `npm install` command will install the package
 *and* list it in your `package.json`:
 
-```
+```sh
 npm install --save react redux
-
 ```
 
 adds the following to your `package.json`:
 
-```
+```json
 {
 	...
   "dependencies": {
@@ -77,7 +78,9 @@ adds the following to your `package.json`:
 Now, anyone who gets a copy of your app can download all your dependencies in
 one fell swoop by running the following (with no arguments):
 
-```npm install```
+```sh
+npm install
+```
 
 
 ## Add a Webpack Script
@@ -86,7 +89,7 @@ Recall that, in Ruby, running `bundle exec some_command` is **not the same** as 
 
 To solve this issue with NPM packages, we need to add `"scripts"` for any packages that we intend to call from the command line. Once we've added a script for a package, we can 
 
-```
+```sh
 npm run that_package
 ```
 
@@ -94,7 +97,7 @@ to ensure that we run the `package.json` specified version.
 
 To create a `webpack` script, add the following attribute to your `package.json`:
 
-```
+```json
 "scripts": {
   "webpack": "webpack"
 },
