@@ -7,17 +7,15 @@ options.  You'll have to create this file by hand. It should be named
 ## Specifying Entry and Output Files
 
 `webpack.config.js` allows you to specify your entry file and the name and
-location of your output file. See the example below (Note: `__dirname`
-references the directory where `webpack.config.js` is located). For Rails
+location of your output file. See the example below. For Rails
 projects, make sure to locate the bundle in your `app/assets/javascripts` folder
 so that it's included in your asset pipeline.
 
 ```js
 module.exports = {
-  context: __dirname + "/frontend",
-  entry: "./my_app.jsx",
+  entry: "frontend/my_app.jsx",
   output: {
-      path: __dirname + "/app/assets/javascripts",
+      path: "app/assets/javascripts",
       filename: "bundle.js"
   }	
 };
@@ -60,15 +58,42 @@ import { createTodos } from './actions/todos';
 
 ## `.gitignore`
 
-Running Webpack creates a lot of redundant and very large files in your local directory. Use a `.gitignore` file to prevent these files from being pushing and pulled from your remote Git repositories. Create a `.gitignore` and list the files or directories you want to ignore, one per line.
+Running Webpack creates a lot of redundant and very large files in your local directory. Use a `.gitignore` file to prevent these files from being pushed and pulled from your remote Git repositories. Create a `.gitignore` and list the files or directories you want to ignore, one per line.
 
 ```
-node_modules
+node_modules/
 bundle.js
 bundle.js.map
 ```
 
 You can view App Academy's full `.gitignore` [here][gitignore].
+
+## A completed configuration
+
+```js
+module.exports = {
+  entry: "path/to/entry.jsx",
+  output: {
+    path: "app/assets/javascripts",
+    filename: "bundle.js",
+  },
+  module: {
+    loaders: [
+      {
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /(node_modules)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
+    ]
+  },
+  devtool: 'source-map',
+  resolve: {
+    extensions: ["", ".js", ".jsx" ]
+  }
+};```
 
 [gitignore]: https://github.com/appacademy/dotfiles/blob/master/dot/gitignore
 
