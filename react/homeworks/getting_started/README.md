@@ -13,7 +13,7 @@ npm init --yes
 ## Install Dependencies
 
 ```
-npm install --save <packages>
+npm install --save package1 package2 etc
 ```
 
 You'll need the following packages: 
