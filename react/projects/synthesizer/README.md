@@ -740,10 +740,10 @@ I added these css classes to my components.
 [html-curriculum]:https://github.com/appacademy/curriculum/tree/master/html-css
 
 ## Bonus Phase
-* Rewrite your Track to use [ES6 generators][generators] for recording and playback.
 * **Delete Tracks**: Add a feature to delete any track from your JukeBox.
 * **Name your Tracks**: Add a feature to rename the tracks in your JukeBox.
 * **Looping**: Add a setting to allow tracks to play continuously.
 * **Playlists**: Queue up tracks to be played sequentially.
+* Rewrite your Track to use [ES6 generators][generators] for recording and playback.
 
 [generators]:https://davidwalsh.name/es6-generators
