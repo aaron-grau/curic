@@ -5,6 +5,8 @@ various points during their lifecycle. For example, a component might need to
 fetch new data from the server once it has been mounted to the DOM. Code for
 these actions live in a component's **lifecycle methods**.
 
+Take a look at this code snippet and then read below for a brief explanation.
+
 ```javascript
 
 class MyAjaxComponent extends React.Component {

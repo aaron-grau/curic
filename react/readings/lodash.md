@@ -19,7 +19,7 @@ deepCopy.a.b = 'changed';
 original; // {a: {b: 'original'}}
 
 shallowCopy.a.b = 'changed';
-original; // {a: {b: 'changed'}}
+console.log(original); // {a: {b: 'changed'}}
 
 ```
 
