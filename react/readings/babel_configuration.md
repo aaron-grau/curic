@@ -4,7 +4,7 @@ Javascript development touches a lot of diverse environments: Node, Chrome,
 Safari, etc. These various environments have different levels of compatibility
 with advanced Javascript features like JSX and ES6. To ensure that our JSX and
 ES6 code works in any environment, we will use a transpiler called **Babel** to
-convert our code into universal, vanilla Javascript.
+convert our code into ES5, the universal, vanilla Javascript understood by all browsers and Node.
 
 ## Configuring Babel for Web Apps
 
