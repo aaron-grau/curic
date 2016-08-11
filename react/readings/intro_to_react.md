@@ -2,13 +2,13 @@
 
 ### What is React?
 
-A JavaScript library for creating UI components. React's specialty is
+React is a JavaScript library for creating UI components. React's specialty is
 exactly what its name implies: reaction. When the data that is
 represented by the UI changes, React *reacts* by updating the UI.
 
 ## What isn't React?
 
-A front end MVC framework. There are no models, no collections, no 
+React isn't A front end MVC framework. There are no models, no collections, no 
 controllers, and no templates. The basic library provides no router.
 
 ### Why would we need React?
