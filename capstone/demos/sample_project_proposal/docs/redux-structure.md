@@ -45,11 +45,10 @@ Redux structure, you'll need to do the same.
 ### Error API Response Actions
 * `setErrors`
   0. invoked from API callbacks on error for actions that generate POST requests
-  0. the `ErrorReducer` stores the `form` in the application's state; `errors` are
-nested under the `form`.
+  0. the `ErrorReducer` stores the `form` in the application's state; `errors` are mapped to their respective forms
 * `removeErrors`
   0. invoked from API callbacks on success for actions that generate POST requests
-  0. the `ErrorReducer` removes `_errors` for a given `form` in the application's state.
+  0. the `ErrorReducer` removes `errors` for a given `form` in the application's state.
 
 ## Note Cycles
 
