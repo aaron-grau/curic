@@ -48,14 +48,14 @@ const List = React.createClass({
 
 	getInitialState() {
 		return {items: []};
-	}
+	},
 	
 	componentDidMount() {
 		$.ajax({
 			url: '/items',
 			success: items => this.setState(items: items);
 		})
-	}
+	},
 
 	render() {
 		return (

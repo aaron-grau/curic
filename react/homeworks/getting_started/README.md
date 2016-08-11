@@ -2,6 +2,8 @@
 
 This homework covers configuration of a new React project. Download the skeleton [here][skeleton].
 
+You will want to refer [the configuration readings][readings-list] throughout.
+
 ## Initialize NPM
 
 In your project directory, run: 
@@ -49,4 +51,5 @@ In `webpack.config.js`:
 Run `npm run webpack` in your terminal, then open `index.html`. Congratulations:
 you're up and running!
 
+[readings-list]: ../../README.md#configuration
 [skeleton]: skeleton.zip?raw=true
