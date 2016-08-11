@@ -496,7 +496,7 @@ discussing the details of our track objects for a little later.
 ### Reducers
 
 #### `isRecording` Reducer
-+ Create a `reducers/isRecording_reducer.js` file that exports a `recording(state, action)` reducer.
++ Create a `reducers/is_recording_reducer.js` file that exports a `recording(state, action)` reducer.
 + Import your `TracksConstants`.
 + Use the ES6 default arguments syntax to return `false` as the initial state.
 + Add a `switch` statement evaluating `action.type` and return `state` as the `default` case.
@@ -625,11 +625,11 @@ add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 * Export a `groupUpdate` action creator which takes as an arguments an array of `notes`.
 
 ### Reducers
-* Create a `reducers/playing_reducer.js` file.
+* Create a `reducers/is_playing_reducer.js` file.
 * Import your `PlayingConstants` and export a `isPlaying` reducer.
 * Set the initial state to `false` and return the state by default.
 * Create switch cases for `START_PLAYING` and `STOP_PLAYING`, setting the `isRecording` to the appropriate boolean value.
-* In your `notes` reducer, add a new switch case for `GROUP_UPDATE`, setting the replacing the `notes` in the state with `action.notes`.
+* In your `notes` reducer, add a new switch case for `GROUP_UPDATE`, replacing the `notes` in the state with `action.notes`.
 * Update your root reducer to combine all of your reducers.
 
 ### Components
@@ -703,9 +703,10 @@ Now for the meat of the method:
 
 * Create a file `components/jukebox/track.jsx`.
 * Define and export a `Track` component, a `div` containing the name of the `track` and a "Play" button.
-* Disable the "Play" button if `isRecording` or already `isPlaying`, and `onClick` `onPlay(track)`.
+* Disable the "Play" button if `isRecording` or `isPlaying`. Add `onPlay(track)` for `onClick`.
 
 #### Update Buttons
+
 * Don't forget to update your "Start", "Stop", and "Play" buttons so that they are disabled if a track is playing.
 
 ---
