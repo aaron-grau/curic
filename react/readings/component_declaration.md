@@ -77,8 +77,7 @@ declare a component. If a component has no state and needs no lifecycle hooks,
 it can be written as a pure function that accepts a `props` parameter and acts
 as the component's `render` method.
 
-Note: a 'Pure' function is one that always returns the same result, given the
-same parameters.
+Note:  A Pure function is a function whose output is solely determined by its input and has no side effects.
 
 ```js
 const Message = (props) => {
