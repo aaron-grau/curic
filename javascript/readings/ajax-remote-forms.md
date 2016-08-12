@@ -12,7 +12,7 @@ URL encoding is the format that form data is uploaded in.
 Let's see it go!
 
 ```html
-<!-- notice how I don't set the action/method on the form tag -->
+<!-- notice how we don't set the action/method on the form tag -->
 <form id="cat-form">
   <input type="text" name="cat[name]">
   <input type="text" name="cat[color]">
@@ -64,11 +64,15 @@ object following the Rails parameter conventions.
 You can get Rails to automatically load the serializeJSON plugin by
 including the [serialize_json-rails][serializeJSON-rails] gem:
 
-`gem 'serialize_json-rails'`
+```ruby
+gem 'serialize_json-rails'
+```
 
 and then load the file (after jQuery) in app/assets/javascripts/application.js:
 
-`//= require serialize_json`
+```js
+//= require serialize_json
+```
 
 [serializeJSON]: https://github.com/marioizquierdo/jquery.serializeJSON
 [serializeJSON-rails]: https://github.com/travisR004/serialize_json-rails
@@ -87,6 +91,8 @@ look up the CSRF token (which Rails stores in a `meta` element in the
 Should you ever explicitly need the CSRF token, you can do what
 `rails.js` does to look it up:
 
+```js
     $('meta[name="csrf-token"]').attr('content');
+```
 
 [rails-csrf-protection]: https://github.com/rails/jquery-ujs/blob/master/src/rails.js#L55

@@ -68,7 +68,7 @@
 * [Object Oriented JavaScript][oo-js-hw] (30 min)
 
 ### Additional Resources
-* [Effective JavaScript][effective-js]: Items 2, 3, 6, 8, and 9
+* Effective JavaScript: Items 2, 3, 6, 8, and 9
 
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
@@ -106,7 +106,7 @@
 * [ES6 class syntax][es6-classes] (5 min)
 * [The Module Pattern][module-pattern] (10 min)
 * [Event Loop Visualization][loupe] (10 min)
-* [Effective JavaScript][effective-js]: Items 11, 12, 61, 65 (15 min)
+* Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
 ### Homeworks (60 min)
 * [CSS Curriculum Day 2][css-day2] (30 min)
@@ -184,7 +184,7 @@
 * [Arguments][arguments] (10 min)
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
-* [Effective JavaScript][effective-js]: Items 18-23, 30 (15 min)
+* Effective JavaScript: Items 18-23, 30 (15 min)
 * [Modules in the Browser][browser-modules] (15 min)
 * **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
     * **Be sure to run and understand this the night before**
@@ -252,7 +252,7 @@
   * [jQuery III: Ready][jquery-03-ready] (10 min)
   * [jQuery IV: All The Ways][jquery-04-all-the-ways] (5 min)
   * [jQuery V: Data Attributes][jquery-05-data-attributes] (10 min)
-  * [Effective JavaScript][effective-js]: Items 34 - 37 (15 min)
+  * Effective JavaScript: Items 34 - 37 (15 min)
 
 ### Homeworks (45 min)
   * [Wacky jQuery][wacky-project] (45 min)
@@ -291,12 +291,12 @@
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [AJAX Video Lecture][ajax-lecture]  (20 min)
 * :movie_camera: [AJAX Demo][ajax-demo] (35 min)
-* [complete demo from video][ajax-demo-code]
+  * [:computer: complete demo from video][ajax-demo-code]
 
 ### Readings (35 min)
 * [Basic AJAX][basic-ajax] (10 min)
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
-* [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
+* Effective JavaScript: Items 46, 50, 52 (15 min)
 
 ### Homeworks (30 min)
 * [Your First Ajax Request][first-ajax] (30 min)
@@ -334,7 +334,7 @@
 * [jQuery VII: Triggering][jquery-07-triggering] (5 min)
 * [Event Propagation][event-propagation] (5 min)
 * [History and Location][history-location] (5 min)
-* [Effective JavaScript][effective-js]: Items 46, 50, 52 (15 min)
+* Effective JavaScript: Items 46, 50, 52 (15 min)
 
 ### Additional Resources
 * [Vanilla AJAX][vanilla-ajax]
@@ -360,7 +360,7 @@
 Complete the [React/Flux w7d1][react-link] readings, video lectures, and homework. There is a lot of material, so start early!
 
 [react-link]: ../react
-[effective-js]: http://effectivejs.com/
+[effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 [css-day1]: ../html-css/README.md#css-intro-workflow--day-1
 [css-day2]: ../html-css/README.md#css-syntax-day-2
