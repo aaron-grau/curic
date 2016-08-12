@@ -14,8 +14,8 @@ application state.
 A `Store` is basically just an object that holds the application state, wrapped
 in a minimalist API:
 
--`getState()`: Returns an object representing the store's current state. 
--`dispatch(action)`: Passes an `action` into the store's reducer, telling it what 
+-`getState()`: Returns the store's current state. 
+-`dispatch(action)`: Passes an `action` into the store's `reducer` telling it what 
 information to update.
 -`subscribe(listener)`: Registers callbacks to be triggered whenever the store updates. 
 
@@ -34,7 +34,7 @@ existed before the store was created.
 	import { createStore() } from `redux`;
 	import reducer from './reducer.js'; // we'll write this in a moment
 
-	const store = createStore(reducer, preLoadedState, enhancer);
+	const store = createStore(reducer);
 
 ```
 
@@ -42,7 +42,7 @@ existed before the store was created.
 
 Store updates are triggered via **Actions**. An action is represented in Redux
 by a POJO with a `type` key, indicating the nature of the action, and optional
-**payload** keys that contain the new information, if any. Say we want to add an orange to our `store`; we'd represent it thusly:
+**payload** keys that contain the new information, if any. To add an orange to our `store`, we'd represent it thusly:
 
 ```js
 	const addOrange = {
@@ -53,33 +53,33 @@ by a POJO with a `type` key, indicating the nature of the action, and optional
 
 Every time a `dispatch()` is made, the store runs the `action` received through
 its `reducer` function, which basically acts as a traffic cop, routing the new
-information to its rightful place. Remember that, because [the state is immutable][why-immutable], the reducer must return a **new object** if the state will change. Let's write our reducer now:
+information to its rightful place. Let's write our reducer now:
 
 ```js
-
 import merge from 'lodash';
 
 const reducer = (state = {}, action) {
 
-	let nextState = merge({}, state); // deeply duplicates the state
-
 	switch(action.type){
 		case "ADD_FRUIT":
+			let nextState = merge({}, state); // deeply duplicates the state
 			if (!nextState[action.fruit]) nextState[action.fruit] = 0;
 			return nextState[action.fruit]++;
 		default: 
 			return state;
 	}
 
-}
+};
 
 export default reducer;
-
 ```
 
-Note that the reducer's `state` parameter provides a default value; this will be
-the initial state of our store, prior to any actions. In this case, it's an
+**Note that:** 
+-	The reducer's `state` parameter provides a default value; this will be
+the **initial state** of our store, prior to any actions. In this case, it's an
 empty object.
+-	Because [**the state is immutable**][why-immutable], the reducer
+must return a **new object** if the state changes.
 
 With our reducer in place, we can now dispatch the `addOrange` action to our 
 `store`: 
@@ -90,7 +90,50 @@ store.dispatch(addOrange);
 store.getState(); // { orange: 1 }
 ```
 
-## Connecting to the Store
+## Subscribing to the Store
 
+Once the store has processed a `dispatch()`, it triggers all its subscribers. Subscribers are callbacks that can be added to the store via `subscribe()`.
+
+```js
+const spy = () => {
+	console.log(store.getState());
+};
+
+store.subscribe(spy);
+store.dispatch(addOrange); // `spy()` is called, logging `{orange: 2}`
+
+```
+
+React components can be kept up-to-date with store information by subscribing their `render()` methods. 
+
+```js
+// subscribing `render()` example
+
+class OrangeDisplayContainer extends React.Component {
+	constructor({store}){
+		store.subscribe(this.render);
+	}
+	render(){
+		return <OrangeDisplay oranges={ store.getState().orange || 0 }/>
+	}
+};
+
+const OrangeDisplay = ({ oranges }) => (
+	<div> There are { oranges } oranges in the store! </div>
+);
+
+ReactDOM.render(<OrangeDisplayContainer store={store}/>, hook);
+```
+Here, `OrangeDisplayContainer` re-renders each time the store changes, trickling
+down `store.getState().orange` as a prop to the `OrangeDisplay`, which handles
+the actual visual rendering.
+
+You might be thinking that we could cut out the `OrangeDisplayContainer` if we
+gave `OrangeDisplay` internal state and subscribed a method that called
+`this.setState` each time the store changed. However, this would violate the
+first principle of Redux ('There is a single source of truth') by storing the
+number of oranges in the `store` as well as the component's `this.state`.
+
+Subscribing React components to a Store via a subscribed 'container' is such common pattern that the creators of Redux created a Node package, `react-redux`, to automate the process of connecting components to the store. Read on to learn about the `<Provider/>` and `connect()` APIs provided by `react-redux`.
 
 [why-immutable]: https://github.com/reactjs/redux/issues/758
