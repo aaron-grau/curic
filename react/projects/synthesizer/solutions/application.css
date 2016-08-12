@@ -92,11 +92,18 @@ body {
 }
 
 .track {
-  width: 150px;
+  width: 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2px;
+}
+
+.track-buttons {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .play-button {
