@@ -11,58 +11,86 @@ application state.
 
 ## Store API
 
-A `Store` is basically just a POJO that holds the application state, wrapped in a minimalist API:
+A `Store` is basically just an object that holds the application state, wrapped
+in a minimalist API:
 
 -`getState()`: Returns an object representing the store's current state. 
--`dispatch()`: Passes an `action` into the store's reducer, telling it what 
+-`dispatch(action)`: Passes an `action` into the store's reducer, telling it what 
 information to update.
--`subscribe()`: Registers callbacks to be triggered whenever the store updates. 
+-`subscribe(listener)`: Registers callbacks to be triggered whenever the store updates. 
 
 ## Creating the Store
 
 The `redux` library provides us with a `Store` constructor method: `createStore()`,
 which accepts three arguments: 
 
--	`reducer` (required): a `function` that receives incoming actions and determines how 
-and to update the store's state.
-- `preLoadedState` (optional): an `object` representing any application state that existed before the store was created.
+-	`reducer` (required): a `function` that receives incoming actions and determines 
+how to update the store's state.
+- `preLoadedState` (optional): an `object` representing any application state that 
+existed before the store was created.
 - `enhancer` (optional): a `function` that adds extra functionality to the store.
-
-Let's make a store that will keep track of a bakery's inventory.
 
 ```js
 	import { createStore() } from `redux`;
+	import reducer from './reducer.js'; // we'll write this in a moment
 
-	const bakery = createStore(reducer, preLoadedState, enhancer);
+	const store = createStore(reducer, preLoadedState, enhancer);
+
 ```
 
 ## Updating the Store
 
-Store updates are triggered via **Actions**. An action is represented by a POJO with a `type` key, indicating the nature of the action, and optional **payload** keys that contain the new information, if any.
+Store updates are triggered via **Actions**. An action is represented in Redux
+by a POJO with a `type` key, indicating the nature of the action, and optional
+**payload** keys that contain the new information, if any. Say we want to add an orange to our `store`; we'd represent it thusly:
 
-```
-	const addGreenSweater = {
-		type: "ADD_CLOTHING_ITEM",
-		garmentType: "shirt",
-		color: "green"
-		id: 1
+```js
+	const addOrange = {
+		type: "ADD_FRUIT",
+		fruit: "orange"
 	}
 ```
 
-Every time a `dispatch()` is made, the store runs the `action` received through its `reducer` function, which basically acts as a traffic cop, routing the new information to its rightful place.
+Every time a `dispatch()` is made, the store runs the `action` received through
+its `reducer` function, which basically acts as a traffic cop, routing the new
+information to its rightful place. Remember that, because [the state is immutable][why-immutable], the reducer must return a **new object** if the state will change. Let's write our reducer now:
 
+```js
 
+import merge from 'lodash';
+
+const reducer = (state = {}, action) {
+
+	let nextState = merge({}, state); // deeply duplicates the state
+
+	switch(action.type){
+		case "ADD_FRUIT":
+			if (!nextState[action.fruit]) nextState[action.fruit] = 0;
+			return nextState[action.fruit]++;
+		default: 
+			return state;
+	}
+
+}
+
+export default reducer;
+
+```
+
+Note that the reducer's `state` parameter provides a default value; this will be
+the initial state of our store, prior to any actions. In this case, it's an
+empty object.
+
+With our reducer in place, we can now dispatch the `addOrange` action to our 
+`store`: 
+
+```js
+store.getState(); // {}
+store.dispatch(addOrange);
+store.getState(); // { orange: 1 }
+```
 
 ## Connecting to the Store
 
 
-
-
-
-`createStore()` has three parameters: 
-
-- `reducer` (mandatory): This is a function that governs how the store will update its the various `slices` of its state. A store for handling a To-Do list, might, for example, have a 
-
-
-## A Simple Example
-
+[why-immutable]: https://github.com/reactjs/redux/issues/758
