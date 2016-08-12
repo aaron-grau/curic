@@ -5,7 +5,7 @@ import { requestBench } from '../../actions/bench_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const benchId = ownProps.params.benchId;
+  const benchId = parseInt(ownProps.params.benchId);
   const bench = state.benches[benchId] || {};
   return {
     benchId,

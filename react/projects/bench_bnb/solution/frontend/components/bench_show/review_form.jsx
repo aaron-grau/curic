@@ -6,6 +6,7 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = { rating: 5, body: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.navigateToBenchShow = this.navigateToBenchShow.bind(this);
   }
 
   navigateToBenchShow() {
