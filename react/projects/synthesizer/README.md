@@ -94,7 +94,7 @@ class Note {
   }
 };
 
-module.exports = Note;
+export default Note;
 ```
 
 Before moving on, test that you can initialize and play an instance of a `Note`
