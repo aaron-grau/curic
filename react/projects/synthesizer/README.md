@@ -317,11 +317,11 @@ returned by `configureStore`.
 ### `SynthContainer` Component
 
 Container components are concerned with how things work such as data fetching
-and changes in your app's state. Presentational components are concerted with
-how things looks. Their distinctions allow for better separation of concerns and
+and changes in your app's state. Presentational components are concerned with
+how things look. These distinctions allow for better separation of concerns and
 better usability of components.
 
-To create a container, we need map the application state and the Store's
+To create a container, we need to map the application state and the Store's
 dispatch to a set of props that get passed to the presentational component.
 Fortunately, `react-redux` provides a function that does this for us: [`connect`][connect].
 
@@ -354,7 +354,7 @@ connect it to your Redux store.
   )(Synth);
   ```
 
-* In your `App` component, import your `SynthContainer` and render it. Make sure your app `webpack`s and that there are
+* In your `App` component, import your `SynthContainer` and render it. Make sure you can `webpack` your app and that there are
 no errors in the console before moving on.
 
 [connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
@@ -364,7 +364,7 @@ no errors in the console before moving on.
 `Synth` is an example of a presentational component. Presentational components
 are typically written as functional components unless they require internal
 state, lifecycle hooks, etc. Your `Synth` component will initialize an array of
-`Note`s, calling `start` and `stop` depending on the notes in the store and
+`Note` objects, calling `start` and `stop` depending on the notes in the store and
 define key listeners on the window.
 
 * Redefine your `Synth` component so that it extends the `React.Component`.
