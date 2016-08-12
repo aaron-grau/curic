@@ -40,10 +40,10 @@ Today we're using React.js and Redux to create our own musical keyboard!
   ```
 
 * Setup your entry file `synthesizer.jsx` to render your app into the into the
- `root` container of your `index.html`.
+ `#root` container of your `index.html`.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`.
-* Sure your bundle file in `index.html`. Run `wepback --watch` and test that your app renders before moving on.
+* Source your bundle file in `index.html`. Run `webpack --watch` and test that your app renders before moving on.
 
 [lodash]:https://lodash.com/docs
 
@@ -102,7 +102,7 @@ from the `window`. Try a frequency of 800!
 
 #### `TONES` and `NOTE_NAMES` Constants
 
-In this step, let's create a constants file which will help us map notes names (e.g. `C5`, `A5`) into frequencies (i.e. tones) which we will need to create `Note`s.
+In this step, let's create a constants file which will help us map notes' names (e.g. `C5`, `A5`) into frequencies (i.e. tones) which we will need to create `Note`s.
 
 * Create a `util/tones.js` file.
 * From there export a `TONES` constant, a JavaScript object mapping note names to frequencies. Something like this,
@@ -282,7 +282,7 @@ new store with the root reducer.
 ### `App` Component
 The `App` component will hold all of the top-level components of your app.
 
-+ Create a file `components/app.jsx` and `React` from `react`.
++ Create a file `components/app.jsx` and import `React` from `react`.
 + Define and `export default` a functional `App` component.
 
 ### `Root` Component
