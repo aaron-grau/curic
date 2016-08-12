@@ -532,7 +532,7 @@ play a note relative to the `timeStart` of the recording (`timeSlice`) and the
 names of the notes actually played (`notes`).
 
 + Create a `reducers/tracks_reducer.js` file; import your `TracksConstants`, and `merge` from `lodash/merge`.
-+ Initialize a variable `currTrackId` to `0`. This variable will be used set track ids and add notes to the newest recording.
++ Initialize a variable `currTrackId` to `0`. This variable will be used to set track ids and add notes to the newest recording.
 + `export default` your `tracks` reducer.
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
 + Add a `switch` statement and return `state` as the `default` case.
