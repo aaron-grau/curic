@@ -11,7 +11,7 @@ class Bicycle {
     this.color = color;
   }
 
-  action (){
+  action() {
     return "rolls along";
   }
 
