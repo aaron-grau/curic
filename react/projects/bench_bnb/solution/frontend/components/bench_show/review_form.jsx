@@ -26,8 +26,12 @@ class ReviewForm extends React.Component {
     this.navigateToBenchShow();
   }
 
-  update(property, e) {
-    this.setState({[property]: e.currentTarget.value});
+  update(property) {
+    return e => {
+      this.setState({
+        [property]: e.currentTarget.value
+      });
+    };
   }
 
   render() {
@@ -47,7 +51,7 @@ class ReviewForm extends React.Component {
             cols='30'
             rows='10'
             value={this.state.body}
-            onChange={this.update.bind(this, "body")}></textarea>
+            onChange={this.update("body")}></textarea>
           <br/>
           <input type="submit"/>
         </form>
