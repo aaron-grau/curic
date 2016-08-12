@@ -5,7 +5,7 @@ import BenchDetail from './bench_detail';
 import BenchMap from '../bench_map/bench_map';
 import ReviewButton from './review_button';
 
-const BenchShow = function({bench, benchId, requestBench, children, updateFilter}) {
+const BenchShow = function({bench, benchId, requestBench, children}) {
   const benches = {[bench.id]: bench};
   return(
     <div className="single-bench-show">
@@ -15,7 +15,6 @@ const BenchShow = function({bench, benchId, requestBench, children, updateFilter
           benches={benches}
           benchId={benchId}
           singleBench={true}
-          updateFilter={updateFilter}
           requestBench={requestBench}
           />
       </div>
