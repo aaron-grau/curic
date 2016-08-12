@@ -1,0 +1,12 @@
+# Ignore bundler config.
+
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+
+# Ignore node modules
+
+
+# Ignore bundle
