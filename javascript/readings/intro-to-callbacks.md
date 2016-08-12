@@ -33,9 +33,8 @@ callbacks:
 function scheduleGreatMovieReminder(movie) {
   // remind in one min
   window.setTimeout(function () {
-      console.log(`Remember to watch: ${movie}`);
-    }, 60 * 1000
-  );
+    console.log(`Remember to watch: ${movie}`);
+  }, 60 * 1000);
   console.log(`Timer set for ${movie}`)
 }
 
@@ -112,7 +111,7 @@ const reader = readline.createInterface({
 });
 
 reader.question("What is your name?", function (answer) {
-  console.log("Hello " + answer + "!");
+  console.log(`Hello ${answer}!`);
 });
 
 console.log("Last program line");
@@ -157,7 +156,7 @@ const reader = readline.createInterface({
 });
 
 reader.question("What is your name?", function (answer) {
-  console.log("Hello " + answer + "!");
+  console.log(`Hello ${answer}!`);
 
   // Close the reader, which will allow the program to end because it
   // is no longer waiting for any events.
@@ -183,8 +182,8 @@ function addTwoNumbers(callback) {
   // async code. Since the caller will not wait for the result, you
   // can't return anything to them.
 
-  reader.question("Enter #1", function (numString1) {
-    reader.question("Enter #2", function (numString2) {
+  reader.question("Enter #1: ", function (numString1) {
+    reader.question("Enter #2: ", function (numString2) {
       const num1 = parseInt(numString1);
       const num2 = parseInt(numString2);
 
@@ -194,7 +193,7 @@ function addTwoNumbers(callback) {
 }
 
 addTwoNumbers(function (result) {
-  console.log("The result is: " + result);
+  console.log(`The result is: ${result}`);
   reader.close();
 });
 ```
@@ -218,7 +217,7 @@ Let's write a silly method, called `absurdTimes`:
 
 ```javascript
 function absurdTimes(numTimes, fun) {
-  var i = 0;
+  let i = 0;
 
   function loopStep() {
     if (i == numTimes) {
@@ -272,8 +271,8 @@ const reader = readline.createInterface({
 });
 
 function addTwoNumbers(callback) {
-  reader.question("Enter #1", function (numString1) {
-    reader.question("Enter #2", function (numString2) {
+  reader.question("Enter #1: ", function (numString1) {
+    reader.question("Enter #2: ", function (numString2) {
       const num1 = parseInt(numString1);
       const num2 = parseInt(numString2);
 
@@ -282,18 +281,18 @@ function addTwoNumbers(callback) {
   });
 }
 
-var totalSum = 0;
+let totalSum = 0;
 absurdTimes(3, function (callback) {
   addTwoNumbers(function (result) {
     totalSum += result;
 
-    console.log("sum: " + result);
-    console.log("totalSum: " + totalSum);
+    console.log(`Sum: ${result}`);
+    console.log(`Total Sum: ${totalSum});
 
     callback();
   });
 }, function () {
-  console.log("All done! totalSum: " + totalSum);
+  console.log(`All done! Total Sum: ${totalSum}`);
   reader.close();
 });
 ```
@@ -302,7 +301,7 @@ A normal times method like so would not work:
 
 ```javascript
 function times(times, fn) {
-  for (var i = 0; i < times; i++) {
+  for (let i = 0; i < times; i++) {
     fn();
   }
 }
