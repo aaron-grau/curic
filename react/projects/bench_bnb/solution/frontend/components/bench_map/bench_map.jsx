@@ -18,7 +18,7 @@ let _mapOptions = {
 class BenchMap extends React.Component{
 
   componentDidMount() {
-    const map = ReactDOM.findDOMNode(this);
+    const map = this.refs.map;
     this.map = new google.maps.Map(map, _mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
     if(this.props.singleBench){

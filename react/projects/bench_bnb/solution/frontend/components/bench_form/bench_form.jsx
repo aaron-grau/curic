@@ -11,6 +11,7 @@ class BenchForm extends React.Component{
       seating: 2
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.navigateToSearch = this.navigateToSearch.bind(this);
   }
   navigateToSearch() {
     this.props.router.push("/");
@@ -55,7 +56,7 @@ class BenchForm extends React.Component{
             </form>
 
             <div className="button-holder">
-              <button className="new-bench-button" onClick={this.handleCancel}>Cancel</button>
+              <button className="new-bench-button" onClick={this.navigateToSearch}>Cancel</button>
             </div>
           </div>
         </div>
