@@ -16,7 +16,7 @@ window.setTimeout(function () {
 }, 2000);
 ```
 
-setTimeout receives two arguments: the callback and the interval. 
+`setTimeout` receives two arguments: the callback and the interval. 
 Here the callback prints 'hello'. The `setTimeout` method
 holds on to the function, and calls it after 2000 milliseconds. The callback is essential here, because `setTimeout` needs to
 know what do at the end of the timeout.
@@ -287,7 +287,7 @@ absurdTimes(3, function (callback) {
     totalSum += result;
 
     console.log(`Sum: ${result}`);
-    console.log(`Total Sum: ${totalSum});
+    console.log(`Total Sum: ${totalSum}`);
 
     callback();
   });
