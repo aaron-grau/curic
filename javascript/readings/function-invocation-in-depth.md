@@ -18,7 +18,7 @@ Let's review the various ways to call a function that we have encountered:
 Note that callbacks (that is, functions you pass to other functions)
 are almost always eventually called function style, which makes `this`
 the global object.  Remember, you can use an anonymous function
-with the `var that = this` trick or `bind` to ensure that `this` is
+with the `const that = this` trick or `bind` to ensure that `this` is
 set properly in your callback, but using arrow functions so that `this` is set to the surrounding scope is preferred in ES6.
 
 ## Two last ways to call functions
@@ -35,23 +35,23 @@ an array of arguments to be passed to the method `apply` is being
 called on. This is what it looks like:
 
 ```javascript
-obj = {
+const obj = {
   name: "Earl Watts"
 };
 
 // weird function; how is `this` supposed to be set if we don't call
 // `greet` method style?
 function greet(msg) {
-  console.log(msg + ": " + this.name);
+  console.log(`${msg}: ${this.name}`);
 }
 
-greet.apply(obj, ["hello"]);
+greet.apply(obj, ["Hello"]);
 ```
 
 Okay, so what's going on here? Let's start with the first argument that
 got passed, `obj`. `apply` wants to know what object to bind `this`
 to. `apply` simulates calling `greet` as a method on `obj`. This is
-sort of like saying `obj.greet("hello")`, except `greet` isn't an
+sort of like saying `obj.greet("Hello")`, except `greet` isn't an
 attribute of `obj`, so we couldn't call it that way exactly.
 
 Note that the second argument to `apply` is an array of arguments to
@@ -68,11 +68,11 @@ const obj = {
 };
 
 function greet(msg1, msg2) {
-  console.log(msg1 + ": " + this.name);
-  console.log(msg2 + ": " + this.name);
+  console.log(`${msg1}: ${this.name}`);
+  console.log(`${msg2}: ${this.name}`);
 }
 
-greet.call(obj, "hello", "goodbye");
+greet.call(obj, "Hello", "Goodbye");
 ```
 
 Why prefer `call` over `apply`, and vice versa? In general, `call` is more convenient when you know ahead of time what arguments you want to pass. `apply` is more useful when someone is going to give you an array of arguments to use. There is a slight performance cost to using `apply` because the arguments need to be unpacked. Don't worry much about it, though.
