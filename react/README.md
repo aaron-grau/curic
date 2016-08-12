@@ -59,7 +59,7 @@
 
 ### Readings
 
-- [Flux Pattern]
+- [Flux Pattern][flux]
 - [Store]
 - [Reducers]
 - [Actions]
@@ -71,6 +71,7 @@
 
 - [Redux Piano][redux-piano]
 
+[flux]: readings/flux
 [redux-piano]: projects/redux_piano
 [functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 
