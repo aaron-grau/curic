@@ -2,8 +2,6 @@
 
 ## w7d1
 
-###Video Lectures
-
 ### Readings
 
 #### ES6
@@ -55,14 +53,12 @@
 
 ## w7d2
 
-### Video Lectures
-
 ### Readings
 
 - [Flux Pattern][flux]
-- [Store]
-- [Reducers]
-- [Actions]
+- [Store][store]
+- [Reducers][reducers]
+- [Actions][actions]
 - [Functional Components][functional-components]
 
 ### Homeworks
@@ -71,6 +67,9 @@
 
 - [Redux Piano][redux-piano]
 
+[store]: readings/store.md
+[reducers]: readings/reducers.md
+[actions]: readings/actions.md
 [flux]: readings/flux
 [redux-piano]: projects/redux_piano
 [functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
