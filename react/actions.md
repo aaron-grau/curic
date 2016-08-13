@@ -33,4 +33,10 @@ dispatch(addFruit('strawberry'));
 Such functions are called Action Creators. Now we can add any `fruit` using
 `addFruit()`, instead of having to define an action object for each `fruit`.
 
+## Official Documentation
+
+View the official documentation [here][redux-js]
+
+[redux-js]: http://redux.js.org/docs/basics/Actions.html
+
 [store]: store.md

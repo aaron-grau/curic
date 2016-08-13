@@ -64,7 +64,7 @@ const reducer = (state = {}, action) {
 		case "ADD_FRUIT":
 			let nextState = merge({}, state); // deeply duplicates the state
 			if (!nextState[action.fruit]) nextState[action.fruit] = 0;
-			return nextState[action.fruit]++;
+			return ++nextState[action.fruit];
 		default: 
 			return state;
 	}
@@ -135,5 +135,11 @@ first principle of Redux ('There is a single source of truth') by storing the
 number of oranges in the `store` as well as the component's `this.state`.
 
 Subscribing React components to a Store via a subscribed 'container' is such common pattern that the creators of Redux created a Node package, `react-redux`, to automate the process of connecting components to the store. Read on to learn about the `<Provider/>` and `connect()` APIs provided by `react-redux`.
+
+## Official Documentation
+
+View the official documentation [here][redux-js].
+
+[redux-js]: http://redux.js.org/docs/basics/Store.html
 
 [why-immutable]: https://github.com/reactjs/redux/issues/758
