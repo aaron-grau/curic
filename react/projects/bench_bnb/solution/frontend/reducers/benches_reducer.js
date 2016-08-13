@@ -1,4 +1,5 @@
 import { BenchConstants } from '../actions/bench_actions';
+import { merge } from 'lodash'
 
 const BenchesReducer = function(oldState = {}, action){
   switch(action.type){
@@ -6,7 +7,7 @@ const BenchesReducer = function(oldState = {}, action){
       return action.benches;
     case BenchConstants.RECEIVE_BENCH:
       const newBench = {[action.bench.id]: action.bench};
-      return Object.assign({}, oldState, newBench);
+      return merge(oldState, newBench);
     default:
       return oldState;
   }
