@@ -9,29 +9,39 @@ import BenchShowContainer from './bench_show/bench_show_container';
 import ReviewFormContainer from './bench_show/review_form_container';
 import SessionFormContainer from './session_form/session_form_container';
 
-const AppRouter = (_, {store}) => (
-  <Router history={ hashHistory }>
-    <Route path="/" component={ App }>
-      <IndexRoute component={ SearchContainer } />
-      <Route path="/login" component={ SessionFormContainer } />
-      <Route path="/signup" component={ SessionFormContainer } />
-      <Route path="/benches/new" component={ BenchFormContainer } onEnter={ _ensureLoggedIn(store) }/>
-      <Route path="/benches/:benchId" component={ BenchShowContainer} >
-        <Route path="review" component={ ReviewFormContainer } onEnter={ _ensureLoggedIn(store) }/>
-      </Route>
-    </Route>
-  </Router>
-);
+class AppRouter extends React.Component{
+  constructor(props){
+    super(props);
+    this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
+  }
+
+  _ensureLoggedIn(nextState, replace){
+    const currentState = this.context.store.getState();
+    const currentUser = currentState.session.currentUser;
+    if (!currentUser) {
+      replace('/login');
+    }
+  }
+
+  render(){
+    return(
+      <Router history={ hashHistory }>
+        <Route path="/" component={ App }>
+          <IndexRoute component={ SearchContainer } />
+          <Route path="/login" component={ SessionFormContainer } />
+          <Route path="/signup" component={ SessionFormContainer } />
+          <Route path="/benches/new" component={ BenchFormContainer } onEnter={ this._ensureLoggedIn }/>
+          <Route path="/benches/:benchId" component={ BenchShowContainer} >
+            <Route path="review" component={ ReviewFormContainer } onEnter={ this._ensureLoggedIn }/>
+          </Route>
+        </Route>
+      </Router>
+    );
+  }
+}
 
 AppRouter.contextTypes = {
   store: React.PropTypes.object.isRequired
-};
-
-const _ensureLoggedIn = store => (nextState, replace) => {
-  const currentUser = store.getState().session.currentUser;
-  if (!currentUser) {
-    replace('/login');
-  }
 };
 
 export default AppRouter;
