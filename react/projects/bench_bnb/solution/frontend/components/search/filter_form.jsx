@@ -1,11 +1,8 @@
 const React = require('react');
 
-function handleChange(filter, updateFilter){
-  return function(e){
-    const value = e.currentTarget.value;
-    return updateFilter(filter, value);
-  }
-}
+const _handleChange = (filter, updateFilter) => (
+  e => updateFilter(filter, e.currentTarget.value)
+)
 
 const FilterForm = ({minSeating, maxSeating, updateFilter}) => (
   <div>
@@ -14,13 +11,12 @@ const FilterForm = ({minSeating, maxSeating, updateFilter}) => (
     <label>Minimum Seats </label>
     <input type="number"
            value={minSeating}
-           onChange={handleChange('minSeating', updateFilter)}
-    />
+           onChange={_handleChange('minSeating', updateFilter)}/>
      <br/>
     <label>Maximum Seats </label>
     <input type="number"
            value={maxSeating}
-           onChange={handleChange('maxSeating', updateFilter)}
+           onChange={_handleChange('maxSeating', updateFilter)}
     />
   </div>
 );
