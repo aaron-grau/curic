@@ -1,6 +1,6 @@
 import { BenchConstants } from '../actions/bench_actions';
 
-const BenchReducer = function(oldState = {}, action){
+const BenchesReducer = function(oldState = {}, action){
   switch(action.type){
     case BenchConstants.RECEIVE_BENCHES:
       return action.benches;
@@ -12,7 +12,7 @@ const BenchReducer = function(oldState = {}, action){
   }
 };
 
-export default BenchReducer;
+export default BenchesReducer;
 
 // State Shape
   // {

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
-import BenchReducer from '../reducers/bench_reducer';
-import FilterReducer from '../reducers/filter_reducer';
+import BenchesReducer from '../reducers/benches_reducer';
+import FiltersReducer from '../reducers/filters_reducer';
 import SessionReducer from '../reducers/session_reducer';
 
 const MasterReducer = combineReducers({
-  benches: BenchReducer,
-  filters: FilterReducer,
+  benches: BenchesReducer,
+  filters: FiltersReducer,
   session: SessionReducer
 });
 
