@@ -122,24 +122,19 @@ What do we do if we have multiple exported objects in the same file? Like our
 We can either import them one at a time or all at once, depending on what the
 file we're importing them into needs.
 
-For instance, if your file only needs the `createTodo` function:
+For instance, if your file only needs the `createTodo` and `receiveTodo`
+function:
 
 ```javascript
-import { createTodo } from './todo_actions';
+import { createTodo, fetchTodo } from './todo_actions';
 ```
 
 We use the curly braces because we want that specific export from the
 `todo_actions` file.
 
-Does this look familiar? It's object destructuring! We're just extracting the
-data that's been exported from the other file and assigning it to a distinct
-variable to use in our current file.
-
-If we wanted exports, we could just keep listing them on the same line.
-
-```javascript
-import { fetchTodos, createTodo } from './todo_actions';
-```
+Does this look familiar? It's [object destructuring][obj-destructuring]! We're
+just extracting the data that's been exported from the other file and assigning
+it to a distinct variable to use in our current file.
 
 You can give default, unnamed imports whatever name you want to refer to them
 in your file. However, because we exported specific member objects from our

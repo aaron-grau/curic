@@ -7,8 +7,8 @@
 ### Readings
 
 #### ES6
-- [ES6 Syntax: Import / Export][import_export]
 - [ES6 Syntax: Object Destructuring][object_destructuring]
+- [ES6 Syntax: Import / Export][import_export]
 
 #### Intro React and JSX
 - [React][intro_to_react]
@@ -130,4 +130,3 @@
 - [BenchBNB][bench-bnb]
 
 [bench-bnb]: projects/bench_bnb
-
