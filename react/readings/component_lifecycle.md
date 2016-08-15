@@ -51,4 +51,3 @@ component lifecycle methods that you may need. Commonly used ones include:
 + `componentWillReceiveProps`
 
 [lifecycle-methods]: https://facebook.github.io/react/docs/component-specs.html
-#lifecycle-methods
