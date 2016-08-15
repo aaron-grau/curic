@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Creates a re-usable `SimpleComponent` class.
-const SimpleComponent = React.createClass({
+class SimpleComponent extends React.Component {
 	render() {
-		return <h2>I am a Component!</h2>;
+		return (
+			<h2>I am a SimpleComponent!</h2>
+		);
 	}
-});
+};
 
 // Renders a SimpleComponent into #root.
 document.addEventListener("DOMContentLoaded", function() {

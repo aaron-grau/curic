@@ -43,7 +43,7 @@ class List extends React.Component {
 ## `React.createClass()`
 
 You may see this syntax out in the wild, since it was the most common way to
-declare components prior to the introduction of functional components 
+declare components prior to the introduction of functional components
 and ES6 class inheritance. This method allows you to do the same things as
 inheriting from `React.Component`.
 

@@ -17,13 +17,13 @@ id='root'/>`. This `#root` element will serve as the *hook* into which we insert
 our React component.
 
 #### `index.jsx`
-Now, take a look at `index.jsx`. Note the use of `React.createClass()` and
-`ReactDOM.render()`. `React.createClass()` is used to create a re-useable
-component called `SimpleComponent`. The resulting component is then passed to
+Now, take a look at `index.jsx`. Note the use of `React.Component` and
+`ReactDOM.render()`. `SimpleComponent` is defined as a JS class that inherits
+from `React.Component`. The resulting React component is then passed to
 `ReactDOM.render()`, which inserts it into the DOM inside `root`, the `#root`
 element we created in `index.html`.
 
-Both `React.createClass()` and `ReactDOM.render()` contain JSX syntax (the parts
+Both `React.Component` and `ReactDOM.render()` contain JSX syntax (the parts
 that look like HTML). Remember, these expressions represent Javascript functions
 that ultimately render HTML onto a document.
 
