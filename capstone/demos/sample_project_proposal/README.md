@@ -50,46 +50,46 @@ FresherNote is a web application inspired by Evernote that will be build using R
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication backend setup
-- [ ] create `StaticPages` controller and root view
-- [ ] set up webpack & Redux structure with skeleton files
-- [ ] setup `APIUtil` to interact with the API
-- [ ] set up Redux for frontend auth
-- [ ] user signup/signin components
-- [ ] blank landing component after signin
-- [ ] style signin/signup components
-- [ ] seed users
+- [ ] Create new project
+- [ ] Create `User` model
+- [ ] Authentication backend setup
+- [ ] Create `StaticPages` controller and root view
+- [ ] Set up webpack & Redux structure with skeleton files
+- [ ] Set up `APIUtil` to interact with the API
+- [ ] Set up Redux for frontend auth
+- [ ] User signup/signin components
+- [ ] Blank landing component after signin
+- [ ] Style signin/signup components
+- [ ] Seed users
 
 ### Phase 2: Notes Model, API, and components (2 days, W1 F 6pm)
 
 **Objective:** Notes can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
-- [ ] seed the database with a small amount of test data
+- [ ] Create `Note` model
+- [ ] Seed the database with a small amount of test data
 - [ ] CRUD API for notes (`NotesController`)
 - [ ] jBuilder views for notes
-- [ ] test out API interaction in the console.
-- implement each note component, building out the Redux structure as needed.
+- [ ] Test out API interaction in the console.
+- Implement each note component, building out the Redux structure as needed.
   - [ ] `NotesIndex`
   - [ ] `NoteIndexItem`
   - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle after editing.
-- [ ] style notes components
-- [ ] seed notes
+- [ ] Save Notes to the DB when the form loses focus or is left idle after editing.
+- [ ] Style note components
+- [ ] Seed notes
 
 ### Phase 3: Notebooks (2 day, W2 Tu 6pm)
 
 **Objective:** Notes belong to Notebooks, and can be viewed by notebook.
 
-- [ ] create `Notebook` model
-- build out API, Redux structure, and components for:
+- [ ] Create `Notebook` model
+- Build out API, Redux structure, and components for:
   - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
+  - [ ] Adding notes requires a notebook
+  - [ ] Moving notes to a different notebook
+  - [ ] Viewing notes by notebook
 - [ ] Use CSS to style new components
 - [ ] Seed Notebooks
 
@@ -100,12 +100,12 @@ which has its own `Index` view.
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
-- [ ] create `Tag` model and join table
-- build out API, Redux structure, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+- [ ] Create `Tag` model and join table
+- Build out API, Redux structure, and components for:
+  - [ ] Fetching tags for notebook
+  - [ ] Adding tags to notebook
+  - [ ] Creating tags while adding to notebooks
+  - [ ] Searching notebooks by tag
 - [ ] Style new elements
 - [ ] Seed tags and tag the seeded Notebooks
 
