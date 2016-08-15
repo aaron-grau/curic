@@ -3,9 +3,9 @@ import { applyMiddleware } from 'redux';
 import BenchMiddleware from '../middleware/bench_middleware';
 import SessionMiddleware from '../middleware/session_middleware';
 
-const MasterMiddleware = applyMiddleware(
+const RootMiddleware = applyMiddleware(
   BenchMiddleware,
   SessionMiddleware
 );
 
-export default MasterMiddleware;
+export default RootMiddleware;
