@@ -1,26 +1,24 @@
 # BenchBnB Day 2
----
+
 ## Phase 7: React Router
 
-If you haven't already done so..
+We're going to add routing to our application.
 
 ```
   npm install --save react-router
 ```
 
-Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a bit.
-
-Define 3 new files, these can all live at the root of the components folder:
+Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a 
+bit. Define 3 new files: these can all live at the root of the `components` folder:
 
 * `app.jsx`
 * `root.jsx`
 * `router.jsx`
----
 
 ### The `App` component
 
 Create and export a new **functional component** that renders an `<h1>` tag with
-"Bench BnB" and `props.children`. It might look something like..
+"Bench BnB" text and underneath renders `props.children`. It might look something like..
 
 ```javascript
   const App = ({children}) => (
@@ -30,7 +28,6 @@ Create and export a new **functional component** that renders an `<h1>` tag with
     </div>
   );
 ```
----
 ### The `AppRouter`
 
 Start by importing the following:
@@ -40,7 +37,7 @@ Start by importing the following:
     * `SearchContainer`
 
 Next, we want to define and export a **functional component** that renders a
-`Router`. Setup your `Router` to use `hashHistory`
+`Router`. Setup your `Router` to use `hashHistory`.
 
 ```javascript
   const AppRouter = () => (
@@ -49,18 +46,16 @@ Next, we want to define and export a **functional component** that renders a
     </Router>
   );
 ```
----
 #### Routes
 
 Let's define a new `Route` that tells the `Router` to render our `App` component
-when the url matches '/'
+when the URL matches '/':
 
 ```javascript
   <Router history={ hashHistory }>
     <Route path="/" component={ App } />
   </Router>
 ```
----
 #### `IndexRoute`
 
 Next, let's make sure that our `SearchContainer` is the default component rendered
@@ -76,7 +71,6 @@ const AppRouter = () => (
 )
 ```
 
----
 ### The `Root` component
 
 Create and export a **functional component** called `Root`. The component should accept
@@ -90,7 +84,6 @@ the `Store` as a prop, and it should render the `AppRouter` wrapped in the `Prov
   );
 ```
 
----
 ### The Entry Point
 
 Let's modify our entry file, `bench_bnb.jsx`, to only import the following:
@@ -112,11 +105,9 @@ render the `Root` component into the `#root` container. Pass the `Store` to the
 
 Test that everything works before moving on!
 
----
-
 ## Phase 8: Creating Benches
 
-### Adding a Bench Form
+### Adding a `BenchForm`
 
 * Create a new React component & container, `BenchForm` & `BenchFormContainer`.
   This should render a simple form with 4 fields:
@@ -132,8 +123,7 @@ Test that everything works before moving on!
 * Write a `create` method on your `BenchesController` and give it a corresponding
   route in `routes.rb`.
 
----
-### Navigating to the BenchForm
+### Navigating to the `BenchForm`
 
 Filling in coordinates manually is a major pain; Let's make things a little easier
 by bringing up a new bench form when a user clicks on the map and pre-filling it
@@ -141,11 +131,10 @@ with latitude and longitude based on where they clicked.
 
 Because `BenchMapContainer` and `BenchFormContainer` live under different routes, We can't simply pass props between them to convey our click information. We will need to encode our parameters in a client-side query string.
 
----
 #### `withRouter`
 
 Since our `BenchMap` will need access to the `Router`, import the `withRouter`
-function from `react-router`. Chance the export statement in `bench_map.jsx` so
+function from `react-router`. Change the export statement in `bench_map.jsx` so
 that we are exporting a wrapped component.
 
 ```javascript
@@ -154,7 +143,6 @@ that we are exporting a wrapped component.
 
 Our `BenchMap` component will now have a `router` prop.
 
----
 #### Redirecting with coordinates
 
 Add a `"click"` handler to the map. It should:
@@ -180,7 +168,6 @@ browser redirect to a URL that looks something like:
 
   */#/benches/new?lat=37.79153217974085&lng=-122.40194320678711*
 
----
 ### Pre-filling the form
 
 Inside of the `BenchFormContainer`...
@@ -201,34 +188,35 @@ so that our users don't try to edit them!
 
 **Call a TA over and show them your form in action!!**
 
----
-### Api Util and Action-Creators
+### Api Util and Action Creators
 
   * Add a `createBench` function to `bench_api_util.js`. It should make a `POST`
     request to your API.
   * Create the following constants:
     * `BenchConstants.CREATE_BENCH`
     * `BenchConstants.RECEIVE_BENCH`
-  * Add the following action-creators to `bench_actions.js`:
+  * Add the following action creators to `bench_actions.js`:
     * `createBench`
     * `receiveBench`
   * Add a `mapDispatchToProps` function to your `BenchFormContainer`; this should
   pass a `handleSubmit` prop to `BenchForm`
----
+
 ### `BenchMiddleware`
 
 Update your `BenchMiddleware` to invoke `createBench` from the `bench_api_util.js`
 when it receives a `CREATE_BENCH` dispatch. Your success callback should dispatch
 a `RECEIVE_BENCH` action.
----
+
 ### `BenchReducer`
 
-Finally, update your `BenchReducer` to respond to the `RECEIVE_BENCH` action.
----
+Now, update your `BenchReducer` to respond to the `RECEIVE_BENCH` action.
+
 #### `BenchMap`
-Finally finally, update your `BenchMap` to redirect to the search page after a new
+
+Finally, update your `BenchMap` to redirect to the search page after a new
 bench is created.
----
+
+Create a few benches!
 
 ## Phase 9: Front-End User Authentication
 
@@ -253,9 +241,9 @@ endpoints:
   * [POST] api/session: "session#create" (login),
   * [DELETE] api/session: "session#destroy" (logout)
 
-**Create a `User` model, `UsersController`, and `SessionsController`.** Follow
-the basic pattern you used during the [Rails curriculum][rails], with some key
-differences:
+**Create a `User` model, `API::UsersController`, and `Api::SessionsController`.** 
+Follow the basic pattern you used during the [Rails curriculum][rails], with some 
+key differences:
 
 * **Namespace**: Your controllers should live under an `Api` namespace.
 * **Response Format**: render JSON formatted responses by default.
@@ -265,14 +253,12 @@ differences:
 * **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username
 already exists') in your response with a corresponding error status.
   * Use `@user.errors` when applicable.
-  * **Caution**: Error responses should be formatted differently than normal
+  * **Caution**: Rails will format error responses differently than normal
   responses.
 
 Test your routes using `$.ajax` in the console before moving on.
 
----
-
-### Session Api Util
+### `SessionApiUtil`
 
 Create a new file, `session_api_util.js` with the following functions:
   * **`signup`:** POST 'api/users'
@@ -283,21 +269,18 @@ Each function should take `success` and `error` callbacks.
 
 Test each of your api util functions before moving on!
 
----
-
 ### Session Actions
 
-We need the following action-creators:
+We need the following Action Creators:
   * `login`
   * `logout`
   * `signup`
   * `receiveCurrentUser`
   * `receiveErrors`
 
-Build the corresponding `SessionConstants` as well. All of our action-creators (other
-than `logout`) should accept an argument.
+Build the corresponding `SessionConstants` as well. All of our action creators (
+other than `logout`) should accept an argument.
 
----
 
 ### `SessionMiddleware`
 
@@ -306,21 +289,18 @@ Your `SessionMiddleware` should only listen for 3 of our action types:
   * `LOGOUT`
   * `SIGNUP`
 
-Your middleware should be responsible for invoking the appropriate session api util
+Your middleware should be responsible for invoking the appropriate `SessionApiUtil`
 function and passing the appropriate callbacks. The success callback for `login` and
-`signup` requests should `dispatch` a `receiveCurrentUser` action. The error callbacks
-should dispatch `receiveErrors`.
+`signup` requests should `dispatch` a `receiveCurrentUser` action. The error callbacks should dispatch `receiveErrors`.
 
-The success callback of `logout` should simply be to invoke `next(action)`
+The success callback of `logout` should simply be to invoke `next(action)`.
 
 Test that your `SessionMiddleware` works by dispatching `login`, `logout`, and
 `signup` actions from the console.
 
----
-
 ### `SessionReducer`
 
-Let's create a new reducer to keep track of our current user and error messages.
+Create a new reducer to keep track of our current user and error messages.
 The default application shape should look like:
 
 ```
@@ -338,8 +318,6 @@ The `SessionReducer` should listen for 3 action types:
 Test that your `SessionReducer` works by dispatching session actions and then
 checking your application state!
 
----
-
 ### `Greeting` Component
 
 * Create a new react component, `Greeting`, and a container, `GreetingContainer`
@@ -354,30 +332,26 @@ If the user **is not logged in**, then the `Greeting` should contain:
 
 Change your `App` to render the `GreetingContainer` above our other content.
 
----
-
 ### `SessionForm` Component
 
   * Create a new component, `SessionForm`, and a container, `SessionFormContainer`
   * Create new routes for these components in your `router.jsx` file
 
 The `SessionFormContainer` should provide `SessionForm` with the following props:
-  * loggedIn --> (boolean) is there currentUser property of the application state?
-  * errors --> (array) list of errors from the state
-  * formType --> ('login' or 'signup')
-  * processForm --> function that should dispatch `login` or `signup` based on formType
+  * `loggedIn` (boolean):  represents whether a `currentUser` exists.
+  * `errors` (array):  list of errors from the state.
+  * `formType` (string): 'login' or 'signup'.
+  * `processForm` (function): dispatch `login` or `signup` based on `formType`.
 
 The `SessionForm` component should be responsible for a number of tasks:
-  * Render a controlled component with UI state
-  * Invoke the `processForm` prop when the 'submit' button is clicked
-  * Render a "Log in" or "Sign up" header based on the formType prop
+  * Render a controlled component with `state` governed by user interface.
+  * Invoke the `processForm` prop when the 'submit' button is clicked.
+  * Render a "Log in" or "Sign up" header based on the formType prop.
   * Provide a link to `/#/signup` or `/#/login` (whichever isn't the current address!)
-  * Render a list of error messages if any are present
-  * Redirect the user to the `/#/` route if they are logged in
+  * Render a list of error messages if any are present.
+  * Redirect the user to the `/#/` route if they are logged in.
 
 **Call a TA over and show them your `SessionForm` before moving on!**
-
----
 
 ### Bootstrapping the Current User
 
@@ -389,10 +363,9 @@ current user and then fetch that information when the app mounts. However, since
 the request would be asynchronous, our app would momentarily have no current
 user. This would cause it to briefly render in a 'not-logged-in' state and then
 re-render when the current user was received, causing a strange, flickering
-effect. To circumvent this, we'll bootstrap the current user alongside our html
+effect. To circumvent this, we'll 'bootstrap' the current user alongside our HTML
 when the page initially loads.
 
----
 
 #### Edit your `root.html.erb`
 
@@ -416,11 +389,9 @@ that looks something like this:
 
 where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
 
----
-
 #### Interpolate the current user information
 
-In your script, assign your `window.currentUser` to an erb expression:
+In your script, assign your `window.currentUser` to an ERB expression:
 
 ```js
   window.currentUser = <%=  %>
@@ -430,8 +401,7 @@ Make sure to use `<%= %>` so that the result of your ruby code is rendered into 
 script ( it will eventually return a JSON object).
 
 Inside your erb expression, `render` your jbuilder `_user` partial, passing it
-the `current_user`. To prevent rails from automatically looking for a html
-partial, specify the whole path, including `.json.jbuilder`.Mark your `render`
+the `current_user`. Specify the whole path, including `.json.jbuilder`, to prevent rails from automatically looking for a HTML partial. Mark your `render`
 result `html_safe` to avoid escaping certain characters. You should get a JS-
 compatible object to assign to `window.currentUser`. Add interpolation around
 your  `window.currentUser=` assignment so that it only runs if someone is logged
@@ -449,10 +419,8 @@ in. You should have something like this:
 ```
 
 Log in, refresh your page, and check out your `elements` in the Dev Tools.
-Verify that the  `script` contains an object literal of the current user and
-properly assigns  `window.currentUser`.
-
----
+Verify that the `script` contains an object literal of the current user and
+properly assigns `window.currentUser`.
 
 ### `preloadedState`
 
@@ -466,14 +434,13 @@ Finally, inside the `DOMContentLoaded` callback in your entry file...
     ...
 ```
 
-  * Pass this `preloadedState` to `configureStore`
-  * If there is no `window.currentUser`, then `configureStore` without any arguments
-
----
+  * Pass this `preloadedState` to `configureStore`.
+  * If there is no `window.currentUser`, then `configureStore` 
+  without any arguments.
 
 ### Protect your front-end routes.
 
-Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the frontend unless they're logged in.
+Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the front-end unless they're logged in.
 
 Refer to the `onEnter` [reading][onEnter] for this part.
 
@@ -481,8 +448,8 @@ Refer to the `onEnter` [reading][onEnter] for this part.
     ```html
     <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />
     ```
-  * Give your `Router` direct access to the `Store` by using [React context][context-docs]
-    * Note that this is [established by the provider][store-context]
+  * Give your `Router` direct access to the `Store` by using [React context][context-docs].
+    * Note that this is [established by the provider][store-context].
   * Define an `_ensureLoggedIn` function in your `router.jsx` file. It should:
     * Check to see if the application state has a `currentUser` property
     * If `true`, do nothing.
@@ -492,32 +459,24 @@ Refer to the `onEnter` [reading][onEnter] for this part.
 
 Test your work before continuing.
 
-[onEnter]: https://github.com/appacademy/curriculum/blob/master/react/readings/on_enter.md
+[onEnter]: ../../readings/on_enter.md
 [context-docs]: https://facebook.github.io/react/docs/context.html
 [store-context]: https://egghead.io/lessons/javascript-redux-passing-the-store-down-implicitly-via-context
 
----
-
 ## Phase 10: Filtering By Seating
 
-In this section, we want to build the functionality that will allow our users to filter
-benches by both their geographic bounds and their number of seats.
-
----
+In this section, we want to build the functionality that will allow our users to filter benches by both their geographic bounds and their number of seats.
 
 ### Update your API
 
-* Update your `Benches#index`:
+* Update your `BenchesController#index` :
   * Modify `bench_params` to accept `:max_seating` and `:min_seating`.
   * Filter your `@benches` by `params[:max_seating]` and
   `params[:min_seating]`, if present.
 
----
-
 ### Filter Actions
 
-Next, let's write a new action-creator. We're going to define a single action-creator,
-`updateFilter`, that will be invoked whenever we update one of the following:
+Next, let's write a new action creator. We're going to define a single action creator, `updateFilter`, that will be invoked whenever we update one of the following:
   * bounds
   * min seating
   * max seating
@@ -532,11 +491,11 @@ It should look like this:
   });
 ```
 
-The first parameter, filter, will tell our `FilterReducer` which property to update,
-and the second parameter, value, will specify the value of that filter.
+The first parameter, `filter`, will tell our `FilterReducer` which property to 
+update, and the second parameter, `value`, will specify the value of that filter.
 
 Start by refactoring the `FilterReducer` and `SearchContainer` to use this new
-action-creator instead of `updateBounds`. Your `FilterReducer` should have a default
+action creator instead of `updateBounds`. Your `FilterReducer` should have a default
 state that looks like:
 
 ```
@@ -548,24 +507,23 @@ state that looks like:
 ```
 
 Also be sure to refactor `FilterConstants`.
----
 
 ### `FilterForm`
 
 Create a new component, `FilterForm`. It should be a sub-component of `Search`.
-`FilterForm` should render a two input tags, one for `minSeating` and one for
+`FilterForm` should render two inputs, one for `minSeating` and one for
 `maxSeating`.
 
 Update your `SearchContainer` to pull `minStating` and `maxSeating` from the state
-to pass as props. `SearchContainer` should also pass an `updateFilter` prop to `Search`,
-which should then pass it on to `BenchMap` and `FilterForm`. `updateFilter` should be the
-`onChange` handler of the input tags.
+to pass as props. `SearchContainer` should also pass an `updateFilter` prop to 
+`Search`, which should then pass it on to `BenchMap` and `FilterForm`. 
+`updateFilter` should be the `onChange` handler of the `input` tags.
 
 You should be able to see the markers change on the screen as you toggle the values
 in the form!
----
 
 ## Phase 11: Show Page
+
 Create a `BenchShow` component. It should be a full-page component displaying a
 single bench's information and a map showing the bench. Your `BenchShow` page should mount whenever someone clicks on an item in your `BenchIndex` or a marker in your `BenchMap`.
 
@@ -576,10 +534,12 @@ single bench's information and a map showing the bench. Your `BenchShow` page sh
 ## Phase 12: Reviews
 
 Show reviews of a bench on `BenchShow`. Reviews for a bench should comprise:
-* A rating from 1 to 5
-* A comment field
+* A rating from 1 to 5.
+* A comment field.
 
-Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average score for a bench and also list the reviews for that bench. Modify and add the appropriate API endpoints, actions, utils, and components.
+Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average score 
+for a bench and also list the reviews for that bench. Modify and add the 
+appropriate API endpoints, actions, utils, and components.
 
 
 ## Phase 13: Pictures!
