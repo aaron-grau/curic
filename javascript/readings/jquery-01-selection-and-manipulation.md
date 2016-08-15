@@ -250,14 +250,14 @@ the current attr/text/val value. Here's an example:
 <input type="text" id="cool-input">
 
 <script>
-window.setInterval( () => {
-  const $coolInput = $("#cool-input");
+  window.setInterval( () => {
+    const $coolInput = $("#cool-input");
 
-  if ($coolInput.val() == "racecars") {
-    // Reset the input on them!
-    $coolInput.val("lasers");
-  }
-}, 100);
+    if ($coolInput.val() == "racecars") {
+      // Reset the input on them!
+      $coolInput.val("lasers");
+    }
+  }, 100);
 </script>
 ```
 
@@ -283,22 +283,22 @@ And another, zanier one:
 
 
 <script>
-window.setInterval( () => {
-  const $coolInputs = $("input");
+  window.setInterval( () => {
+    const $coolInputs = $("input");
 
-  // unselect any item.
-  $coolInputs.prop("checked", false);
+    // unselect any item.
+    $coolInputs.prop("checked", false);
 
-  // randomly samples a number 0...3.
-  const i = Math.floor(3 * Math.random());
+    // randomly samples a number 0...3.
+    const i = Math.floor(3 * Math.random());
 
-  // Indexing takes us out of jQuery world!
-  const coolInput = $coolInputs[i];
-  // We can **wrap** an HTMLElement to create a jQuery object with one
-  // item; the wrapped element.
-  const $coolInput = $(coolInput);
-  $coolInput.prop("checked", true);
-}, 200);
+    // Indexing takes us out of jQuery world!
+    const coolInput = $coolInputs[i];
+    // We can **wrap** an HTMLElement to create a jQuery object with one
+    // item; the wrapped element.
+    const $coolInput = $(coolInput);
+    $coolInput.prop("checked", true);
+  }, 200);
 </script>
 ```
 

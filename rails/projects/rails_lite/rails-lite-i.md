@@ -72,9 +72,9 @@ Rack::Server.start(
 You can specify whatever port you want here, but `3000` is a common choice.
 
 Write the code above (both the app and the `Rack::Server#start` call) in
-`bin/p01_basic_server.rb`. Try running the file, then in your browser navigate
-to `http://localhost:3000`. You should see `Hello world!`. Congratulations,
-you've written a Rack application.
+`bin/p01_basic_server.rb`. Try running the file (make sure to run with `bundle
+exec`!), then in your browser navigate to `http://localhost:3000`. You should
+see `Hello world!`. Congratulations, you've written a Rack application.
 
 Now we want to change our application so it doesn't only do one thing ever. We
 want to respond to requests with the requested path. For example: if I type
