@@ -1,13 +1,18 @@
 import { FilterConstants } from '../actions/filter_actions';
+import merge from 'lodash/merge';
 
-const _defaultParams = { bounds:{}, minSeating: 1, maxSeating: 10 };
+const _defaultBounds = Object.freeze({ 
+	bounds:{}, 
+	minSeating: 1, 
+	maxSeating: 10 
+});
 
-const FiltersReducer = function(oldState = _defaultParams, action){
+const FiltersReducer = function(state = _defaultBounds, action){
   if (action.type == FilterConstants.UPDATE_FILTER){
     const newFilter = {[action.filter]: action.value};
-    return Object.assign({}, oldState, newFilter);
+    return merge(state, newFilter);
   } else {
-    return oldState;
+    return state;
   }
 };
 
