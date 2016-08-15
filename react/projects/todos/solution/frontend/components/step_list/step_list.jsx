@@ -7,7 +7,11 @@ function StepList(props){
   return(
     <div>
       <ul className="step-list">
-        {props.steps.map(step => <StepListItemContainer key={step.id} step={step} />)}
+        {props.steps.map(step => (
+        	<StepListItemContainer 
+        		key={step.id} 
+        		step={step} />)
+        )}
       </ul>
       <StepForm todo_id={props.todo_id} createStep={props.createStep}/>      
     </div>

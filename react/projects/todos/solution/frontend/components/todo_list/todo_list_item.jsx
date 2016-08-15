@@ -15,22 +15,21 @@ class TodoListItem extends React.Component {
   }
 
   render() {
+    const { todo: {title, done}, toggleTodo } = this.props;
     let detail;
     if (this.state.detail) {
       detail = (
-        <TodoDetailViewContainer todo={this.props.todo} />
+        <TodoDetailViewContainer todo={todo} />
       );
-    } else {
-      detail = "";
     }
     return (
       <li className="todo-list-item">
         <div className="todo-header">
-          <a onClick={this.toggleDetail()}>{ this.props.todo.title}</a>
+          <a onClick={this.toggleDetail()}>{ title }</a>
           <button 
-            className={this.props.todo.done ? "done" : "undone"}
-            onClick={this.props.toggleTodo.bind(null, this.props.todo)}>
-            {this.props.todo.done ? "Undo" : "Done"}
+            className={ done ? "done" : "undone"}
+            onClick={toggleTodo.bind(null, todo)}>
+            { done ? "Undo" : "Done"}
           </button>
         </div>
         { detail }

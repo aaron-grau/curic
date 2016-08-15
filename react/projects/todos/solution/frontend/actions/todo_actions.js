@@ -6,7 +6,6 @@ export const REMOVE_TODO = "REMOVE_TODO";
 export const CREATE_TODO = "CREATE_TODO";
 export const UPDATE_TODO = "UPDATE_TODO";
 export const DESTROY_TODO = "DESTROY_TODO";
-
 export const TODO_ERROR = "TODO_ERROR";
 
 export const requestTodos = () => ({
