@@ -22,9 +22,17 @@ const App = () => {
 
 ```js
 // dog.jsx
-const Dog = (props) => (
-  <div>Name: {this.props.name}, Breed: {this.props.breed}</div>
-);
+class Dog extends React.Component {
+  constructor(props) {
+     super(props);
+  }
+  
+  render() {
+    return (
+      <div>Name: {this.props.name}, Breed: {this.props.breed}</div>
+    );
+  }
+};
 
 export default Dog;
 ```
@@ -68,7 +76,6 @@ changes.
 
 ```javascript
 class WordInput extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -77,8 +84,8 @@ class WordInput extends React.Component {
   }
 
   linkState(key) {
-    return (event) => this.setState({[key]: event.currentTarget.value});
-  },
+    return (event => this.setState({[key]: event.currentTarget.value}));
+  }
 
   render () {
     return (
