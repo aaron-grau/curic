@@ -7,7 +7,7 @@ const BenchesReducer = function(state = {}, action){
       return action.benches;
     case BenchConstants.RECEIVE_BENCH:
       const newBench = {[action.bench.id]: action.bench};
-      return merge(state, newBench);
+      return merge({}, state, newBench);
     default:
       return state;
   }

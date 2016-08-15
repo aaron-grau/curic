@@ -10,7 +10,7 @@ const _defaultBounds = Object.freeze({
 const FiltersReducer = function(state = _defaultBounds, action){
   if (action.type == FilterConstants.UPDATE_FILTER){
     const newFilter = {[action.filter]: action.value};
-    return merge(state, newFilter);
+    return merge({}, state, newFilter);
   } else {
     return state;
   }
