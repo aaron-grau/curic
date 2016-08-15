@@ -10,19 +10,23 @@ Props are properties of a component that are passed in at the time of
 initialization.
 
 ```js
-<Dog name='Fido' breed='Greyhound'></Dog>
+// app.jsx
+import Dog from 'dog'
+
+const App = () => {
+  <Dog name='Fido' breed='Greyhound'></Dog>
+};
 ```
 
 `this.props` are then accessible in a component's instance methods.
 
 ```js
-class Dog extends React.component {
-  render () {
-    return (
-      <div>Name: {this.props.name}, Breed: {this.props.breed}</div>
-    );
-  }
-};
+// dog.jsx
+const Dog = (props) => (
+  <div>Name: {this.props.name}, Breed: {this.props.breed}</div>
+);
+
+export default Dog;
 ```
 
 In the example above, a new instance of the `Dog` component is passed `name` and
@@ -67,7 +71,9 @@ class WordInput extends React.Component {
 
   constructor() {
     super();
-    this.state = {word: ''};
+    this.state = {
+      word: ''
+    };
   }
 
   linkState(key) {

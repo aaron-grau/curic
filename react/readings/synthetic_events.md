@@ -11,21 +11,17 @@ const handleClick = event => {
 };
 
 const SimpleButton = () => (
-	<div>
-		<form>
-		  <input type="submit" onClick={handleClick}>Click Me!</input>
-		</form>
-	</div>
+  <input type="submit" onClick={handleClick}>Click Me!</input>
 );
 ```
 
-Whenever the above component is clicked, it will call `handleClick()` before
-doing any of the normal things a submit button would do (like issue a POST
-request). The click `event`, which represents the vanilla DOM event, is passed
-in. By calling `event.preventDefault()`, we are disabling the button from trying
-to submit as it normally would. Most of your event handlers will call
-`preventDefault()`, since you almost always want to halt the normal HTTP request
-and dispatch an asynchronous javascript request instead.
+Whenever the above input is clicked, `handleClick()` will be called before any
+of the normal things a submit button would do (like issue a POST request). The
+click `event`, which represents the vanilla DOM event, is passed in. By calling
+`event.preventDefault()`, we are disabling the button from trying to submit as
+it normally would. Most of your event handlers will call `preventDefault()`,
+since you almost always want to halt the normal HTTP request and dispatch an
+asynchronous javascript request instead.
 
 A complete list of `SyntheticEvent`s is [available here][react-events].
 

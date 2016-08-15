@@ -109,7 +109,9 @@ We can further simplify `Message` by using object de-structuring and
 arrow-function implicit returns from ES6:
 
 ```js
-const Message = ({ text }) => <div>{text}</div>;
+const Message = ({ text }) => (
+	<div>{text}</div>
+);
 ```
 
 Functional components are the most common type of component that you will see in Redux applications, which you will learn more about later this week.

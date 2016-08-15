@@ -15,14 +15,14 @@ code might look like this:
 
 ```javascript
 const TodoActions = {
-  receiveTodo(todo){
+  receiveTodo(todo) {
     type: "RECEIVE_TODO",
     todo
   },
-  fetchTodos(){
+  fetchTodos() {
     type: "FETCH_TODOS"
   },
-  createTodo(todo){
+  createTodo(todo) {
     type: "CREATE_TODO",
     todo
   }
@@ -79,12 +79,13 @@ Exporting is slightly different for files which just have a single export.
 You can just export the whole thing as the default export:
 
 ```javascript
-class TodoList{
-  generateList(){
-    //We'd write the code to create the list here
+class TodoList {
+  generateList() {
+    // We'd write the code to create the list here
   }
-  render(){
-    //We'd invoke generateList here and print out the list
+
+  render() {
+    // We'd invoke generateList here and print out the list
   }
 }
 
@@ -95,8 +96,8 @@ We can also use default exports if there's just a single function in the
 file:
 
 ```javascript
-export default function(num, action){
-  //code here
+export default function(num, action) {
+  // code here
 }
 ```
 
