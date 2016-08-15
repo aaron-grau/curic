@@ -41,9 +41,10 @@ flag. It should look something like this:
 Don't worry about the default settings above; they won't affect how your app
 runs, and you can always adjust them later.
 
-## Installing packages
+## Installing Packages
 
-Once you've generated a `package.json`, you can start installing npm packages such as `react` and `redux` via the command line:
+Once you've generated a `package.json`, you can start installing npm packages 
+such as `react` and `redux` via the command line:
 
 ```
 npm install <package_name>
@@ -94,7 +95,9 @@ running `some_command`. In the former, the `Gemfile`-specified version of
 `bundle exec` when running commands can cause errors if our app isn't compatible
 with the local version.
 
-To solve this issue with NPM packages, we need to add `"scripts"` for any packages that we intend to call from the command line. Once we've added a script for a package, we can
+To solve this issue with NPM packages, we need to add `"scripts"` for any packages
+that we intend to call from the command line. Once we've added a script for a 
+package, we can use:
 
 ```
 npm run <package_name>
