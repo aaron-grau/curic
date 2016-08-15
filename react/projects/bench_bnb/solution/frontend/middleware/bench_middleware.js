@@ -17,25 +17,26 @@ import { FilterConstants } from '../actions/filter_actions';
 export default ({getState, dispatch}) => next => action => {
   const benchesSuccess = data => dispatch(receiveBenches(data));
   const benchSuccess = data => dispatch(receiveBench(data));
+  const result = next(action);
   switch(action.type){
     case BenchConstants.REQUEST_BENCHES:
-      const filters = getState().filters
+      const filters = getState().filters;
       fetchBenches(filters, benchesSuccess);
       break;
     case BenchConstants.REQUEST_BENCH:
       fetchBench(action.id, benchSuccess);
       break;
     case FilterConstants.UPDATE_FILTER:
-      next(action);
       dispatch(requestBenches());
       break;
     case BenchConstants.CREATE_BENCH:
       createBench(action.bench, benchSuccess);
       break;
     case BenchConstants.CREATE_REVIEW:
-      createReview(action.review, benchSuccess)
+      createReview(action.review, benchSuccess);
       break;
     default:
-      next(action)
+      break;
   }
+  return result;
 };

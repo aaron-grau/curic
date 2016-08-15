@@ -11,18 +11,20 @@ export default ({getState, dispatch}) => next => action => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
   };
-
   switch(action.type){
     case SessionConstants.LOGIN:
       login(action.user, successCallback, errorCallback);
+      return next(action);
       break;
     case SessionConstants.LOGOUT:
-      logout(() => next(action))
+      logout(() => next(action));
       break;
     case SessionConstants.SIGNUP:
       signup(action.user, successCallback, errorCallback);
+      return next(action);
       break;
     default:
-      next(action)
+      return next(action);
+      break;
   }
 };
