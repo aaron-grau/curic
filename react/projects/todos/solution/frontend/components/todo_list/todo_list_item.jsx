@@ -7,7 +7,7 @@ class TodoListItem extends React.Component {
     this.state = { detail: false };
   }
 
-  toggleDetail() {
+  addToggleHandler() {
     return (e) => {
       event.preventDefault();
       this.setState({detail: !this.state.detail});
@@ -15,7 +15,8 @@ class TodoListItem extends React.Component {
   }
 
   render() {
-    const { todo: {title, done}, toggleTodo } = this.props;
+    const { todo , toggleTodo } = this.props;
+    const { title, done } = todo;
     let detail;
     if (this.state.detail) {
       detail = (
@@ -25,10 +26,10 @@ class TodoListItem extends React.Component {
     return (
       <li className="todo-list-item">
         <div className="todo-header">
-          <a onClick={this.toggleDetail()}>{ title }</a>
+          <a onClick={this.addToggleHandler()}>{ title }</a>
           <button 
             className={ done ? "done" : "undone"}
-            onClick={toggleTodo.bind(null, todo)}>
+            onClick={toggleTodo(todo)}>
             { done ? "Undo" : "Done"}
           </button>
         </div>

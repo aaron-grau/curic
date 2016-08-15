@@ -10,7 +10,7 @@ const mapDispatchToProps = dispatch => ({
   requestTodos: () => dispatch(requestTodos()),
   createTodo: todo => dispatch(createTodo(todo)),
   handleDestroy: () => dispatch(destroyTodo()),
-  toggleTodo: todo => dispatch(toggleTodo(todo))
+  toggleTodo: todo => () =>	dispatch(toggleTodo(todo))
 });
 
 export default connect(
