@@ -1,8 +1,8 @@
 # Redux Synthesizer
 
-Live demo available [here]!
+Live demo available [here][live-demo]!
 
-[here]:http://appacademy.github.io/curriculum/react/projects/synthesizer/solutions/index.html
+[live-demo]:http://appacademy.github.io/curriculum/react/projects/synthesizer/solutions/index.html
 
 ## Overview
 
@@ -123,11 +123,7 @@ Feel free to copy and paste the object above. Use [this table][note-frequencies]
 We'll be using these constants later to map our keyboard keys to notes names to
 tones.
 
-
-
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
-
----
 
 ## Phase 3: Notes Redux Structure
 
@@ -610,8 +606,6 @@ store.
 
 Now your synthesizer plays musical notes and records tracks! Nice.
 
----
-
 ## Phase 7: Jukebox
 
 Let's create a `Jukebox` to display and play our recorded tracks. We're going to
@@ -708,8 +702,6 @@ Now for the meat of the method:
 #### Update Buttons
 
 * Don't forget to update your "Start", "Stop", and "Play" buttons so that they are disabled if a track is playing.
-
----
 
 ## Phase 8: Style Your App
 
