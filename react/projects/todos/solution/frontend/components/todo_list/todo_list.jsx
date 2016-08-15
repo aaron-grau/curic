@@ -13,7 +13,9 @@ class TodoList extends React.Component {
     return(
       <div>
         <ul className="todo-list">
-          {todos.map(todo => <TodoListItem key={todo.id} todo={todo}
+          {todos.map(todo => <TodoListItem 
+            key={`todo-list-item${todo.id}`} 
+            todo={todo}
             handleDestroy={handleDestroy} toggleTodo={toggleTodo} />)}
         </ul>
         <TodoForm createTodo={createTodo}/>
