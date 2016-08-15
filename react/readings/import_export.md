@@ -75,7 +75,8 @@ export const createTodo = todo => ({
 });
 ```
 
-**NB**: This is the preferred method.
+**NB**: This is the preferred method when exporting multiple items from
+a single file.
 
 ### One Item per File
 Exporting is slightly different for files which just have a single export.
