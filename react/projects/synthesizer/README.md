@@ -218,7 +218,7 @@ the initial state.
 
 *NB*: State is never mutated in Redux. Thus, we must return a new array when
 our state changes. Make sure your `notes` reducer creates and returns a new
-array when adding or removing a note. Here's a good [reference][array-mutation]
+array when adding or removing a note. This is a good [reference][array-mutation]
 on how to avoid array mutation ([here][array-mutation-code]'s the code from the video).
 
 [default-args]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/default_parameters
