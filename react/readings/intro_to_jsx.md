@@ -94,5 +94,5 @@ Although we'll only use JSX for developing React components, it can actually be
 used in other applications as well. You can read more about JSX
 [here][resources].
 
-[resources](http://facebook.github.io/jsx/)
+[resources]:http://facebook.github.io/jsx/
 [jsx]:https://facebook.github.io/react/docs/jsx-in-depth.html
