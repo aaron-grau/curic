@@ -20,8 +20,8 @@ our HTML, except that Rails compiles them all into a single file for production.
 But unlike Webpack, Rails doesn't intelligently manage dependencies, so you
 still have to be extra careful about the load order.
 
-It's currently only requiring jQuery. Make it require `bundle.js` as well. Now
-we shouldn't have to worry about it again because Webpack's got our back.
+It's currently only requiring jQuery. Make it requires `bundle.js` as well. Now
+we shouldn't have to worry about it again because Webpack has our back.
 
 ## Phase I: `FollowToggle`
 
@@ -84,7 +84,19 @@ Next, write a `FollowToggle#handleClick` method. Install this click handler in t
 	   `followState` and re-render.
 
 **Hint**: You probably want to set the `dataType` option for `$.ajax`. This way you can
-have jQuery automatically parse the response as JSON.
+have jQuery automatically parse the response as JSON. Read the documentation [here][$.ajax-docs]
+
+You may also be wondering what's going on with the `respond_to` inside the
+`FollowsController`. Well.. when we make a http request to a server, we can specify
+the `Content-Type` header. Meaning.. we can ask for html, xml, json, text... etc.
+Until now, our controllers were apathetic towards the type of the request. Want json? TOO BAD! Here's html...
+
+The browser sets this `Content-Type` header for us based on how we make the request.
+When we use the $.ajax method, we will (by default) request json. The controller can
+then react to this `Content-Type` request by using the [`respond_to` method][respond-to-docs].
+
+[respond-to-docs]: http://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to
+[$.ajax-docs]: http://api.jquery.com/jquery.ajax/
 
 Check to make sure this works!
 
