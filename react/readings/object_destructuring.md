@@ -1,6 +1,6 @@
 # Object Destructuring
 
-Object destructuring makes it possible to extract parts of an object and
+Object destructuring in ES6 makes it possible to extract parts of an object and
 assign those parts to different variables. For example:
 
 ```javascript
@@ -22,13 +22,12 @@ const { a, c } = { a: 1, b: 2, c: 3 };
 This works even if we have a variable or function that returns an object.
 
 ```javascript
-const time = () => ({
-  // calculate current time
-  return { h: hours, m: minutes, s: seconds };
-});
-const { m, s } = time();
-// m = minutes
-// s = seconds
+const multiply = n => { one: n, two: n * 2, three: n * 3 };
+
+const { one, two, three } = multiple(10);
+// one = 10
+// two = 20
+// three = 30
 ```
 
 ```javascript
@@ -39,10 +38,11 @@ this.props = {
     lname: 'Ruggeri'
   }
 };
-{ userId, user: { fname } } = this.props;
 
+{ userId, user: { fname, lname } } = this.props;
 // userId = 1
 // fname = 'Ned'
+// lname = 'Ruggeri'
 ```
 
 It's much nicer to have these variables to refer to instead of having to call
@@ -80,7 +80,7 @@ then let's take the rest of the information and print it out to the console.
 
 ```javascript
 const printUser = ({ userId }) => ({
-  // fetch user object via userId
+  // fetch user object via userId...
   console.log(`${fname} ${lname}`);
 });
 
@@ -91,10 +91,9 @@ const printReview = ({ movie, comment, rating }) => ({
 });
 
 printUser(review);
-printReview(review);
-
-// output:
 // Ned Ruggeri
+
+printReview(review);
 // Watched Star Trek
 // Gave it 5 stars!
 // It was excellent!

@@ -10,28 +10,41 @@ Props are properties of a component that are passed in at the time of
 initialization.
 
 ```js
-<Dog name='Fido' breed='Greyhound'></Dog>
+// app.jsx
+import Dog from 'dog'
 
+const App = () => {
+  <Dog name='Fido' breed='Greyhound'></Dog>
+};
 ```
 
 `this.props` are then accessible in a component's instance methods.
 
 ```js
-class Dog extends React.component {
-  render () {
+// dog.jsx
+class Dog extends React.Component {
+  constructor(props) {
+     super(props);
+  }
+  
+  render() {
     return (
       <div>Name: {this.props.name}, Breed: {this.props.breed}</div>
     );
   }
 };
 
-// renders the HTML `<div>Name: Fido, Breed: Greyhound</div>`
-
+export default Dog;
 ```
 
-In the example above, a new instance of `Dog` is passed `name` and `breed`
-properties, which can be read inside the component as `this.props.breed` and
-`this.props.name`.
+In the example above, a new instance of the `Dog` component is passed `name` and
+`breed` properties, which can be read inside the component as `this.props.breed`
+and `this.props.name`.
+
+It renders to HTML:
+```HTML
+<div>Name: Fido, Breed: Greyhound</div>
+```
 
 ### Immutability of Props
 
@@ -42,7 +55,8 @@ parent.
 
 # State
 
-Unlike props, `this.state` represents the properties of a component that can be altered by the component itself.
+Unlike props, `this.state` represents the properties of a component that can be
+altered by the component itself.
 
 ### When to Use State
 
@@ -54,21 +68,24 @@ information is never going to change, or if it is needed across the entire app
 ### How State is Set
 
 Although a component's state can be defined at initialization, it may also reset
-its own state at certain points in its lifecycle using `this.setState()`. Every
-time `this.setState()` is called, the component calls `render()` again with the new
-state. 
+its own state at certain points in its lifecycle using `this.setState()`.
+
+Every time `this.setState()` is called, the component calls `render()` again
+with the new state. In other words, a component re-renders whenever its state
+changes.
 
 ```javascript
 class WordInput extends React.Component {
-  
   constructor() {
     super();
-    this.state = {word: ""};
+    this.state = {
+      word: ''
+    };
   }
 
   linkState(key) {
-    return (event) => this.setState({[key]: event.currentTarget.value});
-  },
+    return (event => this.setState({[key]: event.currentTarget.value}));
+  }
 
   render () {
     return (
@@ -81,7 +98,7 @@ class WordInput extends React.Component {
 });
 ```
 
-In this example `WordInput` has an initial state of `{word: ""}`. When it is
+In this example `WordInput` has an initial state of `{word: ''}`. When it is
 rendered, we register an **event listener** on the `input` via its `onChange`
 prop. Whenever the `input` changes its value (via user input), it will call
 `onChange`, which in this case is set to the function returned by
