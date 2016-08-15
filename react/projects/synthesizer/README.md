@@ -219,10 +219,11 @@ the initial state.
 *NB*: State is never mutated in Redux. Thus, we must return a new array when
 our state changes. Make sure your `notes` reducer creates and returns a new
 array when adding or removing a note. Here's a good [reference][array-mutation]
-on how to avoid array mutation.
+on how to avoid array mutation ([here][array-mutation-code]'s the code from the video).
 
 [default-args]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/default_parameters
 [array-mutation]: https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread
+[array-mutation-code]:https://jsbin.com/juseku/1/embed?js
 [union-lodash]: https://lodash.com/docs#union
 
 
@@ -231,11 +232,11 @@ We're almost there. Note that `action.key` references keyboard keys while
 when calling our action creators. Let's do this using our constant `NOTES_NAMES`
 and an array of valid keyboard keys.
 
-+ Define an array called `validKeys` which stores the strings of all of your
++ Along with your `notes` reducer, define an array called `validKeys` which stores the strings of all of your
 synthesizer's keyboard keys (e.g. `a`, `s`). The number of valid keys must equal
 the number of notes you plan on having.
-+ Define an object called `keyMap` which stores as keys, valid keys and as
-values, corresponding note names (e.g. `keyMap['a'] = 'C5'`).
++ Also define an object called `keyMap` which stores as keys, valid keys and as values, corresponding note
+names (e.g. `keyMap['a'] = 'C5'`).
 + Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
 see if a `action.key` is also a valid key. If not in both cases, return the
 previous state.
@@ -352,8 +353,6 @@ connect it to your Redux store.
 
 * In your `App` component, import your `SynthContainer` and render it. Make sure you can `webpack` your app and that there are
 no errors in the console before moving on.
-
-[connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
 
 ### `Synth` Component
 
@@ -571,7 +570,7 @@ Now let's build the interface that users will use to add tracks to our store.
 * Create a file `components/recorder/recorder.jsx`.
 * Define and export `Recorder`, a functional component to start.
 * Create a file `components/recorder/recorder_container.jsx`.
-* Import [`connect`][connect] from `react-redux` and your `Recorder`.
+* Import `connect` from `react-redux` and your `Recorder`.
 * Define a `mapStateToProps(state)` function returning an object that maps the state's `tracks` and `isRecording`
 * Import your `startRecording` and `stopRecording` action creators.
 * Define a `mapDispatchToProps(dispatch)` function returning an object containing callback props for each of your action creators.
