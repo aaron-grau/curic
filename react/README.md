@@ -5,8 +5,8 @@
 ### Readings
 
 #### ES6 & Lodash
-- [ES6 Syntax: Import / Export][import_export]
 - [ES6 Syntax: Object Destructuring][object_destructuring]
+- [ES6 Syntax: Import / Export][import_export]
 - [Lodash][lodash]
 
 #### Intro React and JSX
