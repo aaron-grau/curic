@@ -1,17 +1,34 @@
-"use strict";
-
-const FilterParamsStore = require('../stores/filter_params_store');
-
-const ApiUtil = {
-  fetchAllBenches(filters, success){
-    $.get('api/benches', filters, success);
-  },
-  createBench(data, success){
-    $.post('api/benches', { bench: data }, success);
-  },
-  createReview(review, success) {
-    $.post('api/reviews', { review }, success);
-  }
+export const fetchBenches = function(filters, success){
+  $.ajax({
+    method: 'GET',
+    url: 'api/benches',
+    data: filters,
+    success
+  });
 };
 
-module.exports = ApiUtil;
+export const fetchBench = function(id, success){
+  $.ajax({
+    method: 'GET',
+    url: `api/benches/${id}`,
+    success
+  });
+};
+
+export const createReview = function(review, success){
+  $.ajax({
+    method: 'POST',
+    url: 'api/reviews',
+    data: review,
+    success
+  });
+};
+
+export const createBench = function(bench, success){
+  $.ajax({
+    method: 'POST',
+    url: 'api/benches',
+    data: bench,
+    success
+  });
+};
