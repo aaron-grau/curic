@@ -1,0 +1,129 @@
+$font-stack: 'Roboto Slab', serif;
+$done-color: #848484;
+$undone-color: #cecece;
+$grey: #666;
+$green: #21ce99;
+$red: #fb5229;
+
+// reset
+html,
+body,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+}
+li {
+  list-style: none;
+}
+
+// styles
+#content {
+  display: flex;
+  justify-content: center;
+}
+.app {
+  width: 40%;
+  min-width: 400px;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid $grey;
+  cursor: pointer;
+  margin: 0 20px;
+}
+.button:focus, a:focus {
+  outline: none;
+}
+.button:hover {
+  background-color: $grey;
+}
+.done {
+  @extend .button;
+  background-color: $undone-color;
+}
+.undone {
+  @extend .button;
+  background-color: $done-color;
+}
+.delete-button {
+  @extend .button;
+  background-color: $red;
+}
+.create-button {
+  @extend .button;
+  background-color: $green;
+}
+.input {
+  padding: 5px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-list {
+  @extend .flex-col;
+  .todo-list-item {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #666;
+    border-radius: 5px;
+    .todo-header {
+      @extend .flex-row;
+      justify-content: space-between;
+      align-items: center;
+      a {
+        font-weight: bold;
+      }
+    }
+    .todo-body {
+      margin: 10px;
+    }
+  }
+}
+
+.todo-form {
+  @extend .flex-col;
+  align-items: center;
+  label {
+    @extend .flex-col;
+    margin: 10px 0;
+    align-items: center;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+.step-list {
+  @extend .flex-col;
+  margin-left: 20px;
+  .step-header {
+    @extend .flex-row;
+    justify-content: space-between;
+    margin: 10px;
+    list-style: none;
+    align-items: center;
+  }
+}
+
+.step-form {
+  @extend .flex-row;
+  margin: 15px;
+  min-width: 200px;
+  .input {
+    box-sizing: border-box;
+    width: 180px;
+  }
+}
