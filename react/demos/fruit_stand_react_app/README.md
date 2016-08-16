@@ -1,6 +1,6 @@
 # Fruit Stand App
 
-Basic Redux app with a `reducer`, actions and `store`. No React components.
+A basic Redux app with a `store`, `reducer` and actions. No React components.
 
 ---
 Let's look at and run the code that you just walked through in our Redux store
@@ -13,10 +13,10 @@ reading.
 4. `open index.html` to see the app in the browser.
 5. Open Dev Tools to see the app's Redux store in action.
 
-Check out `store.js`:
+Check out `frontend/store.js`:
 + The Redux store constructor `createStore` is imported from `redux`.
-+ Check out the app's `reducer` (e.g. reducing function) defined in `reducer.js`.
-+ Check out the app's actions defined in `actions.js`.
++ Check out the app's `reducer` (e.g. reducing function) defined in `frontend/reducer.js`.
++ Check out the app's actions defined in `frontend/sactions.js`.
 + Store methods `getState()` and `dispatch(action)` are called on the app's store.
 
 Bonus:

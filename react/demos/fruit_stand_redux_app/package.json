@@ -2,7 +2,7 @@
   "name": "fruit_app",
   "version": "1.0.0",
   "description": "",
-  "main": "actions.js",
+  "main": "frontend/actions.js",
   "dependencies": {
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
