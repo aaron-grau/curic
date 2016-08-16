@@ -17,10 +17,10 @@ reading.
 
 Check out `frontend/store.js`:
 + The Redux store constructor `createStore` is imported from `redux`.
-+ Check out the app's `reducer` (e.g. reducing function) defined in `frontend/reducer.js`.
++ Check out the app's `reducer` (i.e. reducing function) defined in `frontend/reducer.js`.
 + Check out the app's actions defined in `frontend/sactions.js`.
 + Store methods `getState()` and `dispatch(action)` are called on the app's store.
 
 Bonus:
-+ Try creating a couple of new actions (i.e. `addLychee` and `addPlum`). Don't forget to export and import appropriately.
++ Try creating a couple of new actions (e.g. `addLychee` and `addPlum`). Don't forget to export and import appropriately.
 + Dispatch these new actions and see how they update the app's state.
