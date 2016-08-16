@@ -28,7 +28,7 @@ const Parent = ({store}) => (
 
 const Child = ({store}) => (
 	<div>
-	{store.getState().text}
+		{store.getState().text}
 	</div>
 );
 
