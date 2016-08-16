@@ -74,9 +74,8 @@ API, so feel free to skip it.
 
 Connect is a curried function that ultimately returns a React component. Check out its signature: 
 
-```
+```js
 const connectedComponent = connect(mapStateToProps, mapDispatchToProps, mergeProps, options)(component);
-
 ```
 
 Let's examine the arguments in detail.

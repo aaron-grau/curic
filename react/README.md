@@ -60,6 +60,7 @@
 - [Reducers][reducers]
 - [Actions][actions]
 - [Functional Components][functional-components]
+- [`Provider` && `connect()`][provider-connect]
 
 ### Homeworks
 
@@ -73,6 +74,7 @@
 [flux]: readings/flux
 [redux-piano]: projects/redux_piano
 [functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
+[provider-connect]: readings/provider-connect.md
 
 ## w7d3
 
@@ -80,8 +82,6 @@
 
 ### Readings
 
-- [Provider && `connect()`]
-- [Containers]
 - [Higher-order functions]
 - [Middleware]
 - [Bonus: Time Travel]
