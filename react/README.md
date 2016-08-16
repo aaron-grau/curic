@@ -108,7 +108,7 @@
 
 - [Pokedex][pokedex]
 
-[middleware]: readings/middleware
+[middleware]: readings/middleware.md
 [pokedex]: projects/pokedex
 
 ## w7d5
