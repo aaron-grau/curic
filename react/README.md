@@ -82,6 +82,7 @@
 
 - [Higher-order functions]
 - [Middleware][middleware]
+- [API Interactions in Redux]
 - [Bonus: Time Travel]
 
 ### Homeworks
