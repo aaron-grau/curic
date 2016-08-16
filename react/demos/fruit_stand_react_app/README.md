@@ -20,4 +20,5 @@ Check out `entry.js` (this demo's entry file):
 + Import `React` and `ReactDom` to use React in our app.
 + Check out the app's `store` defined in `frontend/store.js`.
 + Check out the app's actions defined in `frontend/sactions.js`.
-+ Check out our app's React component `FruitStand` defined in `frontend/components/fruit_stand.jsx`. This React component gets passed the app's `store` as a `prop`. Inside of its constructor, `store.subscribe(this.forceUpdate.bind(this))` is called so whenever the store's state changes because of triggered actions, the component re-renders. Thereby, `FruitStand` always renders the current state.
++ Check out our app's React component `FruitStand` defined in `frontend/components/fruit_stand.jsx`. 
+  + This React component gets passed the app's `store` as a `prop`. Inside of its constructor, `store.subscribe(this.forceUpdate.bind(this))` is called so whenever the store's state changes because of triggered actions, the component re-renders. Thereby, `FruitStand` always renders the current state.
