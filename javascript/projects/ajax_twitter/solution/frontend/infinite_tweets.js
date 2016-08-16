@@ -1,5 +1,3 @@
-const _ = require('underscore');
-
 class InfiniteTweets {
   constructor(el) {
     this.$el = $(el);

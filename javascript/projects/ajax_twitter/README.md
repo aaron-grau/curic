@@ -20,8 +20,8 @@ our HTML, except that Rails compiles them all into a single file for production.
 But unlike Webpack, Rails doesn't intelligently manage dependencies, so you
 still have to be extra careful about the load order.
 
-It's currently only requiring jQuery. Make it require `bundle.js` as well. Now
-we shouldn't have to worry about it again because Webpack's got our back.
+It's currently only requiring jQuery. Make it requires `bundle.js` as well. Now
+we shouldn't have to worry about it again because Webpack has our back.
 
 ## Phase I: `FollowToggle`
 
@@ -32,7 +32,7 @@ First, let's modify the Rails view for the follow button to accommodate front-en
 manipulation. Look at `app/views/follows/_form.html.erb`. Notice that there are
 two branches of logic: the button will be a 'follow' button if the current user
 is not yet following the user, and an 'unfollow' button if they are. We want to
-replace the contents of this form with a single html element that gets updated
+replace the contents of this form with a single HTML element that gets updated
 via our front-end javascript.
 
 Replace the contents of the button form with a single `<button>`.  Give the
@@ -84,7 +84,19 @@ Next, write a `FollowToggle#handleClick` method. Install this click handler in t
 	   `followState` and re-render.
 
 **Hint**: You probably want to set the `dataType` option for `$.ajax`. This way you can
-have jQuery automatically parse the response as JSON.
+have jQuery automatically parse the response as JSON. Read the documentation [here][$.ajax-docs]
+
+You may also be wondering what's going on with the `respond_to` inside the
+`FollowsController`. Well, when we make a http request to a server, we can specify
+the `Content-Type` header. Meaning.. we can ask for HTML, XML, JSON, text, etc.
+Until now, our controllers were apathetic towards the type of the request. Want JSON? TOO BAD! Here's HTML...
+
+The browser sets this `Content-Type` header for us based on how we make the request.
+When we use the `$.ajax` method, we will (by default) request JSON. The controller can
+then react to this `Content-Type` request by using the [`respond_to` method][respond-to-docs].
+
+[respond-to-docs]: http://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to
+[$.ajax-docs]: http://api.jquery.com/jquery.ajax/
 
 Check to make sure this works!
 
@@ -102,7 +114,7 @@ Check that everything works and call over your TA so that they can check your wo
 ## Phase II: `UsersSearch`
 
 Review `app/controllers/users_controller.rb` and
-`app/views/users/search.html.erb`. We want to create real-time user search. On
+`app/views/users/search.HTML.erb`. We want to create real-time user search. On
 every keypress as the user types in a username, we'll show the matching users
 for the current input.
 
@@ -161,7 +173,7 @@ See if this helps you set up the follow toggle.
 
 ## Phase III: `TweetCompose`
 
-Write a `TweetCompose` class. First, change `app/views/tweets/_form.html.erb`.
+Write a `TweetCompose` class. First, change `app/views/tweets/_form.HTML.erb`.
 Give the form a class `tweet-compose`. Write a TweetCompose class that grabs
 this form and installs itself.
 
@@ -190,7 +202,7 @@ give our form the following data attribute: `data-tweets-ul="#feed"`. Our
 find the ul. This is better than hard coding `#feed` into the JS.
 
 A successful AJAX post request for a tweet should return back the newly created
-tweet in json format. For simplicity, have `TweetCompose` call `JSON.stringify`
+tweet in JSON format. For simplicity, have `TweetCompose` call `JSON.stringify`
 on the created Tweet. Build an `li` with the JSON content, and stick it in the
 `ul`. We'll actually render this nicely in a later phase.
 
@@ -224,7 +236,7 @@ these newly generated select tags.
 In the `TweetCompose` `constructor`, add a listener for a click on
 `a.add-mentioned-user`. I wrote a `TweetCompose#addMentionedUser` method. I used
 jQuery to find the `script` tag, I grabbed the HTML from within using
-`$scriptTag.html()`, then appended it into the `mentioned-users` div.
+`$scriptTag.HTML()`, then appended it into the `mentioned-users` div.
 
 Test this out and make sure you can create new `select` tags by clicking the link.
 
@@ -260,7 +272,7 @@ Let's **paginate** the sending of tweets. To start, open up
 `max_created_at`. Test this out in your Rails console before moving to the
 JavaScript portion.
 
-Next, let's begin modifying the `app/views/feeds/show.html.erb` template. You
+Next, let's begin modifying the `app/views/feeds/show.HTML.erb` template. You
 should have a `ul#feed` from phase III. Wrap that `ul` with a `div` with class
 `infinite-tweets`. You can empty out the contents of the `ul#feed` since we'll
 be adding the tweets inside dynamically with jQuery now. Also, write an anchor
