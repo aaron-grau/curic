@@ -1,0 +1,1409 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>README</title></head><body><article class="markdown-body"><h1 id="pokedex-an-introduction-to-the-react-router"><a name="user-content-pokedex-an-introduction-to-the-react-router" href="#pokedex-an-introduction-to-the-react-router" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pokedex: An Introduction to the React Router</h1>
+<p><a href="http://aa-pokedex.herokuapp.com/"><strong>Live Demo!</strong></a></p>
+<p>In this project, we&rsquo;ll write an app to manage your <code>Pokemon</code> and their <code>Toys</code>.<br />
+Check out the live version <a href="http://aa-pokedex.herokuapp.com">here</a>.</p>
+<p>We&rsquo;ve already setup migrations/models/controllers/views for you to start with in<br />
+the skeleton provided in this folder.  **Set things<br />
+up with a <code>bundle install</code>, then <code>rake db:setup</code> (short for <code>rake
+db:create db:migrate db:seed</code>).</p>
+<p>Take a look at the schema, the routes file, and the jbuilder views to get<br />
+yourself oriented.</p>
+<p><strong>Note the <code>defaults: {format: :json}</code></strong>. meaning HTTP requests that<br />
+Rails handles for the <code>pokemon</code> resource should be assumed to be asking for a<br />
+JSON response instead of HTML. When we render a template, instead of looking for<br />
+<code>template.html.erb</code>, Rails will look for <code>template.json.jbuilder</code>.</p>
+<h2 id="phase-1-npm-and-webpack"><a name="user-content-phase-1-npm-and-webpack" href="#phase-1-npm-and-webpack" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Phase 1: NPM and Webpack</h2>
+<h3 id="node-package-manager"><code>Node Package Manager</code></h3>
+<p>As before, you will need to set up a <code>package.json</code> and <code>webpack.config.js</code> file<br />
+to configure your application to use NPM and Webpack. First, run <code>npm init -f</code><br />
+to initialize <code>package.json</code> to the default settings. Normally you could now<br />
+proceed to run <code>npm install --save 'package-name'</code> to install the dependencies<br />
+of your project. In this case however, we want to use specific versions of each<br />
+package to ensure that none of the syntax has changed since these instructions<br />
+were written. To that end, add (or replace if it already exists) a<br />
+&ldquo;dependencies&rdquo; key in the <code>package.json</code> file with these contents:</p>
+<pre><code class="json">&quot;dependencies&quot;: {
+  &quot;babel-core&quot;: &quot;^6.1.4&quot;,
+  &quot;babel-loader&quot;: &quot;^6.1.0&quot;,
+  &quot;babel-preset-es2015&quot;: &quot;^6.6.0&quot;,
+  &quot;babel-preset-react&quot;: &quot;^6.1.4&quot;,
+  &quot;flux&quot;: &quot;^2.1.1&quot;,
+  &quot;react&quot;: &quot;^0.14.2&quot;,
+  &quot;react-dom&quot;: &quot;^0.14.2&quot;,
+  &quot;react-router&quot;: &quot;^2.0.0&quot;,
+  &quot;webpack&quot;: &quot;^1.12.4&quot;
+}
+</code></pre>
+
+<p>Run <code>npm install</code> to generate your <code>node_modules</code> folder.</p>
+<h3 id="webpack"><code>Webpack</code></h3>
+<p>Next we need to configure Webpack to compile our <code>bundle.js</code> file. Create a new<br />
+file called <code>webpack.config.js</code> in the root of your project and add the<br />
+following content:</p>
+<pre><code class="js">var path = require(&quot;path&quot;);
+
+module.exports = {
+  context: __dirname,
+  entry: &quot;./frontend/pokedex.jsx&quot;,
+  output: {
+    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
+    filename: &quot;bundle.js&quot;
+  },
+  resolve: {
+    extensions: [&quot;&quot;, &quot;.js&quot;, &quot;.jsx&quot;]
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      },
+      {
+        test: /\.node$/,
+        loader: &quot;node-loader&quot;
+      }
+    ]
+  }
+};
+</code></pre>
+
+<p>Now that Webpack knows to create <code>bundle.js</code>, we need to require it in our<br />
+<code>application.js</code>:</p>
+<pre><code class="js">//= require bundle
+</code></pre>
+
+<p>Notice that the <code>entry</code> key in <code>webpack.config.js</code> expects a file called<br />
+<code>./frontend/pokedex.jsx</code> to exist. Make the <code>frontend</code> folder in the root of<br />
+your project and add a file called <code>pokedex.jsx</code>. This is going to be the<br />
+starting point for the rest of your app. Make sure to import both the <code>'react'</code><br />
+and <code>'react-dom'</code> packages, and then add an event listener for the<br />
+<code>DOMContentLoaded</code> event. This event will be fired once the static root page is<br />
+fully loaded. In the callback to this listener, try rendering a simple stateless functional React component to test out everything you&rsquo;ve written so far. Don&rsquo;t forget to run <code>webpack --watch</code> to generate your <code>app/assets/javascripts/bundle.js</code>.</p>
+<p>Next, add more structure to your <code>frontend</code> directory. You should have folders for actions, components, reducers, store, middleware and util.</p>
+<h2 id="phase-2-the-pokemon-index"><a name="user-content-phase-2-the-pokemon-index" href="#phase-2-the-pokemon-index" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Phase 2: The Pokemon Index</h2>
+<h3 id="from-api-to-action-creator"><a name="user-content-from-api-to-action-creator" href="#from-api-to-action-creator" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>From API to Action Creator</h3>
+<p>We&rsquo;d like to render a list of pokemon. Let&rsquo;s start by setting up a way to fetch<br />
+them from the back end. Make an <code>api_util.js</code> file inside your util folder.<br />
+Inside this file, we&rsquo;ll make ajax requests that fetch information served by our<br />
+rails controllers, and on success dispatch an action creator.</p>
+<p>Export a function called <code>fetchAllPokemon</code> that takes in a success callback as an argument. The function should make the correct AJAX request to serve up the <code>index.json.jbuilder</code> for pokemon. </p>
+<p>Export another function called <code>receiveAllPokemon</code> to be passed as our success callback. Remember that this function will be passed implicitly passed the returned data from our AJAX request. For testing purposes just <code>console.log(data)</code> and import both of these functions in your entry file.</p>
+<p><strong>Hint:</strong> <code>import * as API from ./util/api_util.js</code> is a nice way to just import all of the api util functions as methods of an API object.</p>
+<p>Now let&rsquo;s refactor this success function out to where it belongs as an action creator. Export a function called <code>receiveAllPokemon</code> from a <code>pokemon_actions.js</code> file that returns a pure object. This object should have a key for the action type that refers to a <code>RECEIVE_ALL_POKEMON</code> constant and the key for the pokemon data. Make sure to export the constant as well for future use by the reducer. </p>
+<p><strong>Import the action in your entry file and test everything still works. Our action creator just returns an object so to log it for testing we could wrap it in a function:</strong></p>
+<pre><code class="javascript">API.fetchAllPokemon((pokemon) =&gt; console.log(ACTIONS.receiveAllPokemon(pokemon)));
+</code></pre>
+
+<h3 id="the-reducer"><a name="user-content-the-reducer" href="#the-reducer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Reducer</h3>
+<p>Remember that the reducer is only concerned with describing how state changes as a result of a dispatched action. In our case this will be the <code>receiveAllPokemon</code> action. Create a <code>pokemon_reducer.js</code> file that exports a function implementing a switch statement to catch the action.type. Refer to these action types by importing the constants exported by the action creators file.</p>
+<p>The reducer function should take two parameters: the oldState defaulting to an empty object and the action being dispatched. Assure that the default case for the reducer switch statement is to return the oldState.</p>
+<p><strong>Before we can test the reducer we will need a store to dispatch from</strong></p>
+<h3 id="store"><a name="user-content-store" href="#store" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Store</h3>
+<p>The store contains a refence to this single complete state tree for use by our container components. This is made trivial by importing <code>{ createStore } from 'redux'</code>.</p>
+<p>The createStore function takes the reducer, any preloadedState and any enhancers such as middleware. For now just pass it the imported <code>pokemon_reducer</code> and we will come back to the other arguments later.</p>
+<p>Wrap the creating of the store in a <code>configureStore</code> function. This is a great pattern to get used to, instead of just exporting the store we are exporting a function that creates the store. This can be used in the future to swap out reducers, preloadedState or enhancers depending on certain conditions.</p>
+<p>Head back to the <code>pokedex.jsx</code> entry file, import your configureStore function and call it inside the DOM listener. Now replace the logging of your <code>receiveAllPokemon</code> success callback with a dispatching using the store.</p>
+<p>Test that this dispatches the action to our reducer and updates the state by placing the store on the window at the end of the listener and calling <code>getState()</code> in your console.</p>
+<p>Pass this to your root component as a prop and then inside the root component modify your function to receive a parameter <code>({store})</code>. </p>
+<p>If we try to read the state of our store, what is going to happen? Talk this over with your partner before moving on.</p>
+<h3 id="connect"><a name="user-content-connect" href="#connect" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Connect</h3>
+<p>In order to have our component render after the state is updated we have to subscribe our component to our state. This is made much easier with the <code>react-redux</code> bindings.</p>
+<p>Remember that there are two types of components in the modern discussion of React/Redux: presentational components and container components. Our container components are concerned with subscribing to the store, reading from state and passing down necessary props to our presentational components. Our presentational components will only be concerned with rendering JSX and providing some user interface functionality like clicking.</p>
+<p>Create a <code>pokemon_index_container</code> in a pokemon subfolder of your components folder. Import this in your entry file and add a <code>&lt;PokemonIndexContainer/&gt;</code> to your root component.</p>
+<p><code>import { connect } from 'react-redux';</code></p>
+<p>The connect function takes two main arguments: <code>mapStateToProps</code> and <code>mapDispatchToProps</code>. Mapping state to props will subscribe the component to the Redux store updates. Anytime the store changes, mapStateToProps will be called and return a plain object that is merged into the component’s props. </p>
+<pre><code class="javascript">const mapStateToProps = (state) =&gt; ({
+  // piece of state to subscribe to
+});
+</code></pre>
+
+<p>Mapping dispatch to props is used mainly just to keep our presentational components from having to worry about dispatching actions. This function expects to be passed action creators that it then wraps in the dispatch function and merges each into the component&rsquo;s props for direct invocation.</p>
+<p>This introduces a problem. According to our react/redux pattern, components are only supposed to manipulate state through the dispatching of actions. They should not be making AJAX requests to our server. We need a way to dispatch a request action that will then perform the AJAX fetch.</p>
+<p>Talk over a plan to solve this problem with your partner before writing your <code>mapDispatchToProps</code> function.</p>
+<pre><code class="javascript">const mapDispatchToProps = dispatch =&gt; ({
+  // request action
+});
+</code></pre>
+
+<p>After writing your mapping functions, pass them to the connect function and then invoke the connect function again by passing it a presentational component.</p>
+<p>Write a basic presentational react component that renders an unordered list of pokemon names next to images. Write a <code>componentDidMount</code> lifecycle method that calls the <code>requestAllPokemon</code> action from its props. Create the corresponding request action in your actions file and then let&rsquo;s fill in the final piece before we have a complete asynchronous redux pattern.</p>
+<h3 id="middleware"><a name="user-content-middleware" href="#middleware" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Middleware</h3>
+<p>The answer to our problem of components not directly communicating with our server is to have them dispatch an action that is intercepted by a middleware. The middleware will then perform the AJAX request and decide whether to pass the action along to the reducer.</p>
+<p>Create a <code>pokemon_middleware.js</code> file that imports the necessary actions and api util functions. Go ahead and remove those imports from your entry file that we used for testing.</p>
+<p>Remember that the middleware will resemble the reducer in that it will be a switch statement that intercepts actions based on their type. The parameters of the middleware are written in a way that allows it to receive and pass along the actions using <code>next</code>. Make sure to call <code>next(action)</code> as the default of the switch statement to make sure actions uncaught by the middleware still make it to the reducer. We can pass the middleware the dispatch action as well in order to wrap our success callback actions.</p>
+<pre><code class="javascript">export default ({dispatch}) =&gt; next =&gt; action =&gt; {
+  // middlware switch statement and necessary variables
+});
+</code></pre>
+
+<p>In order to properly configure the new middleware with the store we will have to add the remaining paramaters to our CreateStore call in the configureStore function. Import and pass the applied middleware using the <code>applyMiddleware</code> function from <code>redux</code>. </p>
+<p><strong>Test that your PokemonIndex component now renders some pokemon</strong></p>
+<pre><code>COMPONENT EXAMPLE
+</code></pre>
+
+<h3 id="provider"><a name="user-content-provider" href="#provider" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Provider</h3>
+<p>We could continue to pass the store down as props to whatever components need to subscribe to it, but that wouldn&rsquo;t be very DRY. This is where another function from the <code>react-redux</code> library comes in: The Provider.</p>
+<p>Refactor your root component out into it&rsquo;s own file and <code>import { Provider } from 'react-redux';</code></p>
+<p>Wrap your <code>&lt;PokemonIndexContainer&gt;</code> in a <code>&lt;Provider&gt;&lt;/Provider&gt;</code> component that receives the store as a prop. Export this back to your entry file and make sure everything is still rendering correctly.</p>
+<h2 id="the-router"><a name="user-content-the-router" href="#the-router" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Router</h2>
+<p>Now let&rsquo;s say we want the ability to click on any of these pokemon and see more details about them. In order to maintain a common user interface used around the web, we will have the URL define what components the user sees render. This is exactly what the powerful React Router library is for.</p>
+<p>First <code>import {Router, Route, hashHistory} from 'react-router';</code></p>
+<p>Now wrap everything within our provider in a <code>&lt;Router&gt;</code> and pass this component <code>hashHistory</code> as a prop with the key of history. This tells the router what type of history we will be using to keep track of our locations and pathnames. Another common input for this prop is <code>browserHistory</code> but in order for browser history to work we would have to do extra configuration in Rails.</p>
+<p>Next instead of rendering the <code>&lt;PokemonIndexContainer&gt;</code> directly setup a route that will render the component when <code>path="/"</code>. This will assure that the pokemon index is rendered no matter what our pathname is.</p>
+<p><strong>Make sure the pokemon still render before moving on</strong></p>
+<h3 id="pokemon-index-item"><a name="user-content-pokemon-index-item" href="#pokemon-index-item" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pokemon Index Item</h3>
+<p>Let&rsquo;s refactor each of our pokemon into their own pokemon index item components. This is a great pattern for keeping our components minimal. Now the list will only care about rendering all of the list items and the items will care about the functionality of showing their details.</p>
+<p>Because these components will receive all information through props and not need a lifecycle methods they will work perfetly as stateless functional components. Refactor the mapping of of each <code>&lt;pokemonIndexItem&gt;</code> and make sure the list still renders before adding the click functionality.</p>
+<p>React Router is constantly updating the way that we pass a reference to the router in each component. The latest and cleanest way is to wrap the component in what is referred to as an HOC (Higher Order Component). These components much like our containers serve only to pass down information through props. To implement this we <code>import { withRouter } from 'react-router';</code> and then call this function on our component when we export it: <code>export default withRouter(PokemonIndexItem);</code> Make sure to add <code>router</code> to the props that this component expects to receive.</p>
+<p>Now the component has a reference to the router and all of it&rsquo;s information/functions. One such function will be our most useful when implementing navigation and that is <code>router.push(url)</code>.</p>
+<p>Create a <code>_handleClick</code> function in the <code>&lt;PokemonIndexItem&gt;</code> that receives the router and a url. Pass this function to an onClick prop of our list elements and test to make sure that when clicking a pokemonIndexItem you are taken to a path resembling: <code>/pokemon/1</code> where the number represents the pokemon ID.</p>
+<p>After clicking the pokemonIndexItem we expect to see a warning error in the console: <code>[react-router] Location "/pokemon/1" did not match any routes</code>.</p>
+<p>This tells us that the router was looking for a route and corresponding component to render but couldn&rsquo;t find one. Let&rsquo;s make a pokemonDetail component.</p>
+<h3 id="pokemon-detail"><a name="user-content-pokemon-detail" href="#pokemon-detail" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pokemon Detail</h3>
+<p>Before creating a component we should always plan out where and how it is going to get it&rsquo;s information. Eventually we also want the pokemon detail to display the toys that a pokemon has. Talk over these two questions with your partner and check in with a TA.</p>
+<ol>
+<li>Where will the PokemonDetail get it&rsquo;s information?</li>
+<li>How will we pass the PokemonDetail the information?</li>
+</ol>
+<p>Implement the pokemonDetail component just like we did the pokemonIndex:<br />
+1. create an API function that fetches a single pokemon<br />
+2. create both actions for requesting and receiving a single pokemon<br />
+3. update the reducer to respond to the receiving of a pokemon<br />
+4. update the middleware to respond to the requesting of a pokemon<br />
+5. create a pokemonDetailContainer that maps pokemonDetail to props<br />
+6. create a pokemonDetail component calls the request action passed from props<br />
+7. create the corresponding route that renders the pokemonDetailContainer<br />
+<strong>Make sure to test as you go to avoid bugs. The most common bugs are related to importing/exporting functions.</strong></p>
+<p>Nest the pokemon detail route under the route for the pokemon index and then <strong>explicitly tell the pokemonIndex component to render it&rsquo;s children</strong>. This will assure that both will be rendered on the page when at the <code>"/pokemon/1"</code> path.</p>
+<p>There exists one problem with our implementation. Currently if the component is mounted then the state is updated and the pokemon detail displays the correct information. But what if the component is already mounted and we click on a different pokemon? Check the store in the console to confirm that the state is not being updated and then talk with your partner about a certain lifecycle method that may solve the problem.</p>
+<p>Here is the sample html structure for a pokemonDetail:<br />
+<pre><code class="html">
+</code></pre></p>
+<h3 id="toy-detail"><a name="user-content-toy-detail" href="#toy-detail" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Toy Detail</h3>
+<p>Implement the ability to click on a Toy and be taken to a path such as <code>/pokemon/1/toys/1</code> where a toyDetail component displays information about a Toy below the pokemonDetail component.</p>
+<h3 id="creating-pokemon"><a name="user-content-creating-pokemon" href="#creating-pokemon" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Creating Pokemon</h3>
+<p>Our next feature will be to allow the creation of new pokemon. This will require a form that takes in user input and builds up a newPokemon object in internal component state. Upon submitting this form, a POST request should be made, the index should be updated and we should be taken to the pokemonDetail for our new pokemon.</p>
+<ol>
+<li>create an API function that posts a single pokemon</li>
+<li>create both actions for creating and receiving a new pokemon</li>
+<li>update the reducer to respond to receiving a new pokemon</li>
+<li>update the middleware to respond to creating a pokemon</li>
+<li>create a pokemonFormContainer that only connects <code>mapDispatchToProps</code> </li>
+<li>create a pokemonForm controlled component</li>
+</ol>
+<p>A controlled component is used in React to describe the overriding of browser default functionality to be purely in the control of your application. This is used in forms to assure input fields are being tracked in internal state and submit buttons perform actions as described by the application.</p>
+<p>Use the <code>getInitialState</code> lifecycle method and a default object to set the default internal state of your form. Try to create an object that will be easy to directly pass into our createPokemon action.</p>
+<p>For the input elements use an <code>onChange</code> listener and write a single <code>update</code> function to call the <code>setState</code> method.</p>
+<pre><code class="html">  &lt;input
+    type=&quot;text&quot;
+    value={this.state.name}
+    onChange={this.update('name')}/&gt;
+</code></pre>
+
+<p>Write a <code>handleSubmit</code> method as well that prevents the default event action and instead calls the <code>createPokemon</code> function from props. Make sure to pass this function to the <code>onSubmit</code> listener of the form.</p>
+<p>We want this form to appear when at the same root path as the <code>pokemonIndex</code> but not when at any further nested routes like the <code>pokemonDetail</code>. This is exactly what the <code>react-router</code> <code>IndexRoute</code> is for. Import it along with the rest of the React Router tools and pass it the <code>PokemonFormContainer</code>.</p>
+<h3 id="react-components"><a name="user-content-react-components" href="#react-components" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>React Components</h3>
+<h4 id="component-hierarchy"><a name="user-content-component-hierarchy" href="#component-hierarchy" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Component Hierarchy</h4>
+<p><img alt="pokedex_structure" src="/Users/kmccall/AppAcademy/curriculum/react/assets/pokedex_structure.png" /></p>
+<h4 id="pokemonsindex"><a name="user-content-pokemonsindex" href="#pokemonsindex" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>PokemonsIndex</h4>
+<p>Make a react component in <code>frontend/components/pokemons/pokemons_index.jsx</code> to<br />
+display the pokemons we&rsquo;ve fetched. The state of <code>PokemonsIndex</code> should keep<br />
+track of all the <code>pokemons</code> in the store. <code>getInitialState</code> will start us out<br />
+right, but we also need to set the state whenever the store changes.</p>
+<p>To do the latter we need to add a change listener to our store. Since the object<br />
+exported by <code>stores/pokemon.js</code> is an instance of the <code>Store</code> object from the<br />
+&lsquo;flux/utils&rsquo; library, it will respond to the <code>#addListener</code> method.</p>
+<p><code>PokemonStore</code> should invoke the <code>__emitChange</code> function when it registers a<br />
+<code>PokemonConstants.POKEMON_RECEIVED</code> dispatcher action. To accomplish that, we<br />
+will need to overwrite the default <code>__onDispatch</code> function on the PokemonStore.</p>
+<p>Next, let&rsquo;s register an event listener in the pokemon index component using<br />
+<code>PokemonStore.addListener</code>. Write an <code>_onChange</code> function on <code>PokemonsIndex</code><br />
+that sets the state, and in the <code>componentDidMount</code> function add <code>_onChange</code> to<br />
+the callbacks for the store&rsquo;s listener. Make sure to remove it in<br />
+<code>componentWillUnmount</code>.</p>
+<p>We&rsquo;re almost done. The only thing left is to fetch the pokemons when the<br />
+component mounts. On success, that fetch will call<br />
+<code>PokemonActions.receiveAllPokemons</code>, where the response will be communicated by<br />
+the dispatcher. That action will cause the store to reset its pokemon and emit<br />
+an event. The event will trigger the store&rsquo;s listener, which will reset the<br />
+state of our pokemon index.</p>
+<p>For now, to test that the <code>PokemonsIndex</code> component is working, just have<br />
+<code>render</code> return a div containing <code>this.state.pokemons.length</code> to make sure the<br />
+component has access to all the pokemon when it renders. In <code>pokedex.jsx</code> on<br />
+document ready, render a <code>PokemonsIndex</code> component into the DOM element with id<br />
+<code>root</code> that we&rsquo;ve provided. It will overlap the background for now, but you<br />
+should be able to see the info.</p>
+<p>Now that that&rsquo;s working, let&rsquo;s change <code>PokemonsIndex.render</code> to render an<br />
+unordered list of <code>PokemonIndexItem</code> components instead of just<br />
+<code>this.state.pokemons.length</code>. Each index item should be passed a <code>pokemon</code> prop,<br />
+and a unique key.</p>
+<h4 id="pokemonindexitem"><a name="user-content-pokemonindexitem" href="#pokemonindexitem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>PokemonIndexItem</h4>
+<p>Create this class in a different file. It just needs a render method for now. Give<br />
+the pokemon list items a class name of &ldquo;poke-list-item&rdquo; so the css file we&rsquo;ve<br />
+provided can do its magic. Each list item should show its name and poke type.</p>
+<p>Make sure this works. The list is still overlapping the background. We&rsquo;re about<br />
+to fix that.</p>
+<h2 id="phase-3-router"><a name="user-content-phase-3-router" href="#phase-3-router" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Phase 3: Router</h2>
+<p>We would like to be able to render different elements depending on our url.<br />
+Eventually we want to be able to click on an item in our pokemon index and see<br />
+a detailed view of that pokemon. We&rsquo;ll use the <strong>react router</strong> to render a root<br />
+component that will in turn render our index and detail components. Then, by<br />
+navigating to different urls, we&rsquo;ll be able to change which pokemon detail is<br />
+displayed.</p>
+<h3 id="getting-the-react-router"><a name="user-content-getting-the-react-router" href="#getting-the-react-router" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Getting the React Router</h3>
+<p>We&rsquo;ll start by refactoring the logic we already have. In <code>pokedex.jsx</code>, we will<br />
+need to use the &lsquo;react-router&rsquo; library to access the Router and Route<br />
+components:</p>
+<pre><code class="js">const Router = require('react-router').Router
+const Route = require('react-router').Route
+</code></pre>
+
+<p>Instead of rendering a <code>PokemonIndex</code>, render the <code>Router</code>. It should have a single<br />
+route with path &ldquo;/&rdquo; that will render an <code>App</code> component.</p>
+<p>Now we have to write the <code>App</code> component. This should render a div with an id of<br />
+<code>pokedex</code>. This div will eventually contain our entire pokedex, but for now it<br />
+will just contain a nested div inside it with a class of <code>pokemon-index-pane</code>.<br />
+For now the <code>pokemon-index-pane</code> div should just contain a <code>PokemonsIndex</code><br />
+component.</p>
+<p><strong>NB:</strong> Make sure you specify the correct id and class for the divs so the<br />
+stylesheet we included in the skeleton will apply correctly.</p>
+<h2 id="phase-4-pokemon-detail"><a name="user-content-phase-4-pokemon-detail" href="#phase-4-pokemon-detail" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Phase 4: Pokemon Detail</h2>
+<p>We will soon write a <code>PokemonDetail</code> component to display more info about<br />
+individual pokemons. First we need to add a new <code>Route</code>. It should be nested<br />
+under the existing route, and have path &ldquo;pokemon/:pokemonId&rdquo;. This <code>Route</code>&lsquo;s<br />
+component should be the <code>PokemonDetail</code> component. Change <code>App</code> to render all of<br />
+the child components given to it from the Router by using <code>this.props.children</code><br />
+inside <code>render</code>. Make sure do this outside of the <code>.pokemon-index-pane</code> div, but<br />
+inside the <code>#pokedex</code> div so that the pokemon detail will be inside the pokedex,<br />
+but not inside the pokemon detail pane.</p>
+<p>Now that the route is set up we can work on the component itself. We know that<br />
+<code>PokemonDetail</code> needs to have pokemon info, but right now it only has<br />
+<code>this.props.params.pokemonId</code>. Write a <code>getStateFromStore</code> function on the<br />
+component that returns an object with a pokemon property. You&rsquo;ll need to write a<br />
+<code>find</code> function on the pokemon store to return a pokemon given an id. <code>find</code><br />
+should take an integer argument. In <code>PokemonDetail</code>,<br />
+<code>this.props.params.pokemonId</code> is stored as a string. Deal with this discrepency<br />
+using <code>parseInt</code>. Set the initial state of the component to<br />
+<code>this.getStateFromStore()</code>.</p>
+<p>The render function should return a div with another div inside it with a class<br />
+of <code>pokemon-detail-pane</code>. Inside the <code>div.pokemon-detail-pane</code> make another div<br />
+with a class of <code>detail</code>. This might seem like a lot of nested div for no<br />
+reason, but we are going to fill in other sections as we move along.</p>
+<p>Inside of <code>div.detail</code> show the properties of the pokemon and the pokemon&rsquo;s<br />
+image. Make sure to use the <code>image_url</code> property to display an image of the<br />
+pokemon.</p>
+<p>There will be no pokemon when there is no <code>pokemonId</code> - that is, before the<br />
+fetch of pokemons comes back - so first check if <code>this.state.pokemon</code> is defined<br />
+and return an empty div if it isn&rsquo;t.</p>
+<h2 id="phase-5-onclick"><a name="user-content-phase-5-onclick" href="#phase-5-onclick" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Phase 5: OnClick</h2>
+<p>We want to be able to click on a pokemon index item and navigate to that<br />
+pokemon&rsquo;s url. <code>PokemonIndexItem</code> will need an <code>onClick</code> property of its<br />
+rendered <code>li</code> to call a <code>showDetail</code> function. In order to navigate to a<br />
+different url in this function, we will need to add the <a href="https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#hashhistory">HashHistory</a><br />
+component from the &lsquo;react-router&rsquo; library to our <code>pokedex.jsx</code> file:</p>
+<pre><code class="js">const HashHistory = require('react-router').hashHistory;
+</code></pre>
+
+<p>To use this HashHistory, we must set <code>history={HashHistory}</code> in the router<br />
+element.  We can then navigate to a desired route within any component by<br />
+requiring HashHistory, which is a singleton, and using <code>HashHistory.push</code>.</p>
+<p>You should now be able to click on different pokemon and see the url change. The<br />
+pokemon detail, however, is still blank. That&rsquo;s because the component doesn&rsquo;t<br />
+update when its <code>this.props.params</code> change&hellip; unless we tell it to. Add a<br />
+<code>componentWillReceiveProps</code> function to the detail. This is passed the new<br />
+props. In it, call a <code>PokemonActions</code> function that makes an <code>ApiUtil</code> call<br />
+(neither of which we have written yet) to fetch the appropriate pokemon. Using<br />
+the flux pattern, we&rsquo;re going to set it up so that the fetch will cause the<br />
+component&rsquo;s state to change. Fetching a pokemon individually from the back end<br />
+when we navigate to its url will also allow us to get its toys, which we don&rsquo;t<br />
+have access to when we fetch all the pokemons together.</p>
+<p>Write <code>fetchPokemon</code> to fetch a a single pokemon. This method should call a<br />
+corresponding method in <code>ApiUtil</code> which uses an ajax request to fetch the<br />
+pokemon from the backend. On success, it should trigger a passed-in success<br />
+callback. What will the success callback be? Another action in <code>PokemonActions</code><br />
+that we will pass in when we call the ApiUtil function - <code>receiveSinglePokemon</code>.<br />
+This method will dispatch an action that triggers the store to reset the<br />
+information of a single pokemon. You might want to write a function in the file<br />
+with the store to do this. After the single pokemon has been updated, the store<br />
+should emit a change event. In <code>PokemonDetail</code>, register a listener that resets<br />
+state.</p>
+<p>Now, if we fetch a single pokemon when the detail mounts and when its props<br />
+change, the pokemon in state should be updated appropriately. Make sure you can<br />
+explain to your partner how this works.</p>
+<p>You should now be able to refresh the page and still see a pokemon detail view.</p>
+<h2 id="phase-6-toys"><a name="user-content-phase-6-toys" href="#phase-6-toys" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Phase 6: Toys</h2>
+<p>The pokemon detail should render a <code>ToysIndex</code> component. A toys index will have<br />
+toys passed in as a property it and should render a <code>ToyIndexItem</code> for each toy.<br />
+The index&rsquo;s toys will be undefined before an individual pokemon is fetched, so<br />
+account for that in render.</p>
+<p>Index items should have a toy as a property, and render a &ldquo;li.toy-list-item&rdquo;<br />
+with its name, happiness, and price.</p>
+<p>When we click on a toy index item, we&rsquo;d like to see its detail. Give the index<br />
+item class an onClick that navigates to a &ldquo;/pokemon/:pokemonId/toys/:toyId&rdquo; url.</p>
+<p>Create a new <code>Route</code> nested under the one that renders the <code>PokemonDetail</code>. This<br />
+route should render a <code>ToyDetail</code> component that we will create soon. The path of<br />
+this component should be &ldquo;toys/:toyId&rdquo;.</p>
+<p>Since our <code>ToyDetail</code> component will be a child component of the <code>PokemonDetail</code><br />
+component based on our routes, we have to make sure that our <code>PokemonDetail</code><br />
+component will render it.</p>
+<p>Go back to <code>PokemonDetail</code>&lsquo;s render function and add <code>this.props.children</code><br />
+outside of <code>div.pokemon-detail-pane</code>, but inside the top level div in your<br />
+render function.</p>
+<p>The child will contain a whole new pane and we don&rsquo;t want to nest it inside<br />
+<code>pokemon-detail-pane</code>.</p>
+<p>Write the following functions for the toy detail:<br />
+  * <code>getStateFromStore</code><br />
+    - When might you not have access to a pokemon, and its toys? What simple<br />
+      checks can you do to not cause errors in those situations?<br />
+  * <code>_onChange</code><br />
+  * <code>getInitialState</code><br />
+  * <code>componentDidMount</code><br />
+    - We already have a way to register a listener for a fetch of a pokemon<br />
+    - Since we&rsquo;re always rendering a pokemon detail whenever we render a toy<br />
+      detail, we don&rsquo;t need to fetch a pokemon here<br />
+  * <code>componentWillUnmount</code><br />
+  * <code>componentWillReceiveProps</code><br />
+  * <code>render</code></p>
+<h2 id="phase-7-pokemonform"><a name="user-content-phase-7-pokemonform" href="#phase-7-pokemonform" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Phase 7: PokemonForm</h2>
+<p>We&rsquo;d like to be able to create new pokemon. Let&rsquo;s make a <code>PokemonForm</code> component.<br />
+This will be rendered above the pokemon index, but inside of the<br />
+<code>pokemon-index-pane</code> so make sure you put it inside of <code>div.pokemon-index-pane</code>.</p>
+<p><code>PokemonForm</code> should render a form with a class name &ldquo;new-pokemon&rdquo;.</p>
+<p>We want the form to have controlled inputs. This means that their value mirrors<br />
+the state of the component. Set the value of each input the corresponding<br />
+property in the component&rsquo;s state using <code>value={this.state.x}</code> and write an<br />
+<code>onChange</code> handler for each field which sets the state to <code>e.target.value</code>. Use<br />
+a <code>select</code> input for the poke-type – if you look in your <code>application.html.erb</code><br />
+layout file, you&rsquo;ll see that we&rsquo;re defining the possible Poke Types on <code>window</code><br />
+when the page loads.  Set the class name to &ldquo;type-selector&rdquo;.</p>
+<p>Write an <code>onSubmit</code> that calls a function <code>PokemonActions.createPokemon</code>. It<br />
+would be nice to be able to navigate to the newly created pokemon&rsquo;s url after<br />
+creation. However, we don&rsquo;t have its id until it&rsquo;s saved to the database. To<br />
+navigate once we have the id, let <code>createPokemon</code> take a callback.</p>
+<p>The index should update immediately when we create a new pokemon. You&rsquo;ll need to<br />
+add a listener to the index to do this.</p>
+<h2 id="bonus-reassigning-toys"><a name="user-content-bonus-reassigning-toys" href="#bonus-reassigning-toys" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Bonus: Reassigning Toys</h2>
+<p>Add a <code>select</code> element to the toy detail that has an <code>option</code> for each pokemon.<br />
+Whenever this dropdown changes, assign the selected pokemon to be the toy&rsquo;s<br />
+owner. Once the toy is reassigned, reroute your app to the new owner&rsquo;s toy<br />
+detail for that toy.</p></article></body></html>

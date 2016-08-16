@@ -4,9 +4,7 @@ json.extract!(
 )
 
 if show_toys
-  json.toys do
-    json.array!(pokemon.toys) do |toy|
-      json.partial! 'api/toys/toy', toy: toy
-    end
-  end
+	json.toys do 
+		json.partial! partial: 'api/toys/toy', collection: pokemon.toys, as: :toy
+	end
 end
