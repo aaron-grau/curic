@@ -8,7 +8,7 @@ Functions, in JavaScript and several other programming languages, are just norma
 
 ### Lexical Scoping
 
-Lexical scoping (inner functions getting access to all of the variables defined in the outer function) tends to come in handy when writing higher-order functions. As an example, consider the following program:
+Lexical scoping tends to come in handy when writing higher-order functions (as a reminder, lexical scoping is when inner functions get access to all of the variables defined in an outer function). Consider the following program:
 
 ```js
 function noisy(f) {
@@ -28,8 +28,25 @@ newLog("this is a test");
 // called with test - got undefined
 ```
 
-The above function receives a function as an argument and calls that function in the function it returns. The function would not work if the variable `f` was not lexically scoped.
+The above function receives a function as an argument and calls that function in the function it returns. The function would not work if the function `f` was not lexically scoped.
 
+## ES6 Syntax
+
+ES6 makes it easy to compose higher-order functions. The two examples below illustrate the same function:
+
+```js
+function outerLevel(args1) {
+  const middleLevel = (args2) => {
+    const innerLevel = (args3) => {
+      console.log(`${args1} came before ${args2} and ${args3} came last`);
+    };
+  };
+}
+
+const outerLevel = args1 => args2 => args3 => {
+  console.log(`${args1} came before ${args2} and ${args3} came last`);
+};
+```
 
 ## Examples
 
