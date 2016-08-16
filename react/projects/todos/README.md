@@ -421,7 +421,7 @@ The goal of a container component is to allow the presentational component to be
 
 Refer to the [components][components_reading] and [connect][connect_reading]reading if you need a refresher on container components.
 
-+ Create a file `components/todo_list_container.js`
++ Create a file `components/todo_list/todo_list_container.js`
 + Import both the `connect` function and the (as of yet unwritten) `TodoList` presentational component
 + Create a `mapStateToProps` function
   + Create a prop called `todos` whose value is your `allTodos` selector
@@ -460,7 +460,7 @@ If we've done our job with our container component, all this presentational comp
 
 Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a `TodoListItem` component that receives the appropriate item as a prop. Each `TodoListItem` will render the title of its item inside an `<li>`.  
 
-+ Create a file `components/todo_list_item.jsx`
++ Create a file `components/todo_list/todo_list_item.jsx`
 + Create a React Component called a `TodoListItem`
 + Write a `render` function for that component that returns an `<li>` with `this.props.todo.title` inside it
 
@@ -484,7 +484,7 @@ Follow these steps:
   + `CREATE_TODO` should call your new API utility function and pass `receiveTodo` as its success callback
 + Add new `case`s to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
-+ Create a new component (`components/todo_form.jsx`) that dispatches your new action types
++ Create a new component (`components/todo_list/todo_form.jsx`) that dispatches your new action types
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
     + If you don't remember how to set up controlled inputs in a React component, look at [this reading][controlled_input_reading]
   + Render this component in your `TodoList` component
@@ -536,7 +536,7 @@ cycle, as well as add several new components for this to work.
 Let's start by getting your `TodoListItem`s ready for their own sub-lists by
 refactoring their display into multiple parts. Follow these steps:
 
-+ Create a file `components/todo_detail_view.jsx` to hold a component `TodoDetailView`
++ Create a file `components/todo_list/todo_detail_view.jsx` to hold a component `TodoDetailView`
   + Refactor your `TodoListItem` so that it only renders the item's title and a button to change its status
   + Fill out your `TodoDetailView` so that it renders all of the todo item's other information
   + Conditionally render the `TodoDetailView` so that a user can show or hide a todo's details
@@ -652,20 +652,20 @@ In this phase, you will create React components to display the steps for a given
 Follow these steps, ** testing your code as you go ** :
 
 + Add `requestSteps` to the `MapDispatchToProps` in your `TodoDetailViewContainer`
-+ Create a pair of files, `components/step_list.jsx` and `components/step_list_container.jsx`
++ Create a pair of files, `components/step_list/step_list.jsx` and `components/step_list/step_list_container.jsx`
   + Create `MapDispatchToProps` and `MapStateToProps` functions in the container file
     + `MapDispatchToProps` will pass `createStep` as a prop
     + `MapStateToProps` will pass `steps` and `todo_id` as props
   + The presentational component should render:
     + A `<ul>` of `StepListItemContainers`
     + A `StepForm`
-+ Create a pair of files `components/step_list_item_container.jsx` and `components/step_list_item.jsx`
++ Create a pair of files `components/step_list/step_list_item_container.jsx` and `components/step_list/step_list_item.jsx`
   + Create a `MapDispatchToProps` function in the container file
     + `MapDispatchToProps` will pass `destroyStep` and `toggleStep` as props
   + The presentational component should render:
     + The step's `title`
     + Buttons to toggle and delete the step
-+ Create a file `components/step_form.jsx`
++ Create a file `components/step_list/step_form.jsx`
   + The `StepForm` component should render:
     + A form with a labeled input and a button that creates a new step
   + The `StepForm` component should control the input by
