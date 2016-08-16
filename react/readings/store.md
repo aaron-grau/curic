@@ -17,10 +17,10 @@ A Redux `store` is not a class. It is just an object that holds the application
 state, wrapped in a minimalist API.
 
 #### Store Methods
--`getState()` - Returns the store's current state.
--`dispatch(action)` - Passes an `action` into the store's `reducer` telling it
++`getState()` - Returns the store's current state.
++`dispatch(action)` - Passes an `action` into the store's `reducer` telling it
  what information to update.
--`subscribe(listener)` - Registers callbacks to be triggered whenever the store updates.
++`subscribe(listener)` - Registers callbacks to be triggered whenever the store updates.
 
 ## Creating the Store
 
