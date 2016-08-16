@@ -8,26 +8,32 @@ us `react-redux`, which is a set of [**bindings**][bindings] simplifying the mos
 
 ## Threading Props: An Anti-Pattern
 
-Because the store represents the universal app state, almost all of your major components will need to have access to it: 
+Oftentimes, a deeply nested component will need access to the store, while its parents do not. With vanilla React, those parents nonetheless have to receive the `store` prop, just to pass it down to the child.
 
 ```js
 
-store = createStore();
+const store = createStore();
 
 const App = ({store}) => (
+	<div>
+		<Parent store={store}/>
+	</div>
 );
 
 const Parent = ({store}) => (
+	<div>
+		<Child store={store}/>
+	</div>
 );
 
 const Child = ({store}) => (
+	<div>
+	{store.getState().text}
+	</div>
 );
 
-<App store={store}>
-	<Parent store={store}>
-		<Child store={store}/>
-	</Parent>
-</App>
+ReactDOM.render(<App/>, root);
+
 
 ```
 
