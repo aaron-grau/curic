@@ -64,13 +64,13 @@
 
 ### Projects
 
-- [Redux Piano][redux-piano]
+- [Synthesizer][synthesizer]
 
 [store]: readings/store.md
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
 [flux]: readings/flux
-[redux-piano]: projects/redux_piano
+[synthesizer]: projects/synthesizer
 [functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 [provider-connect]: readings/provider-connect.md
 
