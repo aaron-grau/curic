@@ -9,6 +9,6 @@ const mapDispatchToProps = (dispatch, { step }) => ({
 });
 
 export default connect(
-  null, // important props are already passed in
+  null, // step prop is already passed in
   mapDispatchToProps
 )(StepListItem);

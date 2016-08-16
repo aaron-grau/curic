@@ -3,17 +3,17 @@ import React from 'react';
 import StepListItemContainer from './step_list_item_container';
 import StepForm from './step_form';
 
-function StepList(props){
+function StepList({ steps, todo_id, createStep }){
   return(
     <div>
       <ul className="step-list">
-        {props.steps.map(step => (
+        {steps.map(step => (
         	<StepListItemContainer 
         		key={step.id} 
         		step={step} />)
         )}
       </ul>
-      <StepForm todo_id={props.todo_id} createStep={props.createStep}/>      
+      <StepForm todo_id={todo_id} createStep={createStep}/>      
     </div>
   );
 };

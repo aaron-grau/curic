@@ -10,6 +10,6 @@ const mapDispatchToProps = (dispatch, { todo }) => ({
 });
 
 export default connect(
-  null,
+  null, // todo props is already passed in
   mapDispatchToProps
 )(TodoDetailView);
