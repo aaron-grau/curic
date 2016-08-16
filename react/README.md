@@ -81,7 +81,7 @@
 ### Readings
 
 - [Higher-order functions]
-- [Middleware]
+- [Middleware][middleware]
 - [Bonus: Time Travel]
 
 ### Homeworks
@@ -108,6 +108,7 @@
 
 - [Pokedex][pokedex]
 
+[middleware]: readings/middleware
 [pokedex]: projects/pokedex
 
 ## w7d5
