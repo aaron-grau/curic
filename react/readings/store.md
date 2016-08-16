@@ -18,8 +18,10 @@ state, wrapped in a minimalist API.
 
 #### Store Methods
 +`getState()` - Returns the store's current state.
+
 +`dispatch(action)` - Passes an `action` into the store's `reducer` telling it
  what information to update.
+ 
 +`subscribe(listener)` - Registers callbacks to be triggered whenever the store updates.
 
 ## Creating the Store
