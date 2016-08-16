@@ -1,5 +1,6 @@
 require 'rspec'
 require 'hand'
+require 'card'
 
 describe Hand do
   let(:cards) {[

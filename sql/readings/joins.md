@@ -1,11 +1,12 @@
 # Joins in Active Record
 
-I refer heavily to the [JoinsDemo][joins-demo]. You should clone that
-repository and play with that project.
+This reading refers heavily to the [JoinsDemo][joins-demo]. Please clone that repository and follow along as you read.  
 
 [joins-demo]: ../demos/joins_demo
 
 ## Schema overview:
+
+Familiarize yourself with the schema for this project:
 
 ```ruby
 # db/schema.rb
