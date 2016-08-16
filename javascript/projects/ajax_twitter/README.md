@@ -87,12 +87,12 @@ Next, write a `FollowToggle#handleClick` method. Install this click handler in t
 have jQuery automatically parse the response as JSON. Read the documentation [here][$.ajax-docs]
 
 You may also be wondering what's going on with the `respond_to` inside the
-`FollowsController`. Well.. when we make a http request to a server, we can specify
-the `Content-Type` header. Meaning.. we can ask for html, xml, json, text... etc.
+`FollowsController`. Well, when we make a http request to a server, we can specify
+the `Content-Type` header. Meaning.. we can ask for html, xml, json, text, etc.
 Until now, our controllers were apathetic towards the type of the request. Want json? TOO BAD! Here's html...
 
 The browser sets this `Content-Type` header for us based on how we make the request.
-When we use the $.ajax method, we will (by default) request json. The controller can
+When we use the `$.ajax` method, we will (by default) request json. The controller can
 then react to this `Content-Type` request by using the [`respond_to` method][respond-to-docs].
 
 [respond-to-docs]: http://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to
