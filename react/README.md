@@ -6,9 +6,10 @@
 
 ### Readings
 
-#### ES6
+#### ES6 & Lodash
 - [ES6 Syntax: Import / Export][import_export]
 - [ES6 Syntax: Object Destructuring][object_destructuring]
+- [Lodash][lodash]
 
 #### Intro React and JSX
 - [React][intro_to_react]
@@ -28,9 +29,6 @@
 
 ### Homeworks
 - [Getting Started with NPM][getting_started]
-
-### Additional Resources
-- [Lodash][lodash]
 
 ### Projects
 
