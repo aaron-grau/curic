@@ -1,6 +1,8 @@
-# Fruit Stand App
+# Fruit Stand App - Part 1
 
-A basic Redux app with a `store`, `reducer` and actions. No React components.
+An intro **Redux** app with a `store`, `reducer` and actions.
+
+NB: No React components.
 
 ---
 Let's look at and run the code that you just walked through in our Redux store
