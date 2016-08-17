@@ -70,9 +70,10 @@
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
 [flux]: readings/flux
-[synthesizer]: projects/synthesizer
 [functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 [provider-connect]: readings/provider-connect.md
+
+[synthesizer]: projects/synthesizer
 
 ## w7d3
 
