@@ -76,9 +76,10 @@ const reducer = (state = [], action) {
 
 Inside a Redux reducer, you must never mutate its arguments (i.e. `state` and `action`). **Your reducer must return a new object if the state changes**. [Here's why][why-immutable].
 
-Here's an example of a bad reducer which mutates the previous state.
+Here's an example of a *bad* reducer which mutates the previous state.
 ```js
-const badReducer (state = { count: 0 }, action) => {
+// bad reducer
+const reducer = (state = { count: 0 }, action) => {
 	switch (action.type) {
 		case "INCREMENT_COUNTER":
 			state.count++;
@@ -89,11 +90,12 @@ const badReducer (state = { count: 0 }, action) => {
 };
 ```
 
-and here's an example of a good one which uses [lodash][lodash-reading]'s merge function to deeply dup the state:
+and here's an example of a good one which uses [lodash][lodash-reading]'s merge function to create a deep dup of the previous `state`:
 ```js
+// good reducer
 import merge from 'lodash/merge';
 
-const goodReducer (state = { count: 0 }, action) => {
+const reducer = (state = { count: 0 }, action) => {
 	switch (action.type) {
 		case "INCREMENT_COUNTER":
 			let nextState = merge({}, state);
@@ -196,7 +198,12 @@ const farmersReducer = (state = {}, action ) {
 	switch(action.type) {
 		case "HIRE_FARMER":
 			let nextState = merge({}, state); // deeply dup previous state
-			nextState[action.farmer.id] = action.farmer; // add new farmer
+      const farmer = { // create new farmer object
+        id: action.id,
+        name: action.name,
+        paid: false
+      };
+			nextState[action.id] = farmer; // add new farmer to state
 			return nextState;
 		case "PAY_FARMER":
 			let nextState = merge({}, state);
@@ -247,45 +254,39 @@ store.getState(); // { fruits: [], farmers: {} }
 A reducer may also call a different reducer to handle slices of its own state:
 
 ```js
-const farmers = (state = {}, action ) {
+// reducers/farmers_reducer.js
+const farmersReducer = (state = {}, action ) {
 	switch(action.type) {
 		case "HIRE_FARMER":
-			nextState = merge({}, state);
-			return nextState[action.farmer.id] = farmer(action.farmer, action);
-		case "FIRE_FARMER":
-			nextState = merge({}, state);
-			delete nextState[action.farmer.id];
+			let nextState = merge({}, state);
+			nextState[action.id] = farmerReducer(undefined, action);
 			return nextState;
-			break;
-		case "UPDATE_FARMER_NAME":
-		case "INCREMENT_FARMER_AGE":
-			nextState = merge({}, state);
-
-			// calls the 'lesser' reducer to handle individual farmer updates
-			nextState[action.farmer.id] = farmer(action.farmer, action);
-
+		case "PAY_FARMER":
+			let nextState = merge({}, state);
+			nextState[action.id] = farmerReducer(nextState[action.id], action)
 			return nextState;
-			break;
 		default:
 			return state;
 	}
 };
 
-const farmer = (state = {}, action) {
-	switch(action.type){
-		case "UPDATE_FARMER_NAME":
-			nextState = merge({}, state);
-			return nextState;
-			break;		
-		case "INCREMENT_FARMER_AGE":
-			nextState = merge({}, state);
-			nextState.age++;
-			break;
-		default;
+const farmerReducer = (state, action ) { // state is a farmer object
+	switch(action.type) {
+		case "HIRE_FARMER":
+			return ({
+        id: action.id,
+        name: action.name,
+        paid: false
+      };
+		case "PAY_FARMER":
+      state.paid = !state.paid;
+      return state;
+		default:
 			return state;
 	}
 };
 
+export default farmersReducer;
 ```
 
 ## Official Documentation
