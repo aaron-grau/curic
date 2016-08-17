@@ -80,9 +80,11 @@ const outerLevel = args1 => args2 => args3 => {
 };
 ```
 
-## Examples
+## Examples of higher-order functions
 
 + Functions that create functions
   + i.e., the metaprogramming you did in the ActiveRecord and Rails Lite projects
 + Functions that use callbacks
   + i.e., `each`/`forEach`, `$.ajax`
++ Functions that return functions
+  + i.e. the `outerLevel` and `innerLevel` functions in this reading
