@@ -1,7 +1,7 @@
 const MessageStore = require('./message_store');
 
 module.exports = {
-  renderForm: function () {
+  renderForm() {
     let currentMessage = MessageStore.getMessageDraft();
     let html = `
     <p class="new-message-header">New Message</p>
@@ -27,7 +27,7 @@ module.exports = {
     `;
     return html;
   },
-  render: function () {
+  render() {
     let container = document.createElement("div");
     container.className = "new-message";
     container.innerHTML = this.renderForm();

@@ -7,12 +7,14 @@ For example, if I were to write the pseudocode for `Chess.prototype.run`, it wou
 look something like:
 
 ```javascript
-  Chess.prototype.run = function() {
-  // until a player is in checkmate
-    // get move from current player
-    // make move on board
-    // switch current player
-}
+  class Chess {
+    run() {
+      // until a player is in checkmate
+        // get move from current player
+        // make move on board
+        // switch current player
+    }
+  }
 ```
 
 Save the pseudocode to a separate file.  We'll come back to it later.

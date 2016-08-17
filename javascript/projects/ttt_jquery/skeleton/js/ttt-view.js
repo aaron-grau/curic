@@ -1,13 +1,11 @@
-var View = function (game, $el) {
-};
+class View {
+  constructor(game, $el) {}
 
-View.prototype.bindEvents = function () {
-};
+  bindEvents() {}
 
-View.prototype.makeMove = function ($square) {
-};
+  makeMove($square) {}
 
-View.prototype.setupBoard = function () {
-};
+  setupBoard() {}
+}
 
 module.exports = View;
