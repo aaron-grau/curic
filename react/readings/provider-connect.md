@@ -100,8 +100,7 @@ receive a `name` prop in addition to its regular props.
 #### Merging Props
 
 A component with regular props (ex. `<Component lastName="Props"/>`),
-`mapStateToProps` can also merge the state with the component's `ownProps` to produce new props via `mapStateToProps`: [\\]:(A component with explicit props (e.g. `<Component lastName="Props"/>`),
-`mapStateToProps` can also merge these props with the state by passing a second argument to `mapStateToProps`:)
+`mapStateToProps` can also merge the state with the component's `ownProps` to produce new props via `mapStateToProps`: [\\]:(A component with explicit props (e.g. `<Component lastName="Props"/>`)can also merge these props with the state by passing a second argument to `mapStateToProps`:)
 
 ```
 const mapStateToProps = (state, ownProps) => ({
