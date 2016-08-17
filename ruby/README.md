@@ -241,9 +241,9 @@
 
 [uml]: readings/uml.md
 [inheritance]: readings/inheritance.md
-[inheritance-exercises]: projects/inheritance_and_errors/inheritance_exercises.md
+[inheritance-exercises]: projects/class_inheritance
 [errors]: readings/errors.md
-[errors-exercises]: projects/inheritance_and_errors/errors_exercises.md
+[errors-exercises]: projects/error_handling
 [object-decomposition]: readings/object-decomposition.md
 [inheritance-design]: readings/inheritance-design.md
 [hiding]: readings/hiding.md
