@@ -161,6 +161,10 @@ import React from 'react';
 class FruitStand extends React.Component {
 	constructor(props) {
 		super(props);
+
+		/* Note: Subscribing `forceUpdate()` is not a recommended pattern and used 
+		for illustration purposes only. See the `NB` below. */
+
 		this.props.store.subscribe(this.forceUpdate.bind(this));
 	}
 
@@ -184,13 +188,11 @@ re-rendering our component with the updated state whenever actions are
 dispatched to it and trigger a change in the app's state. In other words,
 `FruitStand` will re-render whenever the app state changes.
 
-**NB**: Calling `forceUpdate()` will cause `render() `to be called on a React
-component. Normally you should try to avoid all uses of `forceUpdate()` and
-only read from `this.props` and `this.state` in `render()`. We will not be
-following this pattern of component subscription to the Redux store when we
-begin writing our React/Redux apps. Instead, we will learn about and use
-`react-redux` which is a binding to simplify the process of subscribing React
-components to the store soon!
+**NB**: Subscribing `forceUpdate()` tells a component to immediately re-render
+every time the store's contents change. This pattern works but is a rather blunt
+instrument for complex components, since re-rendering a parent causes a re-
+rendering of all its children. We'll learn more about the `react-redux` library
+soon, which solves this problem via the `Provider / connect()` API.
 
 Check out our intro *Redux/React* fruit stand app in action
 [here][fruit_stand_react_app]!
