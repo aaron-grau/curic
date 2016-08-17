@@ -116,6 +116,8 @@
 
 - [Todos][todos]
 
+[middleware]: readings/middleware.md
+
 [todos]: projects/todos
 
 ## w7d4
@@ -124,9 +126,13 @@
 
 ### Readings
 
-- [Router]
-- [`withRouter`]
-- [Route Hooks]
+- [Intro to react router][react-router-intro] (12 min)
+- [Route Configuration][route-configuration] (12 min)
+- [Route Matching][route-matching] (5 min)
+- [Index Routes][index-routes] (7 min)
+- [Route Hooks (`onEnter`)][on-enter]
+- [`withRouter`][with-router]
+- [Jbuilder][jbuilder] (20 min)
 
 ### Homeworks
 
@@ -134,7 +140,12 @@
 
 - [Pokedex][pokedex]
 
-[middleware]: readings/middleware.md
+[react-router-intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
+[route-configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
+[route-matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
+[index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[on-enter]: readings/on_enter.md
+[jbuilder]: https://github.com/rails/jbuilder
 [pokedex]: projects/pokedex
 
 ## w7d5
