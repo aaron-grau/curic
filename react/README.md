@@ -3,7 +3,8 @@
 ## w7d1
 
 ### Video Lectures (94 min)
-- [**An Important Note About These Lectures**][video_deprecation_note]
+[**An Important Note About These Lectures**][video_deprecation_note]
+
 :closed_lock_with_key: `go_video_go`
 - :movie_camera: [Part 1: Intro to React][react_video_01] (5 min)
 - :movie_camera: [Part 2: Anatomy/Physiology of Components][react_video_02] (15 min)
