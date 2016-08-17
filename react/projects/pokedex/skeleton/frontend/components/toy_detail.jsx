@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class ToyDetail extends React.Component {
 	render() {
 		return (

@@ -250,18 +250,28 @@ Before creating a component we should always plan out where and how it is going 
 2. How will we pass the PokemonDetail the information?
 
 Implement the pokemonDetail component just like we did the pokemonIndex:
+
 1. create an API function that fetches a single pokemon
 2. create both actions for requesting and receiving a single pokemon
 3. update the reducer to respond to the receiving of a pokemon
 4. update the middleware to respond to the requesting of a pokemon
 5. create a pokemonDetailContainer that maps pokemonDetail to props
-6. create a pokemonDetail component calls the request action passed from props
-7. create the corresponding route that renders the pokemonDetailContainer
+
+Review the `_pokemon.json.jbuilder` file and talk with your partner about how you believe the `PokemonDetail` object will look before we map it to props. Confirm your answer by going to the correct URL in the browser.
+
+You will notice that the toys are not the prettiest of data to turn into `ToyItem` components but the nesting will be helpful when rendering the future `ToyDetail` so instead of altering the Jbuilder let's write a selector.
+
+The selector will take state as a parameter and jsut serve as a utility function to return an array of toy objects that we can easily map over. Create this `toy_selector.js` file in the `util` folder.
+
+Map an additional piece of state to the props of your `PokemonDetail` component using your imported selector. 
+
+6. create a `pokemonDetail` component that calls the request action passed from `mapDispathToProps`
+7. create the corresponding route that renders the `pokemonDetailContainer`
 **Make sure to test as you go to avoid bugs. The most common bugs are related to importing/exporting functions.**
 
-Nest the pokemon detail route under the route for the pokemon index and then **explicitly tell the pokemonIndex component to render it's children**. This will assure that both will be rendered on the page when at the `"/pokemon/1"` path.
+Nest the `PokemonDetail` route under the route for the `PokemonIndex` and then **explicitly tell the `PokemonIndex` component to render it's children**. This will assure that both components will be rendered on the page when at the `"/pokemon/1"` path.
 
-There exists one problem with our implementation. Currently if the component is mounted then the state is updated and the pokemon detail displays the correct information. But what if the component is already mounted and we click on a different pokemon? Check the store in the console to confirm that the state is not being updated and then talk with your partner about a certain lifecycle method that may solve the problem.
+There exists one problem with our implementation. Currently if the component is mounted then the state is updated and the pokemon detail displays the correct information. But what if the component is already mounted and we click on a different pokemon? Check the store in the console to confirm that the state is not being reduced and then talk with your partner about a certain lifecycle method that may solve the problem.
 
 Here is the sample html structure for a pokemonDetail:
 ```html
@@ -272,7 +282,9 @@ Here is the sample html structure for a pokemonDetail:
 
 ### Toy Detail
 
-Implement the ability to click on a Toy and be taken to a path such as `/pokemon/1/toys/1` where a toyDetail component displays information about a Toy below the pokemonDetail component. This should be completed without any additional changes to the application state.
+Implement the ability to click on a Toy and be taken to a path such as `/pokemon/1/toys/1` where a toyDetail component displays information about a Toy below the `PokemonDetail` component. This should be completed without any additional changes to the application state.
+
+When providing the toy to the `ToyDetail` component from the `ToyDetailContainer` remember that `mapStateToProps` accepts a second parameter `ownProps`. Use this to key into the correct toy.
 
 ### Creating Pokemon
 
@@ -286,9 +298,21 @@ Our next feature will be to allow the creation of new pokemon. This will require
 5. create a pokemonFormContainer that only connects `mapDispatchToProps` 
 6. create a pokemonForm controlled component
 
-A controlled component is used in React to describe the overriding of browser default functionality to be purely in the control of your application. This is used in forms to assure input fields are being tracked in internal state and submit buttons perform actions as described by the application.
+A controlled component is used in React to describe the overriding of browser default functionality to be purely in the control of your application. This is used in forms to assure input field values are being tracked in internal state and submit buttons perform actions as described by the application.
 
-Use the `getInitialState` lifecycle method and a default object to set the default internal state of your form. Try to create an object that will be easy to directly pass into our createPokemon action.
+Use the `constructor` method to provide a default internal state to your form. Even though javascript prefers camelcase it may be easiest to define this state object as closely to what our server expects when making a POST request.
+
+Normally these constructor functions are taken care of by React. This is how React creates parent/child relationships between components and why we never need to bind child methods. In this case we are overiding the constructor function to have a default internal state so let's make sure we do what React normally does for us as well.
+
+```javascript
+  constructor(props) {
+    super(props);
+    this.state = { 
+      // Internal Default State 
+    };
+    this.exampleMethod = this.exampleMethod.bind(this);
+  }
+```
 
 For the input elements use an `onChange` listener and write a single `update` function to call the `setState` method.
 
@@ -299,21 +323,23 @@ For the input elements use an `onChange` listener and write a single `update` fu
     onChange={this.update('name')}/>
 ```
 
+The best html element for the Pokemon Type is a dropdown. In order to get all of the Pokemon Types there is a script tag in the `application.html.erb` file that is accessing types from the Pokemon Model. Check it out and to maintain the Redux pattern, pass it into your configureStore invocation as preloaded state. Then map it to your `PokemonForm` as props.
+
 Write a `handleSubmit` method as well that prevents the default event action and instead calls the `createPokemon` function from props. Make sure to pass this function to the `onSubmit` listener of the form.
 
-We want this form to appear when at the same root path as the `pokemonIndex` but not when at any further nested routes like the `pokemonDetail`. This is exactly what the `react-router` `IndexRoute` is for. Import it along with the rest of the React Router tools and pass it the `PokemonFormContainer`.
+We want this form to appear when at the same root path as the `PokemonIndex` but not when at any further nested routes like the `PokemonDetail`. This is exactly what the `react-router` `IndexRoute` is for. Import it along with the rest of the React Router tools and pass it the `PokemonFormContainer`.
 
 **NB** There is a couple tricky aspects to getting the form to work properly which will be great debugging practice. Use a `debugger` in your `postPokemon` function to assure that you are always passing the correct parameters to your API. You may need to add a conditional to your update function as well.
 
-The final tricky piece of functionalities with this form are the redirect callback and error handling.
+The final tricky piece of functionalities with this Pokemon form are the redirect callback and error handling.
 
 ### Redirecting
 
-Once the posting is complete we want the application to redirect to the newly created pokemon. We need to wait because we need this pokemon's ID in order to push to that URL. Unfortunately this is one of the downfalls to implementing the reat router separate from redux. We do not have the router as a part of our application state so instead we suggest using the slightly older way of implementing navigation: `import {hashHistory} from 'react-router';` 
+Once the posting is complete we want the application to redirect to the newly created pokemon. We need to wait because we need this pokemon's ID in order to push to that URL. Unfortunately this is one of the downfalls to implementing the react router separate from redux. We do not have the router as a part of our application state so instead we suggest using the slightly older way of implementing navigation: `import {hashHistory} from 'react-router';` 
 
 This imports a reference to the `hashHistory` object that we can push directly to. Call `hashHistory.push` with the correct url inside of your `postPokemon` success callback.
 
-**Challenge: There is an additional request being made to our server. Plan out with your partner how you will fix this and improve your application.**
+**Challenge: There is an additional request being made to the server. Plan out with your partner how to fix this and improve your application.**
 
 ### Error Handling
 
@@ -325,13 +351,6 @@ The server is great at telling us whether or not our new pokemon is being insert
 4. Add a mapStateToProps function that connects in the `PokemonFormContainer`
 5. Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
 
+## Bonus: Loading Spinner
 
-
-## Bonus: Reassigning Toys
-
-Add a `select` element to the toy detail that has an `option` for each pokemon.
-Whenever this dropdown changes, assign the selected pokemon to be the toy's
-owner. Once the toy is reassigned, reroute your app to the new owner's toy
-detail for that toy.
-
-[hash-history]: https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#hashhistory
+Use next(action) in your Pokemon Middleware to always assure the passing of your actions to the reducer. This way you can reduce actions such as `RequestPokemon` in order to describe an intermediary state of your application. Set this state back to normal when the reducing `ReceivePokemon` actions.

@@ -33,7 +33,7 @@ class PokemonDetail extends React.Component {
 						<li>{this.props.pokemonDetail.defense}</li>
 						<li>{this.props.pokemonDetail.moves.join(', ')}</li>
 
-						{this.toys(this.props.pokemonDetail.toys)}
+						{this.toys(this.props.toys)}
 					</ul>);
 		} else {
 			details = <p>LOADING</p>;
