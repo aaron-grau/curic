@@ -1,7 +1,6 @@
 import React from 'react';
 
 class Headers extends React.Component {
-
   render() {
     let selected = this.props.selectedPane;
     let headers = this.props.panes.map((pane, index) => {
@@ -35,6 +34,7 @@ export default class Tabs extends React.Component {
     this.state = {
       selectedPane: 0
     };
+    this.selectTab = this.selectTab.bind(this)
   }
 
   selectTab(num) {
@@ -50,7 +50,7 @@ export default class Tabs extends React.Component {
         <div className='tabs'>
           <Headers
             selectedPane={this.state.selectedPane}
-            onTabChosen={this.selectTab.bind(this)}
+            onTabChosen={this.selectTab}
             panes={this.props.panes}>
           </Headers>
           <div className='tab-content'>

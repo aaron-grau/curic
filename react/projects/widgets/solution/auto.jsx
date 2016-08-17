@@ -7,6 +7,8 @@ export default class AutoComplete extends React.Component {
     this.state = {
       inputVal: ''
     };
+    this.selectName = this.selectName.bind(this);
+    this.handleInput = this.handleInput.bind(this)
   }
 
   handleInput(event) {
@@ -41,7 +43,7 @@ export default class AutoComplete extends React.Component {
   render() {
     let results = this.matches().map((result, i) => {
       return (
-          <li key={i} onClick={this.selectName.bind(this)}>{result}</li>
+        <li key={i} onClick={this.selectName}>{result}</li>
       );
     });
     return(
@@ -49,7 +51,7 @@ export default class AutoComplete extends React.Component {
         <h1>Autocomplete</h1>
         <div className='auto'>
           <input
-            onChange={this.handleInput.bind(this)}
+            onChange={this.handleInput}
             value={this.state.inputVal}
             placeholder='Search...'/>
           <ul>

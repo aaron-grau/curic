@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import AutoComplete from './auto.jsx';
-import Clock from './clock.jsx';
-import Weather from './weather.jsx';
-import Tabs from './tabs.jsx';
+import AutoComplete from './auto';
+import Clock from './clock';
+import Weather from './weather';
+import Tabs from './tabs';
 
 const Names = [
   'Abba',

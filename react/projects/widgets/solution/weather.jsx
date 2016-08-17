@@ -16,10 +16,11 @@ export default class Weather extends React.Component {
     this.state = {
       weather: null
     };
+    this.pollWeather = this.pollWeather.bind(this);
   }
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(this.pollWeather.bind(this));
+    navigator.geolocation.getCurrentPosition(this.pollWeather);
   }
 
   pollWeather(location) {
