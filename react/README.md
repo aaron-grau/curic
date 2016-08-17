@@ -70,7 +70,7 @@
 [babel_configuration]: readings/babel_configuration.md
 [lodash]: readings/lodash.md
 [getting_started]: homeworks/getting_started
-[react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/api.md
+[react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
 [widgets]: projects/widgets
 
