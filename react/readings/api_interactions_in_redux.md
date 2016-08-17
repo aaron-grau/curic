@@ -6,10 +6,11 @@ actions to the store. We'll use middleware to handle and trigger the appropriate
 
 ## Creating an API Utility
 
-The first and most basic step to setting up AJAX is to create a utility file that exports methods that we can call to make requests to the API. 
+The most basic step to setting up an AJAX framework is to create a utility file
+that exports methods that we can call to make requests to the API.
 
 ```
-// frontend/utils/cat_api_util.js
+// utils/cat_api_util.js
 
 export const fetchCats = (success, error) => {
 	$.ajax({
@@ -24,4 +25,51 @@ export const fetchCats = (success, error) => {
 
 In the example above, we define and export a  `fetchCats()` method that hits our API. `fetchCats()` arguments are the success and error functions of the `$.ajax` call. We'll import this file into our middleware where we can then pass success and error callbacks that trigger appropriate dispatches to our Store. Note that because the callbacks are passed in as arguments, the API Utility itself is agnostic to your application setup, i.e. it would work equally well in Redux, Flux, or any other architecture.
 
+## Setting up the Actions
+
+We need to create specific actions that correspond with our API steps:
+
+```
+// actions/cat_actions.js
+
+export const REQUEST_CATS = "REQUEST_CATS";
+export const RECEIVE_CATS = "RECEIVE_CATS";
+
+export const requestCats = () => ({ type: REQUEST_CATS });
+export const receiveCats = (cats) => ({ type: RECEIVE_CATS, cats: cats})
+
+```
+
 ## Creating an API Middleware
+
+We now need to wrap our API Utility in a middleware that uses it to dispatch the appropriate actions to our store.
+
+```js
+
+// middlewares/cats_middleware.js
+
+import { fetchCats } from '../utils/cat_api_util';
+
+import { REQUEST_CATS, RECEIVE_CATS, requestCats, receiveCats } from '../actions/cat_actions';
+
+export default store => next => action {
+	switch (action.type) {
+
+		const success = () => dispatch(RECEIVE_CATS);
+		const error = (e) => { console.log(e.responseJSON) };
+
+		case "REQUEST_CATS":
+		fetchCats(success, error);
+		return next(action);
+		break;
+		default;
+		return next(action);
+	}
+};
+
+```
+
+In the example above, our middleware listens for a `REQUEST_CATS` action. When it receives one, it sets off our API Util, passing it success and error callbacks. If the response succeeds, the middleware dispatches another action, `RECEIVE_CATS`, which will eventually hit our store and cause it to add the new cats to our application state.
+
+Although our error function is just a debugging tool right now, we can easily change it to dispatch an action if we want our application to handle errors.
+
