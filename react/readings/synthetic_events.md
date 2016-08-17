@@ -23,6 +23,6 @@ it normally would. Most of your event handlers will call `preventDefault()`,
 since you almost always want to halt the normal HTTP request and dispatch an
 asynchronous javascript request instead.
 
-A complete list of `SyntheticEvent`s is [available here][react-events].
+A complete list of Synthetic Events is [available here][react-events].
 
 [react-events]:https://facebook.github.io/react/docs/events.html
