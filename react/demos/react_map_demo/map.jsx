@@ -9,6 +9,11 @@ const mapCenter = { lat: 37.7758, lng: -122.435 },
 
 //just a normal react component class :)
 class Map extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.addBurritoPlace = this.addBurritoPlace.bind(this);
+  }
   componentDidMount() {
     //React.findDOMNode gets us a pointer to the actual html DOM element,
     //not its React component class instance, this is what
@@ -27,7 +32,7 @@ class Map extends React.Component {
     //add a movement listener
     this.listenForMove();
     //we are going to add a map marker for each burrito place now
-    this.props.burritoPlaces.forEach(this.addBurritoPlace.bind(this));
+    this.props.burritoPlaces.forEach(this.addBurritoPlace);
   }
 
   addBurritoPlace(burritoPlace) {
