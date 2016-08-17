@@ -43,10 +43,6 @@
 
 - [Widgets][widgets]
 
-### Additional Resources
-
-- [Functional Components][functional-components]
-
 [video_deprecation_note]: readings/video_deprecation_note.md
 [react_video_01]: https://vimeo.com/album/3686654/video/147897911
 [react_video_02]: https://vimeo.com/album/3686654/video/147899305
