@@ -45,6 +45,8 @@
 - [Widgets][widgets]
 
 ### Additional Resources
+Note: The 'API' sections are especially useful.
+- [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
 
 [video_deprecation_note]: readings/video_deprecation_note.md
@@ -70,6 +72,7 @@
 [babel_configuration]: readings/babel_configuration.md
 [lodash]: readings/lodash.md
 [getting_started]: homeworks/getting_started
+[redux_docs]: http://redux.js.org/index.html
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
 [widgets]: projects/widgets
