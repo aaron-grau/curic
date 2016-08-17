@@ -1,8 +1,7 @@
-'use strict';
+import React from 'react';
 
-const React = require('react');
+class Headers extends React.Component {
 
-const Headers = React.createClass({
   render() {
     let selected = this.props.selectedPane;
     let headers = this.props.panes.map((pane, index) => {
@@ -28,15 +27,20 @@ const Headers = React.createClass({
 
     );
  }
-});
+};
 
-const Tabs = React.createClass({
-  getInitialState() {
-    return {selectedPane: 0};
-  },
+export default class Tabs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedPane: 0
+    };
+  }
+
   selectTab(num) {
     this.setState({selectedPane: num});
-  },
+  }
+
   render() {
     let pane = this.props.panes[this.state.selectedPane];
 
@@ -46,7 +50,7 @@ const Tabs = React.createClass({
         <div className='tabs'>
           <Headers
             selectedPane={this.state.selectedPane}
-            onTabChosen={this.selectTab}
+            onTabChosen={this.selectTab.bind(this)}
             panes={this.props.panes}>
           </Headers>
           <div className='tab-content'>
@@ -58,6 +62,4 @@ const Tabs = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = Tabs;
+};

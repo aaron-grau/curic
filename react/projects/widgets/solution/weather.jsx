@@ -1,25 +1,26 @@
-'use strict';
+import React from 'react';
 
-const React = require('react');
-
-function toQueryString(obj) {
+const toQueryString = (obj) => {
   let parts = [];
   for (let i in obj) {
       if (obj.hasOwnProperty(i)) {
-          parts.push(encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]));
+          parts.push(`${encodeURIComponent(i)}=${encodeURIComponent(obj[i])}`);
       }
   }
   return parts.join('&');
 }
 
-const Weather = React.createClass({
-  getInitialState() {
-    return {weather: null};
-  },
+export default class Weather extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      weather: null
+    };
+  }
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(this.pollWeather);
-  },
+    navigator.geolocation.getCurrentPosition(this.pollWeather.bind(this));
+  }
 
   pollWeather(location) {
     let lat = location.coords.latitude;
@@ -45,7 +46,7 @@ const Weather = React.createClass({
 
     xmlhttp.open('GET', url, true);
     xmlhttp.send();
-  },
+  }
 
   render() {
     let content = <div></div>;
@@ -69,6 +70,4 @@ const Weather = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = Weather;
+};
