@@ -18,10 +18,17 @@ import { Provider, connect } from 'react-redux';
 
 ## Threading Props: An Anti-Pattern
 
-Oftentimes, a deeply nested component will need access to the store, while its parents do not. With vanilla React, those parents nonetheless have to receive the `store` prop, just to pass it down to the child.
+Oftentimes, a deeply nested component will need access to the store, while its
+parents do not. With vanilla React, those parents nonetheless have to receive
+the `store` prop, just to pass it down to the child. Consider the example below:
+The store is created in the entry file, but the `Content` component that needs
+to access it is deeply nested. As a result, the store must be passed as a prop
+down the entire component tree, even through components such as the `Header`
+that do not use it themselves.
 
-[\\]:(a little unclear what's going on here; I think the reader would benefit from comments and spacing)
 ```js
+
+// entry.jsx
 
 const store = createStore();
 
@@ -33,15 +40,13 @@ ReactDOM.render(<App store={store}/>, root);
 
 ```
 
-This is called prop-threading, a tedious and error-prone pattern. We can avoid
+This pattern, called prop-threading, is tedious and error-prone. We can avoid
 it by using the `Provider`/`connect()` API provided by `react-redux`.
-
-That's it!
 
 ## `Provider`: setting `context`
 
-Using `Provider` lets us 'invisibly' pass the store to deeply nested components
-without explicit threading.
+Using the `Provider` component given to us by `react-redux` lets us 'invisibly'
+pass the store to deeply nested components without explicit threading.
 
 ```js
 import { Provider, connect } from 'react-redux';
