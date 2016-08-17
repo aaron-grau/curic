@@ -154,8 +154,8 @@
 -	[React Map Demo][react_map_demo] (15 min)
 - [`preloadedState`][preloaded-state]
 - [User Authentication]
-- [React Context]
-- [Bonus: `localStorage`]
+- [Bonus: React Context][context]
+- [Bonus: `localStorage`][local-storage]
 
 ### Homeworks
 
@@ -167,7 +167,42 @@
 
 - [Rails/React/Redux Configuration Checklist][checklist]
 
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[context]: https://facebook.github.io/react/docs/context.html
 [preloaded-state]: readings/preloaded_state.md
 [react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
 [bench-bnb]: projects/bench_bnb
+
+## w7d6-w7d7
+
+### Readings (50 min)
+* [Testing React][jest-basics] (15 min)
+* [Running Jest Tests][jest-config] (15 min)
+* [Think in React][think-in-react] (20 min)
+  * Review this reading again.  It will be super helpful in designing your project.  
+
+### Homework (5 hours)
+* Submit your [full-stack project proposal][full-stack-project-proposal] (5 hours)
+  * **Due by 9am on Monday**
+
+### Additional Resources
+* See [full-stack project curriculum][full-stack-project-curriculum] for additional information and readings related to full-stack projects.
+
+[full-stack-project-curriculum]: ../full-stack-project
+[full-stack-project-proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[jest-basics]: readings/jest_basics.md
+[jest-config]: readings/jest_config.md
+
+## w8d1
+
+**Project Proposal Review Period for Instructional Staff**
+### Homework (1 hour)
+* Do the auth part of A04 Prep
+  * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
+  * You'll be surprised how much of it you've forgotten by now. It's normal.
+
+### Projects
+* **Solo:** [BenchBnB Day 2][bench-bnb2]
+
+[bench-bnb2]: projects/bench_bnb
