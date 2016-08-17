@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import AutoComplete from './auto.jsx';
@@ -23,7 +23,7 @@ const Panes = [
   {title: 'three', content: 'Third pane here'}
 ];
 
-class MyComponent extends Component {
+class MyComponent extends React.Component {
   render() {
     return(
       <div>
