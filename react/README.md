@@ -2,6 +2,17 @@
 
 ## w7d1
 
+### Video Lectures (94 min)
+- [**An Important Note About These Lectures**][video_deprecation_note]
+:closed_lock_with_key: `go_video_go`
+- :movie_camera: [Part 1: Intro to React][react_video_01] (5 min)
+- :movie_camera: [Part 2: Anatomy/Physiology of Components][react_video_02] (15 min)
+- :movie_camera: [Part 3: Rendering Components in the Browser][react_video_03] (10 min)
+- :movie_camera: [Part 4: JSX][react_video_04] (7 min)
+- :movie_camera: [Part 5: Babel/Transpiling JSX][react_video_05] (6 min)
+- :movie_camera: [Part 6: The Grand Demo][react_video_06] (51 min)
+  - :computer: [demo source code][watch-demo]
+
 ### Readings
 
 #### ES6 & Lodash
@@ -32,6 +43,19 @@
 
 - [Widgets][widgets]
 
+### Additional Resources
+
+- [Functional Components][functional-components]
+
+[video_deprecation_note]: readings/video_deprecation_note.md
+[react_video_01]: https://vimeo.com/album/3686654/video/147897911
+[react_video_02]: https://vimeo.com/album/3686654/video/147899305
+[react_video_03]: https://vimeo.com/album/3686654/video/147900089
+[react_video_04]: https://vimeo.com/album/3686654/video/147900661
+[react_video_05]: https://vimeo.com/album/3686654/video/147900472
+[react_video_06]: https://vimeo.com/album/3686654/video/147900885
+[watch-demo]: demos/watch_webpack_demo
+
 [import_export]: readings/import_export.md
 [object_destructuring]: readings/object_destructuring.md
 [intro_to_react]: readings/intro_to_react.md
@@ -46,8 +70,12 @@
 [babel_configuration]: readings/babel_configuration.md
 [lodash]: readings/lodash.md
 [getting_started]: homeworks/getting_started
+[functional-components]: https://facebook.github.io/react/blog/2015/10/07/
+react-v0.14.html#stateless-functional-components
 
 [widgets]: projects/widgets
+
+
 
 ## w7d2
 
@@ -57,7 +85,6 @@
 - [Store][store]
 - [Reducers][reducers]
 - [Actions][actions]
-- [Functional Components][functional-components]
 - [`Provider` && `connect()`][provider-connect]
 
 ### Homeworks
@@ -70,7 +97,6 @@
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
 [flux]: readings/flux.md
-[functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 [provider-connect]: readings/provider-connect.md
 
 [synthesizer]: projects/synthesizer
