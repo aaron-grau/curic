@@ -80,10 +80,10 @@ be deprecated soon.
 
 ## Purely Functional Components
 
-Purely functional components are the simplest, but least versatile, way to
-declare a component. If a component has no state and needs no lifecycle hooks,
-it can be written as a pure function that accepts a `props` parameter and acts
-as the component's `render` method.
+Purely [functional components][functional-components] are the simplest, but
+least versatile, way to declare a component. If a component has no state and
+needs no lifecycle hooks, it can be written as a pure function that accepts a
+`props` parameter and acts as the component's `render` method.
 
 **NB**: A *pure function* is a function whose output is solely determined by its
 input and has no side effects.
@@ -121,3 +121,6 @@ const Message = ({ text }) => (
 ```
 
 Functional components are the most common type of component that you will see in Redux applications, which you will learn more about later this week.
+
+[functional-components]: https://facebook.github.io/react/blog/2015/10/07/
+react-v0.14.html#stateless-functional-components

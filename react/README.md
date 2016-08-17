@@ -70,8 +70,6 @@
 [babel_configuration]: readings/babel_configuration.md
 [lodash]: readings/lodash.md
 [getting_started]: homeworks/getting_started
-[functional-components]: https://facebook.github.io/react/blog/2015/10/07/
-react-v0.14.html#stateless-functional-components
 
 [widgets]: projects/widgets
 
