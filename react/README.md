@@ -106,7 +106,6 @@
 - [Higher-order functions]
 - [Middleware][middleware]
 - [API Interactions in Redux][redux_api_interactions]
-- [Bonus: Redux DevTools (Time Travel!)][devtools]
 
 ### Homeworks
 
@@ -116,8 +115,8 @@
 
 [middleware]: readings/middleware.md
 [redux_api_interactions]: readings/redux_api_interactions.md
-[devtools]: https://github.com/gaearon/redux-devtools
 [todos]: projects/todos
+
 
 ## w7d4
 
