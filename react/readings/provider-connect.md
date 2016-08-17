@@ -18,8 +18,9 @@ import { Provider, connect } from 'react-redux';
 
 ## Threading Props: An Anti-Pattern
 
-Oftentimes, a deeply nested component will need access to the store, while its parents do not. With vanilla React, those parents nonetheless have to receive the `store` prop, just to pass it down to the child. 
+Oftentimes, a deeply nested component will need access to the store, while its parents do not. With vanilla React, those parents nonetheless have to receive the `store` prop, just to pass it down to the child.
 
+[\\]:(a little unclear what's going on here; I think the reader would benefit from comments and spacing)
 ```js
 
 const store = createStore();
@@ -30,7 +31,7 @@ const App = ({store}) => <div><Header store={store}/></div> ;
 
 ReactDOM.render(<App store={store}/>, root);
 
-``` 
+```
 
 This is called prop-threading, a tedious and error-prone pattern. We can avoid
 it by using the `Provider`/`connect()` API provided by `react-redux`.
@@ -68,11 +69,11 @@ API, so feel free to skip it.
 
 ## `connect()`: setting component `props`
 
-`react-redux` allows us to access the `store` context in a powerful and convenient way via `connect()`. Using `connect()`, we can pass specific slices of the store's state, as well as specific action-dispatches, to a component's props. The component's props then serve as its API to the store, making it more modular less burdened by Redux boilerplate. 
+`react-redux` allows us to access the `store` context in a powerful and convenient way via `connect()`. Using `connect()`, we can pass specific slices of the store's state, as well as specific action-dispatches, to a component's props. The component's props then serve as its API to the store, making it more modular [\\]:(and) less burdened by Redux boilerplate.
 
 ## Using `connect()`
 
-Connect is a curried function that ultimately returns a React component. Check out its signature: 
+Connect [\\]:(`connect`) is a curried function that ultimately returns a React component. [\\]:(As per out discussion, it might be worth elaborating slightly on what sort of React component `connect` returns and what exactly is rendered.) Check out its signature:
 
 ```js
 const connectedComponent = connect(mapStateToProps, mapDispatchToProps, mergeProps, options)(component);
@@ -85,7 +86,7 @@ Let's examine the arguments in detail.
 
 #### Slicing state
 
-This argument should be a function that accepts the store's `state` (via the `context.store.getState()` from the `Provider`) and can set the connected component's props to specific slices of the state: 
+This argument should be a function that accepts the store's `state` (via the `context.store.getState()` from the `Provider`[\\]:(implicitly via a call to `context.store.getState()`, which the Provider supplies)) and can set the connected component's props to specific slices of the state:
 
 ```
 const mapStateToProps = (state) => ({
@@ -99,7 +100,8 @@ receive a `name` prop in addition to its regular props.
 #### Merging Props
 
 A component with regular props (ex. `<Component lastName="Props"/>`),
-`mapStateToProps` can also merge the state with the component's `ownProps` to produce new props via `mapStateToProps`:
+`mapStateToProps` can also merge the state with the component's `ownProps` to produce new props via `mapStateToProps`: [\\]:(A component with explicit props (e.g. `<Component lastName="Props"/>`),
+`mapStateToProps` can also merge these props with the state by passing a second argument to `mapStateToProps`:)
 
 ```
 const mapStateToProps = (state, ownProps) => ({
@@ -113,7 +115,7 @@ addition to its explicit props.
 
 ### `mapDispatchToProps`
 
-This argument should be a function that accepts the store's `dispatch` method and returns an object containing functions that can be called to dispatch  actions to the store:
+The argument should be [\\]:(The `mapStateToProps` parameter is) a function that accepts the store's `dispatch` method and returns an object containing functions that can be called to dispatch  [\\]:(An extra space here) actions to the store:
 
 ```js
 // action creator
@@ -124,7 +126,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 ```
 
-`mapDispatchToProps` can also be written as an object if all the values are set to action creators: 
+`mapDispatchToProps` can also be written as an object if all the values are set to action creators:[\\]:(One can also assign `mapDispatchToProps` to an object if all the values are set to action creators.)
 
 ```js
 // action creator
@@ -140,7 +142,7 @@ The connected component can then call `this.props.onClick()` to `dispatch(toggle
 This rarely-used optional argument is a function used to merge the result of `mapStateToProps` and `mapDispatchToProps` into a single set of props to be given to the object.
 
 ```
-const mergeProps = (stateProps, dispatchProps) => { 
+const mergeProps = (stateProps, dispatchProps) => {
 // define mergedProps
 return mergedProps;
 }
@@ -149,13 +151,13 @@ return mergedProps;
 
 ### `options` (optional)
 
-This even more rarely used argument allows you to configure how `connect()` works. 
+This even more rarely used[\\]:(even-more-rarely-used) argument allows you to configure how `connect()` works.
 
 Read [here][docs] for more information.
 
 ### `component`
 
-Note that `connect()` is a curried function: the component to be connected isn't actually passed into the initial `connect()` call, but instead to the returned result. 
+Note that `connect()` is a curried function: the component to be connected isn't actually passed into the initial `connect()` call, but instead to the returned result.
 
 ```
 const connectedComponent = connect(mapDispatchToProps, mapDispathToProps)(vanillaComponent)
@@ -164,15 +166,16 @@ const connectedComponent = connect(mapDispatchToProps, mapDispathToProps)(vanill
 
 ## Containers
 
-As you've seen above, there is quite a bit of boilerplate code involved in connecting a component to the store. Putting all this code into the component with heavy rendering logic tends to violate the principle of separation of concerns. Therefore, it's a common pattern in Redux code to create **containers**, components whose sole purpose is to connect **presentational components** to the store.
+As you've seen above, there is quite a bit of boilerplate code involved in connecting a component to the store. Putting all this code into the component with heavy rendering logic tends to violate the principle of separation of concerns. Therefore, it's a common pattern in Redux code to create **containers**, components whose sole purpose is to connect [\\]:(I think "expose" is clearer than "connect" in this context, lest the reader think presentational components also `connect()` to the store) **presentational components** to the store.
 
+[\\]:(.jsx, not .js; also, is this set up as a React component?)
 ```js
 // components/list.js
 
 const List = ({ items, resetItems }) => {
 	const displayItems = items.map((item, idx) => {
 		return (
-			<Item 
+			<Item
 				key={item.name + idx}
 				body={item.body}
 				/>
@@ -190,6 +193,7 @@ const List = ({ items, resetItems }) => {
 export default List;
 ```
 
+[\\]:(.jsx, not .js; also, is this set up as a React component?)
 ```js
 // components/containers/list_container.js
 
@@ -220,9 +224,11 @@ ReactDOM.render(<Provider store={store}><ListContainer/></Provider>, root);
 
 ```
 
+[\\]:(I think it makes more sense to snippet entry.jsx then list_container.jsx then list.jsx)
+
 ## Choosing Containers
 
-Not every component needs to be connected to the store. Generally, you will only want to create containers for the 'big' components in your app that represent sections of a page and contain many small, purely presentational components. Container components are responsible for mapping state and dispatch props for all their presentational children. Use your best judgement, but in general, aim to have fewer containers rather than more. 
+Not every component needs to be connected to the store. Generally, you will only want to create containers for the 'big' components in your app that represent sections of a page and contain many small, purely presentational components. Container components are responsible for mapping state and dispatch props for all their presentational children. Use your best judgement, but in general, aim to have fewer containers rather than more.
 
 ## Official Documentation
 
