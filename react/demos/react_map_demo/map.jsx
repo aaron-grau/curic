@@ -1,5 +1,3 @@
-"use strict";
-
 //we need to provide a center coordinate for our map, this is SF
 const mapCenter = { lat: 37.7758, lng: -122.435 },
      //I made some lat/lng points for some good burrito spots
@@ -10,7 +8,7 @@ const mapCenter = { lat: 37.7758, lng: -122.435 },
      ];
 
 //just a normal react component class :)
-const Map = React.createClass({
+class Map extends React.Component {
   componentDidMount() {
     //React.findDOMNode gets us a pointer to the actual html DOM element,
     //not its React component class instance, this is what
@@ -29,8 +27,9 @@ const Map = React.createClass({
     //add a movement listener
     this.listenForMove();
     //we are going to add a map marker for each burrito place now
-    this.props.burritoPlaces.forEach(this.addBurritoPlace);
-  },
+    this.props.burritoPlaces.forEach(this.addBurritoPlace.bind(this));
+  }
+
   addBurritoPlace(burritoPlace) {
     //we make an instance of the google maps LatLng class, args are
     //(lat, lng)
@@ -47,7 +46,8 @@ const Map = React.createClass({
       //when the marker is clicked on, alert the name
       alert(`clicked on: ${burritoPlace.name}`)
     });
-  },
+  }
+
   listenForMove() {
     //we listen for the map to emit an 'idle' event, it does this when
     //the map stops moving
@@ -61,7 +61,8 @@ const Map = React.createClass({
       console.log("south west");
       console.log(bounds.getSouthWest().lat(), bounds.getSouthWest().lng());
     });
-  },
+  }
+
   render() {
     //the div that will become the map is just an empty div
     //we give it a 'ref' so we can easily get a pointer to the
@@ -80,7 +81,8 @@ const Map = React.createClass({
       </div>
     );
   }
-});
+};
+
 React.render(
   <Map center={mapCenter} burritoPlaces={burritos}/>,
   document.getElementById('root')
