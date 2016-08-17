@@ -38,8 +38,8 @@ when installing it for the Widgets project.
 
 ## Phase 1: Game
 
-Start by creating a Game component using `extends React.Component`. In
-`constructor`, initialize a new `Minesweeper.Board` and set it as
+Start by creating a `Game` component using `extends React.Component`. In
+`constructor()`, initialize a new `Minesweeper.Board` and set it as
 the `board` property of the initial state object. This will be the
 object that we continuously update over the course of the game.
 
