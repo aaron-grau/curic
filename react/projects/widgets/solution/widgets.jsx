@@ -1,12 +1,10 @@
-'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-
-const AutoComplete = require('./auto.jsx');
-const Clock = require('./clock.jsx');
-const Weather = require('./weather.jsx');
-const Tabs = require('./tabs.jsx');
+import AutoComplete from './auto';
+import Clock from './clock';
+import Weather from './weather';
+import Tabs from './tabs';
 
 const Names = [
   'Abba',
@@ -25,7 +23,7 @@ const Panes = [
   {title: 'three', content: 'Third pane here'}
 ];
 
-const MyComponent = React.createClass({
+class MyComponent extends React.Component {
   render() {
     return(
       <div>
@@ -38,8 +36,8 @@ const MyComponent = React.createClass({
       </div>
     );
   }
-});
+};
 
-document.addEventListener('DOMContentLoaded', function () {
-  ReactDOM.render(<MyComponent />, document.getElementById('main'));
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(<MyComponent/>, document.getElementById('main'));
 });
