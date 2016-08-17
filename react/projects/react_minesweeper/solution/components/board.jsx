@@ -1,9 +1,13 @@
-"use strict";
+import Tile from './tile';
+import React from 'react';
 
-const Tile = require('./tile');
-const React = require('react');
+class Board extends React.Component{
+  constructor(props){
+    super(props);
+    this.renderRows = this.renderRows.bind(this);
+    this.renderTiles = this.renderTiles.bind(this);
+  }
 
-const Board = React.createClass({
   render() {
     const board = this.props.board;
     const that = this;
@@ -12,7 +16,7 @@ const Board = React.createClass({
         {this.renderRows()}
       </div>
     );
-  },
+  }
 
   renderRows() {
     const board = this.props.board;
@@ -23,7 +27,7 @@ const Board = React.createClass({
         </div>
       );
     });
-  },
+  }
 
   renderTiles(row, i){
     const board = this.props.board;
@@ -37,6 +41,6 @@ const Board = React.createClass({
     });
   }
 
-});
+}
 
-module.exports = Board;
+export default Board;
