@@ -1,12 +1,15 @@
-"use strict";
+import React from 'react';
 
-const React = require('react');
-
-const Tile = React.createClass({
+class Tile extends React.Component{
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
   handleClick(e) {
     const flagged = e.altKey ? true : false;
     this.props.updateGame(this.props.tile, flagged);
-  },
+  }
 
   render() {
     const tile = this.props.tile;
@@ -18,7 +21,7 @@ const Tile = React.createClass({
       } else {
         klass = 'explored';
         count = tile.adjacentBombCount();
-        text = (count > 0 ? `${count} ` : "")
+        text = (count > 0 ? `${count} ` : "");
       }
     } else if (tile.flagged) {
       klass = 'flagged';
@@ -26,12 +29,12 @@ const Tile = React.createClass({
     } else {
       klass = 'unexplored';
     }
-    klass = `tile ${klass}`
+    klass = `tile ${klass}`;
 
     return (
       <div className={klass} onClick={this.handleClick}>{text}</div>
     );
   }
-});
+}
 
-module.exports = Tile;
+export default Tile;
