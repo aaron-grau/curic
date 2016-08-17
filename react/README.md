@@ -134,14 +134,20 @@
 
 - [Pokedex][pokedex]
 
+### Additional Resources
+
+-	[React Router Documentation][react-router-docs]
+	- Check the `API` docs for quick reference
+
 [react-router-intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
 [route-configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
 [route-matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
 [index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-[with-router]: https://github.com/reactjs/react-router/blob/master/upgrade-guides/v2.4.0.md
+[with-router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent
 [on-enter]: readings/on_enter.md
 [jbuilder]: https://github.com/rails/jbuilder
 [pokedex]: projects/pokedex
+[react-router-docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ## w7d5
 
