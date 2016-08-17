@@ -78,7 +78,9 @@
 - [Store][store]
 - [Reducers][reducers]
 - [Actions][actions]
-- [`Provider` && `connect()`][provider-connect]
+- [`Provider`][provider]
+- [`connect()`][connect]
+- [Containers][containers]
 
 ### Homeworks
 
@@ -87,7 +89,7 @@
 - [Synthesizer][synthesizer]
 
 ### Additional Resources
-*Note: The 'API' sections are especially useful.*
+	*Note: The 'API' sections are especially useful.*
 - [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
 
@@ -95,7 +97,9 @@
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
 [flux]: readings/flux.md
-[provider-connect]: readings/provider-connect.md
+[provider]: readings/provider.md
+[connect]: readings/connect.md
+[containers]: readings/containers.md
 [redux_docs]: http://redux.js.org/index.html
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
