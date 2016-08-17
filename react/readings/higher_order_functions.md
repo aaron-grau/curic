@@ -2,13 +2,11 @@
 
 ** Functions that operate on other functions, either by taking them as arguments or by returning them, are called "higher-order functions." **
 
-If that made perfect sense to you, then skip ahead to the "examples" part of this reading.
-
 Functions, in JavaScript and several other programming languages, are just normal values. This perspective makes it especially easy to abstract over the actions they represent.
 
-## Lexical Scoping
+## Closure
 
-Lexical scoping tends to come in handy when writing higher-order functions (as a reminder, lexical scoping is when inner functions get access to all of the variables defined in an outer function). Consider the following program:
+Closure, also known as **lexical scoping**, is when inner functions get access to all of the variables defined in an outer function. Closure tends to come in handy when writing higher-order functions. Consider the following program:
 
 ```js
 function noisy(f) {
@@ -22,13 +20,13 @@ function noisy(f) {
 
 const newLog = noisy(console.log.bind(console)); 
 // we bind console because log needs its context to be console instead of window
-newLog("this is a test");
+newLog("test");
 // calling with test
 // test
 // called with test - got undefined
 ```
 
-The above function receives a function as an argument and calls that function in the function it returns. The function would not work if the function `f` was not lexically scoped.
+The above function receives a function as an argument and calls that function in the function it returns. The function would not work if the inner function could not close over `f`.
 
 ## Composing functions
 
@@ -56,7 +54,7 @@ const timesThenPlus = compose(plusSix, timesTwo);
 timesThenPlus(3); // 12
 ```
 
-This pattern applies to more than just mathematical functions, of course - we can use this pattern more generally.
+This pattern applies to more than just mathematical functions, of course -- we can use this pattern more generally.
 
 ## Currying functions
 
@@ -68,8 +66,8 @@ ES6 makes it easy to write higher-order functions. The two examples below illust
 
 ```js
 function outerLevel(args1) {
-  const middleLevel = (args2) => {
-    const innerLevel = (args3) => {
+  return (args2) => {
+    return (args3) => {
       console.log(`${args1} came before ${args2} and ${args3} came last`);
     };
   };
@@ -82,9 +80,9 @@ const outerLevel = args1 => args2 => args3 => {
 
 ## Examples of higher-order functions
 
-+ Functions that create functions
-  + i.e., the metaprogramming you did in the ActiveRecord and Rails Lite projects
-+ Functions that use callbacks
-  + i.e., `each`/`forEach`, `$.ajax`
-+ Functions that return functions
-  + i.e. the `outerLevel` and `innerLevel` functions in this reading
++ Functions that create functions.
+  + i.e., the metaprogramming you did in the ActiveRecord and Rails Lite projects.
++ Functions that use callbacks.
+  + i.e., `each`/`forEach`, `$.ajax`.
++ Functions that return functions.
+  + i.e. the `outerLevel` and `innerLevel` functions in this reading.
