@@ -1,6 +1,6 @@
 # Calculator
 
-Tonight we're going to build a simple calculator app. Our app takes in two numbers and shows the result of a simple operation on the numbers when you click the operation button. Take a look at the [live demo][live-demo] to see the app in action. Assume that only numbers will be entered.
+Today we're going to build a simple calculator app. Our app takes in two numbers and shows the result of a simple operation on the numbers when you click the operation button. Take a look at the [live demo][live-demo] to see the app in action. Assume that only numbers will be entered.
 
 [live-demo]: https://appacademy.github.io/curriculum/calculator/
 
@@ -95,8 +95,10 @@ It'd also be nice to be able to clear out the input fields. Make a button that r
 
 ## Destructuring
 
-You're probably using the values stored in your state a few times in your `render` function. Let's DRY it up a little. Destructure the elements stored in your state in your `render` function to be able to refer to them more cleanly. Remember that any Javascript we do should happen before the `return` statement!
+You're probably using the values stored in your state a few times in your `render` function. Let's DRY it up a little. Destructure the properties stored in your state in your `render` function to be able to refer to them by separate variables. Refer to the [destructuring reading][destructure] if you need a refresher on how this works. Remember that any Javascript we do should happen before the `return` statement!
 
 Think about other ways you could refactor your code.
 
 Congratulations! You've created your first component!
+
+[destructure]: https://github.com/appacademy/curriculum/blob/redux/react/readings/object_destructuring.md
