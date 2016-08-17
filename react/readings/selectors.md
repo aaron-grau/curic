@@ -1,6 +1,7 @@
 # Selectors
 
-Selectors are functions that make it easy to extract information from the state in different forms. Take the following state shape: 
+Selectors are functions that make it easy to extract information from the state
+in different forms. Take the following state shape:
 
 ```json
 {
@@ -21,7 +22,11 @@ Selectors are functions that make it easy to extract information from the state 
 
 ```
 
-The state's todos are stored as a hash under their id, allowing for O(1) lookup of a single todo. This makes it slightly inconvenient to obtain the all the todos at once, however. If we need to access all the todos in multiple parts of our application, then it makes sense to abstract that functionality into a selector, which is conventionally stored in a relevant reducer file: 
+The state's todos are stored as a hash under their id, allowing for O(1) lookup
+of a single todo. This makes it slightly inconvenient to obtain the all the
+todos at once, however. If we need to access all the todos in multiple parts of
+our application, then it makes sense to abstract that functionality into a
+selector, which is conventionally stored in a relevant reducer file:
 
 ```js
 // reducers/todos.js
@@ -44,7 +49,8 @@ const mapStateToProps = (state) => ({todos: getAllTodos(state)});
 
 ```
 
-Because selectors receive the entire application `state`, they can utilize  different 'slices' of the state to assemble data: 
+Because selectors receive the application `state` as an argument, they can
+utilize  different 'slices' of the state to assemble data:
 
 ```js
 // reducers/todos.js
@@ -74,6 +80,3 @@ const mapStateToProps = (state) => ({
 });
 
 ```
-
-
-[normalize]: https://en.wikipedia.org/wiki/Database_normalization
