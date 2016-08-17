@@ -78,7 +78,7 @@
 - [Store][store]
 - [Reducers][reducers]
 - [Actions][actions]
-- [`Provider`][provider]
+- [`<Provider/>`][provider]
 - [`connect()`][connect]
 - [Containers][containers]
 
