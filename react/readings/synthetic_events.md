@@ -1,7 +1,7 @@
 # React SyntheticEvents (a.k.a. Event Handlers)
 
-A `SyntheticEvent` is the the React equivalent of the vanilla DOM's
-`addEventListener()`. Using a `SyntheticEvent`, you can pass event listeners
+SyntheticEvents are the the React equivalent of the vanilla DOM's
+`addEventListener()`. Using SyntheticEvents, you can pass event listeners
 directly to your components via props.
 
 ```js
