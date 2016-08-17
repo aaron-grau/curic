@@ -125,7 +125,7 @@
 - [Route Matching][route-matching] (5 min)
 - [Index Routes][index-routes] (7 min)
 - [Route Hooks (`onEnter`)][on-enter]
-- [`withRouter`]
+- [`withRouter`][with-router]
 - [Jbuilder][jbuilder] (20 min)
 
 ### Homeworks
@@ -138,6 +138,7 @@
 [route-configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
 [route-matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
 [index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[with-router]: https://github.com/reactjs/react-router/blob/master/upgrade-guides/v2.4.0.md
 [on-enter]: readings/on_enter.md
 [jbuilder]: https://github.com/rails/jbuilder
 [pokedex]: projects/pokedex
