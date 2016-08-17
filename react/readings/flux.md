@@ -9,7 +9,6 @@ application.
 
 ![flux]
 
-
 ## Action
 
 An action begins the flow of data in Flux. An action is a simple object that at
