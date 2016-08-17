@@ -136,6 +136,8 @@ Does this look familiar? It's [object destructuring][obj-destructuring]! We're
 just extracting the data that's been exported from the other file and assigning
 it to a distinct variable to use in our current file.
 
+[obj-destructuring]: (./object_destructuring.md)
+
 You can give default, unnamed imports whatever name you want to refer to them
 in your file. However, because we exported specific member objects from our
 actions, the names do have to match so Javascript knows exactly which object
