@@ -11,7 +11,6 @@ primary drivers of the Redux loop.
 When an action is dispatched, any necessary new state data must be passed along as *payloads*. Like so:
 
 ```js
-// actions.js
 const addOrange = {
 	type: "ADD_FRUIT",
 	fruit: "orange"
@@ -33,7 +32,6 @@ const addFruit = (fruit) => ({
 	type: "ADD_FRUIT",
 	fruit
 });
-
 ```
 
 Now we can add any `fruit` to the store using our action creator
