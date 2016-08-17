@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Vanilla DOM Homework</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
     <script type="text/javascript" src="./script.js"></script>
   </head>
 
@@ -30,13 +31,24 @@
     <div class="list-container">
       The city also has a number of great places just to visit. What are some of your favorites?
       <br/>
-      <input type="text" class="favorite-input"/>
-      <button type="button" class="favorite-submit">Add to list</button>
+      <form>
+        <input type="text" class="favorite-input"/>
+        <input type="submit" class="favorite-submit" value="Add to list"/>
+      </form>
       <ul id="sf-places">
         <li>Sutro Baths</li>
         <li>Tank Hill</li>
         <li>City Lights Books</li>
       </ul>
+    </div>
+
+    <button type="button" class="list-show-button">Create a new list</button>
+
+    <div class="list-form-container">
+      <form>
+        <input type="text" class="list-input"/>
+        <input type="submit" class="list-submit" value="Add list"/>
+      </form>
     </div>
   </body>
 </html>
