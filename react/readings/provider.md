@@ -1,4 +1,4 @@
-# `react-redux`: `Provider` and `connect()`
+# Using `Provider` from `react-redux`
 
 So far we have dealt with the `redux` package, which, via `createStore()`,
 allows us to create `Store` instances with `dispatch()`, `getState()`, and
@@ -13,7 +13,8 @@ npm install --save react-redux
 ```
 
 ```js
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
+
 ```
 
 ## Threading Props: An Anti-Pattern
@@ -63,14 +64,16 @@ ReactDOM.render(withProvider, root);
 
 Note that the `Provider` is simply a React component in which we wrap the rest
 of the application. It receives the `store` as a `prop`. The Provider then sets
-a `store` [context][context] (basically, an invisible prop), which is passed
-down to all of its children. Any children who want to access the `store` context
-are then able to do so, even without an explicit `store` prop. We'll go into
-more detail about how this is done in the section below on `connect()`.
+a `store` `context` (basically, an invisible prop), which is passed down to all
+of its children. Because we typically wrap the entire `App` in the Provider, all
+our components will receive the store context. 
 
-If you're confused about `context`, read through the link above. However, you
-don't really need to know exactly how it works to use the `react-redux`
-API, so feel free to skip it.
+Components that need to access the store will have to `connect()`, which converts the store context to a store prop can be referred to via `this.props.store`.
+
+We'll discuss how `connect()` works in the next reading.
+
+Note: If you're confused about `context`, you can check out the
+[official documentation][context]. However, you don't really need to know exactly how it works to use the `react-redux` API, so feel free to skip it.
 
 ## `connect()`: setting component `props`
 
@@ -240,4 +243,3 @@ Learn more about the `react-redux` API [here][docs].
 
 [context]: https://facebook.github.io/react/docs/context.html
 [bindings]: https://en.wikipedia.org/wiki/Language_binding
-[docs]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#arguments
