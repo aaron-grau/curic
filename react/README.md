@@ -156,4 +156,9 @@ react-v0.14.html#stateless-functional-components
 
 - [BenchBNB][bench-bnb]
 
+### Additional Resources
+
+- [Rails/React/Redux Configuration Checklist][checklist]
+
+[checklist]: readings/checklist.md
 [bench-bnb]: projects/bench_bnb
