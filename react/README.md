@@ -177,10 +177,7 @@
 ## w7d6-w7d7
 
 ### Readings (50 min)
-* [Testing React][jest-basics] (15 min)
-* [Running Jest Tests][jest-config] (15 min)
 * [Think in React][think-in-react] (20 min)
-  * Review this reading again.  It will be super helpful in designing your project.  
 
 ### Homework (5 hours)
 * Submit your [full-stack project proposal][full-stack-project-proposal] (5 hours)
@@ -191,8 +188,6 @@
 
 [full-stack-project-curriculum]: ../full-stack-project
 [full-stack-project-proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
-[jest-basics]: readings/jest_basics.md
-[jest-config]: readings/jest_config.md
 
 ## w8d1
 
