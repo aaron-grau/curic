@@ -3,7 +3,8 @@
 ## w7d1
 
 ### Video Lectures (94 min)
-- [**An Important Note About These Lectures**][video_deprecation_note]
+[**An Important Note About These Lectures**][video_deprecation_note]
+
 :closed_lock_with_key: `go_video_go`
 - :movie_camera: [Part 1: Intro to React][react_video_01] (5 min)
 - :movie_camera: [Part 2: Anatomy/Physiology of Components][react_video_02] (15 min)
@@ -44,8 +45,7 @@
 - [Widgets][widgets]
 
 ### Additional Resources
-
-- [Functional Components][functional-components]
+- [Official `react-redux` Documentation][react_redux_docs]
 
 [video_deprecation_note]: readings/video_deprecation_note.md
 [react_video_01]: https://vimeo.com/album/3686654/video/147897911
@@ -70,10 +70,9 @@
 [babel_configuration]: readings/babel_configuration.md
 [lodash]: readings/lodash.md
 [getting_started]: homeworks/getting_started
+[react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#arguments
 
 [widgets]: projects/widgets
-
-
 
 ## w7d2
 
@@ -107,8 +106,7 @@
 
 - [Higher-order functions]
 - [Middleware][middleware]
-- [API Interactions in Redux]
-- [Bonus: Time Travel]
+- [API Interactions in Redux][redux_api_interactions]
 
 ### Homeworks
 
@@ -116,7 +114,10 @@
 
 - [Todos][todos]
 
+[middleware]: readings/middleware.md
+[redux_api_interactions]: readings/redux_api_interactions.md
 [todos]: projects/todos
+
 
 ## w7d4
 
@@ -124,9 +125,13 @@
 
 ### Readings
 
-- [Router]
-- [`withRouter`]
-- [Route Hooks]
+- [Intro to react router][react-router-intro] (12 min)
+- [Route Configuration][route-configuration] (12 min)
+- [Route Matching][route-matching] (5 min)
+- [Index Routes][index-routes] (7 min)
+- [Route Hooks (`onEnter`)][on-enter]
+- [`withRouter`][with-router]
+- [Jbuilder][jbuilder] (20 min)
 
 ### Homeworks
 
@@ -134,19 +139,31 @@
 
 - [Pokedex][pokedex]
 
-[middleware]: readings/middleware.md
+### Additional Resources
+
+-	[React Router Documentation][react-router-docs]
+	- Check the `API` docs for quick reference
+
+[react-router-intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
+[route-configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
+[route-matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
+[index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[with-router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent
+[on-enter]: readings/on_enter.md
+[jbuilder]: https://github.com/rails/jbuilder
 [pokedex]: projects/pokedex
+[react-router-docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ## w7d5
 
 ### Video Lectures
 
 ### Readings
-
-- [`preloadedState`]
+-	[React Map Demo][react_map_demo] (15 min)
+- [`preloadedState`][preloaded-state]
 - [User Authentication]
-- [React Context]
-- [Bonus: `localStorage`]
+- [Bonus: React Context][context]
+- [Bonus: `localStorage`][local-storage]
 
 ### Homeworks
 
@@ -158,5 +175,37 @@
 
 - [Rails/React/Redux Configuration Checklist][checklist]
 
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[context]: https://facebook.github.io/react/docs/context.html
+[preloaded-state]: readings/preloaded_state.md
+[react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
 [bench-bnb]: projects/bench_bnb
+
+## w7d6-w7d7
+
+### Readings (50 min)
+* [Think in React][think-in-react] (20 min)
+
+### Homework (5 hours)
+* Submit your [full-stack project proposal][full-stack-project-proposal] (5 hours)
+  * **Due by 9am on Monday**
+
+### Additional Resources
+* See [full-stack project curriculum][full-stack-project-curriculum] for additional information and readings related to full-stack projects.
+
+[full-stack-project-curriculum]: ../full-stack-project
+[full-stack-project-proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+
+## w8d1
+
+**Project Proposal Review Period for Instructional Staff**
+### Homework (1 hour)
+* Do the auth part of A04 Prep
+  * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
+  * You'll be surprised how much of it you've forgotten by now. It's normal.
+
+### Projects
+* **Solo:** [BenchBnB Day 2][bench-bnb2]
+
+[bench-bnb2]: projects/bench_bnb

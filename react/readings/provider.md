@@ -1,0 +1,245 @@
+# Using `Provider` from `react-redux`
+
+So far we have dealt with the `redux` package, which, via `createStore()`,
+allows us to create `Store` instances with `dispatch()`, `getState()`, and
+`subscribe()` methods. Using these methods alone, we could create a fully-
+functional React-Redux application. However, the creators of `redux` also give
+us `react-redux`, which is a set of [**bindings**][bindings] simplifying the most common React-Redux interactions.
+
+## Setup
+
+```
+npm install --save react-redux
+```
+
+```js
+import { Provider } from 'react-redux';
+
+```
+
+## Threading Props: An Anti-Pattern
+
+Oftentimes, a deeply nested component will need access to the store, while its
+parents do not. With vanilla React, those parents nonetheless have to receive
+the `store` prop, just to pass it down to the child. Consider the example below:
+The store is created in the entry file, but the `Content` component that needs
+to access it is deeply nested. As a result, the store must be passed as a prop
+down the entire component tree, even through components such as the `Header`
+that do not use it themselves.
+
+```js
+
+// entry.jsx
+
+const store = createStore();
+
+const Content = ({store}) => <div>{store.getState().username}/></div> ;
+const Header = ({store}) => <div><Content store={store}/></div> ;
+const App = ({store}) => <div><Header store={store}/></div> ;
+
+ReactDOM.render(<App store={store}/>, root);
+
+```
+
+This pattern, called prop-threading, is tedious and error-prone. We can avoid
+it by using the `Provider`/`connect()` API provided by `react-redux`.
+
+## `Provider`: setting `context`
+
+Using the `Provider` component given to us by `react-redux` lets us 'invisibly'
+pass the store to deeply nested components without explicit threading.
+
+```js
+import { Provider, connect } from 'react-redux';
+const store = createStore();
+
+const withProvider = (
+	<Provider store={store}>
+		<App/>
+	</Provider>
+);
+
+ReactDOM.render(withProvider, root);
+```
+
+Note that the `Provider` is simply a React component in which we wrap the rest
+of the application. It receives the `store` as a `prop`. The Provider then sets
+a `store` `context` (basically, an invisible prop), which is passed down to all
+of its children. Because we typically wrap the entire `App` in the Provider, all
+our components will receive the store context. 
+
+Components that need to access the store will have to `connect()`, which converts the store context to a store prop can be referred to via `this.props.store`.
+
+We'll discuss how `connect()` works in the next reading.
+
+Note: If you're confused about `context`, you can check out the
+[official documentation][context]. However, you don't really need to know exactly how it works to use the `react-redux` API, so feel free to skip it.
+
+## `connect()`: setting component `props`
+
+`react-redux` allows us to access the `store` context in a powerful and convenient way via `connect()`. Using `connect()`, we can pass specific slices of the store's state, as well as specific action-dispatches, to a component's props. The component's props then serve as its API to the store, making it more modular [\\]:(and) less burdened by Redux boilerplate.
+
+## Using `connect()`
+
+Connect [\\]:(`connect`) is a curried function that ultimately returns a React component. [\\]:(As per out discussion, it might be worth elaborating slightly on what sort of React component `connect` returns and what exactly is rendered.) Check out its signature:
+
+```js
+const connectedComponent = connect(mapStateToProps, mapDispatchToProps, mergeProps, options)(component);
+```
+
+Let's examine the arguments in detail.
+
+### `mapStateToProps`
+
+
+#### Slicing state
+
+This argument should be a function that accepts the store's `state` (via the `context.store.getState()` from the `Provider`[\\]:(implicitly via a call to `context.store.getState()`, which the Provider supplies)) and can set the connected component's props to specific slices of the state:
+
+```
+const mapStateToProps = (state) => ({
+	name: state.name;
+});
+```
+
+In the example above, the component returned by `connect(mapStateToProps)` will
+receive a `name` prop in addition to its regular props.
+
+#### Merging Props
+
+A component with regular props (ex. `<Component lastName="Props"/>`),
+`mapStateToProps` can also merge the state with the component's `ownProps` to produce new props via `mapStateToProps`: [\\]:(A component with explicit props (e.g. `<Component lastName="Props"/>`)can also merge these props with the state by passing a second argument to `mapStateToProps`:)
+
+```
+const mapStateToProps = (state, ownProps) => ({
+	fullName: `${state.name} ${ownProps.lastName}`
+});
+
+```
+
+In the example above, the connected component will receive a `fullName` prop in
+addition to its explicit props.
+
+### `mapDispatchToProps`
+
+The argument should be [\\]:(The `mapStateToProps` parameter is) a function that accepts the store's `dispatch` method and returns an object containing functions that can be called to dispatch  [\\]:(An extra space here) actions to the store:
+
+```js
+// action creator
+const deleteTodo = (todoId) => ({type: "DELETE_TODO", id: todoId})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	handleDelete: () => dispatch(deleteTodo(ownProps.id));
+})
+```
+
+`mapDispatchToProps` can also be written as an object if all the values are set to action creators:[\\]:(One can also assign `mapDispatchToProps` to an object if all the values are set to action creators.)
+
+```js
+// action creator
+const toggleFilter = () => ({ type: "TOGGLE_FILTER" });
+
+const mapDispatchToProps = { onClick: toggleFilter };
+```
+
+The connected component can then call `this.props.onClick()` to `dispatch(toggleFilter())`.
+
+### `mergeProps` (optional)
+
+This rarely-used optional argument is a function used to merge the result of `mapStateToProps` and `mapDispatchToProps` into a single set of props to be given to the object.
+
+```
+const mergeProps = (stateProps, dispatchProps) => {
+// define mergedProps
+return mergedProps;
+}
+
+```
+
+### `options` (optional)
+
+This even more rarely used[\\]:(even-more-rarely-used) argument allows you to configure how `connect()` works.
+
+Read [here][docs] for more information.
+
+### `component`
+
+Note that `connect()` is a curried function: the component to be connected isn't actually passed into the initial `connect()` call, but instead to the returned result.
+
+```
+const connectedComponent = connect(mapDispatchToProps, mapDispathToProps)(vanillaComponent)
+
+```
+
+## Containers
+
+As you've seen above, there is quite a bit of boilerplate code involved in connecting a component to the store. Putting all this code into the component with heavy rendering logic tends to violate the principle of separation of concerns. Therefore, it's a common pattern in Redux code to create **containers**, components whose sole purpose is to connect [\\]:(I think "expose" is clearer than "connect" in this context, lest the reader think presentational components also `connect()` to the store) **presentational components** to the store.
+
+[\\]:(.jsx, not .js; also, is this set up as a React component?)
+```js
+// components/list.js
+
+const List = ({ items, resetItems }) => {
+	const displayItems = items.map((item, idx) => {
+		return (
+			<Item
+				key={item.name + idx}
+				body={item.body}
+				/>
+		);
+	});
+
+	return (
+		<div>
+		<h1 onClick={resetItems}>Click to Reset</h1>
+		{displayItems}
+		</div>
+		)
+};
+
+export default List;
+```
+
+[\\]:(.jsx, not .js; also, is this set up as a React component?)
+```js
+// components/containers/list_container.js
+
+import List from '../list';
+import { connect } from 'react-redux';
+import { resetItems } from '../../actions/items'
+const mapStateToProps = (state) => {
+	items: state.items
+}
+
+const mapDispatchToProps = (dispatch) => {
+	resetItems: dispatch(resetItems);
+}
+
+const ListContainer = connect(mapStateToProps, mapDispatchToProps)(List);
+export default ListContainer;
+```
+
+```js
+// entry.jsx
+import { Provider } from 'react-redux';
+import reducer from 'reducers/index';
+import ListContainer from 'components/containers/list_container';
+
+const store = createStore(reducer);
+
+ReactDOM.render(<Provider store={store}><ListContainer/></Provider>, root);
+
+```
+
+[\\]:(I think it makes more sense to snippet entry.jsx then list_container.jsx then list.jsx)
+
+## Choosing Containers
+
+Not every component needs to be connected to the store. Generally, you will only want to create containers for the 'big' components in your app that represent sections of a page and contain many small, purely presentational components. Container components are responsible for mapping state and dispatch props for all their presentational children. Use your best judgement, but in general, aim to have fewer containers rather than more.
+
+## Official Documentation
+
+Learn more about the `react-redux` API [here][docs].
+
+[context]: https://facebook.github.io/react/docs/context.html
+[bindings]: https://en.wikipedia.org/wiki/Language_binding
