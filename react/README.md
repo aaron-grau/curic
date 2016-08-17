@@ -151,8 +151,8 @@
 ### Video Lectures
 
 ### Readings
-
-- [`preloadedState`]
+-	[React Map Demo][react_map_demo] (15 min)
+- [`preloadedState`][preloaded-state]
 - [User Authentication]
 - [React Context]
 - [Bonus: `localStorage`]
@@ -167,5 +167,7 @@
 
 - [Rails/React/Redux Configuration Checklist][checklist]
 
+[preloaded-state]: readings/preloaded_state.md
+[react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
 [bench-bnb]: projects/bench_bnb
