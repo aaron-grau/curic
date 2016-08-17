@@ -45,7 +45,7 @@
 - [Widgets][widgets]
 
 ### Additional Resources
-Note: The 'API' sections are especially useful.
+*Note: The 'API' sections are especially useful.*
 - [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
 
