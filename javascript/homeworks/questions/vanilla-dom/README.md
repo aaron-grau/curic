@@ -6,7 +6,7 @@ Download the skeleton [zip file][zip], and check out the index file that's alrea
 
 As you will notice, only one of the interactive features is working. We can cross restaurants off the list, but we can't add SF places of our own to visit or add more photos of cute puppies. Time to employ some more JavaScript!
 
-[zip]: ./skeleton.zip
+[zip]: ./skeleton.zip?raw=true
 
 ### Phase I: Crossing off list items
 
