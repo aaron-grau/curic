@@ -125,7 +125,7 @@
 - [Route Matching][route-matching] (5 min)
 - [Index Routes][index-routes] (7 min)
 - [Route Hooks (`onEnter`)][on-enter]
-- [`withRouter`][with-router]
+- [`withRouter`]
 - [Jbuilder][jbuilder] (20 min)
 
 ### Homeworks
