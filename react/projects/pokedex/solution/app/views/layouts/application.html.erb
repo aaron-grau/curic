@@ -9,9 +9,9 @@
 <body>
 
   <script>
-    window.pokemonTypes = [];
+    window.pokemonTypes = {'pokemonTypes': []};
     <% Pokemon::TYPES.each do |type| %>
-      pokemonTypes.push("<%= type.html_safe %>");
+      window.pokemonTypes['pokemonTypes'].push("<%= type.html_safe %>");
     <% end %>
   </script>
 

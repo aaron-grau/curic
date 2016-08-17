@@ -3,10 +3,8 @@
 [**Live Demo!**](http://aa-pokedex.herokuapp.com/)
 
 In this project, we'll write an app to manage your `Pokemon` and their `Toys`.
-Check out the live version [here](http://aa-pokedex.herokuapp.com).
 
-We've already setup migrations/models/controllers/views for you to start with in
-the skeleton provided in this folder.  **Set things
+We've already setup a Rails backend with migrations/models/controllers/views for you to start with in the skeleton.  **Set things
 up with a `bundle install`, then `rake db:setup` (short for `rake
 db:create db:migrate db:seed`).
 
@@ -15,21 +13,13 @@ yourself oriented.
 
 **Note the `defaults: {format: :json}`**. meaning HTTP requests that
 Rails handles for the `pokemon` resource should be assumed to be asking for a
-JSON response instead of HTML. When we render a template, instead of looking for
-`template.html.erb`, Rails will look for `template.json.jbuilder`.
+JSON response instead of HTML. When we render a template, instead of looking for `template.html.erb`, Rails will look for `template.json.jbuilder`.
 
 ## Phase 1: NPM and Webpack
 
 ### `Node Package Manager`
 
-As before, you will need to set up a `package.json` and `webpack.config.js` file
-to configure your application to use NPM and Webpack. First, run `npm init -f`
-to initialize `package.json` to the default settings. Normally you could now
-proceed to run `npm install --save 'package-name'` to install the dependencies
-of your project. In this case however, we want to use specific versions of each
-package to ensure that none of the syntax has changed since these instructions
-were written. To that end, add (or replace if it already exists) a
-"dependencies" key in the `package.json` file with these contents:
+As before, you will need to set up a `package.json` and `webpack.config.js` file to configure your application to use NPM and Webpack. First, run `npm init -f` to initialize `package.json` to the default settings. Normally you could now proceed to run `npm install --save 'package-name'` to install the dependencies of your project. In this case however, we want to use specific versions of each package to ensure that none of the syntax has changed since these instructions were written. To that end, add (or replace if it already exists) a "dependencies" key in the `package.json` file with these contents:
 
 ```json
 "dependencies": {

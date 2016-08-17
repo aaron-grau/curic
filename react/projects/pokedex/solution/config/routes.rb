@@ -6,3 +6,4 @@ Rails.application.routes.draw do
     resources :toys, only: [:show, :update]
   end
 end
+
