@@ -76,22 +76,32 @@ const reducer = (state = [], action) {
 
 Inside a Redux reducer, you must never mutate its arguments (i.e. `state` and `action`). **Your reducer must return a new object if the state changes**. [Here's why][why-immutable].
 
-Here's an example of a good reducer which uses [lodash][lodash-reading]'s merge function to deeply dup an object:
+Here's an example of a bad reducer which mutates the previous state.
 ```js
-import merge from 'lodash/merge';
-
-const goodReducer (state, action) => {
-	nextState = merge({}, state);
-	nextState.property++;
-	return nextState;
+const badReducer (state = { count: 0 }, action) => {
+	switch (action.type) {
+		case "INCREMENT_COUNTER":
+			state.count++;
+			return state;
+		default:
+			return state;
+	}
 };
 ```
 
-and a bad one:
+and here's an example of a good one which uses [lodash][lodash-reading]'s merge function to deeply dup the state:
 ```js
-const badReducer (state, action) => {
-	state.property++;
-	return state;
+import merge from 'lodash/merge';
+
+const goodReducer (state = { count: 0 }, action) => {
+	switch (action.type) {
+		case "INCREMENT_COUNTER":
+			let nextState = merge({}, state);
+			nextState.count++;
+			return nextState;
+		default:
+			return state;
+	}
 };
 ```
 
@@ -99,62 +109,137 @@ const badReducer (state, action) => {
 
 ## Combining Reducers
 
-Now say we now want to handle some completely different types of actions like
-`"HIRE_FARMER"` and `"FIRE_FARMER"` which receive `farmer` objects instead of
-`fruit`. We could add more cases to our reducer, but eventually this becomes
-unwieldy. The solution is to split our `reducer` into separate `fruits` and
-`farmers` reducers.
+Now say our fruit stand is extremely successful and it grows so much that we
+need multiple farmers helping us. Our app's state will need to grow to store not
+only an array of `fruits` but also a `farmers` object.
+
+Here's a sample state tree of our new app:
 
 ```js
+{
+	farmers: {
+		"1": {
+			id: 1,
+			name: "Ol' McDonald",
+			paid: false,
+		},
+		"2": {
+			id: 2,
+			name: "Rabbit",
+			paid: true
+		}
+	},
+	fruits: [
+		"orange",
+		"orange",
+		"apple",
+		"lychee",
+		"grapefruit"
+	]
+}
+```
 
-const fruits = (state = {}, action) {
+Our app will also need to handle new types of actions like `"HIRE_FARMER"` and
+`"PAY_FARMER"` and update the `farmers` slice of our state. We could add more
+cases to our reducer, but eventually this becomes unwieldy. The solution is to
+split our `reducer` into separate `fruits` and `farmers` reducers.
 
-	switch(action.type) {
+Sometimes state fields depend on one another, other times we can easily split
+updating a state field into a separate function. This is called **reducer
+composition**, and it is the fundamental pattern of building Redux apps. When we
+have state fields that are independent of each other, we split the reducer into
+multiple reducers that each handle their own slices of the state. Thus the
+`state` param is different for each reducer; it corresponds only to the part of
+the state manages. Each reducer is defined in its own file, keeping them
+completely independent and managing different slices of the state.
+
+Let's split up our popular fruit stand app's `reducer` into two reducers:
++ `fruits` - A reducing function that handles actions updating the `fruits` slice of our app state.
++ `farmers` - A reduction function that handles actions updating the new `farmers` slice of our app state.
+
+```js
+// reducers/fruits_reducer.js
+const fruitsReducer = (state = [], action) {
+	switch(action.type){
 		case "ADD_FRUIT":
-			let nextState = merge({}, state); // deeply duplicates the state
-			if (!nextState[action.fruit]) nextState[action.fruit] = 0;
-			return ++nextState[action.fruit];
-		case "REMOVE_FRUIT":
-			if (!state[action.fruit] || state[action.fruit] <= 0 ) {
-				throw "cannot remove non-existent fruit";
+			return [
+				...state,
+				action.fruit
+			];
+		case "ADD_FRUITS":
+			return [
+				...state,
+				...action.fruits
+			];
+		case "SELL_FRUIT":
+			const idx = state.indexOf(action.fruit);
+			if (idx !== -1) {
+				return [
+					...state.slice(0, idx),
+					...state.slice(idx + 1)
+				];
 			}
-			let nextState = merge({}, state);
-			return --nextState[action.fruit];
+			return state;
+		case "SELL_OUT":
+			return [];
 		default:
 			return state;
 	}
-
 };
 
-const farmers = (state = {}, action ) {
+export default fruitsReducer;
+```
+
+```js
+// reducers/farmers_reducer.js
+const farmersReducer = (state = {}, action ) {
 	switch(action.type) {
 		case "HIRE_FARMER":
-			nextState = merge({}, state);
-			return nextState[action.farmer.id] = action.farmer;
-		case "FIRE_FARMER":
-			nextState = merge({}, state);
-			delete nextState[action.farmer.id];
+			let nextState = merge({}, state); // deeply dup previous state
+			nextState[action.farmer.id] = action.farmer; // add new farmer
+			return nextState;
+		case "PAY_FARMER":
+			let nextState = merge({}, state);
+			let farmer = nextState[action.id];
+			farmer.paid = !farmer.paid;
 			return nextState;
 		default:
 			return state;
 	}
 };
 
+export default farmersReducer;
 ```
 
-To add these reducers back into our store, we need to combine them into a single
-reducer using `combineReducers()` from the `redux` package, passing it an object
-that maps state keys (pointing to 'slices' of state) to the reducers that
-should handle them.
+However, our Redux store constructor `createStore()` only takes one `reducer`
+argument. So we must combine our reducers into one reducer that gets passed to
+our store. To do this we call `combineReducers()` from the `redux` package and
+pass it an object that maps state keys to the reducers that handle those slices
+of state. It returns a root `reducer` that you can use to create your app store.
 
 ```js
+// reducers/root_reducer.js
+import { combineReducers } from 'redux';
+import fruitsReducer from './fruits_reducer';
+import farmersReducer from './farmers_reducer';
+
 const reducer = combineReducers({
 	fruits: fruitsReducer,
 	farmers: farmersReducer
 })
 
+export default reducer;
+```
+
+```js
+// store.js
+import { createStore } from 'redux';
+import reducer from './reducers/root_reducer.js';
+
 const store = createStore(reducer);
-store.getState(); // {fruits: {}, farmers: {}};
+
+// initial state
+store.getState(); // { fruits: [], farmers: {} }
 ```
 
 ## Delegating to Reducers
