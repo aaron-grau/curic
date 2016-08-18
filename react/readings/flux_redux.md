@@ -75,13 +75,13 @@ previous state and an action and return the next state. They return new state
 objects instead of mutating previous state. Read [more][pure-functions] about
 what makes a function pure.
 
-By now you should be able to trace the flow of data in a Redux application.
-
 ![redux-loop]
 
 **NB**: Middleware is an ecosystem of utilities that augments the functionality of
 `dispatch()`. Among other things, it allows for asynchronous requests in a Redux
 application.
+
+We'll learn more about each part in the Redux loop.
 
 [redux-loop]:https://camo.githubusercontent.com/e7921fdb62c3bab89005e090677a6cd07aceaa8c/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f434e50336b5953577741455672544a2e6a70673a6c61726765
 [pure-functions]: https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976#.lfv7bgqco
