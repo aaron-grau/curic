@@ -1,14 +1,14 @@
 # Actions
 
 As you've already learned from the [Redux store reading][store], **actions** are
-the only source of information from your application for the store. Remember,
-actions are simply POJO the must have a `type` property to indicate the type of
-action being performed. They get sent using `store.dispatch()` and are the
+the only way for view components to trigger changes to the store. Remember,
+actions are simple POJOs with a mandatory `type` key and optional payload keys containing new information. They get sent using `store.dispatch()` and are the
 primary drivers of the Redux loop.
 
 ## Action Creators
 
-When an action is dispatched, any necessary new state data must be passed along as *payloads*. Like so:
+When an action is dispatched, any new state data must be passed along as the
+**payload**: 
 
 ```js
 const addOrange = {
