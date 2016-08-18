@@ -44,6 +44,7 @@
 ### Projects
 
 - [Widgets][widgets]
+- [Minesweeper][minesweeper]
 
 [video_deprecation_note]: readings/video_deprecation_note.md
 [react_video_01]: https://vimeo.com/album/3686654/video/147897911
@@ -72,6 +73,7 @@
 [react_calculator]: homeworks/questions/calculator.md
 
 [widgets]: projects/widgets
+[minesweeper]: projects/react_minesweeper
 
 ## w7d2
 
