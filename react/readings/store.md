@@ -64,7 +64,6 @@ const addOrange = {
 	fruit: 'orange'
 };
 
-store.dispatch(addOrange);
 ```
 
 When `store.dispatch()` is called, the store passes its current `state`, along
