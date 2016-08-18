@@ -18,8 +18,7 @@ Lastly, we won't be using `jQuery` for this project. If you're not sure
 how to do something without it, use Google as a resource and ask a TA
 if needed.
 
-[npm-demo-link]: ../../readings/npm_reading.md
-[git-npm-reading]: ../../readings/git_and_npm.md
+[getting_started]: ../homeworks/getting_started
 
 ## Running a Simple Server
 
