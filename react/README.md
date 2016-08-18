@@ -1,7 +1,6 @@
 # React / Flux Curriculum
 
 ## w7d1
-
 ### Video Lectures (94 min)
 [**An Important Note About These Lectures**][video_deprecation_note]
 
@@ -14,8 +13,7 @@
 - :movie_camera: [Part 6: The Grand Demo][react_video_06] (51 min)
   - :computer: [demo source code][watch-demo]
 
-### Readings
-
+### Readings (115 min)
 #### ES6 & Lodash (25 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
@@ -42,12 +40,10 @@
 - [React Calculator][react_calculator] (30 min)
 
 ### Projects
-
 - [Widgets][widgets]
 - [Minesweeper][minesweeper]
 
 ### Additional Resources
-
 - [Official React Documentation][react_docs]
 	- Most Helpful: 'REFERENCE' Section (Left Sidebar)
 
@@ -85,7 +81,6 @@
 ## w7d2
 
 ### Readings (90 min)
-
 - [Flux and Redux Intro][flux_redux] (10 min)
 - [Store][store] (15 min)
 - [Reducers][reducers] (15 min)
@@ -94,10 +89,12 @@
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
+### Demos 
+- [Basic Flux Application][basic_flux_demo]
+
 ### Homeworks
 
 ### Projects
-
 - [Synthesizer][synthesizer]
 
 ### Additional Resources
@@ -119,13 +116,10 @@
 
 ## w7d3
 
-### Video Lectures
-
-### Readings
-
-- [Higher-order functions][higher_order_functions]
-- [Middleware][middleware]
-- [API Interactions in Redux][redux_api_interactions]
+### Readings (45 min)
+- [Higher-order functions][higher_order_functions] (15 min)
+- [Middleware][middleware] (15 min)
+- [API Interactions in Redux][redux_api_interactions] (15 min)
 
 ### Homeworks
 
@@ -145,12 +139,12 @@
 
 ### Readings
 
-- [Intro to react router][react-router-intro] (12 min)
-- [Route Configuration][route-configuration] (12 min)
-- [Route Matching][route-matching] (5 min)
-- [Index Routes][index-routes] (7 min)
-- [Route Hooks (`onEnter`)][on-enter]
-- [`withRouter`][with-router]
+- [Intro to react router][react_router_intro] (12 min)
+- [Route Configuration][route_configuration] (12 min)
+- [Route Matching][route_matching] (5 min)
+- [Index Routes][index_routes] (7 min)
+- [Route Hooks (`onEnter`)][on_enter] (10 min)
+- [`withRouter`][with_router]
 - [Jbuilder][jbuilder] (20 min)
 
 ### Homeworks
@@ -161,18 +155,18 @@
 
 ### Additional Resources
 
--	[React Router Documentation][react-router-docs]
+-	[React Router Documentation][react_router_docs]
 	- Check the `API` docs for quick reference
 
-[react-router-intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
-[route-configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
-[route-matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
-[index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-[with-router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent
-[on-enter]: readings/on_enter.md
+[react_router_intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
+[route_configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
+[route_matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
+[index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent
+[on_enter]: readings/on_enter.md
 [jbuilder]: https://github.com/rails/jbuilder
 [pokedex]: projects/pokedex
-[react-router-docs]: https://github.com/reactjs/react-router/blob/master/docs/
+[react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ## w7d5
 
@@ -180,42 +174,43 @@
 
 ### Readings
 -	[React Map Demo][react_map_demo] (15 min)
-- [`preloadedState`][preloaded-state]
-- [User Authentication]
+- [`preloadedState`][preloaded_state]
+- [User Authentication][user_authentication]
 - [Bonus: React Context][context]
-- [Bonus: `localStorage`][local-storage]
+- [Bonus: `localStorage`][local_storage]
 
 ### Homeworks
 
 ### Projects
 
-- [BenchBNB][bench-bnb]
+- [BenchBNB][bench_bnb]
 
 ### Additional Resources
 
 - [Rails/React/Redux Configuration Checklist][checklist]
 
-[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [context]: https://facebook.github.io/react/docs/context.html
-[preloaded-state]: readings/preloaded_state.md
+[preloaded_state]: readings/preloaded_state.md
 [react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
-[bench-bnb]: projects/bench_bnb
+[bench_bnb]: projects/bench_bnb
 
 ## w7d6-w7d7
 
 ### Readings (50 min)
-* [Think in React][think-in-react] (20 min)
+* [Think in React][think_in_react] (20 min)
 
 ### Homework (5 hours)
-* Submit your [full-stack project proposal][full-stack-project-proposal] (5 hours)
+* Submit your [full-stack project proposal][full_stack_project_proposal] (5 hours)
   * **Due by 9am on Monday**
 
 ### Additional Resources
-* See [full-stack project curriculum][full-stack-project-curriculum] for additional information and readings related to full-stack projects.
+* See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
 
-[full-stack-project-curriculum]: ../full-stack-project
-[full-stack-project-proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
+[full_stack_project_curriculum]: ../full-stack-project
+[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
 
 ## w8d1
 
@@ -226,6 +221,4 @@
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
-* **Solo:** [BenchBnB Day 2][bench-bnb2]
-
-[bench-bnb2]: projects/bench_bnb
+* **Solo:** [BenchBnB Day 2][bench_bnb]

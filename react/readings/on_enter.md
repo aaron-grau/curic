@@ -2,17 +2,14 @@
 
 The React Router API provides route hooks that we can use to trigger callbacks 
 whenever our routes change. Read the official documentation [here][documentation]. 
-As the docs indicate, there are several of these route hooks, but we will concern 
-ourselves with **`onEnter`** today.
+As the docs indicate, there are several of these route hooks, but we will concern ourselves with **`onEnter`** today.
 
 We can use `onEnter` hooks to accomplish things like:
-  * Requesting the `current_user` from our API when our App first mounts.
   * Redirecting anonymous users to a sign-in page if they try to access certain 
   pages.
   * Initiating a new AJAX request when a route's query parameters change.
 
-These tasks could be accomplished -- to some degree -- with lifecycle methods, but 
-route hooks help simplify our components.
+These tasks could be accomplished -- to some degree -- with lifecycle methods, but route hooks help simplify our components.
 
 ## Syntax
 
@@ -26,8 +23,7 @@ In this example, `someCallback` will fire whenever our Router first matches the 
 
 ## Parameters
 
-When an `onEnter` callback function is invoked by the React Router, it is passed 3 
-arguments:
+When an `onEnter` callback function is invoked by the React Router, it is passed 3 arguments:
   * **`nextState`:** the next [router state][router-state].
   * **`replace`:** a function that, when invoked, tells the `Route` to navigate 
   to the path passed to `replace` instead of the original `path`:
