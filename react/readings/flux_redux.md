@@ -76,9 +76,9 @@ what makes a function pure.
 
 As you've probably already surmised, `React` will be our view layer.
 
-**NB**: Middleware is an ecosystem of utilities that augments the functionality of
-`dispatch()`. Among other things, it allows for asynchronous requests in a Redux
-application.
+**NB**: Middleware is an ecosystem of utilities that augments the functionality 
+of `dispatch()`. Among other things, it allows for asynchronous requests in a 
+Redux application.
 
 We'll learn more about each part in the Redux loop.
 
