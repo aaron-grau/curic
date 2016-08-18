@@ -101,9 +101,9 @@
 - [Synthesizer][synthesizer]
 
 ### Additional Resources
-*Note: The 'API' sections are especially useful.*
 - [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
+-	*Note: The 'API' sections are especially useful.*
 
 [store]: readings/store.md
 [reducers]: readings/reducers.md
