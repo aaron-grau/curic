@@ -75,7 +75,6 @@ general, these utility functions will accept two arguments:
 
 Your function should look something like the following:
 ```javascript
-*****
 export const fetchTodos(success, error) {
   $.ajax({
     method: // ,
@@ -83,7 +82,7 @@ export const fetchTodos(success, error) {
     success,
     error
   });
-}
+};
 ```
 
 ** Test your code: Try running your function in the console and make sure that it calls the success function that you passed to it. **
@@ -278,8 +277,6 @@ Our `TodoMiddleware` will be responsible for triggering the api calls that
 populate our `Store` with `todos`. Remember, Middleware receives dispatches
 before the store. It can decide to intercept the dispatch, trigger another
 dispatch, or simply pass on it and do nothing.
-
-*****
 
 + Create a file `middleware/todo_middleware.js`.
 + Import `REQUEST_TODOS` and `RECEIVE_TODOS` from your `todo_actions` file.
