@@ -30,7 +30,7 @@ const quotes = React.createElement(
 );
 ```
 
-Both blocks of code evaluate to:
+Both blocks of code ultimately produce the HTML:
 ```html
 <div class='quotes'><h1>I love JavaScript!</h1></div>
 ```
