@@ -6,8 +6,8 @@ As an introduction to React, we're going to build some simple
 interactive widgets. Before we get started, however, we need to set up
 our project with `npm`.
 
-Build a new React NPM project from scratch like you  
-[did in the 'Getting Started' homework][getting_started] but change your 
+Build a new React NPM project from scratch like you did in the  
+['Getting Started'][getting_started] homework, but change your 
 webpack entry point to be `widgets.jsx`.
 
 Your `widgets.jsx` should look have `DOMContentLoaded` listener that calls
