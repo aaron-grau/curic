@@ -16,30 +16,30 @@
 
 ### Readings
 
-#### ES6 & Lodash
-- [ES6 Syntax: Object Destructuring][object_destructuring]
-- [ES6 Syntax: Import / Export][import_export]
-- [Lodash][lodash]
+#### ES6 & Lodash (25 min)
+- [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
+- [ES6 Syntax: Import / Export][import_export] (10 min)
+- [Lodash][lodash] (5 min)
 
-#### Intro to React and JSX
-- [React][intro_to_react]
-- [JSX][intro_to_jsx]
-- [React Components][intro_to_react_components]
+#### Intro to React and JSX (25 min)
+- [React][intro_to_react] (5 min)
+- [JSX][intro_to_jsx] (10 min)
+- [React Components][intro_to_react_components] (10 min)
 
-#### Components in Detail
--	[Declaration][component_declaration]
-- [Props and State][props_and_state]
-- [Lifecycle Methods][component_lifecycle]
-- [Synthetic Events][synthetic_events]
+#### Components in Detail (30 min)
+-	[Declaration][component_declaration] (10 min)
+- [Props and State][props_and_state] (10 min)
+- [Lifecycle Methods][component_lifecycle] (5 min)
+- [Synthetic Events][synthetic_events] (5 min)
 
-#### Configuration
-- [NPM][npm_configuration]
-- [Webpack][webpack_configuration]
-- [Babel][babel_configuration]
+#### Configuration (35 min)
+- [NPM][npm_configuration] (15 min)
+- [Webpack][webpack_configuration] (10 min)
+- [Babel][babel_configuration] (10 min)
 
-### Homeworks
-- [Getting Started with NPM][getting_started]
-- [React Calculator][react_calculator]
+### Homeworks (60 min)
+- [Getting Started with NPM][getting_started] (30 min)
+- [React Calculator][react_calculator] (30 min)
 
 ### Projects
 
@@ -123,7 +123,7 @@
 
 ### Readings
 
-- [Higher-order functions]
+- [Higher-order functions][higher_order_functions]
 - [Middleware][middleware]
 - [API Interactions in Redux][redux_api_interactions]
 
@@ -133,6 +133,7 @@
 
 - [Todos][todos]
 
+[higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
 [redux_api_interactions]: readings/redux_api_interactions.md
 [todos]: projects/todos
