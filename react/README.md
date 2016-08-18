@@ -21,7 +21,7 @@
 - [ES6 Syntax: Import / Export][import_export]
 - [Lodash][lodash]
 
-#### Intro React and JSX
+#### Intro to React and JSX
 - [React][intro_to_react]
 - [JSX][intro_to_jsx]
 - [React Components][intro_to_react_components]
@@ -45,6 +45,11 @@
 
 - [Widgets][widgets]
 - [Minesweeper][minesweeper]
+
+### Additional Resources
+
+- [Official React Documentation][react_docs]
+	- Most Helpful: 'REFERENCE' Section (Left Sidebar)
 
 [video_deprecation_note]: readings/video_deprecation_note.md
 [react_video_01]: https://vimeo.com/album/3686654/video/147897911
@@ -74,6 +79,8 @@
 
 [widgets]: projects/widgets
 [minesweeper]: projects/react_minesweeper
+
+[react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
 ## w7d2
 
