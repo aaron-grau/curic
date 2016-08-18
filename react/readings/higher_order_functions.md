@@ -1,8 +1,8 @@
 # Higher-order Functions
 
-** Functions that operate on other functions, either by taking them as arguments or by returning them, are called "higher-order functions." **
+Functions that operate on other functions, either by taking them as arguments or by returning them, are called **higher-order functions**.
 
-Functions, in JavaScript and several other programming languages, are just normal values. This perspective makes it especially easy to abstract over the actions they represent.
+Functions, in JavaScript and several other programming languages, can be passed around as parameters (we call them 'callbacks'). This perspective makes it especially easy to abstract over the actions they represent.
 
 ## Closure
 
