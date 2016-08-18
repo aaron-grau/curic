@@ -13,6 +13,31 @@ list.
   * `annotate`
 * [ ] `bundle install`
 * [ ] `npm init --yes` to create a package.json file with the default setup.
+* [ ] Create a frontend folder at the root of your project with an entry file inside of it.
+* [ ] Create a webpack.config.js file.
+  * Include `devtool: 'source-maps'`.
+  * The entry point should be in frontend, e.g. `entry: './frontend/index.jsx'`.
+  * The output path should be `'app/assets/javascripts'`.
+  * Configure your module like so:
+  ```
+      module: {
+       loaders: [
+         {
+           test: [/\.jsx?$/, /\.js?$/],
+           exclude: /(node_modules|bower_components)/,
+           loader: 'babel',
+           query: {
+             presets: ['es2015', 'react']
+           }
+         }
+       ]
+     }
+ ```
+* [ ] `git init`
+  * Update your .gitignore (_don't skip this step!_).
+    * `node_modules/`
+    * `bundle.js`
+    * `bundle.js.map`
 * [ ] `npm install --save`
   * `webpack`
   * `react`
@@ -24,14 +49,6 @@ list.
   * `babel-loader`
   * `babel-preset-react`
   * `babel-preset-es2015`
-* [ ] Create a frontend folder at the root of your project with an entry file inside of it.
-* [ ] Create a webpack.config.js file.
-  * Include `devtool: 'source-maps'`.
-  * The entry point should be in frontend, e.g. `entry: './frontend/index.jsx'`.
-  * The output path should be `'app/assets/javascripts'`.
-* [ ] `git init`
-  * Update your .gitignore (_don't skip this step!_).
-    * `node_modules/`
-    * `bundle.js`
-    * `bundle.js.map`
-  * Commit and push
+* [ ] `git add . && git commit -m "some message"`
+  * `git remote add origin https://github.com/user/repo.git`
+  * `git push -u origin master`
