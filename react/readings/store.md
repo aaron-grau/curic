@@ -139,15 +139,10 @@ callback which logs the current state when called.
 
 #### React Components
 
-A React component can be kept up-to-date with changes in an application state by
-subscribing [`forceUpdate`][force-update] to the app's store.
+Connecting our React view layer to the store is accomplished via
+`store.subscribe()`. Let's define a React component `FruitStand` that takes the
+app's store as a `prop` and subscribes its `forceUpdate()` method to the store.
 
-When a React component's state or props change, it re-renders -- this is the
-basis of React. However, if a component depends on some other data (e.g. the
-state of a Redux store!), you can tell your React component that it needs to
-re-run `render()` by calling `forceUpdate()`.
-
-Let's define a React component `FruitStand` that takes the app's store as a prop and subscribes its render method to the store.
 ```js
 // components/fruit_stand.jsx
 import React from 'react';
@@ -158,8 +153,8 @@ class FruitStand extends React.Component {
 
 		/* Note: Subscribing `forceUpdate()` is not a recommended pattern and used 
 		for illustration purposes only. See the `NB` below. */
-
-		this.props.store.subscribe(this.forceUpdate.bind(this));
+		this.forceUpdate = this.forceUpdate.bind(this);
+		this.props.store.subscribe(this.forceUpdate);
 	}
 
 	render() {
@@ -176,21 +171,18 @@ class FruitStand extends React.Component {
 export default FruitStand;
 ```
 
-The idea is that by subscribing a React component's `render` method to the store
-via subscribing its `forceUpdate` method, the store becomes responsible for
-re-rendering our component with the updated state whenever actions are
-dispatched to it and trigger a change in the app's state. In other words,
-`FruitStand` will re-render whenever the app state changes.
+The idea is that by subscribing a React component to the store via its
+`forceUpdate()` method, the store triggers re-rendering of the component with
+the updated state every time it processes a `store.dispatch(action)` call. In other words, `FruitStand` will re-render whenever the app state changes.
 
 **NB**: Subscribing `forceUpdate()` tells a component to immediately re-render
 every time the store's contents change. This pattern works but is a rather blunt
-instrument for complex components, since re-rendering a parent causes a re-
+instrument for complex components, since re-rendering a parent causes re-
 rendering of all its children. We'll learn more about the `react-redux` library
 soon, which solves this problem via the `Provider / connect()` API.
 
 Check out our intro *Redux/React* fruit stand app in action
 [here][fruit_stand_with_react]!
-
 
 ## Official Documentation
 
