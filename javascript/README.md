@@ -337,7 +337,7 @@
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
 ### Homeworks (45 min)
-* [Vanilla DOM Manipulation][vanilla-dom]
+* [Vanilla DOM Manipulation][vanilla-dom] (45 min)
 
 ### Additional Resources
 * [Vanilla AJAX][vanilla-ajax]
