@@ -46,37 +46,35 @@ A Redux `store` is just an object that holds the application state, wrapped in a
 
 ## Updating the Store
 
-Store updates are triggered only via dispatched **actions**. An action in Redux
-is a POJO with a `type` key that indicate the type of the action being
-performed, and optional payload keys that contain new information for the state,
-if any.
-
-For example, let's create an fruit stand app that keeps track of an inventory of
-fruits. The action below tells our store to add an `'orange'` to the app state's
-array of fruits. It has the `action.type` of `'ADD_FRUIT'` and an `action.fruit`
-payload of `'orange'`.
+Store updates can only be triggered by dispatching **actions**:
 
 ```js
-// actions.js
+store.dispatch(action);
+``` 
+
+An `action` in Redux is just a plain object with:
+	1. a `type` key indicating the action being performed, and
+	2. optional payload keys containing any new information.
+
+For example, if our store handled a fruit stand's inventory, we would use the following action to add an orange to the inventory: 
+
+```js
 const addOrange = {
 	type: 'ADD_FRUIT',
 	fruit: 'orange'
 };
 
-export { addOrange };
+store.dispatch(addOrange);
 ```
 
-The only way to trigger a state change is to call `store.dispatch(action)`,
-which dispatches an action. Every time `dispatch()` is called, the store calls
-its `reducer` giving it the given `action` argument and the current state. Much
-more on the `reducer` next, but right now try to understand it as a Redux app's
-traffic cop, routing the new information to its rightful place in the state and
-defines the store's next state. The `reducer` or *reducing function* is simply a
-JavaScript function that takes two arguments the previous `state` and a Redux
-`action`, and returns the next `state`.
+When `store.dispatch()` is called, the store passes its current `state`, along
+with the `action` being dispatched, to the `reducer`. The `reducer` function
+takes the two arguments (`state` and `action`) and returns the next `state`.
+You'll read more more on the `reducer` in the next reading, but for now, think
+of it as a Redux app's traffic cop, routing new information to its rightful
+place in the state.
 
-Let's write a `reducer` for our fruit stand app that responds to actions of type
-`'ADD-FRUIT'`:
+Let's write a `reducer` for our fruit stand store:
 
 ```js
 // reducer.js
@@ -95,14 +93,14 @@ const reducer = (state = [], action) {
 export default reducer;
 ```
 
-**NB**:
+**Note**:
 -	The reducer's `state` parameter provides a default value; this is
 the **initial state** of our store prior to any actions. In this case, it's an
 empty array.
 -	In Redux, [**the state is immutable**][why-immutable], so the reducer
 must return a **new array or object** whenever the state changes.
 
-Now that we've defined our app's reducing function we can now `dispatch` the
+Now that we've defined our app's reducing function, we can now `dispatch` the
 `addOrange` action to our `store`:
 
 ```js
@@ -118,9 +116,7 @@ store.dispatch(addOrange);
 store.getState(); // ['orange']
 ```
 
-See our intro *Redux* fruit stand app in action [here][fruit_stand_redux_app]!
-
-[fruit_stand_redux_app]:../demos/fruit_stand_redux_app
+See the example above in action [here][fruit_stand_store_only]!
 
 ## Subscribing to the Store
 
@@ -193,15 +189,16 @@ rendering of all its children. We'll learn more about the `react-redux` library
 soon, which solves this problem via the `Provider / connect()` API.
 
 Check out our intro *Redux/React* fruit stand app in action
-[here][fruit_stand_react_app]!
+[here][fruit_stand_with_react]!
 
-[force-update]:https://facebook.github.io/react/docs/component-api.html#forceupdate
-[fruit_stand_react_app]:../demos/fruit_stand_react_app
 
 ## Official Documentation
 
 View the official documentation on the Redux store [here][redux-js].
 
+[fruit_stand_store_only]:../demos/fruit_stand_store_only
 [redux-js]: http://redux.js.org/docs/basics/Store.html
-
 [why-immutable]: https://github.com/reactjs/redux/issues/758
+[force-update]:https://facebook.github.io/react/docs/component-api.html#forceupdate
+[fruit_stand_with_react]:../demos/fruit_stand_with_react
+
