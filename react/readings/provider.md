@@ -4,7 +4,7 @@ So far we have dealt with the `redux` package, which, via `createStore()`,
 allows us to create `store` objects with `dispatch()`, `getState()`, and
 `subscribe()` methods. Using these methods alone, we could create a fully-
 functional React-Redux application. However, the creators of `redux` also give
-us `react-redux`, a set of [**bindings**][bindings] simplifying the most common React-Redux interactions.
+us `react-redux`, a node package with [**bindings**][bindings] simplifying the most common React-Redux interactions.
 
 ## Setup
 
