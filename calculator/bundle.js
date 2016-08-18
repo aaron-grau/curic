@@ -21575,8 +21575,8 @@
 	          null,
 	          result
 	        ),
-	        _react2.default.createElement("input", { onChange: this.setNum1 }),
-	        _react2.default.createElement("input", { onChange: this.setNum2 }),
+	        _react2.default.createElement("input", { onChange: this.setNum1, value: num1 }),
+	        _react2.default.createElement("input", { onChange: this.setNum2, value: num2 }),
 	        _react2.default.createElement(
 	          "button",
 	          { onClick: this.clear },
