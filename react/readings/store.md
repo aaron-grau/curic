@@ -3,24 +3,13 @@
 ## Introduction
 
 The **store** is the central element of Redux's architecture. It holds the
-global *state* of an application.
+global **state** of an application.
 
-It is responsible for:
+The store is responsible for:
 + updating an app's state via its *reducer*;
 + broadcasting the state to an application's view layer via *subscription*;
 + listening for *actions* that tell it how and when to change the global state
  of an application.
-
-## Store API
-
-A Redux `store` is not a class. It is just an object that holds the application
-state, wrapped in a minimalist API.
-
-#### Store Methods
-+ `getState()` - Returns the store's current state.
-+ `dispatch(action)` - Passes an `action` into the store's `reducer` telling it
- what information to update.
-+ `subscribe(listener)` - Registers callbacks to be triggered whenever the store updates.
 
 ## Creating the Store
 
@@ -35,7 +24,6 @@ createStore(reducer, [preloadedState], [enhancer])
  that existed before the store was created.
 + `enhancer` (optional) - A `function` that adds extra functionality to the store.
 
-
 Here is an example of how to create a store:
 
 ```js
@@ -45,6 +33,16 @@ import reducer from './reducer.js';
 
 const store = createStore(reducer);
 ```
+
+## Store API
+
+A Redux `store` is just an object that holds the application state, wrapped in a minimalist API.
+
+#### Store Methods
++ `getState()` - Returns the store's current state.
++ `dispatch(action)` - Passes an `action` into the store's `reducer` telling it
+ what information to update.
++ `subscribe(listener)` - Registers callbacks to be triggered whenever the store updates.
 
 ## Updating the Store
 
