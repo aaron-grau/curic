@@ -6,33 +6,20 @@ As an introduction to React, we're going to build some simple
 interactive widgets. Before we get started, however, we need to set up
 our project with `npm`.
 
-Build a new React NPM project from scratch like you [did this
-weekend][npm-demo-link] but change your webpack entry point to be
-`widgets.jsx`. Don't forget to [set up Git to play nicely with
-NPM][git-npm-reading].
+Build a new React NPM project from scratch like you  
+[did in the 'Getting Started' homework][getting_started] but change your 
+webpack entry point to be `widgets.jsx`.
 
-Your `widgets.jsx` should look a lot like `hello_world.jsx` from the
-weekend exercise: one binding point where you call `ReactDOM.render`,
-and one meta-component that will instantiate all the other components in
-its `render` method. Name your meta-component `Widgets`.
+Your `widgets.jsx` should look have `DOMContentLoaded` listener that calls
+`ReactDOM.render()` with a `Widgets` component and a `root` DOM element as the
+hook.
 
-The reason we do it this way is to avoid having multiple Virtual DOMs.
-If we were to bind each widget to a separate place in our HTML, we would
-have as many React DOM trees as we have components, which is inefficient
-and hard to manage.
-
-Lastly, we won't be using jQuery for this project. If you're not sure
+Lastly, we won't be using `jQuery` for this project. If you're not sure
 how to do something without it, use Google as a resource and ask a TA
 if needed.
 
 [npm-demo-link]: ../../readings/npm_reading.md
 [git-npm-reading]: ../../readings/git_and_npm.md
-
-## React Component Refresher
-
-* Create components with `React.createClass`.
-* Render components onto the page using `ReactDOM.render`.
-* React will automatically re-render when a component's state changes.
 
 ## Running a Simple Server
 
@@ -46,30 +33,28 @@ npm install -g http-server
 
 We can now load the server by simply running `http-server`. Do this in
 another terminal tab, then navigate to `http://localhost:8080` and
-ensure you can still see your modified "Hello World" component.
+ensure you can still see your `Widgets` component.
 
 **Tricky Bug**: If you change your javascript code and the sourcemap doesn't change in the browser, check out [this stackoverflow][sourcemap-cache-fail].
 
 [sourcemap-cache-fail]: http://stackoverflow.com/questions/15505311/how-to-get-chrome-to-reload-source-maps
 
-
 ## Tabs
 
 ### Goal
 
-Make a `Tabs` component. Widgets should pass `Tabs` an array of javascript objects (the data for the tabs)that have
-`title` and `content` as keys. Display all the titles, but have
-the selected title in **bold** font. Below, it should display only the
-contents of the selected tab. The content pane should update when the
-user selects different headers.
+Make a `Tabs` component. `Widgets` should pass `Tabs` an array of Javascript
+objects (the data for the tabs) that have `title` and `content` as keys. Display
+all the titles, but have the selected title in **bold** font. Below, it should
+display only the contents of the selected tab. The content pane should update
+when the user selects different headers.
 
 ### Tips
 
 * Keep track of the selected tab's index in your `Tabs` component's
   state. Set it initially to zero.
 
-* In the render method of `Tabs`, render a collection of `<h1>`s (with titles) in a
-  `<ul>` and the content of the selected tab in an `<article>`.
+* In the render method of `Tabs`, render a collection of `<h1>`s (with titles) in a `<ul>` and the content of the selected tab in an `<article>`.
 
 * Consider creating a `Header` subcomponent.
 
@@ -141,7 +126,7 @@ weather.
 
   - Hint: pass a callback to your location query
 
-* Render the current weather and temperature on the page
+* Render the current weather and temperature on the page.
 
 [clearInterval]: http://stackoverflow.com/questions/5978519/setinterval-and-how-to-use-clearinterval#answer-5978560
 [componentDidMount]: https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount
@@ -157,7 +142,7 @@ weather.
 
 ### Goal
 
-Make an Autocomplete component that filters a list of names by the
+Make an `Autocomplete` component that filters a list of names by the
 user's input. Match only names that start with the search input. When
 a user clicks on a name, the input field should autocomplete to that
 name.
@@ -188,7 +173,7 @@ name.
     diff the DOM when one doesn't even know which list items match up
     with which!?"
 
-* Set your initial state as an empty string using `getInitialState`
+* Set your initial state as an empty string using `getInitialState`.
 
 * When a user types something into the input, use an event handler to
   update the widget's state. Remember, no jQuery!
