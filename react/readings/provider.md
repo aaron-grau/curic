@@ -21,7 +21,7 @@ import { Provider } from 'react-redux';
 
 Oftentimes, a deeply nested component will need access to the store, while its
 parents do not. With vanilla React, those parents nonetheless have to receive
-the `store` prop, just to pass it down to the child. Consider the example below:
+the `store` prop in order to pass it down to the child. Consider the example below:
 
 ```js
 
