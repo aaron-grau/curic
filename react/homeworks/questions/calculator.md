@@ -21,6 +21,13 @@ sure you also update this in your webpack config! Run `webpack
 Open `index.html` and make sure you can see 'Hello World' in the
 browser.
 
+If you were having trouble getting your configuration set up, use
+the [skeleton here][skeleton]. Remember to run `npm install` and
+`webpack --watch` after downloading the skeleton.
+
+[skeleton]: https://github.com/appacademy/curriculum/blob/master/react/homeworks/questions/calculator_skeleton.zip
+
+
 ## The `Calculator` Component
 
 Make a new file called `calculator.jsx`. Paste in this skeleton.
@@ -168,4 +175,4 @@ Think about other ways you could refactor your code.
 
 Congratulations! You've created your first component!
 
-[destructure]: https://github.com/appacademy/curriculum/blob/redux/react/readings/object_destructuring.md
+[destructure]: https://github.com/appacademy/curriculum/blob/master/react/readings/object_destructuring.md
