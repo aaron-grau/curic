@@ -9,7 +9,7 @@ actions to the store. We'll write middleware to handle and trigger the appropria
 The most basic step to setting up an AJAX framework is to create a utility file
 that exports methods that we can call to make requests to the API.
 
-```
+```js
 // utils/cat_api_util.js
 
 export const fetchCats = (success, error) => {
@@ -35,7 +35,7 @@ Flux, or any other architecture.
 
 We need to create specific actions that correspond with our API steps:
 
-```
+```js
 // actions/cat_actions.js
 
 export const REQUEST_CATS = "REQUEST_CATS";
