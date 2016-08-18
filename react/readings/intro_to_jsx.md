@@ -19,8 +19,7 @@ const quotes = (
 
 ```js
 // plain JavaScript
-const quotes =
-React.createElement(
+const quotes = React.createElement(
   'div',
   { className: 'quotes' },
   React.createElement(
