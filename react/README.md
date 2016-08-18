@@ -39,6 +39,7 @@
 
 ### Homeworks
 - [Getting Started with NPM][getting_started]
+- [React Calculator][react_calculator]
 
 ### Projects
 
@@ -66,7 +67,9 @@
 [webpack_configuration]: readings/webpack_configuration.md
 [babel_configuration]: readings/babel_configuration.md
 [lodash]: readings/lodash.md
+
 [getting_started]: homeworks/getting_started
+[react_calculator]: homeworks/questions/calculator.md
 
 [widgets]: projects/widgets
 
