@@ -14,7 +14,7 @@ Your `widgets.jsx` should look have `DOMContentLoaded` listener that calls
 `ReactDOM.render()` with a `Widgets` component and a `root` DOM element as the
 hook.
 
-Lastly, we won't be using `jQuery` for this project. If you're not sure
+Note: we won't be using `jQuery` for this project. If you're not sure
 how to do something without it, use Google as a resource and ask a TA
 if needed.
 
