@@ -1,19 +1,22 @@
-'use strict';
+import React from 'react';
 
-const React = require('react');
+export default class Clock extends React.Component {
 
-const Clock = React.createClass({
-  getInitialState() {
-    return {time: new Date()};
-  },
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: new Date()
+    };
+    this.tick = this.tick.bind(this);
+  }
 
   componentDidMount() {
     this.intervalId = setInterval(this.tick, 1000);
-  },
+  }
 
   tick() {
     this.setState({time: new Date()});
-  },
+  }
 
   render() {
     let hours = this.state.time.getHours();
@@ -40,8 +43,4 @@ const Clock = React.createClass({
       </div>
     );
   }
-});
-
-
-
-module.exports = Clock;
+};

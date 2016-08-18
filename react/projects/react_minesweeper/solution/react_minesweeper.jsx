@@ -1,10 +1,8 @@
-"use strict";
+import Game from './components/game';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const Game = require('./components/game');
-const React = require('react');
-const ReactDOM = require('react-dom');
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
 	  <Game />,
 	  document.getElementById('main')

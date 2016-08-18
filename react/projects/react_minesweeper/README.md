@@ -11,16 +11,15 @@ React components will be updating and re-rendering the board's current
 state based on user input.
 
 Go ahead and look at the interface defined in our [`minesweeper.js`
-library ][mineseeper-js]. That file's `module.exports` is an object
-containing the Board and Tile classes. I recommend `require`ing the
-object into your JSX files as `Minesweeper`, such that you can access
-the Tile and Board API through `Minesweeper.Board` and
-`Minesweeper.Tile`.
+library ][minesweeper-js]. That file's `exports` are the Board and Tile
+classes. I recommend `import`ing all objects into your JSX files aliased as
+`Minesweeper`, such that you can access the Tile and Board API through
+`Minesweeper.Board` and `Minesweeper.Tile`.
 
 Alright, let's get started!
 
 [live-solution]: http://appacademy.github.io/curriculum/minesweeper/index.html
-[mineseeper-js]: http://appacademy.github.io/react-minesweeper/minesweeper.js
+[minesweeper-js]: http://appacademy.github.io/react-minesweeper/minesweeper.js
 
 ## Phase 0: Setup
 
@@ -39,9 +38,9 @@ when installing it for the Widgets project.
 
 ## Phase 1: Game
 
-Start by creating a Game component using `React.createClass`. In
-`getInitialState`, initialize a new `Minesweeper.Board` and set it as
-the `board` property of the initial state object. This will be the 
+Start by creating a `Game` component using `extends React.Component`. In
+`constructor()`, initialize a new `Minesweeper.Board` and set it as
+the `board` property of the initial state object. This will be the
 object that we continuously update over the course of the game.
 
 Stub out a second function, `updateGame`, but don't write anything
@@ -51,6 +50,8 @@ component, Board, passing in `this.state.board` and `this.updateGame`
 as props. The Board component will pass the `updateGame` function to
 each individual tile: ultimately, this is how we'll make sure that the
 board re-renders when the state of the game changes.
+
+Don't forget to bind your functions in your constructor.
 
 ## Phase 1a: React.render / Tile Stub
 

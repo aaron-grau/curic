@@ -1,19 +1,20 @@
-"use strict";
+import Board from './board';
+import React from 'react';
+import * as Minesweeper from '../minesweeper';
 
-const Board = require('./board');
-const React = require('react');
-const Minesweeper = require('../minesweeper');
-
-const Game = React.createClass({
-  getInitialState() {
+class Game extends React.Component{
+  constructor(props) {
+    super(props);
     const board = new Minesweeper.Board(9, 10);
-    return({ board });
-  },
+    this.state = { board: board };
+    this.restartGame = this.restartGame.bind(this);
+    this.updateGame = this.updateGame.bind(this);
+  }
 
   restartGame() {
     const board = new Minesweeper.Board(9, 10);
-    this.setState({ board });
-  },
+    this.setState({ board: board });
+  }
 
   updateGame(tile, flagged) {
     if (flagged) {
@@ -23,7 +24,7 @@ const Game = React.createClass({
     }
 
     this.setState({ board: this.state.board });
-  },
+  }
 
   render() {
     let modal;
@@ -35,7 +36,7 @@ const Game = React.createClass({
             <p>{text}</p>
             <button onClick={this.restartGame}>Play Again</button>
           </div>
-        </div>
+        </div>;
     }
 
     return (
@@ -43,8 +44,8 @@ const Game = React.createClass({
         {modal}
         <Board board={this.state.board} updateGame={this.updateGame} />
       </div>
-    )
+    );
   }
-});
+}
 
-module.exports = Game;
+export default Game;
