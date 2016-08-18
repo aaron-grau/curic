@@ -1,17 +1,19 @@
-'use strict';
+import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-const React = require('react');
-const ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-
-
-const AutoComplete = React.createClass({
-  getInitialState() {
-    return {inputVal: ''};
-  },
+export default class AutoComplete extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputVal: ''
+    };
+    this.selectName = this.selectName.bind(this);
+    this.handleInput = this.handleInput.bind(this)
+  }
 
   handleInput(event) {
     this.setState({inputVal: event.currentTarget.value});
-  },
+  }
 
   matches() {
     const matches = [];
@@ -31,21 +33,19 @@ const AutoComplete = React.createClass({
     }
 
     return matches;
-  },
+  }
 
   selectName(event) {
     let name = event.currentTarget.innerText;
     this.setState({inputVal: name});
-  },
+  }
 
   render() {
     let results = this.matches().map((result, i) => {
       return (
-          <li key={i} onClick={this.selectName}>{result}</li>
+        <li key={i} onClick={this.selectName}>{result}</li>
       );
     });
-
-
     return(
       <div>
         <h1>Autocomplete</h1>
@@ -66,6 +66,4 @@ const AutoComplete = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = AutoComplete;
+};
