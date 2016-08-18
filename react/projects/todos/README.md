@@ -18,6 +18,7 @@ In this phase you will create a Rails app that stores `Todo`s and serves JSON in
   + Nest your routes under `api/` and call your controller `Api::TodosController`
   + Your controller will need `index`, `create`, `update`, and `destroy` actions
   + Make your controller actions serve JSON-formatted responses
+    + In `config/resources.rb`, set `defaults: {format: :json}` for your `namespace :api`
 + Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`
   + Don't forget to update `routes.rb` to `root to: Staticpages#root`
 + Start your server so that it can respond to HTTP requests
@@ -74,6 +75,7 @@ general, these utility functions will accept two arguments:
 
 Your function should look something like the following:
 ```javascript
+*****
 export const fetchTodos(success, error) {
   $.ajax({
     method: // ,
@@ -219,7 +221,7 @@ Selectors are "getter" methods for the application state. They receive the state
 
 Now you'll write the code that creates the `actions` that tell your `TodosReducer` how to update the state.
 
-Let's write a couple action creators. The first one will request `todos` from the backend, and the second one will receive the requested `todos`.
+Let's write a couple action creators. The first one will request `todos` from the backend, and the second one will receive the requested `todos`. They will both live in `actions/todo_actions.js`.
 
 Remember that:
   + `action` objects are plain-old javascript objects that have a `type` property.
@@ -276,6 +278,8 @@ Our `TodoMiddleware` will be responsible for triggering the api calls that
 populate our `Store` with `todos`. Remember, Middleware receives dispatches
 before the store. It can decide to intercept the dispatch, trigger another
 dispatch, or simply pass on it and do nothing.
+
+*****
 
 + Create a file `middleware/todo_middleware.js`.
 + Import `REQUEST_TODOS` and `RECEIVE_TODOS` from your `todo_actions` file.
@@ -453,7 +457,7 @@ Create your `TodoList` component.
 
 If we've done our job with our container component, all this presentational component will have to do is:
 
-+ Dispatch a `fetchTodos` action on `componentDidMount`
++ Dispatch a `requestTodos` action on `componentDidMount`
 + Render the titles of its `todos` prop as list items inside of a `<ul>`
 
 ** Test your code: Reload your app and see your list of `todos`! **
