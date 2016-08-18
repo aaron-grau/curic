@@ -33,7 +33,7 @@ class PokemonForm extends React.Component {
     if (this.props.pokemonErrors) {
       return (
         this.props.pokemonErrors.responseJSON.map((error) => {
-          return (<li key={error}>{error}</li>);
+          return (<li className="error" key={error}>{error}</li>);
         })
         );
     }
@@ -42,7 +42,8 @@ class PokemonForm extends React.Component {
 
 	render() {
     return (
-      <section>
+      <section className="pokemon-detail">
+        <img src="/assets/pokemon-logo.png" alt="Copyright of Nintendo Pokemon"/>
         <ul>
           {this.errors()}
         </ul>
@@ -50,14 +51,17 @@ class PokemonForm extends React.Component {
             <input
               type="text"
               value={this.state.name}
+              placeholder="Name"
               onChange={this.update('name')}/>
             <input
               type="text"
               value={this.state.image_url}
+              placeholder="Image Url"
               onChange={this.update('image_url')}/>
             <select
               value={this.state.type}
               onChange={this.update('poke_type')}>
+              <option disabled selected>Select Pokemon Type</option>
               {this.props.pokemonTypes && this.props.pokemonTypes.map((type, i) => {
                 return <option value={type} key={i}>{type}</option>;
               })}
@@ -65,20 +69,24 @@ class PokemonForm extends React.Component {
             <input
               type="number"
               value={this.state.attack}
+              placeholder="Attack"
               onChange={this.update('attack')}/>
             <input
               type="number"
               value={this.state.defense}
+              placeholder="Defense"
               onChange={this.update('defense')}/>
             <input
               type="text"
               id="move_1"
               value={this.state.moves.move_1 || '' }
+              placeholder="Move 1"
               onChange={this.update('moves')}/>
             <input
               type="text"
               id="move_2"
               value={this.state.moves.move_2 || ''}
+              placeholder="Move 2"
               onChange={this.update('moves')}/>
           <button>Create Pokemon</button>
         </form>

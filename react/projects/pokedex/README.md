@@ -22,17 +22,18 @@ JSON response instead of HTML. When we render a template, instead of looking for
 As before, you will need to set up a `package.json` and `webpack.config.js` file to configure your application to use NPM and Webpack. First, run `npm init -f` to initialize `package.json` to the default settings. Normally you could now proceed to run `npm install --save 'package-name'` to install the dependencies of your project. In this case however, we want to use specific versions of each package to ensure that none of the syntax has changed since these instructions were written. To that end, add (or replace if it already exists) a "dependencies" key in the `package.json` file with these contents:
 
 ```json
-"dependencies": {
-  "babel-core": "^6.1.4",
-  "babel-loader": "^6.1.0",
-  "babel-preset-es2015": "^6.6.0",
-  "babel-preset-react": "^6.1.4",
-  "flux": "^2.1.1",
-  "react": "^0.14.2",
-  "react-dom": "^0.14.2",
-  "react-router": "^2.0.0",
-  "webpack": "^1.12.4"
-}
+  "dependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-core": "^6.13.2",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "react-redux": "^4.4.5",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-router": "^2.6.1",
+    "redux": "^3.5.2",
+    "webpack": "^1.13.1"
+  }
 ```
 
 Run `npm install` to generate your `node_modules` folder.
@@ -44,17 +45,16 @@ file called `webpack.config.js` in the root of your project and add the
 following content:
 
 ```js
-var path = require("path");
-
+const path = require('path');
 module.exports = {
   context: __dirname,
-  entry: "./frontend/pokedex.jsx",
+  entry: './frontend/pokedex.jsx',
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
-    filename: "bundle.js"
+    filename: 'bundle.js'
   },
   resolve: {
-    extensions: ["", ".js", ".jsx"]
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
@@ -68,10 +68,11 @@ module.exports = {
       },
       {
         test: /\.node$/,
-        loader: "node-loader"
+        loader: 'node-loader'
       }
     ]
-  }
+  },
+  devtool: 'source-maps'
 };
 ```
 
@@ -79,6 +80,7 @@ Now that Webpack knows to create `bundle.js`, we need to require it in our
 `application.js`:
 
 ```js
+//= require jquery_ujs
 //= require bundle
 ```
 
@@ -191,8 +193,12 @@ In order to properly configure the new middleware with the store we will have to
 
 **Test that your PokemonIndex component now renders some pokemon**
 
-```
-COMPONENT EXAMPLE
+```html
+<section className="pokedex">
+  <ul>
+    {// mapping of pokemon list elements}
+  </ul>
+</section>
 ```
 
 ### Provider
@@ -215,7 +221,6 @@ Next instead of rendering the `<PokemonIndexContainer>` directly setup a route t
 
 **Make sure the pokemon still render before moving on**
 
-
 ### Pokemon Index Item
 
 Let's refactor each of our pokemon into their own pokemon index item components. This is a great pattern for keeping our components minimal. Now the list will only care about rendering all of the list items and the items will care about the functionality of showing their details.
@@ -231,6 +236,15 @@ Create a `_handleClick` function in the `<PokemonIndexItem>` that receives the r
 After clicking the pokemonIndexItem we expect to see a warning error in the console: `[react-router] Location "/pokemon/1" did not match any routes`.
 
 This tells us that the router was looking for a route and corresponding component to render but couldn't find one. Let's make a pokemonDetail component.
+
+PokemonIndexItem Example JSX structure:
+```html
+<li className="pokemon-index-item" onClick={}>
+    <span>{}</span>
+    <img src={} alt={}/>
+    <span>{}</span>
+</li>
+```
 
 ### Pokemon Detail
 
@@ -263,9 +277,24 @@ Nest the `PokemonDetail` route under the route for the `PokemonIndex` and then *
 
 There exists one problem with our implementation. Currently if the component is mounted then the state is updated and the pokemon detail displays the correct information. But what if the component is already mounted and we click on a different pokemon? Check the store in the console to confirm that the state is not being reduced and then talk with your partner about a certain lifecycle method that may solve the problem.
 
-Here is the sample html structure for a pokemonDetail:
+Sample jsx structure for a pokemonDetail:
 ```html
-
+<section className="pokemon-detail">
+  <ul>
+    <img src={} alt=""/>
+      <li><h2>{}</h2></li>
+      <li>Type: {}</li>
+      <li>Attack: {}</li>
+      <li>Defense: {}</li>
+      <li>Moves: &#34;{}&#34;</li>
+    <section className="toys">
+        <h3>Toys</h3>
+      <ul className="toy-list">
+        {}
+      </ul>
+    </section>
+  </ul>
+</section>
 ```
 
 **Before moving on we have an important adjustment to make. What happens when we click on the same pokemon?**
@@ -323,6 +352,21 @@ We want this form to appear when at the same root path as the `PokemonIndex` but
 
 The final tricky piece of functionalities with this Pokemon form are the redirect callback and error handling.
 
+Sample Pokemon Form jsx structure:
+```html
+      <section className="pokemon-detail">
+        <img src="/assets/pokemon-logo.png"/>
+        <ul>
+          {map list elements for errors with class "error"}
+        </ul>
+        <form className="pokemon-form" onSubmit={this.handleSubmit}>
+            {// input elements for all but pokemon types}
+            {// use select and option elements for pokemon types }
+          <button>Create Pokemon</button>
+        </form>
+      </section>
+```
+
 ### Redirecting
 
 Once the posting is complete we want the application to redirect to the newly created pokemon. We need to wait because we need this pokemon's ID in order to push to that URL. Unfortunately this is one of the downfalls to implementing the react router separate from redux. We do not have the router as a part of our application state so instead we suggest using the slightly older way of implementing navigation: `import {hashHistory} from 'react-router';` 
@@ -341,6 +385,12 @@ The server is great at telling us whether or not our new pokemon is being insert
 4. Add a mapStateToProps function that connects in the `PokemonFormContainer`
 5. Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
 
-## Bonus: Loading Spinner
+## Bonus
 
-Use next(action) in your Pokemon Middleware to always assure the passing of your actions to the reducer. This way you can reduce actions such as `RequestPokemon` in order to describe an intermediary state of your application. Set this state back to normal when the reducing `ReceivePokemon` actions.
+### Loading Spinner
+
+Use `next(action)` in your Pokemon Middleware to always assure the passing of your actions to the reducer. This way you can reduce actions such as `RequestPokemon` in order to describe an intermediary state of your application. Set this state back to normal when reducing `ReceivePokemon` actions.
+
+### Update Toys
+
+Add the ability to reassign toys to different Pokemon.

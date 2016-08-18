@@ -12,7 +12,7 @@
 def create_random_toy!(pokemon)
   Toy.create!(
     pokemon_id: pokemon.id,
-    name: SecureRandom.urlsafe_base64(8),
+    name: Faker::Superhero.name,
     price: (1..100).to_a.sample,
     happiness: (1..100).to_a.sample,
     image_url: %w(
