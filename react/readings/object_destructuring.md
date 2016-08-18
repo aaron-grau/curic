@@ -25,7 +25,7 @@ It also works for nested objects:
 ```js
 const {a: { b }} = {a: {b: 2}};
 
-a; // undefined
+a; // undefined (gasp)
 b; // 2
 ```
 To reference both `a` and `b` above, we need to do: 
@@ -42,9 +42,9 @@ This works even if we have a variable or function that returns an object.
 const multiply = n => { one: n, two: n * 2, three: n * 3 };
 
 const { one, two, three } = multiple(10);
-// one === 10
-// two === 20
-// three === 30
+one; // 10
+two; // 20
+three; // 30
 ```
 
 ```javascript
@@ -56,10 +56,10 @@ this.props = {
   }
 };
 
-{ userId, user: { fname, lname } } = this.props;
-// userId === 1
-// fname === 'Ned'
-// lname === 'Ruggeri'
+const { userId, user: { fname, lname } } = this.props;
+userId; // 1
+fname; // 'Ned'
+lname; // 'Ruggeri'
 ```
 
 It's much nicer to have these variables to refer to instead of having to call
