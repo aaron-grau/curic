@@ -49,6 +49,6 @@ list.
   * `babel-loader`
   * `babel-preset-react`
   * `babel-preset-es2015`
-* [ ] `git add . && git commit -m "some message"`
+* [ ] `git add . && git commit -m "init commit"`
   * `git remote add origin https://github.com/user/repo.git`
   * `git push -u origin master`
