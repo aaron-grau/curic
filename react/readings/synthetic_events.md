@@ -1,4 +1,4 @@
-# React SyntheticEvents (a.k.a. Event Handlers)
+# React Synthetic Events (a.k.a. Event Handlers)
 
 Synthetic Events are the the React equivalent of the vanilla DOM's
 `addEventListener()`. Using Synthetic Events, you can pass event listeners
