@@ -17,14 +17,12 @@ be performed on the application’s state. An action may contain additional data
 (the "payload") that’s necessary for changing the application’s former state to
 its next one.
 
-
 ## Dispatcher
 
 The dispatcher is a mechanism for distributing (or "dispatching") actions to a
 Flux application’s store. The dispatcher is little more than a registry of
 callback functions into the store. Redux (the implementation of Flux we’ll use
 at App Academy) consolidates the dispatcher into a single `dispatch()` function.
-
 
 ## Store
 
@@ -35,7 +33,6 @@ receives an action. This callback function uses the action’s type to invoke th
 proper function to change the application’s state. After the store has changed
 state, it “emits a change,” i.e. the store passes the new state to any views
 (explanation incoming) that have registered listeners (callbacks) to it.
-
 
 ## View
 
@@ -48,6 +45,8 @@ A view can create actions itself, e.g. in user-triggered events. If a user marks
 a todo as complete, a view might call a function that would dispatch an action
 to toggle the todo’s state. Creating an action from the view turns our Flux
 pattern into a unidirectional loop.
+
+As you've probably already surmised, `React` will be our view layer.
 
 ![flux-loop]
 
