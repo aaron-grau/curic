@@ -26,7 +26,7 @@ This one's a little trickier. We want to make it so that users can input a place
 
 ### Phase III: Adding your own photos
 
-Finally, update the last section to allow users to add their own photos of cute puppies. Clicking the "Toggle new photo form" button should show or hide the form to add a photo. When submitted, the form should then append a new list item containing an `<img>` tag to the bottom of the puppy list. Because of the styling already set, the photos should appear side by side. Don't forget that you're appending to the `<ul>` a `<li>` that itself contains an `<img>` tag. You should do this in multiple steps! Hint: what property do we want to set on the new `<img>` tag once we've created it?
+Finally, update the last section to allow users to add their own photos of cute puppies. Clicking the "Toggle new photo form" button should show or hide the form to add a photo. When submitted, the form should then append a new list item containing an `<img>` tag to the bottom of the puppy list. Because of the styling already set, the photos should appear side by side. Don't forget that you're appending an `<li>` that contains an `<img>` tag to the `<ul>`. You should do this in multiple steps! Hint: what property do we want to set on the new `<img>` tag once we've created it?
 
 Once you're done, compare with the [solution][solution].
 
