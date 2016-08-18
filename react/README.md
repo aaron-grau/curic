@@ -84,15 +84,15 @@
 
 ## w7d2
 
-### Readings
+### Readings (90 min)
 
-- [Flux Pattern][flux]
-- [Store][store]
-- [Reducers][reducers]
-- [Actions][actions]
-- [`<Provider/>`][provider]
-- [`connect()`][connect]
-- [Containers][containers]
+- [Flux and Redux Intro][flux_redux] (10 min)
+- [Store][store] (15 min)
+- [Reducers][reducers] (15 min)
+- [Actions][actions] (10 min)
+- [`<Provider/>`][provider] (15 min)
+- [`connect()`][connect] (15 min)
+- [Containers][containers] (10 min)
 
 ### Homeworks
 
@@ -108,7 +108,7 @@
 [store]: readings/store.md
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
-[flux]: readings/flux.md
+[flux_redux]: readings/flux_redux.md
 [provider]: readings/provider.md
 [connect]: readings/connect.md
 [containers]: readings/containers.md
