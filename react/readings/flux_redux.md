@@ -46,8 +46,6 @@ a todo as complete, a view might call a function that would dispatch an action
 to toggle the todo’s state. Creating an action from the view turns our Flux
 pattern into a unidirectional loop.
 
-As you've probably already surmised, `React` will be our view layer.
-
 ![flux-loop]
 
 Here the original action might (for example) result from an asynchronous request
@@ -75,6 +73,8 @@ objects instead of mutating previous state. Read [more][pure-functions] about
 what makes a function pure.
 
 ![redux-loop]
+
+As you've probably already surmised, `React` will be our view layer.
 
 **NB**: Middleware is an ecosystem of utilities that augments the functionality of
 `dispatch()`. Among other things, it allows for asynchronous requests in a Redux
