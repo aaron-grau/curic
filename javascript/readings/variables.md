@@ -5,13 +5,13 @@ There are a few different ways to declare variables and constants in JavaScript.
 1. **`var`**
 2. **`let`** (ES6+)
 3. **`const`** (ES6+)
-4. **`window.`** and **`global.`**
+4. **`window`** and **`global`**
 
 Note: the subsections below talk a great deal about scoping in JavaScript. Some things will make more sense after you have learned about scope, so reread as necessary!
 
 ## Declaration
 
-In JavaScript, in order to use a variable or constant, we must declare it by prepending the variable's name with `var`, `let`, or `const`. Such a **variable declaration** introduces it to the environment. 
+In JavaScript, in order to use a variable or constant, we must declare it by prepending the variable's name with `var`, `let`, or `const`. Such a **variable declaration** introduces it to the environment.
 
 ## `var`
 
@@ -21,7 +21,7 @@ To declare a function-scoped variable, use the `var` keyword.
 var myVar;
 ```
 
-To declare a variable and assign it a value: 
+To declare a variable and assign it a value:
 
 ```javascript
 var myVar = 5;
@@ -40,9 +40,9 @@ Since we have not declared myVar, you'll see an error message.
 > var myVar;
 undefined
 
-> myVar; 
+> myVar;
 // We now can use myVar without error because we declared it.
-undefined 
+undefined
 // Evaluates to undefined because we did not initialize myVar to any value.
 
 > myVar = 5;
@@ -159,7 +159,7 @@ function why() {
 
 ```
 
-Unintended global variables create confusing, unpredictable errors. If you intentionally want to create a global variable (i.e. to define a library such as JQuery or Underscore), explicitly add it to your environment's global context: 
+Unintended global variables create confusing, unpredictable errors. If you intentionally want to create a global variable (i.e. to define a library such as JQuery or Underscore), explicitly add it to your environment's global context:
 
 ```js
 // node

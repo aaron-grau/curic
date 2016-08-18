@@ -2667,3 +2667,1303 @@ Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-06-01 12
 
 
 Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-06-01 12:03:07 -0700
+  [1m[36m (32.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (16.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140427221221)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (22.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255) NOT NULL, "password_digest" character varying(255) NOT NULL, "session_token" character varying(255) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.6ms)[0m  CREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140427221221"]]
+  [1m[35m (3.1ms)[0m  COMMIT
+Migrating to CreateTweets (20140829020915)
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "tweets" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.6ms)[0m  [1mCREATE  INDEX  "index_tweets_on_user_id" ON "tweets"  ("user_id")[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140829020915"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFollows (20140829021533)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "follows" ("id" serial primary key, "followee_id" integer NOT NULL, "follower_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.0ms)[0m  CREATE  INDEX  "index_follows_on_followee_id" ON "follows"  ("followee_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE  INDEX  "index_follows_on_follower_id" ON "follows"  ("follower_id")[0m
+  [1m[35m (3.1ms)[0m  CREATE UNIQUE INDEX  "index_follows_on_followee_id_and_follower_id" ON "follows"  ("followee_id", "follower_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140829021533"]]
+  [1m[35m (2.4ms)[0m  COMMIT
+Migrating to CreateMentions (20140829022442)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (6.1ms)[0m  CREATE TABLE "mentions" ("id" serial primary key, "tweet_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.0ms)[0m  [1mCREATE  INDEX  "index_mentions_on_tweet_id" ON "mentions"  ("tweet_id")[0m
+  [1m[35m (3.4ms)[0m  CREATE  INDEX  "index_mentions_on_user_id" ON "mentions"  ("user_id")
+  [1m[36m (3.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_mentions_on_tweet_id_and_user_id" ON "mentions"  ("tweet_id", "user_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140829022442"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (3.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'breakfast' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2016-08-08 22:48:34.279478"], ["password_digest", "$2a$10$Y476mceTkg66XA4awsEIReadYMFsHZYx3x75m6jey4LsQxRE2m.IS"], ["session_token", "DgfKHC--UhU2uUbsbuc76A"], ["updated_at", "2016-08-08 22:48:34.279478"], ["username", "breakfast"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'earl' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2016-08-08 22:48:34.363075"], ["password_digest", "$2a$10$7Uh4yjjkAk..MDK9F0FTJuO1aY3P57u./1QHNkWiRYzlz35w3SXw6"], ["session_token", "G32k5edE6LVtEi5slfRNvA"], ["updated_at", "2016-08-08 22:48:34.363075"], ["username", "earl"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'curie' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2016-08-08 22:48:34.443600"], ["password_digest", "$2a$10$jWMWiUTCJDAZzHnICg4AteM783Jiis1taj7h4.ectES7tM37hlaiK"], ["session_token", "mVkh9kaH8tpFkveQjDFDpA"], ["updated_at", "2016-08-08 22:48:34.443600"], ["username", "curie"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'markov' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2016-08-08 22:48:34.525876"], ["password_digest", "$2a$10$QL5oUzVw.okdle3Mc/ZrUebYGoUS6mHtgfkVmZiJ9jgPgfuuaxhx6"], ["session_token", "fysiE-rKr9BFTMJJU_D0aQ"], ["updated_at", "2016-08-08 22:48:34.525876"], ["username", "markov"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'gizmo' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2016-08-08 22:48:34.607244"], ["password_digest", "$2a$10$Tr9N6pBRln3kwVKVZub9fOdyJRJWA3UNb9zbtpjx2X2ZeIVTTwli6"], ["session_token", "ha5VVpnsr3qJlPrBTlxmfQ"], ["updated_at", "2016-08-08 22:48:34.607244"], ["username", "gizmo"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'kiki' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2016-08-08 22:48:34.687565"], ["password_digest", "$2a$10$qsnYrAUiH6UTXPfsB9KOquUXbFIMwDWWDTViSRhVrOUdB7kvD.rzK"], ["session_token", "lIMGh7PgS8rMicG06jywrw"], ["updated_at", "2016-08-08 22:48:34.687565"], ["username", "kiki"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'sally' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2016-08-08 22:48:34.770211"], ["password_digest", "$2a$10$k6GPC/a9DBbEp1WsUg6JTeuJG/FUoaXopc5XbXpXSIGx5x7FoqqFe"], ["session_token", "IlYSemcqkbjaW9xRZA-8rA"], ["updated_at", "2016-08-08 22:48:34.770211"], ["username", "sally"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:48:52 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:48:52 -0700
+Processing by FeedsController#show as HTML
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_logged_in! rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2016-08-08 15:48:52 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 443ms (Views: 442.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:48:53 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:48:53 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:48:53 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:48:53 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:48:53 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:48:53 -0700
+
+
+Started POST "/session" for 127.0.0.1 at 2016-08-08 15:49:02 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"7SOMXJXriwPvkPu5Xl+54GcDHxGWrzuplzVt0gLTrfU=", "user"=>{"username"=>"mikeyd", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'mikeyd' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 51ms (Views: 26.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:49:02 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:02 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:02 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:02 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:02 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:02 -0700
+
+
+Started POST "/session" for 127.0.0.1 at 2016-08-08 15:49:11 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"7SOMXJXriwPvkPu5Xl+54GcDHxGWrzuplzVt0gLTrfU=", "user"=>{"username"=>"mikeyd", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."username" = 'mikeyd' LIMIT 1[0m
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:49:12 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:12 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:12 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:12 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:12 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:12 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2016-08-08 15:49:23 -0700
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:49:23 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:23 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:23 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:23 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:23 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:23 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2016-08-08 15:49:28 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"7SOMXJXriwPvkPu5Xl+54GcDHxGWrzuplzVt0gLTrfU=", "user"=>{"username"=>"mikeyd", "password"=>"[FILTERED]"}}
+  [1m[35m (1.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'mikeyd' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2016-08-08 22:49:28.260793"], ["password_digest", "$2a$10$d9lQG9K2xDLvzWn3gIwV6.dK1WCBTG4Lsb3YeT46TXL7rbQwtML2i"], ["session_token", "zIXGn0yMxUW6hMYd11RZlA"], ["updated_at", "2016-08-08 22:49:28.260793"], ["username", "mikeyd"]]
+  [1m[36m (3.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."username" = 'mikeyd' AND "users"."id" != 8) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = 8  [["session_token", "OgID7CFMtTw8oVTrb9ojiQ"], ["updated_at", "2016-08-08 22:49:28.273061"]]
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/feed
+Completed 302 Found in 113ms (ActiveRecord: 11.5ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:49:28 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (2.0ms)
+  Rendered feeds/show.html.erb within layouts/application (12.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+Completed 200 OK in 53ms (Views: 39.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:28 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:28 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:28 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:28 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:49:28 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:49:28 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:49:32 -0700
+Processing by FeedsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mSQL (15.4ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 8 OR follows.follower_id = 8)  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  Rendered feeds/show.json.jbuilder (38.4ms)
+Completed 200 OK in 50ms (Views: 28.0ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:50:09 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (1.3ms)
+  Rendered feeds/show.html.erb within layouts/application (3.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+Completed 200 OK in 119ms (Views: 113.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:50:10 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:10 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:10 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:10 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:10 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:10 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:50:11 -0700
+Processing by FeedsController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  Rendered tweets/_form.html.erb (1.2ms)
+  Rendered feeds/show.html.erb within layouts/application (3.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+Completed 200 OK in 44ms (Views: 39.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:50:11 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:11 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:11 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:11 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:11 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:11 -0700
+
+
+Started GET "/users/search" for 127.0.0.1 at 2016-08-08 15:50:12 -0700
+Processing by UsersController#search as HTML
+  Rendered users/search.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:50:12 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:12 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:12 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:12 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:12 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:12 -0700
+
+
+Started GET "/users/search" for 127.0.0.1 at 2016-08-08 15:50:15 -0700
+Processing by UsersController#search as HTML
+  Rendered users/search.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:50:15 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:15 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:15 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:15 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:15 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:50:16 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (1.3ms)
+  Rendered feeds/show.html.erb within layouts/application (3.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+Completed 200 OK in 36ms (Views: 32.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:16 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:16 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:50:16 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:16 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:16 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:16 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:50:18 -0700
+Processing by FeedsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 8 OR follows.follower_id = 8)  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  Rendered feeds/show.json.jbuilder (2.2ms)
+Completed 200 OK in 10ms (Views: 5.4ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/tweets" for 127.0.0.1 at 2016-08-08 15:50:25 -0700
+Processing by TweetsController#create as JSON
+  Parameters: {"tweet"=>{"content"=>"hi breakfast", "mentioned_user_ids"=>["1"]}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mMention Exists (3.9ms)[0m  SELECT  1 AS one FROM "mentions"  WHERE ("mentions"."user_id" = 1 AND "mentions"."tweet_id" IS NULL) LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."username" = 'breakfast' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "tweets" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "hi breakfast"], ["created_at", "2016-08-08 22:50:26.877732"], ["updated_at", "2016-08-08 22:50:26.877732"], ["user_id", 8]]
+  [1m[36mMention Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "mentions"  WHERE ("mentions"."user_id" = 1 AND "mentions"."tweet_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "mentions" ("created_at", "tweet_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2016-08-08 22:50:26.885381"], ["tweet_id", 1], ["updated_at", "2016-08-08 22:50:26.885381"], ["user_id", 1]]
+  [1m[36mMention Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "mentions"  WHERE ("mentions"."user_id" = 1 AND "mentions"."id" != 1 AND "mentions"."tweet_id" = 1) LIMIT 1[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36mMention Load (1.0ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1[0m  [["tweet_id", 1]]
+  Rendered tweets/_tweet.json.jbuilder (4.4ms)
+  Rendered tweets/show.json.jbuilder (7.8ms)
+Completed 200 OK in 1105ms (Views: 13.8ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-08-08 15:50:28 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTweet Load (0.9ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mFollow Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 1 LIMIT 1[0m  [["follower_id", 8]]
+  Rendered follows/_form.html.erb (17.8ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1  [["followee_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1[0m  [["follower_id", 1]]
+  Rendered users/show.html.erb within layouts/application (28.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+Completed 200 OK in 76ms (Views: 51.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:28 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:28 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:28 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:50:28 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:28 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:50:28 -0700
+
+
+Started POST "/users/1/follow" for 127.0.0.1 at 2016-08-08 15:50:29 -0700
+Processing by FollowsController#create as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mFollow Exists (0.5ms)[0m  SELECT  1 AS one FROM "follows"  WHERE ("follows"."follower_id" = 8 AND "follows"."followee_id" = 1) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "follows" ("created_at", "followee_id", "follower_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2016-08-08 22:50:30.848010"], ["followee_id", 1], ["follower_id", 8], ["updated_at", "2016-08-08 22:50:30.848010"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+Completed 200 OK in 1033ms (Views: 0.3ms | ActiveRecord: 5.6ms)
+
+
+Started DELETE "/users/1/follow" for 127.0.0.1 at 2016-08-08 15:50:31 -0700
+Processing by FollowsController#destroy as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mFollow Load (0.4ms)[0m  [1mSELECT  "follows".* FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 1 LIMIT 1[0m  [["follower_id", 8]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "follows" WHERE "follows"."id" = $1[0m  [["id", 1]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Completed 200 OK in 1011ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-08-08 15:51:13 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTweet Load (0.5ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mFollow Exists (0.5ms)[0m  SELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 1 LIMIT 1  [["follower_id", 8]]
+  Rendered follows/_form.html.erb (2.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1[0m  [["followee_id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1  [["follower_id", 1]]
+  Rendered users/show.html.erb within layouts/application (7.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+Completed 200 OK in 133ms (Views: 124.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:51:13 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:13 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:13 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:13 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:13 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:13 -0700
+
+
+Started POST "/users/1/follow" for 127.0.0.1 at 2016-08-08 15:51:15 -0700
+Processing by FollowsController#create as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mFollow Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE ("follows"."follower_id" = 8 AND "follows"."followee_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "follows" ("created_at", "followee_id", "follower_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2016-08-08 22:51:16.868279"], ["followee_id", 1], ["follower_id", 8], ["updated_at", "2016-08-08 22:51:16.868279"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 1020ms (Views: 1.2ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:51:18 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (2.0ms)
+  Rendered feeds/show.html.erb within layouts/application (4.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+Completed 200 OK in 36ms (Views: 32.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:18 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:18 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:18 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:19 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:51:19 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:19 -0700
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:51:20 -0700
+Processing by FeedsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT  DISTINCT "tweets"."id" AS t0_r0, "tweets"."content" AS t0_r1, "tweets"."user_id" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."username" AS t1_r1, "users"."password_digest" AS t1_r2, "users"."session_token" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5 FROM "tweets" INNER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN follows ON users.id = follows.followee_id WHERE (tweets.user_id = 8 OR follows.follower_id = 8)  ORDER BY tweets.created_at DESC LIMIT 20[0m
+  [1m[35mMention Load (0.6ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered tweets/_tweet.json.jbuilder (3.2ms)
+  Rendered feeds/show.json.jbuilder (7.4ms)
+Completed 200 OK in 15ms (Views: 9.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:51:56 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (1.5ms)
+  Rendered feeds/show.html.erb within layouts/application (4.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+Completed 200 OK in 135ms (Views: 131.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:51:56 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:56 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:56 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:56 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:56 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:51:56 -0700
+
+
+Started POST "/tweets" for 127.0.0.1 at 2016-08-08 15:52:00 -0700
+Processing by TweetsController#create as JSON
+  Parameters: {"tweet"=>{"content"=>"yo yo"}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tweets" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "yo yo"], ["created_at", "2016-08-08 22:52:01.383430"], ["updated_at", "2016-08-08 22:52:01.383430"], ["user_id", 8]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMention Load (0.5ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 2]]
+  Rendered tweets/_tweet.json.jbuilder (1.9ms)
+  Rendered tweets/show.json.jbuilder (3.4ms)
+Completed 200 OK in 1024ms (Views: 11.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-08 15:52:41 -0700
+Processing by FeedsController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  Rendered tweets/_form.html.erb (1.2ms)
+  Rendered feeds/show.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+Completed 200 OK in 121ms (Views: 117.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:52:42 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:42 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:42 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:42 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:42 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:42 -0700
+
+
+Started GET "/users/search" for 127.0.0.1 at 2016-08-08 15:52:43 -0700
+Processing by UsersController#search as HTML
+  Rendered users/search.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-08 15:52:43 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:43 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:43 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:43 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:43 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-08 15:52:43 -0700
+
+
+Started GET "/users/search?query=c" for 127.0.0.1 at 2016-08-08 15:52:46 -0700
+Processing by UsersController#search as JSON
+  Parameters: {"query"=>"c"}
+  [1m[36mUser Load (8.9ms)[0m  [1mSELECT "users".* FROM "users"  WHERE (username ~ 'c')[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mFollow Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 3 LIMIT 1[0m  [["follower_id", 8]]
+  Rendered users/search.json.jbuilder (15.6ms)
+Completed 200 OK in 24ms (Views: 13.2ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/users/3/follow" for 127.0.0.1 at 2016-08-08 15:52:47 -0700
+Processing by FollowsController#create as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'OgID7CFMtTw8oVTrb9ojiQ' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mFollow Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE ("follows"."follower_id" = 8 AND "follows"."followee_id" = 3) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "follows" ("created_at", "followee_id", "follower_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2016-08-08 22:52:48.853623"], ["followee_id", 3], ["follower_id", 8], ["updated_at", "2016-08-08 22:52:48.853623"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 1018ms (Views: 0.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2016-08-15 16:01:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mTweet Load (1.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (3)[0m
+  [1m[35mMention Load (1.3ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" IN (81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mFollow Exists (0.8ms)[0m  SELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 3 LIMIT 1  [["follower_id", 9]]
+  Rendered follows/_form.html.erb (51.9ms)
+  Rendered tweets/_tweet.html.erb (1.7ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1[0m  [["followee_id", 3]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1  [["follower_id", 3]]
+  Rendered users/show.html.erb within layouts/application (124.9ms)
+Completed 500 Internal Server Error in 569ms
+
+Sprockets::FileNotFound - couldn't find file 'bundle.js' with type 'application/javascript'
+Checked in these paths: 
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/assets/images
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/assets/javascripts
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/assets/stylesheets
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/vendor/assets/javascripts
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/vendor/assets/stylesheets
+  /Users/ryan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/jquery-rails-3.1.4/vendor/assets/javascripts:
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:182:in `rescue in block in process_directives'
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:179:in `block in process_directives'
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:178:in `process_directives'
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:83:in `_call'
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:68:in `call'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.0) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.0) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.0) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.0) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.0) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.0) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.0) lib/sprockets/bundle.rb:23:in `block in call'
+  sprockets (3.7.0) lib/sprockets/utils.rb:196:in `dfs'
+  sprockets (3.7.0) lib/sprockets/bundle.rb:24:in `call'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.0) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.0) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.0) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.0) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.0) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.0) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.0) lib/sprockets/base.rb:66:in `find_asset'
+  sprockets (3.7.0) lib/sprockets/environment.rb:30:in `find_asset'
+  sprockets (3.7.0) lib/sprockets/base.rb:92:in `[]'
+  sprockets-rails (2.3.3) lib/sprockets/rails/helper.rb:230:in `lookup_asset_for_path'
+  sprockets-rails (2.3.3) lib/sprockets/rails/helper.rb:190:in `check_errors_for'
+  sprockets-rails (2.3.3) lib/sprockets/rails/helper.rb:137:in `block in javascript_include_tag'
+  sprockets-rails (2.3.3) lib/sprockets/rails/helper.rb:136:in `javascript_include_tag'
+   () Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1096722164387475883_70174436633880'
+  actionview (4.1.4) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.4) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.4) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.4) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.4) lib/action_view/renderer/template_renderer.rb:67:in `render_with_layout'
+  actionview (4.1.4) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.4) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.4) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.4) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.4) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.4) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.4) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.4) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.4) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/ryan/.rbenv/versions/2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:40:in `render'
+   () Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/controllers/users_controller.rb:32:in `show'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/ryan/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () Users/ryan/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () Users/ryan/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/f74136fd77b8105e/variables" for 127.0.0.1 at 2016-08-15 16:01:39 -0700
+
+
+Started GET "/users/3" for 127.0.0.1 at 2016-08-15 16:01:41 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mTweet Load (0.7ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (3)
+  [1m[36mMention Load (0.6ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" IN (81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mFollow Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 3 LIMIT 1[0m  [["follower_id", 9]]
+  Rendered follows/_form.html.erb (2.0ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1  [["followee_id", 3]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1[0m  [["follower_id", 3]]
+  Rendered users/show.html.erb within layouts/application (53.4ms)
+Completed 500 Internal Server Error in 81ms
+
+Sprockets::FileNotFound - couldn't find file 'bundle.js' with type 'application/javascript'
+Checked in these paths: 
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/assets/images
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/assets/javascripts
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/assets/stylesheets
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/vendor/assets/javascripts
+  /Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/vendor/assets/stylesheets
+  /Users/ryan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/jquery-rails-3.1.4/vendor/assets/javascripts:
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:182:in `rescue in block in process_directives'
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:179:in `block in process_directives'
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:178:in `process_directives'
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:83:in `_call'
+  sprockets (3.7.0) lib/sprockets/directive_processor.rb:68:in `call'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.0) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.0) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.0) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.0) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.0) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.0) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.0) lib/sprockets/bundle.rb:23:in `block in call'
+  sprockets (3.7.0) lib/sprockets/utils.rb:196:in `dfs'
+  sprockets (3.7.0) lib/sprockets/bundle.rb:24:in `call'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.0) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.0) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.0) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.0) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.0) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.0) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.0) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.0) lib/sprockets/base.rb:66:in `find_asset'
+  sprockets (3.7.0) lib/sprockets/environment.rb:30:in `find_asset'
+  sprockets (3.7.0) lib/sprockets/base.rb:92:in `[]'
+  sprockets-rails (2.3.3) lib/sprockets/rails/helper.rb:230:in `lookup_asset_for_path'
+  sprockets-rails (2.3.3) lib/sprockets/rails/helper.rb:190:in `check_errors_for'
+  sprockets-rails (2.3.3) lib/sprockets/rails/helper.rb:137:in `block in javascript_include_tag'
+  sprockets-rails (2.3.3) lib/sprockets/rails/helper.rb:136:in `javascript_include_tag'
+   () Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1096722164387475883_70174436633880'
+  actionview (4.1.4) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.4) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.4) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.4) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.4) lib/action_view/renderer/template_renderer.rb:67:in `render_with_layout'
+  actionview (4.1.4) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.4) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.4) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.4) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.4) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.4) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.4) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.4) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.4) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/ryan/.rbenv/versions/2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:40:in `render'
+   () Users/ryan/AA/curriculum/javascript/projects/ajax_twitter/solution/app/controllers/users_controller.rb:32:in `show'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/ryan/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () Users/ryan/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () Users/ryan/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/24b6a7760eaf0a01/variables" for 127.0.0.1 at 2016-08-15 16:01:42 -0700
+
+
+Started POST "/__better_errors/24b6a7760eaf0a01/variables" for 127.0.0.1 at 2016-08-15 16:34:08 -0700
+
+
+Started GET "/users/3" for 127.0.0.1 at 2016-08-15 16:34:10 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mTweet Load (1.3ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (3)[0m
+  [1m[35mMention Load (0.8ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" IN (81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mFollow Exists (0.9ms)[0m  SELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 3 LIMIT 1  [["follower_id", 9]]
+  Rendered follows/_form.html.erb (6.2ms)
+  Rendered tweets/_tweet.html.erb (3.6ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.9ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (1.2ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.7ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.6ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  Rendered tweets/_tweet.html.erb (0.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1[0m  [["followee_id", 3]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1  [["follower_id", 3]]
+  Rendered users/show.html.erb within layouts/application (71.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+Completed 200 OK in 502ms (Views: 474.5ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-15 16:34:11 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:11 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:11 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:11 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:11 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:11 -0700
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-15 16:34:18 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-08-15 16:34:18 -0700
+
+
+Started DELETE "/users/3/follow" for 127.0.0.1 at 2016-08-15 16:34:19 -0700
+Processing by FollowsController#destroy as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mFollow Load (0.7ms)[0m  SELECT  "follows".* FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 3 LIMIT 1  [["follower_id", 9]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  DELETE FROM "follows" WHERE "follows"."id" = $1  [["id", 6]]
+  [1m[36m (5.8ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 1023ms (Views: 0.9ms | ActiveRecord: 8.4ms)
+
+
+Started POST "/users/3/follow" for 127.0.0.1 at 2016-08-15 16:34:21 -0700
+Processing by FollowsController#create as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mFollow Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "follows"  WHERE ("follows"."follower_id" = 9 AND "follows"."followee_id" = 3) LIMIT 1[0m
+  [1m[35mSQL (7.1ms)[0m  INSERT INTO "follows" ("created_at", "followee_id", "follower_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2016-08-15 23:34:22.586428"], ["followee_id", 3], ["follower_id", 9], ["updated_at", "2016-08-15 23:34:22.586428"]]
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 1045ms (Views: 0.5ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2016-08-15 16:34:24 -0700
+Processing by FeedsController#show as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tweets/_form.html.erb (3.0ms)
+  Rendered feeds/show.html.erb within layouts/application (8.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+Completed 200 OK in 42ms (Views: 38.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-15 16:34:24 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:24 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:24 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:24 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:24 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:24 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-08-15 16:34:24 -0700
+
+
+Started POST "/tweets" for 127.0.0.1 at 2016-08-15 16:34:38 -0700
+Processing by TweetsController#create as JSON
+  Parameters: {"tweet"=>{"content"=>"adfasdfasdf"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "tweets" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "adfasdfasdf"], ["created_at", "2016-08-15 23:34:39.240725"], ["updated_at", "2016-08-15 23:34:39.240725"], ["user_id", 9]]
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mMention Load (0.6ms)[0m  SELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" = $1  [["tweet_id", 286]]
+  Rendered tweets/_tweet.json.jbuilder (3.9ms)
+  Rendered tweets/show.json.jbuilder (23.4ms)
+Completed 200 OK in 1050ms (Views: 28.6ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2016-08-15 16:34:41 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mTweet Load (0.5ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" IN (9)
+  [1m[36mMention Load (0.6ms)[0m  [1mSELECT "mentions".* FROM "mentions"  WHERE "mentions"."tweet_id" IN (286, 285)[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"  WHERE "users"."id" IN (3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+  [1m[35mFollow Exists (0.7ms)[0m  SELECT  1 AS one FROM "follows"  WHERE "follows"."follower_id" = $1 AND "follows"."followee_id" = 9 LIMIT 1  [["follower_id", 9]]
+  Rendered follows/_form.html.erb (4.2ms)
+  Rendered tweets/_tweet.html.erb (1.7ms)
+  Rendered tweets/_tweet.html.erb (1.3ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = $1[0m  [["followee_id", 9]]
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = $1  [["follower_id", 9]]
+  Rendered users/show.html.erb within layouts/application (22.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1[0m
+Completed 200 OK in 101ms (Views: 74.8ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-15 16:34:41 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:41 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:41 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:41 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:41 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:41 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-08-15 16:34:41 -0700
+
+
+Started GET "/users/search" for 127.0.0.1 at 2016-08-15 16:34:52 -0700
+Processing by UsersController#search as HTML
+  Rendered users/search.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'jP6tlhb8KjmvS0bJNMVKmQ' LIMIT 1
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2016-08-15 16:34:52 -0700
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:52 -0700
+
+
+Started GET "/assets/jquery.serializejson.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:52 -0700
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:52 -0700
+
+
+Started GET "/assets/bundle.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:52 -0700
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2016-08-15 16:34:52 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-08-15 16:34:52 -0700

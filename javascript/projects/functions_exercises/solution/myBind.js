@@ -10,13 +10,15 @@ Function.prototype.myBind = function (ctx, ...bindArgs) {
   };
 };
 
-const Cat = function (name) {
-  this.name = name;
-};
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
 
-Cat.prototype.meow = function () {
-  console.log(this.name + " says meow!");
-};
+  meow() {
+    console.log(`${this.name} says meow!`);
+  }
+}
 
 const curie = new Cat("Curie");
 setTimeout(curie.meow.myBind(curie), 1000);

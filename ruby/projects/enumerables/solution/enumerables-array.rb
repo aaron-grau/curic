@@ -75,9 +75,8 @@ class Array
 
   def my_rotate(positions = 1)
     split_idx = positions % self.length
-    split_idx = self.length + split_idx if split_idx < 0
 
-     self.drop(split_idx) + self.take(split_idx)
+    self.drop(split_idx) + self.take(split_idx)
   end
 
   def my_join(separator = "")

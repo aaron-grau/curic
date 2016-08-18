@@ -1,9 +1,12 @@
 const user = "2cool4u123@gmail.com";
-function Message (from = user, to = "", subject = "", body = "") {
-  this.from = from;
-  this.to = to;
-  this.subject = subject;
-  this.body = body;
+
+class Message {
+  constructor(from = user, to = "", subject = "", body = "") {
+    this.from = from;
+    this.to = to;
+    this.subject = subject;
+    this.body = body;
+  }
 }
 
 let messages = JSON.parse(localStorage.getItem('messages'));
@@ -23,21 +26,21 @@ if(!messages) {
 }
 
 const MessageStore = {
-  getInboxMessages: function () {
+  getInboxMessages() {
     return messages.inbox.slice();
   },
-  getSentMessages: function () {
+  getSentMessages() {
     return messages.sent.slice();
   },
-  getMessageDraft: function () {
+  getMessageDraft() {
     return messageDraft;
   },
-  sendDraft: function () {
+  sendDraft() {
     messages.sent.push(messageDraft);
     messageDraft = new Message();
     localStorage.setItem('messages', JSON.stringify(messages));
   },
-  updateDraftField: function (field, value) {
+  updateDraftField(field, value) {
     messageDraft[field] = value;
   }
 };

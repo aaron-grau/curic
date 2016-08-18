@@ -41,13 +41,13 @@ Fill in the `ShowExceptions` skeleton in the lib folder. Your middleware should 
 Hints:
 - Make a template called `lib/templates/rescue.html.erb` to build a template that will be rendered when an exception is rescued.
 - Your middleware should wrap the call to the next application in the stack in a `begin` `rescue` block so that it can handle an exception created by the application.
-- Note: when your middleware catches an error and issues a response, you can craft your response using a `Rack::Response` object and convert it to an array using the `#finalize` method or, as we did in phase 1, simply return an array with a status code, headers, and the body of your response (example: `['200', {'Content-Type' => 'text/html'}, ['hello world']]`). The included specs test for the simple array version.
+- Note: when your middleware catches an error and issues a response, you can craft your response using a `Rack::Response` object and convert it to an array using the `#finish` method or, as we did in phase 1, simply return an array with a status code, headers, and the body of your response (example: `['200', {'Content-Type' => 'text/html'}, ['hello world']]`). The included specs test for the simple array version.
 
 [exception-docs]: http://ruby-doc.org/core-2.1.2/Exception.html
 
 ## Phase X: Rack Middleware - Static Assets ##
 
-Let's make another middleware. This time, our middleware will make static assets such as images, Javascript, and CSS files available client-side. You app should be able to find resources in a specific directory (ex. `/lib/public/yourAsset.jpg`) and serve them up via HTTP, (ex. `localhost:3000/public/yourAsset.jpg`). 
+Let's make another middleware. This time, our middleware will make static assets such as images, Javascript, and CSS files available client-side. You app should be able to find resources in a specific directory (ex. `/lib/public/yourAsset.jpg`) and serve them up via HTTP, (ex. `localhost:3000/public/yourAsset.jpg`).
 
 Like your last middleware, your `Static` middleware should take in an app and respond to the `#call` method. You can test it out using the middleware server and the included specs.
 

@@ -17,7 +17,7 @@ document **must** list `animal.js` before `lion.js`.
 ```html
 <body>
   ...
-  
+
   <script src="zoo/animal.js"></script>
   <script src="zoo/lion.js"></script>
   <script src="app.js"></script>
@@ -58,13 +58,11 @@ execution by the browser.
 ```js
 // ./zoo/animal.js
 // Define an Animal class; export it as `Animal`. Save it
-const Animal = function () {
-  // ...
-};
-
-Animal.prototype.eat = function () {
-  // ...
-};
+class Animal {
+  eat() {
+    // ...
+  }
+}
 
 module.exports = Animal;
 ```
@@ -74,17 +72,11 @@ module.exports = Animal;
 
 const Animal = require('./animal.js');
 
-const Lion = function () {
-  // ...
-};
-
-// Inherit Lion from Animal
-function Surrogate () {};
-Surrogate.prototype = Animal.prototype;
-Lion.prototype = new Surrogate();
-
-Lion.prototype.roar = function () {
-  // ...
+//Inherit Lion from Animal
+class Lion extends Animal {
+  roar() {
+    // ...
+  }
 };
 
 module.exports = Lion;

@@ -298,7 +298,6 @@
 * [:movie_camera: HTTP Demo](https://vimeo.com/161381489) (4 min)
 * [:movie_camera: Rails from the Inside Out](https://vimeo.com/161381601) (13 min)
 * [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
-* [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 
 ### Homeworks (45 min)
 * Complete [RegexOne][regex-link] (45 min)
@@ -306,6 +305,7 @@
 ### Additional Resources
 * [HTTP][http]
 * [Rack][rack]
+* [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 * [:movie_camera: (cc) 00-webserver][00-webserver] (16 min)
 * [:movie_camera: (cc) 01-protocols][01-protocols] (14 min)
   * old news at this point; recommended speed >= 2x
@@ -352,7 +352,7 @@
 ### Projects
 * **Solo**: Finish ActiveRecordLite and RailsLite.
 
-[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/rails_lite/video/demos/rack_middleware/middleware.rb
+[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [middleware]: readings/middleware.md
 [js-videos]: ../javascript#video-lectures-12-min
 [js-readings]: ../javascript#readings-70-min

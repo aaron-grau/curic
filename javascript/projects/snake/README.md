@@ -43,16 +43,16 @@ other games for guidance on constructing this file.
       browser events.
 * Write a `View` class that takes in an HTML element which will hold
   the display. Save this in a `$el` instance variable.
-* In the constructor, build a `Board`. In order to access the board, you must
+* In the `constructor`, build a `Board`. In order to access the board, you must
  `require` it at the top of the file.
-* In the constructor, bind a listener to detect key events, so you
+* In the `constructor`, bind a listener to detect key events, so you
   know when the user wants to turn the snake.
     * I used jQuery's `on` method with event `"keydown"`.
     * Lookup and read the relevant jQuery docs as needed.
     * I wrote a helper method `handleKeyEvent(event)`. It looked up
       `event.keyCode` and passed the appropriate direction to
       `Snake.prototype.turn`.
-* In the constructor, also use `setInterval` to run a `View.prototype.step`
+* In the `constructor`, also use `setInterval` to run a `View.prototype.step`
  method every half second. Each turn it should call `Snake.prototype.move` and
  redraws the whole board.
 * Render the board using divs or lis with CSS classes. Redraw the board each

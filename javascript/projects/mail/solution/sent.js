@@ -1,7 +1,7 @@
 const MessageStore = require('./message_store');
 
 module.exports = {
-  renderMessage: function (message) {
+  renderMessage(message) {
     let messageEl = document.createElement("li");
     messageEl.className = "message";
     messageEl.innerHTML = `
@@ -11,7 +11,7 @@ module.exports = {
     `;
     return messageEl;
   },
-  render: function() {
+  render() {
     let container = document.createElement("ul");
     container.className = "messages";
     let messages = MessageStore.getSentMessages();
@@ -21,4 +21,3 @@ module.exports = {
     return container;
   }
 };
-

@@ -4,8 +4,10 @@
 
 Write a `sum` function that takes any number of arguments:
 
-    sum(1, 2, 3, 4) == 10
-    sum(1, 2, 3, 4, 5) == 15
+```js
+    sum(1, 2, 3, 4) === 10
+    sum(1, 2, 3, 4, 5) === 15
+```
 
 Solve it first using the `arguments` keyword, then rewrite your solution to use the `...` rest operator.
 
@@ -16,13 +18,15 @@ Rewrite your `myBind` method so that it can take both bind-time arguments and ca
 For example:
 
 ```javascript
-function Cat(name) {
-  this.name = name;
-};
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
 
-Cat.prototype.says = function (sound, person) {
-  console.log(this.name + " says " + sound + " to " + person + "!");
-  return true;
+  says(sound, person) {
+    console.log(`${this.name} says ${sound} to ${person}!`);
+    return true;
+  }
 }
 
 const markov = new Cat("Markov");
@@ -134,7 +138,7 @@ Write a method `Function.prototype.curry(numArgs)`. This should return a functio
 
 * Collect up arguments until there are `numArgs` of them,
 * If there are too few arguments still, it should return itself.
-* When there are `numArgs` arguments, it should call the original function. 
+* When there are `numArgs` arguments, it should call the original function.
 * Write a version that uses `Function.prototype.apply` and another one that uses the [spread][spread-op] `...` operator.
 
 ** Make sure to call a TA to check over your work if you haven't already! **

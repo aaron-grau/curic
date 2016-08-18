@@ -25,7 +25,7 @@ receiving one argument of the request environment or `env` packaged up by Rack a
 return a properly formatted response.
 
 An extremely simple Rack app could be:
-```
+```ruby
 Rack::Server.start(
   app: Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['hello world']] }
 )
@@ -43,7 +43,7 @@ In order to make our code a bit more readable we are going to create the `app`
 first and then pass it into `Rack::Server#start`. Let's make a very simple app
 that does that.
 
-```
+```ruby
 app = Proc.new do |env|
   req = Rack::Request.new(env)
   res = Rack::Response.new
@@ -63,7 +63,7 @@ the `res` is done being built so Rack knows to wrap everything up for you.
 In order to actually have a functioning web application we need to actually give
 `app` to Rack.
 
-```
+```ruby
 Rack::Server.start(
   app: app,
   Port: 3000
@@ -72,9 +72,9 @@ Rack::Server.start(
 You can specify whatever port you want here, but `3000` is a common choice.
 
 Write the code above (both the app and the `Rack::Server#start` call) in
-`bin/p01_basic_server.rb`. Try running the file, then in your browser navigate
-to `http://localhost:3000`. You should see `Hello world!`. Congratulations,
-you've written a Rack application.
+`bin/p01_basic_server.rb`. Try running the file (make sure to run with `bundle
+exec`!), then in your browser navigate to `http://localhost:3000`. You should
+see `Hello world!`. Congratulations, you've written a Rack application.
 
 Now we want to change our application so it doesn't only do one thing ever. We
 want to respond to requests with the requested path. For example: if I type

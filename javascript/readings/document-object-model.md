@@ -13,12 +13,12 @@ Let's see a simple HTML page:
 </ul>
 
 <script>
-window.setTimeout( () => {
-  const ul = document.getElementById("cats");
-  const li = document.createElement("li");
-  li.textContent = "This is injected by JavaScript";
-  ul.appendChild(li);
-}, 1000);
+  window.setTimeout( () => {
+    const ul = document.getElementById("cats");
+    const li = document.createElement("li");
+    li.textContent = "This is injected by JavaScript";
+    ul.appendChild(li);
+  }, 1000);
 </script>
 ```
 
@@ -65,25 +65,25 @@ We can also get or set element attributes:
 </label>
 
 <script>
-window.setTimeout( () => {
-  const reds = document.getElementsByClassName("red");
-  const greens = document.getElementsByClassName("green");
+  window.setTimeout( () => {
+    const reds = document.getElementsByClassName("red");
+    const greens = document.getElementsByClassName("green");
 
-  // swap the `HTMLElement#className` property
-  for (let i = 0; i < reds.length; i++) {
-    reds[i].className = "green";
-  }
-  for (let i = 0; i < greens.length; i++) {
-    greens[i].className = "red";
-  }
+    // swap the `HTMLElement#className` property
+    for (let i = 0; i < reds.length; i++) {
+      reds[i].className = "green";
+    }
+    for (let i = 0; i < greens.length; i++) {
+      greens[i].className = "red";
+    }
 
-  // disable the input
-  document.getElementById("cat_name").disabled = true;
+    // disable the input
+    document.getElementById("cat_name").disabled = true;
 
-  // Remove a paragraph from the document.
-  const paragraph = document.querySelector("p");
-  paragraph.parentElement.removeChild(paragraph);
-}, 1000);
+    // Remove a paragraph from the document.
+    const paragraph = document.querySelector("p");
+    paragraph.parentElement.removeChild(paragraph);
+  }, 1000);
 </script>
 ```
 

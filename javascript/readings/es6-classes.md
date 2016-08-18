@@ -2,6 +2,8 @@
 
 Review the reading on [object-oriented Javascript][oo-js]. ES2015 provides an alternative syntax for creating object-constructor functions. ES2015 lets use create classes with a more intuitive and Ruby-like syntax. Consider this example:
 
+[oo-js]: ./object-oriented-js.md
+
 ```javascript
 class Bicycle {
   constructor(model, color) {
@@ -9,7 +11,7 @@ class Bicycle {
     this.color = color;
   }
 
-  action (){
+  action() {
     return "rolls along";
   }
 
@@ -48,31 +50,3 @@ Bicycle.parade();
 ## Classes are just sugar
 
 Although ES6 classes may look pretty different from ES5, they are ultimately just syntactic sugar for the same prototype-based inheritance model we already know.
-
-## Inheritance
-
-In ES2015 we can also inherit from existing classes and override methods.
-
-In Ruby, we would use `class Dog < Animal` to define a subclass.
-In ES2015 the equivalent is `class Dog extends Animal`.
-
-If we override an existing method, we can invoke the original version using
-`super.methodName()`. This is slightly different from Ruby, where `super`
-invokes the original method directly without having to include `.methodName`.
-
-See examples of `extends` and `super` below.
-
-```js
-class RaceBicycle extends Bicycle {
-  action() {
-    const oldAction = super.action(); //oldAction === "rolls along"
-    return `${oldAction} at a blistering pace!`
-  }
-}
-
-```
-
-Check out the [MDN documentation][mdn-classes] on classes for more examples and details.
-
-[oo-js]: object-oriented-js.md#classes-in-javascript-constructor-functions
-[mdn-classes]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes

@@ -8,7 +8,7 @@ for use within the method. The scope of a function includes:
   0. any local variables declared inside the function
   0. **any variables that were already declared when the function was defined**.
 
-Consider this example: 
+Consider this example:
 
 
 ```javascript
@@ -24,11 +24,11 @@ function sayHelloNTimes(name, n) {
 sayHelloNTimes("Bob", 3); // logs 'Hi, Bob!' x3
 sayHelloNTimes("Sally", 6); // logs 'Hi, Sally!' x6
 ```
-In the example above, the variable `name` is referenced by `greet`, even though it was never declared within `greet`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.** 
+In the example above, the variable `name` is referenced by `greet`, even though it was never declared within `greet`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.**
 
-Functions such as `greet` that capture (a.k.a. use) such variables (a.k.a. _free variables_) are called **closures**. 
+Functions such as `greet` that capture (a.k.a. use) such variables (a.k.a. _free variables_) are called **closures**.
 
-**Free variables can be modified** by closures. Consider this function: 
+**Free variables can be modified** by closures. Consider this function:
 
 ```javascript
 function sum(nums) {
@@ -107,7 +107,7 @@ private**. In the first example, there is no way any method beside the closure i
 
 ## Global Scope
 
-JavaScript has global scope, represented by the 'window' object in the browser and the 'global' object in Node.js. Adding attributes to these objects makes them available throughout a program. 
+JavaScript has global scope, represented by the 'window' object in the browser and the 'global' object in Node.js. Adding attributes to these objects makes them available throughout a program.
 
 ```javascript
 function theBest(){
@@ -123,12 +123,12 @@ function whoDaBest(){
 }
 ```
 
-While useful on occasion, global variables are usually best avoided, as they give too much code access to their values, increasing the likelihood of bugs. 
+While useful on occasion, global variables are usually best avoided, as they give too much code access to their values, increasing the likelihood of bugs.
 
 ### `"use strict";`
 
 A common mistake new JS developers commit is to unintentionally create
-global variables. This happens if you declare a variable without the `var`, `let`, or `const` keywords anywhere in your code, and can lead to strange behavior. Consider: 
+global variables. This happens if you declare a variable without the `var`, `let`, or `const` keywords anywhere in your code, and can lead to strange behavior. Consider:
 
 ```javascript
 window.local; // undefined
@@ -150,13 +150,13 @@ Thankfully, modern JS runtimes support *strict mode*, which prohibits variable d
 window.local; // undefined
 
 function subRoutine(){
-  local = 'oops'; 
+  local = 'oops';
 }
 
 subRoutine(); // ReferenceError: 'local' is not defined
 ```
 
-**Note**: `"use strict"` does not work in the Node CLI or the Dev Tools console. 
+**Note**: `"use strict"` does not work in the Node CLI or the Dev Tools console.
 
 ## References
 
