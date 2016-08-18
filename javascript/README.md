@@ -336,6 +336,9 @@
 * [History and Location][history-location] (5 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
+### Homeworks (45 min)
+* [Vanilla DOM Manipulation][vanilla-dom]
+
 ### Additional Resources
 * [Vanilla AJAX][vanilla-ajax]
 
@@ -349,6 +352,7 @@
 [event-propagation]: readings/event-propagation.md
 [history-location]: readings/history-location.md
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
+[vanilla-dom]: homeworks/questions/vanilla-dom
 
 [mail]: projects/mail
 [jquery-lite]: projects/jquery_lite
