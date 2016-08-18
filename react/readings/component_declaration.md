@@ -122,5 +122,4 @@ const Message = ({ text }) => (
 
 Functional components are the most common type of component that you will see in Redux applications, which you will learn more about later this week.
 
-[functional-components]: https://facebook.github.io/react/blog/2015/10/07/
-react-v0.14.html#stateless-functional-components
+[functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
