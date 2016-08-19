@@ -2,8 +2,7 @@
 
 So far we have dealt with the `redux` package, which, via `createStore()`,
 allows us to create `store` objects with `dispatch()`, `getState()`, and
-`subscribe()` methods. Using these methods alone, we could create a fully-
-functional React-Redux application. However, the creators of `redux` also give
+`subscribe()` methods. Using these methods alone, we could create a fully-functional React-Redux application. However, the creators of `redux` also give
 us `react-redux`, a node package with [**bindings**][bindings] simplifying the most common React-Redux interactions.
 
 ## Setup
@@ -69,7 +68,7 @@ a `store` `context` (basically, an invisible prop), which is passed down to all
 of its children. Because we typically wrap the entire `App` in the Provider, all
 our components will receive the store context. 
 
-Components that need to access the store context will have to `connect()`, which converts the `store` context to into a `store` prop. We'll discuss how `connect()` works in the next reading.
+Components that need to access the store context will have to `connect()`, which converts the `store` context into a `store` prop. We'll discuss how `connect()` works in the next reading.
 
 Note: If you're confused about `context`, you can check out the
 [official documentation][context]. However, you don't really need to know exactly how it works to use the `react-redux` API, so feel free to skip it.
