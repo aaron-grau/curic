@@ -1,4 +1,4 @@
-# React / Flux Curriculum
+# React / Redux Curriculum
 
 ## w7d1
 ### Video Lectures (94 min)
