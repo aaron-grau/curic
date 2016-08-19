@@ -18,7 +18,7 @@ Note: we won't be using `jQuery` for this project. If you're not sure
 how to do something without it, use Google as a resource and ask a TA
 if needed.
 
-[getting_started]: ../homeworks/getting_started
+[getting_started]: ../../homeworks/getting_started
 
 ## Running a Simple Server
 
