@@ -420,7 +420,7 @@ This component will show the items in our todo list.
 
 The goal of a container component is to allow the presentational component to be as simple and lightweight as possible. To this end, we map the application state and the Store's `dispatch` function to a set of props that get passed to the presentational component.
 
-Refer to the [components][components_reading] and [connect][connect_reading]reading if you need a refresher on container components.
+Refer to the [components][components_reading] and [connect][connect_reading] reading if you need a refresher on container components.
 
 + Create a file `components/todo_list/todo_list_container.js`
 + Import both the `connect` function and the (as of yet unwritten) `TodoList` presentational component
@@ -699,4 +699,4 @@ Follow these steps, ** testing your code as you go ** :
 [middleware_reading]: ../../readings/middleware.md
 [components_reading]: ../../readings/containers.md
 [connect_reading]: ../../readings/connect.md
-[props_and_state_reading]: ../../readings/props_and_state.md.md
+[props_and_state_reading]: ../../readings/props_and_state.md
