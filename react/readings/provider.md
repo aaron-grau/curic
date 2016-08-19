@@ -106,8 +106,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { createStore } from 'redux';
-import reducer from './reducer.js;
-import Root from './root.jsx;
+import reducer from './reducer.js';
+import Root from './root.jsx';
 
 document.addEventListener('DOMContentLoaded', function() {
   const store = createStore(reducer);
