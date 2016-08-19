@@ -101,7 +101,7 @@ the React curriculum materials. Review the
 ### Additional Resources
 - [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
--	*Note: The 'API' sections are especially useful.*
+  -	*Note: The 'API' sections are especially useful.*
 
 [store]: readings/store.md
 [reducers]: readings/reducers.md
@@ -135,8 +135,6 @@ the React curriculum materials. Review the
 
 ## w7d4
 
-### Video Lectures
-
 ### Readings (75 min)
 - [Intro to react router][react_router_intro] (12 min)
 - [Route Configuration][route_configuration] (12 min)
@@ -165,8 +163,6 @@ the React curriculum materials. Review the
 
 ## w7d5
 
-### Video Lectures
-
 ### Readings (28 min)
 -	[React Map Demo][react_map_demo] (15 min)
 - [`preloadedState`][preloaded_state] (3 min)
@@ -188,29 +184,28 @@ the React curriculum materials. Review the
 [bench_bnb]: projects/bench_bnb
 [user_authentication]: readings/
 
-## w7d6-w7d7
+## w8d1
+
+**Project Proposal Review Period for Instructional Staff**
 
 ### Readings (20 min)
 * [Think in React][think_in_react] (20 min)
 
-### Homework (5 hours)
-* Submit your [full-stack project proposal][full_stack_project_proposal] (5 hours)
+### Homework (6 hrs)
+* Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
   * **Due by 9am on Monday**
-
-### Additional Resources
-* See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
-
-[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
-[full_stack_project_curriculum]: ../full-stack-project
-[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
-
-## w8d1
-
-**Project Proposal Review Period for Instructional Staff**
-### Homework (1 hour)
-* Do the auth part of A04 Prep
+* Do the auth part of A04 Prep (1 hr)
   * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
 * **Solo:** [BenchBnB Day 2][bench_bnb]
+
+### Additional Resources
+* See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
+
+
+[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
+[full_stack_project_curriculum]: ../full-stack-project
+[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+
