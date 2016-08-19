@@ -45,7 +45,7 @@ It must accept the store's `state` (via the `Provider's store `context`) and
 return an object containing the props to be given to the presentational
 component. 
 
-```
+```js
 const Component = ({name}) => <div>{name}</div>;
 
 const mapStateToProps = (state) => ({
@@ -63,7 +63,7 @@ In the example above, the `connectedComponent` passes `name` as a prop to the
 
 A component with explicit props passed down from its parent `<Component lastName={'Wozniak'}/>` can also merge those props with the `state ` via the second, `ownProps`, argument to `mapStateToProps`:
 
-```
+```js
 const mapStateToProps = (state, ownProps) => ({
 	fullName: `${state.name} ${ownProps.lastName}`
 });
@@ -94,7 +94,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 This rarely-used optional argument is a function used to merge the result of `mapStateToProps` and `mapDispatchToProps` into a single set of props to be given to the object.
 
-```
+```js
 const mergeProps = (stateProps, dispatchProps) => {
 // define mergedProps
 return mergedProps;
@@ -112,7 +112,7 @@ Read [here][docs] for more information.
 
 The `component` to be connected is passed to the function returned by `connect()`.
 
-```
+```js
 const connectedComponent = connect(mapDispatchToProps, mapDispatchToProps)(component)
 
 ```
