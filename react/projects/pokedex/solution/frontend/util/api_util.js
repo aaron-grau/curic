@@ -1,39 +1,26 @@
-'use strict';
+export const fetchAllPokemon = function (success) {
+  $.ajax({
+    method: 'GET',
+    url: 'api/pokemon',
+    success
+  });
+};
 
-module.exports = {
-  fetchAllPokemons (cb) {
-    $.ajax({
-      url: "api/pokemon",
-      success: cb
-    });
-  },
+export const fetchSinglePokemon = function (id, success) {
+  $.ajax({
+    method: 'GET',
+    url: `api/pokemon/${id}`,
+    success
+  });
+};
 
-  fetchSinglePokemon (id, cb) {
-    $.ajax({
-      url: `api/pokemon/${id}`,
-      success: cb
-    });
-  },
-
-  createPokemon (newPokemon, cb, redirectCb) {
-    $.ajax({
-      url: "api/pokemon",
-      method: "POST",
-      data: {pokemon: newPokemon},
-      success: function (pokemon) {
-        cb(pokemon, redirectCb);
-      }
-    });
-  },
-
-  updateToy (toy, cb, redirectCb) {
-    $.ajax({
-      url: `api/toys/${toy.id}`,
-      method: "PATCH",
-      data: {toy: toy},
-      success: function (pokemon) {
-        cb(pokemon, redirectCb);
-      }
-    });
-  }
+export const postPokemon = function (pokemon, success, error) {
+  pokemon.moves = Object.keys(pokemon.moves).map(k => pokemon.moves[k]);
+  $.ajax({
+    method: 'POST',
+    url: 'api/pokemon/',
+    data: {pokemon: pokemon},
+    success,
+    error
+  });
 };

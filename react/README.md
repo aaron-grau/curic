@@ -1,201 +1,216 @@
 # React / Flux Curriculum
 
 ## w7d1
-
 ### Video Lectures (94 min)
+[**An Important Note About These Lectures**][video_deprecation_note]
+
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Part 1: Intro to React][lec-w7d1-01] (5 min)
-* :movie_camera: [Part 2: Anatomy/Physiology of Components][lec-w7d1-02] (15 min)
-* :movie_camera: [Part 3: Rendering Components in the Browser][lec-w7d1-03] (10 min)
-* :movie_camera: [Part 4: JSX][lec-w7d1-04] (7 min)
-* :movie_camera: [Part 5: Babel/Transpiling JSX][lec-w7d1-05] (6 min)
-* :movie_camera: [Part 6: The Grand Demo][lec-w7d1-06] (51 min)
-  * :computer: [demo source code][watch-demo]
+- :movie_camera: [Part 1: Intro to React][react_video_01] (5 min)
+- :movie_camera: [Part 2: Anatomy/Physiology of Components][react_video_02] (15 min)
+- :movie_camera: [Part 3: Rendering Components in the Browser][react_video_03] (10 min)
+- :movie_camera: [Part 4: JSX][react_video_04] (7 min)
+- :movie_camera: [Part 5: Babel/Transpiling JSX][react_video_05] (6 min)
+- :movie_camera: [Part 6: The Grand Demo][react_video_06] (51 min)
+  - :computer: [demo source code][watch-demo]
 
-### Readings (1hr, 5min)
-* [Intro to react][react-intro] (5 min)
-* [My first component][first-component] (10 min)
-* [Intro to JSX][react-jsx] (7 min)
-* [Components with JSX][jsx-components] (15 min)
-* [5 practical examples][react-examples] (25 min)
-  * [working examples of these examples][examples]
-* [Using Git with NPM][npm-git] (3 min)
+### Readings (115 min)
+#### ES6 & Lodash (25 min)
+- [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
+- [ES6 Syntax: Import / Export][import_export] (10 min)
+- [Lodash][lodash] (5 min)
 
-### Homeworks (35 min)
-* [Getting Started with NPM and Webpack][npm-exercise] (35 min)
+#### Intro to React and JSX (25 min)
+- [React][intro_to_react] (5 min)
+- [JSX][intro_to_jsx] (10 min)
+- [React Components][intro_to_react_components] (10 min)
+
+#### Components in Detail (30 min)
+-	[Declaration][component_declaration] (10 min)
+- [Props and State][props_and_state] (10 min)
+- [Lifecycle Methods][component_lifecycle] (5 min)
+- [Synthetic Events][synthetic_events] (5 min)
+
+#### Configuration (35 min)
+- [NPM][npm_configuration] (15 min)
+- [Webpack][webpack_configuration] (10 min)
+- [Babel][babel_configuration] (10 min)
+
+### Homeworks (60 min)
+- [Getting Started with NPM][getting_started] (30 min)
+- [React Calculator][react_calculator] (30 min)
 
 ### Projects
-* [Getting Started with NPM and Webpack][npm-exercise]
-  * This was in the hw, but do it again. The set up is tricky!
-* [Widgets!][react-widgets]
-* [Minesweeper][react-minesweeper]
+- [Widgets][widgets]
+- [Minesweeper][minesweeper]
 
-[react-intro]: readings/intro.md
-[first-component]: readings/my_first_component.md
-[react-jsx]: readings/jsx.md
-[jsx-components]: readings/components_with_jsx.md
-[react-examples]: http://tutorialzine.com/2014/07/5-practical-examples-for-learning-facebooks-react-framework/
-[npm-exercise]: readings/npm_reading.md
-[npm-git]: readings/git_and_npm.md
-[lec-w7d1-01]: https://vimeo.com/album/3686654/video/147897911
-[lec-w7d1-02]: https://vimeo.com/album/3686654/video/147899305
-[lec-w7d1-03]: https://vimeo.com/album/3686654/video/147900089
-[lec-w7d1-04]: https://vimeo.com/album/3686654/video/147900661
-[lec-w7d1-05]: https://vimeo.com/album/3686654/video/147900472
-[lec-w7d1-06]: https://vimeo.com/album/3686654/video/147900885
-[react-widgets]: projects/widgets
-[react-minesweeper]: projects/react_minesweeper
-[examples]: demos/five_examples.zip?raw=true
+### Additional Resources
+- [Official React Documentation][react_docs]
+	- Most Helpful: 'REFERENCE' Section (Left Sidebar)
+
+[video_deprecation_note]: readings/video_deprecation_note.md
+[react_video_01]: https://vimeo.com/album/3686654/video/147897911
+[react_video_02]: https://vimeo.com/album/3686654/video/147899305
+[react_video_03]: https://vimeo.com/album/3686654/video/147900089
+[react_video_04]: https://vimeo.com/album/3686654/video/147900661
+[react_video_05]: https://vimeo.com/album/3686654/video/147900472
+[react_video_06]: https://vimeo.com/album/3686654/video/147900885
 [watch-demo]: demos/watch_webpack_demo
+
+[import_export]: readings/import_export.md
+[object_destructuring]: readings/object_destructuring.md
+[intro_to_react]: readings/intro_to_react.md
+[intro_to_jsx]: readings/intro_to_jsx.md
+[intro_to_react_components]: readings/intro_to_react_components.md
+[props_and_state]: readings/props_and_state.md
+[component_declaration]: readings/component_declaration.md
+[component_lifecycle]: readings/component_lifecycle.md
+[synthetic_events]: readings/synthetic_events.md
+[npm_configuration]: readings/npm_configuration.md
+[webpack_configuration]: readings/webpack_configuration.md
+[babel_configuration]: readings/babel_configuration.md
+[lodash]: readings/lodash.md
+
+[getting_started]: homeworks/getting_started
+[react_calculator]: homeworks/questions/calculator.md
+
+[widgets]: projects/widgets
+[minesweeper]: projects/react_minesweeper
+
+[react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
 ## w7d2
 
-### Readings (1hr, 10min)
-* [Stores][store-reading] (20 min)
-* [Think in React][think-in-react] (20 min)
-* [Components in depth][components-in-depth] (15 min)
-* [List diffing and the `key` prop][keys-reading] (5 min)
-* [Effective JavaScript][effective-js]: Items 53 and 55 (10 min)
+### Readings (90 min)
+- [Flux and Redux Intro][flux_redux] (10 min)
+- [Store][store] (15 min)
+- [Reducers][reducers] (15 min)
+- [Actions][actions] (10 min)
+- [`<Provider/>`][provider] (15 min)
+- [`connect()`][connect] (15 min)
+- [Containers][containers] (10 min)
 
-### Homeworks (35 min)
-* [Dollar Store][store-hw] (35 min)
+### Demos 
+- [Basic Flux Application][basic_flux_demo]
+
+### Homeworks
 
 ### Projects
-* [React Todos][react-todo]
+- [Synthesizer][synthesizer]
 
-### Full-Stack Projects
-* Full-Stack Projects Kickoff Lecture at 5PM!
+### Additional Resources
+- [Official `redux` Documentation][redux_docs]
+- [Official `react-redux` Documentation][react_redux_docs]
+-	*Note: The 'API' sections are especially useful.*
 
-[lifecycle-methods-demo]: https://vimeo.com/171447663
-[props-and-state]: https://vimeo.com/171453081
-[think-in-react]: http://facebook.github.io/react/docs/thinking-in-react.html
-[components-in-depth]: readings/components_in_depth.md
-[react-on-rails]: readings/react_on_rails.md
-[keys-reading]: https://facebook.github.io/react/docs/reconciliation.html#list-wise-diff
-[react-todo]: projects/todo_react
-[separate-js-from-html]: readings/separate_javascript_from_html.md
-[store-reading]: readings/stores.md
-[store-hw]: homeworks/questions/stores.md
+[store]: readings/store.md
+[reducers]: readings/reducers.md
+[actions]: readings/actions.md
+[flux_redux]: readings/flux_redux.md
+[provider]: readings/provider.md
+[connect]: readings/connect.md
+[containers]: readings/containers.md
+[redux_docs]: http://redux.js.org/index.html
+[react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
+
+[synthesizer]: projects/synthesizer
 
 ## w7d3
 
-### Video Lectures (35 min)
-:closed_lock_with_key: `go_video_go`
-* [Flux video lecture][flux-lecture] (15 min)
-* [Flux code demo][flux-demo-screencast] (15 min)
-  * [pre-flux code][recipes-pre-flux]
-  * [complete project with flux][recipes-post-flux]
+### Readings (45 min)
+- [Higher-order functions][higher_order_functions] (15 min)
+- [Middleware][middleware] (15 min)
+- [API Interactions in Redux][redux_api_interactions] (15 min)
 
-
-### Readings (40 min)
-* [Basic intro to flux][flux-intro] (5 min)
-* [Flux component overview][flux-component-overview] (5 min)
-* [Stores and Actions][stores-and-actions] (10 min)
-* [Effective JavaScript][effective-js]: Items 56, 58, and 59 (20 min)
-
-### Homeworks (30 min)
-* [Click Counter Flux Conversion Project!][click-counter-flux] (30 min)
-* [Submit tentative project proposal][tentative-proposal]
-  * due w7d4 9AM
-
-### Additional Resources
-* [Dispatcher][flux-dispatcher]
-* [Facebook Flux Todo List Tutorial][flux-todo-tutorial]
-* [Todo List source][flux-todo-source] | [How to run this project][how-to-run]
-* [Video: 'Facebook: react, flux by Bill Fisher'][flux-video]
+### Homeworks
 
 ### Projects
-* [Organ Grinder][organ-grinder]
 
-[flux-api-screencast]: https://vimeo.com/163488310
-[recipes-pre-flux]: demos/recipes_demo/pre_flux
-[recipes-post-flux]: demos/recipes_demo/flux
-[recipes-with-api]: demos/recipes_demo/flux_api
-[flux-lecture]: https://vimeo.com/163485520
-[flux-demo-screencast]: https://vimeo.com/163486476
-[click-counter-flux]: homeworks/click_counter
-[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
-[flux-intro]: readings/intro_to_flux.md
-[flux-video]: https://www.youtube.com/watch?v=Bic_sFiaNDI
-[flux-todo-tutorial]: readings/todo_list_tutorial.md
-[flux-todo-source]: https://github.com/facebook/flux/tree/master/examples/flux-todomvc/
-[how-to-run]: readings/how_to_run.md
-[flux-component-overview]: readings/component_overview.md
-[flux-dispatcher]: https://facebook.github.io/flux/docs/dispatcher.html#content
-[organ-grinder]: projects/organ_grinder
-[stores-and-actions]: readings/stores_and_actions.md
+- [Todos][todos]
+
+[higher_order_functions]: readings/higher_order_functions.md
+[middleware]: readings/middleware.md
+[redux_api_interactions]: readings/redux_api_interactions.md
+[todos]: projects/todos
+
 
 ## w7d4
 
-### Readings (91 min)
-* [Intro to react router][react-router-intro] (12 min)
-* [Route Configuration][route-configuration] (12 min)
-* [Route Matching][route-matching] (5 min)
-* [Index Routes][index-routes] (7 min)
-* [Component lifecycle][component-lifecycle] (15 min)
-* [jbuilder][jbuilder-link] (20 min)
-  * read the documentation thoroughly!
-* [Effective JavaScript][effective-js]: Items 66, 67, and 68 (20 min)
+### Video Lectures
 
-### Homeworks (30 min)
-* [Rainbow Routes][rainbow-routes] (30 min)
+### Readings
+
+- [Intro to react router][react_router_intro] (12 min)
+- [Route Configuration][route_configuration] (12 min)
+- [Route Matching][route_matching] (5 min)
+- [Index Routes][index_routes] (7 min)
+- [Route Hooks (`onEnter`)][on_enter] (10 min)
+- [`withRouter`][with_router]
+- [Jbuilder][jbuilder] (20 min)
+
+### Homeworks
 
 ### Projects
-* [Pokedex][pokedex]
 
+- [Pokedex][pokedex]
 
-[react-router-intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
-[route-configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
-[route-matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
-[index-routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-[component-lifecycle]: https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
-[jbuilder-link]: https://github.com/rails/jbuilder
-[rainbow-routes]: homeworks/questions/rainbow_routes.md
+### Additional Resources
+
+-	[React Router Documentation][react_router_docs]
+	- Check the `API` docs for quick reference
+
+[react_router_intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
+[route_configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
+[route_matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
+[index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent
+[on_enter]: readings/on_enter.md
+[jbuilder]: https://github.com/rails/jbuilder
 [pokedex]: projects/pokedex
+[react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ## w7d5
 
-### Readings (15 min)
-* [React Map Demo][react_map_demo] (15 min)
+### Video Lectures
 
-### Homework (90 min)
-* [Jbuilder Exercise][jbuilder-demo] (90 min)
-  * instructions in README
+### Readings
+-	[React Map Demo][react_map_demo] (15 min)
+- [`preloadedState`][preloaded_state]
+- [User Authentication][user_authentication]
+- [Bonus: React Context][context]
+- [Bonus: `localStorage`][local_storage]
 
-### Additional Resources
-* [Jbuilder Documentation][jbuilder-link]
-* [Route Hooks: `onEnter`][on-enter]
+### Homeworks
 
 ### Projects
-* [BenchBnB Day 1][bench-bnb]
 
-### :joy_cat: **Happy Hour!** :joy_cat:
+- [BenchBNB][bench_bnb]
 
-[on-enter]: readings/on_enter.md
-[bench-bnb]: projects/bench_bnb
+### Additional Resources
+
+- [Rails/React/Redux Configuration Checklist][checklist]
+
+[local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[context]: https://facebook.github.io/react/docs/context.html
+[preloaded_state]: readings/preloaded_state.md
 [react_map_demo]: demos/react_map_demo
-[jbuilder-link]: https://github.com/rails/jbuilder
-[jbuilder-demo]: homeworks/questions/jbuilder_demo
+[checklist]: readings/checklist.md
+[bench_bnb]: projects/bench_bnb
 
 ## w7d6-w7d7
 
 ### Readings (50 min)
-* [Testing React][jest-basics] (15 min)
-* [Running Jest Tests][jest-config] (15 min)
-* [Think in React][think-in-react] (20 min)
-  * Review this reading again.  It will be super helpful in designing your project.  
+* [Think in React][think_in_react] (20 min)
 
 ### Homework (5 hours)
-* Submit your [full-stack project proposal][full-stack-project-proposal] (5 hours)
+* Submit your [full-stack project proposal][full_stack_project_proposal] (5 hours)
   * **Due by 9am on Monday**
 
 ### Additional Resources
-* See [full-stack project curriculum][full-stack-project-curriculum] for additional information and readings related to full-stack projects.
+* See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
 
-[full-stack-project-curriculum]: ../full-stack-project
-[full-stack-project-proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
-[jest-basics]: readings/jest_basics.md
-[jest-config]: readings/jest_config.md
+[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
+[full_stack_project_curriculum]: ../full-stack-project
+[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
 
 ## w8d1
 
@@ -206,8 +221,4 @@
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
-* **Solo:** [BenchBnB Day 2][bench-bnb2]
-
-[bench-bnb2]: projects/bench_bnb
-
-[effective-js]: http://effectivejs.com/
+* **Solo:** [BenchBnB Day 2][bench_bnb]

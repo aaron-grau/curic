@@ -10,7 +10,7 @@ class Api::FavoritesController < ApplicationController
       render "api/favorites/show", status: 200
     else
       @errors = favorite.errors.full_messages
-			render json: @errors, status: 422
+			render "api/shared/error", status: 422
     end
   end
 
@@ -24,7 +24,7 @@ class Api::FavoritesController < ApplicationController
       render "api/favorites/show", status: 200
     else
       @errors = favorite.errors.full_messages
-			render json: @errors, status: 422
+			render "api/shared/error", status: 422
     end
   end
 
