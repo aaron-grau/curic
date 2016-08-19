@@ -695,8 +695,8 @@ Follow these steps, ** testing your code as you go ** :
     + Item pops up when it is due
 
 
-[object.freeze]: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze'
-[middleware_reading]: '../../../readings/middleware.md'
-[components_reading]: 'https://github.com/appacademy/curriculum/react#w7d1'
-[connect_reading]: 'https://github.com/appacademy/curriculum/react#w7d1'
-[controlled_input_reading]: '../../readings/controlled_inputs.md'
+[object.freeze]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
+[middleware_reading]: ../../readings/middleware.md
+[components_reading]: ../../readings/containers.md
+[connect_reading]: ../../readings/connect.md
+[controlled_input_reading]: ../../readings/controlled_inputs.md
