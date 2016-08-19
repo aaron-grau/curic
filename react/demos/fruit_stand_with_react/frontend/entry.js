@@ -6,7 +6,6 @@ import { addOrange, addApple } from './actions';
 import FruitStand from './components/fruit_stand';
 
 
-const roolEl = document.getElementById;
 ReactDOM.render(
 	<FruitStand store={store} />,
 	document.getElementById('root')
