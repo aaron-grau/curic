@@ -7,7 +7,8 @@ class Widget extends React.Component {
 
   constructor(props) {
     super(props);
-    this.props.store.subscribe(this.render.bind(this));
+    this.forceUpdate = this.forceUpdate.bind(this);
+    this.props.store.subscribe(this.forceUpdate);
     this.currencies = ["USD", "EUR", "CAD", "JPY", "GBP", "CNY"];
     this.selectCurrency = selectCurrency.bind(this);
   }
@@ -28,22 +29,24 @@ class Widget extends React.Component {
   render() {
     const { rates, baseCurrency } = this.props.store.getState();
 
-    const currencyOptions = this.currencies.map( (currency) => {
-      return (
+    const currencyOptions = this.currencies.map( (currency) => (
         <div onClick={ () => { this.fetchRates(currency) }}
              key={currency}
              className="currency-option">
           {currency}
         </div>
-      );
-    });
+      )
+    );
 
     const currencyNames = Object.keys(rates);
-    const currencyRates = currencyNames.map( (currency) => {
-      return (<Currency name={currency}
-                        rate={rates[currency]}
-                        key={currency}/>);
-    });
+    const currencyRates = currencyNames.map( (currency) => (
+      <Currency name={currency}
+                rate={rates[currency]}
+                key={currency}/>
+      )
+    );
+
+    // debugger
 
     return (
       <div>

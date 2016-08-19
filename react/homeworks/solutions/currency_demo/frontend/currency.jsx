@@ -1,24 +1,18 @@
 import React from 'react';
 
-class Currency extends React.Component {
-  constructor(props) {
-    super(props);
+const Currency = ({name, rate}) => {
+  let color = "green";
+  if(rate < 1) {
+    color = "red";
   }
 
-  render() {
-    let color = "green";
-    if(this.props.rate < 1) {
-      color = "red";
-    }
-
-    return (
-      <div className={color}>
-        {this.props.name}
-        &nbsp;
-        {this.props.rate}
-      </div>
-    );
-  }
+  return (
+    <div className={color}>
+      {name}
+      &nbsp;
+      {rate}
+    </div>
+  );
 };
 
 export default Currency;
