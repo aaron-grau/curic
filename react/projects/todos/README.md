@@ -687,7 +687,7 @@ Follow these steps, ** testing your code as you go ** :
 + Add additional features:
   + Tags for todos
   + Steps can have sub-steps (polymorphic associations)
-  + Allow markdown or text styling in todos ([quill.js](https://quilljs.com/)
+  + Allow markdown or text styling in todos ([quill.js](https://quilljs.com/))
   + Allow users to update todo title & body
   + Sorting by priority
   + Adding a time when something is due
@@ -696,7 +696,7 @@ Follow these steps, ** testing your code as you go ** :
 
 
 [object.freeze]: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze'
-[middleware_reading]: '../../readings/middleware.md'
+[middleware_reading]: '../../../readings/middleware.md'
 [components_reading]: 'https://github.com/appacademy/curriculum/react#w7d1'
 [connect_reading]: 'https://github.com/appacademy/curriculum/react#w7d1'
 [controlled_input_reading]: '../../readings/controlled_inputs.md'
