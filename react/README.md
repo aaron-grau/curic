@@ -90,7 +90,7 @@
 - [Containers][containers] (10 min)
 
 ### Demos 
-- [Basic Redux/React Application][redux_react_demo]
+- [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
 
 ### Homeworks
 
