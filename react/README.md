@@ -90,7 +90,7 @@
 - [Containers][containers] (10 min)
 
 ### Demos 
-- [Basic Flux Application][basic_flux_demo]
+- [Basic Redux/React Application][redux_react_demo]
 
 ### Homeworks
 
@@ -111,6 +111,8 @@
 [containers]: readings/containers.md
 [redux_docs]: http://redux.js.org/index.html
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
+
+[redux_react_demo]: https://vimeo.com/179391419
 
 [synthesizer]: projects/synthesizer
 
