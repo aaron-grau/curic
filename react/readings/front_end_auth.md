@@ -158,4 +158,7 @@ We are going to suggest the following implementation:
 
 Now we should be able to log in, refresh, and not lose our session status!
 
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[gon-video]: https://vimeo.com/168132088
+
 ---
