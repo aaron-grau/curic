@@ -7,7 +7,7 @@ directly to your components via props.
 ```js
 const handleClick = event => {
 	event.preventDefault();
-	alert("clicked!")
+	alert("clicked!");
 };
 
 const SimpleButton = () => (

@@ -2,7 +2,10 @@
 
 ## w7d1
 ### Video Lectures (94 min)
-[**An Important Note About These Lectures**][video_deprecation_note]
+**N.B.** These lectures were recorded prior to the introduction of ES6-style syntax to
+React. As a result, you may see a slightly different syntax than in the rest of
+the React curriculum materials. Review the
+[component declaration][component-declaration] reading for more discussion of the differences.
 
 :closed_lock_with_key: `go_video_go`
 - :movie_camera: [Part 1: Intro to React][react_video_01] (5 min)
@@ -47,7 +50,7 @@
 - [Official React Documentation][react_docs]
 	- Most Helpful: 'REFERENCE' Section (Left Sidebar)
 
-[video_deprecation_note]: readings/video_deprecation_note.md
+[component-declaration]: readings/component_declaration.md
 [react_video_01]: https://vimeo.com/album/3686654/video/147897911
 [react_video_02]: https://vimeo.com/album/3686654/video/147899305
 [react_video_03]: https://vimeo.com/album/3686654/video/147900089
@@ -89,7 +92,7 @@
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
-### Demos 
+### Demos
 - [Basic Redux/React Application][redux_react_demo]
 
 ### Homeworks

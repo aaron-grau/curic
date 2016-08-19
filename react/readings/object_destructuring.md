@@ -20,7 +20,7 @@ a; // 1
 c; // 3
 ```
 
-It also works for nested objects: 
+It also works for nested objects:
 
 ```js
 const {a: { b }} = {a: {b: 2}};
@@ -28,10 +28,10 @@ const {a: { b }} = {a: {b: 2}};
 a; // undefined (gasp)
 b; // 2
 ```
-To reference both `a` and `b` above, we need to do: 
+To reference both `a` and `b` above, we need to do:
 
 ```js
-const { a } = { a: {b} } = { a: {b: 2} } 
+const { a } = { a: {b} } = { a: {b: 2} };
 a; // {b: 2}
 b; // 2
 
@@ -82,13 +82,13 @@ const review = {
   movie: 'Star Trek',
   comment: 'It was excellent!',
   rating: 5
-}
+};
 
 const user = {
   id: 1,
   fname: 'Ned',
   lname: 'Ruggeri'
-}
+};
 ```
 
 It would be nice to get some more information about our user. Let's take the

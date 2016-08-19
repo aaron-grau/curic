@@ -112,14 +112,13 @@ class Message extends React.Component {
 ```
 
 We can further simplify `Message` by using object de-structuring and
-arrow-function implicit returns from ES6:
+arrow-function implicit returns from ES6.  Prefer this syntax:
 
 ```js
 const Message = ({ text }) => (
 	<div>{text}</div>
 );
 ```
-
 Functional components are the most common type of component that you will see in Redux applications, which you will learn more about later this week.
 
 [functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
