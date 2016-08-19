@@ -46,6 +46,9 @@ convenient methods for traversal and manipulation. We will implement
   `Array` so we can pass it as an argument to the class we will define
   next...
 
+Make sure you test your function before moving on! Use `window.$l = $l;`
+to interact with it in the browser console.
+
 #### `DOMNodeCollection`
 
 * Create a file in `/lib` called `dom_node_collection.js`. We'll define our class here and assign it to `module.exports` in order to use it back in our main file.
@@ -61,8 +64,8 @@ this array as an instance variable.
 
 #### `$l(HTMLElement)`
 * We are now going to modify the core (`$l`) function. It will recieve one argument, but let's make it flexible.
-* If the argument received is an `object`, i.e. an `instanceof`
-  `HTMLElement`, you should put it into an array and return an instance of
+* If the argument received is a jQuery object, (i.e. an `instanceof`
+  `HTMLElement`), you should put it into an array and return an instance of
   DOMNodeCollection.
 * This will allow a HTMLElement native element to be 'wrapped' in jQuery
   lite goodness.
