@@ -219,7 +219,14 @@ Now wrap everything within our provider in a `<Router>` and pass this component 
 
 Next instead of rendering the `<PokemonIndexContainer>` directly setup a route that will render the component when `path="/"`. This will assure that the pokemon index is rendered no matter what our pathname is.
 
-**Make sure the pokemon still render before moving on**
+The React Router allows us to do some refactoring of our `PokemonIndex` component before moving on to the `PokemonIndexItem` with the use of the [onEnter](https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback) function.
+
+This function is called when the route is entered so instead of dispatching the `requestAllPokemon` action in the `PokemonIndex` component we can call it on entrance of the `/` route. Write a function to pass to the `onEnter` of your route inside the root component so that you have access to the store.
+
+Now you can refactor the `PokemonIndex` to be a stateless functional component that does not need to call any React lifecycle methods. We also do not need to
+`mapDispatchToProps` anymore which simplifies our `PokemonIndexContainer`. 
+
+**Make sure all pokemon still render before moving on**
 
 ### Pokemon Index Item
 
@@ -269,13 +276,15 @@ The selector will take state as a parameter and jsut serve as a utility function
 
 Map an additional piece of state to the props of your `PokemonDetail` component using your imported selector. 
 
-6. create a `pokemonDetail` component that calls the request action passed from `mapDispathToProps`
-7. create the corresponding route that renders the `pokemonDetailContainer`
+6. create a `pokemonDetail` component
+
+Just like the `PokemonIndex`, use an `onEnter` hook in the Route to invoke the `RequestSinglePokemon` action. This time we will need to pass an ID to this action so research the `onEnter` docs to figure out how we get this information.
+
+7. complete the corresponding route that renders the `pokemonDetailContainer`
+
 **Make sure to test as you go to avoid bugs. The most common bugs are related to importing/exporting functions.**
 
 Nest the `PokemonDetail` route under the route for the `PokemonIndex` and then **explicitly tell the `PokemonIndex` component to render it's children**. This will assure that both components will be rendered on the page when at the `"/pokemon/1"` path.
-
-There exists one problem with our implementation. Currently if the component is mounted then the state is updated and the pokemon detail displays the correct information. But what if the component is already mounted and we click on a different pokemon? Check the store in the console to confirm that the state is not being reduced and then talk with your partner about a certain lifecycle method that may solve the problem.
 
 Sample jsx structure for a pokemonDetail:
 ```html
@@ -296,8 +305,6 @@ Sample jsx structure for a pokemonDetail:
   </ul>
 </section>
 ```
-
-**Before moving on we have an important adjustment to make. What happens when we click on the same pokemon?**
 
 ### Toy Detail
 

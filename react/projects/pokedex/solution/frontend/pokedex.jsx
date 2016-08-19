@@ -5,7 +5,6 @@ import Root from './components/root.jsx';
 
 document.addEventListener('DOMContentLoaded', function () {
 	const store = configureStore(window.pokemonTypes);
-	window.store = store;
 	const root = document.getElementById('root');
 	ReactDOM.render(<Root store={store}/>, root);
 });
