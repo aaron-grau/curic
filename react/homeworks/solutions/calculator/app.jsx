@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 
 import Calculator from './calculator';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Calculator />, document.getElementById('main'));
 });

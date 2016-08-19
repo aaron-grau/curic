@@ -2,10 +2,10 @@
 
 So far we have introduced and used the  `redux` node package, which
 allows us to create Redux `store` objects with `dispatch()`, `getState()`, and
-`subscribe()` methods via `createStore()`. Using these methods alone, 
-we can create a fully-functional React-Redux application. However, 
-the creators of `redux` also give us `react-redux`, a node package with 
-[**bindings**][bindings] simplifying the most common React-Redux interactions, 
+`subscribe()` methods via `createStore()`. Using these methods alone,
+we can create a fully-functional React-Redux application. However,
+the creators of `redux` also give us `react-redux`, a node package with
+[**bindings**][bindings] simplifying the most common React-Redux interactions,
 that we will also use.
 
 ## Setup
@@ -22,7 +22,7 @@ import { Provider } from 'react-redux';
 
 Oftentimes, a deeply nested component will need access to the store, while its
 parents do not. Using vanilla React, these parents would have to receive
-the `store` prop in order to pass it down to its child. 
+the `store` prop in order to pass it down to its child.
 
 Consider the example below:
 
@@ -60,7 +60,7 @@ import { createStore } from 'redux';
 import reducer from './reducer.js';
 import App from './app.jsx';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const store = createStore(reducer);
   const rootEl = document.getElementById('root');
   ReactDOM.render(<App store={store} />, rootEl);
@@ -80,8 +80,8 @@ it by using the `Provider`/`connect()` API provided by `react-redux`.
 Using the `Provider` component defined by the `react-redux` package, we can
 pass the store to deeply nested components without explicit threading.
 
-We'll create a `Root` component which takes as an argument `store` and 
-wraps our `App` component with the `Provider` component like so: 
+We'll create a `Root` component which takes as an argument `store` and
+wraps our `App` component with the `Provider` component like so:
 
 ```js
 // root.jsx
@@ -98,7 +98,7 @@ const Root = ({ store }) => (
 export default Root;
 ```
 
-Thus in our entry file, we'll render a `Root` component which passes 
+Thus in our entry file, we'll render a `Root` component which passes
 the store to all nested components 'invisibly'.
 ```js
 // entry.js
@@ -109,7 +109,7 @@ import { createStore } from 'redux';
 import reducer from './reducer.js';
 import Root from './root.jsx';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   const store = createStore(reducer);
   const rootEl = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, rootEl);
@@ -122,12 +122,12 @@ a `store` `context` (i.e. an invisible prop), which is passed down to all
 of its children. Because we wrapped the entire `App` in the Provider, all
 our components will receive the store context.
 
-Components that need to access the store context will have to `connect()`, 
-which converts the `store` context into a `store` prop. We'll discuss how 
+Components that need to access the store context will have to `connect()`,
+which converts the `store` context into a `store` prop. We'll discuss how
 `connect()` works in the next reading.
 
 Read more on `context` if you are curious. You can check out the
-[official documentation][context]. However, you don't really need to 
+[official documentation][context]. However, you don't really need to
 know exactly how it works to use the `react-redux` API, so feel free to skip it.
 
 [context]: https://facebook.github.io/react/docs/context.html
