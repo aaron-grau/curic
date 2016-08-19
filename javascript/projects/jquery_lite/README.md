@@ -20,7 +20,9 @@ with.
 
 ### Webpack
 
-Create a `/lib` folder where we will store all of our files. Create a file in `/lib` called, `main.js` and boot up `webpack --watch lib/main.js lib/jquery_lite.js`. This output file is what we want to source in the
+Create a `/lib` folder where we will store all of our files. Create a file in `/lib` 
+called, `main.js` and boot up `webpack --watch lib/main.js lib/jquery_lite.js`. 
+This output file is what we want to source in the
 `<script>` tag of our html file. Go ahead and add that script tag now.
 
 ### The core function
@@ -44,7 +46,11 @@ convenient methods for traversal and manipulation. We will implement
   JavaScript API.
 * Once we have our `NodeList` we want to convert it into an actual
   `Array` so we can pass it as an argument to the class we will define
-  next...
+  next.
+
+Make sure you successfully test your function before moving on! 
+Use `window.$l = $l;` to interact with it in the browser console. 
+Open `index.html`.
 
 #### `DOMNodeCollection`
 
@@ -60,9 +66,10 @@ this array as an instance variable.
 * Back in `main.js`, require your DOMNodeCollection file and store it in a variable.
 
 #### `$l(HTMLElement)`
-* We are now going to modify the core (`$l`) function. It will recieve one argument, but let's make it flexible.
-* If the argument received is an `object`, i.e. an `instanceof`
-  `HTMLElement`, you should put it into an array and return an instance of
+* We are now going to modify the core `$l` function. It will recieve one argument, 
+  but let's make it flexible.
+* If the argument received is a jQuery object, (i.e. an `instanceof`
+  `HTMLElement`), you should put it into an array and return an instance of
   DOMNodeCollection.
 * This will allow a HTMLElement native element to be 'wrapped' in jQuery
   lite goodness.

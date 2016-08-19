@@ -8,7 +8,7 @@ We're going to add routing to our application.
   npm install --save react-router
 ```
 
-Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a 
+Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a
 bit. Define 3 new files: these can all live at the root of the `components` folder:
 
 * `app.jsx`
@@ -96,7 +96,7 @@ render the `Root` component into the `#root` container. Pass the `Store` to the
 `Root` component as a prop.
 
 ```javascript
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
@@ -241,8 +241,8 @@ endpoints:
   * [POST] api/session: "session#create" (login),
   * [DELETE] api/session: "session#destroy" (logout)
 
-**Create a `User` model, `API::UsersController`, and `Api::SessionsController`.** 
-Follow the basic pattern you used during the [Rails curriculum][rails], with some 
+**Create a `User` model, `API::UsersController`, and `Api::SessionsController`.**
+Follow the basic pattern you used during the [Rails curriculum][rails], with some
 key differences:
 
 * **Namespace**: Your controllers should live under an `Api` namespace.
@@ -435,7 +435,7 @@ Finally, inside the `DOMContentLoaded` callback in your entry file...
 ```
 
   * Pass this `preloadedState` to `configureStore`.
-  * If there is no `window.currentUser`, then `configureStore` 
+  * If there is no `window.currentUser`, then `configureStore`
   without any arguments.
 
 ### Protect your front-end routes.
@@ -491,7 +491,7 @@ It should look like this:
   });
 ```
 
-The first parameter, `filter`, will tell our `FilterReducer` which property to 
+The first parameter, `filter`, will tell our `FilterReducer` which property to
 update, and the second parameter, `value`, will specify the value of that filter.
 
 Start by refactoring the `FilterReducer` and `SearchContainer` to use this new
@@ -515,8 +515,8 @@ Create a new component, `FilterForm`. It should be a sub-component of `Search`.
 `maxSeating`.
 
 Update your `SearchContainer` to pull `minStating` and `maxSeating` from the state
-to pass as props. `SearchContainer` should also pass an `updateFilter` prop to 
-`Search`, which should then pass it on to `BenchMap` and `FilterForm`. 
+to pass as props. `SearchContainer` should also pass an `updateFilter` prop to
+`Search`, which should then pass it on to `BenchMap` and `FilterForm`.
 `updateFilter` should be the `onChange` handler of the `input` tags.
 
 You should be able to see the markers change on the screen as you toggle the values
@@ -537,8 +537,8 @@ Show reviews of a bench on `BenchShow`. Reviews for a bench should comprise:
 * A rating from 1 to 5.
 * A comment field.
 
-Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average score 
-for a bench and also list the reviews for that bench. Modify and add the 
+Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average score
+for a bench and also list the reviews for that bench. Modify and add the
 appropriate API endpoints, actions, utils, and components.
 
 

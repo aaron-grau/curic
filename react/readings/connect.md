@@ -1,93 +1,98 @@
 ## `react-redux`: `connect()`
 
-`react-redux` allows us to access the store `context` set up by the
-[`Provider`][provider] in a powerful and convenient way via `connect()`. Using
-`connect()`, we can pass specific slices of the store's state, as well as
-specific action-dispatches, to a component as props. The component's props then
-serve as its API to the store, making it more modular and less burdened
-by Redux boilerplate.
+The `react-redux` package allows us to access the store `context` set by the
+[`Provider`][provider] in a powerful and convenient way via the `connect()`
+method.  Using `connect()`, we can pass specific slices of the store's state
+and specific action-dispatches to a React component as `props`. A component's
+`props`  then serve as its API to the store, making it more modular and less
+burdened by Redux boilerplate.
 
 ## A Model for Understanding
 
-`connect()` is a higher-order function that ultimately accepts a React component and then returns a new component that wraps around the component passed in. The new component serves as the interface between the store `context` given by the `Provider` and the wrapped component's props. Review the following snippet as a mental model (it's not technically correct):
+`connect()` is a higher-order function that takes some `args` and returns a function that accepts a React `Component` and returns `Component` wrapped in a new React component. This new component serves as the interface between the store `context` set by the `Provider` and the wrapped component's `props`.
+
+Review the following snippet as a mental model (it's not technically correct):
 
 ```js
+// NB: This pseudo-code is for illustration purposes only.
+const ConnectedComponent = connect(...args)(Component);
 
-// Note: This pseudo-code is for illustration purposes only.
-
-const connectedComponent = connect(...args)(Component);
-
-// Think of `connectedComponent` as doing the following: 
-
+// Think of `ConnectedComponent` as being equivalent to the following:
 ConnectedComponent = (props, context) => (
-	<Component store={context.store}/>
+	<Component store={context.store} />
 )
-
 ```
 
 ## Signature
 
-Because `connect()` is a higher-order function (it returns a function), it accepts two sets of arguments. Check out its signature:
+Because `connect()` is a *higher-order function* (i.e. it returns a function), it accepts two sets of arguments. Let's see how it's called:
 
 ```js
-const connectedComponent = connect(mapStateToProps, mapDispatchToProps, mergeProps, options)(component);
-
-// 
+const ConnectedComponent = connect(
+	mapStateToProps,
+	mapDispatchToProps,
+	[mergeProps],
+	[options]
+)(Component);
 ```
 
 Let's examine the arguments in detail.
 
-## `mapStateToProps`
+## `mapStateToProps(state, [ownProps])`
 
-This argument is a function that tells the connected component how to transform the `state` into the basic (presentational) component's props. 
+This first argument is a function `mapStateToProps` that tells the wrapping
+component how to map the `state` into the connected `Component`'s `props`
+object.
 
-It must accept the store's `state` (via the `Provider's store `context`) and
-return an object containing the props to be given to the presentational
-component. 
+It must take as an argument the store's `state` (via the `Provider`'s store
+`context`) and return an object containing the props specified by the
+`Component`.
 
 ```js
-const Component = ({name}) => <div>{name}</div>;
+const Component = ({ name }) => ( // destructure props
+	<div>{name}</div>
+);
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({ // maps slice of state to props object
 	name: state.name;
 });
 
-const connectedComponent = connect(mapStateToProps)(Component);
-
+const ConnectedComponent = connect(mapStateToProps)(Component);
 ```
-In the example above, the `connectedComponent` passes `name` as a prop to the
-`Component`. When `connectedComponent` is rendered, all we see is the
-`Component`, with the proper props automatically taken from the store.
+In the example above, the `ConnectedComponent` passes `name` as props to the
+`Component`. When `ConnectedComponent` is rendered, all we see is the
+`Component`, with the slice of state taken from the store.
 
-### `ownProps`
+### `ownProps` - Optional Argument
 
-A component with explicit props passed down from its parent `<Component lastName={'Wozniak'}/>` can also merge those props with the `state ` via the second, `ownProps`, argument to `mapStateToProps`:
+A component with explicit props passed down from its parent (e.g. `<Component lastName={'Wozniak'}/>`) can also merge those props with the `state ` via a second optional argument `ownProps` to `mapStateToProps`:
 
 ```js
 const mapStateToProps = (state, ownProps) => ({
-	fullName: `${state.name} ${ownProps.lastName}`
+	firstName: state.name,
+	initials: `${state.name[0]}. ${ownProps.lastName[0]}.`
 });
 
-connectedComponent = connect(mapStateToProps)(Component);
-
+ConnectedComponent = connect(mapStateToProps)(Component);
 ```
 
-In the example above, the `Component` will receive a `fullName` prop via `connect()`, in addition to its explicit `lastName` prop.
+In the example above, the `Component` will receive two addition props (`firstName` and `initials`) via `connect()`, in addition to its explicit `lastName` prop.
 
 ## `mapDispatchToProps`
 
 `mapDispatchToProps` is the second parameter of `connect()`. It is a function
 that accepts the store's `dispatch` method and returns an object containing
-functions that can be called to dispatch actions to the store. Those functions
-are then passed as props to the connected Component.
+functions that can be called to dispatch actions to the store. These action
+dispatchers are then passed as props to the connected `Component`.
 
 ```js
-// action creator
-const deleteTodo = (id) => ({ type: "DELETE_TODO", id });
+const deleteTodo = (id) => ({ type: "DELETE_TODO", id }); // action creators
+const addTodo = (msg) => ({ type: "ADD_TODO", msg });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-	handleDelete: () => dispatch(deleteTodo(ownProps.id));
-})
+const mapDispatchToProps = (dispatch) => ({
+	handleDelete: (id) => dispatch(deleteTodo(id)),
+	handleAdd: (msg) => dispatch(addTodo(msg))
+});
 ```
 
 ### `mergeProps` (optional)
@@ -96,10 +101,9 @@ This rarely-used optional argument is a function used to merge the result of `ma
 
 ```js
 const mergeProps = (stateProps, dispatchProps) => {
-// define mergedProps
-return mergedProps;
+	// defining mergedProps...
+	return mergedProps;
 }
-
 ```
 
 ### `options` (optional)
@@ -108,14 +112,19 @@ This even more rarely used argument allows you to configure how `connect()` work
 
 Read [here][docs] for more information.
 
-### `component`
+### `Component`
 
-The `component` to be connected is passed to the function returned by `connect()`.
+The `Component` to be connected is passed to the function returned from calling
+`connect()`.
 
 ```js
-const connectedComponent = connect(mapDispatchToProps, mapDispatchToProps)(component)
-
+const ConnectedComponent = connect(
+	mapDispatchToProps,
+	mapDispatchToProps
+)(component);
 ```
+
+`ConnectedComponent` serves as the interface between the store `context` set by the `Provider` and the wrapped component's `props`.
 
 [docs]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#arguments
 [provider]: provider.md

@@ -7,7 +7,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
     const initialState = {session: {currentUser: window.currentUser}};

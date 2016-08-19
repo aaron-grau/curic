@@ -92,10 +92,8 @@ the React curriculum materials. Review the
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
-### Demos
-- [Basic Redux/React Application][redux_react_demo]
-
-### Homeworks
+### Demos (1 hr 15 min)
+- [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
 
 ### Projects
 - [Synthesizer][synthesizer]
