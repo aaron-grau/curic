@@ -8,10 +8,10 @@ all of our login, sign up, logout, etc. requests via AJAX.
 **Your backend will look essentially the same!**
 
 Let's make sure we reinforce some key properties of authentication:
-  * A *session* is still maintained by assigning a token to the user's cookie
-  * Cookies are sent by the browser to the server with every request, http and ajax!
+  * A *session* is maintained by assigning a token to the user's cookie
+  * Cookies are sent by the browser to the server with every request: http and ajax!
 
-Let's talk about all the front-end pieces. We need:
+We'll need the following pieces:
 
   * SessionReducer
   * Session Actions / Constants
@@ -31,18 +31,18 @@ Our `SessionReducer` might look something like this:
   };
 
   const SessionReducer = function(state = _defaultState, action){
-  switch(action.type){
-    case SessionConstants.RECEIVE_CURRENT_USER:
-      const currentUser = action.currentUser;
-      return merge({}, _defaultState, {currentUser});
-    case SessionConstants.LOGOUT:
-      return _defaultState;
-    case SessionConstants.RECEIVE_ERRORS:
-      const errors = action.errors;
-      return merge({}, _defaultState, {errors});
-    default:
-      return state;
-  }
+    switch(action.type){
+      case SessionConstants.RECEIVE_CURRENT_USER:
+        const currentUser = action.currentUser;
+        return merge({}, _defaultState, {currentUser});
+      case SessionConstants.LOGOUT:
+        return _defaultState;
+      case SessionConstants.RECEIVE_ERRORS:
+        const errors = action.errors;
+        return merge({}, _defaultState, {errors});
+      default:
+        return state;
+    }
   };
 ```
 
@@ -72,7 +72,7 @@ We'll also need some api utility functions that will actually make the ajax requ
 
 ### Middleware
 
-The middleware should be responsible for invoking our session api utility functions
+The `SessionMiddleware` should be responsible for invoking our session api utility functions
 whenever it sees a relevant dispatch.
 
 ```
@@ -102,7 +102,7 @@ session status. Check out this `Router`:
 
 Here we have 3 routes that are all protected by [onEnter hooks][onenter]
 
-[onenter]['./on_enter.md']
+[onenter]('./on_enter.md')
 
 ---
 
