@@ -51,5 +51,5 @@ In `webpack.config.js`:
 Run `npm run webpack` in your terminal, then open `index.html`. Congratulations:
 you're up and running!
 
-[readings-list]: ../../README.md#configuration
+[readings-list]: ../../README.md#configuration-35-min
 [skeleton]: skeleton.zip?raw=true
