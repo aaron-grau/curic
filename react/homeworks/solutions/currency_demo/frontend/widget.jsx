@@ -1,6 +1,5 @@
 import React from 'react';
 import Currency from './currency';
-import store from './store';
 import selectCurrency from './actions';
 
 class Widget extends React.Component {
@@ -8,6 +7,8 @@ class Widget extends React.Component {
   constructor(props) {
     super(props);
     this.forceUpdate = this.forceUpdate.bind(this);
+
+    // require this component to re-render whenever the store's state changes
     this.props.store.subscribe(this.forceUpdate);
     this.currencies = ["USD", "EUR", "CAD", "JPY", "GBP", "CNY"];
     this.selectCurrency = selectCurrency.bind(this);
@@ -19,6 +20,10 @@ class Widget extends React.Component {
       type: "GET",
       dataType: "JSON",
       success: function(resp) {
+
+        // tell the store to update with the new base currency and rates;
+        // use the action creator 'selectCurrency' to build the object to
+        // be dispatched
         this.props.store.dispatch(
           this.selectCurrency(resp.base, resp.rates)
         );
@@ -27,6 +32,9 @@ class Widget extends React.Component {
   }
 
   render() {
+
+    // get the store's current state and deconstruct it into 'rates'
+    // and 'baseCurrency' variables
     const { rates, baseCurrency } = this.props.store.getState();
 
     const currencyOptions = this.currencies.map( (currency) => (
@@ -45,8 +53,6 @@ class Widget extends React.Component {
                 key={currency}/>
       )
     );
-
-    // debugger
 
     return (
       <div>
