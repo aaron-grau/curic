@@ -102,7 +102,7 @@ session status. Check out this `Router`:
 
 Here we have 3 routes that are all protected by [onEnter hooks][onenter]
 
-[onenter]('./on_enter.md')
+[onenter]['https://github.com/appacademy/curriculum/blob/redux_auth/react/readings/on_enter.md']
 
 ---
 
