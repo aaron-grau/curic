@@ -7,18 +7,31 @@ import PokemonDetailContainer from './pokemon_detail_container';
 import PokemonFormContainer from './pokemon_form_container';
 import ToyDetailContainer from './toy_detail_container';
 
-const Root = ({store}) => (
+import * as Actions from '../actions/pokemon_actions';
 
-	<Provider store={store}>
-		<Router history={hashHistory}>
-			<Route path="/" component={PokemonIndexContainer}>
-				<IndexRoute component={PokemonFormContainer}/>
-				<Route path="pokemon/:pokemonId" component={PokemonDetailContainer}>
-					<Route path="toy/:toyId" component={ToyDetailContainer}/>
+
+const Root = ({store}) => {
+	const requestAllPokemonOnEnter = () => {
+		store.dispatch(Actions.requestAllPokemon());
+	};
+
+	const requestSinglePokemonOnEnter = (nextState) => {
+		store.dispatch(Actions.requestSinglePokemon(nextState.params.pokemonId));
+	};
+
+	return (
+		<Provider store={store}>
+			<Router history={hashHistory}>
+				<Route path="/" component={PokemonIndexContainer} onEnter={requestAllPokemonOnEnter}>
+					<IndexRoute component={PokemonFormContainer}/>
+					<Route 	path="pokemon/:pokemonId"
+									component={PokemonDetailContainer} onEnter={requestSinglePokemonOnEnter}>
+						<Route path="toy/:toyId" component={ToyDetailContainer}/>
+					</Route>
 				</Route>
-			</Route>
-		</Router>
-	</Provider>
-);
+			</Router>
+		</Provider>
+	);
+};
 
 export default Root;

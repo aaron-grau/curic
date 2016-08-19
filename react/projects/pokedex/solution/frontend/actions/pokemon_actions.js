@@ -5,7 +5,7 @@ export const PokemonConstants = {
 	REQUEST_SINGLE_POKEMON: 'REQUEST_SINGLE_POKEMON',
 	CREATE_POKEMON: 'CREATE_POKEMON',
 	RECEIVE_NEW_POKEMON: 'RECEIVE_NEW_POKEMON',
-	POKEMON_ERROR: 'POKEMON_ERROR'
+	RECEIVE_POKEMON_ERRORS: 'RECEIVE_POKEMON_ERRORS'
 };
 
 export const receiveAllPokemon = pokemon => ({
@@ -39,6 +39,6 @@ export const receiveNewPokemon = pokemon => ({
 });
 
 export const pokemonErrors = errors => ({
-	type: PokemonConstants.POKEMON_ERROR,
+	type: PokemonConstants.RECEIVE_POKEMON_ERRORS,
 	errors
 });

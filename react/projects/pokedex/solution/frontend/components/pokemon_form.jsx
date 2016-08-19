@@ -60,8 +60,8 @@ class PokemonForm extends React.Component {
               onChange={this.update('image_url')}/>
             <select
               value={this.state.type}
-              onChange={this.update('poke_type')}>
-              <option disabled selected>Select Pokemon Type</option>
+              onChange={this.update('poke_type')}
+              defaultValue="Select Pokemon Type">
               {this.props.pokemonTypes && this.props.pokemonTypes.map((type, i) => {
                 return <option value={type} key={i}>{type}</option>;
               })}

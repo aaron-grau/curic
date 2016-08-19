@@ -22,12 +22,15 @@ export default ({dispatch}) => next => action => {
   switch (action.type) {
     case PokemonConstants.REQUEST_ALL_POKEMON:
       fetchAllPokemon(receivePokemonSuccess);
+      next(action);
       break;
     case PokemonConstants.REQUEST_SINGLE_POKEMON:
       fetchSinglePokemon(action.id, receiveSinglePokemonSuccess);
+      next(action);
       break;
     case PokemonConstants.CREATE_POKEMON:
       postPokemon(action.pokemon, receiveNewPokemonSuccess, pokemonFailure);
+      next(action);
       break;
     default:
       next(action);
