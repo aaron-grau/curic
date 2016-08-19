@@ -124,10 +124,7 @@ the React curriculum materials. Review the
 - [Middleware][middleware] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
 
-### Homeworks
-
 ### Projects
-
 - [Todos][todos]
 
 [higher_order_functions]: readings/higher_order_functions.md
@@ -140,24 +137,19 @@ the React curriculum materials. Review the
 
 ### Video Lectures
 
-### Readings
-
+### Readings (75 min)
 - [Intro to react router][react_router_intro] (12 min)
 - [Route Configuration][route_configuration] (12 min)
 - [Route Matching][route_matching] (5 min)
 - [Index Routes][index_routes] (7 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
-- [`withRouter`][with_router]
+- [`withRouter`][with_router] (9 min)
 - [Jbuilder][jbuilder] (20 min)
 
-### Homeworks
-
 ### Projects
-
 - [Pokedex][pokedex]
 
 ### Additional Resources
-
 -	[React Router Documentation][react_router_docs]
 	- Check the `API` docs for quick reference
 
@@ -175,22 +167,18 @@ the React curriculum materials. Review the
 
 ### Video Lectures
 
-### Readings
+### Readings (28 min)
 -	[React Map Demo][react_map_demo] (15 min)
-- [`preloadedState`][preloaded_state]
-- [User Authentication][user_authentication]
-- [Bonus: React Context][context]
-- [Bonus: `localStorage`][local_storage]
-
-### Homeworks
-
-### Projects
-
-- [BenchBNB][bench_bnb]
+- [`preloadedState`][preloaded_state] (3 min)
+- [User Authentication][user_authentication] (10 min)
 
 ### Additional Resources
-
 - [Rails/React/Redux Configuration Checklist][checklist]
+- [React Context][context]
+- [`localStorage`][local_storage]
+
+### Projects
+- [BenchBNB][bench_bnb]
 
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [context]: https://facebook.github.io/react/docs/context.html
@@ -198,10 +186,11 @@ the React curriculum materials. Review the
 [react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
 [bench_bnb]: projects/bench_bnb
+[user_authentication]: readings/
 
 ## w7d6-w7d7
 
-### Readings (50 min)
+### Readings (20 min)
 * [Think in React][think_in_react] (20 min)
 
 ### Homework (5 hours)
