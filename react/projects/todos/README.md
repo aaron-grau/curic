@@ -487,7 +487,7 @@ Follow these steps:
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
 + Create a new component (`components/todo_list/todo_form.jsx`) that dispatches your new action types
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
-    + If you don't remember how to set up controlled inputs in a React component, look at [this reading][controlled_input_reading]
+    + If you don't remember how to set up controlled inputs in a React component, look at this reading about [props and state][props_and_state_reading]
   + Render this component in your `TodoList` component
 + Update your `TodoListContainer` to pass in the props that your `TodoForm` will need
   + Add `createTodo` to the container's `MapDispatchToProps` function and pass this as a prop to `TodoForm`
@@ -699,4 +699,4 @@ Follow these steps, ** testing your code as you go ** :
 [middleware_reading]: ../../readings/middleware.md
 [components_reading]: ../../readings/containers.md
 [connect_reading]: ../../readings/connect.md
-[controlled_input_reading]: ../../readings/controlled_inputs.md
+[props_and_state_reading]: ../../readings/props_and_state.md.md
