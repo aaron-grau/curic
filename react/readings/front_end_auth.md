@@ -113,9 +113,9 @@ in an initial state that reflects the status of our session. If we skip this ste
 may be possible for a user to log in or sign up, refresh the page, and then the app
 will render in a non-logged in manor even though they have the right session token!
 
-There are **several** ways you can meet this challenge.
+There are **several** ways we can meet this challenge.
 
-  * Making a `fetchCurrentUser` ajax requests
+  * Triggering a `fetchCurrentUser` ajax request from the `app's` `componentDidMount`
   * Using [local storage][local-storage]
   * Using the [gon gem][gon-video]
 
