@@ -1,53 +1,54 @@
-"use strict";
+import React from 'react';
+import Currency from './currency';
+import store from './store';
+import selectCurrency from './actions';
 
-const React = require('react');
-const Currency = require('./currency');
-const RatesStore = require('./ratesStore');
+class Widget extends React.Component {
 
-const Widget = React.createClass({
-  currencies: ["USD", "EUR", "CAD", "JPY", "GBP", "CNY"],
+  constructor(props) {
+    super(props);
+    this.props.store.subscribe(this.render.bind(this));
+    this.currencies = ["USD", "EUR", "CAD", "JPY", "GBP", "CNY"];
+    this.selectCurrency = selectCurrency.bind(this);
+  }
 
-  getInitialState() {
-    return ({baseCurrency: "please select", rates: {}});
-  },
-
-  componentDidMount() {
-    RatesStore.addListener(this._onChange);
-  },
-
-  _onChange() {
-    this.setState({rates: RatesStore.all()});
-  },
-
-  setBaseCurrency(currency) {
-    this.setState({baseCurrency: currency}, () => {
-      // use arrow function to allow us to call function with arguments
-      RatesStore.fetchRates(this.state.baseCurrency)
+  fetchRates(currency) {
+    $.ajax({
+      url: `http://api.fixer.io/latest?base=${currency}`,
+      type: "GET",
+      dataType: "JSON",
+      success: function(resp) {
+        this.props.store.dispatch(
+          this.selectCurrency(resp.base, resp.rates)
+        );
+      }.bind(this)
     });
-  },
+  }
 
   render() {
+    const { rates, baseCurrency } = this.props.store.getState();
+
     const currencyOptions = this.currencies.map( (currency) => {
-      return (<div onClick={this.setBaseCurrency.bind(this, currency)}
-                   key={currency}
-                   className="currency-option">
-                   {currency}
-              </div>);
+      return (
+        <div onClick={ () => { this.fetchRates(currency) }}
+             key={currency}
+             className="currency-option">
+          {currency}
+        </div>
+      );
     });
 
-    const rates = this.state.rates || {};
     const currencyNames = Object.keys(rates);
     const currencyRates = currencyNames.map( (currency) => {
       return (<Currency name={currency}
-                        rate={this.state.rates[currency]}
+                        rate={rates[currency]}
                         key={currency}/>);
     });
-
 
     return (
       <div>
         <h1>Currency Exchange Rates</h1>
-        <h3>Base Currency: {this.state.baseCurrency}</h3>
+        <h3>Base Currency: {baseCurrency}</h3>
 
         <div className="currency-selector">
           Get Rates:
@@ -59,6 +60,7 @@ const Widget = React.createClass({
       </div>
     );
   }
-});
+};
 
-module.exports = Widget;
+
+export default Widget;

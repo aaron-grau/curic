@@ -1,9 +1,10 @@
 "use strict";
 
-const React = require('react');
-const	ReactDOM = require('react-dom');
-const Widget = require('./widget');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Widget from './widget';
+import store from './store';
 
 document.addEventListener("DOMContentLoaded", function(){
-  ReactDOM.render(<Widget/>, document.getElementById('root'));
+  ReactDOM.render(<Widget store={store}/>, document.getElementById('root'));
 });

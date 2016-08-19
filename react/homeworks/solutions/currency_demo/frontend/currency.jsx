@@ -1,8 +1,10 @@
-"use strict";
+import React from 'react';
 
-const React = require("react");
+class Currency extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-const Currency = React.createClass({
   render() {
     let color = "green";
     if(this.props.rate < 1) {
@@ -17,6 +19,6 @@ const Currency = React.createClass({
       </div>
     );
   }
-});
+};
 
-module.exports = Currency;
+export default Currency;
