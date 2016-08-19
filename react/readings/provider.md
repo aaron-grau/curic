@@ -57,10 +57,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { createStore } from 'redux';
-import App from './app.jsx;
+import reducer from './reducer.js';
+import App from './app.jsx';
 
-document.addEventListener('DOMContentLoaded', function() {
-  const store = configureStore();
+document.addEventListener('DOMContentLoaded', function () {
+  const store = createStore(reducer);
   const rootEl = document.getElementById('root');
   ReactDOM.render(<App store={store} />, rootEl);
 });
@@ -105,10 +106,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { createStore } from 'redux';
+import reducer from './reducer.js;
 import Root from './root.jsx;
 
 document.addEventListener('DOMContentLoaded', function() {
-  const store = configureStore();
+  const store = createStore(reducer);
   const rootEl = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, rootEl);
 });
