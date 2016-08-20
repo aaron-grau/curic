@@ -10,8 +10,8 @@ concerns. Therefore, it's a common pattern in Redux code to separate
 
 The distinction between presentational components and containers is not technical but rather functional. Presentational components are concerned how things look and container components are concerned with how things work. Here's a table outlining the differences:
 
-|| Presentational | Container |
-|-|-|-|
+|          | Presentational | Container |
+|---------------|---------------|---------------|
 | Purpose | How things look (markup, styles) | How things work (data fetching, state updates) |
 | Aware of Redux | No | Yes |
 | To Read Data | Read data from `props`| Subscribe to Redux state |   
