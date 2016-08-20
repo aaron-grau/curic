@@ -2,7 +2,10 @@
 
 ## w7d1
 ### Video Lectures (94 min)
-[**An Important Note About These Lectures**][video_deprecation_note]
+**N.B.** These lectures were recorded prior to the introduction of ES6-style syntax to
+React. As a result, you may see a slightly different syntax than in the rest of
+the React curriculum materials. Review the
+[component declaration][component-declaration] reading for more discussion of the differences.
 
 :closed_lock_with_key: `go_video_go`
 - :movie_camera: [Part 1: Intro to React][react_video_01] (5 min)
@@ -47,7 +50,7 @@
 - [Official React Documentation][react_docs]
 	- Most Helpful: 'REFERENCE' Section (Left Sidebar)
 
-[video_deprecation_note]: readings/video_deprecation_note.md
+[component-declaration]: readings/component_declaration.md
 [react_video_01]: https://vimeo.com/album/3686654/video/147897911
 [react_video_02]: https://vimeo.com/album/3686654/video/147899305
 [react_video_03]: https://vimeo.com/album/3686654/video/147900089
@@ -89,10 +92,8 @@
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
-### Demos 
+### Demos (1 hr 15 min)
 - [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
-
-### Homeworks
 
 ### Projects
 - [Synthesizer][synthesizer]
@@ -100,7 +101,7 @@
 ### Additional Resources
 - [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
--	*Note: The 'API' sections are especially useful.*
+  -	*Note: The 'API' sections are especially useful.*
 
 [store]: readings/store.md
 [reducers]: readings/reducers.md
@@ -123,10 +124,7 @@
 - [Middleware][middleware] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
 
-### Homeworks
-
 ### Projects
-
 - [Todos][todos]
 
 [higher_order_functions]: readings/higher_order_functions.md
@@ -137,26 +135,19 @@
 
 ## w7d4
 
-### Video Lectures
-
-### Readings
-
+### Readings (75 min)
 - [Intro to react router][react_router_intro] (12 min)
 - [Route Configuration][route_configuration] (12 min)
 - [Route Matching][route_matching] (5 min)
 - [Index Routes][index_routes] (7 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
-- [`withRouter`][with_router]
+- [`withRouter`][with_router] (9 min)
 - [Jbuilder][jbuilder] (20 min)
 
-### Homeworks
-
 ### Projects
-
 - [Pokedex][pokedex]
 
 ### Additional Resources
-
 -	[React Router Documentation][react_router_docs]
 	- Check the `API` docs for quick reference
 
@@ -172,24 +163,18 @@
 
 ## w7d5
 
-### Video Lectures
-
-### Readings
+### Readings (28 min)
 -	[React Map Demo][react_map_demo] (15 min)
-- [`preloadedState`][preloaded_state]
-- [User Authentication][user_authentication]
-- [Bonus: React Context][context]
-- [Bonus: `localStorage`][local_storage]
-
-### Homeworks
-
-### Projects
-
-- [BenchBNB][bench_bnb]
+- [`preloadedState`][preloaded_state] (3 min)
+- [User Authentication][user_authentication] (10 min)
 
 ### Additional Resources
-
 - [Rails/React/Redux Configuration Checklist][checklist]
+- [React Context][context]
+- [`localStorage`][local_storage]
+
+### Projects
+- [BenchBNB][bench_bnb]
 
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [context]: https://facebook.github.io/react/docs/context.html
@@ -197,30 +182,30 @@
 [react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
 [bench_bnb]: projects/bench_bnb
-
-## w7d6-w7d7
-
-### Readings (50 min)
-* [Think in React][think_in_react] (20 min)
-
-### Homework (5 hours)
-* Submit your [full-stack project proposal][full_stack_project_proposal] (5 hours)
-  * **Due by 9am on Monday**
-
-### Additional Resources
-* See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
-
-[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
-[full_stack_project_curriculum]: ../full-stack-project
-[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[user_authentication]: readings/
 
 ## w8d1
 
 **Project Proposal Review Period for Instructional Staff**
-### Homework (1 hour)
-* Do the auth part of A04 Prep
+
+### Readings (20 min)
+* [Think in React][think_in_react] (20 min)
+
+### Homework (6 hrs)
+* Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
+  * **Due by 9am on Monday**
+* Do the auth part of A04 Prep (1 hr)
   * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
 * **Solo:** [BenchBnB Day 2][bench_bnb]
+
+### Additional Resources
+* See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
+
+
+[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
+[full_stack_project_curriculum]: ../full-stack-project
+[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+

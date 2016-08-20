@@ -10,13 +10,13 @@
 
 import merge from 'lodash/merge';
 
-original = {a: {b: 'original'}};
+let original = {a: {b: 'original'}};
 
-shallowCopy = Object.assign({}, original); 
-deepCopy = merge({}, original);
+let shallowCopy = Object.assign({}, original);
+let deepCopy = merge({}, original);
 
 deepCopy.a.b = 'changed';
-original; // {a: {b: 'original'}}
+console.log(original); // {a: {b: 'original'}}
 
 shallowCopy.a.b = 'changed';
 console.log(original); // {a: {b: 'changed'}}
@@ -38,33 +38,30 @@ import union from 'lodash/union';
 let ids = [1,4,5];
 let newIds = [2,3,4];
 
-result = union(ids, newIds); // [1,4,5,2,3]
-
+let result = union(ids, newIds); // [1,4,5,2,3]
 ```
 
-Contrast this to vanilla JS: 
-
+Contrast this to vanilla JS:
 ```js
-
 let ids = [1, 4, 5];
 let newIds = [2, 3, 4];
 
 // ES6
 
-result = ids.slice();
+let result = ids.slice();
 
 newIds.forEach(newId => {
 	if (!result.includes(newId)) {
 		result.push(newId)
 	}
-})
+});
 
 // ES5
 
-result = ids.slice();
+let result = ids.slice();
 
 newIds.forEach(function(newId){
-	var shouldInsert = true;
+	let shouldInsert = true;
 
 	ids.forEach(function(oldId){
 		if (oldId === newId) {
@@ -77,7 +74,7 @@ newIds.forEach(function(newId){
 		result.push(newId);
 	}
 
-})
+});
 
 ```
 

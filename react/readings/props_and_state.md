@@ -13,9 +13,9 @@ initialization.
 // app.jsx
 import Dog from 'dog'
 
-const App = () => {
+const App = () => (
   <Dog name='Fido' breed='Greyhound'></Dog>
-};
+);
 ```
 
 `this.props` are then accessible in a component's instance methods.
@@ -26,7 +26,7 @@ class Dog extends React.Component {
   constructor(props) {
      super(props);
   }
-  
+
   render() {
     return (
       <div>Name: {this.props.name}, Breed: {this.props.breed}</div>

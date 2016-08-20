@@ -12,8 +12,8 @@ name in other files.
 
 ### Multiple Items per File
 
-Say you want to export multiple functions from a single file using Node's
-`module.exports`. Your code might look like this:
+Say we want to export multiple functions from a single file using Node's
+`module.exports`. Our code might look like this:
 
 ```javascript
 // todo_actions.js
@@ -33,7 +33,8 @@ const TodoActions = {
 
 module.exports = TodoActions;
 ```
-Having to wrap everything in an object and using Node's `module.exports` is kinda messy when we can use ES6.
+Having to wrap everything in an object and use Node's `module.exports` is messy.  
+Fortunately, ES6 provides us with better syntax.  
 
 Using ES6's `export`, we have two options for exporting our functions. We can simply refer to each function by name and export them all at once, like so:
 
@@ -80,7 +81,7 @@ a single file.
 
 ### One Item per File
 Exporting is slightly different for files which just have a single export.
-You can just export the whole thing using ES6's `export default`:
+We can export the whole thing using ES6's `export default`:
 
 ```javascript
 // todo_list.js
@@ -103,34 +104,30 @@ export default function () {
 
 ## Importing
 
-In the past you probably used Node's `require` in conjunction with
+In the past we used Node's `require` in conjunction with
 `module.exports` to import and use items to another file. From now on, we will
 use ES6's `import`.
 
-Here's some examples for when you're importing a single, default export.
+For example, if we're importing a single, default export, we can do the following:
 
 ```javascript
 import TodoList from './todo_list';
 import App from './app';
 ```
 
-**NB**: Remember that you have to give unnamed exports a name when importing!
+But what do we do if we have multiple exported objects in the same file, like our
+`todo_actions.js` defined above?  We can either import them one at a time or all at
+once, depending on what our code needs.
 
-What do we do if we have multiple exported objects in the same file? Like our
-`TodoActions` defined above.
-
-We can either import them one at a time or all at once, depending on what the
-file we're importing them into needs.
-
-For instance, if your file only needs the `createTodo` and `receiveTodo`
-function:
+For instance, if our file only needs the `createTodo` and `receiveTodo`
+functions, we can do the following:
 
 ```javascript
-import { createTodo, fetchTodo } from './todo_actions';
+import { createTodo, receiveTodo } from './todo_actions';
 ```
 
-We use the curly braces because we want that specific export from the
-`todo_actions` file.
+The curly braces are required when we import from a file with multiple exports, and
+need to specify which particular exports we want.
 
 Does this look familiar? It's [object destructuring][obj-destructuring]! We're
 just extracting the data that's been exported from the other file and assigning
@@ -138,13 +135,9 @@ it to a distinct variable to use in our current file.
 
 [obj-destructuring]: ./object_destructuring.md
 
-You can give default, unnamed imports whatever name you want to refer to them
-in your file. However, because we exported specific member objects from our
-actions, the names do have to match so Javascript knows exactly which object
-we want.
-
-If we wanted all the contents of a file containing multiple exports, we can
-use a `*` to gather up everything:
+We can give default, unnamed exports any name we want when importing them.  But
+with named exports, the import names have to exactly match.  If we want all the
+contents of a file containing multiple exports, we can use a `*` to gather up everything:
 
 ```javascript
 import * as todoActions from './todo_actions';
