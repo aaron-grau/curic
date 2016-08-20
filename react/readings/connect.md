@@ -63,7 +63,7 @@ In the example above, the `ConnectedComponent` passes `name` as props to the
 `Component`. When `ConnectedComponent` is rendered, all we see is the
 `Component`, with the slice of state taken from the store.
 
-### `ownProps` - Optional Argument
+### `ownProps` (optional)
 
 A component with explicit props passed down from its parent (e.g. `<Component lastName={'Wozniak'}/>`) can also merge those props with the `state ` via a second optional argument `ownProps` to `mapStateToProps`:
 
