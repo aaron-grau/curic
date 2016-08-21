@@ -1,6 +1,6 @@
 import {PokemonConstants} from '../actions/pokemon_actions';
 
-const PokemonReducer = function (oldState = {loading: false}, action) {
+const PokemonReducer = (oldState = {loading: false}, action) => {
   switch (action.type) {
     case PokemonConstants.RECEIVE_ALL_POKEMON:
       oldState.loading = false;

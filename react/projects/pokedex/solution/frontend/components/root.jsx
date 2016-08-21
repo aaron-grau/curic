@@ -1,6 +1,6 @@
 import React from 'react';
-import {Provider} from 'react-redux';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import { Provider } from 'react-redux';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import PokemonIndexContainer from './pokemon_index_container';
 import PokemonDetailContainer from './pokemon_detail_container';
