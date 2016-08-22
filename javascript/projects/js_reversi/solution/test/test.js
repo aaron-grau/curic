@@ -43,8 +43,8 @@ describe("Board", function () {
   });
 
   const fillBoard = function(board) {
-    for (var i = 0; i < 8; i ++) {
-      for (var j = 0; j < 8; j ++) {
+    for (let i = 0; i < 8; i ++) {
+      for (let j = 0; j < 8; j ++) {
         board.grid[i][j] = new Piece("white");
       }
     }
@@ -53,7 +53,7 @@ describe("Board", function () {
   describe("#grid", function () {
     it("should be 8x8", function () {
       assert.equal(testBoard.grid.length, 8);
-      for(var i = 0; i < 8; i ++){
+      for(let i = 0; i < 8; i ++){
         assert.equal(testBoard.grid[i].length, 8);
       }
     });
@@ -158,7 +158,7 @@ describe("Board", function () {
 
     it("should not allow a piece on top of another piece", function () {
       function makeBadMove() {
-        testBoard.placePiece([3, 2], "white");
+        testBoard.placePiece([3, 3], "white");
       }
 
       assert.throws(makeBadMove, Error, "Invalid Move");
@@ -166,7 +166,7 @@ describe("Board", function () {
 
     it("should not allow a move that doesn't capture", function () {
       function makeBadMove() {
-        testBoard.placePiece([2, 3], "white");
+        testBoard.placePiece([3, 3], "white");
       }
 
       assert.throws(makeBadMove, Error, "Invalid Move");
