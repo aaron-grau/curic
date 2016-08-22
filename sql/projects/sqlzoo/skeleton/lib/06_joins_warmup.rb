@@ -73,7 +73,7 @@ end
 
 def casablanca_cast
   # Obtain the cast list for 'Casablanca'. Use the id value that you obtained
-  # in the previous question.
+  # in the previous question directly in your query (for example, id = 1).
   execute(<<-SQL)
   SQL
 end
