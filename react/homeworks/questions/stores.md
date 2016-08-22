@@ -1,6 +1,6 @@
 # Dollar Store
 
-Tonight, we're going to finish building out the architecture for a React currency-conversion widget to use a Redux store. For this assignment, we won't be using `Provider` or `connect()`. We will be using the store's three built-in methods: `subscribe`, `dispatch`, and `getState`.
+Today, we're going to finish building out the architecture for a React currency-conversion widget to use a Redux store. For this assignment, we won't be using `Provider` or `connect()`. We will be using the store's three built-in methods: `subscribe`, `dispatch`, and `getState`.
 
 Take a look at the [live demo][live-demo] to see the app in action.  Try clicking on a currency to see its conversion rates.   
 
@@ -84,4 +84,4 @@ We should be good to go now. The entry file already requires our `store` and pas
 
 ## Phase 2: Bonus!
 
-Add another component that uses the data in the `RatesStore`.  
+Add another component that uses the data in the rates `store`.  
