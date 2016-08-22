@@ -95,6 +95,9 @@ the React curriculum materials. Review the
 ### Demos (1 hr 15 min)
 - [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
 
+### Homeworks (45 min)
+- [Dollar Store][dollar_store_hw] (45 min)
+
 ### Projects
 - [Synthesizer][synthesizer]
 
@@ -114,6 +117,8 @@ the React curriculum materials. Review the
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
 [redux_react_demo]: https://vimeo.com/179391419
+
+[dollar_store_hw]: homeworks/questions/stores.md
 
 [synthesizer]: projects/synthesizer
 
@@ -208,4 +213,3 @@ the React curriculum materials. Review the
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 [full_stack_project_curriculum]: ../full-stack-project
 [full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
-
