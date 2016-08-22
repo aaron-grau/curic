@@ -1,22 +1,18 @@
-"use strict";
+import React from 'react';
 
-const React = require("react");
-
-const Currency = React.createClass({
-  render() {
-    let color = "green";
-    if(this.props.rate < 1) {
-      color = "red";
-    }
-
-    return (
-      <div className={color}>
-        {this.props.name}
-        &nbsp;
-        {this.props.rate}
-      </div>
-    );
+const Currency = ({name, rate}) => {
+  let color = "green";
+  if(rate < 1) {
+    color = "red";
   }
-});
 
-module.exports = Currency;
+  return (
+    <div className={color}>
+      {name}
+      &nbsp;
+      {rate}
+    </div>
+  );
+};
+
+export default Currency;
