@@ -39,7 +39,7 @@ rates, it should update the store with its results. This is exactly what the
 now, we don't have a store to dispatch to!
 
 To make a fully-functional store, we need a reducer function, actions, and the
-store itself. 
+store itself.
 
 ### Phase 1A: Creating a `store`
 
@@ -53,7 +53,7 @@ Let's start by defining our app's Redux `store`.
 
 The entry file requires our `store` and passes it as a prop to the `Widget`
 component. If you refresh the `index.html` page, you'll see a new webpack error:
-`selectCurrency` in `undefined` in `Widgets`. Let's fix this but creating an
+`selectCurrency` is `undefined` in `Widgets`. Let's fix this by creating an
 action creator.
 
 ### Phase 1B: Creating an Action Creator
@@ -69,7 +69,7 @@ Let's define and export a `selectCurrency` function that takes as arguments a
 `baseCurrency` string and a `rates` object. It returns an action (i.e. a POJO)
 with the following keys and values:
 
-- `type: "SWITCH_CURRENT"`
+- `type: "SWITCH_CURRENCY"`
 - `baseCurrency`
 - `rates`
 
@@ -88,7 +88,7 @@ For our currency widget, our state needs to keep track of two things: a base cur
 const initialState = {baseCurrency: "Please select", rates: {}};
 ```
 
-We currently have defined a dummy reducer which always returns the `initialState`. Now let's build it out by adding a `switch` statement. It's going start by to looking something like this:
+We currently have defined a dummy reducer which always returns the `initialState`. Now let's build it out by adding a `switch` statement. It's going to start by looking something like this:
 
 ```js
 const reducer = (state = initialState, action) => {  
