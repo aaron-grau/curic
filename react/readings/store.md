@@ -50,13 +50,13 @@ Store updates can only be triggered by dispatching **actions**:
 
 ```js
 store.dispatch(action);
-``` 
+```
 
 An `action` in Redux is just a plain object with:
 	1. a `type` key indicating the action being performed, and
 	2. optional payload keys containing any new information.
 
-For example, if our store handled a fruit stand's inventory, we would use the following action to add an orange to the inventory: 
+For example, if our store handled a fruit stand's inventory, we would use the following action to add an orange to the inventory:
 
 ```js
 const addOrange = {
@@ -115,7 +115,7 @@ store.dispatch(addOrange);
 store.getState(); // ['orange']
 ```
 
-See the example above in action [here][fruit_stand_store_only]!
+See the example above in action [here][fruit_stand_redux_only]!
 
 ## Subscribing to the Store
 
@@ -150,7 +150,7 @@ class FruitStand extends React.Component {
 	constructor(props) {
 		super(props);
 
-		/* Note: Subscribing `forceUpdate()` is not a recommended pattern and used 
+		/* Note: Subscribing `forceUpdate()` is not a recommended pattern and used
 		for illustration purposes only. See the `NB` below. */
 		this.forceUpdate = this.forceUpdate.bind(this);
 		this.props.store.subscribe(this.forceUpdate);
@@ -187,9 +187,8 @@ Check out our intro *Redux/React* fruit stand app in action
 
 View the official documentation on the Redux store [here][redux-js].
 
-[fruit_stand_store_only]:../demos/fruit_stand_store_only
+[fruit_stand_redux_only]:../demos/fruit_stand_redux_only
 [redux-js]: http://redux.js.org/docs/basics/Store.html
 [why-immutable]: https://github.com/reactjs/redux/issues/758
 [force-update]:https://facebook.github.io/react/docs/component-api.html#forceupdate
 [fruit_stand_with_react]:../demos/fruit_stand_with_react
-

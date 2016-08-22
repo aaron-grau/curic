@@ -83,9 +83,9 @@ the React curriculum materials. Review the
 
 ## w7d2
 
-### Readings (90 min)
+### Readings (105 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
-- [Store][store] (15 min)
+- [Store][store] (25 min)
 - [Reducers][reducers] (15 min)
 - [Actions][actions] (10 min)
 - [`<Provider/>`][provider] (15 min)

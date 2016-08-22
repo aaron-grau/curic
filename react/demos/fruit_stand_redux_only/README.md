@@ -8,7 +8,7 @@ NB: No React components.
 Let's look at and run the code that you just walked through in our Redux store
 reading.
 
-1. Download zip.
+1. Download [zip][zip].
 2. Unzip and cd to the app's root directory.
 3. Run `npm install` to install the Redux npm packages.
 4. Run `webpack` to compile `bundle.js`.
@@ -24,3 +24,5 @@ Check out `frontend/store.js`:
 Bonus:
 + Try creating a couple of new actions (e.g. `addLychee` and `addPlum`). Don't forget to export and import appropriately.
 + Dispatch these new actions and see how they update the app's state.
+
+[zip]:./fruit_stand_redux_only.zip
