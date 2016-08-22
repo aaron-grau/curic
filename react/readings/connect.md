@@ -119,7 +119,7 @@ The `Component` to be connected is passed to the function returned from calling
 
 ```js
 const ConnectedComponent = connect(
-	mapDispatchToProps,
+	mapStateToProps,
 	mapDispatchToProps
 )(component);
 ```
