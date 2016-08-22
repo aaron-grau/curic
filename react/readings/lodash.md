@@ -58,10 +58,10 @@ newIds.forEach(newId => {
 
 // ES5
 
-let result = ids.slice();
+var result = ids.slice();
 
 newIds.forEach(function(newId){
-	let shouldInsert = true;
+	var shouldInsert = true;
 
 	ids.forEach(function(oldId){
 		if (oldId === newId) {
