@@ -30,7 +30,7 @@ the store's built-in methods throughout:
 
 Now we need to make the actual Redux store so our `Widget` can successfully call all of those!
 
-## Phase 1: Build a `store`
+## Phase 1: Redux Structure
 
 Following the Redux pattern, a store should keep track of our application's
 state. This means that when we make our AJAX request to fetch the currency
@@ -39,7 +39,11 @@ rates, it should update the store with its results. This is exactly what the
 now, we don't have a store to dispatch to!
 
 To make a fully-functional store, we need a reducer function, actions, and the
-store itself. Let's start by defining our app's Redux `store`.
+store itself. 
+
+### Phase 1A: Creating a `store`
+
+Let's start by defining our app's Redux `store`.
 
 + Create a `store.js` file within the `frontend` folder.
 + We will need to import `createStore` from `redux`.
