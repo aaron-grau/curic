@@ -130,12 +130,16 @@ the React curriculum materials. Review the
 - [Middleware][middleware] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
 
+### Homework (45 min)
+- [Middleware Homework][middleware_homework] (45 min)
+
 ### Projects
 - [Todos][todos]
 
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
 [redux_api_interactions]: readings/redux_api_interactions.md
+[middleware_homework]: homeworks/questions/middleware.md
 [todos]: projects/todos
 
 
