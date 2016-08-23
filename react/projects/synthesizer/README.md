@@ -176,7 +176,7 @@ Your action creator should look like this:
 
 ```js
 export const keyPressed = key => {
-  action: NotesConstants.KEY_PRESSED,
+  type: NotesConstants.KEY_PRESSED,
   key
 };
 ```
