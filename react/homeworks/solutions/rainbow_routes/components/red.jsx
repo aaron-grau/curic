@@ -1,8 +1,14 @@
-const React = require('react');
-const ReactRouter = require('react-router');
-const hashHistory = ReactRouter.hashHistory;
+import React from 'react';
+import { withRouter } from 'react-router';
 
-module.exports = React.createClass({
+class Red extends React.Component {
+  constructor() {
+    super();
+    this.resetRed = this.resetRed.bind(this);
+    this.addOrange = this.addOrange.bind(this);
+    this.addYellow = this.addYellow.bind(this);
+  }
+
   render() {
     return(
       <div>
@@ -14,17 +20,19 @@ module.exports = React.createClass({
         {this.props.children}
       </div>
     );
-  },
+  }
 
   resetRed() {
-    hashHistory.push('/red');
-  },
+    this.props.router.push('/red');
+  }
 
   addOrange() {
-    hashHistory.push('/red/orange');
-  },
+    this.props.router.push('/red/orange');
+  }
 
   addYellow() {
-    hashHistory.push('/red/yellow');
+    this.props.router.push('/red/yellow');
   }
-});
+};
+
+export default withRouter(Red);
