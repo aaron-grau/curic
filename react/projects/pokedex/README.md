@@ -32,6 +32,7 @@ As with previous projects, you will need to set up `package.json` and `webpack.c
     "babel-core": "^6.13.2",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
+    "lodash": "^4.15.0",
     "react-redux": "^4.4.5",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
@@ -126,6 +127,10 @@ API.fetchAllPokemon((pokemon) => console.log(ACTIONS.receiveAllPokemon(pokemon))
 Remember that the reducer is only concerned with describing how state changes as a result of a dispatched action. In our case this will be the `receiveAllPokemon` action. Create a `pokemon_reducer.js` file that exports a function implementing a switch statement to catch the `action.type`. Refer to these action types by importing the `PokemonConstants` object from the action creator file.
 
 Remember, the reducer function should take two parameters: the `oldState` (defaulting to an empty object) and the action being dispatched. It should then return the new state, without changing the `oldState` object.  Assure that the default case for the reducer switch statement is to return the `oldState`.
+
+The [Lodash merge](lodash-docs) function is a helpful addition to avoid mutating even nested arrays and objects.
+
+[lodash-docs]: https://lodash.com/docs
 
 **Before we can test the reducer we need a store to dispatch from.**
 
@@ -324,7 +329,7 @@ Our next feature will be to allow the creation of new Pokemon.
 1. Create an API function that posts a single Pokemon
 2. Create actions for both creating and receiving a new Pokemon
 3. Update the reducer to respond to receiving a new Pokemon
-  **Hint:** This should reassign multiple pieces of state
+  **Hint:** This should merge multiple pieces of state
 4. Update the middleware to respond to creating a Pokemon
 5. Create a `PokemonFormContainer` that only connects `mapDispatchToProps`
 6. Create a `PokemonForm` controlled component
