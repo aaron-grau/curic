@@ -192,10 +192,10 @@ const farmersReducer = (state = {}, action) => {
 	switch(action.type) {
 		case "HIRE_FARMER":
 			let nextState = merge({}, state); // deeply dup previous state
-			const farmer = { // create new farmer object
-  			id: action.id,
-  			name: action.name,
-  			paid: false
+      			const farmer = { // create new farmer object
+        			id: action.id,
+        			name: action.name,
+        			paid: false
 			 };
 			nextState[action.id] = farmer; // add new farmer to state
 			return nextState;
@@ -270,7 +270,7 @@ const farmerReducer = (state, action) { // state is a farmer object
         			paid: false
       			});
 		case "PAY_FARMER":
-      state.paid = !state.paid;
+            state.paid = !state.paid;
 			return state;
 		default:
 			return state;
