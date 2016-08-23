@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import PokemonDetail from './pokemon_detail';
-import { selectToys } from '../util/toy_selector';
+import PokemonDetail from './detail';
+import { selectToys } from '../../util/toy_selector';
 
 const mapStateToProps = state => ({
   pokemonDetail: state.pokemonDetail,

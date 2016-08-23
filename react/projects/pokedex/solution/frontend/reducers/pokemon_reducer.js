@@ -1,4 +1,4 @@
-import {PokemonConstants} from '../actions/pokemon_actions';
+import { PokemonConstants } from '../actions/pokemon_actions';
 
 const PokemonReducer = (oldState = {loading: false}, action) => {
   switch (action.type) {

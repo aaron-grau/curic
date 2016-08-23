@@ -1,8 +1,8 @@
-import {connect} from 'react-redux';
-import {createPokemon} from '../actions/pokemon_actions';
-import PokemonForm from './pokemon_form';
+import { connect } from 'react-redux';
+import { createPokemon } from '../../actions/pokemon_actions';
+import PokemonForm from './form';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	pokemonTypes: state.pokemonTypes,
   pokemonErrors: state.pokemonErrors
 });

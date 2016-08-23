@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import PokemonIndex from './pokemon_index';
+import PokemonIndex from './index';
 
 const mapStateToProps = state => ({
   pokemon: state.pokemon,

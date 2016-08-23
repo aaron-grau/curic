@@ -2,15 +2,15 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import PokemonIndexContainer from './pokemon_index_container';
-import PokemonDetailContainer from './pokemon_detail_container';
-import PokemonFormContainer from './pokemon_form_container';
-import ToyDetailContainer from './toy_detail_container';
+import PokemonIndexContainer from './pokemon/index_container';
+import PokemonDetailContainer from './pokemon/detail_container';
+import PokemonFormContainer from './pokemon/form_container';
+import ToyDetailContainer from './toys/detail_container';
 
 import * as Actions from '../actions/pokemon_actions';
 
 
-const Root = ({store}) => {
+const Root = ({ store }) => {
 	const requestAllPokemonOnEnter = () => {
 		store.dispatch(Actions.requestAllPokemon());
 	};

@@ -1,16 +1,16 @@
 import React from 'react';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
 
 class PokemonForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    name: '',
-    image_url: '',
-    poke_type: 'bug',
-    attack: '',
-    defense: '',
-    moves: {}
+      name: '',
+      image_url: '',
+      poke_type: 'bug',
+      attack: '',
+      defense: '',
+      moves: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -35,7 +35,7 @@ class PokemonForm extends React.Component {
         this.props.pokemonErrors.responseJSON.map((error) => {
           return (<li className="error" key={error}>{error}</li>);
         })
-        );
+      );
     }
     return <ul/>;
   }

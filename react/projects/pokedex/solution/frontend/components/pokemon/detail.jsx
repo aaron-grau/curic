@@ -1,5 +1,5 @@
 import React from 'react';
-import ToyItem from './toy_item';
+import ToyItem from '../toys/item';
 
 const defaultDetail = {
 	image_url: '',
@@ -10,7 +10,7 @@ const defaultDetail = {
 	moves: []
 };
 
-const PokemonDetail = ({pokemonDetail = defaultDetail, toys, children}) => (
+const PokemonDetail = ({ pokemonDetail = defaultDetail, toys, children }) => (
 	<section className="pokemon-detail">
 		<ul>
 			<img src={pokemonDetail.image_url} alt={pokemonDetail.name}/>
