@@ -400,7 +400,7 @@ some of the overhead in our `notes` reducer?
 Ok, let's actually start jamming.
 
 * Define a `playNotes` function.
-* Iterate through `this.notes`, calling `start` and `stop` on all of the notes present in the store and `stop` on all the other notes.
+* Iterate through `this.notes`, calling `start` on all of the notes present in the store and `stop` on all the other notes.
 * Call `playNotes` in `render`.
 * Test your app! Make sure that your have your key actions, reducer and listeners working before continuing.
 
