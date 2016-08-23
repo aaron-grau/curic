@@ -261,7 +261,7 @@ const farmersReducer = (state = {}, action) => {
 	}
 };
 
-const farmerReducer = (state, action) { // state is a farmer object
+const farmerReducer = (state, action) => { // state is a farmer object
 	switch(action.type) {
 		case "HIRE_FARMER":
 			return ({
