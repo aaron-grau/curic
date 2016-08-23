@@ -8,7 +8,7 @@ function for updating its `state` that:
 + updates the state appropriately based on the `action.type`;
 + and returns the next state.
 
-Recall the reducer from that our fruit stand app:
+Recall the reducer from our fruit stand app:
 ```js
 // reducer.js
 const reducer = (state = [], action) => {
