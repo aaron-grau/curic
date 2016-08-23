@@ -15,6 +15,9 @@ data are available from the backend.
 requests for the `pokemon` resource should be assumed to be asking for a
 JSON response instead of HTML. When we render a template, instead of looking for `template.html.erb`, Rails will look for `template.json.jbuilder`.
 
+Stylesheets have been provided for you in the skeleton.  Follow the sample jsx structures provided in the instructions to have these stylings applied.  
+
+
 [skeleton-zip]: ./skeleton.zip?raw=true
 
 ## Phase 1: NPM and Webpack
@@ -248,11 +251,20 @@ Now the component has a reference to the router and all of its information & fun
 
 Create a `_handleClick` function in the `<PokemonIndexItem>` that receives the router and a url. Pass this function to an `onClick` prop of our list elements and test that when clicking a `pokemonIndexItem` you are taken to a path resembling `/pokemon/:id`.
 
-While the route will change, you may have noticed the following error in your browser terminal: `[react-router] Location "/pokemon/:id" did not match any routes`.  This tells us that the router was looking for a component to render for that route but was unable to find one. To fix this, Let's make a `PokemonDetail` component.
+While the route will change, you may have noticed the following error in your browser terminal: `[react-router] Location "/pokemon/:id" did not match any routes`.  This tells us that the router was looking for a component to render for that route but was unable to find one. To fix this, let's make a `PokemonDetail` component.
+
+`PokemonIndexItem` example JSX structure:    
+```html   
+<li className="pokemon-index-item" onClick={}>    
+    <span>{}</span>   
+    <img src={} alt={}/>    
+    <span>{}</span>   
+</li>   
+```
 
 ### Pokemon Detail
 
-Before creating a component, we should always plan out where and how it will get its information. Eventually, we also want the `PokemonDetail` to display the toys that a Pokemon has. Talk over the following questions with your partner and check in with a TA:
+Before creating a component, we should always plan out where and how it will get its information. Eventually, we also want the `PokemonDetail` to display the toys that a Pokemon has. Talk over the following questions with your partner:
 
 1. Where will the `PokemonDetail` get it's information from?
 2. How will we pass this information to `PokemonDetail`?

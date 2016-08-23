@@ -16,12 +16,12 @@ class Api::PokemonController < ApplicationController
   end
 
   def index
-    sleep 2
+    sleep 1
     @pokemon = Pokemon.all
   end
 
   def show
-    sleep 2
+    sleep 1
     @pokemon = Pokemon.find(params[:id])
   end
 
