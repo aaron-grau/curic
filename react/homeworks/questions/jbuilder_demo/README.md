@@ -97,6 +97,10 @@ information to break. Nest your data by passing it as an argument to
 Time to do some on your own. Make both a gift show and index view. Get the specs
 to pass.
 
+### Bonuses!
+
+To run the bonus specs, simply go to that spec file and remove the line `before { pending('Bonus') }`.
+
 **Bonus:**  Make the party show and index views. In the index
 view, show all parties, and include all of their guests. In the show view,
 include not only all guests, but all of the guests' gifts as well.

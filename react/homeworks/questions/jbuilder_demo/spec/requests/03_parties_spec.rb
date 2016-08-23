@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-describe 'Parties' do 
+describe 'Parties' do
+  before { pending('Bonus') }
+
   describe 'Api::Parties#show' do
     it 'the resource is under the correct namespace' do
       get '/api/parties/1'
@@ -53,14 +55,14 @@ describe 'Parties' do
     end
   end
 
-  describe "Parties && Gifts" do 
-    it "show page shows a guest's gifts" do 
+  describe "Parties && Gifts" do
+    it "show page shows a guest's gifts" do
       get '/api/parties/1'
       expect(json['guests'][0]['gifts']).to_not be_nil
       expect(json['guests'][0]['gifts'].count).to eq(2)
     end
 
-    it "index page doesn't show parties' gifts" do 
+    it "index page doesn't show parties' gifts" do
       get '/api/parties'
       expect(json[0]['gifts']).to be_nil
     end
