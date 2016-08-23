@@ -52,26 +52,23 @@ We now need to wrap our API Utility in a middleware that uses it to dispatch the
 appropriate actions to our store.
 
 ```js
-
 // middlewares/cats_middleware.js
 
 import { fetchCats } from '../utils/cat_api_util';
 
 import { REQUEST_CATS, RECEIVE_CATS, requestCats, receiveCats } from '../actions/cat_actions';
 
-export default store => next => action {
+export default store => next => action => {
 	switch (action.type) {
 		case REQUEST_CATS:
 			const success = (cats) => dispatch(receiveCats(cats));
-			const error = (e) => { console.log(e.responseJSON) };
+			const error = (e) => console.log(e.responseJSON);
 			fetchCats(success, error);
 			return next(action);
-			break;
 		default;
 			return next(action);
 	}
 };
-
 ```
 
 In the example above, our middleware listens for a `REQUEST_CATS` action. When
