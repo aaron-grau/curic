@@ -150,6 +150,9 @@ the React curriculum materials. Review the
 - [`withRouter`][with_router] (9 min)
 - [Jbuilder][jbuilder] (20 min)
 
+### Homeworks (30 min)
+- [Rainbow Routes][rainbow_routes]
+
 ### Projects
 - [Pokedex][pokedex]
 
@@ -164,6 +167,7 @@ the React curriculum materials. Review the
 [with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [on_enter]: readings/on_enter.md
 [jbuilder]: https://github.com/rails/jbuilder
+[rainbow_routes]: homeworks/questions/rainbow_routes.md
 [pokedex]: projects/pokedex
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
