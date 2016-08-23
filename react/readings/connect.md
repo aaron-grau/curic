@@ -1,4 +1,4 @@
-## `react-redux`: `connect()`
+# `react-redux`: `connect()`
 
 The `react-redux` package allows us to access the store `context` set by the
 [`Provider`][provider] in a powerful and convenient way via the `connect()`
