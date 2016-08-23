@@ -61,11 +61,11 @@ import { REQUEST_CATS, RECEIVE_CATS, requestCats, receiveCats } from '../actions
 export default store => next => action => {
 	switch (action.type) {
 		case REQUEST_CATS:
-			const success = (cats) => dispatch(receiveCats(cats));
-			const error = (e) => console.log(e.responseJSON);
+			const success = cats => dispatch(receiveCats(cats));
+			const error = e => console.log(e.responseJSON);
 			fetchCats(success, error);
 			return next(action);
-		default;
+		default:
 			return next(action);
 	}
 };
