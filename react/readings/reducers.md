@@ -26,7 +26,7 @@ const reducer = (state = [], action) => {
 export default reducer;
 ```
 
-When the store initializes, it calls its reducer with an `undefined` `state`, allowing the reducer to dictate the store's initial state via the default value in the `state` parameter. 
+When the store initializes, it calls its reducer with an `undefined` `state`, allowing the reducer to dictate the store's initial state via the default value in the `state` parameter.
 
 The bulk of the reducer function then implements updates to the state. First, the reducer decides what logic to implement based on the `action.type` `switch`. Then, it creates and returns a new object representing the next state (after processing the action) if anything information needs to be changed. The `state` is returned unchanged if no cases match the `action.type`, meaning that the reducer doesn't *care* about that action (e.g. `{type: 'NEW_TRANSFORMERS_SEQUEL'}`).
 
@@ -42,8 +42,8 @@ Let's update our fruit stand app's `reducer` to handle a few more actions:
 
 ```js
 // reducer.js
-const reducer = (state = [], action) {
-	switch(action.type){
+const reducer = (state = [], action) => {
+	switch(action.type) {
 		case "ADD_FRUIT":
 			return [
 				...state,
@@ -89,7 +89,7 @@ const reducer = (state = { count: 0 }, action) => {
 };
 ```
 
-and here's an example of a good one which uses [lodash][lodash-reading]'s merge function to create a deep dup of the previous `state`:
+And here's an example of a good one which uses [lodash][lodash-reading]'s merge function to create a deep dup of the previous `state`:
 ```js
 // good reducer
 import merge from 'lodash/merge';
@@ -155,8 +155,8 @@ Let's split up our popular fruit stand app's `reducer` into two reducers:
 
 ```js
 // reducers/fruits_reducer.js
-const fruitsReducer = (state = [], action) {
-	switch(action.type){
+const fruitsReducer = (state = [], action) => {
+	switch(action.type) {
 		case "ADD_FRUIT":
 			return [
 				...state,
@@ -188,14 +188,14 @@ export default fruitsReducer;
 
 ```js
 // reducers/farmers_reducer.js
-const farmersReducer = (state = {}, action ) {
+const farmersReducer = (state = {}, action) => {
 	switch(action.type) {
 		case "HIRE_FARMER":
 			let nextState = merge({}, state); // deeply dup previous state
-      			const farmer = { // create new farmer object
-        			id: action.id,
-        			name: action.name,
-        			paid: false
+			const farmer = { // create new farmer object
+  			id: action.id,
+  			name: action.name,
+  			paid: false
 			 };
 			nextState[action.id] = farmer; // add new farmer to state
 			return nextState;
@@ -242,11 +242,11 @@ store.getState(); // { fruits: [], farmers: {} }
 
 ## Delegating to Reducers
 
-Another aspect of reducer compoosition involves delegating reducer functions to subordinate reducers. Consider the farmer example. Let's modify it so that the `farmers` (plural) reducer delegates to a `farmer` (singular) reducer whenever a single farmer's attributes need to be modified (in this case whether he has been paid):
+Another aspect of reducer composition involves delegating reducer functions to subordinate reducers. Consider the farmer example. Let's modify it so that the `farmers` (plural) reducer delegates to a `farmer` (singular) reducer whenever a single farmer's attributes need to be modified (in this case whether he has been paid):
 
 ```js
 // reducers/farmers_reducer.js
-const farmersReducer = (state = {}, action ) {
+const farmersReducer = (state = {}, action) => {
 	switch(action.type) {
 		case "HIRE_FARMER":
 			let nextState = merge({}, state);
@@ -261,7 +261,7 @@ const farmersReducer = (state = {}, action ) {
 	}
 };
 
-const farmerReducer = (state, action ) { // state is a farmer object
+const farmerReducer = (state, action) { // state is a farmer object
 	switch(action.type) {
 		case "HIRE_FARMER":
 			return ({
@@ -270,7 +270,7 @@ const farmerReducer = (state, action ) { // state is a farmer object
         			paid: false
       			});
 		case "PAY_FARMER":
-      			state.paid = !state.paid;
+      state.paid = !state.paid;
 			return state;
 		default:
 			return state;

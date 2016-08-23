@@ -160,7 +160,7 @@ the React curriculum materials. Review the
 [route_configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
 [route_matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
 [index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent
+[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [on_enter]: readings/on_enter.md
 [jbuilder]: https://github.com/rails/jbuilder
 [pokedex]: projects/pokedex
