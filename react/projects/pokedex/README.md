@@ -226,7 +226,7 @@ Within our provider, we will nest everything within `<Router>` tags.  We need to
   </Provider>
 ```
 
-Next, instead of rendering the `PokemonIndexContainer` directly, setup a route that will render the component when `path="/"`. This will assure that the pokemon index is rendered no matter what our pathname is.  It is known as an [index route][index-route].
+Next, instead of rendering the `PokemonIndexContainer` directly, setup a route that will render the component when `path="/"`. This will assure that the pokemon index is rendered no matter what our pathname is.
 
 The React Router allows us to do some refactoring of our `PokemonIndex` component with the use of the [onEnter][on-enter] function.  This function is called when the route is entered, so instead of dispatching the `requestAllPokemon` action in the `PokemonIndex` component we can call it on entrance of the `/` route. Write this function.
 
@@ -235,68 +235,46 @@ Now you can refactor the `PokemonIndex` to be a stateless functional component t
 
 **Make sure all pokemon still render before moving on.**
 
-[index-route]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
 [on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
 
 ### Pokemon Index Item
 
-Let's refactor each of our pokemon into their own pokemon index item components. This is a great pattern for keeping our components minimal. Now the list will only care about rendering all of the list items and the items will care about the functionality of showing their details.
+Let's refactor each of our pokemon into their own `PokemonIndexItem` components. This is a great pattern for keeping our components minimal. Now the list will only care about rendering all of the list items and the items will care about the functionality of showing their details.
 
-Because these components will receive all information through props and not need a lifecycle methods they will work perfetly as stateless functional components. Refactor the mapping of of each `<pokemonIndexItem>` and make sure the list still renders before adding the click functionality.
+We will structure the index item components to receive all their information through props.  This way they do not need lifecycle methods and will work perfectly as stateless functional components. Write a `<PokemonIndexItem>` component and refactor `<PokemonIndex>` to utilize this new component.  Test to ensure everything still renders as it did before.  
 
-React Router is constantly updating the way that we pass a reference to the router in each component. The latest and cleanest way is to wrap the component in what is referred to as an HOC (Higher Order Component). These components much like our containers serve only to pass down information through props. To implement this we `import { withRouter } from 'react-router';` and then call this function on our component when we export it: `export default withRouter(PokemonIndexItem);` Make sure to add `router` to the props that this component expects to receive.
+In order to pass a reference to the router we wrap a component in what is referred to as an HOC (Higher Order Component). These components, much like our containers, serve only to pass down information through props. To implement this we `import { withRouter } from 'react-router'` and then call this function on our component when we export it: `export default withRouter(ComponentName)`.  Add this code to your `PokemonIndexItem`, making sure to add `router` to the props.
 
-Now the component has a reference to the router and all of it's information/functions. One such function will be our most useful when implementing navigation and that is `router.push(url)`.
+Now the component has a reference to the router and all of its information & functions. One such function will be our most useful when implementing navigation: `router.push(url)`.
 
-Create a `_handleClick` function in the `<PokemonIndexItem>` that receives the router and a url. Pass this function to an onClick prop of our list elements and test to make sure that when clicking a pokemonIndexItem you are taken to a path resembling: `/pokemon/1` where the number represents the pokemon ID.
+Create a `_handleClick` function in the `<PokemonIndexItem>` that receives the router and a url. Pass this function to an `onClick` prop of our list elements and test that when clicking a `pokemonIndexItem` you are taken to a path resembling `/pokemon/:id`.
 
-After clicking the pokemonIndexItem we expect to see a warning error in the console: `[react-router] Location "/pokemon/1" did not match any routes`.
-
-This tells us that the router was looking for a route and corresponding component to render but couldn't find one. Let's make a pokemonDetail component.
-
-PokemonIndexItem Example JSX structure:
-```html
-<li className="pokemon-index-item" onClick={}>
-    <span>{}</span>
-    <img src={} alt={}/>
-    <span>{}</span>
-</li>
-```
+While the route will change, you may have noticed the following error in your browser terminal: `[react-router] Location "/pokemon/:id" did not match any routes`.  This tells us that the router was looking for a component to render for that route but was unable to find one. To fix this, Let's make a `PokemonDetail` component.
 
 ### Pokemon Detail
 
-Before creating a component we should always plan out where and how it is going to get it's information. Eventually we also want the pokemon detail to display the toys that a pokemon has. Talk over these two questions with your partner and check in with a TA.
+Before creating a component, we should always plan out where and how it will get its information. Eventually, we also want the `PokemonDetail` to display the toys that a pokemon has. Talk over the following questions with your partner and check in with a TA:
 
-1. Where will the PokemonDetail get it's information?
-2. How will we pass the PokemonDetail the information?
+1. Where will the `PokemonDetail` get it's information from?
+2. How will we pass this information to `PokemonDetail`?
 
-Implement the pokemonDetail component just like we did the pokemonIndex:
+Implement the `PokemonDetail` component just like we did the `PokemonIndex`:
 
 1. create an API function that fetches a single pokemon
-2. create both actions for requesting and receiving a single pokemon
+2. create actions for both requesting and receiving a single pokemon
 3. update the reducer to respond to the receiving of a pokemon
 4. update the middleware to respond to the requesting of a pokemon
-5. create a pokemonDetailContainer that maps pokemonDetail to props
+5. create a `PokemonDetailContainer` that maps `PokemonDetail` to props
 
-Review the `_pokemon.json.jbuilder` file and talk with your partner about how you believe the `PokemonDetail` object will look before we map it to props. Confirm your answer by going to the correct URL in the browser.
+Review the `_pokemon.json.jbuilder` file and talk with your partner about how you believe the `PokemonDetail` object will look before we map it to props. Confirm your answer by navigating to the URL in your browser.
 
-You will notice that the toys are not the prettiest of data to turn into `ToyItem` components but the nesting will be helpful when rendering the future `ToyDetail` so instead of altering the Jbuilder let's write a selector.
+You will notice that the toys data are not well formatted for turning into `ToyItem` components.  But this nesting will be helpful later on when we render a `ToyDetail` component, so we will opt to use a selector rather than edit the jBuilder template.  The selector will take state as a parameter and serve as a utility function to return an array of toy objects that we can easily map over. Create this `toy_selector.js` file in the `util` folder.  Provide this piece of state to the props of your `PokemonDetail` component using your imported selector.
 
-The selector will take state as a parameter and jsut serve as a utility function to return an array of toy objects that we can easily map over. Create this `toy_selector.js` file in the `util` folder.
+6. create a `PokemonDetail` component
 
-Map an additional piece of state to the props of your `PokemonDetail` component using your imported selector.
+Just like the `PokemonIndex`, use an `onEnter` hook in the Route to invoke the `RequestSinglePokemon` action. But this time we will need to pass an ID to the action. Refer to the [`onEnter` documentation][on-enter] to figure out how we get this information.
 
-6. create a `pokemonDetail` component
-
-Just like the `PokemonIndex`, use an `onEnter` hook in the Route to invoke the `RequestSinglePokemon` action. This time we will need to pass an ID to this action so research the `onEnter` docs to figure out how we get this information.
-
-7. complete the corresponding route that renders the `pokemonDetailContainer`
-
-**Make sure to test as you go to avoid bugs. The most common bugs are related to importing/exporting functions.**
-
-Nest the `PokemonDetail` route under the route for the `PokemonIndex` and then **explicitly tell the `PokemonIndex` component to render it's children**. This will assure that both components will be rendered on the page when at the `"/pokemon/1"` path.
-
-Sample jsx structure for a pokemonDetail:
+We recommend you follow the below structure for `PokemonDetail`:
 ```html
 <section className="pokemon-detail">
   <ul>
@@ -316,29 +294,35 @@ Sample jsx structure for a pokemonDetail:
 </section>
 ```
 
+7. complete the corresponding route that renders the `PokemonDetailContainer`
+
+Nest the `PokemonDetail` route under the route for the `PokemonIndex`.  We will also need to **explicitly tell the `PokemonIndex` component to render it's children** (make sure to pass `children` as a prop). This will ensure that both components will be rendered on the page when at the `"/pokemon/1"` path.
+
+[on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
+
 ### Toy Detail
 
-Implement the ability to click on a Toy and be taken to a path such as `/pokemon/1/toys/1` where a toyDetail component displays information about a Toy below the `PokemonDetail` component. This should be completed without any additional changes to the application state.
+Implement the ability to click on a Toy and be taken to a path such as `/pokemon/1/toys/1` where a `ToyDetail` component displays information about a Toy below the `PokemonDetail` component. This should be completed without any additional changes to the application state.
 
-When providing the toy to the `ToyDetail` component from the `ToyDetailContainer` remember that `mapStateToProps` accepts a second parameter `ownProps`. Use this to key into the correct toy.
+When providing the toy to the `ToyDetail` component from the `ToyDetailContainer`, remember that `mapStateToProps` accepts a second parameter `ownProps`. Use this to key into the correct toy.
 
 ### Creating Pokemon
 
-Our next feature will be to allow the creation of new pokemon. This will require a form that takes in user input and builds up a newPokemon object in internal component state. Upon submitting this form, a POST request should be made, the index should be updated and we should be taken to the pokemonDetail for our new pokemon.
+Our next feature will be to allow the creation of new pokemon.
 
-1. create an API function that posts a single pokemon
-2. create both actions for creating and receiving a new pokemon
-3. update the reducer to respond to receiving a new pokemon
+1. Create an API function that posts a single pokemon
+2. Create actions for both creating and receiving a new pokemon
+3. Update the reducer to respond to receiving a new pokemon
   **Hint:** This should reassign multiple pieces of state
-4. update the middleware to respond to creating a pokemon
-5. create a pokemonFormContainer that only connects `mapDispatchToProps`
-6. create a pokemonForm controlled component
+4. Update the middleware to respond to creating a pokemon
+5. Create a `PokemonFormContainer` that only connects `mapDispatchToProps`
+6. Create a `PokemonForm` controlled component
 
-A controlled component is used in React to describe the overriding of browser default functionality to be purely in the control of your application. This is used in forms to assure input field values are being tracked in internal state and submit buttons perform actions as described by the application.
+A controlled component is one which overrides the default functionality of the browser, allowing your code to entirely control your application. This is most commonly used in forms to ensure input field values are being tracked in internal state, and that submit buttons perform actions as described by the application.
 
-Use the `constructor` method to provide a default internal state to your form. Even though javascript prefers camelcase it may be easiest to define this state object as closely to what our server expects when making a POST request.
+Use the `constructor()` method to provide a default internal state to your form. Even though Javascript prefers camelCase, it is often easiest to define data in the format our server expects when making a "POST" request.  In Ruby, this means camel_case.
 
-Normally these constructor functions are taken care of by React. This is how React creates parent/child relationships between components and why we never need to bind child methods. In this case we are overiding the constructor function to have a default internal state so let's make sure we do what React normally does for us as well.
+Normally these constructor functions are taken care of by React. This is how React creates parent/child relationships between components and why we never need to bind child methods. In this case, we are overriding the constructor function to have a default internal state, so it is our responsibility to make sure all functions are properly bound.
 
 ```javascript
   constructor(props) {
@@ -352,29 +336,14 @@ Normally these constructor functions are taken care of by React. This is how Rea
 
 For the input elements use an `onChange` listener and write a single `update` function to call the `setState` method.
 
-```html
-  <input
-    type="text"
-    value={this.state.name}
-    onChange={this.update('name')}/>
-```
+The best html element for the pokemon type is a dropdown. In order to get all of the pokemon types, we have provided a script tag in the `application.html.erb` file which stores an array of types on the window. To maintain the Redux pattern, pass it into your `configureStore` invocation as preloaded state. Then map it to your `PokemonForm` as props.
 
-The best html element for the Pokemon Type is a dropdown. In order to get all of the Pokemon Types there is a script tag in the `application.html.erb` file that is accessing types from the Pokemon Model. Check it out and to maintain the Redux pattern, pass it into your configureStore invocation as preloaded state. Then map it to your `PokemonForm` as props.
-
-Write a `handleSubmit` method as well that prevents the default event action and instead calls the `createPokemon` function from props. Make sure to pass this function to the `onSubmit` listener of the form.
-
-We want this form to appear when at the same root path as the `PokemonIndex` but not when at any further nested routes like the `PokemonDetail`. This is exactly what the `react-router` `IndexRoute` is for. Import it along with the rest of the React Router tools and pass it the `PokemonFormContainer`.
-
-**NB** There is a couple tricky aspects to getting the form to work properly which will be great debugging practice. Use a `debugger` in your `postPokemon` function to assure that you are always passing the correct parameters to your API. You may need to add a conditional to your update function as well.
-
-The final tricky piece of functionalities with this Pokemon form are the redirect callback and error handling.
-
-Sample Pokemon Form jsx structure:
+Sample `PokemonForm` jsx structure:
 ```html
       <section className="pokemon-detail">
         <img src="/assets/pokemon-logo.png"/>
         <ul>
-          {map list elements for errors with class "error"}
+          {// map list elements for errors with class "error"}
         </ul>
         <form className="pokemon-form" onSubmit={this.handleSubmit}>
             {// input elements for all but pokemon types}
@@ -384,9 +353,17 @@ Sample Pokemon Form jsx structure:
       </section>
 ```
 
+Write a `handleSubmit` method as well that prevents the default event action and instead calls the `createPokemon` function from props. Make sure to pass this function to the `onSubmit` listener of the form.
+
+We want this form to appear when at the same root path as the `PokemonIndex`, but not at any further nested routes like the `PokemonDetail`. This is exactly what `IndexRoute` is for. Import it along with the rest of the React Router tools and pass it the `PokemonFormContainer`.
+
+**N.B.** There are a couple of tricky aspects to getting the form to work properly which will be great debugging practice. Use a `debugger` in your `postPokemon` function to ensure that you are always passing the correct parameters to your API. You may need to add a conditional to your update function as well.
+
+The final tricky parts of the Pokemon form are the redirect callback and error handling.
+
 ### Redirecting
 
-Once the posting is complete we want the application to redirect to the newly created pokemon. We need to wait because we need this pokemon's ID in order to push to that URL. Unfortunately this is one of the downfalls to implementing the react router separate from redux. We do not have the router as a part of our application state so instead we suggest using the slightly older way of implementing navigation: `import {hashHistory} from 'react-router';`
+Once the posting is complete we want the application to redirect to the newly created pokemon. We need to wait because we need this pokemon's ID in order to push to that URL. Unfortunately this is one of the downfalls to implementing the react router separate from Redux. We do not have the router as a part of our application state, so instead we suggest using the slightly older way of implementing navigation: `import {hashHistory} from 'react-router';`
 
 This imports a reference to the `hashHistory` object that we can push directly to. Call `hashHistory.push` with the correct url inside of your `postPokemon` success callback.
 
@@ -399,14 +376,14 @@ The server is great at telling us whether or not our new pokemon is being insert
 1. Add a failure callback to the `createPokemon` function.
 2. Add a `pokemonError` action
 3. Update the middleware and reducer
-4. Add a mapStateToProps function that connects in the `PokemonFormContainer`
+4. Add a `mapStateToProps` function that connects in the `PokemonFormContainer`
 5. Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
 
 ## Bonus
 
 ### Loading Spinner
 
-Use `next(action)` in your Pokemon Middleware to always assure the passing of your actions to the reducer. This way you can reduce actions such as `RequestPokemon` in order to describe an intermediary state of your application. Set this state back to normal when reducing `ReceivePokemon` actions.
+Use `next(action)` in your `PokemonMiddleware` to always ensure the passing of your actions to the reducer. This way you can reduce actions such as `RequestPokemon` in order to describe an intermediary state of your application. Set this state back to normal when reducing `ReceivePokemon` actions.
 
 ### Update Toys
 
