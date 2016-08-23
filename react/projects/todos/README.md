@@ -14,8 +14,8 @@ In this phase you will create a Rails app that stores `Todo`s and serves JSON in
 + Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
   + Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
 + Create a `Todo` model with `title`, `body`, and a boolean `done`
-+ Create a `TodosController` to handle API requests
-  + Nest your routes under `api/` and call your controller `Api::TodosController`
++ Create a `Api::TodosController` to handle todos API requests
+  + Nest your routes under `api/`
   + Your controller will need `index`, `create`, `update`, and `destroy` actions
   + Make your controller actions serve JSON-formatted responses
     + In `config/routes.rb`, set `defaults: {format: :json}` for your `namespace :api`
