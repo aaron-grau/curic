@@ -92,8 +92,9 @@ the React curriculum materials. Review the
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
-### Demos (1 hr 15 min)
-- [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
+### Video Demo (1 hr 15 min)
+:closed_lock_with_key: `go_video_go`
+-  :movie_camera: [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
 
 ### Homeworks (45 min)
 - [Dollar Store][dollar_store_hw] (45 min)
