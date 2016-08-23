@@ -32,8 +32,6 @@ Now it's our job to add more routes.  For each desired route (red, green, blue, 
 
 Test that your code works!  Navigate to all the urls we just created, and you should see the color component pop up on the right-hand side.  Remember, these are React Routes, so the paths we created will come after the `#`.  For example, our red route will look like `localhost:8080/#/red`.
 
-[route-config-reading]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md  
-
 ## Phase 2: Hash History
 
 Manually navigating to our newly created routes is tiresome, so let's add functionality to take care of this process for us.  Take a look at the `rainbow` component in `entry.jsx` - you'll see that each `<h4>` has a click listener and corresponding method already created.  
@@ -62,9 +60,8 @@ Open up the `red.jsx` and `blue.jsx` files within the components folder.  You'll
 
 Test that your code works by navigating through all the routes.  Time to celebrate! :tada: :rainbow: :tada:
 
+[route-config-reading]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md  
 [hash-history]: https://github.com/reactjs/react-router/blob/master/upgrade-guides/v2.0.0.md#using-history-with-router
-
-
 
 [live-demo]: /
 [zip-skeleton]: ./rainbow_routes.zip?raw=true

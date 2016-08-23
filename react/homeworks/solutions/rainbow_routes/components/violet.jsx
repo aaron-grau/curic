@@ -1,11 +1,9 @@
-const React = require('react');
+const Violet = () => {
+  (
+    <div>
+      <h2 className="violet"></h2>
+    </div>
+  );
+};
 
-module.exports = React.createClass({
-  render() {
-    return(
-      <div>
-        <h2 className="violet"></h2>
-      </div>
-    );
-  }
-});
+export default Violet;

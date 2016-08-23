@@ -1,24 +1,17 @@
-"use strict";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const ReactRouter = require('react-router');
-
-const Router = ReactRouter.Router;
-const Route = ReactRouter.Route;
-const IndexRoute = ReactRouter.IndexRoute;
-const hashHistory = ReactRouter.hashHistory;
-
-const Red = require('./components/red.jsx');
-const Orange = require('./components/orange.jsx');
-const Yellow = require('./components/yellow.jsx');
-const Green = require('./components/green.jsx');
-const Blue = require('./components/blue.jsx');
-const Indigo = require('./components/indigo.jsx');
-const Violet = require('./components/violet.jsx');
+import Red from './components/red.jsx';
+import Orange from './components/orange.jsx';
+import Yellow from './components/yellow.jsx';
+import Green from './components/green.jsx';
+import Blue from './components/blue.jsx';
+import Indigo from './components/indigo.jsx';
+import Violet from './components/violet.jsx';
 
 
-const Rainbow = React.createClass({
+class Rainbow extends React.Component {
   render() {
     return(
       <div>
@@ -34,24 +27,24 @@ const Rainbow = React.createClass({
         </div>
       </div>
     );
-  },
+  }
 
   addRed() {
     hashHistory.push('/red');
-  },
+  }
 
   addGreen() {
     hashHistory.push('/green');
-  },
+  }
 
   addBlue() {
     hashHistory.push('/blue');
-  },
+  }
 
   addViolet() {
     hashHistory.push('/violet');
   }
-});
+};
 
 const routes = (
   <Route path="/" component={Rainbow}>

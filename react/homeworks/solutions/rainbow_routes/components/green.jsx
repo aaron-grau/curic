@@ -1,11 +1,9 @@
-const React = require('react');
+const Green = () => {
+  (
+    <div>
+      <h2 className="green"></h2>
+    </div>
+  );
+};
 
-module.exports = React.createClass({
-  render() {
-    return(
-      <div>
-        <h2 className="green"></h2>
-      </div>
-    );
-  }
-});
+export default Green;
