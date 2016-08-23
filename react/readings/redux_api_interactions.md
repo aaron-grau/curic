@@ -26,7 +26,7 @@ export const fetchCats = (success, error) => {
 In the example above, we define and export a  `fetchCats()` method that hits our
 API. `fetchCats()` arguments are the success and error functions of the `$.ajax`
 call. We'll import this file into our middleware where we can then pass success
-and error callbacks that trigger appropriate dispatches to our Store. Note that
+and error callbacks that trigger appropriate dispatches to our store. Note that
 because the callbacks are passed in as arguments, the API Utility itself is
 agnostic to your application setup, i.e. it would work equally well in Redux,
 Flux, or any other architecture.

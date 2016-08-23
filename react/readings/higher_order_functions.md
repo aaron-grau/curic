@@ -9,16 +9,16 @@ Functions, in JavaScript and several other programming languages, can be passed 
 Closure, also known as **lexical scoping**, is when inner functions get access to all of the variables defined in an outer function. Closure tends to come in handy when writing higher-order functions. Consider the following program:
 
 ```js
-function noisy(f) {
-  return function(arg) {
+const noisy = (f) => {
+  return (arg) => {
     console.log("calling with", arg);
-    var val = f(arg);
+    const val = f(arg);
     console.log("called with", arg, "- got", val);
     return val;
   };
 }
 
-const newLog = noisy(console.log.bind(console)); 
+const newLog = noisy(console.log.bind(console));
 // we bind console because log needs its context to be console instead of window
 newLog("test");
 // calling with test
@@ -34,7 +34,7 @@ Composing functions is an idea that you probably first ran into in math class. A
 
 ```js
 const compose = (f, g) => {
-  return function(x) {
+  return (x) => {
     return f(g(x));
   }
 }
@@ -66,8 +66,8 @@ ES6 makes it easy to write higher-order functions. The two examples below illust
 
 ```js
 function outerLevel(args1) {
-  return (args2) => {
-    return (args3) => {
+  return function(args2) {
+    return function(args3) {
       console.log(`${args1} came before ${args2} and ${args3} came last`);
     };
   };
