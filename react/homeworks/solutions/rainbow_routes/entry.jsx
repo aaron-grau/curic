@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, withRouter } from 'react-router';
 
 import Red from './components/red.jsx';
 import Orange from './components/orange.jsx';
@@ -12,6 +12,14 @@ import Violet from './components/violet.jsx';
 
 
 class Rainbow extends React.Component {
+  constructor() {
+    super();
+    this.addRed = this.addRed.bind(this);
+    this.addGreen = this.addGreen.bind(this);
+    this.addBlue = this.addBlue.bind(this);
+    this.addViolet = this.addViolet.bind(this);
+  }
+
   render() {
     return(
       <div>
@@ -30,21 +38,23 @@ class Rainbow extends React.Component {
   }
 
   addRed() {
-    hashHistory.push('/red');
+    this.props.router.push('/red');
   }
 
   addGreen() {
-    hashHistory.push('/green');
+    this.props.router.push('/green');
   }
 
   addBlue() {
-    hashHistory.push('/blue');
+    this.props.router.push('/blue');
   }
 
   addViolet() {
-    hashHistory.push('/violet');
+    this.props.router.push('/violet');
   }
 };
+
+Rainbow = withRouter(Rainbow);
 
 const routes = (
   <Route path="/" component={Rainbow}>

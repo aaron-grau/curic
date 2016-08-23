@@ -1,7 +1,14 @@
-import { Component } from 'react';
-import { hashHistory } from 'react-router';
+import React from 'react';
+import { withRouter } from 'react-router';
 
-class Red extends Component {
+class Red extends React.Component {
+  constructor() {
+    super();
+    this.resetRed = this.resetRed.bind(this);
+    this.addOrange = this.addOrange.bind(this);
+    this.addYellow = this.addYellow.bind(this);
+  }
+
   render() {
     return(
       <div>
@@ -16,16 +23,16 @@ class Red extends Component {
   }
 
   resetRed() {
-    hashHistory.push('/red');
+    this.props.router.push('/red');
   }
 
   addOrange() {
-    hashHistory.push('/red/orange');
+    this.props.router.push('/red/orange');
   }
 
   addYellow() {
-    hashHistory.push('/red/yellow');
+    this.props.router.push('/red/yellow');
   }
 };
 
-export default Red;
+export default withRouter(Red);

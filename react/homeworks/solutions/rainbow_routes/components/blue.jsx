@@ -1,7 +1,13 @@
-import { Component } from 'react';
-import { hashHistory } from 'react-router';
+import React from 'react';
+import { withRouter } from 'react-router';
 
-class Blue extends Component {
+class Blue extends React.Component {
+  constructor() {
+    super();
+    this.resetBlue = this.resetBlue.bind(this);
+    this.addIndigo = this.addIndigo.bind(this);
+  }
+
   render() {
     return(
       <div>
@@ -15,12 +21,12 @@ class Blue extends Component {
   }
 
   resetBlue() {
-    hashHistory.push('/blue');
+    this.props.router.push('/blue');
   }
 
   addIndigo() {
-    hashHistory.push('/blue/indigo');
+    this.props.router.push('/blue/indigo');
   }
 };
 
-export default Blue;
+export default withRouter(Blue);
