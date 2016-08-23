@@ -132,10 +132,12 @@ the React curriculum materials. Review the
 
 ### Homework (45 min)
 - [Middleware Homework][middleware_homework] (45 min)
-
+- [Submit tentative project proposal][tentative-proposal]
+  -	due w7d4 9AM
 ### Projects
 - [Todos][todos]
 
+[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
 [redux_api_interactions]: readings/redux_api_interactions.md
