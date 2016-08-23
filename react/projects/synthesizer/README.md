@@ -175,10 +175,10 @@ returns an action of `type` `"KEY_PRESSED"` using your `NotesConstants`.
 Your action creator should look like this:
 
 ```js
-export const keyPressed = key => {
+export const keyPressed = key => ({
   type: NotesConstants.KEY_PRESSED,
   key
-};
+});
 ```
 
 #### `keyReleased`
