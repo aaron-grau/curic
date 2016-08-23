@@ -6,114 +6,96 @@
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+FresherNote is a web application inspired by Evernote built using Ruby on Rails and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
 - [ ] Notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
 - [ ] Notebooks for organizing notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Tags for notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Infinite Scroll for Notes
+- [ ] Tags
+- [ ] Rich Text Editing
+- [ ] Infinite Scroll
+- [ ] Production README [sample](docs/production_readme.md) 
 
 ## Design Docs
-* [View Wireframes][views]
+* [View Wireframes][wireframes]
 * [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
 * [DB schema][schema]
+* [Actions][actions]
 
-[views]: docs/views.md
+[wireframes]: docs/wireframes.md
 [components]: docs/components.md
-[flux-cycles]: docs/flux-cycles.md
-[api-endpoints]: docs/api-endpoints.md
 [schema]: docs/schema.md
+[actions]: docs/actions.md
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days, W1 W 6pm)
+### Phase 1: Backend setup and Front End User Authentication (2 days)
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication backend setup
-- [ ] create `StaticPages` controller and root view
-- [ ] set up webpack & flux scaffold with skeleton files
-- [ ] setup `APIUtil` to interact with the API
-- [ ] set up flux cycle for frontend auth
-- [ ] user signup/signin components
-- [ ] blank landing component after signin
-- [ ] style signin/signup components
-- [ ] seed users
+- [ ] New Rails project
+- [ ] `User` model/migration
+- [ ] Back end authentication (session/password)
+- [ ] `StaticPages` controller and root view
+- [ ] Webpack & react/redux modules
+- [ ] `APIUtil` to interact with the API
+- [ ] Redux cycle for frontend authentication
+- [ ] User signup/signin components
+- [ ] Blank landing component after signup/signin
+- [ ] Style signup/signin components
+- [ ] Seed users
+- [ ] Review phase 1
 
-### Phase 2: Notes Model, API, and components (2 days, W1 F 6pm)
+### Phase 2: Notes Model, API, and components (2 days)
 
 **Objective:** Notes can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
-- [ ] seed the database with a small amount of test data
+- [ ] `Note` model
+- [ ] Seed database with a small amount of test data
 - [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
-- [ ] test out API interaction in the console.
-- implement each note component, building out the flux loop as needed.
+- [ ] JBuilder views for notes
+- Note components and respective Redux loops
   - [ ] `NotesIndex`
   - [ ] `NoteIndexItem`
   - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle after editing.
-- [ ] style notes components
-- [ ] seed notes
+- [ ] Autosave notes feature
+- [ ] Style notes components
+- [ ] Seed notes
 
-### Phase 3: Notebooks (2 day, W2 Tu 6pm)
+### Phase 3: Notebooks (2 day)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
 
-- [ ] create `Notebook` model
-- build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- [ ] Use CSS to style new components
-- [ ] Seed Notebooks
+- [ ] `Notebook` model
+- [ ] Seed database with a small amount of test data
+- [ ] CRUD API for notes (`NotebooksController`)
+- [ ] JBuilder views for notebooks
+- [ ] Adding notes requires a notebook
+- [ ] Moving notes between notebooks
+- [ ] Viewing notes by notebook
+- [ ] Style notebook components
+- [ ] Seed notebooks
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
-
-### Phase 4: Tags (1 days, W2 W 6pm)
+### Phase 4: Tags (1 days)
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
-- [ ] create `Tag` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
-- [ ] Style new elements
-- [ ] Seed tags and tag the seeded Notebooks
+- [ ] `Tag` model and `Taggings` join table
+- [ ] Fetching tags for notes
+- [ ] Adding tags to notes
+- [ ] Searching notes by tag
+- [ ] Style search & tag components
+- [ ] Seed tags with seed data
 
 ### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
 
-**objective:** Enable complex styling of notes.
+**objective:** Allow rich text editing of notes.
 
 - [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
+- [ ] Rails helpers to sanitize HTML before rendering.
+- [ ] Style Quill components.
 - [ ] Add Quill styling to seeded notes
 
 ### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
@@ -122,17 +104,11 @@ which has its own `Index` view.
 
 - [ ] Paginate Notes Index API to send 20 results at a time
 - [ ] Append next set of results when user scrolls and is near bottom
-- [ ] Make sure styling still looks good
-- [ ] Ensure we have enough seeded notes to demo infinite scroll
+- [ ] Style scroll components and transitions
+- [ ] Ensure seed data demonstrates infinite scroll
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
+- [ ] Search notes by content
 - [ ] Set reminders on notes
 - [ ] Changelogs for Notes
 - [ ] Multiple sessions
-
-[phase-one]: docs/phases/phase1.md
-[phase-two]: docs/phases/phase2.md
-[phase-three]: docs/phases/phase3.md
-[phase-four]: docs/phases/phase4.md
-[phase-five]: docs/phases/phase5.md
