@@ -203,6 +203,7 @@ the React curriculum materials. Review the
 * Do the auth part of A04 Prep (1 hr)
   * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's normal.
+* [jBuilder Demo][jbuilder]
 
 ### Projects
 * **Solo:** [BenchBnB Day 2][bench_bnb]
@@ -214,3 +215,4 @@ the React curriculum materials. Review the
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 [full_stack_project_curriculum]: ../full-stack-project
 [full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[jbuilder]: homeworks/questions/jbuilder_demo/README.md
