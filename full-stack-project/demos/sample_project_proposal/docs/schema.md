@@ -16,7 +16,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
-description | string    | 
+description | string    |
 
 ## reminders
 column name | data type | details

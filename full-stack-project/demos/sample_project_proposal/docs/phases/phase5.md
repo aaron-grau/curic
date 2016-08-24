@@ -7,10 +7,10 @@
 
 ### Views
 
-## Flux
+## Redux
 ### Views (React Components)
 
-### Stores
+### Reducers
 
 ### Actions
 
