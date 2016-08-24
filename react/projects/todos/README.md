@@ -75,7 +75,7 @@ general, these utility functions will accept two arguments:
 
 Your function should look something like the following:
 ```javascript
-export const fetchTodos(success, error) {
+export const fetchTodos = (success, error) => {
   $.ajax({
     method: 'GET',
     url: 'api/todos',
