@@ -458,7 +458,7 @@ If we've done our job with our container component, all this presentational comp
 + Dispatch a `requestTodos` action on `componentDidMount`
 + Render the titles of its `todos` prop as list items inside of a `<ul>`
 
-** Test your code: Reload your app and see your list of `todos`! **
+** Test your code: Add `TodoListContainer` to your `App`. Reload your app and see your list of `todos`! **
 
 Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a `TodoListItem` component that receives the appropriate item as a prop. Each `TodoListItem` will render the title of its item inside an `<li>`.  
 
