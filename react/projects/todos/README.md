@@ -481,11 +481,14 @@ Follow these steps:
 + In `actions/todo_actions.js`, create two new action creator methods and their respective constants
   + `createTodo`
   + `receiveTodo`
-+ Create a new API utility function (in `util/todo_api_util.js`) that sends `POST` requests to create a todo list item called `createTodo`
++ Create a new API utility function (in `util/todo_api_util.js`) that sends `POST` requests to create a new Todo in the database called `createTodo(todo, success, error)`. Make sure to set the `data` property of your AJAX request. 
 + Add new `case`s to your middleware's `switch` statement that use your new API utility function
   + `CREATE_TODO` should call your new API utility function and pass `receiveTodo` as its success callback
 + Add new `case`s to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
+
+** Test your code: Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({todo : { title: "Learn Redux", body: "", done: false }}))`. Does your new todo appear on your page? **
+  
 + Create a new component (`components/todo_list/todo_form.jsx`) that dispatches your new action types
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
     + If you don't remember how to set up controlled inputs in a React component, look at this reading about [props and state][props_and_state_reading]
