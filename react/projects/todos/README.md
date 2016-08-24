@@ -77,8 +77,8 @@ Your function should look something like the following:
 ```javascript
 export const fetchTodos(success, error) {
   $.ajax({
-    method: // ,
-    url: //,
+    method: 'GET',
+    url: 'api/todos',
     success,
     error
   });
