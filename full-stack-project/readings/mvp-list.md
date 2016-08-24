@@ -395,6 +395,12 @@ Make sure outline your MVP features using the following structure when writing y
 * **Bonus**: Google Map API showing events based on location
 * **Bonus**: Suggestions based on event details and user profiles
 
+Warning! The tumblr team are very protective of their copyrights,
+if you clone this project don't make a url referencing theirs
+i.e. stumblr, grumblr, humblr, etc.
+Also, be careful about copying their artwork. Make your project
+similar but not identical.
+
 #### Tumblr
 * Posts form for various post types
 * Feed
