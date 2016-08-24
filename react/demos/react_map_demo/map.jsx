@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 //we need to provide a center coordinate for our map, this is SF
 const mapCenter = { lat: 37.7758, lng: -122.435 },
      //I made some lat/lng points for some good burrito spots
@@ -15,12 +18,12 @@ class Map extends React.Component {
     this.addBurritoPlace = this.addBurritoPlace.bind(this);
   }
   componentDidMount() {
-    //React.findDOMNode gets us a pointer to the actual html DOM element,
+    //ReactDOM.findDOMNode gets us a pointer to the actual html DOM element,
     //not its React component class instance, this is what
     //google maps wants to render the map into
     //this.refs is an object populated by giving children a 'ref' prop
     //when we render
-    const map = React.findDOMNode(this.refs.map),
+    const map = ReactDOM.findDOMNode(this.refs.map),
           //we make these options so when the map loads up it displays a
           //good location and zoom level, zoom of 13 show most of SF
           options = {
@@ -49,7 +52,7 @@ class Map extends React.Component {
           });
     marker.addListener('click', () => {
       //when the marker is clicked on, alert the name
-      alert(`clicked on: ${burritoPlace.name}`)
+      alert(`clicked on: ${burritoPlace.name}`);
     });
   }
 
@@ -58,7 +61,7 @@ class Map extends React.Component {
     //the map stops moving
     google.maps.event.addListener(this.map, 'idle', () => {
       const bounds = this.map.getBounds();
-      alert('map has moved, check console to see updated bounds')
+      alert('map has moved, check console to see updated bounds');
       console.log('center');
       console.log(bounds.getCenter().lat(), bounds.getCenter().lng());
       console.log("north east");
@@ -86,9 +89,9 @@ class Map extends React.Component {
       </div>
     );
   }
-};
+}
 
-React.render(
+ReactDOM.render(
   <Map center={mapCenter} burritoPlaces={burritos}/>,
   document.getElementById('root')
 );
