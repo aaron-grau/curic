@@ -21,7 +21,7 @@ In this phase you will create a Rails app that stores `Todo`s and serves JSON in
   + Make your controller actions serve JSON-formatted responses
     + In `config/routes.rb`, set `defaults: {format: :json}` for your `namespace :api`
 + Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`
-  + Don't forget to update `routes.rb` to `root to: Staticpages#root`
+  + Don't forget to update `routes.rb` to `root to: static_pages#root`
 + Start your server so that it can respond to HTTP requests
 + Seed your database with a few todos for later testing.
 
