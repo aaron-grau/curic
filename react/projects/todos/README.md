@@ -22,6 +22,7 @@ In this phase you will create a Rails app that stores `Todo`s and serves JSON in
 + Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`
   + Don't forget to update `routes.rb` to `root to: Staticpages#root`
 + Start your server so that it can respond to HTTP requests
++ Seed your database with a few todos for later testing.
 
 ** Test your API: Try out your API endpoints using `$.ajax`. You should be able
 to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive appropriate
