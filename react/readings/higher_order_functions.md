@@ -65,6 +65,7 @@ We've already written `Function.prototype.curry` that takes as an argument a tot
 ES6 makes it easy to write higher-order functions. The two examples below illustrate the same function:
 
 ```js
+// es-5:
 function outerLevel(args1) {
   return function(args2) {
     return function(args3) {
@@ -73,6 +74,7 @@ function outerLevel(args1) {
   };
 }
 
+// es-6:
 const outerLevel = args1 => args2 => args3 => {
   console.log(`${args1} came before ${args2} and ${args3} came last`);
 };
