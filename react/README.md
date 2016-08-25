@@ -211,7 +211,7 @@ the React curriculum materials. Review the
 ### Homework (6 hrs)
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
   * **Due by 9am on Monday**
-* Do the auth part of A04 Prep (1 hr)
+* Do the auth part of [A04 Prep][a04_prep] (1 hr)
   * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
@@ -225,3 +225,4 @@ the React curriculum materials. Review the
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 [full_stack_project_curriculum]: ../full-stack-project
 [full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4
