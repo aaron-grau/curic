@@ -6,8 +6,7 @@
   * **W8D1**: Submit [full-stack project proposal][readings] by 9am
     * [Sample Proposal][sample-proposal]
     * [MVP Checklist][mvp-checklist]
-  * **W9D2**: Peer Review #1
-  * **W9D5**: Peer Review #2
+  * **W9D2**: Peer Review 
 
 [tentative-proposal]: readings/tentative-project-proposal.md
 [good-projects]: readings/projects-to-clone.md
