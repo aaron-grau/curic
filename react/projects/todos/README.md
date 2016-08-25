@@ -44,14 +44,14 @@ frontend
   + reducers
   + store
   + util
-  redux_todos.jsx
+  todo_redux.jsx
 ```
 + Run `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
   + This command installs the npm packages that we will be using to create our app
 + Set up your `webpack.config.js` file so that your bundle.js ends up in `app/assets/javascripts`
   + Run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them
 
-** Test your setup: Set up your entry file (`redux_todos.jsx`) to render an `<h1>it worked</h1>` into your `#content` container. You should be able to visit
+** Test your setup: Set up your entry file (`todo_redux.jsx`) to render an `<h1>it worked</h1>` into your `#content` container. You should be able to visit
 `localhost:3000` and confirm that you can see that it worked. **
 
 ---
