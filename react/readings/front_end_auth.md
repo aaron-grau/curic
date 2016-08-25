@@ -76,17 +76,17 @@ whenever it sees a relevant dispatch.
 ```
   Actions                               Api Util      Success Dispatch
 
-  signup ---->                     ----> signup ----> receiveCurrentUser
+  signup ---->  SessionMiddleware  ----> signup ----> receiveCurrentUser
   login ----->  SessionMiddleware  ----> login -----> receiveCurrentUser
-  logout ---->                     ----> logout ----> logout
+  logout ---->  SessionMiddleware  ----> logout ----> logout
 ```
 
 ---
 
 ### Front End Routes
 
-It is common to protect front end routes from being accessed by users based on their
-session status. Check out this `Router`:
+It is common to restrict certain front end routes from being accessed by users
+who are not logged in or who do not have proper credentials. Check out this `Router`:
 
 ```js
   <Router history={ hashHistory }>
@@ -106,24 +106,27 @@ Here we have 3 routes that are all protected by [onEnter hooks][onenter]
 
 ### Bootstrapping
 
-One of the biggest challenges of front-end auth is telling our application to render
+One of the biggest challenges of front end auth is telling our application to render
 in an initial state that reflects the status of our session. If we skip this step, it
 may be possible for a user to log in or sign up, refresh the page, and then the app
 will render in a non-logged in manor even though they have the right session token!
+This happens because our App will always render with the default application state
+unless we configure the `Store` to use a `preloadedState`.
 
 There are **several** ways we can meet this challenge.
 
-  * Triggering a `fetchCurrentUser` AJAX request from the `app's` `componentDidMount`
-  * Using [local storage][local-storage]
-  * Using the [gon gem][gon-video]
+  * *Issuing a separate request* -- Triggering a `fetchCurrentUser` AJAX request
+  from the root route's `onEnter` hook
+  * *Persisting client-side data* -- using [local storage][local-storage]
+  * *Bootstrapping* -- using the [gon gem][gon-video]
 
 We are going to suggest the following implementation:
 
-  0. In `application.html.erb`, add a script tag -- this is javascript code that
+  * In `application.html.erb`, add a script tag -- this is javascript code that
   we can tell the browser to run, and we can generate it dynamically using ruby!
-  0. Inside the script tag, assign a jsonified `current_user` to the property of
+  * Inside the script tag, assign a jsonified `current_user` to the property of
   `window.currentUser`
-  0. Use a jbuilder template to make this process simple!
+  * Use a jbuilder template to make this process simple!
 
 ```html
   <script type="text/javascript">
@@ -134,17 +137,17 @@ We are going to suggest the following implementation:
   </script>
 ```
 
-  0. Inside of the doc-ready callback that we generally establish in our entry point,
-  check for the presence of a `window.currentUser`.
-  0. If `window.currentUser` exists, generate a `preloadedState` and pass it
+  * Inside of the doc-ready callback that we generally establish in our entry point,
+  check for the presence of a `window.currentUser`
+  * If `window.currentUser` exists, generate a `preloadedState` and pass it
   to `configureStore`
 
 ```js
   document.addEventListener('DOMContentLoaded', function() {
     let store;
     if (window.currentUser) {
-      const initialState = {session: {currentUser: window.currentUser}};
-      store = configureStore(initialState);
+      const preloadedState = {session: {currentUser: window.currentUser}};
+      store = configureStore(preloadedState);
     } else {
       store = configureStore();
     }
