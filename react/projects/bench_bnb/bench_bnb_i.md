@@ -81,7 +81,7 @@ Note that our `benches` object will use `bench_id` as the primary key.
 Let's start by just setting up our `BenchesReducer` to return it's default state:
 
 ```javascript
-  const BenchesReducer = function(state = {}, action){
+  const BenchesReducer = (state = {}, action) => {
     switch(action.type){
       //...
       default:
@@ -135,9 +135,9 @@ Setup a `configureStore` method for initializing our Store:
       RootReducer,
       preloadedState
     );
-  )
+  );
 
-  export default configureStore
+  export default configureStore;
 ```
 
 #### Recap
@@ -148,7 +148,7 @@ Test that everything works:
   have one.
   0. Inside the callback, call `configureStore()` and assign the result to the `window`:
     ```javascript
-      window.Store = configureStore();
+      window.Store = configureStore(); //just for testing!
     ```
   0. Run `Store.getState()` in the console and inspect the results.
 
@@ -183,6 +183,12 @@ all of our bench data. Call this function `receiveBenches`.
 
 Export these two functions. Before continuing, test that they return the correct objects.
 
+Add `requestBenches` to the `window` (for testing later)!
+
+```js
+  window.requestBenches = requestBenches;
+```
+
 ### `BenchesMiddleware`
 
 Our `BenchesMiddleware` will be responsible for a number of things, including triggering api calls that eventually populate our `Store` with benches!
@@ -193,7 +199,7 @@ Remember, `Middleware` receives dispatches before the store. It can decide to in
   * Import the relevant `constants`.
 
 ```javascript
-  import { BenchConstants } from '../actions/bench_actions';
+  import { BenchConstants } from '../actions/bench_actions.js';
 ```
 
 Recall that [Redux Middleware][middleware-docs] employs a currying strategy to link
@@ -212,9 +218,9 @@ sees a `REQUEST_BENCHES` action type.
     switch(action.type){
       case BenchConstants.REQUEST_BENCHES:
         console.log('time to fetch!')
-        next(action);
+        return next(action);
       default:
-        next(action);
+        return next(action);
     }
   }
 ```
@@ -231,7 +237,7 @@ We'll come back to our `BenchesMiddleware` to flesh it out later.
 
 [middleware-docs]: http://redux.js.org/docs/advanced/Middleware.html
 
-#### `BenchesMiddleware` and the `Store`
+#### Connecting `BenchesMiddleware` and the `Store`
 
 Let's establish the link between our `Middleware` and the `Store`.
 
@@ -245,7 +251,7 @@ Similar to our pattern for creating a `RootReducer`, we'll create a `RootMiddlew
 
 ```javascript
   import { applyMiddleware } from 'redux';
-  import BenchesMiddleware from '../middleware/benches_middleware';
+  import BenchesMiddleware from './benches_middleware';
 ```
 
   * Use the `applyMiddleware` function to create a `RootMiddleware`
@@ -310,7 +316,7 @@ Define an error callback, to, for debugging.
 Your function should look something like this:
 
 ```javascript
-  export const fetchBenches(success){
+  export const fetchBenches = function(success){
     $.ajax({
       method: // ,
       url: //,
@@ -406,6 +412,7 @@ presentational component should be fairly trivial! Inside your container compone
 #### `mapStateToProps`
 
 Our `BenchIndex` component needs `state` information about the `benches` in order to render.
+Let's add the following function to `BenchIndexContainer`.
 
 ```javascript
   const mapStateToProps = state => ({
@@ -416,7 +423,7 @@ Our `BenchIndex` component needs `state` information about the `benches` in orde
 #### `mapDispatchToProps`
 
 The `BenchIndex` also needs a way to trigger a request for benches once it has
-mounted. Let's give it a `requestBenches` prop that it use to call a dispatch with
+mounted. Let's give it a `requestBenches` prop that it can use to call a dispatch with
 the `requestBenches()` action creator.
 
 ```javascript
@@ -463,16 +470,17 @@ In your entry file, let's edit the document-ready callback.
   * Import the `Provider` from the `react-redux` library
 
 ```javascript
-  import { Provider } from `react-redux`
+  import { Provider } from `react-redux`;
 ```
 
 Remember, the Provider's sole purpose is to make the `Store` globally available in
 our component hierarchy. Without the `Provider`, our `connect` functions won't work.
 
-  * Wrap the `BenchIndexContainer` in the `Provider` and pass the `Provider` the
-  configured `Store` as a prop; store this in a variable called `root`.
-  * In the callback, invoke `ReactDOM.render`, and render the `root` into the
-  `#content` div
+  * Create a new functional component called `Root` that accepts a `store` prop
+  * `Root` should render the `BenchIndexContainer`, wrapped in the `Provider`
+  * Be sure to pass the `Provider` the `store` prop
+  * In the callback, invoke `ReactDOM.render`, and render the `Root` into the
+  `#root` div. Be sure to pass `Root` the configured `Store`.
   * Your app should now be populated with benches!!
 
 **Call over a TA** and walk them through your `BenchIndex` container and presentational components.
