@@ -194,7 +194,7 @@ the React curriculum materials. Review the
 * [jBuilder][jbuilder] (40 min)
 
 ### Projects
-- [BenchBNB][bench_bnb]
+- **Solo:** [BenchBNB][bench_bnb]
 
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [context]: https://facebook.github.io/react/docs/context.html
