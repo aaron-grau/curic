@@ -2,8 +2,7 @@
 
 The application's state is organized by data type. Under each data type, there
 may be sub-states. Each action is listed with the sequence of events that
-results from its invocation, ending with the API or a reducer. Subscribed
-components, i.e. containers, are listed at the end.
+results from its invocation, ending with the API or a reducer.
 
 Using this document, you should be able to trace an **action** starting with
 where it was invoked, through the **API**/**reducer** involved, and finally to
@@ -15,19 +14,19 @@ Redux structure, you'll need to do the same.
 ### Session API Request Actions
 
 * `signUp`
-  0. invoked from `SignupForm` `onSubmit`
+  0. invoked from `AuthForm` `onSubmit`
   0. `POST /api/users` is called.
   0. `receiveCurrentUser` is set as the success callback.
 * `logIn`
-  0. invoked from `Navbar` `onSubmit`
+  0. invoked from `AuthForm` `onSubmit`
   0. `POST /api/session` is called.
   0. `receiveCurrentUser` is set as the callback.
 * `logOut`
-  0. invoked from `Navbar` `onClick`
+  0. invoked from `Sidebar` `onClick`
   0. `DELETE /api/session` is called.
   0. `removeCurrentUser` is set as the success callback.
-* `fetchCurrentUser`
-  0. invoked from `App` in `didMount`
+* `requestCurrentUser`
+  0. invoked `onEnter` of `/Home`
   0. `GET /api/session` is called.
   0. `receiveCurrentUser` is set as the success callback.
 
@@ -54,8 +53,8 @@ Redux structure, you'll need to do the same.
 
 ### Notes API Request Actions
 
-* `fetchAllNotes`
-  0. invoked from `NotesIndex` `didMount`/`willReceiveProps`
+* `requestAllNotes`
+  0. invoked from invoked `onEnter` of `/Home/Note/:noteId` if necessary
   0. `GET /api/notes` is called.
   0. `receiveAllNotes` is set as the success callback.
 
@@ -64,14 +63,14 @@ Redux structure, you'll need to do the same.
   0. `POST /api/notes` is called.
   0. `receiveSingleNote` is set as the success callback.
 
-* `fetchSingleNote`
-  0. invoked from `NoteDetail` `didMount`/`willReceiveProps`
+* `requestSingleNote`
+  0. invoked from `onEnter` of `/Home/Note/:noteId` if necessary
   0. `GET /api/notes/:id` is called.
   0. `receiveSingleNote` is set as the success callback.
 
 * `updateNote`
-  0. invoked from `NoteForm` `onSubmit`
-  0. `POST /api/notes` is called.
+  0. invoked from `NewNote` on `AutoSave`
+  0. `PATCH /api/notes/:id` is called.
   0. `receiveSingleNote` is set as the success callback.
 
 * `destroyNote`
@@ -93,18 +92,12 @@ Redux structure, you'll need to do the same.
   0. invoked from an API callback
   0. the `NoteReducer` removes `notes[id]` from the application's state.
 
-### Containers
-
-* `NotesIndex` component subscribes to the Redux store.
-* `NoteDetail` component subscribes to the Redux store.
-
-
 ## Notebook Cycles
 
 ### Notebooks API Request Actions
 
-* `fetchAllNotebooks`
-  0. invoked from `NotebooksIndex` `didMount`/`willReceiveProps`
+* `requestAllNotebooks`
+  0. invoked from `NotebookSearch` input `onChange`
   0. `GET /api/notebooks` is called.
   0. `receiveAllNotebooks` is set as the success callback.
 
@@ -113,14 +106,9 @@ Redux structure, you'll need to do the same.
   0. `POST /api/notebooks` is called.
   0. `receiveSingleNotebook` is set as the callback.
 
-* `fetchSingleNotebook`
-  0. invoked from `NotebookDetail` `didMount`/`willReceiveProps`
+* `requestSingleNotebook`
+  0. invoked from `onEnter` of `/home/notebook/:notebookId/note/:noteId` if necessary
   0. `GET /api/notebooks/:id` is called.
-  0. `receiveSingleNotebook` is set as the success callback.
-
-* `updateNotebook`
-  0. invoked from `NotebookForm` `onSubmit`
-  0. `POST /api/notebooks` is called.
   0. `receiveSingleNotebook` is set as the success callback.
 
 * `destroyNotebook`
@@ -142,26 +130,40 @@ Redux structure, you'll need to do the same.
   0. invoked from an API callback.
   0. The `Notebook` reducer removes `notebooks[id]` from the application's state.
 
-### Containers
+## Tag Cycles
 
-* `NotebooksIndex` component subscribes to the Redux store.
+### Tag API Request Actions
 
+* `requestAllTags`
+  0. invoked from `TagSearch` input `onChange`
+  0. `GET /api/tags` is called.
+  0. `receiveAllTags` is set as the success callback.
 
-## SearchSuggestion Cycles
+* `createTag`
+  0. invoked from new Tag button `onClick`
+  0. `POST /api/tags` is called.
+  0. `receiveSingleTag` is set as the callback.
 
-* `fetchSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when there is text
-  0. `GET /api/notes` is called with `text` param.
-  0. `receiveSearchSuggestions` is set as the success callback.
+* `requestSingleTag`
+  0. invoked from `onEnter` of `/home/tag/:tagId/note/:notedId` if necessary
+  0. `GET /api/tags/:id` is called.
+  0. `receiveSingleTag` is set as the success callback.
 
-* `receiveSearchSuggestions`
+* `destroyTagging`
+  0. invoked from delete Tag button `onClick`
+  0. `DELETE /api/taggings/:tagId` is called.
+  0. `removeTag` is set as the success callback.
+
+### Tags API Response Actions
+
+* `receiveAllTags`
   0. invoked from an API callback.
-  0. The `SearchSuggestion` reducer updates `suggestions` in the application's state.
+  0. The `Tag` reducer updates `Tags` in the application's state.
 
-* `removeSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when empty
-  0. The `SearchSuggestion` reducer resets `suggestions` in the application's state.
+* `receiveSingleTag`
+  0. invoked from an API callback.
+  0. The `Tag` reducer updates `Tags[id]` in the application's state.
 
-### Containers
-
-* The `SearchBarSuggestions` component subscribes to the Redux store.
+* `removeTag`
+  0. invoked from an API callback.
+  0. The `Tag` reducer removes `Tags[id]` from the application's state.
