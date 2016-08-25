@@ -105,11 +105,20 @@ Discuss how you will nest your components. If components will need containers, i
 
 See the sample project proposal for an example of this.
 
+### Sample State
+
+- `sample-state.md`
+
+Create a basic illustration of your state shape. Think about what information
+you need to store for your app to work, and how best to organize it to minimize
+duplication and maximize ease of access.
+
 ### Redux Architecture
 
 - `redux-structure.md`
 
-Discuss how information will move through your application state and where it will be stored. 
+Discuss how information will move through your application state and where it
+will be stored.
 
 Organize your discussion around each `slice` (i.e. reducer) of state that will
 be needed. You should be able to use this document to trace an action starting
@@ -120,7 +129,7 @@ precisely what you'll need to do.
 
 ### DB Schema
 
-`schema.md`
+- `schema.md`
 
 Link to a document outlining the database schema for your app. Build up the
 schema by walking through your app's wireframes. Think carefully about what data
@@ -129,7 +138,7 @@ of any database-level validations and foreign key relationships.
 
 ### API Endpoints
 
-`api-endpoints.md`
+- `api-endpoints.md`
 
 Link to a page that lists your Rails API endpoints. Break these up between HTML
 and JSON endpoints. Discuss what params, if any, will be needed for each
@@ -137,12 +146,15 @@ endpoint, and what information will be returned.
 
 ### Implementation Timeline
 
-This will be the road map for your application. Rather than building the
-entire project all at once, you're going to implement one feature at a time.
-Refer back to your MVP and group the features into logical phases. You
-should have a working app at the end of each phase (even if not all of your
-features are in yet). For each phase, write a brief game plan and list out any
-third-party APIs, front-end and back-end components you will need to implement.
+- `phases`
+Create a file in your `phases` folder for each phase of your implementation timeline.
+
+Refer back to your MVP and group the features into logical phases. This will be
+the road map for your application. Rather than building the entire project all
+at once, you're going to implement one feature at a time. You should have a
+working app at the end of each phase (even if not all of your features are in
+yet). For each phase, write a brief game plan and list out any third-party APIs,
+front-end and back-end components you will need to implement.
 
 ## Submission
 
