@@ -3,13 +3,6 @@ import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router';
 import MarkerManager from '../../util/marker_manager';
 
-const _getCoordsObj = function(latLng) {
-  return ({
-    lat: latLng.lat(),
-    lng: latLng.lng()
-  });
-};
-
 let _mapOptions = {
   center: {lat: 37.773972, lng: -122.431297}, //San Francisco
   zoom: 13
@@ -35,10 +28,8 @@ class BenchMap extends React.Component{
 
   _registerListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
-      const mapBounds = this.map.getBounds();
-      const northEast = _getCoordsObj(mapBounds.getNorthEast());
-      const southWest = _getCoordsObj(mapBounds.getSouthWest());
-      const bounds = { northEast, southWest };
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = { northEast: { north, east }, southWest: { south, west } };
       this.props.updateFilter('bounds', bounds);
     });
     google.maps.event.addListener(this.map, 'click', event => {
