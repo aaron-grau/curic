@@ -20,13 +20,14 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 * Add routes for your `BenchController` actions. These should be namespaced under `api/benches` and return JSON by default.
 * Populate `seeds.rb` with bench seed data using [real coordinates in SF][maps-sf] (click around to get coordinates).
 * Boot up your server and open your app in the browser. Test your API in the Dev Tools console using `$.ajax` calls (Hint: you may want to save these calls for later).
+* Setup a `StaticPagesController` with a `root` view containing a `<main
+id="root"></main>`.
+* Update your `routes.rb` file to root to `static_pages#root`
 
 [maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
 
 ## Phase 1: `Frontend` Structure
 
-* Setup a `StaticPagesController` with a `root` view containing a `<main
-id="root"></main>`.
 * Create a `/frontend` folder at the root directory of your project to hold your
 frontend:
 
@@ -40,6 +41,7 @@ frontend:
     + util
     bench_bnb.jsx
   ```
+* `npm init`
 * `npm install --save` the following packages:
   * `webpack`
   * `react`
@@ -50,6 +52,7 @@ frontend:
   * `babel-loader`
   * `babel-preset-react`
   * `babel-preset-es2015`
+* Create a `webpack.config.js` file
 * Setup your entry file (`bench_bnb.jsx`) to render your app into the `#root` container.
 * Test this rendering setup before moving on.
 
@@ -141,7 +144,7 @@ Setup a `configureStore` method for initializing our Store:
 
 So far, we have built our redux store and told it to use our bench reducing function.
 Test that everything works:
-  0. Add a `'DOMContentLoaded'` callback to your entry point if you don't already 
+  0. Add a `'DOMContentLoaded'` callback to your entry point if you don't already
   have one.
   0. Inside the callback, call `configureStore()` and assign the result to the `window`:
     ```javascript
@@ -193,7 +196,7 @@ Remember, `Middleware` receives dispatches before the store. It can decide to in
   import { BenchConstants } from '../actions/bench_actions';
 ```
 
-Recall that [Redux Middleware][middleware-docs] employs a currying strategy to link 
+Recall that [Redux Middleware][middleware-docs] employs a currying strategy to link
 several `Middleware` to each other and ultimately to the store. You'll need to define 3 functions that wrap one-another like so:
 
 ```javascript
@@ -320,7 +323,7 @@ Your function should look something like this:
 As before, put this function on the window for testing, and make sure it works
 before moving on!
 
-### Connect`BenchesMiddleware` to `BenchAPIUtil` 
+### Connect`BenchesMiddleware` to `BenchAPIUtil`
 
 Let's connect our `BenchesMiddleware` to this new `fetchBenches` function!
 
@@ -350,7 +353,7 @@ We should see a `console.log` of all our bench data!
 Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.log`ing the bench data, it dispatches the data as part of an action.
 
   * Import the `receiveBenches` Action Creator.
-  * Re-write your success callback to dispatch a `RECEIVE_BENCHES` action with the 
+  * Re-write your success callback to dispatch a `RECEIVE_BENCHES` action with the
   response `data`.
 
 
@@ -424,7 +427,7 @@ the `requestBenches()` action creator.
 
 #### Export it!
 
-Finally, let's use the `connect` function to export a new component that is 
+Finally, let's use the `connect` function to export a new component that is
 connected to our `Store`.
 
 ```javascript
@@ -436,7 +439,7 @@ connected to our `Store`.
 
 ### The Presentational Component
 
-Let's create the `BenchIndex` presentational component. It should render a list of benches, showing the description of each bench. 
+Let's create the `BenchIndex` presentational component. It should render a list of benches, showing the description of each bench.
 
 ```javascript
   import React from 'react';
@@ -502,7 +505,7 @@ information.
 `ref='map'`.
 * In the `application.css` file, make sure to set the `width` and `height` of the
 `#map-container` to `500px`.
-* We'll return to this component in a bit. 
+* We'll return to this component in a bit.
 
 ### Create a parent component: `Search`
 
@@ -514,7 +517,7 @@ information.
 
 
 Since our `Search` component only needs a render method, we can make it a
-[functional component][functional-comp-docs] with an implicit return! Make sure to 
+[functional component][functional-comp-docs] with an implicit return! Make sure to
 deconstruct your props for cleaner syntax.
 
 ### Render your `SearchContainer`
@@ -656,7 +659,7 @@ marker to the `map` and to the `markers` array.
 
 Use your helper methods in `updateMarkers()` to create markers for any new benches that appear in your store. Take care to only add a marker once per bench, as extra markers won't be visible on the map, but will affect your ability to remove benches in the next step.
 
-Make sure you can see markers before moving on! 
+Make sure you can see markers before moving on!
 
 ## Phase 6: Filtering by Map Location
 
@@ -717,7 +720,7 @@ the `BenchMap` component
 
 ### `BenchMap`
 
-  * In the `BenchMap` component, add a listener to the map's idle event when 
+  * In the `BenchMap` component, add a listener to the map's idle event when
   `componentDidMount` is called.
   * [Read this documentation][event-doc] to learn about Google Map events.
   * Call `getBounds` on the map instance to get a `LatLngBounds` instance. Call
@@ -756,7 +759,7 @@ and then calling `Store.getState()` in the console.
 
 Now that we've handled our state, we need to beef up `MarkerManager/updateMarkers()` to handle removing markers for benches that have been moved outside our bounds.
 
-Add the following helper methods to your class: 
+Add the following helper methods to your class:
 
 * `_markersToRemove()`: returns an array of markers that are on the map, but
 the benches they represent are not in the state.
