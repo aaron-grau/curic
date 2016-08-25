@@ -84,7 +84,7 @@ would be absolutely necessary for the app to be marketable. Your MVP section mus
 
 Links to wireframes of your application's UI views. Each wireframe should be a
 basic representation of the layout and information presented in a view. If you
-plan to use nested React components, clearly indicate the heirarchy in your
+plan to use nested React components, clearly indicate the hierarchy in your
 wireframes. We should be able to see every view of your website using your
 wireframes, and how each view is reached.
 
