@@ -33,9 +33,9 @@ it.
 0. Setup a remote repository on Github.
 0. Commit your files and push to your remote.
 
-## Set up your `docs`
+## Set up your `docs` directory
 
-Your project is going to have a directory for storing all your planning
+Your project is going to have a directory that stores all your planning
 materials. The main document there will be a development README that outlines
 all the major facets of your development process.
 
@@ -48,7 +48,7 @@ all the major facets of your development process.
 		- describe features, and
 		- outline a development schedule for your application.
 
-		Note that this README is NOT the same as the Production README that lives at 
+		**Note:** this README is NOT the same as the Production README that lives at 
 		the project's root directory.
 
 	0. The following files, which should be linked to in the Development README: 
@@ -59,9 +59,7 @@ all the major facets of your development process.
 		- `schema.md`
 
 0. Create a `docs/wireframes` folder to hold wireframe images.
-0. Create a `docs/phases` folder to hold smaller READMEs for describing each phase of your implementation timeline.
-
-
+0. Create a `docs/phases` folder to hold files describing each phase of your implementation timeline.
 
 ## Fleshing Out the Proposal
 
@@ -82,37 +80,47 @@ would be absolutely necessary for the app to be marketable. Your MVP section mus
 
 ### Wireframes
 
-You should also link to a page containing wireframes of the views essential for
-your MVP. Each wireframe should be a basic representation of the layout and
-information presented in the view. If you plan to use nested React components,
-clearly indicate the heirarchy in your wireframes. We should be able to "click"
-through your website using your wireframes.
+-	`/wireframes`
 
-**NB**: You can use any tool you like to create your wireframes (pen and paper
-are completely acceptable). To spare your eyes from my chicken scratches, I made
-the sample proposal wireframes using [draw.io][draw.io].
+Links to wireframes of your application's UI views. Each wireframe should be a
+basic representation of the layout and information presented in a view. If you
+plan to use nested React components, clearly indicate the heirarchy in your
+wireframes. We should be able to see every view of your website using your
+wireframes, and how each view is reached.
+
+**NB**: You can use any tool you like to create your wireframes (pen and paper are
+completely acceptable). If your writing looks like chicken scratches, try
+[draw.io][draw.io].
 
 [draw.io]: https://www.draw.io/
 
 ### React Components
 
-In addition to the view wireframes, you should diagram a tree indicating your
-application's overall component structure. See the sample project proposal for
-an example of this.
+-	`components.md`
 
-### Flux Cycles
+In addition to the wireframes, you should diagram a tree indicating your
+application's overall component structure. 
 
-Flux loops are organized by data type. Under each data type, there may be sub-
-categories, and each action is listed with the sequence of events that result
-from its invocation, ending with the API or store. Finally, store listeners are
-listed at the end.
+Discuss how you will nest your components. If components will need containers, indicate what state and dispatch props they will need. For presentational components, discuss what props and state they will need.
 
-You should be able to use this document trace an action starting with where it
-was invoked, through the API/store involved, and finally to the components that
-update as a result. This is important because once you start implementing your
-flux loops, that's precisely what you'll need to do.
+See the sample project proposal for an example of this.
+
+### Redux Architecture
+
+- `redux-structure.md`
+
+Discuss how information will move through your application state and where it will be stored. 
+
+Organize your discussion around each `slice` (i.e. reducer) of state that will
+be needed. You should be able to use this document to trace an action starting
+with where it was dispatched, through any middlewares and API utils involved,
+through the reducer, and finally to the components that update as a result. This
+is important because once you start implementing your redux loops, that's
+precisely what you'll need to do.
 
 ### DB Schema
+
+`schema.md`
 
 Link to a document outlining the database schema for your app. Build up the
 schema by walking through your app's wireframes. Think carefully about what data
@@ -121,8 +129,11 @@ of any database-level validations and foreign key relationships.
 
 ### API Endpoints
 
-Link to a page that lists your Rails API endpoints. Break these up between
-HTML and JSON endpoints.
+`api-endpoints.md`
+
+Link to a page that lists your Rails API endpoints. Break these up between HTML
+and JSON endpoints. Discuss what params, if any, will be needed for each
+endpoint, and what information will be returned.
 
 ### Implementation Timeline
 
