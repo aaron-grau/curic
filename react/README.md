@@ -203,7 +203,7 @@ the React curriculum materials. Review the
 [checklist]: readings/checklist.md
 [jbuilder]: homeworks/questions/jbuilder.md
 [bench_bnb]: projects/bench_bnb
-[user_authentication]: readings/
+[user_authentication]: readings/front_end_auth.md
 
 ## w8d1
 
