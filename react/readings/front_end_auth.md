@@ -1,18 +1,18 @@
-# Front End Auth
+# Front End Authentication
 
-The phrase `front end auth` can be misleading, so let's first clarify what this reading
-will cover. We want to build sleek single-page applications that don't have distinct
-routes for sign up or login forms. Instead of http requests, we want to make
-all of our login, sign up, logout, etc. requests via AJAX.
+The phrase `front end auth` can be misleading -- our rails auth pattern isn't changing,
+but we're going to interact with rails in a different manner -- so let's first clarify
+what this reading will cover. We want to build sleek single-page applications. Instead of
+making HTTP requests, we want to make all of our login, sign up, logout, etc. requests
+via AJAX.
 
 **Your backend will look essentially the same!**
 
 Let's make sure we reinforce some key properties of authentication:
   * A *session* is maintained by assigning a token to the user's cookie
-  * Cookies are sent by the browser to the server with every request: http and ajax!
+  * Cookies are sent by the browser to the server with every request: HTTP and AJAX!
 
 We'll need the following pieces:
-
   * SessionReducer
   * Session Actions / Constants
   * Session API Util
@@ -48,22 +48,20 @@ Our `SessionReducer` might look something like this:
 
 The `currentUser` property will be used to show things like a custom welcome message
 and the profile picture. The `errors` property will be used to tell our users that
-they have filled out a form incorrectly. (Think 'Password is too short').
+they have filled out a form incorrectly. (e.g. 'Password is too short').
 
 ---
 
 ### Action-Creators & API
 
-We'll need some actions to handle our session-related requests. The following should do:
-
+We'll need the following action-creators:
   * signup
   * login
   * logout
   * receiveCurrentUser
   * receiveErrors
 
-We'll also need some api utility functions that will actually make the ajax requests:
-
+We'll also need some API utility functions that will actually make the AJAX requests:
   * signup
   * login
   * logout
@@ -72,7 +70,7 @@ We'll also need some api utility functions that will actually make the ajax requ
 
 ### Middleware
 
-The `SessionMiddleware` should be responsible for invoking our session api utility functions
+The `SessionMiddleware` should be responsible for invoking our session API utility functions
 whenever it sees a relevant dispatch.
 
 ```
@@ -115,7 +113,7 @@ will render in a non-logged in manor even though they have the right session tok
 
 There are **several** ways we can meet this challenge.
 
-  * Triggering a `fetchCurrentUser` ajax request from the `app's` `componentDidMount`
+  * Triggering a `fetchCurrentUser` AJAX request from the `app's` `componentDidMount`
   * Using [local storage][local-storage]
   * Using the [gon gem][gon-video]
 
