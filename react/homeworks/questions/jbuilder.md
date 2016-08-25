@@ -95,21 +95,24 @@ information to break. Nest your data by passing it as an argument to
 `json.gifts`.
 
 Time to do some on your own. Make both a gift show and index view. Get the specs
-to pass. Once that's done, make the party show and index views. In the index
+to pass.
+
+### Bonuses!
+
+To run the bonus specs, simply go to that spec file and remove the line `before { pending('Bonus') }`.
+
+**Bonus:**  Make the party show and index views. In the index
 view, show all parties, and include all of their guests. In the show view,
 include not only all guests, but all of the guests' gifts as well.
 
-**Bonus:** Change your guest index view to only show guests who are between 40
+**Double Bonus:** Change your guest index view to only show guests who are between 40
 and 50 years old. Normally we would always do this kind of selection using
 Active Record, but this gives us an opportunity to practice using Ruby in Jbuilder.
 
-**Double Bonus:** In writing these views, you've generated some gnarly N+1 queries.
+**Triple Bonus:** In writing these views, you've generated some gnarly N+1 queries.
 Find them and defeat them. _Hint:_ play around with your API in development and
 watch your server logs.
 
-When you've finished with everything, call a TA over and have them check your
-work!
-
-[jbuilder-zip]: ../jbuilder_demo.zip?raw=true
+[jbuilder-zip]: ./jbuilder.zip?raw=true
 [formatter-link]: https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en
 [docs-link]: https://github.com/rails/jbuilder

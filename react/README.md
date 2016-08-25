@@ -190,6 +190,9 @@ the React curriculum materials. Review the
 - [React Context][context]
 - [`localStorage`][local_storage]
 
+### Homeworks (40 min)
+* [jBuilder][jbuilder] (40 min)
+
 ### Projects
 - [BenchBNB][bench_bnb]
 
@@ -198,6 +201,7 @@ the React curriculum materials. Review the
 [preloaded_state]: readings/preloaded_state.md
 [react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
+[jbuilder]: homeworks/questions/jbuilder.md
 [bench_bnb]: projects/bench_bnb
 [user_authentication]: readings/
 
