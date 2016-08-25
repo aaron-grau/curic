@@ -1,9 +1,9 @@
 # Full-Stack Project Proposals
 
-Welcome to full-stack projects! This is a hectic and exciting time, and it represents
-the culmination of your education at App Academy. Now that you've chosen your
-project, we want to help you build the best projects possible; so we'll help you
-come up with a road map to keep yourself on track.
+Welcome to full-stack projects! This is a hectic and exciting time, and it
+represents the culmination of your education at App Academy. Now that you've
+chosen your project, we want to help you build the best projects possible; so
+we'll help you come up with a road map to keep yourself on track.
 
 ## Sample Proposal
 
@@ -19,26 +19,53 @@ it.
 
 ## Setting up the Project Repo
 
-0. Clone the curriculum repo (if you haven't done this already).
+0. Create a new Rails project. 
+	-	`--skip-turbolinks=true`
+	- `--database=postgresql`
+0. `git init` a repository for your project.
+0. Add the following to your `.gitignore`:
 
-0. Navigate to the [sample project proposal][sample-proposal] in the
-  curriculum file tree.
+	```
+	node_modules/
+	bundle.js
+	bundle.js.map
+	```
+0. Setup a remote repository on Github.
+0. Commit your files and push to your remote.
 
-0. `cp -r . ~/destination/path/for/your/project`
+## Set up your `docs`
 
-0. `cd` into the place where you copied the proposal and run this
-  command, adding any other options you might want:
+Your project is going to have a directory for storing all your planning
+materials. The main document there will be a development README that outlines
+all the major facets of your development process.
 
-   `rails new . --skip-turbolinks --database=postgresql`
+0. Create a `docs` folder in your project directory.
+0. The `docs` directory must contain the following: 
 
-   This will generate your Rails app in the current folder, rather than
-   creating a new directory.
+	0. A `README.md` file. This is your Development README, which will:
+		-	outline the architecture,
+		- show wireframes,
+		- describe features, and
+		- outline a development schedule for your application.
 
-0. `git init` and push to your remote repository. A full-stack project is born!
+		Note that this README is NOT the same as the Production README that lives at 
+		the project's root directory.
+
+	0. The following files, which should be linked to in the Development README: 
+		- `api-endpoints.md`
+		- `components.md`
+		- `redux-structure.md`
+		- `sample-state.md`
+		- `schema.md`
+
+0. Create a `docs/wireframes` folder to hold wireframe images.
+0. Create a `docs/phases` folder to hold smaller READMEs for describing each phase of your implementation timeline.
+
+
 
 ## Fleshing Out the Proposal
 
-The README of your project repo MUST include the following:
+The Development README of your project repo MUST include the following:
 
 ### Heroku Link
 
