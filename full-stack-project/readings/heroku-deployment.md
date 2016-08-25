@@ -309,6 +309,10 @@ In `production.rb`, comment out the line:
 config.assets.js_compressor = :uglifier
 ```
 
+### Assets Not Found
+
+If your assets are precompiling successfully but still returning `404 not found` in deployment, you may need to set `config.assets.compile = true` in your `production.rb` file.
+
 ### Page not found errors?
 
 Make sure you've migrated your database and that all the appropriate
