@@ -96,7 +96,12 @@ completely acceptable). If your writing looks like chicken scratches, try
 
 ### React Components
 
+<<<<<<< HEAD
 -	`component-heirarchy.md`
+=======
+-	`components.md`
+- `containers.md`
+>>>>>>> d7f75fe492d5b33dd853e41686dc0e05856b599a
 
 In addition to the wireframes, you should diagram a tree indicating your
 application's overall component structure. 
@@ -148,7 +153,13 @@ endpoint, and what information will be returned.
 
 ### Implementation Timeline
 
+<<<<<<< HEAD
 Create a section in your proposal README for each `phase` of your project to develop an implementation timeline.
+=======
+- `phases/`
+
+Create a file in your `phases` folder for each phase of your implementation timeline.
+>>>>>>> d7f75fe492d5b33dd853e41686dc0e05856b599a
 
 Refer back to your MVP and group the features into logical phases with detailed lists of each task necessary to develop the feature. This will be
 the road map for your application. Rather than building the entire project all
