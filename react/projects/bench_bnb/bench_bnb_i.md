@@ -289,7 +289,7 @@ function.
 Since our last recap, we have: created a `bench_actions` file, that holds
 action creators and `BenchConstants`. These help ensure that our `Views`,
 `Middleware`, and `Store` are communicating effectively. We also created
-`BenchesMiddleware`, witch will be responsible for intercepting and triggering
+`BenchesMiddleware`, which will be responsible for intercepting and triggering
 bench-related dispatches. We created a `RootMiddleware` using the
 `applyMiddleware` function from the `redux` library. Finally, we connected our
 `RootMiddleware` to the `Store` using the `createStore` function.
