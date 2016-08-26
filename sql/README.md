@@ -37,6 +37,8 @@
 
 ## w3d2
 
+### Study Hall 9 - 10am
+
 ### Video Lectures (65 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [RDBMS Intro][rdbms-intro-video] (10 min)
@@ -136,6 +138,8 @@
 [url-shortener]: projects/url_shortener
 
 ## w3d4
+
+### Study Hall 9 - 10am
 
 ### Readings (65 min)
 + [ActiveRecord::Relation][relation] (15 min)

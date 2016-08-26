@@ -162,6 +162,8 @@
 
 ## w4d4
 
+### Study Hall 9 - 10am
+
 ### Video Lectures (39 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera:  (cc) 14-radio-and-textarea][14-radio-and-textarea] (16 min)
@@ -199,6 +201,8 @@
 [music-app-project]: projects/music_app
 
 ## w4d5
+
+### Study Hall 9 - 10am
 
 ### Video Lectures (54 min)
 :closed_lock_with_key: `go_video_go`
@@ -310,6 +314,8 @@
 [rails-lite-ii]: projects/rails_lite/rails-lite-ii.md
 
 ## w5d3
+
+### Study Hall 9 - 10am
 
 ### Breakfast
 * :joy_cat: **Bagels @ 8:30am** :joy_cat:
