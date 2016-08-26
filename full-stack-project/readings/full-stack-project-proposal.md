@@ -97,6 +97,7 @@ completely acceptable). If your writing looks like chicken scratches, try
 ### React Components
 
 -	`components.md`
+- `containers.md`
 
 In addition to the wireframes, you should diagram a tree indicating your
 application's overall component structure. 
