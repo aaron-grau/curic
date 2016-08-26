@@ -53,7 +53,7 @@ all the major facets of your development process.
 
 	0. The following files, which should be linked to in the Development README: 
 		- `api-endpoints.md`
-		- `components.md`
+		- `component-heirarchy.md`
 		- `redux-structure.md`
 		- `sample-state.md`
 		- `schema.md`
@@ -96,12 +96,14 @@ completely acceptable). If your writing looks like chicken scratches, try
 
 ### React Components
 
--	`components.md`
+-	`component-heirarchy.md`
 
 In addition to the wireframes, you should diagram a tree indicating your
 application's overall component structure. 
 
 Discuss how you will nest your components. If components will need containers, indicate what state and dispatch props they will need. For presentational components, discuss what props and state they will need.
+
+Map out your React Routes with their respective components and paths.
 
 See the sample project proposal for an example of this.
 
@@ -146,20 +148,17 @@ endpoint, and what information will be returned.
 
 ### Implementation Timeline
 
-- `phases`
-Create a file in your `phases` folder for each phase of your implementation timeline.
+Create a section in your proposal README for each `phase` of your project to develop an implementation timeline.
 
-Refer back to your MVP and group the features into logical phases. This will be
+Refer back to your MVP and group the features into logical phases with detailed lists of each task necessary to develop the feature. This will be
 the road map for your application. Rather than building the entire project all
 at once, you're going to implement one feature at a time. You should have a
 working app at the end of each phase (even if not all of your features are in
-yet). For each phase, write a brief game plan and list out any third-party APIs,
-front-end and back-end components you will need to implement.
+yet). For each phase, write a brief game plan and list out any third-party APIs, front-end and back-end components you will need to implement.
 
 ## Submission
 
-When you've finished setting up your full-stack project repo, add it to Progress
-Tracker and email your instructors (instructors-sf@appacademy.io or
+When you've finished setting up your full-stack project repo, add it to Progress Tracker and email your instructors (instructors-sf@appacademy.io or
 instructors-ny@appacademy.io).  A TA will review each proposal and leave
 their comments in issues on the project repo. Be prepared to respond to
 feedback, and keep your README up to date as you make progress. Happy hunting!
