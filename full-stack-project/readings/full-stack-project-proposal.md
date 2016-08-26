@@ -1,9 +1,9 @@
 # Full-Stack Project Proposals
 
-Welcome to full-stack projects! This is a hectic and exciting time, and it represents
-the culmination of your education at App Academy. Now that you've chosen your
-project, we want to help you build the best projects possible; so we'll help you
-come up with a road map to keep yourself on track.
+Welcome to full-stack projects! This is a hectic and exciting time, and it
+represents the culmination of your education at App Academy. Now that you've
+chosen your project, we want to help you build the best projects possible; so
+we'll help you come up with a road map to keep yourself on track.
 
 ## Sample Proposal
 
@@ -19,26 +19,51 @@ it.
 
 ## Setting up the Project Repo
 
-0. Clone the curriculum repo (if you haven't done this already).
+0. Create a new Rails project. 
+	-	`--skip-turbolinks=true`
+	- `--database=postgresql`
+0. `git init` a repository for your project.
+0. Add the following to your `.gitignore`:
 
-0. Navigate to the [sample project proposal][sample-proposal] in the
-  curriculum file tree.
+	```
+	node_modules/
+	bundle.js
+	bundle.js.map
+	```
+0. Setup a remote repository on Github.
+0. Commit your files and push to your remote.
 
-0. `cp -r . ~/destination/path/for/your/project`
+## Set up your `docs` directory
 
-0. `cd` into the place where you copied the proposal and run this
-  command, adding any other options you might want:
+Your project is going to have a directory that stores all your planning
+materials. The main document there will be a development README that outlines
+all the major facets of your development process.
 
-   `rails new . --skip-turbolinks --database=postgresql`
+0. Create a `docs` folder in your project directory.
+0. The `docs` directory must contain the following: 
 
-   This will generate your Rails app in the current folder, rather than
-   creating a new directory.
+	0. A `README.md` file. This is your Development README, which will:
+		-	outline the architecture,
+		- show wireframes,
+		- describe features, and
+		- outline a development schedule for your application.
 
-0. `git init` and push to your remote repository. A full-stack project is born!
+		**Note:** this README is NOT the same as the Production README that lives at 
+		the project's root directory.
+
+	0. The following files, which should be linked to in the Development README: 
+		- `api-endpoints.md`
+		- `components.md`
+		- `redux-structure.md`
+		- `sample-state.md`
+		- `schema.md`
+
+0. Create a `docs/wireframes` folder to hold wireframe images.
+0. Create a `docs/phases` folder to hold files describing each phase of your implementation timeline.
 
 ## Fleshing Out the Proposal
 
-The README of your project repo MUST include the following:
+The Development README of your project repo MUST include the following:
 
 ### Heroku Link
 
@@ -55,37 +80,56 @@ would be absolutely necessary for the app to be marketable. Your MVP section mus
 
 ### Wireframes
 
-You should also link to a page containing wireframes of the views essential for
-your MVP. Each wireframe should be a basic representation of the layout and
-information presented in the view. If you plan to use nested React components,
-clearly indicate the heirarchy in your wireframes. We should be able to "click"
-through your website using your wireframes.
+-	`/wireframes`
 
-**NB**: You can use any tool you like to create your wireframes (pen and paper
-are completely acceptable). To spare your eyes from my chicken scratches, I made
-the sample proposal wireframes using [draw.io][draw.io].
+Links to wireframes of your application's UI views. Each wireframe should be a
+basic representation of the layout and information presented in a view. If you
+plan to use nested React components, clearly indicate the hierarchy in your
+wireframes. We should be able to see every view of your website using your
+wireframes, and how each view is reached.
+
+**NB**: You can use any tool you like to create your wireframes (pen and paper are
+completely acceptable). If your writing looks like chicken scratches, try
+[draw.io][draw.io].
 
 [draw.io]: https://www.draw.io/
 
 ### React Components
 
-In addition to the view wireframes, you should diagram a tree indicating your
-application's overall component structure. See the sample project proposal for
-an example of this.
+-	`components.md`
 
-### Flux Cycles
+In addition to the wireframes, you should diagram a tree indicating your
+application's overall component structure. 
 
-Flux loops are organized by data type. Under each data type, there may be sub-
-categories, and each action is listed with the sequence of events that result
-from its invocation, ending with the API or store. Finally, store listeners are
-listed at the end.
+Discuss how you will nest your components. If components will need containers, indicate what state and dispatch props they will need. For presentational components, discuss what props and state they will need.
 
-You should be able to use this document trace an action starting with where it
-was invoked, through the API/store involved, and finally to the components that
-update as a result. This is important because once you start implementing your
-flux loops, that's precisely what you'll need to do.
+See the sample project proposal for an example of this.
+
+### Sample State
+
+- `sample-state.md`
+
+Create a basic illustration of your state shape. Think about what information
+you need to store for your app to work, and how best to organize it to minimize
+duplication and maximize ease of access.
+
+### Redux Architecture
+
+- `redux-structure.md`
+
+Discuss how information will move through your application state and where it
+will be stored.
+
+Organize your discussion around each `slice` (i.e. reducer) of state that will
+be needed. You should be able to use this document to trace an action starting
+with where it was dispatched, through any middlewares and API utils involved,
+through the reducer, and finally to the components that update as a result. This
+is important because once you start implementing your redux loops, that's
+precisely what you'll need to do.
 
 ### DB Schema
+
+- `schema.md`
 
 Link to a document outlining the database schema for your app. Build up the
 schema by walking through your app's wireframes. Think carefully about what data
@@ -94,17 +138,23 @@ of any database-level validations and foreign key relationships.
 
 ### API Endpoints
 
-Link to a page that lists your Rails API endpoints. Break these up between
-HTML and JSON endpoints.
+- `api-endpoints.md`
+
+Link to a page that lists your Rails API endpoints. Break these up between HTML
+and JSON endpoints. Discuss what params, if any, will be needed for each
+endpoint, and what information will be returned.
 
 ### Implementation Timeline
 
-This will be the road map for your application. Rather than building the
-entire project all at once, you're going to implement one feature at a time.
-Refer back to your MVP and group the features into logical phases. You
-should have a working app at the end of each phase (even if not all of your
-features are in yet). For each phase, write a brief game plan and list out any
-third-party APIs, front-end and back-end components you will need to implement.
+- `phases`
+Create a file in your `phases` folder for each phase of your implementation timeline.
+
+Refer back to your MVP and group the features into logical phases. This will be
+the road map for your application. Rather than building the entire project all
+at once, you're going to implement one feature at a time. You should have a
+working app at the end of each phase (even if not all of your features are in
+yet). For each phase, write a brief game plan and list out any third-party APIs,
+front-end and back-end components you will need to implement.
 
 ## Submission
 
