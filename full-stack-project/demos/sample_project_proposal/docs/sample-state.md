@@ -1,4 +1,4 @@
-```js
+```json
 {
   currentUser: {
     id: 1,
@@ -30,6 +30,6 @@
       description: "is cool"
     }
   }
+  tagFilters: [1, 7, 14] // Used to track selected Tags for filtering of notes
 }
-tagFilters: [1, 7, 14] // Used to track selected Tags for filtering of notes
 ```

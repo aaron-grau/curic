@@ -175,10 +175,10 @@ returns an action of `type` `"KEY_PRESSED"` using your `NotesConstants`.
 Your action creator should look like this:
 
 ```js
-export const keyPressed = key => {
-  action: NotesConstants.KEY_PRESSED,
+export const keyPressed = key => ({
+  type: NotesConstants.KEY_PRESSED,
   key
-};
+});
 ```
 
 #### `keyReleased`
@@ -400,7 +400,7 @@ some of the overhead in our `notes` reducer?
 Ok, let's actually start jamming.
 
 * Define a `playNotes` function.
-* Iterate through `this.notes`, calling `start` and `stop` on all of the notes present in the store and `stop` on all the other notes.
+* Iterate through `this.notes`, calling `start` on all of the notes present in the store and `stop` on all the other notes.
 * Call `playNotes` in `render`.
 * Test your app! Make sure that your have your key actions, reducer and listeners working before continuing.
 
@@ -666,17 +666,18 @@ To play the notes in a track, we can't simply iterate over these objects because
 iteration happens (essentially) instantaneously. We instead want to *throttle*
 our iteration, such that we continue the next note once `Date.now() -
 playBackStartTime` exceeds the current note's `timeSlice`. `setInterval` allows
-us to invoke a callback over (relatively) large spans of time.
+us to invoke a callback over relatively large spans of time.
 
 * In the body of your function, `dispatch` a `startPlaying` action.
 * Grab `Date.now()` and assign it to a `playBackStartTime` variable.
 * Initialize a `currNote` to `0`.
 * Declare a `timeElapsed` variable
-* We want the interval to run until the end of the `track`. Declare an `interval` variable.
 
-Now for the meat of the method:
-* [Set][set-interval] `interval` and pass it an anonymous callback and a delay of `1`.
-* The callback should check whether `currNote` is still in range of the `roll`. *If so*,
+Now for the meat of this method, *throttling* our iteration using `setInterval`:
+* Declare an `interval` variable.
+* Assign `interval` to a `setInterval` call pasing it an anonymous callback and a delay of `1`.
+* The callback takes no arguments.
+* The body of the callback should check whether `currNote` is still in range of the `roll`. *If so*,
   * Check whether `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. *If so*,
     * `dispatch` a `groupUpdate` action with the current note's `notes`.
     * Continue to the next note.

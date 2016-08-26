@@ -11,6 +11,6 @@ const store = createStore(reducer, preloadedState, enhancers);
 ```
 
 It's all pretty simple, but there are a few things to note.
-0.	The `preloadedState` must match the state shape (as produced by the 
+*	The `preloadedState` must match the state shape (as produced by the
 reducers).
-0.	`preloadedState` is not the same as default state. Default state should always be set in your reducers themselves.
+*	`preloadedState` is not the same as default state. Default state should always be set in your reducers themselves.

@@ -14,14 +14,16 @@ In this phase you will create a Rails app that stores `Todo`s and serves JSON in
 + Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
   + Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
 + Create a `Todo` model with `title`, `body`, and a boolean `done`
-+ Create a `TodosController` to handle API requests
-  + Nest your routes under `api/` and call your controller `Api::TodosController`
-  + Your controller will need `index`, `create`, `update`, and `destroy` actions
++ Create a `Api::TodosController` to handle todos API requests
+  + Run `rails g controller api/todos`
+  + Nest your routes under namespace `api`
+  + Your controller needs `index`, `create`, `update`, and `destroy` actions
   + Make your controller actions serve JSON-formatted responses
-    + In `config/resources.rb`, set `defaults: {format: :json}` for your `namespace :api`
+    + In `config/routes.rb`, set `defaults: {format: :json}` for your `namespace :api`
 + Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`
-  + Don't forget to update `routes.rb` to `root to: Staticpages#root`
+  + Don't forget to update `routes.rb` to `root to: static_pages#root`
 + Start your server so that it can respond to HTTP requests
++ Seed your database with a few todos for later testing.
 
 ** Test your API: Try out your API endpoints using `$.ajax`. You should be able
 to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive appropriate
@@ -42,14 +44,14 @@ frontend
   + reducers
   + store
   + util
-  redux_todos.jsx
+  todo_redux.jsx
 ```
 + Run `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
   + This command installs the npm packages that we will be using to create our app
 + Set up your `webpack.config.js` file so that your bundle.js ends up in `app/assets/javascripts`
   + Run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them
 
-** Test your setup: Set up your entry file (`redux_todos.jsx`) to render an `<h1>it worked</h1>` into your `#content` container. You should be able to visit
+** Test your setup: Set up your entry file (`todo_redux.jsx`) to render an `<h1>it worked</h1>` into your `#content` container. You should be able to visit
 `localhost:3000` and confirm that you can see that it worked. **
 
 ---
@@ -75,10 +77,10 @@ general, these utility functions will accept two arguments:
 
 Your function should look something like the following:
 ```javascript
-export const fetchTodos(success, error) {
+export const fetchTodos = (success, error) => {
   $.ajax({
-    method: // ,
-    url: //,
+    method: 'GET',
+    url: 'api/todos',
     success,
     error
   });
@@ -457,7 +459,7 @@ If we've done our job with our container component, all this presentational comp
 + Dispatch a `requestTodos` action on `componentDidMount`
 + Render the titles of its `todos` prop as list items inside of a `<ul>`
 
-** Test your code: Reload your app and see your list of `todos`! **
+** Test your code: Add `TodoListContainer` to your `App`. Reload your app and see your list of `todos`! **
 
 Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a `TodoListItem` component that receives the appropriate item as a prop. Each `TodoListItem` will render the title of its item inside an `<li>`.  
 
@@ -480,11 +482,14 @@ Follow these steps:
 + In `actions/todo_actions.js`, create two new action creator methods and their respective constants
   + `createTodo`
   + `receiveTodo`
-+ Create a new API utility function (in `util/todo_api_util.js`) that sends `POST` requests to create a todo list item called `createTodo`
++ Create a new API utility function (in `util/todo_api_util.js`) that sends `POST` requests to create a new Todo in the database called `createTodo(todo, success, error)`. Make sure to set the `data` property of your AJAX request. 
 + Add new `case`s to your middleware's `switch` statement that use your new API utility function
   + `CREATE_TODO` should call your new API utility function and pass `receiveTodo` as its success callback
 + Add new `case`s to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
+
+** Test your code: Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({todo : { title: "Learn Redux", body: "", done: false }}))`. Does your new todo appear on your page? **
+  
 + Create a new component (`components/todo_list/todo_form.jsx`) that dispatches your new action types
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
     + If you don't remember how to set up controlled inputs in a React component, look at this reading about [props and state][props_and_state_reading]

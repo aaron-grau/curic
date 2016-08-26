@@ -92,8 +92,9 @@ the React curriculum materials. Review the
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
-### Demos (1 hr 15 min)
-- [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
+### Video Demo (1 hr 15 min)
+:closed_lock_with_key: `go_video_go`
+-  :movie_camera: [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
 
 ### Homeworks (45 min)
 - [Dollar Store][dollar_store_hw] (45 min)
@@ -129,12 +130,19 @@ the React curriculum materials. Review the
 - [Middleware][middleware] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
 
+### Homework (45 min)
+- [Middleware Homework][middleware_homework] (45 min)
+- [Submit tentative project proposal][tentative-proposal]
+  -	due w7d4 9AM
+  
 ### Projects
 - [Todos][todos]
 
+[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
 [redux_api_interactions]: readings/redux_api_interactions.md
+[middleware_homework]: homeworks/questions/middleware.md
 [todos]: projects/todos
 
 
@@ -149,6 +157,9 @@ the React curriculum materials. Review the
 - [`withRouter`][with_router] (9 min)
 - [Jbuilder][jbuilder] (20 min)
 
+### Homeworks (30 min)
+- [Rainbow Routes][rainbow_routes]
+
 ### Projects
 - [Pokedex][pokedex]
 
@@ -160,9 +171,10 @@ the React curriculum materials. Review the
 [route_configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
 [route_matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
 [index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent
+[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [on_enter]: readings/on_enter.md
 [jbuilder]: https://github.com/rails/jbuilder
+[rainbow_routes]: homeworks/questions/rainbow_routes.md
 [pokedex]: projects/pokedex
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
@@ -178,16 +190,20 @@ the React curriculum materials. Review the
 - [React Context][context]
 - [`localStorage`][local_storage]
 
+### Homeworks (40 min)
+* [jBuilder][jbuilder] (40 min)
+
 ### Projects
-- [BenchBNB][bench_bnb]
+- **Solo:** [BenchBNB][bench_bnb]
 
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [context]: https://facebook.github.io/react/docs/context.html
 [preloaded_state]: readings/preloaded_state.md
 [react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
+[jbuilder]: homeworks/questions/jbuilder.md
 [bench_bnb]: projects/bench_bnb
-[user_authentication]: readings/
+[user_authentication]: readings/front_end_auth.md
 
 ## w8d1
 
@@ -199,7 +215,7 @@ the React curriculum materials. Review the
 ### Homework (6 hrs)
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
   * **Due by 9am on Monday**
-* Do the auth part of A04 Prep (1 hr)
+* Do the auth part of [A04 Prep][a04_prep] (1 hr)
   * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
@@ -213,3 +229,4 @@ the React curriculum materials. Review the
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 [full_stack_project_curriculum]: ../full-stack-project
 [full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4

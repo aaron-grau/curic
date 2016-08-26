@@ -1,4 +1,4 @@
-## `react-redux`: `connect()`
+# `react-redux`: `connect()`
 
 The `react-redux` package allows us to access the store `context` set by the
 [`Provider`][provider] in a powerful and convenient way via the `connect()`
@@ -119,7 +119,7 @@ The `Component` to be connected is passed to the function returned from calling
 
 ```js
 const ConnectedComponent = connect(
-	mapDispatchToProps,
+	mapStateToProps,
 	mapDispatchToProps
 )(component);
 ```

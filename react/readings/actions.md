@@ -8,7 +8,7 @@ primary drivers of the Redux loop.
 ## Action Creators
 
 When an action is dispatched, any new state data must be passed along as the
-**payload**: 
+**payload**:
 
 ```js
 const addOrange = {
@@ -38,7 +38,7 @@ Now we can add any `fruit` to the store using our action creator
 `addFruit(fruit)`, instead of having to define an action object for each fruit.
 
 ```js
-store.dispatch(addApple("Apple"));
+store.dispatch(addFruit("Apple"));
 store.dispatch(addFruit("Strawberry"));
 store.dispatch(addFruit("Lychee"));
 store.getState(); // [ 'orange', 'apple', 'strawberry', 'lychee' ]

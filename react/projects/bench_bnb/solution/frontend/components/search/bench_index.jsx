@@ -1,8 +1,7 @@
 import React from 'react';
 import BenchIndexItem from './bench_index_item';
 
-const BenchIndex = function(props) {
-  const benches = props.benches;
+const BenchIndex = ({benches}) => {
   const benchKeys = Object.keys(benches);
   return (
     <div>

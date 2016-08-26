@@ -1,4 +1,4 @@
-export const fetchAllPokemon = function (success) {
+export const fetchAllPokemon = (success) => {
   $.ajax({
     method: 'GET',
     url: 'api/pokemon',
@@ -6,7 +6,7 @@ export const fetchAllPokemon = function (success) {
   });
 };
 
-export const fetchSinglePokemon = function (id, success) {
+export const fetchSinglePokemon = (id, success) => {
   $.ajax({
     method: 'GET',
     url: `api/pokemon/${id}`,
@@ -14,7 +14,7 @@ export const fetchSinglePokemon = function (id, success) {
   });
 };
 
-export const postPokemon = function (pokemon, success, error) {
+export const postPokemon = (pokemon, success, error) => {
   pokemon.moves = Object.keys(pokemon.moves).map(k => pokemon.moves[k]);
   $.ajax({
     method: 'POST',

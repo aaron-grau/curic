@@ -61,7 +61,7 @@ altered by the component itself.
 ### When to Use State
 
 State should be used whenever a component must keep track of mutable, internal
-data. Most of the time, state will be used for form components. If a piece of
+data. Most of the time, state will be used for form components to manage controlled inputs. If a piece of
 information is never going to change, or if it is needed across the entire app
 (such as the `currentUser`), use props instead.
 

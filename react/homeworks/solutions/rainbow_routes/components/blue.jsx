@@ -1,8 +1,13 @@
-const React = require('react');
-const ReactRouter = require('react-router');
-const hashHistory = ReactRouter.hashHistory;
+import React from 'react';
+import { withRouter } from 'react-router';
 
-module.exports = React.createClass({
+class Blue extends React.Component {
+  constructor() {
+    super();
+    this.resetBlue = this.resetBlue.bind(this);
+    this.addIndigo = this.addIndigo.bind(this);
+  }
+
   render() {
     return(
       <div>
@@ -13,13 +18,15 @@ module.exports = React.createClass({
         {this.props.children}
       </div>
     );
-  },
+  }
 
   resetBlue() {
-    hashHistory.push('/blue');
-  },
+    this.props.router.push('/blue');
+  }
 
   addIndigo() {
-    hashHistory.push('/blue/indigo');
+    this.props.router.push('/blue/indigo');
   }
-});
+};
+
+export default withRouter(Blue);

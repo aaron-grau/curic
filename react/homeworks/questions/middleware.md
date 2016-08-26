@@ -4,7 +4,7 @@
 
 In this homework, you will modify an app's `dispatch` function so that it does more than just dispatch actions to the store. You will use this pattern again tomorrow in a more sophisticated way.
 
-Download the provided [skeleton](../../../projects/synthesizer/solution.zip).
+Download the provided [skeleton](./middleware/skeleton.zip?raw=true).
 
 **You will be updating `synthesizer.jsx` and `store/configure_store.js`**
 

@@ -11,7 +11,7 @@ React components will be updating and re-rendering the board's current
 state based on user input.
 
 Go ahead and look at the interface defined in our [`minesweeper.js`
-library ][minesweeper-js]. That file's `exports` are the Board and Tile
+library][minesweeper-js]. That file's `exports` are the Board and Tile
 classes. I recommend `import`ing all objects into your JSX files aliased as
 `Minesweeper`, such that you can access the Tile and Board API through
 `Minesweeper.Board` and `Minesweeper.Tile`.
@@ -19,7 +19,7 @@ classes. I recommend `import`ing all objects into your JSX files aliased as
 Alright, let's get started!
 
 [live-solution]: http://appacademy.github.io/curriculum/minesweeper/index.html
-[minesweeper-js]: http://appacademy.github.io/react-minesweeper/minesweeper.js
+[minesweeper-js]: https://github.com/appacademy/curriculum/blob/master/react/projects/react_minesweeper/solution/minesweeper.js
 
 ## Phase 0: Setup
 

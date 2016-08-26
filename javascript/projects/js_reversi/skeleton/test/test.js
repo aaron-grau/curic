@@ -158,7 +158,7 @@ describe("Board", function () {
 
     it("should not allow a piece on top of another piece", function () {
       function makeBadMove() {
-        testBoard.placePiece([3, 2], "white");
+        testBoard.placePiece([3, 3], "white");
       }
 
       assert.throws(makeBadMove, Error, "Invalid Move");
@@ -166,7 +166,7 @@ describe("Board", function () {
 
     it("should not allow a move that doesn't capture", function () {
       function makeBadMove() {
-        testBoard.placePiece([2, 3], "white");
+        testBoard.placePiece([3, 3], "white");
       }
 
       assert.throws(makeBadMove, Error, "Invalid Move");
