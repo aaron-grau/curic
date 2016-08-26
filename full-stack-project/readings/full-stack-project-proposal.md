@@ -147,7 +147,8 @@ endpoint, and what information will be returned.
 
 ### Implementation Timeline
 
-- `phases`
+- `phases/`
+
 Create a file in your `phases` folder for each phase of your implementation timeline.
 
 Refer back to your MVP and group the features into logical phases. This will be
