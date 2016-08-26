@@ -341,9 +341,9 @@ Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware` wh
       case BenchConstants.REQUEST_BENCHES:
         const success = data => console.log(data);
         fetchBenches(success);
-        break;
+        return next(action);
       default:
-        next(action);
+        return next(action);
     }
   }
 ```
@@ -367,7 +367,7 @@ Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.
   case BenchConstants.REQUEST_BENCHES:
     const success = data => dispatch(receiveBenches(data))
     fetchBenches(success);
-    break;
+    return next(action);
 ```
 
 ### Back to the reducer
