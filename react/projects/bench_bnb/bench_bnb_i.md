@@ -19,10 +19,10 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 `create` to start.
 * Add routes for your `BenchController` actions. These should be namespaced under `api/benches` and return JSON by default.
 * Populate `seeds.rb` with bench seed data using [real coordinates in SF][maps-sf] (click around to get coordinates).
-* Boot up your server and open your app in the browser. Test your API in the Dev Tools console using `$.ajax` calls (Hint: you may want to save these calls for later).
 * Setup a `StaticPagesController` with a `root` view containing a `<main
 id="root"></main>`.
 * Update your `routes.rb` file to root to `static_pages#root`
+* Boot up your server and open your app in the browser. Test your API in the Dev Tools console using `$.ajax` calls (Hint: you may want to save these calls for later).
 
 [maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
 
