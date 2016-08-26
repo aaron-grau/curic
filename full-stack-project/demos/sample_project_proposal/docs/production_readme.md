@@ -32,7 +32,7 @@ class Api::SessionsController < ApplicationController
 
   Notes are rendered in two different components: the `CondensedNote` components, which show the title and first few words of the note content, and the `ExpandedNote` components, which are editable and show all note text.  The `NoteIndex` renders all of the `CondensedNote`s as subcomponents, as well as one `ExpandedNote` component, which renders based on `NoteStore.selectedNote()`. The UI of the `NoteIndex` is taken directly from Evernote for a professional, clean look:  
 
-![image of notebook index](noteIndex.png)
+![image of notebook index](wireframes/home-logged-in.png)
 
 Note editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
 
@@ -59,7 +59,7 @@ As with notebooks, tags are stored in the database through a `tag` table and a j
 
 Tags are maintained on the frontend in the `TagStore`.  Because creating, editing, and destroying notes can potentially affect `Tag` objects, the `NoteIndex` and the `NotebookIndex` both listen to the `TagStore`.  It was not necessary to create a `Tag` component, as tags are simply rendered as part of the individual `Note` components.  
 
-![tag screenshot](tagScreenshot.png)
+![tag screenshot](wireframes/tag-search.png)
 
 ## Future Directions for the Project
 
