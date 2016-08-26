@@ -75,13 +75,13 @@ describe HashMap do
   end
 
   describe "#each" do
-    it "enumerates over all the items in original insertion order and yields key-value pairs" do
-      i = 0
-      vals = (1..3).to_a
+    it "enumerates over all the items and yields key-value pairs" do
+      goal = [[:first, 1], [:second, 2], [:third, 3]]
+      result = []
       hash.each do |k, v|
-        expect(hash.get(k)).to eq(vals[i])
-        i += 1
+        result << [k, v]
       end
+      expect(result.sort).to eq(goal)
     end
 
     it "includes Enumerable module" do

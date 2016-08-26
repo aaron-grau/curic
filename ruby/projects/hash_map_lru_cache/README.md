@@ -239,7 +239,7 @@ So here again is a summary of how you use our hash map:
 
 Finally, let's make your hash map properly enumerable. You know the
 drill. Implement `#each`, and then include the `Enumerable` module.
-Your method should yield `[key, value]` pairs and maintain insertion order -- the same way the Ruby hash does!
+Your method should yield `[key, value]` pairs.
 
 Also make sure your hash map resizes when the count exceeds the number of buckets! In order to resize properly, you
 have to double the size of the container for your buckets. Having done
