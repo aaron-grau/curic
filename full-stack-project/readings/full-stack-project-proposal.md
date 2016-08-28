@@ -46,7 +46,7 @@ all the major facets of your development process.
 		-	outline the architecture,
 		- show wireframes,
 		- describe features, and
-		- outline a development schedule for your application.
+		- outline a development timeline for your application.
 
 		**Note:** this README is NOT the same as the Production README that lives at 
 		the project's root directory.
@@ -59,7 +59,6 @@ all the major facets of your development process.
 		- `schema.md`
 
 0. Create a `docs/wireframes` folder to hold wireframe images.
-0. Create a `docs/phases` folder to hold files describing each phase of your implementation timeline.
 
 ## Fleshing Out the Proposal
 
