@@ -92,7 +92,7 @@ Here is an example written as a functional component:
 
 ```js
 const Message = (props) => {
-	return <div>{this.props.text}</div>
+	return <div>{props.text}</div>
 };
 ```
 
