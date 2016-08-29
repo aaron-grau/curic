@@ -15,16 +15,13 @@ export default ({getState, dispatch}) => next => action => {
     case SessionConstants.LOGIN:
       login(action.user, successCallback, errorCallback);
       return next(action);
-      break;
     case SessionConstants.LOGOUT:
       logout(() => next(action));
       break;
     case SessionConstants.SIGNUP:
       signup(action.user, successCallback, errorCallback);
       return next(action);
-      break;
     default:
       return next(action);
-      break;
   }
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 
-
 class IndexItem extends React.Component {
   constructor(props) {
     super(props);
