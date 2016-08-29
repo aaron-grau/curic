@@ -155,7 +155,7 @@ the React curriculum materials. Review the
 - [Index Routes][index_routes] (7 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
 - [`withRouter`][with_router] (9 min)
-- [Jbuilder][jbuilder] (20 min)
+- [Jbuilder][jbuilder_docs] (20 min)
 
 ### Homeworks (30 min)
 - [Rainbow Routes][rainbow_routes]
@@ -173,7 +173,7 @@ the React curriculum materials. Review the
 [index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
 [with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [on_enter]: readings/on_enter.md
-[jbuilder]: https://github.com/rails/jbuilder
+[jbuilder_docs]: https://github.com/rails/jbuilder
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 [pokedex]: projects/pokedex
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
@@ -191,7 +191,7 @@ the React curriculum materials. Review the
 - [`localStorage`][local_storage]
 
 ### Homeworks (40 min)
-* [jBuilder][jbuilder] (40 min)
+* [jBuilder][jbuilder_homework] (40 min)
 
 ### Projects
 - **Solo:** [BenchBNB][bench_bnb]
@@ -201,7 +201,7 @@ the React curriculum materials. Review the
 [preloaded_state]: readings/preloaded_state.md
 [react_map_demo]: demos/react_map_demo
 [checklist]: readings/checklist.md
-[jbuilder]: homeworks/questions/jbuilder.md
+[jbuilder_homework]: homeworks/questions/jbuilder.md
 [bench_bnb]: projects/bench_bnb
 [user_authentication]: readings/front_end_auth.md
 
