@@ -92,7 +92,8 @@ class Board
     pos.all? { |coord| coord.between?(0, 7) }
   end
 
-  protected
+  private
+  attr_reader :sentinel
 
   def fill_back_row(color)
     back_pieces = [
@@ -124,6 +125,4 @@ class Board
     end
   end
 
-  private
-  attr_reader :sentinel
 end
