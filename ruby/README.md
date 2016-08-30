@@ -251,6 +251,8 @@
 
 ## w2d2
 
+### Study Hall 9 - 10am
+
 + Continue Chess
 
 ## RSpec
@@ -343,6 +345,8 @@
 [benchmarking]: projects/benchmarking
 
 ## w2d5
+
+### Study Hall 9 - 10am
 
 ### Video lectures (2 hours, 15 min)
 
