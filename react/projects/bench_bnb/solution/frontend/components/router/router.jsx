@@ -2,12 +2,12 @@ import React from 'react';
 //Router
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 //Components
-import App from './app';
-import SearchContainer from './search/search_container';
-import BenchFormContainer from './bench_form/bench_form_container';
-import BenchShowContainer from './bench_show/bench_show_container';
-import ReviewFormContainer from './bench_show/review_form_container';
-import SessionFormContainer from './session_form/session_form_container';
+import App from '../app';
+import SearchContainer from '../search/search_container';
+import BenchFormContainer from '../bench_form/bench_form_container';
+import BenchShowContainer from '../bench_show/bench_show_container';
+import ReviewFormContainer from '../bench_show/review_form_container';
+import SessionFormContainer from '../session_form/session_form_container';
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -17,16 +17,14 @@ class AppRouter extends React.Component{
   }
 
   _ensureLoggedIn(nextState, replace){
-    const currentState = this.context.store.getState();
-    const currentUser = currentState.session.currentUser;
+    const currentUser = this.props.currentUser;
     if (!currentUser) {
       replace('/login');
     }
   }
 
   _redirectIfLoggedIn(nextState, replace){
-    const currentState = this.context.store.getState();
-    const currentUser = currentState.session.currentUser;
+    const currentUser = this.props.currentUser;
     if (currentUser) {
       replace('/');
     }
@@ -48,9 +46,5 @@ class AppRouter extends React.Component{
     );
   }
 }
-
-AppRouter.contextTypes = {
-  store: React.PropTypes.object.isRequired
-};
 
 export default AppRouter;
