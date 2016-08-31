@@ -111,7 +111,7 @@ rails controllers, and on success dispatch an action creator.
 
 Export a function called `fetchAllPokemon` that takes in a success callback as an argument. The function should make an AJAX request that will serve up the `index.json.jbuilder` view for Pokemon.  Check out the `routes.rb` file and run `rake routes` to determine the appropriate url for this request.
 
-Now let's write the success callback that will be passed to this function.  Create a `pokemon_actions.js` file within the actions folder and import the ajax request function we just wrote.  **Hint:** `import * as API from ./util/api_util.js` is a nice way to just import all of the api util functions as methods of an API object!
+Now let's write the success callback that will be passed to this function.  Create a `pokemon_actions.js` file within the actions folder and import the ajax request function we just wrote.  **Hint:** `import * as API from './util/api_util.js'` is a nice way to just import all of the api util functions as methods of an API object!
 
 In our newly created `pokemon_actions.js` file, let's start by exporting a `PokemonConstants`
 objects with a key-value pair for `"RECEIVE_ALL_POKEMON"`.  Next, export a function called `receiveAllPokemon` that returns a pure object. This object should have two keys: one for the a `RECEIVE_ALL_POKEMON` action type and another for the Pokemon data.
