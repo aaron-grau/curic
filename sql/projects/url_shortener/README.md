@@ -23,7 +23,7 @@ we can use the `launchy` gem to pop open the original URL in a browser.
 Go ahead and create a new rails project...
 
 ```
-$ rails new URLShortener
+$ rails new URLShortener --database postgresql
 ```
 
 Now use the Rails scaffolding engine to create a new migration file...
