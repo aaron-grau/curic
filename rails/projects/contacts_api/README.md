@@ -148,7 +148,7 @@ For now, let's assume all the users of our service aren't malicious
 Add a new `resources` and a controller for `ContactShare`s. Add an
 action to `create` a `ContactShare`; you'll want to upload the
 `contact_id` and the `user_id` to share with.  Also, remember to use
-strong parameters (`params[:contact_share].permit(:attribute_here,
+strong parameters (`params.require(:contact_share).permit(:attribute_here,
 :another_attribute_here)`).
 
 Add a `destroy` action that will un-share a `Contact` with a
