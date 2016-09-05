@@ -16,7 +16,7 @@ Now we have some basic data and our server is running and ready to take requests
 
 ### Index and Destroy
 
-The app has a basic library of books. Right now, we only have routes to see the list of all books (`:index`) and delete (`:destroy`) whichever books we like; we can see that these are the only options available to us by checking our `routes.rb` file in the `db` folder:
+The app has a basic library of books. Right now, we only have routes to see the list of all books (`:index`) and delete (`:destroy`) whichever books we like; we can see that these are the only options available to us by checking our `routes.rb` file in the `config` folder:
 
 ```ruby
 Rails.application.routes.draw do
