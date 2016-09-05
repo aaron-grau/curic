@@ -127,8 +127,8 @@ restrict to just the five actions above. There should be six routes
 in total; remember that Rails will generate both `patch` and `put`
 routes for the `update` action.
 
-Next, move on to creating `ContactsController`. Build the same six
-actions. Your code should look very similar, but practice this a
+Next, move on to creating `ContactsController`. Build the same five
+actions and helper method. Your code should look very similar, but practice this a
 second time.
 
 Next, use RestClient or Chrome's Postman plugin to test your API. Test
