@@ -46,7 +46,6 @@ class LinkedList
   end
 
   def update(key, val)
-    #update value for existing key
   end
 
   def remove(key)
