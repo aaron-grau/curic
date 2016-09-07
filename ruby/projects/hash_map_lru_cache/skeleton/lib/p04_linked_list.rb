@@ -11,6 +11,11 @@ class Link
   def to_s
     "#{@key}: #{@val}"
   end
+
+  def remove
+    # optional but useful, connects previous link to next link
+    # and removes self from list.
+  end
 end
 
 class LinkedList
@@ -37,7 +42,11 @@ class LinkedList
   def include?(key)
   end
 
-  def insert(key, val)
+  def append(key, val)
+  end
+
+  def update(key, val)
+    #update value for existing key
   end
 
   def remove(key)

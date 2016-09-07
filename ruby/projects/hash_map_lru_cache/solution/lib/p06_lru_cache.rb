@@ -28,10 +28,11 @@ class LRUCache
   end
 
   private
+  attr_reader :store
 
   def calc!(key)
     val = @prc.call(key)
-    new_link = @store.insert(key, val)
+    new_link = @store.append(key, val)
     @map[key] = new_link
 
     eject! if count > @max
@@ -39,18 +40,13 @@ class LRUCache
   end
 
   def update_link!(link)
-    link.prev.next = link.next
-    link.next.prev = link.prev
-
-    link.prev = @store.last
-    link.next = @store.last.next
-    @store.last.next = link
+    link.remove
+    store.append(link.key, link.val)
   end
 
   def eject!
     rm_link = @store.first
-    rm_link.prev.next = rm_link.next
-    rm_link.next.prev = rm_link.prev
+    rm_link.remove
     @map.delete(rm_link.key)
     nil
   end

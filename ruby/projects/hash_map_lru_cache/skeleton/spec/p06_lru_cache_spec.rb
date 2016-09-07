@@ -36,10 +36,34 @@ describe LRUCache do
       end
 
       lru.get(0) # cached: 0
+
+      expect(
+        lru.instance_variable_get(:@store).map { |l| l.key }
+      ).to eq([0])
+
       1.upto(3) { |i| lru.get(i) } # cached: 1, 2, 3
+
+      expect(
+        lru.instance_variable_get(:@store).map { |l| l.key }
+      ).to eq([1, 2, 3])
+
       lru.get(0) # cached: 2, 3, 0
+
+      expect(
+        lru.instance_variable_get(:@store).map { |l| l.key }
+      ).to eq([2, 3, 0])
+
       lru.get(2) # cached: 3, 0, 2
+
+      expect(
+        lru.instance_variable_get(:@store).map { |l| l.key }
+      ).to eq([3, 0, 2])
+
       lru.get(3) # cached: 0, 2, 3
+
+      expect(
+        lru.instance_variable_get(:@store).map { |l| l.key }
+      ).to eq([0, 2, 3])
     end
   end
 end

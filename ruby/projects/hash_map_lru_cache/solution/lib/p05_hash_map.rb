@@ -18,9 +18,12 @@ class HashMap
   def set(key, val)
     resize! if @count >= num_buckets
 
-    @count += 1 unless include?(key)
-
-    bucket(key).insert(key, val)
+    if include?(key)
+      bucket(key).update(key, val)
+    else
+      bucket(key).append(key, val)
+      @count += 1
+    end
   end
 
   def get(key)
