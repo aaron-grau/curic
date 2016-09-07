@@ -35,6 +35,19 @@ describe LinkedList do
     end
   end
 
+  describe "#update" do
+    it "updates links" do
+      empty_list.append(:first, 1)
+      empty_list.update(:first, 2)
+      expect(empty_list.first.val).to be 2
+    end
+
+    it "doesn't add new links" do
+      empty_list.update(:first, 2)
+      expect(empty_list.empty?).to be true
+    end
+  end
+
   describe "#get" do
     it "gets by key" do
       expect(list.get(:first)).to eq(1)
