@@ -174,7 +174,7 @@ Build a `new` form page to create a new `Cat`:
 
 ### Add buttons
 
-* On the `Cat` show page, use `button_to` to approve or deny a cat
+* On the `Cat` show page, make a button to approve or deny a cat
   request.
 * You may add two member routes to `cat_rental_requests`: `approve`
   and `deny`.
