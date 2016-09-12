@@ -32,9 +32,9 @@ Materials are organized by topic and then type.
 **Note:** There is no "Solutions" folder: solutions should live in the folders of their respective projects (e.g. javascript/projects/asteroids/solution).
 
 [ruby]: ./curriculum/tree/master/ruby
-[sql]: ./sql
-[rails]: ./rails
-[js]: ./javascript
-[react]: ./react
-[html-css]: ./html-css
-[full-stack-project]: ./full-stack-project
+[sql]: ./curriculum/tree/master/sql
+[rails]: ./curriculum/tree/master/rails
+[js]: ./curriculum/tree/master/javascript
+[react]: ./curriculum/tree/master/react
+[html-css]: ./curriculum/tree/master/html-css
+[full-stack-project]: ./curriculum/tree/master/full-stack-project
