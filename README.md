@@ -31,10 +31,10 @@ Materials are organized by topic and then type.
 
 **Note:** There is no "Solutions" folder: solutions should live in the folders of their respective projects (e.g. javascript/projects/asteroids/solution).
 
-[ruby]: ./ruby/README.md
-[sql]: ./sql/README.md
+[ruby]: ruby
+[sql]: sql/README.md
 [rails]: ./rails/README.md
-[js]: ./javascript/README.md
+[js]: ./curriculum/tree/master/javascript/README.md
 [react]: ./react/README.md
 [html-css]: ./html-css/README.md
 [full-stack-project]: ./full-stack-project/README.md
