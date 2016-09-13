@@ -44,7 +44,7 @@ returns a new array containing only elements that satisfy the block.  Use
 your `my_each` method!
 
 Example:
-```
+```ruby
 a = [1, 2, 3]
 a.my_select { |num| num > 1 } # => [2, 3]
 a.my_select { |num| num == 4 } # => []
@@ -55,7 +55,7 @@ Write `my_reject` to takes a block and return a new array excluding
 elements that satisfy the block.
 
 Example:
-```
+```ruby
 a = [1, 2, 3]
 a.my_reject { |num| num > 1 } # => [1]
 a.my_reject { |num| num == 4 } # => [1, 2, 3]
@@ -66,7 +66,7 @@ Write `my_any?` to return true if any elements of the array satisfy the block
 and `my_all?` to return true only if all elements satisfy the block.
 
 Example:
-```
+```ruby
 a = [1, 2, 3]
 a.my_any? { |num| num > 1 } # => true
 a.my_any? { |num| num == 4 } # => false
@@ -81,7 +81,7 @@ a.my_all? { |num| num < 4 } # => true
 array. Hint: use recursion!
 
 Example:
-```
+```ruby
 [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
@@ -93,7 +93,7 @@ at that index.  If the size of any argument is less than `self`, `nil` is
 returned for that location.
 
 Example:
-```
+```ruby
 a = [ 4, 5, 6 ]
 b = [ 7, 8, 9 ]
 [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
@@ -111,7 +111,7 @@ should rotate by one element.  If a negative value is given, the array is
 rotated in the opposite direction.
 
 Example:
-```
+```ruby
 a = [ "a", "b", "c", "d" ]
 a.my_rotate         #=> ["b", "c", "d", "a"]
 a.my_rotate(2)      #=> ["c", "d", "a", "b"]
@@ -125,7 +125,7 @@ separated by the given string separator.  If no separator is given, an empty
 string is used.
 
 Example:
-```
+```ruby
 a = [ "a", "b", "c", "d" ]
 a.my_join         # => "abcd"
 a.my_join("$")    # => "a$b$c$d"
@@ -136,7 +136,7 @@ Write a method that returns a new array containing all the elements of the
 original array in reverse order.
 
 Example:
-```
+```ruby
 [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
 [ 1 ].my_reverse               #=> [1]
 ```
