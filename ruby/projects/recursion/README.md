@@ -215,6 +215,8 @@ Discuss the following game plan and then work together to implement your new met
   - **Grab only one** of that one coin and recursively call `make_better_change` on the remainder using all of the same coins.
   - Add the change for the remainder to the single coin you originally grabbed to obtain a possible solution.
   - Keep track of the best solution and return it at the end.
+ 
+**N.B.** Don't generate every possible permutation of coins and then compare them.
 
 Make sure you and your partner understand each line before moving on.
 
