@@ -34,7 +34,7 @@ Materials are organized by topic and then type.
 [ruby]: ruby
 [sql]: sql/README.md
 [rails]: ./rails/README.md
-[js]: ./curriculum/tree/master/javascript/README.md
+[js]: ./javascript/README.md
 [react]: ./react/README.md
 [html-css]: ./html-css/README.md
 [full-stack-project]: ./full-stack-project/README.md
