@@ -42,7 +42,7 @@ If you get stuck and need ideas, reference our [debugging cheatsheet][debugging 
 3. Start on the `master` branch, which has a working version of the game.
 
 [zip]:https://github.com/appacademy/screwedoku/blob/master/screwedoku.zip
-[repo]:https://github.com/appacademy/screwedoku/blob/master/
+[repo]:https://github.com/appacademy/screwedoku
 
 ### Gameplay
 
