@@ -1,4 +1,4 @@
-# Intro to SQL and ActiveRecord
+# SQL and ActiveRecord
 
 ## w3d1
 
@@ -188,11 +188,3 @@
 [meta-macros]: demos/macros.rb
 [build-your-own-ar]: projects/active_record_lite
 [metacorgi-hw]: homeworks/questions/metacorgs.md
-
-## w3d6-w3d7
-
-+ [Callbacks][callbacks]
-+ [Delegation][delegation]
-
-[callbacks]: readings/callbacks.md
-[delegation]: readings/delegation.md

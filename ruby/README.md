@@ -1,6 +1,4 @@
-# Intro Ruby Topics
-
-## Object-Oriented Projects
+# Ruby
 
 ## w1d1
 + [First Day! **Read me!**][day1-instructions]
@@ -79,8 +77,6 @@
 
 [memory-project]: projects/memory
 [sudoku-project]: projects/sudoku
-
-## Algorithms
 
 ## w1d3
 
@@ -210,12 +206,6 @@
 [knights-travails]: projects/knights_travails
 [tic-tac-toe-ai]: projects/tic_tac_toe_ai
 
-## w1d6-w1d7
-* **STUDY FOR ASSESSMENT**
-* Submit W1D5 Progress Report by 9:00 am, Monday
-
-## Language Basics II, OO Design
-
 ## w2d1
 
 ### Assessment01
@@ -254,8 +244,6 @@
 ### Study Hall 9 - 10am
 
 + Continue Chess
-
-## RSpec
 
 ## w2d3
 
