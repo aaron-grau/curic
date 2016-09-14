@@ -215,13 +215,15 @@
   + If you need to use one of our machines, please just use a single
     monitor.
 
-### Readings (65 min)
+### Readings (67 min)
 + [Class inheritance][inheritance] (15 min)
 + [Exceptions, error handling][errors] (15 min)
 + [Decomposition into objects][object-decomposition] (10 min)
 + [Inheritance, Polymorphism and DRY][inheritance-design] (10 min)
 + [Information hiding/encapsulation][hiding] (5 min)
 + [UML][uml] (10 min)
++ [Singleton][singleton] (2 min)
+    + Just the section on usage
 
 ### Projects
 + [Class inheritance][inheritance-exercises]
@@ -229,6 +231,7 @@
 + [Chess][chess]
     + Please read the project description the night before.
 
+[singleton]: http://ruby-doc.org/stdlib-1.9.3/libdoc/singleton/rdoc/Singleton.html#module-Singleton-label-Usage
 [uml]: readings/uml.md
 [inheritance]: readings/inheritance.md
 [inheritance-exercises]: projects/class_inheritance
