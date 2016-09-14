@@ -104,7 +104,7 @@ true
 * 1) A String, called `searchString`.
 * 2) A String, called `subString`.
 
-**Output:** A Boolean. `true` is the `subString` is a part of the `searchString`.
+**Output:** A Boolean. `true` if the `subString` is a part of the `searchString`.
 
 ```
 > isSubstring("The cat went to the store", "he cat went")
