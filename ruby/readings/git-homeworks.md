@@ -2,7 +2,7 @@
 
 Starting today, and for the duration of the cohort, you will use git to submit all of your homework assignments.
 
-To get started, follow these instructions:
+## Setup
 
 * Create a new folder in the directory of your choosing
   ```
@@ -38,4 +38,20 @@ To get started, follow these instructions:
   git push origin master
   ```
 
-That's it! Now for each day's homework, you can simply create a new directory inside of your `homeworks` directory and use git to track your work -- remember to commit often and push to your remote!
+## Adding Homework
+
+To add homework, start by creating a new folder *WXDX* in your *homeworks* directory:
+
+```
+homeworks/
+  |
+   -- W1D1/
+   -- W1D2/
+   -- W1D3/
+```
+
+Do your homework in that directory, and commit often! When you are done, simply run:
+
+```
+  git push origin master
+```
