@@ -13,7 +13,7 @@ This repository contains App Academy's complete coding curriculum.  Material is 
 
 ### How to use this repo
 
-Within each curriculum topic, material is broken out into days.  Each night, please prepare for the following day by throughly reviewing the following:
+Within each curriculum topic, material is broken out into days.  After class, you should prepare for the next day by throughly reviewing the following:
 
 * Solutions from that day
 	* Solutions are nested within the individual project folder
