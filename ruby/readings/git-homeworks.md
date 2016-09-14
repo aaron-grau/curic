@@ -9,11 +9,13 @@ To get started using git for homeworks, follow these instructions:
   cd Documents/app_academy/
   mkdir homeworks
   ```
+
 * Initialize an empty git repository in your new directory
   ```
   cd homeworks
   git init
   ```
+  
 * Make an initial git commit
   ```
   git add -A
