@@ -22,6 +22,10 @@
 + [:movie_camera: Basic Controller Demo][basic-controller-demo-video] (15 min)
 + [:movie_camera: RESTful Controller Demo][restful-controller-demo-video] (15 min)
 
+### Readings 
++ [Callbacks][callbacks]
++ [Delegation][delegation]
+
 ### Homeworks (1 hr, 45 min)
 * [Library Controller][library-hw] (45 min)
 * Complete days 1 & 2 of [HTML Curriculum][html-readme] (60 min)
@@ -46,6 +50,9 @@
 [routes-demo-video]: https://vimeo.com/168499905
 [basic-controller-demo-video]: https://vimeo.com/168501163
 [restful-controller-demo-video]: https://vimeo.com/168505535
+
+[callbacks]: readings/callbacks.md
+[delegation]: readings/delegation.md
 
 [rails-screencasts]: https://vimeo.com/album/2953690/sort:alphabetical
 [rails-videos-code]: demos/intro_rails_video_demo
