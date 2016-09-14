@@ -1,8 +1,8 @@
 # Homework with Git
 
-Starting today and moving forward, you will use git to keep track of all homework assignments you do. Having a history of git commits on your Github profile and practicing your git skills will help you a lot in the job search!
+Starting today, and for the duration of the cohort, you will use git to submit all of your homework assignments.
 
-To get started using git for homeworks, follow these instructions:
+To get started, follow these instructions:
 
 * Create a new folder in the directory of your choosing
   ```
