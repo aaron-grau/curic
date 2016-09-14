@@ -1,18 +1,8 @@
-[schedule]: course
+# Welcome to App Academy!
 
-# Purpose
+This repository contains App Academy's complete coding curriculum.  Material is divided by topic.  
 
-This repository exists solely to store curriculum materials.
-
-It does not follow "presentation logic", i.e. materials are not organized according to the day on which they are presented.
-
-Check out the [**Course Schedule**][schedule] for chronologically-organized READMEs linking to curriculum materials.
-
-# Organization
-
-Materials are organized by topic and then type.
-
-* **Topics**
+### **Topics**
 	* [Ruby][ruby]
 	* [SQL][sql]
 	* [Rails][rails]
@@ -21,17 +11,27 @@ Materials are organized by topic and then type.
 	* [React][react]
 	* [Full-Stack Project][full-stack-project]
 
-* **Types**   
-	* **Readings**: markdown files for teaching material.   
-	* **Projects**: Work done in class.
-		* Each project should have its own folder holding instructions (as a README), skeleton, solution, etc.
-	* **Homeworks**: Work done outside of class.
-	* **Demos**: Self-contained demonstrations requiring no student input.
-	* **Assets**: Images, etc. Roughly miscellaneous.
 
-**Note:** There is no "Solutions" folder: solutions should live in the folders of their respective projects (e.g. javascript/projects/asteroids/solution).
+### How to use this repo
 
-[ruby]: ruby
+Within each curriculum topic, material is broken out into days.  Each night, please prepare for the following day by throughly reviewing the following:
+	* Solutions from that day
+		* Solutions are nested within the individual project folder
+	* Lecture Videos
+		* Password is `go_video_go`
+	* Readings
+		* Time estimates are upper bounds.  Please move on if you have reached the allotted time.
+	* Homeworks
+		* After you have completed the assignment, or reached the recommended time allotment, please consult the solutions.  Solutions are contained within the homeworks folder inside each curriculum topic.
+
+During class, you will work on that day's **Projects**, consulting **Additional Resources** as necessary.  
+
+### Find a bug or a broken link?
+
+Please raise an issue on this repo and we will resolve it within a few days.  If more urgent, please email `instructors-sf@appacademy.io` or reach out to the instructional staff on Slack.  
+
+
+[ruby]: ruby/README.md
 [sql]: sql/README.md
 [rails]: ./rails/README.md
 [js]: ./javascript/README.md
