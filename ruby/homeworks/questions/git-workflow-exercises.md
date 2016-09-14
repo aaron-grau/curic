@@ -62,7 +62,7 @@ Make a new file called `rabbit.txt`.  Add and commit it.  Check out your master 
 
 Checkout your `magic` branch again and run `ls`.  It's like pulling a rabbit out of a...never mind.  Play around with checking out some new branches.  Make a branch off of magic, as well as a new branch off of master.  See how each branch is independent?
 
-Now checkout `master` and run `git merge magic` (you might have to run :q if a message pops up).  Now run `ls`.  Your rabbit should appeacr.
+Now checkout `master` and run `git merge magic` (you might have to run `:q` then hit enter if a message pops up).  Now run `ls`.  Your rabbit should appear.
 
 
 ## Pushing to GitHub
