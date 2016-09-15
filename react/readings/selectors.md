@@ -3,7 +3,7 @@
 Selectors are functions that make it easy to extract information from the state
 in different forms. Take the following state shape:
 
-```json
+```javascript
 {
 	todos: {
 		1: {
@@ -37,7 +37,7 @@ export const getAllTodos = (state) => {
 
 ```
 
-That selector can then be used in multiple components' `mapStateToProps`: 
+That selector can then be used in multiple components' `mapStateToProps`:
 
 ```js
 
@@ -65,7 +65,7 @@ export const getFilteredTodos = (state, filter) => {
 
 	let result;
 	for (let id in todos) {
-		if (todos[id].done === match) { result.push(todos[id]); } 
+		if (todos[id].done === match) { result.push(todos[id]); }
 	}
 	return result;
 };
