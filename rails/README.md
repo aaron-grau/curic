@@ -11,7 +11,7 @@
 ## w4d1
 
 ### Assessment03
-+ [Practice Assessment][assessment-prep-3]
++ [Practice][assessment-prep-3]
 
 ### Video Lectures (60 min)
 :closed_lock_with_key: `go_video_go`
@@ -22,7 +22,7 @@
 + [:movie_camera: Basic Controller Demo][basic-controller-demo-video] (15 min)
 + [:movie_camera: RESTful Controller Demo][restful-controller-demo-video] (15 min)
 
-### Readings 
+### Readings
 + [Callbacks][callbacks]
 + [Delegation][delegation]
 
@@ -43,7 +43,6 @@
 + [Contacts API][contacts-api]
 
 [assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
-
 [api-video]: https://vimeo.com/168498417
 [http-req-res-video]: https://vimeo.com/168498424
 [rails-routing-video]: https://vimeo.com/168498679
@@ -211,6 +210,9 @@
 
 ### Study Hall 9 - 10am
 
+### Assessment04 Practice
++ [Practice][assessment-prep-4]
+
 ### Video Lectures (54 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera:  (cc) 16-tag-ids-setter][16-tag-ids-setter] (22 min)
@@ -234,6 +236,7 @@
 ### Projects
 * [RedditClone][reddit-clone]
 
+[assessment-prep-4]: https://github.com/appacademy/assessment-prep#assessment-4
 [polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
 [concerns-reading]: readings/concerns.md
 [16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
@@ -283,7 +286,7 @@
 ## w5d2
 
 ### Assessment04
-* [Practice Assessment][assessment-prep-4]
+* [Practice][assessment-prep-4]
 
 ### Video lectures (42 min)
 :closed_lock_with_key: `go_video_go`
@@ -308,8 +311,6 @@
 ### Solo Projects
 * [Rails Lite][rails-lite]
 * [Rails Lite II][rails-lite-ii]
-
-[assessment-prep-4]: http://github.com/appacademy/assessment-prep#assessment-4
 
 [http]: readings/http.md
 [rack]: readings/rack.md
