@@ -101,7 +101,7 @@ weather.
   API to get the weather based on our current location
 
   - In order to get the API to accept your HTTP requests, you'll need
-    an API key. [Sign up for a key here.][api-key] After signing up, click on the API keys tab to get your key.
+    an API key. [Read up on how to use the API key and sign up for one here.][api-key] After signing up, click on the API keys tab to get your key.
 
     **NB:** In the real world, you should be very careful about placing
     API keys in frontend JavaScript or anywhere else they are publicly
@@ -126,7 +126,7 @@ weather.
 
 * Render the current weather and temperature on the page.
 
-[api-key]: https://home.openweathermap.org/users/sign_up
+[api-key]: http://openweathermap.org/appid
 [clearInterval]: http://stackoverflow.com/questions/5978519/setinterval-and-how-to-use-clearinterval#answer-5978560
 [componentDidMount]: https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount
 [componentWillUnmount]: https://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount
