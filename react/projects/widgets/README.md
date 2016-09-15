@@ -7,7 +7,7 @@ interactive widgets. Before we get started, however, we need to set up
 our project with `npm`.
 
 Build a new React NPM project from scratch like you did in the  
-['Getting Started'][getting_started] homework, but change your 
+['Getting Started'][getting_started] homework, but change your
 webpack entry point to be `widgets.jsx`.
 
 Your `widgets.jsx` should look have `DOMContentLoaded` listener that calls
@@ -101,8 +101,7 @@ weather.
   API to get the weather based on our current location
 
   - In order to get the API to accept your HTTP requests, you'll need
-    an API key. You can either sign up for free and use your own, or
-    use this one: `645c5d39c7603f17e23fcaffcea1a3c1`
+    an API key. [Sign up for a key here.][api-key] After signing up, click on the API keys tab to get your key.
 
     **NB:** In the real world, you should be very careful about placing
     API keys in frontend JavaScript or anywhere else they are publicly
@@ -127,6 +126,7 @@ weather.
 
 * Render the current weather and temperature on the page.
 
+[api-key]: https://home.openweathermap.org/users/sign_up
 [clearInterval]: http://stackoverflow.com/questions/5978519/setinterval-and-how-to-use-clearinterval#answer-5978560
 [componentDidMount]: https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount
 [componentWillUnmount]: https://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount
