@@ -210,7 +210,7 @@
 ## w6d2
 
 ### Assessment05 Practice
-* [Practice Assessment][assessment-prep]
+* [Practice][assessment-prep-5]
 
 ### Homeworks (2 hr)
 * [CSS Curriculum Day 5][css-day5] (30 min)
@@ -229,7 +229,7 @@
 [css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-warmup]: ../html-css/projects/css_warm_up
-[assessment-prep]: http://github.com/appacademy/assessment-prep#assessment-5
+[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
 
 ## w6d3
 
@@ -297,7 +297,6 @@
 ### Projects
 * [AjaxTwitter][ajax-twitter]
 
-[assessment-practice]: https://github.com/appacademy/assessment-prep
 [ajax-lecture]: https://vimeo.com/162860823
 [ajax-demo]: https://vimeo.com/162764008
 [ajax-demo-code]: demos/chat_demo
@@ -312,7 +311,7 @@
 ## w6d5
 
 ### Assessment05
-* [Practice Assessment][assessment-prep]
+* [Practice Assessment][assessment-prep-5]
 
 ### Video Lectures (27 min)
 :closed_lock_with_key: `go_video_go`

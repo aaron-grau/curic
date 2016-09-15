@@ -125,6 +125,9 @@
 
 ## w1d4
 
+### Assessment01 Practice
++ [Practice][assessment-prep-1]
+
 ### Video Lectures (29 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Git: Overview and Why We Use Git][git-overview-video] (5 min)
@@ -157,6 +160,7 @@
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
+[assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
 [git-add]: readings/git-add.md
 [why-git]: readings/why-git.md
 [git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
@@ -167,7 +171,7 @@
 [git-cleanup]: readings/git-repository-cleanup.md
 [aliases]: readings/alias.md
 [interactive-git]: http://pcottle.github.io/learnGitBranching/
-[assessment-practice]: https://github.com/appacademy/assessment-prep
+[assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
 [serialization]: readings/serialization.md
 [gems]: readings/gems-and-rbenv.md
 
@@ -213,7 +217,7 @@
 ## w2d1
 
 ### Assessment01
-+ [Practice][assessment-practice]
++ [Practice][assessment-prep-1]
 + SF Only:
   + Please setup Ruby + RSpec on your own machine and bring it.
   + If you need to use one of our machines, please just use a single
@@ -291,6 +295,7 @@
 
 ### Practice Assessment02
 + In-class practice assessment at 9am.  Please bring your own machine if possible.  
++ [Practice][assessment-prep-2]
 
 ### Video lectures (71 min)
 :closed_lock_with_key: `go_video_go`
@@ -318,6 +323,7 @@
 + [Windowed max range][max-windowed-range]
 + **Bonus**: [Benchmarking][benchmarking]
 
+[assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 [big-O-motivations]: https://vimeo.com/175565088
 [big-O-ram]: https://vimeo.com/175565090
 [big-O-asymptotic]: https://vimeo.com/175565086
