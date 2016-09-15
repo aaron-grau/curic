@@ -210,6 +210,7 @@
 ## w6d2
 
 ### Assessment05 Practice
++ In-class practice assessment at 9am. Please bring your own machine if possible.
 * [Practice][assessment-prep-5]
 
 ### Homeworks (2 hr)
