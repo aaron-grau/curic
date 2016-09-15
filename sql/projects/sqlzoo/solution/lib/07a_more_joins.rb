@@ -120,7 +120,7 @@ def song_title_counts
   execute(<<-SQL)
     SELECT
       tracks.song,
-      COUNT(albums.*)
+      COUNT( DISTINCT albums.asin)
     FROM
       tracks
     JOIN
@@ -128,7 +128,7 @@ def song_title_counts
     GROUP BY
       tracks.song
     HAVING
-      COUNT(albums.*) > 2
+      COUNT( DISTINCT albums.asin) > 2
   SQL
 end
 
