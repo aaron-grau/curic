@@ -63,7 +63,7 @@ export const getFilteredTodos = (state, filter) => {
 	const todos = state.todos;
 	const match = filter === 'done';
 
-	let result;
+	let result = [];
 	for (let id in todos) {
 		if (todos[id].done === match) { result.push(todos[id]); }
 	}
