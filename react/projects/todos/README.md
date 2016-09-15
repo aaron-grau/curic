@@ -209,6 +209,7 @@ const TodosReducer = (state = defaultState, action) => {
 Selectors are "getter" methods for the application state. They receive the state as an argument and often return a subset of the state data formatted in a specific way. In this case, we will want to present the `todos` as an array, rather than as values in an object.
 
 + Create a file `reducers/selector.js`
+  + Refer to the [Selectors][selector_reading]  reading to see how selectors extract information from the state.
   + Write a method named `allTodos` that receives the state as an argument
     + Use `Object.keys(state.todos)` to get the keys for the `state.todos`
     + Map the array of todo ids to an array of todos
@@ -705,3 +706,4 @@ Follow these steps, **testing your code as you go** :
 [components_reading]: ../../readings/containers.md
 [connect_reading]: ../../readings/connect.md
 [props_and_state_reading]: ../../readings/props_and_state.md
+[selector_reading]: ../../readings/selectors.md
