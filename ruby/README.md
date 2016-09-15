@@ -293,7 +293,7 @@
 
 ## w2d4
 
-### Practice Assessment02
+### Assessment02 Practice
 + In-class practice assessment at 9am.  Please bring your own machine if possible.  
 + [Practice][assessment-prep-2]
 
