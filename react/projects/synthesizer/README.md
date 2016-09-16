@@ -216,7 +216,7 @@ Let's write a reducer for our app which handles the actions we defined above.
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
   + `state` - the previous `notes` state;
   + `action` - the action object dispatched.
-+ Import `NotesConstants` from `notes_actions.js`.
++ Import `KEY_PRESSED` and `KEY_RELEASED` from `notes_actions.js`.
 + Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
 the initial state.
 + Add a `switch` statement evaluating `action.type`.
@@ -238,22 +238,39 @@ on how to avoid array mutation ([here][array-mutation-code]'s the code from the 
 [array-mutation-code]:https://jsbin.com/juseku/1/embed?js
 [union-lodash]: https://lodash.com/docs#union
 
-<!-- TODO: get rid of the need to map frequencies to notes_names to keyboard keys.
-should simply map keyboard keys to frequencies  -->
 
-We're almost there. Note that `action.key` references keyboard keys while
-`NOTE_NAMES` stores note names, so we must map any keyboard input to note names
-when calling our action creators. Let's do this using our constant `NOTES_NAMES`
-and an array of valid keyboard keys.
+We're almost there. Note that `action.key` references keyboard keys. We must map any keyboard input to note names.
 
 + Along with your `notes` reducer, define an array called `validKeys` which stores the strings of all of your
-synthesizer's keyboard keys (e.g. `a`, `s`). The number of valid keys must equal
-the number of notes you plan on having.
-+ Also define an object called `keyMap` which stores as keys, valid keys and as values, corresponding note
-names (e.g. `keyMap['a'] = 'C5'`).
+synthesizer's keyboard keys (e.g. `a`, `s`).
++ Define an object called `keyMap` which maps keys to note frequencies.
 + Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
 see if a `action.key` is also a valid key. If not in both cases, return the
 previous state.
+
+This can be accomplished by copying and pasting the code below. You can also use this table for additional frequencies  
+
+```js
+
+const validKeys = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", "Enter"];
+const keyMap = {
+  'a': 523.25,
+  's': 587.33,
+  'd': 659.25,
+  'f': 698.46,
+  'g': 783.99,
+  'h': 880.00,
+  'j': 987.77,
+  'k': 1046.50,
+  'l': 1174.66,
+  ';': 1318.51,
+  "''": 1396.91,
+  'Enter': 1567.98
+
+}; // maps keyboard keys to notes
+
+```
+
 
 #### Root Reducer
 
