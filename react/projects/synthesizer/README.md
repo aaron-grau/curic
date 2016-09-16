@@ -132,6 +132,8 @@ export default Note;
 Before moving on, test that you can initialize and play an instance of a `Note`
 from the `window`. Try a frequency of 800!
 
+Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console. 
+
 #### `TONES` and `NOTE_NAMES` Constants
 
 In this step, let's create a constants file which will help us map notes' names (e.g. `C5`, `A5`) into frequencies (i.e. tones) which we will need to create `Note`s.
