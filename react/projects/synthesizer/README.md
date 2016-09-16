@@ -144,7 +144,7 @@ object. It's really good practice to think about its shape before writing any
 code. Ask yourself, what's the minimal representation of your app's state as an
 object?
 
-For our synthesizer app, we first and foremost want to store the `notes` being played as an array of note names. The note names will correspond to keyboard key names. In other words, your app's `state` shape will look something like this:
+For our synthesizer app, we first and foremost want to store the `notes` being played as an array of note names. The note names will correspond to keyboard keys. In other words, your app's `state` shape will look something like this:
 
 ```js
 {
@@ -163,19 +163,19 @@ action being performed.
 
 <!-- TODO: get rid of NotesConstants as the thing that you export. Instead, export individual constants  -->
 
-#### `NotesConstants`
+#### `Note Constants`
 
 Action `type`s are typically expressed as string constants.
 
-* In our new file, let's export a `NotesConstants`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`.
+* In our new file, let's export `KEY_PRESSED` and `KEY_RELEASED`.
 
 For example,
 
 ```js
-export const NotesConstants = {
-  KEY_PRESSED: "KEY_PRESSED",
-  ...
-};
+
+export const KEY_PRESSED = "KEY_PRESSED";
+...
+
 ```
 
 #### `keyPressed`
