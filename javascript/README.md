@@ -108,8 +108,8 @@
 * [Event Loop Visualization][loupe] (10 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
-### Homeworks (60 min)
-* [CSS Curriculum Day 2][css-day2] (30 min)
+### Homeworks (65 min)
+* [CSS Curriculum Day 2][css-day2] (35 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 ### Additional Resources
@@ -155,9 +155,9 @@
 * [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Github Pages][github-pages] (5 min)
 
-### Homeworks (70 min)
-* [CSS Curriculum Day 3][css-day3] (30 min)
-* [CSS Curriculum Day 4][css-day4] (40 min)
+### Homeworks (95 min)
+* [CSS Curriculum Day 3][css-day3] (40 min)
+* [CSS Curriculum Day 4][css-day4] (55 min)
 
 ### Additional Resources
 * [CSS Diner][css-diner]
@@ -224,9 +224,9 @@
 ### Assessment05 Practice
 * [Practice Assessment][assessment-prep]
 
-### Homeworks (2 hr)
-* [CSS Curriculum Day 5][css-day5] (30 min)
-* [CSS Curriculum Day 6][css-day6] (30 min)
+### Homeworks (4 hr)
+* [CSS Curriculum Day 5][css-day5] (85 min)
+* [CSS Curriculum Day 6][css-day6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
 ### Additional Resources
