@@ -135,7 +135,7 @@ from the `window`. Try a frequency of 800!
 Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console.
 
 
-## Phase 2: Notes Redux Structure
+## Phase 3: Notes Redux Structure
 
 ### Designing the State Shape
 
@@ -144,11 +144,11 @@ object. It's really good practice to think about its shape before writing any
 code. Ask yourself, what's the minimal representation of your app's state as an
 object?
 
-For our synthesizer app, we first and foremost want to store the `notes` being played as an array of note names. In other words, your app's `state` shape will look something like this:
+For our synthesizer app, we first and foremost want to store the `notes` being played as an array of note names. The note names will correspond to keyboard key names. In other words, your app's `state` shape will look something like this:
 
 ```js
 {
-  notes: ['A5', 'C5']
+  notes: ['a', 'e']
 }
 ```
 
@@ -160,6 +160,8 @@ app. They are POJOs that have a `type` property indicating the type of
 action being performed.
 
 * Create an `actions/note_actions.js` file which will house our action creators changing the app's `notes`.
+
+<!-- TODO: get rid of NotesConstants as the thing that you export. Instead, export individual constants  -->
 
 #### `NotesConstants`
 
@@ -286,7 +288,7 @@ new store with the root reducer.
 
 [create-store]: http://redux.js.org/docs/api/createStore.html
 
-## Phase 3: Synth Components
+## Phase 4: Synth Components
 
 ### `App` Component
 The `App` component will hold all of the top-level components of your app.
@@ -432,7 +434,7 @@ Cool, you now have the core of your Redux Synthesizer done. Let's start adding a
 
 ---
 
-## Phase 4: Recorder Redux Structure
+## Phase 5: Recorder Redux Structure
 
 Let's give our synthesizer the ability to record tracks.
 
@@ -571,7 +573,7 @@ an object which is why for nested objects, we must rely on `merge` from
 + Update your root reducer so it combines your `notes`, `tracks` and `isRecording` reducers.
 + Test that this works by looking at your initial application state. Hint: `console.log(store.getState())`.
 
-## Phase 5: Recording Track Components
+## Phase 6: Recording Track Components
 
 Now let's build the interface that users will use to add tracks to our store.
 
@@ -617,7 +619,7 @@ store.
 
 Now your synthesizer plays musical notes and records tracks! Nice.
 
-## Phase 6: Jukebox
+## Phase 7: Jukebox
 
 Let's create a `Jukebox` to display and play our recorded tracks. We're going to
 add to the state a boolean `isPlaying` to indicate if a track is playing or not.
@@ -715,7 +717,7 @@ Now for the meat of this method, *throttling* our iteration using `setInterval`:
 
 * Don't forget to update your "Start", "Stop", and "Play" buttons so that they are disabled if a track is playing.
 
-## Phase 7: Style Your App
+## Phase 8: Style Your App
 
 Now that you have your cool redux app with recording and playing track features, let's make your app look nice.
 
