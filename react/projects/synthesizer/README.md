@@ -181,14 +181,14 @@ export const KEY_PRESSED = "KEY_PRESSED";
 #### `keyPressed`
 
 + Export a `keyPressed` function which takes the keyboard `key` pressed and
-returns an action of `type` `"KEY_PRESSED"` using your `NotesConstants`.
+returns an action of `type` `"KEY_PRESSED"`.
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
 Your action creator should look like this:
 
 ```js
 export const keyPressed = key => ({
-  type: NotesConstants.KEY_PRESSED,
+  type: KEY_PRESSED,
   key
 });
 ```
