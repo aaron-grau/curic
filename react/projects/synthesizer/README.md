@@ -132,34 +132,10 @@ export default Note;
 Before moving on, test that you can initialize and play an instance of a `Note`
 from the `window`. Try a frequency of 800!
 
-Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console. 
+Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console.
 
-#### `TONES` and `NOTE_NAMES` Constants
 
-In this step, let's create a constants file which will help us map notes' names (e.g. `C5`, `A5`) into frequencies (i.e. tones) which we will need to create `Note`s.
-
-* Create a `util/tones.js` file.
-* From there export a `TONES` constant, a JavaScript object mapping note names to frequencies. Something like this,
-
-  ```js
-  {
-    C5: 523.25,
-    D5: 587.33,
-    E5: 659.25,
-    F5: 698.46,
-    G5: 783.99,
-  }
-  ```
-
-Feel free to copy and paste the object above. Use [this table][note-frequencies] as a resource for additional keys, if you're interested.
-* Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
-
-We'll be using these constants later to map our keyboard keys to notes names to
-tones.
-
-[note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
-
-## Phase 3: Notes Redux Structure
+## Phase 2: Notes Redux Structure
 
 ### Designing the State Shape
 
@@ -168,7 +144,7 @@ object. It's really good practice to think about its shape before writing any
 code. Ask yourself, what's the minimal representation of your app's state as an
 object?
 
-For our synthesizer app, we first and foremost want to store the `notes` being play as an array of note names. In other words, your app's `state` shape will look something like this:
+For our synthesizer app, we first and foremost want to store the `notes` being played as an array of note names. In other words, your app's `state` shape will look something like this:
 
 ```js
 {
@@ -260,6 +236,8 @@ on how to avoid array mutation ([here][array-mutation-code]'s the code from the 
 [array-mutation-code]:https://jsbin.com/juseku/1/embed?js
 [union-lodash]: https://lodash.com/docs#union
 
+<!-- TODO: get rid of the need to map frequencies to notes_names to keyboard keys.
+should simply map keyboard keys to frequencies  -->
 
 We're almost there. Note that `action.key` references keyboard keys while
 `NOTE_NAMES` stores note names, so we must map any keyboard input to note names
@@ -308,7 +286,7 @@ new store with the root reducer.
 
 [create-store]: http://redux.js.org/docs/api/createStore.html
 
-## Phase 4: Synth Components
+## Phase 3: Synth Components
 
 ### `App` Component
 The `App` component will hold all of the top-level components of your app.
@@ -454,7 +432,7 @@ Cool, you now have the core of your Redux Synthesizer done. Let's start adding a
 
 ---
 
-## Phase 5: Recorder Redux Structure
+## Phase 4: Recorder Redux Structure
 
 Let's give our synthesizer the ability to record tracks.
 
@@ -593,7 +571,7 @@ an object which is why for nested objects, we must rely on `merge` from
 + Update your root reducer so it combines your `notes`, `tracks` and `isRecording` reducers.
 + Test that this works by looking at your initial application state. Hint: `console.log(store.getState())`.
 
-## Phase 6: Recording Track Components
+## Phase 5: Recording Track Components
 
 Now let's build the interface that users will use to add tracks to our store.
 
@@ -639,7 +617,7 @@ store.
 
 Now your synthesizer plays musical notes and records tracks! Nice.
 
-## Phase 7: Jukebox
+## Phase 6: Jukebox
 
 Let's create a `Jukebox` to display and play our recorded tracks. We're going to
 add to the state a boolean `isPlaying` to indicate if a track is playing or not.
@@ -737,7 +715,7 @@ Now for the meat of this method, *throttling* our iteration using `setInterval`:
 
 * Don't forget to update your "Start", "Stop", and "Play" buttons so that they are disabled if a track is playing.
 
-## Phase 8: Style Your App
+## Phase 7: Style Your App
 
 Now that you have your cool redux app with recording and playing track features, let's make your app look nice.
 
