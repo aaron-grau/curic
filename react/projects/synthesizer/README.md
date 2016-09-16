@@ -42,7 +42,39 @@ Today we're using React.js and Redux to create our own musical keyboard!
 * Setup your entry file `synthesizer.jsx` to render your app into the into the
  `#root` container of your `index.html`.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
- into a `bundle.js`.
+ into a `bundle.js`. You may copy the code below (and use it as a template for future projects).
+
+```js
+ //webpack.config.js
+
+ const path = require("path");
+
+module.exports = {
+  context: __dirname,
+  entry: "./frontend/synthesizer.jsx",
+  output: {
+    path: path.join(__dirname),
+    filename: "bundle.js"
+  },
+  module: {
+    loaders: [
+      {
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
+    ]
+  },
+  devtool: 'source-maps',
+  resolve: {
+    extensions: ["", ".js", ".jsx" ]
+  }
+};
+```
+
 * Source your bundle file in `index.html`. Run `webpack --watch` and test that your app renders before moving on.
 
 [lodash]:https://lodash.com/docs
