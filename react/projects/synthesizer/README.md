@@ -392,10 +392,10 @@ state, lifecycle hooks, etc. Your `Synth` component will initialize an array of
 define key listeners on the window.
 
 * Redefine your `Synth` component so that it extends the `React.Component`.
-* Import your `NOTES_NAMES` and `TONES` constants, and `Note` class.
+* Import your `NOTE_NAMES` and `TONES` constants, and `Note` class.
 * In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback: your `Note`
 constructor takes a frequency as a parameter, not a string. Hint: Use
-`NOTES_NAMES` and `TONES` to return an array mapping note names to the right
+`NOTE_NAMES` and `TONES` to return an array mapping note names to the right
 frequency.
 * In the `render` function, render a list of `this.notes` to test.
 
@@ -461,7 +461,7 @@ This means in addition to storing `notes`, our state needs to store:
 Here's a sample of our new state shape:
 ```
 {
-  notes: ['C5', 'D6'],
+  notes: ['a', 's'],
   isRecording: false,
   tracks: {
     "1": {
@@ -471,7 +471,7 @@ Here's a sample of our new state shape:
       [
         { notes: [ 'A5' ], timeSlice: 1250191 },
         { notes: [], timeSlice: 1255000 },
-        { notes: [ 'C5', 'D5' ], timeSlice: 1265180 }
+        { notes: [ 'a', 's' ], timeSlice: 1265180 }
         { notes: [], timeSlice: 1279511 }
       ],
       timeStart: 1470164117527
@@ -481,7 +481,7 @@ Here's a sample of our new state shape:
       name: 'Track 2',
       roll:
       [
-        { notes: [ 'B5', 'C6', 'C6' ], timeSlice: 253386 },
+        { notes: [ 's', 'd', ';' ], timeSlice: 253386 },
         { notes: [], timeSlice: 265216 }
       ],
       timeStart: 1470173676236
