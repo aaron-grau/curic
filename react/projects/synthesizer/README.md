@@ -242,12 +242,12 @@ Let's write a reducer for our app which handles the actions we defined above.
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
   + `state` - the previous `notes` state;
   + `action` - the action object dispatched.
-+ Import `NotesConstants` from `notes_actions.js`.
++ Import `KEY_PRESSED` and `KEY_RELEASED` from `notes_actions.js`.
 + Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
 the initial state.
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
-+ Then add a case for each key (i.e. action type) defined in `NotesConstants`.
++ Then add a case for each key (i.e. action type).
   + `KEY_PRESSED` - If the `action.key` isn't already in the state (i.e. already
   playing) then return a new state with the new key appended to the previous
   state, else return the previous state.
