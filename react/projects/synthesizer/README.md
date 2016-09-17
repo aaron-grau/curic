@@ -265,19 +265,10 @@ on how to avoid array mutation ([here][array-mutation-code]'s the code from the 
 [union-lodash]: https://lodash.com/docs#union
 
 
-We're almost there. Note that `action.key` references keyboard keys while
-`NOTE_NAMES` stores note names, so we must map any keyboard input to note names
-when calling our action creators. Let's do this using our constant `NOTES_NAMES`
-and an array of valid keyboard keys.
+We're almost there. Note that `action.key` references keys that should be included in `NOTE_NAMES`.
 
-+ Along with your `notes` reducer, define an array called `validKeys` which stores the strings of all of your
-synthesizer's keyboard keys (e.g. `a`, `s`). The number of valid keys must equal
-the number of notes you plan on having.
-+ Also define an object called `keyMap` which stores as keys, valid keys and as values, corresponding note
-names (e.g. `keyMap['a'] = 'C5'`).
-+ Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
-see if a `action.key` is also a valid key. If not in both cases, return the
-previous state.
++ Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they check to
+see if a `action.key` is also a valid key included in `NOTE_NAMES`. If not, return the previous state.
 
 #### Root Reducer
 
