@@ -252,7 +252,6 @@ This can be accomplished by copying and pasting the code below. You can also use
 
 ```js
 
-const validKeys = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", "Enter"];
 const keyMap = {
   'a': 523.25,
   's': 587.33,
@@ -265,7 +264,7 @@ const keyMap = {
   'l': 1174.66,
   ';': 1318.51,
   "''": 1396.91,
-  'Enter': 1567.98
+  "Enter": 1567.98
 
 }; // maps keyboard keys to notes
 
