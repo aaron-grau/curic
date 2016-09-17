@@ -499,7 +499,7 @@ discussing the details of our track objects for a little later.
 
 #### `TracksConstants`
 
-+ Export `TracksConstants`, an object containing keys for `START_RECORDING`, `STOP_RECORDING`, and `ADD_NOTES`. Remember, values are the string literals of the keys.
++ Export constants for `START_RECORDING`, `STOP_RECORDING`, and `ADD_NOTES`.
 
 #### `startRecording`
 
@@ -521,7 +521,7 @@ discussing the details of our track objects for a little later.
 
 #### `isRecording` Reducer
 + Create a `reducers/is_recording_reducer.js` file that exports a `recording(state, action)` reducer.
-+ Import your `TracksConstants`.
++ Import your constants from `action/tracks_actions.js`.
 + Use the ES6 default arguments syntax to return `false` as the initial state.
 + Add a `switch` statement evaluating `action.type` and return `state` as the `default` case.
 + The recording is only concerned with two types of actions: `START_RECORDING` and `STOP_RECORDING`. Return the appropriate next state for each case.
@@ -537,9 +537,9 @@ Let's take a closer look at a track object.
   name: 'Track 1'
   roll:
   [
-    { notes: [ 'A5' ], timeSlice: 1250191 },
+    { notes: [ 'a' ], timeSlice: 1250191 },
     { notes: [], timeSlice: 1255000 },
-    { notes: [ 'C5', 'D5' ], timeSlice: 1265180 }
+    { notes: [ 's', 'd' ], timeSlice: 1265180 }
     { notes: [], timeSlice: 1279511 }
   ],
   timeStart: 1470164117527
@@ -550,12 +550,12 @@ Let's take a closer look at a track object.
 update `roll` as the user presses new notes. We append into the `roll` an object
 with the following values:
 + `timeSlice` - the time elapsed since the track started recording;
-+ `notes` - an array of note names (eg. `['C3', 'E3', 'G3']`)
++ `notes` - an array of note names (eg. `['a', 's', 'd']`)
 We need to know the current time a note is played to calculate when to
 play a note relative to the `timeStart` of the recording (`timeSlice`) and the
 names of the notes actually played (`notes`).
 
-+ Create a `reducers/tracks_reducer.js` file; import your `TracksConstants`, and `merge` from `lodash/merge`.
++ Create a `reducers/tracks_reducer.js` file; import your constants from `action/tracks_actions.js`, and `merge` from `lodash/merge`.
 + Initialize a variable `currTrackId` to `0`. This variable will be used to set track ids and add notes to the newest recording.
 + `export default` your `tracks` reducer.
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
