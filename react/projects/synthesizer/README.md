@@ -175,11 +175,11 @@ object. It's really good practice to think about its shape before writing any
 code. Ask yourself, what's the minimal representation of your app's state as an
 object?
 
-For our synthesizer app, we first and foremost want to store the `notes` being play as an array of note names. In other words, your app's `state` shape will look something like this:
+For our synthesizer app, we first and foremost want to store the `notes` being played as an array of note names. In other words, your app's `state` shape will look something like this:
 
 ```js
 {
-  notes: ['A5', 'C5']
+  notes: ['a', 's']
 }
 ```
 
@@ -192,32 +192,29 @@ action being performed.
 
 * Create an `actions/note_actions.js` file which will house our action creators changing the app's `notes`.
 
-#### `NotesConstants`
+#### `Note Action Constants`
 
 Action `type`s are typically expressed as string constants.
 
-* In our new file, let's export a `NotesConstants`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`.
+* In our new file, let's export `KEY_PRESSED` and `KEY_RELEASED`.
 
 For example,
 
 ```js
-export const NotesConstants = {
-  KEY_PRESSED: "KEY_PRESSED",
-  ...
-};
+export const KEY_PRESSED = "KEY_PRESSED";
 ```
 
 #### `keyPressed`
 
 + Export a `keyPressed` function which takes the keyboard `key` pressed and
-returns an action of `type` `"KEY_PRESSED"` using your `NotesConstants`.
+returns an action of `type` `"KEY_PRESSED".`
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
 Your action creator should look like this:
 
 ```js
 export const keyPressed = key => ({
-  type: NotesConstants.KEY_PRESSED,
+  type: KEY_PRESSED,
   key
 });
 ```
