@@ -132,23 +132,30 @@ export default Note;
 Before moving on, test that you can initialize and play an instance of a `Note`
 from the `window`. Try a frequency of 800!
 
-Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console. 
+Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console.
 
 #### `TONES` and `NOTE_NAMES` Constants
 
-In this step, let's create a constants file which will help us map notes' names (e.g. `C5`, `A5`) into frequencies (i.e. tones) which we will need to create `Note`s.
+In this step, let's create a constants file which will help us keyboard keys (e.g. `a`, `s`) into frequencies (i.e. tones) which we will need to create `Note`s.
 
 * Create a `util/tones.js` file.
 * From there export a `TONES` constant, a JavaScript object mapping note names to frequencies. Something like this,
 
   ```js
-  {
-    C5: 523.25,
-    D5: 587.33,
-    E5: 659.25,
-    F5: 698.46,
-    G5: 783.99,
-  }
+    export const TONES = {
+    'a': 523.25,
+    's': 587.33,
+    'd': 659.25,
+    'f': 698.46,
+    'g': 783.99,
+    'h': 880.00,
+    'j': 987.77,
+    'k': 1046.50,
+    'l': 1174.66,
+    ';': 1318.51,
+    "'": 1396.91,
+    'Enter': 1567.98
+  };
   ```
 
 Feel free to copy and paste the object above. Use [this table][note-frequencies] as a resource for additional keys, if you're interested.
