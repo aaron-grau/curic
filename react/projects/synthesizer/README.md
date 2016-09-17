@@ -161,7 +161,6 @@ action being performed.
 
 * Create an `actions/note_actions.js` file which will house our action creators changing the app's `notes`.
 
-<!-- TODO: get rid of NotesConstants as the thing that you export. Instead, export individual constants  -->
 
 #### `Note Constants`
 
@@ -239,16 +238,14 @@ on how to avoid array mutation ([here][array-mutation-code]'s the code from the 
 [union-lodash]: https://lodash.com/docs#union
 
 
-We're almost there. Note that `action.key` references keyboard keys. We must map any keyboard input to note names.
+We're almost there. Note that `action.key` references keyboard keys. We must map any keyboard input to notes.
 
-+ Along with your `notes` reducer, define an array called `validKeys` which stores the strings of all of your
-synthesizer's keyboard keys (e.g. `a`, `s`).
 + Define an object called `keyMap` which maps keys to note frequencies.
 + Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
-see if a `action.key` is also a valid key. If not in both cases, return the
+see if a `action.key` has a corresponding note frequency in `keyMap`. If not in both cases, return the
 previous state.
 
-This can be accomplished by copying and pasting the code below. You can also use this table for additional frequencies  
+This can be accomplished by copying and pasting the code below. You can also use [this table][frequency-table] for additional frequencies  
 
 ```js
 
@@ -269,7 +266,7 @@ const keyMap = {
 }; // maps keyboard keys to notes
 
 ```
-
+[frequency-table]:http://www.phy.mtu.edu/~suits/notefreqs.html
 
 #### Root Reducer
 
