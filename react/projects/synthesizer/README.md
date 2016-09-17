@@ -132,8 +132,32 @@ export default Note;
 Before moving on, test that you can initialize and play an instance of a `Note`
 from the `window`. Try a frequency of 800!
 
-Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console.
+Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console. 
 
+#### `TONES` and `NOTE_NAMES` Constants
+
+In this step, let's create a constants file which will help us map notes' names (e.g. `C5`, `A5`) into frequencies (i.e. tones) which we will need to create `Note`s.
+
+* Create a `util/tones.js` file.
+* From there export a `TONES` constant, a JavaScript object mapping note names to frequencies. Something like this,
+
+  ```js
+  {
+    C5: 523.25,
+    D5: 587.33,
+    E5: 659.25,
+    F5: 698.46,
+    G5: 783.99,
+  }
+  ```
+
+Feel free to copy and paste the object above. Use [this table][note-frequencies] as a resource for additional keys, if you're interested.
+* Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
+
+We'll be using these constants later to map our keyboard keys to notes names to
+tones.
+
+[note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
 ## Phase 3: Notes Redux Structure
 
@@ -144,11 +168,11 @@ object. It's really good practice to think about its shape before writing any
 code. Ask yourself, what's the minimal representation of your app's state as an
 object?
 
-For our synthesizer app, we first and foremost want to store the `notes` being played as an array of note names. The note names will correspond to keyboard keys. In other words, your app's `state` shape will look something like this:
+For our synthesizer app, we first and foremost want to store the `notes` being play as an array of note names. In other words, your app's `state` shape will look something like this:
 
 ```js
 {
-  notes: ['a', 'e']
+  notes: ['A5', 'C5']
 }
 ```
 
@@ -161,33 +185,32 @@ action being performed.
 
 * Create an `actions/note_actions.js` file which will house our action creators changing the app's `notes`.
 
-
-#### `Note Constants`
+#### `NotesConstants`
 
 Action `type`s are typically expressed as string constants.
 
-* In our new file, let's export `KEY_PRESSED` and `KEY_RELEASED`.
+* In our new file, let's export a `NotesConstants`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`.
 
 For example,
 
 ```js
-
-export const KEY_PRESSED = "KEY_PRESSED";
-...
-
+export const NotesConstants = {
+  KEY_PRESSED: "KEY_PRESSED",
+  ...
+};
 ```
 
 #### `keyPressed`
 
 + Export a `keyPressed` function which takes the keyboard `key` pressed and
-returns an action of `type` `"KEY_PRESSED"`.
+returns an action of `type` `"KEY_PRESSED"` using your `NotesConstants`.
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
 Your action creator should look like this:
 
 ```js
 export const keyPressed = key => ({
-  type: KEY_PRESSED,
+  type: NotesConstants.KEY_PRESSED,
   key
 });
 ```
@@ -215,7 +238,7 @@ Let's write a reducer for our app which handles the actions we defined above.
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
   + `state` - the previous `notes` state;
   + `action` - the action object dispatched.
-+ Import `KEY_PRESSED` and `KEY_RELEASED` from `notes_actions.js`.
++ Import `NotesConstants` from `notes_actions.js`.
 + Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
 the initial state.
 + Add a `switch` statement evaluating `action.type`.
@@ -238,35 +261,19 @@ on how to avoid array mutation ([here][array-mutation-code]'s the code from the 
 [union-lodash]: https://lodash.com/docs#union
 
 
-We're almost there. Note that `action.key` references keyboard keys. We must map any keyboard input to notes.
+We're almost there. Note that `action.key` references keyboard keys while
+`NOTE_NAMES` stores note names, so we must map any keyboard input to note names
+when calling our action creators. Let's do this using our constant `NOTES_NAMES`
+and an array of valid keyboard keys.
 
-+ Define an object called `keyMap` which maps keys to note frequencies.
++ Along with your `notes` reducer, define an array called `validKeys` which stores the strings of all of your
+synthesizer's keyboard keys (e.g. `a`, `s`). The number of valid keys must equal
+the number of notes you plan on having.
++ Also define an object called `keyMap` which stores as keys, valid keys and as values, corresponding note
+names (e.g. `keyMap['a'] = 'C5'`).
 + Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
-see if a `action.key` has a corresponding note frequency in `keyMap`. If not in both cases, return the
+see if a `action.key` is also a valid key. If not in both cases, return the
 previous state.
-
-This can be accomplished by copying and pasting the code below. You can also use [this table][frequency-table] for additional frequencies  
-
-```js
-
-const keyMap = {
-  'a': 523.25,
-  's': 587.33,
-  'd': 659.25,
-  'f': 698.46,
-  'g': 783.99,
-  'h': 880.00,
-  'j': 987.77,
-  'k': 1046.50,
-  'l': 1174.66,
-  ';': 1318.51,
-  "''": 1396.91,
-  "Enter": 1567.98
-
-}; // maps keyboard keys to notes
-
-```
-[frequency-table]:http://www.phy.mtu.edu/~suits/notefreqs.html
 
 #### Root Reducer
 
