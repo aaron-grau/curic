@@ -636,15 +636,17 @@ Now your synthesizer plays musical notes and records tracks! Nice.
 
 ## Phase 7: Jukebox
 
+<!-- TODO: latest stopping point  -->
+
 Let's create a `Jukebox` to display and play our recorded tracks. We're going to
 add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 
 ### Action Creators
 * Create a `actions/playing_actions.js` file.
-* Export `PlayingConstants` with `START_PLAYING` and `STOP_PLAYING` key-value pairs.
+* Export `START_PLAYING` and `STOP_PLAYING` constants.
 * Export `startPlaying` and `stopPlaying` action creators.
-* Add a new `GROUP_UPDATE` key-value pair to your `NotesConstants`. We'll be using this action to replace the `notes` in the store with notes from a track's roll.
-* Export a `groupUpdate` action creator which takes as an arguments an array of `notes`.
+* Add a new `GROUP_UPDATE` constant to your `actions/notes_actions.js`. We'll be using this action to replace the `notes` in the store with notes from a track's roll.
+* Export a `groupUpdate` action creator from `actions/notes_actions.js` which takes as an argument an array of `notes`.
 
 ### Reducers
 * Create a `reducers/is_playing_reducer.js` file.
