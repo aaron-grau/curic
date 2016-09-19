@@ -61,10 +61,10 @@ Truth Table for Bitwise Operations
 
  a | b | AND | OR  | XOR |
 ---+---+-----+-----+-----+
- 0   0		0			0			0
- 1   0		0			1			1
- 0   1		0			1			1
- 1   1		1			1			0
+ 0   0    0     0     0
+ 1   0    0     1     1
+ 0   1    0     1     1
+ 1   1    1     1     0
 ``` 
 
 While all bit-wise operations offer comprehensiveness, only
