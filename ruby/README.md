@@ -255,7 +255,7 @@
 ### Study Hall 9 - 10am
 
 ### Homeworks (60 min)
-+ [Mancala][mancala-hw] (90 min)
++ [Mancala][mancala-hw] (60 min)
   + Great practice for Assessment02!
 
 ### Projects

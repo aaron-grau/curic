@@ -18,15 +18,14 @@ The gist:
 * `Mancala#take_turn` encapsulates the trickier logic of the game - it relies on
 the **return value** of `Board#make_move` to determine whether the turn is over
 or not. If the turn is *not* over yet, it relies on that return value to know if
-it should prompt the player for the next starting cup or if the player ended on
-a cup that already had stones in it (in which case, it automatically plays the
-next turn, since the rules dictate that the player must then pick up the stones
-in that cup)
-  * Our `Board` class will house the logic of this because the next turn is determined by the
-board's state after interacting with the player
-  * That said, this isn't the *only* way to do it. There are many ways one
-  could implement this game. The specs are here to guide you through our implementation
-  outlined above.
+it should prompt the current player for the next starting cup or if the current
+player ended on a cup that already had stones in it (in which case, the game
+automatically plays the next turn, since the rules dictate that a player must
+then pick up the stones in that cup in that scenario)
+  * Our `Board` class houses this logic because the next turn is determined by the board's state after interacting with the player
+  * This isn't the *only* way to do implement this logic. There are many ways one
+  could implement this game. The specs are here to guide you through our
+  implementation outlined above.
 
 **NB:**
  + Run `bundle install` to make sure you're using the correct version of RSpec!
@@ -41,7 +40,6 @@ Run the specs. Skim the failed spec messages, along with the outline of the
 a board is expected to interact with the other classes.
 
 The specs are your instructions; let them guide you!
-
 
 A couple things to note:
  * `player1`, `name1`, and `side1` all correspond to the same player.
