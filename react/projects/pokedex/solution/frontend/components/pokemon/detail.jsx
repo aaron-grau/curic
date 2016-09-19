@@ -1,16 +1,7 @@
 import React from 'react';
 import ToyItem from '../toys/item';
 
-const defaultDetail = {
-	image_url: '',
-	name: '',
-	poke_type: '',
-	attack: '',
-	defense: '',
-	moves: []
-};
-
-const PokemonDetail = ({ pokemonDetail = defaultDetail, toys, children }) => (
+const PokemonDetail = ({ pokemonDetail, toys, children }) => (
 	<section className="pokemon-detail">
 		<ul>
 			<img src={pokemonDetail.image_url} alt={pokemonDetail.name}/>

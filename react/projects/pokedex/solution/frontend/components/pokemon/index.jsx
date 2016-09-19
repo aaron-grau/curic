@@ -12,7 +12,7 @@ const PokemonIndex = ({ pokemon, loading, children }) => {
 	return (
 		<section className="pokedex">
 			<ul>
-				{pokemon && pokemon.map((poke)=> {
+				{pokemon.map((poke)=> {
 					return (<PokemonIndexItem key={poke.id} pokemon={poke}/>);
 				})}
 			</ul>
