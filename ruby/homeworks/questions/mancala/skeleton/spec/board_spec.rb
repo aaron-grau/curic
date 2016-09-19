@@ -19,12 +19,12 @@ describe Board do
 
 
   describe "#initialize" do
-    it "Creates a set of 14 cups" do
+    it "creates a set of 14 cups" do
       expect(board.cups.class).to be(Array)
       expect(board.cups.length).to eq(14)
     end
 
-    it "Fills the non-store cups with four stones" do
+    it "fills the non-store cups with four stones" do
       expect(board.cups[6] && board.cups[13]).to be_empty
       expect(board.cups[0..5]).to all( eq(four_stone_cup) )
     end
@@ -36,13 +36,13 @@ describe Board do
       board.cups[0] = []
     end
 
-    it "raises an error if the entered position is not on the board" do
+    it "raises 'Invalid starting cup' error if the entered position is not on the board" do
       expect do
         board.valid_move?(15)
       end.to raise_error("Invalid starting cup")
     end
 
-    it "raises an error if the entered position is empty" do
+    it "raises 'Invalid starting cup' error if the entered position is not on the board" do
       expect do
         board.valid_move?(0)
       end.to raise_error("Invalid starting cup")
@@ -98,11 +98,11 @@ describe Board do
   describe "#cups_empty?" do
     it "returns true if all of the non-point cups are empty" do
       [0..5].each { |idx| board.cups[idx] = [] }
-      expect(board.one_side_empty?).to be(true)
+      expect(board.cups_empty?).to be(true)
     end
 
     it "returns false if all of the non-point cups are not empty" do
-      expect(board.one_side_empty?).to be(false)
+      expect(board.cups_empty?).to be(false)
     end
   end
 

@@ -44,7 +44,7 @@ class Mancala
   end
 
   def won?
-    @board.one_side_empty?
+    @board.cups_empty?
   end
 
   def winner_message

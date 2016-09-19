@@ -2,11 +2,10 @@ class Board
   attr_accessor :cups
 
   def initialize(name1, name2)
-    @name1 = name1
-    @name2 = name2
   end
 
   def place_stones
+    # helper method to #initialize every non-store cup with four stones each
   end
 
   def valid_move?(start_pos)
@@ -16,6 +15,7 @@ class Board
   end
 
   def next_turn(ending_cup_idx)
+    # helper method to determine what #make_move returns
   end
 
   def render
@@ -26,7 +26,7 @@ class Board
     puts ""
   end
 
-  def one_side_empty?
+  def cups_empty?
   end
 
   def winner
