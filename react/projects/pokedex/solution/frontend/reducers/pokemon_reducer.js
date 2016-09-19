@@ -5,11 +5,9 @@ import merge from 'lodash/merge';
 const PokemonReducer = (oldState = {loading: false}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
-      oldState.loading = false;
-      return merge({}, oldState, {pokemon: action.pokemon});
+      return merge({}, oldState, {loading: false, pokemon: action.pokemon});
     case RECEIVE_SINGLE_POKEMON:
-      oldState.loading = false;
-      return merge({}, oldState, {pokemonDetail: action.pokemon});
+      return merge({}, oldState, {loading: false, pokemonDetail: action.pokemon});
     case RECEIVE_NEW_POKEMON:
       action.pokemon.toys = {};
       return merge({}, oldState, {

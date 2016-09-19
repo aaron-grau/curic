@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 
 class PokemonForm extends React.Component {
   constructor(props) {
@@ -37,7 +36,6 @@ class PokemonForm extends React.Component {
         })
       );
     }
-    return <ul/>;
   }
 
 	render() {
@@ -95,4 +93,4 @@ class PokemonForm extends React.Component {
 	}
 }
 
-export default withRouter(PokemonForm);
+export default PokemonForm;

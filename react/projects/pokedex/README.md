@@ -8,8 +8,8 @@ We've already setup a Rails backend with migrations/models/controllers/views for
 db:create db:migrate db:seed`).**
 
 Take a look at the schema, the routes file, and the jbuilder views to get
-yourself oriented.  Start up the rails server and visit the api routes to see what
-data are available from the backend.   
+yourself oriented.  **Start up the rails server and visit the api routes** to see what
+data are available from the backend.
 
 **Note the `defaults: {format: :json}`** in the `routes.rb` file.  This means HTTP
 requests for the `pokemon` resource should be assumed to be asking for a
@@ -94,11 +94,23 @@ Now that Webpack knows to create `bundle.js`, we need to require it in our
 Notice that the `entry` key in `webpack.config.js` expects a file called
 `./frontend/pokedex.jsx` to exist. Make the `frontend` folder in the root of
 your project and add a file called `pokedex.jsx`. This is going to be the
-starting point for the rest of your app. Make sure to import both the `'react'`
+starting point for the rest of your app. Make sure to `import` both the `'react'`
 and `'react-dom'` packages, and then add an event listener for
 `DOMContentLoaded`.  In the callback to this listener, try rendering a simple stateless functional React component to test out everything you've written so far. Don't forget to run `webpack --watch` to generate your `app/assets/javascripts/bundle.js`.
 
-Next, add more structure to your `frontend` directory. You should have folders for actions, components, reducers, store, middleware and util.
+Your test code might look something like the following:
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+document.addEventListener('DOMContentLoaded', () => {
+	const store = configureStore(window.pokemonTypes);
+	const root = document.getElementById('root');
+	ReactDOM.render(<h1>hello</h1>, root);
+});
+```
+
+Next, add more structure to your `frontend` directory. You should have folders for `actions`, `components`, `reducers`, `store`, `middleware` and `util`.
 
 ## Phase 2: The Pokemon Index
 
