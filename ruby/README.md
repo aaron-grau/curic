@@ -254,7 +254,14 @@
 
 ### Study Hall 9 - 10am
 
+### Homeworks (60 min)
++ [Mancala][mancala-hw] (90 min)
+  + Great practice for Assessment02!
+
+### Projects
 + Continue Chess
+
+[mancala-hw]:./homeworks/questions/mancala
 
 ## w2d3
 
