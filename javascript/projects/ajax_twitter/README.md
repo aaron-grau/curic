@@ -1,5 +1,7 @@
 # w6d5: AJAX Twitter
 
+[**Live Demo!**][live-demo]
+
 [live-demo]: http://aa-twitter.herokuapp.com/
 
 ## Phase 0: Setup
