@@ -1,12 +1,11 @@
-export const PlayingConstants = {
-  START_PLAYING: "START_PLAYING",
-  STOP_PLAYING: "STOP_PLAYING"
-};
+export const START_PLAYING = "START_PLAYING";
+export const STOP_PLAYING = "STOP_PLAYING";
+
 
 export const startPlaying = () => ({
-  type: PlayingConstants.START_PLAYING
+  type: START_PLAYING
 });
 
 export const stopPlaying = () => ({
-  type: PlayingConstants.STOP_PLAYING
+  type: STOP_PLAYING
 })

@@ -1,27 +1,25 @@
-import { NotesConstants } from '../actions/notes_actions';
-import { NOTE_NAMES } from '../util/tones';
+import  { KEY_PRESSED,
+          KEY_RELEASED,
+          GROUP_UPDATE
+        } from '../actions/notes_actions';
+        
+import { TONES, NOTE_NAMES } from '../util/tones';
 import union from 'lodash/union';
 
-const validKeys = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", "Enter"];
-const keyMap = {}; // maps keyboard keys to notes
-validKeys.forEach((key, i) => {
-  keyMap[key] = NOTE_NAMES[i];
-});
-
 const notes = (state = [], action) => {
-  const note = keyMap[action.key]; // convert key to note
-  const idx = state.indexOf(note); // check to see if note is in previous state
+  const validNote = NOTE_NAMES.includes(action.key); // check if the key corresponds to a note frequency
+  const idx = state.indexOf(action.key); // check to see if note is in previous state
 
   switch(action.type) {
-    case NotesConstants.KEY_PRESSED:
-      if (note && idx === -1) {
+    case KEY_PRESSED:
+      if (validNote && idx === -1) {
         return [
           ...state,
-          note
+          action.key
         ];
       }
       return state;
-    case NotesConstants.KEY_RELEASED:
+    case KEY_RELEASED:
       if (idx !== -1) {
         return [
           ...state.slice(0, idx),
@@ -29,7 +27,7 @@ const notes = (state = [], action) => {
         ];
       }
       return state;
-    case NotesConstants.GROUP_UPDATE:
+    case GROUP_UPDATE:
       return [
         ...action.notes
       ];
