@@ -198,6 +198,8 @@ the React curriculum materials. Review the
 ### Projects
 - **Solo:** [BenchBNB][bench_bnb]
 
+### :joy_cat: **Happy Hour!** :joy_cat:
+
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [context]: https://facebook.github.io/react/docs/context.html
 [preloaded_state]: readings/preloaded_state.md
