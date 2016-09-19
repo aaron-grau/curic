@@ -3,7 +3,7 @@
 Selectors are functions that make it easy to extract information from the state
 in different forms. Take the following state shape:
 
-```json
+```javascript
 {
 	todos: {
 		1: {

@@ -128,22 +128,15 @@ describe "music JOINs" do
   describe "song_title_counts" do
     it "selects the names and counts of songs that appear on more than two albums" do
       expect(song_title_counts).to contain_exactly(
-        ["Changes", "3"],
-        ["Smile", "5"],
-        ["One", "3"],
-        ["[Silence]", "22"],
-        ["My One and Only (What Am I Gonna Do?) [Incomplete Take]", "3"],
-        ["Too Much", "3"],
-        ["I've Got You Under My Skin", "3"],
-        ["Best Is Yet to Come", "3"],
-        ["I Love You", "4"],
-        ["[Untitled Track]", "6"],
-        ["Unforgettable", "3"],
-        ["I Won't Say I Will [Incomplete Take]", "5"],
-        ["From This Moment On", "4"],
         ["Angel", "3"],
-        ["Of Thee I Sing [Incomplete Take]", "4"],
-        ["Dancing in the Dark", "3"]
+        ["Best Is Yet to Come", "3"],
+        ["Dancing in the Dark", "3"],
+        ["From This Moment On", "4"],
+        ["I Love You", "4"],
+        ["I've Got You Under My Skin", "3"],
+        ["One", "3"],
+        ["Smile", "5"],
+        ["Too Much", "3"]
       )
     end
   end
