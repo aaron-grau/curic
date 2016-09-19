@@ -68,7 +68,7 @@ Truth Table for Bitwise Operations
 ``` 
 
 While all bit-wise operations offer comprehensiveness, only
-XOR returns '1' and '0' in equal probability. This allows it to produce more
+XOR returns `1` and `0` in equal probability. This allows it to produce more
 uniformly distributed values, distinguishing it as a desirable hashing method.
 
 [truth-tables]: http://lampiweb.com/help/freebasic/TblTruth.html
