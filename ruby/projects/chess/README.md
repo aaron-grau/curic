@@ -36,7 +36,7 @@ the piece cannot move to `end_pos`.
 Write a `Display` class to handle your rendering logic. Your `Display` class
 should access the board. Require the `colorize` gem so you can render in color.
 
-Download this `cursor.rb` [file][cursorable]. An instance of `Cursor`
+Download this `cursor.rb` [file][cursor]. An instance of `Cursor`
 initializes with a `cursor_pos` and an instance of `Board`. The cursor manages
 user input, according to which it updates its `@cursor_pos`. The display will
 render the square at `@cursor_pos` in a different color. Within `display.rb`
