@@ -650,7 +650,7 @@ add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 
 ### Reducers
 * Create a `reducers/is_playing_reducer.js` file.
-* Import your `PlayingConstants` and export a `isPlaying` reducer.
+* Import `START_PLAYING` and `STOP_PLAYING`, and export an `isPlaying` reducer.
 * Set the initial state to `false` and return the state by default.
 * Create switch cases for `START_PLAYING` and `STOP_PLAYING`, setting the `isRecording` to the appropriate boolean value.
 * In your `notes` reducer, add a new switch case for `GROUP_UPDATE`, replacing the `notes` in the state with `action.notes`.
