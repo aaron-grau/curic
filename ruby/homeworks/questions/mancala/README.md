@@ -21,8 +21,8 @@ or not. If the turn is *not* over yet, it relies on that return value to know if
 it should prompt the current player for the next starting cup or if the current
 player ended on a cup that already had stones in it (in which case, the game
 automatically plays the next turn, since the rules dictate that a player must
-then pick up the stones in that cup in that scenario)
-  * Our `Board` class houses this logic because the next turn is determined by the board's state after interacting with the player
+then pick up the stones in that cup in that scenario). 
+  * Our `Board` class houses this logic because the next turn is determined by the board's state after interacting with the player.
   * This isn't the *only* way to do implement this logic. There are many ways one
   could implement this game. The specs are here to guide you through our
   implementation outlined above.
@@ -41,7 +41,7 @@ a board is expected to interact with the other classes.
 
 The specs are your instructions; let them guide you!
 
-A couple things to note:
+A couple of :key: things to note:
  * `player1`, `name1`, and `side1` all correspond to the same player.
  * `Player#prompt` requires the input to be either `1..6` or `7..12`, but `Board#make_move` should *transpose* the bottom half to `0..5`. This is based on the assumption that it's more user-friendly to only number the cups they can start with (i.e. not the points stores) and to start numbers at 1. But within our `Board` class, the points stores are, of course, elements in the array, so we need to account for them.
    * The player sees and uses:
@@ -58,4 +58,6 @@ A couple things to note:
    ```
    * Make sure to account for this difference!
 
-When you have all of your specs passing you are finished! Go play Mancala!
+When you have all of your specs passing you are finished! Double check your [solutions][mancala-solutions] and go play Mancala!
+
+[mancala-solutions]: ../../solution/mancala/solution
