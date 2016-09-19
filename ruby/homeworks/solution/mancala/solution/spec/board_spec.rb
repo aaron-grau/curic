@@ -92,6 +92,16 @@ describe Board do
         expect(board.make_move(5, "Erica")).to eq(9)
       end
     end
+    
+    it "calls #render" do
+      expect(board).to receive(:render)
+      board.make_move(1, "Erica")
+    end
+
+    it "calls #next_turn" do
+      expect(board).to receive(:next_turn)
+      board.make_move(1, "Erica")
+    end
   end
 
 
