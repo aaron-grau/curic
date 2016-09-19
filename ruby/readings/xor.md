@@ -38,7 +38,7 @@ c = a ^ b
 # a = 010
 # b = 110
 # xor ---
-# c =100
+# c = 100
 
 # The end result is converted back to an integer.
 
@@ -54,7 +54,10 @@ Recall the properties of a hashing function:
 	4) **Continuity:** It returns similar values for similar inputs.
 
 Bit-wise XOR is often used in hashing functions because it promotes high
-determinism, comprehensiveness, uniformity, and continuity.
+determinism, comprehensiveness, and uniformity. It also has high continuity, which may need to be offset with other methods where a hashing function needs to have a more unpredictable 'spread' of hashed values.
+
+What separates XOR from other bit-wise operators is uniformity: only
+XOR returns `1` and `0` in equal probability, given any two inputs.
 
 ```
 Truth Table for Bitwise Operations
@@ -67,9 +70,8 @@ Truth Table for Bitwise Operations
  1   1    1     1     0   
 ``` 
 
-While all bit-wise operations offer comprehensiveness, only
-XOR returns `1` and `0` in equal probability. This allows it to produce more
-uniformly distributed values, distinguishing it as a desirable hashing method.
+This allows it to produce more uniformly distributed values, distinguishing it
+as a desirable hashing method.
 
 [truth-tables]: http://lampiweb.com/help/freebasic/TblTruth.html
 [log-op]: https://en.wikipedia.org/wiki/Logical_connective
