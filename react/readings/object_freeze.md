@@ -40,17 +40,24 @@ export default farmersReducer;
 
 Now we can be certain that we won't mutate the state.
 
-**NB: This is not a deep freeze.** Nested objects can still be mutated, so be careful. For example:
-
+Here's an example.
 ```js
 const people = { farmers: { name: 'Old MacDonald' } };
 Object.freeze(people);
-people[farmers] = { name: 'Young MacDonald' }; // this tries to mutate the object by modifying a property 
-// it will therefore be prevented
-// people = { farmers: {name: 'Old MacDonald' } }
-people.farmers[name] = 'Young MacDonald'; // this mutates the nested object and will not be prevented
-// people = { farmers: {name: 'Young MacDonald' } }
+```
 
+When you try to mutate an object that you *froze* by modifying a property, it will be prevented.
+```js
+people.farmers = { name: 'Young MacDonald' }; 
+people //=> { farmers: {name: 'Old MacDonald' } }
+```
+
+**NB: This is not a deep freeze.** Nested objects can still be mutated, so be careful. 
+
+Here's an example of this:
+```js
+people.farmers.name = 'Young MacDonald';
+people //=> { farmers: {name: 'Young MacDonald' } }
 ```
 
 [obj-freeze]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
