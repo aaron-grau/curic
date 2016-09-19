@@ -2,7 +2,7 @@
 
 [**Live Demo!**][live-demo]
 
-[live-demo]: http://aa-twitter.herokuapp.com/
+[live-demo]: https://aa-ajax-twitter.herokuapp.com
 
 ## Phase 0: Setup
 
