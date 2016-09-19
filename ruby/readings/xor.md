@@ -37,7 +37,7 @@ c = a ^ b
 # bit-wise operation
 # a = 010
 # b = 110
-# xor	---
+# xor ---
 # c = 100
 
 # The end result is converted back to an integer.
