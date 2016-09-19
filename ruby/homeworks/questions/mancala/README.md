@@ -42,4 +42,22 @@ a board is expected to interact with the other classes.
 
 The specs are your instructions; let them guide you!
 
+
+A couple things to note:
+ * `player1`, `name1`, and `side1` all correspond to the same player.
+ * `Player#prompt` requires the input to be either `1..6` or `7..12`, but `Board#make_move` should *transpose* the bottom half to `0..5`. This is based on the assumption that it's more user-friendly to only number the cups they can start with (i.e. not the points stores) and to start numbers at 1. But within our `Board` class, the points stores are, of course, elements in the array, so we need to account for them.
+   * The player sees and uses:
+   ```
+       12  11  10  9  8  7
+   [store2]            [store1]
+        1   2   3  4  5  6
+   ```
+   * Our board is actually setup like this:
+   ```
+       12  11  10  9  8  7
+   [13]                   [6]
+        0   1   2  3  4  5
+   ```
+   * Make sure to account for this difference!
+
 When you have all of your specs passing you are finished! Go play Mancala!

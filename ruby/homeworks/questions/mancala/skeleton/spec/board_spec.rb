@@ -33,7 +33,7 @@ describe Board do
 
   describe "#valid_move?" do
     before(:each) do
-      board.make_move(0, "James")
+      board.cups[0] = []
     end
 
     it "raises an error if the entered position is not on the board" do
