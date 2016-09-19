@@ -256,7 +256,7 @@
 
 ### Homeworks (60 min)
 + [Mancala][mancala-hw] (60 min)
-  + Great practice for Assessment02!
+  + Get started on practicing for Assessment02!
 
 ### Projects
 + Continue Chess
