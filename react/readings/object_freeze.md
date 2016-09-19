@@ -45,7 +45,8 @@ Now we can be certain that we won't mutate the state.
 ```js
 const people = { farmers: { name: 'Old MacDonald' } };
 Object.freeze(people);
-people[farmers] = { name: 'Young MacDonald' }; // this tries to mutate the object by modifying a property and will therefore be prevented
+people[farmers] = { name: 'Young MacDonald' }; // this tries to mutate the object by modifying a property 
+// it will therefore be prevented
 // people = { farmers: {name: 'Old MacDonald' } }
 people.farmers[name] = 'Young MacDonald'; // this mutates the nested object and will not be prevented
 // people = { farmers: {name: 'Young MacDonald' } }
