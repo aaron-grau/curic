@@ -10,7 +10,7 @@ Please split your program into multiple files. Use
 class. Give files `snake_case` titles.
 
 Don't forget to keep using Git. Look back at
-[Friday's instructions][minesweeper] and read the Git portions again if
+[Thursday's instructions][minesweeper] and read the Git portions again if
 you need a reminder. Committing and branching are important habits for
 any kind of software developer.
 
