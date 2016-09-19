@@ -45,6 +45,7 @@ The specs are your instructions; let them guide you!
 A few :key: things to note:
  * `player1`, `name1`, and `side1` all correspond to the same player.
  * A *cup* is an Array of stones. The number of stones in a cup corresponds to its length. An empty cup has the length of 0.
+ * `Board#render` the board at the end of each move. 
  * `Player#prompt` requires the input to be either `1..6` or `7..12`, but `Board#make_move` should *transpose* the bottom half to `0..5`. This is based on the assumption that it's more user-friendly to only number the cups they can start with (i.e. not the points stores) and to start numbers at 1. But within our `Board` class, the points stores are, of course, elements in the array, so we need to account for them.
    * The player sees and uses:
    ```
@@ -62,4 +63,4 @@ A few :key: things to note:
 
 When you have all of your specs passing you are finished! Double check your [solutions][mancala-solutions] and go play Mancala!
 
-[mancala-solutions]: ../../solution/mancala/solution
+[mancala-solutions]: ../../solution/mancala/
