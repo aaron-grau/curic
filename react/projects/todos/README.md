@@ -2,14 +2,20 @@
 
 ## Overview
 
-In this project, you will create an app that lets people create and manage a todo list. Users of your app will be able to add items to their todo list, delete items from it, and mark items as either "done" or "not done."
-Eventually, every item in the list will be able to have its own sub-list of "steps" that can be added, deleted, and marked as "done."
+In this project, you will create an app that lets people create and manage a
+todo list. Users of your app will be able to add items to their todo list,
+delete items from it, and mark items as either "done" or "not done." Eventually,
+every item in the list will be able to have its own sub-list of "steps" that can
+be added, deleted, and marked as "done."
 
-Today's project uses the React/Redux frontend that you used on the Redux Piano app yesterday. However, this project will also have a Rails backend so that every change made on the frontend will persist.
+Today's project uses the React/Redux frontend that you used for the Synthesizer
+app yesterday. In addition, this project will use a Rails backend so that
+every change made on the frontend will persist!
 
 ## Phase 0: Rails backend
 
-In this phase you will create a Rails app that stores `Todo`s and serves JSON in response to HTTP requests.
+In this phase you will create a Rails app that stores `Todo`s and serves JSON in
+response to HTTP requests.
 
 + Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
   + Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
@@ -25,9 +31,9 @@ In this phase you will create a Rails app that stores `Todo`s and serves JSON in
 + Start your server so that it can respond to HTTP requests
 + Seed your database with a few todos for later testing.
 
-**Test your API: Try out your API endpoints using `$.ajax`. You should be able
+**Test your API** - Try out your API endpoints using `$.ajax`. You should be able
 to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive appropriate
-responses.**
+responses.
 
 ## Phase 1: Frontend structure
 
@@ -51,12 +57,12 @@ frontend
 + Set up your `webpack.config.js` file so that your bundle.js ends up in `app/assets/javascripts`
   + Run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them
 
-**Test your setup: Set up your entry file (`todo_redux.jsx`) to render an `<h1>it worked</h1>` into your `#content` container. You should be able to visit
-`localhost:3000` and confirm that you can see that it worked.**
-
+**Test your setup** - Set up your entry file (`todo_redux.jsx`) to render an
+`<h1>it worked</h1>` into your `#content` container. You should be able to
+visit `localhost:3000` and confirm that you can see that it worked.
 ---
 
-## Phase 2: Todos Redux structure
+## Phase 2: Todos Redux Structure
 
 In this phase you will create a Redux loop, including a store with reducers,
 action creators and constants, middleware and API utils. This is how your
@@ -87,17 +93,19 @@ export const fetchTodos = (success, error) => {
 };
 ```
 
-**Test your code: Try running your function in the console and make sure that it calls the success function that you passed to it.**
+**Test your code** - Try running your function in the console and make sure
+that it calls the success function that you passed to it.
 
 ### Reducers
 
 Redux reducers manage the shape of our application state.
 
 We want to build a state that allows us to easily add, remove, and update todos.
-In a hash, we get O(1) querying, updating, and deleting if we know the id - if
-we stored our list of todos in an array, all of these operations would be O(n).
-Therefore, we'll be using the following state shape:
+If we stored our list of todos in an array querying, updating and deleting would
+be O(n). Using a hash to store our todos, we get O(1) for all of those
+operations given the id of any todo.
 
+Thus, the `todos` slice of our application might look something like this:
 ```js
 {
   '1': {
@@ -115,29 +123,29 @@ Therefore, we'll be using the following state shape:
 }
 ```
 
-**Note that `todo.id` is the primary identifier**
+**NB**: `todo.id` is used as the primary identifier i.e. object key.
 
 #### `TodosReducer`
 
-+ Create a file, `reducers/todos_reducer.js` that exports a reducing function. A reducer accepts two arguments:
++ Create a file, `reducers/todos_reducer.js` that exports a reducing function.
 
-  + `state` - the previous application state.
-  + `action` - the action object being dispatched.
+A reducer accepts two arguments:
++ `state` - the previous application state.
++ `action` - the action object being dispatched.
 
-+ Remember that reducers should:
+Remember that reducers should:
++ Never modify the `state` object
++ Return the default state if no arguments are passed
++ Return the `state` if the reducer doesn't care about the action
 
-  + Never modify the `state` object
-  + Return the default state if no arguments are passed
-  + Return the `state` if the reducer doesn't care about the action
+**NB**: You can use [`Object.freeze`][object.freeze] to prevent yourself from
+accidentally mutating the `state`. It's very good for testing.
 
-**NB**: You can use [`Object.freeze`][object.freeze] to prevent yourself from accidentally mutating the `state`. It's very good for testing.
-
-Let's start by just setting up our `TodosReducer` to return its default state:
-
+Remember the `TodosReducer` will only be passed the `todos` slice of the application
+state. Let's start by just setting up our `TodosReducer` to return its default state:
 ```js
 const TodosReducer = (state = {}, action) => {
   switch(action.type) {
-    //...
     default:
       return state;
   }
@@ -148,14 +156,14 @@ export default TodosReducer;
 
 #### `RootReducer`
 
-Create a new file, `reducers/root_reducer.js`. This file will be responsible for combining our multiple, domain-specific reducers. It will `export default` a single `RootReducer`.
-
-  + Import `combineReducers` from `redux`
-  + Import your `TodosReducer` function as `TodosReducer`
-  + Create a `RootReducer` using `combineReducers`
++ Create a new file, `reducers/root_reducer.js`.
+  + This file will be responsible for combining our multiple, domain-specific
+  reducers. It will `export default` a single `RootReducer`.
++ Import `combineReducers` from `redux`.
++ Import your `TodosReducer` function.
++ Create a `RootReducer` using `combineReducers`
 
 So far, our default application state looks like this:
-
 ```js
 {
   todos: {}
