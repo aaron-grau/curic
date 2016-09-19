@@ -1,0 +1,45 @@
+# Mancala!
+
+If you don't know how the game works, check out this [video][how-to-video]! Read
+through all of the instructions before starting.
+
+[how-to-video]: https://www.youtube.com/watch?v=-A-djjimCcM
+
+## Getting Started
+
+Download the [skeleton][mancala-skeleton].
+
+Poke around. You will be writing the `Board` class, but first get acquainted
+with the code provided in the `Player` and `Mancala` classes.
+
+The gist:
+* To play, create a new instance of `Mancala` and call `play` to kick things off.
+* `Mancala#play` calls `#take_turn` alternating players until the game is `#won?`
+* `Mancala#take_turn` encapsulates the trickier logic of the game - it relies on
+the **return value** of `Board#make_move` to determine whether the turn is over
+or not. If the turn is *not* over yet, it relies on that return value to know if
+it should prompt the player for the next starting cup or if the player ended on
+a cup that already had stones in it (in which case, it automatically plays the
+next turn, since the rules dictate that the player must then pick up the stones
+in that cup)
+  * Our `Board` class will house the logic of this because the next turn is determined by the
+board's state after interacting with the player
+  * That said, this isn't the *only* way to do it. There are many ways one
+  could implement this game. The specs are here to guide you through our implementation
+  outlined above.
+
+**NB:**
+ + Run `bundle install` to make sure you're using the correct version of RSpec!
+ + Do not try calling `Mancala#play` until you have written the `Board` class! It won't work.
+
+[mancala-skeleton]: ./skeleton.zip?raw=true
+
+## Writing the `Board` class
+
+Run the specs. Skim the failed spec messages, along with the outline of the
+`Board` class provided. These two things together should give you a sense of how
+a board is expected to interact with the other classes.
+
+The specs are your instructions; let them guide you!
+
+When you have all of your specs passing you are finished! Go play Mancala!
