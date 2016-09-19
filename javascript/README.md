@@ -213,26 +213,6 @@
 + In-class practice assessment at 9am. Please bring your own machine if possible.
 * [Practice][assessment-prep-5]
 
-### Homeworks (2 hr)
-* [CSS Curriculum Day 5][css-day5] (30 min)
-* [CSS Curriculum Day 6][css-day6] (30 min)
-* [CSS Warm Up][css-warmup] (60 min)
-
-### Additional Resources
-* **Bonus**: [CSS Transform property][css-transform]
-
-### Projects
-* [CSS Friends][css-friends]
-* **Bonus**: [Google Homepage][css-bonus-assignment]
-
-[css-demos]: ../html-css/demos/css_demos#demos
-[css-friends]: ../html-css/projects/css_friends
-[css-bonus-assignment]: ../html-css/projects/google_homepage
-[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
-[css-warmup]: ../html-css/projects/css_warm_up
-[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
-
-## w6d3
 
 ### Readings (75 min)
   * [The Document Object Model][dom] (10 min)
@@ -259,6 +239,28 @@
   * [jQuery Tic Tac Toe][ttt-jquery]
   * [jQuery Towers of Hanoi][hanoi-jquery]
   * **Bonus**: [Snake][snake-project]
+
+## w6d3
+
+### Homeworks (2 hr)
+* [CSS Curriculum Day 5][css-day5] (30 min)
+* [CSS Curriculum Day 6][css-day6] (30 min)
+* [CSS Warm Up][css-warmup] (60 min)
+
+### Additional Resources
+* **Bonus**: [CSS Transform property][css-transform]
+
+### Projects
+* [CSS Friends][css-friends]
+* **Bonus**: [Google Homepage][css-bonus-assignment]
+
+[css-demos]: ../html-css/demos/css_demos#demos
+[css-friends]: ../html-css/projects/css_friends
+[css-bonus-assignment]: ../html-css/projects/google_homepage
+[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
+[css-warmup]: ../html-css/projects/css_warm_up
+[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
+
 
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
 [dom]: readings/document-object-model.md
