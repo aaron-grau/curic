@@ -129,6 +129,7 @@ the React curriculum materials. Review the
 - [Higher-order functions][higher_order_functions] (15 min)
 - [Middleware][middleware] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
+- [Selectors][selectors] (10 min)
 - [Object.freeze][obj-freeze] (15 min)
 
 ### Homework (45 min)
@@ -140,6 +141,7 @@ the React curriculum materials. Review the
 - [Todos][todos]
 
 [obj-freeze]: readings/object_freeze.md
+[selectors]: readings/selectors.md
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
@@ -197,6 +199,8 @@ the React curriculum materials. Review the
 
 ### Projects
 - **Solo:** [BenchBNB][bench_bnb]
+
+### :joy_cat: **Happy Hour!** :joy_cat:
 
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [context]: https://facebook.github.io/react/docs/context.html

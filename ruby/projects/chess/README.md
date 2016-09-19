@@ -10,7 +10,7 @@ Please split your program into multiple files. Use
 class. Give files `snake_case` titles.
 
 Don't forget to keep using Git. Look back at
-[Friday's instructions][minesweeper] and read the Git portions again if
+[Thursday's instructions][minesweeper] and read the Git portions again if
 you need a reminder. Committing and branching are important habits for
 any kind of software developer.
 
@@ -36,7 +36,7 @@ the piece cannot move to `end_pos`.
 Write a `Display` class to handle your rendering logic. Your `Display` class
 should access the board. Require the `colorize` gem so you can render in color.
 
-Download this `cursor.rb` [file][cursorable]. An instance of `Cursor`
+Download this `cursor.rb` [file][cursor]. An instance of `Cursor`
 initializes with a `cursor_pos` and an instance of `Board`. The cursor manages
 user input, according to which it updates its `@cursor_pos`. The display will
 render the square at `@cursor_pos` in a different color. Within `display.rb`
@@ -241,5 +241,5 @@ style, encapsulation, and exception handling.
 [recursion-exercises]: ../recursion/
 [colorize-gem]: https://github.com/fazibear/colorize
 [wiki-chess-unicode]: http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
-[cursor]: ./cursor.rb
+[cursor]: ./cursor.rb?raw=true
 [process-exit]: http://ruby-doc.org/core-2.2.0/Process.html#method-c-exit
