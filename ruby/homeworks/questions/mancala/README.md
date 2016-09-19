@@ -21,7 +21,7 @@ or not. If the turn is *not* over yet, it relies on that return value to know if
 it should prompt the current player for the next starting cup or if the current
 player ended on a cup that already had stones in it (in which case, the game
 automatically plays the next turn, since the rules dictate that a player must
-then pick up the stones in that cup in that scenario). 
+then pick up the stones in that cup in that scenario).
   * Our `Board` class houses this logic because the next turn is determined by the board's state after interacting with the player.
   * This isn't the *only* way to do implement this logic. There are many ways one
   could implement this game. The specs are here to guide you through our
@@ -29,6 +29,7 @@ then pick up the stones in that cup in that scenario).
 
 **NB:**
  + Run `bundle install` to make sure you're using the correct version of RSpec!
+ + Run the specs using the `--order default` option, like so: `bundle exec rspec --order default`.
  + Do not try calling `Mancala#play` until you have written the `Board` class! It won't work.
 
 [mancala-skeleton]: ./skeleton.zip?raw=true
