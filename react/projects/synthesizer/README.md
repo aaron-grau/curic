@@ -147,14 +147,7 @@ In this step, let's create a constants file which will help us keyboard keys (e.
     's': 587.33,
     'd': 659.25,
     'f': 698.46,
-    'g': 783.99,
-    'h': 880.00,
-    'j': 987.77,
-    'k': 1046.50,
-    'l': 1174.66,
-    ';': 1318.51,
-    "'": 1396.91,
-    'Enter': 1567.98
+    'g': 783.99
   };
   ```
 
