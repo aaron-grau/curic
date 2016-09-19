@@ -38,7 +38,7 @@ c = a ^ b
 # a = 010
 # b = 110
 # xor ---
-# c = 100
+# c =100
 
 # The end result is converted back to an integer.
 
@@ -61,10 +61,10 @@ Truth Table for Bitwise Operations
 
  a | b | AND | OR  | XOR |
 ---+---+-----+-----+-----+
- 0   0    0     0     0
- 1   0    0     1     1
- 0   1    0     1     1
- 1   1    1     1     0
+ 0   0    0     0     0   
+ 1   0    0     1     1   
+ 0   1    0     1     1   
+ 1   1    1     1     0   
 ``` 
 
 While all bit-wise operations offer comprehensiveness, only
