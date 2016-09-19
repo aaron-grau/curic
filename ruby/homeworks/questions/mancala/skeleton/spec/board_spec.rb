@@ -75,6 +75,16 @@ describe Board do
       expect(board.cups[3]).to eq( six_stone_cup )
     end
 
+    it "calls #render at the end of each turn" do
+      expect(board).to receive(:render)
+      board.make_move(1, "Erica")
+    end
+
+    it "calls helper method #next_turn" do
+      expect(board).to receive(:next_turn)
+      board.make_move(1, "Erica")
+    end
+
     context "when the turn ended on an empty cup" do
       it "returns :switch" do
         expect(board.make_move(10, "James")).to eq(:switch)
@@ -91,16 +101,6 @@ describe Board do
       it "returns the cup's array index" do
         expect(board.make_move(5, "Erica")).to eq(9)
       end
-    end
-
-    it "calls #render" do
-      expect(board).to receive(:render)
-      board.make_move(1, "Erica")
-    end
-
-    it "calls #next_turn" do
-      expect(board).to receive(:next_turn)
-      board.make_move(1, "Erica")
     end
   end
 
