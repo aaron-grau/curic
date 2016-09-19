@@ -241,5 +241,5 @@ style, encapsulation, and exception handling.
 [recursion-exercises]: ../recursion/
 [colorize-gem]: https://github.com/fazibear/colorize
 [wiki-chess-unicode]: http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
-[cursor]: ./cursor.rb
+[cursor]: ./cursor.rb?raw=true
 [process-exit]: http://ruby-doc.org/core-2.2.0/Process.html#method-c-exit
