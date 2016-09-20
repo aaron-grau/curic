@@ -19,7 +19,7 @@ import { requestTodos,
          DESTROY_TODO
        } from '../actions/todo_actions';
 
-export default ({getState, dispatch}) => next => action => {
+export default ({ getState, dispatch }) => next => action => {
   const todosSuccess = data => dispatch(receiveTodos(data));
   const todoSuccess = data => dispatch(receiveTodo(data));
   const todoRemoved = data => dispatch(removeTodo(data));
