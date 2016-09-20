@@ -14,7 +14,7 @@ const Weather = React.createClass({
   pollWeather(location) {
     let lat = location.coords.latitude;
     let long = location.coords.longitude;
-    let url = 'https://crossorigin.me/https://api.forecast.io/forecast/';
+    let url = 'https://crossorigin.me/https://api.darksky.net/forecast/';
     let params = {
       lat: location.coords.latitude,
       lon: location.coords.longitude
