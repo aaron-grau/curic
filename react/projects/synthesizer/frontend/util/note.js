@@ -1,3 +1,4 @@
+// util/note.js
 const ctx = new (window.AudioContext || window.webkitAudioContext)();
 
 const createOscillator = (freq) => {
@@ -32,4 +33,4 @@ class Note {
   }
 };
 
-module.exports = Note;
+export default Note;
