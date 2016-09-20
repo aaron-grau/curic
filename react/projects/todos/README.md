@@ -12,10 +12,18 @@ Today's project uses the React/Redux frontend that you used for the Synthesizer
 app yesterday. In addition, this project will use a Rails backend so that
 every change made on the frontend will persist!
 
-## Phase 0: Rails backend
+## Phase 0: Rails API
 
-In this phase you will create a Rails app that stores `Todo`s and serves JSON in
-response to HTTP requests.
+In this phase you will create a Rails API that stores `Todo`s in a database
+and serves JSON in response to HTTP requests.
+
+Unlike Rails apps that we have built before, our Rails API will have
+controllers and models but not views. Instead of being a full-stack app, its
+purpose will be to interface between our React/Redux front-end and Postgres
+database. Its endpoints will be the Controller#Actions. Our app will render views via React components that parse JSON served
+up from the database. User interactions with React components will dispatch
+actions to our Redux store that either fire ajax requests or render the newest
+application state.
 
 + Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
   + Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
@@ -35,7 +43,7 @@ response to HTTP requests.
 to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive appropriate
 responses.
 
-## Phase 1: Frontend structure
+## Phase 1: Frontend Structure
 
 In this phase you will create a file system to structure your frontend,
 configure your npm packages and webpack, and test that your frontend

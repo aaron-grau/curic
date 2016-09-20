@@ -44,6 +44,6 @@ export const toggleStep = step => ({
 
 export const destroyStep = step => ({
   type: DESTROY_STEP,
-  todo_id: step.todo_id
-  step,
+  todo_id: step.todo_id,
+  step
 });
