@@ -397,7 +397,9 @@ const TodosReducer = (state = {}, action) => {
 };
 ```
 
-**Test your code!** - You should now be able to run the following in the console:
+**Test your code!**
+
+You should now be able to run the following in the console:
 
 ```javascript
 store.getState(); // --> returns default state object
@@ -418,12 +420,14 @@ In this phase, you will create React components to display your todo list and it
 
 ### `Root`
 
-The `Root` component serves to wrap your `App` component with a `Provider`. The `Provider` gives all of your components access to your `store`, allowing them to read the application state and dispatch actions.
+The `Root` component serves to wrap your `App` component with a `react-redux` `Provider`. Remember the `Provider` gives all of your components access to your `store`, allowing them to read the application state and dispatch actions.
 
 + Create a file `components/root.jsx`
 + Import React and the `react-redux`'s `Provider`
-+ Even though you haven't written your `App` component yet, import it from `./app`
-+ This component can be a functional component, receiving (and de-structuring) its props (your `store`) as an argument, and returning a block of `jsx` code.
++ Even though you haven't written your `App` component yet, import it from `./app`.
++ Export `Root` as functional component that receives props as an argument and returns a block of `jsx` code.
+  + It receives your `store` as a prop
+  + De-structure `props` accordingly
 
 Your `Root` should look like the following:
 ```javascript
@@ -432,9 +436,11 @@ const Root = ({ store }) => (
     <App />
   </Provider>
 );
+
+export default Root;
 ```
 
-Don't forget to update your entry file to render your `Root` component into `#content`!
++ Update your entry file to render your `Root` component into `#content`!
 
 ### `App`
 
@@ -447,24 +453,30 @@ Your `App` component can also be functional, because it doesn't need to use any
 of React's lifecycle hooks. Because it doesn't rely on any of its props, the
 component doesn't need to receive any arguments.
 
-**Test your code: Make your `App` component return a `h1` tag with the name of your app. You should be able see your app's name appear on the page on reload.**
+**Test your components** - Make your `App` component return a `h1` tag with the
+name of your app. You should be able see your app's name appear on the page on
+reload.
 
 ### TodoList
 
-This component will show the items in our todo list.
+This component will display the items in our todo list.
 
 **NB**: Because we're using the react/redux design principle of separating container and presentational components, this will actually be two components!
 
 #### `TodoListContainer`
 
-The goal of a container component is to allow the presentational component to be as simple and lightweight as possible. To this end, we map the application state and the Store's `dispatch` function to a set of props that get passed to the presentational component.
+The goal of a container component is to allow the presentational component to be
+as simple and lightweight as possible. To this end, we map the application state
+and the Store's `dispatch` function to a set of props that get passed to the
+presentational component.
 
-Refer to the [components][components_reading] and [connect][connect_reading] reading if you need a refresher on container components.
+Refer to the [components][components_reading] and [connect][connect_reading]
+reading if you need a refresher on container components.
 
 + Create a file `components/todo_list/todo_list_container.js`
 + Import both the `connect` function and the (as of yet unwritten) `TodoList` presentational component
 + Create a `mapStateToProps` function
-  + Create a prop called `todos` whose value is your `allTodos` selector
+  + Create a prop called `todos` whose value is the return value of your `allTodos` selector passed the `state`
 + Create a `mapDispatchToProps` function
   + Create a prop called `requestTodos` whose value is a call to `dispatch`, passing the result of a call to your `requestTodos` action creator
 + Pass your `mapStateToProps` and `mapDispatchToProps` functions to `connect`
@@ -496,15 +508,17 @@ If we've done our job with our container component, all this presentational comp
 + Dispatch a `requestTodos` action on `componentDidMount`
 + Render the titles of its `todos` prop as list items inside of a `<ul>`
 
-**Test your code: Add `TodoListContainer` to your `App`. Reload your app and see your list of `todos`!**
+**Test your code** - Add `TodoListContainer` to your `App`. Reload your app and see your list of `todos`!**
 
-Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a `TodoListItem` component that receives the appropriate item as a prop. Each `TodoListItem` will render the title of its item inside an `<li>`.  
+Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a
+`TodoListItem` component that receives the appropriate item as a prop. Each
+`TodoListItem` will render the title of its item inside an `<li>`.  
 
 + Create a file `components/todo_list/todo_list_item.jsx`
 + Create a React Component called a `TodoListItem`
 + Write a `render` function for that component that returns an `<li>` with `this.props.todo.title` inside it
 
-**Test your code: Refresh your page - your todos should still be visible.**
+**Test your code** - Refresh your page - everything should look the same, that's good.
 
 ---
 
@@ -512,9 +526,8 @@ Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a `To
 
 In this phase you will create a form that allows users to create new todo items.
 
-You've already set up a redux cycle - now it's time to flesh it out so that a user can create todo list items.
-
-Follow these steps:
+You've already set up a redux cycle - now it's time to flesh it out so that a
+user can create todo list items.
 
 + In `actions/todo_actions.js`, create two new action creator methods and their respective constants
   + `createTodo`
@@ -525,7 +538,7 @@ Follow these steps:
 + Add new `case`s to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
 
-**Test your code: Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({todo : { title: "Learn Redux", body: "", done: false }}))`. Does your new todo appear on your page?**
+**Test your code** - Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({todo : { title: "Learn Redux", body: "", done: false }}))`. Does your new todo appear on your page?
 
 + Create a new component (`components/todo_list/todo_form.jsx`) that dispatches your new action types
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
@@ -534,15 +547,13 @@ Follow these steps:
 + Update your `TodoListContainer` to pass in the props that your `TodoForm` will need
   + Add `createTodo` to the container's `MapDispatchToProps` function and pass this as a prop to `TodoForm`
 
-**Test your code: Try creating a new todo list item using your form. Does it appear on your page? Call over a TA for a code review**
+**Test your code** - Try creating a new todo list item using your form. Does it appear on your page? Call over a TA for a code review.
 
 ---
 
 ## Phase 5: Updating and Deleting Todos
 
 In this phase, you will add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them.
-
-Follow these steps:
 
 + Create new action creator methods (in `actions/todo_actions`)
   + `toggleTodo`
@@ -562,7 +573,7 @@ Follow these steps:
   + Render buttons that call those functions `onClick`
     + The button calling `toggleTodo` should display the current state of the todo item
 
-**Test your code: You should now be able to create, toggle, and delete todo items on your list.**
+**Test your code** - You should now be able to create, toggle, and delete todo items on your list.
 
 ---
 
@@ -604,13 +615,11 @@ In this section you will create a new set of API endpoints that will serve `Step
     + Don't nest your `update` and `destroy` actions under `:todos`
   + Make your controller actions serve JSON-formatted responses
 
-**Test your code: In the console, test out your new API endpoints by making `$.ajax` calls to them.**
+**Test your code** - In the console, test out your new API endpoints by making `$.ajax` calls to them.
 
 ### Re-Designing the State Shape
 
 In this section you will create another Redux cycle for `Steps`, the sub-items within a given todo.
-
-Follow these steps:
 
 #### API Utils
 
