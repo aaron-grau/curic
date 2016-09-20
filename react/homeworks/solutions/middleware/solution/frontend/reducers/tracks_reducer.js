@@ -1,25 +1,25 @@
-import { TracksConstants } from '../actions/tracks_actions';
+import { START_RECORDING, STOP_RECORDING, ADD_NOTES, DELETE_TRACK } from '../actions/tracks_actions';
 import merge from 'lodash/merge';
 
 let currTrackId = 0;
 
 const track = (state, action) => {
   switch(action.type) {
-    case TracksConstants.START_RECORDING:
+    case START_RECORDING:
       return {
         id: currTrackId,
         name: `Track ${currTrackId}`,
         roll: [],
         timeStart: action.timeStart
       };
-    case TracksConstants.STOP_RECORDING:
+    case STOP_RECORDING:
       return merge({}, state, {
         roll: [
           ...state.roll,
           { notes: [], timeSlice: action.timeNow - state.timeStart }
         ]
       });
-    case TracksConstants.ADD_NOTES:
+    case ADD_NOTES:
       return merge({}, state, {
         roll: [
           ...state.roll,
@@ -33,20 +33,20 @@ const track = (state, action) => {
 
 const tracks = (state = {}, action) => {
   switch(action.type) {
-    case TracksConstants.START_RECORDING:
+    case START_RECORDING:
       currTrackId++; // increment id of current (newest) track
       return merge({}, state, {
         [currTrackId]: track(undefined, action)
       });
-    case TracksConstants.STOP_RECORDING:
+    case STOP_RECORDING:
       return merge({}, state, {
         [currTrackId]: track(state[currTrackId], action)
       });
-    case TracksConstants.ADD_NOTES:
+    case ADD_NOTES:
       return merge({}, state, {
         [currTrackId]: track(state[currTrackId], action)
       });
-    case TracksConstants.DELETE_TRACK:
+    case DELETE_TRACK:
       let nextState = merge({}, state);
       delete nextState[action.id];
       return nextState;
