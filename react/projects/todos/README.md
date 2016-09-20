@@ -27,9 +27,8 @@ ajax requests or render the newest application state.
 
 Let's get started!
 
-### New Rails App
 + Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
-  + Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`.
++ Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`.
 
 ### `Todo`s
 + Create a `Todo` model with `title` (required), `body` (required), and a boolean `done` (required).
@@ -39,19 +38,39 @@ Let's get started!
   + Run `rake db:setup`.
   + Run `rake db:migrate`.
 
-**Test your setup** - Try creating a couple of todos in your database using the rails console (`rails c`).
+**Test your setup** - Try creating a couple of todos in your database using the
+rails console (`rails c`).
 
 + Create a `Api::TodosController` to handle our todos API requests.
   + Run `rails g controller api/todos`.
-    + It should create `app/controller/api/todos_controller.rb`.
-  + Define `index`, `create`, `update`, and `destroy` actions in your controller.
-  + Make your controller actions serve JSON-formatted responses
+  + It should create `app/controller/api/todos_controller.rb`.
++ Define `show`, `index`, `create`, `update`, and `destroy` actions in your controller.
++ Make your controller actions serve JSON-formatted responses.
++ Define a private helper method for `todos_params`.
+
+For example, your `show` and `index` actions should look something like this:
+```rb
+# app/controller/api/todos_controller.rb
+def show
+  render json: Todo.find(params[:id])
+end
+
+def create
+  @todo = Todo.new(todo_params)
+  if @todo.save
+    render json: @todo
+  else
+    render json: @todo.errors.full_messages, status: 422
+  end
+end
+```
 
 ### Routes
++ Create routes for `:index`, `:show`, `:create`, `:destroy`, and `:update`.
 + Nest your routes under [namespace][namespace-docs] `api`.
 + In `config/routes.rb`, set `defaults: {format: :json}` for your `api` namespace.
 
-Your routes should look something like this:
+Your `routes.rb` should look something like this:
 ```rb
 Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
@@ -59,17 +78,42 @@ Rails.application.routes.draw do
   end
 end
 ```
+
+**Test your routes** - You should get the following when you run `rake routes`.
+```
+api_todos GET    /api/todos(.:format)     api/todos#index {:format=>:json}
+          POST   /api/todos(.:format)     api/todos#create {:format=>:json}
+ api_todo GET    /api/todos/:id(.:format) api/todos#show {:format=>:json}
+          PATCH  /api/todos/:id(.:format) api/todos#update {:format=>:json}
+          PUT    /api/todos/:id(.:format) api/todos#update {:format=>:json}
+          DELETE /api/todos/:id(.:format) api/todos#destroy {:format=>:json}
+```
+
 ### StaticPages
-+ Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`
++ Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`.
 + Update `routes.rb` to `root to: static_pages#root`.
 
 
-+ Start your server so that it can respond to HTTP requests
-+ Seed your database with a few todos for later testing.
+You're almost ready to go!
++ Seed your database with a few todos for testing.
++ Start your server (`rails s`) so that it can respond to HTTP requests.
++ Visit http://localhost:3000/. It should render your root page (inspect the
+  page and double check that <div id="content"></div> is present).
 
 **Test your API** - Try out your API endpoints using `$.ajax`. You should be able
 to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive appropriate
-responses.
+responses in the console.
+
+For example, try:
+```
+const success = data => console.log(data);
+const error = e => alert(e);
+$.ajax({
+    method: 'GET',
+    url: 'api/todos',
+    success
+  });
+```
 
 [namespace-docs]: http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing
 
