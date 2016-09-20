@@ -8,11 +8,11 @@ The following curriculum explores two Domain-Specific Languages: **HTML & CSS**.
 
 The beginning of Front-End Development.
 
-#### Reading (10 mins)
+#### Reading (15 mins)
 
 + [An Introduction to HTML](readings/introduction.md)
 
-#### Exercise (20 mins)
+#### Exercise (25 mins)
 
 + [Recipe Page](homeworks/introduction/introduction_html_exercise.md)
 
@@ -20,7 +20,7 @@ The beginning of Front-End Development.
 
 A look at containers in HTML and HTML5 semantic elements.
 
-#### Reading (10 mins)
+#### Reading (15 mins)
 
 + [Semantic HTML Containers](readings/containers.md)
 
@@ -75,16 +75,16 @@ selector {
 }
 ```
 
-#### Reading (10 mins)
+#### Reading (15 mins)
 
 + [CSS Selectors & Precedence](readings/css_selectors_precedence.md)
 
-#### Video (10 mins)
+#### Video (20 mins)
 
 + [CSS Syntax](https://vimeo.com/album/3732382/video/151185331)
 + [Inherit Property](https://vimeo.com/album/3732382/video/151190179)
 
-#### Exercise (10 mins)
+#### Exercise (15 mins)
 
 + [Recipe Styles](homeworks/css_syntax/exercise.md)
 
@@ -92,11 +92,11 @@ selector {
 
 Now that we have some understanding of CSS syntax we can review the css_reset file and customize our own. We will also take a look at some more advanced selectors that will allow us to target other aspects of our HTML document.
 
-#### Video (10 mins)
+#### Video (15 mins)
 
 + [CSS Reset](https://vimeo.com/album/3732382/video/151190181)
 
-#### Reading (10 mins)
+#### Reading (15 mins)
 
 + [Advanced Selectors](readings/advanced_selectors.md)
 
@@ -112,17 +112,17 @@ Now that we have some understanding of CSS syntax we can review the css_reset fi
 
 The box model describes how space is calculated with CSS. This model combined with popular properties including display, margin, padding, width and height mark the beginning of styling the layout of our HTML document.
 
-#### Video (20 mins)
+#### Video (25 mins)
 
 + [Display Property](https://vimeo.com/album/3732382/video/151190176)
 + [Box Model](https://vimeo.com/album/3732382/video/151190177)
 
-#### Reading (10 mins)
+#### Reading (15 mins)
 
 + [Box Model](readings/box_model.md)
 + [Display Properties](readings/display.md) (Save Flex for day 5)
 
-#### Exercise (10 mins)
+#### Exercise (15 mins)
 
 + [Recipe Display](homeworks/display_box_model/exercise.md)
 
@@ -132,18 +132,18 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 ### Day 5: Float, Fluid Layouts & Flexbox
 
-#### Video (25 mins)
+#### Video (55 mins)
 
 + [Floats & Clearfix](https://vimeo.com/album/3732382/video/151190182)
 + [CSS Grid System](https://vimeo.com/170320160)
 + [Flexbox](https://vimeo.com/170512344)
 
-#### Reading (10 mins)
+#### Reading (15 mins)
 
 + [Floating](readings/floats_clear_fix.md)
 + [Flexbox](readings/display.md) (Just Flex)
 
-#### Exercise (10 mins)
+#### Exercise (15 mins)
 
 + [Fluid Flex Recipe](homeworks/float_fluid_flex/exercise.md)
 
@@ -154,17 +154,17 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 ### Day 6: Positioning & Media Queries
 
-#### Video (25 mins)
+#### Video (1 hr)
 
 + [Positioning](https://vimeo.com/album/3732382/video/151190184)
 + [Glasses Demo](https://vimeo.com/album/3732382/video/151190185)
 
-#### Reading (10 mins)
+#### Reading (15 mins)
 
 + [Positioning](readings/positioning.md)
 + [Responsive Design & Media Queries](readings/responsive_design.md)
 
-#### Exercise (10 mins)
+#### Exercise (15 mins)
 
 + [Hamburger Icon](homeworks/positioning_media_queries/exercise.md)
 

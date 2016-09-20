@@ -108,8 +108,8 @@
 * [Event Loop Visualization][loupe] (10 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
-### Homeworks (60 min)
-* [CSS Curriculum Day 2][css-day2] (30 min)
+### Homeworks (65 min)
+* [CSS Curriculum Day 2][css-day2] (35 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 ### Additional Resources
@@ -150,6 +150,31 @@
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
 * :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (18 min)
+
+### Readings (15 min)
+* [Chrome Dev Tools][chrome-dev-tools] (10 min)
+* [Github Pages][github-pages] (5 min)
+
+### Homeworks (95 min)
+* [CSS Curriculum Day 3][css-day3] (40 min)
+* [CSS Curriculum Day 4][css-day4] (55 min)
+
+### Additional Resources
+* [CSS Diner][css-diner]
+
+[css-diner]: http://flukeout.github.io/
+[eloquent-javascript]: http://eloquentjavascript.net/
+[chrome-dev-tools]: readings/chrome_dev_tools.md
+[chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
+[node-inspector-vid]: http://vimeo.com/groups/appacademy/videos/95551778
+[github-pages]: readings/github_pages.md
+[css-demos-notes]: ../html-css/demos/css_demos/README.md#brief-notes
+[css-lectures]: ../html-css/demos/css_demos/README.md#lectures
+
+## w6d1
+
+### Video Lectures (60 min)
+:closed_lock_with_key: `go_video_go`
 * :movie_camera: [JS in Browser][js-browser-video] (10 min)
 * :movie_camera: [Arguments][arg-video] (10 min)
 * :movie_camera: [Prototype Chain and Inheritance][proto-inherit] (20 min)
@@ -166,9 +191,9 @@
 * **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
     * **Be sure to run and understand this the night before**
 
-### Homeworks (90 min)
-* [CSS Curriculum Day 3][css-day3] (30 min)
-* [CSS Curriculum Day 4][css-day4] (40 min)
+### Homeworks (115 min)
+* [CSS Curriculum Day 3][css-day3] (40 min)
+* [CSS Curriculum Day 4][css-day4] (55 min)
 * [Webpack tutorial][webpack] (20 min)
   * complete up to 'The First Loader'
 
@@ -213,6 +238,26 @@
 + In-class practice assessment at 9am. Please bring your own machine if possible.
 * [Practice][assessment-prep-5]
 
+### Homeworks (4 hr)
+* [CSS Curriculum Day 5][css-day5] (90 min)
+* [CSS Curriculum Day 6][css-day6] (90 min)
+* [CSS Warm Up][css-warmup] (60 min)
+
+### Additional Resources
+* **Bonus**: [CSS Transform property][css-transform]
+
+### Projects
+* [CSS Friends][css-friends]
+* **Bonus**: [Google Homepage][css-bonus-assignment]
+
+[css-demos]: ../html-css/demos/css_demos#demos
+[css-friends]: ../html-css/projects/css_friends
+[css-bonus-assignment]: ../html-css/projects/google_homepage
+[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
+[css-warmup]: ../html-css/projects/css_warm_up
+[assessment-prep]: http://github.com/appacademy/assessment-prep#assessment-5
+
+## w6d3
 
 ### Readings (75 min)
   * [The Document Object Model][dom] (10 min)
