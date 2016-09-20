@@ -4,7 +4,9 @@ import TodoList from './todo_list';
 import { requestTodos, createTodo, toggleTodo, destroyTodo } from '../../actions/todo_actions';
 import { allTodos } from '../../reducers/selectors';
 
-const mapStateToProps = state => ({todos: allTodos(state)});
+const mapStateToProps = state => ({
+  todos: allTodos(state)
+});
 
 const mapDispatchToProps = dispatch => ({
   requestTodos: () => dispatch(requestTodos()),

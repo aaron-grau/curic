@@ -5,7 +5,7 @@ class TodoForm extends React.Component {
     super(props);
     this.state = {
       title: "",
-      body: "", 
+      body: "",
       done: false
     };
   }
@@ -19,7 +19,7 @@ class TodoForm extends React.Component {
       e.preventDefault();
       const todo = Object.assign({}, this.state);
       this.props.createTodo({todo});
-      this.setState({title: "", body: ""});
+      this.setState({title: "", body: ""}); // reset form
     }
   }
 
@@ -35,7 +35,7 @@ class TodoForm extends React.Component {
             onChange={this.update('title')}
             required/>
         </label>
-        <label>Body: 
+        <label>Body:
           <textarea
             className="input"
             ref="body"

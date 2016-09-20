@@ -6,7 +6,7 @@ export const CREATE_STEP = "CREATE_STEP";
 export const UPDATE_STEP = "UPDATE_STEP";
 export const DESTROY_STEP = "DESTROY_STEP";
 
-export const requestSteps = (todo_id) => ({
+export const requestSteps = todo_id => ({
   type: REQUEST_STEPS,
   todo_id
 });
@@ -44,6 +44,6 @@ export const toggleStep = step => ({
 
 export const destroyStep = step => ({
   type: DESTROY_STEP,
-  step,
   todo_id: step.todo_id
+  step,
 });
