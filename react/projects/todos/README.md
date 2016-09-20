@@ -43,6 +43,7 @@ Let's get started!
 
 + Create a `Api::TodosController` to handle our todos API requests.
   + Run `rails g controller api/todos`.
+    + It should create `app/controller/api/todos_controller.rb`.
   + Define `index`, `create`, `update`, and `destroy` actions in your controller.
   + Make your controller actions serve JSON-formatted responses
 
