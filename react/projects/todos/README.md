@@ -17,31 +17,60 @@ every change made on the frontend will persist!
 In this phase you will create a Rails API that stores `Todo`s in a database
 and serves JSON in response to HTTP requests.
 
-Unlike Rails apps that we have built before, our Rails API will have
-controllers and models but not views. Instead of being a full-stack app, its
-purpose will be to interface between our React/Redux front-end and Postgres
-database. Its endpoints will be the Controller#Actions. Our app will render views via React components that parse JSON served
-up from the database. User interactions with React components will dispatch
-actions to our Redux store that either fire ajax requests or render the newest
-application state.
+Unlike Rails apps that we have built before, our Rails API will have controllers
+and models but not HTML views. Instead of being a full-stack app, its purpose
+will be to interface between our React/Redux front-end and Postgres database.
+Its endpoints will be the Controller#Actions. Our app will render views via
+React components that parse JSON served up from the database. User interactions
+with React components will dispatch actions to our Redux store that either fire
+ajax requests or render the newest application state.
 
+Let's get started!
+
+### New Rails App
 + Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
-  + Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`
-+ Create a `Todo` model with `title`, `body`, and a boolean `done`
-+ Create a `Api::TodosController` to handle todos API requests
-  + Run `rails g controller api/todos`
-  + Nest your routes under namespace `api`
-  + Your controller needs `index`, `create`, `update`, and `destroy` actions
+  + Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`.
+
+### `Todo`s
++ Create a `Todo` model with `title` (required), `body` (required), and a boolean `done` (required).
+  + Run `rails g model todo title body done:boolean`.
+  + Add the necessary validations to the database (`null: false`) and model (`presence: true`).
++ Make sure Postgres is running on your machine
+  + Run `rake db:setup`.
+  + Run `rake db:migrate`.
+
+**Test your setup** - Try creating a couple of todos in your database using the rails console (`rails c`).
+
++ Create a `Api::TodosController` to handle our todos API requests.
+  + Run `rails g controller api/todos`.
+  + Define `index`, `create`, `update`, and `destroy` actions in your controller.
   + Make your controller actions serve JSON-formatted responses
-    + In `config/routes.rb`, set `defaults: {format: :json}` for your `namespace :api`
+
+### Routes
++ Nest your routes under [namespace][namespace-docs] `api`.
++ In `config/routes.rb`, set `defaults: {format: :json}` for your `api` namespace.
+
+Your routes should look something like this:
+```rb
+Rails.application.routes.draw do
+  namespace :api, defaults: {format: :json} do
+    resources :todos, only: [:index, :show, :create, :destroy, :update]
+  end
+end
+```
+### StaticPages
 + Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`
-  + Don't forget to update `routes.rb` to `root to: static_pages#root`
++ Update `routes.rb` to `root to: static_pages#root`.
+
+
 + Start your server so that it can respond to HTTP requests
 + Seed your database with a few todos for later testing.
 
 **Test your API** - Try out your API endpoints using `$.ajax`. You should be able
 to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive appropriate
 responses.
+
+[namespace-docs]: http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing
 
 ## Phase 1: Frontend Structure
 
