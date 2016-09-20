@@ -39,7 +39,7 @@ Today we're using React.js and Redux to create our own musical keyboard!
     + synthesizer.jsx
   ```
 
-* Setup your entry file `synthesizer.jsx` to render your app into the into the
+* Set up your entry file `synthesizer.jsx` to render your app into the into the
  `#root` container of your `index.html`.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`. You may copy the code below (and use it as a template for future projects).
@@ -136,10 +136,10 @@ Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the 
 
 #### `TONES` and `NOTE_NAMES` Constants
 
-In this step, let's create a constants file which will help us keyboard keys (e.g. `a`, `s`) into frequencies (i.e. tones) which we will need to create `Note`s.
+In this step, let's create a constants file which will help us translate keyboard keys (e.g. `a`, `s`) into frequencies (i.e. tones) which we will need to create `Note`s.
 
 * Create a `util/tones.js` file.
-* From there export a `TONES` constant, a JavaScript object mapping note names to frequencies. Something like this,
+* From there export a `TONES` constant, a JavaScript object mapping key names to frequencies. Something like this,
 
   ```js
     export const TONES = {
@@ -154,7 +154,7 @@ In this step, let's create a constants file which will help us keyboard keys (e.
 Feel free to copy and paste the object above. Use [this table][note-frequencies] as a resource for additional keys, if you're interested.
 * Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
 
-We'll be using these constants later to map our keyboard keys to notes names to
+We'll be using these constants later to map our keyboard keys to
 tones.
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
@@ -335,7 +335,7 @@ returned by `configureStore`.
 
 ### `SynthContainer` Component
 
-Container components are concerned with how things work such as data fetching
+Container components are concerned with how things work, such as data fetching
 and changes in your app's state. Presentational components are concerned with
 how things look. These distinctions allow for better separation of concerns and
 better usability of components.
@@ -347,12 +347,18 @@ Fortunately, `react-redux` provides a function that does this for us: [`connect`
 * Create a new directory `components/synth`.
 * Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component. Have it render `<div>Synth</div>` to
 start and test.
-* Create a file `components/synth/synth_container.jsx`, and import [`connect`] from
+* Create a file `components/synth/synth_container.jsx`, and import both [`connect`] from
 `react-redux` and your `Synth` component.
-* Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key.
+* Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key. For example, 
+
+  ```js
+  const mapStateToProps = state => ({
+    notes: state.notes
+  })
+  ```
+
 * Import your `keyPressed` and `keyReleased` action creators.
-* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For
-example,
+* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For example,
 
   ```js
   const mapDispatchToProps = dispatch => ({
@@ -396,7 +402,7 @@ frequency.
 Now let's create a jQuery listener for `keyup` and `keydown` events.
 
 * In your `Synth` class, import `$` from `jquery`.
-* Define a `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the
+* Define an `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the
 event and call `this.props.keyPressed`. Recap: `keyPressed` is the function you
 defined in `mapDispatchToProps` in your `SynthContainer`.
 * Define another function called `onKeyUp(e)`. Call `this.props.keyReleased` passing it the key from the
@@ -570,7 +576,7 @@ names of the notes actually played (`notes`).
 
 *NB*: State must never be mutated in the redux, so make sure you are creating
 and returning new objects and arrays. `Object.assign` returns a shallow copy of
-an object which is why for nested objects, we must rely on `merge` from
+an object, which is why for nested objects we must rely on `merge` from
 `lodash`.
 
 [merge-lodash]:https://lodash.com/docs#merge
