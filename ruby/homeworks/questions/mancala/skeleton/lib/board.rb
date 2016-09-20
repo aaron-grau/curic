@@ -26,7 +26,7 @@ class Board
     puts ""
   end
 
-  def cups_empty?
+  def one_side_empty?
   end
 
   def winner
