@@ -1,4 +1,4 @@
-import { PlayingConstants } from '../actions/playing_actions';
+import { START_PLAYING, STOP_PLAYING } from '../actions/playing_actions';
 
 const isPlaying = (state = false, action) => {
   switch(action.type) {
