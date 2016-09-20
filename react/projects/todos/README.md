@@ -4,12 +4,12 @@
 
 In this project, you will create an app that lets people create and manage a
 todo list. Users of your app will be able to add items to their todo list,
-delete items from it, and mark items as either "done" or "not done." Eventually,
+delete items from it, and mark items as either "done" or "not done". Eventually,
 every item in the list will be able to have its own sub-list of "steps" that can
-be added, deleted, and marked as "done."
+be added, deleted, and marked or unmarked as "done".
 
 Today's project uses the React/Redux frontend that you used for the Synthesizer
-app yesterday. In addition, this project will use a Rails backend so that
+app yesterday. In addition, this project will use a Rails API backend so that
 every change made on the frontend will persist!
 
 ## Phase 0: Rails API
@@ -17,14 +17,15 @@ every change made on the frontend will persist!
 In this phase you will create a Rails API that stores `Todo`s in a database
 and serves JSON in response to HTTP requests.
 
-**NB**: Our Rails API will have controllers and models but will not have HTML views.
-Instead of being a full-stack app, its purpose will be to serve information
-between our Postgres database and React/Redux front-end. It will respond to HTTP
-requests by running Controller#Actions, the same way as before. Its responses,
-however, will be JSON instead of HTML. Our app will render views via React
-components that parse JSON served up from the database. User interactions with
-React components will dispatch actions to our Redux store that either fire ajax
-requests or render the newest application state.
+**NB**: We first saw use of a Rails API in Ajax Twitter! Today, we will create
+an Rails API that will have controllers and models but will not have HTML
+views. Instead of being a full-stack app, its purpose will be to serve
+information between our Postgres database and React/Redux front-end. It will
+respond to HTTP requests using `Controller#Actions`, the same way as before.
+Its responses, however, will be JSON instead of HTML. Our app will render
+views via React components that parse and display these JSON responses. User
+interactions with React components will dispatch actions to our Redux store
+that either fire ajax requests or render the newest application state.
 
 Let's get started!
 
@@ -32,7 +33,7 @@ Let's get started!
 + Update your Gemfile with `better_errors`, `binding_of_caller`, `pry-rails`, and `annotate`.
 
 ### `Todo`s
-+ Create a `Todo` model with `title` (required), `body` (required), and a boolean `done` (required).
++ Create a `Todo` model with a `title` string (required), a `body` string (required), and a `done` boolean (required).
   + Run `rails g model todo title body done:boolean`.
   + Add the necessary validations to the database (`null: false`) and model (`presence: true`).
 + Make sure Postgres is running on your machine
@@ -42,7 +43,7 @@ Let's get started!
 **Test your setup** - Try creating a couple of todos in your database using the
 rails console (`rails c`).
 
-+ Create a `Api::TodosController` to handle our todos API requests.
++ Create a `Api::TodosController` to handle our API requests for `Todo`s.
   + Run `rails g controller api/todos`.
   + It should create `app/controller/api/todos_controller.rb`.
 + Define `show`, `index`, `create`, `update`, and `destroy` actions in your controller.
@@ -98,11 +99,11 @@ api_todos GET    /api/todos(.:format)     api/todos#index {:format=>:json}
 You're almost ready to go!
 + Seed your database with a few todos for testing.
 + Start your server (`rails s`) so that it can respond to HTTP requests.
-+ Visit http://localhost:3000/. It should render your root page (inspect the
++ Visit [http://localhost:3000/][local-host]. It should render your root page (inspect the
   page and double check that <div id="content"></div> is present).
 
 **Test your API** - Try out your API endpoints using `$.ajax`. You should be able
-to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive appropriate
+to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive the appropriate
 responses in the console.
 
 For example, try:
@@ -116,6 +117,7 @@ $.ajax({
   });
 ```
 
+[local-host]: http://localhost:3000/
 [namespace-docs]: http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing
 
 ## Phase 1: Frontend Structure
@@ -124,25 +126,27 @@ In this phase you will create a file system to structure your frontend,
 configure your npm packages and webpack, and test that your frontend
 configuration works.
 
-+ Create a `/frontend` folder at the root directory of your project:
-```
-frontend
-  + actions
-  + components
-  + middleware
-  + reducers
-  + store
-  + util
-  todo_redux.jsx
-```
++ Create a `/frontend` folder at the root directory of your project.
++ Model your `/frontend` folder to look like the directory tree below:
+  ```
+  frontend
+    + actions
+    + components
+    + middleware
+    + reducers
+    + store
+    + util
+    todo_redux.jsx
+  ```
 + Run `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
-  + This command installs the npm packages that we will be using to create our app
-+ Set up your `webpack.config.js` file so that your bundle.js ends up in `app/assets/javascripts`
-  + Run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them
+  + This command installs the npm packages that we will be using to create our React/Redux app.
++ Set up your `webpack.config.js` file so that your bundle.js is saved in `app/assets/javascripts`
++ Run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them.
 
-**Test your setup** - Set up your entry file (`todo_redux.jsx`) to render an
-`<h1>Todos App</h1>` into your `#content` container. You should be able to
-visit `localhost:3000` and confirm it worked.
+**Test your setup** - Set up your entry file `todo_redux.jsx` to render
+`<h1>Todos App</h1>` into your `#content` container. You should be able to visit
+`localhost:3000` and confirm it worked.
+
 ---
 
 ## Phase 2: Todos Redux Structure
