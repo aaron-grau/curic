@@ -8,11 +8,13 @@ class DomNodeCollection {
   }
 
   each(cb) {
+    // Our each passes in the node and index in traditional 'forEach' order,
+    // jquery passes in index first and binds the call to the element.
     this.nodes.forEach(cb);
   }
 
   on(eventName, callback) {
-    this.each( node => {
+    this.each(node => {
       node.addEventListener(eventName, callback);
       const eventKey = `jqliteEvents-${eventName}`;
       if (typeof node[eventKey] === "undefined") {
@@ -23,10 +25,10 @@ class DomNodeCollection {
   }
 
   off(eventName) {
-    this.each( node => {
+    this.each(node => {
       const eventKey = `jqliteEvents-${eventName}`;
-      if (node[eventKey]){
-        node[eventKey].forEach( callback => {
+      if (node[eventKey]) {
+        node[eventKey].forEach(callback => {
           node.removeEventListener(eventName, callback);
         });
       }
@@ -35,10 +37,10 @@ class DomNodeCollection {
   }
 
   html(html) {
-    if(typeof html === "string"){
-      this.each( node => node.innerHTML = html );
+    if (typeof html === "string") {
+      this.each(node => node.innerHTML = html);
     } else {
-      if(this.nodes.length > 0){
+      if (this.nodes.length > 0) {
         return this.nodes[0].innerHTML;
       }
     }
@@ -49,30 +51,35 @@ class DomNodeCollection {
   }
 
   append(children) {
-    if (this.nodes.length > 0) return;
+    if (this.nodes.length === 0) return;
+
     if (typeof children === 'object' &&
         !(children instanceof DomNodeCollection)) {
       // ensure argument is coerced into DomNodeCollection
-      children = root.$l(children);
+      children = $l(children);
     }
 
     if (typeof children === "string") {
-      this.each( node => node.innerHTML += children );
+      this.each(node => node.innerHTML += children);
     } else if (children instanceof DomNodeCollection) {
       // You can't append the same child node to multiple parents,
-      // so real jQuery duplicates the child nodes here, but we're
-      // appending them to the first parent only.
-      const node = this.nodes[0];
-      children.each( childNode => node.appendChild(childNode) );
+      // so we must duplicate the child nodes here.
+      this.each(node => {
+        // The argument to cloneNode indicates whether or not
+        // all children should be cloned.
+        children.each(childNode => {
+          node.appendChild(childNode.cloneNode(true))
+        });
+      })
     }
   }
 
   remove() {
-    this.each( node => node.parentNode.removeChild(node) );
+    this.each(node => node.parentNode.removeChild(node));
   }
 
   attr(key, val) {
-    if(typeof val === "string"){
+    if (typeof val === "string") {
       this.each( node => node.setAttribute(key, val) );
     } else {
       return this.nodes[0].getAttribute(key);
@@ -80,16 +87,20 @@ class DomNodeCollection {
   }
 
   addClass(newClass) {
-    this.each( node => node.classList.add(newClass) );
+    this.each(node => node.classList.add(newClass));
   }
 
   removeClass(oldClass) {
-    this.each( node => node.classList.remove(oldClass) );
+    this.each(node => node.classList.remove(oldClass));
+  }
+
+  toggleClass(toggleClass) {
+    this.each(node => node.classList.toggle(toggleClass));
   }
 
   find(selector) {
     let foundNodes = [];
-    this.each( node => {
+    this.each(node => {
       const nodeList = node.querySelectorAll(selector);
       foundNodes = foundNodes.concat(Array.from(nodeList));
     });
@@ -98,7 +109,7 @@ class DomNodeCollection {
 
   children() {
     let childNodes = [];
-    this.each( node => {
+    this.each(node => {
       const childNodeList = node.children;
       childNodes = childNodes.concat(Array.from(childNodeList));
     });
@@ -107,7 +118,7 @@ class DomNodeCollection {
 
   parent() {
     const parentNodes = [];
-    this.each( node => parentNodes.push(node.parentNode) );
+    this.each(node => parentNodes.push(node.parentNode));
     return new DomNodeCollection(parentNodes);
   }
 }
