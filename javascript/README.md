@@ -352,8 +352,8 @@
 [effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 [css-day1]: ../html-css/README.md#css-intro-workflow--day-1
-[css-day2]: ../html-css/README.md#css-syntax-day-2
-[css-day3]: ../html-css/README.md#css-reset--advanced-selectors-day-3
-[css-day4]: ../html-css/README.md#the-display-property--the-box-model-day-4
-[css-day5]: ../html-css/README.md#float-fluid-layouts--flexbox-day-5
-[css-day6]: ../html-css/README.md#positioning--media-queries-day-6
+[css-day2]: ../html-css/README.md#day-2-syntax
+[css-day3]: ../html-css/README.md#day-3-reset--advanced-selectors
+[css-day4]: ../html-css/README.md#day-4-the-display-property--the-box-model
+[css-day5]: ../html-css/README.md#day-5-float-fluid-layouts--flexbox
+[css-day6]: ../html-css/README.md#day-6-positioning--media-queries
