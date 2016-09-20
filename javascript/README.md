@@ -146,7 +146,7 @@
 
 ## w6d1
 
-### Video Lectures (60 min)
+### Video Lectures (90 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
 * :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (18 min)
