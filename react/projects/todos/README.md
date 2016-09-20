@@ -99,14 +99,15 @@ api_todos GET    /api/todos(.:format)     api/todos#index {:format=>:json}
 You're almost ready to go!
 + Seed your database with a few todos for testing.
 + Start your server (`rails s`) so that it can respond to HTTP requests.
-+ Visit [http://localhost:3000/][local-host]. It should render your root page (inspect the
-  page and double check that <div id="content"></div> is present).
++ Visit [http://localhost:3000/][local-host]. It should render your root page.
+  + Inspect the page and double check that `<div id="content"></div>` is present.
 
 **Test your API** - Try out your API endpoints using `$.ajax`. You should be able
 to send `POST`, `GET`, `PATCH`, and `DELETE` requests and receive the appropriate
 responses in the console.
 
 For example, try:
+
 ```
 const success = data => console.log(data);
 const error = e => alert(e);
@@ -120,6 +121,8 @@ $.ajax({
 [local-host]: http://localhost:3000/
 [namespace-docs]: http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing
 
+---
+
 ## Phase 1: Frontend Structure
 
 In this phase you will create a file system to structure your frontend,
@@ -128,6 +131,7 @@ configuration works.
 
 + Create a `/frontend` folder at the root directory of your project.
 + Model your `/frontend` folder to look like the directory tree below:
+
   ```
   frontend
     + actions
@@ -138,14 +142,15 @@ configuration works.
     + util
     todo_redux.jsx
   ```
+
 + Run `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
   + This command installs the npm packages that we will be using to create our React/Redux app.
 + Set up your `webpack.config.js` file so that your bundle.js is saved in `app/assets/javascripts`
 + Run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them.
 
 **Test your setup** - Set up your entry file `todo_redux.jsx` to render
-`<h1>Todos App</h1>` into your `#content` container. You should be able to visit
-`localhost:3000` and confirm it worked.
+`<h1>Todos App</h1>` into your root page's `#content` container. You should be able to visit
+`localhost:3000` and confirm that it worked.
 
 ---
 
@@ -164,6 +169,7 @@ your middleware, and the data they receive will be passed on to your store. In
 general, these utility functions will accept two arguments:
   + a callback to run if the request is successful
   + a callback to run in case of an error
+
 
 + Create a file `util/todo_api_util.js`.
 + Write a function that accepts a `success` argument and passes that function as the success callback to a `$.ajax` call.
