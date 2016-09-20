@@ -17,13 +17,14 @@ every change made on the frontend will persist!
 In this phase you will create a Rails API that stores `Todo`s in a database
 and serves JSON in response to HTTP requests.
 
-Unlike Rails apps that we have built before, our Rails API will have controllers
-and models but not HTML views. Instead of being a full-stack app, its purpose
-will be to interface between our React/Redux front-end and Postgres database.
-Its endpoints will be the Controller#Actions. Our app will render views via
-React components that parse JSON served up from the database. User interactions
-with React components will dispatch actions to our Redux store that either fire
-ajax requests or render the newest application state.
+**NB**: Our Rails API will have controllers and models but will not have HTML views.
+Instead of being a full-stack app, its purpose will be to serve information
+between our Postgres database and React/Redux front-end. It will respond to HTTP
+requests by running Controller#Actions, the same way as before. Its responses,
+however, will be JSON instead of HTML. Our app will render views via React
+components that parse JSON served up from the database. User interactions with
+React components will dispatch actions to our Redux store that either fire ajax
+requests or render the newest application state.
 
 Let's get started!
 
