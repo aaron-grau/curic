@@ -1,9 +1,9 @@
-# Intro to SQL and ActiveRecord
+# SQL and ActiveRecord
 
 ## w3d1
 
 ### Assessment02
-+ [Practice][assessment-prep]
++ [Practice][assessment-prep-2]
   + We'll implement a simple version of a well-known card game. We'll announce
   the specific game, and you can look up the basic rules ahead of time.
 
@@ -24,7 +24,7 @@
 
 + [SQL Zoo][sqlzoo-readme]
 
-[assessment-prep]: http://github.com/appacademy/assessment-prep
+[assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
 [sql-intro]: readings/sql-intro.md
 [visual-joins]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
@@ -141,6 +141,9 @@
 
 ### Study Hall 9 - 10am
 
+### Assessment03 Practice
++ [Practice][assessment-prep-3]
+
 ### Readings (65 min)
 + [ActiveRecord::Relation][relation] (15 min)
 + [ActiveRecord and Joins][ar-joins] (25 min)
@@ -156,6 +159,7 @@
 ### Projects
 + [Polls][polls-app]
 
+[assessment-prep-3]: https://github.com/appacademy/assessment-prep#assessment-3
 [relation]: readings/relation.md
 [ar-joins]: readings/joins.md
 [scopes]: readings/scopes.md
@@ -188,11 +192,3 @@
 [meta-macros]: demos/macros.rb
 [build-your-own-ar]: projects/active_record_lite
 [metacorgi-hw]: homeworks/questions/metacorgs.md
-
-## w3d6-w3d7
-
-+ [Callbacks][callbacks]
-+ [Delegation][delegation]
-
-[callbacks]: readings/callbacks.md
-[delegation]: readings/delegation.md

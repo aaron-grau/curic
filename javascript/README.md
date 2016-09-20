@@ -144,9 +144,9 @@
 [airbnb-style]: https://github.com/airbnb/javascript
 [loupe]: http://latentflip.com/loupe
 
-## w5d6-w5d7
+## w6d1
 
-### Video Lectures (33 min)
+### Video Lectures (90 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
 * :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (18 min)
@@ -180,7 +180,9 @@
 * :movie_camera: [Prototype Chain and Inheritance][proto-inherit] (20 min)
 * :movie_camera: [Inheritance Demo][inherit-demo-video]  (20 min)
 
-### Readings (85 min)
+### Readings (100 min)
+* [Chrome Dev Tools][chrome-dev-tools] (10 min)
+* [Github Pages][github-pages] (5 min)
 * [Arguments][arguments] (10 min)
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
@@ -189,11 +191,14 @@
 * **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
     * **Be sure to run and understand this the night before**
 
-### Homeworks (20 min)
+### Homeworks (115 min)
+* [CSS Curriculum Day 3][css-day3] (40 min)
+* [CSS Curriculum Day 4][css-day4] (55 min)
 * [Webpack tutorial][webpack] (20 min)
   * complete up to 'The First Loader'
 
 ### Additional Resources
+* [CSS Diner][css-diner]
 * [Asynchronous Client-side Code][asynchronous-js]
 * [Client-side JavaScript][client-side-js]
 
@@ -202,6 +207,14 @@
 * [Prototypal Inheritance Exercises][inheritance-exercises]
 * [Asteroids][asteroids-project]
 
+[css-diner]: http://flukeout.github.io/
+[eloquent-javascript]: http://eloquentjavascript.net/
+[chrome-dev-tools]: readings/chrome_dev_tools.md
+[chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
+[node-inspector-vid]: http://vimeo.com/groups/appacademy/videos/95551778
+[github-pages]: readings/github_pages.md
+[css-demos-notes]: ../html-css/demos/css_demos/README.md#brief-notes
+[css-lectures]: ../html-css/demos/css_demos/README.md#lectures
 [proto-inherit]: https://vimeo.com/162131042
 [inherit-demo-video]: https://vimeo.com/162115223
 [arg-video]: https://vimeo.com/162115222
@@ -222,10 +235,11 @@
 ## w6d2
 
 ### Assessment05 Practice
-* [Practice Assessment][assessment-prep]
++ In-class practice assessment at 9am. Please bring your own machine if possible.
+* [Practice][assessment-prep-5]
 
 ### Homeworks (4 hr)
-* [CSS Curriculum Day 5][css-day5] (85 min)
+* [CSS Curriculum Day 5][css-day5] (90 min)
 * [CSS Curriculum Day 6][css-day6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
@@ -271,6 +285,28 @@
   * [jQuery Towers of Hanoi][hanoi-jquery]
   * **Bonus**: [Snake][snake-project]
 
+## w6d3
+
+### Homeworks (2 hr)
+* [CSS Curriculum Day 5][css-day5] (30 min)
+* [CSS Curriculum Day 6][css-day6] (30 min)
+* [CSS Warm Up][css-warmup] (60 min)
+
+### Additional Resources
+* **Bonus**: [CSS Transform property][css-transform]
+
+### Projects
+* [CSS Friends][css-friends]
+* **Bonus**: [Google Homepage][css-bonus-assignment]
+
+[css-demos]: ../html-css/demos/css_demos#demos
+[css-friends]: ../html-css/projects/css_friends
+[css-bonus-assignment]: ../html-css/projects/google_homepage
+[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
+[css-warmup]: ../html-css/projects/css_warm_up
+[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
+
+
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
 [dom]: readings/document-object-model.md
 [jquery-01-selection]: readings/jquery-01-selection-and-manipulation.md
@@ -309,7 +345,6 @@
 ### Projects
 * [AjaxTwitter][ajax-twitter]
 
-[assessment-practice]: https://github.com/appacademy/assessment-prep
 [ajax-lecture]: https://vimeo.com/162860823
 [ajax-demo]: https://vimeo.com/162764008
 [ajax-demo-code]: demos/chat_demo
@@ -324,7 +359,7 @@
 ## w6d5
 
 ### Assessment05
-* [Practice Assessment][assessment-prep]
+* [Practice Assessment][assessment-prep-5]
 
 ### Video Lectures (27 min)
 :closed_lock_with_key: `go_video_go`
@@ -361,11 +396,6 @@
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md
 
-## w6d6 - w6d7
-
-Complete the [React/Redux w7d1][react-link] readings, video lectures, and homework. There is a lot of material, so start early!
-
-[react-link]: ../react
 [effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 [css-day1]: ../html-css/README.md#css-intro-workflow--day-1

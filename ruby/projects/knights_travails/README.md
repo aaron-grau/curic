@@ -13,7 +13,9 @@ starting and ending position should be on a standard 8x8 chess board.
 Write a class, `KnightPathFinder`. Initialize your `KnightPathFinder`
 with a starting position. For instance
 
-    kpf = KnightPathFinder.new([0, 0])
+```ruby
+kpf = KnightPathFinder.new([0, 0])
+```
 
 Ultimately, I want to be able to find paths to end positions:
 

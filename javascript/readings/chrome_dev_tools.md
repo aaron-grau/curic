@@ -68,7 +68,7 @@ app's CSS with Chrome:
 ## Checking Cookies
 
 Viewing your app's cookies is another useful feat you can accomplish with
-Dev Tools. Head over to the Resources tab. Here, you can view all the types
+Dev Tools. Head over to the Application tab. Here, you can view all the types
 of in-browser storage available to your app, such as local storage, as well as
 their contents. For cookies, simply open the cookies section of the left-hand
 column and select your app's domain (e.g. localhost). Your cookies will be

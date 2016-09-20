@@ -1,6 +1,4 @@
-# Intro Ruby Topics
-
-## Object-Oriented Projects
+# Ruby
 
 ## w1d1
 + [First Day! **Read me!**][day1-instructions]
@@ -80,8 +78,6 @@
 [memory-project]: projects/memory
 [sudoku-project]: projects/sudoku
 
-## Algorithms
-
 ## w1d3
 
 ### Video Lectures (62 min)
@@ -129,6 +125,9 @@
 
 ## w1d4
 
+### Assessment01 Practice
++ [Practice][assessment-prep-1]
+
 ### Video Lectures (29 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Git: Overview and Why We Use Git][git-overview-video] (5 min)
@@ -161,6 +160,7 @@
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
+[assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
 [git-add]: readings/git-add.md
 [why-git]: readings/why-git.md
 [git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
@@ -171,7 +171,7 @@
 [git-cleanup]: readings/git-repository-cleanup.md
 [aliases]: readings/alias.md
 [interactive-git]: http://pcottle.github.io/learnGitBranching/
-[assessment-practice]: https://github.com/appacademy/assessment-prep
+[assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
 [serialization]: readings/serialization.md
 [gems]: readings/gems-and-rbenv.md
 
@@ -187,8 +187,11 @@
 * :movie_camera: [Data Structures][data-structures-video] (40 min)
 * :movie_camera: [DFS][dfs-video] (15 min)
 
-### Readings (15 min)
+### Readings (25 min)
 + [Intro data structures][intro-algorithms-and-data-structures] (15 min)
++ [Homeworks with Git][git-homeworks] (10 min)
+  + **Make sure to read before starting the homework!**
+
 
 ### Homeworks (45 min)
 + [DIY ADTs][diy-adts] (45 min)
@@ -204,34 +207,31 @@
 [dfs-video]: https://vimeo.com/162763740
 
 [intro-algorithms-and-data-structures]: ./readings/intro-algorithms-and-data-structures.md
+[git-homeworks]: ./readings/git-homeworks.md
 [diy-adts]: ./homeworks/questions/abstract_data_types.md
 
 [poly-tree-node]: projects/poly_tree_node
 [knights-travails]: projects/knights_travails
 [tic-tac-toe-ai]: projects/tic_tac_toe_ai
 
-## w1d6-w1d7
-* **STUDY FOR ASSESSMENT**
-* Submit W1D5 Progress Report by 9:00 am, Monday
-
-## Language Basics II, OO Design
-
 ## w2d1
 
 ### Assessment01
-+ [Practice][assessment-practice]
++ [Practice][assessment-prep-1]
 + SF Only:
   + Please setup Ruby + RSpec on your own machine and bring it.
   + If you need to use one of our machines, please just use a single
     monitor.
 
-### Readings (65 min)
+### Readings (67 min)
 + [Class inheritance][inheritance] (15 min)
 + [Exceptions, error handling][errors] (15 min)
 + [Decomposition into objects][object-decomposition] (10 min)
 + [Inheritance, Polymorphism and DRY][inheritance-design] (10 min)
 + [Information hiding/encapsulation][hiding] (5 min)
 + [UML][uml] (10 min)
++ [Singleton][singleton] (2 min)
+    + Just the section on usage
 
 ### Projects
 + [Class inheritance][inheritance-exercises]
@@ -239,6 +239,7 @@
 + [Chess][chess]
     + Please read the project description the night before.
 
+[singleton]: http://ruby-doc.org/stdlib-1.9.3/libdoc/singleton/rdoc/Singleton.html#module-Singleton-label-Usage
 [uml]: readings/uml.md
 [inheritance]: readings/inheritance.md
 [inheritance-exercises]: projects/class_inheritance
@@ -253,9 +254,13 @@
 
 ### Study Hall 9 - 10am
 
+### Homeworks (60 min)
++ [Mancala][mancala-hw] (60 min)
+
+### Projects
 + Continue Chess
 
-## RSpec
+[mancala-hw]:./homeworks/questions/mancala
 
 ## w2d3
 
@@ -294,8 +299,9 @@
 
 ## w2d4
 
-### Practice Assessment02
+### Assessment02 Practice
 + In-class practice assessment at 9am.  Please bring your own machine if possible.  
++ [Practice][assessment-prep-2]
 
 ### Video lectures (71 min)
 :closed_lock_with_key: `go_video_go`
@@ -323,6 +329,7 @@
 + [Windowed max range][max-windowed-range]
 + **Bonus**: [Benchmarking][benchmarking]
 
+[assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 [big-O-motivations]: https://vimeo.com/175565088
 [big-O-ram]: https://vimeo.com/175565090
 [big-O-asymptotic]: https://vimeo.com/175565086

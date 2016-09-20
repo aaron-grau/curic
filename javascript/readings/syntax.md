@@ -88,7 +88,7 @@ result; // [1,2,4,5,7,8]
 Exits the loop.
 ```js
 let result = [];
-for (let i = 1 ;i < 10 ;i++) {
+for (let i = 1; i < 10; i++) {
   if (i % 3 === 0) {
     break;
   }

@@ -29,7 +29,7 @@ this scenario, we need to configure ESLint to deal with edge cases.
 
 #### Globals
 
-Global variables often cause false positives in ESLint. ESLint wants to prevent accidental global assignment, so it gets made about anything that isn't declared with `var` `let` or `const`. The problem is that it often complains about names that are _supposed_
+Global variables often cause false positives in ESLint. ESLint wants to prevent accidental global assignment, so it gets mad about anything that isn't declared with `var` `let` or `const`. The problem is that it often complains about names that are _supposed_
 to be global like `window`, `navigator`, `$`, or `React`.
 
 ```js
