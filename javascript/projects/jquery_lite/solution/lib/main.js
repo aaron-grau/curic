@@ -4,21 +4,16 @@ const _docReadyCallbacks = [];
 let _docReady = false;
 
 window.$l = arg => {
-  let returnValue;
   switch(typeof(arg)){
     case "function":
-      registerDocReadyCallback(arg);
-      break;
+      return registerDocReadyCallback(arg);
     case "string":
-      returnValue = getNodesFromDom(arg);
-      break;
+      return getNodesFromDom(arg);
     case "object":
       if(arg instanceof HTMLElement){
-        returnValue = new DomNodeCollection([arg]);
+        return new DomNodeCollection([arg]);
       }
-      break;
   }
-  return returnValue;
 };
 
 $l.extend = (base, ...otherObjs) => {
@@ -41,8 +36,9 @@ $l.ajax = options => {
     data: {},
   };
   options = $l.extend(defaults, options);
+  options.method = options.method.toUpperCase();
 
-  if (options.method.toUpperCase() === "GET"){
+  if (options.method === "GET"){
     //data is query string for get
     options.url += "?" + toQueryString(options.data);
   }
