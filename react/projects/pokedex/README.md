@@ -4,7 +4,7 @@
 
 In this project, we'll write an app to manage your `Pokemon` and their `Toys`.
 
-We've already setup a Rails backend with migrations/models/controllers/views for you to start with in the [skeleton][skeleton-zip].  **You will need to run `bundle install`, then `rake db:setup` (short for `rake
+We've already set up a Rails backend with migrations, models, controllers, and views for you to start with in the [skeleton][skeleton-zip].  **You will need to run `bundle install`, then `rake db:setup` (short for `rake
 db:create db:migrate db:seed`).**
 
 Take a look at the schema, the routes file, and the jbuilder views to get
@@ -15,7 +15,7 @@ data are available from the backend.
 requests for the `pokemon` resource should be assumed to be asking for a
 JSON response instead of HTML. When we render a template, instead of looking for `template.html.erb`, Rails will look for `template.json.jbuilder`.
 
-Stylesheets have been provided for you in the skeleton.  Follow the sample jsx structures provided in the instructions to have these stylings applied.  
+Stylesheets have been provided for you in the skeleton.  **Follow the sample jsx structures provided in the instructions to have these stylings applied.**  
 
 
 [skeleton-zip]: ./skeleton.zip?raw=true
@@ -110,33 +110,46 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-Next, add more structure to your `frontend` directory. You should have folders for `actions`, `components`, `reducers`, `store`, `middleware` and `util`.
+**Test your code** and make sure that your component renders to the page.
+
+Next, add more structure to your `frontend` directory. You should have folders called `actions`, `components`, `reducers`, `store`, `middleware` and `util`.
 
 ## Phase 2: The Pokemon Index
 
 ### From API to Action Creator
 
 We'd like to render a list of Pokemon. Let's start by setting up a way to fetch
-them from the back end. Make an `api_util.js` file inside your util folder.
+them from the back end. Make an `api_util.js` file inside your `util` folder.
 Inside this file, we'll make ajax requests that fetch information served by our
 rails controllers, and on success dispatch an action creator.
 
 Export a function called `fetchAllPokemon` that takes in a success callback as an argument. The function should make an AJAX request that will serve up the `index.json.jbuilder` view for Pokemon.  Check out the `routes.rb` file and run `rake routes` to determine the appropriate url for this request.
 
-Now let's write the success callback that will be passed to this function.  Create a `pokemon_actions.js` file within the actions folder and import the ajax request function we just wrote.  **Hint:** `import * as API from './util/api_util.js'` is a nice way to just import all of the api util functions as methods of an API object!
+Now let's write the success callback that will be passed to this function.  Create a `pokemon_actions.js` file within the `actions` folder and import the ajax request function we just wrote.  
+**Hint:** `import * as API from './util/api_util.js'` is a nice way to just import all of the api util functions as methods of an API object!
 
-In our newly created `pokemon_actions.js` file, let's start by exporting a `PokemonConstants`
-objects with a key-value pair for `"RECEIVE_ALL_POKEMON"`.  Next, export a function called `receiveAllPokemon` that returns a pure object. This object should have two keys: one for the a `RECEIVE_ALL_POKEMON` action type and another for the Pokemon data.
+In our newly created `pokemon_actions.js` file, let's start by exporting a constant called RECEIVE_ALL_POKEMON with the value `"RECEIVE_ALL_POKEMON"`.  Next, export a function called `receiveAllPokemon` that returns a pure object. This object should have two keys: one for the a `RECEIVE_ALL_POKEMON` action type and another for the Pokemon data.
+
+Your code will look like the following:
+```js
+export const RECEIVE_ALL_POKEMON = 'RECEIVE_ALL_POKEMON';
+export const receiveAllPokemon = pokemon => ({
+  type: RECEIVE_ALL_POKEMON,
+  pokemon
+})
+```
 
 **Import the action and api_util files in your entry file to test everything works**.  Remember, our action creator just returns an object.  In order to verify that we indeed received all the Pokemon, we can wrap it in a `console.log`:
 
 ```javascript
-API.fetchAllPokemon((pokemon) => console.log(ACTIONS.receiveAllPokemon(pokemon)));
+API.fetchAllPokemon((pokemon) => console.log(receiveAllPokemon(pokemon)));
 ```
+
+Next, let's write a `requestAllPokemon` action creator. This function will not need to receive any arguments, and will return an action object with a `type` of `REQUEST_ALL_POKEMON`. (You will have to create this constant the way you did the `RECEIVE_ALL_POKEMON` constant.)
 
 ### The Reducer
 
-Remember that the reducer is only concerned with describing how state changes as a result of a dispatched action. In our case this will be the `receiveAllPokemon` action. Create a `pokemon_reducer.js` file that exports a function implementing a switch statement to catch the `action.type`. Refer to these action types by importing the `PokemonConstants` object from the action creator file.
+Remember that the reducer is only concerned with describing how state changes as a result of a dispatched action. In our case this will be the `receiveAllPokemon` action. Create a `pokemon_reducer.js` file that exports a function implementing a switch statement to catch the `action.type`. Refer to these action types by importing the action type constants from `pokemon_actions.js`.
 
 Remember, the reducer function should take two parameters: the `oldState` (defaulting to an empty object) and the action being dispatched. It should then return the new state, without changing the `oldState` object.  Assure that the default case for the reducer switch statement is to return the `oldState`.
 
@@ -152,13 +165,22 @@ Create a `store.js` file within the store folder.  Remember, the store contains 
 
 The `createStore` function takes the reducer, any `preloadedState`, and any enhancers such as middleware. For now just pass it the imported `pokemon_reducer` and we will come back to the other arguments later.
 
-Wrap the creating of the store in a `configureStore` function. This is a great pattern to get used to, instead of just exporting the store we are exporting a function that creates the store. This can be used in the future to swap out reducers, `preloadedState`, or enhancers depending on certain conditions.
+Wrap the creating of the store in a `configureStore` function. This is a great pattern to get used to: instead of just exporting the store, we are exporting a function that creates the store. This can be used in the future to swap out reducers, `preloadedState`, or enhancers depending on certain conditions.
+
+Your code will look like the following:
+```js
+const configureStore = () => (
+  createStore(
+    PokemonReducer
+  )
+);
+```
 
 Head back to the `pokedex.jsx` entry file, import your `configureStore` function and call it inside the DOM listener callback. Now replace the logging of your `receiveAllPokemon` success callback with a dispatching using the store.
 
-Test that this dispatches the action to our reducer and updates the state by placing the store on the window at the end of the listener and calling `getState()` in your console.
+**Test that this dispatches the action to our reducer and updates the state** by placing the store on the window at the end of the listener and calling `getState()` in your console.
 
-Now let's pass the store to our root component as a prop.  Inside the root component modify your function to receive a parameter `({ store })`.
+Now let's pass the store to our root component as a prop.  Inside the root component, modify your function to receive a parameter `({ store })`.
 
 If we try to read the state of our store, what is going to happen? Talk this over with your partner before moving on.
 
@@ -201,7 +223,7 @@ Before we move on, import the container component into your entry file and nest 
 
 The answer to our problem of components not directly communicating with our server is to have them dispatch an action that is intercepted by a middleware. The middleware will then perform the AJAX request and decide whether to pass the action along to the reducer.
 
-Create a `pokemon_middleware.js` file that imports the necessary actions and api util functions. Go ahead and remove those imports from your entry file that we used for testing.  Write a `PokemonMiddleware` function that makes the API call to fetch Pokemon when `"REQUEST_ALL_POKEMON"` is dispatched.   
+Create a `pokemon_middleware.js` file that imports the necessary actions (`receiveAllPokemon`, as well as the `REQUEST_ALL_POKEMON` constant) and api util functions (`fetchAllPokemon`). Go ahead and remove those imports from your entry file that we used for testing.  Write a `PokemonMiddleware` function that makes the API call to fetch Pokemon when `"REQUEST_ALL_POKEMON"` is dispatched.   
 
 Remember that the middleware will resemble the reducer in that it will be a switch statement that intercepts actions based on their type. The parameters of the middleware are written in a way that allows it to receive and pass along the actions using `next`. Make sure to call `next(action)` as the default of the switch statement to make sure actions uncaught by the middleware still make it to the reducer. We can pass the middleware the dispatch action as well in order to wrap our success callback actions.
 
@@ -211,10 +233,21 @@ export default ({ dispatch }) => next => action => {
 };
 ```
 
-In order to properly configure the new middleware with the store we will have to add the remaining paramaters to our `CreateStore` call in the `configureStore` function. Import and pass the applied middleware using the `applyMiddleware` function from `redux`.
+In order to properly configure the new middleware with the store we will have to add the remaining parameters to our `createStore` call in the `configureStore` function. Import and pass the applied middleware using the `applyMiddleware` function from `redux`.
+
+Your `configureStore` method should now look like the following:
+```js
+const configureStore = () => (
+  createStore(
+    PokemonReducer,
+    applyMiddleware(PokemonMiddleware)
+  )
+);
+```
 
 **Test that your PokemonIndex component now renders some pokemon**
 
+The following code is an example of what your `PokemonIndex` component might contain in its `render` method.
 ```html
 <section className="pokedex">
   <ul>
@@ -229,13 +262,13 @@ We could continue to pass the store down as props to whatever components need to
 
 Refactor your root component out into it's own file and `import { Provider } from 'react-redux';`
 
-Wrap your `<PokemonIndexContainer>` in a `<Provider>` component that receives the store as a prop. Export this back to your entry file and make sure everything is still rendering correctly.
+Wrap your `<PokemonIndexContainer>` in a `<Provider>` component that receives the store as a prop. Export this back to your entry file and **test this change** by making sure everything is still rendering correctly.
 
 ## The Router
 
-Now let's say we want the ability to click on any of these Pokemon and see more details about them. In order to maintain a common user interface used around the web, we will have the URL define what components the user sees render. This is exactly what the powerful React Router library is for. To use it, `import { Router, Route, hashHistory } from 'react-router';` at the top of our `root.jsx` file.  We will handle all routing decisions within our root component.  
+Now let's say we want the ability to click on any of these Pokemon and see more details about them. In order to maintain a common user interface used around the web, we will have the URL define what components the user sees. This is exactly what the powerful React Router library is for. To use it, `import { Router, Route, hashHistory } from 'react-router';` at the top of our `root.jsx` file.  We will handle all routing decisions within our root component.  
 
-Within our provider, we will nest everything within `<Router>` tags.  We need to pass the router `hashHistory`, tells the router what type of history we will be using to keep track of our locations and pathnames. Another option is `browserHistory`, but it requires extra backend configuration so we will prefer `hashHistory` in this course.  Your code should resemble the following:
+Within our provider, we will nest everything within `<Router>` tags.  We need to pass the router `hashHistory` as its `history` parameter, which tells the router what type of history we will be using to keep track of our locations and pathnames. Another option is `browserHistory`, but it requires extra backend configuration so we will prefer `hashHistory` in this course.  Your code should resemble the following:
 
 ```html
   <Provider store={store}>
@@ -248,6 +281,11 @@ Within our provider, we will nest everything within `<Router>` tags.  We need to
 Next, instead of rendering the `PokemonIndexContainer` directly, setup a route that will render the component when `path="/"`. This will assure that the Pokemon index is rendered no matter what our pathname is.
 
 The React Router allows us to do some refactoring of our `PokemonIndex` component with the use of the [onEnter][on-enter] function.  This function is called when the route is entered, so instead of dispatching the `requestAllPokemon` action in the `PokemonIndex` component we can call it on entrance of the `/` route. Write this function.
+
+As a quick reminder, React Router's route syntax is as follows:
+```js
+<Route path='PATH' component='COMPONENT' onEnter='ON_ENTER_CALLBACK'></Route>
+```
 
 Now you can refactor the `PokemonIndex` to be a stateless functional component that does not need to call any React lifecycle methods. We also do not need to
 `mapDispatchToProps` anymore which simplifies our `PokemonIndexContainer`.
