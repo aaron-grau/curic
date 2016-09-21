@@ -50,7 +50,7 @@ rails console (`rails c`).
 + Make your controller actions serve JSON-formatted responses.
 + Define a private helper method for `todos_params`.
 
-For example, your `show` and `index` actions should look something like this:
+For example, your `show` and `create` actions should look something like this:
 ```rb
 # app/controller/api/todos_controller.rb
 def show
@@ -114,7 +114,8 @@ const error = e => alert(e);
 $.ajax({
     method: 'GET',
     url: 'api/todos',
-    success
+    success,
+    error
   });
 ```
 
