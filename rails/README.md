@@ -297,6 +297,11 @@
 * [:movie_camera: HTTP Demo](https://vimeo.com/161381489) (4 min)
 * [:movie_camera: Rails from the Inside Out](https://vimeo.com/161381601) (13 min)
 * [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
+* [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
+* [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
+* [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
+* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
+	* [:computer: demo code][middleware-demo] (22 min)
 
 ### Homeworks (45 min)
 * Complete [RegexOne][regex-link] (45 min)
@@ -309,50 +314,19 @@
 * [:movie_camera: (cc) 01-protocols][01-protocols] (14 min)
   * old news at this point; recommended speed >= 2x
 * [:movie_camera: (cc) 02-http][02-http] (43 min)
+* [Middleware][middleware]
 
 ### Solo Projects
 * [Rails Lite][rails-lite]
 * [Rails Lite II][rails-lite-ii]
 
+[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [http]: readings/http.md
 [rack]: readings/rack.md
 [regex-link]: http://regexone.com/
 [00-webserver]: http://vimeo.com/groups/appacademy/videos/100169899
 [01-protocols]: http://vimeo.com/groups/appacademy/videos/100169898
 [02-http]: http://vimeo.com/groups/appacademy/videos/100267302
+[middleware]: readings/middleware.md
 [rails-lite]: projects/rails_lite
 [rails-lite-ii]: projects/rails_lite/rails-lite-ii.md
-
-## w5d3
-
-### Study Hall 9 - 10am
-
-### Breakfast
-* :joy_cat: **Bagels @ 8:30am** :joy_cat:
-
-### Video lectures (65 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
-* [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
-* [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
-* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
-	* [:computer: demo code][middleware-demo] (22 min)
-* [:movie_camera: Watch W5D3 Javascript Video Lectures][js-videos] (12 min)
-
-### Readings (70 min)
-* Complete [Javascript W5D3 Readings][js-readings] (70 min)
-
-### Homeworks (30 min)
-* Complete [Javascript W5D3 Homework][js-hw] (30 min)
-
-### Additional Resources
-* [Middleware][middleware]
-
-### Projects
-* **Solo**: Finish ActiveRecordLite and RailsLite.
-
-[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
-[middleware]: readings/middleware.md
-[js-videos]: ../javascript#video-lectures-12-min
-[js-readings]: ../javascript#readings-70-min
-[js-hw]: ../javascript#homeworks-30-min
