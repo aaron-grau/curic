@@ -13,10 +13,12 @@ class TodoList extends React.Component {
     return(
       <div>
         <ul className="todo-list">
-          {todos.map(todo => <TodoListItem 
-            key={`todo-list-item${todo.id}`} 
-            todo={todo}
-            toggleTodo={toggleTodo} />)}
+          {todos.map(todo => (
+            <TodoListItem
+              key={`todo-list-item${todo.id}`}
+              todo={todo}
+              toggleTodo={toggleTodo} />
+          ))}
         </ul>
         <TodoForm createTodo={createTodo}/>
       </div>

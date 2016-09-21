@@ -42,11 +42,6 @@ export const updateTodo = todo => ({
   todo
 });
 
-export const toggleTodo = todo => ({
-  type: UPDATE_TODO,
-  todo: Object.assign({}, todo, { done: !todo.done })
-});
-
 export const destroyTodo = todo => ({
   type: DESTROY_TODO,
   todo

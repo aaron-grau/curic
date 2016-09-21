@@ -1,27 +1,26 @@
-export const TracksConstants = {
-  START_RECORDING: "START_RECORDING",
-  STOP_RECORDING: "STOP_RECORDING",
-  ADD_NOTES: "ADD_NOTES",
-  DELETE_TRACK: "DELETE_TRACK"
-};
+export const START_RECORDING = "START_RECORDING";
+export const STOP_RECORDING = "STOP_RECORDING";
+export const ADD_NOTES = "ADD_NOTES";
+export const DELETE_TRACK = "DELETE_TRACK";
+
 
 export const startRecording = () => ({
-  type: TracksConstants.START_RECORDING,
+  type: START_RECORDING,
   timeStart: Date.now()
 });
 
 export const stopRecording = () => ({
-  type: TracksConstants.STOP_RECORDING,
+  type: STOP_RECORDING,
   timeNow: Date.now()
 });
 
 export const addNotes = notes => ({
-  type: TracksConstants.ADD_NOTES,
+  type: ADD_NOTES,
   timeNow: Date.now(),
   notes
 });
 
 export const deleteTrack = id => ({
-  type: TracksConstants.DELETE_TRACK,
+  type: DELETE_TRACK,
   id
 });

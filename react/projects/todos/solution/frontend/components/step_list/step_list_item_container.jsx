@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
 import StepListItem from './step_list_item';
 // Actions
-import { toggleStep, destroyStep } from '../../actions/step_actions';
+import { updateStep, destroyStep } from '../../actions/step_actions';
 
 const mapDispatchToProps = (dispatch, { step }) => ({
   destroyStep: () => dispatch(destroyStep(step)),
-  toggleStep: () => dispatch(toggleStep(step))
+  toggleStep: () => {
+    const toggledStep = Object.assign({}, step, {
+      done: !step.done
+    });
+    dispatch(updateStep(toggledStep))
+  }
 });
 
 export default connect(

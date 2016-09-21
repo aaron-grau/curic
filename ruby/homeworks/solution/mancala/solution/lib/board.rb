@@ -69,7 +69,7 @@ class Board
     puts ""
   end
 
-  def cups_empty?
+  def one_side_empty?
     @cups.take(6).all? { |cup| cup.empty? } ||
     @cups[7..12].all? { |cup| cup.empty? }
   end

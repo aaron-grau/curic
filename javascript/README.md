@@ -108,8 +108,8 @@
 * [Event Loop Visualization][loupe] (10 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
-### Homeworks (60 min)
-* [CSS Curriculum Day 2][css-day2] (30 min)
+### Homeworks (65 min)
+* [CSS Curriculum Day 2][css-day2] (35 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 ### Additional Resources
@@ -166,9 +166,9 @@
 * **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
     * **Be sure to run and understand this the night before**
 
-### Homeworks (90 min)
-* [CSS Curriculum Day 3][css-day3] (30 min)
-* [CSS Curriculum Day 4][css-day4] (40 min)
+### Homeworks (115 min)
+* [CSS Curriculum Day 3][css-day3] (40 min)
+* [CSS Curriculum Day 4][css-day4] (55 min)
 * [Webpack tutorial][webpack] (20 min)
   * complete up to 'The First Loader'
 
@@ -213,7 +213,6 @@
 + In-class practice assessment at 9am. Please bring your own machine if possible.
 * [Practice][assessment-prep-5]
 
-
 ### Readings (75 min)
   * [The Document Object Model][dom] (10 min)
   * [jQuery I: Selection and Manipulation][jquery-01-selection] (15 min)
@@ -240,6 +239,21 @@
   * [jQuery Towers of Hanoi][hanoi-jquery]
   * **Bonus**: [Snake][snake-project]
 
+[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
+[wacky-project]: homeworks/questions/jquery-wacky-homework.md
+[dom]: readings/document-object-model.md
+[jquery-01-selection]: readings/jquery-01-selection-and-manipulation.md
+[jquery-02-events]: readings/jquery-02-events.md
+[jquery-03-ready]: readings/jquery-03-ready.md
+[jquery-04-all-the-ways]: readings/jquery-04-all-the-ways.md
+[jquery-05-data-attributes]: readings/jquery-05-data-attributes.md
+[jquery-docs]: http://api.jquery.com/
+[jquery-fundamentals]: http://jqfundamentals.com/
+
+[hanoi-jquery]: projects/hanoi_jquery
+[ttt-jquery]: projects/ttt_jquery
+[snake-project]: projects/snake
+
 ## w6d3
 
 ### Homeworks (2 hr)
@@ -259,22 +273,6 @@
 [css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-warmup]: ../html-css/projects/css_warm_up
-[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
-
-
-[wacky-project]: homeworks/questions/jquery-wacky-homework.md
-[dom]: readings/document-object-model.md
-[jquery-01-selection]: readings/jquery-01-selection-and-manipulation.md
-[jquery-02-events]: readings/jquery-02-events.md
-[jquery-03-ready]: readings/jquery-03-ready.md
-[jquery-04-all-the-ways]: readings/jquery-04-all-the-ways.md
-[jquery-05-data-attributes]: readings/jquery-05-data-attributes.md
-[jquery-docs]: http://api.jquery.com/
-[jquery-fundamentals]: http://jqfundamentals.com/
-
-[hanoi-jquery]: projects/hanoi_jquery
-[ttt-jquery]: projects/ttt_jquery
-[snake-project]: projects/snake
 
 ## w6d4
 
@@ -354,8 +352,8 @@
 [effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 [css-day1]: ../html-css/README.md#css-intro-workflow--day-1
-[css-day2]: ../html-css/README.md#css-syntax-day-2
-[css-day3]: ../html-css/README.md#css-reset--advanced-selectors-day-3
-[css-day4]: ../html-css/README.md#the-display-property--the-box-model-day-4
-[css-day5]: ../html-css/README.md#float-fluid-layouts--flexbox-day-5
-[css-day6]: ../html-css/README.md#positioning--media-queries-day-6
+[css-day2]: ../html-css/README.md#day-2-syntax
+[css-day3]: ../html-css/README.md#day-3-reset--advanced-selectors
+[css-day4]: ../html-css/README.md#day-4-the-display-property--the-box-model
+[css-day5]: ../html-css/README.md#day-5-float-fluid-layouts--flexbox
+[css-day6]: ../html-css/README.md#day-6-positioning--media-queries

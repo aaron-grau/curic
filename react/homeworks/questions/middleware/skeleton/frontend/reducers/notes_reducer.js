@@ -1,4 +1,4 @@
-import { NotesConstants } from '../actions/notes_actions';
+import { KEY_PRESSED, KEY_RELEASED, GROUP_UPDATE } from '../actions/notes_actions';
 import { NOTE_NAMES } from '../util/tones';
 import union from 'lodash/union';
 
@@ -13,7 +13,7 @@ const notes = (state = [], action) => {
   const idx = state.indexOf(note); // check to see if note is in previous state
 
   switch(action.type) {
-    case NotesConstants.KEY_PRESSED:
+    case KEY_PRESSED:
       if (note && idx === -1) {
         return [
           ...state,
@@ -21,7 +21,7 @@ const notes = (state = [], action) => {
         ];
       }
       return state;
-    case NotesConstants.KEY_RELEASED:
+    case KEY_RELEASED:
       if (idx !== -1) {
         return [
           ...state.slice(0, idx),
@@ -29,7 +29,7 @@ const notes = (state = [], action) => {
         ];
       }
       return state;
-    case NotesConstants.GROUP_UPDATE:
+    case GROUP_UPDATE:
       return [
         ...action.notes
       ];
