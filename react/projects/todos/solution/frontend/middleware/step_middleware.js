@@ -4,12 +4,12 @@ import { fetchSteps,
          updateStep,
          destroyStep
        } from '../util/step_api_util';
-// Step Action
+// Step Action Creators
 import { requestSteps,
          receiveStep,
          receiveSteps,
          removeStep,
-// Step Constants
+// Step Type Constants
          REQUEST_STEPS,
          CREATE_STEP,
          UPDATE_STEP,
@@ -20,7 +20,8 @@ export default ({getState, dispatch}) => next => action => {
   const stepsSuccess = data => dispatch(receiveSteps(data));
   const stepSuccess = data => dispatch(receiveStep(data));
   const stepRemoved = data => dispatch(removeStep(data));
-  switch(action.type){
+  
+  switch(action.type) {
     case REQUEST_STEPS:
       fetchSteps(action.todo_id, stepsSuccess);
       break;

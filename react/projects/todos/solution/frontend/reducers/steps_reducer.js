@@ -29,26 +29,26 @@ const StepsReducer = (state = {}, action) => {
 
 export default StepsReducer;
 
-// State Shape
-  // {
-  //   "1": {
-  //     1: {
-  //       title: "walk to store",
-  //       done: false
-  //     },
-  //     2: {
-  //       title: "buy soap",
-  //       done: false
-  //     }
-  //   },
-  //   "2": {
-  //     3: {
-  //       title: "walk to park",
-  //       done: false
-  //     },
-  //     4: {
-  //       title: "play with dog",
-  //       done: false
-  //     }
-  //   }
-  // };
+// Sample State Shape
+// {
+//   "1": {
+//     1: {
+//       title: "walk to store",
+//       done: false
+//     },
+//     2: {
+//       title: "buy soap",
+//       done: false
+//     }
+//   },
+//   "2": {
+//     3: {
+//       title: "walk to park",
+//       done: false
+//     },
+//     4: {
+//       title: "play with dog",
+//       done: false
+//     }
+//   }
+// };

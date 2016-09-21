@@ -2,7 +2,7 @@ import React from 'react';
 import TodoDetailViewContainer from './todo_detail_view_container';
 
 class TodoListItem extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = { detail: false };
     this.toggleDetail = this.toggleDetail.bind(this);
@@ -25,14 +25,14 @@ class TodoListItem extends React.Component {
     return (
       <li className="todo-list-item">
         <div className="todo-header">
-          <a onClick={this.toggleDetail}>{ title }</a>
-          <button 
-            className={ done ? "done" : "undone"}
+          <a onClick={this.toggleDetail}>{title}</a>
+          <button
+            className={done ? "done" : "undone"}
             onClick={toggleTodo(todo)}>
-            { done ? "Undo" : "Done"}
+            {done ? "Undo" : "Done"}
           </button>
         </div>
-        { detail }
+        {detail}
       </li>
     );
   }

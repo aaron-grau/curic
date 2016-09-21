@@ -5,13 +5,13 @@ import { fetchTodos,
          updateTodo,
          destroyTodo
        } from '../util/todo_api_util';
-// Todo Action
+// Todo Action Creators
 import { requestTodos,
          receiveTodo,
          receiveTodos,
          removeTodo,
          todoError,
-// Todo Constants
+// Todo Type Constants
          REQUEST_TODOS,
          REQUEST_TODO,
          CREATE_TODO,
@@ -19,12 +19,13 @@ import { requestTodos,
          DESTROY_TODO
        } from '../actions/todo_actions';
 
-export default ({getState, dispatch}) => next => action => {
+export default ({ getState, dispatch }) => next => action => {
   const todosSuccess = data => dispatch(receiveTodos(data));
   const todoSuccess = data => dispatch(receiveTodo(data));
   const todoRemoved = data => dispatch(removeTodo(data));
   const todoErrored = data => dispatch(todoError(data.responseJSON));
-  switch(action.type){
+
+  switch(action.type) {
     case REQUEST_TODOS:
       fetchTodos(todosSuccess);
       break;
@@ -35,6 +36,7 @@ export default ({getState, dispatch}) => next => action => {
       createTodo(action.todo, todoSuccess, todoErrored);
       break;
     case UPDATE_TODO:
+      debugger
       updateTodo(action.todo, todoSuccess)
       break;
     case DESTROY_TODO:

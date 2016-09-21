@@ -6,7 +6,7 @@ export const CREATE_STEP = "CREATE_STEP";
 export const UPDATE_STEP = "UPDATE_STEP";
 export const DESTROY_STEP = "DESTROY_STEP";
 
-export const requestSteps = (todo_id) => ({
+export const requestSteps = todo_id => ({
   type: REQUEST_STEPS,
   todo_id
 });
@@ -28,8 +28,8 @@ export const removeStep = step => ({
 
 export const createStep = step => ({
   type: CREATE_STEP,
-  step,
-  todo_id: step.todo_id
+  todo_id: step.todo_id,
+  step
 });
 
 export const updateStep = step => ({
@@ -37,13 +37,8 @@ export const updateStep = step => ({
   step
 });
 
-export const toggleStep = step => ({
-  type: UPDATE_STEP,
-  step: Object.assign({}, step, { done: !step.done })
-});
-
 export const destroyStep = step => ({
   type: DESTROY_STEP,
-  step,
-  todo_id: step.todo_id
+  todo_id: step.todo_id,
+  step
 });
