@@ -9,17 +9,19 @@ This is simple **Redux** app with a `store`, a  `reducer` and actions.
 
 ---
 
-Let's starting by looking at the code that you just walked through in our Redux [store reading][store-reading].
+Let's starting by looking at the code that you just walked through in the first
+half of our Redux [store reading][store-reading].
 
-+ Actions are defined in [`frontend/actions.js`][actions-code].
++ The actions are defined in [`frontend/actions.js`][actions-code].
 + The app's `reducer` (i.e. reducing function) is defined in [`frontend/reducer.js`][reducer-code].
 + The app's Redux store is instantiated in [`frontend/store.js`][store-code].
   + The Redux store constructor `createStore` is imported from `redux`.
   + The app's `reducer` is imported from `frontend/reducer.js`.
 
-Let's interact with the app! The app's `store` and actions `addOrange` and `addApple` are defined on the `window`.
+Cool, now let's interact with the app. The app's `store` and actions `addOrange`
+and `addApple` are defined on the `window`.
 
-+ Open up Dev Tools from the live demo
++ Open up Dev Tools from the [live demo][live-demo].
 + Try dispatching actions to see how they change the app's state.
 
 For example,
@@ -41,7 +43,8 @@ store.dispatch(addLychee);
 store.getState();
 ```
 
-In the [next phase][fruit-stand-02], we will add React components to render the fruit stored in the app's state - creating our first React/Redux app.
+In the [next phase][fruit-stand-02], we will add React components to render the
+fruit stored in the app's state - creating our first React/Redux app.
 
 ---
 
