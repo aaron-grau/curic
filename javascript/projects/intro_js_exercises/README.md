@@ -42,8 +42,7 @@ Do the [iteration exercises][iteration-exercises] in JS.
 
 ## Recursion exercises
 
-Do the [recursion exercises][recursion-exercises] in JS. Do them all
-except `deepDup`.
+Do the [recursion exercises][recursion-exercises] in JS.
 
 [recursion-exercises]: exercises/recursion.md
 
