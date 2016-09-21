@@ -166,10 +166,11 @@ frontend components.
 Your API utilities are what actually make the `$.ajax` requests that will hit
 your backend and fetch or (eventually) update your data. They will be called by
 your middleware, and the data they receive will be passed on to your store. In
-general, these utility functions will accept two arguments:
+general, these utility functions accept two arguments:
   + a callback to run if the request is successful
   + a callback to run in case of an error
 
+Let's write our Todo API Util.
 
 + Create a file `util/todo_api_util.js`.
 + Write a function that accepts a `success` argument and passes that function as the success callback to a `$.ajax` call.
@@ -187,7 +188,7 @@ export const fetchTodos = (success, error) => {
 ```
 
 **Test your code** - Try running your function in the console and make sure
-that it calls the success function that you passed to it.
+that it calls the success and error callback functions that you passed it.
 
 ### Reducers
 
@@ -601,7 +602,7 @@ If we've done our job with our container component, all this presentational comp
 + Dispatch a `requestTodos` action on `componentDidMount`
 + Render the titles of its `todos` prop as list items inside of a `<ul>`
 
-**Test your code** - Add `TodoListContainer` to your `App`. Reload your app and see your list of `todos`!**
+**Test your code** - Add `TodoListContainer` to your `App`. Reload your app and see your list of `todos`!
 
 Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a
 `TodoListItem` component that receives the appropriate item as a prop. Each

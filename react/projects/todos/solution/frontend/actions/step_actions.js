@@ -28,18 +28,13 @@ export const removeStep = step => ({
 
 export const createStep = step => ({
   type: CREATE_STEP,
-  step,
-  todo_id: step.todo_id
+  todo_id: step.todo_id,
+  step
 });
 
 export const updateStep = step => ({
   type: UPDATE_STEP,
   step
-});
-
-export const toggleStep = step => ({
-  type: UPDATE_STEP,
-  step: Object.assign({}, step, { done: !step.done })
 });
 
 export const destroyStep = step => ({
