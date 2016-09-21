@@ -1,10 +1,12 @@
-import { TracksConstants } from '../actions/tracks_actions';
+import  { START_RECORDING,
+          STOP_RECORDING
+        } from '../actions/tracks_actions';
 
 const isRecording = (state = false, action) => {
   switch(action.type) {
-    case TracksConstants.START_RECORDING:
+    case START_RECORDING:
       return true;
-    case TracksConstants.STOP_RECORDING:
+    case STOP_RECORDING:
       return false;
     default:
       return state;

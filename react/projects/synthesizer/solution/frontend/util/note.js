@@ -1,3 +1,4 @@
+// util/note.js
 const ctx = new (window.AudioContext || window.webkitAudioContext)();
 
 const createOscillator = (freq) => {

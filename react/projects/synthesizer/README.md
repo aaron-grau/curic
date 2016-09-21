@@ -39,11 +39,45 @@ Today we're using React.js and Redux to create our own musical keyboard!
     + synthesizer.jsx
   ```
 
-* Setup your entry file `synthesizer.jsx` to render your app into the into the
+* Set up your entry file `synthesizer.jsx` to render your app into the into the
  `#root` container of your `index.html`.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`.
-* Source your bundle file in `index.html`. Run `webpack --watch` and test that your app renders before moving on.
+ * You may copy the code below (and use it as a template for future projects).
+
+```js
+ //webpack.config.js
+
+ const path = require("path");
+
+module.exports = {
+  context: __dirname,
+  entry: "./frontend/synthesizer.jsx",
+  output: {
+    path: path.join(__dirname),
+    filename: "bundle.js"
+  },
+  module: {
+    loaders: [
+      {
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
+    ]
+  },
+  devtool: 'source-maps',
+  resolve: {
+    extensions: ["", ".js", ".jsx" ]
+  }
+};
+```
+
+* Source your bundle file in `index.html`.
+* Run `webpack --watch` and test that your app renders before moving on.
 
 [lodash]:https://lodash.com/docs
 
@@ -51,9 +85,8 @@ Today we're using React.js and Redux to create our own musical keyboard!
 
 #### `Note` Class
 
-You need a `Note` class which you will use to
-actually play tones using the `start` and `stop` functions. We are providing the
-code for this phase.
+You need a `Note` class which you will use to actually play tones using the
+`start` and `stop` functions. We are providing the code for this phase.
 
 * Make a `note.js` file inside of your `util` folder.
 * Copy and paste the following into your `note.js`.
@@ -99,29 +132,33 @@ export default Note;
 
 Before moving on, test that you can initialize and play an instance of a `Note`
 from the `window`. Try a frequency of 800!
+  * Hint - define `window.Note` in your entry file (`synthesizer.jsx`) to access
+  the `Note` class from your browser console.
 
 #### `TONES` and `NOTE_NAMES` Constants
 
-In this step, let's create a constants file which will help us map notes' names (e.g. `C5`, `A5`) into frequencies (i.e. tones) which we will need to create `Note`s.
+In this step, let's create a constants file which will help us translate
+keyboard keys (e.g. `a`, `s`) into frequencies (i.e. tones) which we will need
+to create `Note`s.
 
 * Create a `util/tones.js` file.
-* From there export a `TONES` constant, a JavaScript object mapping note names to frequencies. Something like this,
+* From there export a `TONES` constant, a JavaScript object mapping key names to frequencies. Something like this,
 
   ```js
-  {
-    C5: 523.25,
-    D5: 587.33,
-    E5: 659.25,
-    F5: 698.46,
-    G5: 783.99,
-  }
+  export const TONES = {
+    'a': 523.25,
+    's': 587.33,
+    'd': 659.25,
+    'f': 698.46,
+    'g': 783.99
+  };
   ```
 
-Feel free to copy and paste the object above. Use [this table][note-frequencies] as a resource for additional keys, if you're interested.
+  Feel free to copy and paste the object above. Use [this table][note-frequencies]
+  as a resource for additional keys, if you're interested.
 * Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
 
-We'll be using these constants later to map our keyboard keys to notes names to
-tones.
+We'll be using these constants later to map our keyboard keys to tones.
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
@@ -134,11 +171,13 @@ object. It's really good practice to think about its shape before writing any
 code. Ask yourself, what's the minimal representation of your app's state as an
 object?
 
-For our synthesizer app, we first and foremost want to store the `notes` being play as an array of note names. In other words, your app's `state` shape will look something like this:
+For our synthesizer app, we first and foremost want to store the `notes` being
+played as an array of note names. In other words, your app's `state` shape will
+look something like this:
 
 ```js
 {
-  notes: ['A5', 'C5']
+  notes: ['a', 's']
 }
 ```
 
@@ -151,32 +190,29 @@ action being performed.
 
 * Create an `actions/note_actions.js` file which will house our action creators changing the app's `notes`.
 
-#### `NotesConstants`
+#### `Note Action Constants`
 
 Action `type`s are typically expressed as string constants.
 
-* In our new file, let's export a `NotesConstants`, an object containing keys for `KEY_PRESSED` and `KEY_RELEASED`.
+* In our new file, let's export `KEY_PRESSED` and `KEY_RELEASED`.
 
 For example,
 
 ```js
-export const NotesConstants = {
-  KEY_PRESSED: "KEY_PRESSED",
-  ...
-};
+export const KEY_PRESSED = "KEY_PRESSED";
 ```
 
 #### `keyPressed`
 
 + Export a `keyPressed` function which takes the keyboard `key` pressed and
-returns an action of `type` `"KEY_PRESSED"` using your `NotesConstants`.
+returns an action of `type` `"KEY_PRESSED".`
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
 Your action creator should look like this:
 
 ```js
 export const keyPressed = key => ({
-  type: NotesConstants.KEY_PRESSED,
+  type: KEY_PRESSED,
   key
 });
 ```
@@ -204,12 +240,12 @@ Let's write a reducer for our app which handles the actions we defined above.
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
   + `state` - the previous `notes` state;
   + `action` - the action object dispatched.
-+ Import `NotesConstants` from `notes_actions.js`.
++ Import `KEY_PRESSED` and `KEY_RELEASED` from `notes_actions.js`.
 + Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
 the initial state.
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
-+ Then add a case for each key (i.e. action type) defined in `NotesConstants`.
++ Then add a case for each action type.
   + `KEY_PRESSED` - If the `action.key` isn't already in the state (i.e. already
   playing) then return a new state with the new key appended to the previous
   state, else return the previous state.
@@ -227,26 +263,18 @@ on how to avoid array mutation ([here][array-mutation-code]'s the code from the 
 [union-lodash]: https://lodash.com/docs#union
 
 
-We're almost there. Note that `action.key` references keyboard keys while
-`NOTE_NAMES` stores note names, so we must map any keyboard input to note names
-when calling our action creators. Let's do this using our constant `NOTES_NAMES`
-and an array of valid keyboard keys.
+We're almost there. Note that `action.key` references keys that should be included in `NOTE_NAMES`.
 
-+ Along with your `notes` reducer, define an array called `validKeys` which stores the strings of all of your
-synthesizer's keyboard keys (e.g. `a`, `s`). The number of valid keys must equal
-the number of notes you plan on having.
-+ Also define an object called `keyMap` which stores as keys, valid keys and as values, corresponding note
-names (e.g. `keyMap['a'] = 'C5'`).
-+ Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they also check to
-see if a `action.key` is also a valid key. If not in both cases, return the
-previous state.
++ Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they check to
+see if a `action.key` is also a valid key included in `NOTE_NAMES`. If not, return the previous state.
 
 #### Root Reducer
 
 The `notes` reducer updates and returns to the store only a single slice of
 the state: the `notes` in play.
 
-*NB*: When we have state fields that are independent of each other, we split the reducer into multiple reducers that each handle their own slices of the state.
+*NB*: When we have state fields that are independent of each other, we split the
+reducer into multiple reducers that each handle their own slices of the state.
 This is called **reducer composition**, and it’s the fundamental pattern of
 building Redux apps.
 
@@ -313,7 +341,7 @@ returned by `configureStore`.
 
 ### `SynthContainer` Component
 
-Container components are concerned with how things work such as data fetching
+Container components are concerned with how things work, such as data fetching
 and changes in your app's state. Presentational components are concerned with
 how things look. These distinctions allow for better separation of concerns and
 better usability of components.
@@ -325,12 +353,20 @@ Fortunately, `react-redux` provides a function that does this for us: [`connect`
 * Create a new directory `components/synth`.
 * Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component. Have it render `<div>Synth</div>` to
 start and test.
-* Create a file `components/synth/synth_container.jsx`, and import [`connect`] from
+* Create a file `components/synth/synth_container.jsx`, and import both [`connect`] from
 `react-redux` and your `Synth` component.
-* Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key.
+* Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key. For example,
+
+  ```js
+  const mapStateToProps = state => ({
+    notes: state.notes
+  })
+  ```
+
 * Import your `keyPressed` and `keyReleased` action creators.
-* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For
-example,
+* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators.
+
+For example,
 
   ```js
   const mapDispatchToProps = dispatch => ({
@@ -363,10 +399,10 @@ state, lifecycle hooks, etc. Your `Synth` component will initialize an array of
 define key listeners on the window.
 
 * Redefine your `Synth` component so that it extends the `React.Component`.
-* Import your `NOTES_NAMES` and `TONES` constants, and `Note` class.
+* Import your `NOTE_NAMES` and `TONES` constants, and `Note` class.
 * In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback: your `Note`
 constructor takes a frequency as a parameter, not a string. Hint: Use
-`NOTES_NAMES` and `TONES` to return an array mapping note names to the right
+`NOTE_NAMES` and `TONES` to return an array mapping note names to the right
 frequency.
 * In the `render` function, render a list of `this.notes` to test.
 
@@ -374,7 +410,7 @@ frequency.
 Now let's create a jQuery listener for `keyup` and `keydown` events.
 
 * In your `Synth` class, import `$` from `jquery`.
-* Define a `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the
+* Define an `onKeyDown(e)` function which takes as an argument a [KeyboardEvent][keyboard-event]. Grab the key from the
 event and call `this.props.keyPressed`. Recap: `keyPressed` is the function you
 defined in `mapDispatchToProps` in your `SynthContainer`.
 * Define another function called `onKeyUp(e)`. Call `this.props.keyReleased` passing it the key from the
@@ -432,7 +468,7 @@ This means in addition to storing `notes`, our state needs to store:
 Here's a sample of our new state shape:
 ```
 {
-  notes: ['C5', 'D6'],
+  notes: ['a', 's'],
   isRecording: false,
   tracks: {
     "1": {
@@ -442,7 +478,7 @@ Here's a sample of our new state shape:
       [
         { notes: [ 'A5' ], timeSlice: 1250191 },
         { notes: [], timeSlice: 1255000 },
-        { notes: [ 'C5', 'D5' ], timeSlice: 1265180 }
+        { notes: [ 'a', 's' ], timeSlice: 1265180 }
         { notes: [], timeSlice: 1279511 }
       ],
       timeStart: 1470164117527
@@ -452,7 +488,7 @@ Here's a sample of our new state shape:
       name: 'Track 2',
       roll:
       [
-        { notes: [ 'B5', 'C6', 'C6' ], timeSlice: 253386 },
+        { notes: [ 's', 'd', ';' ], timeSlice: 253386 },
         { notes: [], timeSlice: 265216 }
       ],
       timeStart: 1470173676236
@@ -470,7 +506,7 @@ discussing the details of our track objects for a little later.
 
 #### `TracksConstants`
 
-+ Export `TracksConstants`, an object containing keys for `START_RECORDING`, `STOP_RECORDING`, and `ADD_NOTES`. Remember, values are the string literals of the keys.
++ Export constants for `START_RECORDING`, `STOP_RECORDING`, and `ADD_NOTES`.
 
 #### `startRecording`
 
@@ -492,7 +528,7 @@ discussing the details of our track objects for a little later.
 
 #### `isRecording` Reducer
 + Create a `reducers/is_recording_reducer.js` file that exports a `recording(state, action)` reducer.
-+ Import your `TracksConstants`.
++ Import your constants from `action/tracks_actions.js`.
 + Use the ES6 default arguments syntax to return `false` as the initial state.
 + Add a `switch` statement evaluating `action.type` and return `state` as the `default` case.
 + The recording is only concerned with two types of actions: `START_RECORDING` and `STOP_RECORDING`. Return the appropriate next state for each case.
@@ -508,9 +544,9 @@ Let's take a closer look at a track object.
   name: 'Track 1'
   roll:
   [
-    { notes: [ 'A5' ], timeSlice: 1250191 },
+    { notes: [ 'a' ], timeSlice: 1250191 },
     { notes: [], timeSlice: 1255000 },
-    { notes: [ 'C5', 'D5' ], timeSlice: 1265180 }
+    { notes: [ 's', 'd' ], timeSlice: 1265180 }
     { notes: [], timeSlice: 1279511 }
   ],
   timeStart: 1470164117527
@@ -521,12 +557,12 @@ Let's take a closer look at a track object.
 update `roll` as the user presses new notes. We append into the `roll` an object
 with the following values:
 + `timeSlice` - the time elapsed since the track started recording;
-+ `notes` - an array of note names (eg. `['C3', 'E3', 'G3']`)
++ `notes` - an array of note names (eg. `['a', 's', 'd']`)
 We need to know the current time a note is played to calculate when to
 play a note relative to the `timeStart` of the recording (`timeSlice`) and the
 names of the notes actually played (`notes`).
 
-+ Create a `reducers/tracks_reducer.js` file; import your `TracksConstants`, and `merge` from `lodash/merge`.
++ Create a `reducers/tracks_reducer.js` file; import your constants from `action/tracks_actions.js`, and `merge` from `lodash/merge`.
 + Initialize a variable `currTrackId` to `0`. This variable will be used to set track ids and add notes to the newest recording.
 + `export default` your `tracks` reducer.
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
@@ -548,7 +584,7 @@ names of the notes actually played (`notes`).
 
 *NB*: State must never be mutated in the redux, so make sure you are creating
 and returning new objects and arrays. `Object.assign` returns a shallow copy of
-an object which is why for nested objects, we must rely on `merge` from
+an object, which is why for nested objects we must rely on `merge` from
 `lodash`.
 
 [merge-lodash]:https://lodash.com/docs#merge
@@ -607,19 +643,21 @@ Now your synthesizer plays musical notes and records tracks! Nice.
 
 ## Phase 7: Jukebox
 
+<!-- TODO: latest stopping point  -->
+
 Let's create a `Jukebox` to display and play our recorded tracks. We're going to
 add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 
 ### Action Creators
 * Create a `actions/playing_actions.js` file.
-* Export `PlayingConstants` with `START_PLAYING` and `STOP_PLAYING` key-value pairs.
+* Export `START_PLAYING` and `STOP_PLAYING` constants.
 * Export `startPlaying` and `stopPlaying` action creators.
-* Add a new `GROUP_UPDATE` key-value pair to your `NotesConstants`. We'll be using this action to replace the `notes` in the store with notes from a track's roll.
-* Export a `groupUpdate` action creator which takes as an arguments an array of `notes`.
+* Add a new `GROUP_UPDATE` constant to your `actions/notes_actions.js`. We'll be using this action to replace the `notes` in the store with notes from a track's roll.
+* Export a `groupUpdate` action creator from `actions/notes_actions.js` which takes as an argument an array of `notes`.
 
 ### Reducers
 * Create a `reducers/is_playing_reducer.js` file.
-* Import your `PlayingConstants` and export a `isPlaying` reducer.
+* Import `START_PLAYING` and `STOP_PLAYING`, and export an `isPlaying` reducer.
 * Set the initial state to `false` and return the state by default.
 * Create switch cases for `START_PLAYING` and `STOP_PLAYING`, setting the `isRecording` to the appropriate boolean value.
 * In your `notes` reducer, add a new switch case for `GROUP_UPDATE`, replacing the `notes` in the state with `action.notes`.
