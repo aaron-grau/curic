@@ -92,9 +92,15 @@ the React curriculum materials. Review the
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
-### Video Demo (1 hr 15 min)
+### Fruit Stand App Demo (1 hr 15 min)
 :closed_lock_with_key: `go_video_go`
--  :movie_camera: [Basic Redux/React Application][redux_react_demo] (1 hr 15 min)
++ Phase I - Redux only (15 min)
+  + [Live demo][fruit-stand-01-live]
+  + [Source code][fruit-stand-01-source]
++ Phase II - Redux and React
+  + :movie_camera: [Video demo][fruit-stand-02-video]
+  + [Live demo][fruit-stand-02-live]
+  + [Source code][fruit-stand-02-source]
 
 ### Homeworks (45 min)
 - [Dollar Store][dollar_store_hw] (45 min)
@@ -106,6 +112,12 @@ the React curriculum materials. Review the
 - [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
   -	*Note: The 'API' sections are especially useful.*
+
+[fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
+[fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
+[fruit-stand-02-video]:
+[fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
+[fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit-stand-02
 
 [store]: readings/store.md
 [reducers]: readings/reducers.md
