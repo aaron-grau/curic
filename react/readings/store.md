@@ -119,7 +119,7 @@ store.getState(); // ['orange']
 ```
 
 Check out a live version of the fruit stand Redux application we just walked through
-[here][fruit-stand-01]! :watermelon:
+[here][fruit-stand-01]! :watermelon::pineapple::strawberry:
 
 [fruit-stand-01]: ../demos/fruit_stand_demos/fruit_stand_01
 
