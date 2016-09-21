@@ -42,7 +42,8 @@ Today we're using React.js and Redux to create our own musical keyboard!
 * Set up your entry file `synthesizer.jsx` to render your app into the into the
  `#root` container of your `index.html`.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
- into a `bundle.js`. You may copy the code below (and use it as a template for future projects).
+ into a `bundle.js`.
+ * You may copy the code below (and use it as a template for future projects).
 
 ```js
  //webpack.config.js
@@ -75,7 +76,8 @@ module.exports = {
 };
 ```
 
-* Source your bundle file in `index.html`. Run `webpack --watch` and test that your app renders before moving on.
+* Source your bundle file in `index.html`.
+* Run `webpack --watch` and test that your app renders before moving on.
 
 [lodash]:https://lodash.com/docs
 
@@ -83,9 +85,8 @@ module.exports = {
 
 #### `Note` Class
 
-You need a `Note` class which you will use to
-actually play tones using the `start` and `stop` functions. We are providing the
-code for this phase.
+You need a `Note` class which you will use to actually play tones using the
+`start` and `stop` functions. We are providing the code for this phase.
 
 * Make a `note.js` file inside of your `util` folder.
 * Copy and paste the following into your `note.js`.
@@ -131,12 +132,14 @@ export default Note;
 
 Before moving on, test that you can initialize and play an instance of a `Note`
 from the `window`. Try a frequency of 800!
-
-Hint: define `window.Note` in your entry file (`synthesizer.jsx`) to access the `Note` class from your browser console.
+  * Hint - define `window.Note` in your entry file (`synthesizer.jsx`) to access
+  the `Note` class from your browser console.
 
 #### `TONES` and `NOTE_NAMES` Constants
 
-In this step, let's create a constants file which will help us translate keyboard keys (e.g. `a`, `s`) into frequencies (i.e. tones) which we will need to create `Note`s.
+In this step, let's create a constants file which will help us translate
+keyboard keys (e.g. `a`, `s`) into frequencies (i.e. tones) which we will need
+to create `Note`s.
 
 * Create a `util/tones.js` file.
 * From there export a `TONES` constant, a JavaScript object mapping key names to frequencies. Something like this,
@@ -151,11 +154,11 @@ In this step, let's create a constants file which will help us translate keyboar
   };
   ```
 
-Feel free to copy and paste the object above. Use [this table][note-frequencies] as a resource for additional keys, if you're interested.
+  Feel free to copy and paste the object above. Use [this table][note-frequencies]
+  as a resource for additional keys, if you're interested.
 * Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
 
-We'll be using these constants later to map our keyboard keys to
-tones.
+We'll be using these constants later to map our keyboard keys to tones.
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
@@ -168,7 +171,9 @@ object. It's really good practice to think about its shape before writing any
 code. Ask yourself, what's the minimal representation of your app's state as an
 object?
 
-For our synthesizer app, we first and foremost want to store the `notes` being played as an array of note names. In other words, your app's `state` shape will look something like this:
+For our synthesizer app, we first and foremost want to store the `notes` being
+played as an array of note names. In other words, your app's `state` shape will
+look something like this:
 
 ```js
 {
@@ -240,7 +245,7 @@ Let's write a reducer for our app which handles the actions we defined above.
 the initial state.
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
-+ Then add a case for each key (i.e. action type).
++ Then add a case for each action type.
   + `KEY_PRESSED` - If the `action.key` isn't already in the state (i.e. already
   playing) then return a new state with the new key appended to the previous
   state, else return the previous state.
@@ -268,7 +273,8 @@ see if a `action.key` is also a valid key included in `NOTE_NAMES`. If not, retu
 The `notes` reducer updates and returns to the store only a single slice of
 the state: the `notes` in play.
 
-*NB*: When we have state fields that are independent of each other, we split the reducer into multiple reducers that each handle their own slices of the state.
+*NB*: When we have state fields that are independent of each other, we split the
+reducer into multiple reducers that each handle their own slices of the state.
 This is called **reducer composition**, and it’s the fundamental pattern of
 building Redux apps.
 
@@ -358,7 +364,9 @@ start and test.
   ```
 
 * Import your `keyPressed` and `keyReleased` action creators.
-* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators. For example,
+* Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators.
+
+For example,
 
   ```js
   const mapDispatchToProps = dispatch => ({
