@@ -1,7 +1,7 @@
 # Fruit Stand App
-## Phase 1 - Redux Only
+## Phase 01 - Redux Only
 
-This is simple **Redux** app with a `store`, a  `reducer` and actions.
+This is simple **Redux** application with a `store`, a  `reducer` and actions.
 
 **NB**: There are no React components in this phase.
 
@@ -12,7 +12,8 @@ This is simple **Redux** app with a `store`, a  `reducer` and actions.
 Let's starting by looking at the code that you just walked through in the first
 half of our Redux [store reading][store-reading].
 
-+ The actions are defined in [`frontend/actions.js`][actions-code].
++ Notable libraries used - `redux`.
++ Actions are defined in [`frontend/actions.js`][actions-code].
 + The app's `reducer` (i.e. reducing function) is defined in [`frontend/reducer.js`][reducer-code].
 + The app's Redux store is instantiated in [`frontend/store.js`][store-code].
   + The Redux store constructor `createStore` is imported from `redux`.

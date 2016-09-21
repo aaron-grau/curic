@@ -1,8 +1,18 @@
-# Fruit Stand App - Part 2
+# Fruit Stand App
+## Phase 02 - React/Redux
 
-An intro **Redux/React** app with a Redux `store`, `reducer`, actions, and a *subscribed* React component.
+This is a simple **React/Redux** application with a Redux `store`, `reducer`, actions,
+and a *connected* React component.
 
+[Live Demo][live-demo]
 ---
+
++ Notable libraries used - `react`, `react-dom`, `react-redux`, `redux`.
++ Actions are defined in [`frontend/actions.js`][actions-code].
++ The app's `reducer` (i.e. reducing function) is defined in [`frontend/reducer.js`][reducer-code].
++ The app's Redux store is instantiated in [`frontend/store.js`][store-code].
+  + The Redux store constructor `createStore` is imported from `redux`.
+  + The app's `reducer` is imported from `frontend/reducer.js`.
 Let's look at and run the code that you just walked through in our Redux store
 reading.
 
