@@ -41,7 +41,7 @@ Let's examine what ruby is doing under-the-hood.
 ```rb
 # Converts the operators to binary
 a.to_s(2) # "10"
-b.to_s(6) # "110"
+b.to_s(2) # "110"
 
 # Bit-wise operation
 # a = 010
