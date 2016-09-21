@@ -2,76 +2,89 @@
 
 ## Definition
 
-XOR (short for 'exclusive OR') is a [logical operator][log-op], like OR and AND.
-XOR means 'Either A or B, but not both'. The 'but not both' clause is what
-differentiates it from OR, which means 'Either A or B or both'. In ruby, XOR is
-written as `^`.
+Like AND and OR, XOR (short for 'exclusive OR') is a [logical operator][log-op].
 
-```ruby
++ AND means 'Both A and B'.
++ OR means 'Either A or B or both'.
++ XOR means 'Either A or B, but not both'.
 
-	true ^ false # true
-	false ^ true # true
+The 'but not both' clause is what differentiates XOR from OR. In ruby, XOR is written as `^`.
 
-	false ^ false # false
-	true ^ true # false
+Let's look at a few examples of using XOR:
+```rb
+true ^ false # true
+false ^ true # true
 
-	# Compare the last example against OR: 
-	true || true # true
+false ^ false # false
+true ^ true # false
 
+# Compare the last example against using OR
+true || true # true
 ```
 
 ## Bit-wise XOR with numbers
 
-When you XOR two numbers, Ruby converts them to binary and compares their
-corresponding digits (a.k.a. 'bits') using XOR, where `1` is `true` and `0` is
-`false`.
+When you XOR two numbers, Ruby converts them to binary and evaluates each their
+corresponding digits (i.e. bits) using XOR where `1` is `true` and `0` is
+`false`. Ruby then converts the binary result back into an integer.
+
+For example,
 
 ```ruby
-(a = 2).to_s(2) # "10"
-(b = 6).to_s(2) # "110"
+a = 2
+b = 6
+c = a ^ b # 4
+```
 
-# Note: `to_s(2)` converts a decimal to binary
+Let's examine what ruby is doing under-the-hood.
 
-c = a ^ b
+```rb
+# Converts the operators to binary
+a.to_s(2) # "10"
+b.to_s(6) # "110"
 
-# bit-wise operation
+# Bit-wise operation
 # a = 010
 # b = 110
 # xor ---
 # c = 100
 
-# The end result is converted back to an integer.
+# Converts the result back to an integer
+"100".to_i(2) # 4
 
-c == 4 == "100".to_i(2) # true
+# Thus,
+c == 4 # true
 ```
+
+In Ruby, `Integer#to_s(2)` converts a number to binary and `String#to_i(2)` converts a binary string to a number!
 
 ## Using XOR to hash
 
 Recall the properties of a hashing function:  
-	1) **Determinism:** Its output is directly determined by the input data.
-	2) **Comprehensiveness:** It uses all the input data.
-	3) **Uniformity:** Its possible return values are evenly distributed.
-	4) **Continuity:** It returns similar values for similar inputs.
+1. **Determinism**: Its output is directly determined by the input data.
+2. **Comprehensiveness**: It uses all the input data.
+3. **Uniformity**: Its possible return values are evenly distributed.
+4. **Continuity**: It returns similar values for similar inputs.
 
 Bit-wise XOR is often used in hashing functions because it promotes high
-determinism, comprehensiveness, and uniformity. It also has high continuity, which may need to be offset with other methods where a hashing function needs to have a more unpredictable 'spread' of hashed values.
+determinism, comprehensiveness, and uniformity. It also has high continuity,
+which may need to be offset with other methods where a hashing function needs to
+have a more unpredictable 'spread' of hashed values.
 
-What separates XOR from other bit-wise operators is uniformity: only
-XOR returns `1` and `0` in equal probability, given any two inputs.
+What separates XOR from other bit-wise operators is uniformity: only XOR returns
+`1` and `0` in equal probability, given any two inputs. This allows it to
+produce more uniformly distributed values, distinguishing it as a desirable
+hashing method.
 
-```
-Truth Table for Bitwise Operations
+## Truth Table for Bitwise Operations
 
- a | b | AND | OR  | XOR |
----+---+-----+-----+-----+
- 0   0    0     0     0   
- 1   0    0     1     1   
- 0   1    0     1     1   
- 1   1    1     1     0   
-``` 
+| a | b | AND | OR | XOR |
+|:-:|:-:|:---:|:--:|:---:|
+| 0 | 0 |  0  |  0 |  0  |
+| 1 | 0 |  0  |  1 |  1  |
+| 0 | 1 |  0  |  1 |  1  |
+| 1 | 1 |  1  |  1 |  0  |
 
-This allows it to produce more uniformly distributed values, distinguishing it
-as a desirable hashing method.
 
 [truth-tables]: http://lampiweb.com/help/freebasic/TblTruth.html
 [log-op]: https://en.wikipedia.org/wiki/Logical_connective
