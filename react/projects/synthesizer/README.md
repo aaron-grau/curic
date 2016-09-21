@@ -142,7 +142,7 @@ In this step, let's create a constants file which will help us translate keyboar
 * From there export a `TONES` constant, a JavaScript object mapping key names to frequencies. Something like this,
 
   ```js
-    export const TONES = {
+  export const TONES = {
     'a': 523.25,
     's': 587.33,
     'd': 659.25,
@@ -349,7 +349,7 @@ Fortunately, `react-redux` provides a function that does this for us: [`connect`
 start and test.
 * Create a file `components/synth/synth_container.jsx`, and import both [`connect`] from
 `react-redux` and your `Synth` component.
-* Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key. For example, 
+* Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key. For example,
 
   ```js
   const mapStateToProps = state => ({
