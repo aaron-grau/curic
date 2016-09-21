@@ -61,18 +61,18 @@ In Ruby, `Integer#to_s(2)` converts a number to binary and `String#to_i(2)` conv
 ## Using XOR to hash
 
 Recall the properties of a hashing function:  
-1. **Determinism**: Its output is directly determined by the input data.
-2. **Comprehensiveness**: It uses all the input data.
-3. **Uniformity**: Its possible return values are evenly distributed.
-4. **Continuity**: It returns similar values for similar inputs.
+0. **Determinism**: Its output is directly determined by the input data.
+0. **Comprehensiveness**: It uses all the input data.
+0. **Uniformity**: Its possible return values are evenly distributed.
+0. **Continuity**: It returns similar values for similar inputs.
 
 Bit-wise XOR is often used in hashing functions because it promotes high
 determinism, comprehensiveness, and uniformity. It also has high continuity,
 which may need to be offset with other methods where a hashing function needs to
 have a more unpredictable 'spread' of hashed values.
 
-What separates XOR from other bit-wise operators is uniformity: only XOR returns
-`1` and `0` in equal probability, given any two inputs. This allows it to
+What separates XOR from other bit-wise operators is uniformity - Only XOR returns
+`1` and `0` in equal probability, given any two inputs (see truth tale below). This allows it to
 produce more uniformly distributed values, distinguishing it as a desirable
 hashing method.
 
