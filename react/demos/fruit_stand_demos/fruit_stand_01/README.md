@@ -41,8 +41,9 @@ store.dispatch(addLychee);
 store.getState();
 ```
 
-In the [next phase][fruit-stand-demo-02], we will add React components to render the fruit stored in the app's state.
+In the [next phase][fruit-stand-02], we will add React components to render the fruit stored in the app's state.
 
+---
 
 If you want to run the code yourself, follow these instructions:
   1. Download [zip][zip].
@@ -53,10 +54,10 @@ If you want to run the code yourself, follow these instructions:
   5. Open Dev Tools to see the app's Redux store in action.
 
 
-[zip]: ./fruit_stand_redux_only.zip
+[zip]: ./fruit_stand_01.zip
 [live-demo]:
-[store-reading]:
+[store-reading]: ../../../readings/store.md
 [store-code]: ./frontend/store.js
-[reducer-code]:./frontend/reducer.js
-[actions-code]:./frontend/actions.js
-[fruit-stand-demo-02]
+[reducer-code]: ./frontend/reducer.js
+[actions-code]: ./frontend/actions.js
+[fruit-stand-02]: ../fruit_stand_02
