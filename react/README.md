@@ -17,6 +17,11 @@ the React curriculum materials. Review the
   - :computer: [demo source code][watch-demo]
 
 ### Readings (115 min)
+#### Configuration (35 min)
+- [NPM][npm_configuration] (15 min)
+- [Webpack][webpack_configuration] (10 min)
+- [Babel][babel_configuration] (10 min)
+
 #### ES6 & Lodash (25 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
@@ -33,11 +38,6 @@ the React curriculum materials. Review the
 - [Lifecycle Methods][component_lifecycle] (5 min)
 - [Synthetic Events][synthetic_events] (5 min)
 
-#### Configuration (35 min)
-- [NPM][npm_configuration] (15 min)
-- [Webpack][webpack_configuration] (10 min)
-- [Babel][babel_configuration] (10 min)
-
 ### Homeworks (60 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (30 min)
@@ -48,7 +48,7 @@ the React curriculum materials. Review the
 
 ### Additional Resources
 - [Official React Documentation][react_docs]
-	- Most Helpful: 'REFERENCE' Section (Left Sidebar)
+	- Most Helpful: REFERENCE Section (Left Sidebar)
 
 [component-declaration]: readings/component_declaration.md
 [react_video_01]: https://vimeo.com/album/3686654/video/147897911
