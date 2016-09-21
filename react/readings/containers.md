@@ -101,7 +101,7 @@ export default Item;
 ```js
 // entry.jsx
 import React from 'react';
-import ReactDOM fromt 'react-dom';
+import ReactDOM from 'react-dom';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
