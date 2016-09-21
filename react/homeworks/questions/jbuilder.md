@@ -20,21 +20,6 @@ end
 
 Run `rake routes` to ensure this is working as intended.
 
-Previously, we would often render our JSON by putting something like `render
-json: @users` at the end of our controller actions. This has some unfortuante
-side effects --- for one, we'll send down everything, including password
-digests, to the client. This is bad. It also gives us no flexibility for
-including associated data.
-
-Jbuilder allows us to construct views that curate our data. It is also quite
-straightforward to use once you've made a few templates. When making a Jbuilder
-template, place it in the same place you would put your HTML views, but instead
-of using  `.html.erb` as your file extension, use `.json.jbuilder`. Like ERB,
-Jbuilder will be compiled by Rails and you'll be left with a JSON template.
-Since we set the default format of our resources to `:json`, Rails will
-automatically look for a `.json` file when you pass a template name to `render`
-(`render :index` for example).
-
 Make sure you keep the [Jbuilder GitHub][docs-link] up for reference as you work
 through this. A few notes before we begin. First, we can run any ruby code we
 want in a Jbuilder template, including conditionals. This ends up being really
