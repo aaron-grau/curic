@@ -97,7 +97,7 @@ the React curriculum materials. Review the
 + Phase I - Redux only (15 min)
   + [Live demo][fruit-stand-01-live]
   + [Source code][fruit-stand-01-source]
-+ Phase II - Redux and React
++ Phase II - React/Redux
   + :movie_camera: [Video demo][fruit-stand-02-video]
   + [Live demo][fruit-stand-02-live]
   + [Source code][fruit-stand-02-source]
@@ -113,12 +113,6 @@ the React curriculum materials. Review the
 - [Official `react-redux` Documentation][react_redux_docs]
   -	*Note: The 'API' sections are especially useful.*
 
-[fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
-[fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
-[fruit-stand-02-video]:
-[fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
-[fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit-stand-02
-
 [store]: readings/store.md
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
@@ -129,7 +123,11 @@ the React curriculum materials. Review the
 [redux_docs]: http://redux.js.org/index.html
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
-[redux_react_demo]: https://vimeo.com/179391419
+[fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
+[fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
+[fruit-stand-02-video]:
+[fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
+[fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit-stand-02
 
 [dollar_store_hw]: homeworks/questions/stores.md
 
