@@ -329,7 +329,7 @@ Your function should look something like this:
 As before, put this function on the window for testing, and make sure it works
 before moving on!
 
-### Connect`BenchesMiddleware` to `BenchAPIUtil`
+### Connect `BenchesMiddleware` to `BenchAPIUtil`
 
 Let's connect our `BenchesMiddleware` to this new `fetchBenches` function!
 
@@ -501,323 +501,352 @@ Here's a summary of your redux loop so far:
   return values of these functions are then merged and the resulting object is passed as new props to `BenchIndex`.
   * When `BenchIndex` receives these new props, it re-renders. Phew!
 
-## Phase 4: The Map
+## Phase 4: React Router
 
-Now we're going to add a map alongside our index to visually convey our bench
-information.
+We're going to add routing to our application.
 
-### Create a `BenchMap` component.
+```
+  npm install --save react-router
+```
 
-* Create a new React component class `BenchMap`.
-* Its `render` function should return a `div` with `id='map-container'` and
-`ref='map'`.
-* In the `application.css` file, make sure to set the `width` and `height` of the
-`#map-container` to `500px`.
-* We'll return to this component in a bit.
+Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a
+bit. Define 2 new files: these can all live at the root of the `components` folder:
 
-### Create a parent component: `Search`
+* `app.jsx`
+* `root.jsx`
 
-* Create a new React component, `Search`.
-* `Search` should render a `div` containing a `BenchMap` and `BenchIndex`.
-* Remove your `BenchIndexContainer` and instead, create a `SearchContainer`.
-* `Search` should then pass the appropriate props to `BenchIndex`.
-* **You shouldn't have to change `BenchIndex`**.
+### The `App` component
+
+Create and export a new **functional component** that renders an `<h1>` tag with
+"Bench BnB" text and underneath renders `props.children`. It might look something like..
+
+```javascript
+const App = ({children}) => (
+  <div>
+    <h1>Bench BnB</h1>
+    {children}
+  </div>
+);
+```
+
+### The `Root` component
+
+Create and export a **functional component** called `Root`. The component should accept
+the `Store` as a prop, and it should render the `Router` wrapped in the `Provider`
+
+```javascript
+const Root = ({store}) => (
+  <Provider store={store}>
+    // Router goes here...
+  </Provider>
+);
+```
+
+### The `Router`
+
+Start by importing the following:
+    * `React`
+    * `Router`, `Route`, `IndexRoute`, `hashHistory`
+    * `App`
+    * `SearchContainer`
+
+Next, we want to define and export a **functional component** that renders a
+`Router`. Setup your `Router` to use `hashHistory`.
+
+```javascript
+const Root = ({store}) => (
+  <Provider store={store}>
+    <Router history={ hashHistory }>
+      // Routes go here...
+    </Router>
+  </Provider>
+);
+```
+#### Routes
+
+Let's define a new `Route` that tells the `Router` to render our `App` component
+when the URL matches '/':
+
+```javascript
+<Router history={ hashHistory }>
+  <Route path="/" component={ App } />
+</Router>
+```
+#### `IndexRoute`
+
+Next, let's make sure that our `SearchContainer` is the default component rendered
+inside `App`. Use an `IndexRoute` to accomplish this.
+
+```javascript
+<Router history={ hashHistory }>
+  <Route path="/" component={ App }>
+    <IndexRoute component={ SearchContainer } />
+  </Route>
+</Router>
+```
+
+### The Entry Point
+
+Let's modify our entry file, `bench_bnb.jsx`, to only import the following:
+  * `React` & `ReactDOM`
+  * `Root`
+  * `configureStore`
+
+In the document-ready callback, you should simply invoke `configureStore` and then
+render the `Root` component into the `#root` container. Pass the `Store` to the
+`Root` component as a prop.
+
+```javascript
+  document.addEventListener('DOMContentLoaded', () => {
+    store = configureStore();
+    const root = document.getElementById('root');
+    ReactDOM.render(<Root store={store}/>, root);
+  });
+```
+
+Test that everything works before moving on!
+
+## Phase 5: Front-End User Authentication
+
+In this phase, we are going to implement front-end user sign-up and login.
+Goodbye Rails views; hello, single-page app! **Read through the instructions for
+the entire phase before building anything.** This will give you the context to
+understand each individual step.
+
+**Our authentication pattern must:**
+  * sign up new users
+  * know who's logged in
+  * log users in
+  * log them out
+  * restrict access to certain routes based on whether someone is logged in
+
+### Auth Backend
+
+Read the instructions below, and then create an API with the following
+endpoints:
+
+  * [POST] api/users: "users#create" (signup),
+  * [POST] api/session: "session#create" (login),
+  * [DELETE] api/session: "session#destroy" (logout)
+
+**Create a `User` model, `API::UsersController`, and `Api::SessionsController`.**
+Follow the basic pattern you used during the [Rails curriculum][rails], with some
+key differences:
+
+* **Namespace**: Your controllers should live under an `Api` namespace.
+* **Response Format**: render JSON formatted responses by default.
+* **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to a partial: **`api/users/_user.json.jbuilder`**, which we'll use later.
+* **`Sessions#destroy`**: render an empty `{}` upon successful logout.
+  * Render a `404` message if there is no `current_user` to logout.
+* **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username
+already exists') in your response with a corresponding error status.
+  * Use `@user.errors` when applicable.
+  * **Caution**: Rails will format error responses differently than normal
+  responses.
+
+Test your routes using `$.ajax` in the console before moving on.
+
+### `SessionApiUtil`
+
+Create a new file, `session_api_util.js` with the following functions:
+  * **`signup`:** POST 'api/users'
+  * **`login`:** POST 'api/session'
+  * **`logout`:** DELETE 'api/session'
+
+Each function should take `success` and `error` callbacks.
+
+Test each of your api util functions before moving on!
+
+### Session Actions
+
+We need the following Action Creators:
+  * `login`
+  * `logout`
+  * `signup`
+  * `receiveCurrentUser`
+  * `receiveErrors`
+
+Build the corresponding `SessionConstants` as well. All of our action creators (
+other than `logout`) should accept an argument.
 
 
-Since our `Search` component only needs a render method, we can make it a
-[functional component][functional-comp-docs] with an implicit return! Make sure to
-deconstruct your props for cleaner syntax.
+### `SessionMiddleware`
 
-### Render your `SearchContainer`
+Your `SessionMiddleware` should only listen for 3 of our action types:
+  * `LOGIN`
+  * `LOGOUT`
+  * `SIGNUP`
 
-* In your entry file, render the `SearchContainer` component instead of `BenchIndexContainer`. This should cause both the `BenchMap` and the `BenchIndex` to be rendered on the page.
-* Verify your work before moving on.
+Your middleware should be responsible for invoking the appropriate `SessionApiUtil`
+function and passing the appropriate callbacks. The success callback for `login` and
+`signup` requests should `dispatch` a `receiveCurrentUser` action. The error callbacks should dispatch `receiveErrors`.
 
-### Attach a Google Map to `BenchMap`
+The success callback of `logout` should simply be to invoke `next(action)`.
 
-* Read [the google maps documentation][google-map-doc].
-* Get a new API key for a JavaScript Google Map.
-* Add a script tag (including your API key) to your `application.html.erb`
-  * When including the google script tag, be sure to put it above `yield` and
-    remove the `async defer` bit. This way, the script will fully load before the
-    rest of your page and be ready to use as soon as your app mounts.
+Test that your `SessionMiddleware` works by dispatching `login`, `logout`, and
+`signup` actions from the console.
 
+### `SessionReducer`
+
+Create a new reducer to keep track of our current user and error messages.
+The default application shape should look like:
+
+```
+{
+  currentUser: null,
+  errors: []
+}
+```
+
+The `SessionReducer` should listen for 3 action types:
+  * `RECEIVE_CURRENT_USER`
+  * `RECEIVE_ERRORS`
+  * `LOGOUT`
+
+Test that your `SessionReducer` works by dispatching session actions and then
+checking your application state!
+
+### `Greeting` Component
+
+* Create a new react component, `Greeting`, and a container, `GreetingContainer`
+
+If the user **is logged in**, then the `Greeting` should contain:
+  * A welcome message including the user's username
+  * A button to logout
+
+If the user **is not logged in**, then the `Greeting` should contain:
+  * A link to the `/#/signup`
+  * A link to the `/#/login`
+
+Change your `App` to render the `GreetingContainer` above our other content.
+
+### `SessionForm` Component
+
+  * Create a new component, `SessionForm`, and a container, `SessionFormContainer`
+  * Create new routes for these components in your `router.jsx` file
+
+The `SessionFormContainer` should provide `SessionForm` with the following props:
+  * `loggedIn` (boolean):  represents whether a `currentUser` exists.
+  * `errors` (array):  list of errors from the state.
+  * `formType` (string): 'login' or 'signup'.
+  * `processForm` (function): dispatch `login` or `signup` based on `formType`.
+
+The `SessionForm` component should be responsible for a number of tasks:
+  * Render a controlled component with `state` governed by user interface.
+  * Invoke the `processForm` prop when the 'submit' button is clicked.
+  * Render a "Log in" or "Sign up" header based on the formType prop.
+  * Provide a link to `/#/signup` or `/#/login` (whichever isn't the current address!)
+  * Render a list of error messages if any are present.
+  * Redirect the user to the `/#/` route if they are logged in.
+
+**Call a TA over and show them your `SessionForm` before moving on!**
+
+### Bootstrapping the Current User
+
+When our static `root` page loads, our app mounts without being aware of who the
+current user is.
+
+One solution to this problem is to create another API hook that returns the
+current user and then fetch that information when the app mounts. However, since
+the request would be asynchronous, our app would momentarily have no current
+user. This would cause it to briefly render in a 'not-logged-in' state and then
+re-render when the current user was received, causing a strange, flickering
+effect. To circumvent this, we'll 'bootstrap' the current user alongside our HTML
+when the page initially loads.
+
+
+#### Edit your `root.html.erb`
+
+Add a `<script></script>` element to the top of your `root.html.erb` file.
+
+Inside your `<script>`, we're going to assign `window.currentUser`. In order to
+get the proper value, we'll need to ask our controller for the `current_user`
+and then `render` that information inside the script tag using `ERB`
+interpolation. The result will be a hard-coded assignment in our rendered html
+that looks something like this:
+
+```html
+  ...
+  <script type="text/javascript">
+      window.currentUser = {"id":3,"username":"bobross"}
+  </script>
+
+  <main id="root"></main>
+  ...
+```
+
+where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
+
+#### Interpolate the current user information
+
+In your script, assign your `window.currentUser` to an ERB expression:
+
+```js
+  window.currentUser = <%=  %>
+```
+
+Make sure to use `<%= %>` so that the result of your ruby code is rendered into the
+script ( it will eventually return a JSON object).
+
+Inside your erb expression, `render` your jbuilder `_user` partial, passing it
+the `current_user`. Specify the whole path, including `.json.jbuilder`, to prevent rails from automatically looking for a HTML partial. Mark your `render`
+result `html_safe` to avoid escaping certain characters. You should get a JS-
+compatible object to assign to `window.currentUser`. Add interpolation around
+your  `window.currentUser=` assignment so that it only runs if someone is logged
+in. You should have something like this:
+
+```html
+
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = <%= render("api/users/user.json.jbuilder",
+      user: current_user).html_safe %>
+  <% end %>
+</script>
+
+```
+
+Log in, refresh your page, and check out your `elements` in the Dev Tools.
+Verify that the `script` contains an object literal of the current user and
+properly assigns `window.currentUser`.
+
+### `preloadedState`
+
+Finally, inside the `DOMContentLoaded` callback in your entry file...
+  * check to see if there is a `window.currentUser`
+  * If there is, create a `preloadedState` like below:
+
+```javascript
+  if (window.currentUser) {
+    const preloadedState = {session: {currentUser: window.currentUser}};
+    ...
+```
+
+  * Pass this `preloadedState` to `configureStore`.
+  * If there is no `window.currentUser`, then `configureStore`
+  without any arguments.
+
+### Protect your front-end routes.
+
+Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the front-end unless they're logged in.
+
+Refer to the `onEnter` [reading][onEnter] for this part.
+
+  * Add an `onEnter` prop to the Routes we want to protect:
     ```html
-      <!-- application.html.erb:
-      <!DOCTYPE html>
-        <html>
-        <head>
-          <title>BenchBnb</title>
-
-          <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key={YOUR_API_KEY}" %>
-          <%= stylesheet_link_tag    'application', media: 'all' %>
-          <%= csrf_meta_tags %>
-          <%= javascript_include_tag 'application' %>
-        </head>
-        <body>
-
-        <%= yield %>
-
-        </body>
-        </html>
+    <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />
     ```
-* When the `Map` component mounts, instantiate the map as follows:
-
-```javascript
-  class BenchMap extends React.Component {
-  //...
-  componentDidMount(){
-    // find the `<map>` node on the DOM
-    const mapDOMNode = this.refs.map;
-
-    // set the map to show SF
-    const mapOptions = {
-      center: {lat: 37.7758, lng: -122.435}, // this is SF
-      zoom: 13
-    };
-
-    // wrap the mapDOMNode in a Google Map
-    this.map = new google.maps.Map(mapDOMNode, mapOptions);
-  }
-  //...
-```
-This should cause a Google Map to be rendered to the page.
-
-## Phase 5: Markers on the Map
-
-We're now going to implement map markers for our benches.
-
-  * Update the `Search` component to pass a 'benches' prop to `BenchMap`
-
-Managing the markers is going to require quite a bit of code, so we're going to
-create a helper class, `MarkerManager`.
-
-### `MarkerManager`
-
-* Create a new file `marker_manager.js`; it should live in your `util` folder.
-* In this file, create and export a new class, `MarkerManager`.
-* Define the constructor method to accept a map, and then create `map` and `markers`
-instance variables.
-
-```javascript
-class MarkerManager {
-  constructor(map){
-    this.map = map;
-    this.markers = [];
-  }
-  //...
-}
-```
-
-Next, we're going to define an instance method `updateMarkers()`. Start with just a simple `console.log`
-
-```javascript
-class MarkerManager {
-  //...
-  updateMarkers(benches){
-    console.log('time to update');
-  }
-  //...
-}
-```
-
-Let's put `MarkerManager` on the back-burner for now. We'll come back later.
-
-### Connect `BenchMap` to `MarkerManager`
-
-Let's see how the `BenchMap` is going to interact with our `MarkerManager`.
-
-  * Import the `MarkerManager` class.
-  * Update the `BenchMap#componentDidMount` method to create a new `MarkerManager`.
-
-```javascript
-  componentDidMount(){
-    //...
-    this.map = new google.maps.Map(mapDOMNode, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
-  }
-```
-
-We need to invoke `updateMarkers()` both when the `BenchMap` component
-first mounts **and** whenever the benches in the application state change.
-
-Use the appropriate `React` [lifecycle methods][lifecycle-methods].
-
-Confirm that the `MarkerManager` utility works by checking the console for our
-`console.log` **both before and after** running the following code.
-
-```javascript
-  Store.dispatch(requestBenches());
-```
-
-Make sure this works before moving on!
-
-[lifecycle-methods]: https://facebook.github.io/react/docs/component-specs.html
-
-### `updateMarkers()`
-
-Read the documentation on [map markers][map-markers] before continuing.
-
-To accomplish the goal of adding and removing markers appropriately, write the following helper methods.
-
-* `_benchesToAdd()`: returns an array of benches that are in the state, but
-not already on the map.
-* `_createMarkerFromBench()`: accepts a bench object as an argument; adds a
-marker to the `map` and to the `markers` array.
-
-Use your helper methods in `updateMarkers()` to create markers for any new benches that appear in your store. Take care to only add a marker once per bench, as extra markers won't be visible on the map, but will affect your ability to remove benches in the next step.
-
-Make sure you can see markers before moving on!
-
-## Phase 6: Filtering by Map Location
-
-When the map idles, we are going to use its current bounds to request only
-benches within the boundaries of the map. First, let's prepare the back end to
-search by bounds.
-
-### Back End Prep
-
-* On your `Bench` model, Write a `Bench.in_bounds` method that returns all the
-benches that are within the boundaries specified by the argument. See the example below for what arguments to expect.
-
-```ruby
-#...
-  def self.in_bounds(bounds)
-  # google map bounds will be in the following format:
-  # {
-  #   "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
-  #   "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
-  # }
-  #... query logic goes here
-  end
-#...
-```
-
-* In the controller, we can expect that these boundaries will be passed
-  in as a query string and therefore available in the `params` hash
-* Instead of rendering `Bench.all` in our `index` action,  we can instead use
-  `Bench.in_bounds(params[:bounds])`
-
-### `fetchBenches`
-
-Update our `fetchBenches` function in `bench_api_util.js` to accept two arguments:
-  * filters
-  * success
-
-Eventually, we want to be able to filter our benches by multiple parameters, but
-for now we'll just use the lat/lng `bounds`.
-
-Test your updated `fetchBenches` methods to see that it applies the filters!
-
-#### Filter Actions
-
-  * Create a new file, `actions/filter_actions`
-  * Create and export a `FilterConstants` object with property: `UPDATE_BOUNDS`
-  * Make and export an action creator, `updateBounds`; this should accept a single
-  argument: `bounds`
-
-#### `SearchContainer`
-
-Update your `SearchContainer`'s `mapDispatchToProps` function to use the newly
-constructed `updateBounds` action creator.
-
-#### `Search`
-
-Update your `Search` presentational component to pass the `updateBounds` prop to
-the `BenchMap` component
-
-### `BenchMap`
-
-  * In the `BenchMap` component, add a listener to the map's idle event when
-  `componentDidMount` is called.
-  * [Read this documentation][event-doc] to learn about Google Map events.
-  * Call `getBounds` on the map instance to get a `LatLngBounds` instance. Call
-    `getNorthEast` and `getSouthWest` to get these coordinate pairs. Get their
-    latitude and longitude and format these coordinates into exactly the format
-    your API is expecting. Check [this documentation][lat-lng-docs] for more
-    info.
-  * Package these coordinates into a `bounds` object.
-  * Invoke `this.props.updateBounds()`, and pass your newly constructed bounds object
-
-### `FilterReducer`
-
-We need to build out our application state to reflect the map's `bounds`.
-
-We want a default state that looks something like:
-
-```
-  {
-    benches: {},
-    filters: {
-      bounds: {}
-    }
-  }
-```
-
-  * Create a new file, `reducers/filter_reducer.js`
-  * Build and export a `FilterReducer`
-    * You're reducer should update the application state when an `UPDATE_BOUNDS`
-    action is dispatched
-  * Update your `RootReducer`
-
-Test that the application is being successfully updated by moving the map around
-and then calling `Store.getState()` in the console.
-
-### `MarkerManager`
-
-Now that we've handled our state, we need to beef up `MarkerManager/updateMarkers()` to handle removing markers for benches that have been moved outside our bounds.
-
-Add the following helper methods to your class:
-
-* `_markersToRemove()`: returns an array of markers that are on the map, but
-the benches they represent are not in the state.
-* `_removeMarker()`: accepts a marker as an argument; removes marker from map
-and from `markers`.
-
-Call these methods in `updateMarkers()` to ensure that benches that leave our store have their markers removed from the map. RIP, benches.
-
-### `BenchesMiddleware`
-
-Before moving on, remove the call to `requestBenches()` from the `BenchIndex`
-component's `componentDidMount`. **We no longer need to dispatch this action from
-our view.** Instead, we'll rely on our `BenchesMiddleware` to `requestBenches` after
-it sees an `UPDATE_BOUNDS` action.
-
-Update your `BenchesMiddleware` so that it intercepts the `UPDATE_BOUNDS` action. Here is our goal:
-
-  * Use `next` to pass the action on through to the store.
-  * Then, use `dispatch` and `requestBenches` to trigger a new dispatch.
-  * When `BenchesMiddleware` sees a `REQUEST_BENCHES` dispatch collect the filters
-  from the store using `getState`.
-  * Pass the filters and the appropriate callback on to `fetchBenches`.
-
-Your middleware's switch statement should look something like this:
-
-```javascript
-  switch(action.type){
-    case BenchConstants.REQUEST_BENCHES:
-      const filters = getState().filters
-      fetchBenches(filters, benchesSuccess);
-      break;
-    case FilterConstants.UPDATE_BOUNDS:
-      next(action);
-      dispatch(requestBenches());
-      break;
-```
-
-That's it! The markers and bench index should now only display for benches that
-are within the bounds of the map. Move the map around to prove this! **Show your
-TA!**
-
-## BONUS!
-* When you hover over an index item it should highlight the marker on the map in
-  a different color. This should require creating a new reducer.
-
-* Look at your app, then look at the real AirBNB. See any differences?
-  Give your project a makeover and add a ton of CSS so that it resembles
-  the REAL AirBNB.
-
-[google-map-doc]: https://developers.google.com/maps/documentation/javascript/tutorial
-[event-doc]: https://developers.google.com/maps/documentation/javascript/events#MarkerEvents
-[map-markers]: https://developers.google.com/maps/documentation/javascript/markers
-[lat-lng-docs]: https://developers.google.com/maps/documentation/javascript/reference#LatLngBounds
+  * Give your `Router` direct access to the `Store` by using [React context][context-docs].
+    * Note that this is [established by the provider][store-context].
+  * Define an `_ensureLoggedIn` function in your `router.jsx` file. It should:
+    * Check to see if the application state has a `currentUser` property
+    * If `true`, do nothing.
+    * Otherwise, `replace` the path with "/login". (Remember that `replace` won't
+    add a "fake" entry to the browser's history, whereas `push` will.)
+    * We don't need an `asyncDoneCallback` because `_ensureLoggedIn` runs synchronously.
+
+**Test your work. You've completed Day 1!**
+
+[onEnter]: ../../readings/on_enter.md
+[context-docs]: https://facebook.github.io/react/docs/context.html
+[store-context]: https://egghead.io/lessons/javascript-redux-passing-the-store-down-implicitly-via-context
