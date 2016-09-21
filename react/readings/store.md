@@ -119,7 +119,7 @@ store.getState(); // ['orange']
 ```
 
 Check out a live version of the fruit stand Redux application we just walked through
-[here][fruit-demo-01]! :watermelon:
+[here][fruit-stand-01]! :watermelon:
 
 [fruit-stand-01]: ../demos/fruit_stand_demos/fruit_stand_01
 
@@ -192,8 +192,6 @@ library soon, which solves this problem via the `Provider / connect()` API.
 
 View the official documentation on the Redux store [here][redux-js].
 
-[fruit_stand_redux_only]:../demos/fruit_stand_redux_only
 [redux-js]: http://redux.js.org/docs/basics/Store.html
 [why-immutable]: https://github.com/reactjs/redux/issues/758
 [force-update]:https://facebook.github.io/react/docs/component-api.html#forceupdate
-[fruit_stand_with_react]:../demos/fruit_stand_with_react
