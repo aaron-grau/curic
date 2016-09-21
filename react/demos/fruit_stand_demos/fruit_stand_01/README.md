@@ -55,7 +55,7 @@ If you want to run the code yourself, follow these instructions:
 
 
 [zip]: ./fruit_stand_01.zip
-[live-demo]:
+[live-demo]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
 [store-reading]: ../../../readings/store.md
 [store-code]: ./frontend/store.js
 [reducer-code]: ./frontend/reducer.js
