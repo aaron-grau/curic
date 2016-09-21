@@ -2,11 +2,20 @@
 
 ## w5d3
 
-### Video Lectures (12 min)
+### Breakfast
+* :joy_cat: **Bagels @ 8:30am** :joy_cat:
+
+### Study Hall 9-10am
+
+### Video Lectures (64 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Intro to JS](https://vimeo.com/169645510) (12 min)
+* :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
+* :movie_camera: [Object-Oriented JS: intro][oo-js-intro] (15 min)
+* :movie_camera: [Object-Oriented JS: demo][oo-js-demo] (7 min)
+* :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
 
-### Readings (70 min)
+### Readings (155 min)
 * [Intro to JavaScript][intro-js] (5 min)
 * [Server-side JavaScript][server-side-js] (5 min)
 * [Syntax][syntax] (10 min)
@@ -15,45 +24,6 @@
 * [Variables][variables] (15 min)
 * [Arguments][arguments] (15 min)
 * [Debugging Node.js][debugging-node] (10 min)
-
-### Homeworks (30 min)
-* [Intro to JavaScript Problem Set][intro-problem-set] (30 min)
-* Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
-    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
-    * A **lot** of JS interview questions come from this book.
-
-### Additional Resources
-* [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
-* [ReactiveX][reactivex] - additional practice so you can be a star.
-* [MDN Guide][mdn-guide] - another great guide from MDN
-* [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] - just the first chapter. Another great intro reading.
-* [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
-* [Style Guide][airbnb-style] - AirBnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
-
-[intro-js]: readings/js-intro.md
-
-[server-side-js]: readings/server-side-javascript.md
-[syntax]: readings/syntax.md
-[data-types]: readings/data-types-and-truthiness.md
-[useful-methods]: readings/useful-methods.md
-[variables]: readings/variables.md
-[debugging-node]: readings/debugging-node.md
-[intro-problem-set]: homeworks/questions/js_intro.md
-[reactivex]: http://reactivex.io/learnrx/
-[mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
-[codecademy-js]: http://www.codecademy.com/tracks/javascript
-[mdn-js-doc]: readings/mdn-js.md
-
-## w5d4
-
-### Video Lectures (52 min)
-:closed_lock_with_key: `go_video_go`
-* :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
-* :movie_camera: [Object-Oriented JS: intro][oo-js-intro] (15 min)
-* :movie_camera: [Object-Oriented JS: demo][oo-js-demo] (7 min)
-* :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
-
-### Readings (85 min)
 * [Objects and Primitives][objects-and-primitives] (10 min)
 * [Functions][functions-js] (10 min)
 * [Function invocation, briefly][function-invocation-briefly] (5 min)
@@ -63,42 +33,63 @@
 * [Closures and Scope][closures] (10 min)
 * [Linting JavaScript][linting-js] (10 min)
 
-### Homeworks (60 min)
+### Homeworks (90 min)
+* [Intro to JavaScript Problem Set][intro-problem-set] (30 min)
+* Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
+    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
+    * A **lot** of JS interview questions come from this book.
 * [CSS Curriculum Day 1][css-day1] (30 min)
 * [Object Oriented JavaScript][oo-js-hw] (30 min)
 
 ### Additional Resources
+* [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
+* [ReactiveX][reactivex] - additional practice so you can be a star.
+* [MDN Guide][mdn-guide] - another great guide from MDN
+* [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] - just the first chapter. Another great intro reading.
+* [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
+* [Style Guide][airbnb-style] - AirBnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
 * Effective JavaScript: Items 2, 3, 6, 8, and 9
 
 ### Projects
 * [Intro JavaScript problems][intro-javascript-problems]
 * **Bonus**: [Reversi][reversi]
 
+
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [oo-js-intro]: https://vimeo.com/169806088
 [oo-js-demo]: https://vimeo.com/169804475
 [callbacks-video]: https://vimeo.com/169898573
 
+[intro-js]: readings/js-intro.md
+
+[server-side-js]: readings/server-side-javascript.md
+[syntax]: readings/syntax.md
+[data-types]: readings/data-types-and-truthiness.md
+[useful-methods]: readings/useful-methods.md
+[variables]: readings/variables.md
+[debugging-node]: readings/debugging-node.md
 [objects-and-primitives]: readings/objects-and-primitives.md
 [oo-js-hw]: homeworks/questions/oo_js.md
 [functions-js]: readings/functions-js.md
 [arrows]: readings/fat-arrows.md
-[OO-js-lecture]: https://vimeo.com/169806088
-[OO-js-demo]: https://vimeo.com/169804475
-[callbacks-video]: https://vimeo.com/169898573
-
-[oo-js-hw]: homeworks/questions/oo_js.md
-[arrows]: readings/fat-arrows.md
-[jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 [linting-js]: readings/linting-js.md
 [oo-js]: readings/object-oriented-js.md
 [function-invocation-briefly]: readings/function-invocation-briefly.md
 [closures]: readings/closures.md
 
+[intro-problem-set]: homeworks/questions/js_intro.md
+[reactivex]: http://reactivex.io/learnrx/
+[mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+[codecademy-js]: http://www.codecademy.com/tracks/javascript
+[mdn-js-doc]: readings/mdn-js.md
+
+[oo-js-hw]: homeworks/questions/oo_js.md
+[jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
+
 [intro-javascript-problems]: projects/intro_js_exercises
 [reversi]: projects/js_reversi
 
-## w5d5
+## w5d4
 
 ### Readings (65 min)
 * [Intro to Callbacks: File I/O][file-io] (15 min)
@@ -144,7 +135,7 @@
 [airbnb-style]: https://github.com/airbnb/javascript
 [loupe]: http://latentflip.com/loupe
 
-## w6d1
+## w5d5
 
 ### Video Lectures (90 min)
 :closed_lock_with_key: `go_video_go`
@@ -207,7 +198,7 @@
 [asteroids-project]: projects/asteroids
 [modules]: readings/browser-modules.md
 
-## w6d2
+## w6d1
 
 ### Assessment05 Practice
 + In-class practice assessment at 9am. Please bring your own machine if possible.
@@ -254,7 +245,7 @@
 [ttt-jquery]: projects/ttt_jquery
 [snake-project]: projects/snake
 
-## w6d3
+## w6d2
 
 ### Homeworks (2 hr)
 * [CSS Curriculum Day 5][css-day5] (30 min)
@@ -274,7 +265,7 @@
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-warmup]: ../html-css/projects/css_warm_up
 
-## w6d4
+## w6d3
 
 ### Study Hall 9 - 10am
 
@@ -296,7 +287,7 @@
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
 
 ### Projects
-* [AjaxTwitter][ajax-twitter]
+* [AjaxTwitter (with rails backend)][ajax-twitter]
 
 [ajax-lecture]: https://vimeo.com/162860823
 [ajax-demo]: https://vimeo.com/162764008
@@ -309,7 +300,7 @@
 [first-ajax]: homeworks/questions/first_ajax.md
 [ajax-twitter]: projects/ajax_twitter
 
-## w6d5
+## w6d4
 
 ### Assessment05
 * [Practice Assessment][assessment-prep-5]
