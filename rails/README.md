@@ -288,7 +288,7 @@
 ### Assessment04
 * [Practice][assessment-prep-4]
 
-### Video lectures (42 min)
+### Video lectures (95 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera: Rails Lite Intro](https://vimeo.com/161381457) (4 min)
 * [:movie_camera: HTTP](https://vimeo.com/161381484) (12 min)
