@@ -23,21 +23,29 @@ default: &default
 
 development:
   <<: *default
+<<<<<<< b50a27a7baecb2419566f6c1563802cfca383045
 <<<<<<< e48e33bbaf4663449edf6e8fb25c4a672b8e7d2e
   database: movie_buff
 =======
   database: active_record_zoo
 >>>>>>> add movie_buff
+=======
+  database: movie_buff
+>>>>>>> configure db and update readmes
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
+<<<<<<< b50a27a7baecb2419566f6c1563802cfca383045
 <<<<<<< e48e33bbaf4663449edf6e8fb25c4a672b8e7d2e
   #username: movie_buff
 =======
   #username: active_record_zoo
 >>>>>>> add movie_buff
+=======
+  #username: movie_buff
+>>>>>>> configure db and update readmes
 
   # The password associated with the postgres role (username).
   #password:
@@ -65,11 +73,15 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+<<<<<<< b50a27a7baecb2419566f6c1563802cfca383045
 <<<<<<< e48e33bbaf4663449edf6e8fb25c4a672b8e7d2e
   database: movie_buff_test
 =======
   database: active_record_zoo_test
 >>>>>>> add movie_buff
+=======
+  database: movie_buff_test
+>>>>>>> configure db and update readmes
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -92,8 +104,12 @@ test:
 #
 production:
   <<: *default
+<<<<<<< b50a27a7baecb2419566f6c1563802cfca383045
 <<<<<<< e48e33bbaf4663449edf6e8fb25c4a672b8e7d2e
   database: movie_buff_production
 =======
   database: active_record_zoo_production
 >>>>>>> add movie_buff
+=======
+  database: movie_buff_production
+>>>>>>> configure db and update readmes
