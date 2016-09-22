@@ -59,12 +59,12 @@ When implementing a database schema, you must decide on three things:
 * the columns each of those tables will have,
 * and the data type of each of those columns.
 
-Schemas are mutable and so the decisions up front are not at all set
+Schemas are mutable, so the decisions up front are not at all set
 in stone. Still, you should spend time thinking about your schema at
-the outset so you don't immediately make major, avoidable mistakes.
+the outset to avoid making major, avoidable mistakes.
 
 New to us is the concept of **static typing**. Ruby is **dynamically
-typed**. For example, there is no need to specify in method parameters
+typed** -- there is no need to specify in method parameters
 or variables the class (also called **type**) of the data stored in
 it. Ruby won't stop you even if you store something silly like a `Cat`
 object in a variable named `favorite_dog`.
