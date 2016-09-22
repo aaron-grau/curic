@@ -6,7 +6,8 @@ Estimated Time: 1 hr.
 
 How to run: 
 
-0.  Run `skeleton/setup`
+0.  Navigate to `skeleton`
+0.	Run `./setup`
 0.	Run `bundle install`
 0.  Do your work in `skeleton/movie_buff/queries.rb`
 0.  Run `bundle exec rspec` to test. 
