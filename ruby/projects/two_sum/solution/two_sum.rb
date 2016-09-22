@@ -70,19 +70,16 @@ def two_sum_indices(arr, target_sum)
 end
 
 def four_sum? list, target
-  matches = Hash.new(false)
-  pairs = []
-  list.each_with_index do |x, i|
-    list.each_with_index do |y, j|
-      next unless i < j
-      pairs << [x,y]
+
+  (0...list.length).each do |x|
+    (x+1...list.length).each do |y|
+      pair_sum = list[x] + list[y]
+      remainder = list.dup
+      remainder.delete_at(remainder.index(list[x]))
+      remainder.delete_at(remainder.index(list[y]))
+      return true if two_sum?(remainder, target - pair_sum)
     end
-  end 
-
-  pairs.each do |pair|
-    return true if matches[pair.reduce(:+)]
-    matches[target - pair.reduce(:+)] = true
   end
-
   false
+
 end
