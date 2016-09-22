@@ -68,3 +68,21 @@ def two_sum_indices(arr, target_sum)
     end
     nil
 end
+
+def four_sum? list, target
+  matches = Hash.new(false)
+  pairs = []
+  list.each_with_index do |x, i|
+    list.each_with_index do |y, j|
+      next unless i < j
+      pairs << [x,y]
+    end
+  end 
+
+  pairs.each do |pair|
+    return true if matches[pair.reduce(:+)]
+    matches[target - pair.reduce(:+)] = true
+  end
+
+  false
+end
