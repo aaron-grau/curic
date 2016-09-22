@@ -236,7 +236,7 @@ these newly generated select tags.
 In the `TweetCompose` `constructor`, add a listener for a click on
 `a.add-mentioned-user`. I wrote a `TweetCompose#addMentionedUser` method. I used
 jQuery to find the `script` tag, I grabbed the HTML from within using
-`$scriptTag.HTML()`, then appended it into the `mentioned-users` div.
+`$scriptTag.html()`, then appended it into the `mentioned-users` div.
 
 Test this out and make sure you can create new `select` tags by clicking the link.
 
