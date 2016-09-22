@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router';
 import MarkerManager from '../../util/marker_manager';
 
+const _getCoordsObj = function(latLng) {
+  return ({
+    lat: latLng.lat(),
+    lng: latLng.lng()
+  });
+};
+
 let _mapOptions = {
   center: {lat: 37.773972, lng: -122.431297}, //San Francisco
   zoom: 13
