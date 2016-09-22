@@ -15,18 +15,26 @@ views for you to start with in the [skeleton][skeleton-zip].
 
 Get yourself oriented.
 
-+ Take a look at the schema, the routes file, and the jbuilder views.  
-+ Start up the rails server (`rails s`) and visit the api routes to see what
-data is available from the backend.
++ Take a look at the schema, routes file, and jbuilder views for `Pokemon` and `Toys`.
++ Open up the rails console (`rails c`) to see what's in the database.
++ Start up the rails server (`rails s`) and visit each api routes to see what
+data is served up from the backend at each endpoint.
+  + Run `rake routes` to see what routes are available.
+  + For example, visiting `http://localhost:3000/api/pokemon/63` returns
+  information about the pokemon Squirtle parsed by the jbuilder view at
+  `app/views/api/pokemon/show.json.jbuilder`.
 
-For example, 
+  ```
+  {"id":10,"attack":110,"defense":130,"image_url":"/assets/pokemon_snaps/076.png","moves":["tackle","rock throw","earthquake"],"name":"Golem","poke_type":"rock","toys":{"30":{"id":30,"happiness":5,"image_url":"http://placekitten.com/200/300?image=11","name":"Doctor Justice","pokemon_id":10,"price":71},"29":{"id":29,"happiness":6,"image_url":"http://placekitten.com/200/300?image=7","name":"Rocket Raccoon Lord","pokemon_id":10,"price":14},"28":{"id":28,"happiness":97,"image_url":"http://placekitten.com/200/300?image=9","name":"Cottonmouth Thirteen","pokemon_id":10,"price":58}}}
+  ```
 
-**Note the `defaults: {format: :json}`** in the `routes.rb` file.  This means HTTP
-requests for the `pokemon` resource should be assumed to be asking for a
-JSON response instead of HTML. When we render a template, instead of looking for `template.html.erb`, Rails will look for `template.json.jbuilder`.
+**NB**: The `defaults: {format: :json}` in the `routes.rb` file means
+HTTP requests for the `pokemon` resource should be assumed to be asking for a
+JSON response instead of HTML. When we render a template, instead of looking
+for `template.html.erb`, Rails will look for `template.json.jbuilder`.
 
-Stylesheets have been provided for you in the skeleton.  **Follow the sample jsx structures provided in the instructions to have these stylings applied.**  
-
+:art: Stylesheets have been provided for you in the skeleton. **Follow the s
+ample jsx structures provided in the instructions to have these stylings applied.**  
 
 [skeleton-zip]: ./skeleton.zip?raw=true
 
