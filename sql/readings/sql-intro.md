@@ -328,17 +328,17 @@ parentheses, the list of column names along with their data types.
 
 ## Querying across multiple tables (JOIN)
 
-Similarly to the objects in a good Ruby program, a well-designed 
-database will split data into tables that each encapsulate some 
+Similarly to the objects in a good Ruby program, a well-designed
+database will split data into tables that each encapsulate some
 object. Sometimes, we will want to access the data from more than
-one of these tables at once, but so far we've only seen ways to 
+one of these tables at once, but so far we've only seen ways to
 query a single table. How might we query across tables?
 
 SQL provides a powerful facility: the `JOIN`. A `JOIN` will
-do just what you'd expect it to do: join together two tables, 
+do just what you'd expect it to do: join together two tables,
 resulting in a temporary combined table that you can query just like
-any other. `JOIN` clauses include an `ON` statement, in which you 
-specify how exactly those two tables relate to one another. This is 
+any other. `JOIN` clauses include an `ON` statement, in which you
+specify how exactly those two tables relate to one another. This is
 where foreign keys come into play. Check out the simple join below.
 
 Let's write a query that returns the title of all the blog posts
@@ -355,16 +355,16 @@ JOIN
 
 This will return one row per post, with the user's name appearing next
 to the title of the post they authored. By storing a `user_id` column in
-the `posts` table, we can associate user data to posts without adding 
+the `posts` table, we can associate user data to posts without adding
 columns that would duplicate data from other tables in the database and
 other rows in the `posts` table; we just `JOIN` the tables as needed.
 
 In this example, we joined two different tables using a foreign key
-stored in a single column. This is the most common case we will see, 
+stored in a single column. This is the most common case we will see,
 but `JOIN` is a flexible operator that can handle a variety of conditions.
-Two variations we will use are self joins, in which we join a table to 
+Two variations we will use are self joins, in which we join a table to
 itself (for example, if we have a table of employees, each of whom has
-a supervisor in the same table) and joins that use multiple columns to 
+a supervisor in the same table) and joins that use multiple columns to
 specify the `ON` condition (for example, if we have a bus timetable that
 identifies routes by a company name and a route number).
 
