@@ -157,6 +157,7 @@
 + [Ternary Logic in SQL][sql-ternary-logic]
 
 ### Projects
++ [Movie Buff][movie-buff]
 + [Polls][polls-app]
 
 [assessment-prep-3]: https://github.com/appacademy/assessment-prep#assessment-3
@@ -167,7 +168,7 @@
 [sql-ternary-logic]: readings/sql-ternary-logic.md
 
 [n1-buster]: homeworks/questions/n_1_buster.md
-
+[movie-buff]: projects/movie_buff
 [polls-app]: projects/polls_app
 
 ## w3d5
