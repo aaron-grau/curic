@@ -30,7 +30,11 @@ class BenchMap extends React.Component{
   }
 
   componentDidUpdate(){
-    this.MarkerManager.updateMarkers(this.props.benches);
+    if(this.props.singleBench){
+      this.MarkerManager.updateMarkers([this.props.benches[Object.keys(this.props.benches)[0]]]); //grabs only that one bench
+    } else {
+      this.MarkerManager.updateMarkers(this.props.benches);
+    }
   }
 
   _registerListeners() {

@@ -2,13 +2,12 @@ import React from 'react';
 import BenchIndexItem from './bench_index_item';
 
 const BenchIndex = ({benches}) => {
-  const benchKeys = Object.keys(benches);
   return (
     <div>
       <h1>Benches: </h1>
       {
-        benchKeys.map( key => (
-          <BenchIndexItem bench={benches[key]} key={key} />
+        benches.map( bench => (
+          <BenchIndexItem bench={bench} key={bench.id} />
         ))
       }
     </div>
