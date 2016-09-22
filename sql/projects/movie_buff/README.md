@@ -1,15 +1,13 @@
-# Active Record Zoo (Beta!)
+# Movie Buff
 
-0. 	Navigate into the `skeleton`.
+Practice writing Active Record queries! 
 
-0.  Run `./import_db.sh`
+Estimated Time: 1 hr.
 
+How to run: 
+
+0.  Run `skeleton/setup`
 0.	Run `bundle install`
-
-0.  Complete the files in the `query_lib` directory.
-
-0.  You can test queries out in `rails console`.
-
-0.  Run `bundle exec rspec spec/<spec_file_name>` to test. 
-
-0.	Send your solution and feedback to `ktran@appacademy.io`. Thanks!
+0.  Do your work in `skeleton/movie_buff/queries.rb`
+0.  Run `bundle exec rspec` to test. 
+0.  You can manually test queries in the `rails console`.
