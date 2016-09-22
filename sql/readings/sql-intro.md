@@ -64,7 +64,7 @@ in stone. Still, you should spend time thinking about your schema at
 the outset so you don't immediately make major, avoidable mistakes.
 
 New to us is the concept of **static typing**. Ruby is **dynamically
-typed**. for example, there is no need to specify in method parameters
+typed**. For example, there is no need to specify in method parameters
 or variables the class (also called **type**) of the data stored in
 it. Ruby won't stop you even if you store something silly like a `Cat`
 object in a variable named `favorite_dog`.
