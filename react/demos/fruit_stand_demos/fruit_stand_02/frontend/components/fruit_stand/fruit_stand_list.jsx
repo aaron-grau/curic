@@ -4,6 +4,15 @@ import FruitStandListItem from './fruit_stand_list_item';
 class FruitStandList extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.handleRestock = this.handleRestock.bind(this);
+	}
+
+	handleRestock() {
+		this.props.addFruits([
+			'peach',
+			'peach'
+		]);
 	}
 
 	render() {
@@ -14,7 +23,8 @@ class FruitStandList extends React.Component {
 						<FruitStandListItem key={idx} fruit={fruit} />
 					))}
 				</ul>
-	      <button onClick={this.props.addFruits}>Re-stock!</button>
+	      <button onClick={this.handleRestock}>Re-stock!</button>
+				<button onClick={this.props.sellOut}>Sell out!</button>
 			</div>
 		);
 	}

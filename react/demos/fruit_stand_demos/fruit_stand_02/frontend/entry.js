@@ -9,7 +9,7 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
-// for dispatching actions that trigger re-renders!
+/* for dispatching actions that trigger re-renders! */
 import { addFruit, addFruits, sellFruit, sellOut } from './actions/fruits_actions';
 
 window.store = store;
