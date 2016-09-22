@@ -78,12 +78,10 @@ correctly, write a `FollowToggle#render` method. Depending on
 Call your `#render` method inside the `constructor` to initially set the inner HTML.
 
 Next, write a `FollowToggle#handleClick` method. Install this click handler in the constructor. Your click handler should:
-	0. Prevent the default action.
-	0. Make a `$.ajax` request to `POST /users/:id/follow` if we are not
-	   following the user (check `followState`).
-	0. Else, it should make a `DELETE` request.
-	0. On success of the `POST`/`DELETE`, we should toggle the
-	   `followState` and re-render.
+* Prevent the default action.
+* Make a `$.ajax` request to `POST /users/:id/follow` if we are not following the user (check `followState`).
+* Else, it should make a `DELETE` request.
+* On success of the `POST`/`DELETE`, we should toggle the `followState` and re-render.
 
 **Hint**: You probably want to set the `dataType` option for `$.ajax`. This way you can
 have jQuery automatically parse the response as JSON. Read the documentation [here][$.ajax-docs]
