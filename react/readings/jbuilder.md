@@ -10,14 +10,28 @@ no flexibility for including associated data.
 
 Enter Jbuilder.
 
-Jbuilder allows us to construct views that curate our data.
+Rather than build HTML views, Jbuilder allows us to construct JSON views with curated data.
 
-It is quite straightforward to use once you've made a few templates. When making a Jbuilder
-template, place it in the same place you would put your HTML views, but instead
+It is quite straightforward to use. When making a Jbuilder
+template, simply place it in the same place you would put your HTML views, but instead
 of using  `.html.erb` as your file extension, use `.json.jbuilder`. The same way that ERB
 is compiled to an HTML template, Jbuilder templates will be compiled by Rails
 and you'll be left with a JSON template.
 
-You also want to set the default format of our resources (in our `config/routes.rb` file)
-to `:json`, Rails will automatically look for a `.json` file when you
+You also want to set the default format of resources (in the `config/routes.rb` file)
+to `:json`. Then Rails will automatically look for a `.json` file when you
 pass a template name to `render` (`render :index` for example).
+
+```
+  my_awesome_app
+    |- app
+        |- ...
+        |- views
+            |- photos
+                  |- index.json.jbuilder
+                  |- show.json.jbuilder
+                  |- _photo.json.jbuilder
+```
+
+As shown in the directory structure above, you can also use partials with
+Jbuilder just as you have with ERB.
