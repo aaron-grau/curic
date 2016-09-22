@@ -4,12 +4,22 @@
 
 In this project, we'll write an app to manage your `Pokemon` and their `Toys`.
 
-We've already set up a Rails backend with migrations, models, controllers, and views for you to start with in the [skeleton][skeleton-zip].  **You will need to run `bundle install`, then `rake db:setup` (short for `rake
-db:create db:migrate db:seed`).**
+## Phase 0: Setup
+We've already set up a Rails backend with migrations, models, controllers, and
+views for you to start with in the [skeleton][skeleton-zip].
 
-Take a look at the schema, the routes file, and the jbuilder views to get
-yourself oriented.  **Start up the rails server and visit the api routes** to see what
-data are available from the backend.
++ Download the [skeleton][skeleton].
++ Run `bundle install`.
++ Make sure Postgres is running then run `rake db:setup` (short for
+  `rake db:create db:migrate db:seed`).
+
+Get yourself oriented.
+
++ Take a look at the schema, the routes file, and the jbuilder views.  
++ Start up the rails server (`rails s`) and visit the api routes to see what
+data is available from the backend.
+
+For example, 
 
 **Note the `defaults: {format: :json}`** in the `routes.rb` file.  This means HTTP
 requests for the `pokemon` resource should be assumed to be asking for a
@@ -386,7 +396,7 @@ You will need to:
 
 When providing the toy to the `ToyDetail` component from the `ToyDetailContainer`, remember that `mapStateToProps` accepts a second parameter `ownProps`. Use this to key into the correct toy.
 
-**Hint:** A component rendered by a route receives `params` as a prop, which includes information about the route. 
+**Hint:** A component rendered by a route receives `params` as a prop, which includes information about the route.
 
 **Test your code** by clicking on a Pokemon's toy and making sure that a `ToyDetail` component is rendered with the correct information.
 
