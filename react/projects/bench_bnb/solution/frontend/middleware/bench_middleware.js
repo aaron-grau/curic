@@ -8,10 +8,13 @@ import { fetchBenches,
 import { requestBenches,
          receiveBench,
          receiveBenches,
-         BenchConstants
+         REQUEST_BENCHES,
+         REQUEST_BENCH,
+         CREATE_BENCH,
+         CREATE_REVIEW
        } from '../actions/bench_actions';
 // Filter Constants
-import { FilterConstants } from '../actions/filter_actions';
+import { UPDATE_FILTER } from '../actions/filter_actions';
 
 
 export default ({getState, dispatch}) => next => action => {
@@ -19,20 +22,20 @@ export default ({getState, dispatch}) => next => action => {
   const benchSuccess = data => dispatch(receiveBench(data));
   const result = next(action);
   switch(action.type){
-    case BenchConstants.REQUEST_BENCHES:
+    case REQUEST_BENCHES:
       const filters = getState().filters;
       fetchBenches(filters, benchesSuccess);
       break;
-    case BenchConstants.REQUEST_BENCH:
+    case REQUEST_BENCH:
       fetchBench(action.id, benchSuccess);
       break;
-    case FilterConstants.UPDATE_FILTER:
+    case UPDATE_FILTER:
       dispatch(requestBenches());
       break;
-    case BenchConstants.CREATE_BENCH:
+    case CREATE_BENCH:
       createBench(action.bench, benchSuccess);
       break;
-    case BenchConstants.CREATE_REVIEW:
+    case CREATE_REVIEW:
       createReview(action.review, benchSuccess);
       break;
     default:
