@@ -2,7 +2,7 @@
 
 Live demo available [here][live-demo]!
 
-[live-demo]:http://appacademy.github.io/curriculum/react/projects/synthesizer/solutions/index.html
+[live-demo]:http://appacademy.github.io/curriculum/react/synthesizer/solution/index.html
 
 ## Overview
 
