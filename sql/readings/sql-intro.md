@@ -8,8 +8,8 @@ write the data to permanent storage, like the hard disk. We saw some
 of this in the serialization chapter.
 
 Applications usually also require rich relationships between pieces of
-data. For a blogging system, users have many posts and posts have many
-tags and users may be following other users and so on.
+data. Consider a blogging system: users have many posts, posts have many
+tags, users may be following other users, and so on.
 
 Relational databases (also sometimes referred to as RDBMS, relational
 database management systems) were developed to provide a means of
