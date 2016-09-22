@@ -63,11 +63,11 @@ Schemas are mutable, so the decisions up front are not at all set
 in stone. Still, you should spend time thinking about your schema at
 the outset to avoid making major, avoidable mistakes.
 
-New to us is the concept of **static typing**. Ruby is **dynamically
+The concept of **static typing** may be new to you. Ruby is **dynamically
 typed** -- there is no need to specify in method parameters
 or variables the class (also called **type**) of the data stored in
 it. Ruby won't stop you even if you store something silly like a `Cat`
-object in a variable named `favorite_dog`.
+object in a variable named `favorite_dog`, or a `String` in a variable named `number`.
 
 SQL is not quite so flexible; you must specify the type of data that
 will go into each column.
@@ -85,20 +85,20 @@ Here are a few of the most common datatypes:
 * `TIME`
 * `BLOB` (non-textual, binary data; e.g., an image)
 
-We'll see how exactly we create tables and specify columns and column
+We'll see how exactly we create tables, include columns, and specify column
 types in just a bit.
 
 ## Modeling Relationships
 
-So we have a way to store users and additional bits of data on them,
+Now we have a way to store users and additional bits of data on them,
 but how would we store associated entities like a blog post written
 by a user?
 
-Well, we probably have the sense that they should be in their own
+We probably have the sense that they should be in their own
 tables since they're not really additional attributes on a user (which
-would call for additional columns) nor are they users themselves
-(which would call for additional rows). If posts were in their own
-table, though, how would we know that they were associated with a
+would call for additional columns), nor are they users themselves
+(which would call for additional rows). But if posts were in their own
+table, how would we know that they were associated with a
 particular user?
 
 We model these relationships between entries in separate tables
@@ -147,7 +147,7 @@ relation between the one and the other.
 
 ## Structured Query Language (SQL)
 
-So, now that we know what these tables look like and generally how
+Now that we know what these tables look like and generally how
 relationships are modeled between them, how do we actually get at the
 data?
 
