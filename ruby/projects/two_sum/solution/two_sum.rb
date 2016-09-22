@@ -70,7 +70,6 @@ def two_sum_indices(arr, target_sum)
 end
 
 def four_sum? list, target
-
   (0...list.length).each do |x|
     (x+1...list.length).each do |y|
       pair_sum = list[x] + list[y]
@@ -81,5 +80,4 @@ def four_sum? list, target
     end
   end
   false
-
 end
