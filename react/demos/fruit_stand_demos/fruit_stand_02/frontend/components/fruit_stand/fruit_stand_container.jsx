@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import FruitStandList from './fruit_stand_list';
-import { addFruits } from '../actions/fruits_actions';
+import { addFruits } from '../../actions/fruits_actions';
 
 const mapStateToProps = ({ fruits }) => ({
   fruits
 });
 
 const mapDispatchToProps = dispatch => ({
-  addFruits: fruits => dispatch(addFruits(fruits))
+  addFruits: fruits => dispatch(addFruits(fruits)),
+  sellOut: () => dispatch(sellOut())
 });
 
 export default connect(

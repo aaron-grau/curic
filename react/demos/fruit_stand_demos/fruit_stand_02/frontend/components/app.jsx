@@ -1,5 +1,5 @@
 import React from 'react';
-import FruitStandContainer from './fruit_stand_container';
+import FruitStandContainer from './fruit_stand/fruit_stand_container';
 
 const App = () => (
   <div className='app'>

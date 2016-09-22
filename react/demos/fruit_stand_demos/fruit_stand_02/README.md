@@ -11,20 +11,24 @@ actions, and *connected* React components.
 Let's start by looking at the code you just walked through in the [video demo][video-demo].
 
 + Notable libraries used - `react`, `react-dom`, `react-redux`, `redux`.
-+ Action creators are defined in the [`frontend/action`][actions] folder.
-  + Action creators and types concerning the `fruit` slice of our state live in `frontend/actions/fruit_actions.js` and `farmers` `frontend/actions/farmers/actions.js`.
-+ The app's `reducer` (i.e. reducing function) is defined in [`frontend/reducer.js`][reducer-code].
-+ The app's Redux store is instantiated in [`frontend/store.js`][store-code].
++ Action creators and types are defined in the `frontend/actions` folder.
++ The app's `reducer` (i.e. reducing function) is defined in `frontend/reducers/root_reducer.js`.
+  + `fruitsReducer` is defined in `frontend/reducers/fruits_reducer.js`. It handles
+  and returns the `fruits` slice of our app's state.
++ The app's Redux store is instantiated in `frontend/store/store.js`.
   + The Redux store constructor `createStore` is imported from `redux`.
-  + The app's `reducer` is imported from `frontend/reducer.js`.
-
-
-Check out `entry.js` (this demo's entry file):
-+ Import `React` and `ReactDom` to use React in our app.
-+ Check out the app's `store` defined in `frontend/store.js`.
-+ Check out the app's actions defined in `frontend/sactions.js`.
-+ Check out our app's React component `FruitStand` defined in `frontend/components/fruit_stand.jsx`.
-  + This React component gets passed the app's `store` as a `prop`. Inside of its constructor, `store.subscribe(this.forceUpdate.bind(this))` is called so whenever the store's state changes because of triggered actions, the component re-renders. Thereby, `FruitStand` always renders the current state.
+  + The app's `reducer` is imported from `frontend/reducers/root_reducer.js`.
++ The app's React components are defined in `frontend/components`.
+  + The presentational component `<FruitstandList>` is defined in
+  `frontend/compoments/fruit_stand/fruit_stand_lis.jsx`. It renders `fruits`
+  stored in the application state.
+  + The corresponding container `<FruitStandContainer>` is defined in
+  `frontend/components/fruit_stand/fruit_stand_container.jsx` and *connects*
+  the presentational component `<FruitStandList>` to the Redux store.
+  + `<App>` is defined in `frontend/components/app.jsx` and wraps `<FruitStandContainer>`.
+  + `<Root>` is defined in `frontend/components/root.jsx` and wraps `<App>`
+  with the `<Provider>` from the `react-redux` library.
++ `frontend/entry.js` is the entry file.
 
 ---
 
@@ -35,7 +39,6 @@ If you want to run the source code yourself, follow these instructions:
   4. Run `webpack` to compile `bundle.js`.
   4. `open index.html` to see the app in the browser.
   5. Open Dev Tools to see the app's Redux store in action.
-    + Available for testing on the `window` are the app's Redux `store`, and actions `addOrange` and `addApple`.
 
 [zip]: ./fruit_stand_02.zip
 [live-demo]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
