@@ -8,7 +8,7 @@ In this project, we'll write an app to manage your `Pokemon` and their `Toys`.
 We've already set up a Rails backend with migrations, models, controllers, and
 views for you to start with in the [skeleton][skeleton-zip].
 
-+ Download the [skeleton][skeleton].
++ Download the [skeleton][skeleton-zip].
 + Run `bundle install`.
 + Make sure Postgres is running then run `rake db:setup` (short for
   `rake db:create db:migrate db:seed`).
@@ -25,7 +25,24 @@ data is served up from the backend at each endpoint.
   `app/views/api/pokemon/show.json.jbuilder`.
 
   ```
-  {"id":10,"attack":110,"defense":130,"image_url":"/assets/pokemon_snaps/076.png","moves":["tackle","rock throw","earthquake"],"name":"Golem","poke_type":"rock","toys":{"30":{"id":30,"happiness":5,"image_url":"http://placekitten.com/200/300?image=11","name":"Doctor Justice","pokemon_id":10,"price":71},"29":{"id":29,"happiness":6,"image_url":"http://placekitten.com/200/300?image=7","name":"Rocket Raccoon Lord","pokemon_id":10,"price":14},"28":{"id":28,"happiness":97,"image_url":"http://placekitten.com/200/300?image=9","name":"Cottonmouth Thirteen","pokemon_id":10,"price":58}}}
+  {
+    id: 63,
+    attack: 48,
+    defense: 65,
+    image_url: "/assets/pokemon_snaps/007.png",
+    moves: [
+      "tackle",
+      "bubble",
+      "water gun"
+    ],
+    name: "Squirtle",
+    poke_type: "water",
+    toys: {
+      187: { id: 187, happiness: 72, image_url: "http://placekitten.com/200/300?image=3", name: "Falcon", pokemon_id: 63, price: 84 },
+      188: { id: 188, happiness: 37, image_url: "http://placekitten.com/200/300?image=8", name: "Dormammu Dragon", pokemon_id: 63, price: 1 },
+      189: { id: 189, happiness: 5, image_url: "http://placekitten.com/200/300?image=12", name: "General Blob", pokemon_id: 63, price: 82 }
+    }
+  }
   ```
 
 **NB**: The `defaults: {format: :json}` in the `routes.rb` file means
@@ -33,8 +50,9 @@ HTTP requests for the `pokemon` resource should be assumed to be asking for a
 JSON response instead of HTML. When we render a template, instead of looking
 for `template.html.erb`, Rails will look for `template.json.jbuilder`.
 
-:art: Stylesheets have been provided for you in the skeleton. **Follow the s
-ample jsx structures provided in the instructions to have these stylings applied.**  
+:art: Stylesheets have been provided for you in the skeleton! :art:
++ Follow the sample jsx structures provided in the instructions to have these stylings
+applied.
 
 [skeleton-zip]: ./skeleton.zip?raw=true
 
@@ -42,7 +60,16 @@ ample jsx structures provided in the instructions to have these stylings applied
 
 ### `Node Package Manager`
 
-As with previous projects, you will need to set up `package.json` and `webpack.config.js` files to configure your application to use NPM and Webpack. First, run `npm init -f` to initialize `package.json` with the default settings. Instead of proceeding to run `npm install --save <package-name>` to install dependencies, we want to use specific versions of each package. To that end, add (or replace if it already exists) a "dependencies" key in the `package.json` file with the following:
+As with previous projects, you will need to set up `package.json` and
+`webpack.config.js` files to configure your application to use NPM and Webpack.
+
+* First, run `npm init -f` to initialize `package.json` with the default settings.
+
+Instead of proceeding to run `npm install --save <package-name>` to install
+dependencies, we want to use specific versions of each package.
+
++ To that end, add (or replace if it already exists) a "dependencies" key in the `package.json`
+file with the following:
 
 ```json
   "dependencies": {
@@ -60,61 +87,67 @@ As with previous projects, you will need to set up `package.json` and `webpack.c
   }
 ```
 
-Run `npm install` to generate your `node_modules` folder.
++ Run `npm install` to generate your `node_modules` folder.
 
 ### `Webpack`
 
-Next we need to configure Webpack to compile our `bundle.js` file. Create a new
-file called `webpack.config.js` in the root of your project and add the
-following content:
+Next we need to configure Webpack to compile our `bundle.js` file.
 
-```js
-const path = require('path');
++ Create a new file called `webpack.config.js` in the root of your project.
++ Copy and paste the following configuration:
 
-module.exports = {
-  context: __dirname,
-  entry: './frontend/pokedex.jsx',
-  output: {
-    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js'
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
+  ```js
+  const path = require('path');
+
+  module.exports = {
+    context: __dirname,
+    entry: './frontend/pokedex.jsx',
+    output: {
+      path: path.join(__dirname, 'app', 'assets', 'javascripts'),
+      filename: 'bundle.js'
+    },
+    resolve: {
+      extensions: ['', '.js', '.jsx']
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel',
+          query: {
+            presets: ['react', 'es2015']
+          }
+        },
+        {
+          test: /\.node$/,
+          loader: 'node-loader'
         }
-      },
-      {
-        test: /\.node$/,
-        loader: 'node-loader'
-      }
-    ]
-  },
-  devtool: 'source-maps'
-};
-```
+      ]
+    },
+    devtool: 'source-maps'
+  };
+  ```
 
-Now that Webpack knows to create `bundle.js`, we need to require it in our
-`application.js`:
++ Now that Webpack knows to create `bundle.js`, require it in our `application.js`:
 
-```js
-//= require jquery_ujs
-//= require bundle
-```
+  ```js
+  //= require jquery_ujs
+  //= require bundle
+  ```
 
 Notice that the `entry` key in `webpack.config.js` expects a file called
-`./frontend/pokedex.jsx` to exist. Make the `frontend` folder in the root of
-your project and add a file called `pokedex.jsx`. This is going to be the
-starting point for the rest of your app. Make sure to `import` both the `'react'`
-and `'react-dom'` packages, and then add an event listener for
-`DOMContentLoaded`.  In the callback to this listener, try rendering a simple stateless functional React component to test out everything you've written so far. Don't forget to run `webpack --watch` to generate your `app/assets/javascripts/bundle.js`.
+`./frontend/pokedex.jsx` to exist.
+
++ Make the `frontend` folder in the root of
+your project
++ Add an entry file called `pokedex.jsx` - this is going to be the starting
+point for the rest of your app.
++ `import` both the `'react'` and `'react-dom'` packages.
++ Then add an event listener for `DOMContentLoaded`.  
++ In the callback to this listener, try rendering a simple stateless functional
+React component to test out everything you've written so far.
++ Don't forget to run `webpack --watch` to generate your `app/assets/javascripts/bundle.js`.
 
 Your test code might look something like the following:
 ```js
@@ -128,9 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-**Test your code** and make sure that your component renders to the page.
+**Test your code** - make sure that your test component renders at `http://localhost:3000/`.
 
-Next, add more structure to your `frontend` directory. You should have folders called `actions`, `components`, `reducers`, `store`, `middleware` and `util`.
++ Next, define the structure of your `frontend` directory. You should have folders
+called `actions`, `components`, `reducers`, `store`, `middleware` and `util`.
 
 ## Phase 2: The Pokemon Index
 
