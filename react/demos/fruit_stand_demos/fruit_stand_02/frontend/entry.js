@@ -1,17 +1,19 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-import store from './store';
-import { addOrange, addApple } from './actions';
-import FruitStand from './components/fruit_stand';
-
+import store from './store/store';
+import Root from './components/root';
 
 ReactDOM.render(
-	<FruitStand store={store} />,
+	<Root store={store} />,
 	document.getElementById('root')
 );
 
-// for dispatching actions and testing!
+// for dispatching actions that trigger re-renders!
+import { addFruit, addFruits, sellFruit, sellOut } from './actions/fruits_actions';
+
 window.store = store;
-window.addOrange = addOrange;
-window.addApple = addApple;
+window.addFruit = addFruit;
+window.addFruits = addFruits;
+window.sellFruit = sellFruit;
+window.sellOut = sellOut;

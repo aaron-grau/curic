@@ -1,7 +1,7 @@
 # Fruit Stand App
 ## Phase 01 - Redux Only
 
-This is simple **Redux** application with a `store`, a  `reducer` and actions.
+This is simple **Redux** application with a Redux `store`, a  `reducer` and actions.
 
 **NB**: There are no React components in this phase.
 
@@ -9,8 +9,8 @@ This is simple **Redux** application with a `store`, a  `reducer` and actions.
 
 ---
 
-Let's starting by looking at the code that you just walked through in the first
-half of our Redux [store reading][store-reading].
+Let's start by looking at the code you just walked through in the first half of
+our Redux [store reading][store-reading].
 
 + Notable libraries used - `redux`.
 + Actions are defined in [`frontend/actions.js`][actions-code].
@@ -49,13 +49,14 @@ fruit stored in the app's state - creating our first React/Redux app.
 
 ---
 
-If you want to run the code yourself, follow these instructions:
+If you want to run the source code yourself, follow these instructions:
   1. Download [zip][zip].
   2. Unzip and cd to the app's root directory.
   3. Run `npm install` to install the Redux npm packages.
   4. Run `webpack` to compile `bundle.js`.
   4. `open index.html` to see the app in the browser.
   5. Open Dev Tools to see the app's Redux store in action.
+    + Available for testing on the `window` are the app's Redux `store`, and actions `addOrange` and `addApple`.
 
 
 [zip]: ./fruit_stand_01.zip
