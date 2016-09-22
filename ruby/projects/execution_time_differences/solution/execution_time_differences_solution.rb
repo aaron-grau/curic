@@ -51,13 +51,15 @@ end
 
 #O(n) linear time
 #O(1) constant space
-def largest_contiguous_subsum2(array)
-  largest = array.first
-  current = array.first
+def largest_contiguous_subsum2(arr)
+  largest = arr.first
+  current = arr.first
 
-  array.drop(1).each do |el|
+  return arr.max if arr.all? { |num| num < 0 }
+
+  arr.drop(1).each do |num|
     current = 0 if current < 0
-    current += el
+    current += num
     largest = current if current > largest
   end
 
