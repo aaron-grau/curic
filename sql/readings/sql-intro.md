@@ -67,7 +67,7 @@ The concept of **static typing** may be new to you. Ruby is **dynamically
 typed** -- there is no need to specify in method parameters
 or variables the class (also called **type**) of the data stored in
 it. Ruby won't stop you even if you store something silly like a `Cat`
-object in a variable named `favorite_dog`, or a `String` in a variable name `number`.
+object in a variable named `favorite_dog`, or a `String` in a variable named `number`.
 
 SQL is not quite so flexible; you must specify the type of data that
 will go into each column.
