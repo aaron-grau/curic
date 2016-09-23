@@ -6,7 +6,9 @@ const handleClick = (router, url) => (
 );
 
 const PokemonIndexItem = ({ pokemon, router }) => (
-		<li className="pokemon-index-item" onClick={handleClick(router, `/pokemon/${pokemon.id}`)}>
+		<li
+      className="pokemon-index-item"
+      onClick={handleClick(router, `/pokemon/${pokemon.id}`)}>
 			<span>{pokemon.id}</span>
 			<img src={pokemon.image_url} alt={pokemon.name}/>
 			<span>{pokemon.name}</span>
