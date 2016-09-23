@@ -291,7 +291,7 @@ component should be easy.
     `MessageStore.getSentMessages`.
   * `renderMessage`
     * Replace `<span class="from">${message.from}</span>` with `<span
-      class="to">To: ${message.}</span>`, so we display the recipient instead of
+      class="to">To: ${message.to}</span>`, so we display the recipient instead of
       the sender in the sent folder.
 
 ### `main.js`
