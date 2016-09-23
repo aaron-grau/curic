@@ -3,7 +3,7 @@
 This unit begins our foray into ActiveRecord; a component of Rails
 that is a way for your Ruby code to interact with a SQL
 database. ActiveRecord is maybe the most important part of Rails;
-after you master it, you will find the rest of Rails probably pretty
+after you master it, you will probably find the rest of Rails pretty
 straightforward.
 
 First, make sure that rails is installed:
@@ -33,7 +33,8 @@ This will add the correct gem and have sensible defaults in
 Open up the `Gemfile` file (located in your new `DemoProject` folder).
 Rails sets you up with a bunch of gems by default, but there are a few
 other gems we recommend that will make your life **much** easier. You
-may want to add some of the following gems to your `development` group:
+should get in the habit of including the the following gems to your 
+`development` group:
 
 ```ruby
     group :development do
