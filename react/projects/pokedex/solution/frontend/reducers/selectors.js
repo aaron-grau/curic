@@ -1,7 +1,5 @@
 export const selectPokemonToy = (pokemonDetail, toyId) => pokemonDetail.toys[toyId] || {};
 
-export const selectAllPokemon = (state) => state.pokemon || [];
-
 export const selectDetail = (pokemonDetail) => {
   if (pokemonDetail)
     return pokemonDetail;
