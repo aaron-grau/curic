@@ -130,6 +130,10 @@ function makeChange(target, coins) {
     return [];
   }
 
+  if (coins.every(el => el > target)) {
+    return null;
+  }
+
   let bestChange = null;
 
   function reverseSorter(a, b) {
@@ -151,6 +155,10 @@ function makeChange(target, coins) {
     // remember the optimization where we don't try to use high coins
     // if we're already using a low one?
     let restChange = makeChange(remainder, coins.slice(index));
+
+    if (!restChange) {
+      return;
+    }
 
     let change = [coin].concat(restChange);
     if (!bestChange || (change.length < bestChange.length)) {
