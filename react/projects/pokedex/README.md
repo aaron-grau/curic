@@ -17,7 +17,7 @@ Get yourself oriented.
 
 + Take a look at the schema, routes file, and jbuilder views for `Pokemon` and `Toys`.
 + Open up the rails console (`rails c`) to see what's in the database.
-+ Start up the rails server (`rails s`) and visit each api routes to see what
++ Start up the rails server (`rails s`) and visit each api route to see what
 data is served up from the backend at each endpoint.
   + Run `rake routes` to see what routes are available.
   + For example, visiting `http://localhost:3000/api/pokemon/63` returns
@@ -155,7 +155,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 document.addEventListener('DOMContentLoaded', () => {
-	const store = configureStore(window.pokemonTypes);
 	const root = document.getElementById('root');
 	ReactDOM.render(<h1>hello</h1>, root);
 });
@@ -275,8 +274,8 @@ const configureStore = () => (
 
 + Head back to the `pokedex.jsx` entry file.
 + Import your `configureStore` function.
-+ Call it inside the DOM listener callback and assigned the return value to `store`.
-+ Now replace the logging of your `receiveAllPokemon` success callback with a dispatch using the store.
++ Call it inside the DOM listener callback and assign the return value to `store`.
++ Replace the logging of your `receiveAllPokemon` success callback with a dispatch using the store.
 
 **Test that this dispatches the action to our reducer and updates the state** by
 placing the `store` on the window at the end of the listener and calling
@@ -382,7 +381,7 @@ to wrap our success callback actions.
 
 ```javascript
 export default ({ dispatch }) => next => action => {
-  // middlware switch statement and necessary variables
+  // middleware switch statement and necessary variables
 };
 ```
 
@@ -484,7 +483,7 @@ Now you can refactor the `PokemonIndex` to be a stateless functional component
 that does not need to call any React lifecycle methods. We also do not need to
 `mapDispatchToProps` anymore which simplifies our `PokemonIndexContainer`.
 
-**Make sure all Pokemon still render before moving on.**
+**Test your changes:** Make sure all Pokemon still render before moving on.
 
 [on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
 
@@ -537,8 +536,7 @@ for that route but was unable to find one. To fix this, let's make a
 ## Phase 4: Pokemon Detail
 
 Before creating a component, we should always plan out where and how it will get
-its information. Eventually, we also want the `PokemonDetail` to display the
-toys that a Pokemon has. Talk over the following questions with your partner:
+its information. Eventually, we will want the `PokemonDetail` to display a Pokemon's information as well as its `Toys`. Talk over the following questions with your partner:
 
 1. Where will the `PokemonDetail` get it's information from?
 2. How will we pass this information to `PokemonDetail`?
@@ -553,14 +551,14 @@ Implement the `PokemonDetail` component just like we did the `PokemonIndex`:
 
 Review the `_pokemon.json.jbuilder` file and talk with your partner about how
 you believe the `PokemonDetail` object will look before we map it to props.
-**Confirm your answer by navigating to the URL in your browser.**
+**Confirm your answer by navigating to the URL in your browser.** (The URL will be similar to `http://localhost:3000/api/pokemon/63`)
 
 You will notice that the toys data are not well formatted for turning into
 `ToyItem` components.  But this nesting will be helpful later on when we render
 a `ToyDetail` component, so we will opt to use a selector rather than edit the
 jBuilder template.  The selector will take state as a parameter and serve as a
 utility function to return an array of toy objects that we can easily map over.
-Create this `toy_selector.js` file in the `util` folder.  Provide this piece of
+Create a `selectors.js` file in the `reducers` folder.  Provide this piece of
 state to the props of your `PokemonDetail` component using your imported
 selector.
 
@@ -633,8 +631,7 @@ Our next feature will be to allow the creation of new Pokemon. To allow users to
 
 1. Create an API function that sends a single Pokemon's information as part of a `POST` request to the backend
 2. Create actions for both creating and receiving a new Pokemon
-3. Update the reducer to respond to receiving a new Pokemon
-  **Hint:** This should merge multiple pieces of state
+3. Update the reducer to respond to receiving a new Pokemon (**Hint:** This should merge multiple pieces of state)
 4. Update the middleware to respond to a `CREATE_POKEMON` action
 5. Create a `PokemonFormContainer` that only connects `mapDispatchToProps`
 6. Create a `PokemonForm` controlled component
