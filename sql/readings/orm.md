@@ -30,10 +30,10 @@ db.type_translation = true
 
 cars = db.execute("SELECT * FROM cars")
 # => [
-  {"make" => "Toyota", "model" => "Camry", "year" => 1997},
-  {"make" => "Toyota", "model" => "Land Cruiser", "year" => 1989},
-  {"make" => "Citroen", "model" => "DS", "year" => 1969}
-]
+#  {"make" => "Toyota", "model" => "Camry", "year" => 1997},
+#  {"make" => "Toyota", "model" => "Land Cruiser", "year" => 1989},
+#  {"make" => "Citroen", "model" => "DS", "year" => 1969}
+# ]
 ```
 
 That works nicely, but what if we wanted to store and load objects of
