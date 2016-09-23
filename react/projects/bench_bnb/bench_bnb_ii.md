@@ -81,7 +81,7 @@ deconstruct your props for cleaner syntax.
   //...
 ```
 
-This should cause a Google Map to be rendered to the page.
+**Test:** This should cause a Google Map to be rendered to the page.
 
 ## Phase 7: Markers on the Map
 
@@ -544,7 +544,6 @@ appropriate API endpoints, actions, utils, and components.
   Give your project a makeover and add a ton of CSS so that it resembles
   the REAL AirBNB.
 
-[rails]: ../../../rails#readings-after-you-finish-all-videos
 [google-map-doc]: https://developers.google.com/maps/documentation/javascript/tutorial
 [event-doc]: https://developers.google.com/maps/documentation/javascript/events#MarkerEvents
 [map-markers]: https://developers.google.com/maps/documentation/javascript/markers
