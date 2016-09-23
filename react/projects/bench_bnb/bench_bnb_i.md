@@ -13,7 +13,7 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 ## Phase 0: Rails Backend
 
 * Create a new rails project using `--database=postgresql` and `--skip-turbolinks`.
-* Setup a `StaticPagesController` with a `root` view containing a `<main id="root"></main>`.
+* Set up a `StaticPagesController` with a `root` view containing a `<main id="root"></main>`.
 * Update your `routes.rb` file to root to `static_pages#root`
 
 ## Phase 0.5: `Frontend` Structure
@@ -106,7 +106,7 @@ We need the following Action Creators (in `actions/session_actions.js`):
   * `receiveCurrentUser`
   * `receiveErrors`
 
-Build the corresponding action types as well. All of our action creators (
+Build the corresponding action types as well (e.g., `export const LOGIN = 'LOGIN'`). All of our action creators (
 other than `logout`) should accept an argument.
 
 ### `SessionReducer`
@@ -182,18 +182,18 @@ Setup a `configureStore` method for initializing our Store:
 
 So far, we have built our redux store and told it to use our session reducing function.
 Test that everything works:
-  0. Add a `'DOMContentLoaded'` callback to your entry point if you don't already
+  * Add a `'DOMContentLoaded'` callback to your entry point if you don't already
   have one.
-  0. Inside the callback, call `configureStore()` and assign the result to the `window`:
+  * Inside the callback, call `configureStore()` and assign the result to the `window`:
     ```javascript
       window.Store = configureStore(); //just for testing!
     ```
-  0. Run `Store.getState()` in the console and inspect the results.
+  * Run `Store.getState()` in the console and inspect the results.
 
 Your state should look like the default state mentioned above!
 
 **Test that your `SessionReducer` works** by dispatching session actions and then
-checking your application state!
+checking your application state.
 
 ### `SessionMiddleware`
 
@@ -207,9 +207,6 @@ function and passing the appropriate callbacks. The success callback for `login`
 `signup` requests should `dispatch` a `receiveCurrentUser` action. The error callbacks should dispatch `receiveErrors`.
 
 The success callback of `logout` should simply be to invoke `next(action)`.
-
-**Test that your `SessionMiddleware` works** by dispatching `login`, `logout`, and
-`signup` actions from the console.
 
 #### Connecting `SessionMiddleware` and the `Store`
 
@@ -258,6 +255,9 @@ function.
   );
 ```
 
+**Test that your `SessionMiddleware` works** by dispatching `login`, `logout`, and
+`signup` actions from the console and then checking your application state.
+
 ## Phase 2: Session Components and the Router
 
 We're going to add routing to our application.
@@ -303,14 +303,15 @@ const Root = ({store}) => (
 
 ### The `Router`
 
-Start by importing the following:
+Start by importing the following into `root.jsx`:
+
     * `React`
     * `Router`, `Route`, `IndexRoute`, `hashHistory`
     * `App`
     * `SearchContainer`
 
 Next, we want to define and export a **functional component** that renders a
-`Router`. Setup your `Router` to use `hashHistory`.
+`Router`. Set up your `Router` to use `hashHistory`.
 
 ```javascript
 const Root = ({store}) => (
@@ -387,7 +388,7 @@ The `SessionForm` component should be responsible for a number of tasks:
 
 **Call a TA over and show them your `SessionForm` before moving on!**
 
-### Bootstrapping the Current User
+## Phase 3: Bootstrapping the Current User
 
 When our static `root` page loads, our app mounts without being aware of who the
 current user is.
@@ -471,9 +472,11 @@ Finally, inside the `DOMContentLoaded` callback in your entry file...
   * If there is no `window.currentUser`, then `configureStore`
   without any arguments.
 
+**Test your code** by logging in and refreshing the page. You should stay logged in.
+
 [maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
 
-## Phase 2: `Bench` redux cycle
+## Phase 4: `Bench` redux cycle
 
 In this phase, you will build the pieces necessary to display a basic index of
 benches.
@@ -703,7 +706,7 @@ You should now be able to run the following in the console:
 
 Congrats! **Call over a TA and explain your benches redux cycle.**
 
-## Phase 3: `BenchIndex`
+## Phase 5: `BenchIndex`
 
 Let's create a component that shows our benches.
 
@@ -823,6 +826,7 @@ inside `App`. Use an `IndexRoute` to accomplish this.
 
 **Test your work. You've completed Day 1!**
 
+[rails]: ../../../rails#readings-after-you-finish-all-videos
 [onEnter]: ../../readings/on_enter.md
 [context-docs]: https://facebook.github.io/react/docs/context.html
 [store-context]: https://egghead.io/lessons/javascript-redux-passing-the-store-down-implicitly-via-context
