@@ -13,20 +13,10 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 ## Phase 0: Rails Backend
 
 * Create a new rails project using `--database=postgresql` and `--skip-turbolinks`.
-* Make a `Bench` model with `description`, `lat` and `lng`.
-* `lat` and `lng` should be of type `float`.
-* Make a `BenchesController` to handle API requests. It will need `index` and
-`create` to start.
-* Add routes for your `BenchController` actions. These should be namespaced under `api/benches` and return JSON by default.
-* Populate `seeds.rb` with bench seed data using [real coordinates in SF][maps-sf] (click around to get coordinates).
-* Setup a `StaticPagesController` with a `root` view containing a `<main
-id="root"></main>`.
+* Setup a `StaticPagesController` with a `root` view containing a `<main id="root"></main>`.
 * Update your `routes.rb` file to root to `static_pages#root`
-* Boot up your server and open your app in the browser. Test your API in the Dev Tools console using `$.ajax` calls (Hint: you may want to save these calls for later).
 
-[maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
-
-## Phase 1: `Frontend` Structure
+## Phase 0.5: `Frontend` Structure
 
 * Create a `/frontend` folder at the root directory of your project to hold your
 frontend:
@@ -54,43 +44,88 @@ frontend:
   * `babel-preset-es2015`
 * Create a `webpack.config.js` file
 * Setup your entry file (`bench_bnb.jsx`) to render your app into the `#root` container.
-* Test this rendering setup before moving on.
+* **Test this rendering setup before moving on.**
 
-## Phase 2: `Bench` redux cycle
+## Phase 1: Front-End User Authentication
 
-In this phase, you will build the pieces necessary to display a basic index of
-benches.
+In this phase, we are going to implement front-end user sign-up and login.
+Goodbye Rails views; hello, single-page app! **Read through the instructions for
+the entire phase before building anything.** This will give you the context to
+understand each individual step.
 
-### `BenchesReducer`
+**Our authentication pattern must:**
+  * sign up new users
+  * know who's logged in
+  * log users in
+  * log them out
+  * restrict access to certain routes based on whether someone is logged in
 
-In this step, we're going to create a reducer that manages the `benches` section
-of our application state. We want to build a state that has the following shape:
+### Auth Backend
+
+Read the instructions below, and then create an API with the following
+endpoints:
+
+  * [POST] api/users: "users#create" (signup),
+  * [POST] api/session: "session#create" (login),
+  * [DELETE] api/session: "session#destroy" (logout)
+
+**Create a `User` model, `API::UsersController`, and `Api::SessionsController`.**
+Follow the basic pattern you used during the [Rails curriculum][rails], with some
+key differences:
+
+* **Namespace**: Your controllers should live under an `Api` namespace.
+* **Response Format**: render JSON formatted responses by default.
+* **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to a partial: **`api/users/_user.json.jbuilder`**, which we'll use later.
+* **`Sessions#destroy`**: render an empty `{}` upon successful logout.
+  * Render a `404` message if there is no `current_user` to logout.
+* **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username
+already exists') in your response with a corresponding error status.
+  * Use `@user.errors` when applicable.
+  * **Caution**: Rails will format error responses differently than normal
+  responses.
+
+Test your routes using `$.ajax` in the console before moving on.
+
+### `SessionApiUtil`
+
+Create a new file, `util/session_api_util.js` with the following functions:
+  * **`signup`:** POST 'api/users'
+  * **`login`:** POST 'api/session'
+  * **`logout`:** DELETE 'api/session'
+
+Each function should take `success` and `error` callbacks.
+
+Test each of your api util functions before moving on!
+
+### Session Actions
+
+We need the following Action Creators (in `actions/session_actions.js`):
+  * `login`
+  * `logout`
+  * `signup`
+  * `receiveCurrentUser`
+  * `receiveErrors`
+
+Build the corresponding action types as well. All of our action creators (
+other than `logout`) should accept an argument.
+
+### `SessionReducer`
+
+Create a new reducer (at `reducers/session_reducer.js`) to keep track of our current user and error messages.
+The default application shape should look like:
 
 ```
-  benches: {
-    1: {id: 1, description: "...", lat: 0.0, lng: 0.0},
-    2: {id: 2, description: "...", lat: 0.0, lng: 0.0},
-    3: {id: 3, description: "...", lat: 0.0, lng: 0.0}
-  }
+{
+  currentUser: null,
+  errors: []
+}
 ```
 
-Note that our `benches` object will use `bench_id` as the primary key.
+The `SessionReducer` should listen for 3 action types:
+  * `RECEIVE_CURRENT_USER`
+  * `RECEIVE_ERRORS`
+  * `LOGOUT`
 
-* Create a file, `reducers/benches_reducer.js` that exports a `BenchesReducer` function.
-
-Let's start by just setting up our `BenchesReducer` to return it's default state:
-
-```javascript
-  const BenchesReducer = (state = {}, action) => {
-    switch(action.type){
-      //...
-      default:
-        return state
-    }
-  }
-
-  export default BenchesReducer;
-```
 
 ### `RootReducer`
 
@@ -107,7 +142,7 @@ combining our multiple, domain-specific reducers. It will export a single `RootR
 
 ```javascript
   const RootReducer = combineReducers({
-    benches: BenchesReducer
+    session: SessionReducer
   });
 ```
 
@@ -115,7 +150,10 @@ So far, our default application state should look something like this:
 
 ```
   {
-    benches: {}
+    session: {
+               currentUser: null,
+               errors: []
+             }
   }
 ```
 
@@ -154,7 +192,230 @@ Test that everything works:
 
 Your state should look like the default state mentioned above!
 
-### Actions Creators
+**Test that your `SessionReducer` works** by dispatching session actions and then
+checking your application state!
+
+### `SessionMiddleware`
+
+Your `SessionMiddleware` should only listen for 3 of our action types:
+  * `LOGIN`
+  * `LOGOUT`
+  * `SIGNUP`
+
+Your middleware should be responsible for invoking the appropriate `SessionApiUtil`
+function and passing the appropriate callbacks. The success callback for `login` and
+`signup` requests should `dispatch` a `receiveCurrentUser` action. The error callbacks should dispatch `receiveErrors`.
+
+The success callback of `logout` should simply be to invoke `next(action)`.
+
+**Test that your `SessionMiddleware` works** by dispatching `login`, `logout`, and
+`signup` actions from the console.
+
+#### Connecting `SessionMiddleware` and the `Store`
+
+Let's establish the link between our `Middleware` and the `Store`.
+
+#### `RootMiddleware`
+
+Similar to our pattern for creating a `RootReducer`, we'll create a `RootMiddleware`.
+
+  * create a new file, `middleware/root_middleware.js`
+  * import `applyMiddleware` from `redux`
+  * import your `SessionMiddleware`
+
+```javascript
+  import { applyMiddleware } from 'redux';
+  import SessionMiddleware from './session_middleware';
+```
+
+  * Use the `applyMiddleware` function to create a `RootMiddleware`
+  * `export default` `RootMiddleware`
+
+```javascript
+  const RootMiddleware = applyMiddleware(
+    SessionMiddleware
+  );
+
+  export default RootMiddleware;
+```
+
+#### Add `RootMiddleware` to the `Store`
+
+For starters, let's open `store.js` and import our `RootMiddleware`.
+
+```javascript
+  import RootMiddleware from '../middleware/root_middleware';
+```
+
+Finally, let's add our `RootMiddleware` as the third argument to the `createStore`
+function.
+
+```javascript
+  createStore(
+    RootReducer,
+    preloadedState,
+    RootMiddleware
+  );
+```
+
+### `Greeting` Component
+
+* Create a new react component, `Greeting`, and a container, `GreetingContainer`
+
+If the user **is logged in**, then the `Greeting` should contain:
+  * A welcome message including the user's username
+  * A button to logout
+
+If the user **is not logged in**, then the `Greeting` should contain:
+  * A link to the `/#/signup`
+  * A link to the `/#/login`
+
+Change your `App` to render the `GreetingContainer` above our other content.
+
+### `SessionForm` Component
+
+  * Create a new component, `SessionForm`, and a container, `SessionFormContainer`
+  * Create new routes for these components in your `router.jsx` file
+
+The `SessionFormContainer` should provide `SessionForm` with the following props:
+  * `loggedIn` (boolean):  represents whether a `currentUser` exists.
+  * `errors` (array):  list of errors from the state.
+  * `formType` (string): 'login' or 'signup'.
+  * `processForm` (function): dispatch `login` or `signup` based on `formType`.
+
+The `SessionForm` component should be responsible for a number of tasks:
+  * Render a controlled component with `state` governed by user interface.
+  * Invoke the `processForm` prop when the 'submit' button is clicked.
+  * Render a "Log in" or "Sign up" header based on the formType prop.
+  * Provide a link to `/#/signup` or `/#/login` (whichever isn't the current address!)
+  * Render a list of error messages if any are present.
+  * Redirect the user to the `/#/` route if they are logged in.
+
+**Call a TA over and show them your `SessionForm` before moving on!**
+
+### Bootstrapping the Current User
+
+When our static `root` page loads, our app mounts without being aware of who the
+current user is.
+
+One solution to this problem is to create another API hook that returns the
+current user and then fetch that information when the app mounts. However, since
+the request would be asynchronous, our app would momentarily have no current
+user. This would cause it to briefly render in a 'not-logged-in' state and then
+re-render when the current user was received, causing a strange, flickering
+effect. To circumvent this, we'll 'bootstrap' the current user alongside our HTML
+when the page initially loads.
+
+#### Edit your `root.html.erb`
+
+Add a `<script></script>` element to the top of your `root.html.erb` file.
+
+Inside your `<script>`, we're going to assign `window.currentUser`. In order to
+get the proper value, we'll need to ask our controller for the `current_user`
+and then `render` that information inside the script tag using `ERB`
+interpolation. The result will be a hard-coded assignment in our rendered html
+that looks something like this:
+
+```html
+  ...
+  <script type="text/javascript">
+      window.currentUser = {"id":3,"username":"bobross"}
+  </script>
+
+  <main id="root"></main>
+  ...
+```
+
+where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
+
+#### Interpolate the current user information
+
+In your script, assign your `window.currentUser` to an ERB expression:
+
+```js
+  window.currentUser = <%=  %>
+```
+
+Make sure to use `<%= %>` so that the result of your ruby code is rendered into the
+script ( it will eventually return a JSON object).
+
+Inside your erb expression, `render` your jbuilder `_user` partial, passing it
+the `current_user`. Specify the whole path, including `.json.jbuilder`, to prevent rails from automatically looking for a HTML partial. Mark your `render`
+result `html_safe` to avoid escaping certain characters. You should get a JS-
+compatible object to assign to `window.currentUser`. Add interpolation around
+your  `window.currentUser=` assignment so that it only runs if someone is logged
+in. You should have something like this:
+
+```html
+
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = <%= render("api/users/user.json.jbuilder",
+      user: current_user).html_safe %>
+  <% end %>
+</script>
+
+```
+
+Log in, refresh your page, and check out your `elements` in the Dev Tools.
+**Verify that the `script` contains an object literal of the current user** and
+properly assigns `window.currentUser`.
+
+### `preloadedState`
+
+Finally, inside the `DOMContentLoaded` callback in your entry file...
+  * check to see if there is a `window.currentUser`
+  * If there is, create a `preloadedState` like below:
+
+```javascript
+  if (window.currentUser) {
+    const preloadedState = {session: {currentUser: window.currentUser}};
+    ...
+```
+
+  * Pass this `preloadedState` to `configureStore`.
+  * If there is no `window.currentUser`, then `configureStore`
+  without any arguments.
+
+[maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
+
+## Phase 2: `Bench` redux cycle
+
+In this phase, you will build the pieces necessary to display a basic index of
+benches.
+
+### `BenchesReducer`
+
+In this step, we're going to create a reducer that manages the `benches` section
+of our application state. We want to build a state that has the following shape:
+
+```
+  benches: {
+    1: {id: 1, description: "...", lat: 0.0, lng: 0.0},
+    2: {id: 2, description: "...", lat: 0.0, lng: 0.0},
+    3: {id: 3, description: "...", lat: 0.0, lng: 0.0}
+  }
+```
+
+Note that our `benches` object will use `bench_id` as the primary key.
+
+* Create a file, `reducers/benches_reducer.js` that exports a `BenchesReducer` function.
+
+Let's start by just setting up our `BenchesReducer` to return its default state:
+
+```javascript
+  const BenchesReducer = (state = {}, action) => {
+    switch(action.type){
+      //...
+      default:
+        return state
+    }
+  }
+
+  export default BenchesReducer;
+```
+
+### Action Creators
 
 #### Constants
 
@@ -233,56 +494,9 @@ Export your `BenchesMiddleware`!
   export default BenchesMiddleware;
 ```
 
-We'll come back to our `BenchesMiddleware` to flesh it out later.
+We'll come back to our `BenchesMiddleware` to flesh it out later. For now, remember to add it to our list of middleware in our `RootMiddleware`.
 
 [middleware-docs]: http://redux.js.org/docs/advanced/Middleware.html
-
-#### Connecting `BenchesMiddleware` and the `Store`
-
-Let's establish the link between our `Middleware` and the `Store`.
-
-#### `RootMiddleware`
-
-Similar to our pattern for creating a `RootReducer`, we'll create a `RootMiddleware`.
-
-  * create a new file, `middleware/root_middleware.js`
-  * import `applyMiddleware` from `redux`
-  * import your `BenchesMiddleware`
-
-```javascript
-  import { applyMiddleware } from 'redux';
-  import BenchesMiddleware from './benches_middleware';
-```
-
-  * Use the `applyMiddleware` function to create a `RootMiddleware`
-  * `export default` `RootMiddleware`
-
-```javascript
-  const RootMiddleware = applyMiddleware(
-    BenchesMiddleware
-  );
-
-  export default RootMiddleware;
-```
-
-#### Add `RootMiddleware` to the `Store`
-
-For starters, let's open `store.js` and import our `RootMiddleware`.
-
-```javascript
-  import RootMiddleware from '../middleware/root_middleware';
-```
-
-Finally, let's add our `RootMiddleware` as the third argument to the `createStore`
-function.
-
-```javascript
-  createStore(
-    RootReducer,
-    preloadedState,
-    RootMiddleware
-  );
-```
 
 #### Recap
 
@@ -290,9 +504,7 @@ Since our last recap, we have: created a `bench_actions` file, that holds
 action creators and `BenchConstants`. These help ensure that our `Views`,
 `Middleware`, and `Store` are communicating effectively. We also created
 `BenchesMiddleware`, which will be responsible for intercepting and triggering
-bench-related dispatches. We created a `RootMiddleware` using the
-`applyMiddleware` function from the `redux` library. Finally, we connected our
-`RootMiddleware` to the `Store` using the `createStore` function.
+bench-related dispatches.
 
 Let's check that our setup works! Go to the console, and type:
 
@@ -603,247 +815,6 @@ render the `Root` component into the `#root` container. Pass the `Store` to the
     ReactDOM.render(<Root store={store}/>, root);
   });
 ```
-
-Test that everything works before moving on!
-
-## Phase 5: Front-End User Authentication
-
-In this phase, we are going to implement front-end user sign-up and login.
-Goodbye Rails views; hello, single-page app! **Read through the instructions for
-the entire phase before building anything.** This will give you the context to
-understand each individual step.
-
-**Our authentication pattern must:**
-  * sign up new users
-  * know who's logged in
-  * log users in
-  * log them out
-  * restrict access to certain routes based on whether someone is logged in
-
-### Auth Backend
-
-Read the instructions below, and then create an API with the following
-endpoints:
-
-  * [POST] api/users: "users#create" (signup),
-  * [POST] api/session: "session#create" (login),
-  * [DELETE] api/session: "session#destroy" (logout)
-
-**Create a `User` model, `API::UsersController`, and `Api::SessionsController`.**
-Follow the basic pattern you used during the [Rails curriculum][rails], with some
-key differences:
-
-* **Namespace**: Your controllers should live under an `Api` namespace.
-* **Response Format**: render JSON formatted responses by default.
-* **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to a partial: **`api/users/_user.json.jbuilder`**, which we'll use later.
-* **`Sessions#destroy`**: render an empty `{}` upon successful logout.
-  * Render a `404` message if there is no `current_user` to logout.
-* **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username
-already exists') in your response with a corresponding error status.
-  * Use `@user.errors` when applicable.
-  * **Caution**: Rails will format error responses differently than normal
-  responses.
-
-Test your routes using `$.ajax` in the console before moving on.
-
-### `SessionApiUtil`
-
-Create a new file, `session_api_util.js` with the following functions:
-  * **`signup`:** POST 'api/users'
-  * **`login`:** POST 'api/session'
-  * **`logout`:** DELETE 'api/session'
-
-Each function should take `success` and `error` callbacks.
-
-Test each of your api util functions before moving on!
-
-### Session Actions
-
-We need the following Action Creators:
-  * `login`
-  * `logout`
-  * `signup`
-  * `receiveCurrentUser`
-  * `receiveErrors`
-
-Build the corresponding `SessionConstants` as well. All of our action creators (
-other than `logout`) should accept an argument.
-
-
-### `SessionMiddleware`
-
-Your `SessionMiddleware` should only listen for 3 of our action types:
-  * `LOGIN`
-  * `LOGOUT`
-  * `SIGNUP`
-
-Your middleware should be responsible for invoking the appropriate `SessionApiUtil`
-function and passing the appropriate callbacks. The success callback for `login` and
-`signup` requests should `dispatch` a `receiveCurrentUser` action. The error callbacks should dispatch `receiveErrors`.
-
-The success callback of `logout` should simply be to invoke `next(action)`.
-
-Test that your `SessionMiddleware` works by dispatching `login`, `logout`, and
-`signup` actions from the console.
-
-### `SessionReducer`
-
-Create a new reducer to keep track of our current user and error messages.
-The default application shape should look like:
-
-```
-{
-  currentUser: null,
-  errors: []
-}
-```
-
-The `SessionReducer` should listen for 3 action types:
-  * `RECEIVE_CURRENT_USER`
-  * `RECEIVE_ERRORS`
-  * `LOGOUT`
-
-Test that your `SessionReducer` works by dispatching session actions and then
-checking your application state!
-
-### `Greeting` Component
-
-* Create a new react component, `Greeting`, and a container, `GreetingContainer`
-
-If the user **is logged in**, then the `Greeting` should contain:
-  * A welcome message including the user's username
-  * A button to logout
-
-If the user **is not logged in**, then the `Greeting` should contain:
-  * A link to the `/#/signup`
-  * A link to the `/#/login`
-
-Change your `App` to render the `GreetingContainer` above our other content.
-
-### `SessionForm` Component
-
-  * Create a new component, `SessionForm`, and a container, `SessionFormContainer`
-  * Create new routes for these components in your `router.jsx` file
-
-The `SessionFormContainer` should provide `SessionForm` with the following props:
-  * `loggedIn` (boolean):  represents whether a `currentUser` exists.
-  * `errors` (array):  list of errors from the state.
-  * `formType` (string): 'login' or 'signup'.
-  * `processForm` (function): dispatch `login` or `signup` based on `formType`.
-
-The `SessionForm` component should be responsible for a number of tasks:
-  * Render a controlled component with `state` governed by user interface.
-  * Invoke the `processForm` prop when the 'submit' button is clicked.
-  * Render a "Log in" or "Sign up" header based on the formType prop.
-  * Provide a link to `/#/signup` or `/#/login` (whichever isn't the current address!)
-  * Render a list of error messages if any are present.
-  * Redirect the user to the `/#/` route if they are logged in.
-
-**Call a TA over and show them your `SessionForm` before moving on!**
-
-### Bootstrapping the Current User
-
-When our static `root` page loads, our app mounts without being aware of who the
-current user is.
-
-One solution to this problem is to create another API hook that returns the
-current user and then fetch that information when the app mounts. However, since
-the request would be asynchronous, our app would momentarily have no current
-user. This would cause it to briefly render in a 'not-logged-in' state and then
-re-render when the current user was received, causing a strange, flickering
-effect. To circumvent this, we'll 'bootstrap' the current user alongside our HTML
-when the page initially loads.
-
-
-#### Edit your `root.html.erb`
-
-Add a `<script></script>` element to the top of your `root.html.erb` file.
-
-Inside your `<script>`, we're going to assign `window.currentUser`. In order to
-get the proper value, we'll need to ask our controller for the `current_user`
-and then `render` that information inside the script tag using `ERB`
-interpolation. The result will be a hard-coded assignment in our rendered html
-that looks something like this:
-
-```html
-  ...
-  <script type="text/javascript">
-      window.currentUser = {"id":3,"username":"bobross"}
-  </script>
-
-  <main id="root"></main>
-  ...
-```
-
-where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
-
-#### Interpolate the current user information
-
-In your script, assign your `window.currentUser` to an ERB expression:
-
-```js
-  window.currentUser = <%=  %>
-```
-
-Make sure to use `<%= %>` so that the result of your ruby code is rendered into the
-script ( it will eventually return a JSON object).
-
-Inside your erb expression, `render` your jbuilder `_user` partial, passing it
-the `current_user`. Specify the whole path, including `.json.jbuilder`, to prevent rails from automatically looking for a HTML partial. Mark your `render`
-result `html_safe` to avoid escaping certain characters. You should get a JS-
-compatible object to assign to `window.currentUser`. Add interpolation around
-your  `window.currentUser=` assignment so that it only runs if someone is logged
-in. You should have something like this:
-
-```html
-
-<script type="text/javascript">
-  <% if logged_in? %>
-    window.currentUser = <%= render("api/users/user.json.jbuilder",
-      user: current_user).html_safe %>
-  <% end %>
-</script>
-
-```
-
-Log in, refresh your page, and check out your `elements` in the Dev Tools.
-Verify that the `script` contains an object literal of the current user and
-properly assigns `window.currentUser`.
-
-### `preloadedState`
-
-Finally, inside the `DOMContentLoaded` callback in your entry file...
-  * check to see if there is a `window.currentUser`
-  * If there is, create a `preloadedState` like below:
-
-```javascript
-  if (window.currentUser) {
-    const preloadedState = {session: {currentUser: window.currentUser}};
-    ...
-```
-
-  * Pass this `preloadedState` to `configureStore`.
-  * If there is no `window.currentUser`, then `configureStore`
-  without any arguments.
-
-### Protect your front-end routes.
-
-Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the front-end unless they're logged in.
-
-Refer to the `onEnter` [reading][onEnter] for this part.
-
-  * Add an `onEnter` prop to the Routes we want to protect:
-    ```html
-    <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />
-    ```
-  * Give your `Router` direct access to the `Store` by using [React context][context-docs].
-    * Note that this is [established by the provider][store-context].
-  * Define an `_ensureLoggedIn` function in your `router.jsx` file. It should:
-    * Check to see if the application state has a `currentUser` property
-    * If `true`, do nothing.
-    * Otherwise, `replace` the path with "/login". (Remember that `replace` won't
-    add a "fake" entry to the browser's history, whereas `push` will.)
-    * We don't need an `asyncDoneCallback` because `_ensureLoggedIn` runs synchronously.
 
 **Test your work. You've completed Day 1!**
 
