@@ -180,7 +180,7 @@ Setup a `configureStore` method for initializing our Store:
 
 #### Recap
 
-So far, we have built our redux store and told it to use our bench reducing function.
+So far, we have built our redux store and told it to use our session reducing function.
 Test that everything works:
   0. Add a `'DOMContentLoaded'` callback to your entry point if you don't already
   have one.
@@ -258,6 +258,99 @@ function.
   );
 ```
 
+## Phase 2: Session Components and the Router
+
+We're going to add routing to our application.
+
+```
+  npm install --save react-router
+```
+
+Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a
+bit. 
+
+Define 2 new files: these can all live at the root of the `components` folder:
+
+* `app.jsx`
+* `root.jsx`
+
+### The `App` component
+
+Create and export a new **functional component** that renders an `<h1>` tag with
+"Bench BnB" text and underneath renders `props.children`. It might look something like..
+
+```javascript
+const App = ({children}) => (
+  <div>
+    <h1>Bench BnB</h1>
+    {children}
+  </div>
+);
+```
+
+### The `Root` component
+
+Create and export a **functional component** called `Root`. The component should accept
+the `Store` as a prop, and it should render the `Router` wrapped in the `Provider`
+
+```javascript
+const Root = ({store}) => (
+  <Provider store={store}>
+    // Router goes here...
+  </Provider>
+);
+```
+
+### The `Router`
+
+Start by importing the following:
+    * `React`
+    * `Router`, `Route`, `IndexRoute`, `hashHistory`
+    * `App`
+    * `SearchContainer`
+
+Next, we want to define and export a **functional component** that renders a
+`Router`. Setup your `Router` to use `hashHistory`.
+
+```javascript
+const Root = ({store}) => (
+  <Provider store={store}>
+    <Router history={ hashHistory }>
+      // Routes go here...
+    </Router>
+  </Provider>
+);
+```
+#### Routes
+
+Let's define a new `Route` that tells the `Router` to render our `App` component
+when the URL matches '/':
+
+```javascript
+<Router history={ hashHistory }>
+  <Route path="/" component={ App } />
+</Router>
+```
+
+### The Entry Point
+
+Let's modify our entry file, `bench_bnb.jsx`, to only import the following:
+  * `React` & `ReactDOM`
+  * `Root`
+  * `configureStore`
+
+In the document-ready callback, you should simply invoke `configureStore` and then
+render the `Root` component into the `#root` container. Pass the `Store` to the
+`Root` component as a prop.
+
+```javascript
+  document.addEventListener('DOMContentLoaded', () => {
+    store = configureStore();
+    const root = document.getElementById('root');
+    ReactDOM.render(<Root store={store}/>, root);
+  });
+```
+
 ### `Greeting` Component
 
 * Create a new react component, `Greeting`, and a container, `GreetingContainer`
@@ -267,8 +360,8 @@ If the user **is logged in**, then the `Greeting` should contain:
   * A button to logout
 
 If the user **is not logged in**, then the `Greeting` should contain:
-  * A link to the `/#/signup`
-  * A link to the `/#/login`
+  * A link to `/#/signup`
+  * A link to `/#/login`
 
 Change your `App` to render the `GreetingContainer` above our other content.
 
@@ -276,6 +369,7 @@ Change your `App` to render the `GreetingContainer` above our other content.
 
   * Create a new component, `SessionForm`, and a container, `SessionFormContainer`
   * Create new routes for these components in your `router.jsx` file
+    * The routes' paths should be `"login"` and `"signup`"
 
 The `SessionFormContainer` should provide `SessionForm` with the following props:
   * `loggedIn` (boolean):  represents whether a `currentUser` exists.
@@ -713,77 +807,6 @@ Here's a summary of your redux loop so far:
   return values of these functions are then merged and the resulting object is passed as new props to `BenchIndex`.
   * When `BenchIndex` receives these new props, it re-renders. Phew!
 
-## Phase 4: React Router
-
-We're going to add routing to our application.
-
-```
-  npm install --save react-router
-```
-
-Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a
-bit. Define 2 new files: these can all live at the root of the `components` folder:
-
-* `app.jsx`
-* `root.jsx`
-
-### The `App` component
-
-Create and export a new **functional component** that renders an `<h1>` tag with
-"Bench BnB" text and underneath renders `props.children`. It might look something like..
-
-```javascript
-const App = ({children}) => (
-  <div>
-    <h1>Bench BnB</h1>
-    {children}
-  </div>
-);
-```
-
-### The `Root` component
-
-Create and export a **functional component** called `Root`. The component should accept
-the `Store` as a prop, and it should render the `Router` wrapped in the `Provider`
-
-```javascript
-const Root = ({store}) => (
-  <Provider store={store}>
-    // Router goes here...
-  </Provider>
-);
-```
-
-### The `Router`
-
-Start by importing the following:
-    * `React`
-    * `Router`, `Route`, `IndexRoute`, `hashHistory`
-    * `App`
-    * `SearchContainer`
-
-Next, we want to define and export a **functional component** that renders a
-`Router`. Setup your `Router` to use `hashHistory`.
-
-```javascript
-const Root = ({store}) => (
-  <Provider store={store}>
-    <Router history={ hashHistory }>
-      // Routes go here...
-    </Router>
-  </Provider>
-);
-```
-#### Routes
-
-Let's define a new `Route` that tells the `Router` to render our `App` component
-when the URL matches '/':
-
-```javascript
-<Router history={ hashHistory }>
-  <Route path="/" component={ App } />
-</Router>
-```
 #### `IndexRoute`
 
 Next, let's make sure that our `SearchContainer` is the default component rendered
@@ -793,27 +816,9 @@ inside `App`. Use an `IndexRoute` to accomplish this.
 <Router history={ hashHistory }>
   <Route path="/" component={ App }>
     <IndexRoute component={ SearchContainer } />
+    // other routes
   </Route>
 </Router>
-```
-
-### The Entry Point
-
-Let's modify our entry file, `bench_bnb.jsx`, to only import the following:
-  * `React` & `ReactDOM`
-  * `Root`
-  * `configureStore`
-
-In the document-ready callback, you should simply invoke `configureStore` and then
-render the `Root` component into the `#root` container. Pass the `Store` to the
-`Root` component as a prop.
-
-```javascript
-  document.addEventListener('DOMContentLoaded', () => {
-    store = configureStore();
-    const root = document.getElementById('root');
-    ReactDOM.render(<Root store={store}/>, root);
-  });
 ```
 
 **Test your work. You've completed Day 1!**
