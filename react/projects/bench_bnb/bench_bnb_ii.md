@@ -431,6 +431,25 @@ bench is created.
 
 Create a few benches!
 
+### Protect your front-end routes.
+
+Let's make sure users can't get to our "/benches/new" or "benches/:id/review" routes on the front-end unless they're logged in.
+
+Refer to the `onEnter` [reading][onEnter] for this part.
+
+  * Add an `onEnter` prop to the Routes we want to protect:
+    ```html
+    <Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />
+    ```
+  * Give your `Router` direct access to the `Store` by using [React context][context-docs].
+    * Note that this is [established by the provider][store-context].
+  * Define an `_ensureLoggedIn` function in your `router.jsx` file. It should:
+    * Check to see if the application state has a `currentUser` property
+    * If `true`, do nothing.
+    * Otherwise, `replace` the path with "/login". (Remember that `replace` won't
+    add a "fake" entry to the browser's history, whereas `push` will.)
+    * We don't need an `asyncDoneCallback` because `_ensureLoggedIn` runs synchronously.
+
 ## Phase 10: Filtering By Seating
 
 In this section, we want to build the functionality that will allow our users to filter benches by both their geographic bounds and their number of seats.
