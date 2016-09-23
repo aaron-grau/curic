@@ -4,7 +4,7 @@
 
 In this project, we'll write an app to manage your `Pokemon` and their `Toys`.
 
-## Phase 0: Setup
+## Phase 0: Rails API Setup
 We've already set up a Rails backend with migrations, models, controllers, and
 views for you to start with in the [skeleton][skeleton-zip].
 
@@ -56,9 +56,9 @@ applied.** :art:
 
 [skeleton-zip]: ./skeleton.zip?raw=true
 
-## Phase 1: NPM and Webpack
+## Phase 1: Frontend Setup
 
-### `Node Package Manager`
+### Node Package Manager
 
 As with previous projects, you will need to set up `package.json` and
 `webpack.config.js` files to configure your application to use NPM and Webpack.
@@ -319,10 +319,19 @@ const mapStateToProps = state => ({
 });
 ```
 
++ Write `mapStateToProps` which will pass `state.pokemon` as a prop to the
+connected component.
+
 Mapping dispatch to props is used mainly just to keep our presentational
 components from having to worry about dispatching actions. This function expects
 to be passed action creators that it then wraps in the dispatch function and
 merges each into the component's props for direct invocation.
+
+```javascript
+const mapDispatchToProps = dispatch => ({
+  // functions to dispatch relevant actions
+});
+```
 
 This introduces a problem. According to our React/Redux pattern, components are
 only supposed to manipulate state through the dispatching of actions. They
@@ -332,26 +341,21 @@ request action that will then perform the AJAX fetch.
 + Talk over a plan to solve this problem with your partner before writing your
 `mapDispatchToProps` function.
 
-```javascript
-const mapDispatchToProps = dispatch => ({
-  // request action
-});
-```
-
 + After writing your mapping functions, pass them to the connect function and then
 invoke the connect function by passing it a `PokemonIndex` presentational
 component, which we will write next.
 
 #### `PokemonIndex`
 Now let's write the `PokemonIndex` presentational component, which will render
-an unordered list of Pokemon names next to corresponding images. Create a
-`frontend/components/pokemon/pokemon_index.jsx` file. Add a  `componentDidMount`
-lifecycle method that calls the `requestAllPokemon` action from its props. If
-you have not already, create the corresponding request action in your actions
-file.
+an unordered list of Pokemon names next to corresponding images.
 
-Before we move on, import the container component into your entry file and nest
-a `<PokemonIndexContainer />` within your root component.
++ Create a `frontend/components/pokemon/pokemon_index.jsx` file.
++ Add a  `componentDidMount` lifecycle method that calls the `requestAllPokemon`
+action from its props.
+  + If you have not already, create the corresponding request action in your
+  actions file.
++ Before we move on, import the container component into your entry file and nest
+a `<PokemonIndexContainer />` within your `<Root />` component.
 
 ### Middleware
 
@@ -398,13 +402,16 @@ const configureStore = () => (
 );
 ```
 
-**Test that your PokemonIndex component now renders some pokemon before**
+**Test that your `PokemonIndex` component renders the pokemon from the database**
 
 The following code is an example of what your `PokemonIndex` component might contain in its `render` method.
+
 ```html
 <section className="pokedex">
   <ul>
-    {// mapping of Pokemon list elements}
+    	{pokemon.map(poke => (
+        <li key={poke.id}>{poke.name}</li>
+      ))}
   </ul>
 </section>
 ```
@@ -422,7 +429,17 @@ Wrap your `<PokemonIndexContainer>` in a `<Provider>` component that receives
 the store as a prop. Export this back to your entry file and **test this
 change** by making sure everything is still rendering correctly.
 
-## The Router
+```js
+const Root = ({ store }) => {
+	return (
+		<Provider store={store}>
+			<PokemonIndexContainer />
+		</Provider>
+	);
+};
+```
+
+## Phase 3: React Router
 
 Now let's say we want the ability to click on any of these Pokemon and see more
 details about them. In order to maintain a common user interface used around the
@@ -517,7 +534,7 @@ routes`.  This tells us that the router was looking for a component to render
 for that route but was unable to find one. To fix this, let's make a
 `PokemonDetail` component.
 
-### Pokemon Detail
+## Phase 4: Pokemon Detail
 
 Before creating a component, we should always plan out where and how it will get
 its information. Eventually, we also want the `PokemonDetail` to display the
@@ -590,7 +607,7 @@ As a reminder, the syntax for nested routes follows the following pattern:
 
 [on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
 
-### Toy Detail
+## Phase 5: Toy Detail
 
 Implement the ability to click on a Toy and be taken to a path such as
 `/pokemon/1/toys/1` where a `ToyDetail` component displays information about a
@@ -610,7 +627,7 @@ When providing the toy to the `ToyDetail` component from the
 
 **Test your code** by clicking on a Pokemon's toy and making sure that a `ToyDetail` component is rendered with the correct information.
 
-### Creating Pokemon
+## Phase 6: Creating Pokemon
 
 Our next feature will be to allow the creation of new Pokemon. To allow users to create Pokemon, you will need to:
 
@@ -710,9 +727,13 @@ but not at any further nested routes like the `PokemonDetail`. This is exactly
 what `IndexRoute` is for. Import it along with the rest of the React Router
 tools and pass it the `PokemonFormContainer`.
 
-**NB**: There are a couple of tricky aspects to getting the form to work properly which will be great debugging practice. Use a `debugger` in your `postPokemon` function to ensure that you are always passing the correct parameters to your API. You may need to add a conditional to your update function as well.
+**NB**: There are a couple of tricky aspects to getting the form to work properly which
+will be great debugging practice. Use a `debugger` in your `postPokemon`
+function to ensure that you are always passing the correct parameters to your
+API. You may need to add a conditional to your update function as well.
 
-**Next steps:** The final tricky parts of the Pokemon form are the redirect callback and error handling.
+**Next steps:** The final tricky parts of the Pokemon form are the redirect callback and error
+handling.
 
 ### Redirecting
 
