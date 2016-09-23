@@ -14,10 +14,7 @@ export default class MarkerManager {
   updateMarkers(benches){
     this.benches = benches;
     this._benchesToAdd().forEach(this._createMarkerFromBench);
-    console.log(`before ${this.markers}`);
-    console.log(`to remove ${this._markersToRemove()}`);
     this._markersToRemove().forEach(this._removeMarker);
-    console.log(`after ${this.markers}`);
   }
 
   _benchesToAdd() {
