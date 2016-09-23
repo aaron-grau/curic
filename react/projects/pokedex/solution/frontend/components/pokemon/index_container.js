@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import PokemonIndex from './index';
 
-const mapStateToProps = state => ({
-  pokemon: state.pokemon,
-  loading: state.loading
+const mapStateToProps = ({ pokemon, loading }) => ({
+  pokemon,
+  loading
 });
 
-export default connect(mapStateToProps)(PokemonIndex);
+export default connect(
+  mapStateToProps
+)(PokemonIndex);
