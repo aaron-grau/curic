@@ -130,7 +130,7 @@ function makeChange(target, coins) {
     return [];
   }
 
-  if (coins.every( el => el > target)){
+  if (coins.every(el => el > target)) {
     return null;
   }
 
@@ -156,7 +156,7 @@ function makeChange(target, coins) {
     // if we're already using a low one?
     let restChange = makeChange(remainder, coins.slice(index));
 
-    if (!restChange){
+    if (!restChange) {
       return;
     }
 
