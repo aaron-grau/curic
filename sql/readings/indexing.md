@@ -19,7 +19,7 @@ non-optimizing behinds.
 
 This is why it's important to index columns that are heavily used for
 lookups in queries. When you index a column, it creates a sorted data
-structure with pointers to the actual table. Sine it's sorted, lookups
+structure with pointers to the actual table. Since it's sorted, lookups
 can use binary search, which as you recall runs in `O(log n)` time. Log
 base 2 of 10 million is about 23, so as you can imagine, this improves
 database performance (and our career prospects) *dramatically*.
