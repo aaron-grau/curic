@@ -207,7 +207,7 @@ Test that everything works:
 
 Your state should look like the default state mentioned above!
 
-**Test that your `SessionReducer` works** by dispatching session actions and then
+**Test that your `SessionReducer` works** by dispatching session actions (from the console) and then
 checking your application state.
 
 ### `SessionMiddleware`
@@ -273,9 +273,10 @@ function.
 **Test that your `SessionMiddleware` works** by dispatching `login`, `logout`, and
 `signup` actions from the console and then checking your application state.
 
+
 ## Phase 2: Session Components and the Router
 
-We're going to add routing to our application.
+Now we're going to add routing to our application.
 
 ```
   npm install --save react-router
@@ -321,7 +322,7 @@ const Root = ({store}) => (
 Start by importing the following into `root.jsx`:
 
     * `React`
-    * `Router`, `Route`, `IndexRoute`, `hashHistory`
+    * `Router`, `Route`, `IndexRoute`, `hashHistory` (all from `react-router`)
     * `App`
     * `SearchContainer`
 
