@@ -530,18 +530,16 @@ Let's start by just setting up our `BenchesReducer` to return its default state:
 
 ### Action Creators
 
-#### Constants
+#### Action Types
 
 Before we move on to the fun stuff -- populating our store with benches from rails -- we need to write an `actions` file that helps our other major pieces function.
 
   * Create an `actions` file: `actions/bench_actions`.
-  * Create and export a new object, `BenchConstants`.
+  * Create and export a new object for each action type.
 
 ```javascript
-  export const BenchConstants = {
-    RECEIVE_BENCHES: "RECEIVE_BENCHES",
-    REQUEST_BENCHES: "REQUEST_BENCHES"
-  };
+  export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
+  export const REQUEST_BENCHES = "REQUEST_BENCHES";
 ```
 
 #### Action Creators
@@ -570,10 +568,10 @@ Our `BenchesMiddleware` will be responsible for a number of things, including tr
 Remember, `Middleware` receives dispatches before the store. It can decide to intercept the dispatch, trigger another dispatch, or simply pass on it and do nothing.
 
   * Create a file, `middleware/benches_middleware.js`
-  * Import the relevant `constants`.
+  * Import the relevant action types.
 
 ```javascript
-  import { BenchConstants } from '../actions/bench_actions.js';
+  import { REQUEST_BENCHES, RECEIVE_BENCHES } from '../actions/bench_actions.js';
 ```
 
 Recall that [Redux Middleware][middleware-docs] employs a currying strategy to link
@@ -590,7 +588,7 @@ sees a `REQUEST_BENCHES` action type.
 ```javascript
   const BenchesMiddleware = ({getState, dispatch}) => next => action => {
     switch(action.type){
-      case BenchConstants.REQUEST_BENCHES:
+      case REQUEST_BENCHES:
         console.log('time to fetch!')
         return next(action);
       default:
@@ -613,8 +611,8 @@ We'll come back to our `BenchesMiddleware` to flesh it out later. For now, remem
 
 #### Recap
 
-Since our last recap, we have: created a `bench_actions` file, that holds
-action creators and `BenchConstants`. These help ensure that our `Views`,
+Since our last recap, we have: created a `bench_actions` file that holds
+action creators and action types. These help ensure that our `Views`,
 `Middleware`, and `Store` are communicating effectively. We also created
 `BenchesMiddleware`, which will be responsible for intercepting and triggering
 bench-related dispatches.
@@ -658,12 +656,12 @@ before moving on!
 
 Let's connect our `BenchesMiddleware` to this new `fetchBenches` function!
 
-Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware` whenever a `BenchConstants.REQUEST_BENCHES` action is received. For now, make `success` a function that logs the data from the response.
+Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware` whenever a `REQUEST_BENCHES` action is received. For now, make `success` a function that logs the data from the response.
 
 ```javascript
   const BenchesMiddleware = ({getState, dispatch}) => next => action => {
     switch(action.type){
-      case BenchConstants.REQUEST_BENCHES:
+      case REQUEST_BENCHES:
         const success = data => console.log(data);
         fetchBenches(success);
         return next(action);
@@ -689,7 +687,7 @@ Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.
 
 
 ```javascript
-  case BenchConstants.REQUEST_BENCHES:
+  case REQUEST_BENCHES:
     const success = data => dispatch(receiveBenches(data))
     fetchBenches(success);
     return next(action);
@@ -702,7 +700,7 @@ Update your `BenchesReducer` to update the `benches` in your state when it recei
 ```javascript
   const BenchesReducer = function(state = {}, action){
     switch(action.type){
-      case BenchConstants.RECEIVE_BENCHES:
+      case RECEIVE_BENCHES:
         return action.benches;
       default:
         return state;

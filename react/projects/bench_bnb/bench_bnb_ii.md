@@ -212,7 +212,7 @@ Test your updated `fetchBenches` methods to see that it applies the filters!
 #### Filter Actions
 
   * Create a new file, `actions/filter_actions`
-  * Create and export a `FilterConstants` object with property: `UPDATE_BOUNDS`
+  * Create and export an action type `UPDATE_BOUNDS`
   * Make and export an action creator, `updateBounds`; this should accept a single
   argument: `bounds`
 
@@ -295,11 +295,11 @@ Your middleware's switch statement should look something like this:
 
 ```javascript
   switch(action.type){
-    case BenchConstants.REQUEST_BENCHES:
+    case REQUEST_BENCHES:
       const filters = getState().filters
       fetchBenches(filters, benchesSuccess);
       break;
-    case FilterConstants.UPDATE_BOUNDS:
+    case UPDATE_BOUNDS:
       next(action);
       dispatch(requestBenches());
       break;
@@ -405,9 +405,9 @@ so that our users don't try to edit them!
 
   * Add a `createBench` function to `bench_api_util.js`. It should make a `POST`
     request to your API.
-  * Create the following constants:
-    * `BenchConstants.CREATE_BENCH`
-    * `BenchConstants.RECEIVE_BENCH`
+  * Create the following action types:
+    * `CREATE_BENCH`
+    * `RECEIVE_BENCH`
   * Add the following action creators to `bench_actions.js`:
     * `createBench`
     * `receiveBench`
@@ -472,7 +472,7 @@ It should look like this:
 
 ```javascript
   export const updateFilter = (filter, value) => ({
-    type: FilterConstants.UPDATE_FILTER,
+    type: UPDATE_FILTER,
     filter,
     value
   });
@@ -493,7 +493,7 @@ state that looks like:
   }
 ```
 
-Also be sure to refactor `FilterConstants`.
+Also be sure to refactor your action types if necessary.
 
 ### `FilterForm`
 
