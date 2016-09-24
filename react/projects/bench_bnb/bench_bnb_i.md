@@ -74,17 +74,19 @@ Follow the basic pattern you used during the [Rails curriculum][rails], with som
 key differences:
 
 * **Namespace**: Your controllers should live under an `Api` namespace.
+  * `rails g controller api/users` will generate an `Api::UsersController`
 * **Response Format**: render JSON formatted responses by default.
+  * in `routes.rb`, set `defaults: {format: :json}` on your `namespace :api`
 * **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to a partial: **`api/users/_user.json.jbuilder`**, which we'll use later.
 * **`Sessions#destroy`**: render an empty `{}` upon successful logout.
   * Render a `404` message if there is no `current_user` to logout.
 * **Auth Errors**: Render auth errors (e.g. 'invalid credentials' or 'username
-already exists') in your response with a corresponding error status.
+already exists') in your response with a corresponding error status (usually either `422`, `401`, or `404`).
   * Use `@user.errors` when applicable.
   * **Caution**: Rails will format error responses differently than normal
   responses.
 
-Test your routes using `$.ajax` in the console before moving on.
+**Test your routes** using `$.ajax` in the console before moving on.
 
 ### `SessionApiUtil`
 
@@ -94,6 +96,19 @@ Create a new file, `util/session_api_util.js` with the following functions:
   * **`logout`:** DELETE 'api/session'
 
 Each function should take `success` and `error` callbacks.
+They should be of the form below:
+
+```js
+export const apiUtilFunction = (data, success, error) => {
+  $.ajax({
+    url: 'api/URL',
+    method: 'METHOD',
+    data,
+    success,
+    error
+  })
+}
+```
 
 Test each of your api util functions before moving on!
 
