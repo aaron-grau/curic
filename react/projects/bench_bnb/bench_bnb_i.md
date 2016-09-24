@@ -43,7 +43,7 @@ frontend:
   * `babel-preset-react`
   * `babel-preset-es2015`
 * Create a `webpack.config.js` file
-* Setup your entry file (`bench_bnb.jsx`) to render your app into the `#root` container.
+* Set up your entry file (`bench_bnb.jsx`) to render your app into the `#root` container.
 * **Test this rendering setup before moving on.**
 
 ## Phase 1: Front-End User Authentication
@@ -137,9 +137,9 @@ The default application shape should look like:
 ```
 
 The `SessionReducer` should listen for 3 action types:
-  * `RECEIVE_CURRENT_USER`
-  * `RECEIVE_ERRORS`
-  * `LOGOUT`
+  * `RECEIVE_CURRENT_USER` - set `currentUser` to the action's user (and clears errors)
+  * `RECEIVE_ERRORS` - set `errors` to the action's errors (and clears the currentUser)
+  * `LOGOUT` - clear both `errors` and `currentUser`
 
 
 ### `RootReducer`
@@ -148,7 +148,7 @@ Create a new file, `reducers/root_reducer.js`. This file will be responsible for
 combining our multiple, domain-specific reducers. It will export a single `RootReducer`.
 
   * Import `combineReducers` from the `redux` library.
-  * Also import the `BenchesReducer` function we just created!
+  * Also import the `SessionReducer` function we just created!
   * Create a `RootReducer` using the `combineReducers` function.
   * Remember, the `combineReducers` function accepts a single argument: an object
     whose properties will represent properties of our application state, and values
@@ -174,7 +174,7 @@ So far, our default application state should look something like this:
 
 ### The `Store`
 
-Setup a `configureStore` method for initializing our Store:
+Set up a `configureStore` method for initializing our Store:
 
   * Create a new file, `/store/store.js`.
   * Import `createStore` from the redux library.
