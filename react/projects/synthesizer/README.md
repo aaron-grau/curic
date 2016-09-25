@@ -424,7 +424,7 @@ KeyboardEvent.
 When a user presses a key, the key listener calls your `onKeyDown(e)` function,
 which dispatches a `keyPressed(key)` action to the store. Likewise, when a user
 releases a key, the listener calls your `onKeyUp(e)`, which dispatches a
-`keyReleased(key)` action to the store. Make sure your follow this before moving
+`keyReleased(key)` action to the store. Make sure you follow this before moving
 on.
 
 *NB*: A jQuery `'keydown'` listener fires repeatedly when the user holds down a
