@@ -6,7 +6,7 @@ An intro **Redux/React** app with a Redux `store`, `reducer`, `actions`, and a *
 Let's look at and run the code that you just walked through in our Redux store
 reading.
 
-1. Download zip.
+1. [Download zip][zip].
 2. Unzip and cd to the app's root directory.
 3. Run `npm install` to install the Redux/React npm packages.
 4. Run `webpack` to compile `bundle.js`.
@@ -24,3 +24,5 @@ Check out `entry.js` (this demo's entry file):
 + Check out our app's React component `FruitStand` defined in `frontend/components/fruit_stand.jsx`.
   + This React component is *connected* to the `store` via it's container: `frontend/components/fruit_stand_container.js`.
   + Whenever our application state changes, our container generates new props for our `FruitStand` component
+
+[zip]: ./fruit_stand_02.zip

@@ -97,8 +97,8 @@ the React curriculum materials. Review the
 + Phase I - Redux only (15 min)
   + [Live demo][fruit-stand-01-live]
   + [Source code][fruit-stand-01-source]
-+ Phase II - React/Redux
-  + :movie_camera: [Video demo][fruit-stand-02-video]
++ Phase II - React/Redux (1 hr)
+  + :movie_camera: [Video demo][fruit-stand-02-video] (45 min)
   + [Live demo][fruit-stand-02-live]
   + [Source code][fruit-stand-02-source]
 
