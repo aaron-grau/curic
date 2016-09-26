@@ -39,7 +39,7 @@ the reducer doesn't *care* about that action (e.g. `{type:
 'NEW_TRANSFORMERS_SEQUEL'}`).
 
 In the above example, our reducer's initial state is set to an empty array. The
-reducer returns a a new array with `action.fruit` appended to the previous
+reducer returns a new array with `action.fruit` appended to the previous
 `state` if `action.type` is `ADD_FRUIT`. Otherwise, it returns the
 `state` unchanged.
 
