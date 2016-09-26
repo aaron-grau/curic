@@ -73,7 +73,7 @@ The ordered list is usually used to display numbered list elements.
 </ol>
 ```
 
-The definition list it not as common but is used to hold definition data and definition term elements.
+The definition list it not as common but is used to hold definition data and term elements.
 ```html
 <dl>
     <dt>Unordered List</dt>
