@@ -164,9 +164,9 @@ describe "starring(whazzername)" do
 	let (:me) {starring("me book")}
 	let (:ery) {starring("ery steep")}
 	it "retrieves the correct information" do 
-		expect(lester).to eq(Actor.find_by(name: "Sylvester Stallone").movies)
-		expect(me).to eq(Actor.find_by(name: "Mel Brooks").movies)
-		expect(ery).to eq(Actor.find_by(name: "Meryl Streep").movies)
+		expect(lester).to contain_exactly(*Actor.find_by(name: "Sylvester Stallone").movies)
+		expect(me).to contain_exactly(*Actor.find_by(name: "Mel Brooks").movies)
+		expect(ery).to contain_exactly(*Actor.find_by(name: "Meryl Streep").movies)
 	end
 
 	it "hits the database exactly once" do 
@@ -247,9 +247,9 @@ end
 describe "most_supportive" do 
 	subject { most_supportive.as_json }
 	it "retrieves the correct information" do 
-		expect(subject).to eq([
+		expect(subject).to contain_exactly(
 			{"id"=>16, "name"=>"Gene Hackman", "roles"=>20},
-			{"id"=>44, "name"=>"Robert Duvall", "roles"=>20}])
+			{"id"=>44, "name"=>"Robert Duvall", "roles"=>20})
 	end
 	it "hits the database exactly once" do 
 		expect{ subject }.to make_database_queries(count: 1)
