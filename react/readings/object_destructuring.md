@@ -41,7 +41,7 @@ This works even if we have a variable or function that returns an object.
 ```javascript
 const multiply = n => { one: n, two: n * 2, three: n * 3 };
 
-const { one, two, three } = multiple(10);
+const { one, two, three } = multiply(10);
 one; // 10
 two; // 20
 three; // 30
