@@ -16,7 +16,7 @@ Refer to [the master checklist][checklist] during Bench BnB and your final proje
 * Set up a `StaticPagesController` with a `root` view containing a `<main id="root"></main>`.
 * Update your `routes.rb` file to root to `static_pages#root`
 
-## Phase 0.5: `Frontend` Structure
+## Phase 0.5: Frontend Structure
 
 * Create a `/frontend` folder at the root directory of your project to hold your
 frontend:
@@ -44,6 +44,18 @@ frontend:
   * `babel-preset-es2015`
 * Create a `webpack.config.js` file
 * Set up your entry file (`bench_bnb.jsx`) to render your app into the `#root` container.
+
+Your entry file might start off looking like the below code:
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('root');
+    ReactDOM.render(<h1>Welcome to BenchBnB</h1>, root);
+});
+```
+
 * **Test this rendering setup before moving on.**
 
 ## Phase 1: Front-End User Authentication
@@ -74,7 +86,7 @@ Follow the basic pattern you used during the [Rails curriculum][rails], with som
 key differences:
 
 * **Namespace**: Your controllers should live under an `Api` namespace.
-  * `rails g controller api/users` will generate an `Api::UsersController`
+  * **N.B.**, `rails g controller api/users` will generate an `Api::UsersController`
 * **Response Format**: render JSON formatted responses by default.
   * in `routes.rb`, set `defaults: {format: :json}` on your `namespace :api`
 * **Views**: You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions. This should delegate to a partial: **`api/users/_user.json.jbuilder`**, which we'll use later.
@@ -86,31 +98,20 @@ already exists') in your response with a corresponding error status (usually eit
   * **Caution**: Rails will format error responses differently than normal
   responses.
 
-**Test your routes** using `$.ajax` in the console before moving on.
+**Test your routes** using `$.ajax` in the console before moving on. You should be able to create a user, log out, and log in using `$.ajax` commands.
 
 ### `SessionApiUtil`
 
 Create a new file, `util/session_api_util.js` with the following functions:
-  * **`signup`:** POST 'api/users'
-  * **`login`:** POST 'api/session'
-  * **`logout`:** DELETE 'api/session'
+  * `signup`: should make an AJAX request that creates a new user.
+  * `login`: should make an AJAX request that creates a new session.
+  * `logout`: should make an AJAX request that deletes the current session.
 
 Each function should take `success` and `error` callbacks.
-They should be of the form below:
 
-```js
-export const apiUtilFunction = (data, success, error) => {
-  $.ajax({
-    url: 'api/URL',
-    method: 'METHOD',
-    data,
-    success,
-    error
-  })
-}
-```
+**N.B.** Check out `routes.rb` and run `rake routes` to determine the appropriate URL for each of these requests. 
 
-Test each of your api util functions before moving on!
+**Test each of your api util functions before moving on!** To do this, you can import these functions in your entry file and save them to the window (e.g., `window.login = login;`).
 
 ### Session Actions
 
@@ -140,6 +141,8 @@ The `SessionReducer` should listen for 3 action types:
   * `RECEIVE_CURRENT_USER` - set `currentUser` to the action's user (and clears errors)
   * `RECEIVE_ERRORS` - set `errors` to the action's errors (and clears the currentUser)
   * `LOGOUT` - clear both `errors` and `currentUser`
+
+Hint: We can use the default application state listed above as a template for any session information we might receive.
 
 
 ### `RootReducer`
