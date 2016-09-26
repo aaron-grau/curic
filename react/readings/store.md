@@ -80,7 +80,7 @@ Let's write a `reducer` for our fruit stand app:
 
 ```js
 // reducer.js
-const reducer = (state = [], action) {
+const reducer = (state = [], action) => {
 	switch(action.type) {
 		case 'ADD_FRUIT':
 			return [
