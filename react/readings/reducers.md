@@ -278,8 +278,9 @@ const farmerReducer = (state, action) => { // state is a farmer object
         			paid: false
       			});
 		case "PAY_FARMER":
-            state.paid = !state.paid;
-			return state;
+			return merge({}, state, {
+				paid: !state.paid
+			});
 		default:
 			return state;
 	}
