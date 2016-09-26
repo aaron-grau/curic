@@ -501,7 +501,7 @@ Create a new component, `FilterForm`. It should be a sub-component of `Search`.
 `FilterForm` should render two inputs, one for `minSeating` and one for
 `maxSeating`.
 
-Update your `SearchContainer` to pull `minStating` and `maxSeating` from the state
+Update your `SearchContainer` to pull `minSeating` and `maxSeating` from the state
 to pass as props. `SearchContainer` should also pass an `updateFilter` prop to
 `Search`, which should then pass it on to `BenchMap` and `FilterForm`.
 `updateFilter` should be the `onChange` handler of the `input` tags.
