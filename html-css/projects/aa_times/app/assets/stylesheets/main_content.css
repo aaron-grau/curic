@@ -1,0 +1,128 @@
+h1 {
+	font-size: 24px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+section h1:hover, section header:hover, section h2:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+section header {
+	font-weight: bold;
+}
+
+.main-story {
+	margin-top: 10px;
+}
+
+.main-story section {
+	margin-bottom: 20px;
+}
+
+.byline {
+	color: #999;
+	margin: 4px 1px;
+	font-family: georgia,"times new roman",times,serif;
+	font-weight: 400;
+	font-size: 11px;
+}
+
+.main-story ul {
+	list-style: initial;
+	padding-left: 15px;
+}
+
+.main-story ul li{
+	margin: 10px 0;
+	line-height: 1.5;
+}
+
+.comments {
+	color: #326891;
+	font-family: "nyt-franklin", arial, helvetica, sans-serif;
+	font-size: 10px;
+	vertical-align: bottom;
+}
+
+.comments:before {
+	content: "";
+	width: 6px;
+	height: 4px;
+	position: relative;
+	top: -2px;
+	margin-right:2px;
+	display: inline-block;
+	background-color: #326891;
+}
+
+iframe {
+	margin-bottom: 10px;
+}
+
+article {
+	margin: 10px 0;
+}
+
+article hr {
+	width: 50%;
+	color: #999;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.kicker {
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.opinion {
+	margin-top: 10px;
+}
+
+.opinions-list {
+	list-style: initial;
+	padding-left: 15px;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+.opinions-list li {
+	margin: 5px 0;
+}
+
+.thumbnail {
+	height: 100px;
+}
+
+.thumbnail img {
+	object-fit: cover;
+}
+
+.opinion-sign-up {
+	margin: 20px 0;
+}
+
+.input-wrapper {
+	display: flex;
+}
+
+.input-wrapper input {
+	flex: 1;
+	font-family: "nyt-franklin", arial, helvetica, sans-serif;
+	padding: 0 10px;
+	border: 1px solid #999;
+	border-right: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.input-wrapper button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}

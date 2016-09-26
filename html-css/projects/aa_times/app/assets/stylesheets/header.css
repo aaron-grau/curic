@@ -1,0 +1,43 @@
+.main-nav {
+	display:flex;
+	justify-content: space-between;
+	padding: 10px 0;
+	border-bottom: 1px solid #e2e2e2;
+	position: relative;
+	vertical-align: middle;
+}
+
+.left-nav button {
+	border: none;
+	background: none;
+	color: black;
+	margin-left: 20px;
+}
+
+.left-nav button:hover {
+	background-color: #f7f7f5;
+}
+
+.left-nav span {
+	margin-left: 10px;
+	text-transform: uppercase;
+	font-family: "nyt-franklin", arial, helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.right-nav i {
+	font-size: 16px;
+	margin-left: 20px;
+	position: relative;
+	cursor: pointer;
+	padding: 5px;
+}
+
+.right-nav i:hover {
+	background-color: #f7f7f5;
+}
+
+.right-nav button:not(:first-child) {
+	margin-left: 5px;
+}

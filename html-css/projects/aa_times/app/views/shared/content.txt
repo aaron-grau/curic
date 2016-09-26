@@ -1,0 +1,6 @@
+<h1>Coding Bootcamps a College Replacement for Software Engineers</h1>
+            <p class="author">By Kush Patel</p>
+            <ul>
+                <li>Tech-minded students who graduate from a coding bootcamp are not only likely to land a job requiring the skills they learned, but that job will pay, on average, 64 percent more than what they were making before enrolling</li>
+                <li>Course Report, the coding bootcamps review site, released the findings of its third annual graduate survey on Wednesday, calling its Outcomes &amp; Demographics Study “the most complete cross-school study of its kind in the coding bootcamp industry.”</li>
+            </ul>
