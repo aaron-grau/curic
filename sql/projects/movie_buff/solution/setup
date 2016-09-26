@@ -1,9 +1,5 @@
 #!/usr/bin/env sh
-<<<<<<< e48e33bbaf4663449edf6e8fb25c4a672b8e7d2e
 bundle install
-=======
-
->>>>>>> add movie_buff
 bundle exec rake db:drop
 bundle exec rake db:create
 bundle exec rake db:migrate
