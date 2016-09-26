@@ -1,19 +1,28 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import store from './store/store';
-import Root from './components/root';
+import store from './store';
+import { addOrange, addApple, clearFruit } from './actions';
 
-ReactDOM.render(
-	<Root store={store} />,
-	document.getElementById('root')
+// TODO just for testing!
+window.store = store;
+window.addOrange = addOrange;
+window.addApple = addApple;
+window.clearFruit = clearFruit;
+
+
+import FruitStandContainer from './components/fruit_stand_container';
+
+const App = () => (
+	<Provider store={store}>
+		<FruitStandContainer/>
+	</Provider>
 );
 
-/* for dispatching actions that trigger re-renders! */
-import { addFruit, addFruits, sellFruit, sellOut } from './actions/fruits_actions';
-
-window.store = store;
-window.addFruit = addFruit;
-window.addFruits = addFruits;
-window.sellFruit = sellFruit;
-window.sellOut = sellOut;
+document.addEventListener("DOMContentLoaded", () => {
+	ReactDOM.render(
+		<App />,
+		document.getElementById('root')
+	);
+});
