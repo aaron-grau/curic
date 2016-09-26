@@ -41,7 +41,6 @@ SQL
 Notice the use of the `?` interpolation mark; the Ruby variable
 `post_id` will be inserted into the query at the `?`.
 
-
 It is also possible to pass variables to a query using key-value pairs.
 
 ```ruby
@@ -57,11 +56,24 @@ WHERE
 SQL
 ```
 
-In this case, the corresponding variable is inserted in the query in place of the symbol `:post_id`.
+In this case, the corresponding value is inserted in the query
+in place of the symbol `:post_id`.
 
+What's the difference between using a `?` versus a key-value pair? Values
+bound to the `?` are done so positionally. So the first argument passed to
+a heredoc corresponds to the first `?` in your SQL query code.
+
+On the other hand in key-value pairs the key acts as the placeholder for
+its corresponding value variable. The order of arguments doesn't
+matter as a result.
+
+If you use a `?` or key-value pairs to pass in variables to a SQL query,
+SQLite3 will help protect against SQL injection attempts by escaping
+potentially malicious code.
 
 ## References
 
 * [More on heredocs][heredocs]
 
 [heredocs]: https://makandracards.com/makandra/1675-using-heredoc-for-prettier-ruby-code
+[arguments in heredocs]: http://sqlite-ruby.rubyforge.org/sqlite3/faq.html#538670816
