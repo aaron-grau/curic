@@ -136,7 +136,7 @@ simple, but there are some features that would have been nice if it had:
 
 * Older versions don't enforce foreign key constraints; they will
   ignore them.
-    * Newer versions (newer than is default on OS X) enforce FK constraints.
+    * Newer versions (newer than is default on OS X) enforce foreign key constraints.
 * Dropping columns is a pain; you need to rebuild the whole table.
     * [How to drop columns][sqlite-add-drop] (hint: it's ugly).
 * SQLite3 is overly permissive; it lets you assign, for instance, strings to
@@ -145,7 +145,7 @@ simple, but there are some features that would have been nice if it had:
 For reasons like these, pretty much everyone running a web app will use a
 more complete database in production (Postgres and MySQL are common choices).
 
-None of these should bother you very much for using SQLite3 as a
+None of these should bother you very much if you are using SQLite3 as a
 development database which doesn't hold any mission-critical,
 production data.
 
@@ -166,12 +166,12 @@ path in your `~/.bashrc`.
 
 ## Additional References
 
-* The [SQLite3 guide][sqlite-guide]; a real quick intro.
+* [The SQLite3 guide][sqlite-guide]; a real quick intro.
 * [SQLite FAQ][sqlite-faq]; a few helpful questions
 * [The SQLite Language][sqlite-lang]
     * (all the gory details are here; use this only as a reference, if
       necessary)
-* The [sqlite3-ruby FAQ][sqlite-ruby-faq].
+* [The sqlite3-ruby FAQ][sqlite-ruby-faq].
 
 [sqlite-homepage]: http://www.sqlite.org/
 [sqlite-guide]: http://www.sqlite.org/sqlite.html
