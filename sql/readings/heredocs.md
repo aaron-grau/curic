@@ -41,6 +41,25 @@ SQL
 Notice the use of the `?` interpolation mark; the Ruby variable
 `post_id` will be inserted into the query at the `?`.
 
+
+It is also possible to pass variables to a query using key-value pairs.
+
+```ruby
+db.execute(<<-SQL, post_id: post_id)
+SELECT
+  *
+FROM
+  posts
+JOIN
+  comments ON comments.post_id = posts.id
+WHERE
+  posts.id = :post_id
+SQL
+```
+
+In this case, the corresponding variable is inserted in the query in place of the symbol `:post_id`.
+
+
 ## References
 
 * [More on heredocs][heredocs]
