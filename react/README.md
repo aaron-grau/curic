@@ -125,7 +125,7 @@ the React curriculum materials. Review the
 
 [fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
 [fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
-[fruit-stand-02-video]:
+[fruit-stand-02-video]: https://vimeo.com/184374712
 [fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
 [fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit_stand_02
 
