@@ -713,7 +713,7 @@ us to invoke a callback over relatively large spans of time.
 
 Now for the meat of this method, *throttling* our iteration using `setInterval`:
 * Declare an `interval` variable.
-* Assign `interval` to a `setInterval` call pasing it an anonymous callback and a delay of `1`.
+* Assign `interval` to a `setInterval` call passing it an anonymous callback and a delay of `1`.
 * The callback takes no arguments.
 * The body of the callback should check whether `currNote` is still in range of the `roll`. *If so*,
   * Check whether `Date.now() - playBackStartTime` exceeds the current note's `timeSlice`. *If so*,
