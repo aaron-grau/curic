@@ -19,7 +19,7 @@ Start with the standard HTML structure. We will go over this in more detail late
 
 **Pro-Tip:** Use the html snippet in Atom to generate a basic HTML page layout by typing `html` and then pressing Tab.
 
-Now build up your page with the following elements: 
+Now build up your page with the following elements:
 
 * An `H2` with the title of your recipe
 * An unordered list of anchor links to each section of your recipe
@@ -50,3 +50,7 @@ Other common character entity references are `&amp;` for an ampersand and `&nbsp
 Here is a list of [HTML Character Entity References](https://dev.w3.org/html5/html-author/charref).
 
 After coding your recipe page, compare your html to [this example](intro_example_recipe.html) and view the live version [here](http://appacademy.github.io/curriculum/intro_example_recipe.html).
+
+Push your page to Github pages. Create a gh-pages branch on your homeworks repo. Refer to the [reading][gh-pages] to see how to set it all up. Make sure you push the newest version of your page every night throughout the HTML/CSS curriculum.
+
+[gh-pages]: https://github.com/appacademy/curriculum/blob/master/javascript/readings/github_pages.md
