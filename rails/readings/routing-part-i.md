@@ -125,8 +125,8 @@ just be consistent and use `_url` all the time.
 
 | HTTP Verb | Controller#action  | Path             | URL                                       |
 | ----------| ------------------ | ---------------- | ----------------------------------------- |
-| GET       | Photos#index       | /photos          | http://<span></span>www.example-site.com/photos        |
-| GET       | Photos#edit        | /photos/1/edit   | http://<span></span>www.example-site.com/photos/1/edit |
+| `GET`       | `Photos#index`       | `/photos`          | `http://www.example-site.com/photos`        |
+| `GET`       | `Photos#edit`        | `/photos/1/edit`   | `http://www.example-site.com/photos/1/edit` |
 
 ## Inspecting and Testing Routes
 
