@@ -153,7 +153,10 @@ None of these involve joins.
 
 ### Medium
 
-All of these involve joins.
+All of these involve joins. Refer back to the [joins reading][joins-reading]
+to clarify your understanding of joins.
+
+[joins-reading]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
 
 * `QuestionFollow::followers_for_question_id(question_id)`
     * This will return an array of `User` objects!
@@ -245,7 +248,7 @@ version of the values in your object.
 The user should be able to get and set the attributes on the object
 you hand them through reader and writer methods (`attr_accessor`).
 
-## Bonus
+## Bonus I
 
 ### ModelBase class
 
@@ -298,3 +301,9 @@ be used to directly define the 'WHERE' statement in the SQL query:
 User.where("lname = 'Stark'")
 Question.where("title LIKE '%Who%' AND title LIKE '%Arstan Whitebeard%'")
 ```
+
+## Bonus II
+
+Go through all of [SQLZoo][sql-zoo] again.
+
+[sql-zoo]: http://sqlzoo.net/
