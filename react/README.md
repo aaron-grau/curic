@@ -127,7 +127,7 @@ the React curriculum materials. Review the
 [fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
 [fruit-stand-02-video]:
 [fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
-[fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit-stand-02
+[fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit_stand_02
 
 [dollar_store_hw]: homeworks/questions/stores.md
 
