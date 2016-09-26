@@ -5,10 +5,13 @@ const _defaultState = {
 }
 
 const reducer = (oldState = _defaultState, action) => {
-  switch(action.type){
+  switch(action.type) {
     case ADD_FRUIT:
       return {
-        fruits: [...oldState.fruits, action.fruit]
+        fruits: [
+          ...oldState.fruits,
+          action.fruit
+        ]
       };
     case CLEAR:
       return _defaultState;

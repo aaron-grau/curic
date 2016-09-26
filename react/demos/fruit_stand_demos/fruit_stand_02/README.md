@@ -3,8 +3,7 @@
 An intro **Redux/React** app with a Redux `store`, `reducer`, `actions`, and a *connected* React component.
 
 ---
-Let's look at and run the code that you just walked through in our Redux store
-reading.
+Let's look at and run the code that you just walked through in our React/Redux video demo.
 
 1. [Download zip][zip].
 2. Unzip and cd to the app's root directory.
@@ -22,7 +21,7 @@ Check out `entry.js` (this demo's entry file):
 + Check out the app's `store` defined in `frontend/store.js`.
 + Check out the app's actions defined in `frontend/actions.js`.
 + Check out our app's React component `FruitStand` defined in `frontend/components/fruit_stand.jsx`.
-  + This React component is *connected* to the `store` via it's container: `frontend/components/fruit_stand_container.js`.
+  + This React component is *connected* to the `store` via its container: `frontend/components/fruit_stand_container.js`.
   + Whenever our application state changes, our container generates new props for our `FruitStand` component
 
 [zip]: ./fruit_stand_02.zip
