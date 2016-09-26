@@ -67,9 +67,9 @@ On the other hand in key-value pairs the key acts as the placeholder for
 its corresponding value variable. The order of arguments doesn't
 matter as a result.
 
-If you use a `?` or key-value pairs to pass in variables to a SQL query,
+If you use a `?` or key-value pair to pass in variables to a SQL query,
 SQLite3 will help protect against SQL injection attempts by escaping
-potentially malicious code.
+potentially malicious code for you.
 
 ## References
 
