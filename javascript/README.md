@@ -109,7 +109,7 @@
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
 ### Homeworks (65 min)
-* [CSS Curriculum Day 2][css-day2] (35 min)
+* [CSS Curriculum Day 2][css-day2] (55 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 ### Additional Resources
@@ -256,9 +256,9 @@
 
 ## w6d3
 
-### Homeworks (2 hr)
-* [CSS Curriculum Day 5][css-day5] (30 min)
-* [CSS Curriculum Day 6][css-day6] (30 min)
+### Homeworks (4 hr)
+* [CSS Curriculum Day 5][css-day5] (85 min)
+* [CSS Curriculum Day 6][css-day6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
 ### Additional Resources
