@@ -31,7 +31,7 @@ When the store initializes, it calls its reducer with an `undefined` `state`, al
 The bulk of the reducer function then implements updates to the state. First, the reducer decides what logic to implement based on the `action.type` `switch`. Then, it creates and returns a new object representing the next state (after processing the action) if any of the information needs to be changed. The `state` is returned unchanged if no cases match the `action.type`, meaning that the reducer doesn't *care* about that action (e.g. `{type: 'NEW_TRANSFORMERS_SEQUEL'}`).
 
 In the above example, our reducer's initial state is set to an empty array. The
-reducer returns a a new array with `action.fruit` appended to the previous
+reducer returns a new array with `action.fruit` appended to the previous
 `state` if `action.type` is `ADD_FRUIT`. Otherwise, it returns the
 `state` unchanged.
 
