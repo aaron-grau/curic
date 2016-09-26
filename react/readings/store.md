@@ -13,7 +13,8 @@ The store is responsible for:
 
 ## Creating the Store
 
-The `redux` library provides us with a `createStore()` method, which takes up three arguments and returns a Redux `store`:
+The `redux` library provides us with a `createStore()` method, which takes up
+three arguments and returns a Redux `store`.
 
 ```js
 createStore(reducer, [preloadedState], [enhancer])
@@ -53,10 +54,12 @@ store.dispatch(action);
 ```
 
 An `action` in Redux is just a plain object with:
-	1. a `type` key indicating the action being performed, and
-	2. optional payload keys containing any new information.
++ a `type` key indicating the action being performed, and
++ optional payload keys containing any new information.
 
-For example, if our store handled a fruit stand's inventory, we would use the following action to add an orange to the inventory:
+For example, if we were building a fruit stand application our store would
+handle the inventory. We would use the following action to add an orange to the
+app's state:
 
 ```js
 const addOrange = {
@@ -73,7 +76,7 @@ You'll read more more on the `reducer` in the next reading, but for now, think
 of it as a Redux app's traffic cop, routing new information to its rightful
 place in the state.
 
-Let's write a `reducer` for our fruit stand store:
+Let's write a `reducer` for our fruit stand app:
 
 ```js
 // reducer.js
@@ -92,7 +95,7 @@ const reducer = (state = [], action) {
 export default reducer;
 ```
 
-**Note**:
+**NB**:
 -	The reducer's `state` parameter provides a default value; this is
 the **initial state** of our store prior to any actions. In this case, it's an
 empty array.
@@ -115,11 +118,15 @@ store.dispatch(addOrange);
 store.getState(); // ['orange']
 ```
 
-See the example above in action [here][fruit_stand_redux_only]!
+Check out a live version of the fruit stand Redux application we just walked through
+[here][fruit-stand-01]! :watermelon::pineapple::strawberry:
+
+[fruit-stand-01]: ../demos/fruit_stand_demos/fruit_stand_01
 
 ## Subscribing to the Store
 
-Once the store has processed a `dispatch()`, it triggers all its subscribers. Subscribers are callbacks that can be added to the store via `subscribe()`.
+Once the store has processed a `dispatch()`, it triggers all its subscribers.
+Subscribers are callbacks that can be added to the store via `subscribe()`.
 
 Let's define a callback `display` and subscribe it to our example's store.
 
@@ -172,23 +179,19 @@ export default FruitStand;
 
 The idea is that by subscribing a React component to the store via its
 `forceUpdate()` method, the store triggers re-rendering of the component with
-the updated state every time it processes a `store.dispatch(action)` call. In other words, `FruitStand` will re-render whenever the app state changes.
+the updated state every time it processes a `store.dispatch(action)` call. In
+other words, `FruitStand` will re-render whenever the app state changes.
 
 **NB**: Subscribing `forceUpdate()` tells a component to immediately re-render
-every time the store's contents change. This pattern works but is a rather blunt
-instrument for complex components, since re-rendering a parent causes re-
-rendering of all its children. We'll learn more about the `react-redux` library
-soon, which solves this problem via the `Provider / connect()` API.
-
-Check out our intro *Redux/React* fruit stand app in action
-[here][fruit_stand_with_react]!
+every time the store's contents change. This pattern works but is a rather
+blunt instrument for complex components, since re-rendering a parent causes
+re-rendering of all its children. We'll learn more about the `react-redux`
+library soon, which solves this problem via the `Provider / connect()` API.
 
 ## Official Documentation
 
 View the official documentation on the Redux store [here][redux-js].
 
-[fruit_stand_redux_only]:../demos/fruit_stand_redux_only
 [redux-js]: http://redux.js.org/docs/basics/Store.html
 [why-immutable]: https://github.com/reactjs/redux/issues/758
 [force-update]:https://facebook.github.io/react/docs/component-api.html#forceupdate
-[fruit_stand_with_react]:../demos/fruit_stand_with_react

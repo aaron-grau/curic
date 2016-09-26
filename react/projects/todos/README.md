@@ -250,6 +250,7 @@ const TodosReducer = (state = {}, action) => {
 export default TodosReducer;
 ```
 
+[object-freeze-reading]: ../../readings/object_freeze.md
 #### `RootReducer`
 
 + Create a new file, `reducers/root_reducer.js`.
