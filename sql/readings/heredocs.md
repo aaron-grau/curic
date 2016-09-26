@@ -64,7 +64,7 @@ bound to the `?` are done so positionally. So the first argument passed to
 a heredoc corresponds to the first `?` in your SQL query code.
 
 On the other hand in key-value pairs the key acts as the placeholder for
-its corresponding value variable. The order of arguments doesn't
+its corresponding value variable. The order of key-value pair arguments doesn't
 matter as a result.
 
 If you use a `?` or key-value pair to pass in variables to a SQL query,
