@@ -34,6 +34,7 @@ merit and that you have a game plan for making it happen.
 **Summary:** Trello is a todo list app for team collaboration.
 
 **Key Feature Set:**
+
 0. Users can create and view boards
 0. Users can create lists, and lists are shown on the associated board - lists can be marked as complete
 0. Users can create cards, and cards are shown on the associated list - cards can be marked as complete
