@@ -93,12 +93,12 @@ the React curriculum materials. Review the
 - [Containers][containers] (10 min)
 
 ### Fruit Stand App Demo (1 hr 15 min)
-:closed_lock_with_key: `go_video_go`
 + Phase I - Redux only (15 min)
   + [Live demo][fruit-stand-01-live]
   + [Source code][fruit-stand-01-source]
 + Phase II - React/Redux (1 hr)
   + :movie_camera: [Video demo][fruit-stand-02-video] (45 min)
+    + :closed_lock_with_key: `go_video_go`
   + [Live demo][fruit-stand-02-live]
   + [Source code][fruit-stand-02-source]
 
