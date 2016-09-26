@@ -11,6 +11,7 @@ The beginning of Front-End Development.
 #### Reading (15 mins)
 
 + [An Introduction to HTML](readings/introduction.md)
++ [Github Pages](https://github.com/appacademy/curriculum/blob/master/javascript/readings/github_pages.md)
 
 #### Exercise (25 mins)
 
