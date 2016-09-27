@@ -239,7 +239,9 @@ Discuss the following game plan and then work together to implement your new met
   - Add the change for the remainder to the single coin you originally grabbed to obtain a possible solution.
   - Keep track of the best solution and return it at the end.
 
-**N.B.** Don't generate every possible permutation of coins and then compare them. Remember that a permutation is not the same thing as a combination - we *will* need to check every combination of coins that add up to our target, we just don't want to check the same combination in different orders. If you get stuck you can solve the problem by calculating all the permutations (but don't store them in an array!) and then go back and refactor so that you only calculate all the different combinations.
+
+
+**N.B.** Don't generate every possible permutation of coins and then compare them. Remember that a permutation is not the same thing as a combination - we *will* need to check every combination of coins that add up to our `target`, we just don't want to check the same combination in different orders. If you get stuck you can start by writing a solution that calculates and compares all of the permutations without storing them in an array. Then go back and refactor your solution so that it only calculates and compares all of the different combinations.
 
 Make sure you and your partner understand each line before moving on.
 
