@@ -10,9 +10,7 @@ import BenchShowContainer from './bench_show/bench_show_container';
 import ReviewFormContainer from './bench_show/review_form_container';
 import SessionFormContainer from './session_form/session_form_container';
 
-
-
-const Root = ({store}) => {
+const Root = ({ store }) => {
 
   const ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
