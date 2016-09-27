@@ -172,7 +172,7 @@
   * complete up to 'The First Loader'
 
 ### Additional Resources
-* [Github Pages][github-pages] (5 min)
+* [Github Pages][github-pages]
 * [CSS Diner][css-diner]
 * [Asynchronous Client-side Code][asynchronous-js]
 * [Client-side JavaScript][client-side-js]
