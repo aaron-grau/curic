@@ -63,6 +63,7 @@ Other common character entity references are `&amp;` for an ampersand and
 Here is a list of [HTML Character Entity
 References](https://dev.w3.org/html5/html-author/charref).
 
+<<<<<<< 7a01bb7aefe5dd1bf294d52a0b669f2d5581b5e9
 <<<<<<< f2167acc4801ff8c81f34b34f38ddfb1e22f6ac4
 After coding your recipe page, compare your html to [this
 example](intro_example_recipe.html) and view the live version
@@ -78,9 +79,17 @@ throughout the HTML/CSS curriculum.
 [gh-homeworks]:../../../ruby/readings/git-homeworks.md
 =======
 After coding your recipe page, compare your html to [this example](intro_example_recipe.html) and view the live version [here](http://appacademy.github.io/curriculum/intro_example_recipe.html).
+=======
+After coding your recipe page, compare your html to [this
+example](intro_example_recipe.html) and view the live version
+[here](http://appacademy.github.io/curriculum/intro_example_recipe.html).
+>>>>>>> reflow
 
 ## Uploading to Github
-Create a `gh-pages` branch on your [`homeworks`][gh-homeworks] repo and push your page to Github Pages. Refer to the [reading][gh-pages] to see how to set it all up. Make sure you push the newest version of your page every night throughout the HTML/CSS curriculum.
+Create a `gh-pages` branch on your [`homeworks`][gh-homeworks] repo and push
+your page to Github Pages. Refer to the [reading][gh-pages] to see how to set it
+all up. Make sure you push the newest version of your page every night
+throughout the HTML/CSS curriculum.
 
 <<<<<<< 421f95b625167ae6f0905d2e66a27bd4b89eead8
 [gh-pages]: https://github.com/appacademy/curriculum/blob/master/javascript/readings/github_pages.md
