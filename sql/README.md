@@ -23,6 +23,8 @@
 ### Projects
 
 + [SQL Zoo][sqlzoo-readme]
+  + [Video solution to Julie Andrews query][julie-andrews-vid]
+  + [Video solution to Craiglockhart to Sighthill query][craiglockhart-vid]
 
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
@@ -34,6 +36,8 @@
 [learning-sql-part-i]: readings/part-i.md
 [sqlzoo-readme]: projects/sqlzoo
 [sql-zoo-select]: http://sqlzoo.net/wiki/SQLZOO:SELECT_basics
+[julie-andrews-vid]: https://vimeo.com/184539804
+[craiglockhart-vid]: https://vimeo.com/184539167
 
 ## w3d2
 
