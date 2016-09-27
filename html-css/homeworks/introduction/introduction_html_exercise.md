@@ -73,5 +73,5 @@ your page to Github Pages. Refer to the [reading][gh-pages] to see how to set it
 all up. Make sure you push the newest version of your page every night
 throughout the HTML/CSS curriculum.
 
-[gh-pages]:../javascript/readings/github_pages.md
-[gh-homeworks]:../ruby/readings/git-homeworks.md
+[gh-pages]:../../../javascript/readings/github_pages.md
+[gh-homeworks]:../../../ruby/readings/git-homeworks.md
