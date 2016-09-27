@@ -58,7 +58,7 @@ import { fetchCats } from '../utils/cat_api_util';
 
 import { REQUEST_CATS, RECEIVE_CATS, requestCats, receiveCats } from '../actions/cat_actions';
 
-export default ({ getState, dispath }) => next => action => {
+export default ({ getState, dispatch }) => next => action => {
 	switch (action.type) {
 		case REQUEST_CATS:
 			const success = cats => dispatch(receiveCats(cats));
