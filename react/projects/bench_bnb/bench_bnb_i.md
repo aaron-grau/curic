@@ -216,18 +216,18 @@ export default configureStore;
 So far, we have built our redux store and told it to use our session reducing function.
 
 **Test that everything works**:
-  * Add a `'DOMContentLoaded'` callback to your entry point if you don't already
-  have one.
-  * Inside the callback, call `configureStore()` and assign the result to the `window`:
+* Add a `'DOMContentLoaded'` callback to your entry point if you don't already
+have one.
+* Inside the callback, call `configureStore()` and assign the result to the `window`:
 
-    ```javascript
-    window.store = configureStore(); //just for testing!
-    ```
+  ```javascript
+  window.store = configureStore(); //just for testing!
+  ```
 
-  * Run `store.getState()` in the console and inspect the results. Your state
-  should look like the default state mentioned above!
-  + Test that your `SessionReducer` works by dispatching session actions
-  (from the console) and then checking your application state.
+* Run `store.getState()` in the console and inspect the results. Your state
+should look like the default state mentioned above!
++ Test that your `SessionReducer` works by dispatching session actions
+(from the console) and then checking your application state.
 
 ### `SessionMiddleware`
 
@@ -443,22 +443,23 @@ Change your `App` to render the `GreetingContainer` above our other content.
 To make our code more modular, we will reuse and render the same form component on login and signup.
 
 * Create a new controlled component, `SessionForm`, and a corresponding container `SessionFormContainer`
-* Create 2 new routes for `SessionFormContainer` in your `Root` component.
-  * The routes' paths should be `"login"` and `"signup"`.
+* Create 2 new routes in your `Root` component for `/#/login` and `/#/signup`.
+  * The `<Route>`s' paths should be `"login"` and `"signup"`.
+  + They should both render the `SessionFormContainer`.
   + For example,
 
   ```js
   <Provider store={store}>
-    <Router history={ hashHistory }>
-      <Route path="/" component={ App }>
-        <IndexRoute component={ SearchContainer } />
-        <Route path="/login" component={ SessionFormContainer } onEnter={ redirectIfLoggedIn }/>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={SearchContainer} />
+        <Route path="/login" component={SessionFormContainer} />
         //...
       </Route>
     </Router>
   </Provider>
   ```
-  
+
 #### `SessionFormContainer`
 
 The `SessionFormContainer` should provide `SessionForm` with the following props:
