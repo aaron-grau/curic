@@ -1,6 +1,6 @@
 import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
 
-export const login = function(user, success, error) {
+export const login = (user, success, error) => {
 	$.ajax({
 		method: 'POST',
 		url: '/api/session',
@@ -10,7 +10,7 @@ export const login = function(user, success, error) {
 	});
 };
 
-export const signup = function(user, success, error) {
+export const signup = (user, success, error) => {
 	$.ajax({
 		method: 'POST',
 		url: '/api/user',
@@ -20,7 +20,7 @@ export const signup = function(user, success, error) {
 	});
 };
 
-export const logout = function(success){
+export const logout = success => {
 	$.ajax({
 		method: 'delete',
 		url: '/api/session',

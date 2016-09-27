@@ -1,4 +1,4 @@
-import { FilterConstants } from '../actions/filter_actions';
+import { UPDATE_FILTER } from '../actions/filter_actions';
 import merge from 'lodash/merge';
 
 const _defaultFilters = Object.freeze({
@@ -7,9 +7,11 @@ const _defaultFilters = Object.freeze({
   maxSeating: 10
 });
 
-const FiltersReducer = function(state = _defaultFilters, action){
-  if (action.type === FilterConstants.UPDATE_FILTER){
-    const newFilter = {[action.filter]: action.value};
+const FiltersReducer = (state = _defaultFilters, action) => {
+  if (action.type === UPDATE_FILTER) {
+    const newFilter = {
+      [action.filter]: action.value
+    };
     return merge({}, state, newFilter);
   } else {
     return state;

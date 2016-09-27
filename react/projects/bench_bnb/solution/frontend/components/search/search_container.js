@@ -2,9 +2,11 @@ import { connect } from 'react-redux';
 import Search from './search';
 // Actions
 import { updateFilter } from '../../actions/filter_actions';
+// Selectors
+import { asArray } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  benches: state.benches,
+  benches: asArray(state.benches),
   minSeating: state.filters.minSeating,
   maxSeating: state.filters.maxSeating
 });
