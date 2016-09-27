@@ -7,14 +7,14 @@ First Create a new file with your first/last name and the name of your recipe, e
 Start with the standard HTML structure. We will go over this in more detail later in the curriculum. For now, write all of today's exercise within the body tag.
 
 ```html
-    <html>
-        <head>
-        <title>Kevin McCall Recipe</title>
-        </head>
-        <body>
-            <h1>Shakshuka</h1>
-        </body>
-    </html>
+<html>
+    <head>
+    <title>Kevin McCall Recipe</title>
+    </head>
+    <body>
+        <h1>Shakshuka</h1>
+    </body>
+</html>
 ```
 
 **Pro-Tip:** Use the html snippet in Atom to generate a basic HTML page layout by typing `html` and then pressing Tab.
@@ -51,6 +51,8 @@ Here is a list of [HTML Character Entity References](https://dev.w3.org/html5/ht
 
 After coding your recipe page, compare your html to [this example](intro_example_recipe.html) and view the live version [here](http://appacademy.github.io/curriculum/intro_example_recipe.html).
 
-Create a gh-pages branch on your homeworks repo and push your page to Github Pages. Refer to the [reading][gh-pages] to see how to set it all up. Make sure you push the newest version of your page every night throughout the HTML/CSS curriculum.
+## Uploading to Github
+Create a `gh-pages` branch on your [`homeworks`][gh-homeworks] repo and push your page to Github Pages. Refer to the [reading][gh-pages] to see how to set it all up. Make sure you push the newest version of your page every night throughout the HTML/CSS curriculum.
 
-[gh-pages]: https://github.com/appacademy/curriculum/blob/master/javascript/readings/github_pages.md
+[gh-pages]:../javascript/readings/github_pages.md
+[gh-homeworks]:../ruby/readings/git-homeworks.md
