@@ -81,6 +81,7 @@ class BenchMap extends React.Component {
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
   }
   //...
+}
 ```
 
 **Test:** This should cause a Google Map to be rendered to the page.
@@ -130,14 +131,14 @@ Let's put `MarkerManager` on the back-burner for now. We'll come back later.
 Let's see how the `BenchMap` is going to interact with our `MarkerManager`.
 
   * Import the `MarkerManager` class.
-  * Update the `BenchMap#componentDidMount` method to create a new `MarkerManager`.
+  * Update the `BenchMap#componentDidMount` lifecycle method to create a new `MarkerManager`.
 
 ```javascript
-  componentDidMount() {
-    //...
-    this.map = new google.maps.Map(mapDOMNode, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
-  }
+componentDidMount() {
+  //...
+  this.map = new google.maps.Map(mapDOMNode, mapOptions);
+  this.MarkerManager = new MarkerManager(this.map);
+}
 ```
 
 We need to invoke `updateMarkers()` both when the `BenchMap` component
@@ -160,7 +161,8 @@ Make sure this works before moving on!
 
 Read the documentation on [map markers][map-markers] before continuing.
 
-To accomplish the goal of adding and removing markers appropriately, write the following helper methods.
+To accomplish the goal of adding and removing markers appropriately, write the
+following helper methods:
 
 * `_benchesToAdd()`: returns an array of benches that are in the state, but
 not already on the map.
@@ -256,13 +258,13 @@ We want a default state that looks something like:
 }
 ```
 
-  * Create a new file, `reducers/filter_reducer.js`
-  * Build and export a `FilterReducer`
-    * You're reducer should update the application state when an `UPDATE_BOUNDS`
-    action is dispatched
-  * Update your `RootReducer`
+* Create a new file, `reducers/filter_reducer.js`
+* Build and export a `FilterReducer`
+  * You're reducer should update the application state when an `UPDATE_BOUNDS`
+  action is dispatched
+* Update your `RootReducer`
 
-Test that the application is being successfully updated by moving the map around
+**Test** that the application is being successfully updated by moving the map around
 and then calling `store.getState()` in the console.
 
 ### `MarkerManager`
@@ -305,15 +307,13 @@ Your middleware's switch statement should look something like this:
       next(action);
       dispatch(requestBenches());
       break;
+    //...
+  }
 ```
 
 That's it! The markers and bench index should now only display for benches that
 are within the bounds of the map. Move the map around to prove this! **Show your
 TA!**
-
-## BONUS!
-* When you hover over an index item it should highlight the marker on the map in
-  a different color. This should require creating a new reducer.
 
 [google-map-doc]: https://developers.google.com/maps/documentation/javascript/tutorial
 [event-doc]: https://developers.google.com/maps/documentation/javascript/events#MarkerEvents
@@ -473,11 +473,11 @@ Next, let's write a new action creator. We're going to define a single action cr
 It should look like this:
 
 ```javascript
-  export const updateFilter = (filter, value) => ({
-    type: UPDATE_FILTER,
-    filter,
-    value
-  });
+export const updateFilter = (filter, value) => ({
+  type: UPDATE_FILTER,
+  filter,
+  value
+});
 ```
 
 The first parameter, `filter`, will tell our `FilterReducer` which property to
@@ -488,11 +488,11 @@ action creator instead of `updateBounds`. Your `FilterReducer` should have a def
 state that looks like:
 
 ```
-  {
-    bounds:{},
-    minSeating: 1,
-    maxSeating: 10
-  }
+{
+  bounds:{},
+  minSeating: 1,
+  maxSeating: 10
+}
 ```
 
 Also be sure to refactor your action types if necessary.
@@ -537,7 +537,9 @@ appropriate API endpoints, actions, utils, and components.
 * You will need to create a new column in your benches table.
 * Display these pictures on both the show page and the index.
 
-## BONUS
+## BONUSES!
+* When you hover over an index item it should highlight the marker on the map in
+  a different color. This should require creating a new reducer.
 * Every bench can have multiple photos!
 * Show page should have a carousel!
 * Display the score as a list of star images!
