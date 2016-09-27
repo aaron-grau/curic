@@ -458,6 +458,7 @@ To make our code more modular, we will reuse and render the same form component 
     </Router>
   </Provider>
   ```
+  
 #### `SessionFormContainer`
 
 The `SessionFormContainer` should provide `SessionForm` with the following props:
