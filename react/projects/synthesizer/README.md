@@ -390,6 +390,8 @@ connect it to your Redux store.
 * In your `App` component, import your `SynthContainer` and render it. Make sure you can `webpack` your app and that there are
 no errors in the console before moving on.
 
+[connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
+
 ### `Synth` Component
 
 `Synth` is an example of a presentational component. Presentational components
