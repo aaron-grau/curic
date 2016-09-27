@@ -388,14 +388,16 @@ const Root = ({ store }) => (
 ```
 #### Routes
 
-Let's define a new `Route` that tells the `AppRouter` to render our `App` component
-when the URL matches '/':
+Let's define a new `Route` that tells the `AppRouter` to render our `App`
+component when the URL matches the root url `'/'`:
 
 ```javascript
-const AppRouter = (
-  <Router history={hashHistory}>
-    <Route path="/" component={App} />
-  </Router>
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App} />
+    </Router>
+  </Provider>
 );
 ```
 
@@ -418,16 +420,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-### `Greeting` Component
+### `Greeting` Components
 
 * Create a new react component, `Greeting`, and a container, `GreetingContainer`.
-We'll write our container component first. If we do a good job here, then our
-presentational component should be fairly trivial!
 
-`GreetingContainer` passes as `props` to the presentational component
-`currentUser` from the state and the `logout` action creator. Set up
+#### `GreetingContainer`
+* `GreetingContainer` passes as `props` to the presentational component
+`currentUser` from the state and the `logout` action creator. * Set up
 `mapStateToProps` and `mapDispatchToProps` accordingly.
 
+#### `Greeting`
 If the user **is logged in**, then the `Greeting` should contain:
   * A welcome message including the user's username
   * A button to logout
@@ -438,9 +440,24 @@ If the user **is not logged in**, then the `Greeting` should contain:
 
 Change your `App` to render the `GreetingContainer` above our other content.
 
+It should look a lot like this:
+```js
+const App = ({ children }) => (
+  <div>
+    <h1>Bench BnB</h1>
+    <GreetingContainer />
+    {children}
+  </div>
+);
+```
+
+**Test that you can logout from `App`.** Navigate to the root url. From the
+console, log in a user (`window.store.dispatch(login(user))`). Check that
+clicking the logout button logs out the current user before moving on.
+
 ### `SessionForm` Components
 
-To make our code more modular, we will reuse and render the same form component on login and signup.
+To make our React components modular, we will reuse and render the same form component on login and signup.
 
 * Create a new controlled component, `SessionForm`, and a corresponding container `SessionFormContainer`
 * Create 2 new routes in your `Root` component for `/#/login` and `/#/signup`.
@@ -452,7 +469,6 @@ To make our code more modular, we will reuse and render the same form component 
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={SearchContainer} />
         <Route path="/login" component={SessionFormContainer} />
         //...
       </Route>
@@ -554,7 +570,8 @@ Make sure to use `<%= %>` so that the result of your ruby code is rendered into 
 script ( it will eventually return a JSON object).
 
 Inside your erb expression, `render` your jbuilder `_user` partial, passing it
-the `current_user`. Specify the whole path, including `.json.jbuilder`, to prevent rails from automatically looking for a HTML partial. Mark your `render`
+the `current_user`. Specify the whole path, including `.json.jbuilder`, to
+prevent rails from automatically looking for a HTML partial. Mark your `render`
 result `html_safe` to avoid escaping certain characters. You should get a JS-
 compatible object to assign to `window.currentUser`. Add interpolation around
 your  `window.currentUser=` assignment so that it only runs if someone is logged
@@ -609,6 +626,24 @@ if (window.currentUser) {
 ```
 
 **Test your code** by logging in and refreshing the page. You should stay logged in.
+
+### Protecting your front-end routes with `onEnter` hooks!
+
+Let's make sure users can't get to our `"/#/login"` or `"/#/signup"` routes on
+the front-end if they are already logged in.
+
+Refer to the `onEnter` [reading][onEnter] for this part.
+
+* Define a `_redirectIfLoggedIn` helper method in your `Root` component. It should:
+  * Check to see if the application state has a `currentUser` property.
+  * If true, `replace` the path with `"/"`.
+  * Otherwise, do nothing.
+* Add an `onEnter` prop to the Routes we want to protect.
+  * Remember, we want to redirect users from `"/#/login"` and  `"/#/signup"` if they are already logged in.
+
+**NB**: Remember that `replace` won't add a "fake" entry to the browser's history, whereas `push` will. We also don't need an `asyncDoneCallback` because the `_redirectIfLoggedIn` runs synchronously.
+
+[onEnter]: ../../readings/on_enter.md
 
 ## Phase 4: `Bench` redux cycle
 

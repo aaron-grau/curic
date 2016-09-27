@@ -12,14 +12,14 @@ import SessionFormContainer from './session_form/session_form_container';
 
 const Root = ({ store }) => {
 
-  const ensureLoggedIn = (nextState, replace) => {
+  const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
       replace('/login');
     }
   };
 
-  const redirectIfLoggedIn = (nextState, replace) => {
+  const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
       replace('/');
@@ -31,11 +31,11 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={SearchContainer} />
-          <Route path="/login" component={SessionFormContainer} onEnter={redirectIfLoggedIn}/>
-          <Route path="/signup" component={SessionFormContainer} onEnter={redirectIfLoggedIn}/>
-          <Route path="/benches/new" component={BenchFormContainer} onEnter={ensureLoggedIn}/>
+          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
+          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
+          <Route path="/benches/new" component={BenchFormContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/benches/:benchId" component={BenchShowContainer} >
-            <Route path="review" component={ReviewFormContainer} onEnter={ensureLoggedIn}/>
+            <Route path="review" component={ReviewFormContainer} onEnter={_ensureLoggedIn}/>
           </Route>
         </Route>
       </Router>
