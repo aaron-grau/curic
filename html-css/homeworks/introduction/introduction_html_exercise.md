@@ -79,7 +79,13 @@ throughout the HTML/CSS curriculum.
 =======
 After coding your recipe page, compare your html to [this example](intro_example_recipe.html) and view the live version [here](http://appacademy.github.io/curriculum/intro_example_recipe.html).
 
-Create a gh-pages branch on your homeworks repo and push your page to Github Pages. Refer to the [reading][gh-pages] to see how to set it all up. Make sure you push the newest version of your page every night throughout the HTML/CSS curriculum.
+## Uploading to Github
+Create a `gh-pages` branch on your [`homeworks`][gh-homeworks] repo and push your page to Github Pages. Refer to the [reading][gh-pages] to see how to set it all up. Make sure you push the newest version of your page every night throughout the HTML/CSS curriculum.
 
+<<<<<<< 421f95b625167ae6f0905d2e66a27bd4b89eead8
 [gh-pages]: https://github.com/appacademy/curriculum/blob/master/javascript/readings/github_pages.md
 >>>>>>> add gh-pages requirement
+=======
+[gh-pages]:../javascript/readings/github_pages.md
+[gh-homeworks]:../ruby/readings/git-homeworks.md
+>>>>>>> edit links and add instructions
