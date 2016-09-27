@@ -1,5 +1,7 @@
 # BenchBnB Day 2
 
+[maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
+
 ## Phase 6: The Map
 
 Now we're going to add a map alongside our index to visually convey our bench
