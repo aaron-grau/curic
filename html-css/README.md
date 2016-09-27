@@ -1,6 +1,12 @@
 # HTML/CSS Curriculum
 
-The following curriculum explores two Domain-Specific Languages: **HTML & CSS**. Throughout this curriculum, you will be building and styling your own recipe page! Each day's assignment contains brief readings and an exercise. Be sure to complete all assignments, as the exercises build on each other.
+The following curriculum explores two Domain-Specific Languages: **HTML & CSS**.
+Throughout this curriculum, you will be building and styling your own recipe
+page! Each day's assignment contains brief readings and an exercise. Be sure to
+complete all assignments, as the exercises build on each other.
+
+SF: Don't forget to push every one of your completed assignments to the
+[Github Pages][gh-pages] branch on your `homeworks` repo.
 
 ## HTML
 
@@ -11,7 +17,9 @@ The beginning of Front-End Development.
 #### Readings (20 mins)
 
 + [An Introduction to HTML](readings/introduction.md)
-+ [Github Pages](../javascript/readings/github_pages.md)
++ [Github Pages][gh-pages]
+
+[gh-pages]:(../javascript/readings/github_pages.md)
 
 #### Exercise (25 mins)
 
@@ -57,7 +65,9 @@ Providing specific information and loading external files to your webpage.
 
 ### Day 1: Intro Workflow
 
-Our first look at cascading style sheets and how to be efficient CSS developers. Before we dive into CSS syntax, watch the introduction video explaining some CSS history and then the Workflow video to learn about the Chrome Developer Tools.
+Our first look at cascading style sheets and how to be efficient CSS developers.
+Before we dive into CSS syntax, watch the introduction video explaining some CSS
+history and then the Workflow video to learn about the Chrome Developer Tools.
 
 #### Video (20 mins)
 
