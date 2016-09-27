@@ -65,7 +65,7 @@ deconstruct your props for cleaner syntax.
 * When the `Map` component mounts, instantiate the map as follows:
 
 ```javascript
-  class BenchMap extends React.Component {
+class BenchMap extends React.Component {
   //...
   componentDidMount(){
     // find the `<map>` node on the DOM
@@ -103,7 +103,7 @@ instance variables.
 
 ```javascript
 class MarkerManager {
-  constructor(map){
+  constructor(map) {
     this.map = map;
     this.markers = [];
   }
@@ -116,7 +116,7 @@ Next, we're going to define an instance method `updateMarkers()`. Start with jus
 ```javascript
 class MarkerManager {
   //...
-  updateMarkers(benches){
+  updateMarkers(benches) {
     console.log('time to update');
   }
   //...
@@ -133,7 +133,7 @@ Let's see how the `BenchMap` is going to interact with our `MarkerManager`.
   * Update the `BenchMap#componentDidMount` method to create a new `MarkerManager`.
 
 ```javascript
-  componentDidMount(){
+  componentDidMount() {
     //...
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
@@ -149,7 +149,7 @@ Confirm that the `MarkerManager` utility works by checking the console for our
 `console.log` **both before and after** running the following code.
 
 ```javascript
-  Store.dispatch(requestBenches());
+store.dispatch(requestBenches());
 ```
 
 Make sure this works before moving on!
@@ -263,7 +263,7 @@ We want a default state that looks something like:
   * Update your `RootReducer`
 
 Test that the application is being successfully updated by moving the map around
-and then calling `Store.getState()` in the console.
+and then calling `store.getState()` in the console.
 
 ### `MarkerManager`
 
@@ -381,7 +381,7 @@ To pass `lat` and `lng` as query params:
 Test this before moving on. You should be able to click the map and make the
 browser redirect to a URL that looks something like:
 
-  */#/benches/new?lat=37.79153217974085&lng=-122.40194320678711*
+`/#/benches/new?lat=37.79153217974085&lng=-122.40194320678711`
 
 ### Pre-filling the form
 
