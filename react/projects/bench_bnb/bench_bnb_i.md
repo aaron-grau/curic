@@ -126,7 +126,7 @@ import these functions in your entry file and save them to the window (e.g.,
 
 ### Session Actions
 
-+ Write and export the following Action Creators (in `actions/session_actions.js`):
++ Write and export the following action creators in a new file `actions/session_actions.js`:
   * `login(user)`
   * `logout()`
   * `signup(user)`
@@ -135,11 +135,11 @@ import these functions in your entry file and save them to the window (e.g.,
 
 + Don't forget to define and export the corresponding action types as well
 (e.g., `export const LOGIN = 'LOGIN'`).  
-+ All of our action creators (other than `logout`) should accept an argument.
++ All of our action creators besides `logout` accept an user object as an argument.
 
 ### `SessionReducer`
 
-+ Create a new reducer (at `reducers/session_reducer.js`) to keep track of our
++ Create a new reducer in a new file `reducers/session_reducer.js` to keep track of our
 current user and error messages. The default `session` slice of the app state
 should return:
 
@@ -236,7 +236,7 @@ Your `SessionMiddleware` should only listen for and respond to 3 of our action t
   * `LOGOUT`
   * `SIGNUP`
 
-+ Your middleware should be responsible for invoking the appropriate
+Your middleware should be responsible for invoking the appropriate
 `SessionApiUtil` function and passing the appropriate callbacks.
 + The success callback for `login` and `signup` requests should `dispatch` a
 `receiveCurrentUser` action.  
@@ -283,7 +283,7 @@ Similar to our pattern for creating a `RootReducer`, we'll create a `RootMiddlew
 
 * Create a new file, `middleware/root_middleware.js`
 * Import `applyMiddleware` from `redux`
-* import your `SessionMiddleware`
+* Import your `SessionMiddleware`
 
   ```javascript
   import { applyMiddleware } from 'redux';
@@ -433,32 +433,77 @@ If the user **is logged in**, then the `Greeting` should contain:
   * A button to logout
 
 If the user **is not logged in**, then the `Greeting` should contain:
-  * A link to `/#/signup`
-  * A link to `/#/login`
+  * A [`<Link to>`][link-docs] `/#/signup`
+  * A [`<Link to`>][link-docs] `/#/login`
 
 Change your `App` to render the `GreetingContainer` above our other content.
 
-### `SessionForm` Component
+### `SessionForm` Components
 
-  * Create a new component, `SessionForm`, and a container, `SessionFormContainer`
-  * Create new routes for these components in your `router.jsx` file
-    * The routes' paths should be `"login"` and `"signup`"
+To make our code more modular, we will reuse and render the same form component on login and signup.
+
+* Create a new controlled component, `SessionForm`, and a corresponding container `SessionFormContainer`
+* Create 2 new routes for `SessionFormContainer` in your `Root` component.
+  * The routes' paths should be `"login"` and `"signup"`.
+  + For example,
+
+  ```js
+  <Provider store={store}>
+    <Router history={ hashHistory }>
+      <Route path="/" component={ App }>
+        <IndexRoute component={ SearchContainer } />
+        <Route path="/login" component={ SessionFormContainer } onEnter={ redirectIfLoggedIn }/>
+        //...
+      </Route>
+    </Router>
+  </Provider>
+  ```
+#### `SessionFormContainer`
 
 The `SessionFormContainer` should provide `SessionForm` with the following props:
-  * `loggedIn` (boolean):  represents whether a `currentUser` exists.
-  * `errors` (array):  list of errors from the state.
-  * `formType` (string): 'login' or 'signup'.
-  * `processForm` (function): dispatch `login` or `signup` based on `formType`.
++ From `mapStateToProps(state)`:
+  * `loggedIn` (boolean) - representing whether a `currentUser` exists
+  * `errors` (array) - list of errors from the state
++ From `mapDispatchToProps(dispatch, ownProps)`:
+  * `formType` (string): `'login'` or `'signup'` given the current `location.pathname`
+  * `processForm` (function): dispatching action creators `login` or `signup` given `formType`
 
+#### `SessionForm`
 The `SessionForm` component should be responsible for a number of tasks:
-  * Render a controlled component with `state` governed by user interface.
-  * Invoke the `processForm` prop when the 'submit' button is clicked.
-  * Render a "Log in" or "Sign up" header based on the formType prop.
-  * Provide a link to `/#/signup` or `/#/login` (whichever isn't the current address!)
+  * Render a controlled component with `state` governed by user interface. For example,
+
+  ```js
+  class SessionForm extends React.Component {
+  	constructor(props) {
+  		super(props);
+  		this.state = {
+  			username: "",
+  			password: ""
+  		};
+    }
+    //...
+  }
+  ```
+  * Invoke the `processForm` prop when the `'Submit'` button is clicked.
+    + Define a helper method `handleSubmit(e)` like so:
+
+    ```js
+  	handleSubmit(e) {
+  		e.preventDefault();
+  		const user = this.state;
+  		this.props.processForm({user});
+  	}
+    ```
+
+    + Pass it as a callback to your form's `onSubmit`.
+  * Render a "Log in" or "Sign up" header based on the `formType` prop.
+  * Provide a [`<Link to>`][link-docs] to `/#/signup` or `/#/login`, whichever isn't the current address.
   * Render a list of error messages if any are present.
   * Redirect the user to the `/#/` route if they are logged in.
 
 **Call a TA over and show them your `SessionForm` before moving on!**
+
+[link-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/Introduction.md#with-react-router
 
 ## Phase 3: Bootstrapping the Current User
 
@@ -486,14 +531,14 @@ that looks something like this:
 ```html
   ...
   <script type="text/javascript">
-      window.currentUser = {"id":3,"username":"bobross"}
+      window.currentUser = {"id":3,"username":"senecy_the_cat"}
   </script>
 
   <main id="root"></main>
   ...
 ```
 
-where `{"id":3,"username":"bobross"}` is inserted via `ERB`.
+where `{"id": 3, "username": "senecy_the_cat"}` is inserted via `ERB`.
 
 #### Interpolate `current user`
 
