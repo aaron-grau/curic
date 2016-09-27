@@ -67,7 +67,7 @@ deconstruct your props for cleaner syntax.
 ```javascript
 class BenchMap extends React.Component {
   //...
-  componentDidMount(){
+  componentDidMount() {
     // find the `<map>` node on the DOM
     const mapDOMNode = this.refs.map;
 

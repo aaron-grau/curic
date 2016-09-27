@@ -5,8 +5,11 @@ import BenchDetail from './bench_detail';
 import BenchMap from '../bench_map/bench_map';
 import ReviewButton from './review_button';
 
-const BenchShow = function({bench, benchId, requestBench, children}) {
-  const benches = {[bench.id]: bench};
+const BenchShow = ({ bench, benchId, requestBench, children }) => {
+  const benches = {
+    [bench.id]: bench
+  };
+  
   return(
     <div className="single-bench-show">
       <div className="single-bench-map">

@@ -19,8 +19,8 @@ const personalGreeting = (currentUser, logout) => (
 	</hgroup>
 );
 
-function Greeting({currentUser, logout}){
-  if (currentUser){
+const Greeting = ({ currentUser, logout }) => {
+  if (currentUser) {
     return personalGreeting(currentUser, logout);
   } else {
     return sessionLinks();

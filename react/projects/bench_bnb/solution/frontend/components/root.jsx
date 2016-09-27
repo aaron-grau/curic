@@ -28,14 +28,14 @@ const Root = ({ store }) => {
 
   return (
     <Provider store={store}>
-      <Router history={ hashHistory }>
-        <Route path="/" component={ App }>
-          <IndexRoute component={ SearchContainer } />
-          <Route path="/login" component={ SessionFormContainer } onEnter={ redirectIfLoggedIn }/>
-          <Route path="/signup" component={ SessionFormContainer } onEnter={ redirectIfLoggedIn }/>
-          <Route path="/benches/new" component={ BenchFormContainer } onEnter={ ensureLoggedIn }/>
-          <Route path="/benches/:benchId" component={ BenchShowContainer} >
-            <Route path="review" component={ ReviewFormContainer } onEnter={ ensureLoggedIn }/>
+      <Router history={hashHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={SearchContainer} />
+          <Route path="/login" component={SessionFormContainer} onEnter={redirectIfLoggedIn}/>
+          <Route path="/signup" component={SessionFormContainer} onEnter={redirectIfLoggedIn}/>
+          <Route path="/benches/new" component={BenchFormContainer} onEnter={ensureLoggedIn}/>
+          <Route path="/benches/:benchId" component={BenchShowContainer} >
+            <Route path="review" component={ReviewFormContainer} onEnter={ensureLoggedIn}/>
           </Route>
         </Route>
       </Router>
