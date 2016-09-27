@@ -155,9 +155,8 @@
 * :movie_camera: [Prototype Chain and Inheritance][proto-inherit] (20 min)
 * :movie_camera: [Inheritance Demo][inherit-demo-video]  (20 min)
 
-### Readings (100 min)
+### Readings (95 min)
 * [Chrome Dev Tools][chrome-dev-tools] (10 min)
-* [Github Pages][github-pages] (5 min)
 * [Arguments][arguments] (10 min)
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
@@ -173,6 +172,7 @@
   * complete up to 'The First Loader'
 
 ### Additional Resources
+* [Github Pages][github-pages]
 * [CSS Diner][css-diner]
 * [Asynchronous Client-side Code][asynchronous-js]
 * [Client-side JavaScript][client-side-js]
