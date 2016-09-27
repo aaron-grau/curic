@@ -316,7 +316,7 @@ console. Does your store's initial state match the default state you defined?
 
 ### Selectors
 
-[Selectors][selector-reading] are "getter" methods for the application state.
+[Selectors][selector_reading] are "getter" methods for the application state.
 They receive the state as an argument and often return a subset of the state
 data formatted in a specific way. In this case, we will want to present the
 `todos` as an array, rather than as values in an object.
