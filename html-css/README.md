@@ -19,7 +19,7 @@ The beginning of Front-End Development.
 + [An Introduction to HTML](readings/introduction.md)
 + [Github Pages][gh-pages]
 
-[gh-pages]:../javascript/readings/github_pages.md
+[gh-pages]: ../javascript/readings/github_pages.md
 
 #### Exercise (25 mins)
 
