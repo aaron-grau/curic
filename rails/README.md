@@ -28,7 +28,7 @@
 
 ### Homeworks (2 hr)
 * [Library Controller][library-hw] (45 min)
-* Complete days 1 & 2 of [HTML Curriculum][html-readme] (75 min)
+* Complete days 1 & 2 of [HTML Curriculum][html-readme] (80 min)
 
 ### Additional Resources
 + [Routing I: Basics][routing-i]
