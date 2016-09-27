@@ -59,9 +59,9 @@ export const getAllTodos = (state) => {
 	return Object.keys(state.todos).map( id => state.todos[id] );
 };
 
-export const getFilteredTodos = (state, filter) => {
+export const getFilteredTodos = (state) => {
 	const todos = state.todos;
-	const match = filter === 'done';
+	const match = state.filter === 'done';
 
 	let result = [];
 	for (let id in todos) {
