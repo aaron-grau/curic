@@ -4,7 +4,7 @@ Check out the live demo [here][live-demo]!
 
 [live-demo]: http://aa-benchbnb.herokuapp.com
 
-## Phase 0:
+## Phase 0: Setup
 
 ### Setup Checklist
 
