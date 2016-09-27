@@ -4,13 +4,13 @@ Check out the live demo [here][live-demo]!
 
 [live-demo]: http://aa-benchbnb.herokuapp.com
 
-## Setup Checklist
+## Phase 0:
+
+### Setup Checklist
 
 Refer to [the master checklist][checklist] during Bench BnB and your final project.
 
 [checklist]: ../../readings/checklist.md
-
-## Phase 0:
 
 ### Rails Backend
 
