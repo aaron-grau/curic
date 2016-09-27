@@ -1,0 +1,39 @@
+.main-nav {
+	display:flex;
+	justify-content: space-between;
+	padding: 10px 0;
+	border-bottom: 1px solid $light-gray;
+	vertical-align: middle;
+}
+
+.left-nav button {
+	border: none;
+	background: none;
+	color: #000;
+	margin-left: 20px;
+}
+
+.left-nav button:hover, 
+.right-nav i:hover {
+	background-color: $lightest-gray;
+}
+
+.left-nav span {
+	margin-left: 10px;
+	text-transform: uppercase;
+	font-family: $sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.right-nav i {
+	font-size: 16px;
+	margin-left: 20px;
+	position: relative;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.right-nav button:last-of-type {
+	margin-left: 5px;
+}
