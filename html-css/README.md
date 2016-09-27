@@ -8,7 +8,7 @@ The following curriculum explores two Domain-Specific Languages: **HTML & CSS**.
 
 The beginning of Front-End Development.
 
-#### Reading (15 mins)
+#### Reading (20 mins)
 
 + [An Introduction to HTML](readings/introduction.md)
 + [Github Pages](https://github.com/appacademy/curriculum/blob/master/javascript/readings/github_pages.md)
