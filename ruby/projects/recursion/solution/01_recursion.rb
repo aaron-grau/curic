@@ -77,6 +77,22 @@ def fibs_rec(n)
   end
 end
 
+def permutations(array)
+  return [] if array.empty?
+  return [array] if array.length == 1
+
+  first = array.shift
+  perms = permutations(array)
+  total_perms = []
+
+  perms.each do |perm|
+    (0..perm.length).each do |i|
+      total_perms << perm[0 ... i] + [first] + perm[i .. -1]
+    end
+  end
+  total_perms
+end
+
 def bsearch(nums, target)
   # nil if not found; can't find anything in an empty array
   return nil if nums.empty?
