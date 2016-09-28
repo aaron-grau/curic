@@ -397,8 +397,8 @@ export const receiveTodos = todos => ({
 #### `TodoMiddleware`
 
 Our `TodoMiddleware` will be responsible for triggering the api calls that
-populate our `store` with `todos`. Remember, Redux middleware receives dispatches
-before the store. It can decide to intercept the dispatch, trigger another
+populate our `store` with `todos`. Remember, Redux middleware receives dispatched actions
+before the reducer. It can decide to intercept the dispatch, trigger another
 dispatch, or simply pass on it and do nothing.
 
 + Create a file `middleware/todo_middleware.js`.
