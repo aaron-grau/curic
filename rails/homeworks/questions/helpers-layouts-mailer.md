@@ -61,7 +61,7 @@ Finished? Navigate around your site in localhost. Make sure that the main body o
   end
   ```
 
-2. Implement a method that will e-mail a user from everybody@appacademy.io.
+2. Implement a method that will e-mail a user from `everybody@appacademy.io`.
 
 Need a hint? Refer back to the [mailer readings][mailer-reading-1].
 
@@ -75,11 +75,11 @@ Need a hint? Refer back to the [mailer readings][mailer-reading-1].
   end
   ```
 
-3. Next, write the content for the e-mail welcoming the user to the site. Create a file called `welcome_email.html.erb` in `app/views/user_mailer/` and fill it in. Refer back to the [mailer reading][mailer-reading-1] as needed.
+3. Next, write the content for the e-mail welcoming the user to the site. Create a file called `welcome_email.html.erb` in `app/views/user_mailer/` and fill it in.
 
 In addition to the `.html.erb` file, make a copy in `welcome_email.txt.erb`. Remember - omitting a text version of your email could make many filters interpret your email as spam!
 
-3. When a user signs up for your app, send them the welcome e-mail. Where should that code live given the following controller? Implement the code.
+4. When a user signs up for your app, send them the welcome e-mail. Where should that code live given the following controller? Implement the code.
 
 Remember - we need a few things. We must call our new `welcome_email` method, which returns a message, and call `deliver` on that message to actually send it:
 
@@ -106,7 +106,7 @@ msg.deliver
   end
   ```
 
-4. Test it out! Set up the `letter_opener` gem so that you can try out your code on `localhost:3000`. The sent message should pop up in the browser if all went according to plan. Congrats! You've ActionMailed!
+5. Test it out! Set up the `letter_opener` gem so that you can try out your code on `localhost:3000`. The sent message should pop up in the browser if all went according to plan. Congrats! You've ActionMailed!
 
 ```ruby
 # Gemfile
