@@ -63,57 +63,56 @@ Finished? Navigate around your site in localhost. Make sure that the main body o
 
 2. Implement a method that will e-mail a user from `everybody@appacademy.io`.
 
-Need a hint? Refer back to the [mailer readings][mailer-reading-1].
+  Need a hint? Refer back to the [mailer readings][mailer-reading-1].
 
-  ```ruby
-  class UserMailer < ActionMailer::Base
-    default from: 'from@example.com'
+    ```ruby
+    class UserMailer < ActionMailer::Base
+      default from: 'from@example.com'
 
-    def welcome_email(user)
-      # your code here
+      def welcome_email(user)
+        # your code here
+      end
     end
-  end
-  ```
+    ```
 
 3. Next, write the content for the e-mail welcoming the user to the site. Create a file called `welcome_email.html.erb` in `app/views/user_mailer/` and fill it in.
 
-In addition to the `.html.erb` file, make a copy in `welcome_email.txt.erb`. Remember - omitting a text version of your email could make many filters interpret your email as spam!
+  In addition to the `.html.erb` file, make a copy in `welcome_email.txt.erb`. Remember - omitting a text version of your email could make many filters interpret your email as spam!
 
 4. When a user signs up for your app, send them the welcome e-mail. Where should that code live given the following controller? Implement the code.
 
-Remember - we need a few things. We must call our new `welcome_email` method, which returns a message, and call `deliver` on that message to actually send it:
-
-
-```ruby
-msg = UserMailer.welcome_email(@user)
-msg.deliver
-```
-
+  Remember - we need a few things. We must call our new `welcome_email` method, which returns a message, and call `deliver` on that message to actually send it:
 
   ```ruby
-  def UsersController < ApplicationController
-    def new
-    end
 
-    def create
-    end
+  msg = UserMailer.welcome_email(@user)
+  msg.deliver
 
-    def show
-    end
-
-    def index
-    end
-  end
   ```
 
+    ```ruby
+    def UsersController < ApplicationController
+      def new
+      end
+
+      def create
+      end
+
+      def show
+      end
+
+      def index
+      end
+    end
+    ```
 5. Test it out! Set up the `letter_opener` gem so that you can try out your code on `localhost:3000`. The sent message should pop up in the browser if all went according to plan. Congrats! You've ActionMailed!
 
-```ruby
-# Gemfile
-gem "letter_opener", group: :development
+  ```ruby
+  # Gemfile
+  gem "letter_opener", group: :development
 
-# config/environments/development.rb
-config.action_mailer.delivery_method = :letter_opener
-```
+  # config/environments/development.rb
+  config.action_mailer.delivery_method = :letter_opener
+  ```
 
 [mailer-reading-1]: ../../readings/mailing-1.md
