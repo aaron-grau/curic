@@ -93,7 +93,7 @@ api_todos GET    /api/todos(.:format)     api/todos#index {:format=>:json}
 
 ### StaticPages
 + Create a `StaticPagesController` that will serve a `root` view with `<div id="content"></div>`.
-+ Update `routes.rb` to `root to: static_pages#root`.
++ Update `routes.rb` to `root to: "static_pages#root"`.
 
 
 You're almost ready to go!
