@@ -74,7 +74,7 @@ export default ({ getState, dispatch }) => next => action => {
 In the example above, our middleware listens for a `REQUEST_CATS` action. When
 it receives one, it sets off our API Util method `fetchCats()`, passing it
 `success` and `error` callbacks. Immediately after the request is sent, the
-middleware returns the `next(action)`, allowing `REQUEST_CATS` to propogate
+middleware returns the `next(action)`, allowing `REQUEST_CATS` to propagate
 through the rest of the middlewares as well as the reducers.
 
 If the response succeeds, the middleware dispatches another action,

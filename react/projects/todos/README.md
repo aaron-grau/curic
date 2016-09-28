@@ -435,7 +435,7 @@ const configureStore = () => (
 );
 ```
 **Test your middleware** - `window.store` should still reference your `store`. Import your `requestTodos` action creator in your entry file and put it on the `window`. Then call `store.dispatch(requestTodos())` in your browser
-console. Do should see the logged statement in your console?
+console. Do you see the logged statement in your console?
 
 #### Using API Utils in Middleware
 
