@@ -842,7 +842,7 @@ Follow these steps, **testing your code as you go** :
     + Item pops up when it is due
 
 
-[object_freeze_reading]:
+[object_freeze_reading]: ../../readings/object_freeze.md
 [middleware_reading]: ../../readings/middleware.md
 [components_reading]: ../../readings/containers.md
 [connect_reading]: ../../readings/connect.md
