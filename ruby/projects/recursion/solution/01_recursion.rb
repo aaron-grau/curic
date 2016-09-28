@@ -78,8 +78,7 @@ def fibs_rec(n)
 end
 
 def permutations(array)
-  return [] if array.empty?
-  return [array] if array.length == 1
+  return [array] if array.length <= 1
 
   first = array.shift
   perms = permutations(array)
@@ -114,6 +113,37 @@ def bsearch(nums, target)
   # Note that the array size is always decreasing through each
   # recursive call, so we'll either find the item, or eventually end
   # up with an empty array.
+end
+
+class Array
+  def merge_sort
+    return self if count < 2
+
+    middle = count / 2
+
+    left, right = self.take(middle), self.drop(middle)
+    sorted_left, sorted_right = left.merge_sort, right.merge_sort
+
+    merge(sorted_left, sorted_right)
+  end
+
+  def merge(left, right)
+    merged_array = []
+    until left.empty? || right.empty?
+      merged_array <<
+        ((left.first < right.first) ? left.shift : right.shift)
+    end
+
+    merged_array + left + right
+  end
+end
+
+class Array
+  def subsets
+    return [[]] if empty?
+    subs = take(count - 1).subsets
+    subs.concat(subs.map { |sub| sub + [last] })
+  end
 end
 
 def make_change(target, coins = [25, 10, 5, 1])
@@ -163,35 +193,4 @@ def make_change(target, coins = [25, 10, 5, 1])
   end
 
   best_change
-end
-
-class Array
-  def merge_sort
-    return self if count < 2
-
-    middle = count / 2
-
-    left, right = self.take(middle), self.drop(middle)
-    sorted_left, sorted_right = left.merge_sort, right.merge_sort
-
-    merge(sorted_left, sorted_right)
-  end
-
-  def merge(left, right)
-    merged_array = []
-    until left.empty? || right.empty?
-      merged_array <<
-        ((left.first < right.first) ? left.shift : right.shift)
-    end
-
-    merged_array + left + right
-  end
-end
-
-class Array
-  def subsets
-    return [[]] if empty?
-    subs = take(count - 1).subsets
-    subs.concat(subs.map { |sub| sub + [last] })
-  end
 end
