@@ -53,7 +53,7 @@ cannot tolerate such misbehavior.
 
 **NB: At this point in the curriculum, your projects have become large enough
 that clicking on files in the file tree to navigate around will take a long time.  
-Make sure to instead press ⌘+T and then type the file name to quickly find the 
+Make sure to instead press ⌘+T and then type the file name to quickly find the
 files you are looking for.**
 
 **NB: the naming of your files is essential.** When you try to create an
@@ -177,7 +177,7 @@ same shortened URL several times. We'll address this soon!
 Write a method that will count the number of clicks on a `ShortenedUrl`.
 
 Next, let's write a method that will determine the number of **distinct** users
-who have clicked a link. 
+who have clicked a link.
 
 How do we do this in ActiveRecord? In addition to our `visits` association, we
 will want to:
@@ -305,43 +305,43 @@ Loading development environment (Rails 3.2.11)
  => [#<Visit id: 1, user_id: 1, shortened_url_id: 1, created_at: "2013-08-18 19:15:55", updated_at: "2013-08-18 19:15:55">]
 ```
 
-## Bonus Phase
-
-###  `TagTopic`, `Tagging`s
+## Phase V: `TagTopic`, `Tagging`s
 
 Users should be able to choose one of a set of predefined `TagTopic`s
 for links (news, sports, music, etc.). You should be able to query for
-the most popular links in each category. NB: the relationship between
-`TagTopic`s and `URL`s is many-to-many. You'll need a join model like
-`Tagging`s.
+the most popular links in each category.
 
-### More validations
+**NB**: the relationship between `TagTopic`s and `URL`s is many-to-many. You'll
+need a join model like `Tagging`s.
 
-* Length of URL strings < 1024 (or whatever your varchar length is).
+## Phase VI: Add more validations
+
+* Length of URL strings < 1024.
 * A custom validation that no more than 5 urls are submitted in the
   last minute by one user.
 
-### Premium users
+## Phase VII: Premium users
 
-Let's monetize our URL Shortener app. Add a "premium" boolean column to your
-Users table; it should default to false. Now add code to ensure that non-premium
-users can only create a maximum of five URLs (premium users get unlimited).
+Let's monetize our URL Shortener app.
 
-### Pruning Stale URLs
++ Add a "premium" boolean column to your `Users` table; it should default to `false`.
++ Now add code to ensure that non-premium users can only create a maximum of
+5 URLs (premium users get unlimited).
+
+## Phase VII: Pruning Stale URLs
 
 Write a `ShortenedUrl::prune` method that deletes any shortened urls that have
 not been visited in the last (n) minutes. Write a [rake task][rake-tutorial] to
 automate this process. Once you have the basic functionality, adjust it so that
 URLs submitted by premium users are not pruned.
 
-### Other Ideas
-
+## Bonuses
 * Alternative URL shortening strategies
   * Custom URLs for premium users
   * Series of random dictionary words
 * Voting on URLs
   * Add a Vote model
-  * Users can upvote (+1) or downvote (+1)
+  * Users can upvote (+1) or downvote (-1)
   * No more than one vote per user/url combo
   * Users cannot vote for their own URLs
   * `ShortenedUrl::top`, sorted by total vote score
