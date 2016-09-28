@@ -188,7 +188,7 @@ simply a function that returns an action. **Actions** define what we can do in o
 app. They are POJOs that have a `type` property indicating the type of
 action being performed.
 
-* Create an `actions/note_actions.js` file which will house our action creators changing the app's `notes`.
+* Create an `actions/notes_actions.js` file which will house our action creators changing the app's `notes`.
 
 #### `Note Action Constants`
 
@@ -353,7 +353,7 @@ Fortunately, `react-redux` provides a function that does this for us: [`connect`
 * Create a new directory `components/synth`.
 * Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component. Have it render `<div>Synth</div>` to
 start and test.
-* Create a file `components/synth/synth_container.jsx`, and import both [`connect`] from
+* Create a file `components/synth/synth_container.jsx`, and import both `connect` from
 `react-redux` and your `Synth` component.
 * Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key. For example,
 
@@ -504,7 +504,7 @@ discussing the details of our track objects for a little later.
 
 ### Action Creators
 
-+ Create an `action/tracks_actions.js` file which will house our action creators for `tracks` and `isRecording`.
++ Create an `actions/tracks_actions.js` file which will house our action creators for `tracks` and `isRecording`.
 
 #### `TracksConstants`
 
@@ -530,7 +530,7 @@ discussing the details of our track objects for a little later.
 
 #### `isRecording` Reducer
 + Create a `reducers/is_recording_reducer.js` file that exports a `recording(state, action)` reducer.
-+ Import your constants from `action/tracks_actions.js`.
++ Import your constants from `actions/tracks_actions.js`.
 + Use the ES6 default arguments syntax to return `false` as the initial state.
 + Add a `switch` statement evaluating `action.type` and return `state` as the `default` case.
 + The recording is only concerned with two types of actions: `START_RECORDING` and `STOP_RECORDING`. Return the appropriate next state for each case.
@@ -564,7 +564,7 @@ We need to know the current time a note is played to calculate when to
 play a note relative to the `timeStart` of the recording (`timeSlice`) and the
 names of the notes actually played (`notes`).
 
-+ Create a `reducers/tracks_reducer.js` file; import your constants from `action/tracks_actions.js`, and `merge` from `lodash/merge`.
++ Create a `reducers/tracks_reducer.js` file; import your constants from `actions/tracks_actions.js`, and `merge` from `lodash/merge`.
 + Initialize a variable `currTrackId` to `0`. This variable will be used to set track ids and add notes to the newest recording.
 + `export default` your `tracks` reducer.
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
