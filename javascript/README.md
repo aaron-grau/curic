@@ -33,27 +33,22 @@
 * [Closures and Scope][closures] (10 min)
 * [Linting JavaScript][linting-js] (10 min)
 
-### Homeworks (90 min)
-* [Intro to JavaScript Problem Set][intro-problem-set] (30 min)
+### Homeworks (45 min)
+* [Intro. JavaScript Problems][intro-pset] (45 min)
 * Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
-* [CSS Curriculum Day 1][css-day1] (30 min)
-* [Object Oriented JavaScript][oo-js-hw] (30 min)
 
 ### Additional Resources
 * [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
-* [ReactiveX][reactivex] - additional practice so you can be a star.
-* [MDN Guide][mdn-guide] - another great guide from MDN
 * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] - just the first chapter. Another great intro reading.
+* [MDN Guide][mdn-guide] - another great guide from MDN
 * [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
 * [Style Guide][airbnb-style] - AirBnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
-* Effective JavaScript: Items 2, 3, 6, 8, and 9
 
 ### Projects
-* [Intro JavaScript problems][intro-javascript-problems]
+* [Intro. JavaScript Exercises][intro-javascript-problems]
 * **Bonus**: [Reversi][reversi]
-
 
 [node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
 [oo-js-intro]: https://vimeo.com/169806088
@@ -61,7 +56,6 @@
 [callbacks-video]: https://vimeo.com/169898573
 
 [intro-js]: readings/js-intro.md
-
 [server-side-js]: readings/server-side-javascript.md
 [syntax]: readings/syntax.md
 [data-types]: readings/data-types-and-truthiness.md
@@ -77,13 +71,11 @@
 [function-invocation-briefly]: readings/function-invocation-briefly.md
 [closures]: readings/closures.md
 
-[intro-problem-set]: homeworks/questions/js_intro.md
-[reactivex]: http://reactivex.io/learnrx/
-[mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
-[codecademy-js]: http://www.codecademy.com/tracks/javascript
-[mdn-js-doc]: readings/mdn-js.md
+[intro-pset]: homeworks/questions/intro_js_problems
 
-[oo-js-hw]: homeworks/questions/oo_js.md
+[codecademy-js]: http://www.codecademy.com/tracks/javascript
+[mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+[mdn-js-doc]: readings/mdn-js.md
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 
 [intro-javascript-problems]: projects/intro_js_exercises
@@ -99,8 +91,9 @@
 * [Event Loop Visualization][loupe] (10 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
-### Homeworks (65 min)
-* [CSS Curriculum Day 2][css-day2] (35 min)
+### Homeworks (95 min)
+* [CSS Curriculum Day 1][css-day-1] (30 min)
+* [CSS Curriculum Day 2][css-day-2] (35 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 ### Additional Resources
@@ -158,8 +151,8 @@
     * **Be sure to run and understand this the night before**
 
 ### Homeworks (115 min)
-* [CSS Curriculum Day 3][css-day3] (40 min)
-* [CSS Curriculum Day 4][css-day4] (55 min)
+* [CSS Curriculum Day 3][css-day-3] (40 min)
+* [CSS Curriculum Day 4][css-day-4] (55 min)
 * [Webpack tutorial][webpack] (20 min)
   * complete up to 'The First Loader'
 
@@ -248,8 +241,8 @@
 ## w6d2
 
 ### Homeworks (2 hr)
-* [CSS Curriculum Day 5][css-day5] (30 min)
-* [CSS Curriculum Day 6][css-day6] (30 min)
+* [CSS Curriculum Day 5][css-day-5] (30 min)
+* [CSS Curriculum Day 6][css-day-6] (30 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
 ### Additional Resources
@@ -342,9 +335,9 @@
 
 [effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
-[css-day1]: ../html-css/README.md#css-intro-workflow--day-1
-[css-day2]: ../html-css/README.md#day-2-syntax
-[css-day3]: ../html-css/README.md#day-3-reset--advanced-selectors
-[css-day4]: ../html-css/README.md#day-4-the-display-property--the-box-model
-[css-day5]: ../html-css/README.md#day-5-float-fluid-layouts--flexbox
-[css-day6]: ../html-css/README.md#day-6-positioning--media-queries
+[css-day-1]: ../html-css/README.md#css-intro-workflow--day-1
+[css-day-2]: ../html-css/README.md#day-2-syntax
+[css-day-3]: ../html-css/README.md#day-3-reset--advanced-selectors
+[css-day-4]: ../html-css/README.md#day-4-the-display-property--the-box-model
+[css-day-5]: ../html-css/README.md#day-5-float-fluid-layouts--flexbox
+[css-day-6]: ../html-css/README.md#day-6-positioning--media-queries

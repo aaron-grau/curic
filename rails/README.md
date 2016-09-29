@@ -267,7 +267,7 @@
 
 ### Projects
 * [Goal App][goaling-app]
-* **Bonus**: [Appacademy.io tests][appacademyio-tests]
+* **Bonus**: [Appacademy.io Tests][appacademyio-tests]
 
 [integration-testing]: readings/integration-testing.md
 [rspec-setup]: readings/rspec-and-rails-setup.md
@@ -288,7 +288,7 @@
 ### Assessment04
 * [Practice][assessment-prep-4]
 
-### Video lectures (60 min)
+### Video Lectures (60 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera: Rails Lite Intro](https://vimeo.com/161381457) (4 min)
 * [:movie_camera: HTTP](https://vimeo.com/161381484) (12 min)
@@ -314,7 +314,7 @@
 * [HTTP][http]
 * [Rack][rack]
 
-### Solo Projects
+### Solo Project
 * [Rails Lite][rails-lite]
 
 [middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
