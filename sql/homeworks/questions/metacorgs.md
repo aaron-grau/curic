@@ -1,87 +1,91 @@
 # Metaprogramming MetaCorgs
 
-Tonight we'll use metaprogramming to refactor an unwieldy `CorgiPerk` class, 
-DRYing it out for our furry friends (because corgis deserve only the best IT 
-systems).
+Today we'll use metaprogramming to refactor an unwieldy `CorgiPerk` class.
 
-## Phase 0: Description
+## Phase 0: Tour the Code!
 
 **Scan over `./metacorgs_code.rb` briefly before continuing below.**
 
-In this homework assignment, all of our data is stored in a `ShoppingList`
-object, which represents our 'database'. A `ShoppingList` contains information
-about 3 different types of corgi perks: bones, kibble, and silly outfits.
-`ShoppingList#get_#{perk}_info(id)` and `ShoppingList#get_#{perk}_happiness(id)`
-return the info and happiness ratings of each corgi perk, respectively.
+### `ShoppingList` Class
 
-An instance of the `CorgiPerk` class represents a "row" of data in that
-`ShoppingList`; as such, a `CorgiPerk` initializes with a `perk_id` and a
-reference to its `shopping_list`.
+The `ShoppingList` class represents our database. The database has three perk
+packages, stored in the `DATA` constant. Each packages has three corgi perks -
+a bone, kibble, and a silly outfit.
 
-Together, these classes represent an ORM that retrieves data from a table - a 
-`CorgiPerk` is an object, and the `ShoppingList` instance is the table.
+It also has methods defined to tell us the info and happiness level of a
+given perk in whichever package we specify - i.e. `get_{perk}_info` and
+`get_{happiness}_info`. So if we wanted to know the happiness level of the
+bone in package two, we could simply call `get_bone_happiness(2)` on an
+instance of `ShoppingList`.
 
-** Try out the ShoppingList methods! **
-+ Load the skeleton code in pry.
-  + `pry -r './metacorgs_code.rb'`
-+ Create a new ShoppingList.
-  + `sl = ShoppingList.new`
-+ Query it directly a couple times using its getter methods.
-  + `sl.get_bone_info(1)`, `sl.get_kibble_info(2)`, `sl.get_silly_outfit_happiness(3)`, &c.
+### `CorgiPerkPackage` Class
 
-Take another look at the `metacorgs_code.rb` file.  Make a note of repetitive code that can be refactored.
+The `CorgiPerkPackage` class serves as a clean interface with our database. We
+should be able to call `bone`, `kibble`, or `silly_outfit` on any instance of
+`CorgiPerkPackage` get back a statement of the info and happiness level of that
+perk. This means a `CorgiPerkPackage` must contain reference to the database (an
+instance of `ShoppingList`) and its `package_id` within the datbase.
 
-** Try out the CorgiPerk methods! **
-+ Create a new CorgiPerk
-  + `cp = CorgiPerk.new(1, sl)`
-+ Query the ShoppingList using your new CorgiPerk instance
-  + `cp.bone`, `cp.kibble`, `cp.silly_outfit`
+### Test Drive
 
-Our code should behave as follows, with each method returning a string listing
-the type of perk along with its info and a happiness rating measured in licks.
-Perks with a happiness rating greater than 30 licks get a `*` pre-pended:
+Do a quick test of the code to get more familiar with how it all fits together.
+
+Check out the `ShoppingList`'s instance methods to get perk info and happiness levels:
 
 ```ruby
-  cp.bone # => returns "Bone: Phoenician rawhide: 20 licks"
-  cp.kibble # => returns "* Kibble: Delicately braised hamhocks: 33 licks"
-  cp.silly_outfit # => returns "Silly Outfit: A tiny Ronald McDonald costume: 0 licks"
+[1] pry(main)> load 'metacorgs_code.rb'
+[2] pry(main)> list = ShoppingList.new
+[3] pry(main)> list.get_bone_info(1) # => "Phoenician rawhide"
+[4] pry(main)> list.get_kibble_happiness(3) # => 17
 ```
 
-Refactor the three repetitive methods from the `CorgiPerk` class: `#bone`, 
-`#kibble`, and `#silly_outfit`. 
-
-## Phase 1: `#method_missing` (aka do it for the metacorgs)
-
-Use `#method_missing` to refactor the `CorgiPerk` class into a new class,
-`CorgiPerk2`. The goal is for your `#method_missing` to be functionally
-equivalent to `#bone`, `#kibble`, and `#silly_outfit` - that is to say that our
-tests from above should still work.
+Then test out the existing `CorgiPerkPackage` class:
 
 ```ruby
-  cp2 = CorgiPerk2.new(1, sl) 
-  cp2.bone # => returns "Bone: Phoenician rawhide: 20 licks"
-  cp2.kibble # => returns "* Kibble: Delicately braised hamhocks: 33 licks"
-  cp2.silly_outfit # => returns "Silly Outfit: A tiny Ronald McDonald costume: 0 licks"
+[5] pry(main)> package_one = CorgiPerkPackage.new(1, list)
+[6] pry(main)> package_one.bone # => "Bone: Phoenician rawhide: 20 licks"
+[7] pry(main)> package_one.kibble # => "* Kibble: Delicately braised hamhocks: 33 licks"
+[8] pry(main)> package_one.silly_outfit # => "Silly Outfit: A tiny Ronald McDonald costume: 0 licks"
 ```
 
-**Hint:** Within `#method_missing` you can use `#send` to call methods on your `
-@shopping_list`. Note that you can pass `#send` a string, allowing for 
-interpolation. Review the [metaprogramming][meta_reading] reading if you need a 
-reminder on how to do this.
+## Phase 1: Refactor with `#method_missing`
 
-## Phase 2: Dynamic Dispatch (aka really do it for the metacorgs)
+When we call any perk instance method on a package, we get back a very similar
+result: a star if the happiness level has gone above 30, the perk type, the perk
+description, and the number of licks (the happiness level). It seems a little repetitive
+to have all three methods defined on the `CorgiPerkPackage` class when they follow
+the same pattern. Using a `method_missing` instance method, re-factor `CorgiPerkPackage`
+into the new `CorgiPerkPackage2` class to DRY things up!
 
-Use `#send` in conjunction with `#define_method` within a class method, e.g.
-`::define_perk(perk)` to refactor the `CorgiPerk` class into a new class called
-`CorgiPerk3`. The class method will dynamically build all of your class'
-instance methods. You can call this method upon initialization and use the
-methods from the `ShoppingList` class to define your `CorgiPerk` methods, or you
-can call it in the class definition itself. Again, feel free to refer to the
-[metaprogramming][meta_reading] reading.
+**Hint:** Within `#method_missing` you can use `#send` to call methods on your `@shopping_list`.
+Note that you can pass `#send` a string, allowing for interpolation. Review the
+[metaprogramming][meta_reading] reading if you need a reminder on how to do this.
+
+If you've got it working correctly, its behavior should be the same as before, just a lot
+DRY-er!
+
+## Phase 2: Refactor with Dynamic Dispatch
+
+Now write a new **class** method called `::define_perk` that uses `::define_method` to
+dynamically build each of the perk methods (`bone`, `kibble`, and `silly_outfit`) on the
+`CorgiPerkPackage3` class. Once again, you'll want to use `#send` to call the right
+methods on the `@shopping_list`.
+
+Almost there! Now we just need to actually call `CorgiPerkPackage3::define_perk` for each
+perk. How do we know what the different perks are? One way to tell is to call `#methods` on
+our `@shopping_list`. This will give us back an array of all the methods defined on that object.
+Then we can match the ones we care about using [grep][grep]. If we pass `grep` the argument `/^get_(.*)_info$/`,
+it will match any methods that are some variation of `get_{perk}_info` and "capture" the perk name -
+the `(.*)` tells it to capture any number of characters that come between `get_` and `_info`.
+We can then `$1` to get back the matching perk name that was captured. So we can pass the block
+`{ CorgiPerk3.define_perk $1 }` to our `grep` call, and it will call `::define_perk` with each perk name.
+
+:tada: metacorgis!
 
 ## Bonus Phase: Refactor the ShoppingList class using the same principles
 
 Using either `#method_missing` or `#define_method`, refactor the ShoppingList
 class so that it follows the DRY principle.
 
+[grep]: http://ruby-doc.org/core-2.3.1/Enumerable.html#method-i-grep
 [meta_reading]: ../../readings/metaprogramming.md
