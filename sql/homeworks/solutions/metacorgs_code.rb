@@ -87,7 +87,7 @@ class CorgiPerk
   end
 
   def kibble
-    info = @shopping_list.get_kibble_info(@id)  
+    info = @shopping_list.get_kibble_info(@id)
     happiness = @shopping_list.get_kibble_happiness(@id)
     result = "Kibble: #{info}: #{happiness} licks"
     happiness > 30 ? "* #{result}" : result
