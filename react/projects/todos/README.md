@@ -426,7 +426,7 @@ The pattern for implementing it is relatively simple:
 
 Now that you've created a `MasterMiddleware`, pass it as another argument to your `createStore` function call in `store/store.js`.  Your `configureStore` function should like the following:
 ```js
-// fronted/store/store.js
+// frontend/store/store.js
 const configureStore = () => (
   createStore(
     RootReducer,
@@ -634,7 +634,7 @@ user can create todo list items.
 + Add new `case`s to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
 
-**Test your code** - Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({todo : { title: "Learn Redux", body: "", done: false }}))`. Does your new todo appear on your page?
+**Test your code** - Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({ title: "Learn Redux", body: "", done: false }))`. Does your new todo appear on your page?
 
 + Create a new component (`components/todo_list/todo_form.jsx`) that dispatches your new action types
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
