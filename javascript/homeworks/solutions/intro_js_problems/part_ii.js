@@ -30,7 +30,7 @@ Elephant.prototype.addTrick = function (trick) {
 };
 
 Elephant.prototype.play = function () {
-  trickIndex = Math.floor(Math.random() * this.tricks.length);
+  const trickIndex = Math.floor(Math.random() * this.tricks.length);
   console.log(`${this.name} is ${this.tricks[trickIndex]}!`);
 };
 

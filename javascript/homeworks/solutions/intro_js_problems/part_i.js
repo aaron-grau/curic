@@ -85,12 +85,12 @@ function isSubstring(phrase, subphrase) {
 function fizzBuzz (array) {
   const fizzBuzzArr = [];
 
-  for (let i = 0; i < array.length; i++) {
-    let el = array[i];
+  array.forEach(el => {
     if ((el % 3 === 0) ^ (el % 5 === 0)) {
       fizzBuzzArr.push(el);
     }
-  }
+  });
+
   return fizzBuzzArr;
 }
 
