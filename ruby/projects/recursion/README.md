@@ -123,6 +123,30 @@ You shouldn't have to pass any arrays between methods; you should be
 able to do this just passing a single argument for the number of
 Fibonacci numbers requested.
 
+### Permutations
+
+Write a recursive method `permutations(array)` that calculates all the
+[permutations][wiki-permutations] of the given array. For an array of length
+`n` there are `n!` different permutations. So for an array with three elements we will have `3 * 2 * 1 = 6` different permutations.
+
+```ruby
+permutations([1, 2, 3]) # => [[1, 2, 3], [1, 3, 2],
+                        #     [2, 1, 3], [2, 3, 1],
+                        #     [3, 2, 1], [3, 1, 2]]
+
+```
+You can use Ruby's built in [`Array#permutation`][ruby-permutations] method to get a better understanding of
+what you will be building.
+
+``` ruby
+[1, 2, 3].permutation.to_a  # => [[1, 2, 3], [1, 3, 2],
+                            #     [2, 1, 3], [2, 3, 1],
+                            #     [3, 2, 1], [3, 1, 2]]
+```
+
+[wiki-permutations]: https://en.wikipedia.org/wiki/Permutation
+[ruby-permutations]:https://ruby-doc.org/core-2.2.0/Array.html#method-i-permutation
+
 ### Binary Search
 
 The binary search algorithm begins by comparing the target value to the value of
@@ -189,8 +213,7 @@ You can implement this as an Array method if you prefer.
 
 [wiki-binary-search]: http://en.wikipedia.org/wiki/Binary_search
 [wiki-merge-sort]: http://en.wikipedia.org/wiki/Merge_sort
-[wiki-merge-gif]:
-https://en.wikipedia.org/wiki/Merge_sort#/media/File:Merge-sort-example-300px.gif
+[wiki-merge-gif]:https://en.wikipedia.org/wiki/Merge_sort#/media/File:Merge-sort-example-300px.gif
 [merge-diagram]: ../../assets/merge-sort-diagram.png?raw=true
 
 ### Make Change
@@ -215,16 +238,18 @@ Discuss the following game plan and then work together to implement your new met
   - **Grab only one** of that one coin and recursively call `make_better_change` on the remainder using all of the same coins.
   - Add the change for the remainder to the single coin you originally grabbed to obtain a possible solution.
   - Keep track of the best solution and return it at the end.
- 
-**N.B.** Don't generate every possible permutation of coins and then compare them.
+
+
+
+**N.B.** Don't generate every possible permutation of coins and then compare them. Remember that a permutation is not the same thing as a combination - we *will* need to check every combination of coins that add up to our `target`, we just don't want to check the same combination in different orders. If you get stuck you can start by writing a solution that calculates and compares all of the permutations without storing them in an array. Then go back and refactor your solution so that it only calculates and compares all of the different combinations.
 
 Make sure you and your partner understand each line before moving on.
 
-[make-change-mirror]:
-http://web.archive.org/web/20130215052843/http://rubyquiz.com/quiz154.html
+[make-change-mirror]:http://web.archive.org/web/20130215052843/http://rubyquiz.com/quiz154.html
 
 ## Resources
 
 * [Wikipedia: Recursion][wiki-recursion]
 
-[wiki-recursion]: http://en.wikipedia.org/wiki/Recursion_(computer_science)
+
+[wiki-recursion]:http://en.wikipedia.org/wiki/Recursion_(computer_science)
