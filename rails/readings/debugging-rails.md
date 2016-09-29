@@ -1,15 +1,14 @@
 # Debugging Rails
 
-Congratulations, you are at a stage where you can write a Rails
-application, but it's important to start to learn how to debug Rails
+Congratulations, you can write a Rails
+application! Now it's important to learn how to debug Rails
 applications well.
 
 ### Before we start
 
-Bugs happen, don't be afraid of trying something because you are
-scared it might not work. Part of being a programmer is having some
-crazy idea and just giving it a shot to see if it works. That is also
-why you have Git at your disposal, remember to use Git as a safety net
+Bugs happen. Don't be afraid of trying something because you are
+scared it might not work. Part of being a programmer is givng your crazy ideas a shot to see if they work. That is
+why you have Git at your disposal; remember to use Git as a safety net
 that WILL save you if you ever mess up really badly.
 
 ### Google is your friend
@@ -25,9 +24,9 @@ to find the answers yourself.
 ## Byebug
 
 Models are tucked away from you and aren't openly exposed through a UI
-like views and controllers are. So it may be a little more difficult
+like views and controllers. This may make it a little more difficult
 at times to work out if something is going wrong in your
-model. However this is where error messages will become your
+model. However, this is where error messages will become your
 friend. Look out for things that relate to your models such as:
 
   * Unknown attribute XYZ
@@ -102,8 +101,8 @@ this up. :-)
 
 **Using Better Errors**
 
-So better errors is going to open up whenever our code throws an
-exception of some sort. However what happens if our code isn't
+Better errors is going to open up whenever our code throws an
+exception of some sort. What happens if our code isn't
 throwing an error, but doesn't work the way that we want it to?
 
 Well luckily our controllers have a method called `fail`. By typing
