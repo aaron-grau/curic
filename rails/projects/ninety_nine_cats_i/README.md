@@ -55,13 +55,15 @@ include:
 
 ### Index/show pages
 
-* Add a cats resource; generate a cats controller
+* Add a cats resource to your routes; generate a cats controller
 * Build an `index` page of all `Cat`s.
   * Keep it simple; list the cats and link to the show pages.
 * Build a `show` page for a single cat.
   * Keep it simple; just show the cat's attributes.
-  * Learn how to use a table (`table`, `tr`, `td`, `th` tags) to format
+  * Learn how to use a [table][table-link] (`table`, `tr`, `td`, `th` tags) to format
     the cat's vital information.
+    
+[table-link]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
 ### New Form
 
@@ -118,7 +120,7 @@ Build a `new` form page to create a new `Cat`:
 
 ### Build out the model
 
-* Make a `CatRentalRequest` model.
+* Make a `CatRentalRequest` model and associated migration.
 * Tracks `cat_id`, `start_date`, `end_date`.
 * Add a string column called `status` that will starts out as
   `"PENDING"`, but can be switched to `"APPROVED"` or `"DENIED"`.
