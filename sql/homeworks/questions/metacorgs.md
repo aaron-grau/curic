@@ -77,15 +77,19 @@ our `@shopping_list`. This will give us back an array of all the methods defined
 Then we can match the ones we care about using [grep][grep]. If we pass `grep` the argument `/^get_(.*)_info$/`,
 it will match any methods that are some variation of `get_{perk}_info` and "capture" the perk name -
 the `(.*)` tells it to capture any number of characters that come between `get_` and `_info`.
-We can then `$1` to get back the matching perk name that was captured. So we can pass the block
+We can then use `$1` to get back the matching perk name that was captured. So we can pass the block
 `{ CorgiPerkPackage3.define_perk $1 }` to our `grep` call, and it will call `::define_perk` with each perk name.
+It should look something like this:
+```ruby
+  shopping_list.methods.grep(/^get_(.*)_info$/) { CorgiPerkPackage3.define_perk $1 }
+```
 
 :tada: metacorgis!
 
 ## Bonus Phase: Refactor the ShoppingList class using the same principles
 
 Using either `#method_missing` or `#define_method`, refactor the ShoppingList
-class so that it follows the DRY principle.
+class so that it is DRY too.
 
 [grep]: http://ruby-doc.org/core-2.3.1/Enumerable.html#method-i-grep
 [meta_reading]: ../../readings/metaprogramming.md
