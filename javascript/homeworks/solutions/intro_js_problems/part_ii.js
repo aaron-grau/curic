@@ -21,10 +21,6 @@ function Elephant(name, height, tricks) {
   this.tricks = tricks;
 }
 
-Elephant.prototype.grow = function () {
-  this.height = this.height + 12;
-};
-
 Elephant.prototype.addTrick = function (trick) {
   this.tricks.push(trick);
 };

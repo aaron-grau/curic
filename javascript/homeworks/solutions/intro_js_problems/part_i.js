@@ -65,13 +65,6 @@ function madLib(verb, adj, noun) {
   return `We shall ${verb.toUpperCase()} the ${adj.toUpperCase()} ${noun.toUpperCase()}.`
 }
 
-// isOdd
-
-function isOdd(n) {
-  return Math.abs(n) % 2 === 1;
-}
-
-
 // isSubstring
 
 function isSubstring(phrase, subphrase) {
