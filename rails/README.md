@@ -294,9 +294,6 @@
 * [:movie_camera: HTTP](https://vimeo.com/161381484) (12 min)
 * [:movie_camera: HTTP Demo](https://vimeo.com/161381489) (4 min)
 * [:movie_camera: Rails from the Inside Out](https://vimeo.com/161381601) (13 min)
-* [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
-* [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
-* [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
 * [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
 	* [:computer: demo code][middleware-demo] (22 min)
@@ -305,6 +302,9 @@
 * Complete [RegexOne][regex-link] (45 min)
 
 ### Additional Resources
+* [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
+* [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
+* [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [HTTP][http]
 * [Rack][rack]
 * [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
