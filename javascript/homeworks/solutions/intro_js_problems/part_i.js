@@ -64,6 +64,16 @@ mysteryScoping5(); // SyntaxError
 function madLib(verb, adj, noun) {
   return `We shall ${verb.toUpperCase()} the ${adj.toUpperCase()} ${noun.toUpperCase()}.`
 }
+<<<<<<< 00109217755042d80d760e56b0e51d4146f8b0a3:javascript/homeworks/solutions/intro_js_problems/part_i.js
+=======
+
+// isOdd
+
+function isOdd(n) {
+  return Math.abs(n) % 2 === 1;
+}
+
+>>>>>>> slim w5d3 hw:javascript/homeworks/solutions/intro_js_problems/part_i.js
 
 // isSubstring
 

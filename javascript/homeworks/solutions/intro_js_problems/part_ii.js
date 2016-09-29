@@ -3,13 +3,13 @@
 // Phase I - Callbacks
 
 // defining the function
-function jingle(names, cb) {
-  let jingled = names.map(name => `Mx. ${name} Jingleheimer Schmidt`);
-  callback(jingled);
+function titleize(names, callback) {
+  let titleized = names.map(name => `Mx. ${name} Jingleheimer Schmidt`);
+  callback(titleized);
 };
 
-// invoking the function, passing in an anonymous function as an argument
-jingle(["Mary", "Brian", "Leo"], (names) => {
+// invoking the function
+titleize(["Mary", "Brian", "Leo"], (names) => {
   names.forEach(name => console.log(name));
 });
 
@@ -21,12 +21,20 @@ function Elephant(name, height, tricks) {
   this.tricks = tricks;
 }
 
+Elephant.prototype.trumpet = function () {
+  console.log(`${this.name} the elephant goes 'phrRRRRRRRRRRR!!!!!!!'`);
+};
+
+Elephant.prototype.grow = function () {
+  this.height = this.height + 12;
+};
+
 Elephant.prototype.addTrick = function (trick) {
   this.tricks.push(trick);
 };
 
 Elephant.prototype.play = function () {
-  const trickIndex = Math.floor(Math.random() * this.tricks.length);
+  trickIndex = Math.floor(Math.random() * this.tricks.length);
   console.log(`${this.name} is ${this.tricks[trickIndex]}!`);
 };
 
@@ -35,6 +43,8 @@ Elephant.prototype.play = function () {
 Elephant.paradeHelper = function (elephant) {
   console.log(`${elephant.name} is trotting by!`);
 };
+
+
 
 // Phase IV - Closures
 
