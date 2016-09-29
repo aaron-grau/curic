@@ -401,8 +401,6 @@ const configureStore = () => (
 );
 ```
 
-**Test that your `PokemonIndex` component renders the pokemon from the database**
-
 The following code is an example of what your `PokemonIndex` component might contain in its `render` method.
 
 ```html
@@ -437,6 +435,8 @@ const Root = ({ store }) => {
 	);
 };
 ```
+
+**Test that your `PokemonIndex` component renders the pokemon from the database**
 
 ## Phase 3: React Router
 
