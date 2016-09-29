@@ -288,7 +288,7 @@
 ### Assessment04
 * [Practice][assessment-prep-4]
 
-### Video lectures (59 min)
+### Video lectures (60 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera: Rails Lite Intro](https://vimeo.com/161381457) (4 min)
 * [:movie_camera: HTTP](https://vimeo.com/161381484) (12 min)
@@ -305,18 +305,17 @@
 * [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
 * [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
 * [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
-* [HTTP][http]
-* [Rack][rack]
 * [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 * [:movie_camera: (cc) 00-webserver][00-webserver] (16 min)
 * [:movie_camera: (cc) 01-protocols][01-protocols] (14 min)
   * old news at this point; recommended speed >= 2x
 * [:movie_camera: (cc) 02-http][02-http] (43 min)
 * [Middleware][middleware]
+* [HTTP][http]
+* [Rack][rack]
 
 ### Solo Projects
 * [Rails Lite][rails-lite]
-* [Rails Lite II][rails-lite-ii]
 
 [middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [http]: readings/http.md
@@ -327,4 +326,3 @@
 [02-http]: http://vimeo.com/groups/appacademy/videos/100267302
 [middleware]: readings/middleware.md
 [rails-lite]: projects/rails_lite
-[rails-lite-ii]: projects/rails_lite/rails-lite-ii.md
