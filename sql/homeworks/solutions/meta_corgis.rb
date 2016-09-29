@@ -74,9 +74,9 @@ end
 
 class CorgiPerkPackage
 
-  def initialize(package_id, shopping_list)
-    @package_id = package_id
+  def initialize(shopping_list, package_id)
     @shopping_list = shopping_list
+    @package_id = package_id
   end
 
   def bone
@@ -102,33 +102,23 @@ class CorgiPerkPackage
 
 end
 
-class CorgiPerkPackage2
-  # the method_missing CorgiPerkPackage class
-
-  def initialize(package_id, shopping_list)
-    @package_id = package_id
+class MetaCorgiPerkPackage
+  def initialize(shopping_list, package_id)
     @shopping_list = shopping_list
-  end
-
-  def method_missing(name, *args)
-    info = @shopping_list.send("get_#{name}_info", @package_id)
-    happiness = @shopping_list.send("get_#{name}_happiness", @package_id)
-    name = "#{name.to_s.split('_').map(&:capitalize).join(' ')}"
-    result = "#{name}: #{info}: #{happiness} licks"
-    happiness > 30 ? "* #{result}" : result
-  end
-
-end
-
-class CorgiPerkPackage3
-  # the dynamic dispatch CorgiPerkPackage class
-
-  def initialize(package_id, shopping_list)
     @package_id = package_id
-    @shopping_list = shopping_list
-    shopping_list.methods.grep(/^get_(.*)_info$/) { CorgiPerkPackage3.define_perk $1 }
+    shopping_list.methods.grep(/^get_(.*)_info$/) { MetaCorgiPerkPackage.define_perk $1 }
   end
 
+  # phase 1
+  # def method_missing(name, *args)
+  #   info = @shopping_list.send("get_#{name}_info", @package_id)
+  #   happiness = @shopping_list.send("get_#{name}_happiness", @package_id)
+  #   name = "#{name.to_s.split('_').map(&:capitalize).join(' ')}"
+  #   result = "#{name}: #{info}: #{happiness} licks"
+  #   happiness > 30 ? "* #{result}" : result
+  # end
+
+  # phase 2
   def self.define_perk(name)
     define_method(name) do
       info = @shopping_list.send("get_#{name}_info", @package_id)
@@ -138,5 +128,4 @@ class CorgiPerkPackage3
       happiness > 30 ? "* #{result}" : result
     end
   end
-
 end
