@@ -182,10 +182,8 @@
 * [View layouts][view-layouts] (10 min)
 * [View partials][view-partials] (15 min)
 
-### Homeworks (45 min)
+### Homeworks (30 min)
 * [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
-+ [Implicit Bias Test][bias-quiz] (15 min)
-  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
 
 ### Additional Resources
 * [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
@@ -202,7 +200,6 @@
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
 [layout-video]: https://vimeo.com/168822741
 [action-mailer-video]: https://vimeo.com/168810895
-[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [music-app-project]: projects/music_app
 
@@ -260,8 +257,10 @@
 * [Testing Controllers][rspec-controllers] (5 min)
 * [Testing with Capybara][capybara] (15 min)
 
-### Homeworks (45 min)
+### Homeworks (60 min)
 * [Capybara][capybara-hw] (45 min)
++ [Implicit Bias Test][bias-quiz] (15 min)
+  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
 
 ### Additional Resources
 * [Spring and Guard Setup][spring-guard]
@@ -279,6 +278,7 @@
 [spring-guard]: readings/guard-spring-setup.md
 
 [capybara-hw]: homeworks/questions/capybara.md
+[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [goaling-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
