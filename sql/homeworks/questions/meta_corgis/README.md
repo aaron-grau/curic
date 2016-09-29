@@ -1,6 +1,6 @@
 # Meta-Programming MetaCorgis
 
-Today we'll use meta-programming to refactor an unwieldy `CorgiPerk` class.
+Today we'll use meta-programming to refactor an unwieldy `CorgiPerkPackage` class.
 
 ## Phase 0: Tour the Code!
 
@@ -10,9 +10,10 @@ Today we'll use meta-programming to refactor an unwieldy `CorgiPerk` class.
 
 ### `ShoppingList` Class
 
-The `ShoppingList` class represents our database. The database has three perk
-packages, stored in the `DATA` constant. Each packages has three corgi perks -
-a bone, kibble, and a silly outfit.
+The `ShoppingList` class represents our database. 
+
+The database has three perk packages, stored in the `DATA` constant. Each 
+packages has three corgi perks - a bone, kibble, and a silly outfit.
 
 It also has methods defined to tell us the info and happiness level of a
 given perk in whichever package we specify - e.g. `get_{perk}_info` and
@@ -22,11 +23,13 @@ instance of `ShoppingList`.
 
 ### `CorgiPerkPackage` Class
 
-The `CorgiPerkPackage` class serves as a clean interface with our database. We
-should be able to call `bone`, `kibble`, or `silly_outfit` on any instance of
-`CorgiPerkPackage` get back a statement of the info and happiness level of that
-perk. This means a `CorgiPerkPackage` must contain a reference to the database
+The `CorgiPerkPackage` class serves as an interface with our database. 
+
+`CorgiPerkPackage` must contain a reference to the database
 (an instance of `ShoppingList`) and its `package_id` within the database.
+We should be able to call `bone`, `kibble`, or `silly_outfit` on any instance of
+`CorgiPerkPackage` get back a statement of the info and happiness level of that
+perk. 
 
 ### Test Drive
 
@@ -53,10 +56,12 @@ pry(main)> package.kibble # => "* Kibble: Delicately braised hamhocks: 33 licks"
 
 When we call any perk instance method on a package, we get back a very similar
 result:
+
   + a star if the happiness level has gone above 30,
   + the perk type,
   + the perk description,
   + and the number of licks (the happiness level).
+  
 It is repetitive and not modular to have all three methods defined on the
 `CorgiPerkPackage` class when they follow the same pattern.
 
