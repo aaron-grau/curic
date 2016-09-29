@@ -78,7 +78,7 @@ Then we can match the ones we care about using [grep][grep]. If we pass `grep` t
 it will match any methods that are some variation of `get_{perk}_info` and "capture" the perk name -
 the `(.*)` tells it to capture any number of characters that come between `get_` and `_info`.
 We can then `$1` to get back the matching perk name that was captured. So we can pass the block
-`{ CorgiPerk3.define_perk $1 }` to our `grep` call, and it will call `::define_perk` with each perk name.
+`{ CorgiPerkPackage3.define_perk $1 }` to our `grep` call, and it will call `::define_perk` with each perk name.
 
 :tada: metacorgis!
 
