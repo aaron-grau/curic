@@ -202,7 +202,6 @@
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
 [layout-video]: https://vimeo.com/168822741
 [action-mailer-video]: https://vimeo.com/168810895
-[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [music-app-project]: projects/music_app
 
@@ -281,6 +280,7 @@
 [spring-guard]: readings/guard-spring-setup.md
 
 [capybara-hw]: homeworks/questions/capybara.md
+[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [goaling-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
