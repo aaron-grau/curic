@@ -196,4 +196,4 @@
 [meta-send]: demos/send.rb
 [meta-macros]: demos/macros.rb
 [build-your-own-ar]: projects/active_record_lite
-[metacorgi-hw]: homeworks/questions/metacorgs.md
+[metacorgi-hw]: homeworks/questions/meta_corgis
