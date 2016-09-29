@@ -74,9 +74,9 @@ end
 
 class CorgiPerkPackage
 
-  def initialize(package_id, shopping_list)
-    @package_id = package_id
+  def initialize(shopping_list, package_id)
     @shopping_list = shopping_list
+    @package_id = package_id
   end
 
   def bone
@@ -102,27 +102,17 @@ class CorgiPerkPackage
 
 end
 
-class CorgiPerkPackage2
-  # the method_missing CorgiPerkPackage class
-
-  def initialize(package_id, shopping_list)
-    @package_id = package_id
+class MetaCorgiPerkPackage
+  def initialize(shopping_list, package_id)
     @shopping_list = shopping_list
+    @package_id = package_id
   end
 
   def method_missing(name, *args)
-    # Your code goes here
+    # Your code goes here...
   end
 
-end
-
-class CorgiPerkPackage3
-  # the dynamic dispatch CorgiPerkPackage class
-
-  def initialize(package_id, shopping_list)
-    @package_id = package_id
-    @shopping_list = shopping_list
+  def self.define_perk(name)
+    # Your code goes here...
   end
-
-  # Less structure to help you with this one :)
 end
