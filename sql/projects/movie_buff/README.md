@@ -14,3 +14,5 @@ How to run:
 0.  Run `bundle exec rspec --order defined` to test.
 0.  You can manually test queries in the `rails console`.
 0.  All queries should be written in Active Record.
+
+**Note:** ActiveRecord queries have two methods, `to_sql` and `as_json`, that you might find helpful for debugging.
