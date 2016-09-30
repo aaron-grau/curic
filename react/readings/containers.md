@@ -37,7 +37,7 @@ const mapStateToProps = (state) => ({ // map slice of state to props object
 });
 
 const mapDispatchToProps = (dispatch) => ({ // create action dispatcher
-	resetItems: () => dispatch(resetItems);
+	resetItems: () => dispatch(resetItems());
 });
 
 const ListContainer = connect(
