@@ -373,7 +373,7 @@ const Root = ({ store }) => (
 Start by importing the following into `root.jsx`:
 * `React` from 'react'
 * `Router`, `Route`, `IndexRoute`, and `hashHistory` from `react-router`
-* Your `App` and `SearchContainer` components
+* Your `App` component
 
 Set up your `Root` to use `hashHistory`. Like so,
 
@@ -981,13 +981,13 @@ return values of these functions are then merged and the resulting object is pas
 
 #### `IndexRoute`
 
-Next, let's make sure that our `SearchContainer` is the default component rendered
+Next, let's make sure that our `BenchIndexContainer` is the default component rendered
 inside `App`. Use an `IndexRoute` to accomplish this.
 
 ```javascript
 <Router history={ hashHistory }>
   <Route path="/" component={ App }>
-    <IndexRoute component={ SearchContainer } />
+    <IndexRoute component={ BenchIndexContainer } />
     // other routes
   </Route>
 </Router>
