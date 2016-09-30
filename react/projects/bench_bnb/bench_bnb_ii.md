@@ -31,7 +31,7 @@ deconstruct your props for cleaner syntax.
 
 ### Render your `SearchContainer`
 
-* In your index route file, render the `SearchContainer` component instead of `BenchIndexContainer`. This should cause both the `BenchMap` and the `BenchIndex` to be rendered on the page.
+* In your `IndexRoute`, render the `SearchContainer` component instead of `BenchIndexContainer`. This should cause both the `BenchMap` and the `BenchIndex` to be rendered on the page.
 * Verify your work before moving on.
 
 ### Attach a Google Map to `BenchMap`
