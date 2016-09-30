@@ -79,8 +79,8 @@ understand each individual step.
 
 + Create a `User` model, `API::UsersController`, and `Api::SessionsController` with the following endpoints:
   * `[POST] api/users: "users#create" (signup)`,
-  * `[POST] api/session: "session#create" (login)`,
-  * `[DELETE] api/session: "session#destroy" (logout)`
+  * `[POST] api/session: "sessions#create" (login)`,
+  * `[DELETE] api/session: "sessions#destroy" (logout)`
 
 Follow the basic pattern you used during the [Rails curriculum][rails], with some
 key differences:
