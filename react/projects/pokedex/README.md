@@ -186,7 +186,7 @@ Now let's write the success callback that will be passed to this function.
 
 + Create a `pokemon_actions.js` file within the `actions` folder and import the
 ajax request function we just wrote.
-  + **Tip**: `import * as API from './util/api_util.js'` is a nice way to just
+  + **Tip**: `import * as API from '../util/api_util.js'` is a nice way to just
   import all of the api util functions as key-value pairs of an `API` object!
 
 In our newly created `pokemon_actions.js` file,
