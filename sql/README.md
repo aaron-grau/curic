@@ -184,7 +184,7 @@
 + [Demo: macros][meta-macros] (5 min)
 
 ### Homework (30 min)
-+ [Metacorgis][metacorgi-hw] (30 min)
++ [Metacorgis][meta_corgis] (30 min)
 
 ### Project
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
