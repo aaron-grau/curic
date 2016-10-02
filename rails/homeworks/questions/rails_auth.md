@@ -42,7 +42,7 @@ Refer to the [first auth reading][auth-1-reading] and the [second auth reading][
 
 ## Phase 4: Check your work
 
-+ Check your model against the solutions
++ Check your model against [the solutions][hw-solutions]. 
 + Try creating a user in the Rails console
   + Make sure your validations work, and also make sure that you're storing `password_digest` as an encrypted string
 
@@ -62,3 +62,5 @@ User.first.password_digest # shows a string of gibberish that you can't hack
 ## Phase 5: Celebrate
 
 + You have written an important part of a Rails auth system!
+
+[hw-solutions]: ../solutions
