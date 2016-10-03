@@ -9,11 +9,15 @@
 
 ### Video Lectures (64 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Intro. to JS](https://vimeo.com/169645510) (12 min)
-* :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
+* :movie_camera: [Intro. to JS][intro-js-video] (12 min)
 * :movie_camera: [Object-Oriented JS: Intro][oo-js-intro] (15 min)
 * :movie_camera: [Object-Oriented JS: Demo][oo-js-demo] (7 min)
 * :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
+
+[intro-js-video]: https://vimeo.com/169645510
+[oo-js-intro]: https://vimeo.com/169806088
+[oo-js-demo]: https://vimeo.com/169804475
+[callbacks-video]: https://vimeo.com/169898573
 
 ### Readings (130 min)
 * [Intro. to JavaScript][intro-js] (10 min)
@@ -71,11 +75,6 @@
 * [Intro. JavaScript Exercises][intro-javascript-problems]
 * **Bonus**: [Reversi][reversi]
 
-[node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
-[oo-js-intro]: https://vimeo.com/169806088
-[oo-js-demo]: https://vimeo.com/169804475
-[callbacks-video]: https://vimeo.com/169898573
-
 [intro-pset]: homeworks/questions/intro_js_problems
 
 [codecademy-js]: http://www.codecademy.com/tracks/javascript
@@ -91,9 +90,9 @@
 ### Readings (90 min)
 * [Intro to Callbacks: File I/O][file-io] (15 min)
 * [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
+* [Event Loop Visualization][loupe] (10 min)
 * [ES6 class syntax][es6-classes] (5 min)
 * [The Module Pattern][module-pattern] (10 min)
-* [Event Loop Visualization][loupe] (10 min)
 * [Linting JavaScript][linting-js] (10 min)
 * [Debugging Node.js][debugging-node] (15 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
