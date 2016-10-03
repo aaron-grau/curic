@@ -126,9 +126,9 @@ experienced with this pattern as we transition into Rails.*
     * E.g., `User#fname` will return the `fname` of the user object
          that was populated from a row in the `users` database.
 
-Before writing any more code, take some time to test out what you've
-done so far in the console. Everything should work before you move
-on.
+Before writing any more code, take some time to make sure what you've
+done so far works by loading files in the console and testing your
+new methods. Everything should work before you go to the next phase.
 
 ## Queries
 
@@ -276,7 +276,7 @@ Hint: you can use `Object#instance_variables` method to get a list of
 instance variable names that represent columns.
 
 For the purposes of this project it's ok to interpolate the name
-of the table directly into your SQL queries.  We're going to assume
+of the table directly into your SQL queries. We're going to assume
 our users aren't malicious and that we don't have to worry about them
 performing SQL injection attacks on our site.
 
@@ -319,8 +319,6 @@ Question.where("title LIKE '%Who%' AND title LIKE '%Arstan Whitebeard%'")
 
 Go back and write specs for your queries using your rspec knowledge from W2D3. If
 you need a refresher on rspec refer to [the readings for that day][rspec-readings].
-In addition to testing for the correct query output also test the
-number of times your query hits the database.
 
 [rspec-readings]: https://github.com/appacademy/curriculum/blob/master/ruby/README.md#w2d3
 
