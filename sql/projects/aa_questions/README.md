@@ -127,8 +127,8 @@ experienced with this pattern as we transition into Rails.*
          that was populated from a row in the `users` database.
 
 Before writing any more code, take some time to test out what you've
-done so far in the rails console. Everything should work before you move
-on. 
+done so far in the console. Everything should work before you move
+on.
 
 ## Queries
 
@@ -155,7 +155,7 @@ None of these involve joins.
 * `Reply#child_replies`
     * Only do child replies one-deep; don't find grandchild comments.
 
-Test out your newly written queries in the rails console.
+Test out your newly written queries in the console.
 Don't move on until you have everything working.
 
 ### Medium
@@ -174,7 +174,7 @@ to clarify your understanding of joins.
 * `Question#followers`
     * One-liner calling `QuestionFollow` method.
 
-Again, test your queries in the rails console before moving on.
+Again, test your queries in the console before moving on.
 
 ### Hard
 
@@ -276,12 +276,9 @@ Hint: you can use `Object#instance_variables` method to get a list of
 instance variable names that represent columns.
 
 For the purposes of this project it's ok to interpolate the name
-of the table directly into your SQL queries.  We're going to assume 
-our users aren't malicious and that we don't have to worry about them 
-peforming SQL injection attacks on our site.
-
-We'll explore this a lot more when we start the ActiveRecordLite
-project!
+of the table directly into your SQL queries.  We're going to assume
+our users aren't malicious and that we don't have to worry about them
+performing SQL injection attacks on our site.
 
 ### `where`
 
@@ -318,11 +315,11 @@ User.where("lname = 'Stark'")
 Question.where("title LIKE '%Who%' AND title LIKE '%Arstan Whitebeard%'")
 ```
 
-### Write specs for your queries 
+### Write specs for your queries
 
 Go back and write specs for your queries using your rspec knowledge from W2D3. If
 you need a refresher on rspec refer to [the readings for that day][rspec-readings].
-In addition to testing for the correct query output also test the 
+In addition to testing for the correct query output also test the
 number of times your query hits the database.
 
 [rspec-readings]: https://github.com/appacademy/curriculum/blob/master/ruby/README.md#w2d3
