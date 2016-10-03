@@ -16,12 +16,9 @@
 * :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
 
 ### Readings (155 min)
-* [Intro to JavaScript][intro-js] (5 min)
-* [Server-side JavaScript][server-side-js] (5 min)
-* [Syntax][syntax] (10 min)
+* [Intro. to JavaScript][intro-js] (5 min)
 * [Data Types and Truthiness][data-types] (5 min)
-* [Useful Methods][useful-methods] (5 min)
-* [Variables][variables] (15 min)
+* [Variables][variables] (10 min)
 * [Arguments][arguments] (15 min)
 * [Debugging Node.js][debugging-node] (10 min)
 * [Objects and Primitives][objects-and-primitives] (10 min)
@@ -33,11 +30,33 @@
 * [Closures and Scope][closures] (10 min)
 * [Linting JavaScript][linting-js] (10 min)
 
+[intro-js]: readings/js-intro.md
+[data-types]: readings/data-types-and-truthiness.md
+[syntax]: readings/syntax.md
+[useful-methods]: readings/useful-methods.md
+[variables]: readings/variables.md
+[debugging-node]: readings/debugging-node.md
+[objects-and-primitives]: readings/objects-and-primitives.md
+[oo-js-hw]: homeworks/questions/oo_js.md
+[functions-js]: readings/functions-js.md
+[arrows]: readings/fat-arrows.md
+[linting-js]: readings/linting-js.md
+[oo-js]: readings/object-oriented-js.md
+[function-invocation-briefly]: readings/function-invocation-briefly.md
+[closures]: readings/closures.md
+
 ### Homeworks (45 min)
 * [Intro. JavaScript Problems][intro-pset] (45 min)
 * Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
+
+### Quick References
+* [Syntax][syntax] (10 min)
+* [Useful Methods][useful-methods] (5 min)
++ [Writing Clean Code][indentation] (5 min)
+
+[indentation]: ./readings/indentation.md
 
 ### Additional Resources
 * [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
@@ -54,22 +73,6 @@
 [oo-js-intro]: https://vimeo.com/169806088
 [oo-js-demo]: https://vimeo.com/169804475
 [callbacks-video]: https://vimeo.com/169898573
-
-[intro-js]: readings/js-intro.md
-[server-side-js]: readings/server-side-javascript.md
-[syntax]: readings/syntax.md
-[data-types]: readings/data-types-and-truthiness.md
-[useful-methods]: readings/useful-methods.md
-[variables]: readings/variables.md
-[debugging-node]: readings/debugging-node.md
-[objects-and-primitives]: readings/objects-and-primitives.md
-[oo-js-hw]: homeworks/questions/oo_js.md
-[functions-js]: readings/functions-js.md
-[arrows]: readings/fat-arrows.md
-[linting-js]: readings/linting-js.md
-[oo-js]: readings/object-oriented-js.md
-[function-invocation-briefly]: readings/function-invocation-briefly.md
-[closures]: readings/closures.md
 
 [intro-pset]: homeworks/questions/intro_js_problems
 

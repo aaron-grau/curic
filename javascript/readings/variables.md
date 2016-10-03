@@ -7,7 +7,7 @@ There are a few different ways to declare variables and constants in JavaScript.
 3. **`const`** (ES6+)
 4. **`window`** and **`global`**
 
-Note: the subsections below talk a great deal about scoping in JavaScript. Some things will make more sense after you have learned about scope, so reread as necessary!
+**NB**: the subsections below talk a great deal about scoping in JavaScript. Some things will make more sense after you have learned about scope, so re-read as necessary!
 
 ## Declaration
 
@@ -15,13 +15,13 @@ In JavaScript, in order to use a variable or constant, we must declare it by pre
 
 ## `var`
 
-To declare a function-scoped variable, use the `var` keyword.
+To declare a **function-scoped variable**, use the `var` keyword.
 
 ```javascript
 var myVar;
 ```
 
-To declare a variable and assign it a value:
+To initialize a variable (ie. declare a variable and assign it a value):
 
 ```javascript
 var myVar = 5;
@@ -34,40 +34,37 @@ $ node
 > myVar;
 ```
 
-Since we have not declared myVar, you'll see an error message.
+Since we have not declared `myVar`, you'll see an error message: `ReferenceError: myVar is not defined`. Let's fix this.
 
 ```javascript
 > var myVar;
 undefined
 
-> myVar;
-// We now can use myVar without error because we declared it.
-undefined
-// Evaluates to undefined because we did not initialize myVar to any value.
+> myVar; // We now can access myVar without error because we declared it.
+undefined // Evaluates to undefined because we did not assign myVar a value
 
-> myVar = 5;
+> myVar = 5; // Assign it a value of 5
 5
+```
 
+What will this evaluate to?
+
+```js
 > myVar + 2; // What will this evaluate to?
 ```
 
-Notice that when I declare or initialize a variable, node prints out something underneath it. That is the return value. Everything is javascript has a return value, even declaration and initialization. `undefined` is the default return value.
+**NB**: Notice that when a variable is declared or initialized, node always
+prints out something underneath it. That is the return value. Everything in
+javascript has a return value, even variable declarations and initializations.
+`undefined` is the default return value.
 
-We can also declare and initialize a variable on the same line.
-```javascript
-> var myOtherVar = "Anthony";
-"Anthony"
+**NB**: `var` is not the preferred means of declaring a variable in ES6. `let` or `const` are preferred.
 
-> "Hello " + myOtherVar; // What will this evaluate to?
-```
-
-A note on style: `var` is not the preferred means of declaring a variable in ES6. Prefer `let` or `const`.
-
-## `let`
+## `let` (ES6+)
 
 `let` is a new feature in ES6.
 
-We can use `let` to declare block-scoped variables, like in Ruby blocks. How are block-scoped variables different than function-scoped variables? Consider the following:
+We can use `let` to declare **block-scoped variables**. How are block-scoped variables different than function-scoped variables? Consider the following:
 
 ```javascript
 function blockScope() {
@@ -78,27 +75,28 @@ function blockScope() {
     console.log(y); // 'let'
   }
   console.log(x); // 'var'
-  console.log(y); // Reference error, y is undefined
+  console.log(y); // ReferenceError: y is not defined
 }
-blockScope();
 
-console.log(x); // Reference error, x is undefined
-console.log(y); // Reference error, y is undefined
+blockScope(); // evoking the function
+
+console.log(x); // ReferenceError: x is not defined
+console.log(y); // ReferenceError: y is not defined
 ```
 
 Examples of blocks in javascript include `if` statements, `while` loops, `switch` statements, and `for` loops (more on these later).
 
-One note: JavaScript will raise a `SyntaxError` if you try to declare the same `let` variable twice in one block.
+JavaScript will raise a `SyntaxError` if you try to declare the same `let` variable twice in one block.
 
 For a more detailed description of `let`, please refer to the [MDN Documentation][mdn-let].
 
 [mdn-let]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
 
-## `const`
+## `const` (ES6+)
 
 `const` is a new feature in ES6.
 
-We use `const` to declare constants. Constants should be used for constructs that will not be redeclared or reassigned.
+We use `const` to declare **constants**. Constants should be used for constructs that will not be re-declared or re-assigned.
 
 Properties of constants:
 * They are block-scoped like `let`.
@@ -106,36 +104,40 @@ Properties of constants:
 * Trying to redeclare a constant with a `var` or `let` by the same name will also raise an error.
 
 A quick example:
-
 ```javascript
-const favoriteFood = "Cheeseboard pizza";
+> const favFood = "Cheeseboard pizza"; // Initializes a constant
+undefined
 
-const favoriteFood = "Some inferior food"; // this will raise an error
+> const favFood = "Some inferior food"; // Raises an error
+TypeError: Identifier 'favFood' has already been declared
 
-var favoriteFood = "Some other inferior food"; // this will also raise an error
+> var favFood = "Some other inferior food"; // Raises an error
+TypeError: Identifier 'favFood' has already been declared
 
-favoriteFood = "Cardboard middle school pizza"; // this will fail silently but won't raise an error
-
-if (true) {
-  const favoriteFood; // this will also raise an error
-  console.log(favoriteFood); // outputs "Cheeseboard pizza"
-
-  const favoriteDrink = "coffee"; // this is scoped to the block
-  console.log(favoriteDrink) // outputs coffee
-}
-
-const favoriteDrink = "Harmless Coconut Water"; // declared after block, works fine
-
-console.log(favoriteDrink) // outputs "Harmless Coconut Water"
+> favFood = "Deep-dish pizza"; // Raises an error
+TypeError: Assignment to constant variable.
 ```
 
-One note - constants are not immutable. Only the binding is immutable. For example, if we set a constant equal to an object, we can still modify that object:
+```js
+if (true) {
+  const favFood = "Noodles"; // Raises an error
+  console.log(favFood); // Prints "Cheeseboard pizza"
+
+  const favoriteDrink = "Coffee"; // This is scoped to the `if` block
+  console.log(favoriteDrink) // Prints `Coffee`
+}
+
+// Declared outside of block, raises no errors
+const favoriteDrink = "Harmless Coconut Water";
+console.log(favoriteDrink) // Prints "Harmless Coconut Water"
+```
+
+**NB**: Constants are not immutable. Only the binding is immutable. For example, if we set a constant equal to an object, we can still modify that object:
 
 ```javascript
-
 const animals = {};
-animals.mammals = ['hippo', 'lemur', 'possum']; // this is okay
-
+animals.mammals = ['hippo', 'lemur', 'possum']; // This works!
+animals = ['beluga whale']; // Raises an error
 ```
 
 ## Globals
@@ -143,23 +145,25 @@ animals.mammals = ['hippo', 'lemur', 'possum']; // this is okay
 **If you leave off a declaration when initializing a variable, it will become a global. Never do this.**
 
 ```js
-
-function good(){
+function good() {
   let x = 5;
 }
 
-function bad(){
-  y = "something i wasn't expecting";
+function bad() {
+  y = "Something i wasn't expecting";
 }
 
 function why() {
-  x; // undefined
-  y; // "something i wasn't expecting"
+  console.log(y); // "Something i wasn't expecting"
+  console.log(x); // Raises an error
 }
 
+why();
 ```
 
-Unintended global variables create confusing, unpredictable errors. If you intentionally want to create a global variable (i.e. to define a library such as JQuery or Underscore), explicitly add it to your environment's global context:
+Unintended global variables create confusing, unpredictable errors. If you
+intentionally want to create a global variable (i.e. to define a library such as
+JQuery or Underscore), explicitly add it to your environment's global context:
 
 ```js
 // node
@@ -167,11 +171,4 @@ global.myGlobal = "it's a small world, after all";
 
 // browser
 window.myGlobal = "it's a small, small world";
-
 ```
-
-## Linting is your friend
-
- **Linting** your code (discussed [here][linter]) can help you enforce this.
-
-[linter]: linting-js.md

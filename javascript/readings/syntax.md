@@ -2,53 +2,57 @@
 
 ## semi-colons;
 
-In Javascript, an __expression__ is a line of code that returns a value. __Statements__ are, more generally, any line of code. Every expression needs a semi-colon at the end. Statements that aren't expressions don't generally require semi-colons, and may cause syntax errors.
+In Javascript, an _expression_ is a line of code that returns a value. A
+_statement_ is any line of code. **Every expression needs a semi-colon at the
+end.** Statements that aren't expressions don't generally require semi-colons,
+and may cause syntax errors.
+
+For example,
 
 ```javascript
+// variable assignments are expressions
+let x = 5;
 
-let x = 5; // expression
+// function declarations are statements
+function() {}
 
-function(){} // statement
-
-if (x === 5) {
-  console.log("hello"); // expression
-}  // 'if' block is a statement
+if (x === 5) { // `if` blocks are statements
+  console.log("hello"); // console.log's are expressions
+}  
 ```
 
 ## { curly braces }
 
-Curly braces are used to delineate code blocks such as in function definitions, loops, and if-statements.  Curly braces can also define `objects`.
+Curly braces are used to delineate code blocks such as in function definitions, loops, and `if` blocks.  Curly braces can also be used to define JavaScript objects.
 
 ```javascript
-
-// if statement
-if (isTrue) {
-  // code block
+// `if/else` block
+if (boolean) {
+  // code block...
 } else {
-  // another code block
+  // another code block...
 }
 
 // loop
 while (condition) {
-  // code block
+  // code block...
 }
 
 // function definition
-function doIfTrue() {
-  // code block
+function foo() {
+  // code block...
 }
 
-// object
-
-myHash = { key: "value" };
-
+// JS object
+let obj = { key: "value" };
 ```
 
-Missing curly braces are the cause of many a stupid error. [Build good habits early.](indentation.md)
+Missing curly braces is a very common mistake! [Build good habits
+early][good-habits].
 
 ## Looping
 
-Use blocks to delineate the code within loops.
+Use blocks to delineate code within loops.
 
 ### `for` Loops
 
@@ -80,12 +84,13 @@ for (let i = 1; i < 10; i++) {
   result.push(i);
 }
 
-result; // [1,2,4,5,7,8]
+console.log(result); // [1, 2, 4, 5, 7, 8]
 ```
 
 #### `break`
 
 Exits the loop.
+
 ```js
 let result = [];
 for (let i = 1; i < 10; i++) {
@@ -95,11 +100,10 @@ for (let i = 1; i < 10; i++) {
   result.push(i);
 }
 
-result; // [1,2]
+console.log(result); // [1, 2]
 ```
 
-
-## `switch` statements
+## `switch` Statements
 
 ```js
 switch (expression) {
@@ -114,69 +118,88 @@ switch (expression) {
 }
 ```
 
-## Function declarations
+## JS Functions
+
+### Declarations
 
 There are multiple ways to declare a function in Javascript.
 
-**Function-style**
+#### Function-style
 ```js
-function nameOfFunction(arg1, arg2, arg3, argN) {
-  //code block
+function functionName(arg1, arg2, arg3, argN) {
+  // code block...
 }
 ```
-**Expression-style**
+
+#### Expression-style
 ```js
-const nameOfFunction = function(arg1, arg2, arg3, argN) {
-  //code block
+const functionName = function(arg1, arg2, arg3, argN) {
+  // code block...
 };
 ```
-**Fat Arrow-style (ES6)**
+#### Fat Arrow-style (ES6)
 ```js
-const nameOfFunction = (arg1, arg2, arg3, argN) => {
-  // code block
+const functionName = (arg1, arg2, arg3, argN) => {
+  // code block...
 };
 ```
 
-## Invoking functions with `( )`
+### Invoking functions with `()`
 
-Functions are called a bit differently in JavaScript than in Ruby. In Ruby, after a function is declared, it is **invoked** every time it is referenced:
+Functions are called a bit differently in JavaScript than in Ruby. In Ruby,
+after a function is declared, it is invoked (ie. _called_) every time it is referenced:
 
 ```ruby
-  def return_hello
-    "hello"
-  end
+def ret_hello
+  "hello"
+end
 
-  return_hello #=> "hello"
+ret_hello #=> "hello"
 ```
 
-In Javascript, referencing the function name by itself will only return a pointer to the function; to execute it, you must invoke the function **with arguments**. If no arguments are required, this looks like `()` appended to the function name.
+In Javascript, referencing the function name by itself will only return a
+pointer to the function; to execute it, you must invoke the function **with
+arguments**. If no arguments are required, this looks like `()` appended to the
+function name.
 
 ```javascript
-  function returnHello() {
-    return "hello";
-  }
+// function with 0 arguments
+function retHello() {
+  return "hello";
+}
 
-  returnHello; //=> [Function: ReturnHello]
-               // (a pointer to the function)
+returnHello; //=> [Function: retHello]
+returnHello(); //=> "hello"
+```
 
-  returnHello(); //=> "hello"
+```js
+// function with 2 arguments
+function sum(n1, n2) {
+  return n1 + n2;
+}
+
+sum; //=> [Function: sum]
+sum(10, 20); //=> 30
 ```
 
 ### No Implicit Returns
 
-In JavaScript, **there is usually no implicit `return`**.
+In JavaScript, **functions usually do not have implicit `return`s**.
 
 ```javascript
-function returnHi() {
+function retHi() {
   "hi";
 }
 
-returnHi(); // undefined
+retHi(); // undefined
 ```
 
 **Exception:** single-line fat-arrow functions.
-```js
-returnHi = () => "hi";
 
-returnHi(); // "hi"
+```js
+retHi = () => "hi";
+
+retHi(); // "hi"
 ```
+
+[good-habits]: ./indentation.md

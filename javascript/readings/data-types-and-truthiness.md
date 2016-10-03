@@ -31,7 +31,7 @@ end
 In Javascript, zeros, empty strings, `undefined`, `null`, and `NaN` are all considered falsey values. Everything else is true.
 
 ```javascript
-if(0) {
+if (0 || "" || undefined || null || NaN) {
   console.log('In JavaScript, this will not print.')
 }
 
