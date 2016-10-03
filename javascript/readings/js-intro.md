@@ -6,12 +6,12 @@ Welcome to JavaScript!
 
 JavaScript runs in 2 main environments:
 + the browser;
-+ and Node, a server-side JavaScript framework.
++ and server-side.
 
-We'll start out in the Node environment in order to focus on Javascript basics
-and work our way up to browser Javascript later.
+We'll start out using [Node](#node), a server-side JavaScript framework in order
+to focus on Javascript basics and work our way up to browser Javascript later.
 
-## Service-Side JS
+## Server-Side JS
 
 JavaScript's genesis comes from the browser; it was designed by Netscape to add
 dynamic code inside Netscape Navigator. JavaScript code was traditionally run by
@@ -25,8 +25,9 @@ language that can make it frustrating for general use.
 
 In recent years, there has been interest in bringing JavaScript to the server.
 [Node.js][node-js] is a server-side JavaScript framework which allows
-programmers to run JavaScript from their terminals. Our first JS programs won't
-feature the web browser at all; they'll be a repeat of our first Ruby scripts.
+programmers like us to run JavaScript from their terminals. Our first JS
+programs won't feature the web browser at all; they'll be a repeat of our first
+Ruby scripts.
 
 ## Node
 
@@ -46,6 +47,8 @@ This gives us access to the node REPL:
 Hello student!
 undefined
 ```
+
+Try it!
 
 As part of the `brew install node` process, Homebrew will also install the
 [node package manager][npm]. This is like RubyGems, except it's used to download
@@ -81,9 +84,7 @@ The greatest of ease!
 The greatest of ease!
 ```
 
-**NB**: Set up Node before reading further! you'll need it for the examples.
-
-Got it working? Congratulations! Time to learn JavaScript.
+**NB: Set up Node before reading further! You'll need it for the examples.**
 
 [node]:
 [server-side-javascript]:./server-side-javascript.md
@@ -101,11 +102,14 @@ adopted across most browsers, but a number of environments still lag behind
 ([see this compatibility table][compatibility-table]).
 
 When using Javascript features, consider whether they are compatible with the
-environments you need. Features that are new to ES6 have been clearly indicated
-in this reading and in the MDN Documentation (example: [documentation for
-`indexOf`][index-of] - scroll down to the 'specifications' section for info on
-which ECMAScript versions the feature is compatible with. In this case, the
-feature `indexOf` is ES5 and ES6 compatible.)
+environments you need. Features that are new to ES6 are clearly indicated in the
+compatibility table. In addition, you can look up features and their
+compatibility using MDN's JavaScript Documentation. For example, check out the
+[documentation for `Array.prototype.indexOf` documentation][index-of]. Scroll
+down to the 'Specifications' section for information on which ECMAScript
+versions the feature is compatible with. In this case, the feature `indexOf` is
+ES5 and ES6 compatible. However, another feature
+[`Array.prototype.includes`][includes] is ES6 compatible only.
 
 When we need maximum compatibility, such as for a web page to be served through
 various browsers, we can use tools called **transpilers** to translate our ES6
@@ -113,6 +117,7 @@ back to the more universal ES5. We'll learn more about transpilers (in particula
 
 [compatibility-table]: http://kangax.github.io/compat-table/es6/
 [index-of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+[includes]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 
 ### Using Node's In-Progress and Staged Features
 
