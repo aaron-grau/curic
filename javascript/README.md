@@ -20,15 +20,16 @@
 * [Data Types and Truthiness][data-types] (5 min)
 * [Variables][variables] (15 min)
 * [Objects][objects-and-primitives] (10 min)
-* [Arguments][arguments] (15 min)
-* [Debugging Node.js][debugging-node] (10 min)
 * [Functions][functions-js] (10 min)
 * [Function invocation, briefly][function-invocation-briefly] (5 min)
+* [Arguments][arguments] (15 min)
 * [`this` and that][this-and-that] (10 min)
 * [Arrow functions][arrows] (15 min)
 * [Object-oriented JavaScript][oo-js] (15 min)
 * [Closures and Scope][closures] (10 min)
+
 * [Linting JavaScript][linting-js] (10 min)
+* [Debugging Node.js][debugging-node] (10 min)
 
 [intro-js]: readings/js-intro.md
 [data-types]: readings/data-types-and-truthiness.md

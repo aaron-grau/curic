@@ -1,5 +1,7 @@
 # JavaScript Objects
 
+## JS Data Types
+
 Recall the different data types in JavaScript:
 * 5 Primitive Types:
   * Numbers
