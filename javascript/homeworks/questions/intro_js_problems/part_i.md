@@ -66,25 +66,6 @@ For example,
 "We shall MAKE the BEST GUAC."
 ```
 
-<<<<<<< 00109217755042d80d760e56b0e51d4146f8b0a3
-=======
-### `isOdd`
-**Input:** A Number.
-
-**Output:** A Boolean. `true` if the number is odd, otherwise `false`
-
-```javascript
-> isOdd(2)
-false
-
-> isOdd(5)
-true
-
-> isOdd(-17)
-true
-```
-
->>>>>>> slim w5d3 hw
 ### `isSubstring`
 **Input**
 * 1) A String, called `searchString`.

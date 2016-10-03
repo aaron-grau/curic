@@ -44,7 +44,6 @@
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
 
-<<<<<<< 00109217755042d80d760e56b0e51d4146f8b0a3
 [intro-pset]: homeworks/questions/intro_js_problems
 [effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
@@ -71,46 +70,6 @@
 ### Projects
 * [Intro. JavaScript Exercises][intro-javascript-problems]
 * [Reversi][reversi]
-=======
-### Additional Resources
-* [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
-* [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] - just the first chapter. Another great intro reading.
-* [MDN Guide][mdn-guide] - another great guide from MDN
-* [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
-* [Style Guide][airbnb-style] - AirBnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
-
-### Projects
-* [Intro. JavaScript Exercises][intro-javascript-problems]
-* **Bonus**: [Reversi][reversi]
-
-[node-01-vid]: https://vimeo.com/groups/appacademy/videos/88022112
-[oo-js-intro]: https://vimeo.com/169806088
-[oo-js-demo]: https://vimeo.com/169804475
-[callbacks-video]: https://vimeo.com/169898573
-
-[intro-js]: readings/js-intro.md
-[server-side-js]: readings/server-side-javascript.md
-[syntax]: readings/syntax.md
-[data-types]: readings/data-types-and-truthiness.md
-[useful-methods]: readings/useful-methods.md
-[variables]: readings/variables.md
-[debugging-node]: readings/debugging-node.md
-[objects-and-primitives]: readings/objects-and-primitives.md
-[oo-js-hw]: homeworks/questions/oo_js.md
-[functions-js]: readings/functions-js.md
-[arrows]: readings/fat-arrows.md
-[linting-js]: readings/linting-js.md
-[oo-js]: readings/object-oriented-js.md
-[function-invocation-briefly]: readings/function-invocation-briefly.md
-[closures]: readings/closures.md
-
-[intro-pset]: homeworks/questions/intro_js_problems
-
-[codecademy-js]: http://www.codecademy.com/tracks/javascript
-[mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
-[mdn-js-doc]: readings/mdn-js.md
-[jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
->>>>>>> slim w5d3 hw
 
 [intro-javascript-problems]: projects/intro_js_exercises
 [reversi]: projects/js_reversi
@@ -128,7 +87,6 @@
 * [Linting for JavaScript][linting-js] (10 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
-<<<<<<< 00109217755042d80d760e56b0e51d4146f8b0a3
 [arguments]: readings/arguments.md
 [function-invocation-in-depth]: readings/function-invocation-in-depth.md
 [intro-to-callbacks]: readings/intro-to-callbacks.md
@@ -141,16 +99,6 @@
 ### Homeworks (95 min)
 * [CSS Curriculum Day 1][css-day-1] (30 min)
 * [CSS Curriculum Day 2][css-day-2] (35 min)
-=======
-<<<<<<< 3695a2ae1f33c0acb758e5519da3afe6a916d08e
-### Homeworks (65 min)
-* [CSS Curriculum Day 2][css-day2] (55 min)
-=======
-### Homeworks (95 min)
-* [CSS Curriculum Day 1][css-day-1] (30 min)
-* [CSS Curriculum Day 2][css-day-2] (35 min)
->>>>>>> slim w5d3 hw
->>>>>>> slim w5d3 hw
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 [cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
@@ -211,15 +159,7 @@
 * [Webpack Tutorial][webpack] (20 min)
   * Complete up to 'The First Loader'
 
-<<<<<<< 00109217755042d80d760e56b0e51d4146f8b0a3
 [webpack]: https://webpack.github.io/docs/tutorials/getting-started
-=======
-### Homeworks (115 min)
-* [CSS Curriculum Day 3][css-day-3] (40 min)
-* [CSS Curriculum Day 4][css-day-4] (55 min)
-* [Webpack tutorial][webpack] (20 min)
-  * complete up to 'The First Loader'
->>>>>>> slim w5d3 hw
 
 ### Additional Resources
 * [Github Pages][github-pages]
@@ -297,15 +237,9 @@
 
 ## w6d2
 
-<<<<<<< 00109217755042d80d760e56b0e51d4146f8b0a3
 ### Homeworks (235)
 * [CSS Curriculum Day 5][css-day-5] (85 min)
 * [CSS Curriculum Day 6][css-day-6] (90 min)
-=======
-### Homeworks (235 min)
-* [CSS Curriculum Day 5][css-day5] (85 min)
-* [CSS Curriculum Day 6][css-day6] (90 min)
->>>>>>> slim w5d3 hw
 * [CSS Warm Up][css-warmup] (60 min)
 
 ### Additional Resources
@@ -398,11 +332,6 @@
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md
 
-<<<<<<< 00109217755042d80d760e56b0e51d4146f8b0a3
-=======
-[effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
-
->>>>>>> slim w5d3 hw
 [css-day-1]: ../html-css/README.md#css-intro-workflow--day-1
 [css-day-2]: ../html-css/README.md#day-2-syntax
 [css-day-3]: ../html-css/README.md#day-3-reset--advanced-selectors

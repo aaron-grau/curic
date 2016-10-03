@@ -26,9 +26,9 @@
 + [Callbacks][callbacks]
 + [Delegation][delegation]
 
-### Homeworks (2 hr 5 min)
+### Homeworks (2 hr)
 * [Library Controller][library-hw] (45 min)
-* Complete days 1 & 2 of [HTML Curriculum][html-readme] (80 min)
+* Complete days 1 & 2 of [HTML Curriculum][html-readme] (75 min)
 
 ### Additional Resources
 + [Routing I: Basics][routing-i]
@@ -80,7 +80,7 @@
 * [Debugging][debugging-rails] (10 min)
 
 ### Homeworks (30 min)
-* Complete day 3 of [HTML Curriculum][html-readme-3] (30 min)
+* Complete day 3 of [HTML Curriculum][html-readme] (30 min)
 
 ### Additional Resources
 * [Easy Forms Demo][easy-forms-demo]
@@ -88,7 +88,6 @@
 ### Projects
 * [99 Cats][99-cats]
 
-[html-readme-3]: ../html-css/README.md#day-3-forms
 [html]: homeworks/html.md
 [basic-views]: readings/basic-views.md
 [erb]: readings/erb.md
@@ -125,7 +124,7 @@
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
 ### Homeworks (60 min)
-* Complete day 4 of [HTML Curriculum][html-readme-4] (30 min)
+* Complete day 4 of [HTML Curriculum][html-readme] (30 min)
 * [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources
@@ -139,7 +138,6 @@
 ### Project
 * [99 Cats II: Auth][99-cats-part-ii]
 
-[html-readme-4]: ../html-css/README.md#day-4-head-section
 [controllers-and-state]: readings/controllers-and-state.md
 [csrf-and-forms]: readings/csrf.md
 [cookies]: readings/cookies.md
@@ -202,7 +200,6 @@
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
 [layout-video]: https://vimeo.com/168822741
 [action-mailer-video]: https://vimeo.com/168810895
-[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [music-app-project]: projects/music_app
 
@@ -262,15 +259,15 @@
 
 ### Homeworks (60 min)
 * [Capybara][capybara-hw] (45 min)
-* [Implicit Bias Test][bias-quiz] (15 min)
-  * Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion event tomorrow
++ [Implicit Bias Test][bias-quiz] (15 min)
+  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
 
 ### Additional Resources
 * [Spring and Guard Setup][spring-guard]
 
 ### Projects
 * [Goal App][goaling-app]
-* **Bonus**: [Appacademy.io tests][appacademyio-tests]
+* **Bonus**: [Appacademy.io Tests][appacademyio-tests]
 
 [integration-testing]: readings/integration-testing.md
 [rspec-setup]: readings/rspec-and-rails-setup.md
@@ -281,6 +278,7 @@
 [spring-guard]: readings/guard-spring-setup.md
 
 [capybara-hw]: homeworks/questions/capybara.md
+[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [goaling-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
@@ -290,69 +288,41 @@
 ### Assessment04
 * [Practice][assessment-prep-4]
 
-### Video lectures (42 min)
+### Video Lectures (60 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera: Rails Lite Intro](https://vimeo.com/161381457) (4 min)
 * [:movie_camera: HTTP](https://vimeo.com/161381484) (12 min)
 * [:movie_camera: HTTP Demo](https://vimeo.com/161381489) (4 min)
 * [:movie_camera: Rails from the Inside Out](https://vimeo.com/161381601) (13 min)
-* [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
+* [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
+* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
+	* [:computer: demo code][middleware-demo] (22 min)
 
 ### Homeworks (45 min)
 * Complete [RegexOne][regex-link] (45 min)
 
 ### Additional Resources
-* [HTTP][http]
-* [Rack][rack]
+* [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
+* [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
+* [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
 * [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 * [:movie_camera: (cc) 00-webserver][00-webserver] (16 min)
 * [:movie_camera: (cc) 01-protocols][01-protocols] (14 min)
   * old news at this point; recommended speed >= 2x
 * [:movie_camera: (cc) 02-http][02-http] (43 min)
+* [Middleware][middleware]
+* [HTTP][http]
+* [Rack][rack]
 
-### Solo Projects
+### Solo Project
 * [Rails Lite][rails-lite]
-* [Rails Lite II][rails-lite-ii]
 
+[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [http]: readings/http.md
 [rack]: readings/rack.md
 [regex-link]: http://regexone.com/
 [00-webserver]: http://vimeo.com/groups/appacademy/videos/100169899
 [01-protocols]: http://vimeo.com/groups/appacademy/videos/100169898
 [02-http]: http://vimeo.com/groups/appacademy/videos/100267302
-[rails-lite]: projects/rails_lite
-[rails-lite-ii]: projects/rails_lite/rails-lite-ii.md
-
-## w5d3
-
-### Study Hall 9 - 10am
-
-### Breakfast
-* :joy_cat: **Bagels @ 8:30am** :joy_cat:
-
-### Video lectures (65 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
-* [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
-* [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
-* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
-	* [:computer: demo code][middleware-demo] (22 min)
-* [:movie_camera: Watch W5D3 Javascript Video Lectures][js-videos] (12 min)
-
-### Readings (70 min)
-* Complete [Javascript W5D3 Readings][js-readings] (70 min)
-
-### Homeworks (30 min)
-* Complete [Javascript W5D3 Homework][js-hw] (30 min)
-
-### Additional Resources
-* [Middleware][middleware]
-
-### Projects
-* **Solo**: Finish ActiveRecordLite and RailsLite.
-
-[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [middleware]: readings/middleware.md
-[js-videos]: ../javascript#video-lectures-12-min
-[js-readings]: ../javascript#readings-70-min
-[js-hw]: ../javascript#homeworks-30-min
+[rails-lite]: projects/rails_lite
