@@ -1,47 +1,45 @@
 # Arguments in Javascript
 
-Arguments in JS behave differently than they do in other languages.
-Namely, JavaScript functions will happily take fewer arguments than
-specified (in which case the unspecified arguments have value
-`undefined`), or extra arguments (they will be available in a special
-`arguments` array-like object).
+Arguments in JS behave differently than they do in other languages. Namely,
+JavaScript functions will happily take fewer arguments than specified (in which
+case the unspecified arguments have value `undefined`), or extra arguments (they
+will be available in a special `arguments` array-like object).
 
 ## Fewer Arguments
 
-JS functions can take fewer arguments than expected. In that
-case, unspecified arguments have the value `undefined`.
+JS functions can take fewer arguments than expected. In that case, unspecified
+arguments have the value `undefined`.
 
 ```javascript
-function id(arg) {
+function foo(arg) {
   return arg;
 }
 
-id(5); // => 5
-id(); // => undefined
+foo(5); // => 5
+foo(); // => undefined
 ```
 
-Occasionally this can be annoying to debug if you expect a function to
-throw an error when it doesn't receive as many arguments as it
-requires to return the correct output. Always keep in mind that a
-function will still run even if it has been passed no arguments at
-all.
+Occasionally this can be annoying to debug if you expect a function to throw an
+error when it doesn't receive as many arguments as it requires to return the
+correct output. Always keep in mind that a function will still run even if it
+has been passed no arguments at all.
 
 ## More Arguments
 
-JS functions will also accept more arguments than are asked for. You
-have access to all of the arguments through a special array called
-`arguments`. `arguments` is set each time you
-call a function. It contains the values of all the arguments: ones
-that were anticipated in the function definition, plus the extras.
+JS functions will also accept more arguments than are asked for. You have access
+to all of the arguments through a special array called `arguments`. `arguments`
+is set each time you call a function. It contains the values of all the
+arguments: ones that were anticipated in the function definition, plus the
+extras.
 
 ```javascript
 function logArguments(arg1, arg2) {
   let result = [];
-  
+
   for (let i = 0; i < arguments.length; i++) {
     result.push(arguments[i]);
   }
-  
+
   return result
 }
 
@@ -56,12 +54,11 @@ has a `length` property. This is infuriating: we can't use any of our favorite
 ```javascript
 function thisBreaks() {
   arguments instanceof Array; // false
-  arguments.forEach((arg => console.log(arg)); 
-  // TypeError: arguments.forEach is not a function
+  arguments.forEach((arg => console.log(arg)); // TypeError: arguments.forEach is not a function
 }
 ```
 
-We can, however, use `Array.prototype.slice` to create a copy of `arguments` 
+We can, however, use `Array.prototype.slice` to create a copy of `arguments`
 that is an array by `call`ing it on `arguments`:
 
 ```javascript
@@ -93,14 +90,14 @@ function thisWorksToo() {
 ## Rest Parameters
 
 ES6 also introduces another way to handle arguments that deprecates the need to
-coerce `arguments` at all:  the `...` operator (Rest Operator). `...` works 
-just like Ruby's splat operator (`*`) and can be used to capture all a function's arguments 
+coerce `arguments` at all:  the `...` operator (Rest Operator). `...` works
+just like Ruby's splat operator (`*`) and can be used to capture all a function's arguments
 into an actual array.
 
 The differences between `arguments` and Rest Parameters are:
 
-* a) Rest Parameters only grab un-named arguments. 
-* b) Rest Parameters give us back a real array, so we can use methods like `forEach`, `pop` and `sort`. 
+* a) Rest Parameters only grab un-named arguments.
+* b) Rest Parameters give us back a real array, so we can use methods like `forEach`, `pop` and `sort`.
 
 Let's write a quick example method that will start by logging the first
 argument, followed by a list of the remaining arguments.
@@ -129,15 +126,15 @@ function restWay(firstArg, ...otherArgs) {
 }
 ```
 
-Rest arguments are often simpler to use than the old `arguments` keyword and 
-are stylistically preferred by companies that have adopted ES6. However, for 
+Rest arguments are often simpler to use than the old `arguments` keyword and
+are stylistically preferred by companies that have adopted ES6. However, for
 the sake of interviews and for understanding JavaScript, it is important to
 understand both forms of grabbing arguments.
 
 ### Spread Parameters
 
-ES6 also allows us to use Spread Parameters, which is the Ruby splat for 
-de-structuring parameters. We can now pass an array into a function with the `...` 
+ES6 also allows us to use Spread Parameters, which is the Ruby splat for
+de-structuring parameters. We can now pass an array into a function with the `...`
 as shown below:
 
 ```javascript
@@ -160,7 +157,7 @@ myFunction(1, ...args, 4, ...[5]); // v = 1, w = 2, x = 3, y = 4, z = 5
 
 ### Default Values
 
-Default values are new to ES6. We can now set default values in a way similar 
+Default values are new to ES6. We can now set default values in a way similar
 to Ruby.
 
 ```javascript

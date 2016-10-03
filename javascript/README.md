@@ -18,7 +18,7 @@
 ### Readings (155 min)
 * [Intro. to JavaScript][intro-js] (5 min)
 * [Data Types and Truthiness][data-types] (5 min)
-* [Variables][variables] (10 min)
+* [Variables][variables] (15 min)
 * [Arguments][arguments] (15 min)
 * [Debugging Node.js][debugging-node] (10 min)
 * [Objects and Primitives][objects-and-primitives] (10 min)
