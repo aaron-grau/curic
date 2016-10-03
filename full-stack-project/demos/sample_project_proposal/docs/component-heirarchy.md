@@ -1,4 +1,4 @@
-## Component Heirarchy
+## Component Hierarchy
 
 **AuthFormContainer**
  - AuthForm
