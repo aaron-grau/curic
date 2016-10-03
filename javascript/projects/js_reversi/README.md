@@ -24,6 +24,7 @@ Read the entirety of the project description before starting!
 * Begin writing a run-loop.
 * `Game` should be modified to support `HumanPlayer`s and `AIPlayer`s.
 
+---
 
 **NB**: This project uses the node's [module pattern][module-pattern] to import and export classes. We'll read more on that tonight. For now all you need to know is that node uses `require` to allow one JS file to load a second JS file. For example,
 
@@ -49,3 +50,5 @@ module.exports = Piece;
 `module` is a pre-defined variable set up by Node, and its `exports` property is
 returned whenever we `require` it from another file. File dependencies for this
 project are already setup for you.
+
+[module-pattern]: ../../readings/module-pattern.md
