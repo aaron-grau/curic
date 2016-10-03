@@ -93,7 +93,7 @@ function thisWorksToo() {
 }
 ```
 
-## Rest Parameters
+## Rest Parameters (ES6+)
 
 ES6 also introduces another way to handle arguments that deprecates the need to
 coerce `arguments` at all:  the `...` operator (Rest Operator). `...` works just
