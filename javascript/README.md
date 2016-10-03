@@ -7,11 +7,11 @@
 
 ### Study Hall 9-10am
 
-### Video Lectures (64 min)
+### Video Lectures (55 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Intro. to JS][intro-js-video] (12 min)
 * :movie_camera: [Object-Oriented JS: Intro][oo-js-intro] (15 min)
-* :movie_camera: [Object-Oriented JS: Demo][oo-js-demo] (7 min)
+* :movie_camera: [Object-Oriented JS: Demo][oo-js-demo] (8 min)
 * :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
 
 [intro-js-video]: https://vimeo.com/169645510
@@ -19,31 +19,27 @@
 [oo-js-demo]: https://vimeo.com/169804475
 [callbacks-video]: https://vimeo.com/169898573
 
-### Readings (130 min)
+### Readings (115 min)
 * [Intro. to JavaScript][intro-js] (10 min)
 * [Syntax and Useful Methods][syntax] (10 min)
 * [Data Types and Truthiness][data-types] (5 min)
 * [Variables][variables] (15 min)
-* [Objects][objects-and-primitives] (10 min)
-* [Functions][functions-js] (15 min)intro
-* [Function Invocation, briefly][function-invocation-briefly] (5 min)
+* [Objects][objects-js] (10 min)
+* [Functions][functions-js] (15 min)
 * [Arguments][arguments] (15 min)
 * [Closures and Scope][closures] (10 min)
 * [`this` and that][this-and-that] (10 min)
-* [Arrow Functions][arrows] (15 min)
+* [Arrow Functions][fat-arrows] (15 min)
 
 [intro-js]: readings/js-intro.md
 [data-types]: readings/data-types-and-truthiness.md
 [syntax]: readings/syntax.md
 [useful-methods]: readings/useful-methods.md
 [variables]: readings/variables.md
-[objects-and-primitives]: readings/objects-and-primitives.md
+[objects-js]: readings/objects-js.md
 [this-and-that]: readings/this-and-that.md
-[oo-js-hw]: homeworks/questions/oo_js.md
 [functions-js]: readings/functions-js.md
-[arrows]: readings/fat-arrows.md
-[oo-js]: readings/object-oriented-js.md
-[function-invocation-briefly]: readings/function-invocation-briefly.md
+[fat-arrows]: readings/fat-arrows.md
 [closures]: readings/closures.md
 
 ### Homeworks (45 min)
@@ -56,6 +52,7 @@
 
 ### Additional Resources
 * [Object-oriented JavaScript][oo-js]
+* [Function Invocation, briefly][function-invocation-briefly] (5 min)
 + Quick References  
   * [Syntax and Useful Methods][syntax]
   + [Writing Clean Code][indentation]
@@ -77,6 +74,8 @@
 
 [intro-pset]: homeworks/questions/intro_js_problems
 
+[oo-js]: readings/object-oriented-js.md
+[function-invocation-briefly]: readings/function-invocation-briefly.md
 [codecademy-js]: http://www.codecademy.com/tracks/javascript
 [mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 [mdn-js-doc]: readings/mdn-js.md

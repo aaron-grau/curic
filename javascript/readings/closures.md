@@ -24,6 +24,7 @@ function sayHelloNTimes(name, n) {
 sayHelloNTimes("Bob", 3); // logs 'Hi, Bob!' x3
 sayHelloNTimes("Sally", 6); // logs 'Hi, Sally!' x6
 ```
+
 In the example above, the variable `name` is referenced by `greet`, even though it was never declared within `greet`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.**
 
 Functions such as `greet` that capture (a.k.a. use) such variables (a.k.a. _free variables_) are called **closures**.
