@@ -1,23 +1,90 @@
 # JavaScript Functions
 Functions in JavaScript are just a special type of JS objects. In other words, you can do anything to a function that you can do to an object.
 
-## Assigning a function to a variable
+## Declaring functions
 
-```javascript
-var fun = function (name) {
-  console.log(`Hi ${name}!`);
-};
-```
+There are multiple ways to declare a function and assign it to a variable in Javascript.
 
-Short-hand assignment:
+**Function-style**:
 ```js
-function fun(name) {
- // ...
+function functionName(arg1, arg2, arg3, argN) {
+  // code block...
 }
 ```
 
-**NB**: There is a slight functional difference to how the two assignments, but
-we'll get to that later.
+**Expression-style**:
+```js
+const functionName = function (arg1, arg2, arg3, argN) {
+  // code block...
+};
+```
+
+**Fat Arrow-style (ES6+)**:
+```js
+const functionName = (arg1, arg2, arg3, argN) => {
+  // code block...
+};
+```
+
+**NB**: There is a slight functional difference between function-style and expression-style function declarations , but we'll get to that later.
+
+### Invoking functions with `()`
+
+Functions are called a bit differently in JavaScript than in Ruby. In Ruby,
+after a function is declared, it is invoked (ie. _called_) every time it is referenced:
+
+```ruby
+def ret_hello
+  "hello"
+end
+
+ret_hello #=> "hello"
+```
+
+In Javascript, referencing the function name by itself will only return a
+pointer to the function; to execute it, you must invoke the function **with
+arguments**. If no arguments are required, this looks like `()` appended to the
+function name.
+
+```javascript
+// function with 0 arguments
+function retHello() {
+  return "hello";
+}
+
+returnHello; //=> [Function: retHello]
+returnHello(); //=> "hello"
+```
+
+```js
+// function with 2 arguments
+function sum(n1, n2) {
+  return n1 + n2;
+}
+
+sum; //=> [Function: sum]
+sum(10, 20); //=> 30
+```
+
+### No implicit returns
+
+In JavaScript, **functions usually do not have implicit `return`s**.
+
+```javascript
+function retHi() {
+  "hi";
+}
+
+retHi(); // undefined
+```
+
+**Exception:** single-line fat-arrow functions.
+
+```js
+retHi = () => "hi";
+
+retHi(); // "hi"
+```
 
 ## Assigning properties to a function
 

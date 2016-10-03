@@ -118,88 +118,84 @@ switch (expression) {
 }
 ```
 
-## JS Functions
+# Useful Methods
 
-### Declarations
+You'll notice that many of these operators are very similar to Ruby! Give them a try in Node.
 
-There are multiple ways to declare a function in Javascript.
+## `console.log`
 
-#### Function-style
-```js
-function functionName(arg1, arg2, arg3, argN) {
-  // code block...
-}
-```
-
-#### Expression-style
-```js
-const functionName = function(arg1, arg2, arg3, argN) {
-  // code block...
-};
-```
-#### Fat Arrow-style (ES6)
-```js
-const functionName = (arg1, arg2, arg3, argN) => {
-  // code block...
-};
-```
-
-### Invoking functions with `()`
-
-Functions are called a bit differently in JavaScript than in Ruby. In Ruby,
-after a function is declared, it is invoked (ie. _called_) every time it is referenced:
-
-```ruby
-def ret_hello
-  "hello"
-end
-
-ret_hello #=> "hello"
-```
-
-In Javascript, referencing the function name by itself will only return a
-pointer to the function; to execute it, you must invoke the function **with
-arguments**. If no arguments are required, this looks like `()` appended to the
-function name.
+This is similar to `puts` in Ruby.
 
 ```javascript
-// function with 0 arguments
-function retHello() {
-  return "hello";
-}
-
-returnHello; //=> [Function: retHello]
-returnHello(); //=> "hello"
+> console.log('hello')
+hello
 ```
 
-```js
-// function with 2 arguments
-function sum(n1, n2) {
-  return n1 + n2;
-}
-
-sum; //=> [Function: sum]
-sum(10, 20); //=> 30
-```
-
-### No Implicit Returns
-
-In JavaScript, **functions usually do not have implicit `return`s**.
+## Comments in JS
 
 ```javascript
-function retHi() {
-  "hi";
-}
+// this is a javascript in-line comment
 
-retHi(); // undefined
+/*
+  this is
+  a javascript
+  comment block
+*/
 ```
 
-**Exception:** single-line fat-arrow functions.
+## Mathematical Operators
 
-```js
-retHi = () => "hi";
+* `+`
+* `-`
+* `*`
+* `/`
+* `%`
 
-retHi(); // "hi"
-```
+## Comparison Operators
 
+* `>`
+* `<`
+* `>=`
+* `<=`
+* `===`
+* `!==`
+
+__NB:__ Three equals signs? What's that about? There is a double equals operator (`==`)
+in JS as well, but we'll mostly be sticking with `===`. The double equals sign
+does some type conversion which can lead to confusing results. Learn more about
+it in *Effective Javascript*.
+
+## Logical Operators
+
+* `&&`: and
+* `||`: or
+* `!`: not
+
+## String Methods
+
+* `String.prototype.toLowerCase`
+* `String.prototype.toUpperCase`
+* `String.prototype.indexOf`
+* `+`: concatenation
+
+## Array Properties
+
+* `Array.prototype.length`
+
+## Array Methods
+
+* `Array.prototype.pop`
+* `Array.prototype.push`
+* `Array.prototype.unshift`
+* `Array.prototype.shift`
+* `Array.prototype.indexOf`
+  + Similar to `Array#index` in Ruby, but returns `-1` when it does not find an item.
+* `[]`
+  + Index using bracket notation (similar to Ruby).
+* `Array.prototype.slice([start, [end]])`
+  + Makes a copy of an array from the start index up to but not including the end index. Both arguments are optional (the first and last elements are used by default).
+* `Array.includes` (ES6+)
+  + Identical to `Array#include?` in Ruby
+* `Array.isArray`(ES6+):
+  + Class method that accepts one argument and returns a boolean representing whether it is an `Array`.
 [good-habits]: ./indentation.md

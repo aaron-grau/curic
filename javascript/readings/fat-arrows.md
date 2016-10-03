@@ -1,6 +1,6 @@
 # Arrow Functions
 
-Arrow functions, a.k.a. Fat Arrows, are a way of declaring functions. They were introduced in ES2015 as a way of solving many of the inconveniences of the normal callback function syntax. Consider the following example: 
+Arrow functions, a.k.a. Fat Arrows, are a way of declaring functions. They were introduced in ES2015 as a way of solving many of the inconveniences of the normal callback function syntax. Consider the following example:
 
 ```javascript
 // normal callback function
@@ -15,6 +15,7 @@ function showEach(array) {
   array.forEach(el => console.log(el));
 }
 ```
+
 Both functions in the example above accomplish the same thing. However, the arrow syntax is shorter and easier to follow.  
 
 ## Anatomy of an Arrow Function
@@ -25,7 +26,7 @@ Both functions in the example above accomplish the same thing. However, the arro
 }
 ```
 
-For single-expression blocks, `{ }` and `return` are implied, and you may omit the `( )` when there is a single argument. 
+For single-expression blocks, `{ }` and `return` are implied, and you may omit the `( )` when there is a single argument.
 ```javascript
 argument => expression; // equal to (argument) => { return expression };
 ```
@@ -36,7 +37,7 @@ Arrow functions aren't just syntactic sugar for normal functions, though. They b
 
 ## Scope
 
-Arrow functions, unlike normal functions, do not create a new scope. In other words, `this` means the same thing inside an arrow function that it does outside of it. Consider the following scenario with a normal function: 
+Arrow functions, unlike normal functions, do not create a new scope. In other words, `this` means the same thing inside an arrow function that it does outside of it. Consider the following scenario with a normal function:
 
 ```javascript
 function Cat(name) {
@@ -45,7 +46,7 @@ function Cat(name) {
 };
 
 Cat.prototype.play = function meow() {
-  this.toys.forEach(function(toy) { 
+  this.toys.forEach(function(toy) {
     console.log(`${this.name} plays with ${toy}`);
   });
 };
@@ -59,7 +60,7 @@ undefined plays with ball
 undefined plays with balloon
 ```
 
-`play` breaks because `this` in `this.name` refers to the scope of the `forEach` method. But if we rewrite `play` using a fat arrow function, it works: 
+`play` breaks because `this` in `this.name` refers to the scope of the `forEach` method. But if we rewrite `play` using a fat arrow function, it works:
 
 ```javascript
 Cat.prototype.play = function meow() {
@@ -68,7 +69,7 @@ Cat.prototype.play = function meow() {
 
 garfield.play();
 
-//output 
+//output
 garfield plays with string
 garfield plays with ball
 garfield plays with balloon
@@ -88,7 +89,7 @@ let halfMyAge = myAge => {
   let age = myAge;
   age / 2;
 }
-  
+
 typeof halfMyAge(30) === "undefined"; // true
 ```
 
@@ -117,7 +118,7 @@ Is `ambiguousFunction` supposed to return an empty object? If so, it's broken be
 typeof ambiguousFunction() === "undefined"; // true
 ```
 
-To make a single-expression fat arrow return an empty object, wrap it in parentheses: 
+To make a single-expression fat arrow return an empty object, wrap it in parentheses:
 
 ```javascript
 clearFunction = () => ({});
@@ -144,7 +145,7 @@ let g = new FatCat("garfield"); // TypeError: FatCat is not a constructor
 
 ### No New `arguments`
 
-Because they don't change scope, fat arrows don't have their own `arguments` object. 
+Because they don't change scope, fat arrows don't have their own `arguments` object.
 
 ```javascript
 const hasArgs = function() {

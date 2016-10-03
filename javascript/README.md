@@ -9,39 +9,35 @@
 
 ### Video Lectures (64 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Intro to JS](https://vimeo.com/169645510) (12 min)
+* :movie_camera: [Intro. to JS](https://vimeo.com/169645510) (12 min)
 * :movie_camera: [node-01-module-exports (cc)][node-01-vid] (10 min)
-* :movie_camera: [Object-Oriented JS: intro][oo-js-intro] (15 min)
-* :movie_camera: [Object-Oriented JS: demo][oo-js-demo] (7 min)
+* :movie_camera: [Object-Oriented JS: Intro][oo-js-intro] (15 min)
+* :movie_camera: [Object-Oriented JS: Demo][oo-js-demo] (7 min)
 * :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
 
-### Readings (155 min)
-* [Intro. to JavaScript][intro-js] (5 min)
+### Readings (130 min)
+* [Intro. to JavaScript][intro-js] (10 min)
+* [Syntax and Useful Methods][syntax] (10 min)
 * [Data Types and Truthiness][data-types] (5 min)
 * [Variables][variables] (15 min)
 * [Objects][objects-and-primitives] (10 min)
-* [Functions][functions-js] (10 min)
-* [Function invocation, briefly][function-invocation-briefly] (5 min)
+* [Functions][functions-js] (15 min)intro
+* [Function Invocation, briefly][function-invocation-briefly] (5 min)
 * [Arguments][arguments] (15 min)
-* [`this` and that][this-and-that] (10 min)
-* [Arrow functions][arrows] (15 min)
-* [Object-oriented JavaScript][oo-js] (15 min)
 * [Closures and Scope][closures] (10 min)
-
-* [Linting JavaScript][linting-js] (10 min)
-* [Debugging Node.js][debugging-node] (10 min)
+* [`this` and that][this-and-that] (10 min)
+* [Arrow Functions][arrows] (15 min)
 
 [intro-js]: readings/js-intro.md
 [data-types]: readings/data-types-and-truthiness.md
 [syntax]: readings/syntax.md
 [useful-methods]: readings/useful-methods.md
 [variables]: readings/variables.md
-[debugging-node]: readings/debugging-node.md
 [objects-and-primitives]: readings/objects-and-primitives.md
+[this-and-that]: readings/this-and-that.md
 [oo-js-hw]: homeworks/questions/oo_js.md
 [functions-js]: readings/functions-js.md
 [arrows]: readings/fat-arrows.md
-[linting-js]: readings/linting-js.md
 [oo-js]: readings/object-oriented-js.md
 [function-invocation-briefly]: readings/function-invocation-briefly.md
 [closures]: readings/closures.md
@@ -52,19 +48,24 @@
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
 
-### Quick References
-* [Syntax][syntax] (10 min)
-* [Useful Methods][useful-methods] (5 min)
-+ [Writing Clean Code][indentation] (5 min)
-
 [indentation]: ./readings/indentation.md
 
 ### Additional Resources
-* [Codecademy JS Curriculum][codecademy-js] - good for a slower, interactive intro.
-* [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] - just the first chapter. Another great intro reading.
-* [MDN Guide][mdn-guide] - another great guide from MDN
-* [MDN Documentation][mdn-js-doc] - JS Documentation. Consult frequently for all of your JavaScript needs.
-* [Style Guide][airbnb-style] - AirBnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one.
+* [Object-oriented JavaScript][oo-js]
++ Quick References  
+  * [Syntax and Useful Methods][syntax]
+  + [Writing Clean Code][indentation]
+* Guides and Documentation
+  * [Codecademy JS Curriculum][codecademy-js]
+    + Good for a slower, interactive intro.
+  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] (Chapter 1)
+    + Another great intro reading.
+  * [MDN Guide][mdn-guide]
+    + Great guide from MDN.
+  * [MDN Documentation][mdn-js-doc]
+    + JS Documentation. Bookmark and consult frequently for all of your JavaScript needs.
+  * [Style Guide][airbnb-style]
+    + AirBnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one and the one a/A uses.
 
 ### Projects
 * [Intro. JavaScript Exercises][intro-javascript-problems]
@@ -87,12 +88,14 @@
 
 ## w5d4
 
-### Readings (65 min)
+### Readings (90 min)
 * [Intro to Callbacks: File I/O][file-io] (15 min)
-* [Function Invocation In Depth][function-invocation-in-depth] (10 min)
+* [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
 * [ES6 class syntax][es6-classes] (5 min)
 * [The Module Pattern][module-pattern] (10 min)
 * [Event Loop Visualization][loupe] (10 min)
+* [Linting JavaScript][linting-js] (10 min)
+* [Debugging Node.js][debugging-node] (15 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
 ### Homeworks (95 min)
@@ -106,31 +109,32 @@
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
 * **Bonus Reading**: [Promises][promises]
-* **Bonus Reading**: [Tagging template literals][taggings]
+* **Bonus Reading**: [Tagging Template Literals][taggings]
 
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
 * [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
 
-[cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
 [file-io]: readings/intro-to-callbacks.md
-[this-and-that]: readings/this-and-that.md
 [function-invocation-in-depth]: readings/function-invocation-in-depth.md
-[module-pattern]: readings/module-pattern.md
-[promises]: readings/promises.md
 [es6-classes]: readings/es6-classes.md
+[module-pattern]: readings/module-pattern.md
+[loupe]: http://latentflip.com/loupe
+[linting-js]: readings/linting-js.md
+[debugging-node]: readings/debugging-node.md
+
+[cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
+
+[crockford-style]: http://javascript.crockford.com/code.html
+[jquery-style]: http://contribute.jquery.org/style-guide/js/
+[airbnb-style]: https://github.com/airbnb/javascript
+[promises]: readings/promises.md
 [taggings]: readings/tagged-templates.md
 
 [hanoi_node]: projects/hanoi_node
 [ttt_node]: projects/ttt_node
 [functions_exercises]: projects/functions_exercises
-
-[loupe]: http://latentflip.com/loupe
-[crockford-style]: http://javascript.crockford.com/code.html
-[jquery-style]: http://contribute.jquery.org/style-guide/js/
-[airbnb-style]: https://github.com/airbnb/javascript
-[loupe]: http://latentflip.com/loupe
 
 ## w5d5
 
