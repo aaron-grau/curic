@@ -26,7 +26,7 @@ FresherNote is a web application inspired by Evernote built using Ruby on Rails 
 * [Sample State][sample-state]
 
 [wireframes]: docs/wireframes
-[components]: docs/component-heirarchy.md
+[components]: docs/component-hierarchy.md
 [redux-structure]: docs/redux-structure.md
 [sample-state]: docs/sample-state.md
 [api-endpoints]: docs/api-endpoints.md

@@ -53,7 +53,7 @@ all the major facets of your development process.
 
 	0. The following files, which should be linked to in the Development README: 
 		- `api-endpoints.md`
-		- `component-heirarchy.md`
+		- `component-hierarchy.md`
 		- `redux-structure.md`
 		- `sample-state.md`
 		- `schema.md`
@@ -95,7 +95,7 @@ completely acceptable). If your writing looks like chicken scratches, try
 
 ### React Components
 
-- `component-heirarchy.md`
+- `component-hierarchy.md`
 
 In addition to the wireframes, you should diagram a tree indicating your
 application's overall component structure. 
