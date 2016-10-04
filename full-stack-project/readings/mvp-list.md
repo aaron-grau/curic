@@ -410,10 +410,11 @@ similar but not identical.
 * **Bonus**: User show page (blog)
 
 #### Untappd
+* Drinks CRUD
 * Checkins / reviews
 * Review feed
-* Friends
 * Profile
+* **Bonus**: Friendships
 * **Bonus**: Search
 * **Bonus**: Venues
 * **Bonus**: Badges
