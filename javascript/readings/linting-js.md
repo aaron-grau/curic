@@ -1,4 +1,4 @@
-# Linting JavaScript
+# Linting for JavaScript
 
 As you're probably discovering, JavaScript syntax can get pretty wild. Thankfully, we have _linters_ to catch syntax errors for us.
 

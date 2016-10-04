@@ -26,7 +26,6 @@
 * [Variables][variables] (15 min)
 * [Objects][objects-js] (10 min)
 * [Functions][functions-js] (15 min)
-* [Arguments][arguments] (15 min)
 * [Closures and Scope][closures] (10 min)
 * [`this` and that][this-and-that] (10 min)
 * [Arrow Functions][fat-arrows] (15 min)
@@ -48,14 +47,12 @@
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
 
-[indentation]: ./readings/indentation.md
-
 ### Additional Resources
-* [Object-oriented JavaScript][oo-js]
+* [Object-Oriented JavaScript][oo-js]
 * [Function Invocation, briefly][function-invocation-briefly] (5 min)
 + Quick References  
   * [Syntax and Useful Methods][syntax]
-  + [Writing Clean Code][indentation]
+
 * Guides and Documentation
   * [Codecademy JS Curriculum][codecademy-js]
     + Good for a slower, interactive intro.
@@ -65,14 +62,6 @@
     + Great guide from MDN.
   * [MDN Documentation][mdn-js-doc]
     + JS Documentation. Bookmark and consult frequently for all of your JavaScript needs.
-  * [Style Guide][airbnb-style]
-    + AirBnB's comprehensive javascript style guide. Not the only valid way to style JavaScript, but certainly a widely used one and the one a/A uses.
-
-### Projects
-* [Intro. JavaScript Exercises][intro-javascript-problems]
-* **Bonus**: [Reversi][reversi]
-
-[intro-pset]: homeworks/questions/intro_js_problems
 
 [oo-js]: readings/object-oriented-js.md
 [function-invocation-briefly]: readings/function-invocation-briefly.md
@@ -81,38 +70,28 @@
 [mdn-js-doc]: readings/mdn-js.md
 [jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 
+### Projects
+* [Intro. JavaScript Exercises][intro-javascript-problems]
+* **Bonus**: [Reversi][reversi]
+
+[intro-pset]: homeworks/questions/intro_js_problems
+
+
+
 [intro-javascript-problems]: projects/intro_js_exercises
 [reversi]: projects/js_reversi
 
 ## w5d4
 
 ### Readings (90 min)
-* [Intro to Callbacks: File I/O][file-io] (15 min)
 * [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
+* [Intro to Callbacks: File I/O][file-io] (15 min)
 * [Event Loop Visualization][loupe] (10 min)
-* [ES6 class syntax][es6-classes] (5 min)
-* [The Module Pattern][module-pattern] (10 min)
-* [Linting JavaScript][linting-js] (10 min)
+* [ES6 Class Syntax][es6-classes] (5 min)
+* [Node Module Pattern][module-pattern] (10 min)
+* [Linting for JavaScript][linting-js] (10 min)
 * [Debugging Node.js][debugging-node] (15 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
-
-### Homeworks (95 min)
-* [CSS Curriculum Day 1][css-day-1] (30 min)
-* [CSS Curriculum Day 2][css-day-2] (35 min)
-* [Callbacks and Function Calls][cb-function-hw] (30 min)
-
-### Additional Resources
-* Style
-  *  [Crockford][crockford-style]
-  *  [jQuery][jquery-style]
-  *  [Air BnB][airbnb-style]
-* **Bonus Reading**: [Promises][promises]
-* **Bonus Reading**: [Tagging Template Literals][taggings]
-
-### Projects
-* [Intro to Callbacks Exercises][functions_exercises]
-* [Towers of Hanoi][hanoi_node]
-* [Tic-Tac-Toe][ttt_node]
 
 [file-io]: readings/intro-to-callbacks.md
 [function-invocation-in-depth]: readings/function-invocation-in-depth.md
@@ -122,80 +101,106 @@
 [linting-js]: readings/linting-js.md
 [debugging-node]: readings/debugging-node.md
 
+### Homeworks (95 min)
+* [CSS Curriculum Day 1][css-day-1] (30 min)
+* [CSS Curriculum Day 2][css-day-2] (35 min)
+* [Callbacks and Function Calls][cb-function-hw] (30 min)
+
 [cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
 
+### Additional Resources
+* Style
+  +  [Writing Clean Code][indentation]
+  *  [Crockford][crockford-style]
+  *  [jQuery][jquery-style]
+  *  [Air BnB][airbnb-style]
+* **Bonus Reading**: [Promises][promises]
+* **Bonus Reading**: [Tagging Template Literals][taggings]
+
+[indentation]: ./readings/indentation.md
 [crockford-style]: http://javascript.crockford.com/code.html
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
 [airbnb-style]: https://github.com/airbnb/javascript
 [promises]: readings/promises.md
 [taggings]: readings/tagged-templates.md
 
+### Projects
+* [Intro to Callbacks Exercises][functions_exercises]
+* [Towers of Hanoi][hanoi_node]
+* [Tic-Tac-Toe][ttt_node]
+
+[functions_exercises]: projects/functions_exercises
 [hanoi_node]: projects/hanoi_node
 [ttt_node]: projects/ttt_node
-[functions_exercises]: projects/functions_exercises
 
 ## w5d5
 
-### Video Lectures (90 min)
+### Video Lectures (80 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
-* :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (18 min)
+* :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (15 min)
 * :movie_camera: [JS in Browser][js-browser-video] (10 min)
-* :movie_camera: [Arguments][arg-video] (10 min)
 * :movie_camera: [Prototype Chain and Inheritance][proto-inherit] (20 min)
 * :movie_camera: [Inheritance Demo][inherit-demo-video]  (20 min)
 
+[chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
+[node-inspector-vid]: http://vimeo.com/groups/appacademy/videos/95551778
+[js-browser-video]: https://vimeo.com/162115224
+[proto-inherit]: https://vimeo.com/162131042
+[inherit-demo-video]: https://vimeo.com/162115223
+
 ### Readings (100 min)
-* [Chrome Dev Tools][chrome-dev-tools] (10 min)
-* [Github Pages][github-pages] (5 min)
-* [Arguments][arguments] (10 min)
+* [Arguments][arguments] (15 min)
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
-* [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
-* Effective JavaScript: Items 18-23, 30 (15 min)
+* [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Modules in the Browser][browser-modules] (15 min)
+* [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
 * **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
     * **Be sure to run and understand this the night before**
+* Effective JavaScript: Items 18-23, 30 (15 min)
+
+[arguments]: readings/arguments.md
+[chrome-dev-tools]: readings/chrome_dev_tools.md
+[prototypal-inheritance]: readings/prototypal-inheritance.md
+[basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
+[canvas-demo]: demos/drunken_circles
+[modules]: readings/browser-modules.md
+
 
 ### Homeworks (115 min)
 * [CSS Curriculum Day 3][css-day-3] (40 min)
 * [CSS Curriculum Day 4][css-day-4] (55 min)
 * [Webpack tutorial][webpack] (20 min)
-  * complete up to 'The First Loader'
+  * Complete up to 'The First Loader'
+
+[webpack]: https://webpack.github.io/docs/tutorials/getting-started
 
 ### Additional Resources
+* [Github Pages][github-pages]
 * [CSS Diner][css-diner]
-* [Asynchronous Client-side Code][asynchronous-js]
-* [Client-side JavaScript][client-side-js]
+* [Asynchronous Client-Side Code][asynchronous-js]
+* [Client-Side JavaScript][client-side-js]
+
+[css-diner]: http://flukeout.github.io/
+[arguments]: readings/arguments.md
+[github-pages]: readings/github_pages.md
+[client-side-js]: readings/client-side-javascript.md
+[browser-modules]: readings/browser-modules.md
+[asynchronous-js]: readings/asynchronous-js.md
 
 ### Projects  
 * [`arguments` exercises][arguments-exercises]
 * [Prototypal Inheritance Exercises][inheritance-exercises]
 * [Asteroids][asteroids-project]
 
-[css-diner]: http://flukeout.github.io/
-[eloquent-javascript]: http://eloquentjavascript.net/
-[chrome-dev-tools]: readings/chrome_dev_tools.md
-[chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
-[node-inspector-vid]: http://vimeo.com/groups/appacademy/videos/95551778
-[github-pages]: readings/github_pages.md
-[css-demos-notes]: ../html-css/demos/css_demos/README.md#brief-notes
-[css-lectures]: ../html-css/demos/css_demos/README.md#lectures
-[proto-inherit]: https://vimeo.com/162131042
-[inherit-demo-video]: https://vimeo.com/162115223
-[arg-video]: https://vimeo.com/162115222
-[js-browser-video]: https://vimeo.com/162115224
-[arguments]: readings/arguments.md
 [arguments-exercises]: projects/arguments_exercises
 [inheritance-exercises]: projects/inherits_exercises
-[prototypal-inheritance]: readings/prototypal-inheritance.md
-[client-side-js]: readings/client-side-javascript.md
-[browser-modules]: readings/browser-modules.md
-[asynchronous-js]: readings/asynchronous-js.md
-[basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
-[webpack]: https://webpack.github.io/docs/tutorials/getting-started
-[canvas-demo]: demos/drunken_circles
 [asteroids-project]: projects/asteroids
-[modules]: readings/browser-modules.md
+
+[eloquent-javascript]: http://eloquentjavascript.net/
+
+[css-demos-notes]: ../html-css/demos/css_demos/README.md#brief-notes
+[css-lectures]: ../html-css/demos/css_demos/README.md#lectures
 
 ## w6d1
 
