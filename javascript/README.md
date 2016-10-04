@@ -76,9 +76,10 @@
 
 ## w5d4
 
-### Readings (90 min)
+### Readings (105 min)
+* [Arguments][arguments] (15 min)
 * [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
-* [Intro to Callbacks: File I/O][file-io] (15 min)
+* [Intro. to Callbacks: File I/O][intro-to-callbacks] (15 min)
 * [Event Loop Visualization][loupe] (10 min)
 * [ES6 Class Syntax][es6-classes] (5 min)
 * [Node Module Pattern][module-pattern] (10 min)
@@ -86,11 +87,12 @@
 * [Debugging Node.js][debugging-node] (15 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
-[file-io]: readings/intro-to-callbacks.md
+[arguments]: readings/arguments.md
 [function-invocation-in-depth]: readings/function-invocation-in-depth.md
+[intro-to-callbacks]: readings/intro-to-callbacks.md
+[loupe]: http://latentflip.com/loupe
 [es6-classes]: readings/es6-classes.md
 [module-pattern]: readings/module-pattern.md
-[loupe]: http://latentflip.com/loupe
 [linting-js]: readings/linting-js.md
 [debugging-node]: readings/debugging-node.md
 
@@ -142,8 +144,7 @@
 [proto-inherit]: https://vimeo.com/162131042
 [inherit-demo-video]: https://vimeo.com/162115223
 
-### Readings (100 min)
-* [Arguments][arguments] (15 min)
+### Readings (85 min)
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
 * [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Modules in the Browser][browser-modules] (15 min)
@@ -152,7 +153,6 @@
     * **Be sure to run and understand this the night before.**
 * Effective JavaScript: Items 18-23, 30 (15 min)
 
-[arguments]: readings/arguments.md
 [chrome-dev-tools]: readings/chrome_dev_tools.md
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
@@ -245,8 +245,8 @@
 ## w6d2
 
 ### Homeworks (2 hr)
-* [CSS Curriculum Day 5][css-day-5] (30 min)
-* [CSS Curriculum Day 6][css-day-6] (30 min)
+* [CSS Curriculum Day 5][css-day-5] (85 min)
+* [CSS Curriculum Day 6][css-day-6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
 ### Additional Resources

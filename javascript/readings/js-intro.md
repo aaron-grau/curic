@@ -105,15 +105,15 @@ When using Javascript features, consider whether they are compatible with the
 environments you need. Features that are new to ES6 are clearly indicated in the
 compatibility table. In addition, you can look up features and their
 compatibility using MDN's JavaScript Documentation. For example, check out the
-[documentation for `Array.prototype.indexOf` documentation][index-of]. Scroll
+[documentation for `Array.prototype.indexOf`][index-of]. Scroll
 down to the 'Specifications' section for information on which ECMAScript
-versions the feature is compatible with. In this case, the feature `indexOf` is
-ES5 and ES6 compatible. However, another feature
-[`Array.prototype.includes`][includes] is ES6 compatible only.
+versions the feature is compatible with. In this case, the `indexOf` is both
+ES5 and ES6 compatible. However, other features like
+[`Array.prototype.includes`][includes] are ES6 compatible only.
 
 When we need maximum compatibility, such as for a web page to be served through
 various browsers, we can use tools called **transpilers** to translate our ES6
-back to the more universal ES5. We'll learn more about transpilers (in particular, **Babel**) later.
+back to the more universal ES5. We'll learn more about transpilers (in particular, Babel) later.
 
 [compatibility-table]: http://kangax.github.io/compat-table/es6/
 [index-of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf

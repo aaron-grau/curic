@@ -4,12 +4,11 @@
 
 The **scope** of a method is the set of variables that are available
 for use within the method. The scope of a function includes:
-  0. the function's arguments
-  0. any local variables declared inside the function
+  0. the function's arguments;
+  0. any local variables declared inside the function;
   0. **any variables that were already declared when the function was defined**.
 
 Consider this example:
-
 
 ```javascript
 function sayHelloNTimes(name, n) {
@@ -21,13 +20,16 @@ function sayHelloNTimes(name, n) {
     greet();
   }
 }
+
 sayHelloNTimes("Bob", 3); // logs 'Hi, Bob!' x3
 sayHelloNTimes("Sally", 6); // logs 'Hi, Sally!' x6
 ```
 
 In the example above, the variable `name` is referenced by `greet`, even though it was never declared within `greet`. This is possible because **a nested function's scope includes variables declared in the scope where the function was nested.**
 
-Functions such as `greet` that capture (a.k.a. use) such variables (a.k.a. _free variables_) are called **closures**.
+## Closures
+
+Functions such as `greet` that use (ie. **capture**) such variables (ie. **free variables**) are called **closures**.
 
 **Free variables can be modified** by closures. Consider this function:
 
@@ -111,17 +113,19 @@ private**. In the first example, there is no way any method beside the closure i
 JavaScript has global scope, represented by the 'window' object in the browser and the 'global' object in Node.js. Adding attributes to these objects makes them available throughout a program.
 
 ```javascript
-function theBest(){
-  window.daRealMVP = 'you';
+function theBest() {
+  window.realMVP = 'you';
 }
 
-theBest();
+theBest(); // initializes realMVP on the global scope
 
-daRealMVP; // 'you'
+window.realMVP; // 'you'
 
-function whoDaBest(){
-  return daRealMVP; // 'you'
+function whoDaBest() {
+  return realMVP; // 'you'
 }
+
+whoDatBest(); // 'you'
 ```
 
 While useful on occasion, global variables are usually best avoided, as they give too much code access to their values, increasing the likelihood of bugs.

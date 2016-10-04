@@ -26,7 +26,7 @@ const functionName = (arg1, arg2, arg3, argN) => {
 };
 ```
 
-**NB**: There is a slight functional difference between function-style and expression-style function declarations , but we'll get to that later. 
+**NB**: There is a slight functional difference between function-style and expression-style function declarations , but we'll get to that later.
 
 ### Invoking functions with `()`
 
@@ -52,8 +52,8 @@ function retHello() {
   return "hello";
 }
 
-returnHello; //=> [Function: retHello]
-returnHello(); //=> "hello"
+retHello; //=> [Function: retHello]
+retHello(); //=> "hello"
 ```
 
 ```js

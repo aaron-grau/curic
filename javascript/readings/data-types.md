@@ -40,7 +40,7 @@ if (0 || "" || undefined || null || NaN) {
 }
 
 ```
-Take care when writing conditional statements in JavaScript! Test out conditionals with the other falsey values in Node.
+Take care when writing conditional statements in JavaScript!
 
 ## Primitives vs. Objects
 
