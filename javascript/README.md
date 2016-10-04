@@ -19,21 +19,19 @@
 [oo-js-demo]: https://vimeo.com/169804475
 [callbacks-video]: https://vimeo.com/169898573
 
-### Readings (115 min)
+### Readings (100 min)
 * [Intro. to JavaScript][intro-js] (10 min)
 * [Syntax and Useful Methods][syntax] (10 min)
-* [Data Types and Truthiness][data-types] (5 min)
+* [Data Types][data-types] (15 min)
 * [Variables][variables] (15 min)
-* [Objects][objects-js] (10 min)
 * [Functions][functions-js] (15 min)
 * [Closures and Scope][closures] (10 min)
 * [`this` and that][this-and-that] (10 min)
-* [Arrow Functions][fat-arrows] (15 min)
+* [ES6 Arrow Functions][fat-arrows] (15 min)
 
 [intro-js]: readings/js-intro.md
-[data-types]: readings/data-types-and-truthiness.md
-[syntax]: readings/syntax.md
-[useful-methods]: readings/useful-methods.md
+[data-types]: readings/data-types.md
+[syntax]: readings/syntax-and-methods.md
 [variables]: readings/variables.md
 [objects-js]: readings/objects-js.md
 [this-and-that]: readings/this-and-that.md
@@ -47,16 +45,15 @@
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
 
+[intro-pset]: homeworks/questions/intro_js_problems
+
 ### Additional Resources
 * [Object-Oriented JavaScript][oo-js]
 * [Function Invocation, briefly][function-invocation-briefly] (5 min)
-+ Quick References  
-  * [Syntax and Useful Methods][syntax]
-
 * Guides and Documentation
   * [Codecademy JS Curriculum][codecademy-js]
     + Good for a slower, interactive intro.
-  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] (Chapter 1)
+  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] (Chapter 1 only)
     + Another great intro reading.
   * [MDN Guide][mdn-guide]
     + Great guide from MDN.
@@ -73,10 +70,6 @@
 ### Projects
 * [Intro. JavaScript Exercises][intro-javascript-problems]
 * **Bonus**: [Reversi][reversi]
-
-[intro-pset]: homeworks/questions/intro_js_problems
-
-
 
 [intro-javascript-problems]: projects/intro_js_exercises
 [reversi]: projects/js_reversi
@@ -156,7 +149,7 @@
 * [Modules in the Browser][browser-modules] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
 * **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
-    * **Be sure to run and understand this the night before**
+    * **Be sure to run and understand this the night before.**
 * Effective JavaScript: Items 18-23, 30 (15 min)
 
 [arguments]: readings/arguments.md
@@ -167,9 +160,7 @@
 [modules]: readings/browser-modules.md
 
 
-### Homeworks (115 min)
-* [CSS Curriculum Day 3][css-day-3] (40 min)
-* [CSS Curriculum Day 4][css-day-4] (55 min)
+### Homeworks (20 min)
 * [Webpack tutorial][webpack] (20 min)
   * Complete up to 'The First Loader'
 
@@ -205,7 +196,7 @@
 ## w6d1
 
 ### Assessment05 Practice
-+ In-class practice assessment at 9am. Please bring your own machine if possible.
++ In-class practice assessment at 9am. Please bring your own machine if     possible.
 * [Practice][assessment-prep-5]
 
 ### Readings (75 min)
@@ -217,7 +208,9 @@
   * [jQuery V: Data Attributes][jquery-05-data-attributes] (10 min)
   * Effective JavaScript: Items 34 - 37 (15 min)
 
-### Homeworks (45 min)
+### Homeworks (140 min)
+  * [CSS Curriculum Day 3][css-day-3] (40 min)
+  * [CSS Curriculum Day 4][css-day-4] (55 min)
   * [Wacky jQuery][wacky-project] (45 min)
 
 ### Additional Resources
@@ -314,7 +307,7 @@
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (27 min)
   * You can ignore the last part, which has Backbone code
 
-### Readings (45 min)
+### Readings (55 min)
 * [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
 * [jQuery VII: Triggering][jquery-07-triggering] (5 min)
 * [Event Propagation][event-propagation] (5 min)

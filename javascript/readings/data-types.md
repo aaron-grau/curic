@@ -1,22 +1,55 @@
-# JavaScript Objects
+## JavaScript Data Types
 
-## JS Data Types
+Before we start manipulating data, we first have to know what kinds of data we can manipulate. JavaScript has 6 data types:
 
-Recall the different data types in JavaScript:
 * 5 Primitive Types:
   * Numbers
   * String (text)
   * Boolean
   * Undefined
   * Null
-* and **objects**.
+* and objects.
 
-Let's discuss the differences between JS primitives and objects.
+### `NaN`
+
+`NaN` stands for Not-A-Number. It is a property of the global object and is _not_ a JS data type. `NaN` is the result of any illegal numerical operations.
+
+Run the code below in your `node` console:
+
+```javascript
+> 20 * "happy"
+NaN
+```
+
+## Falsey vs. Truthy
+
+In Ruby, the only falsey values are `nil` and `false`.
+
+```ruby
+if 0
+  puts 'In Ruby, this will print'
+end
+
+```
+
+In Javascript, zeros, empty strings, `undefined`, `null`, and `NaN` are all considered falsey values. Everything else is true.
+
+```javascript
+if (0 || "" || undefined || null || NaN) {
+  console.log('In JavaScript, this will not print.')
+}
+
+```
+Take care when writing conditional statements in JavaScript! Test out conditionals with the other falsey values in Node.
 
 ## Primitives vs. Objects
 
-A primitive type is data that is not an object and cannot have methods. This is
-different from Ruby where everything is an object and we could do things like:
+Let's discuss the differences between Javascript's 5 primitive types and
+objects.
+
+A **primitive type** is data that is not an object and cannot have methods. This
+is different from Ruby where everything is an object and we could do things
+like:
 
 ```ruby
 (irb)> -5.abs
@@ -38,10 +71,11 @@ It is important to understand not just the syntactic difference between these
 two examples, but to also understand the fundamental difference between how the
 two languages represent data:
 
-+ in Ruby everything is an object;
++ In Ruby everything is an object;
 + whereas in JS there are primitive data types that are *not* objects.
 
 ## JS Objects
+
 Objects in JavaScript are similar to objects in Ruby in that they can store both
 state (Ruby instance variables) and behavior (Ruby methods).
 

@@ -11,11 +11,11 @@ There are a few different ways to declare variables and constants in JavaScript.
 
 ## Declaration
 
-In JavaScript, in order to use a variable or constant, we must declare it by prepending the variable's name with `var`, `let`, or `const`. Such a **variable declaration** introduces it to the environment.
+In JavaScript, in order to use a variable or constant, we must declare it by prepending the variable's name with `var`, `let`, or `const`. Declaring a variable is the only way to introduce it to the environment.
 
-## `var`
+### `var`
 
-To declare a **function-scoped variable**, use the `var` keyword.
+To declare a **functionally-scoped variable**, use the `var` keyword.
 
 ```javascript
 var myVar;
@@ -60,7 +60,7 @@ javascript has a return value, even variable declarations and initializations.
 
 **NB**: `var` is not the preferred means of declaring a variable in ES6. `let` or `const` are preferred.
 
-## `let` (ES6+)
+### `let` (ES6+)
 
 `let` is a new feature in ES6.
 
@@ -92,7 +92,7 @@ For a more detailed description of `let`, please refer to the [MDN Documentation
 
 [mdn-let]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
 
-## `const` (ES6+)
+### `const` (ES6+)
 
 `const` is a new feature in ES6.
 
