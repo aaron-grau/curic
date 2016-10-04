@@ -184,10 +184,8 @@
 * [View layouts][view-layouts] (10 min)
 * [View partials][view-partials] (15 min)
 
-### Homeworks (45 min)
+### Homeworks (30 min)
 * [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
-+ [Implicit Bias Test][bias-quiz] (15 min)
-  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
 
 ### Additional Resources
 * [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
@@ -262,8 +260,10 @@
 * [Testing Controllers][rspec-controllers] (5 min)
 * [Testing with Capybara][capybara] (15 min)
 
-### Homeworks (45 min)
+### Homeworks (60 min)
 * [Capybara][capybara-hw] (45 min)
+* [Implicit Bias Test][bias-quiz] (15 min)
+  * Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion event tomorrow
 
 ### Additional Resources
 * [Spring and Guard Setup][spring-guard]
