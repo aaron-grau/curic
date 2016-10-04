@@ -187,7 +187,7 @@ Make sure outline your MVP features using the following structure when writing y
 * Bookshelves
 * Reviews
 * Read Status (will read, have read, etc.)
-* **Bonus**: Ratings
+* **Bonus**: Search across multiple models
 * **Bonus**: Tags
 
 #### Indiegogo
@@ -338,10 +338,11 @@ Make sure outline your MVP features using the following structure when writing y
 
 #### Soundcloud
 * Song CRUD
-* Continuous play while navigating site
+* Playing songs with progress bar with continuous play
 * Comments
 * User pages
 * **Bonus**: Wave Forms
+* **Bonus**: Playlists
 * **Bonus**: Likes
 
 #### SplitWise
