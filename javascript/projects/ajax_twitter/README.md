@@ -134,6 +134,27 @@ request to `/users/search`, sending the input's `val` as the query parameter.
 You can send query parameters along with an `$.ajax` call through the `data`
 option. Don't forget to set `dataType`!
 
+Now, let's set up your controller to respond to AJAX requests with JSON. Because your controller will be handling both HTML and JSON requests, let's separate out each of those types of requests and respond to them separately. Put the following code into your controller to replace the line reading `render :search`:
+
+```ruby
+respond_to do |format|
+  format.html { render :search }
+  format.json { render :search }
+end
+```
+
+This tells your controller to render the `:search` HTML view for requests that want HTML and to render the `:search` JSON view for requests that want JSON. But we don't yet have a `search.json` view! Let's make one. The file, in the `/users/` folder, should be named `search.json.jbuilder` and should contain the following code:
+
+```ruby
+json.array!(@users) do |user|
+  json.(user, *User.column_names)
+  # Hidden N+1 query!
+  json.followed(current_user.follows?(user))
+end
+```
+
+The above code takes your `@users` instance variable and turns it into an array of JSON objects. Each object will have all of its information as well as `followed`, which will be either true or false depending on whether the current user is following this user.
+
 When the AJAX call successfully returns a list of matching users, we want to
 display those results in the `ul.users`. Write a method
 `UsersSearch#renderResults` for your AJAX success handler. This should first
