@@ -148,6 +148,7 @@ to refer to them later.
 
 ## Additional Resources
 
+* [StackOverflow answer](https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281)
 * [Import docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 * [Export docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 * [AirBnB style guide](https://github.com/airbnb/javascript#modules)
