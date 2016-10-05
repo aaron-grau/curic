@@ -36,7 +36,7 @@ the piece cannot move to `end_pos`.
 ## Phase II: `Display`
 
 Write a `Display` class to handle your rendering logic. Your `Display` class
-should access the board. Require the `colorize` gem so you can render in color.
+should access the board. Require the [`colorize`][colorize-gem] gem so you can render in color.
 
 Download this `cursor.rb` [file][cursor]. An instance of `Cursor`
 initializes with a `cursor_pos` and an instance of `Board`. The cursor manages
@@ -86,14 +86,14 @@ to become more familiar with Object-oriented Programming.
 ## Phase III: `Pieces`
 
 There are many different kinds of pieces in chess, and each moves a
-specific way.  Based on their moves, they can be placed in three
+specific way.  Based on their moves, they can be placed in four
 categories:
 
 0. Sliding pieces (Bishop/Rook/Queen)
 0. Stepping pieces (Knight/King)
 0. The pawn (do this last)
+0. The null piece (occupies the 'empty' spaces)
 
-You should also have a `NullPiece` class (which still inherits from `Piece`) that includes [the `singleton` module][singleton]. The null piece instance can then occupy any 'empty' spaces on the board. The `NullPiece` will not need a reference to the `Board` - in fact it's `initialize` method should take no arguments. Make sure you have a way to read it's `color` and `symbol`.
 
 
 Start by writing a `Piece` parent class that contains the
@@ -114,6 +114,8 @@ reference to the `Board`. Classes that `include SlidingPiece` in particular need
 `Board` so they know to stop sliding when blocked by another
 piece. Don't allow a piece to move into a square already occupied by the
 same color piece, or to move a sliding piece past a piece that blocks it.
+
+The `NullPiece` class should include [the `singleton` module][singleton]. It will not need a reference to the `Board` - in fact it's `initialize` method should take no arguments. Make sure you have a way to read it's `color` and `symbol`.
 
 **After completing each piece** load the file in pry and make sure it can move to the positions you expect. **Once you have completed all pieces** refactor your `Board#initialize` so that all your pieces are placed in their respective starting positions. Then run `ruby display.rb` to check that they show up in the proper locations.
 
@@ -187,7 +189,7 @@ some debug info, such as the selected piece's available moves, whether
 your opponent is in check, and so on.
 
 
-**Test each piece's valid moves** by `load 'board.rb'` and creating a board instance. Cycle through each piece (grabbing it by the board's position) and check that calling `#valid_moves` on it does what we expect. When you are satisfied it works **call a TA over for a code review!**
+**Test each piece's valid moves** by `load 'board.rb'` and creating a board instance. Cycle through each piece (grabbing it by the board's position) and check that calling `#valid_moves` does what we expect. When you are satisfied it works **call a TA over for a code review!**
 
 ### Further `Board` improvements
 
@@ -242,8 +244,7 @@ style, encapsulation, and exception handling.
  * Use exception handling, and make sure to deal with bad user input
  * Method decomposition (pull chunks of code into helper methods)
  * Make helper methods private
- * Jazz up your User Interface (UI) with [colorize][colorize-gem] and
-   [unicode][wiki-chess-unicode].
+ * Jazz up your User Interface (UI) with [unicode][wiki-chess-unicode].
  * Make a chess AI! Start with totally random moves. Next, capture
    pieces when possible. When you have this functionality working start
    giving your pieces some strategy! You can do it!
