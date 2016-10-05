@@ -329,6 +329,23 @@ In `#fetchTweets`, make an AJAX request to `/feed`. In the success handler, call
 an `#insertTweets` method. For simplicity, for each tweet, just append `<li>`
 items with `JSON.stringify(tweet)` into the appropriate `ul`.
 
+As we did before, we're going to have to update our FeedsController to handle JSON requests. Replace the `render :show` line in `FeedsController#search` with the following code:
+
+```ruby
+respond_to do |format|
+  format.html { render :show }
+  format.json { render :show }
+end
+```
+
+Now, also in a repetition of our earlier process, let's build out the rest of our JSON API. We'll start by creating a `feeds/show.json.jbuilder`. We can reuse the tweet partial we already wrote by calling it in this show view:
+
+```ruby
+json.array!(@feed_tweets) do |tweet|
+  json.partial!("tweets/tweet", tweet: tweet)
+end
+```
+
 If you click the link twice, you'll fetch the same set of tweets twice. We need
 to send the `max_created_at` parameter. In the `InfiniteTweets` `constructor`,
 start `this.maxCreatedAt` at `null`. In the `#fetchTweets` method, if
