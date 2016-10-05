@@ -237,7 +237,7 @@
 
 ## w6d2
 
-### Homeworks (235)
+### Homeworks (235 min)
 * [CSS Curriculum Day 5][css-day-5] (85 min)
 * [CSS Curriculum Day 6][css-day-6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)

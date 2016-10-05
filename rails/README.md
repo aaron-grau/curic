@@ -26,9 +26,9 @@
 + [Callbacks][callbacks]
 + [Delegation][delegation]
 
-### Homeworks (2 hr)
+### Homeworks (2 hr 5 min)
 * [Library Controller][library-hw] (45 min)
-* Complete days 1 & 2 of [HTML Curriculum][html-readme] (75 min)
+* Complete days 1 & 2 of [HTML Curriculum][html-readme] (80 min)
 
 ### Additional Resources
 + [Routing I: Basics][routing-i]
@@ -80,7 +80,7 @@
 * [Debugging][debugging-rails] (10 min)
 
 ### Homeworks (30 min)
-* Complete day 3 of [HTML Curriculum][html-readme] (30 min)
+* Complete day 3 of [HTML Curriculum][html-readme-3] (30 min)
 
 ### Additional Resources
 * [Easy Forms Demo][easy-forms-demo]
@@ -88,6 +88,7 @@
 ### Projects
 * [99 Cats][99-cats]
 
+[html-readme-3]: ../html-css/README.md#day-3-forms
 [html]: homeworks/html.md
 [basic-views]: readings/basic-views.md
 [erb]: readings/erb.md
@@ -124,7 +125,7 @@
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
 ### Homeworks (60 min)
-* Complete day 4 of [HTML Curriculum][html-readme] (30 min)
+* Complete day 4 of [HTML Curriculum][html-readme-4] (30 min)
 * [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources
@@ -138,6 +139,7 @@
 ### Project
 * [99 Cats II: Auth][99-cats-part-ii]
 
+[html-readme-4]: ../html-css/README.md#day-4-head-section
 [controllers-and-state]: readings/controllers-and-state.md
 [csrf-and-forms]: readings/csrf.md
 [cookies]: readings/cookies.md
@@ -259,8 +261,8 @@
 
 ### Homeworks (60 min)
 * [Capybara][capybara-hw] (45 min)
-+ [Implicit Bias Test][bias-quiz] (15 min)
-  + Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion circle time tomorrow
+* [Implicit Bias Test][bias-quiz] (15 min)
+  * Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion event tomorrow
 
 ### Additional Resources
 * [Spring and Guard Setup][spring-guard]
