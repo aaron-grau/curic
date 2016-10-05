@@ -146,11 +146,10 @@ end
 
 When you store data in the session, it will keep coming back on
 subsequent requests. Oftentimes you'll find that you want to store
-some data only until the next request.
+some data only for the current request or until the next request.
 
-The flash is a special part of the session which is cleared with each
-request. This means that values stored there will only be available in
-the next request, which is particularly useful for passing error
+The flash is a special part of the session that stores values for only
+the current and next request, which is particularly useful for passing error
 messages or other success/failure messages.
 
 It is accessed in much the same way as the session, as a hash (it's a
@@ -179,7 +178,7 @@ class SessionsController < ActionController::Base
 end
 ```
 
-The flash notice is available for the next controller and view to
+This flash notice is available for the current **and** next controller and view to
 use. Let's modify `views/layouts/application.html.erb` (the template
 that every template is rendered in) to display notices.
 
@@ -199,14 +198,20 @@ that every template is rendered in) to display notices.
 This way, if an action sets a notice message, the layout will display
 it automatically.
 
+Storing messages in flash is particularly useful for **redirecting**.
+When we `redirect_to` in rails, it tells the client to make an entirely separate
+request from the original request. Therefore if we want values to persist to
+that second request, we use flash. However, there are times when we want
+some values to be stored only for the lifecycle of the current request...
+
 ### `flash.now`
 
-By default, adding values to the flash will make them available to the
-next request, but sometimes you may want to access those values
-sooner: in the same request. In particular, if the `create` action
-fails to save a resource and you render the `new` template directly,
-that's not going to result in a new request, but you may still want to
-display a message using the flash. To do this, you can use `flash.now`
+By default, adding values to the flash will make them available for the
+current and next request, but sometimes you may want to store values only
+for the current request. In particular, if the `create` action
+fails to save a resource and you **render** (NOT redirect to) the `new`
+template directly, that's not going to result in a new request, but you may
+still want to display a message using the flash. To do this, you can use `flash.now`
 in the same way you use the normal `flash`:
 
 ```ruby
@@ -234,10 +239,15 @@ class SessionsController < ActionController::Base
 end
 ```
 
-Note that if we had added the message to `flash[:notices]`, the
-message would not be available until the next request was made. But
-the `new.html.erb` view is going to be rendered as the response to the
-current request, so we need to store the message sooner.
+This is useful because we are `render`-ing the `new.html.erb` view
+as the response to the *current* request, so we only need to store the error message
+for the current request. We wouldn't want the error message to persist through to a
+second request; otherwise, we might re-submit the form with correct credentials
+and upon that second request still see the error message from our original bad login attempt.
+
+In summary:
++ `redirect_to` --> makes second, separate request --> `flash` --> values stored for current AND next request
++ `render` --> responds to current request --> `flash.now` --> values stored for current request only
 
 ## `cookies` vs. `session`
 
