@@ -450,6 +450,14 @@ Write a `tweets/index.json.jbuilder` that returns an object full of tweets. Crea
 a `Tweets#index` method and route, and render your new index view in it. Test your 
 new code using Postman.
 
+Next, include the tweeter's username along with each tweet. Prevent n+1 queries by 
+using `includes`. Check your server log and make sure that only two queries are being 
+fired to display all of the tweets and usernames.
+
+Next, include a list of each tweet's mentioned users along with each tweet. Make sure 
+to add `:mentioned_users` to your `includes` statement to prevent n+1 queries. Test 
+your new code using Postman.
+
 ## Bonus: Underscore Templates
 
 When we fetch the tweets, we don't just want to stick the JSON representation
