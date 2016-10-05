@@ -16,7 +16,7 @@ class Piece
   end
 
   def empty?
-    false
+    self.is_a?(NullPiece) ? true : false
   end
 
   def symbol

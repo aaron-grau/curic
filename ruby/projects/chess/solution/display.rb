@@ -25,7 +25,9 @@ class Display
   end
 
   def colors_for(i, j)
-    if [i, j] == cursor.cursor_pos
+    if [i, j] == cursor.cursor_pos && cursor.selected
+      bg = :light_green
+    elsif [i, j] == cursor.cursor_pos
       bg = :light_red
     elsif (i + j).odd?
       bg = :light_blue
@@ -56,4 +58,5 @@ class Display
       puts "#{val}"
     end
   end
+
 end
