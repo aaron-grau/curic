@@ -53,7 +53,7 @@ code and running it in the browser with a HTML page!
   * Click on the *Sources* tab and select your file from the file directory to view your file in Dev Tools.
   * *esc* brings up the Console. `console.log` statements print here.
   * To run your file, refresh the Chrome page with Dev Tools open.
-  * To add debuggers, either add `debugger` to your html file or add debugging breakpoints by clicking on the 
+  * To add debuggers, either add `debugger` to your html file or add debugging breakpoints by clicking on the
   line number to the left of the code. Refresh.
 
 ### TL;DR:
