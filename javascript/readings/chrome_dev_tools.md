@@ -34,7 +34,7 @@ the JS files there. Click a line number in the gutter (the row number to
 the left of the code) to add a debugging breakpoint. You can also add
 breakpoints in the code with the `debugger` statement.
 
-## Recap:
+### How-To:
   * Create a new html file in your project directory (ie. `w5d4/index.html`).
   * Open it in Atom.
   * Type `html` into your new file and hit **Tab**. Your file should populate to look like this:
