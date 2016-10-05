@@ -31,7 +31,7 @@ The `Board` class should have a `#move_piece(start, end_pos)` method. This
 should update the 2D grid and also the moved piece's position. You'll
 want to raise an exception if:
 
-0. there is no piece at `start` or 
+0. there is no piece at `start` or
 0. the piece cannot move to `end_pos`.
 
 **Time to test!** Open up pry and `load 'board.rb'`. Create an instance of a `Board` and check out different positions with `board[pos]`. Do you get back `Piece` instance where you expect to? Test out `#make_move(start, end_pos)`, does it raise an error when there is no piece at the start? Does it successfully update the `Board`?
@@ -190,7 +190,7 @@ some debug info, such as the selected piece's available moves, whether
 your opponent is in check, and so on.
 
 
-**Test each piece's valid moves!** `load 'board.rb'` and create a board instance. Cycle through each piece (grabbing it by the board's position) and check that calling `#valid_moves` does what we expect. When you are satisfied it works **call a TA over for a code review!**
+**Test each piece's `#valid moves`!** In pry `load 'board.rb'` and create a board instance. Grab one instance of each type of moving piece (getting it from the board's position) and check that calling `#valid_moves` on it returns what we expect. When you are satisfied it works **call a TA over for a code review!**
 
 ### Further `Board` improvements
 
