@@ -143,9 +143,10 @@ const FatCat = (name) => this.name = name;
 let g = new FatCat("garfield"); // TypeError: FatCat is not a constructor
 ```
 
-### No New `arguments`
+### No `arguments`
 
-Because they don't change scope, fat arrows don't have their own `arguments` object.
+Because they don't change scope, fat arrows don't have their own `arguments` object. 
+We'll learn more about this special array later.
 
 ```javascript
 const hasArgs = function() {
