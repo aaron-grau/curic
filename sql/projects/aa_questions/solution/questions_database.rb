@@ -18,7 +18,7 @@ class QuestionsDatabase < SQLite3::Database
     @database
   end 
   
-    def self.reset!
+  def self.reset!
     commands = [
       "rm '#{DB_FILE}'",
       "cat '#{SQL_FILE}' | sqlite3 '#{DB_FILE}'"
