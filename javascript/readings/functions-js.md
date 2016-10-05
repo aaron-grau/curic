@@ -107,6 +107,8 @@ Programming][oop] in JavaScript.
 
 ## Passing a function as an argument to another function
 
+**NB**: Functions that are passed as an argument to another function are called **callbacks**.
+
 ```javascript
 function logIfEven(num) {
   if (num % 2 == 0) {
