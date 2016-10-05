@@ -14,13 +14,12 @@ that exports methods that we can call to make requests to the API.
 
 export const fetchCats = (success, error) => {
 	$.ajax({
-		url: 'http://api.cats.com/all',
+		url: 'http://api.cats.com/cats',
 		method: 'get',
 		success,
 		error
 	});
-}
-
+};
 ```
 
 In the example above, we define and export a  `fetchCats()` method that hits our
@@ -42,8 +41,7 @@ export const REQUEST_CATS = "REQUEST_CATS";
 export const RECEIVE_CATS = "RECEIVE_CATS";
 
 export const requestCats = () => ({ type: REQUEST_CATS });
-export const receiveCats = (cats) => ({ type: RECEIVE_CATS, cats: cats})
-
+export const receiveCats = (cats) => ({ type: RECEIVE_CATS, cats: cats});
 ```
 
 ## Creating an API Middleware
@@ -82,3 +80,28 @@ If the response succeeds, the middleware dispatches another action,
 cats to our application state. Although our error function is just a debugging
 tool right now, we can easily change it to dispatch a different action if we
 want our store to handle errors as well.
+
+# Example API Utils
+
+```js
+// utils/cat_api_util.js
+
+export const fetchCats = (success, error) => {
+	$.ajax({
+		url: 'http://api.cats.com/cats',
+		method: 'get',
+		success,
+		error
+	});
+};
+
+export const createCat = (cat, success, error) => {
+	$.ajax({
+		url: 'http://api.cats.com/cats',
+		method: 'post',
+		data: { cat },
+		success,
+		error
+	});
+};
+```
