@@ -254,7 +254,7 @@ style, encapsulation, and exception handling.
 [recursion-exercises]: ../recursion/
 [colorize-gem]: https://github.com/fazibear/colorize
 [wiki-chess-unicode]: http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
-[cursor]: ./cursor.rb?raw=true
+[cursor]: cursor.rb?raw=true
 [process-exit]: http://ruby-doc.org/core-2.2.0/Process.html#method-c-exit
 [modules]: ../../readings/modules.md
 [case statements]: http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-case
