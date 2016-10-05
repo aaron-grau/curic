@@ -13,6 +13,10 @@ Today we add a users and login to our 99Cats application.
 * Session hash
 * Session tokens
 
+**NB**: Download the [skeleton][skeleton] containing solutions from day one. 
+
+[skeleton]: ./skeleton.zip
+
 ## Phase IV: Users
 
 ### Add a `User` model
