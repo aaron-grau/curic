@@ -19,34 +19,30 @@ in different forms. Take the following state shape:
 	},
 	filter: 'undone'
 }
-
 ```
 
 The state's todos are stored as a hash under their id, allowing for O(1) lookup
 of a single todo. This makes it slightly inconvenient to obtain the all the
 todos at once, however. If we need to access all the todos in multiple parts of
 our application, then it makes sense to abstract that functionality into a
-selector, which is conventionally stored in a relevant reducer file:
+selector, which is conventionally stored in another file inside `reducers`:
 
 ```js
 // reducers/todos.js
 
-export const getAllTodos = (state) => {
-	return Object.keys(state.todos).map((id) => state.todos[id])
+export const getAllTodos = ({ todos }) => {
+	return Object.keys(todos).map((id) => todos[id])
 };
-
 ```
 
 That selector can then be used in multiple components' `mapStateToProps`:
 
 ```js
-
 // components/containers/todo_list_container.jsx
 
 import { getAllTodos } from '../../reducers/todos';
 
 const mapStateToProps = (state) => ({todos: getAllTodos(state)});
-
 ```
 
 Because selectors receive the application `state` as an argument, they can
@@ -55,13 +51,12 @@ utilize  different 'slices' of the state to assemble data:
 ```js
 // reducers/todos.js
 
-export const getAllTodos = (state) => {
-	return Object.keys(state.todos).map( id => state.todos[id] );
+export const getAllTodos = ({ todos }) => {
+	return Object.keys(todos).map( id => todos[id] );
 };
 
-export const getFilteredTodos = (state) => {
-	const todos = state.todos;
-	const match = state.filter === 'done';
+export const getFilteredTodos = ({ todos, filter }) => {
+	const match = filter === 'done';
 
 	let result = [];
 	for (let id in todos) {
@@ -78,5 +73,27 @@ const mapStateToProps = (state) => ({
 	todos: getAllTodos(state),
 	filteredTodos: getFilteredTodos(state)
 });
+```
 
+# Example Selectors:
+
+```js
+// reducers/todos.js
+
+// returns the state's todos as an array of todos
+export const getAllTodos = ({ todos }) => {
+	return Object.keys(todos).map( id => todos[id] );
+};
+
+// returns the state's todos as an array of todos,
+	// filtered by their done / undone status
+export const getFilteredTodos = ({ todos, filter }) => {
+	const match = filter === 'done';
+
+	let result = [];
+	for (let id in todos) {
+		if (todos[id].done === match) { result.push(todos[id]); }
+	}
+	return result;
+};
 ```
