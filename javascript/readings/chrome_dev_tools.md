@@ -10,7 +10,7 @@ To [access it][access], open Chrome and hit **Option + Command + i** (Mac) or **
 
 [access]: https://developer.chrome.com/devtools#access
 
-# Debugging Node.js with Dev Tools
+## Debugging Node.js with Dev Tools
 
 Debugging is a little more difficult for server-side JavaScript than for
 client-side, which is one of the more frequently-voiced complaints about
@@ -73,7 +73,8 @@ breakpoints in the code with the `debugger` statement.
 
 Happy debugging!
 
-## Elements Inspector
+## Additional Tools
+### Elements Inspector
 
 The Elements tab contains the elements inspector. This is likely where you'll
 spend most of your time in the Dev Tools, at least at first.
@@ -99,7 +100,7 @@ of CSS properties affecting the selected element by going to the *Computed*
 sub-tab. You can see what CSS selector is providing a property value by
 clicking the dropdown arrow to the left.
 
-## Network
+### Network
 
 You may already be familiar with the Network tab, which is a great tool for
 inspecting requests, be they the ones for the initial page load or Ajax.
@@ -109,7 +110,7 @@ to see more information about it, including the headers Chrome sent and those
 that the server sent back, as well as the request body (for `POST` and `PATCH`
 requests) and the response body.
 
-## CSS
+### CSS
 
 The Dev Tools are not just for inspecting and debugging frontend code. You can
 also use them to *write* code, particularly CSS and JavaScript. A great way
@@ -131,7 +132,7 @@ app's CSS with Chrome:
   of four. You can do this through the settings, accessible via the cog wheel
   in the top-right of the Dev Tools window.
 
-## Checking Cookies
+### Checking Cookies
 
 Viewing your app's cookies is another useful feat you can accomplish with
 Dev Tools. Head over to the Application tab. Here, you can view all the types
@@ -141,7 +142,7 @@ column and select your app's domain (e.g. localhost). Your cookies will be
 listed with info including name, value, and expiration date. You can easily
 delete cookies when right-clicking on them.
 
-## Console
+### Console
 
 The console is definitely one of the most powerful parts of Dev Tools. Don't
 believe me? Try running `document.getElementsByTagName('*').length`. That's
@@ -154,7 +155,7 @@ it'll offer suggestions. Then type a `.`, and you'll get a list of all the
 object's properties that narrow down as you type out more. So remember, the
 console is basically pry in the browser for JavaScript. Use it wisely.
 
-## Additional Resources
+### Additional Resources
 
 We've only touched the tip of the Dev Tools iceberg. There's much more to
 explore, like JavaScript profiling and debugging. Here are a few resources in
