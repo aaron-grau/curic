@@ -270,7 +270,7 @@ describe "what_was_that_one_with" do
 			{"id"=>1449, "title"=>"School Ties"},
 			{"id"=>29, "title"=>"Good Will Hunting"},
 			{"id"=>98, "title"=>"Dogma"},
-			{"id"=>95, "title"=>"Chasing Amy"}) 
+			{"id"=>95, "title"=>"Chasing Amy"})
 
 		expect(geena_and_susan).to eq([
 			{"id"=>201, "title"=>"Thelma & Louise"}])

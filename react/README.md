@@ -1,6 +1,6 @@
 # React / Redux Curriculum
 
-## w7d1
+## w6d5
 ### Video Lectures (94 min)
 **N.B.** These lectures were recorded prior to the introduction of ES6-style syntax to
 React. As a result, you may see a slightly different syntax than in the rest of
@@ -81,7 +81,7 @@ the React curriculum materials. Review the
 
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
-## w7d2
+## w7d1
 
 ### Readings (105 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
@@ -133,7 +133,7 @@ the React curriculum materials. Review the
 
 [synthesizer]: projects/synthesizer
 
-## w7d3
+## w7d2
 
 ### Readings (60 min)
 - [Higher-order functions][higher_order_functions] (15 min)
@@ -160,7 +160,7 @@ the React curriculum materials. Review the
 [todos]: projects/todos
 
 
-## w7d4
+## w7d3
 
 ### Readings (75 min)
 - [Intro to react router][react_router_intro] (12 min)
@@ -175,7 +175,7 @@ the React curriculum materials. Review the
 - [Rainbow Routes][rainbow_routes]
 
 ### Projects
-- [Pokedex][pokedex]
+- [Pokedex Day 1][pokedex]
 
 ### Additional Resources
 -	[React Router Documentation][react_router_docs]
@@ -191,6 +191,13 @@ the React curriculum materials. Review the
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 [pokedex]: projects/pokedex
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
+
+## w7d4
+
+### Projects
+- [Pokedex Day 2][pokedex]
+
+[pokedex]: projects/pokedex
 
 ## w7d5
 
@@ -211,7 +218,7 @@ the React curriculum materials. Review the
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
-- **Solo:** [BenchBNB][bench_bnb]
+- **Solo:** [BenchBNB Day 1 (Auth)][bench_bnb]
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
 
