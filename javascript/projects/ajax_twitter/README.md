@@ -194,6 +194,29 @@ See if this helps you set up the follow toggle.
 
 ## Phase III: `TweetCompose`
 
+First, we're going to update our TweetsController to handle JSON requests, similarly to how we updated our UsersController before. In this case, the `respond_to do |format|` structure is already set up, and we just need to add a case for `format.json`. If we've successfully created a tweet from a JSON request, then we should render that tweet back as json. We could `render json: @tweet`, but then we might not have all of the information we need. Let's `render :show` so that we can structure our response to our application's needs. Just to reiterate, you will need to add a line `format.json { render :show }` to your `respond_to` block.
+
+Now, just as we did before, let's create a show view for our tweets. We're going to call a partial in this view; to that end, we'll put the following code in `show.json.jbuilder`: 
+
+```ruby
+json.partial!("tweets/tweet", tweet: @tweet)
+```
+
+Partials in JBuilder work the same way they do in ERB - the partial file name starts with a `_` and you pass in a piece of information for the partial to render using a hash. Let's create that partial right now at `_tweet.json.jbuiler` and put the following code into it:
+
+```ruby
+json.(tweet, *Tweet.column_names)
+
+json.user(tweet.user, *User.column_names)
+
+json.mentions(tweet.mentions) do |mention|
+  json.(mention, *Mention.column_names)
+  json.user(mention.user, *User.column_names)
+end
+``` 
+
+What this code is doing is collecting the tweet's information, the tweeter's information, and also information about each of that tweet's mentions.
+
 Write a `TweetCompose` class. First, change `app/views/tweets/_form.HTML.erb`.
 Give the form a class `tweet-compose`. Write a TweetCompose class that grabs
 this form and installs itself.
