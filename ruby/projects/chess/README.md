@@ -1,9 +1,14 @@
 # Chess
 
-Write a [chess game][wiki-chess] in an object-oriented way. **Please
-read all through the various phases before proceeding.**
+Write a [chess game][wiki-chess] using object-oriented programming. 
 
-Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating. The diagram is beneficial for getting an idea of how different aspects of the project fit together; however, you should **follow the directions to this project closely and only reference the diagram when confused about how classes inherit from or relate to one another**.
+**Please read all through the various phases before proceeding.**
+
+Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating. 
+The diagram is beneficial for getting an idea of how different aspects of the project 
+fit together; however, you should **code your project by following the instructions closely
+and using the diagram only as a reference**. It'll be helpful for clearing up
+any confusion about how  classes inherit from or relate  to one another.
 
 You must split your program into multiple files. Use
 [require-relative][require-relative] to load files. Make separate files for each
