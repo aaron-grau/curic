@@ -95,12 +95,28 @@ PAST.
 
 ## Nesting API resources
 
-Although we can rely on Rails content-type routing to delineate what type of responses our web app generates, a better pattern is to nest our API endpoints under a namespace.
+Although we can rely on Rails content-type routing to delineate what type of HTTP responses our web app generates, a better pattern is to nest our API endpoints under a namespace.
 
-A **namespace** is essentially just a directory of controllers that live under a different URL. 
+A **namespace** is just a subset of controllers that live under a specific URL. 
 
-Start off by creating a new controller: `rails g controller API:cats`
+We'll start off by creating a new controller: `rails g controller API:cats`, which is created in the `app/controllers/api/cats_controller.rb` file. Then we need to tell our router about our new controller: 
 
+```rb
+	# config/routes.rb
+
+	resources :cats, only [:index]
+
+	namespace :api do 
+		resources :cats, only [:index]
+	end
+
+```
+
+Running rake routes, we get: 
+
+```
+
+```
 
 
 [wiki]: https://en.wikipedia.org/wiki/Web_API
