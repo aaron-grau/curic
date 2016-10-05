@@ -322,6 +322,13 @@ you need a refresher on rspec refer to [the readings for that day][rspec-reading
 
 [rspec-readings]: https://github.com/appacademy/curriculum/blob/master/ruby/README.md#w2d3
 
+Apart from testing that your queries return the correct information, also test that they 
+query the database the correct number of times. Also test that methods call queries written
+in other classes. 
+
+Then write tests for your save and update methods. Think of a way to reset the
+database after specs are run to ensure that your test data doesn't persist to the database.
+
 ## Bonus II
 
 Go through all of [SQLZoo][sql-zoo] again.
