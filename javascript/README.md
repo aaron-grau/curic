@@ -3,7 +3,7 @@
 ## w5d3
 
 ### Breakfast
-* :joy_cat: **Bagels @ 8:30am** :joy_cat:
+* :coffee: **Bagels @ 8:30am** :coffee:
 
 ### Study Hall 9-10am
 
@@ -21,7 +21,7 @@
 
 ### Readings (100 min)
 * [Intro. to JavaScript][intro-js] (10 min)
-* [Syntax and Useful Methods][syntax] (10 min)
+* [Syntax and Useful Methods][syntax-and-methods] (10 min)
 * [Data Types][data-types] (15 min)
 * [Variables][variables] (15 min)
 * [Functions][functions-js] (15 min)
@@ -30,14 +30,13 @@
 * [ES6 Arrow Functions][fat-arrows] (15 min)
 
 [intro-js]: readings/js-intro.md
+[syntax-and-methods]: readings/syntax-and-methods.md
 [data-types]: readings/data-types.md
-[syntax]: readings/syntax-and-methods.md
 [variables]: readings/variables.md
-[objects-js]: readings/objects-js.md
-[this-and-that]: readings/this-and-that.md
 [functions-js]: readings/functions-js.md
-[fat-arrows]: readings/fat-arrows.md
 [closures]: readings/closures.md
+[this-and-that]: readings/this-and-that.md
+[fat-arrows]: readings/fat-arrows.md
 
 ### Homeworks (45 min)
 * [Intro. JavaScript Problems][intro-pset] (45 min)
@@ -46,14 +45,15 @@
     * A **lot** of JS interview questions come from this book.
 
 [intro-pset]: homeworks/questions/intro_js_problems
+[effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 ### Additional Resources
 * [Object-Oriented JavaScript][oo-js]
-* [Function Invocation, briefly][function-invocation-briefly] (5 min)
+* [Function Invocation, briefly][function-invocation-briefly]
 * Guides and Documentation
   * [Codecademy JS Curriculum][codecademy-js]
     + Good for a slower, interactive intro.
-  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] (Chapter 1 only)
+  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] (ch1 only)
     + Another great intro reading.
   * [MDN Guide][mdn-guide]
     + Great guide from MDN.
@@ -63,13 +63,13 @@
 [oo-js]: readings/object-oriented-js.md
 [function-invocation-briefly]: readings/function-invocation-briefly.md
 [codecademy-js]: http://www.codecademy.com/tracks/javascript
+[jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 [mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 [mdn-js-doc]: readings/mdn-js.md
-[jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
 
 ### Projects
 * [Intro. JavaScript Exercises][intro-javascript-problems]
-* **Bonus**: [Reversi][reversi]
+* [Reversi][reversi]
 
 [intro-javascript-problems]: projects/intro_js_exercises
 [reversi]: projects/js_reversi
@@ -132,14 +132,14 @@
 
 ### Video Lectures (65 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Prototype Chain and Inheritance][proto-inherit] (20 min)
-* :movie_camera: [Inheritance Demo][inherit-demo-video]  (20 min)
-* :movie_camera: [JS in Browser][js-browser-video] (10 min)
+* :movie_camera: [Prototype Chain and Inheritance][proto-inherit-vid] (20 min)
+* :movie_camera: [Inheritance Demo][inherit-demo-vid]  (20 min)
+* :movie_camera: [JS in Browser][js-browser-vid] (10 min)
 * :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
 
-[proto-inherit]: https://vimeo.com/162131042
-[inherit-demo-video]: https://vimeo.com/162115223
-[js-browser-video]: https://vimeo.com/162115224
+[proto-inherit-vid]: https://vimeo.com/162131042
+[inherit-demo-vid]: https://vimeo.com/162115223
+[js-browser-vid]: https://vimeo.com/162115224
 [chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
 
 ### Readings (75 min)
@@ -151,13 +151,12 @@
 * Effective JavaScript: Items 18-23, 30 (15 min)
 
 [prototypal-inheritance]: readings/prototypal-inheritance.md
+[browser-modules]: readings/browser-modules.md
 [basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
 [canvas-demo]: demos/drunken_circles
-[modules]: readings/browser-modules.md
-
 
 ### Homeworks (20 min)
-* [Webpack tutorial][webpack] (20 min)
+* [Webpack Tutorial][webpack] (20 min)
   * Complete up to 'The First Loader'
 
 [webpack]: https://webpack.github.io/docs/tutorials/getting-started
@@ -168,15 +167,13 @@
 * [Asynchronous Client-Side Code][asynchronous-js]
 * [Client-Side JavaScript][client-side-js]
 
-[css-diner]: http://flukeout.github.io/
-[arguments]: readings/arguments.md
 [github-pages]: readings/github_pages.md
-[client-side-js]: readings/client-side-javascript.md
-[browser-modules]: readings/browser-modules.md
+[css-diner]: http://flukeout.github.io/
 [asynchronous-js]: readings/asynchronous-js.md
+[client-side-js]: readings/client-side-javascript.md
 
 ### Projects  
-* [`arguments` exercises][arguments-exercises]
+* [`arguments` Exercises][arguments-exercises]
 * [Prototypal Inheritance Exercises][inheritance-exercises]
 * [Asteroids][asteroids-project]
 
@@ -186,61 +183,61 @@
 
 [eloquent-javascript]: http://eloquentjavascript.net/
 
-[css-demos-notes]: ../html-css/demos/css_demos/README.md#brief-notes
-[css-lectures]: ../html-css/demos/css_demos/README.md#lectures
-
 ## w6d1
 
 ### Assessment05 Practice
 + In-class practice assessment at 9am. Please bring your own machine if     possible.
 * [Practice][assessment-prep-5]
 
-### Readings (75 min)
-  * [The Document Object Model][dom] (10 min)
-  * [jQuery I: Selection and Manipulation][jquery-01-selection] (15 min)
-  * [jQuery II: Events][jquery-02-events] (10 min)
-  * [jQuery III: Ready][jquery-03-ready] (10 min)
-  * [jQuery IV: All The Ways][jquery-04-all-the-ways] (5 min)
-  * [jQuery V: Data Attributes][jquery-05-data-attributes] (10 min)
-  * Effective JavaScript: Items 34 - 37 (15 min)
-
-### Homeworks (140 min)
-  * [CSS Curriculum Day 3][css-day-3] (40 min)
-  * [CSS Curriculum Day 4][css-day-4] (55 min)
-  * [Wacky jQuery][wacky-project] (45 min)
-
-### Additional Resources
-  * [jQuery Documentation][jquery-docs]
-  * [jQuery Fundamentals][jquery-fundamentals]
-    * Skip JS Basics (ch1).
-    * Read jQuery Basics (ch2).
-    * Read Traversing & Manipulating (ch3).
-    * Read Events & Event Delegation (ch4).
-    * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
-
-### Projects
-  * [jQuery Tic Tac Toe][ttt-jquery]
-  * [jQuery Towers of Hanoi][hanoi-jquery]
-  * **Bonus**: [Snake][snake-project]
-
 [assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
-[wacky-project]: homeworks/questions/jquery-wacky-homework.md
+
+### Readings (75 min)
+* [The Document Object Model][dom] (10 min)
+* [jQuery I: Selection and Manipulation][jquery-01-selection] (15 min)
+* [jQuery II: Events][jquery-02-events] (10 min)
+* [jQuery III: Ready][jquery-03-ready] (10 min)
+* [jQuery IV: All The Ways][jquery-04-all-the-ways] (5 min)
+* [jQuery V: Data Attributes][jquery-05-data-attributes] (10 min)
+* Effective JavaScript: Items 34 - 37 (15 min)
+
 [dom]: readings/document-object-model.md
 [jquery-01-selection]: readings/jquery-01-selection-and-manipulation.md
 [jquery-02-events]: readings/jquery-02-events.md
 [jquery-03-ready]: readings/jquery-03-ready.md
 [jquery-04-all-the-ways]: readings/jquery-04-all-the-ways.md
 [jquery-05-data-attributes]: readings/jquery-05-data-attributes.md
+
+### Homeworks (140 min)
+* [CSS Curriculum Day 3][css-day-3] (40 min)
+* [CSS Curriculum Day 4][css-day-4] (55 min)
+* [Wacky jQuery][wacky-project] (45 min)
+
+[wacky-project]: homeworks/questions/jquery-wacky-homework.md
+
+### Additional Resources
+* [jQuery Documentation][jquery-docs]
+* [jQuery Fundamentals][jquery-fundamentals]
+  * Skip JS Basics (ch1).
+  * Read jQuery Basics (ch2).
+  * Read Traversing & Manipulating (ch3).
+  * Read Events & Event Delegation (ch4).
+  * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
+
 [jquery-docs]: http://api.jquery.com/
 [jquery-fundamentals]: http://jqfundamentals.com/
 
-[hanoi-jquery]: projects/hanoi_jquery
+### Projects
+* [jQuery Tic Tac Toe][ttt-jquery]
+* [jQuery Towers of Hanoi][hanoi-jquery]
+* **Bonus**: [Snake][snake-project]
+
 [ttt-jquery]: projects/ttt_jquery
+[hanoi-jquery]: projects/hanoi_jquery
 [snake-project]: projects/snake
 
 ## w6d2
 
-### Homeworks (2 hr)
+### Homeworks (235)
 * [CSS Curriculum Day 5][css-day-5] (85 min)
 * [CSS Curriculum Day 6][css-day-6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
@@ -268,29 +265,31 @@
 * :movie_camera: [AJAX Demo][ajax-demo] (35 min)
   * [:computer: complete demo from video][ajax-demo-code]
 
+[ajax-lecture]: https://vimeo.com/162860823
+[ajax-demo]: https://vimeo.com/162764008
+[ajax-demo-code]: demos/chat_demo
+
 ### Readings (35 min)
 * [Basic AJAX][basic-ajax] (10 min)
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
+[basic-ajax]: readings/basic-ajax.md
+[ajax-remote-forms]: readings/ajax-remote-forms.md
+
 ### Homeworks (30 min)
 * [Your First Ajax Request][first-ajax] (30 min)
+
+[first-ajax]: homeworks/questions/first_ajax.md
 
 ### Additional Resources
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
 
+[jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
+
 ### Projects
 * [AjaxTwitter (with rails backend)][ajax-twitter]
 
-[ajax-lecture]: https://vimeo.com/162860823
-[ajax-demo]: https://vimeo.com/162764008
-[ajax-demo-code]: demos/chat_demo
-[css-glasses-vid]: https://vimeo.com/album/3732382/video/151190185
-[jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
-[basic-ajax]: readings/basic-ajax.md
-[ajax-remote-forms]: readings/ajax-remote-forms.md
-[underscore-templates]: readings/underscore-templates.md
-[first-ajax]: homeworks/questions/first_ajax.md
 [ajax-twitter]: projects/ajax_twitter
 
 ## w6d4
@@ -298,12 +297,12 @@
 ### Assessment05
 * [Practice Assessment][assessment-prep-5]
 
-### Video Lectures (27 min)
+### Video Lectures (30 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (27 min)
+* :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
   * You can ignore the last part, which has Backbone code
 
-### Readings (55 min)
+### Readings (45 min)
 * [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
 * [jQuery VII: Triggering][jquery-07-triggering] (5 min)
 * [Event Propagation][event-propagation] (5 min)
@@ -332,8 +331,6 @@
 [jquery-lite]: projects/jquery_lite
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md
-
-[effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 [css-day-1]: ../html-css/README.md#css-intro-workflow--day-1
 [css-day-2]: ../html-css/README.md#day-2-syntax
