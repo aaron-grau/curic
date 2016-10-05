@@ -134,7 +134,10 @@ request to `/users/search`, sending the input's `val` as the query parameter.
 You can send query parameters along with an `$.ajax` call through the `data`
 option. Don't forget to set `dataType`!
 
-Now, let's set up your controller to respond to AJAX requests with JSON. Because your controller will be handling both HTML and JSON requests, let's separate out each of those types of requests and respond to them separately. Put the following code into your controller to replace the line reading `render :search`:
+Now, let's set up your controller to respond to AJAX requests with JSON. Because 
+your controller will be handling both HTML and JSON requests, let's separate out 
+each of those types of requests and respond to them separately. Put the following 
+code into your controller to replace the line reading `render :search`:
 
 ```ruby
 respond_to do |format|
@@ -143,7 +146,10 @@ respond_to do |format|
 end
 ```
 
-This tells your controller to render the `:search` HTML view for requests that want HTML and to render the `:search` JSON view for requests that want JSON. But we don't yet have a `search.json` view! Let's make one. The file, in the `/users/` folder, should be named `search.json.jbuilder` and should contain the following code:
+This tells your controller to render the `:search` HTML view for requests that 
+want HTML and to render the `:search` JSON view for requests that want JSON. But 
+we don't yet have a `search.json` view! Let's make one. The file, in the `/users/` 
+folder, should be named `search.json.jbuilder` and should contain the following code:
 
 ```ruby
 json.array!(@users) do |user|
@@ -153,7 +159,10 @@ json.array!(@users) do |user|
 end
 ```
 
-The above code takes your `@users` instance variable and turns it into an array of JSON objects. Each object will have all of its information as well as `followed`, which will be either true or false depending on whether the current user is following this user.
+The above code takes your `@users` instance variable and turns it into an array 
+of JSON objects. Each object will have all of its information as well as `followed`, 
+which will be either true or false depending on whether the current user is following 
+this user.
 
 When the AJAX call successfully returns a list of matching users, we want to
 display those results in the `ul.users`. Write a method
@@ -194,15 +203,24 @@ See if this helps you set up the follow toggle.
 
 ## Phase III: `TweetCompose`
 
-First, we're going to update our TweetsController to handle JSON requests, similarly to how we updated our UsersController before. In this case, the `respond_to do |format|` structure is already set up, and we just need to add a case for `format.json`. If we've successfully created a tweet from a JSON request, then we should render that tweet back as json. We could `render json: @tweet`, but then we might not have all of the information we need. Let's `render :show` so that we can structure our response to our application's needs. Just to reiterate, you will need to add a line `format.json { render :show }` to your `respond_to` block.
+First, we're going to update our TweetsController to handle JSON requests, similarly 
+to how we updated our UsersController before. If we've successfully created a tweet from 
+a JSON request, then we should render that tweet back as json. We could `render json: 
+@tweet`, but then we might not have all of the information we need. Add a `respond_to` 
+block and put cases for `format.html` and `format.json` inside it. If the request 
+matches `format.json`, call `render :show` so that we can structure our response to our 
+application's needs.
 
-Now, just as we did before, let's create a show view for our tweets. We're going to call a partial in this view; to that end, we'll put the following code in `show.json.jbuilder`: 
+Now, just as we did before, let's create a show view for our tweets. We're going to call 
+a partial in this view; to that end, we'll put the following code in `show.json.jbuilder`: 
 
 ```ruby
 json.partial!("tweets/tweet", tweet: @tweet)
 ```
 
-Partials in JBuilder work the same way they do in ERB - the partial file name starts with a `_` and you pass in a piece of information for the partial to render using a hash. Let's create that partial right now at `_tweet.json.jbuiler` and put the following code into it:
+Partials in JBuilder work the same way they do in ERB - the partial file name starts with 
+a `_` and you pass in a piece of information for the partial to render using a hash. Let's 
+create that partial right now at `_tweet.json.jbuiler` and put the following code into it:
 
 ```ruby
 json.(tweet, *Tweet.column_names)
@@ -382,8 +400,55 @@ well.
 variable. If you were to compose a tweet and not set `lastCreatedAt`, you'll
 fetch the same tweet again when you make an AJAX call to `/feed`.
 
-[underscore_rails]: https://github.com/rweng/underscore-rails
-[underscore_erb]: ../../readings/underscore-templates.md#erb--underscore
+## Phase V: Jbuilder Practice
+
+Since we're going to be using JBuilder so often over the next few weeks, let's 
+get some more practice with it today. We'll start by creating a simple view for 
+our FollowsController to use. In both its `create` and `destroy` methods, 
+the FollowsController calls `render json: @follow`. Replace that with 
+`render :show` and write a `show` view in JBuilder. This view should have the 
+same effect as calling `render json: @follow` - all of the follow's information 
+should get sent to the frontend.
+
+Test your new view by creating and destroying `Follows` using your app. Does it 
+still work?
+
+Next, we'll work on a `show` view for users. In a full Rails API backend, we might use 
+this view when a user is created, destroyed, or shown, as well as whenever a user 
+logs in or out. This view should be similar to the view we just wrote, with one 
+crucial difference: we need to keep our users' private information from being sent 
+over the internet. Write a `users/show.json.jbuilder` that only returns a user's 
+`username` and `id`, keeping their `password_digest` and `session_token` safe on 
+the server.
+
+Test your new view by modifying your `User#create` method to `render :show` when it 
+receives a JSON request. Does your view send back the correct information if you test 
+it using Postman? After your test succeeds, change your controller code back.
+
+Finally, we'll write an `index` view for tweets. This view isn't strictly applicable 
+to our current application, but it demonstrates a pattern that you will use in 
+future full-stack applications, particularly when we start using Redux. We're going 
+to return an object filled with tweets, each tweet keyed by its id. It will look like 
+the following:
+
+```js
+{
+  1: {
+    id: 1,
+    content: 'first tweet!',
+    user_id: 1
+  },
+  2: {
+    id: 2,
+    content: 'another tweet',
+    user_id: 1
+  },
+}
+```
+
+Write a `tweets/index.json.jbuilder` that returns an object full of tweets. Create 
+a `Tweets#index` method and route, and render your new index view in it. Test your 
+new code using Postman.
 
 ## Bonus: Underscore Templates
 
@@ -424,3 +489,6 @@ which makes the tweets variable available to the template. Insert the rendered
 partial.
 
 Check that this works. Call your TA over to double check your work.
+
+[underscore_rails]: https://github.com/rweng/underscore-rails
+[underscore_erb]: ../../readings/underscore-templates.md#erb--underscore
