@@ -83,8 +83,8 @@
 * [Event Loop Visualization][loupe] (10 min)
 * [ES6 Class Syntax][es6-classes] (5 min)
 * [Node Module Pattern][module-pattern] (10 min)
+* [Chrome Dev Tools][chrome-dev-tools] (15 min)
 * [Linting for JavaScript][linting-js] (10 min)
-* [Debugging Node.js][debugging-node] (15 min)
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
 [arguments]: readings/arguments.md
@@ -93,8 +93,8 @@
 [loupe]: http://latentflip.com/loupe
 [es6-classes]: readings/es6-classes.md
 [module-pattern]: readings/module-pattern.md
+[chrome-dev-tools]: readings/chrome_dev_tools.md
 [linting-js]: readings/linting-js.md
-[debugging-node]: readings/debugging-node.md
 
 ### Homeworks (95 min)
 * [CSS Curriculum Day 1][css-day-1] (30 min)
@@ -120,7 +120,7 @@
 [taggings]: readings/tagged-templates.md
 
 ### Projects
-* [Intro to Callbacks Exercises][functions_exercises]
+* [Intro. to Callbacks Exercises][functions_exercises]
 * [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
 
@@ -130,30 +130,26 @@
 
 ## w5d5
 
-### Video Lectures (80 min)
+### Video Lectures (65 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
-* :movie_camera: [Debugging with node-inspector (cc)][node-inspector-vid] (15 min)
-* :movie_camera: [JS in Browser][js-browser-video] (10 min)
 * :movie_camera: [Prototype Chain and Inheritance][proto-inherit] (20 min)
 * :movie_camera: [Inheritance Demo][inherit-demo-video]  (20 min)
+* :movie_camera: [JS in Browser][js-browser-video] (10 min)
+* :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
 
-[chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
-[node-inspector-vid]: http://vimeo.com/groups/appacademy/videos/95551778
-[js-browser-video]: https://vimeo.com/162115224
 [proto-inherit]: https://vimeo.com/162131042
 [inherit-demo-video]: https://vimeo.com/162115223
+[js-browser-video]: https://vimeo.com/162115224
+[chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
 
-### Readings (85 min)
+### Readings (75 min)
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
-* [Chrome Dev Tools][chrome-dev-tools] (10 min)
 * [Modules in the Browser][browser-modules] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
 * **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
     * **Be sure to run and understand this the night before.**
 * Effective JavaScript: Items 18-23, 30 (15 min)
 
-[chrome-dev-tools]: readings/chrome_dev_tools.md
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
 [canvas-demo]: demos/drunken_circles

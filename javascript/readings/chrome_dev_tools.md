@@ -1,11 +1,77 @@
 # Chrome Dev Tools
 
 Frontend development can be a scary undertaking, especially when HTML grows
-complex and JavaScript becomes tangled. Thankfully, modern web browsers
-provide us developer tools to test, debug, and even write our HTML, CSS, and JS.
-Chrome Dev Tools is one of the best. Let's take a look at just a few of the
-amazing tools it gives us. To bring it up, hit Option + Command + i (Mac) or
-F12 (Linux/Windows).
+complex and JavaScript becomes tangled. Thankfully, modern web browsers provide
+us developer tools to test, debug, and even write our HTML, CSS, and JS. Chrome
+Dev Tools is one of the best. Let's take a look at just a few of the amazing
+tools it gives us.
+
+To [access it][access], open Chrome and hit **Option + Command + i** (Mac) or **F12** (Linux/Windows).
+
+[access]: https://developer.chrome.com/devtools#access
+
+# Debugging Node.js with Dev Tools
+
+Debugging is a little more difficult for server-side JavaScript than for
+client-side, which is one of the more frequently-voiced complaints about
+Node.js. The Chrome debugger is *really, really awesome*, which is why it would
+be super nice if we could still use it for Node. And we can!
+
+One strategy is to actually import your node code and run it in a browser with a
+basic HTML page like so:
+
+```html
+<html>
+  <body>
+    <script src="./lib1.js"></script>
+    <script src="./lib2.js"></script>
+  </body>
+</html>
+```
+
+Open the Chrome dev tools and click on the sources tab. You can look at
+the JS files there. Click a line number in the gutter (the row number to
+the left of the code) to add a debugging breakpoint. You can also add
+breakpoints in the code with the `debugger` statement.
+
+## Recap:
+  * Create a new html file in your project directory (ie. `w5d4/index.html`).
+  * Open it in Atom.
+  * Type `html` into your new file and hit **Tab**. Your file should populate to look like this:
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+    </head>
+    <body>
+
+    </body>
+  </html>
+  ```
+
+  * Add a `<script>` tag to the `<body>` of your file. Pass the relative path of the Javascript file you want to test to `src`. For example:
+
+  ```html
+  <body>
+    <script src="./array.js"></script>
+  </body>
+  ```
+
+  * Open your html file in Chrome.
+    * In the Terminal, navigate to the directory of your file.
+    * Use the command `open {file_name}` to open it in Chrome.
+  * In Chrome, open Dev Tools.
+    * **Option + Command + i** (Mac)
+    + **F12** (Linux/Windows).
+  * Click on the *Sources* tab and select your file from the file directory to view your file in Dev Tools.
+  * *esc* brings up the Console.
+  * To run your file, refresh the Chrome page with Dev Tools open.
+  * To add debuggers, either add `debugger` to your html file or create breakpoints by clicking on the line number in Dev Tools. Refresh.
+
+Happy debugging!
 
 ## Elements Inspector
 
@@ -43,7 +109,7 @@ to see more information about it, including the headers Chrome sent and those
 that the server sent back, as well as the request body (for `POST` and `PATCH`
 requests) and the response body.
 
-## Writing CSS Like a Boss
+## CSS
 
 The Dev Tools are not just for inspecting and debugging frontend code. You can
 also use them to *write* code, particularly CSS and JavaScript. A great way
@@ -88,12 +154,13 @@ it'll offer suggestions. Then type a `.`, and you'll get a list of all the
 object's properties that narrow down as you type out more. So remember, the
 console is basically pry in the browser for JavaScript. Use it wisely.
 
-## Resources
+## Additional Resources
 
 We've only touched the tip of the Dev Tools iceberg. There's much more to
-explore, like JavaScript profiling and debugging. Here are a few resources
-in case you're hungry for more.
+explore, like JavaScript profiling and debugging. Here are a few resources in
+case you're hungry for more.
 
+* [Chrome Dev Tools: Using the Console][console]
 * [Chrome Dev Tools: Markup and Style][markup-style]
 * [Chrome Dev Tools: Networking and the Console][networking-console]
 * [Chrome Dev Tools: JavaScript and Performance][js-performance]
@@ -101,6 +168,7 @@ in case you're hungry for more.
 
 
 [dt-docs]: https://developers.google.com/chrome-developer-tools/
+[console]: https://developers.google.com/web/tools/chrome-devtools/console/
 [markup-style]: http://code.tutsplus.com/tutorials/chrome-dev-tools-markup-and-style--net-27149
 [networking-console]: http://code.tutsplus.com/tutorials/chrome-dev-tools-networking-and-the-console--net-28167
 [js-performance]: http://code.tutsplus.com/tutorials/chrome-dev-tools-javascript-and-performance--net-29671
