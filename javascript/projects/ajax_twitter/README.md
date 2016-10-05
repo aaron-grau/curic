@@ -433,22 +433,20 @@ the following:
 
 ```js
 {
-  1: {
-    id: 1,
-    content: 'first tweet!',
-    user_id: 1
+  "1":{
+    "content":"Set world napping record",
+    "user_id":1
   },
-  2: {
-    id: 2,
-    content: 'another tweet',
-    user_id: 1
+  "2":{
+    "content":"Jumped to the top of the shelf!",
+    "user_id":1
   },
 }
 ```
 
 Write a `tweets/index.json.jbuilder` that returns an object full of tweets. Create 
 a `Tweets#index` method and route, and render your new index view in it. Test your 
-new code using Postman.
+new code by navigating to `localhost:3000/tweets`.
 
 Next, include the tweeter's username along with each tweet. Prevent n+1 queries by 
 using `includes`. Check your server log and make sure that only two queries are being 
@@ -456,7 +454,25 @@ fired to display all of the tweets and usernames.
 
 Next, include a list of each tweet's mentioned users along with each tweet. Make sure 
 to add `:mentioned_users` to your `includes` statement to prevent n+1 queries. Test 
-your new code using Postman.
+your new code by navigating to `localhost:3000/tweets` - your returned JSON should look 
+like this:
+
+```js
+{
+  "1":{
+    "content":"Set world napping record",
+    "user_id":1,
+    "username":"breakfast",
+    "mentioned_users":[]
+  },
+  "2":{
+    "content":"Jumped to the top of the shelf!",
+    "user_id":1,
+    "username":"breakfast",
+    "mentioned_users":[]
+  },
+}
+```
 
 ## Bonus: Underscore Templates
 
