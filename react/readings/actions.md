@@ -27,22 +27,41 @@ pass the result of calling an action creator to `store.dispatch()`.
 
 For example:
 ```js
-// actions.js
+// fruit_actions.js
+
 const addFruit = (fruit) => ({
-	type: "ADD_FRUIT",
+	type: FRUIT_ACTIONS.ADD_FRUIT,
 	fruit
 });
 ```
 
-Now we can add any `fruit` to the store using our action creator
-`addFruit(fruit)`, instead of having to define an action object for each fruit.
+Now when we call `store.dispatch(addFruit('pear'))`, the action creator `addFruit` gets called. This function returns an action to add a pear: an object with a `type` and `pear` key.
 
 ```js
-store.dispatch(addFruit("Apple"));
-store.dispatch(addFruit("Strawberry"));
-store.dispatch(addFruit("Lychee"));
+store.dispatch(addFruit("apple"));
+store.dispatch(addFruit("strawberry"));
+store.dispatch(addFruit("lychee"));
 store.getState(); // [ 'orange', 'apple', 'strawberry', 'lychee' ]
 ```
+
+## String Literals
+
+```js
+// fruit_actions.js
+FRUIT_ACTIONS = {
+	ADD_FRUIT = "ADD_FRUIT",
+}
+
+const addFruit = (fruit) => ({
+	type: FRUIT_ACTIONS.ADD_FRUIT,
+	fruit
+});
+
+
+
+
+```
+
 
 ## Official Documentation
 
