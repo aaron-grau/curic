@@ -1,7 +1,7 @@
 # Rails Lite
 
 In this project, we implement some of the basic functionality from
-Rails. We will send you a zip file containing the project skeleton.
+Rails. Download the project skeleton from the previous page.
 
 If you get stuck on something, remember to look at the documentation! Learning
 to read documentation on other libraries is an incredibly important skill for
