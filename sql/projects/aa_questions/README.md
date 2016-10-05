@@ -127,8 +127,9 @@ experienced with this pattern as we transition into Rails.*
          that was populated from a row in the `users` database.
 
 Before writing any more code, take some time to make sure what you've
-done so far works by loading files in the console and testing your
-new methods. Everything should work before you go to the next phase.
+done so far works by jumping into pry. Load the files you want to test 
+and call your new methods. Check that your queries return the 
+correct results and that those results are ruby objects.
 
 ## Queries
 
