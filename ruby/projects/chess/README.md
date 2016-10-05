@@ -22,16 +22,19 @@ any kind of software developer.
 
 Your `Board` class should hold a 2-dimensional array (an array of
 arrays). Each position in the board either holds a moving `Piece` or a `NullPiece`
-(which will inherit from `Piece`).
-You'll want to create an empty Piece class
+(`NullPiece` will inherit from `Piece`).
+
+You'll want to create an empty `Piece` class
 as a placeholder for now. Write code for `initialize` so we setup the board with `Piece`s in locations where a `Queen`/`Rook`/`Knight`/ ect. will start and empty arrays where `NullPiece`s will start.
 
 The `Board` class should have a `#move_piece(start, end_pos)` method. This
 should update the 2D grid and also the moved piece's position. You'll
-want to raise an exception if: (a) there is no piece at `start` or (b)
-the piece cannot move to `end_pos`.
+want to raise an exception if:
 
-**Time to test!** Open up pry and `load 'board.rb'`, try creating an instance of a board and check out different positions with `board[pos]`, do you get back `Piece` instance where you expect to? Test out `#make_move(start, end_pos)`, does it raise an error when there is no piece at the start? Does it successfully update the `Board`?
+0. there is no piece at `start` or 
+0. the piece cannot move to `end_pos`.
+
+**Time to test!** Open up pry and `load 'board.rb'`. Create an instance of a `Board` and check out different positions with `board[pos]`. Do you get back `Piece` instance where you expect to? Test out `#make_move(start, end_pos)`, does it raise an error when there is no piece at the start? Does it successfully update the `Board`?
 
 ## Phase II: `Display`
 
