@@ -278,7 +278,7 @@ instance variable names that represent columns.
 For the purposes of this project it's ok to interpolate the name
 of the table directly into your SQL queries. We're going to assume
 our users aren't malicious and that we don't have to worry about them
-performing SQL injection attacks on our site.
+performing SQL injection attacks.
 
 ### `where`
 
@@ -323,7 +323,7 @@ you need a refresher on rspec refer to [the readings for that day][rspec-reading
 [rspec-readings]: https://github.com/appacademy/curriculum/blob/master/ruby/README.md#w2d3
 
 Apart from testing that your queries return the correct information, also test that they 
-query the database the correct number of times. Also test that methods call queries written
+hit the database the correct number of times. Also test that methods call queries written
 in other classes. 
 
 Then write tests for your save and update methods. Think of a way to reset the
