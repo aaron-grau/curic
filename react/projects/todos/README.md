@@ -154,7 +154,6 @@ configuration works.
 `localhost:3000` and confirm that it worked.
 
 ---
-
 ## Phase 2: Todos Redux Structure
 
 In this phase you will create a Redux loop, including a store with reducers,
@@ -191,9 +190,7 @@ export const fetchTodos = (success, error) => {
 **Test your code** - Try running your function in the console and make sure
 that it calls the success and error callback functions that you passed it.
 
-### Reducers
-
-Redux reducers manage the shape of our application state.
+### State Shape
 
 We want to build a state that allows us to easily add, remove, and update todos.
 If we stored our list of todos in an array querying, updating and deleting any
@@ -220,7 +217,67 @@ So the `todos` slice of our application might look something like this:
 
 **NB**: `todo.id` is used as the primary identifier i.e. object key.
 
+### Action Creators
+
+Let's write a couple action creators -- this is code that will create the Redux
+`actions` that will later tell your `TodosReducer` how to update the state. The first
+one will request `todos` from the backend, and the second one will receive the
+requested `todos`.
+
+Remember that:
+  + Redux actions are plain-old javascript objects that have a `type` property.
+  + Action creators don't directly interact directly with middleware, reducers
+  or the `store`; they simply return action objects
+  + These returned action objects are passed through our `Middleware`, and
+  `RootReducer` only when `store.dispatch(action)` is called.
+
++ Create a file `actions/todo_actions.js` that will house our action creators
+and type constants.
+
+#### Action Type Constants
+
+We use constants to represent action types. They are used whenever
+action types are being set or read (i.e. in our action creators and in the
+`switch` statements in our reducers and middleware).
+
++ Create and export constants both for `REQUEST_TODOS` and `RECEIVE_TODOS` action types.
+  + For example, `export const REQUEST_TODOS = "REQUEST_TODOS";`
+
+#### `requestTodos`
+
+In order to request `todos` from the backend, we need to send a `GET` request to
+the appropriate URL. We don't need to pass any information in order for this
+request to succeed, so the action that triggers this event will only need the
+appropriate `type` (`REQUEST_TODOS`).
+
+Your code should look like the following:
+
+```js
+export const requestTodos = () => ({
+  type: REQUEST_TODOS
+});
+```
+
+#### `receiveTodos`
+
+This action lets our state know to reset its list of `todos` and, as such, will
+also need to pass along a new set of `todos`. Write your `receiveTodos`
+action creator so that it accepts an argument `todos` and returns an action object with
+`type` `RECEIVE_TODOS` and a `todos` property that represents all of our todos
+data.
+
+Your code should look like the following:
+
+```js
+export const receiveTodos = todos => ({
+  type: RECEIVE_TODOS,
+  todos
+});
+```
+
 #### `TodosReducer`
+
+Redux reducers manage the shape of our application state.
 
 + Create a file, `reducers/todos_reducer.js` that exports a reducing function
 `TodosReducer`.
@@ -314,83 +371,6 @@ const TodosReducer = (state = defaultState, action) => {
 **Test your code** - Try calling `window.store.getState()` again from the
 console. Does your store's initial state match the default state you defined?
 
-### Selectors
-
-[Selectors][selector_reading] are "getter" methods for the application state.
-They receive the state as an argument and often return a subset of the state
-data formatted in a specific way. In this case, we will want to present the
-`todos` as an array, rather than as values in an object.
-
-+ Create a file `reducers/selector.js`.
-+ Export a function named `allTodos` that receives the entire state as an argument.
-  + Use `Object.keys(state.todos)` to get the keys for the `state.todos`.
-  + Map the array of todo ids to an array of todos.
-  + Return your new array.
-
-**NB**: Selectors don't have to be long functions - a one-line function that
-uses `map` in conjunction with `Object.keys` and sets a reasonable default of `[]`
-would work just fine.
-
-**Test your selector** - Put your selector on the `window` and pass it the
-default state. Does it format the data into an array of `todos`?
-
-### Action Creators
-
-Let's write a couple action creators -- this is code that will create the Redux
-`actions` that will tell your `TodosReducer` how to update the state. The first
-one will request `todos` from the backend, and the second one will receive the
-requested `todos`.
-
-Remember that:
-  + Redux actions are plain-old javascript objects that have a `type` property.
-  + Action creators don't directly interact directly with middleware, reducers
-  or the `store`; they simply return action objects
-  + These returned action objects are passed through our `Middleware`, and
-  `RootReducer` only when `store.dispatch(action)` is called.
-
-+ Create a file `actions/todo_actions.js` that will house our action creators
-and type constants.
-
-#### Action Type Constants
-
-We use constants to represent action types. They are used whenever
-action types are being set or read (i.e. in our action creators and in the
-`switch` statements in our reducers and middleware).
-
-+ Create and export constants both for `REQUEST_TODOS` and `RECEIVE_TODOS` action types.
-  + For example, `export const REQUEST_TODOS = "REQUEST_TODOS";`
-
-#### `requestTodos`
-
-In order to request `todos` from the backend, we need to send a `GET` request to
-the appropriate URL. We don't need to pass any information in order for this
-request to succeed, so the action that triggers this event will only need the
-appropriate `type` (`REQUEST_TODOS`).
-
-Your code should look like the following:
-
-```js
-export const requestTodos = () => ({
-  type: REQUEST_TODOS
-});
-```
-
-#### `receiveTodos`
-
-This action lets our state know to reset its list of `todos` and, as such, will
-also need to pass along a new set of `todos`. Write your `receiveTodos`
-action creator so that it accepts an argument `todos` and returns an action object with
-`type` `RECEIVE_TODOS` and a `todos` property that represents all of our todos
-data.
-
-Your code should look like the following:
-
-```js
-export const receiveTodos = todos => ({
-  type: RECEIVE_TODOS,
-  todos
-});
-```
 
 ### Middleware
 
@@ -467,6 +447,26 @@ Once the above test works, update your middleware so that it dispatches the rece
 + Import the `receiveTodos` action creator.
 + Re-define your `success` callback to dispatch a `RECEIVE_TODOS` action.
 
+### Selectors
+
+[Selectors][selector_reading] are "getter" methods for the application state.
+They receive the state as an argument and often return a subset of the state
+data formatted in a specific way. In this case, we will want to present the
+`todos` as an array, rather than as values in an object.
+
++ Create a file `reducers/selector.js`.
++ Export a function named `allTodos` that receives the entire state as an argument.
+  + Use `Object.keys(state.todos)` to get the keys for the `state.todos`.
+  + Map the array of todo ids to an array of todos.
+  + Return your new array.
+
+**NB**: Selectors don't have to be long functions - a one-line function that
+uses `map` in conjunction with `Object.keys` and sets a reasonable default of `[]`
+would work just fine.
+
+**Test your selector** - Put your selector on the `window` and pass it the
+default state. Does it format the data into an array of `todos`?
+
 #### Receiving and Reducing `todos`
 
 Now that you can `fetch` data from your backend and `dispatch` it to your
@@ -514,6 +514,21 @@ being stored correctly. Test again.**
 
 In this phase, you will create React components to display your todo list and its items
 
+### `App`
+
+This component will hold all of the top-level concerns of your app. A top-level
+concern is a feature of the app that functions on its own and as such is not
+nested under any other features. In this case, that will only be the `TodoList`,
+but nonetheless it's a good design pattern to get used to.
+
+Your `App` component can also be functional, because it doesn't need to use any
+of React's lifecycle hooks. Because it doesn't rely on any of its props, the
+component doesn't need to receive any arguments.
+
+**Test your components** - Make your `App` component return a `h1` tag with the
+name of your app. You should be able see your app's name appear on the page on
+reload.
+
 ### `Root`
 
 The `Root` component serves to wrap your `App` component with a `react-redux` `Provider`. Remember the `Provider` gives all of your components access to your `store`, allowing them to read the application state and dispatch actions.
@@ -538,20 +553,7 @@ export default Root;
 
 + Update your entry file to render your `Root` component into `#content`!
 
-### `App`
 
-This component will hold all of the top-level concerns of your app. A top-level
-concern is a feature of the app that functions on its own and as such is not
-nested under any other features. In this case, that will only be the `TodoList`,
-but nonetheless it's a good design pattern to get used to.
-
-Your `App` component can also be functional, because it doesn't need to use any
-of React's lifecycle hooks. Because it doesn't rely on any of its props, the
-component doesn't need to receive any arguments.
-
-**Test your components** - Make your `App` component return a `h1` tag with the
-name of your app. You should be able see your app's name appear on the page on
-reload.
 
 ### TodoList
 
