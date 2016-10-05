@@ -91,16 +91,9 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-A couple things are happening here:
+We don't have to worry about loading these scripts in the right order because our module bundler will make sure to load any file declared in `require` before the rest of the code after that will depend on it.
 
-**First**, since each source file has its own scope, anything not exported will remain private. Look at the `lion.js` file: it defines a
-`Surrogate` to setup the inheritance. Because `Surrogate` is
-defined as a local variable of the function, it is not available to
-the `outside world` of the rest of the bundle. We say that `Surrogate` is **private** to the source file.
-
-**Second**, we don't have to worry about loading these scripts in the right order because our module bundler will make sure to load any file declared in `require` before the rest of the code after that will depend on it.
-
-**Third**, by **only** exporting the objects we want, we protect the global namespace from pollution and name collisions. This allows us to mix in libraries with less fear and makes our code safer for other programmers to include.
+Furthermore, by **only** exporting the objects we want, we protect the global namespace from pollution and name collisions. This allows us to mix in libraries with less fear and makes our code safer for other programmers to include.
 
 ## Webpack
 If all of your source files `require` their dependencies and use `module.exports` to set their exports, then you are ready to use a module bundler to prepare your program for the browser.

@@ -204,8 +204,11 @@ the React curriculum materials. Review the
 - [React Context][context]
 - [`localStorage`][local_storage]
 
-### Homeworks (40 min)
+### Homeworks (100 min)
 * [jBuilder][jbuilder_homework] (40 min)
+* Do the auth part of [A04 Prep][a04_prep] (1 hr)
+  * Frontend auth (the main concept in BenchBnB Day 1) builds on top of regular Rails backend auth, so make sure you build on a solid base.
+  * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
 - **Solo:** [BenchBNB][bench_bnb]
@@ -228,12 +231,9 @@ the React curriculum materials. Review the
 ### Readings (20 min)
 * [Think in React][think_in_react] (20 min)
 
-### Homework (6 hrs)
+### Homework (5 hrs)
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
   * **Due by 9am on Monday**
-* Do the auth part of [A04 Prep][a04_prep] (1 hr)
-  * Frontend auth (the main concept in BenchBnB Day 2) builds on top of regular Rails backend auth, so make sure you build on a solid base.
-  * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
 * **Solo:** [BenchBnB Day 2][bench_bnb]

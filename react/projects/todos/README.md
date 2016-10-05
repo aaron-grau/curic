@@ -426,7 +426,7 @@ The pattern for implementing it is relatively simple:
 
 Now that you've created a `MasterMiddleware`, pass it as another argument to your `createStore` function call in `store/store.js`.  Your `configureStore` function should like the following:
 ```js
-// fronted/store/store.js
+// frontend/store/store.js
 const configureStore = () => (
   createStore(
     RootReducer,
@@ -634,14 +634,14 @@ user can create todo list items.
 + Add new `case`s to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
 
-**Test your code** - Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({todo : { title: "Learn Redux", body: "", done: false }}))`. Does your new todo appear on your page?
+**Test your code** - Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({ title: "Learn Redux", body: "", done: false }))`. Does your new todo appear on your page?
 
 + Create a new component (`components/todo_list/todo_form.jsx`) that dispatches your new action types
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
     + If you don't remember how to set up controlled inputs in a React component, look at this reading about [props and state][props_and_state_reading]
   + Render this component in your `TodoList` component
 + Update your `TodoListContainer` to pass in the props that your `TodoForm` will need
-  + Add `createTodo` to the container's `MapDispatchToProps` function and pass this as a prop to `TodoForm`
+  + Add `createTodo` to the container's `mapDispatchToProps` function and pass this as a prop to `TodoForm`
 
 **Test your code** - Try creating a new todo list item using your form. Does it appear on your page? Call over a TA for a code review.
 
@@ -664,7 +664,7 @@ In this phase, you will add new actions and buttons so that you can mark `todo`s
 + Add a new `case` to your reducer's `switch` statement that handles the deletion of a todo list item
   + `REMOVE_TODO` should cause that item to be removed from future versions of `state.todos`
 + Update your components so that you can dispatch and view the effects of these actions
-  + Add `toggleTodo` and `destroyTodo` to the `MapDispatchToProps` in your `TodoListContainer`
+  + Add `toggleTodo` and `destroyTodo` to the `mapDispatchToProps` in your `TodoListContainer`
   + Pass those functions as props to your `TodoListItem` components
   + Render buttons that call those functions `onClick`
     + The button calling `toggleTodo` should display the current state of the todo item
@@ -695,7 +695,7 @@ refactoring their display into multiple parts. Follow these steps:
     + Allow users to change that value to true by clicking on the item's title
     + Render the `TodoDetailView` only if `detail` is true
   + Create a container for your `TodoDetailView` component
-    + Create a `MapDispatchToProps` function that passes `destroyTodo` as a prop to `TodoDetailView`
+    + Create a `mapDispatchToProps` function that passes `destroyTodo` as a prop to `TodoDetailView`
     + Export `connect( null, mapDispatchToProps )(TodoDetailView);`
 
 **NB**: Eventually, your `TodoDetailView` will hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Also, we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `store`.
@@ -799,17 +799,17 @@ In this phase, you will create React components to display the steps for a given
 
 Follow these steps, **testing your code as you go** :
 
-+ Add `requestSteps` to the `MapDispatchToProps` in your `TodoDetailViewContainer`
++ Add `requestSteps` to the `mapDispatchToProps` in your `TodoDetailViewContainer`
 + Create a pair of files, `components/step_list/step_list.jsx` and `components/step_list/step_list_container.jsx`
-  + Create `MapDispatchToProps` and `MapStateToProps` functions in the container file
-    + `MapDispatchToProps` will pass `createStep` as a prop
-    + `MapStateToProps` will pass `steps` and `todo_id` as props
+  + Create `mapDispatchToProps` and `mapStateToProps` functions in the container file
+    + `mapDispatchToProps` will pass `createStep` as a prop
+    + `mapStateToProps` will pass `steps` and `todo_id` as props
   + The presentational component should render:
     + A `<ul>` of `StepListItemContainers`
     + A `StepForm`
 + Create a pair of files `components/step_list/step_list_item_container.jsx` and `components/step_list/step_list_item.jsx`
-  + Create a `MapDispatchToProps` function in the container file
-    + `MapDispatchToProps` will pass `destroyStep` and `toggleStep` as props
+  + Create a `mapDispatchToProps` function in the container file
+    + `mapDispatchToProps` will pass `destroyStep` and `toggleStep` as props
   + The presentational component should render:
     + The step's `title`
     + Buttons to toggle and delete the step
