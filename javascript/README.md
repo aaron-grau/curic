@@ -9,7 +9,7 @@
 
 ### Video Lectures (55 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Intro. to JS][intro-js-video] (12 min)
+* :movie_camera: [Intro to JS][intro-js-video] (12 min)
 * :movie_camera: [Object-Oriented JS: Intro][oo-js-intro] (15 min)
 * :movie_camera: [Object-Oriented JS: Demo][oo-js-demo] (8 min)
 * :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
@@ -20,7 +20,7 @@
 [callbacks-video]: https://vimeo.com/169898573
 
 ### Readings (100 min)
-* [Intro. to JavaScript][intro-js] (10 min)
+* [Intro to JavaScript][intro-js] (10 min)
 * [Syntax and Useful Methods][syntax-and-methods] (10 min)
 * [Data Types][data-types] (15 min)
 * [Variables][variables] (15 min)
@@ -39,7 +39,7 @@
 [fat-arrows]: readings/fat-arrows.md
 
 ### Homeworks (45 min)
-* [Intro. JavaScript Problems][intro-pset] (45 min)
+* [Intro JavaScript Problems][intro-pset] (45 min)
 * Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
@@ -68,7 +68,7 @@
 [mdn-js-doc]: readings/mdn-js.md
 
 ### Projects
-* [Intro. JavaScript Exercises][intro-javascript-problems]
+* [Intro JavaScript Exercises][intro-javascript-problems]
 * [Reversi][reversi]
 
 [intro-javascript-problems]: projects/intro_js_exercises
@@ -79,7 +79,7 @@
 ### Readings (105 min)
 * [Arguments][arguments] (15 min)
 * [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
-* [Intro. to Callbacks: File I/O][intro-to-callbacks] (15 min)
+* [Intro to Callbacks: File I/O][intro-to-callbacks] (15 min)
 * [Event Loop Visualization][loupe] (10 min)
 * [ES6 Class Syntax][es6-classes] (5 min)
 * [Node Module Pattern][module-pattern] (10 min)
@@ -120,7 +120,7 @@
 [taggings]: readings/tagged-templates.md
 
 ### Projects
-* [Intro. to Callbacks Exercises][functions_exercises]
+* [Intro to Callbacks Exercises][functions_exercises]
 * [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
 
