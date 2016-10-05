@@ -16,7 +16,6 @@ HTML and only serve database information (as `json`) to be used by our client-
 side rendering scripts. When a web server provides non-UI formatted information
 like this, we call it a **web API**.
 
-
 ## What is an API?
 
 From [Wikipedia][wiki]:  
@@ -33,8 +32,8 @@ serve up raw JSON information instead of HTML; we'll call these views
 **endpoints**.
 
 This setup will let us write client-side Javascript that utilizes our endpoints
-to render our UI by dynamically requesting, posting, and displaying server
-information.
+to render our UI dynamically by requesting, posting, and displaying server
+information as it executes.
 
 ## Example
 
@@ -96,8 +95,8 @@ method.
 
 ## Using the API
 
-If we now use our client-side rendering scripts to make an AJAX `GET` request to
-`localhost:3000/cats`, instead of the HTML, we'll get a string of text that
+If we now use our client-side rendering scripts to make an AJAX `GET` request (which sets a `ContentType: application/json` header) to
+`localhost:3000/cats`, instead of our HTML view, we'll get a string of text that
 looks something like this:
 
 ```json
@@ -108,11 +107,11 @@ looks something like this:
 ```
 
 Our client-side JS can then parse and use the information easily to present our
-information in dynamic (i.e. programmable) ways.
+information dynamically (i.e. according to our instructions).
 
-**Note:** we can still get our old HTML view by making a `text/html` request to
-`localhost:3000/cats`, but at this point, who'd want to? STOP LIVING IN THE
-PAST.
+**Note:** we can still get our old HTML view by making a `ContentType: text/html`
+request to `localhost:3000/cats`, but at this point, who'd want to? STOP LIVING
+IN THE PAST.
 
 ## Nesting API resources
 
@@ -152,7 +151,7 @@ find it. Now we can access our api endpoint and our HTML view on
 
 ## Conclusion
 
-I hope you have enjoyed eviserating this Rails web app and turning it into a lean
-/ mean / data-focused API with me.
+We hope you have enjoyed eviserating this Rails web app and turning it into a lean
+/ mean / data-focused API with us.
 
 [wiki]: https://en.wikipedia.org/wiki/Web_API
