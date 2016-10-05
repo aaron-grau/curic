@@ -190,7 +190,7 @@ some debug info, such as the selected piece's available moves, whether
 your opponent is in check, and so on.
 
 
-**Test each piece's `#valid moves`!** In pry `load 'board.rb'` and create a board instance. Grab one instance of each type of moving piece (getting it from the board's position) and check that calling `#valid_moves` on it returns what we expect. When you are satisfied it works **call a TA over for a code review!**
+**Test each piece's `#valid moves`!** In pry `load 'board.rb'` and create a `Board` instance. Grab an instance of each type of piece (ie. from its position on the board) and check that calling `#valid_moves` returns what we expect. When you are satisfied it works **call a TA over for a code review!**
 
 ### Further `Board` improvements
 
