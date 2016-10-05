@@ -284,9 +284,10 @@
 * :movie_camera: [AJAX Demo][ajax-demo] (35 min)
   * [:computer: complete demo from video][ajax-demo-code]
 
-### Readings (35 min)
+### Readings (45 min)
 * [Basic AJAX][basic-ajax] (10 min)
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
+* [Using Rails as an API][rails-api] (10 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
 ### Homeworks (30 min)
@@ -308,6 +309,7 @@
 [underscore-templates]: readings/underscore-templates.md
 [first-ajax]: homeworks/questions/first_ajax.md
 [ajax-twitter]: projects/ajax_twitter
+[rails-api]: readings/rails-api.md
 
 ## w6d5
 
