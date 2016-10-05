@@ -1,5 +1,24 @@
 # Webpack Configuration
 
+## `.gitignore`
+
+Before we get into webpack configuration, you should know that: running webpack 
+and using npm create a lot of redundant and very large files in your local 
+directory. Use a `.gitignore` file to prevent these files from being pushed and 
+pulled from your remote Git repositories. Create a `.gitignore` file in your 
+project's root directory and list the files or directories you want to ignore, 
+one per line. Put a trailing `/` to indicate a directory name to ignore.
+
+```
+# .gitignore
+
+node_modules/
+bundle.js
+bundle.js.map
+```
+
+You can view App Academy's full `.gitignore` [here][gitignore].
+
 Just like with NPM, you can use a configuration file to set up your webpack
 options. You'll have to create this file by hand. It should live in the
 project's root directory, be named `webpack.config.js`, and export a single
@@ -11,6 +30,8 @@ object.
 location of your output file. See the example below:
 
 ```js
+// webpack.config.js
+
 module.exports = {
   entry: "frontend/my_app.jsx",
   output: {
@@ -32,6 +53,8 @@ line references to your code when errors are raised, which is impossible
 otherwise due to bundling.
 
 ```js
+// webpack.config.js
+
 module.exports = {
   ...
 	devtool: 'source-map',
@@ -45,6 +68,8 @@ module.exports = {
 file extensions to process without specifically naming them.
 
 ```js
+// webpack.config.js
+
 module.exports = {
 	...
 	resolve: {
@@ -61,26 +86,11 @@ import App from './components/app';
 import { createTodos } from './actions/todos';
 ```
 
-## `.gitignore`
-
-Running webpack and using npm create a lot of redundant and very large files in
-your local directory. Use a `.gitignore` file to prevent these files from being
-pushed and pulled from your remote Git repositories. Create a `.gitignore` file
-in your project's root directory and list the files or directories you want to
-ignore, one per line. Put a trailing `/` to indicate a directory name to ignore.
-
-```
-node_modules/
-bundle.js
-bundle.js.map
-```
-
-You can view App Academy's full `.gitignore` [here][gitignore].
-
-## A Completed Sample Configuration
+# Example webpack.config.js
 
 ```js
 // webpack.config.js
+
 module.exports = {
   entry: "path/to/entry.jsx",
   output: {
