@@ -7,7 +7,14 @@ application stack:
 	0.	request routing (router and controllers), and 
 	0.	rendering the user interface (views).
 
-While Rails certainly excels at all these things, we're now moving into the next iteration of our web-application stack: client-side rendering. Going forward, we'll be applying more and more Javascript when rendering our pages to create dynamic content. This means that we'll be relying on Rails HTML views less and less. Eventually, our Rails **endpoints** (controller actions) will stop serving HTML and only serve database information (as `json`) to be used by our client-side rendering scripts. When a web server provides non-UI formatted information like this, we call it a **web API**.
+While Rails certainly excels at all these things, we're now moving into the next
+iteration of our web-application stack: client-side rendering. Going forward,
+we'll be applying more and more Javascript when rendering our pages to create
+dynamic content. This means that we'll be relying on Rails HTML views less and
+less. Eventually, our Rails **endpoints** (controller actions) will stop serving
+HTML and only serve database information (as `json`) to be used by our client-
+side rendering scripts. When a web server provides non-UI formatted information
+like this, we call it a **web API**.
 
 
 ## What is an API?
@@ -20,8 +27,10 @@ From [Wikipedia][wiki]:
 	by means of an HTTP-based web server.
 
 The Rails projects we've done so far haven't been APIs, because they've tightly
-coupled database information to a pre-defined set of fixed UI-templates
-(our views). To make Rails an API, we're going to rewrite those views so that they serve up raw JSON information instead of HTML; we'll call these views **endpoints**.
+coupled database information to a pre-defined set of fixed UI-templates (our
+views). To make Rails an API, we're going to rewrite those views so that they
+serve up raw JSON information instead of HTML; we'll call these views
+**endpoints**.
 
 This setup will let us write client-side Javascript that utilizes our endpoints
 to render our UI by dynamically requesting, posting, and displaying server
@@ -57,11 +66,20 @@ It should render the following template whenever we visit `localhost:3000/cats`:
 
 ```
 
-Let's go ahead and change this around to be an API. We want `localhost:3000/cats` to no longer give us a static HTML page, but rather a text-based representation of said cats that our client-side Javascript can use to render a dynamic view.
+Let's go ahead and change this around to be an API. We want
+`localhost:3000/cats` to no longer give us a static HTML page, but rather a
+text-based representation of said cats that our client-side Javascript can use
+to render a dynamic view.
 
-## API Implementation (The new way)
+### API Implementation (The new way)
 
-Our application needs to be able to respond to client-side requests for JSON. Lucky for us, Rails is smart enough to route HTTP requests for different data types to the corresponding views for that type. If a request with a header for `Content-Type: application/json` comes in, `CatsController#index` will automatically try to render  `app/views/cats/index.json.jbuilder` instead of the `app/views/cats/index.html.erb` view we wrote earlier. All we have to do is write that view:
+Our application needs to be able to respond to client-side requests for JSON.
+Lucky for us, Rails is smart enough to route HTTP requests for different data
+types to the corresponding views for that type. If a request with a header for
+`Content-Type: application/json` comes in, `CatsController#index` will
+automatically try to render  `app/views/cats/index.json.jbuilder` instead of the
+`app/views/cats/index.html.erb` view we wrote earlier. All we have to do is
+write that view:
 
 ```ruby
 
@@ -71,7 +89,10 @@ Our application needs to be able to respond to client-side requests for JSON. Lu
 
 ```
 
-Don't worry if you've never heard of jbuilder. It's just a gem that lets us write Ruby to create JSON, like ERB is for creating HTML. jbuilder lets us render a json array of cats by simply passing `@cats` to the `json.array!` method.
+Don't worry if you've never heard of jbuilder. It's just a gem that lets us
+write Ruby to create JSON, like ERB is for creating HTML. jbuilder lets us
+render a json array of cats by simply passing `@cats` to the `json.array!`
+method.
 
 ## Using the API
 
@@ -95,19 +116,23 @@ PAST.
 
 ## Nesting API resources
 
-Although we can rely on Rails content-type routing to delineate what type of HTTP responses our web app generates, a better pattern is to nest our API endpoints under a namespace.
+Although we can rely on Rails content-type routing to delineate what type of
+HTTP responses our web app generates, a better pattern is to nest our API
+endpoints under a namespace.
 
 A **namespace** is just a subset of controllers that live under a specific URL. 
 
-We'll start off by creating a new controller: `rails g controller API:cats`, which is created in the `app/controllers/api/cats_controller.rb` file. Then we need to tell our router about our new controller: 
+We'll start off by creating a new controller: `rails g controller API:cats`,
+which is created in the `app/controllers/api/cats_controller.rb` file. Then we
+need to tell our router about our new controller:
 
 ```rb
 	# config/routes.rb
 
-	resources :cats, only [:index]
+	resources :cats, only: [:index]
 
 	namespace :api do 
-		resources :cats, only [:index]
+		resources :cats, only: [:index]
 	end
 
 ```
@@ -115,8 +140,19 @@ We'll start off by creating a new controller: `rails g controller API:cats`, whi
 Running rake routes, we get: 
 
 ```
-
+	Prefix Verb URI Pattern         Controller#Action
+    cats GET  /cats(.:format)     cats#index
+api_cats GET  /api/cats(.:format) api/cats#index
 ```
 
+Finally, we have to move our `index.json.jbuilder` view to
+`app/views/api/cats/index.json.jbuilder` so our new `Api:CatsController` can
+find it. Now we can access our api endpoint and our HTML view on
+`localhost:3000/api/cats` and `localhost:3000/cats`, respectively.
+
+## Conclusion
+
+I hope you have enjoyed eviserating this Rails web app and turning it into a lean
+/ mean / data-focused API with me.
 
 [wiki]: https://en.wikipedia.org/wiki/Web_API
