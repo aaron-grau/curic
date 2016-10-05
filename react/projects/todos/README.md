@@ -626,15 +626,14 @@ In this phase you will create a form that allows users to create new todo items.
 
 You've already set up a redux cycle - now it's time to flesh it out so that a
 user can create todo list items.
-
++ Create a new API utility function (in `util/todo_api_util.js`) that sends `POST` requests to create a new Todo in the database called `createTodo(todo, success, error)`. Make sure to set the `data` property of your AJAX request.
 + In `actions/todo_actions.js`, create two new action creator methods and their respective constants
   + `createTodo`
   + `receiveTodo`
-+ Create a new API utility function (in `util/todo_api_util.js`) that sends `POST` requests to create a new Todo in the database called `createTodo(todo, success, error)`. Make sure to set the `data` property of your AJAX request.
-+ Add new `case`s to your middleware's `switch` statement that use your new API utility function
-  + `CREATE_TODO` should call your new API utility function and pass `receiveTodo` as its success callback
 + Add new `case`s to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
++ Add new `case`s to your middleware's `switch` statement that use your new API utility function
+  + `CREATE_TODO` should call your new API utility function and pass `receiveTodo` as its success callback
 
 **Test your code** - Put your `createTodo` action creator on the window. Try calling `store.dispatch(createTodo({todo : { title: "Learn Redux", body: "", done: false }}))`. Does your new todo appear on your page?
 
@@ -652,19 +651,18 @@ user can create todo list items.
 ## Phase 5: Updating and Deleting Todos
 
 In this phase, you will add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them.
-
++ Create new API utility helper functions (in `util/todo_api_util`) that `PATCH` or `DELETE` a todo list item
+  + `updateTodo`
+  + `destroyTodo`
 + Create new action creator methods (in `actions/todo_actions`)
   + `toggleTodo`
   + `destroyTodo`
   + `removeTodo`
-+ Create new API utility helper functions (in `util/todo_api_util`) that `PATCH` or `DELETE` a todo list item
-  + `updateTodo`
-  + `destroyTodo`
++ Add a new `case` to your reducer's `switch` statement that handles the deletion of a todo list item
+  + `REMOVE_TODO` should cause that item to be removed from future versions of `state.todos`
 + Add new `case`s to your middleware's `switch` statement that use your new API utility functions
   + `UPDATE_TODO` should call your new API utility function `updateTodo` and pass `receiveTodo` as its success callback
   + `DESTROY_TODO` should call your new API utility function `destroyTodo` and pass `removeTodo` as its success callback
-+ Add a new `case` to your reducer's `switch` statement that handles the deletion of a todo list item
-  + `REMOVE_TODO` should cause that item to be removed from future versions of `state.todos`
 + Update your components so that you can dispatch and view the effects of these actions
   + Add `toggleTodo` and `destroyTodo` to the `MapDispatchToProps` in your `TodoListContainer`
   + Pass those functions as props to your `TodoListItem` components
@@ -729,6 +727,27 @@ In this section you will create parallel API utils to those in your `todo_api_ut
 
 **Test your code.**
 
+
+#### Action Creators
+
+In this section you will create essentially parallel action creators to those in your `todo_actions` file, but for `steps` instead.
+
++ Create a file `actions/steps_actions.js`
+  + Write action creators `requestSteps`, `receiveSteps`, `createStep`, `toggleStep`, `receiveStep`, and `destroyStep`
+  + Create new `step` constants for each of the action creators
+  + Export all of your action creators and constants
+
+**Test your code.**
+
+#### Reducers
+
++ Create another reducer called the `StepsReducer` in `reducers/steps_reducer.js`
+  + Set a default action to take in its `switch` statement
+  + Add this reducer to your `RootReducer` via `combineReducers`
++ Add another selector to your `reducers/selectors.js` file that will allow components to get the steps as an array
+
+**Test your code.**
+
 #### Update the store
 
 Because each `step` belongs to a todo item, we are going to nest each `step`
@@ -766,24 +785,6 @@ Your application state will end up looking like this:
   }
 }
 ```
-
-+ Create another reducer called the `StepsReducer` in `reducers/steps_reducer.js`
-  + Set a default action to take in its `switch` statement
-  + Add this reducer to your `RootReducer` via `combineReducers`
-+ Add another selector to your `reducers/selectors.js` file that will allow components to get the steps as an array
-
-**Test your code.**
-
-#### Action Creators
-
-In this section you will create essentially parallel action creators to those in your `todo_actions` file, but for `steps` instead.
-
-+ Create a file `actions/steps_actions.js`
-  + Write action creators `requestSteps`, `receiveSteps`, `createStep`, `toggleStep`, `receiveStep`, and `destroyStep`
-  + Create new `step` constants for each of the action creators
-  + Export all of your action creators and constants
-
-**Test your code.**
 
 #### Middleware
 
