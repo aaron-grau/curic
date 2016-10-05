@@ -15,27 +15,11 @@ To [access it][access], open Chrome and hit **Option + Command + i** (Mac) or **
 Debugging is a little more difficult for server-side JavaScript than for
 client-side, which is one of the more frequently-voiced complaints about
 Node.js. The Chrome debugger is *really, really awesome*, which is why it would
-be super nice if we could still use it for Node. And we can!
-
-One strategy is to actually import your node code and run it in a browser with a
-basic HTML page like so:
-
-```html
-<html>
-  <body>
-    <script src="./lib1.js"></script>
-    <script src="./lib2.js"></script>
-  </body>
-</html>
-```
-
-Open the Chrome dev tools and click on the sources tab. You can look at
-the JS files there. Click a line number in the gutter (the row number to
-the left of the code) to add a debugging breakpoint. You can also add
-breakpoints in the code with the `debugger` statement.
+be super nice if we could still use it for Node. And we can; by importing your node
+code and running it in the browser with a HTML page!
 
 ### How-To:
-  * Create a new html file in your project directory (ie. `w5d4/index.html`).
+  * Create a new html file in your project directory (ie. `w5d3/index.html`).
   * Open it in Atom.
   * Type `html` into your new file and hit **Tab**. Your file should populate to look like this:
 
@@ -67,9 +51,28 @@ breakpoints in the code with the `debugger` statement.
     * **Option + Command + i** (Mac)
     + **F12** (Linux/Windows).
   * Click on the *Sources* tab and select your file from the file directory to view your file in Dev Tools.
-  * *esc* brings up the Console.
+  * *esc* brings up the Console. `console.log` statements print here.
   * To run your file, refresh the Chrome page with Dev Tools open.
-  * To add debuggers, either add `debugger` to your html file or create breakpoints by clicking on the line number in Dev Tools. Refresh.
+  * To add debuggers, either add `debugger` to your html file or add debugging breakpoints by clicking on the 
+  line number to the left of the code. Refresh.
+
+### TL;DR:
+
+Import your node code and run it in a browser with a
+basic HTML page like so:
+
+```html
+<html>
+  <body>
+    <script src="./array.js"></script>
+    <script src="./iteration.js"></script>
+  </body>
+</html>
+```
+
+Open the Chrome dev tools and click on the sources tab. You can look at
+the JS files there. Click a line number in the gutter to add a debugging breakpoint. You can also add
+breakpoints in the code with the `debugger` statement.
 
 Happy debugging!
 
