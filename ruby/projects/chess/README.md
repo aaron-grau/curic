@@ -3,9 +3,9 @@
 Write a [chess game][wiki-chess] in an object-oriented way. **Please
 read all through the various phases before proceeding.**
 
-Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating. The diagram is beneficial for getting an idea of how different aspects of the project function together; however, you should **follow the directions to this project closely and only reference the diagram when confused about how classes inherit from one another**.
+Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating. The diagram is beneficial for getting an idea of how different aspects of the project fit together; however, you should **follow the directions to this project closely and only reference the diagram when confused about how classes inherit from or relate to one another**.
 
-Please split your program into multiple files. Use
+You must split your program into multiple files. Use
 [require-relative][require-relative] to load files. Make separate files for each
 class. Give files `snake_case` titles.
 
@@ -21,8 +21,8 @@ any kind of software developer.
 ## Phase I: `Board`
 
 Your `Board` class should hold a 2-dimensional array (an array of
-arrays). Each position in the board either holds a `Piece`, or `NullPiece`
-(which will actually inherits from `Piece`) if no piece is present there.
+arrays). Each position in the board either holds a moving `Piece` or a `NullPiece`
+(which will inherit from `Piece`).
 You'll want to create an empty Piece class
 as a placeholder for now. Write code for `initialize` so we setup the board with `Piece`s in locations where a `Queen`/`Rook`/`Knight`/ ect. will start and empty arrays where `NullPiece`s will start.
 
@@ -72,7 +72,7 @@ you can move your cursor around the board by creating and calling a method that
 loops through `Display#render` and `Cursor#get_input` (much as
 `Player#play_turn` will function later!).
 
-A nice but optional addition to your cursor class is a instance variable `selected` that will allow you to display the cursor in a different color when it has selected a piece. To implement this you will need to `#toggle_selected` everytime `:return` or `:space` is hit.
+A nice but optional addition to your cursor class is a boolean instance variable `selected` that will allow you to display the cursor in a different color when it has selected a piece. To implement this you will need to `#toggle_selected` everytime `:return` or `:space` is hit.
 
 
 **NB:** **If you're stuck on making a cursor for more than _30 minutes_, please
@@ -93,7 +93,7 @@ categories:
 0. Stepping pieces (Knight/King)
 0. The pawn (do this last)
 
-You should also have a `NullPiece` class (which still inherits from `Piece`) that includes [the `singleton` module][singleton]. The null piece instance can then occupy any 'empty' spaces on the board.
+You should also have a `NullPiece` class (which still inherits from `Piece`) that includes [the `singleton` module][singleton]. The null piece instance can then occupy any 'empty' spaces on the board. The `NullPiece` will not need a reference to the `Board` - in fact it's `initialize` method should take no arguments. Make sure you have a way to read it's `color` and `symbol`.
 
 
 Start by writing a `Piece` parent class that contains the
@@ -255,6 +255,6 @@ style, encapsulation, and exception handling.
 [wiki-chess-unicode]: http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
 [cursor]: ./cursor.rb?raw=true
 [process-exit]: http://ruby-doc.org/core-2.2.0/Process.html#method-c-exit
-[modules]: ../../readings/modules
+[modules]: ../../readings/modules.md
 [case statements]: http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-case
 [singleton]: http://ruby-doc.org/stdlib-1.9.3/libdoc/singleton/rdoc/Singleton.html

@@ -8,7 +8,6 @@ class NullPiece < Piece
   def initialize
     @symbol = " "
     @color = :none
-    @board = nil
   end
 
   def moves
