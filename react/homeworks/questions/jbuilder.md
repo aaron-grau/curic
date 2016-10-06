@@ -20,15 +20,17 @@ end
 
 Run `rake routes` to ensure this is working as intended.
 
-Make sure you keep the [Jbuilder GitHub][docs-link] up for reference as you work
-through this. A few notes before we begin. First, we can run any ruby code we
+Keep open and use the [Jbuilder docs][docs-link] for reference as you work through this.
+
+A few notes before we begin:
+* First, we can run any ruby code we
 want in a Jbuilder template, including conditionals. This ends up being really
 helpful when, for example, we only want to send certain user data if the user
-requesting it is logged in. Second, we can build Jbuilder partials as we did
-with HTML and ERB and render them using `json.partial!` in our template, with a
-very similar argument syntax to `render partial: ...`. Last, we can nest our
-data by opening blocks for a given key in our object. This is demonstrated in an
-example from GitHub page:
+requesting it is logged in.
++ Second, we can build Jbuilder partials as we did
+with HTML and ERB and render them using `json.partial!` in our templates.
+* Last, we can nest our
+data by opening blocks for a given key in our object. For example,
 
 ```ruby
 json.author do
@@ -37,7 +39,9 @@ json.author do
   json.url url_for(@message.creator, format: :json)
 end
 ```
-Yields:
+
+yields:
+
 ```json
  "author": {
     "name": "David H.",
@@ -46,7 +50,7 @@ Yields:
   }
 ```
 
-Note not only the nested object, but also the use of associations
+Note the nested object, and the use of associations
 (`@message.creator`) and view helpers (`url_for`).
 
 Let's make some templates! Start by making a `show.json.jbuilder` view for your
@@ -82,22 +86,64 @@ information to break. Nest your data by passing it as an argument to
 Time to do some on your own. Make both a gift show and index view. Get the specs
 to pass.
 
-### Bonuses!
+Next, make the party show and index views. In the index view, show all parties,
+and include all of their guests. In the show view, include not only all guests,
+but all of the guests' gifts as well.
 
-To run the bonus specs, simply go to that spec file and remove the line `before { pending('Bonus') }`.
+In writing these views, you've probably generated some gnarly [N+1 queries][n_plus_one]. Are you
+calling `.gifts` for every guest in the parties show view? That's a query for every guest!
+To fix this, remember back to our Active Record skills. `.includes` pre-fetches whatever data we
+tell it. For example, in the `PartiesController#index`, we could call `.includes(guests: [:gifts])`;
+then, when we call `.gifts` on each guest in our Jbuilder template, we will use that pre-fetched data
+and don't actually have to hit the database again.
 
-**Bonus:**  Make the party show and index views. In the index
-view, show all parties, and include all of their guests. In the show view,
-include not only all guests, but all of the guests' gifts as well.
+Find any other N+1 queries you've made throughout and defeat them. _Hint:_ play around
+with your API in development and watch your server logs. Look for a query followed by many
+repetitive queries. E.g., with the parties show view, before we fixed the N+1 query, our server
+logs would have looked something like this:
 
-**Double Bonus:** Change your guest index view to only show guests who are between 40
+```
+Started GET "/api/parties/1" for ::1 at 2016-10-05 17:56:12 -0700
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  Party Load (0.4ms)  SELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT 1  [["id", 1]]
+  Guest Load (0.5ms)  SELECT "guests".* FROM "guests" INNER JOIN "invitations" ON "guests"."id" = "invitations"."guest_id" WHERE "invitations"."party_id" = $1  [["party_id", 1]]
+  Gift Load (0.4ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 1]]
+  Gift Load (0.4ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 2]]
+  Gift Load (0.3ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 3]]
+  Gift Load (0.3ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 4]]
+  Gift Load (0.3ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 5]]
+  Rendered api/parties/show.json.jbuilder (42.1ms)
+Completed 200 OK in 61ms (Views: 40.9ms | ActiveRecord: 11.9ms)
+```
+
+See all those Gift Loads? Those are the N queries to accompany our 1 query for the party and 1 query for the guests.
+
+When it's fixed, it should look more like this:
+
+```
+Started GET "/api/parties/1" for ::1 at 2016-10-05 18:01:47 -0700
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  Party Load (0.3ms)  SELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT 1  [["id", 1]]
+  Invitation Load (0.4ms)  SELECT "invitations".* FROM "invitations" WHERE "invitations"."party_id" IN (1)
+  Guest Load (0.6ms)  SELECT "guests".* FROM "guests" WHERE "guests"."id" IN (1, 2, 3, 4, 5)
+  Gift Load (0.6ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" IN (1, 2, 3, 4, 5)
+  Rendered api/parties/show.json.jbuilder (8.6ms)
+Completed 200 OK in 77ms (Views: 14.9ms | ActiveRecord: 13.1ms)
+```
+
+Only one query per table! That's what we want to see.
+
+### Bonus!
+
+To run the bonus specs, simply go to the bonus spec file and remove the line `before { pending('Bonus') }`.
+
+Change your guest index view to only show guests who are between 40
 and 50 years old. Normally we would always do this kind of selection using
 Active Record, but this gives us an opportunity to practice using Ruby in Jbuilder.
 
-**Triple Bonus:** In writing these views, you've generated some gnarly N+1 queries.
-Find them and defeat them. _Hint:_ play around with your API in development and
-watch your server logs.
-
+[n_plus_one]: ../../../sql/readings/joins.md#the-n1-selects-problem
 [jbuilder-zip]: ./jbuilder.zip?raw=true
 [formatter-link]: https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en
 [docs-link]: https://github.com/rails/jbuilder
