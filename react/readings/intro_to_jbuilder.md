@@ -37,3 +37,5 @@ pass a template name to `render` (`render :index` for example).
 
 As shown in the directory structure above, you can also use partials with
 Jbuilder just as you have with ERB.
+
+[jbuilder-docs]:https://github.com/rails/jbuilder
