@@ -290,8 +290,6 @@ Remember that reducers should:
 + Return the default state if no arguments are passed;
 + Return the `state` if the reducer doesn't care about the action;
 + Return a new state object if the reducer cares about the `action` - it should never modify `state`!
-  + You can use [`Object.freeze`][object-freeze-reading] to prevent yourself from
-  accidentally mutating the `state`.
 
 Remember the `TodosReducer` will only be passed the `todos` slice of the application
 state. Let's start by just setting up our `TodosReducer` to return its default
