@@ -218,7 +218,7 @@ a partial in this view; to that end, we'll put the following code in `show.json.
 json.partial!("tweets/tweet", tweet: @tweet)
 ```
 
-Partials in JBuilder work the same way they do in ERB - the partial file name starts with 
+Partials in Jbuilder work the same way they do in ERB - the partial file name starts with 
 a `_` and you pass in a piece of information for the partial to render using a hash. Let's 
 create that partial right now at `_tweet.json.jbuiler` and put the following code into it:
 
@@ -402,11 +402,11 @@ fetch the same tweet again when you make an AJAX call to `/feed`.
 
 ## Phase V: Jbuilder Practice
 
-Since we're going to be using JBuilder so often over the next few weeks, let's 
+Since we're going to be using Jbuilder so often over the next few weeks, let's 
 get some more practice with it today. We'll start by creating a simple view for 
 our FollowsController to use. In both its `create` and `destroy` methods, 
 the FollowsController calls `render json: @follow`. Replace that with 
-`render :show` and write a `show` view in JBuilder. This view should have the 
+`render :show` and write a `show` view in Jbuilder. This view should have the 
 same effect as calling `render json: @follow` - all of the follow's information 
 should get sent to the frontend.
 
