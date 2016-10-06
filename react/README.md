@@ -83,7 +83,7 @@ the React curriculum materials. Review the
 
 ## w7d2
 
-### :clock10: Class will start at 10am! :clock10: 
+### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
 
 ### Readings (105 min)
@@ -165,13 +165,14 @@ the React curriculum materials. Review the
 
 ## w7d4
 
-### Readings (75 min)
+### Readings (80 min)
 - [Intro to react router][react_router_intro] (12 min)
 - [Route Configuration][route_configuration] (12 min)
 - [Route Matching][route_matching] (5 min)
-- [Index Routes][index_routes] (7 min)
+- [Index Routes][index_routes] (5 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
-- [`withRouter`][with_router] (9 min)
+- [`withRouter`][with_router] (10 min)
+- [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
 
 ### Homeworks (30 min)
@@ -190,6 +191,7 @@ the React curriculum materials. Review the
 [index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
 [with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [on_enter]: readings/on_enter.md
+[jbuilder-intro]: readings/intro_to_jbuilder.md
 [jbuilder_docs]: https://github.com/rails/jbuilder
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 [pokedex]: projects/pokedex
