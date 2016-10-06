@@ -76,7 +76,8 @@
 
 ## w5d4
 
-### **LATE START: Class will start at 10am. Progress Tracker reports are still due at 9am**.
+### :clock10: Class will start at 10am! :clock10: 
+- **Progress Tracker reports are still due at 9am.**
 
 ### Readings (105 min)
 * [Arguments][arguments] (15 min)
@@ -239,7 +240,8 @@
 
 ## w6d2
 
-### **LATE START: Class will start at 10am. Progress Tracker reports are still due at 9am**.
+### :clock10: Class will start at 10am! :clock10: 
+- **Progress Tracker reports are still due at 9am.**
 
 ### Homeworks (235 min)
 * [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
