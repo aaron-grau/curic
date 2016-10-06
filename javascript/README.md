@@ -76,7 +76,11 @@
 
 ## w5d4
 
-### :clock10: Class will start at 10am! :clock10: 
+<<<<<<< HEAD
+### :clock10: Class will start at 10am! :clock10:
+=======
+### :clock10: Class will start at 10am! :clock10:
+>>>>>>> master
 - **Progress Tracker reports are still due at 9am.**
 
 ### Readings (105 min)
@@ -240,7 +244,11 @@
 
 ## w6d2
 
-### :clock10: Class will start at 10am! :clock10: 
+<<<<<<< HEAD
+### :clock10: Class will start at 10am! :clock10:
+=======
+### :clock10: Class will start at 10am! :clock10:
+>>>>>>> master
 - **Progress Tracker reports are still due at 9am.**
 
 ### Homeworks (235 min)
@@ -275,13 +283,15 @@
 [ajax-demo]: https://vimeo.com/162764008
 [ajax-demo-code]: demos/chat_demo
 
-### Readings (35 min)
+### Readings (45 min)
 * [Basic AJAX][basic-ajax] (10 min)
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
+* [Using Rails as an API][rails-api] (10 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
 [basic-ajax]: readings/basic-ajax.md
 [ajax-remote-forms]: readings/ajax-remote-forms.md
+[rails-api]: readings/rails-api.md
 
 ### Homeworks (30 min)
 * [Your First Ajax Request][first-ajax] (30 min)
