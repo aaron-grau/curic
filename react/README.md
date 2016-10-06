@@ -83,6 +83,9 @@ the React curriculum materials. Review the
 
 ## w7d2
 
+### :clock10: Class will start at 10am! :clock10: 
+- **Progress Tracker reports are still due at 9am.**
+
 ### Readings (105 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
 - [Store][store] (25 min)
