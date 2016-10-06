@@ -2,6 +2,15 @@
 
 Note: Write user interaction with node's `readline` library.
 
+Useful Readings:
++ [Closures and Scope][closures]
++ [`this` and that][this-and-that]
++ [Intro. to Callbacks: File I/O][intro-to-callbacks]
+
+[closures]: ../../readings/closures.md
+[this-and-that]: ../../readings/this-and-that.md
+[intro-to-callbacks]: ../../readings/intro-to-callbacks.md
+
 ## Timing is Everything
 
 Use [`setInterval`][setInterval-doc] to build a small clock in your

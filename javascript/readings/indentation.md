@@ -1,43 +1,51 @@
 # Writing Clean Javascript
 
-Would you rather debug this: 
+Would you rather debug this:
+
 ```js
-function fn1(){ if (true) {
-for (var x = 1; x < 10; x++ ) {
-while (x < 30) {
-function fn2(x){
-	return x + 1;
-} if (fn2(x) % 2 === 0){
-	console.log(x);
-} else {
-	console.log(x * 4);
+function isOdd(num) {
+return num%2 === 1;
 }
-x++;
-}}}
-fn1()
+function foo(num) {
+if (num%3 === 0) {
+for (let x = 1; x<num; x++) {
+if (isOdd(x^1010)) {
+console.log(x);
+} else {
+console.log('write clean code');
+}
+}
+}
+return 'write clean code';
+}
+foo(9);
 ```
 
 or this:
 
 ```js
-function fn1(){
-	if (true) {
-		for (var x = 1; x < 10; x++ ) {
-			while (x < 30) {
-				function fn2(x){
-					return x + 1;
-				}
-				if (fn2(x) % 2 === 0){
-					console.log(x);
-				} else {
-					console.log(x * 4);
-				}
-				x++;
-			}
-		
-	}
+function isOdd(num) {
+	return num % 2 === 1;
 }
-fn1();
+
+function foo(num) {
+	if (num % 3 === 0) {
+		for (let x = 1; x < num; x++) {
+			if (isOdd(x ^ 1010)) {
+				console.log(x);
+			} else {
+				console.log('write clean code');
+			}
+		}
+	}
+
+	return 'write clean code';
+}
+
+foo(10);
 ```
 
-Lesson: **Always indent and pair your curly-braces** (write the curly braces first, then fill in the code block).
+Lesson: **Always style, indent and match your brackets and curly-braces.**
+
+Pro-tip: Write your brackets and curly braces first, then fill in the code
+block.

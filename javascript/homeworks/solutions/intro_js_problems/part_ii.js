@@ -1,32 +1,6 @@
-// Part III
+// Object Oriented JS
 
-// printChildren
-
-function printChildren(parent, ...children) {
-  console.log(`${parent}'s children are:`);
-
-  for( let i = 0; i < children.length; i++ ) {
-    console.log(children[i]);
-  }
-}
-
-// addThree
-
-function addThree(a, b, c) {
-  return a + b + c;
-}
-
-let arr = [1,2,3];
-
-addThree(...arr);
-
-// dinnerTonightIs
-
-function dinnerTonightIs(food = "pizza") {
-  return `Dinner tonight is ${food}.`
-}
-
-// Callbacks
+// Phase I - Callbacks
 
 // defining the function
 function titleize(names, callback) {
@@ -39,7 +13,7 @@ titleize(["Mary", "Brian", "Leo"], (names) => {
   names.forEach(name => console.log(name));
 });
 
-// Constructors, Prototypes, and `this`
+// Phase II - Constructors, Prototypes, and `this`
 
 function Elephant(name, height, tricks) {
   this.name = name;
@@ -64,9 +38,7 @@ Elephant.prototype.play = function () {
   console.log(`${this.name} is ${this.tricks[trickIndex]}!`);
 };
 
-
-
-// Function Invocation
+// Phase III - Function Invocation
 
 Elephant.paradeHelper = function (elephant) {
   console.log(`${elephant.name} is trotting by!`);
@@ -74,10 +46,10 @@ Elephant.paradeHelper = function (elephant) {
 
 
 
-// Closure
+// Phase IV - Closures
 
 function dinerBreakfast() {
-  let order = "I'd like cheesy scrambled eggs and bacon please.";
+  let order = "I'd like cheesy scrambled eggs please.";
   console.log(order);
 
   return function (food) {

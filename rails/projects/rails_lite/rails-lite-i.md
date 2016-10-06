@@ -1,7 +1,7 @@
 # Rails Lite
 
 In this project, we implement some of the basic functionality from
-Rails. We will send you a zip file containing the project skeleton.
+Rails. Download the project skeleton from the previous page.
 
 If you get stuck on something, remember to look at the documentation! Learning
 to read documentation on other libraries is an incredibly important skill for
@@ -530,3 +530,6 @@ Great! We finally have all the params and routing in place. Run the
 ## Phase VI: Celebrate!
 
 Run the integration spec in `spec/p06_integration_spec.rb`. Good work!
+Move on to [Rails Lite II][rails-lite-ii]
+
+[rails-lite-ii]: ./rails-lite-ii.md
