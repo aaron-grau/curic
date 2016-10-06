@@ -10,7 +10,7 @@ SF: Don't forget to push every one of your completed assignments to the
 
 ## HTML
 
-### 1: Introduction (45 min)
+### Lesson 1: Introduction
 
 The beginning of Front-End Development.
 
@@ -25,7 +25,7 @@ The beginning of Front-End Development.
 
 + [Recipe Page](homeworks/introduction/introduction_html_exercise.md)
 
-### 2: Containers (35 min)
+### Lesson 2: Containers
 
 A look at containers in HTML and HTML5 semantic elements.
 
@@ -37,7 +37,7 @@ A look at containers in HTML and HTML5 semantic elements.
 
 + [Recipe Containers](homeworks/containers/containers_html_exercise.md)
 
-### 3: Forms (30 min)
+### Lesson 3: Forms
 
 Bringing user input to your HTML with Form and Input elements.
 
@@ -49,7 +49,7 @@ Bringing user input to your HTML with Form and Input elements.
 
 + [Recipe Review Form](homeworks/forms/forms_html_exercise.md)
 
-### 4: Head Section (30 min)
+### Lesson 4: Head Section
 
 Providing specific information and loading external files to your webpage.
 
@@ -63,7 +63,7 @@ Providing specific information and loading external files to your webpage.
 
 ## CSS
 
-### 1: Intro Workflow (30 min)
+### Lesson 1: Intro Workflow
 
 Our first look at cascading style sheets and how to be efficient CSS developers.
 Before we dive into CSS syntax, watch the introduction video explaining some CSS
@@ -78,7 +78,7 @@ history and then the Workflow video to learn about the Chrome Developer Tools.
 
 + [Hack Academy](homeworks/css_intro/exercise.md)
 
-### 2: Syntax (50 min)
+### Lesson 2: Syntax
 
 ```css
 selector {
@@ -99,7 +99,7 @@ selector {
 
 + [Recipe Styles](homeworks/css_syntax/exercise.md)
 
-### 3: Reset & Advanced Selectors (40 min)
+### Lesson 3: Reset & Advanced Selectors
 
 Now that we have some understanding of CSS syntax we can review the css_reset file and customize our own. We will also take a look at some more advanced selectors that will allow us to target other aspects of our HTML document.
 
@@ -119,7 +119,7 @@ Now that we have some understanding of CSS syntax we can review the css_reset fi
 
 + [Pseudo Content Video](https://vimeo.com/album/3732382/video/151190178)
 
-### 4: The Display Property & The Box Model (55 min)
+### Lesson 4: The Display Property & The Box Model
 
 The box model describes how space is calculated with CSS. This model combined with popular properties including display, margin, padding, width and height mark the beginning of styling the layout of our HTML document.
 
@@ -141,7 +141,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 + [Margin Gotchya Video](https://vimeo.com/album/3732382/video/151190180)
 
-### 5: Float, Fluid Layouts & Flexbox (85 min)
+### Lesson 5: Float, Fluid Layouts & Flexbox
 
 #### Video (55 min)
 
@@ -163,7 +163,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 + [Tic-Tac-Toe Float Demo](https://vimeo.com/album/3732382/video/151190183)
 + [Navbar Demo](https://vimeo.com/album/3732382/video/158975002)
 
-### 6: Positioning & Media Queries (90 min)
+### Lesson 6: Positioning & Media Queries
 
 #### Video (60 min)
 

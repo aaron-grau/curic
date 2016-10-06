@@ -333,9 +333,9 @@
 [vanilla-ajax]: readings/vanilla_ajax.md
 
 <!-- CSS Curriculum Links -->
-[css-1]: ../html-css/README.md#1-intro-workflow
-[css-2]: ../html-css/README.md#2-syntax
-[css-3]: ../html-css/README.md#3-reset--advanced-selectors
-[css-4]: ../html-css/README.md#4-the-display-property--the-box-model
-[css-5]: ../html-css/README.md#5-float-fluid-layouts--flexbox
-[css-6]: ../html-css/README.md#6-positioning--media-queries
+[css-1]: ../html-css/README.md#lesson-1-intro-workflow
+[css-2]: ../html-css/README.md#lesson-2-syntax
+[css-3]: ../html-css/README.md#lesson-3-reset--advanced-selectors
+[css-4]: ../html-css/README.md#lesson-4-the-display-property--the-box-model
+[css-5]: ../html-css/README.md#lesson-5-float-fluid-layouts--flexbox
+[css-6]: ../html-css/README.md#lesson-6-positioning--media-queries

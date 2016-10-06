@@ -327,7 +327,7 @@
 [rails-lite]: projects/rails_lite
 
 <!-- HTML Curriculum Links -->
-[html-1]: ../html-css/README.md#1-introduction
-[html-2]: ../html-css/README.md#2-containers
-[html-3]: ../html-css/README.md#3-forms
-[html-4]: ../html-css/README.md#4-head-section
+[html-1]: ../html-css/README.md#lesson-1-introduction
+[html-2]: ../html-css/README.md#lesson-2-containers
+[html-3]: ../html-css/README.md#lesson-3-forms
+[html-4]: ../html-css/README.md#lesson-4-head-section
