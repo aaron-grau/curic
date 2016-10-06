@@ -96,9 +96,9 @@
 [chrome-dev-tools]: readings/chrome_dev_tools.md
 [linting-js]: readings/linting-js.md
 
-### Homeworks (95 min)
-* [CSS Curriculum Day 1][css-day-1] (30 min)
-* [CSS Curriculum Day 2][css-day-2] (35 min)
+### Homeworks (110 min)
+* [CSS Curriculum 1: Intro Workflow][css-1] (30 min)
+* [CSS Curriculum 2: Syntax][css-2] (50 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 [cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
@@ -186,7 +186,7 @@
 ## w6d1
 
 ### Assessment05 Practice
-+ In-class practice assessment at 9am. Please bring your own machine if     possible.
++ In-class practice assessment at 9am. Please bring your own machine if possible.
 * [Practice][assessment-prep-5]
 
 [assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
@@ -208,8 +208,8 @@
 [jquery-05-data-attributes]: readings/jquery-05-data-attributes.md
 
 ### Homeworks (140 min)
-* [CSS Curriculum Day 3][css-day-3] (40 min)
-* [CSS Curriculum Day 4][css-day-4] (55 min)
+* [CSS Curriculum 3: Reset & Advanced Selectors][css-3] (40 min)
+* [CSS Curriculum 4: The Display Property & The Box Model][css-4] (55 min)
 * [Wacky jQuery][wacky-project] (45 min)
 
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
@@ -238,8 +238,8 @@
 ## w6d2
 
 ### Homeworks (235 min)
-* [CSS Curriculum Day 5][css-day-5] (85 min)
-* [CSS Curriculum Day 6][css-day-6] (90 min)
+* [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
+* [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
 ### Additional Resources
@@ -332,9 +332,10 @@
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md
 
-[css-day-1]: ../html-css/README.md#css-intro-workflow--day-1
-[css-day-2]: ../html-css/README.md#day-2-syntax
-[css-day-3]: ../html-css/README.md#day-3-reset--advanced-selectors
-[css-day-4]: ../html-css/README.md#day-4-the-display-property--the-box-model
-[css-day-5]: ../html-css/README.md#day-5-float-fluid-layouts--flexbox
-[css-day-6]: ../html-css/README.md#day-6-positioning--media-queries
+<!-- CSS Curriculum Links -->
+[css-1]: ../html-css/README.md#1-intro-workflow
+[css-2]: ../html-css/README.md#2-syntax
+[css-3]: ../html-css/README.md#3-reset--advanced-selectors
+[css-4]: ../html-css/README.md#4-the-display-property--the-box-model
+[css-5]: ../html-css/README.md#5-float-fluid-layouts--flexbox
+[css-6]: ../html-css/README.md#6-positioning--media-queries
