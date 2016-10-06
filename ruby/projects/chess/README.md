@@ -1,11 +1,11 @@
 # Chess
 
-Write a [chess game][wiki-chess] using object-oriented programming. 
+Write a [chess game][wiki-chess] using object-oriented programming.
 
 **Please read all through the various phases before proceeding.**
 
-Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating. 
-The diagram is beneficial for getting an idea of how different aspects of the project 
+Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating.
+The diagram is beneficial for getting an idea of how different aspects of the project
 fit together; however, you should **code your project by following the instructions closely
 and using the diagram only as a reference**. It'll be helpful for clearing up
 any confusion about how  classes inherit from or relate  to one another.
@@ -121,11 +121,11 @@ reference to the `Board`. Classes that `include SlidingPiece` in particular need
 piece. Don't allow a piece to move into a square already occupied by the
 same color piece, or to move a sliding piece past a piece that blocks it.
 
-The `NullPiece` class should include [the `singleton` module][singleton]. It will not need a reference to the `Board` - in fact it's `initialize` method should take no arguments. Make sure you have a way to read it's `color` and `symbol`.
+The `NullPiece` class should include [the `singleton` module][singleton]. It will not need a reference to the `Board` - in fact its `initialize` method should take no arguments. Make sure you have a way to read its `color` and `symbol`.
 
-**After completing each piece** load the file in pry and make sure it can moves properly. **Once you have completed all pieces** refactor your `Board#initialize` so that all your pieces are placed in their respective starting positions. Run `ruby display.rb` to check that they show up in the proper locations.
+**After completing each piece** load the file in pry and make sure it moves properly. **Once you have completed all pieces** refactor your `Board#initialize` so that all your pieces are placed in their respective starting positions. Run `ruby display.rb` to check that they show up in the proper locations.
 
-For now, do not worry if a move leaved a player in check.
+For now, do not worry if a move leaves a player in check.
 
 ## Phase IV: `Board#in_check?(color)` and `#checkmate?(color)`
 
