@@ -76,6 +76,8 @@
 
 ## w5d4
 
+### **LATE START: Class will start at 10am. Progress Tracker reports are still due at 9am**.
+
 ### Readings (105 min)
 * [Arguments][arguments] (15 min)
 * [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
@@ -236,6 +238,8 @@
 [snake-project]: projects/snake
 
 ## w6d2
+
+### **LATE START: Class will start at 10am. Progress Tracker reports are still due at 9am**.
 
 ### Homeworks (235 min)
 * [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
