@@ -1,4 +1,4 @@
-# Functions and their Parentheses
+# Functions Invocation, Briefly
 
 ## Ruby
 
@@ -15,10 +15,10 @@ parentheses). The distinction is very important.
 To illustrate:
 
 ```js
-// retrieving a property that is a function:
+// accessing a property that is a function:
 'javascript string'.toUpperCase // => function toUpperCase() { [native code] }
 
-// invoking the retrieved function:
+// invoking the accessed function:
 'javascript string'.toUpperCase() // => "JAVASCRIPT STRING"
 ```
 

@@ -1,6 +1,6 @@
 # Object-oriented JavaScript
 
-## Classes in JavaScript: constructor functions
+## Classes in JavaScript: Constructor Functions
 
 JavaScript does not have a traditional class system like Ruby
 does. Instead of declaring classes in JS, you instead define a
@@ -122,7 +122,7 @@ Kitten.parade = function() {
   Kitten.caboodle.forEach( kitten => {
     kitten.meow();
   });
-}; 
+};
 
 Kitten.parade();
 // 'Earl says "meow!"'

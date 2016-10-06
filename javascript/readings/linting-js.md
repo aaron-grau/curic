@@ -1,6 +1,6 @@
-# Linting JavaScript
+# Linting for JavaScript
 
-As you're probably discovering, JavaScript syntax can get pretty wild. Thankfully, we have _linters_ to catch syntax errors for us. 
+As you're probably discovering, JavaScript syntax can get pretty wild. Thankfully, we have _linters_ to catch syntax errors for us.
 
 ## ESLint
 
@@ -43,7 +43,7 @@ We can excuse these global variables from ESLint by designating them inside a `/
 /* globals $ */
 
 $.ajax({  //=> no lint error
-... 
+...
 ```
 
 #### Other Options
@@ -69,8 +69,6 @@ let unused = ':('
 let unused = ':)'
 //=> no lint warning
 ```
-
-Problem solved :D ... or at least ignored :\
 
 Use comment-line configuration very sparingly, as it can cause unforeseen behavior and might even be a code smell.
 

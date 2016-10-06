@@ -1,8 +1,7 @@
 // Intro to JS Homework
 
-// Part I
-
-// mysteryScoping
+// Phase I
+// mystery scoping
 
 function mysteryScoping1() {
   var x = 'out of block';
@@ -62,41 +61,29 @@ mysteryScoping5(); // SyntaxError
 
 // madLib
 
-function madLib (verb, adj, noun) {
-  return `We shall ${verb} the ${adj} ${noun}.`
-}
-
-// isOdd
-
-function isOdd (n) {
-  return Math.abs(n) % 2 === 1;
-}
-
-// yell
-
-function yell (phrase) {
-  return phrase.toUpperCase();
+function madLib(verb, adj, noun) {
+  return `We shall ${verb.toUpperCase()} the ${adj.toUpperCase()} ${noun.toUpperCase()}.`
 }
 
 // isSubstring
 
-function isSubstring (phrase, subphrase) {
-  return phrase.indexOf(subphrase) !== -1;
+function isSubstring(phrase, subphrase) {
+  return phrase.includes(subphrase);
 }
 
-// Part II
+// Phase II
 
 // fizzBuzz
 
 function fizzBuzz (array) {
   const fizzBuzzArr = [];
 
-  for (let i = 0; i < array.length; i++) {
-    let el = array[i];
+  array.forEach(el => {
     if ((el % 3 === 0) ^ (el % 5 === 0)) {
       fizzBuzzArr.push(el);
     }
-  }
+  });
+
   return fizzBuzzArr;
 }
 
@@ -132,30 +119,14 @@ function sumOfNPrimes (n) {
   return sum;
 }
 
-// Part III
+// allOrNothing
 
-// printChildren
-
-function printChildren (parent, ...children) {
-  console.log(`${parent}'s children are:`);
-
-  for(var i = 0; i < children.length; i++) {
-    console.log(children[i]);
+function allOrNothing(mod, ...numbers) {
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % mod !== 0) {
+      return false;
+    }
   }
-}
 
-// addThree
-
-function addThree (a, b, c) {
-  return a + b + c;
-}
-
-var arr = [1,2,3];
-
-addThree(...arr);
-
-// dinnerTonightIs
-
-function dinnerTonightIs (food = "pizza") {
-  return `Dinner tonight is ${food}.`
+  return true;
 }

@@ -76,7 +76,11 @@
 
 ## w5d4
 
+<<<<<<< HEAD
 ### :clock10: Class will start at 10am! :clock10:
+=======
+### :clock10: Class will start at 10am! :clock10:
+>>>>>>> master
 - **Progress Tracker reports are still due at 9am.**
 
 ### Readings (105 min)
@@ -240,7 +244,11 @@
 
 ## w6d2
 
+<<<<<<< HEAD
 ### :clock10: Class will start at 10am! :clock10:
+=======
+### :clock10: Class will start at 10am! :clock10:
+>>>>>>> master
 - **Progress Tracker reports are still due at 9am.**
 
 ### Homeworks (235 min)

@@ -49,7 +49,7 @@ def starring(whazzername)
 
 	matcher = "%#{whazzername.split(//).join("%")}%"
 	Actor.where("upper(name) like upper(?)", matcher).first.movies
-	
+  
   # Note: The below code also works:
   # Actor.where("name ilike ?", matcher).first.movies
   # As the Postgres docs say, "the keyword ILIKE can be used instead of LIKE to make the match case insensitive according to the active locale. This is not in the SQL standard but is a PostgreSQL extension."

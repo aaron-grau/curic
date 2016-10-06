@@ -223,3 +223,7 @@ class Route
   end
 end
 ```
+
+Once you're done, check out [the solutions][solution].
+
+[solution]: ../solutions/n_1_buster.rb

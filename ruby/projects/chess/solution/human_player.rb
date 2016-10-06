@@ -4,25 +4,25 @@ require_relative 'player'
 class HumanPlayer < Player
 
   def make_move(board)
-    from_pos, to_pos = nil, nil
+    start_pos, end_pos = nil, nil
 
-    until from_pos && to_pos
+    until start_pos && end_pos
       display.render
 
-      if from_pos
+      if start_pos
         puts "#{color}'s turn. Move to where?"
-        to_pos = display.cursor.get_input
+      end_pos = display.cursor.get_input
 
-        display.reset! if to_pos
+        display.reset! if end_pos
       else
         puts "#{color}'s turn. Move from where?"
-        from_pos = display.cursor.get_input
+        start_pos = display.cursor.get_input
 
-        display.reset! if from_pos
+        display.reset! if start_pos
       end
     end
 
-    [from_pos, to_pos]
+    [start_pos, end_pos]
   end
 
 end
