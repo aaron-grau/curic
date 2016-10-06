@@ -88,8 +88,8 @@ write that view:
 
 ```
 
-Don't worry if you've never heard of jbuilder. It's just a gem that lets us
-write Ruby to create JSON, like ERB is for creating HTML. jbuilder lets us
+Don't worry if you've never heard of Jbuilder. It's just a gem that lets us
+write Ruby to create JSON, like ERB is for creating HTML. Jbuilder lets us
 render a json array of cats by simply passing `@cats` to the `json.array!`
 method.
 
