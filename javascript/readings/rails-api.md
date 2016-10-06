@@ -4,7 +4,7 @@ So far, we've used Rails to handle all the different parts of our web
 application stack:
 
 	0.	database management (ActiveRecord )
-	0.	request routing (router and controllers), and 
+	0.	request routing (router and controllers), and
 	0.	rendering the user interface (views).
 
 While Rails certainly excels at all these things, we're now moving into the next
@@ -22,8 +22,8 @@ From [Wikipedia][wiki]:
 
 	A **server-side web API** is a programmatic interface consisting of one or
 	more publicly exposed endpoints to a defined request-response message system,
-	typically expressed in JSON or XML, which is exposed via the web—-most commonly
-	by means of an HTTP-based web server.
+	typically expressed in JSON or XML, which is exposed via the web—-most
+	commonly by means of an HTTP-based web server.
 
 The Rails projects we've done so far haven't been APIs, because they've tightly
 coupled database information to a pre-defined set of fixed UI-templates (our
@@ -55,14 +55,13 @@ Take a look at this `CatsController`:
 It should render the following template whenever we visit `localhost:3000/cats`:
 
 ```html
-	<!-- app/views/cats/index.html.erb -->
-	<h1> Cats </h1>
-	<ul>
-	<% @cats.each do |cat| %>
-		<li><%= cat.name %>: <%= cat.color %></li>
-	<% end %>
-	</ul>
-
+<!-- app/views/cats/index.html.erb -->
+<h1> Cats </h1>
+<ul>
+<% @cats.each do |cat| %>
+	<li><%= cat.name %>: <%= cat.color %></li>
+<% end %>
+</ul>
 ```
 
 Let's go ahead and change this around to be an API. We want
@@ -70,7 +69,7 @@ Let's go ahead and change this around to be an API. We want
 text-based representation of said cats that our client-side Javascript can use
 to render a dynamic view.
 
-### API Implementation (The new way)
+### API Implementation (The New Way)
 
 Our application needs to be able to respond to client-side requests for JSON.
 Lucky for us, Rails is smart enough to route HTTP requests for different data
@@ -81,11 +80,9 @@ automatically try to render  `app/views/cats/index.json.jbuilder` instead of the
 write that view:
 
 ```ruby
+# app/views/cats/index.json.jbuilder
 
-	# app/views/cats/index.json.jbuilder
-
-	json.array! @cats
-
+json.array! @cats
 ```
 
 Don't worry if you've never heard of Jbuilder. It's just a gem that lets us
@@ -100,26 +97,26 @@ If we now use our client-side rendering scripts to make an AJAX `GET` request (w
 looks something like this:
 
 ```json
-	[
-		{id: 1, name: "Amitabh", color: "Gray"},
-		{id: 2, name: "Fabio", color: "Calico"}
-	]
+[
+	{id: 1, name: "Amitabh", color: "Gray"},
+	{id: 2, name: "Fabio", color: "Calico"}
+]
 ```
 
 Our client-side JS can then parse and use the information easily to present our
 information dynamically (i.e. according to our instructions).
 
-**Note:** we can still get our old HTML view by making a `ContentType: text/html`
+**NB:** we can still get our old HTML view by making a `ContentType: text/html`
 request to `localhost:3000/cats`, but at this point, who'd want to? STOP LIVING
 IN THE PAST.
 
-## Nesting API resources
+## Nesting API Resources
 
 Although we can rely on Rails content-type routing to delineate what type of
 HTTP responses our web app generates, a better pattern is to nest our API
 endpoints under a namespace.
 
-A **namespace** is just a subset of controllers that live under a specific URL. 
+A **namespace** is just a subset of controllers that live under a specific URL.
 
 We'll start off by creating a new controller: `rails g controller API:cats`,
 which is created in the `app/controllers/api/cats_controller.rb` file. Then we
@@ -130,13 +127,13 @@ need to tell our router about our new controller:
 
 	resources :cats, only: [:index]
 
-	namespace :api do 
+	namespace :api do
 		resources :cats, only: [:index]
 	end
 
 ```
 
-Running rake routes, we get: 
+Running rake routes, we get:
 
 ```
 	Prefix Verb URI Pattern         Controller#Action

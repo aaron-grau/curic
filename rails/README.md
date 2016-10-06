@@ -1,358 +1,349 @@
-# Rails
-
-* [Setup][rails-setup]
-* Rails Api [api.rubyonrails.org][rails-api]
-* Rails Guides [guides.rubyonrails.org][rails-guides]
-
-[rails-setup]: readings/rails-setup.md
-[rails-api]: http://api.rubyonrails.org/v4.0.2/
-[rails-guides]: http://guides.rubyonrails.org/v4.0.2/
-
-## w4d1
-
-### Assessment03
-+ [Practice][assessment-prep-3]
-
-### Video Lectures (60 min)
-:closed_lock_with_key: `go_video_go`
-+ [:movie_camera: What is an API?][api-video] (10 min)
-+ [:movie_camera: HTTP Request/Response][http-req-res-video] (5 min)
-+ [:movie_camera: Rails Routing][rails-routing-video] (5 min)
-+ [:movie_camera: Routes Demo][routes-demo-video] (10 min)
-+ [:movie_camera: Basic Controller Demo][basic-controller-demo-video] (15 min)
-+ [:movie_camera: RESTful Controller Demo][restful-controller-demo-video] (15 min)
-
-### Readings
-+ [Callbacks][callbacks]
-+ [Delegation][delegation]
-
-### Homeworks (2 hr 5 min)
-* [Library Controller][library-hw] (45 min)
-* Complete days 1 & 2 of [HTML Curriculum][html-readme] (80 min)
-
-### Additional Resources
-+ [Routing I: Basics][routing-i]
-+ [Basic Controllers][basic-controllers]
-+ [Basic JSON API][basic-json-api]
-+ [Routing II: Nested Collections][routing-ii]
-+ [:movie_camera: Rails Screencasts (3 thru 11)][rails-screencasts]
-  + [:computer: Code from demos][rails-videos-code]
-
-### Projects
-+ [First Routes and Controllers][first-routes]
-+ [Contacts API][contacts-api]
-
-[assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
-[api-video]: https://vimeo.com/168498417
-[http-req-res-video]: https://vimeo.com/168498424
-[rails-routing-video]: https://vimeo.com/168498679
-[routes-demo-video]: https://vimeo.com/168499905
-[basic-controller-demo-video]: https://vimeo.com/168501163
-[restful-controller-demo-video]: https://vimeo.com/168505535
-
-[callbacks]: readings/callbacks.md
-[delegation]: readings/delegation.md
-
-[rails-screencasts]: https://vimeo.com/album/2953690/sort:alphabetical
-[rails-videos-code]: demos/intro_rails_video_demo
-
-[library-hw]: ./homeworks/questions/library
-[html-readme]: ../html-css
-
-[routing-i]: readings/routing-part-i.md
-[basic-controllers]: readings/basic-controllers.md
-[basic-json-api]: readings/basic-json-api.md
-[routing-ii]: readings/routing-part-ii.md
-
-[first-routes]: projects/first_routes
-[contacts-api]: projects/contacts_api
-
-## w4d2
-
-### Readings (90 min)
-* [Basic views][basic-views] (15 min)
-* [Partials][partials] (15 min)
-* [ERB][erb] (15 min)
-* [HTML Form Basics][html-forms] (15 min)
-* [Rails Parameter Conventions][rails-params-conventions] (10 min)
-* [Mass Assignment][mass-assignment] (5 min)
-* [PATCH, PUT, and DELETE][patch-put-and-delete] (5 min)
-* [Debugging][debugging-rails] (10 min)
-
-### Homeworks (30 min)
-* Complete day 3 of [HTML Curriculum][html-readme-3] (30 min)
-
-### Additional Resources
-* [Easy Forms Demo][easy-forms-demo]
-
-### Projects
-* [99 Cats][99-cats]
-
-[html-readme-3]: ../html-css/README.md#day-3-forms
-[html]: homeworks/html.md
-[basic-views]: readings/basic-views.md
-[erb]: readings/erb.md
-[html-forms]: readings/html-forms.md
-[rails-params-conventions]: readings/parameter-conventions.md
-[mass-assignment]: readings/mass-assignment.md
-[patch-put-and-delete]: readings/patch-put-and-delete.md
-[debugging-rails]: readings/debugging-rails.md
-[partials]: readings/partials.md
-
-[auth-00-user-model]: https://vimeo.com/groups/appacademy/videos/93097977
-[auth-01-basic-sessions]: https://vimeo.com/groups/appacademy/videos/93097978
-[auth-02-password-digest]: https://vimeo.com/groups/appacademy/videos/93097979
-[auth-03-password-pseudo-attribute]: https://vimeo.com/groups/appacademy/videos/93100190
-[auth-04-session-token]: https://vimeo.com/groups/appacademy/videos/93101442
-
-[easy-forms-demo]: demos/easy_forms_demo
-[99-cats]: projects/ninety_nine_cats_i
-
-## w4d3
-
-### Video lectures (2 hr, 38 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera: Secure State][auth-secure-state] (11 min)
-* [:movie_camera: Cookies and Authentication][auth-cookies] (17 min)
-* [:movie_camera: Encoding and Encryption][auth-encoding] (19 min)
-* [:movie_camera: Hashing for Authentication][auth-hashing] (11 min)
-* [:movie_camera: Salting][auth-salting] (31 min)
-* [:movie_camera: BCrypt][auth-bcrypt] (7 min)
-* [:movie_camera: Session and Flash][auth-session] (12 min)
-* [:movie_camera: Auth Pattern][auth-pattern] (15 min)
-* [:movie_camera: (cc) 06 CSRF Attack][auth-06-csrf-attack] (13 min)
-* [:movie_camera: (cc) 07 CSRF Protection][auth-07-csrf-protection] (12 min)
-* [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
-
-### Homeworks (60 min)
-* Complete day 4 of [HTML Curriculum][html-readme-4] (30 min)
-* [Rails Auth][rails-auth-homework] (30 min)
-
-### Additional Resources
-* [Cookies][cookies]
-* [Controllers and State][controllers-and-state]
-* [CSRF and Forms][csrf-and-forms]
-* [displaying validation errors, `flash`][error-validation]
-* [Auth I: Creating Users][auth-part-i]
-* [Auth II: Sessions][auth-part-ii]
-
-### Project
-* [99 Cats II: Auth][99-cats-part-ii]
-
-[html-readme-4]: ../html-css/README.md#day-4-head-section
-[controllers-and-state]: readings/controllers-and-state.md
-[csrf-and-forms]: readings/csrf.md
-[cookies]: readings/cookies.md
-[auth-part-i]: readings/auth-part-i.md
-[auth-part-ii]: readings/auth-part-ii.md
-[error-validation]: readings/validation.md
-[12-displaying-validation-errors]: http://vimeo.com/groups/appacademy/videos/100729436
-[13-flash-messages]: http://vimeo.com/groups/appacademy/videos/100729438
-
-[vimeo-double-speed]: https://chrome.google.com/webstore/detail/vimeo-repeat-speed/noonakfaafcdaagngpjehilgegefdima?hl=en
-[auth-05-bcrypt]: https://vimeo.com/groups/appacademy/videos/93104232
-[auth-06-csrf-attack]: https://vimeo.com/groups/appacademy/videos/93114286
-[auth-07-csrf-protection]: https://vimeo.com/groups/appacademy/videos/93114288
-[auth-08-csrf-methods]: https://vimeo.com/groups/appacademy/videos/93114287
-[auth-github]: https://github.com/appacademy/AuthVideoDemo
-[auth-secure-state]: https://vimeo.com/160819941
-[auth-cookies]: https://vimeo.com/160820294
-[auth-encoding]: https://vimeo.com/160820971
-[auth-hashing]: https://vimeo.com/160821222
-[auth-salting]: https://vimeo.com/160822597
-[auth-bcrypt]: https://vimeo.com/160825250
-[auth-session]: https://vimeo.com/160824886
-[auth-pattern]: https://vimeo.com/160826910
-
-[99-cats-part-ii]: projects/ninety_nine_cats_ii
-
-[rails-auth-homework]: homeworks/questions/rails_auth.md
-
-## w4d4
-
-### Study Hall 9 - 10am
-
-### Video Lectures (39 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera:  (cc) 14-radio-and-textarea][14-radio-and-textarea] (16 min)
-* [:movie_camera:  (cc) 15-helpers][15-helpers] (13 min)
-* [:movie_camera: layouts][layout-video] (10 min)
-
-### Readings (60 min)
-* [ActionMailer][action-mailer] (20 min)
-* [View helpers][view-helpers] (15 min)
-* [View layouts][view-layouts] (10 min)
-* [View partials][view-partials] (15 min)
-
-### Homeworks (30 min)
-* [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
-
-### Additional Resources
-* [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
-
-### Projects
-* **Solo**: [Music App][music-app-project]
-
-[action-mailer]: readings/mailing-1.md
-[view-helpers]: readings/helpers.md
-[view-layouts]: readings/layouts.md
-[view-partials]: readings/partials.md
-[helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
-[14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
-[15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
-[layout-video]: https://vimeo.com/168822741
-[action-mailer-video]: https://vimeo.com/168810895
-[bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
-
-[music-app-project]: projects/music_app
-
-## w4d5
-
-### Study Hall 9 - 10am
-
-### Assessment04 Practice
-+ [Practice][assessment-prep-4]
-
-### Video Lectures (54 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera:  (cc) 16-tag-ids-setter][16-tag-ids-setter] (22 min)
-* [:movie_camera:  (cc) 17-checkboxes-1][17-checkboxes-1] (12 min)
-* [:movie_camera:  (cc) 18-checkboxes-2][18-checkboxes-2] (11 min)
-* [:movie_camera:  (cc) 19-checkboxes-3][19-checkboxes-3] (6 min)
-* [:movie_camera:  (cc) 20-query-string][20-query-string] (3 min)
-
-### Readings (20 min)
-* [Polymorphic Associations][polym-assoc-blurb] (10 min)
-  * **Just section 2.9**
-* [Concerns][concerns-reading] (10 min)
-
-### Homeworks (30 min)
-* [Polymorphism and Concerns][polymorphism-and-concerns-hw] (30 min)
-
-### Additional Resources
-* **Bonus Topic:** [Decorators][decorators]
-* [Checkboxes and Id Setters Reference][checkboxes-id-setters]
-
-### Projects
-* [RedditClone][reddit-clone]
-
-[assessment-prep-4]: https://github.com/appacademy/assessment-prep#assessment-4
-[polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-[concerns-reading]: readings/concerns.md
-[16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
-[17-checkboxes-1]: http://vimeo.com/groups/appacademy/videos/100780887
-[18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
-[19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
-[20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
-[decorators]: readings/decorators.md
-[checkboxes-id-setters]: readings/checkboxes.md
-[polymorphism-and-concerns-hw]: homeworks/questions/polymorphism-concerns/polymorphism-concerns.md
-
-[reddit-clone]: projects/reddit_on_rails
-
-## w5d1
-
-### Readings (72 min)
-* [Integration Testing][integration-testing] (7 min)
-* [RSpec and Rails Setup][rspec-setup] (15 min)
-* [Testing Models][rspec-models] (15 min)
-* [FactoryGirl and Faker Gems][fac-grl-faker] (20 min)
-* [Testing Controllers][rspec-controllers] (5 min)
-* [Testing with Capybara][capybara] (15 min)
-
-### Homeworks (60 min)
-* [Capybara][capybara-hw] (45 min)
-* [Implicit Bias Test][bias-quiz] (15 min)
-  * Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion event tomorrow
-
-### Additional Resources
-* [Spring and Guard Setup][spring-guard]
-
-### Projects
-* [Goal App][goaling-app]
-* **Bonus**: [Appacademy.io tests][appacademyio-tests]
-
-[integration-testing]: readings/integration-testing.md
-[rspec-setup]: readings/rspec-and-rails-setup.md
-[rspec-models]: readings/rspec-models.md
-[rspec-controllers]: readings/rspec-controllers.md
-[fac-grl-faker]: readings/factorygirl-and-faker.md
-[capybara]: readings/capybara.md
-[spring-guard]: readings/guard-spring-setup.md
-
-[capybara-hw]: homeworks/questions/capybara.md
-
-[goaling-app]: projects/goal_app
-[appacademyio-tests]: projects/appacademy.io_tests
-
-## w5d2
-
-### Assessment04
-* [Practice][assessment-prep-4]
-
-### Video lectures (42 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera: Rails Lite Intro](https://vimeo.com/161381457) (4 min)
-* [:movie_camera: HTTP](https://vimeo.com/161381484) (12 min)
-* [:movie_camera: HTTP Demo](https://vimeo.com/161381489) (4 min)
-* [:movie_camera: Rails from the Inside Out](https://vimeo.com/161381601) (13 min)
-* [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
-
-### Homeworks (45 min)
-* Complete [RegexOne][regex-link] (45 min)
-
-### Additional Resources
-* [HTTP][http]
-* [Rack][rack]
-* [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
-* [:movie_camera: (cc) 00-webserver][00-webserver] (16 min)
-* [:movie_camera: (cc) 01-protocols][01-protocols] (14 min)
-  * old news at this point; recommended speed >= 2x
-* [:movie_camera: (cc) 02-http][02-http] (43 min)
-
-### Solo Projects
-* [Rails Lite][rails-lite]
-* [Rails Lite II][rails-lite-ii]
-
-[http]: readings/http.md
-[rack]: readings/rack.md
-[regex-link]: http://regexone.com/
-[00-webserver]: http://vimeo.com/groups/appacademy/videos/100169899
-[01-protocols]: http://vimeo.com/groups/appacademy/videos/100169898
-[02-http]: http://vimeo.com/groups/appacademy/videos/100267302
-[rails-lite]: projects/rails_lite
-[rails-lite-ii]: projects/rails_lite/rails-lite-ii.md
+# JavaScript
 
 ## w5d3
 
-### Study Hall 9 - 10am
-
 ### Breakfast
-* :joy_cat: **Bagels @ 8:30am** :joy_cat:
+* :coffee: **Bagels @ 8:30am** :coffee:
 
-### Video lectures (65 min)
+### Study Hall 9-10am
+
+### Video Lectures (55 min)
 :closed_lock_with_key: `go_video_go`
-* [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
-* [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
-* [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
-* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
-	* [:computer: demo code][middleware-demo] (22 min)
-* [:movie_camera: Watch W5D3 Javascript Video Lectures][js-videos] (12 min)
+* :movie_camera: [Intro to JS][intro-js-video] (12 min)
+* :movie_camera: [Object-Oriented JS: Intro][oo-js-intro] (15 min)
+* :movie_camera: [Object-Oriented JS: Demo][oo-js-demo] (8 min)
+* :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
 
-### Readings (70 min)
-* Complete [Javascript W5D3 Readings][js-readings] (70 min)
+[intro-js-video]: https://vimeo.com/169645510
+[oo-js-intro]: https://vimeo.com/169806088
+[oo-js-demo]: https://vimeo.com/169804475
+[callbacks-video]: https://vimeo.com/169898573
 
-### Homeworks (30 min)
-* Complete [Javascript W5D3 Homework][js-hw] (30 min)
+### Readings (100 min)
+* [Intro to JavaScript][intro-js] (10 min)
+* [Syntax and Useful Methods][syntax-and-methods] (10 min)
+* [Data Types][data-types] (15 min)
+* [Variables][variables] (15 min)
+* [Functions][functions-js] (15 min)
+* [Closures and Scope][closures] (10 min)
+* [`this` and that][this-and-that] (10 min)
+* [ES6 Arrow Functions][fat-arrows] (15 min)
+
+[intro-js]: readings/js-intro.md
+[syntax-and-methods]: readings/syntax-and-methods.md
+[data-types]: readings/data-types.md
+[variables]: readings/variables.md
+[functions-js]: readings/functions-js.md
+[closures]: readings/closures.md
+[this-and-that]: readings/this-and-that.md
+[fat-arrows]: readings/fat-arrows.md
+
+### Homeworks (45 min)
+* [Intro JavaScript Problems][intro-pset] (45 min)
+* Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
+    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
+    * A **lot** of JS interview questions come from this book.
+
+[intro-pset]: homeworks/questions/intro_js_problems
+[effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 ### Additional Resources
-* [Middleware][middleware]
+* [Object-Oriented JavaScript][oo-js]
+* [Function Invocation, briefly][function-invocation-briefly]
+* Guides and Documentation
+  * [Codecademy JS Curriculum][codecademy-js]
+    + Good for a slower, interactive intro.
+  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] (ch1 only)
+    + Another great intro reading.
+  * [MDN Guide][mdn-guide]
+    + Great guide from MDN.
+  * [MDN Documentation][mdn-js-doc]
+    + JS Documentation. Bookmark and consult frequently for all of your JavaScript needs.
+
+[oo-js]: readings/object-oriented-js.md
+[function-invocation-briefly]: readings/function-invocation-briefly.md
+[codecademy-js]: http://www.codecademy.com/tracks/javascript
+[jq-fundamentals-js-basics]: http://jqfundamentals.com/chapter/javascript-basics
+[mdn-guide]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+[mdn-js-doc]: readings/mdn-js.md
 
 ### Projects
-* **Solo**: Finish ActiveRecordLite and RailsLite.
+* [Intro JavaScript Exercises][intro-javascript-problems]
+* [Reversi][reversi]
 
-[middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
-[middleware]: readings/middleware.md
-[js-videos]: ../javascript#video-lectures-12-min
-[js-readings]: ../javascript#readings-70-min
-[js-hw]: ../javascript#homeworks-30-min
+[intro-javascript-problems]: projects/intro_js_exercises
+[reversi]: projects/js_reversi
+
+## w5d4
+
+### :clock10: Class will start at 10am! :clock10:
+- **Progress Tracker reports are still due at 9am.**
+
+### Readings (105 min)
+* [Arguments][arguments] (15 min)
+* [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
+* [Intro to Callbacks: File I/O][intro-to-callbacks] (15 min)
+* [Event Loop Visualization][loupe] (10 min)
+* [ES6 Class Syntax][es6-classes] (5 min)
+* [Node Module Pattern][module-pattern] (10 min)
+* [Chrome Dev Tools][chrome-dev-tools] (15 min)
+* [Linting for JavaScript][linting-js] (10 min)
+* Effective JavaScript: Items 11, 12, 61, 65 (15 min)
+
+[arguments]: readings/arguments.md
+[function-invocation-in-depth]: readings/function-invocation-in-depth.md
+[intro-to-callbacks]: readings/intro-to-callbacks.md
+[loupe]: http://latentflip.com/loupe
+[es6-classes]: readings/es6-classes.md
+[module-pattern]: readings/module-pattern.md
+[chrome-dev-tools]: readings/chrome_dev_tools.md
+[linting-js]: readings/linting-js.md
+
+### Homeworks (110 min)
+* [CSS Curriculum 1: Intro Workflow][css-1] (30 min)
+* [CSS Curriculum 2: Syntax][css-2] (50 min)
+* [Callbacks and Function Calls][cb-function-hw] (30 min)
+
+[cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
+
+### Additional Resources
+* Style
+  +  [Writing Clean Code][indentation]
+  *  [Crockford][crockford-style]
+  *  [jQuery][jquery-style]
+  *  [Air BnB][airbnb-style]
+* **Bonus Reading**: [Promises][promises]
+* **Bonus Reading**: [Tagging Template Literals][taggings]
+
+[indentation]: ./readings/indentation.md
+[crockford-style]: http://javascript.crockford.com/code.html
+[jquery-style]: http://contribute.jquery.org/style-guide/js/
+[airbnb-style]: https://github.com/airbnb/javascript
+[promises]: readings/promises.md
+[taggings]: readings/tagged-templates.md
+
+### Projects
+* [Intro to Callbacks Exercises][functions_exercises]
+* [Towers of Hanoi][hanoi_node]
+* [Tic-Tac-Toe][ttt_node]
+
+[functions_exercises]: projects/functions_exercises
+[hanoi_node]: projects/hanoi_node
+[ttt_node]: projects/ttt_node
+
+## w5d5
+
+### Video Lectures (65 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [Prototype Chain and Inheritance][proto-inherit-vid] (20 min)
+* :movie_camera: [Inheritance Demo][inherit-demo-vid]  (20 min)
+* :movie_camera: [JS in Browser][js-browser-vid] (10 min)
+* :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
+
+[proto-inherit-vid]: https://vimeo.com/162131042
+[inherit-demo-vid]: https://vimeo.com/162115223
+[js-browser-vid]: https://vimeo.com/162115224
+[chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
+
+### Readings (75 min)
+* [Prototypal Inheritance][prototypal-inheritance] (15 min)
+* [Modules in the Browser][browser-modules] (15 min)
+* [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
+* **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
+    * **Be sure to run and understand this the night before.**
+* Effective JavaScript: Items 18-23, 30 (15 min)
+
+[prototypal-inheritance]: readings/prototypal-inheritance.md
+[browser-modules]: readings/browser-modules.md
+[basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
+[canvas-demo]: demos/drunken_circles
+
+### Homeworks (20 min)
+* [Webpack Tutorial][webpack] (20 min)
+  * Complete up to 'The First Loader'
+
+[webpack]: https://webpack.github.io/docs/tutorials/getting-started
+
+### Additional Resources
+* [Github Pages][github-pages]
+* [CSS Diner][css-diner]
+* [Asynchronous Client-Side Code][asynchronous-js]
+* [Client-Side JavaScript][client-side-js]
+
+[github-pages]: readings/github_pages.md
+[css-diner]: http://flukeout.github.io/
+[asynchronous-js]: readings/asynchronous-js.md
+[client-side-js]: readings/client-side-javascript.md
+
+### Projects  
+* [`arguments` Exercises][arguments-exercises]
+* [Prototypal Inheritance Exercises][inheritance-exercises]
+* [Asteroids][asteroids-project]
+
+[arguments-exercises]: projects/arguments_exercises
+[inheritance-exercises]: projects/inherits_exercises
+[asteroids-project]: projects/asteroids
+
+[eloquent-javascript]: http://eloquentjavascript.net/
+
+## w6d1
+
+### Assessment05 Practice
++ In-class practice assessment at 9am. Please bring your own machine if possible.
+* [Practice][assessment-prep-5]
+
+[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
+
+### Readings (75 min)
+* [The Document Object Model][dom] (10 min)
+* [jQuery I: Selection and Manipulation][jquery-01-selection] (15 min)
+* [jQuery II: Events][jquery-02-events] (10 min)
+* [jQuery III: Ready][jquery-03-ready] (10 min)
+* [jQuery IV: All The Ways][jquery-04-all-the-ways] (5 min)
+* [jQuery V: Data Attributes][jquery-05-data-attributes] (10 min)
+* Effective JavaScript: Items 34 - 37 (15 min)
+
+[dom]: readings/document-object-model.md
+[jquery-01-selection]: readings/jquery-01-selection-and-manipulation.md
+[jquery-02-events]: readings/jquery-02-events.md
+[jquery-03-ready]: readings/jquery-03-ready.md
+[jquery-04-all-the-ways]: readings/jquery-04-all-the-ways.md
+[jquery-05-data-attributes]: readings/jquery-05-data-attributes.md
+
+### Homeworks (140 min)
+* [CSS Curriculum 3: Reset & Advanced Selectors][css-3] (40 min)
+* [CSS Curriculum 4: The Display Property & The Box Model][css-4] (55 min)
+* [Wacky jQuery][wacky-project] (45 min)
+
+[wacky-project]: homeworks/questions/jquery-wacky-homework.md
+
+### Additional Resources
+* [jQuery Documentation][jquery-docs]
+* [jQuery Fundamentals][jquery-fundamentals]
+  * Skip JS Basics (ch1).
+  * Read jQuery Basics (ch2).
+  * Read Traversing & Manipulating (ch3).
+  * Read Events & Event Delegation (ch4).
+  * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
+
+[jquery-docs]: http://api.jquery.com/
+[jquery-fundamentals]: http://jqfundamentals.com/
+
+### Projects
+* [jQuery Tic Tac Toe][ttt-jquery]
+* [jQuery Towers of Hanoi][hanoi-jquery]
+* **Bonus**: [Snake][snake-project]
+
+[ttt-jquery]: projects/ttt_jquery
+[hanoi-jquery]: projects/hanoi_jquery
+[snake-project]: projects/snake
+
+## w6d2
+
+### :clock10: Class will start at 10am! :clock10:
+- **Progress Tracker reports are still due at 9am.**
+
+### Homeworks (235 min)
+* [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
+* [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
+* [CSS Warm Up][css-warmup] (60 min)
+
+### Additional Resources
+* **Bonus**: [CSS Transform property][css-transform]
+
+### Projects
+* [CSS Friends][css-friends]
+* **Bonus**: [Google Homepage][css-bonus-assignment]
+
+[css-demos]: ../html-css/demos/css_demos#demos
+[css-friends]: ../html-css/projects/css_friends
+[css-bonus-assignment]: ../html-css/projects/google_homepage
+[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
+[css-warmup]: ../html-css/projects/css_warm_up
+
+## w6d3
+
+### Study Hall 9 - 10am
+
+### Video Lectures (55 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [AJAX Video Lecture][ajax-lecture]  (20 min)
+* :movie_camera: [AJAX Demo][ajax-demo] (35 min)
+  * [:computer: complete demo from video][ajax-demo-code]
+
+[ajax-lecture]: https://vimeo.com/162860823
+[ajax-demo]: https://vimeo.com/162764008
+[ajax-demo-code]: demos/chat_demo
+
+### Readings (45 min)
+* [Basic AJAX][basic-ajax] (10 min)
+* [AJAX Remote Forms][ajax-remote-forms] (10 min)
+* [Using Rails as an API][rails-api] (10 min)
+* Effective JavaScript: Items 46, 50, 52 (15 min)
+
+[basic-ajax]: readings/basic-ajax.md
+[ajax-remote-forms]: readings/ajax-remote-forms.md
+[rails-api]: readings/rails-api.md
+
+### Homeworks (30 min)
+* [Your First Ajax Request][first-ajax] (30 min)
+
+[first-ajax]: homeworks/questions/first_ajax.md
+
+### Additional Resources
+* [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
+
+[jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
+
+### Projects
+* [AjaxTwitter (with rails backend)][ajax-twitter]
+
+[ajax-twitter]: projects/ajax_twitter
+
+## w6d4
+
+### Assessment05
+* [Practice Assessment][assessment-prep-5]
+
+### Video Lectures (30 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
+  * You can ignore the last part, which has Backbone code
+
+### Readings (45 min)
+* [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
+* [jQuery VII: Triggering][jquery-07-triggering] (5 min)
+* [Event Propagation][event-propagation] (5 min)
+* [History and Location][history-location] (5 min)
+* Effective JavaScript: Items 46, 50, 52 (15 min)
+
+### Homeworks (45 min)
+* [Vanilla DOM Manipulation][vanilla-dom] (45 min)
+
+### Additional Resources
+* [Vanilla AJAX][vanilla-ajax]
+
+### Projects
+* [jQuery Lite][jquery-lite]
+* [Mail][mail]
+* **Bonus:** [Snake][snake-project] using your jQuery Lite
+
+[jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
+[jquery-07-triggering]: readings/jquery-07-triggering.md
+[event-propagation]: readings/event-propagation.md
+[history-location]: readings/history-location.md
+[backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
+[vanilla-dom]: homeworks/questions/vanilla-dom
+
+[mail]: projects/mail
+[jquery-lite]: projects/jquery_lite
+[snake-project]: projects/snake
+[vanilla-ajax]: readings/vanilla_ajax.md
+
+<!-- CSS Curriculum Links -->
+[css-1]: ../html-css/README.md#lesson-1-intro-workflow
+[css-2]: ../html-css/README.md#lesson-2-syntax
+[css-3]: ../html-css/README.md#lesson-3-reset--advanced-selectors
+[css-4]: ../html-css/README.md#lesson-4-the-display-property--the-box-model
+[css-5]: ../html-css/README.md#lesson-5-float-fluid-layouts--flexbox
+[css-6]: ../html-css/README.md#lesson-6-positioning--media-queries
