@@ -25,21 +25,23 @@ any kind of software developer.
 
 ## Phase I: `Board`
 
-Your `Board` class should hold a 2-dimensional array (an array of
-arrays). Each position in the board either holds a moving `Piece` or a `NullPiece`
+Your `Board` class should hold a 2-dimensional array (an array of arrays). Each
+position in the board either holds a moving `Piece` or a `NullPiece`
 (`NullPiece` will inherit from `Piece`).
 
-You'll want to create an empty `Piece` class
-as a placeholder for now. Write code for `initialize` so we setup the board with `Piece`s in locations where a `Queen`/`Rook`/`Knight`/ ect. will start and empty arrays where `NullPiece`s will start.
+You'll want to create an empty `Piece` class as a placeholder for now. Write
+code for `initialize` so we setup the board with `Piece`s in locations where a
+`Queen`/`Rook`/`Knight`/ ect. will start and empty arrays where `NullPiece`s
+will start.
 
-The `Board` class should have a `#move_piece(start, end_pos)` method. This
-should update the 2D grid and also the moved piece's position. You'll
-want to raise an exception if:
+The `Board` class should have a `#move_piece(start_pos, end_pos)` method. This
+should update the 2D grid and also the moved piece's position. You'll want to
+raise an exception if:
 
-0. there is no piece at `start` or
+0. there is no piece at `start_pos` or
 0. the piece cannot move to `end_pos`.
 
-**Time to test!** Open up pry and `load 'board.rb'`. Create an instance of a `Board` and check out different positions with `board[pos]`. Do you get back `Piece` instance where you expect to? Test out `#make_move(start, end_pos)`, does it raise an error when there is no piece at the start? Does it successfully update the `Board`?
+**Time to test!** Open up pry and `load 'board.rb'`. Create an instance of `Board` and check out different positions with `board[pos]`. Do you get back `Piece` instances where you expect to? Test out `Board#move_piece(start_pos, end_pos)`, does it raise an error when there is no piece at the start? Does it successfully update the `Board`?
 
 ## Phase II: `Display`
 
@@ -127,14 +129,14 @@ The `NullPiece` class should include [the `singleton` module][singleton]. It wil
 
 For now, do not worry if a move leaves a player in check.
 
-## Phase IV: `Board#in_check?(color)` and `#checkmate?(color)`
+## Phase IV: `Board#in_check?(color)` and `Board#checkmate?(color)`
 
 The `Board` class should have a method `#in_check?(color)` that
 returns whether a player is in check. You can implement this by (1)
 finding the position of the king on the board then (2) seeing if any
 of the opposing pieces can move to that position.
 
-Then write a `#checkmate?` method. If the player is in check, and if
+Then write a `#checkmate?(color)` method. If the player is in check, and if
 none of the player's pieces have any `#valid_moves` (to be implemented
 in a moment), then the player is in checkmate.
 
@@ -142,7 +144,7 @@ in a moment), then the player is in checkmate.
 
 You will want a method on `Piece` that filters out the `#moves` of a
 `Piece` that would leave the player in check. A good approach is to
-write a `Piece#move_into_check?(pos)` method that will:
+write a `Piece#move_into_check?(end_pos)` method that will:
 
 0. Duplicate the `Board` and perform the move.
 0. Look to see if the player is in check after the move
@@ -154,7 +156,7 @@ method should duplicate not only the `Board`, but the pieces on the
 instance variables, so you may need to write your own `Board#dup`
 method that will `dup` the individual pieces as well.
 
-#### A Note on Deep Duping your Board
+#### A note on deep duping your board
 
 As we saw in one of the [recursion exercises][recursion-exercises],
 Ruby's native `#dup` method does not make a **deep copy**.  This means
@@ -199,11 +201,11 @@ your opponent is in check, and so on.
 
 ### Further `Board` improvements
 
-Modify your `Board#move_piece` method so that it only allows you to make
-valid moves. Because `Board#move_piece` needs to call `Piece#valid_moves`,
+Modify your `Board#move_piece` method so that it only allows you to make valid
+moves. Because `Board#move_piece` needs to call `Piece#valid_moves`,
 `#valid_moves` must not call `Board#move_piece`. But `#valid_moves` needs to
-make a move on the duped board to see if a player is left in
-check. For this reason, write a method `Board#move_piece!` which makes a
+make a move on the duped board to see if a player is left in check. For this
+reason, write a method `Board#move_piece!(start_pos, end_pos)` which makes a
 move without checking if it is valid.
 
 `Board#move_piece` should raise an exception if it would leave you in check.
