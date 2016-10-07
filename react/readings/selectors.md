@@ -10,12 +10,12 @@ example:
 		1: {
 			id: 1,
 			body: 'learn selectors',
-			done: false
+			done: 'done'
 		},
 		2: {
 			id: 2
 			body: 'look good doing it',
-			done: true
+			done: 'undone'
 		}
 	},
 	filter: 'undone'
@@ -28,7 +28,7 @@ todo. However, storing all the todos as values of an object makes it slightly
 inconvenient to obtain and render them all at once. To solve this inconvenience,
 we use selectors.
 
-* Define your app's selectors in a `frontend/reducers/selectors.js` file. Don't forget to export them!
+* Define all of your app's selectors in a `frontend/reducers/selectors.js` file. Don't forget to export them!
 * Selectors are passed the app's `state` and return information from the application state in a specified form (eg. an array).
 * Use selectors to format different slice(s) of the state by calling them in a container's `mapStateToProps`.
 
@@ -51,7 +51,6 @@ import { getAllTodos } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
 	todos: getAllTodos(state),
-	steps: state.steps
 });
 ```
 
@@ -85,7 +84,6 @@ import { getAllTodos, getFilteredTodos } from '../../reducers/selectors';
 const mapStateToProps = (state) => ({
 	todos: getAllTodos(state),
 	filteredTodos: getFilteredTodos(state),
-	steps: state.steps
 });
 ```
 
@@ -119,7 +117,7 @@ export const selectTodos = ({ todos }, id) => {
 	const nullTodo = {
 		id: null,
 		body: "",
-		done: false
+		done: 'undone'
 	};
 	return todos[id] || nullTodo;
 };
