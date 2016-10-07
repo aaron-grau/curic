@@ -305,7 +305,7 @@ const TodosReducer = (state = {}, action) => {
 export default TodosReducer;
 ```
 
-[object-freeze-reading]: ../../readings/object_freeze.md
+
 #### `RootReducer`
 
 + Create a new file, `reducers/root_reducer.js`.
@@ -329,6 +329,7 @@ updating state when actions are dispatched and tells the necessary components to
 re-render. Let's create our Redux store.
 
 + Create a new file, `store/store.js`.
++ Refer to the [store reading][store_reading] if needed
 + Import `createStore` from the `redux` library.
 + Import our `RootReducer`.
 + Define a new function `configureStore`.
@@ -843,7 +844,7 @@ Follow these steps, **testing your code as you go** :
     + Item pops up when it is due
 
 
-[object_freeze_reading]: ../../readings/object_freeze.md
+[store_reading]: ../../readings/store.md
 [middleware_reading]: ../../readings/middleware.md
 [components_reading]: ../../readings/containers.md
 [connect_reading]: ../../readings/connect.md
