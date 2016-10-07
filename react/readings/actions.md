@@ -27,40 +27,53 @@ pass the result of calling an action creator to `store.dispatch()`.
 
 For example:
 ```js
-// fruit_actions.js
-
+// actions.js
 const addFruit = (fruit) => ({
-	type: FRUIT_ACTIONS.ADD_FRUIT,
+	type: "ADD_FRUIT",
 	fruit
 });
 ```
 
-Now when we call `store.dispatch(addFruit('pear'))`, the action creator `addFruit` gets called. This function returns an action to add a pear: an object with a `type` and `pear` key.
+Now we can add any `fruit` to the store using our action creator
+`addFruit(fruit)`, instead of having to define an action object for each fruit.
 
 ```js
-store.dispatch(addFruit("apple"));
-store.dispatch(addFruit("strawberry"));
-store.dispatch(addFruit("lychee"));
+store.dispatch(addFruit("Apple"));
+store.dispatch(addFruit("Strawberry"));
+store.dispatch(addFruit("Lychee"));
 store.getState(); // [ 'orange', 'apple', 'strawberry', 'lychee' ]
 ```
 
-## String Literals
+## Example
+
+Let's update our actions to include `"ADD_FRUIT"`, `ADD_FRUITS`, `SELL_FRUIT` like in the [reducers][reducers] reading.
 
 ```js
-// fruit_actions.js
-FRUIT_ACTIONS = {
-	ADD_FRUIT = "ADD_FRUIT",
-}
+  // fruit_actions.js
 
-const addFruit = (fruit) => ({
-	type: FRUIT_ACTIONS.ADD_FRUIT,
-	fruit
-});
+	export const FRUIT_ACTIONS = {
+		ADD_FRUIT = "ADD_FRUIT",
+		ADD_FRUIT = "ADD_FRUIT",
+		SELL_FRUIT = "SELL_FRUIT"
+	}
+
+	export const addFruit = fruit => ({
+		type: FRUIT_ACTIONS.ADD_FRUIT,
+		fruit
+	})
+
+	export const addFruits = fruits => {(
+		type: FRUIT_ACTIONS.ADD_FRUITS,
+		fruits
+	)}
+
+	export const sellFruit = fruit => ({
+		type: FRUIT_ACTIONS.SELL_FRUIT,
+		fruit
+	})
 
 
-
-
-```
+```  
 
 
 ## Official Documentation
@@ -70,3 +83,4 @@ View the official documentation [here][redux-js]
 [redux-js]: http://redux.js.org/docs/basics/Actions.html
 
 [store]: store.md
+[reducer]: reducers.md

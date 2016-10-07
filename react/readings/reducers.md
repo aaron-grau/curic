@@ -1,3 +1,6 @@
+
+
+
 # Reducers
 
 ## Overview
@@ -163,6 +166,9 @@ Let's split up our popular fruit stand app's `reducer` into two reducers:
 
 ```js
 // reducers/fruits_reducer.js
+
+
+
 const fruitsReducer = (state = [], action) => {
 	switch(action.type) {
 		case "ADD_FRUIT":
