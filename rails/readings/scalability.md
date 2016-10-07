@@ -20,6 +20,12 @@ https://github.com/checkcheckzz/system-design-interview
 
 https://www.reddit.com/r/webdev/comments/3vaas1/eli5_how_can_i_make_a_web_application_scalable/
 
+http://softwareengineeringdaily.com/2016/06/22/scaling-twitter-buoyant-ios-william-morgan/ 
+
+https://www.youtube.com/watch?v=kb-m2fasdDY 
+
+http://highscalability.com/
+
 
 https://blog.cloudflare.com/
 http://eng.uber.com/
