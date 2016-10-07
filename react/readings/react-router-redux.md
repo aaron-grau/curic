@@ -15,7 +15,7 @@ The `routerMiddleware` that we import from `react-router-redux` calls `history[m
 
 We are using this library simply to allow us to issue navigation events via Redux actions. The same functionality could be accomplished several other ways, including `hashHistory.push(location)`, `this.props.router.push(location)`, and `this.context.router.push(location)`.
 
-## Usage
+## Example Usage
 
 We'll need to add the `react-router-redux` middleware to our RootMiddleware:
 
