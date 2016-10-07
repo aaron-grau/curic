@@ -2,7 +2,7 @@ require_relative 'question'
 require_relative 'questions_database'
 require_relative 'user'
 
-class Reply
+class Reply < ModelBase
   def self.find(id)
     reply_data = QuestionsDatabase.get_first_row(<<-SQL, id: id)
       SELECT

@@ -2,7 +2,7 @@ require_relative 'question'
 require_relative 'questions_database'
 require_relative 'question_follow'
 
-class User
+class User < ModelBase
   def self.find_by_id(id)
     user_data = QuestionsDatabase.get_first_row(<<-SQL, id: id)
       SELECT

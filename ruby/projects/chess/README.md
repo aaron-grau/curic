@@ -1,9 +1,14 @@
 # Chess
 
-Write a [chess game][wiki-chess] in an object-oriented way. **Please
-read all through the various phases before proceeding.**
+Write a [chess game][wiki-chess] using object-oriented programming.
 
-Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating. The diagram is beneficial for getting an idea of how different aspects of the project fit together; however, you should **follow the directions to this project closely and only reference the diagram when confused about how classes inherit from or relate to one another**.
+**Please read all through the various phases before proceeding.**
+
+Review the [Chess UML Diagram][chess-uml] to get an overview of what you'll be creating.
+The diagram is beneficial for getting an idea of how different aspects of the project
+fit together; however, you should **code your project by following the instructions closely
+and using the diagram only as a reference**. It'll be helpful for clearing up
+any confusion about how  classes inherit from or relate  to one another.
 
 You must split your program into multiple files. Use
 [require-relative][require-relative] to load files. Make separate files for each
@@ -20,18 +25,23 @@ any kind of software developer.
 
 ## Phase I: `Board`
 
-Your `Board` class should hold a 2-dimensional array (an array of
-arrays). Each position in the board either holds a moving `Piece` or a `NullPiece`
-(which will inherit from `Piece`).
-You'll want to create an empty Piece class
-as a placeholder for now. Write code for `initialize` so we setup the board with `Piece`s in locations where a `Queen`/`Rook`/`Knight`/ ect. will start and empty arrays where `NullPiece`s will start.
+Your `Board` class should hold a 2-dimensional array (an array of arrays). Each
+position in the board either holds a moving `Piece` or a `NullPiece`
+(`NullPiece` will inherit from `Piece`).
 
-The `Board` class should have a `#move_piece(start, end_pos)` method. This
-should update the 2D grid and also the moved piece's position. You'll
-want to raise an exception if: (a) there is no piece at `start` or (b)
-the piece cannot move to `end_pos`.
+You'll want to create an empty `Piece` class as a placeholder for now. Write
+code for `initialize` so we setup the board with `Piece`s in locations where a
+`Queen`/`Rook`/`Knight`/ ect. will start and empty arrays where `NullPiece`s
+will start.
 
-**Time to test!** Open up pry and `load 'board.rb'`, try creating an instance of a board and check out different positions with `board[pos]`, do you get back `Piece` instance where you expect to? Test out `#make_move(start, end_pos)`, does it raise an error when there is no piece at the start? Does it successfully update the `Board`?
+The `Board` class should have a `#move_piece(start_pos, end_pos)` method. This
+should update the 2D grid and also the moved piece's position. You'll want to
+raise an exception if:
+
+0. there is no piece at `start_pos` or
+0. the piece cannot move to `end_pos`.
+
+**Time to test!** Open up pry and `load 'board.rb'`. Create an instance of `Board` and check out different positions with `board[pos]`. Do you get back `Piece` instances where you expect to? Test out `Board#move_piece(start_pos, end_pos)`, does it raise an error when there is no piece at the start? Does it successfully update the `Board`?
 
 ## Phase II: `Display`
 
@@ -79,7 +89,7 @@ A nice but optional addition to your cursor class is a boolean instance variable
 call for help from a TA**. Fancy cursors are cool, but the purpose of today is
 to become more familiar with Object-oriented Programming.
 
-**Time to test!** This time you should run `ruby display.rb`. Does your board render as you would expect? Make sure you can move your cursor around have the display update. Test the cursor's behavior when you try and move it off the board (the edge cases if you will), does it do what you expect?
+**Time to test!** This time you should run `ruby display.rb`. Does your board render as you would expect? Make sure you can move your cursor around have the display update. Test the cursor's behavior when you try and move it off the board (the edge cases if you will). Does it do what you expect?
 
 **Code Review Time:** Before moving on to piece logic, get a code review from a TA!
 
@@ -91,10 +101,8 @@ categories:
 
 0. Sliding pieces (Bishop/Rook/Queen)
 0. Stepping pieces (Knight/King)
-0. The pawn (do this last)
-0. The null piece (occupies the 'empty' spaces)
-
-
+0. Null pieces (occupy the 'empty' spaces)
+0. Pawns (we'll do this class last)
 
 Start by writing a `Piece` parent class that contains the
 functionality common to all pieces. A key method of `Piece` is
@@ -115,20 +123,20 @@ reference to the `Board`. Classes that `include SlidingPiece` in particular need
 piece. Don't allow a piece to move into a square already occupied by the
 same color piece, or to move a sliding piece past a piece that blocks it.
 
-The `NullPiece` class should include [the `singleton` module][singleton]. It will not need a reference to the `Board` - in fact it's `initialize` method should take no arguments. Make sure you have a way to read it's `color` and `symbol`.
+The `NullPiece` class should include [the `singleton` module][singleton]. It will not need a reference to the `Board` - in fact its `initialize` method should take no arguments. Make sure you have a way to read its `color` and `symbol`.
 
-**After completing each piece** load the file in pry and make sure it can move to the positions you expect. **Once you have completed all pieces** refactor your `Board#initialize` so that all your pieces are placed in their respective starting positions. Then run `ruby display.rb` to check that they show up in the proper locations.
+**After completing each piece** load the file in pry and make sure it moves properly. **Once you have completed all pieces** refactor your `Board#initialize` so that all your pieces are placed in their respective starting positions. Run `ruby display.rb` to check that they show up in the proper locations.
 
-For now, do not worry if a move would leave a player in check.
+For now, do not worry if a move leaves a player in check.
 
-## Phase IV: `Board#in_check?(color)` and `#checkmate?(color)`
+## Phase IV: `Board#in_check?(color)` and `Board#checkmate?(color)`
 
 The `Board` class should have a method `#in_check?(color)` that
 returns whether a player is in check. You can implement this by (1)
 finding the position of the king on the board then (2) seeing if any
 of the opposing pieces can move to that position.
 
-Then write a `#checkmate?` method. If the player is in check, and if
+Then write a `#checkmate?(color)` method. If the player is in check, and if
 none of the player's pieces have any `#valid_moves` (to be implemented
 in a moment), then the player is in checkmate.
 
@@ -136,7 +144,7 @@ in a moment), then the player is in checkmate.
 
 You will want a method on `Piece` that filters out the `#moves` of a
 `Piece` that would leave the player in check. A good approach is to
-write a `Piece#move_into_check?(pos)` method that will:
+write a `Piece#move_into_check?(end_pos)` method that will:
 
 0. Duplicate the `Board` and perform the move.
 0. Look to see if the player is in check after the move
@@ -148,7 +156,7 @@ method should duplicate not only the `Board`, but the pieces on the
 instance variables, so you may need to write your own `Board#dup`
 method that will `dup` the individual pieces as well.
 
-#### A Note on Deep Duping your Board
+#### A note on deep duping your board
 
 As we saw in one of the [recursion exercises][recursion-exercises],
 Ruby's native `#dup` method does not make a **deep copy**.  This means
@@ -189,15 +197,15 @@ some debug info, such as the selected piece's available moves, whether
 your opponent is in check, and so on.
 
 
-**Test each piece's valid moves** by `load 'board.rb'` and creating a board instance. Cycle through each piece (grabbing it by the board's position) and check that calling `#valid_moves` does what we expect. When you are satisfied it works **call a TA over for a code review!**
+**Test each piece's `#valid moves`!** In pry `load 'board.rb'` and create a `Board` instance. Grab an instance of each type of piece (ie. from its position on the board) and check that calling `#valid_moves` returns what we expect. When you are satisfied it works **call a TA over for a code review!**
 
 ### Further `Board` improvements
 
-Modify your `Board#move_piece` method so that it only allows you to make
-valid moves. Because `Board#move_piece` needs to call `Piece#valid_moves`,
+Modify your `Board#move_piece` method so that it only allows you to make valid
+moves. Because `Board#move_piece` needs to call `Piece#valid_moves`,
 `#valid_moves` must not call `Board#move_piece`. But `#valid_moves` needs to
-make a move on the duped board to see if a player is left in
-check. For this reason, write a method `Board#move_piece!` which makes a
+make a move on the duped board to see if a player is left in check. For this
+reason, write a method `Board#move_piece!(start_pos, end_pos)` which makes a
 move without checking if it is valid.
 
 `Board#move_piece` should raise an exception if it would leave you in check.

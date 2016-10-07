@@ -36,8 +36,8 @@ require 'spec_helper'
 
 describe BasketballTeam do
   it "orders by city" do
-    cavs = BasketballTeam.create!({:name => "Cavaliers", :city => "Cleveland"})
-    hawks = BasketballTeam.create!({:name => "Hawks", :city => "Atlanta"})
+    cavs = BasketballTeam.create!(name: "Cavaliers", city: "Cleveland")
+    hawks = BasketballTeam.create!(name: "Hawks", city: "Atlanta")
 
     expect(BasketballTeam.ordered_by_city).to eq([hawks, cavs])
   end
@@ -54,7 +54,7 @@ We can test if a model is valid by using its own `#valid?` method:
 
 ```ruby
 describe BasketballTeam do
-  let(:incomplete_team) { BasketballTeam.new(:city => "New York") }
+  let(:incomplete_team) { BasketballTeam.new(city: "New York") }
 
   it "validates presence of name" do
     expect(incomplete_team).not_to be_valid
@@ -127,7 +127,7 @@ hash. **Make sure to call `#valid?` beforehand in order for any errors to show u
 
 ```ruby
 it "fails validation with no name expecting a specific message" do
-  no_name_team = BasketballTeam.new({:city => "Cleveland"})
+  no_name_team = BasketballTeam.new(city: "Cleveland")
   no_name_team.valid?
   expect(no_name_team.errors[:name]).to include("can't be blank")
 end
@@ -153,12 +153,12 @@ do this:
 
 ```ruby
 describe "::playoff_teams" do
-  let!(:cavs) {BasketballTeam.create!({:name => "Cavaliers",
-                                     :city => "Cleveland",
-                                     :playoffs => true})}
-  let!(:suns) {BasketballTeam.create!({:name => "Suns",
-                                     :city => "Phoenix",
-                                     :playoffs => false})}
+  let!(:cavs) { BasketballTeam.create!(name: "Cavaliers",
+                                      city: "Cleveland",
+                                      playoffs: true) }
+  let!(:suns) { BasketballTeam.create!(name: "Suns",
+                                      city: "Phoenix",
+                                      playoffs: false) }
 
   # 1. Inspect query properties.  Does NOT query the database.
   it "has the correct values hash" do

@@ -57,29 +57,29 @@ class Board
     end
   end
 
-  def move_piece(turn_color, from_pos, to_pos)
-    raise 'from position is empty' if empty?(from_pos)
+  def move_piece(turn_color, start_pos, end_pos)
+    raise 'start position is empty' if empty?(start_pos)
 
-    piece = self[from_pos]
+    piece = self[start_pos]
     if piece.color != turn_color
       raise 'You must move your own piece'
-    elsif !piece.moves.include?(to_pos)
+    elsif !piece.moves.include?(end_pos)
       raise 'Piece does not move like that'
-    elsif !piece.valid_moves.include?(to_pos)
+    elsif !piece.valid_moves.include?(end_pos)
       raise 'You cannot move into check'
     end
 
-    move_piece!(from_pos, to_pos)
+    move_piece!(start_pos, end_pos)
   end
 
   # move without performing checks
-  def move_piece!(from_pos, to_pos)
-    piece = self[from_pos]
-    raise 'piece cannot move like that' unless piece.moves.include?(to_pos)
+  def move_piece!(start_pos, end_pos)
+    piece = self[start_pos]
+    raise 'piece cannot move like that' unless piece.moves.include?(end_pos)
 
-    self[to_pos] = piece
-    self[from_pos] = sentinel
-    piece.pos = to_pos
+    self[end_pos] = piece
+    self[start_pos] = sentinel
+    piece.pos = end_pos
 
     nil
   end

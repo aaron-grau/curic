@@ -126,6 +126,11 @@ experienced with this pattern as we transition into Rails.*
     * E.g., `User#fname` will return the `fname` of the user object
          that was populated from a row in the `users` database.
 
+Before writing any more code, take some time to make sure what you've
+done so far works by jumping into pry. Load the files you want to test 
+and call your new methods. Check that your queries return the 
+correct results and that those results are ruby objects.
+
 ## Queries
 
 Each query method should return *objects* of the appropriate type. For
@@ -151,6 +156,9 @@ None of these involve joins.
 * `Reply#child_replies`
     * Only do child replies one-deep; don't find grandchild comments.
 
+Test out your newly written queries in the console.
+Don't move on until you have everything working.
+
 ### Medium
 
 All of these involve joins. Refer back to the [joins reading][joins-reading]
@@ -166,6 +174,8 @@ to clarify your understanding of joins.
     * One-liner calling `QuestionFollow` method.
 * `Question#followers`
     * One-liner calling `QuestionFollow` method.
+
+Again, test your queries in the console before moving on.
 
 ### Hard
 
@@ -225,6 +235,8 @@ Next, divide the number of likes by the number of questions. Because
 (`3 / 2 == 1`), we need to `CAST` one of the numbers to `FLOAT`. We
 can do this like so: `CAST(value AS FLOAT)`.
 
+Test your queries before moving on to the next phase.
+
 ## Updating/saving records
 
 So far we haven't created any new records; we've only been parsing
@@ -264,8 +276,10 @@ model.  Let's refactor that out into the base class as well.
 Hint: you can use `Object#instance_variables` method to get a list of
 instance variable names that represent columns.
 
-We'll explore this a lot more when we start the ActiveRecordLite
-project!
+For the purposes of this project it's ok to interpolate the name
+of the table directly into your SQL queries. We're going to assume
+our users aren't malicious and that we don't have to worry about them
+performing SQL injection attacks.
 
 ### `where`
 
@@ -301,6 +315,20 @@ be used to directly define the 'WHERE' statement in the SQL query:
 User.where("lname = 'Stark'")
 Question.where("title LIKE '%Who%' AND title LIKE '%Arstan Whitebeard%'")
 ```
+
+### Write specs for your queries
+
+Go back and write specs for your queries using your rspec knowledge from W2D3. If
+you need a refresher on rspec refer to [the readings for that day][rspec-readings].
+
+[rspec-readings]: https://github.com/appacademy/curriculum/blob/master/ruby/README.md#w2d3
+
+Apart from testing that your queries return the correct information, also test that they 
+hit the database the correct number of times. Also test that methods call queries written
+in other classes. 
+
+Then write tests for your save and update methods. Think of a way to reset the
+database after specs are run to ensure that your test data doesn't persist to the database.
 
 ## Bonus II
 

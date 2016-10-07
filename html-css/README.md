@@ -10,75 +10,75 @@ SF: Don't forget to push every one of your completed assignments to the
 
 ## HTML
 
-### Day 1: Introduction
+### Lesson 1: Introduction
 
 The beginning of Front-End Development.
 
-#### Readings (20 mins)
+#### Readings (20 min)
 
 + [An Introduction to HTML](readings/introduction.md)
 + [Github Pages][gh-pages]
 
 [gh-pages]: ../javascript/readings/github_pages.md
 
-#### Exercise (25 mins)
+#### Exercise (25 min)
 
 + [Recipe Page](homeworks/introduction/introduction_html_exercise.md)
 
-### Day 2: Containers
+### Lesson 2: Containers
 
 A look at containers in HTML and HTML5 semantic elements.
 
-#### Reading (15 mins)
+#### Reading (15 min)
 
 + [Semantic HTML Containers](readings/containers.md)
 
-#### Exercise (20 mins)
+#### Exercise (20 min)
 
 + [Recipe Containers](homeworks/containers/containers_html_exercise.md)
 
-### Day 3: Forms
+### Lesson 3: Forms
 
 Bringing user input to your HTML with Form and Input elements.
 
-#### Reading (10 mins)
+#### Reading (10 min)
 
 + [Forms](readings/forms.md)
 
-#### Exercise (20 mins)
+#### Exercise (20 min)
 
 + [Recipe Review Form](homeworks/forms/forms_html_exercise.md)
 
-### Day 4: Head Section
+### Lesson 4: Head Section
 
 Providing specific information and loading external files to your webpage.
 
-#### Reading (10 mins)
+#### Reading (10 min)
 
 + [HTML Head Tag](readings/head_section.md)
 
-#### Exercise (20 mins)
+#### Exercise (20 min)
 
 + [Recipe Head Section](homeworks/head_section/html_head_section_exercise.md)
 
 ## CSS
 
-### Day 1: Intro Workflow
+### Lesson 1: Intro Workflow
 
 Our first look at cascading style sheets and how to be efficient CSS developers.
 Before we dive into CSS syntax, watch the introduction video explaining some CSS
 history and then the Workflow video to learn about the Chrome Developer Tools.
 
-#### Video (20 mins)
+#### Video (20 min)
 
 + [CSS Intro](https://vimeo.com/album/3732382/video/151188850)
 + [CSS Workflow](https://vimeo.com/168826664)
 
-#### Exercise (10 mins)
+#### Exercise (10 min)
 
 + [Hack Academy](homeworks/css_intro/exercise.md)
 
-### Day 2: Syntax
+### Lesson 2: Syntax
 
 ```css
 selector {
@@ -86,32 +86,32 @@ selector {
 }
 ```
 
-#### Reading (15 mins)
+#### Reading (15 min)
 
 + [CSS Selectors & Precedence](readings/css_selectors_precedence.md)
 
-#### Video (20 mins)
+#### Video (20 min)
 
 + [CSS Syntax](https://vimeo.com/album/3732382/video/151185331)
 + [Inherit Property](https://vimeo.com/album/3732382/video/151190179)
 
-#### Exercise (15 mins)
+#### Exercise (15 min)
 
 + [Recipe Styles](homeworks/css_syntax/exercise.md)
 
-### Day 3: Reset & Advanced Selectors
+### Lesson 3: Reset & Advanced Selectors
 
 Now that we have some understanding of CSS syntax we can review the css_reset file and customize our own. We will also take a look at some more advanced selectors that will allow us to target other aspects of our HTML document.
 
-#### Video (15 mins)
+#### Video (15 min)
 
 + [CSS Reset](https://vimeo.com/album/3732382/video/151190181)
 
-#### Reading (15 mins)
+#### Reading (15 min)
 
 + [Advanced Selectors](readings/advanced_selectors.md)
 
-#### Exercise (10 mins)
+#### Exercise (10 min)
 
 + [More Recipe Styles](homeworks/advanced_selectors/exercise.md)
 
@@ -119,21 +119,21 @@ Now that we have some understanding of CSS syntax we can review the css_reset fi
 
 + [Pseudo Content Video](https://vimeo.com/album/3732382/video/151190178)
 
-### Day 4: The Display Property & The Box Model
+### Lesson 4: The Display Property & The Box Model
 
 The box model describes how space is calculated with CSS. This model combined with popular properties including display, margin, padding, width and height mark the beginning of styling the layout of our HTML document.
 
-#### Video (25 mins)
+#### Video (25 min)
 
 + [Display Property](https://vimeo.com/album/3732382/video/151190176)
 + [Box Model](https://vimeo.com/album/3732382/video/151190177)
 
-#### Reading (15 mins)
+#### Reading (15 min)
 
 + [Box Model](readings/box_model.md)
 + [Display Properties](readings/display.md) (Save Flex for day 5)
 
-#### Exercise (15 mins)
+#### Exercise (15 min)
 
 + [Recipe Display](homeworks/display_box_model/exercise.md)
 
@@ -141,20 +141,20 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 + [Margin Gotchya Video](https://vimeo.com/album/3732382/video/151190180)
 
-### Day 5: Float, Fluid Layouts & Flexbox
+### Lesson 5: Float, Fluid Layouts & Flexbox
 
-#### Video (55 mins)
+#### Video (55 min)
 
 + [Floats & Clearfix](https://vimeo.com/album/3732382/video/151190182)
 + [CSS Grid System](https://vimeo.com/170320160)
 + [Flexbox](https://vimeo.com/170512344)
 
-#### Reading (15 mins)
+#### Reading (15 min)
 
 + [Floating](readings/floats_clear_fix.md)
 + [Flexbox](readings/display.md) (Just Flex)
 
-#### Exercise (15 mins)
+#### Exercise (15 min)
 
 + [Fluid Flex Recipe](homeworks/float_fluid_flex/exercise.md)
 
@@ -163,19 +163,19 @@ The box model describes how space is calculated with CSS. This model combined wi
 + [Tic-Tac-Toe Float Demo](https://vimeo.com/album/3732382/video/151190183)
 + [Navbar Demo](https://vimeo.com/album/3732382/video/158975002)
 
-### Day 6: Positioning & Media Queries
+### Lesson 6: Positioning & Media Queries
 
-#### Video (1 hr)
+#### Video (60 min)
 
 + [Positioning](https://vimeo.com/album/3732382/video/151190184)
 + [Glasses Demo](https://vimeo.com/album/3732382/video/151190185)
 
-#### Reading (15 mins)
+#### Reading (15 min)
 
 + [Positioning](readings/positioning.md)
 + [Responsive Design & Media Queries](readings/responsive_design.md)
 
-#### Exercise (15 mins)
+#### Exercise (15 min)
 
 + [Hamburger Icon](homeworks/positioning_media_queries/exercise.md)
 

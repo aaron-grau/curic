@@ -26,9 +26,10 @@
 + [Callbacks][callbacks]
 + [Delegation][delegation]
 
-### Homeworks (2 hr 5 min)
+### Homeworks (125 min)
 * [Library Controller][library-hw] (45 min)
-* Complete days 1 & 2 of [HTML Curriculum][html-readme] (80 min)
+* [HTML Curriculum 1: Introduction][html-1] (45 min)
+* [HTML Curriculum 2: Containers][html-2] (35 min)
 
 ### Additional Resources
 + [Routing I: Basics][routing-i]
@@ -57,7 +58,6 @@
 [rails-videos-code]: demos/intro_rails_video_demo
 
 [library-hw]: ./homeworks/questions/library
-[html-readme]: ../html-css
 
 [routing-i]: readings/routing-part-i.md
 [basic-controllers]: readings/basic-controllers.md
@@ -80,7 +80,7 @@
 * [Debugging][debugging-rails] (10 min)
 
 ### Homeworks (30 min)
-* Complete day 3 of [HTML Curriculum][html-readme-3] (30 min)
+* [HTML Curriculum 3: Forms][html-3] (30 min)
 
 ### Additional Resources
 * [Easy Forms Demo][easy-forms-demo]
@@ -88,8 +88,6 @@
 ### Projects
 * [99 Cats][99-cats]
 
-[html-readme-3]: ../html-css/README.md#day-3-forms
-[html]: homeworks/html.md
 [basic-views]: readings/basic-views.md
 [erb]: readings/erb.md
 [html-forms]: readings/html-forms.md
@@ -110,7 +108,10 @@
 
 ## w4d3
 
-### Video lectures (2 hr, 38 min)
+### :clock10: Class will start at 10am! :clock10: 
+- **Progress Tracker reports are still due at 9am.**
+
+### Video Lectures (2 hr, 38 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera: Secure State][auth-secure-state] (11 min)
 * [:movie_camera: Cookies and Authentication][auth-cookies] (17 min)
@@ -125,7 +126,7 @@
 * [:movie_camera: (cc) 08 CSRF Methods][auth-08-csrf-methods] (10 min)
 
 ### Homeworks (60 min)
-* Complete day 4 of [HTML Curriculum][html-readme-4] (30 min)
+* [HTML Curriculum 4: Head Section][html-4] (30 min)
 * [Rails Auth][rails-auth-homework] (30 min)
 
 ### Additional Resources
@@ -139,7 +140,6 @@
 ### Project
 * [99 Cats II: Auth][99-cats-part-ii]
 
-[html-readme-4]: ../html-css/README.md#day-4-head-section
 [controllers-and-state]: readings/controllers-and-state.md
 [csrf-and-forms]: readings/csrf.md
 [cookies]: readings/cookies.md
@@ -328,3 +328,9 @@
 [02-http]: http://vimeo.com/groups/appacademy/videos/100267302
 [middleware]: readings/middleware.md
 [rails-lite]: projects/rails_lite
+
+<!-- HTML Curriculum Links -->
+[html-1]: ../html-css/README.md#lesson-1-introduction
+[html-2]: ../html-css/README.md#lesson-2-containers
+[html-3]: ../html-css/README.md#lesson-3-forms
+[html-4]: ../html-css/README.md#lesson-4-head-section

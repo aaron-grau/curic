@@ -4,7 +4,7 @@ You're going to dive more into AJAX in a bit, but we need to give you a taste be
 
 ## Part 1: Up and Running
 
-Download [the skeleton][skeleton].  Open `index.html` in the browser and pop open the console (command + option + J).  You should see a welcome message.
+Download [the skeleton][skeleton].  Open `index.html` in the browser and pop open the console (command + option + J or command + option + I).  You should see a welcome message.
 
 ## Part 2: AJAX of One Trade
 
@@ -20,10 +20,10 @@ Write an [AJAX request][simple-ajax-example] underneath the top `console.log`. S
 Write another console.log at the bottom of the file (outside of the ajax request).  Your file should have this rough structure:
 
 ```js
-    console.log("HELLO FROM THE JAVASCRIPT CONSOLE!");
+    console.log("Hello from the JavaScript console!");
 
-    // the ajax request you wrote
-        // console.log for the data in the success callback
+    // your AJAX request
+        // --> including a console.log for the data in the success callback
 
     // another console.log down here
 

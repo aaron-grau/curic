@@ -9,7 +9,7 @@
 
 ### Video Lectures (55 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Intro. to JS][intro-js-video] (12 min)
+* :movie_camera: [Intro to JS][intro-js-video] (12 min)
 * :movie_camera: [Object-Oriented JS: Intro][oo-js-intro] (15 min)
 * :movie_camera: [Object-Oriented JS: Demo][oo-js-demo] (8 min)
 * :movie_camera: [Closures and Callbacks][callbacks-video] (20 min)
@@ -20,7 +20,7 @@
 [callbacks-video]: https://vimeo.com/169898573
 
 ### Readings (100 min)
-* [Intro. to JavaScript][intro-js] (10 min)
+* [Intro to JavaScript][intro-js] (10 min)
 * [Syntax and Useful Methods][syntax-and-methods] (10 min)
 * [Data Types][data-types] (15 min)
 * [Variables][variables] (15 min)
@@ -39,7 +39,7 @@
 [fat-arrows]: readings/fat-arrows.md
 
 ### Homeworks (45 min)
-* [Intro. JavaScript Problems][intro-pset] (45 min)
+* [Intro JavaScript Problems][intro-pset] (45 min)
 * Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
@@ -68,7 +68,7 @@
 [mdn-js-doc]: readings/mdn-js.md
 
 ### Projects
-* [Intro. JavaScript Exercises][intro-javascript-problems]
+* [Intro JavaScript Exercises][intro-javascript-problems]
 * [Reversi][reversi]
 
 [intro-javascript-problems]: projects/intro_js_exercises
@@ -76,10 +76,13 @@
 
 ## w5d4
 
+### :clock10: Class will start at 10am! :clock10:
+- **Progress Tracker reports are still due at 9am.**
+
 ### Readings (105 min)
 * [Arguments][arguments] (15 min)
 * [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
-* [Intro. to Callbacks: File I/O][intro-to-callbacks] (15 min)
+* [Intro to Callbacks: File I/O][intro-to-callbacks] (15 min)
 * [Event Loop Visualization][loupe] (10 min)
 * [ES6 Class Syntax][es6-classes] (5 min)
 * [Node Module Pattern][module-pattern] (10 min)
@@ -96,9 +99,9 @@
 [chrome-dev-tools]: readings/chrome_dev_tools.md
 [linting-js]: readings/linting-js.md
 
-### Homeworks (95 min)
-* [CSS Curriculum Day 1][css-day-1] (30 min)
-* [CSS Curriculum Day 2][css-day-2] (35 min)
+### Homeworks (110 min)
+* [CSS Curriculum 1: Intro Workflow][css-1] (30 min)
+* [CSS Curriculum 2: Syntax][css-2] (50 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
 [cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
@@ -120,7 +123,7 @@
 [taggings]: readings/tagged-templates.md
 
 ### Projects
-* [Intro. to Callbacks Exercises][functions_exercises]
+* [Intro to Callbacks Exercises][functions_exercises]
 * [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
 
@@ -186,7 +189,7 @@
 ## w6d1
 
 ### Assessment05 Practice
-+ In-class practice assessment at 9am. Please bring your own machine if     possible.
++ In-class practice assessment at 9am. Please bring your own machine if possible.
 * [Practice][assessment-prep-5]
 
 [assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
@@ -208,8 +211,8 @@
 [jquery-05-data-attributes]: readings/jquery-05-data-attributes.md
 
 ### Homeworks (140 min)
-* [CSS Curriculum Day 3][css-day-3] (40 min)
-* [CSS Curriculum Day 4][css-day-4] (55 min)
+* [CSS Curriculum 3: Reset & Advanced Selectors][css-3] (40 min)
+* [CSS Curriculum 4: The Display Property & The Box Model][css-4] (55 min)
 * [Wacky jQuery][wacky-project] (45 min)
 
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
@@ -237,9 +240,12 @@
 
 ## w6d2
 
+### :clock10: Class will start at 10am! :clock10:
+- **Progress Tracker reports are still due at 9am.**
+
 ### Homeworks (235 min)
-* [CSS Curriculum Day 5][css-day-5] (85 min)
-* [CSS Curriculum Day 6][css-day-6] (90 min)
+* [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
+* [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
 ### Additional Resources
@@ -269,13 +275,15 @@
 [ajax-demo]: https://vimeo.com/162764008
 [ajax-demo-code]: demos/chat_demo
 
-### Readings (35 min)
+### Readings (45 min)
 * [Basic AJAX][basic-ajax] (10 min)
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
+* [Using Rails as an API][rails-api] (10 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
 [basic-ajax]: readings/basic-ajax.md
 [ajax-remote-forms]: readings/ajax-remote-forms.md
+[rails-api]: readings/rails-api.md
 
 ### Homeworks (30 min)
 * [Your First Ajax Request][first-ajax] (30 min)
@@ -332,9 +340,10 @@
 [snake-project]: projects/snake
 [vanilla-ajax]: readings/vanilla_ajax.md
 
-[css-day-1]: ../html-css/README.md#css-intro-workflow--day-1
-[css-day-2]: ../html-css/README.md#day-2-syntax
-[css-day-3]: ../html-css/README.md#day-3-reset--advanced-selectors
-[css-day-4]: ../html-css/README.md#day-4-the-display-property--the-box-model
-[css-day-5]: ../html-css/README.md#day-5-float-fluid-layouts--flexbox
-[css-day-6]: ../html-css/README.md#day-6-positioning--media-queries
+<!-- CSS Curriculum Links -->
+[css-1]: ../html-css/README.md#lesson-1-intro-workflow
+[css-2]: ../html-css/README.md#lesson-2-syntax
+[css-3]: ../html-css/README.md#lesson-3-reset--advanced-selectors
+[css-4]: ../html-css/README.md#lesson-4-the-display-property--the-box-model
+[css-5]: ../html-css/README.md#lesson-5-float-fluid-layouts--flexbox
+[css-6]: ../html-css/README.md#lesson-6-positioning--media-queries

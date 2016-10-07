@@ -1,6 +1,6 @@
 # React / Redux Curriculum
 
-## w6d5
+## w7d1
 ### Video Lectures (94 min)
 **N.B.** These lectures were recorded prior to the introduction of ES6-style syntax to
 React. As a result, you may see a slightly different syntax than in the rest of
@@ -81,7 +81,10 @@ the React curriculum materials. Review the
 
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
-## w7d1
+## w7d2
+
+### :clock10: Class will start at 10am! :clock10:
+- **Progress Tracker reports are still due at 9am.**
 
 ### Readings (105 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
@@ -133,7 +136,7 @@ the React curriculum materials. Review the
 
 [synthesizer]: projects/synthesizer
 
-## w7d2
+## w7d3
 
 ### Readings (60 min)
 - [Higher-order functions][higher_order_functions] (15 min)
@@ -160,22 +163,23 @@ the React curriculum materials. Review the
 [todos]: projects/todos
 
 
-## w7d3
+## w7d4
 
-### Readings (75 min)
+### Readings (80 min)
 - [Intro to react router][react_router_intro] (12 min)
 - [Route Configuration][route_configuration] (12 min)
 - [Route Matching][route_matching] (5 min)
-- [Index Routes][index_routes] (7 min)
+- [Index Routes][index_routes] (5 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
-- [`withRouter`][with_router] (9 min)
+- [`withRouter`][with_router] (10 min)
+- [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
 
 ### Homeworks (30 min)
 - [Rainbow Routes][rainbow_routes]
 
 ### Projects
-- [Pokedex Day 1][pokedex]
+- [Pokedex][pokedex]
 
 ### Additional Resources
 -	[React Router Documentation][react_router_docs]
@@ -187,17 +191,11 @@ the React curriculum materials. Review the
 [index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
 [with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [on_enter]: readings/on_enter.md
+[jbuilder-intro]: readings/intro_to_jbuilder.md
 [jbuilder_docs]: https://github.com/rails/jbuilder
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 [pokedex]: projects/pokedex
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
-
-## w7d4
-
-### Projects
-- [Pokedex Day 2][pokedex]
-
-[pokedex]: projects/pokedex
 
 ## w7d5
 
@@ -212,13 +210,13 @@ the React curriculum materials. Review the
 - [`localStorage`][local_storage]
 
 ### Homeworks (100 min)
-* [jBuilder][jbuilder_homework] (40 min)
+* [Jbuilder][jbuilder_homework] (40 min)
 * Do the auth part of [A04 Prep][a04_prep] (1 hr)
   * Frontend auth (the main concept in BenchBnB Day 1) builds on top of regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
-- **Solo:** [BenchBNB Day 1 (Auth)][bench_bnb]
+- **Solo:** [BenchBNB][bench_bnb]
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
 
