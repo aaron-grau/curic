@@ -1,4 +1,4 @@
-# Bench BnB
+# Bench BnB Part 1
 
 Check out the live demo [here][live-demo]!
 

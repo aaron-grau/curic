@@ -1,4 +1,4 @@
-# BenchBnB Day 2
+# BenchBnB Part 2
 
 [maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
 
