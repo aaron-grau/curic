@@ -1,20 +1,19 @@
-This reading should explain the usage of react-router-redux and include an example of how to use it. 
-Note: we are planning on only using the routerMiddleware and the dispatching of push actions to change route paths.
-
 # `react-router-redux`
 
 ## Overview
 
-`react-router-redux` is a library that brings the React Router into the Redux world. You can use it to:
+`react-router-redux` is a library that brings the React Router into the Redux cycle. You can use it to:
 
-+ Dispatch actions that change the state, using a `react-router-redux` middleware.
-+ Store your location information in your application state, using a `react-router-redux` reducer.
++ Issue navigation events via Redux actions, using a `react-router-redux` middleware.
++ Store the current location in your application state, using a `react-router-redux` reducer.
 
 We will be using it only for the first of these two tasks, and thus we'll only need the `react-router-redux` middleware.
 
 ## Details
 
-The `routerMiddleware` that we import from `react-router-redux` calls `history[method](...args)`, where `method` is the action to take (usually `push`) and `...args` is any additional arguments that are passed along (usually `location`).
+The `routerMiddleware` that we import from `react-router-redux` calls `history[method](...args)`. Typically, that looks like `history.push(location)`, because `method` (the action to take) is usually `push` and `...args` (any additional arguments that are passed along) are usually just `location`.
+
+We are using this library simply to allow us to issue navigation events via Redux actions. The same functionality could be accomplished several other ways, including `hashHistory.push(location)`, `this.props.router.push(location)`, and `this.context.router.push(location)`.
 
 ## Usage
 
