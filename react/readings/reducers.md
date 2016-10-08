@@ -13,8 +13,9 @@ function for updating its `state` that:
 
 Recall the reducer from our fruit stand app:
 ```js
-// reducer.js
-const reducer = (state = [], action) => {
+// reducers/fruit_reducer.js
+
+const fruitReducer = (state = [], action) => {
   switch(action.type) {
     case 'ADD_FRUIT':
       return [
@@ -26,7 +27,7 @@ const reducer = (state = [], action) => {
   }
 };
 
-export default reducer;
+export default fruitReducer;
 ```
 
 When the store initializes, it calls its reducer with an `undefined` `state`,
@@ -52,8 +53,8 @@ Let's update our fruit stand app's `reducer` to handle a few more actions:
 + `SELL_OUT` - Someone bought your whole inventory of fruit! Return an empty array.
 
 ```js
-// reducer.js
-const reducer = (state = [], action) => {
+// reducers/fruit_reducer.js
+const fruitReducer = (state = [], action) => {
 	switch(action.type) {
 		case "ADD_FRUIT":
 			return [
@@ -89,7 +90,7 @@ Inside a Redux reducer, you must never mutate its arguments (i.e. `state` and `a
 Here's an example of a *bad* reducer which mutates the previous state.
 ```js
 // bad reducer
-const reducer = (state = { count: 0 }, action) => {
+const badReducer = (state = { count: 0 }, action) => {
 	switch (action.type) {
 		case "INCREMENT_COUNTER":
 			state.count++;
@@ -105,7 +106,8 @@ And here's an example of a good one which uses [lodash][lodash-reading]'s merge 
 // good reducer
 import merge from 'lodash/merge';
 
-const reducer = (state = { count: 0 }, action) => {
+const goodReducer = (state = { count: 0 }, action) => {
+  Object.freeze(state)
 	switch (action.type) {
 		case "INCREMENT_COUNTER":
 			let nextState = merge({}, state);
@@ -117,6 +119,10 @@ const reducer = (state = { count: 0 }, action) => {
 };
 ```
 
+Note the use of [`Object.freeze()`][object-freeze], even though `goodReducer` doesn't mutate state `Object.freeze()` will insure that we never accidentally mutate our state. Get in the habit of using `Object.freeze` at the top of every reducer you write!  
+
+
+[object-freeze]: ./object_freeze.md
 [lodash-reading]:./lodash.md
 
 ## Combining Reducers

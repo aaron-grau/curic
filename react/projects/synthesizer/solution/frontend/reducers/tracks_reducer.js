@@ -3,12 +3,13 @@ import { START_RECORDING,
          ADD_NOTES,
          DELETE_TRACK
        } from '../actions/tracks_actions';
-       
+
 import merge from 'lodash/merge';
 
 let currTrackId = 0;
 
 const track = (state, action) => {
+  Object.freeze(state)
   switch(action.type) {
     case START_RECORDING:
       return {
@@ -37,6 +38,7 @@ const track = (state, action) => {
 };
 
 const tracks = (state = {}, action) => {
+  Object.freeze(state)
   switch(action.type) {
     case START_RECORDING:
       currTrackId++; // increment id of current (newest) track

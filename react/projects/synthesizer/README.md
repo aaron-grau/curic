@@ -83,6 +83,7 @@ module.exports = {
 
 ## Phase 2: Notes and Tones
 
+
 #### `Note` Class
 
 You need a `Note` class which you will use to actually play tones using the
@@ -163,6 +164,34 @@ We'll be using these constants later to map our keyboard keys to tones.
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
 ## Phase 3: Notes Redux Structure
+
+### `App` Component
+The `App` component will hold all of the top-level components of your app.
+
++ Create a file `components/app.jsx` and import `React` from `react`.
++ Define and `export default` a functional `App` component.
+
+#### Root Reducer
+
+The `notes` reducer updates and returns to the store only a single slice of
+the state: the `notes` in play.
+
+*NB*: When we have state fields that are independent of each other, we split the
+reducer into multiple reducers that each handle their own slices of the state.
+This is called **reducer composition**, and it’s the fundamental pattern of
+building Redux apps.
+
+We only have one reducer right now, but later as our app grows we'll be adding
+more. For now, let's define a root reducer that calls all of the reducers
+managing parts of the state, and combines them into a single function.
+
+* Create a new file called `reducers/index.js` file.
+* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
+* Using them, define and `export default` a root `reducer` function.
+
+[combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
+
+
 
 ### Designing the State Shape
 
@@ -268,25 +297,7 @@ We're almost there. Note that `action.key` references keys that should be includ
 + Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they check to
 see if a `action.key` is also a valid key included in `NOTE_NAMES`. If not, return the previous state.
 
-#### Root Reducer
 
-The `notes` reducer updates and returns to the store only a single slice of
-the state: the `notes` in play.
-
-*NB*: When we have state fields that are independent of each other, we split the
-reducer into multiple reducers that each handle their own slices of the state.
-This is called **reducer composition**, and it’s the fundamental pattern of
-building Redux apps.
-
-We only have one reducer right now, but later as our app grows we'll be adding
-more. For now, let's define a root reducer that calls all of the reducers
-managing parts of the state, and combines them into a single function.
-
-* Create a new file called `reducers/index.js` file.
-* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
-* Using them, define and `export default` a root `reducer` function.
-
-[combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
 
 ### Store
 In Redux, the store calls the reducer function you give it whenever
@@ -304,11 +315,6 @@ new store with the root reducer.
 
 ## Phase 4: Synth Components
 
-### `App` Component
-The `App` component will hold all of the top-level components of your app.
-
-+ Create a file `components/app.jsx` and import `React` from `react`.
-+ Define and `export default` a functional `App` component.
 
 ### `Root` Component
 

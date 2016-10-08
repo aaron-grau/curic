@@ -8,9 +8,9 @@ via `createStore()`. When a `dispatch` is made, the middleware intercepts the
 `action` before it reaches the `reducer`. The middleware can then:
 - **resolve the action itself** (for example, by making an AJAX request),
 - **pass along the action** (if the middleware isn't concerned with it),
-- **generate a side effect** (such as logging debugging information), 
+- **generate a side effect** (such as logging debugging information),
 - **send another dispatch** (if the action triggers other actions),
-- or some combination thereof. 
+- or some combination thereof.
 
 We will use Redux middleware for logging information about the store and making
 asynchronous API requests, but you can also use it for crash reporting, routing,
@@ -42,8 +42,8 @@ let store = createStore(
 Any actions dispatched to the `store` pass through our `logger` middleware,
 which prints the store's state before and after the `action` is processed.
 
-**Note:** `applyMiddleware()` accepts multiple arguments, so we can also apply 
-more middleware if necessary. 
+**Note:** `applyMiddleware()` accepts multiple arguments, so we can also apply
+more middleware if necessary.
 
 ## Middleware Signature
 
@@ -52,8 +52,8 @@ will sometimes need to roll your own. All middleware functions need to conform
 to  the same signature in order to be compatible with the Store and
 other middlewares.
 
-A [**function signature**][signature] is the set of inputs and output of a 
-function. A Redux middleware must always have the following signature: 
+A [**function signature**][signature] is the set of inputs and output of a
+function. A Redux middleware must always have the following signature:
 
 ```js
 const middleware = store => next => action => {
@@ -87,10 +87,10 @@ are working as expected. This middleware should:
 - return a function that receives the `next` middleware,
 -	which should itself return a function receiving the `action`.
 
-The body of the innermost function is where we want to do our logging. That function should: 
+The body of the innermost function is where we want to do our logging. That function should:
 - `console.log` the `action`
 - `console.log` the result of `store.getState()` (pre-dispatch)
-- call `next(action)` to pass the action on to the rest of the middlewares, and 
+- call `next(action)` to pass the action on to the rest of the middlewares, and
 eventually, the reducer.
 - save the `result` of the `next(action)` variable, to be returned later.
 - `console.log` the new `store.getState()`
@@ -107,7 +107,7 @@ const logger = store => next => action => {
   console.log('State post-dispatch:', store.getState());
 
   return result;
-} 
+}
 ```
 
 Now, whenever we dispatch an action, we'll see its effect on the Store.

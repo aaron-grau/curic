@@ -11,6 +11,7 @@ When an action is dispatched, any new state data must be passed along as the
 **payload**:
 
 ```js
+// actions/fruit_actions.js
 const addOrange = {
 	type: "ADD_FRUIT",
 	fruit: "orange"
@@ -27,7 +28,7 @@ pass the result of calling an action creator to `store.dispatch()`.
 
 For example:
 ```js
-// actions.js
+// actions/fruit_actions.js
 const addFruit = (fruit) => ({
 	type: "ADD_FRUIT",
 	fruit
@@ -49,28 +50,27 @@ store.getState(); // [ 'orange', 'apple', 'strawberry', 'lychee' ]
 Let's update our actions to include `"ADD_FRUIT"`, `ADD_FRUITS`, `SELL_FRUIT` like in the [reducers][reducers] reading.
 
 ```js
-  // fruit_actions.js
-
-	export const FRUIT_ACTIONS = {
+  // actions/fruit_actions.js
+	export const FRUIT_ACTIONS = ({
 		ADD_FRUIT = "ADD_FRUIT",
 		ADD_FRUIT = "ADD_FRUIT",
 		SELL_FRUIT = "SELL_FRUIT"
-	}
+	});
 
 	export const addFruit = fruit => ({
 		type: FRUIT_ACTIONS.ADD_FRUIT,
 		fruit
-	})
+	});
 
-	export const addFruits = fruits => {(
+	export const addFruits = fruits => ({
 		type: FRUIT_ACTIONS.ADD_FRUITS,
 		fruits
-	)}
+	});
 
 	export const sellFruit = fruit => ({
 		type: FRUIT_ACTIONS.SELL_FRUIT,
 		fruit
-	})
+	});
 
 
 ```  
@@ -83,4 +83,4 @@ View the official documentation [here][redux-js]
 [redux-js]: http://redux.js.org/docs/basics/Actions.html
 
 [store]: store.md
-[reducer]: reducers.md
+[reducers]: reducers.md
