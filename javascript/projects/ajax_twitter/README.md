@@ -87,13 +87,15 @@ Next, write a `FollowToggle#handleClick` method. Install this click handler in t
 have jQuery automatically parse the response as JSON. Read the documentation [here][$.ajax-docs]
 
 You may also be wondering what's going on with the `respond_to` inside the
-`FollowsController`. Well, when we make a http request to a server, we can specify
-the `Content-Type` header. Meaning.. we can ask for HTML, XML, JSON, text, etc.
-Until now, our controllers were apathetic towards the type of the request. Want JSON? TOO BAD! Here's HTML...
+`FollowsController`. Well, when we make a http request to a server, we can
+specify the `Content-Type` header. Meaning.. we can ask for HTML, XML, JSON,
+text, etc. Until now, our controllers were apathetic towards the type of the
+request. Want JSON? TOO BAD! Here's HTML...
 
-The browser sets this `Content-Type` header for us based on how we make the request.
-When we use the `$.ajax` method, we will (by default) request JSON. The controller can
-then react to this `Content-Type` request by using the [`respond_to` method][respond-to-docs].
+The browser sets this `Content-Type` header for us based on how we make the
+request. When we use the `$.ajax` method, we will (by default) request JSON. The
+controller can then react to this `Content-Type` request by using the
+[`respond_to` method][respond-to-docs].
 
 [respond-to-docs]: http://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to
 [$.ajax-docs]: http://api.jquery.com/jquery.ajax/
@@ -114,7 +116,7 @@ Check that everything works and call over your TA so that they can check your wo
 ## Phase II: `UsersSearch`
 
 Review `app/controllers/users_controller.rb` and
-`app/views/users/search.HTML.erb`. We want to create real-time user search. On
+`app/views/users/search.html.erb`. We want to create real-time user search. On
 every keypress as the user types in a username, we'll show the matching users
 for the current input.
 
@@ -123,11 +125,11 @@ To do this, we'll write a `UsersSearch` class. Replace the entire form with a
 name. Also nested in the `nav.users-search`, have a `ul.users` for displaying
 results.
 
-Next, begin writing the `UsersSearch` class. As before, automatically build a
-`UsersSearch` for each `nav.users-search`. Again, you might find it convenient
-to store jQuery wrapped versions of the `el`, its `input` and its `ul`. Also in
-the constructor, we'll be installing a listener for the `input` event on the
-input tag.
+Next, begin writing the `UsersSearch` class. Create a `frontend/users_search.js`
+file. As before, automatically build a `UsersSearch` for each
+`nav.users-search`. Again, you might find it convenient to store jQuery wrapped
+versions of the `el`, its `input` and its `ul`. Additionally in the constructor,
+we'll be installing a listener for the `input` event on the input tag.
 
 Write a `UsersSearch#handleInput` handler. On each `input` event, make an AJAX
 request to `/users/search`, sending the input's `val` as the query parameter.
@@ -136,8 +138,9 @@ option. Don't forget to set `dataType`!
 
 Now, let's set up your controller to respond to AJAX requests with JSON. Because
 your controller will be handling both HTML and JSON requests, let's separate out
-each of those types of requests and respond to them separately. Put the following
-code into your controller to replace the line reading `render :search`:
+each of those types of requests and respond to them separately. Put the
+following code into your controller to replace the line reading `render
+:search`:
 
 ```ruby
 respond_to do |format|
@@ -148,21 +151,21 @@ end
 
 This tells your controller to render the `:search` HTML view for requests that
 want HTML and to render the `:search` JSON view for requests that want JSON. But
-we don't yet have a `search.json` view! Let's make one. The file, in the `/users/`
-folder, should be named `search.json.jbuilder` and should contain the following code:
+we don't yet have a `search.json` view! Let's make one. The file, in the
+`/users/` folder, should be named `search.json.jbuilder` and should contain the
+following code:
 
 ```ruby
 json.array!(@users) do |user|
   json.(user, *User.column_names)
-  # Hidden N+1 query!
-  json.followed(current_user.follows?(user))
+  json.followed(current_user.follows?(user)) # hidden N+1 query!
 end
 ```
 
 The above code takes your `@users` instance variable and turns it into an array
-of JSON objects. Each object will have all of its information as well as `followed`,
-which will be either true or false depending on whether the current user is following
-this user.
+of JSON objects. Each object will have all of its information as well as
+`followed`, which will be either true or false depending on whether the current
+user is following this user.
 
 When the AJAX call successfully returns a list of matching users, we want to
 display those results in the `ul.users`. Write a method
@@ -178,8 +181,7 @@ Last, we want to add follow toggle buttons for each of these results. When
 building the `li` tags for each user, build a `button`, too. You can create a
 FollowToggle instance for the button to setup the follow toggle.
 
-**NB:** Inspect the JSON objects that you are getting from the server to see whether or
-not they are currently being followed.
+**NB:** Inspect the JSON objects that you are getting from the server to see whether or not they are currently being followed.
 
 You could make this work by setting data attributes on the button for `user-id`
 and `initial-follow-state`. In this context, that's kind of annoying. Instead,
