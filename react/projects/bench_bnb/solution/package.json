@@ -35,6 +35,7 @@
     "react-dom": "^0.14.2",
     "react-redux": "^4.4.5",
     "react-router": "2.4.x",
+    "react-router-redux": "^4.0.6",
     "redux": "^3.5.2",
     "webpack": "^1.12.2"
   }

@@ -14,7 +14,7 @@ class BenchForm extends React.Component{
     this.navigateToSearch = this.navigateToSearch.bind(this);
   }
   navigateToSearch() {
-    this.props.router.push("/");
+    this.props.push("/");
   }
   update(property) {
     return e => this.setState({[property]: e.target.value});

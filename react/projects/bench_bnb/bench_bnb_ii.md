@@ -5,7 +5,9 @@
 ## Phase 6: The Map
 
 Now we're going to add a map alongside our index to visually convey our bench
-information.
+information. When it's done, we'll replace `BenchIndexContainer` with a new
+`SearchContainer` in the `IndexRoute` in the router. This will allow us to 
+search and display benches. 
 
 ### Create a `BenchMap` component.
 
@@ -346,17 +348,31 @@ with latitude and longitude based on where they clicked.
 
 Because `BenchMapContainer` and `BenchFormContainer` live under different routes, We can't simply pass props between them to convey our click information. We will need to encode our parameters in a client-side query string.
 
-#### `withRouter`
+#### `react-router-redux`
 
-Since our `BenchMap` will need access to the `Router`, import the `withRouter`
-function from `react-router`. Change the export statement in `bench_map.jsx` so
-that we are exporting a wrapped component.
+Because we included `routerMiddleware` from the `react-router-redux` library in our `RootMiddlware`, 
+we can issue navigation events through redux actions from the `BenchMap` component. 
+
+* Import `push` from 'react-router-redux' in `SearchContainer`
+* In `SearchContainer` add the `push` to `mapDispatchToProps`
 
 ```javascript
-  export default withRouter(BenchMap);
+const mapDispatchToProps = dispatch => ({
+  push: (location) => dispatch(push(location))
+});
 ```
 
-Our `BenchMap` component will now have a `router` prop.
+* When `BenchMap` is rendered in the `Search` component, pass the `push` action to `BenchMap`. 
+
+```javascript
+<BenchMap
+  benches={benches}
+  updateFilter={updateFilter}
+  singleBench={false}
+  push={push}/>
+```
+
+Our `BenchMap` component will now have a `push` prop function that can be used to issue navifation events.
 
 #### Redirecting with coordinates
 
@@ -367,11 +383,11 @@ Add a `"click"` handler to the map. It should:
 
 To pass `lat` and `lng` as query params:
 
-  0.  Use `router#push` to send data along with the new `pathname`.
+  0.  Use `this.props.push` to send data along with the new `pathname`.
 
 ```javascript
   _handleClick(coords){
-    this.props.router.push({
+    this.props.push({
       pathname: "benches/new",
       query: coords
     });

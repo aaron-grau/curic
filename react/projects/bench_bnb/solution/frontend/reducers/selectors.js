@@ -1,3 +1,3 @@
-export const selectBench = (benches, id) => benches[id] || {};
+export const selectBench = ({benches}, id) => benches[id] || {};
 
-export const asArray = (obj) => Object.keys(obj).map(key => obj[key]);
+export const asArray = ({benches}) => Object.keys(benches).map(key => benches[key]);

@@ -11,7 +11,7 @@ class ReviewButton extends React.Component{
   _handleClick(){
     const benchId = this.props.benchId;
     const url = `/benches/${benchId}/review`;
-    this.props.router.push(url);
+    this.props.push(url);
   }
 
   render(){

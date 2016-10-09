@@ -41,6 +41,7 @@ frontend:
   * `react-dom`
   * `redux`
   * `react-redux`
+  * `react-router-redux`
   * `babel-core`
   * `babel-loader`
   * `babel-preset-react`
@@ -124,9 +125,23 @@ URL for each of these requests.
 import these functions in your entry file and save them to the window (e.g.,
 `window.login = login;`).
 
+### State Shape
+
+By the time we're done setting up ou reducer to manage sessions, we'll want the default 
+session slice to hold two pieces of information, 1) the current user and 2) an array 
+of errors. We'll want it to look something like this. 
+
+{
+  currentUser: null,
+  errors: []
+}
+
+Hint: Use the default application state listed above as a template for any
+session information we might receive.
+
 ### Session Actions
 
-+ Write and export the following action creators in a new file `actions/session_actions.js`:
++ Before we get to the reducer, let's write and export the following action creators in a new file `actions/session_actions.js`:
   * `login(user)`
   * `logout()`
   * `signup(user)`
@@ -135,28 +150,17 @@ import these functions in your entry file and save them to the window (e.g.,
 
 + Don't forget to define and export the corresponding action types as well
 (e.g., `export const LOGIN = 'LOGIN'`).  
-+ All of our action creators besides `logout` accept an user object as an argument.
++ All of our action creators besides `logout` accept a user object as an argument.
 
 ### `SessionReducer`
 
 + Create a new reducer in a new file `reducers/session_reducer.js` to keep track of our
-current user and error messages. The default `session` slice of the app state
-should return:
-
-```js
-{
-  currentUser: null,
-  errors: []
-}
-```
+current user and error messages. 
 
 The `SessionReducer` should listen for 3 action types and respond to each like so:
   * `RECEIVE_CURRENT_USER` - sets `currentUser` to the action's user and clears `errors`
   * `RECEIVE_ERRORS` - sets `errors` to the action's errors and clears the `currentUser`
   * `LOGOUT` - clears both `errors` and `currentUser`
-
-Hint: Use the default application state listed above as a template for any
-session information we might receive.
 
 ### `RootReducer`
 
@@ -340,6 +344,7 @@ Define 2 new files at the root of your `frontend/components` folder:
 * `frontend/components/app.jsx`
 * `frontend/components/root.jsx`
 
+
 ### The `App` component
 
 Create and export a new **functional component** that renders an `<h1>` tag with
@@ -400,6 +405,38 @@ const Root = ({ store }) => (
   </Provider>
 );
 ```
+
+### Adding Router to Redux cycle
+
+In order to bring the Router into the Redux cycle, we'll need to add `react-router-redux`.
+
+```
+npm install --save react-router-redux
+```
+
+We'll also need to set up the `react-router-redux` library in `root_middleware.js`.
+
+* Import `routerMiddleware` from `react-router-redux`
+* Also import `hashHistory` from `react-router`
+
+  ```javascript
+  import { applyMiddleware } from 'redux';
+  import { routerMiddleware } from 'react-router-redux';
+  import { hashHistory } from 'react-router';
+  
+  import SessionMiddleware from './session_middleware';
+  ```
+
+* Now add `routerMiddleware(hashHistory)` to `RootMiddleware`
+
+  ```javascript
+  const RootMiddleware = applyMiddleware(
+    SessionMiddleware,
+    routerMiddleware(hashHistory)
+  );
+
+  export default RootMiddleware;
+  ```
 
 ### The Entry Point
 
@@ -650,10 +687,35 @@ Refer to the `onEnter` [reading][onEnter] for this part.
 In this phase, you will build the pieces necessary to display a basic index of
 benches.
 
-### `BenchesReducer`
+### `BenchApiUtil`
 
-In this step, we're going to create a reducer that manages the `benches` section
-of our application state. We want to build a state that has the following shape:
+To start, let's create an API utility for `BenchesMiddleware` to use that will request data via AJAX from our Rails server.
+
++ Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`.
+
+This function should accept a single argument: `success`, a callback. It should
+then dispatch an `$.ajax` request, passing `success` to the `$.ajax` call.
+Define an error callback, to, for debugging.
+
+Your function should look something like this:
+
+```javascript
+  export const fetchBenches = function(success){
+    $.ajax({
+      method: // ,
+      url: //,
+      success,
+      error: () => console.log('error')
+    })
+  }
+```
+
+As before, put this function on the window for testing, and make sure it works
+before moving on!
+
+### Bench State Shape
+
+We want to build a bench state that has the following shape. 
 
 ```js
 benches: {
@@ -678,23 +740,7 @@ benches: {
 }
 ```
 
-Note that our `benches` object will use `bench_id` as the primary key.
-
-* Create a file, `reducers/benches_reducer.js` that exports a `BenchesReducer` function.
-
-Let's start by just setting up our `BenchesReducer` to return its default state:
-
-```javascript
-const BenchesReducer = (state = {}, action) => {
-  switch(action.type) {
-    //...
-    default:
-      return state
-  }
-}
-
-export default BenchesReducer;
-```
+Note that our benches object will use bench_id as the primary key.
 
 ### Action Creators
 
@@ -721,6 +767,53 @@ add `requestBenches` to the `window` for testing later!
 ```js
 window.requestBenches = requestBenches;
 requestBenches(); //=> { type: 'REQUEST_BENCHES' }
+```
+
+### Bench Reducer
+In this step, we're going to create a reducer that manages the `benches` section
+of our application state.
+
+* Create a file, `reducers/benches_reducer.js` that exports a `BenchesReducer` function.
+
+Let's start by just setting up our `BenchesReducer` to return its default state:
+
+```javascript
+const BenchesReducer = (state = {}, action) => {
+  switch(action.type) {
+    //...
+    default:
+      return state
+  }
+}
+
+export default BenchesReducer;
+```
+
+Then add `BenchesReducer` to your `root_reducer.js`
+
+```
+import {combineReducers} from 'redux';
+
+import BenchesReducer from './benches_reducer';
+import SessionReducer from './session_reducer';
+
+export default combineReducers({
+  benches: BenchesReducer,
+  session: SessionReducer
+});
+```
+
+At this point, our default application state should be something like this. 
+
+```
+{
+  session: {
+    currentUser: null,
+    errors: []
+  }, 
+  
+  benches: {}
+}
 ```
 
 ### `BenchesMiddleware`
@@ -793,31 +886,6 @@ store.dispatch(requestBenches())
 You should see the `console.log` that we imbedded in our `BenchesMiddleware`!
 Make sure this works before moving on.
 
-### `BenchApiUtil`
-
-We are getting close to finishing the redux loop! In this step, we'll create an API utility for `BenchesMiddleware` to use that will request data via AJAX from our Rails server.
-
-+ Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`.
-
-This function should accept a single argument: `success`, a callback. It should
-then dispatch an `$.ajax` request, passing `success` to the `$.ajax` call.
-Define an error callback, to, for debugging.
-
-Your function should look something like this:
-
-```javascript
-  export const fetchBenches = function(success){
-    $.ajax({
-      method: // ,
-      url: //,
-      success,
-      error: () => console.log('error')
-    })
-  }
-```
-
-As before, put this function on the window for testing, and make sure it works
-before moving on!
 
 ### Connect `BenchesMiddleware` to `BenchAPIUtil`
 
@@ -891,8 +959,11 @@ Congrats! **Call over a TA and explain your benches redux cycle.**
 
 Let's create a component that shows our benches.
 
-* Let's start by making make two files: `components/bench_index.jsx` and
+* First we'll start by making make two files: `components/bench_index.jsx` and
 `components/bench_index_container.js`
+
+* After we've made both of these components, we'll add the container to our 
+  router in `root.jsx` to it's rendered when users visit our site. 
 
 ### The Container Component
 
@@ -944,23 +1015,19 @@ Create another `BenchIndexItem`, to clean up your `BenchIndex` component's `rend
 
 ### Render Time!
 
-In your entry file, let's edit the document-ready callback.
-
-* Import the `Provider` from the `react-redux` library
+Let's make sure that our `BenchIndexContainer` is the default component rendered
+inside `App`. Use an `IndexRoute` to accomplish this.
 
 ```javascript
-import { Provider } from `react-redux`;
+<Router history={ hashHistory }>
+  <Route path="/" component={ App }>
+    <IndexRoute component={ BenchIndexContainer } />
+    // other routes
+  </Route>
+</Router>
 ```
 
-Remember, the `Provider`'s sole purpose is to make the `store` globally available in
-our component hierarchy. Without the `Provider`, our `connect` functions won't work.
-
-* Create a new functional component called `Root` that accepts a `store` prop
-* `Root` should render the `BenchIndexContainer`, wrapped in the `Provider`
-* Be sure to pass the `Provider` the `store` prop
-* In the callback, invoke `ReactDOM.render`, and render the `Root` into the
-`#root` div. Be sure to pass `Root` the configured `store`.
-* Your app should now be populated with benches!!
+Your app should now be populated with benches!
 
 #### Recap
 
@@ -978,20 +1045,6 @@ the connect function.
 * That callback runs our `mapStateToProps` and `mapDispatchToProps` functions. The
 return values of these functions are then merged and the resulting object is passed as new props to `BenchIndex`.
 * When `BenchIndex` receives these new props, it re-renders. Phew!
-
-#### `IndexRoute`
-
-Next, let's make sure that our `BenchIndexContainer` is the default component rendered
-inside `App`. Use an `IndexRoute` to accomplish this.
-
-```javascript
-<Router history={ hashHistory }>
-  <Route path="/" component={ App }>
-    <IndexRoute component={ BenchIndexContainer } />
-    // other routes
-  </Route>
-</Router>
-```
 
 **Test your work. You've completed Day 1!**
 
