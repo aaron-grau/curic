@@ -3,7 +3,10 @@ import React from 'react';
 function StepListItem ({ step, destroyStep, toggleStep }) {
   return (
     <li className="step-header">
-      {step.title}
+      <div className="step-info">
+        <h3>{step.title}</h3>
+        <p>{step.body}</p>
+      </div>
       <div className="step-buttons">
         <button
           className={step.done ? "done" : "undone"}

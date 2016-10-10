@@ -3,6 +3,8 @@ import { RECEIVE_STEPS,
          REMOVE_STEP
        } from '../actions/step_actions';
 
+import merge from 'lodash/merge';
+
 const StepsReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_STEPS:
@@ -11,14 +13,14 @@ const StepsReducer = (state = {}, action) => {
         newState[step.todo_id] = newState[step.todo_id] || {};
         newState[step.todo_id][step.id] = step;
       });
-      return Object.assign({}, state, newState);
+      return merge({}, state, newState);
     case RECEIVE_STEP:
-      newState = Object.assign({}, state);
+      newState = merge({}, state);
       newState[action.step.todo_id] = newState[action.step.todo_id] || {};
       newState[action.step.todo_id][action.step.id] = action.step;
       return newState;
     case REMOVE_STEP:
-      newState = Object.assign({}, state);
+      newState = merge({}, state);
       newState[action.step.todo_id] = newState[action.step.todo_id] || {};
       delete newState[action.step.todo_id][action.step.id];
       return newState;

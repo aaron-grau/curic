@@ -20,7 +20,7 @@ class StepForm extends React.Component {
       const step = Object.assign({}, this.state);
       this.props.createStep(step);
       this.setState({ title: "" });
-    }
+    };
   }
 
   render() {
@@ -34,10 +34,18 @@ class StepForm extends React.Component {
             placeholder="walk to store"
             onChange={this.update('title')}/>
         </label>
+        <label>Description:
+          <input
+            className="input"
+            ref="body"
+            value={this.state.body}
+            placeholder="google store directions"
+            onChange={this.update('body')}/>
+        </label>
         <button className="create-button">Create Step!</button>
       </form>
     );
   }
-};
+}
 
 export default StepForm;
