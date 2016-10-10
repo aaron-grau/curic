@@ -577,7 +577,7 @@ reading if you need a refresher on container components.
 + Create a `mapDispatchToProps` function
   + Create a prop called `requestTodos` whose value is a call to `dispatch`, passing the result of a call to your `requestTodos` action creator
 + Pass your `mapStateToProps` and `mapDispatchToProps` functions to `connect`
-+ Call the result of this `connect` function with your `TodoList` component as an argument
++ Call the result of this `connect` function with your `TodoList` presentational component as an argument
 + Export the result of this function call
 
 Your code should look like the following:
@@ -598,14 +598,14 @@ export default connect(
 
 #### `TodoList` and `TodoListItem`
 
-Create your `TodoList` component.
+Create your `TodoList` presentational component.
 
 If we've done our job with our container component, all this presentational component will have to do is:
 
 + Dispatch a `requestTodos` action on `componentDidMount`
 + Render the titles of its `todos` prop as list items inside of a `<ul>`
 
-**Test your code** - Add `TodoListContainer` to your `App`. Reload your app and see your list of `todos`!
+**Test your code** - Add `TodoListContainer` to your `App` component. Reload your app and see your list of `todos`!
 
 Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a
 `TodoListItem` component that receives the appropriate item as a prop. Each
@@ -614,8 +614,9 @@ Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a
 + Create a file `components/todo_list/todo_list_item.jsx`
 + Create a React Component called a `TodoListItem`
 + Write a `render` function for that component that returns an `<li>` with `this.props.todo.title` inside it
++ The `TodoList` component should render `TodoListItem`s and give them the necessary props.
 
-**Test your code** - Refresh your page - everything should look the same, that's good.
+**Test your code** - Refresh your page - everything should look the same!
 
 ---
 
@@ -629,7 +630,7 @@ user can create todo list items.
 + In `actions/todo_actions.js`, create two new action creator methods and their respective constants
   + `createTodo`
   + `receiveTodo`
-+ Add new `case`s to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
++ Add a new `case` to your `TodosReducer` `switch` statement that handles the reception of a newly created todo list item
   + `RECEIVE_TODO` should cause that item to be included in future versions of `state.todos`
 + Add new `case`s to your middleware's `switch` statement that use your new API utility function
   + `CREATE_TODO` should call your new API utility function and pass `receiveTodo` as its success callback
@@ -683,9 +684,12 @@ cycle, as well as add several new components for this to work.
 **You should be testing your code regularly as you finish features like we did for Todos. It will save you a lot of time if you debug as you code.**
 
 Let's start by getting your `TodoListItem`s ready for their own sub-lists by
-refactoring their display into multiple parts. Follow these steps:
+refactoring their display into multiple parts. We will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `store`. Follow these steps:
 
-+ Create a file `components/todo_list/todo_detail_view.jsx` to hold a component `TodoDetailView`
++ Create a container for your `TodoDetailView` component
+  + Create a `MapDispatchToProps` function that passes `destroyTodo` as a prop to `TodoDetailView`
+  + Export `connect( null, mapDispatchToProps )(TodoDetailView);`
++ Create a file `components/todo_list/todo_detail_view.jsx` to hold the presentational component `TodoDetailView`
   + Refactor your `TodoListItem` so that it only renders the item's title and a button to change its status
   + Fill out your `TodoDetailView` so that it renders all of the todo item's other information
   + Conditionally render the `TodoDetailView` so that a user can show or hide a todo's details
@@ -693,11 +697,9 @@ refactoring their display into multiple parts. Follow these steps:
     + Initially, set that value to false
     + Allow users to change that value to true by clicking on the item's title
     + Render the `TodoDetailView` only if `detail` is true
-  + Create a container for your `TodoDetailView` component
-    + Create a `MapDispatchToProps` function that passes `destroyTodo` as a prop to `TodoDetailView`
-    + Export `connect( null, mapDispatchToProps )(TodoDetailView);`
 
-**NB**: Eventually, your `TodoDetailView` will hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. Also, we will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `store`.
+
+**NB**: Eventually, your `TodoDetailView` will hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. We will also update the `TodoDetailView` container to request `Steps`.
 
 ### Adding a Steps API
 
