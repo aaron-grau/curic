@@ -5,7 +5,7 @@ class CreatePokemons < ActiveRecord::Migration
       t.integer :attack, null: false
       t.integer :defense, null: false
       t.string :poke_type, null: false
-      t.string :moves, null: false
+      t.string :moves, null: false, array: true, default: []
       t.string :image_url, null: false
 
       t.timestamps

@@ -1,4 +1,4 @@
-class Toy < ActiveRecord::Base
+class Item < ActiveRecord::Base
   belongs_to :pokemon
 
   validates :happiness, :image_url, :name, :pokemon, :price, presence: true

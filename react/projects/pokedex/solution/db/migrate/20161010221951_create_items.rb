@@ -1,6 +1,6 @@
-class CreateToys < ActiveRecord::Migration
+class CreateItems < ActiveRecord::Migration
   def change
-    create_table :toys do |t|
+    create_table :items do |t|
       t.integer :pokemon_id, null: false
       t.string :name, null: false
       t.integer :price, null: false
@@ -10,6 +10,6 @@ class CreateToys < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :toys, :pokemon_id
+    add_index :items, :pokemon_id
   end
 end

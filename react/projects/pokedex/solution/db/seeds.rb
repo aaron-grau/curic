@@ -10,7 +10,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def create_random_item!(pokemon)
-  Toy.create!(
+  Item.create!(
     pokemon_id: pokemon.id,
     name: Faker::Superhero.name,
     price: (1..100).to_a.sample,
@@ -19,7 +19,7 @@ def create_random_item!(pokemon)
       /assets/lucky_egg.png
       /assets/pokeball.png
       /assets/pokemon_berry1.png
-      /assets/pokemon_berry1.png
+      /assets/pokemon_berry2.png
     ).sample
   )
 end
