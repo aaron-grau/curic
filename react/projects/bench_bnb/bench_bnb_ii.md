@@ -6,8 +6,8 @@
 
 Now we're going to add a map alongside our index to visually convey our bench
 information. When it's done, we'll replace `BenchIndexContainer` with a new
-`SearchContainer` in the `IndexRoute` in the router. This will allow us to 
-search and display benches. 
+`SearchContainer` in the `IndexRoute` in the router. This will allow us to
+search and display benches.
 
 ### Create a `BenchMap` component.
 
@@ -350,11 +350,11 @@ Because `BenchMapContainer` and `BenchFormContainer` live under different routes
 
 #### `react-router-redux`
 
-Because we included `routerMiddleware` from the `react-router-redux` library in our `RootMiddlware`, 
-we can issue navigation events through redux actions from the `BenchMap` component. 
+Because we included `routerMiddleware` from the `react-router-redux` library in our `RootMiddlware`,
+we can issue navigation events through redux actions from the `BenchMap` component.
 
-* Import `push` from 'react-router-redux' in `SearchContainer`
-* In `SearchContainer` add the `push` to `mapDispatchToProps`
+* In `SearchContainer` import `push` from 'react-router-redux'
+* Add `push` to `mapDispatchToProps`
 
 ```javascript
 const mapDispatchToProps = dispatch => ({
@@ -362,9 +362,11 @@ const mapDispatchToProps = dispatch => ({
 });
 ```
 
-* When `BenchMap` is rendered in the `Search` component, pass the `push` action to `BenchMap`. 
+* Since we now have access to `push` in the `Search` component, we can pass
+it to `BenchMap`.
 
 ```javascript
+// bench_map.jsx
 <BenchMap
   benches={benches}
   updateFilter={updateFilter}
@@ -372,7 +374,8 @@ const mapDispatchToProps = dispatch => ({
   push={push}/>
 ```
 
-Our `BenchMap` component will now have a `push` prop function that can be used to issue navifation events.
+Our `BenchMap` component will now have as its props a `push` function that can be used
+to issue navigation events.
 
 #### Redirecting with coordinates
 

@@ -127,9 +127,10 @@ import these functions in your entry file and save them to the window (e.g.,
 
 ### State Shape
 
-By the time we're done setting up ou reducer to manage sessions, we'll want the default 
-session slice to hold two pieces of information, 1) the current user and 2) an array 
-of errors. We'll want it to look something like this. 
+By the time we're done setting up our reducer to manage sessions, we'll want
+the default session slice of our state to hold two pieces of information, 1)
+the current user and 2) an array of errors. We'll want it to look something
+like this.
 
 {
   currentUser: null,
@@ -141,7 +142,8 @@ session information we might receive.
 
 ### Session Actions
 
-+ Before we get to the reducer, let's write and export the following action creators in a new file `actions/session_actions.js`:
++ Before we get to the reducer, let's write and export the following action
+creators in a new file `actions/session_actions.js`:
   * `login(user)`
   * `logout()`
   * `signup(user)`
@@ -155,7 +157,7 @@ session information we might receive.
 ### `SessionReducer`
 
 + Create a new reducer in a new file `reducers/session_reducer.js` to keep track of our
-current user and error messages. 
+current user and error messages.
 
 The `SessionReducer` should listen for 3 action types and respond to each like so:
   * `RECEIVE_CURRENT_USER` - sets `currentUser` to the action's user and clears `errors`
@@ -406,15 +408,16 @@ const Root = ({ store }) => (
 );
 ```
 
-### Adding Router to Redux cycle
+### Adding the Router to Redux cycle
 
-In order to bring the Router into the Redux cycle, we'll need to add `react-router-redux`.
+In order to bring the Router into the Redux cycle, we'll need the
+`react-router-redux` library.
 
 ```
 npm install --save react-router-redux
 ```
 
-We'll also need to set up the `react-router-redux` library in `root_middleware.js`.
+We'll also need to use the `react-router-redux` in `root_middleware.js`.
 
 * Import `routerMiddleware` from `react-router-redux`
 * Also import `hashHistory` from `react-router`
@@ -423,7 +426,7 @@ We'll also need to set up the `react-router-redux` library in `root_middleware.j
   import { applyMiddleware } from 'redux';
   import { routerMiddleware } from 'react-router-redux';
   import { hashHistory } from 'react-router';
-  
+
   import SessionMiddleware from './session_middleware';
   ```
 
@@ -437,6 +440,8 @@ We'll also need to set up the `react-router-redux` library in `root_middleware.j
 
   export default RootMiddleware;
   ```
+
+Now when we need to issue navigation events we can do it through Redux actions.
 
 ### The Entry Point
 
@@ -715,7 +720,7 @@ before moving on!
 
 ### Bench State Shape
 
-We want to build a bench state that has the following shape. 
+We want to build a bench state that has the following shape.
 
 ```js
 benches: {
@@ -803,15 +808,15 @@ export default combineReducers({
 });
 ```
 
-At this point, our default application state should be something like this. 
+At this point, our default application state should be something like this.
 
 ```
 {
   session: {
     currentUser: null,
     errors: []
-  }, 
-  
+  },
+
   benches: {}
 }
 ```
@@ -962,12 +967,12 @@ Let's create a component that shows our benches.
 * First we'll start by making make two files: `components/bench_index.jsx` and
 `components/bench_index_container.js`
 
-* After we've made both of these components, we'll add the container to our 
-  router in `root.jsx` to it's rendered when users visit our site. 
+After we've made both of these components, we'll add the container to our
+router in `root.jsx` to it's rendered when users visit our site.
 
 ### The Container Component
 
-Inside your container component,  `connect` your `BenchIndex` as outlined below.
+Inside your container component, `connect` your `BenchIndex` as outlined below.
 Don't worry that we haven't constructed `BenchIndex` yet; but we'll fix that in
 the next step!
 
