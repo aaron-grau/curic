@@ -710,8 +710,8 @@ In this section you will create a new set of API endpoints that will serve `Step
 + Create a `Step` model with `title`, `todo_id`, and a boolean `done`
 + Create a `StepsController` to handle API requests
   + Nest your routes under `api/` and call your controller `Api::StepsController`
-    + Nest your `create`, `index` actions under `:todos`
-    + Don't nest your `update` and `destroy` actions under `:todos`
+    + Nest your `create`, `index`, and `destroy` actions under `:todos`
+    + Don't nest your `update` action under `:todos`
   + Make your controller actions serve JSON-formatted responses
 
 **Test your code** - In the console, test out your new API endpoints by making `$.ajax` calls to them.
@@ -735,8 +735,8 @@ In this section you will create parallel API utils to those in your `todo_api_ut
 
 In this section you will create essentially parallel action creators to those in your `todo_actions` file, but for `steps` instead.
 
-+ Create a file `actions/steps_actions.js`
-  + Write action creators `requestSteps`, `receiveSteps`, `createStep`, `toggleStep`, `receiveStep`, and `destroyStep`
++ Create a file `actions/step_actions.js`
+  + Write action creators `requestSteps`, `receiveSteps`, `createStep`, `updateStep`, `receiveStep`, and `destroyStep`
   + Create new `step` constants for each of the action creators
   + Export all of your action creators and constants
 
@@ -812,12 +812,13 @@ Follow these steps, **testing your code as you go** :
     + `MapStateToProps` will pass `steps` and `todo_id` as props
   + The presentational component should render:
     + A `<ul>` of `StepListItemContainers`
-    + A `StepForm`
+    + A `StepForm` (to be created later)
 + Create a pair of files `components/step_list/step_list_item_container.jsx` and `components/step_list/step_list_item.jsx`
   + Create a `MapDispatchToProps` function in the container file
-    + `MapDispatchToProps` will pass `destroyStep` and `toggleStep` as props
+    + `MapDispatchToProps` will pass `destroyStep` and `toggleStep` functions as props
   + The presentational component should render:
     + The step's `title`
+    + The step's `body`
     + Buttons to toggle and delete the step
 + Create a file `components/step_list/step_form.jsx`
   + The `StepForm` component should render:
