@@ -1,6 +1,7 @@
 import { START_PLAYING, STOP_PLAYING } from '../actions/playing_actions';
 
 const isPlaying = (state = false, action) => {
+  Object.freeze(state);
   switch(action.type) {
     case START_PLAYING:
       return true;

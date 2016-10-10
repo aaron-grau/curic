@@ -3,6 +3,7 @@ import  { START_RECORDING,
         } from '../actions/tracks_actions';
 
 const isRecording = (state = false, action) => {
+  Object.freeze(state);
   switch(action.type) {
     case START_RECORDING:
       return true;
