@@ -8,7 +8,7 @@ import merge from 'lodash/merge';
 
 let currTrackId = 0;
 
-const track = (state, action) => {
+const trackReducer = (state, action) => {
   Object.freeze(state)
   switch(action.type) {
     case START_RECORDING:
@@ -62,7 +62,7 @@ const tracks = (state = {}, action) => {
   }
 };
 
-export default tracks;
+export default tracksReducer;
 
 // sample state tree - tracks:
 // {

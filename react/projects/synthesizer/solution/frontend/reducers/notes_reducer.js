@@ -6,7 +6,7 @@ import  { KEY_PRESSED,
 import { NOTE_NAMES } from '../util/tones';
 import union from 'lodash/union';
 
-const notes = (state = [], action) => {
+const notesReducer = (state = [], action) => {
   Object.freeze(state)
   const validNote = NOTE_NAMES.includes(action.key); // check if the key corresponds to a note frequency
   const idx = state.indexOf(action.key); // check to see if note is in previous state
@@ -37,4 +37,4 @@ const notes = (state = [], action) => {
   }
 };
 
-export default notes;
+export default notesReducer;

@@ -171,7 +171,7 @@ const contactsMiddleware = ({getState, dispatch}) => next => action => {
 
 export default contactsMiddleware;
 ```
-In the above example when we have an action type of "RECEIVE CONTACTS" the `contactsMiddleware` makes an AJAX request, if this request is successful we dispatch an action to receive the contacts, if it is unsuccessful we log the errors on our console. Note that since we just use `dispatch` we have decomposed the `store` argument into `{ getState, dispatch }`.  
+In the above example when we have an action type of "RECEIVE CONTACTS" the `contactsMiddleware` makes an AJAX request, if this request is successful we dispatch an action to receive the contacts, if it is unsuccessful we log the errors on our console. Note that since we just use `dispatch` we have de-structured the `store` argument into `{ getState, dispatch }`.  
 
 
 

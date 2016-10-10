@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
-import notes from './notes_reducer';
-import tracks from './tracks_reducer';
-import isRecording from './is_recording_reducer';
-import isPlaying from './is_playing_reducer';
+import notesReducer from './notes_reducer';
+import tracksReducer from './tracks_reducer';
+import isRecordingReducer from './is_recording_reducer';
+import isPlayingReducer from './is_playing_reducer';
 
 const rootReducer = combineReducers({
-  notes,
-  tracks,
-  isRecording,
-  isPlaying
+  notesReducer,
+  tracksReducer,
+  isRecordingReducer,
+  isPlayingReducer
 });
 
 export default rootReducer;
