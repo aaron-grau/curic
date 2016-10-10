@@ -1,3 +1,8 @@
+html {
+	position: relative;
+	height: 100%;
+}
+
 body {
 	width: 80%;
 	margin: 0 auto;
@@ -6,22 +11,22 @@ body {
 }
 
 button {
-	background-color: #6288a5;
-	border-color: #4d7b9f;
+	background-color: $light-blue;
+	border-color: $dark-blue;
 	color: white;
 	font-weight: bold;
 	padding: 7px 9px;
 	border-radius: 3px;
 	transition: background-color 0.3s;
-	font-family: "nyt-franklin", arial, helvetica, sans-serif;
+	font-family: $sans-serif;
 	text-transform: uppercase;
 	font-size: 11px;
 	text-align: center;
 }
 
 button:hover {
-	background-color: #326891;
-  border-color: #265e8b;
+	background-color: $blue;
+  border-color: $darkest-blue;
 }
 
 a:hover {
@@ -39,12 +44,18 @@ img {
 
 small {
 	font-size: 9px;
-	color: #999;
-	font-family: "nyt-franklin", arial, helvetica, sans-serif;
+	color: $gray;
+	font-family: $sans-serif;
 }
 
 .hidden {
 	display: none;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: $light-gray;
 }
 
 .hr-top, .hr-bottom {
@@ -53,6 +64,6 @@ small {
 }
 
 .hr-top {
-	height:1.5px;
-	background-color: #999;
+	height: 2px;
+	margin-bottom: 1px;
 }

@@ -1,10 +1,16 @@
+.main-content {
+	margin-top: 10px;
+}
+
 h1 {
 	font-size: 24px;
 	font-style: italic;
 	font-weight: bold;
 }
 
-section h1:hover, section header:hover, section h2:hover {
+section h1:hover, 
+section header:hover, 
+section h2:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
@@ -22,9 +28,9 @@ section header {
 }
 
 .byline {
-	color: #999;
+	color: $gray;
 	margin: 4px 1px;
-	font-family: georgia,"times new roman",times,serif;
+	font-family: $serif;
 	font-weight: 400;
 	font-size: 11px;
 }
@@ -41,7 +47,7 @@ section header {
 
 .comments {
 	color: #326891;
-	font-family: "nyt-franklin", arial, helvetica, sans-serif;
+	font-family: $sans-serif;
 	font-size: 10px;
 	vertical-align: bottom;
 }
@@ -67,7 +73,7 @@ article {
 
 article hr {
 	width: 50%;
-	color: #999;
+	color: $gray;
 }
 
 h2 {
@@ -115,9 +121,9 @@ h2 {
 
 .input-wrapper input {
 	flex: 1;
-	font-family: "nyt-franklin", arial, helvetica, sans-serif;
+	font-family: $sans-serif;
 	padding: 0 10px;
-	border: 1px solid #999;
+	border: 1px solid $gray;
 	border-right: none;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;

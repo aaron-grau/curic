@@ -2,7 +2,6 @@
 	display: flex;
 	justify-content: center;
 	border-bottom: 1px solid #d3d3d3;
-	margin-bottom: 10px;
 }
 
 .sections-nav ul {
@@ -23,4 +22,10 @@
 .sections-nav a {
 	text-transform: uppercase;
 	font-size: 10px;
+}
+
+@media all and (max-width: 1000px) {
+  .sections-nav {
+  	display: none;
+  }
 }

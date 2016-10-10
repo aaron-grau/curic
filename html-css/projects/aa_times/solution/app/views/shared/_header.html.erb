@@ -1,7 +1,10 @@
 <header class="main-nav">
 	<nav class="left-nav">
-		<button><i class="fa fa-bars"></i><span>sections</span></button>
-		<button><i class="fa fa-search"></i><span>search</span></button>
+		<button id="sections-sidebar-btn">
+			<i class="fa fa-bars"></i><span>sections</span>
+			<%= render partial: 'shared/sections_sidebar'%>
+		</button>
+		<button id="search-modal-btn"><i class="fa fa-search"></i><span>search</span></button>
 	</nav>
 	<nav class="right-nav">
 		<button>Subscribe Now</button>
