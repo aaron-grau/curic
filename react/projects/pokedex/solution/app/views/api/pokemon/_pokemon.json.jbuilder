@@ -3,11 +3,11 @@ json.extract!(
   :id, :attack, :defense, :image_url, :moves, :name, :poke_type
 )
 
-if show_toys
+if show_items
 	json.toys do
-		pokemon.toys.each do |toy|
-			json.set! toy.id do
-				json.partial! 'api/toys/toy', toy: toy
+		pokemon.items.each do |item|
+			json.set! item.id do
+				json.partial! 'api/items/item', item: item
 			end
 		end
 	end
