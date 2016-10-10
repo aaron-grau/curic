@@ -3,8 +3,7 @@
 ## Index Routes
 
 Often we will want to provide a default child component to be rendered for a
-particular route. Otherwise if we call `children` in our parent component
-without including that child component in our URL it will be undefined.
+particular route. 
 
 For instance, imagine the following route hierarchy. If a user navigates to `/`,
 `children` in `app.jsx` will be undefined.
@@ -39,13 +38,14 @@ const Root = () => {
 ```
 
 One possible workaround is to render some sort of default UI like
-`{this.props.children || <Home/>}`. When a user visits `/` the `App` component
-is rendered but none of the children routes are, so `this.props.children` inside of
+`{children || <Home/>}`. When a user visits `/` the `App` component
+is rendered but none of the children routes are, so `children` inside of
 `App` is undefined and `Home` is rendered instead.
 
 There's a problem with this though. Because `Home` isn't defined as a `<Route>`
-it won't appear as a URL. To fix this we can use `<IndexRoute>` to render in the same position
-as `Accounts` and `Statements`. Now `Home` is a first class route component with `<IndexRoute>`.
+it won't be able to participate in routing. To fix this we can use `<IndexRoute>`
+to render a default `Home` component in the same position as `Accounts` and `Statements`.
+Now `Home` is a first class route component with `<IndexRoute>`.
 
 ```js
 // root.jsx
@@ -55,7 +55,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 const Root = () => {
   return (
-    <Router>
+    <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="accounts" component={Accounts}/>
@@ -73,25 +73,6 @@ route for `Home` that can participate in routing.
 
 Suppose you want to redirect users from `/` to `/welcome` when they
 visit your site.
-
-```js
-// Root.jsx
-// imported components...
-
-import { Router, Route, hashHistory } from 'react-router';
-
-const Root = () => {
-  return (
-    <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <Route path="welcome" component={Welcome} />
-      <Route path="about" component={About} />
-    </Route>
-  </Router>
-  );
-}
-
-```
 
 To do this, you need to set up an index route that does the redirect.
 For this we can use the `<IndexRedirect>` component.
@@ -115,12 +96,3 @@ const Root = () => {
 }
 
 ```
-
-## Index Links
-
-If you were to `<Link to="/">Home</Link>` in this app, it would always
-be active since every URL starts with `/`. This is a problem because
-we'd like to link to `Home` but only be active if `Home` is rendered.
-
-To have a link to `/` that is only active when the `Home` route is
-rendered, use `<IndexLink to="/">Home</IndexLink>`.

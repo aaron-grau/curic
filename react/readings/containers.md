@@ -29,11 +29,11 @@ Here's a table outlining the differences:
 
 Not every component needs to be connected to the store. Generally, you will only want to
 create containers for the 'big' components in your app that represent sections of a page,
-and contain smaller purely functional presentational components. These larger container 
-components are responsible for mapping state and dispatch props that can be passed down 
+and contain smaller purely functional presentational components. These larger container
+components are responsible for mapping state and dispatch props that can be passed down
 to all their presentational children.
 
-Below is a project file tree that demonstrates how containers might be arranged 
+Below is a project file tree that demonstrates how containers might be arranged
 in a folder for lists.
 
 ```
@@ -44,15 +44,15 @@ components
     + list_item.jsx
 ```
 
-Notice that containers exist in the same folder as presentational components and that the 
+Notice that containers exist in the same folder as presentational components and that the
 container file is named list_container.jsx and not just list.jsx.
 
-In general, aim to have fewer containers rather than more. Most of the components we will 
-write will be presentational, but we'll need to generate a few containers to connect 
+In general, aim to have fewer containers rather than more. Most of the components we will
+write will be presentational, but we'll need to generate a few containers to connect
 presentational components to the Redux store of our apps.
 
-Let's take a close look at an example with presentational and container components. We'll 
-use the example of lists from the file tree above. 
+Let's take a close look at an example with presentational and container components. We'll
+use the example of lists from the file tree above.
 
 ## Example
 
@@ -79,9 +79,9 @@ const ListContainer = connect(
 export default ListContainer;
 ```
 
-`ListContainer` subscribes to the redux store and provides, or maps, 
-functionality to props that are passed to `List`. It's necessary to 
-import `List` at the top of the file, as well as actions we plan to dispatch. 
+`ListContainer` subscribes to the redux store and provides, or maps,
+functionality to props that are passed to `List`. It's necessary to
+import `List` at the top of the file, as well as actions we plan to dispatch.
 
 ### Presentational Components
 
@@ -113,7 +113,7 @@ export default List;
 ```
 
 `List` doesn't need to subscribe to the store. Instead it recieves props from
-`ListContainer` as arguments, deconstructed here as `items` and `resetItems`. 
+`ListContainer` as arguments, deconstructed here as `items` and `resetItems`.
 
 In `List` we delegate the responsibility of rendering individual list items
 to `Item`.
@@ -139,9 +139,9 @@ const Item = ({ item }) => (
 export default Item;
 ```
 And finally, `list` receives as props a single item, rendering that item's
-name and body. 
+name and body.
 
-As presentational components `List` and `Item` don't know where information comes from our how to change it. They only render what's given to them. 
+As presentational components `List` and `Item` don't know where information comes from our how to change it. They only render what's given to them.
 
 [provider]: ./provider.md
 [connect]: ./connect.md

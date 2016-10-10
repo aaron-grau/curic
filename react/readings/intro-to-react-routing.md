@@ -60,7 +60,7 @@ It's also possible to nest multiple routes, as you can see with the path
 
 While the router figures out what components should be rendered based on the URL,
 it does not determine how they are rendered. Instead, parent components have access
-to children components nested one level beneath them via their own props.
+via their own props to children components nested one level below.
 
 These are the components we created routes for in our `root.jsx` router example above.
 
