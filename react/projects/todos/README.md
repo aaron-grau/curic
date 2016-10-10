@@ -2,6 +2,9 @@
 
 ## Overview
 
+[Play around with the demo here][demo]
+
+
 In this project, you will create an app that lets people create and manage a
 todo list. Users of your app will be able to add items to their todo list,
 delete items from it, and mark items as either "done" or "not done". Eventually,
@@ -855,3 +858,4 @@ Follow these steps, **testing your code as you go** :
 [connect_reading]: ../../readings/connect.md
 [props_and_state_reading]: ../../readings/props_and_state.md
 [selector_reading]: ../../readings/selectors.md
+[demo]: https://aa-todos.herokuapp.com/
