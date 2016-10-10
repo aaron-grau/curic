@@ -1,7 +1,13 @@
 import { createStore } from 'redux';
-import rootReducer from '../root_reducer';
+import rootReducer from '../reducers/root_reducer';
 
-const configureStore = (preloadedState = {}) => (
+
+const preloadedState = {
+  notes: [],
+
+ }
+
+const configureStore = (preloadedState) => (
   createStore(
     rootReducer,
     preloadedState

@@ -40,8 +40,9 @@ Today we're using React.js and Redux to create our own musical keyboard! Check o
     + synthesizer.jsx
   ```
 
+* Import `React` from `react` and `ReactDOM` from `react-dom`.
 * Set up your entry file `synthesizer.jsx` to render your app into the into the
- `#root` container of your `index.html`.
+ `#root` container of your `index.html`. You'll want to add an event listener for `'DOMContentLoaded'` and pass it a callback that finds and uses `ReactDOM` to render into the `#root` container from `index.html`.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`.
  * You may copy the code below (and use it as a template for future projects).
@@ -226,7 +227,7 @@ export const keyPressed = key => ({
 });
 ```
 
-#### `keyReleased`
+#### `keyReleased(key)`
 
 + Export a `keyReleased` function which takes the keyboard `key` released and
 returns an action of `type` `"KEY_RELEASED"`.
@@ -252,20 +253,17 @@ Let's write a reducer for our app which handles the actions we defined above.
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
   + `state` - the previous `notes` state;
   + `action` - the action object dispatched.
-+ Import `KEY_PRESSED` and `KEY_RELEASED` from `notes_actions.js`.
-+ Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
-the initial state.
-+ Call [`Object.freeze`][object-freeze] on the state in order to avoid accidentally mutating it!
++ Import `KEY_PRESSED` and `KEY_RELEASED` from `../actions/notes_actions.js`.
++ Import `NOTE_NAMES` from `../util/tones`.
++ Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to give our state argument a default value of an empty array.
++ Call [`Object.freeze()`][object-freeze] on the state in order to avoid accidentally mutating it!
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
 + Then add a case for each action type.
-  + `KEY_PRESSED` - If the `action.key` isn't already in the state (i.e. already
-  playing) then return a new state with the new key appended to the previous
-  state, else return the previous state.
-  + `KEY_RELEASED` - Return a new state with the `action.key` removed only if
-  it's currently playing (i.e. in the state), else return the previous state.
+  + `KEY_PRESSED` - Return a new state with the `action.key` appended to the previous state if the note isn't already playing (i.e. `action.key` isn't already in the state), else return the previous state.
+  + `KEY_RELEASED` - Return a new state with the `action.key` removed only if the `action.key` is currently in the state (i.e. currently playing), otherwise return the previous state.
 
-*NB*: State is never mutated in Redux. Thus, we must return a new array when
+*NB*: State is never mutated in Redux (hence the use of `Object.freeze()`). Thus, we must return a new array when
 our state changes. Make sure your `notes` reducer creates and returns a new
 array when adding or removing a note. This is a good [reference][array-mutation]
 on how to avoid array mutation ([here][array-mutation-code]'s the code from the video).
@@ -296,13 +294,11 @@ We only have one reducer right now, but later as our app grows we'll be adding
 more. For now, let's define a root reducer that calls all of the reducers
 managing parts of the state, and combines them into a single function.
 
-* Create a new file called `reducers/index.js` file.
-* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
-* Using them, define and `export default` a root `reducer` function.
+* Create a new file called `reducers/root_reducer.js` file.
+* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer from `./notes_reducer`.
+* Using `combineReducers`, define and `export default` a `rootReducer` function.
 
 [combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
-
-
 
 
 ### Store
@@ -313,17 +309,31 @@ called in response to the new state!
 
 + Create a `store/store.js` file and import [`createStore`][create-store] from
 `redux` and your root `reducer`.
-+ Define and `export default` a function called `configureStore` that returns a
++ Define a POJO `preloadedState` that maps `notes` to an empty array.
++ Define and `export default` a function called `configureStore` that takes `preloadedState` as an argument and returns a
 new store with the root reducer.
-+ In your entry file, import `configureStore` and create your app's `store`.
++ In your entry file (`synthesizer.jsx`), import `configureStore` and create your app's `store`. It would be a good idea to define the store on your window. Our code should look something like the following:
+
+```js
+  // synthesizer.jsx
+
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import configureStore from './store/store';
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const store = configureStore();
+    window.store = store;
+    const rootEl = document.getElementById('root');
+    ReactDOM.render(<h1> Hi from Synth </h1>, rootEl);
+  });
+```
+
+Note that you should *never* invoke `configureStore()` more than once - you only need one store! Run `open index.html` in your terminal and open up chrome dev tools, does `store.getState()` return what you would expect?
 
 [create-store]: http://redux.js.org/docs/api/createStore.html
-
-
-
-
-
-
 
 
 ## Phase 3: Synth Components
@@ -332,7 +342,7 @@ new store with the root reducer.
 The `App` component will hold all of the top-level components of your app.
 
 + Create a file `components/app.jsx` and import `React` from `react`.
-+ Define and `export default` a functional `App` component.
++ Define and `export default` a functional `App` component. For now this should just be a `div`  with `className='app'`.
 
 ### `Root` Component
 
@@ -349,6 +359,12 @@ store are known as **container** components.
 wraps your `App` with a `Provider`. Like so:
 
   ```js
+  // components/root.jsx
+
+  import React from 'react';
+  import { Provider } from 'react-redux';
+  import App from './app';
+
   const Root = ({ store }) => (
     <Provider store={store}>
       <App/>
@@ -359,7 +375,25 @@ wraps your `App` with a `Provider`. Like so:
   ```
 
 + Update your entry file to render your `Root` component, passing it the store
-returned by `configureStore`.
+returned by `configureStore`. Your entry file should now look something like the following:
+
+```js
+  // synthesizer.jsx
+
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import configureStore from './store/store';
+  import Root from './components/root';
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const store = configureStore();
+    window.store = store;
+    const rootEl = document.getElementById('root');
+    ReactDOM.render(< Root, store={store} />, rootEl);
+  });
+```
 
 [provider]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store
 
@@ -375,10 +409,10 @@ dispatch to a set of props that get passed to the presentational component.
 Fortunately, `react-redux` provides a function that does this for us: [`connect`][connect].
 
 * Create a new directory `components/synth`.
-* Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component. Have it render `<div>Synth</div>` to
-start and test.
+* Create a file `components/synth/synth.jsx`. Import `React` from `react`.
+* Define and export `Synth`, a component that extends `React.component`. Have it's render method simply return `<div>Synth</div>` for now.
 * Create a file `components/synth/synth_container.jsx`, and import both `connect` from
-`react-redux` and your `Synth` component.
+`react-redux` and your `Synth` component from `./synth`.
 * Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key. For example,
 
   ```js
@@ -387,7 +421,7 @@ start and test.
   })
   ```
 
-* Import your `keyPressed` and `keyReleased` action creators.
+* Import your `keyPressed` and `keyReleased` action creators from `../../actions/note_actions`.
 * Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators.
 
 For example,
@@ -412,7 +446,7 @@ connect it to your Redux store.
   ```
 
 * In your `App` component, import your `SynthContainer` and render it. Make sure you can `webpack` your app and that there are
-no errors in the console before moving on.
+no errors in the console before moving on. Make sure you can now see 'Synth' somewhere on your webpage!
 
 [connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
 
@@ -424,7 +458,6 @@ state, lifecycle hooks, etc. Your `Synth` component will initialize an array of
 `Note` objects, calling `start` and `stop` depending on the notes in the store and
 define key listeners on the window.
 
-* Redefine your `Synth` component so that it extends the `React.Component`.
 * Import your `NOTE_NAMES` and `TONES` constants, and `Note` class.
 * In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback: your `Note`
 constructor takes a frequency as a parameter, not a string. Hint: Use
@@ -444,7 +477,12 @@ KeyboardEvent.
 * In `componentDidMount`, install the two listeners by calling the `on` methods on `$(document)`. For example,
 
   ```js
-  $(document).on('keydown', e => this.onKeyDown(e));
+  // components/synth/synth_component.jsx
+
+  componentDidMount(){
+    $(document).on('keydown', e => this.onKeyDown(e));
+    $(document).on('keyup', e => this.onKeyUp(e));
+  }
   ```
 
 When a user presses a key, the key listener calls your `onKeyDown(e)` function,
@@ -461,21 +499,21 @@ some of the overhead in our `notes` reducer?
 
 Ok, let's actually start jamming.
 
-* Define a `playNotes` function.
-* Iterate through `this.notes`, calling `start` on all of the notes present in the store and `stop` on all the other notes.
-* Call `playNotes` in `render`.
-* Test your app! Make sure that your have your key actions, reducer and listeners working before continuing.
+Define a `playNotes` function. It should iterate through `this.notes`, calling `start` on all of the notes present in the store and `stop` on all the other notes. Then call `playNotes` in `render`. Your `render` should return a list of `this.notes`.
+
+Test your app! Make sure that your have your key actions, reducer and listeners working before continuing.
 
 [keyboard-event]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
 ### `NoteKey` Component
 
 Let's write a pure presentational component, `NoteKey`. This component will be
 the visual representation of a single note in your piano.
 
 * Create a new file, `components/synth/note_key.jsx`.
-* Define and export a new functional component called `NoteKey`.
+* Define and export a new functional component called `NoteKey({note, pressed})`.
 * Import `NoteKey` in `Synth`.
-* Render a list of `NoteKey`s instead of list `this.notes`, passing as a prop the note name.
+* Render a list of `NoteKey`s instead of a list `this.notes`, passing as a prop the note name.
 * Change your `NoteKey` component to display the name of the note.
 
 Cool, you now have the core of your Redux Synthesizer done. Let's start adding additional features!
@@ -492,7 +530,7 @@ This means in addition to storing `notes`, our state needs to store:
 + `tracks` - an object of tracks objects.
 
 Here's a sample of our new state shape:
-```
+```js
 {
   notes: ['a', 's'],
   isRecording: false,
@@ -556,7 +594,6 @@ discussing the details of our track objects for a little later.
 + Create a `reducers/is_recording_reducer.js` file that exports a `recording(state, action)` reducer.
 + Import your constants from `actions/tracks_actions.js`.
 + Use the ES6 default arguments syntax to return `false` as the initial state.
-+ As before call `Object.freeze()` on the intial state.
 + Add a `switch` statement evaluating `action.type` and return `state` as the `default` case.
 + The recording is only concerned with two types of actions: `START_RECORDING` and `STOP_RECORDING`. Return the appropriate next state for each case.
 
