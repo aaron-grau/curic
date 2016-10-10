@@ -11,4 +11,4 @@ const isPlayingReducer = (state = false, action) => {
   }
 };
 
-export default isPlayingRecuder;
+export default isPlayingReducer;

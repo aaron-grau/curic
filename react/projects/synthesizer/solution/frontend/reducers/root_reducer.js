@@ -5,10 +5,10 @@ import isRecordingReducer from './is_recording_reducer';
 import isPlayingReducer from './is_playing_reducer';
 
 const rootReducer = combineReducers({
-  notesReducer,
-  tracksReducer,
-  isRecordingReducer,
-  isPlayingReducer
+  notes: notesReducer,
+  tracks: tracksReducer,
+  isRecording: isRecordingReducer,
+  isPlaying: isPlayingReducer
 });
 
 export default rootReducer;

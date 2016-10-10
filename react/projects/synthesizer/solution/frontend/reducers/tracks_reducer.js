@@ -37,21 +37,21 @@ const trackReducer = (state, action) => {
   }
 };
 
-const tracks = (state = {}, action) => {
+const tracksReducer = (state = {}, action) => {
   Object.freeze(state)
   switch(action.type) {
     case START_RECORDING:
       currTrackId++; // increment id of current (newest) track
       return merge({}, state, {
-        [currTrackId]: track(undefined, action)
+        [currTrackId]: trackReducer(undefined, action)
       });
     case STOP_RECORDING:
       return merge({}, state, {
-        [currTrackId]: track(state[currTrackId], action)
+        [currTrackId]: trackReducer(state[currTrackId], action)
       });
     case ADD_NOTES:
       return merge({}, state, {
-        [currTrackId]: track(state[currTrackId], action)
+        [currTrackId]: trackReducer(state[currTrackId], action)
       });
     case DELETE_TRACK:
       let nextState = merge({}, state);
