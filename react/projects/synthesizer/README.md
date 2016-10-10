@@ -1,14 +1,15 @@
 # Redux Synthesizer
 
-Live demo available [here][live-demo]!
 
-[live-demo]:http://appacademy.github.io/curriculum/react/synthesizer/solution/index.html
+
 
 ## Overview
 
-Today we're using React.js and Redux to create our own musical keyboard!
+Today we're using React.js and Redux to create our own musical keyboard! Check out the live demo [here][live-demo] to get a sense of what you are building! If you have any trouble playing the keys update your chrome browser to the newest verison.
 
-## Phase 1: Frontend Structure
+[live-demo]:http://appacademy.github.io/curriculum/react/synthesizer/solution/index.html
+
+## Phase 0: Frontend Structure
 
 * Create a project directory.
 * Create an `index.html` file and give it a `<div id="root"></div>` container.
@@ -23,8 +24,8 @@ Today we're using React.js and Redux to create our own musical keyboard!
   * `babel-loader`
   * `babel-preset-react`
   * `babel-preset-es2015`
-* Run `npm install --save jquery`. We'll be using jQuery later to install key listeners.
-* Run `npm install --save lodash`. We'll be using `merge` from the [lodash][lodash] library later to help prevent object mutation in our app's state.
+  * `jquery`
+  * `lodash` -  We'll be using `merge` from the [lodash][lodash] library later to help prevent object mutation in our app's state.
 * Create a `/frontend` folder at the root directory of your project to contain
  all of your front-end code.
 * Model your `/frontend` folder to look like the directory tree below:
@@ -81,7 +82,7 @@ module.exports = {
 
 [lodash]:https://lodash.com/docs
 
-## Phase 2: Notes and Tones
+## Phase 1: Notes and Tones
 
 
 #### `Note` Class
@@ -94,6 +95,7 @@ You need a `Note` class which you will use to actually play tones using the
 
 ```js
 // util/note.js
+
 const ctx = new (window.AudioContext || window.webkitAudioContext)();
 
 const createOscillator = (freq) => {
@@ -143,9 +145,11 @@ keyboard keys (e.g. `a`, `s`) into frequencies (i.e. tones) which we will need
 to create `Note`s.
 
 * Create a `util/tones.js` file.
-* From there export a `TONES` constant, a JavaScript object mapping key names to frequencies. Something like this,
+* From there create and export a `TONES` constant, a JavaScript object mapping key names to frequencies. Something like this,
 
   ```js
+  // util/tones.js
+
   export const TONES = {
     'a': 523.25,
     's': 587.33,
@@ -155,43 +159,15 @@ to create `Note`s.
   };
   ```
 
-  Feel free to copy and paste the object above. Use [this table][note-frequencies]
-  as a resource for additional keys, if you're interested.
-* Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
+  Feel free to copy and paste the object above. If you are interested, you may use [this table][note-frequencies]
+  as a resource for additional keys.
+* Create and export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
 
 We'll be using these constants later to map our keyboard keys to tones.
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
-## Phase 3: Notes Redux Structure
-
-### `App` Component
-The `App` component will hold all of the top-level components of your app.
-
-+ Create a file `components/app.jsx` and import `React` from `react`.
-+ Define and `export default` a functional `App` component.
-
-#### Root Reducer
-
-The `notes` reducer updates and returns to the store only a single slice of
-the state: the `notes` in play.
-
-*NB*: When we have state fields that are independent of each other, we split the
-reducer into multiple reducers that each handle their own slices of the state.
-This is called **reducer composition**, and it’s the fundamental pattern of
-building Redux apps.
-
-We only have one reducer right now, but later as our app grows we'll be adding
-more. For now, let's define a root reducer that calls all of the reducers
-managing parts of the state, and combines them into a single function.
-
-* Create a new file called `reducers/index.js` file.
-* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
-* Using them, define and `export default` a root `reducer` function.
-
-[combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
-
-
+## Phase 2: Notes Redux Structure
 
 ### Designing the State Shape
 
@@ -213,33 +189,37 @@ look something like this:
 ### Action Creators
 
 We need start by to defining action creators. Remember, an **action creator** is
-simply a function that returns an action. **Actions** define what we can do in our
-app. They are POJOs that have a `type` property indicating the type of
+simply a function that returns an action. **Actions** are POJO that define what we can do in our
+app. They have a mandatory `type` property indicating the type of
 action being performed.
 
 * Create an `actions/notes_actions.js` file which will house our action creators changing the app's `notes`.
 
 #### `Note Action Constants`
 
-Action `type`s are typically expressed as string constants.
+Action `type`s are typically expressed as string constants - that way if you accidentally misspell the type later on an error will get thrown versus silently failing.
 
-* In our new file, let's export `KEY_PRESSED` and `KEY_RELEASED`.
+* In `notes_actions.js`, let's export two action types: `KEY_PRESSED` and `KEY_RELEASED`.
 
 For example,
 
 ```js
+// actions/note_actions.js
+
 export const KEY_PRESSED = "KEY_PRESSED";
 ```
 
-#### `keyPressed`
+#### `keyPressed(key)`
 
 + Export a `keyPressed` function which takes the keyboard `key` pressed and
 returns an action of `type` `"KEY_PRESSED".`
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
-Your action creator should look like this:
+Your action creator `notePressed` should look like this:
 
 ```js
+// actions/note_actions.js
+
 export const keyPressed = key => ({
   type: KEY_PRESSED,
   key
@@ -264,6 +244,9 @@ state and return it. No side effects, such as mutating its arguments!
 
 Let's write a reducer for our app which handles the actions we defined above.
 
+
+
+
 #### `notes` Reducer
 
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
@@ -272,6 +255,7 @@ Let's write a reducer for our app which handles the actions we defined above.
 + Import `KEY_PRESSED` and `KEY_RELEASED` from `notes_actions.js`.
 + Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
 the initial state.
++ Call [`Object.freeze`][object-freeze] on the state in order to avoid accidentally mutating it!
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
 + Then add a case for each action type.
@@ -290,12 +274,34 @@ on how to avoid array mutation ([here][array-mutation-code]'s the code from the 
 [array-mutation]: https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread
 [array-mutation-code]:https://jsbin.com/juseku/1/embed?js
 [union-lodash]: https://lodash.com/docs#union
+[object-freeze]: ../../readings/object_freeze.md
 
 
 We're almost there. Note that `action.key` references keys that should be included in `NOTE_NAMES`.
 
 + Modify your `KEY_PRESSED` and `KEY_RELEASED` cases so that they check to
 see if a `action.key` is also a valid key included in `NOTE_NAMES`. If not, return the previous state.
+
+#### Root Reducer
+
+The `notes` reducer updates and returns to the store only a single slice of
+the state: the `notes` in play.
+
+*NB*: When we have state fields that are independent of each other, we split the
+reducer into multiple reducers that each handle their own slices of the state.
+This is called **reducer composition**, and it’s the fundamental pattern of
+building Redux apps.
+
+We only have one reducer right now, but later as our app grows we'll be adding
+more. For now, let's define a root reducer that calls all of the reducers
+managing parts of the state, and combines them into a single function.
+
+* Create a new file called `reducers/index.js` file.
+* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
+* Using them, define and `export default` a root `reducer` function.
+
+[combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
+
 
 
 
@@ -313,8 +319,20 @@ new store with the root reducer.
 
 [create-store]: http://redux.js.org/docs/api/createStore.html
 
-## Phase 4: Synth Components
 
+
+
+
+
+
+
+## Phase 3: Synth Components
+
+### `App` Component
+The `App` component will hold all of the top-level components of your app.
+
++ Create a file `components/app.jsx` and import `React` from `react`.
++ Define and `export default` a functional `App` component.
 
 ### `Root` Component
 
@@ -464,7 +482,7 @@ Cool, you now have the core of your Redux Synthesizer done. Let's start adding a
 
 ---
 
-## Phase 5: Recorder Redux Structure
+## Phase 4: Recorder Redux Structure
 
 Let's give our synthesizer the ability to record tracks.
 
@@ -538,6 +556,7 @@ discussing the details of our track objects for a little later.
 + Create a `reducers/is_recording_reducer.js` file that exports a `recording(state, action)` reducer.
 + Import your constants from `actions/tracks_actions.js`.
 + Use the ES6 default arguments syntax to return `false` as the initial state.
++ As before call `Object.freeze()` on the intial state.
 + Add a `switch` statement evaluating `action.type` and return `state` as the `default` case.
 + The recording is only concerned with two types of actions: `START_RECORDING` and `STOP_RECORDING`. Return the appropriate next state for each case.
 
@@ -575,6 +594,7 @@ names of the notes actually played (`notes`).
 + `export default` your `tracks` reducer.
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
 + Add a `switch` statement and return `state` as the `default` case.
++ Call `Object.freeze()` on `state` to keep from mutating it.
 + Add a case for each action type.
   + `START_RECORDING` -
     + Increment `currTrackId`.
@@ -603,7 +623,7 @@ an object, which is why for nested objects we must rely on `merge` from
 + Update your root reducer so it combines your `notes`, `tracks` and `isRecording` reducers.
 + Test that this works by looking at your initial application state. Hint: `console.log(store.getState())`.
 
-## Phase 6: Recording Track Components
+## Phase 5: Recording Track Components
 
 Now let's build the interface that users will use to add tracks to our store.
 
@@ -649,7 +669,7 @@ store.
 
 Now your synthesizer plays musical notes and records tracks! Nice.
 
-## Phase 7: Jukebox
+## Phase 6: Jukebox
 
 <!-- TODO: latest stopping point  -->
 
@@ -749,7 +769,7 @@ Now for the meat of this method, *throttling* our iteration using `setInterval`:
 
 * Don't forget to update your "Start", "Stop", and "Play" buttons so that they are disabled if a track is playing.
 
-## Phase 8: Style Your App
+## Phase 7: Style Your App
 
 Now that you have your cool redux app with recording and playing track features, let's make your app look nice.
 

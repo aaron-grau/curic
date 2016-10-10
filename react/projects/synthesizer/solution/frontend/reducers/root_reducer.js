@@ -4,11 +4,11 @@ import tracks from './tracks_reducer';
 import isRecording from './is_recording_reducer';
 import isPlaying from './is_playing_reducer';
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
   notes,
   tracks,
   isRecording,
   isPlaying
 });
 
-export default reducer;
+export default rootReducer;

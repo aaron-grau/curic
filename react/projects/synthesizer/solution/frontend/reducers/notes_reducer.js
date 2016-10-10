@@ -3,7 +3,7 @@ import  { KEY_PRESSED,
           GROUP_UPDATE
         } from '../actions/notes_actions';
 
-import { TONES, NOTE_NAMES } from '../util/tones';
+import { NOTE_NAMES } from '../util/tones';
 import union from 'lodash/union';
 
 const notes = (state = [], action) => {
