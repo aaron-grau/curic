@@ -655,7 +655,7 @@ In this phase, you will add new actions and buttons so that you can mark `todo`s
   + `updateTodo`
   + `destroyTodo`
 + Create new action creator methods (in `actions/todo_actions`)
-  + `toggleTodo`
+  + `updateTodo`
   + `destroyTodo`
   + `removeTodo`
 + Add a new `case` to your reducer's `switch` statement that handles the deletion of a todo list item
@@ -664,10 +664,12 @@ In this phase, you will add new actions and buttons so that you can mark `todo`s
   + `UPDATE_TODO` should call your new API utility function `updateTodo` and pass `receiveTodo` as its success callback
   + `DESTROY_TODO` should call your new API utility function `destroyTodo` and pass `removeTodo` as its success callback
 + Update your components so that you can dispatch and view the effects of these actions
-  + Add `toggleTodo` and `destroyTodo` to the `MapDispatchToProps` in your `TodoListContainer`
+  + Add a `toggleTodo` function that updates a `todo` to the `MapDispatchToProps` in your `TodoListContainer`
+  + Add `destroyTodo` to the `MapDispatchToProps` in your `TodoListContainer`
   + Pass those functions as props to your `TodoListItem` components
   + Render buttons that call those functions `onClick`
-    + The button calling `toggleTodo` should display the current state of the todo item
+    + The `Done` or `Undo` button should display the current state of the todo item
+      + Call `toggleTodo` to change the status of the todo item
 
 **Test your code** - You should now be able to create, toggle, and delete todo items on your list.
 
@@ -708,7 +710,7 @@ In this section you will create a new set of API endpoints that will serve `Step
 + Create a `Step` model with `title`, `todo_id`, and a boolean `done`
 + Create a `StepsController` to handle API requests
   + Nest your routes under `api/` and call your controller `Api::StepsController`
-    + Nest your `create` and `index` actions under `:todos`
+    + Nest your `create`, `index` actions under `:todos`
     + Don't nest your `update` and `destroy` actions under `:todos`
   + Make your controller actions serve JSON-formatted responses
 
