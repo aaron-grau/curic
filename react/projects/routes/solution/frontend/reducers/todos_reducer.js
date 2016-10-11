@@ -2,7 +2,7 @@ import { RECEIVE_TODOS,
          RECEIVE_TODO,
          REMOVE_TODO,
          TODO_ERROR
-       } from '../actions/todo_actions';
+       } from '../actions/todos_actions';
 
 const TodosReducer = (state = {}, action) => {
   switch(action.type){

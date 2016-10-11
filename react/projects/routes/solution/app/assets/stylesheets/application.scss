@@ -42,6 +42,7 @@ span, article, footer, time, small, h4 {
 body {
   height: 100vh;
   font-weight: 400;
+  font-family: 'Raleway', sans-serif;
 }
 
 ul {
@@ -55,7 +56,6 @@ form {
 
 h1, h3 {
   text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
@@ -81,7 +81,7 @@ h2, h4 {
   width: 100%;
   flex: 1 1 auto;
   text-align: center;
-  background-image: url('coffee.jpeg');
+  background-image: url('coffee-splashpage.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -100,14 +100,46 @@ h2, h4 {
   flex: 0 1 auto;
   height: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  color: $eggshell;
+  text-transform: uppercase;
 }
 
 .nav-bar h1 {
+  color: $navy;
   border-bottom: 1px solid $navy;
+}
+
+.nav-bar button {
+  font-size: 12px;
+  height: inherit;
+  background-color: $coral;
+  width: 150px;
+  text-align: center;
+}
+
+.nav-bar .logo {
+  height: inherit;
+  width: 150px;
+  text-align: center;
+  // background-size: contain;
+  // background-repeat: no-repeat;
 }
 
 .app .footer {
   flex: 0 1 40px;
+}
+
+.app .dashboard {
+  width: 100%;
+  flex: 1 1 auto;
+  text-align: center;
+  background-image: url('coffee-dashboard.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $eggshell;
 }

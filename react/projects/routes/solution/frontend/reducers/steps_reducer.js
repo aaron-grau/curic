@@ -1,7 +1,7 @@
 import { RECEIVE_STEPS,
          RECEIVE_STEP,
          REMOVE_STEP
-       } from '../actions/step_actions';
+       } from '../actions/steps_actions';
 
 const StepsReducer = (state = {}, action) => {
   switch(action.type) {

@@ -14,7 +14,7 @@ import { requestSteps,
          CREATE_STEP,
          UPDATE_STEP,
          DESTROY_STEP
-       } from '../actions/step_actions';
+       } from '../actions/steps_actions';
 
 export default ({getState, dispatch}) => next => action => {
   const stepsSuccess = data => dispatch(receiveSteps(data));

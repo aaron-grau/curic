@@ -17,7 +17,7 @@ import { requestTodos,
          CREATE_TODO,
          UPDATE_TODO,
          DESTROY_TODO
-       } from '../actions/todo_actions';
+       } from '../actions/todos_actions';
 
 export default ({ getState, dispatch }) => next => action => {
   const todosSuccess = data => dispatch(receiveTodos(data));
