@@ -1,0 +1,113 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ $navy: #0f1626;
+ $leather: #ab987a;
+ $coral: #ff533d;
+ $eggshell: #f5f5f5;
+
+/* Reset */
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, h3, textarea,
+span, article, footer, time, small, h4 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+body {
+  height: 100vh;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h3 {
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+}
+
+h2, h4 {
+  text-transform: capitalize;
+  font-family: 'Lora', serif;
+}
+
+#content {
+  height: inherit;
+}
+
+.app {
+  // height: 100vh;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.app .splash-page {
+  width: 100%;
+  flex: 1 1 auto;
+  text-align: center;
+  background-image: url('coffee.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $eggshell;
+}
+
+.splash-page h1 {
+  font-size: 72px;
+  font-weight: 400;
+  border-bottom: 1px solid $eggshell;
+}
+
+.app .nav-bar {
+  flex: 0 1 auto;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-bar h1 {
+  border-bottom: 1px solid $navy;
+}
+
+.app .footer {
+  flex: 0 1 40px;
+}
