@@ -662,7 +662,7 @@ without any arguments.
 Your entry point should look a lot like this:
 ```js
 if (window.currentUser) {
-  const initialState = {
+  const preloadedState = {
     session: {
       currentUser: window.currentUser
     }
