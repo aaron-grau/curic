@@ -7,9 +7,10 @@ keeping the URL in sync with what's being displayed on the page.
 
 ## Routes
 
-To use the React Router, import `<Router>`, `<hashHistory>`, and `<Route>` from `react-router`.
+To use the React Router, import `<Router>`, `<hashHistory>`, and `<Route>` from
+the `react-router` library.
 
-* `<Router>` wraps our root hierarchy.
+* `<Router>` is the primary component of the router that keeps our UI and URL in sync.
 * `<hashHistory>` listens to the browser's address bar for changes so the router
 can match the URL to routes.
 * `<Route>` contains a path and component used to define a route.
@@ -54,13 +55,13 @@ When a user visits `/` the router will render the `App` component.
 When a user visits `/about` the router will render both `App` and `About` components.
 
 It's also possible to nest multiple routes, as you can see with the path
-`/inbox/messages/:id` we create by nesting `App`, `Inbox`, and `Message`.
+`/inbox/messages/:id` that renders `App`, `Inbox`, and `Message`.
 
 ## Rendering Components
 
 While the router figures out what components should be rendered based on the URL,
 it does not determine how they are rendered. Instead, parent components have access
-via their own props to children components nested one level below.
+via `props.children` to children components nested one level below.
 
 These are the components we created routes for in our `root.jsx` router example above.
 
@@ -103,6 +104,29 @@ Because we nested `Inbox` under `App` in our router, we are given access to the
 `Inbox` component in `App`'s props. All we have to do is call `children` in
 `App` to render `Inbox`. We can similarly call `children` in `Inbox` to
 render `Message`.
+
+It's also possible to use [`Named Components`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#named-components) to give a route multiple children.
+
+```js
+// root.jsx
+// imported components...
+
+import { Router, Route, hashHistory } from 'react-router';
+
+const Root = () => {
+  return (
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <Route path="groups" components={{main: Groups, sidebar: GroupsSidebar}} />
+          <Route path="users/:userId" component={Profile} />
+        </Route>
+      </Route>
+    </Router>
+  );
+}
+```
+In the `App` component `props.children.main` renders the `Group` component and
+`props.children.sidebar` renders the `GroupSidebar` component.  
 
 ## URL Params
 

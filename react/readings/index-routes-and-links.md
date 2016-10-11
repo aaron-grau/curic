@@ -3,7 +3,7 @@
 ## Index Routes
 
 Often we will want to provide a default child component to be rendered for a
-particular route. 
+particular route.
 
 For instance, imagine the following route hierarchy. If a user navigates to `/`,
 `children` in `app.jsx` will be undefined.
@@ -95,4 +95,35 @@ const Root = () => {
   );
 }
 
+```
+
+## `<IndexLink>`
+
+An `<IndexLink>` is like a `<Link>`, except it is only active when the current route
+is exactly the linked route. It is equivalent to `<Link>` with the [`onlyActiveOnIndex`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#onlyactiveonindex) prop set.
+
+If you were to `<Link to="/">Home</Link>` in the app below, it would always be active
+since every URL starts with /. This is a problem because we'd like to link to Home
+but only be active if Home is rendered.
+
+To have a link to / that is only active when the Home route is rendered, use
+`<IndexLink to="/">Home</IndexLink>`.
+
+```js
+// Root.jsx
+// imported components...
+
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+
+const Root = () => {
+  return (
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Home}/>
+        <Route path="accounts" component={Accounts}/>
+        <Route path="statements" component={Statements}/>
+      </Route>
+    </Router>
+  );
+}
 ```

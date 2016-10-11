@@ -34,12 +34,6 @@ class App extends React.components {
 can be used for styling.
 
 A `<Link>` will be active if the current route is either the linked route
-or any descendant of the linked route. To have the link be active only on the
-exact linked route, use `<IndexLink>` instead.
-
-## `<IndexLink>`
-
-An `<IndexLink>` is like a `<Link>`, except it is only active when the current route
-is exactly the linked route. It is equivalent to `<Link>` with the [`onlyActiveOnIndex`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#onlyactiveonindex) prop set.
+or any descendant of the linked route.
 
 See the [React docs](https://github.com/ReactTraining/react-router/blob/master/docs/guides/IndexRoutes.md) for more information on `<Link>`.
