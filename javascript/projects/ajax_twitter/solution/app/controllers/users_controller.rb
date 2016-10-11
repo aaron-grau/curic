@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def search
     if params[:query].present?
-      @users = User.where("username ~ ?", params[:query])
+      @users = User.where("username ~ ?", params[:query]).includes(:follows)
     else
       @users = User.none
     end

@@ -175,7 +175,12 @@ For each result, it should use jQuery to build an `li` containing an anchor tag
 linking to the user. Use the jQuery `append` method to add each result to the
 `ul`.
 
-Check that you can now interactively search users.
+**Test your code**: Check that you can now interactively search users.
+
+Now let's fix that n+1 query. It's coming from the fact that the data labeled 
+`current_user.follows?(user)` gets called each time we want to render 
+`search.json.jbuilder`, so we can fix it by chaining a `.includes(:follows)` 
+call onto our controller's `.where` call. 
 
 Last, we want to add follow toggle buttons for each of these results. When
 building the `li` tags for each user, build a `button`, too. You can create a
