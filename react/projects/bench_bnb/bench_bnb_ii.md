@@ -26,7 +26,6 @@ search and display benches.
 * `Search` should then pass the appropriate props to `BenchIndex`.
 * **You shouldn't have to change `BenchIndex`**.
 
-
 Since our `Search` component only needs a render method, we can make it a
 [functional component][functional-comp-docs] with an implicit return! Make sure to
 deconstruct your props for cleaner syntax.
@@ -204,7 +203,7 @@ benches that are within the boundaries specified by the argument. See the exampl
 * Instead of rendering `Bench.all` in our `index` action,  we can instead use
   `Bench.in_bounds(params[:bounds])`
 
-### `fetchBenches`
+### Update `BenchApiUtil`
 
 Update our `fetchBenches` function in `bench_api_util.js` to accept two arguments:
   * filters
@@ -215,7 +214,21 @@ for now we'll just use the lat/lng `bounds`.
 
 Test your updated `fetchBenches` methods to see that it applies the filters!
 
-#### Filter Actions
+### Updated State Shape
+
+We want a default state that looks something like this. In addition to our
+benches, we'll also add a new slice of state to keep track of our filters.
+
+```
+{
+  benches: {},
+  filters: {
+    bounds: {}
+  }
+}
+```
+
+### Filter Actions
 
   * Create a new file, `actions/filter_actions`
   * Create and export an action type `UPDATE_BOUNDS`
@@ -232,7 +245,7 @@ constructed `updateBounds` action creator.
 Update your `Search` presentational component to pass the `updateBounds` prop to
 the `BenchMap` component
 
-### `BenchMap`
+#### `BenchMap`
 
   * In the `BenchMap` component, add a listener to the map's idle event when
   `componentDidMount` is called.
@@ -248,17 +261,6 @@ the `BenchMap` component
 ### `FilterReducer`
 
 We need to build out our application state to reflect the map's `bounds`.
-
-We want a default state that looks something like:
-
-```
-{
-  benches: {},
-  filters: {
-    bounds: {}
-  }
-}
-```
 
 * Create a new file, `reducers/filter_reducer.js`
 * Build and export a `FilterReducer`

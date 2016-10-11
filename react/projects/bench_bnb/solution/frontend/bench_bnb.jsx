@@ -10,8 +10,8 @@ import configureStore from './store/store';
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
-    const initialState = {session: {currentUser: window.currentUser}};
-    store = configureStore(initialState);
+    const preloadedState = {session: {currentUser: window.currentUser}};
+    store = configureStore(preloadedState);
   } else {
     store = configureStore();
   }

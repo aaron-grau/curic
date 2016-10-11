@@ -78,7 +78,7 @@ understand each individual step.
 
 ### Auth Backend
 
-+ Create a `User` model, `API::UsersController`, and `Api::SessionsController` with the following endpoints:
++ We want to create a `User` model, `API::UsersController`, and `Api::SessionsController` with the following endpoints:
   * `[POST] api/users: "users#create" (signup)`,
   * `[POST] api/session: "sessions#create" (login)`,
   * `[DELETE] api/session: "sessions#destroy" (logout)`
@@ -88,7 +88,7 @@ key differences:
 
 * Namespace:
   + Your controllers should live under an `Api` namespace.
-  * **NB**: `rails g controller api/users` will generate an `Api::UsersController`
+  * Running `rails g controller api/users` will generate an `Api::UsersController`
 * Response Format:
   + Render JSON formatted responses by default.
   * In `routes.rb`, set `defaults: {format: :json}` on your `namespace :api`
@@ -131,12 +131,12 @@ By the time we're done setting up our reducer to manage sessions, we'll want
 the default session slice of our state to hold two pieces of information, 1)
 the current user and 2) an array of errors. We'll want it to look something
 like this.
-
+```
 {
   currentUser: null,
   errors: []
 }
-
+```
 Hint: Use the default application state listed above as a template for any
 session information we might receive.
 
@@ -152,7 +152,7 @@ creators in a new file `actions/session_actions.js`:
 
 + Don't forget to define and export the corresponding action types as well
 (e.g., `export const LOGIN = 'LOGIN'`).  
-+ All of our action creators besides `logout` accept a user object as an argument.
++ `logout` doesn't accept an argument. `receiveErrors` will take an array. All other action creators accept a user object.
 
 ### `SessionReducer`
 
@@ -163,6 +163,13 @@ The `SessionReducer` should listen for 3 action types and respond to each like s
   * `RECEIVE_CURRENT_USER` - sets `currentUser` to the action's user and clears `errors`
   * `RECEIVE_ERRORS` - sets `errors` to the action's errors and clears the `currentUser`
   * `LOGOUT` - clears both `errors` and `currentUser`
+
+Your `SessionReducer` should maintain it's own default state. To do that pass in
+an object as a default argument to SessionReducer with `currentUser` set to `null`
+and `errors` set to an empty array.
+
+Remember to use both `Object.freeze()` and `merge` from the `lodash` library
+to prevent the state from being accidentally mutated.
 
 ### `RootReducer`
 
@@ -207,6 +214,9 @@ Set up a `configureStore` method for initializing our Store:
 * `configureStore` should return a new `store` with the `RootReducer` and `preloadedState` passed in.
 
 ```javascript
+import { createStore } from 'redux';
+import RootReducer from '../reducers/root_reducer';
+
 const configureStore = (preloadedState = {}) => (
   createStore(
     RootReducer,
@@ -222,12 +232,11 @@ export default configureStore;
 So far, we have built our redux store and told it to use our session reducing function.
 
 **Test that everything works**:
-* Add a `'DOMContentLoaded'` callback to your entry point if you don't already
-have one.
-* Inside the callback, call `configureStore()` and assign the result to the `window`:
+* Inside your `DOMContentLoaded` callback in `bench_bnb.jsx`, call `configureStore()`
+and assign the result to the `window`. Note: this is just for testing!
 
   ```javascript
-  window.store = configureStore(); //just for testing!
+  window.store = configureStore();
   ```
 
 * Run `store.getState()` in the console and inspect the results. Your state
@@ -396,7 +405,7 @@ const Root = ({ store }) => (
 #### Routes
 
 Let's define a new `Route` that tells the `AppRouter` to render our `App`
-component when the URL matches the root url `'/'`:
+component when the URL matches the route url `'/'`:
 
 ```javascript
 const Root = ({ store }) => (
@@ -408,7 +417,7 @@ const Root = ({ store }) => (
 );
 ```
 
-### Adding the Router to Redux cycle
+### Adding the router to the Redux cycle
 
 In order to bring the Router into the Redux cycle, we'll need the
 `react-router-redux` library.
@@ -417,7 +426,7 @@ In order to bring the Router into the Redux cycle, we'll need the
 npm install --save react-router-redux
 ```
 
-We'll also need to use the `react-router-redux` in `root_middleware.js`.
+In `root_middleware.js` do the following.
 
 * Import `routerMiddleware` from `react-router-redux`
 * Also import `hashHistory` from `react-router`
@@ -468,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 #### `GreetingContainer`
 * `GreetingContainer` passes as `props` to the presentational component
-`currentUser` from the state and the `logout` action creator. * Set up
+`currentUser` from the state and the `logout` action creator. Set up
 `mapStateToProps` and `mapDispatchToProps` accordingly.
 
 #### `Greeting`
@@ -501,22 +510,7 @@ clicking the logout button logs out the current user before moving on.
 
 To make our React components modular, we will reuse and render the same form component on login and signup.
 
-* Create a new controlled component, `SessionForm`, and a corresponding container `SessionFormContainer`
-* Create 2 new routes in your `Root` component for `/#/login` and `/#/signup`.
-  * The `<Route>`s' paths should be `"login"` and `"signup"`.
-  + They should both render the `SessionFormContainer`.
-  + For example,
-
-  ```js
-  <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <Route path="/login" component={SessionFormContainer} />
-        //...
-      </Route>
-    </Router>
-  </Provider>
-  ```
+* Create a container `SessionFormContainer` and it's controlled component, `SessionForm`.
 
 #### `SessionFormContainer`
 
@@ -525,10 +519,13 @@ The `SessionFormContainer` should provide `SessionForm` with the following props
   * `loggedIn` (boolean) - representing whether a `currentUser` exists
   * `errors` (array) - list of errors from the state
 + From `mapDispatchToProps(dispatch, ownProps)`:
-  * `formType` (string): `'login'` or `'signup'` given the current `location.pathname`
+  * `formType` (string): `'login'` or `'signup'` given the current `ownProps.location.pathname`
   * `processForm` (function): dispatching action creators `login` or `signup` given `formType`
+  * `push` (function): dispatching `push` imported from the `react-router-redux` library
+  with a location argument
 
 #### `SessionForm`
+
 The `SessionForm` component should be responsible for a number of tasks:
   * Render a controlled component with `state` governed by user interface. For example,
 
@@ -560,6 +557,27 @@ The `SessionForm` component should be responsible for a number of tasks:
   * Provide a [`<Link to>`][link-docs] to `/#/signup` or `/#/login`, whichever isn't the current address.
   * Render a list of error messages if any are present.
   * Redirect the user to the `/#/` route if they are logged in.
+
+### Session Routes
+
+Now it's time to create some routes for our new forms.
+
+  * Create 2 new routes in your `Root` component for `/#/login` and `/#/signup`.
+    * The `<Route>`s' paths should be `"login"` and `"signup"`.
+    + They should both render the `SessionFormContainer`.
+    + For example,
+
+    ```js
+    <Provider store={store}>
+      <Router history={hashHistory}>
+        <Route path="/" component={App}>
+          <Route path="/login" component={SessionFormContainer} />
+          <Route path="/signup" component={SessionFormContainer} />
+          //...
+        </Route>
+      </Router>
+    </Provider>
+    ```
 
 **Call a TA over and show them your `SessionForm` before moving on!**
 
@@ -637,23 +655,11 @@ properly assigns `window.currentUser`.
 Finally, inside the `DOMContentLoaded` callback in your entry file...
 * check to see if there is a `window.currentUser`
 * If there is, create a `preloadedState` like below:
-
-```javascript
-if (window.currentUser) {
-  const preloadedState = {
-    session: {
-      currentUser: window.currentUser
-    }
-  };
-  //...
-}
-```
-
 * Pass this `preloadedState` to `configureStore`.
 * If there is no `window.currentUser`, then `configureStore`
 without any arguments.
 
-You entry point should look a lot like this:
+Your entry point should look a lot like this:
 ```js
 if (window.currentUser) {
   const initialState = {
@@ -661,7 +667,7 @@ if (window.currentUser) {
       currentUser: window.currentUser
     }
   };
-  store = configureStore(initialState);
+  store = configureStore(preloadedState);
 } else {
   store = configureStore();
 }
@@ -683,7 +689,7 @@ Refer to the `onEnter` [reading][onEnter] for this part.
 * Add an `onEnter` prop to the Routes we want to protect.
   * Remember, we want to redirect users from `"/#/login"` and  `"/#/signup"` if they are already logged in.
 
-**NB**: Remember that `replace` won't add a "fake" entry to the browser's history, whereas `push` will. We also don't need an `asyncDoneCallback` because the `_redirectIfLoggedIn` runs synchronously.
+**NB**: Remember that `replace` won't add a "fake" entry to the browser's history, whereas `props.push` will. We also don't need an `asyncDoneCallback` because the `_redirectIfLoggedIn` runs synchronously.
 
 [onEnter]: ../../readings/on_enter.md
 
@@ -745,7 +751,7 @@ benches: {
 }
 ```
 
-Note that our benches object will use bench_id as the primary key.
+Note that our benches object will use each bench's id as its primary key.
 
 ### Action Creators
 
@@ -925,7 +931,6 @@ Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.
 * Re-write your success callback to dispatch a `RECEIVE_BENCHES` action with the
 response `data`.
 
-
 ```javascript
 case REQUEST_BENCHES:
   const success = data => dispatch(receiveBenches(data))
@@ -939,6 +944,7 @@ Update your `BenchesReducer` to update the `benches` in your state when it recei
 
 ```javascript
 const BenchesReducer = (state = {}, action) => {
+  Object.freeze(state)
   switch(action.type) {
     case RECEIVE_BENCHES:
       return action.benches;
