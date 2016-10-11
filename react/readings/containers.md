@@ -1,3 +1,4 @@
+
 # Containers
 
 As you saw in the [`Provider`][provider] and [`connect()`][connect] readings,
@@ -11,9 +12,7 @@ concerns. Therefore, it's a common pattern in Redux code to separate
 The distinction between presentational components and containers is not
 technical but rather functional. Presentational components are concerned
 with how things look and container components are concerned with how
-things work. Put another way, we reply on container components to retrieve
-information from the store. We reply on presentational components to display
-that information.
+things work.
 
 Here's a table outlining the differences:
 
@@ -56,9 +55,10 @@ use the example of lists from the file tree above.
 
 ## Example
 
-### `ListContainer` Component
+### Container Component
 ```js
 // components/list/list_container.jsx
+
 import { connect } from 'react-redux';
 import { resetItems } from '../../actions/items' // action creator
 import List from '../list'; // presentational component to connect
@@ -79,7 +79,7 @@ const ListContainer = connect(
 export default ListContainer;
 ```
 
-`ListContainer` subscribes to the redux store and provides, or maps,
+`ListContainer` subscribes to the redux store and maps
 functionality to props that are passed to `List`. It's necessary to
 import `List` at the top of the file, as well as actions we plan to dispatch.
 
@@ -89,6 +89,7 @@ import `List` at the top of the file, as well as actions we plan to dispatch.
 
 ```js
 // components/list/list.jsx
+
 import React from 'react';
 import Item from 'components/list/item';
 
@@ -112,7 +113,7 @@ const List = ({ items, resetItems }) => {
 export default List;
 ```
 
-`List` doesn't need to subscribe to the store. Instead it recieves props from
+`List` doesn't need to subscribe to the store. Instead it receives props from
 `ListContainer` as arguments, deconstructed here as `items` and `resetItems`.
 
 In `List` we delegate the responsibility of rendering individual list items
@@ -141,7 +142,8 @@ export default Item;
 And finally, `list` receives as props a single item, rendering that item's
 name and body.
 
-As presentational components `List` and `Item` don't know where information comes from our how to change it. They only render what's given to them.
+As presentational components `List` and `Item` don't know where information comes
+from our how to change it. They only render what's given to them.
 
 [provider]: ./provider.md
 [connect]: ./connect.md

@@ -15,9 +15,8 @@ the `react-router` library.
 can match the URL to routes.
 * `<Route>` contains a path and component used to define a route.
 
-When a URL matches the path of a route, the router will display the corresponding
-component. If we nest routes, the router will combine their paths, making it
-possible to match longer URLs and render multiple components.
+When a URL matches the path of a route, the corresponding component is displayed
+to the user.
 
 Let's look at an example.
 
@@ -41,7 +40,7 @@ const Root = () => {
 }
 ```
 
-This app would generate the following paths.
+This app would generate the following paths and rendered components.
 
 Path                    | Rendered Components
 ------------------------|-----------
@@ -50,16 +49,13 @@ Path                    | Rendered Components
 `/inbox`                | `App -> Inbox`
 `/inbox/messages/:id`   | `App -> Inbox -> Message`
 
-When a user visits `/` the router will render the `App` component.
-
-When a user visits `/about` the router will render both `App` and `About` components.
-
-It's also possible to nest multiple routes, as you can see with the path
-`/inbox/messages/:id` that renders `App`, `Inbox`, and `Message`.
+As you can see in the table it's possible by nesting routes to build longer
+paths that render multiple components. When a user visits `/about`
+both `App` and `About` are rendered. The path `/inbox/messages/:id` renders `App`, `Inbox`, and `Message`.
 
 ## Rendering Components
 
-While the router figures out what components should be rendered based on the URL,
+While the router figures out what components to be rendered based on the URL,
 it does not determine how they are rendered. Instead, parent components have access
 via `props.children` to children components nested one level below.
 
@@ -105,7 +101,7 @@ Because we nested `Inbox` under `App` in our router, we are given access to the
 `App` to render `Inbox`. We can similarly call `children` in `Inbox` to
 render `Message`.
 
-It's also possible to use [`Named Components`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#named-components) to give a route multiple children.
+It's also possible to use [`Named Components`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#named-components) to allow a parent component to render multiple children.
 
 ```js
 // root.jsx
