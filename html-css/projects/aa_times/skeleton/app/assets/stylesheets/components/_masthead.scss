@@ -44,7 +44,7 @@
 
 .masthead-links button {
 	background: none;
-	padding: 0;
+	padding: 0px;
 	color: #000;
 	font-weight: normal;
 	border: none;
@@ -54,17 +54,16 @@
 	background-color: $lightest-gray;
 }
 
-.masthead-links a {
-	margin-left: 5px;
-	padding-right: 5px;
+.masthead-links a,
+.masthead-links button, 
+.masthead-links time {
+	margin-right: 10px;
 }
 
-.masthead-links li button, 
-.masthead-links li time {
-	padding-right: 5px;
+.masthead-links i {
+	margin-right: 5px;
 }
 
 .masthead-links strong {
 	color: green;
 }
-

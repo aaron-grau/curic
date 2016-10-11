@@ -33,6 +33,26 @@ a:hover {
 	text-decoration: underline;
 }
 
+.hidden {
+	display: none;
+}
+
+/* 
+	Font Elements
+*/
+
+h1 {
+	font-size: 24px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
 p {
 	line-height: 16px;
 }
@@ -48,9 +68,9 @@ small {
 	font-family: $sans-serif;
 }
 
-.hidden {
-	display: none;
-}
+/* 
+	Header Rules
+*/
 
 hr {
 	border: 0;
@@ -66,4 +86,40 @@ hr {
 .hr-top {
 	height: 2px;
 	margin-bottom: 1px;
+}
+
+/* 
+	Images
+*/
+
+.thumbnail {
+	height: 100px;
+}
+
+.thumbnail img {
+	object-fit: cover;
+}
+
+/* 
+	Inputs
+*/
+
+.input-wrapper {
+	display: flex;
+	margin: 5px 0;
+}
+
+.input-wrapper input {
+	flex: 1;
+	font-family: $sans-serif;
+	padding: 0 10px;
+	border: 1px solid $gray;
+	border-right: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.input-wrapper button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
