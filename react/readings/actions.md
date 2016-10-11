@@ -49,11 +49,11 @@ store.getState(); // [ 'orange', 'apple', 'strawberry', 'lychee' ]
 
 ## Example
 
-Let's update our actions to include "ADD_FRUIT", "ADD_FRUITS", "SELL_FRUIT" like in the [reducers][reducers] reading.
+Let's update our actions to include `"ADD_FRUIT"`, `"ADD_FRUITS"`, `"SELL_FRUIT"` like in the [reducers][reducers] reading.
 
 ```js
   // actions/fruit_actions.js
-	
+
 	export const ADD_FRUIT = "ADD_FRUIT";
 	export const ADD_FRUIT = "ADD_FRUIT";
 	export const SELL_FRUIT = "SELL_FRUIT";

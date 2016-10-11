@@ -16,6 +16,7 @@ Recall the reducer from our fruit stand app:
 // reducers/fruit_reducer.js
 
 const fruitReducer = (state = [], action) => {
+  Object.freeze(state)
   switch(action.type) {
     case 'ADD_FRUIT':
       return [
@@ -44,13 +45,13 @@ the reducer doesn't *care* about that action (e.g. `{type:
 
 In the above example, our reducer's initial state is set to an empty array. The
 reducer returns a new array with `action.fruit` appended to the previous
-`state` if `action.type` is `ADD_FRUIT`. Otherwise, it returns the
+`state` if `action.type` is `"ADD_FRUIT"`. Otherwise, it returns the
 `state` unchanged.
 
 Let's update our fruit stand app's `reducer` to handle a few more actions:
-+ `ADD_FRUITS` - Add an array of fruits to our inventory of fruits.
-+ `SELL_FRUIT` - Remove the first instance of a fruit if available.
-+ `SELL_OUT` - Someone bought your whole inventory of fruit! Return an empty array.
++ `"ADD_FRUITS"` - Add an array of fruits to our inventory of fruits.
++ `"SELL_FRUIT"` - Remove the first instance of a fruit if available.
++ `"SELL_OUT"` - Someone bought your whole inventory of fruit! Return an empty array.
 
 ```js
 // reducers/fruit_reducer.js
@@ -83,6 +84,7 @@ const fruitReducer = (state = [], action) => {
 };
 ```
 
+
 ## Immutable State
 
 Inside a Redux reducer, you must never mutate its arguments (i.e. `state` and `action`). **Your reducer must return a new object if the state changes**. [Here's why][why-immutable].
@@ -107,20 +109,19 @@ And here's an example of a good one which uses [lodash][lodash-reading]'s merge 
 import merge from 'lodash/merge';
 
 const goodReducer = (state = { count: 0 }, action) => {
-  Object.freeze(state)
-	switch (action.type) {
-		case "INCREMENT_COUNTER":
-			let nextState = merge({}, state);
-			nextState.count++;
-			return nextState;
-		default:
-			return state;
+  Object.freeze(state);
+  switch (action.type) {
+    case "INCREMENT_COUNTER":
+  	  let nextState = merge({}, state);
+  	  nextState.count++;
+  	  return nextState;
+    default:
+  	  return state;
 	}
 };
 ```
 
-Note the use of [`Object.freeze()`][object-freeze], even though `goodReducer` doesn't mutate state `Object.freeze()` will insure that we never accidentally mutate our state. Get in the habit of using `Object.freeze` at the top of every reducer you write!  
-
+Note the use of [`Object.freeze()`][object-freeze], even though `fruitReducer` doesn't mutate the state `Object.freeze()` will insure that state can't be accidentally mutated. Get in the habit of using `Object.freeze` at the top of every reducer you write!  
 
 [object-freeze]: ./object_freeze.md
 [lodash-reading]:./lodash.md
@@ -173,9 +174,8 @@ Let's split up our popular fruit stand app's `reducer` into two reducers:
 ```js
 // reducers/fruits_reducer.js
 
-
-
 const fruitsReducer = (state = [], action) => {
+    Object.freeze(state);
 	switch(action.type) {
 		case "ADD_FRUIT":
 			return [
@@ -209,6 +209,7 @@ export default fruitsReducer;
 ```js
 // reducers/farmers_reducer.js
 const farmersReducer = (state = {}, action) => {
+    Object.freeze(state);
 	switch(action.type) {
 		case "HIRE_FARMER":
 			let nextState = merge({}, state); // deeply dup previous state
@@ -241,18 +242,18 @@ import { combineReducers } from 'redux';
 import fruitsReducer from './fruits_reducer';
 import farmersReducer from './farmers_reducer';
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
 	fruits: fruitsReducer,
 	farmers: farmersReducer
 });
 
-export default reducer;
+export default rootReducer;
 ```
 
 ```js
-// store.js
+// store/store.js
 import { createStore } from 'redux';
-import reducer from './reducers/root_reducer.js';
+import rootReducer from './reducers/root_reducer.js';
 
 const store = createStore(reducer);
 
@@ -266,7 +267,26 @@ Another aspect of reducer composition involves delegating reducer functions to s
 
 ```js
 // reducers/farmers_reducer.js
+const farmerReducer = (state, action) => { // state is a farmer object
+  Object.freeze(state);
+  switch(action.type) {
+    case "HIRE_FARMER":
+    return ({
+      id: action.id,
+      name: action.name,
+      paid: false
+    });
+    case "PAY_FARMER":
+    return merge({}, state, {
+      paid: !state.paid
+    });
+    default:
+    return state;
+  }
+};
+
 const farmersReducer = (state = {}, action) => {
+    Object.freeze(state);
 	switch(action.type) {
 		case "HIRE_FARMER":
 			let nextState = merge({}, state);
@@ -281,22 +301,6 @@ const farmersReducer = (state = {}, action) => {
 	}
 };
 
-const farmerReducer = (state, action) => { // state is a farmer object
-	switch(action.type) {
-		case "HIRE_FARMER":
-			return ({
-        			id: action.id,
-        			name: action.name,
-        			paid: false
-      			});
-		case "PAY_FARMER":
-			return merge({}, state, {
-				paid: !state.paid
-			});
-		default:
-			return state;
-	}
-};
 
 export default farmersReducer;
 ```

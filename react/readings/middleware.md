@@ -152,7 +152,7 @@ export default fetchContacts;
 // middleware/contacts_middleware.js
 
 import fetchContacts from '../utils/api_contacts_utils'
-import { receiveContacts, CONTACT_CONSTANTS } from '../actions/contacts_actions'
+import { receiveContacts, RECEIVE_CONTACTS } from '../actions/contacts_actions'
 
 const contactsMiddleware = ({getState, dispatch}) => next => action => {
   const successCallback = contacts => {
@@ -161,7 +161,7 @@ const contactsMiddleware = ({getState, dispatch}) => next => action => {
   const errorCallback = errors => { console.log(errors) };
 
   switch (action.type) {
-    case CONTACT_CONSTANTS.RECEIVE_CONTACTS:
+    case RECEIVE_CONTACTS:
       fetchContacts(successCallback, errorCallback);
       return next(action)
     default:
@@ -171,7 +171,7 @@ const contactsMiddleware = ({getState, dispatch}) => next => action => {
 
 export default contactsMiddleware;
 ```
-In the above example when we have an action type of "RECEIVE CONTACTS" the `contactsMiddleware` makes an AJAX request, if this request is successful we dispatch an action to receive the contacts, if it is unsuccessful we log the errors on our console. Note that since we just use `dispatch` we have de-structured the `store` argument into `{ getState, dispatch }`.  
+In the above example when we have an action type of `"RECEIVE_CONTACTS"` the `contactsMiddleware` makes an AJAX request, if this request is successful we dispatch an action to receive the contacts, if it is unsuccessful we log the errors on our console. Note that since we just use `dispatch` we have de-structured the `store` argument into `{ getState, dispatch }`.  
 
 
 
