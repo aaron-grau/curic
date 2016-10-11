@@ -5,8 +5,6 @@
 ### Breakfast
 * :coffee: **Bagels @ 8:30am** :coffee:
 
-### Study Hall 9-10am
-
 ### Video Lectures (55 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Intro to JS][intro-js-video] (12 min)
