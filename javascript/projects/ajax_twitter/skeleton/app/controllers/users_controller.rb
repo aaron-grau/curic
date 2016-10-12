@@ -39,10 +39,7 @@ class UsersController < ApplicationController
       @users = User.none
     end
 
-    respond_to do |format|
-      format.html { render :search }
-      format.json { render :search }
-    end
+    render :search
   end
 
   protected

@@ -22,20 +22,20 @@ our HTML, except that Rails compiles them all into a single file for production.
 But unlike Webpack, Rails doesn't intelligently manage dependencies, so you
 still have to be extra careful about the load order.
 
-It's currently only requiring jQuery. Make it requires `bundle.js` as well. Now
-we shouldn't have to worry about it again because Webpack has our back.
+It's currently only requiring jQuery. Make it require `bundle.js` as well. Now
+we shouldn't have to worry about compiling our JS files again because Webpack will do it for us as long as we remember to webpack (ie. run `webpack` or `webpack --watch`).
 
 ## Phase I: `FollowToggle`
 
 We will write a FollowToggle class that turns a button into a toggle that will
 follow/unfollow a user.
 
-First, let's modify the Rails view for the follow button to accommodate front-end
-manipulation. Look at `app/views/follows/_form.html.erb`. Notice that there are
-two branches of logic: the button will be a 'follow' button if the current user
-is not yet following the user, and an 'unfollow' button if they are. We want to
-replace the contents of this form with a single HTML element that gets updated
-via our front-end javascript.
+First, let's modify the Rails view for the follow button to accommodate
+front-end manipulation. Look at `app/views/follows/_form.html.erb`. Notice that
+there are two branches of logic: the button will be a 'follow' button if the
+current user is not yet following the user, and an 'unfollow' button if they
+are. We want to replace the contents of this form with a single HTML element
+that gets updated via our front-end javascript.
 
 Replace the contents of the button form with a single `<button>`.  Give the
 button a class of `follow-toggle`.  We'll also need to let the button know the
@@ -87,13 +87,15 @@ Next, write a `FollowToggle#handleClick` method. Install this click handler in t
 have jQuery automatically parse the response as JSON. Read the documentation [here][$.ajax-docs]
 
 You may also be wondering what's going on with the `respond_to` inside the
-`FollowsController`. Well, when we make a http request to a server, we can specify
-the `Content-Type` header. Meaning.. we can ask for HTML, XML, JSON, text, etc.
-Until now, our controllers were apathetic towards the type of the request. Want JSON? TOO BAD! Here's HTML...
+`FollowsController`. Well, when we make a http request to a server, we can
+specify the `Content-Type` header. Meaning.. we can ask for HTML, XML, JSON,
+text, etc. Until now, our controllers were apathetic towards the type of the
+request. Want JSON? TOO BAD! Here's HTML...
 
-The browser sets this `Content-Type` header for us based on how we make the request.
-When we use the `$.ajax` method, we will (by default) request JSON. The controller can
-then react to this `Content-Type` request by using the [`respond_to` method][respond-to-docs].
+The browser sets this `Content-Type` header for us based on how we make the
+request. When we use the `$.ajax` method, we will (by default) request JSON. The
+controller can then react to this `Content-Type` request by using the
+[`respond_to` method][respond-to-docs].
 
 [respond-to-docs]: http://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to
 [$.ajax-docs]: http://api.jquery.com/jquery.ajax/
@@ -114,7 +116,7 @@ Check that everything works and call over your TA so that they can check your wo
 ## Phase II: `UsersSearch`
 
 Review `app/controllers/users_controller.rb` and
-`app/views/users/search.HTML.erb`. We want to create real-time user search. On
+`app/views/users/search.html.erb`. We want to create real-time user search. On
 every keypress as the user types in a username, we'll show the matching users
 for the current input.
 
@@ -123,16 +125,47 @@ To do this, we'll write a `UsersSearch` class. Replace the entire form with a
 name. Also nested in the `nav.users-search`, have a `ul.users` for displaying
 results.
 
-Next, begin writing the `UsersSearch` class. As before, automatically build a
-`UsersSearch` for each `nav.users-search`. Again, you might find it convenient
-to store jQuery wrapped versions of the `el`, its `input` and its `ul`. Also in
-the constructor, we'll be installing a listener for the `input` event on the
-input tag.
+Next, begin writing the `UsersSearch` class. Create a `frontend/users_search.js`
+file. As before, automatically build a `UsersSearch` for each
+`nav.users-search`. Again, you might find it convenient to store jQuery wrapped
+versions of the `el`, its `input` and its `ul`. Additionally in the constructor,
+we'll be installing a listener for the `input` event on the input tag.
 
 Write a `UsersSearch#handleInput` handler. On each `input` event, make an AJAX
 request to `/users/search`, sending the input's `val` as the query parameter.
 You can send query parameters along with an `$.ajax` call through the `data`
 option. Don't forget to set `dataType`!
+
+Now, let's set up your controller to respond to AJAX requests with JSON. Because
+your controller will be handling both HTML and JSON requests, let's separate out
+each of those types of requests and respond to them separately. Put the
+following code into your controller to replace the line reading `render
+:search`:
+
+```ruby
+respond_to do |format|
+  format.html { render :search }
+  format.json { render :search }
+end
+```
+
+This tells your controller to render the `:search` HTML view for requests that
+want HTML and to render the `:search` JSON view for requests that want JSON. But
+we don't yet have a `search.json` view! Let's make one. The file, in the
+`/users/` folder, should be named `search.json.jbuilder` and should contain the
+following code:
+
+```ruby
+json.array!(@users) do |user|
+  json.(user, *User.column_names)
+  json.followed(current_user.follows?(user)) # hidden N+1 query!
+end
+```
+
+The above code takes your `@users` instance variable and turns it into an array
+of JSON objects. Each object will have all of its information as well as
+`followed`, which will be either true or false depending on whether the current
+user is following this user.
 
 When the AJAX call successfully returns a list of matching users, we want to
 display those results in the `ul.users`. Write a method
@@ -142,14 +175,18 @@ For each result, it should use jQuery to build an `li` containing an anchor tag
 linking to the user. Use the jQuery `append` method to add each result to the
 `ul`.
 
-Check that you can now interactively search users.
+**Test your code**: Check that you can now interactively search users.
+
+Now let's fix that n+1 query. It's coming from the fact that the data labeled 
+`current_user.follows?(user)` gets called each time we want to render 
+`search.json.jbuilder`, so we can fix it by chaining a `.includes(:follows)` 
+call onto our controller's `.where` call. 
 
 Last, we want to add follow toggle buttons for each of these results. When
 building the `li` tags for each user, build a `button`, too. You can create a
 FollowToggle instance for the button to setup the follow toggle.
 
-**NB:** Inspect the JSON objects that you are getting from the server to see whether or
-not they are currently being followed.
+**NB:** Inspect the JSON objects that you are getting from the server to see whether or not they are currently being followed.
 
 You could make this work by setting data attributes on the button for `user-id`
 and `initial-follow-state`. In this context, that's kind of annoying. Instead,
@@ -172,6 +209,38 @@ class FollowToggle {
 See if this helps you set up the follow toggle.
 
 ## Phase III: `TweetCompose`
+
+First, we're going to update our TweetsController to handle JSON requests, similarly
+to how we updated our UsersController before. If we've successfully created a tweet from
+a JSON request, then we should render that tweet back as json. We could `render json:
+@tweet`, but then we might not have all of the information we need. Add a `respond_to`
+block and put cases for `format.html` and `format.json` inside it. If the request
+matches `format.json`, call `render :show` so that we can structure our response to our
+application's needs.
+
+Now, just as we did before, let's create a show view for our tweets. We're going to call
+a partial in this view; to that end, we'll put the following code in `show.json.jbuilder`:
+
+```ruby
+json.partial!("tweets/tweet", tweet: @tweet)
+```
+
+Partials in Jbuilder work the same way they do in ERB - the partial file name starts with
+a `_` and you pass in a piece of information for the partial to render using a hash. Let's
+create that partial right now at `_tweet.json.jbuiler` and put the following code into it:
+
+```ruby
+json.(tweet, *Tweet.column_names)
+
+json.user(tweet.user, *User.column_names)
+
+json.mentions(tweet.mentions) do |mention|
+  json.(mention, *Mention.column_names)
+  json.user(mention.user, *User.column_names)
+end
+```
+
+What this code is doing is collecting the tweet's information, the tweeter's information, and also information about each of that tweet's mentions.
 
 Write a `TweetCompose` class. First, change `app/views/tweets/_form.HTML.erb`.
 Give the form a class `tweet-compose`. Write a TweetCompose class that grabs
@@ -285,6 +354,23 @@ In `#fetchTweets`, make an AJAX request to `/feed`. In the success handler, call
 an `#insertTweets` method. For simplicity, for each tweet, just append `<li>`
 items with `JSON.stringify(tweet)` into the appropriate `ul`.
 
+As we did before, we're going to have to update our FeedsController to handle JSON requests. Replace the `render :show` line in `FeedsController#search` with the following code:
+
+```ruby
+respond_to do |format|
+  format.html { render :show }
+  format.json { render :show }
+end
+```
+
+Now, also in a repetition of our earlier process, let's build out the rest of our JSON API. We'll start by creating a `feeds/show.json.jbuilder`. We can reuse the tweet partial we already wrote by calling it in this show view:
+
+```ruby
+json.array!(@feed_tweets) do |tweet|
+  json.partial!("tweets/tweet", tweet: tweet)
+end
+```
+
 If you click the link twice, you'll fetch the same set of tweets twice. We need
 to send the `max_created_at` parameter. In the `InfiniteTweets` `constructor`,
 start `this.maxCreatedAt` at `null`. In the `#fetchTweets` method, if
@@ -321,8 +407,79 @@ well.
 variable. If you were to compose a tweet and not set `lastCreatedAt`, you'll
 fetch the same tweet again when you make an AJAX call to `/feed`.
 
-[underscore_rails]: https://github.com/rweng/underscore-rails
-[underscore_erb]: ../../readings/underscore-templates.md#erb--underscore
+## Phase V: Jbuilder Practice
+
+Since we're going to be using Jbuilder so often over the next few weeks, let's
+get some more practice with it today. We'll start by creating a simple view for
+our FollowsController to use. In both its `create` and `destroy` methods,
+the FollowsController calls `render json: @follow`. Replace that with
+`render :show` and write a `show` view in Jbuilder. This view should have the
+same effect as calling `render json: @follow` - all of the follow's information
+should get sent to the frontend.
+
+Test your new view by creating and destroying `Follows` using your app. Does it
+still work?
+
+Next, we'll work on a `show` view for users. In a full Rails API backend, we might use
+this view when a user is created, destroyed, or shown, as well as whenever a user
+logs in or out. This view should be similar to the view we just wrote, with one
+crucial difference: we need to keep our users' private information from being sent
+over the internet. Write a `users/show.json.jbuilder` that only returns a user's
+`username` and `id`, keeping their `password_digest` and `session_token` safe on
+the server.
+
+Test your new view by modifying your `User#create` method to `render :show` when it
+receives a JSON request. Does your view send back the correct information if you test
+it using Postman? After your test succeeds, change your controller code back.
+
+Finally, we'll write an `index` view for tweets. This view isn't strictly applicable
+to our current application, but it demonstrates a pattern that you will use in
+future full-stack applications, particularly when we start using Redux. We're going
+to return an object filled with tweets, each tweet keyed by its id. It will look like
+the following:
+
+```js
+{
+  "1":{
+    "content":"Set world napping record",
+    "user_id":1
+  },
+  "2":{
+    "content":"Jumped to the top of the shelf!",
+    "user_id":1
+  },
+}
+```
+
+Write a `tweets/index.json.jbuilder` that returns an object full of tweets. Create
+a `Tweets#index` method and route, and render your new index view in it. Test your
+new code by navigating to `localhost:3000/tweets`.
+
+Next, include the tweeter's username along with each tweet. Prevent n+1 queries by
+using `includes`. Check your server log and make sure that only two queries are being
+fired to display all of the tweets and usernames.
+
+Next, include a list of each tweet's mentioned users along with each tweet. Make sure
+to add `:mentioned_users` to your `includes` statement to prevent n+1 queries. Test
+your new code by navigating to `localhost:3000/tweets` - your returned JSON should look
+like this:
+
+```js
+{
+  "1":{
+    "content":"Set world napping record",
+    "user_id":1,
+    "username":"breakfast",
+    "mentioned_users":[]
+  },
+  "2":{
+    "content":"Jumped to the top of the shelf!",
+    "user_id":1,
+    "username":"breakfast",
+    "mentioned_users":[]
+  },
+}
+```
 
 ## Bonus: Underscore Templates
 
@@ -363,3 +520,6 @@ which makes the tweets variable available to the template. Insert the rendered
 partial.
 
 Check that this works. Call your TA over to double check your work.
+
+[underscore_rails]: https://github.com/rweng/underscore-rails
+[underscore_erb]: ../../readings/underscore-templates.md#erb--underscore
