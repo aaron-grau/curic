@@ -16,7 +16,7 @@ const PokemonReducer = (state = {loading: false, pokemon: []}, action) => {
         pokemon: action.pokemon
       });
     case RECEIVE_SINGLE_POKEMON:
-      return merge({}, state, {
+      return Object.assign({}, state, {
         loading: false,
         pokemonDetail: action.pokemon
       });
