@@ -18,7 +18,7 @@ Game.prototype._flipTurn = function () {
 };
 
 // Dreaded global state!
-const rlInterface;
+let rlInterface;
 
 /**
  * Creates a readline interface and starts the run loop.
