@@ -95,11 +95,11 @@ Compare the provided html structure in `/views/shared/_main_nav.html.erb` to the
 
 - add another `<nav>` for the right side
 - add the buttons
-- add the gear icon inside of a button so that it has a `cursor: pointer`
+- add the gear icon inside of a button
 
 A great use for the `layout.scss` stylesheet is to code common button styling for your project. Keeping button styling consistent makes it easier for users to know where to click.
 
-- style buttons according to the `button.png` screenshot
+- style the buttons according to the "Subscribe Now" and "Log In" button designs in the `main_nav.png` screenshot
 - each css property has been provided
 
 Now it is time to style in the `_main_nav.scss` file. For this section we have provided the selectors for you. Here are some tips:
@@ -143,7 +143,7 @@ Open up the `javascripts/components` folder and take a look at the `dropdown.js`
 
 Open the `_gear_dropdown.html.erb` file where we have created the html structure of the dropdown. Notice the classes used to divide the different unordered lists and the span elements for the subtitles.
 
-- Render the partial as a child of the gear icon element using `<%= render partial: 'shared/gear_dropdown' %>`
+- Render the partial as a child of the gear button using `<%= render partial: 'shared/gear_dropdown' %>`
 - Click the gear icon to test the toggling of the `hidden` class.
 
 Style the dropdown in `_gear_dropdown.scss` according to the screenshot:
@@ -172,30 +172,29 @@ For the next phase we will be adding some of the latest App Academy Times news u
 
 Grids are much less complicated than they sound but are used all throughout the web. Popular style frameworks like `bootstrap` by Twitter and `material` by Google all use flexible grid systems. For App Academy Times, we will handroll a simple grid just like in the [CSS Homework][css-grid-homework]. 
 
-Please don't just copy and paste this code. Typing and Debugging CSS/HTML is the best way to learn. Make sure to include the media query with a nice break point that maintains your design at all screen sizes.
-
-![custom-grid-example](app/assets/images/out.gif)
-
-[css-grid-homework]: https://github.com/appacademy/curriculum/blob/master/html-css/assets/custom_grid.css
+Please don't just copy and paste this code. Typing and Debugging CSS/HTML is the best way to learn. Make sure to include the media query with a nice break point that maintains your design, we used `1000px`.
 
 ## News Content
 
-Once you have a grid system setup copy in all the content from `app/assets/copy/main_content.txt` and build the necessary html structure around it. 
+Copy in all the content from `app/assets/copy/main_content.txt` and start by using your grid classes combined with section elements to define the flexible content columns.
 
+- Note that we provided the `<iframe>` video copied from YouTube
 
-- Start by using your grid classes combined with section elements to define the flexible content columns.
-- Now look for elements that are styled similarly and give them some html/classes in order to style them together. Here are some examples:
+This is what we are looking for to start:
+
+![custom-grid-example](app/assets/images/screenshots/grid.gif)
+
+[css-grid-homework]: https://github.com/appacademy/curriculum/blob/master/html-css/assets/custom_grid.css
+
+- Now that we have flexible columns in place, use the `main_content.png` design to look for elements that are styled similarly and give them some tags/classes. Here are some examples:
     + The bold headers like "Opinion Pages" and "Cat Academy"
     + The "By [example]" lines
-
-- Use this [Video Link][app-academy-video] and go to the Embed tab underneath Share in order to get the necessary iframe code from YouTube.
-- Within the iframe, change the `width` to `100%` and the `height` to `300`
 
 - We used <hr> elements and classes for `.hr-top`, `.hr-bottom` written in the `layout.scss` file to get the double lines separating pieces of content
 - We used a pseudo content `:after` and `content = ''` to create the blue square next to the comments link
 - Using `flex: 1` on the input element will force it to grow or shrink to take up all the space next to it's flex sibling Sign Up button
-- Place the new office image inside of a div with a class. Style the div to be a certain height in px and then make the image `width: 100%` & `height: 100%`. Use `object-fit: cover` to assure it covers the containing div correctly.
-- Try to put as many of the application-wide selectors into the `layout.scss` file as possible. Selectors such as `h1, h2,  img, small, hr` etc. make more sense in the layout file because we will likely use them in other components.
+- Place the `new_office.jpg` image inside of a div with a class like `thumbnail`. This way you can reuse this `thumbnail` class with a styled `height` in px and then make all images `width: 100%` & `height: 100%`. Use `object-fit: cover` on all images inside `thumbnail` to assure the images cover the containing div correctly.
+- Try to put as many of the application-wide selectors into the `layout.scss` file as possible. Selectors such as `h1, h2,  img, small, hr, .thumbnail` etc. make more sense in the layout file because we will likely reuse them.
 
 **Get A TA to Review your page before continuing**
 
@@ -203,34 +202,102 @@ Once you have a grid system setup copy in all the content from `app/assets/copy/
 
 # Phase 3: The Sections Sidebar
 
-Notice that our flexible website breaks a bit because we don't have flexible fonts. We will leave this discussion for another time and instead use media queries to complete our responsive design. Notice how the amount of links in the sections nav is too big for smaller screen sizes.
+Notice that our flexible website breaks a bit because we don't have flexible fonts. We will leave this discussion for another time and instead use media queries to complete our responsive design. Notice how the amount of links in the sections nav is too big for smaller screen sizes. Refence the `mobile.png` screenshot and:
 
 - Write a media query similar to the one used in the `grid.scss` to hide the sections nav at the same viewport width that the columns convert to 100%
 - Write a similar media query to hide the language nav
-- Finally hide the Subscribe button, Login button and take the margin off the `.left-nav` in the `main_nav` styles
+- Finally hide the Subscribe button, Login button and take the margin off the `.left-nav` in the `main_nav` styles. We added a bit of padding as well.
 
-**N.B.** With just these few media queries and a flexible grid system we have a completely responsive website.
+**N.B.** With just these few media queries and a flexible grid system we have a completely responsive website!
 
-The language nav content and `right-nav` links are still available in the gear dropdown but now we need to code the sections sidebar so that mobile users still have a way of navigating the many App Academy Times sections.
+Now let's code the sections sidebar so that mobile users still have a way of navigating the many App Academy Times sections. Check out the screenshot for the `sections_sidebar`.
 
-- Copy and paste the html from the `sections_nav.html.erb` file into the `sections_sidebar.html.erb` file as a starting point
-- Take a look at the `sections_sidebar.js` to see how the sidebar functions
-- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of the `sections-sidebar-btn`
-- Make sure to give the button the necessary id attribute
-- Take a look at the `sections_sidebar.png` screenshot to see the additional html and styling we need
+- Copy and paste the html from the `sections_nav.html.erb` file into the `sections_sidebar.html.erb` file as a starting point.
+- Take a look at the `sidebar.js` to see how the sidebar functions
+- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of a button with `id="sections-sidebar-btn"`
+- In `_sections_sidebar.scss`, start with a selector to style the `opacity: 0` normally and `opacity: 1` when it has the additional `.expand` class
+
+**N.B.** We use opacity here instead of display because it is transitionable. 
+
+This is the effect we are going for:
+
+![sidebar-example](app/assets/images/screenshots/sidebar.gif)
+
+- The submenu text content may be found in the `assets/copy` folder
 - Add the remaining html to the `sections_sidebar` by nesting `ul` elements within the `li` elements that require an additional dropdown
-- Style according to the screenshot
+- Style according to the `sections_sidebar.png` screenshot
+
+Create pure css dropdowns with the following example code:
+```html
+<section class="dropdown">
+    <ul>
+        <li>lorem ipsum</li>
+        <li>Lorem ipsum dolor</li>
+    </ul>
+</section>
+```
+
+
+```css
+.dropdown {
+    position: relative;
+}
+.dropdown > ul {
+    display: none;
+    position: absolute;
+    /* use top, left, right, bottom to position */
+}
+.dropdown:hover > ul {
+    display: block;
+}
+```
+
+Use pseudo element [css triangles][css-triangles] on top of triangles to create the arrows for the menu items as well as the submenu dropdown triangles. This code could apply right arrows to the list items in the dropdown html from above:
+
+```css
+.dropdown li {
+    position: relative;
+}
+.dropdown li:after,
+.dropdown li:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 25%;
+    border-left: 5px solid gray;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    width: 0;
+    height: 0;
+}
+.dropdown li:after {
+    right: 2px;
+    border-left: 5px solid white;
+    z-index: 1;
+}
+```
+
+[css-triangles]:[https://css-tricks.com/snippets/css/css-triangle/]
 
 # Phase 4: Search Modal
 
 Modals are distinct from dropdowns because they appear to float independently over the application. A common characteristic of a modal is also that the app beneath becomes more opaque and clicking away from the modal will close it.
 
-Take a look at the `search-modal.png` screenshot to get a better idea of what this is supposed to look like. Use the `search-modal.js` file to get the id necesary for the search button.
+Take a look at the `search-modal.png` screenshot to get a better idea of what this is supposed to look like. Use the `search-modal.js` file to get the id necesary for the search button, modal and overlay.
 
-Create the html in the `_search_modal.html.erb` file and style in `_search_modal.scss`.
+Create the html in the `_search_modal.html.erb` file and style in `_search_modal.scss`. We created a `<section id="overlay" class="overlay hidden"></section>` at the bottom of the `main_content` section.
 
-# Phase 5: Finalizing the Header
+Here is a trick to making content take up the full width of the viewport even when inside of a smaller container by using viewport units (`vw = viewport width, vh = viewport height`).
 
-- hide the subscribe now and login buttons for the smallest screen sizes
-  - make these links available in the gear dropdown
-- when scrolling past the sections_nav a fixed sections_nav header should appear
+```css
+  position: absolute;
+  width: 100vw;
+  left: calc(-50vw + 50%);
+```
+
+We used this trick both to make the full width search modal and overlay. Before continuing **Call over a TA for review**.
+
+# Phase 5: A Fixed Header
+
+When scrolling past the `sections_nav` a `fixed_sections_nav` should appear. Use the [NYTimes](http://nytimes.com) as an example.
+

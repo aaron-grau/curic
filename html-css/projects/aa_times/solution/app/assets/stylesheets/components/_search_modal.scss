@@ -13,12 +13,11 @@
 	text-align: center;
 	position: relative;
 	z-index: 1;
-	transition: max-height 0.3s;
+	transition: max-height 500ms;
   margin-top: -1px;
 }
 
-.search-modal form {
-	display: flex;
+.search-modal .input-wrapper {
 	max-width: 40%;
 	min-width: 300px;
 	margin: 25px auto;
@@ -27,16 +26,16 @@
 .search-modal input {
 	border: 1px solid $light-gray;
 	box-shadow: inset 2px 3px 3px rgba(0,0,0,0.07);
-	flex: 1;
 	border-radius: 3px;
 }
 
-.search-modal form button {
+.search-modal .input-wrapper button {
 	margin-left: 10px;
 	background: white;
 	font-weight: normal;
 	color: $gray;
 	border: 1px solid $light-gray;
+	border-radius: 3px;
 }
 
 button.close {
@@ -65,7 +64,7 @@ button.close:hover {
 	position: absolute;
 	background: rgba(255, 255, 255, 0.8);
 	top: 0;
-	right: 0;
-	left: 0;
 	bottom: 0;
+	width: 100vw;
+	left: calc(-50vw + 50%);
 }

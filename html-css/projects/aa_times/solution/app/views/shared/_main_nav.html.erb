@@ -1,14 +1,21 @@
 <header class="main-nav">
 	<nav class="left-nav">
 		<button id="sections-sidebar-btn">
-			<i class="fa fa-bars"></i><span>sections</span>
+			<i class="fa fa-bars"></i>
+			<span>sections</span>
 			<%= render partial: 'shared/sections_sidebar'%>
 		</button>
-		<button id="search-modal-btn"><i class="fa fa-search"></i><span>search</span></button>
+		<button id="search-modal-btn">
+			<i class="fa fa-search"></i>
+			<span>search</span>
+		</button>
 	</nav>
 	<nav class="right-nav">
 		<button>Subscribe Now</button>
 		<button>Log In</button>
-		<button><i id="gear-dropdown" class="fa fa-gear"><%= render partial: 'shared/gear_dropdown' %></i></button>
+		<button id="gear-dropdown-btn">
+			<i class="fa fa-gear"></i>
+			<%= render partial: 'shared/gear_dropdown' %>
+		</button>
 	</nav>
 </header>

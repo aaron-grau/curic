@@ -2,7 +2,7 @@
 
 .gear-dropdown {
 	position: absolute;
-	top: 24px;
+	top: 30px;
 	right: 0;
 	background-color: #fff;
 	border: 1px solid $light-gray;
@@ -14,6 +14,7 @@
 	font-family: $sans-serif;
 	text-align: left;
 	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+	font-weight: initial;
 }
 
 .gear-dropdown .editions  {
@@ -26,7 +27,7 @@
 	padding: 5px 5px;
 	cursor: pointer;
 	border-radius: 3px;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .gear-dropdown .help li {

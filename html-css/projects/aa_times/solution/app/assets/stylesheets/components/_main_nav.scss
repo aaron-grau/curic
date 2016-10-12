@@ -27,9 +27,21 @@
 
 .right-nav i {
 	font-size: 16px;
-	position: relative;
 }
 
 .right-nav button:last-of-type {
 	margin-left: 0px;
+	position: relative;
+}
+
+@media all and (max-width: 1000px) {
+  .right-nav button:not(:last-of-type) {
+  	display: none;
+  }
+  .left-nav button {
+  	margin: 0;
+  }
+  .main-nav {
+  	padding: 20px 0;
+  }
 }
