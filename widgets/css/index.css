@@ -159,3 +159,13 @@
 .tab-content p{
   text-align: center;
 }
+
+body{
+  display: flex;
+  justify-content: space-around;
+}
+
+.interactive{
+  display: flex;
+  justify-content: space-around;
+}
