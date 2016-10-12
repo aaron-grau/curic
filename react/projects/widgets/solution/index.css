@@ -1,12 +1,15 @@
 /* AutoComplete */
 
 .auto{
+  color: white;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   width: 191px;
   height: 200px;
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
-  background-image: url(http://www.wallpapersonview.com/wallpapers/2/abstract_rainbow-13.jpg);
+  background-image: url(https://hd.unsplash.com/6/blurred_lines.jpeg);
   background-size: cover;
   background-position: center;
 }
@@ -58,7 +61,9 @@
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
-  background-image: url(https://quefaitlhommedesontemps.files.wordpress.com/2016/02/steins-gate-horloges.jpg);
+  background-image: url(https://hd.unsplash.com/photo-1445109673451-c511bb51bd17);
+  background-size: cover;
+  background-position-y: 20%;
 }
 
 .clock p{
@@ -71,14 +76,15 @@
 
 .weather{
   font-size: 28px;
-  color: white;
   width: 550px;
   height: 94px;
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
   text-align: center;
-  background-image: url(http://www.luxurytravel.com/img/destinations/lux_660x280_san_francisco_bridge01.jpg);
+  background-image: url(https://hd.unsplash.com/photo-1429479196389-7d1afeaa2d21);
+  background-size: cover;
+  background-position-y: 20%;
 }
 
 .weather p{
@@ -137,6 +143,7 @@
 
 .tab-content{
   font-weight: bold;
+  color: white;
   height: 192px;
   margin: 0 20px;
   border-left: 2px solid black;
@@ -145,7 +152,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(https://thumbs.dreamstime.com/x/abstract-folders-background-14306058.jpg);
+  background-image: url(https://hd.unsplash.com/photo-1445112098124-3e76dd67983c);
+  background-size: cover;
 }
 
 .tab-content p{
