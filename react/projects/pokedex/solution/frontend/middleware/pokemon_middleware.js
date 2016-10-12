@@ -1,4 +1,4 @@
-import { hashHistory } from 'react-router';
+import History from '../util/history';
 
 import { fetchAllPokemon,
          fetchSinglePokemon,
@@ -7,7 +7,7 @@ import { fetchAllPokemon,
 import { receiveAllPokemon,
 			   receiveSinglePokemon,
          receiveNewPokemon,
-         REQUEST_ALL_POKEMON, 
+         REQUEST_ALL_POKEMON,
          REQUEST_SINGLE_POKEMON,
          CREATE_POKEMON,
          pokemonErrors } from '../actions/pokemon_actions';
@@ -18,7 +18,7 @@ export default ({dispatch}) => next => action => {
   const receiveSinglePokemonSuccess = data => dispatch(receiveSinglePokemon(data));
   const receiveNewPokemonSuccess = (data) => {
     dispatch(receiveNewPokemon(data));
-    hashHistory.push(`/pokemon/${data.id}`);
+    History.push(`/pokemon/${data.id}`);
   };
   const pokemonFailure = errors => dispatch(pokemonErrors(errors));
 
