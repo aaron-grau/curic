@@ -105,39 +105,41 @@ Properties of constants:
 
 A quick example:
 ```javascript
-> const favFood = "Cheeseboard pizza"; // Initializes a constant
+> const favFood = "cheeseboard pizza"; // Initializes a constant
 undefined
 
-> const favFood = "Some inferior food"; // Raises an error
+> const favFood = "some inferior food"; // Re-initialization raises an error
 TypeError: Identifier 'favFood' has already been declared
 
-> var favFood = "Some other inferior food"; // Raises an error
+> let favFood = "some other inferior food"; // Re-initialization raises an error
 TypeError: Identifier 'favFood' has already been declared
 
-> favFood = "Deep-dish pizza"; // Raises an error
+> favFood = "deep-dish pizza"; // Re-assignment raises an error
 TypeError: Assignment to constant variable.
-```
-
-```js
-if (true) {
-  const favFood = "Noodles"; // Raises an error
-  console.log(favFood); // Prints "Cheeseboard pizza"
-
-  const favoriteDrink = "Coffee"; // This is scoped to the `if` block
-  console.log(favoriteDrink) // Prints `Coffee`
-}
-
-// Declared outside of block, raises no errors
-const favoriteDrink = "Harmless Coconut Water";
-console.log(favoriteDrink) // Prints "Harmless Coconut Water"
 ```
 
 **NB**: Constants are not immutable. Only the binding is immutable. For example, if we set a constant equal to an object, we can still modify that object:
 
-```javascript
+```js
 const animals = {};
-animals.mammals = ['hippo', 'lemur', 'possum']; // This works!
-animals = ['beluga whale']; // Raises an error
+animals.cetacea = 'beluga whale';
+animals.rodent = 'capybara'; // This works!
+
+animals = {cetacea: 'beluga whale'}; // Raises an error
+```
+
+**NB**: Constants cannot be reassigned but new constants of the same names can be declared in nested scopes. For example, 
+
+```js
+const favFood = "cheeseboard pizza"
+console.log(favFood);
+
+if (true) {  
+  const favFood = "noodles"; // This works! Declaration is scoped to the `if` block
+  console.log(favFood); // Prints "noodles"
+}
+
+console.log(favFood); // Prints 'cheeseboard pizza'
 ```
 
 ## Globals
