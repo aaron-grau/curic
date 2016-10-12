@@ -1,4 +1,4 @@
-export const selectPokemonToy = (pokemonDetail, itemId) => pokemonDetail.items[itemId] || {};
+export const selectPokemonToy = ({pokemonDetail}, itemId) => pokemonDetail.items[itemId] || {};
 
 export const selectDetail = ({pokemonDetail}) => {
   if (pokemonDetail)

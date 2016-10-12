@@ -19,13 +19,6 @@
   </ul>
 </nav>
 
-  <script>
-    window.pokemonTypes = {'pokemonTypes': []};
-    <% Pokemon::TYPES.each do |type| %>
-      window.pokemonTypes['pokemonTypes'].push("<%= type.html_safe %>");
-    <% end %>
-  </script>
-
   <%= yield %>
 
 </body>

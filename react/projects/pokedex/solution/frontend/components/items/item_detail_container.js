@@ -4,7 +4,7 @@ import { selectPokemonToy } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const { params: {itemId} } = ownProps;
-  const item = selectPokemonToy(state.pokemonDetail, itemId);
+  const item = selectPokemonToy(state, itemId);
 
   return { item };
 };

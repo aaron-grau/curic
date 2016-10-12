@@ -3,8 +3,7 @@ import { createPokemon } from '../../actions/pokemon_actions';
 import PokemonForm from './form';
 
 const mapStateToProps = state => ({
-	pokemonTypes: state.pokemonTypes,
-  pokemonErrors: state.pokemonErrors
+  errors: state.errors
 });
 
 const mapDispatchToProps = dispatch => ({

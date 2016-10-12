@@ -1,5 +1,24 @@
 import React from 'react';
 
+const POKEMON_TYPES = [
+  "fire",
+  "electric",
+  "normal",
+  "ghost",
+  "psychic",
+  "water",
+  "bug",
+  "dragon",
+  "grass",
+  "fighting",
+  "ice",
+  "flying",
+  "poison",
+  "ground",
+  "rock",
+  "steel"
+];
+
 class PokemonForm extends React.Component {
   constructor(props) {
     super(props);
@@ -29,9 +48,9 @@ class PokemonForm extends React.Component {
   }
 
   errors() {
-    if (this.props.pokemonErrors) {
+    if (this.props.errors) {
       return (
-        this.props.pokemonErrors.responseJSON.map((error) => {
+        this.props.errors.responseJSON.map((error) => {
           return (<li className="error" key={error}>{error}</li>);
         })
       );
@@ -60,7 +79,7 @@ class PokemonForm extends React.Component {
               value={this.state.type}
               onChange={this.update('poke_type')}
               defaultValue="Select Pokemon Type">
-              {this.props.pokemonTypes && this.props.pokemonTypes.map((type, i) => {
+              {POKEMON_TYPES.map((type, i) => {
                 return <option value={type} key={i}>{type}</option>;
               })}
             </select>

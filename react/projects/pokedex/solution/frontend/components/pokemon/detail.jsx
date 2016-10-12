@@ -9,7 +9,7 @@ const PokemonDetail = ({ pokemonDetail, items, children }) => (
 				<li>Type: {pokemonDetail.poke_type}</li>
 				<li>Attack: {pokemonDetail.attack}</li>
 				<li>Defense: {pokemonDetail.defense}</li>
-				<li>Moves: &#34;{pokemonDetail.moves.join(', ')}&#34;</li>
+				<li>Moves: {pokemonDetail.moves.join(', ')}</li>
 		</ul>
 		<section className="toys">
 			<h3>Items</h3>
