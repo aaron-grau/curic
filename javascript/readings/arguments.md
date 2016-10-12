@@ -148,7 +148,7 @@ function madLib(verb, pluralNoun1, pluralNoun2, place) {
   return `I like to ${verb} ${pluralNoun1} with ${pluralNoun2} by the ${place}.`;
 }
 
-var words = ["eat", "socks", "rabbits", "sea"];
+const words = ["eat", "socks", "rabbits", "sea"];
 
 console.log(madLib(...words));
 ```
