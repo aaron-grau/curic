@@ -11,8 +11,8 @@ const PokemonDetail = ({ pokemonDetail, items, children }) => (
 				<li>Defense: {pokemonDetail.defense}</li>
 				<li>Moves: &#34;{pokemonDetail.moves.join(', ')}&#34;</li>
 		</ul>
-		<section className="items">
-			<h3>Toys</h3>
+		<section className="toys">
+			<h3>Items</h3>
 			<ul className="toy-list">
 				{items.map((item) => <Item key={item.name} item={item}/>)}
 			</ul>
