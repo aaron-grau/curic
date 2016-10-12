@@ -1,39 +1,33 @@
-# Links
+# Link
 
-`<Link>` is one way users can navigate around your application, issuing
-an on-click navigation event to a route defined in your router. `<Link>` renders a fully accessible anchor tag with the proper href in
-the DOM.
+`<Link>` is one way users can navigate around an application, issuing
+an on-click navigation event to a route defined in your router.
 
-Here's an example.
+`<Link>` can take a number of different props.
+
+`to`: A route location description that can point to an absolute path, e.g. `/about`
+
+```js
+<Link to="/about">About</Link>
+```
+`onClick(e)`: A custom click event handler. Can call `e.preventDefault` and `e.stopPropogation`
+like any other click handler. 
+
+```js
+<Link to="/about" onClick={e => this.handleClick(e)}>Link</Link>
+```
+`activeClassName`: A CSS class name for styling `<Link>` uses when its route is active.
+ A `<Link>` will be active if it's `to` prop path matches the the current URL.
 
 ```js
 // app.jsx
+<Link to={`users/${user.id}`} activeClassName="active">{user.name}</Link>
 
-class App extends React.components {
-  render() {
-    return (
-      <div>
-        <h1>App</h1>
-        <ul>
-          <li><Link to="/about">About</Link></li> // =>  <li><a href="#/about">About</a></li>
-          <li><Link to="/inbox">Inbox</Link></li> // => <li><a href="#/inbox">Inbox</a></li>
-        </ul>
-        {this.props.children}
-      </div>
-    )
-  }  
-}
+// when at path `users/1` the following html is rendered
+<a href="/users/123" class="active">Fred</a>
+
+// when not at path `users/1` the following is html rendered
+<a href="/users/123">Michael</a>
 
 ```
-
-`<Link>` can take a number of different props, including:
-
-* `to`: A route location description that can point to an absolute path, e.g. `/about`
-* `onClick(e)`: A custom handler for the click event.
-* `activeClassName`: The className a `<Link>` receives when its route is active that
-can be used for styling.
-
-A `<Link>` will be active if the current route is either the linked route
-or any descendant of the linked route.
-
 See the [React docs](https://github.com/ReactTraining/react-router/blob/master/docs/guides/IndexRoutes.md) for more information on `<Link>`.

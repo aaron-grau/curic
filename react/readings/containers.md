@@ -78,10 +78,9 @@ const ListContainer = connect(
 
 export default ListContainer;
 ```
-
-`ListContainer` subscribes to the redux store and maps
-functionality to props that are passed to `List`. It's necessary to
-import `List` at the top of the file, as well as actions we plan to dispatch.
+`ListContainer` serves as an interface between the store and the component it 
+wraps. It's necessary to import `List` at the top of the file, as well as actions 
+we plan to dispatch.
 
 ### Presentational Components
 
@@ -112,13 +111,10 @@ const List = ({ items, resetItems }) => {
 
 export default List;
 ```
+`List` receives props from `ListContainer`, deconstructed here as `items` and `resetItems`.
 
-`List` doesn't need to subscribe to the store. Instead it receives props from
-`ListContainer` as arguments, deconstructed here as `items` and `resetItems`.
-
-In `List` we delegate the responsibility of rendering individual list items
-to `Item`.
-
+In `List` we pass as props individual `items` to `Item`, delegating the 
+responsibility of rendering individual list items to that component. 
 
 #### `Item` Component
 
@@ -141,9 +137,6 @@ export default Item;
 ```
 And finally, `list` receives as props a single item, rendering that item's
 name and body.
-
-As presentational components `List` and `Item` don't know where information comes
-from our how to change it. They only render what's given to them.
 
 [provider]: ./provider.md
 [connect]: ./connect.md
