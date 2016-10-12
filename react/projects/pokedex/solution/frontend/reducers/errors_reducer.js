@@ -1,19 +1,14 @@
 import {
-  POKEMON_ERROR
+  RECEIVE_POKEMON_ERRORS
 } from '../actions/pokemon_actions';
 
-const _defaultState = {
-  responseJSON: []
-};
-
-const PokemonReducer = (state = _defaultState, action) => {
-  debugger;
+const ErrorsReducer = (state = [], action) => {
   switch (action.type) {
-    case POKEMON_ERROR:
+    case RECEIVE_POKEMON_ERRORS:
       return action.errors;
     default:
       return state;
   }
 };
 
-export default PokemonReducer;
+export default ErrorsReducer;

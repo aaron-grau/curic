@@ -50,7 +50,7 @@ class PokemonForm extends React.Component {
   errors() {
     if (this.props.errors) {
       return (
-        this.props.errors.responseJSON.map((error) => {
+        this.props.errors.map((error) => {
           return (<li className="error" key={error}>{error}</li>);
         })
       );

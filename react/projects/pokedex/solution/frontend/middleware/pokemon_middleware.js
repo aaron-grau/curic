@@ -16,11 +16,13 @@ import { receiveAllPokemon,
 export default ({dispatch}) => next => action => {
   const receivePokemonSuccess = data => dispatch(receiveAllPokemon(data));
   const receiveSinglePokemonSuccess = data => dispatch(receiveSinglePokemon(data));
-  const receiveNewPokemonSuccess = (data) => {
+  const receiveNewPokemonSuccess = data => {
     dispatch(receiveNewPokemon(data));
     History.push(`/pokemon/${data.id}`);
   };
-  const pokemonFailure = errors => dispatch(pokemonErrors(errors));
+  const pokemonFailure = errors => {
+    dispatch(pokemonErrors(errors.responseJSON));
+  }
 
   switch (action.type) {
     case REQUEST_ALL_POKEMON:

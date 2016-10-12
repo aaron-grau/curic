@@ -25,10 +25,9 @@ export const requestSinglePokemon = id => ({
 	id
 });
 
-export const createPokemon = (pokemon, push) => ({
+export const createPokemon = (pokemon) => ({
 	type: CREATE_POKEMON,
 	pokemon,
-	push
 });
 
 export const receiveNewPokemon = pokemon => ({
