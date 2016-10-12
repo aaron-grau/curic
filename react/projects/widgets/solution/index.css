@@ -6,6 +6,9 @@
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
+  background-image: url(http://www.wallpapersonview.com/wallpapers/2/abstract_rainbow-13.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .auto > *{
@@ -48,12 +51,14 @@
 
 .clock{
   font-size: 28px;
+  color: white;
   font-family: Orbitron;
   width: 550px;
   height: 94px;
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
+  background-image: url(https://quefaitlhommedesontemps.files.wordpress.com/2016/02/steins-gate-horloges.jpg);
 }
 
 .clock p{
@@ -66,12 +71,14 @@
 
 .weather{
   font-size: 28px;
+  color: white;
   width: 550px;
   height: 94px;
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
   text-align: center;
+  background-image: url(http://www.luxurytravel.com/img/destinations/lux_660x280_san_francisco_bridge01.jpg);
 }
 
 .weather p{
@@ -103,6 +110,7 @@
   padding-top: 4px;
   text-align: center;
   cursor: pointer;
+  background-color: lightblue;
 }
 
 .tab-header > span:first-child{
@@ -128,6 +136,7 @@
 }
 
 .tab-content{
+  font-weight: bold;
   height: 192px;
   margin: 0 20px;
   border-left: 2px solid black;
@@ -136,6 +145,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url(https://thumbs.dreamstime.com/x/abstract-folders-background-14306058.jpg);
 }
 
 .tab-content p{

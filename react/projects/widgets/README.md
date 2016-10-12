@@ -80,6 +80,9 @@ when the user selects different headers.
   being moused over. Change the `cursor` to be a `pointer` when you're
   mousing over the tabs to make it clear that the tabs are interactive.
 
+* Add a background. Use the `background-image` or `background-color`
+  property to change the background. Feel free to do this for every widget.
+
 ## Weather Clock
 
 ### Goal
