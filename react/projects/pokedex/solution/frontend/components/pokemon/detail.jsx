@@ -1,7 +1,7 @@
 import React from 'react';
-import ToyItem from '../toys/item';
+import Item from '../items/item';
 
-const PokemonDetail = ({ pokemonDetail, toys, children }) => (
+const PokemonDetail = ({ pokemonDetail, items, children }) => (
 	<section className="pokemon-detail">
 		<ul>
 			<img src={pokemonDetail.image_url} alt={pokemonDetail.name}/>
@@ -11,10 +11,10 @@ const PokemonDetail = ({ pokemonDetail, toys, children }) => (
 				<li>Defense: {pokemonDetail.defense}</li>
 				<li>Moves: &#34;{pokemonDetail.moves.join(', ')}&#34;</li>
 		</ul>
-		<section className="toys">
+		<section className="items">
 			<h3>Toys</h3>
 			<ul className="toy-list">
-				{toys.map((toy) => <ToyItem key={toy.name} toy={toy}/>)}
+				{items.map((item) => <Item key={item.name} item={item}/>)}
 			</ul>
 		</section>
 		{children}

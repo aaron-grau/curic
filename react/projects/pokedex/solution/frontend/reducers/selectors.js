@@ -1,4 +1,4 @@
-export const selectPokemonToy = (pokemonDetail, toyId) => pokemonDetail.toys[toyId] || {};
+export const selectPokemonToy = (pokemonDetail, itemId) => pokemonDetail.items[itemId] || {};
 
 export const selectDetail = (pokemonDetail) => {
   if (pokemonDetail)
@@ -13,8 +13,8 @@ export const selectDetail = (pokemonDetail) => {
   };
 };
 
-export const selectToys = (pokemonDetail) => {
-	return pokemonDetail && pokemonDetail.toys ? Object.keys(pokemonDetail.toys).map((toyId) => {
-		return pokemonDetail.toys[toyId];
+export const selectItems = (pokemonDetail) => {
+	return pokemonDetail && pokemonDetail.items ? Object.keys(pokemonDetail.items).map((itemId) => {
+		return pokemonDetail.items[itemId];
 	}) : [];
 };

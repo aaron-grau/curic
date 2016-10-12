@@ -5,7 +5,7 @@ import {
   POKEMON_ERROR,
   REQUEST_ALL_POKEMON,
   REQUEST_SINGLE_POKEMON } from '../actions/pokemon_actions';
-  
+
 import merge from 'lodash/merge';
 
 const PokemonReducer = (state = {loading: false, pokemon: []}, action) => {
@@ -21,7 +21,7 @@ const PokemonReducer = (state = {loading: false, pokemon: []}, action) => {
         pokemonDetail: action.pokemon
       });
     case RECEIVE_NEW_POKEMON:
-      action.pokemon.toys = {};
+      action.pokemon.items = {};
       return merge({}, state, {
         pokemonDetail: action.pokemon,
         pokemon: [...state.pokemon, action.pokemon]

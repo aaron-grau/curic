@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import ToyDetail from './detail';
+import ItemDetail from './item_detail';
 import { selectPokemonToy } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-  const { params: {toyId} } = ownProps;
-  const toy = selectPokemonToy(state.pokemonDetail, toyId);
+  const { params: {itemId} } = ownProps;
+  const item = selectPokemonToy(state.pokemonDetail, toyId);
 
-  return { toy };
+  return { item };
 };
 
 export default connect(
   mapStateToProps,
   null
-)(ToyDetail);
+)(ItemDetail);
