@@ -230,6 +230,9 @@ name.
   padded inside the box. Change the `cursor` property to display a
   pointer when hovering over one of the `<li>`s.
 
+* Center all your widgets using flexboxes. Which `justify-content` property
+  would you use for this?
+
 ### Bonus: React-Transitions
 
 Right now, the matched names instantly appear on the screen and the filtered names instantly disappear. This is abrupt and ugly. We want the names to fade out or in when they are entering or leaving the page. How can we achieve that with React? With the [ReactCSSTransitionGroup][react-transitions]!
