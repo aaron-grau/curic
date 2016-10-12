@@ -1,15 +1,15 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import History from '../../util/history';
 
-const handleClick = (router, url) => (
-  () => router.push(url)
+const handleClick = url => (
+  () => History.push(url)
 );
 
-const ToyItem = ({ item, router }) => (
-		<li onClick={handleClick(router, `/pokemon/${item.pokemon_id}/item/${item.id}`)}>
+const ToyItem = ({item}) => (
+		<li onClick={handleClick(`/pokemon/${item.pokemon_id}/item/${item.id}`)}>
 			<img src={item.image_url} alt={item.name}/>
 		</li>
 );
 
 
-export default withRouter(ToyItem);
+export default ToyItem;

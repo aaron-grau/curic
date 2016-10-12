@@ -3,8 +3,8 @@ import PokemonDetail from './detail';
 import { selectDetail, selectItems } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  pokemonDetail: selectDetail(state.pokemonDetail),
-  items: selectItems(state.pokemonDetail)
+  pokemonDetail: selectDetail(state),
+  items: selectItems(state)
 });
 
 export default connect(mapStateToProps)(PokemonDetail);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
+import History from '../util/history';
 
 import PokemonIndexContainer from './pokemon/index_container';
 import PokemonDetailContainer from './pokemon/detail_container';
@@ -21,7 +22,7 @@ const Root = ({ store }) => {
 
 	return (
 		<Provider store={store}>
-			<Router history={hashHistory}>
+			<Router history={History}>
 				<Route path="/" component={PokemonIndexContainer} onEnter={requestAllPokemonOnEnter}>
 					<IndexRoute component={PokemonFormContainer}/>
 					<Route 	path="pokemon/:pokemonId"
