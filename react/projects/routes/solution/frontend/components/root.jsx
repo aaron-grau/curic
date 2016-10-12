@@ -5,6 +5,8 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
 import SplashPageContainer from './splash_page/splash_page_container';
 import DashboardContainer from './dashboard/dashboard_container';
+import TodoFormContainer from './todos/todo_form_container';
+import TodoDetailViewContainer from './todos/todo_detail_view_container';
 
 import { requestTodos, requestTodo } from '../actions/todos_actions.js';
 
@@ -29,7 +31,10 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={SplashPageContainer} onEnter={redirectIfLoggedIn} />
-          <Route path="dashboard" component={DashboardContainer} onEnter={requestTodosOnEnter} />
+          <Route path="dashboard" component={DashboardContainer} onEnter={requestTodosOnEnter} >
+            <IndexRoute component={TodoFormContainer} />
+            <Route path="todos/:todoId" component={TodoDetailViewContainer} />
+          </Route>
         </Route>
       </Router>
     </Provider>

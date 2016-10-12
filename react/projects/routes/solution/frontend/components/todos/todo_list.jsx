@@ -4,14 +4,11 @@ import TodoListItem from './todo_list_item';
 import TodoForm from './todo_form';
 
 class TodoList extends React.Component {
-  componentDidMount() {
-    this.props.requestTodos();
-  }
-
   render() {
-    const { todos, createTodo, toggleTodo } = this.props;
+    const { todos, toggleTodo } = this.props;
     return(
       <div className='todo-list'>
+        <h3>todo list</h3>
         <ul>
           {todos.map(todo => (
             <TodoListItem

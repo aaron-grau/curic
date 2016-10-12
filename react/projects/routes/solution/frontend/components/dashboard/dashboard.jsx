@@ -6,7 +6,14 @@ const Dashboard = ({ children }) => {
   return (
     <div className='dashboard'>
       <h1>dashboard</h1>
-      <TodoListContainer />
+      <main>
+        <section>
+          <TodoListContainer />
+        </section>
+        <section>
+          {children}
+        </section>
+      </main>
     </div>
   );
 }

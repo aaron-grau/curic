@@ -58,12 +58,8 @@ h1, h3 {
   text-transform: uppercase;
 }
 
-h1 {
-}
-
 h2, h4 {
-  text-transform: capitalize;
-  font-family: 'Lora', serif;
+  text-transform: lowercase;
 }
 
 #content {
@@ -71,10 +67,10 @@ h2, h4 {
 }
 
 .app {
-  // height: 100vh;
   display: flex;
   flex-flow: column;
   height: 100%;
+  min-width: 800px;
 }
 
 .app .splash-page {
@@ -111,7 +107,7 @@ h2, h4 {
   border-bottom: 1px solid $navy;
 }
 
-.nav-bar button {
+.nav-bar > button {
   font-size: 12px;
   height: inherit;
   background-color: $coral;
@@ -133,13 +129,46 @@ h2, h4 {
 
 .app .dashboard {
   width: 100%;
+  padding-top: 20px;
   flex: 1 1 auto;
   text-align: center;
-  background-image: url('coffee-dashboard.jpeg');
+  background-image: url(coffee-dashboard.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; */
+  /* align-items: center; */
   color: $eggshell;
+  flex-direction: column;
+  /* align-content: stretch; */
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+}
+
+.dashboard h1 {
+  font-size: 72px;
+  font-weight: 400;
+  border-bottom: 2px solid $eggshell;
+  flex: 0 1 auto;
+  margin: 0 auto;
+}
+
+.dashboard main {
+  display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      flex: 1 1 auto;
+      overflow: auto;
+}
+
+.dashboard main > section {
+  margin: 20px;
+  background: $eggshell;
+  min-width: 400px;
+  opacity: 0.8;
+}
+
+.dashboard main > section:hover {
+  opacity: 0.95;
 }
