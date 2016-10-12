@@ -5,7 +5,7 @@
 
 ## Overview
 
-Today we're using React.js and Redux to create our own musical keyboard! Check out the live demo [here][live-demo] to get a sense of what you are building! If you have any trouble playing the keys update your chrome browser to the newest verison.
+Today we're using React.js and Redux to create our own musical keyboard! Check out the live demo [here][live-demo] to get a sense of what you are building! If you have any trouble playing the keys update your chrome browser to the newest version.
 
 [live-demo]:http://appacademy.github.io/curriculum/react/synthesizer/solution/index.html
 
@@ -190,7 +190,7 @@ look something like this:
 ### Action Creators
 
 We need start by to defining action creators. Remember, an **action creator** is
-simply a function that returns an action. **Actions** are POJO that define what we can do in our
+simply a function that returns an action. **Actions** are POJOs that define what we can do in our
 app. They have a mandatory `type` property indicating the type of
 action being performed.
 
@@ -216,7 +216,7 @@ export const KEY_PRESSED = "KEY_PRESSED";
 returns an action of `type` `"KEY_PRESSED".`
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
-Your action creator `notePressed` should look like this:
+Your action creator `keyPressed` should look like this:
 
 ```js
 // actions/note_actions.js
@@ -321,13 +321,11 @@ new store with the root reducer.
   import ReactDOM from 'react-dom';
   import configureStore from './store/store';
 
-
-
   document.addEventListener('DOMContentLoaded', () => {
     const store = configureStore();
-    window.store = store;
     const rootEl = document.getElementById('root');
     ReactDOM.render(<h1> Hi from Synth </h1>, rootEl);
+    // window.store = store;
   });
 ```
 
@@ -385,8 +383,6 @@ returned by `configureStore`. Your entry file should now look something like the
   import configureStore from './store/store';
   import Root from './components/root';
 
-
-
   document.addEventListener('DOMContentLoaded', () => {
     const store = configureStore();
     window.store = store;
@@ -410,7 +406,7 @@ Fortunately, `react-redux` provides a function that does this for us: [`connect`
 
 * Create a new directory `components/synth`.
 * Create a file `components/synth/synth.jsx`. Import `React` from `react`.
-* Define and export `Synth`, a component that extends `React.component`. Have it's render method simply return `<div>Synth</div>` for now.
+* Define and export `Synth`, a component that extends `React.component`. Have its render method simply return `<div>Synth</div>` for now.
 * Create a file `components/synth/synth_container.jsx`, and import both `connect` from
 `react-redux` and your `Synth` component from `./synth`.
 * Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key. For example,

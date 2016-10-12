@@ -145,7 +145,6 @@ fetchContacts = (success, error) => ({
 });
 
 export default fetchContacts;
-
 ```
 
 ```js

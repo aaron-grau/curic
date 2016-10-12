@@ -24,7 +24,7 @@ store.getState(); // [ 'orange' ]
 
 However, when these action payloads are generated dynamically, it becomes
 necessary to extrapolate the creation of the action object into a function.
-These functions are called **action creators**. The javascript object they return are the **actions**. To initiate a dispatch, you
+These functions are called **action creators**. The javascript objects they return are the **actions**. To initiate a dispatch, you
 pass the result of calling an action creator to `store.dispatch()`.
 
 For example:
