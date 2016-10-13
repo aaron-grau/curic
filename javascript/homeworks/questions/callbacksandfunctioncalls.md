@@ -103,3 +103,5 @@ Start by calling `chase` method-style on Noodles, passing in Markov (don't worry
 Now, let's make things a little bit crazier and use `call` and `apply`.
 
 We can use `call` and `apply` to change the identity of `this`. Test out `Noodles.chase.call(Markov, Noodles)`. `Noodles.chase` just returns to us a regular function, and when we use `call` with Markov as our first argument, `this` is set to Markov! Whoa, cats chasing dogs! Apply is similar, but we need to pass it an array of arguments. Try using `apply` to change the context of `Noodles.chase` to Markov. 
+
+After you finish the homework, or if you get stuck on one of the problems, you can view the solutions [here](https://github.com/appacademy/curriculum/tree/master/javascript/homeworks/solutions).
