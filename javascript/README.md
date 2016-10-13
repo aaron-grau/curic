@@ -122,8 +122,9 @@
 
 ### Projects
 * [Intro to Callbacks Exercises][functions_exercises]
-* [Towers of Hanoi][hanoi_node]
 * [Tic-Tac-Toe][ttt_node]
+* [Towers of Hanoi][hanoi_node]
+
 
 [functions_exercises]: projects/functions_exercises
 [hanoi_node]: projects/hanoi_node
