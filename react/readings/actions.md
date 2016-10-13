@@ -19,7 +19,7 @@ const addOrange = {
 };
 
 store.dispatch(addOrange);
-store.getState(); // [ 'orange' ]
+store.getState(); // ['orange']
 ```
 
 However, when these action payloads are generated dynamically, it becomes
@@ -31,7 +31,7 @@ For example:
 ```js
 // actions/fruit_actions.js
 
-const addFruit = (fruit) => ({
+const addFruit = fruit => ({
 	type: "ADD_FRUIT",
 	fruit
 });
@@ -52,31 +52,29 @@ store.getState(); // [ 'orange', 'apple', 'strawberry', 'lychee' ]
 Let's update our actions to include `"ADD_FRUIT"`, `"ADD_FRUITS"`, `"SELL_FRUIT"` like in the [reducers][reducers] reading.
 
 ```js
-  // actions/fruit_actions.js
+// actions/fruit_actions.js
 
-	export const ADD_FRUIT = "ADD_FRUIT";
-	export const ADD_FRUIT = "ADD_FRUIT";
-	export const SELL_FRUIT = "SELL_FRUIT";
+export const ADD_FRUIT = "ADD_FRUIT";
+export const ADD_FRUIT = "ADD_FRUIT";
+export const SELL_FRUIT = "SELL_FRUIT";
 
-	export const addFruit = fruit => ({
-		type: ADD_FRUIT,
-		fruit
-	});
+export const addFruit = fruit => ({
+	type: ADD_FRUIT,
+	fruit
+});
 
-	export const addFruits = fruits => ({
-		type: ADD_FRUITS,
-		fruits
-	});
+export const addFruits = fruits => ({
+	type: ADD_FRUITS,
+	fruits
+});
 
-	export const sellFruit = fruit => ({
-		type: SELL_FRUIT,
-		fruit
-	});
+export const sellFruit = fruit => ({
+	type: SELL_FRUIT,
+	fruit
+});
 
 ```  
 Note that we created constants for all of our fruit action types. Say we accidentally typed "ADD FRIUT" in our reducer's case statement later on - the lines of code following it would never be evaluated. By creating constants for our string literals we ensure that we will get a error thrown were we to write `ADD_FRIUT`.
-
-
 
 
 ## Official Documentation
