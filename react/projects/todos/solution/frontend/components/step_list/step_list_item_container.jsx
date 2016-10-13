@@ -5,7 +5,7 @@ import { updateStep, destroyStep } from '../../actions/step_actions';
 
 const mapDispatchToProps = (dispatch, { step }) => ({
   destroyStep: () => dispatch(destroyStep(step)),
-  updateStep: updatedStep => dispatch(updateStep(updatedStep))
+  updateStep: step => dispatch(updateStep(step))
 });
 
 export default connect(
