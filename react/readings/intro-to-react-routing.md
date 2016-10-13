@@ -108,6 +108,7 @@ It's also possible to use [`named components`](https://github.com/ReactTraining/
 
 ```js
 // root.jsx
+
 import { Router, Route, hashHistory } from 'react-router';
 import App from './app.jsx'
 
