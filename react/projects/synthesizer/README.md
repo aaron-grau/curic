@@ -1,10 +1,10 @@
 # Redux Synthesizer
 
-[**Live Demo!**][live-demo]
-
 ## Overview
 
 Today we're using React.js and Redux to create our own musical keyboard! Check out the live demo [here][live-demo] to get a sense of what you are building! If you have any trouble playing the keys update your chrome browser to the newest version.
+
+[**Live Demo!**][live-demo]
 
 [live-demo]:http://appacademy.github.io/curriculum/react/synthesizer/solution/index.html
 
