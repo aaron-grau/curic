@@ -1,14 +1,14 @@
 # Redux Synthesizer
 
-Live demo available [here][live-demo]!
+## Overview
+
+Today we're using React.js and Redux to create our own musical keyboard! Check out the live demo [here][live-demo] to get a sense of what you are building! If you have any trouble playing the keys update your chrome browser to the newest version.
+
+[**Live Demo!**][live-demo]
 
 [live-demo]:http://appacademy.github.io/curriculum/react/synthesizer/solution/index.html
 
-## Overview
-
-Today we're using React.js and Redux to create our own musical keyboard!
-
-## Phase 1: Frontend Structure
+## Phase 0: Frontend Structure
 
 * Create a project directory.
 * Create an `index.html` file and give it a `<div id="root"></div>` container.
@@ -23,8 +23,8 @@ Today we're using React.js and Redux to create our own musical keyboard!
   * `babel-loader`
   * `babel-preset-react`
   * `babel-preset-es2015`
-* Run `npm install --save jquery`. We'll be using jQuery later to install key listeners.
-* Run `npm install --save lodash`. We'll be using `merge` from the [lodash][lodash] library later to help prevent object mutation in our app's state.
+  * `jquery`
+  * `lodash` -  We'll be using `merge` from the [lodash][lodash] library later to help prevent object mutation in our app's state.
 * Create a `/frontend` folder at the root directory of your project to contain
  all of your front-end code.
 * Model your `/frontend` folder to look like the directory tree below:
@@ -39,8 +39,9 @@ Today we're using React.js and Redux to create our own musical keyboard!
     + synthesizer.jsx
   ```
 
+* Import `React` from `react` and `ReactDOM` from `react-dom`.
 * Set up your entry file `synthesizer.jsx` to render your app into the into the
- `#root` container of your `index.html`.
+ `#root` container of your `index.html`. You'll want to add an event listener for `'DOMContentLoaded'` and pass it a callback that finds and uses `ReactDOM` to render into the `#root` container from `index.html`.
 * Configure your webpack setup in `webpack.config.js` to compile all of your JS
  into a `bundle.js`.
  * You may copy the code below (and use it as a template for future projects).
@@ -81,7 +82,8 @@ module.exports = {
 
 [lodash]:https://lodash.com/docs
 
-## Phase 2: Notes and Tones
+## Phase 1: Notes and Tones
+
 
 #### `Note` Class
 
@@ -93,6 +95,7 @@ You need a `Note` class which you will use to actually play tones using the
 
 ```js
 // util/note.js
+
 const ctx = new (window.AudioContext || window.webkitAudioContext)();
 
 const createOscillator = (freq) => {
@@ -142,9 +145,11 @@ keyboard keys (e.g. `a`, `s`) into frequencies (i.e. tones) which we will need
 to create `Note`s.
 
 * Create a `util/tones.js` file.
-* From there export a `TONES` constant, a JavaScript object mapping key names to frequencies. Something like this,
+* From there create and export a `TONES` constant, a JavaScript object mapping key names to frequencies. Something like this,
 
   ```js
+  // util/tones.js
+
   export const TONES = {
     'a': 523.25,
     's': 587.33,
@@ -154,15 +159,15 @@ to create `Note`s.
   };
   ```
 
-  Feel free to copy and paste the object above. Use [this table][note-frequencies]
-  as a resource for additional keys, if you're interested.
-* Export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
+  Feel free to copy and paste the object above. If you are interested, you may use [this table][note-frequencies]
+  as a resource for additional keys.
+* Create and export a `NOTE_NAMES` constant, an array of all of the keys from `TONES`.
 
 We'll be using these constants later to map our keyboard keys to tones.
 
 [note-frequencies]: http://www.phy.mtu.edu/~suits/notefreqs.html
 
-## Phase 3: Notes Redux Structure
+## Phase 2: Notes Redux Structure
 
 ### Designing the State Shape
 
@@ -184,40 +189,44 @@ look something like this:
 ### Action Creators
 
 We need start by to defining action creators. Remember, an **action creator** is
-simply a function that returns an action. **Actions** define what we can do in our
-app. They are POJOs that have a `type` property indicating the type of
+simply a function that returns an action. **Actions** are POJOs that define what we can do in our
+app. They have a mandatory `type` property indicating the type of
 action being performed.
 
 * Create an `actions/notes_actions.js` file which will house our action creators changing the app's `notes`.
 
 #### `Note Action Constants`
 
-Action `type`s are typically expressed as string constants.
+Action `type`s are typically expressed as string constants - that way if you accidentally misspell the type later on an error will get thrown versus silently failing.
 
-* In our new file, let's export `KEY_PRESSED` and `KEY_RELEASED`.
+* In `notes_actions.js`, let's export two action types: `KEY_PRESSED` and `KEY_RELEASED`.
 
 For example,
 
 ```js
+// actions/note_actions.js
+
 export const KEY_PRESSED = "KEY_PRESSED";
 ```
 
-#### `keyPressed`
+#### `keyPressed(key)`
 
 + Export a `keyPressed` function which takes the keyboard `key` pressed and
 returns an action of `type` `"KEY_PRESSED".`
 + Add `key` as a property to the action to let the store know which `key` to add to its `notes` array.
 
-Your action creator should look like this:
+Your action creator `keyPressed` should look like this:
 
 ```js
+// actions/note_actions.js
+
 export const keyPressed = key => ({
   type: KEY_PRESSED,
   key
 });
 ```
 
-#### `keyReleased`
+#### `keyReleased(key)`
 
 + Export a `keyReleased` function which takes the keyboard `key` released and
 returns an action of `type` `"KEY_RELEASED"`.
@@ -235,24 +244,25 @@ state and return it. No side effects, such as mutating its arguments!
 
 Let's write a reducer for our app which handles the actions we defined above.
 
+
+
+
 #### `notes` Reducer
 
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
   + `state` - the previous `notes` state;
   + `action` - the action object dispatched.
-+ Import `KEY_PRESSED` and `KEY_RELEASED` from `notes_actions.js`.
-+ Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to return an empty array as
-the initial state.
++ Import `KEY_PRESSED` and `KEY_RELEASED` from `../actions/notes_actions.js`.
++ Import `NOTE_NAMES` from `../util/tones`.
++ Redux will call our reducer with an `undefined` state for the first time so use the [ES6 default arguments syntax][default-args] to give our state argument a default value of an empty array.
++ Call [`Object.freeze()`][object-freeze] on the state in order to avoid accidentally mutating it!
 + Add a `switch` statement evaluating `action.type`.
 + Return the previous `state` as the `default` case.
 + Then add a case for each action type.
-  + `KEY_PRESSED` - If the `action.key` isn't already in the state (i.e. already
-  playing) then return a new state with the new key appended to the previous
-  state, else return the previous state.
-  + `KEY_RELEASED` - Return a new state with the `action.key` removed only if
-  it's currently playing (i.e. in the state), else return the previous state.
+  + `KEY_PRESSED` - Return a new state with the `action.key` appended to the previous state if the note isn't already playing (i.e. `action.key` isn't already in the state), else return the previous state.
+  + `KEY_RELEASED` - Return a new state with the `action.key` removed only if the `action.key` is currently in the state (i.e. currently playing), otherwise return the previous state.
 
-*NB*: State is never mutated in Redux. Thus, we must return a new array when
+*NB*: State is never mutated in Redux (hence the use of `Object.freeze()`). Thus, we must return a new array when
 our state changes. Make sure your `notes` reducer creates and returns a new
 array when adding or removing a note. This is a good [reference][array-mutation]
 on how to avoid array mutation ([here][array-mutation-code]'s the code from the video).
@@ -261,6 +271,7 @@ on how to avoid array mutation ([here][array-mutation-code]'s the code from the 
 [array-mutation]: https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread
 [array-mutation-code]:https://jsbin.com/juseku/1/embed?js
 [union-lodash]: https://lodash.com/docs#union
+[object-freeze]: ../../readings/object_freeze.md
 
 
 We're almost there. Note that `action.key` references keys that should be included in `NOTE_NAMES`.
@@ -282,11 +293,12 @@ We only have one reducer right now, but later as our app grows we'll be adding
 more. For now, let's define a root reducer that calls all of the reducers
 managing parts of the state, and combines them into a single function.
 
-* Create a new file called `reducers/index.js` file.
-* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer.
-* Using them, define and `export default` a root `reducer` function.
+* Create a new file called `reducers/root_reducer.js` file.
+* Import [`combineReducers`][combine-reducers] from `redux` and your `notes` reducer from `./notes_reducer`.
+* Using `combineReducers`, define and `export default` a `rootReducer` function.
 
 [combine-reducers]: http://redux.js.org/docs/api/combineReducers.html
+
 
 ### Store
 In Redux, the store calls the reducer function you give it whenever
@@ -296,19 +308,38 @@ called in response to the new state!
 
 + Create a `store/store.js` file and import [`createStore`][create-store] from
 `redux` and your root `reducer`.
-+ Define and `export default` a function called `configureStore` that returns a
++ Define a POJO `preloadedState` that maps `notes` to an empty array.
++ Define and `export default` a function called `configureStore` that takes `preloadedState` as an argument and returns a
 new store with the root reducer.
-+ In your entry file, import `configureStore` and create your app's `store`.
++ In your entry file (`synthesizer.jsx`), import `configureStore` and create your app's `store`. It would be a good idea to define the store on your window. Our code should look something like the following:
+
+```js
+  // synthesizer.jsx
+
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import configureStore from './store/store';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const store = configureStore();
+    const rootEl = document.getElementById('root');
+    ReactDOM.render(<h1> Hi from Synth </h1>, rootEl);
+    window.store = store; // for testing
+  });
+```
+
+Note that you should *never* invoke `configureStore()` more than once - you only need one store! Run `open index.html` in your terminal and open up chrome dev tools, does `store.getState()` return what you would expect?
 
 [create-store]: http://redux.js.org/docs/api/createStore.html
 
-## Phase 4: Synth Components
+
+## Phase 3: Synth Components
 
 ### `App` Component
 The `App` component will hold all of the top-level components of your app.
 
 + Create a file `components/app.jsx` and import `React` from `react`.
-+ Define and `export default` a functional `App` component.
++ Define and `export default` a functional `App` component. For now this should just be a `div`  with `className='app'`.
 
 ### `Root` Component
 
@@ -325,6 +356,12 @@ store are known as **container** components.
 wraps your `App` with a `Provider`. Like so:
 
   ```js
+  // components/root.jsx
+
+  import React from 'react';
+  import { Provider } from 'react-redux';
+  import App from './app';
+
   const Root = ({ store }) => (
     <Provider store={store}>
       <App/>
@@ -335,7 +372,23 @@ wraps your `App` with a `Provider`. Like so:
   ```
 
 + Update your entry file to render your `Root` component, passing it the store
-returned by `configureStore`.
+returned by `configureStore`. Your entry file should now look something like the following:
+
+```js
+  // synthesizer.jsx
+
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import configureStore from './store/store';
+  import Root from './components/root';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const store = configureStore();
+    const rootEl = document.getElementById('root');
+    ReactDOM.render(< Root, store={store} />, rootEl);
+    window.store = store; //for testing
+  });
+```
 
 [provider]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store
 
@@ -351,10 +404,10 @@ dispatch to a set of props that get passed to the presentational component.
 Fortunately, `react-redux` provides a function that does this for us: [`connect`][connect].
 
 * Create a new directory `components/synth`.
-* Create a file `components/synth/synth.jsx`. Define and export `Synth`, a functional component. Have it render `<div>Synth</div>` to
-start and test.
+* Create a file `components/synth/synth.jsx`. Import `React` from `react`.
+* Define and export `Synth`, a component that extends `React.component`. Have its render method simply return `<div>Synth</div>` for now.
 * Create a file `components/synth/synth_container.jsx`, and import both `connect` from
-`react-redux` and your `Synth` component.
+`react-redux` and your `Synth` component from `./synth`.
 * Define a `mapStateToProps(state)` function. Return an object that maps `state.notes` to a `notes` key. For example,
 
   ```js
@@ -363,7 +416,7 @@ start and test.
   })
   ```
 
-* Import your `keyPressed` and `keyReleased` action creators.
+* Import your `keyPressed` and `keyReleased` action creators from `../../actions/note_actions`.
 * Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators.
 
 For example,
@@ -388,7 +441,7 @@ connect it to your Redux store.
   ```
 
 * In your `App` component, import your `SynthContainer` and render it. Make sure you can `webpack` your app and that there are
-no errors in the console before moving on.
+no errors in the console before moving on. Make sure you can now see 'Synth' somewhere on your webpage!
 
 [connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
 
@@ -400,7 +453,6 @@ state, lifecycle hooks, etc. Your `Synth` component will initialize an array of
 `Note` objects, calling `start` and `stop` depending on the notes in the store and
 define key listeners on the window.
 
-* Redefine your `Synth` component so that it extends the `React.Component`.
 * Import your `NOTE_NAMES` and `TONES` constants, and `Note` class.
 * In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback: your `Note`
 constructor takes a frequency as a parameter, not a string. Hint: Use
@@ -420,7 +472,12 @@ KeyboardEvent.
 * In `componentDidMount`, install the two listeners by calling the `on` methods on `$(document)`. For example,
 
   ```js
-  $(document).on('keydown', e => this.onKeyDown(e));
+  // components/synth/synth_component.jsx
+
+  componentDidMount(){
+    $(document).on('keydown', e => this.onKeyDown(e));
+    $(document).on('keyup', e => this.onKeyUp(e));
+  }
   ```
 
 When a user presses a key, the key listener calls your `onKeyDown(e)` function,
@@ -437,28 +494,30 @@ some of the overhead in our `notes` reducer?
 
 Ok, let's actually start jamming.
 
-* Define a `playNotes` function.
-* Iterate through `this.notes`, calling `start` on all of the notes present in the store and `stop` on all the other notes.
-* Call `playNotes` in `render`.
-* Test your app! Make sure that your have your key actions, reducer and listeners working before continuing.
+Define a `playNotes` function. It should iterate through `this.notes`, calling `start` on all of the notes present in the store and `stop` on all the other notes. Then call `playNotes` in `render`. Your `render` should return a list of `this.notes`.
+
+Test your app! Make sure that your have your key actions, reducer and listeners working before continuing.
 
 [keyboard-event]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
 ### `NoteKey` Component
 
 Let's write a pure presentational component, `NoteKey`. This component will be
 the visual representation of a single note in your piano.
 
 * Create a new file, `components/synth/note_key.jsx`.
-* Define and export a new functional component called `NoteKey`.
+* Define and export a new functional component called `NoteKey({note, pressed})`. Here we are [destructing][destructing] the props `note` and `pressed` that we will pass into `NoteKey`.
 * Import `NoteKey` in `Synth`.
-* Render a list of `NoteKey`s instead of list `this.notes`, passing as a prop the note name.
+* Render a list of `NoteKey`s instead of a list `this.notes`, passing as a prop the note name.
 * Change your `NoteKey` component to display the name of the note.
 
 Cool, you now have the core of your Redux Synthesizer done. Let's start adding additional features!
 
+
+[destructing]: ../../readings/object_destructuring.md
 ---
 
-## Phase 5: Recorder Redux Structure
+## Phase 4: Recorder Redux Structure
 
 Let's give our synthesizer the ability to record tracks.
 
@@ -467,8 +526,10 @@ This means in addition to storing `notes`, our state needs to store:
 + `isRecording` - a boolean to indicate if your app is recording or not;
 + `tracks` - an object of tracks objects.
 
+Add these options to your `preloadedState` in `store/store`.
+
 Here's a sample of our new state shape:
-```
+```js
 {
   notes: ['a', 's'],
   isRecording: false,
@@ -512,35 +573,36 @@ discussing the details of our track objects for a little later.
 
 #### `startRecording`
 
-+ Export a `startRecording` function which takes 0 arguments and returns an action of `type` `START_RECORDING`.
++ Export a `startRecording` action creator which takes no arguments and returns an action of `type` `START_RECORDING`.
 + Add `timeNow` as a property to the action and assign `Date.now()` as its value.
 
 #### `stopRecording`
 
-+ Export a `stopRecording` function which takes 0 arguments and returns an action of the appropriate type.
++ Export a `stopRecording` action creator which takes no arguments and returns an action of the appropriate type.
 + Add `timeNow` as a property to the action and assign `Date.now()` as its value.
 
 #### `addNotes`
 
-+ Export a `addNotes` function which takes an array of `notes` as an argument and returns an action of the appropriate type.
++ Export a `addNotes(notes)` action creator which takes an array of `notes` as an argument and returns an action of the appropriate type.
 + Add `timeNow` as a property to the action and assign `Date.now()` as its value.
 + Add `notes` as a property to let the store know which `notes` to add to the track's roll.
 
 ### Reducers
 
-#### `isRecording` Reducer
+#### `isRecordingReducer`
 + Create a `reducers/is_recording_reducer.js` file that exports a `recording(state, action)` reducer.
 + Import your constants from `actions/tracks_actions.js`.
++ `Export default` your `isRecordingReducer`.
 + Use the ES6 default arguments syntax to return `false` as the initial state.
 + Add a `switch` statement evaluating `action.type` and return `state` as the `default` case.
-+ The recording is only concerned with two types of actions: `START_RECORDING` and `STOP_RECORDING`. Return the appropriate next state for each case.
++ The recording is only concerned with two action types: `START_RECORDING` and `STOP_RECORDING`. Return the appropriate next state for each case.
 
-#### `tracks` Reducer
+#### `tracksReducer`
 
 `tracks` should be an object that stores track objects using their `id`s as keys.
 
 Let's take a closer look at a track object.
-```
+```js
 {
   id: 1,
   name: 'Track 1'
@@ -564,10 +626,13 @@ We need to know the current time a note is played to calculate when to
 play a note relative to the `timeStart` of the recording (`timeSlice`) and the
 names of the notes actually played (`notes`).
 
+Let's get stated writing our `tracksReducer`:
+
 + Create a `reducers/tracks_reducer.js` file; import your constants from `actions/tracks_actions.js`, and `merge` from `lodash/merge`.
 + Initialize a variable `currTrackId` to `0`. This variable will be used to set track ids and add notes to the newest recording.
-+ `export default` your `tracks` reducer.
++ `export default` your `tracksReducer`.
 + Use the ES6 default arguments syntax to return an empty object as the initial state.
++ Call `Object.freeze()` on `state` to keep from mutating it.
 + Add a `switch` statement and return `state` as the `default` case.
 + Add a case for each action type.
   + `START_RECORDING` -
@@ -577,14 +642,14 @@ names of the notes actually played (`notes`).
     + Return this object.
   + `STOP_RECORDING` -
     + Add a new roll to the current track's `roll` containing an empty array of `notes`, ensuring that the track is silent when it ends.
-    + Calculate `timeSlice` from `action.timeNow - state[currTrackId].timeStart`.
+    + Calculate `timeSlice` with `action.timeNow - state[currTrackId].timeStart`.
     + Return the new state.
   + `ADD_NOTES` -
     + Add a new roll to the current track's `roll`.
     + Grab the `notes` played from the `action` and calculate the `timeSlice` as you did above.
     + Return the new state.
 
-*NB*: State must never be mutated in the redux, so make sure you are creating
+*NB*: State must never be mutated in the redux, so make sure you are calling `Object.freeze(state)` and creating
 and returning new objects and arrays. `Object.assign` returns a shallow copy of
 an object, which is why for nested objects we must rely on `merge` from
 `lodash`.
@@ -593,11 +658,11 @@ an object, which is why for nested objects we must rely on `merge` from
 
 #### Root Reducer
 
-+ Import your `tracks` and `isRecording` reducer.
-+ Update your root reducer so it combines your `notes`, `tracks` and `isRecording` reducers.
-+ Test that this works by looking at your initial application state. Hint: `console.log(store.getState())`.
++ Import your `tracksReducer` and `isRecordingReducer` reducers.
++ Update your root reducer so it combines your `notesReducer`, `tracksReducer` and `isRecordingReducer` reducers.
++ Test that this works by looking at your initial application state. Hint: do you still have store defined on the `window`?
 
-## Phase 6: Recording Track Components
+## Phase 5: Recording Track Components
 
 Now let's build the interface that users will use to add tracks to our store.
 
@@ -609,6 +674,7 @@ Now let's build the interface that users will use to add tracks to our store.
 * Define and export `Recorder`, a functional component to start.
 * Create a file `components/recorder/recorder_container.jsx`.
 * Import `connect` from `react-redux` and your `Recorder`.
+* Import your actions from `actions/track_actions.js`
 * Define a `mapStateToProps(state)` function returning an object that maps the state's `tracks` and `isRecording`
 * Import your `startRecording` and `stopRecording` action creators.
 * Define a `mapDispatchToProps(dispatch)` function returning an object containing callback props for each of your action creators.
@@ -625,12 +691,43 @@ store.
 * [Disable][disable] the "Start" button if `isRecording`, and `onClick`, `startRecording`.
 * Disable the "Stop" button if not `isRecording`, and `onClick`, `stopRecording`.
 
+Your code should look something like the following:
+```js
+// components/recorder/recorder.jsx
+
+import React from 'react';
+
+const Recorder = ({ isRecording, isPlaying, startRecording, stopRecording }) => (
+    <div className='recorder'>
+      <div className='recorder-title'>
+        Recorder
+      </div>
+      <button
+        className ='start-button'
+        onClick={startRecording}
+        disabled={isRecording || isPlaying}>
+        Start
+      </button>
+      <button
+        className='stop-button'
+        onClick={stopRecording}
+        disabled={!isRecording || isPlaying}>
+        Stop
+      </button>
+  </div>
+);
+
+
+export default Recorder;
+
+```
+
 [destructure]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Pulling_fields_from_objects_passed_as_function_parameter
 [disable]:http://www.w3schools.com/tags/att_button_disabled.asp
 
 ### `SynthContainer`
 
-* Rewrite `mapStateToProps` to return an object that maps both the state's `notes` and `isRecording`.
+* Update `mapStateToProps` so that `Synth` has access to the state's  `isRecording` as well as `notes`.
 * Import your `addNotes` action creator.
 * Rewrite `mapDispatchToProps` to return an object containing a callback prop for `keyPressed(key)`, `keyReleased(key)`, and `addNotes(notes)`.
 
@@ -643,7 +740,7 @@ store.
 
 Now your synthesizer plays musical notes and records tracks! Nice.
 
-## Phase 7: Jukebox
+## Phase 6: Jukebox
 
 <!-- TODO: latest stopping point  -->
 
@@ -659,7 +756,7 @@ add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 
 ### Reducers
 * Create a `reducers/is_playing_reducer.js` file.
-* Import `START_PLAYING` and `STOP_PLAYING`, and export an `isPlaying` reducer.
+* Import `START_PLAYING` and `STOP_PLAYING`, and export an `isPlayingReducer`.
 * Set the initial state to `false` and return the state by default.
 * Create switch cases for `START_PLAYING` and `STOP_PLAYING`, setting the `isRecording` to the appropriate boolean value.
 * In your `notes` reducer, add a new switch case for `GROUP_UPDATE`, replacing the `notes` in the state with `action.notes`.
@@ -679,7 +776,7 @@ add to the state a boolean `isPlaying` to indicate if a track is playing or not.
 * Define `mapDispatchToProps` returning an object containing a callback prop for `onPlay` which dispatches both action creators. We'll come back to defining it the following section.
 * Call `connect`on your `Jukebox` component to connect it to your Redux store.
 * Export the result of this call.
-* Render your `JukeboxContainer` in your `App` component.
+* Import and render your `JukeboxContainer` in your `App` component.
 
 #### `onPlay`
 
@@ -743,7 +840,7 @@ Now for the meat of this method, *throttling* our iteration using `setInterval`:
 
 * Don't forget to update your "Start", "Stop", and "Play" buttons so that they are disabled if a track is playing.
 
-## Phase 8: Style Your App
+## Phase 7: Style Your App
 
 Now that you have your cool redux app with recording and playing track features, let's make your app look nice.
 
