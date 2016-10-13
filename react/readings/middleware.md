@@ -153,11 +153,11 @@ export default fetchContacts;
 import fetchContacts from '../utils/api_contacts_utils'
 import { receiveContacts, RECEIVE_CONTACTS } from '../actions/contacts_actions'
 
-const contactsMiddleware = ({getState, dispatch}) => next => action => {
+const contactsMiddleware = ({ getState, dispatch }) => next => action => {
   const successCallback = contacts => {
     dispatch(receiveContacts(contacts))
   };
-  const errorCallback = errors => { console.log(errors) };
+  const errorCallback = errors => console.log(errors);
 
   switch (action.type) {
     case RECEIVE_CONTACTS:
