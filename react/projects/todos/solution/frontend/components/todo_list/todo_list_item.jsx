@@ -1,11 +1,13 @@
 import React from 'react';
 import TodoDetailViewContainer from './todo_detail_view_container';
+import merge from 'lodash/merge';
 
 class TodoListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { detail: false };
     this.toggleDetail = this.toggleDetail.bind(this);
+    this.toggleTodo = this.toggleTodo.bind(this);
   }
 
   toggleDetail(e) {
@@ -13,8 +15,16 @@ class TodoListItem extends React.Component {
     this.setState({detail: !this.state.detail});
   }
 
+  toggleTodo(e){
+    e.preventDefault();
+    const toggledTodo = merge({}, this.props.todo, {
+       done: !this.props.todo.done
+     });
+     this.props.updateTodo(toggledTodo);
+  }
+
   render() {
-    const { todo , toggleTodo } = this.props;
+    const { todo , updateTodo } = this.props;
     const { title, done } = todo;
     let detail;
     if (this.state.detail) {
@@ -28,7 +38,7 @@ class TodoListItem extends React.Component {
           <h3><a onClick={this.toggleDetail}>{title}</a></h3>
           <button
             className={done ? "done" : "undone"}
-            onClick={toggleTodo(todo)}>
+            onClick={this.toggleTodo}>
             {done ? "Undo" : "Done"}
           </button>
         </div>
@@ -36,6 +46,6 @@ class TodoListItem extends React.Component {
       </li>
     );
   }
-};
+}
 
 export default TodoListItem;

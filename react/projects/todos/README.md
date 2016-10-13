@@ -2,7 +2,7 @@
 
 ## Overview
 
-[Play around with the demo here][demo]
+[Live Demo!][demo]
 
 
 In this project, you will create an app that lets people create and manage a

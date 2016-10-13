@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import merge from 'lodash/merge';
 import TodoList from './todo_list';
 
 // Actions
@@ -13,12 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   requestTodos: () => dispatch(requestTodos()),
   createTodo: todo => dispatch(createTodo(todo)),
-  toggleTodo: todo => () =>	{
-    const toggledTodo = merge({}, todo, {
-      done: !todo.done
-    });
-    dispatch(updateTodo(toggledTodo));
-  }
+  updateTodo: todo => dispatch(updateTodo(todo))
 });
 
 export default connect(
