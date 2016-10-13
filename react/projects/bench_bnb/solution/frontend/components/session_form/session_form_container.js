@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 import SessionForm from './session_form';
 import { login, logout, signup } from '../../actions/session_actions';
 
@@ -15,7 +14,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     processForm: user => dispatch(processForm(user)),
-    push: (location) => dispatch(push(location)),
     formType
   };
 };

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux'
 import Search from './search';
 
 // Actions
@@ -14,8 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
-  push: (location) => dispatch(push(location))
+  updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 
 export default connect(

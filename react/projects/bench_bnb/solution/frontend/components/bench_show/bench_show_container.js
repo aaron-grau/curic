@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux'
 import BenchShow from './bench_show';
 // Actions
 import { requestBench } from '../../actions/bench_actions';
@@ -17,8 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestBench: id => dispatch(requestBench(id)),
-  push: (location) => dispatch(push(location))
+  requestBench: id => dispatch(requestBench(id))
 });
 
 export default connect(

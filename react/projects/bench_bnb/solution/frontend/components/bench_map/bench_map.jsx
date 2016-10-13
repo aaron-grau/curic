@@ -50,11 +50,11 @@ class BenchMap extends React.Component {
   }
 
   _handleMarkerClick(bench) {
-    this.props.push("benches/" + bench.id );
+    this.props.router.push("benches/" + bench.id );
   }
 
   _handleClick(coords) {
-    this.props.push({
+    this.props.router.push({
       pathname: "benches/new",
       query: coords
     });
