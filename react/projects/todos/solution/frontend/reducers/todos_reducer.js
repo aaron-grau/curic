@@ -7,15 +7,16 @@ import { RECEIVE_TODOS,
 import merge from 'lodash/merge';
 
 const TodosReducer = (state = {}, action) => {
+  let newState = {};
   switch(action.type){
     case RECEIVE_TODOS:
-      let newState = {};
       console.log(action.todos);
       action.todos.forEach(todo => newState[todo.id] = todo);
       return newState;
     case RECEIVE_TODO:
       const newTodo = {[action.todo.id]: action.todo};
-      return merge({}, state, newTodo);
+      newState = merge({}, state, newTodo);
+      return newState;
     case REMOVE_TODO:
       newState = merge({}, state);
       delete newState[action.todo.id];

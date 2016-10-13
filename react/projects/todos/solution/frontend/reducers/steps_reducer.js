@@ -6,14 +6,15 @@ import { RECEIVE_STEPS,
 import merge from 'lodash/merge';
 
 const StepsReducer = (state = {}, action) => {
+  let newState = {};
   switch(action.type) {
     case RECEIVE_STEPS:
-      let newState = {};
       action.steps.forEach((step) => {
         newState[step.todo_id] = newState[step.todo_id] || {};
         newState[step.todo_id][step.id] = step;
       });
-      return merge({}, state, newState);
+      newState = merge({}, state, newState);
+      return newState;
     case RECEIVE_STEP:
       newState = merge({}, state);
       newState[action.step.todo_id] = newState[action.step.todo_id] || {};
