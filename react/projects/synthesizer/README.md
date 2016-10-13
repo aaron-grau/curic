@@ -325,7 +325,7 @@ new store with the root reducer.
     const store = configureStore();
     const rootEl = document.getElementById('root');
     ReactDOM.render(<h1> Hi from Synth </h1>, rootEl);
-    // window.store = store;
+    window.store = store; // for testing
   });
 ```
 
@@ -385,9 +385,9 @@ returned by `configureStore`. Your entry file should now look something like the
 
   document.addEventListener('DOMContentLoaded', () => {
     const store = configureStore();
-    window.store = store;
     const rootEl = document.getElementById('root');
     ReactDOM.render(< Root, store={store} />, rootEl);
+    window.store = store; //for testing
   });
 ```
 
@@ -507,13 +507,15 @@ Let's write a pure presentational component, `NoteKey`. This component will be
 the visual representation of a single note in your piano.
 
 * Create a new file, `components/synth/note_key.jsx`.
-* Define and export a new functional component called `NoteKey({note, pressed})`.
+* Define and export a new functional component called `NoteKey({note, pressed})`. Here we are [destructing][destructing] the props `note` and `pressed` that we will pass into `NoteKey`.
 * Import `NoteKey` in `Synth`.
 * Render a list of `NoteKey`s instead of a list `this.notes`, passing as a prop the note name.
 * Change your `NoteKey` component to display the name of the note.
 
 Cool, you now have the core of your Redux Synthesizer done. Let's start adding additional features!
 
+
+[destructing]: ../../readings/object_destructuring.md
 ---
 
 ## Phase 4: Recorder Redux Structure
