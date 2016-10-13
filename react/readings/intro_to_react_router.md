@@ -2,9 +2,11 @@
 
 ## Overview
 
-React Router is a routing library that helps add views to an application.
+[React Router](https://github.com/ReactTraining/react-router/) is a routing 
+library that helps you add views to your React application, while keeping the 
+URL in sync with what's being displayed on the page.
 
-To use the React Router, import `<Router>`, `<hashHistory>`, and `<Route>` from
+To use React Router, import `<Router>`, `<hashHistory>`, and `<Route>` from
 the `react-router` library.
 
 * `<Router>` is the primary component of the router that wraps our route hierarchy
@@ -31,7 +33,8 @@ const Root = () => (
 );
 ```
 
-This app would generate the following paths and components.
+This route config would cause the app to render the specified components at 
+the following paths.
 
 Path                    | Rendered Components
 ------------------------|-----------
@@ -41,14 +44,15 @@ Path                    | Rendered Components
 `/inbox/messages/:id`   | `App -> Inbox -> Message`
 
 Underneath the hood, the router converts the `<Route>` element 
-hierarchy to an array of routes that are tried when the router attemps to 
-match a URL. When a URL does match the path of a route, the corresponding 
+hierarchy to an array of routes. When the app is directed to a new URL, the 
+router attempts to match the new path to one found in this array. 
+When a URL matches the path of a `<Route>`, the corresponding 
 component or components are displayed to the user.
 
-As you can see in the table it's possible by nesting routes to build longer
-paths the router will try to match. When a user visits `/about` both `App` 
-and `About` are rendered. When a user visits `/inbox/messages/:id` `App`, 
-`Inbox`, and `Message` are rendered.
+As you can see from the app's route hierarchy it's possible by nesting 
+routes to build longer paths the router will try to match. When a user 
+visits `/about` both `App` and `About` are rendered. When a user visits 
+`/inbox/messages/:id` `App`, `Inbox`, and `Message` are rendered.
 
 ## Rendering Components
 
@@ -65,7 +69,9 @@ example above.
 const Message = () => (
   <h3>Message</h3>
 );
+```
 
+```js
 // inbox.jsx
 
 const Inbox = ({children}) => (
@@ -75,6 +81,9 @@ const Inbox = ({children}) => (
   </div>
 );
 
+```
+
+```js
 // app.jsx
 
 const App = ({children}) => (
@@ -84,15 +93,41 @@ const App = ({children}) => (
   </div>
 );
 ```
+
 Because we nested `Inbox` under `App` in our router, we are given access to the
-`Inbox` component in `App`'s props. All we have to do is call `children` in
+`Inbox` component in `App`'s props. All we have to do is render `children` in
 `App` to render `Inbox`. We can similarly call `children` in `Inbox` to
 render `Message`.
 
-It's also possible to use [`Named Components`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#named-components) to allow a parent component to render multiple children.
+It's also possible to use [`named components`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#named-components) to allow a parent component to render multiple children.
 
 ```js
 // root.jsx
+
+import { Router, Route, hashHistory } from 'react-router';
+import App from './app.jsx'
+
+const Root = () => (
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <Route path="profile" components={Profile} />
+      <Route path="groups" components={{main: Groups, sidebar: GroupsSidebar}} />
+        <Route path="users/:userId" component={User} />
+      </Route>
+    </Route>
+  </Router>
+);
+```
+
+If the router matches the `/groups` path, `main` renders the `Group` component 
+and `sidebar` renders the `GroupSidebar` component. `Profile` is not defined and 
+won't render. 
+
+When the URL matches a path of `/profile` `children` renders `Profile`.
+`Group` and `GroupSidebar` are not defined and won't render.
+
+```js
+// app.jsx
 
 const App = ({children, main, sidebar}) => (
   <div>
@@ -102,24 +137,7 @@ const App = ({children, main, sidebar}) => (
     {sidebar}
   </div>
 );
-
-import { Router, Route, hashHistory } from 'react-router';
-
-const Root = () => (
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-     <Route path="profile" components={Profile} />
-     <Route path="groups" components={{main: Groups, sidebar: GroupsSidebar}} />
-        <Route path="users/:userId" component={User} />
-      </Route>
-    </Route>
-  </Router>
-);
 ```
-
-In `app.jsx` if the router matches a path of `/groups` `main` 
-renders the `Group` component and `sidebar` renders the `GroupSidebar` component.  
-When the URL matches a path of `/profile` `children` renders `Profile`.
 
 ## URL Params
 
@@ -128,8 +146,8 @@ The router will match route segments starting at `:` up to the next `/`, `?`,
 or `#`. Those matched values are then passed to components via their props.
 
 So in the case of `/inbox/messages/Jkei3c32`, the router matches the string
-'Jkei3c32' to `:id`, grabbing that data and making it available in the props
-of the `Message` component as `props.params.id`.
+'Jkei3c32' to the `:id` param in the path `/inbox/messages/:id`, grabbing that data and 
+making it available in the props of the `Message` component as `props.params.id`.
 
 We can use this id to fetch the corresponding message from the server and
 display it to our users.
@@ -138,20 +156,19 @@ display it to our users.
 // message.jsx
 
 class Message extends React.Component {
+  
   componentDidMount() {
     const id = this.props.params.id
 
     fetchMessage(id, message => this.setState({ message }));
     
-    };
-  },
-
-  // ...
+  };
 }
+
 ```
 
 We're not just limited to matching params though. Because route paths are just
-strings, we can also use symbols to[dynamically match routes to different URLs](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md#path-syntax).
+strings, we can also use symbols to [dynamically match routes to different URLs](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md#path-syntax).
 
 ## Resources
 
