@@ -581,11 +581,15 @@ The `SessionForm` component should be responsible for a number of tasks:
     + Define a helper method `handleSubmit(e)` like so:
 
     ```js
-  	handleSubmit(e) {
+    // frontend/components/session_form/session_form.jsx
+    
+    //...
+   	handleSubmit(e) {
   		e.preventDefault();
   		const user = this.state;
   		this.props.processForm({user});
   	}
+    //...
     ```
 
     + Pass it as a callback to your form's `onSubmit`.
