@@ -58,7 +58,7 @@ sum([1, 3, 5]) // => 9
 We can use closures to pass down arguments to helper functions without explicitly listing them as arguments.
 
 ```javascript
-function isAnagram(string) {
+function isPalindrome(string) {
   function reverse() {
     return string.split('').reverse().join('');
   }
