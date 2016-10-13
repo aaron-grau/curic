@@ -32,7 +32,9 @@ deconstruct your props for cleaner syntax.
 
 ### Render your `SearchContainer`
 
-* In your `IndexRoute`, render the `SearchContainer` component instead of `BenchIndexContainer`. This should cause both the `BenchMap` and the `BenchIndex` to be rendered on the page.
+* In your `IndexRoute`, render the `SearchContainer` component instead of 
+`BenchIndexContainer`. This should cause both the `BenchMap` and the `BenchIndex` 
+to be rendered on the page.
 * Verify your work before moving on.
 
 ### Attach a Google Map to `BenchMap`
@@ -350,34 +352,17 @@ with latitude and longitude based on where they clicked.
 
 Because `BenchMapContainer` and `BenchFormContainer` live under different routes, We can't simply pass props between them to convey our click information. We will need to encode our parameters in a client-side query string.
 
-#### `react-router-redux`
+#### `withRouter`
 
-Because we included `routerMiddleware` from the `react-router-redux` library in our `RootMiddlware`,
-we can issue navigation events through redux actions from the `BenchMap` component.
-
-* In `SearchContainer` import `push` from 'react-router-redux'
-* Add `push` to `mapDispatchToProps`
+Since our `BenchMap` will need access to the `Router`, import the `withRouter`
+function from `react-router`. Change the export statement in `bench_map.jsx` so
+that we are exporting a wrapped component.
 
 ```javascript
-const mapDispatchToProps = dispatch => ({
-  push: (location) => dispatch(push(location))
-});
+export default withRouter(BenchMap);
 ```
 
-* Since we now have access to `push` in the `Search` component, we can pass
-it to `BenchMap`.
-
-```javascript
-// bench_map.jsx
-<BenchMap
-  benches={benches}
-  updateFilter={updateFilter}
-  singleBench={false}
-  push={push}/>
-```
-
-Our `BenchMap` component will now have as its props a `push` function that can be used
-to issue navigation events.
+Our `BenchMap` component will now have a `router` prop.
 
 #### Redirecting with coordinates
 
@@ -388,11 +373,11 @@ Add a `"click"` handler to the map. It should:
 
 To pass `lat` and `lng` as query params:
 
-  0.  Use `this.props.push` to send data along with the new `pathname`.
+  0.  Use `this.props.router.push` to send data along with the new `pathname`.
 
 ```javascript
   _handleClick(coords){
-    this.props.push({
+    this.props.router.push({
       pathname: "benches/new",
       query: coords
     });

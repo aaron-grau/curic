@@ -41,7 +41,6 @@ frontend:
   * `react-dom`
   * `redux`
   * `react-redux`
-  * `react-router-redux`
   * `babel-core`
   * `babel-loader`
   * `babel-preset-react`
@@ -417,41 +416,6 @@ const Root = ({ store }) => (
 );
 ```
 
-### Adding the router to the Redux cycle
-
-In order to bring the Router into the Redux cycle, we'll need the
-`react-router-redux` library.
-
-```
-npm install --save react-router-redux
-```
-
-In `root_middleware.js` do the following.
-
-* Import `routerMiddleware` from `react-router-redux`
-* Also import `hashHistory` from `react-router`
-
-  ```javascript
-  import { applyMiddleware } from 'redux';
-  import { routerMiddleware } from 'react-router-redux';
-  import { hashHistory } from 'react-router';
-
-  import SessionMiddleware from './session_middleware';
-  ```
-
-* Now add `routerMiddleware(hashHistory)` to `RootMiddleware`
-
-  ```javascript
-  const RootMiddleware = applyMiddleware(
-    SessionMiddleware,
-    routerMiddleware(hashHistory)
-  );
-
-  export default RootMiddleware;
-  ```
-
-Now when we need to issue navigation events we can do it through Redux actions.
-
 ### The Entry Point
 
 Let's modify our entry file, `bench_bnb.jsx`, to only import the following:
@@ -519,10 +483,8 @@ The `SessionFormContainer` should provide `SessionForm` with the following props
   * `loggedIn` (boolean) - representing whether a `currentUser` exists
   * `errors` (array) - list of errors from the state
 + From `mapDispatchToProps(dispatch, ownProps)`:
-  * `formType` (string): `'login'` or `'signup'` given the current `ownProps.location.pathname`
+  * `formType` (string): `'login'` or `'signup'` given the current `location.pathname`
   * `processForm` (function): dispatching action creators `login` or `signup` given `formType`
-  * `push` (function): dispatching `push` imported from the `react-router-redux` library
-  with a location argument
 
 #### `SessionForm`
 
@@ -689,7 +651,8 @@ Refer to the `onEnter` [reading][onEnter] for this part.
 * Add an `onEnter` prop to the Routes we want to protect.
   * Remember, we want to redirect users from `"/#/login"` and  `"/#/signup"` if they are already logged in.
 
-**NB**: Remember that `replace` won't add a "fake" entry to the browser's history, whereas `props.push` will. We also don't need an `asyncDoneCallback` because the `_redirectIfLoggedIn` runs synchronously.
+**NB**: Remember that `replace` won't add a "fake" entry to the browser's history, whereas 
+`push` will. We also don't need an `asyncDoneCallback` because the `_redirectIfLoggedIn` runs synchronously.
 
 [onEnter]: ../../readings/on_enter.md
 
