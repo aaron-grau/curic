@@ -21,27 +21,30 @@ import { requestTodos,
 
 export default ({ getState, dispatch }) => next => action => {
   const todosSuccess = data => dispatch(receiveTodos(data));
-  const todoSuccess = data => dispatch(receiveTodo(data));
+  const todoSuccess = data => {
+    debugger
+    dispatch(receiveTodo(data))
+  };
   const todoRemoved = data => dispatch(removeTodo(data));
   const todoErrored = data => dispatch(todoError(data.responseJSON));
 
   switch(action.type) {
     case REQUEST_TODOS:
       fetchTodos(todosSuccess);
-      break;
+      return next(action);
     case REQUEST_TODO:
       fetchTodo(action.id, todoSuccess);
-      break;
+      return next(action);
     case CREATE_TODO:
       createTodo(action.todo, todoSuccess, todoErrored);
-      break;
+      return next(action);
     case UPDATE_TODO:
       // debugger
       updateTodo(action.todo, todoSuccess)
-      break;
+      return next(action);
     case DESTROY_TODO:
       destroyTodo(action.todo, todoRemoved);
-      break;
+      return next(action);
     default:
       next(action);
   }

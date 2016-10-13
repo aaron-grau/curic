@@ -16,24 +16,29 @@ import { requestSteps,
          DESTROY_STEP
        } from '../actions/steps_actions';
 
+import { REQUEST_TODO } from '../actions/todos_actions';
+
 export default ({getState, dispatch}) => next => action => {
-  const stepsSuccess = data => dispatch(receiveSteps(data));
+  const stepsSuccess = data => {
+    debugger
+    dispatch(receiveSteps(data))
+  };
   const stepSuccess = data => dispatch(receiveStep(data));
   const stepRemoved = data => dispatch(removeStep(data));
-  
+
   switch(action.type) {
     case REQUEST_STEPS:
-      fetchSteps(action.todo_id, stepsSuccess);
-      break;
+      fetchSteps(action.todoId, stepsSuccess);
+      return next(action);
     case CREATE_STEP:
       createStep(action.todo_id, action.step, stepSuccess);
-      break;
+      return next(action);
     case UPDATE_STEP:
       updateStep(action.step, stepSuccess)
-      break;
+      return next(action);
     case DESTROY_STEP:
       destroyStep(action.todo_id, action.step, stepRemoved);
-      break;
+      return next(action);
     default:
       next(action);
   }

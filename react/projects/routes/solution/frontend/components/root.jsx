@@ -7,33 +7,33 @@ import SplashPageContainer from './splash_page/splash_page_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import TodoFormContainer from './todos/todo_form_container';
 import TodoDetailViewContainer from './todos/todo_detail_view_container';
+import StepListContainer from './steps/step_list_container';
 
 import { requestTodos, requestTodo } from '../actions/todos_actions.js';
 
 const Root = ({ store }) => {
-
-  const redirectIfLoggedIn = (nextState, replace) => {
-    if (store.getState().session) {
-      replace('/dashboard');
-    }
-  }
-
   const requestTodosOnEnter = (nextState) => {
     store.dispatch(requestTodos());
   }
 
   const requestTodoOnEnter = (nextState) => {
-    store.dispatch(requestTodo(nextState.params.id));
+    store.dispatch(requestTodo(nextState.params.todoId));
+  }
+
+  const requestStepsOnEnter = (nextState) => {
+    store.dispatch(requestSteps(nextState.params.todoId));
   }
 
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={SplashPageContainer} onEnter={redirectIfLoggedIn} />
-          <Route path="dashboard" component={DashboardContainer} onEnter={requestTodosOnEnter} >
+          <IndexRoute component={SplashPageContainer}/>
+          <Route path="dashboard" component={DashboardContainer} onEnter={requestTodosOnEnter}>
             <IndexRoute component={TodoFormContainer} />
-            <Route path="todos/:todoId" component={TodoDetailViewContainer} />
+            <Route path="todos/:todoId" component={TodoDetailViewContainer} onEnter={requestTodoOnEnter}>
+              <Route path="edit" component={StepListContainer} />
+            </Route>
           </Route>
         </Route>
       </Router>

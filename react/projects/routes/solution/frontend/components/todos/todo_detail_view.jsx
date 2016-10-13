@@ -1,21 +1,46 @@
 import React from 'react';
-// Components
+import { hashHistory } from 'react-router'
 import StepListContainer from '../steps/step_list_container';
 
 class TodoDetailView extends React.Component {
-  componentDidMount() {
-    this.props.requestSteps();
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: this.props.params.todoId,
+      title: "",
+      body: "",
+      steps: []
+    };
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+  }
+
+  handleDelete(e) {
+    this.props.destroyTodo();
+    hashHistory.push('/dashboard');
+  }
+
+  handleEdit(e) {
+    hashHistory.push(`/dashboard/todos/${this.state.id}/edit`)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
   }
 
   render() {
-    const { todo, destroyTodo } = this.props;
+    const { title, body, steps } = this.state;
     return(
       <div>
-        <p className="todo-body">{todo.body}</p>
-        <StepListContainer todo_id={todo.id} />
+        <h1>{title}</h1>
+        <p className="todo-body">{body}</p>
+        {this.props.children}
         <button
-          className="delete-button"
-          onClick={destroyTodo}>Delete</button>
+          className="done"
+          onClick={this.handleDelete}>Delete</button>
+        <button
+          className="undone"
+          onClick={this.handleEdit}>Edit</button>
       </div>
     );
   }

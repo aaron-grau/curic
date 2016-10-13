@@ -5,7 +5,6 @@ import { destroyTodo } from '../../actions/todos_actions';
 import { requestSteps } from '../../actions/steps_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return ({
 
   });
