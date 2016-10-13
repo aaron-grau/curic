@@ -19,18 +19,16 @@ Let's look at an example.
 
 import { Router, Route, hashHistory } from 'react-router';
 
-const Root = () => {
-  return (
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <Route path="about" component={About} />
-        <Route path="inbox" component={Inbox} >
-          <Route path="messages/:id" component={Message} />
-        </Route>
+const Root = () => (
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <Route path="about" component={About} />
+      <Route path="inbox" component={Inbox} >
+        <Route path="messages/:id" component={Message} />
       </Route>
+    </Route>
   </Router>
-  );
-}
+);
 ```
 
 This app would generate the following paths and components.
@@ -64,33 +62,27 @@ example above.
 ```js
 // message.jsx
 
-const Message = () => {
-  return (
-     <h3>Message</h3>
-  );
-}
+const Message = () => (
+  <h3>Message</h3>
+);
 
 // inbox.jsx
 
-const Inbox = ({children}) => {
-  return (
-    <div>
-      <h2>Inbox</h2>
-      {children}
-    </div>
-  );
-}
+const Inbox = ({children}) => (
+  <div>
+    <h2>Inbox</h2>
+    {children}
+  </div>
+);
 
 // app.jsx
 
-const App = ({children}) => {
-  return (
-    <div>
-      <h1>App</h1>
-      {children}
-    </div>
-  )
-}
+const App = ({children}) => (
+  <div>
+    <h1>App</h1>
+    {children}
+  </div>
+);
 ```
 Because we nested `Inbox` under `App` in our router, we are given access to the
 `Inbox` component in `App`'s props. All we have to do is call `children` in
@@ -102,31 +94,27 @@ It's also possible to use [`Named Components`](https://github.com/ReactTraining/
 ```js
 // root.jsx
 
-const App = ({children, main, sidebar}) => {
-  return (
-    <div>
-      <h1>App</h1>
-      {children}
-      {main}
-      {sidebar}
-    </div>
-  )
-}
+const App = ({children, main, sidebar}) => (
+  <div>
+    <h1>App</h1>
+    {children}
+    {main}
+    {sidebar}
+  </div>
+);
 
 import { Router, Route, hashHistory } from 'react-router';
 
-const Root = () => {
-  return (
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-       <Route path="profile" components={Profile} />
-       <Route path="groups" components={{main: Groups, sidebar: GroupsSidebar}} />
-          <Route path="users/:userId" component={User} />
-        </Route>
+const Root = () => (
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+     <Route path="profile" components={Profile} />
+     <Route path="groups" components={{main: Groups, sidebar: GroupsSidebar}} />
+        <Route path="users/:userId" component={User} />
       </Route>
-    </Router>
-  );
-}
+    </Route>
+  </Router>
+);
 ```
 
 In `app.jsx` if the router matches a path of `/groups` `main` 
@@ -150,12 +138,12 @@ display it to our users.
 // message.jsx
 
 class Message extends React.Component {
-    componentDidMount() {
+  componentDidMount() {
     const id = this.props.params.id
 
-    fetchMessage(id, function (err, message) {
-      this.setState({ message: message })
-    })
+    fetchMessage(id, message => this.setState({ message }));
+    
+    };
   },
 
   // ...
