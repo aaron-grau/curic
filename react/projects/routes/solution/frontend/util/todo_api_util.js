@@ -33,10 +33,10 @@ export const updateTodo = (todo, success) => {
   });
 };
 
-export const destroyTodo = (todo, success) => {
+export const destroyTodo = (id, success) => {
   $.ajax({
     method: 'DELETE',
-    url: `api/todos/${todo.id}`,
+    url: `api/todos/${id}`,
     success
   });
 };

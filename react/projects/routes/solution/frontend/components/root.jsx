@@ -17,7 +17,9 @@ const Root = ({ store }) => {
   }
 
   const requestTodoOnEnter = (nextState) => {
-    store.dispatch(requestTodo(nextState.params.todoId));
+    if (!store.getState().todos[nextState.params.todoId]) { // todo does not exist in state
+      store.dispatch(requestTodo(nextState.params.todoId));
+    }
   }
 
   const requestStepsOnEnter = (nextState) => {

@@ -1,7 +1,9 @@
-export const allTodos = (state) => {
-  return state ? Object.keys(state.todos).map(key => state.todos[key]) : [];
-}
+export const allTodos = ({ todos }) => (
+  todos ? Object.keys(todos).map(key => todos[key]) : []
+);
 
-export const stepsById = (state, todo_id) => {
-  return state.steps[todo_id] ? Object.keys(state.steps[todo_id]).map(key => state.steps[todo_id][key]) : [];
-}
+export const stepsById = ({ steps }, todoId) => (
+  steps[todoId] ? Object.keys(steps[todoId]).map(key => steps[todoId][key]) : []
+);
+
+export const selectTodo = ({ todos }, todoId) => todos[todoId];

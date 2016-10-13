@@ -5,18 +5,15 @@ import StepListContainer from '../steps/step_list_container';
 class TodoDetailView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: this.props.params.todoId,
-      title: "",
-      body: "",
-      steps: []
-    };
+    this.state = Object.assign({}, this.props.todo);
+
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleDelete(e) {
-    this.props.destroyTodo();
+    debugger
+    this.props.destroyTodo(this.state.id);
     hashHistory.push('/dashboard');
   }
 
@@ -25,13 +22,15 @@ class TodoDetailView extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
+    console.log(nextProps.todo);
+    const nextState = Object.assign({}, this.state, nextProps.todo);
+    this.setState(nextState);
   }
 
   render() {
     const { title, body, steps } = this.state;
     return(
-      <div>
+      <div className='todo-detail-view'>
         <h1>{title}</h1>
         <p className="todo-body">{body}</p>
         {this.props.children}

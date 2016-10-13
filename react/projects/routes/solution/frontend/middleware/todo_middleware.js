@@ -22,7 +22,7 @@ import { requestTodos,
 export default ({ getState, dispatch }) => next => action => {
   const todosSuccess = data => dispatch(receiveTodos(data));
   const todoSuccess = data => {
-    debugger
+    // debugger
     dispatch(receiveTodo(data))
   };
   const todoRemoved = data => dispatch(removeTodo(data));
@@ -43,7 +43,8 @@ export default ({ getState, dispatch }) => next => action => {
       updateTodo(action.todo, todoSuccess)
       return next(action);
     case DESTROY_TODO:
-      destroyTodo(action.todo, todoRemoved);
+    // debugger
+      destroyTodo(action.id, todoRemoved);
       return next(action);
     default:
       next(action);

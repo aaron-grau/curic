@@ -42,9 +42,9 @@ export const updateTodo = todo => ({
   todo
 });
 
-export const destroyTodo = todo => ({
+export const destroyTodo = id => ({
   type: DESTROY_TODO,
-  todo
+  id
 });
 
 export const todoError = error => ({
