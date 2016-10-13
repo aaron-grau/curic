@@ -1,7 +1,6 @@
 # Redux Synthesizer
 
-
-
+[**Live Demo!**][live-demo]
 
 ## Overview
 
