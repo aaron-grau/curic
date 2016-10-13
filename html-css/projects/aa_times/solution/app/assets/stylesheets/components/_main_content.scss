@@ -43,17 +43,6 @@
 	vertical-align: bottom;
 }
 
-.comments:before {
-	content: "";
-	width: 6px;
-	height: 4px;
-	position: relative;
-	top: -2px;
-	margin-right:2px;
-	display: inline-block;
-	background-color: #326891;
-}
-
 iframe {
 	margin-bottom: 10px;
 }

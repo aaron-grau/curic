@@ -6,6 +6,17 @@
 	position: relative;
 }
 
+.language-nav {
+	position: absolute;
+	top: -15px;
+	left: calc(50% - (177.78px/2));
+	background: white;
+	border: 1px solid $light-gray;
+	border-bottom: none;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
 .language-nav a {
 	margin: 0 5px;
 	text-transform: uppercase;
@@ -16,14 +27,6 @@
 
 .language-nav ul {
 	display: flex;
-	position: absolute;
-	bottom: 102px;
-	left: calc(50% - (177.78px/2));
-	background: white;
-	border: 1px solid $light-gray;
-	border-bottom: none;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
 }
 
 .logo {
