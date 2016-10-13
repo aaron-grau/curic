@@ -667,12 +667,13 @@ In this phase, you will add new actions and buttons so that you can mark `todo`s
   + `UPDATE_TODO` should call your new API utility function `updateTodo` and pass `receiveTodo` as its success callback
   + `DESTROY_TODO` should call your new API utility function `destroyTodo` and pass `removeTodo` as its success callback
 + Update your components so that you can dispatch and view the effects of these actions
-  + Add a `toggleTodo` function that updates a `todo` to the `MapDispatchToProps` in your `TodoListContainer`
+  + Add an `updateTodo` function that updates a `todo` to the `MapDispatchToProps` in your `TodoListContainer`
   + Add `destroyTodo` to the `MapDispatchToProps` in your `TodoListContainer`
   + Pass those functions as props to your `TodoListItem` components
   + Render buttons that call those functions `onClick`
     + The `Done` or `Undo` button should display the current state of the todo item
-      + Call `toggleTodo` to change the status of the todo item
+      + Hint: Write a helper method to update the todo item's `done` attribute when the button is clicked
+      + Call `updateTodo` to change the status of the todo item
 
 **Test your code** - You should now be able to create, toggle, and delete todo items on your list.
 
@@ -818,7 +819,7 @@ Follow these steps, **testing your code as you go** :
     + A `StepForm` (to be created later)
 + Create a pair of files `components/step_list/step_list_item_container.jsx` and `components/step_list/step_list_item.jsx`
   + Create a `MapDispatchToProps` function in the container file
-    + `MapDispatchToProps` will pass `destroyStep` and `toggleStep` functions as props
+    + `MapDispatchToProps` will pass `destroyStep` and `updateStep` functions as props
   + The presentational component should render:
     + The step's `title`
     + The step's `body`
