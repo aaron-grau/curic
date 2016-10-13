@@ -10,7 +10,6 @@ const TodosReducer = (state = {}, action) => {
   let newState = {};
   switch(action.type){
     case RECEIVE_TODOS:
-      console.log(action.todos);
       action.todos.forEach(todo => newState[todo.id] = todo);
       return newState;
     case RECEIVE_TODO:
