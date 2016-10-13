@@ -11,7 +11,7 @@ Build a new React NPM project from scratch like you did in the
 webpack entry point to be `widgets.jsx`.
 
 Your `widgets.jsx` should look have `DOMContentLoaded` listener that calls
-`ReactDOM.render()` with a `Widgets` component and a `root` DOM element as the
+`ReactDOM.render()` with a `Root` component and a `main` DOM element as the
 hook.
 
 Note: we won't be using `jQuery` for this project. If you're not sure
@@ -42,13 +42,13 @@ ensure you can still see your `Widgets` component.
 
 ### Goal
 
-Make a `Tabs` component. `Widgets` should pass `Tabs` an array of Javascript
+Make a `Tabs` component. `Root` should pass `Tabs` an array of Javascript
 objects (the data for the tabs) that have `title` and `content` as keys. Display
 all the titles, but have the selected title in **bold** font. Below, it should
 display only the contents of the selected tab. The content pane should update
 when the user selects different headers.
 
-### Tips
+### Steps
 
 * Keep track of the selected tab's index in your `Tabs` component's
   state. Set it initially to zero.
@@ -65,6 +65,24 @@ when the user selects different headers.
   _expressions_, so you can't use `if`/`else` inside `{ }`. (This is
   also why you can't end with a semicolon.)
 
+* Create an `index.css` file and add it to the head of your `index.html`
+  file. Remember to include your CSS resets.
+
+* Add a border around each tab header and the whole section. Use
+  `border-radius` to add nicely curved corners to the top of your tabs.
+
+* Use a flexbox to ensure that the tabs all take up the same amount of
+  space. Add `display: flex` to your CSS for your tab headers.
+
+* Center the tab content, both horizontally and vertically.
+
+* Add a hover effect to change the background color of the tab that's
+  being moused over. Change the `cursor` to be a `pointer` when you're
+  mousing over the tabs to make it clear that the tabs are interactive.
+
+* Add a background. Use the `background-image` or `background-color`
+  property to change the background. Feel free to do this for every widget.
+
 ## Weather Clock
 
 ### Goal
@@ -77,7 +95,7 @@ You'll use the `navigator.geolocation` API to get the user's current
 location,  and the [open weather API][weather] to get the current
 weather.
 
-### Tips
+### Steps
 
 #### Clock Widget
 
@@ -93,7 +111,30 @@ weather.
   component's `state` since it doesn't affect the UI. Instead, just
   store it directly on `this`.
 
-* Use the `toString()` method on your date object to render your clock.
+* Use the `toDateString()` method on your date object to render your clock.
+
+* Go to [Google Fonts][google-fonts] and select a nice font for your
+  clock. Take the font embed code and paste it into the `<head>` of your HTML page. Your `<head>` should look something like this right now:
+
+  ```html
+  <head>
+    <title>React Widgets</title>
+    <link rel="stylesheet" href="index.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="bundle.js"></script>
+  </head>
+  ```
+
+  To use the font, set the `font-family` of your element to the font name.
+
+  * Set the time and date headers to be on one side and the actual time
+    and date to the other. Refer to the live demo to see what your end
+    goal is. You can achieve this easily with a flexbox. Take a look at
+    the [`justify-content`][justify-content] property. Which one do you
+    want to use? Try all of them to understand what they do.
+
+[justify-content]: https://css-tricks.com/almanac/properties/j/justify-content/
+[google-fonts]: https://fonts.google.com/
 
 #### Weather Widget
 
@@ -126,6 +167,9 @@ weather.
 
 * Render the current weather and temperature on the page.
 
+* Give the weather box a nice border and make sure the elements inside are
+  spaced evenly.
+
 [api-key]: http://openweathermap.org/appid
 [clearInterval]: http://stackoverflow.com/questions/5978519/setinterval-and-how-to-use-clearinterval#answer-5978560
 [componentDidMount]: https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount
@@ -146,11 +190,11 @@ user's input. Match only names that start with the search input. When
 a user clicks on a name, the input field should autocomplete to that
 name.
 
-### Tips
+### Steps
 
 * Start by creating a new file `autocomplete.jsx` and defining your
   `Autocomplete` class there. You will require this class from
-  `widgets.jsx` and incorporate it into `Widgets#render`. This is the
+  `widgets.jsx` and incorporate it into `Root#render`. This is the
   pattern you will follow for all the widgets.
 
 * Because your `Autocomplete` widget should be reusable, it mustn't
@@ -181,6 +225,13 @@ name.
   onClick. In the click handler, use `setState` to update the widget's
   search string. You will need to turn your `<input>` into a [controlled
   compenent][controlled-component-docs] for this to work.
+
+* Give your component a border and make sure all the `<li>`s are nicely
+  padded inside the box. Change the `cursor` property to display a
+  pointer when hovering over one of the `<li>`s.
+
+* Center all your widgets using flexboxes. Which `justify-content` property
+  would you use for this?
 
 ### Bonus: React-Transitions
 

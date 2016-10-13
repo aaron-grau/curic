@@ -18,7 +18,7 @@ We will look at:
 
 First, let's look at the associations involved in our example app.
 
-`Posts and Tags have a many to many relationship through Tagging. `taggings` is
+Posts and Tags have a many to many relationship through Tagging. `taggings` is
 simply the join table between `Post` and `Tag`. We would write our associations
 as such:
 
@@ -66,7 +66,7 @@ array of `tag_id`s.
 
 This method does a lot more than meets the eye. It:
   * a.  Creates a new `Tagging` for the post for each new `tag_id`.
-  * b.  Destroys existing taggings for that post that are not in the `tag_id`s 
+  * b.  Destroys existing taggings for that post that are not in the `tag_id`s
         array.
 
 We would call it as such:

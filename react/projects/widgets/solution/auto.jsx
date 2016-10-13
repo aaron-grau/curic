@@ -8,7 +8,7 @@ export default class AutoComplete extends React.Component {
       inputVal: ''
     };
     this.selectName = this.selectName.bind(this);
-    this.handleInput = this.handleInput.bind(this)
+    this.handleInput = this.handleInput.bind(this);
   }
 
   handleInput(event) {
