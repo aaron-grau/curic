@@ -68,6 +68,10 @@ to be rendered on the page.
 * When the `Map` component mounts, instantiate the map as follows:
 
 ```javascript
+// frontend/components/bench_map/bench_map.jsx
+
+import React from 'react';
+
 class BenchMap extends React.Component {
   //...
   componentDidMount() {
@@ -106,7 +110,9 @@ create a helper class, `MarkerManager`.
 instance variables.
 
 ```javascript
-class MarkerManager {
+// frontend/util/marker_manager.js
+
+export default class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = [];
@@ -118,7 +124,9 @@ class MarkerManager {
 Next, we're going to define an instance method `updateMarkers()`. Start with just a simple `console.log`
 
 ```javascript
-class MarkerManager {
+// frontend/util/marker_manager.js
+
+export default class MarkerManager {
   //...
   updateMarkers(benches) {
     console.log('time to update');
@@ -137,11 +145,15 @@ Let's see how the `BenchMap` is going to interact with our `MarkerManager`.
   * Update the `BenchMap#componentDidMount` lifecycle method to create a new `MarkerManager`.
 
 ```javascript
+//frontend/components/bench_map/bench_map.jsx
+
+//...
 componentDidMount() {
   //...
   this.map = new google.maps.Map(mapDOMNode, mapOptions);
   this.MarkerManager = new MarkerManager(this.map);
 }
+//...
 ```
 
 We need to invoke `updateMarkers()` both when the `BenchMap` component
@@ -188,6 +200,8 @@ search by bounds.
 benches that are within the boundaries specified by the argument. See the example below for what arguments to expect.
 
 ```ruby
+# /app/models/bench.rb
+
 #...
   def self.in_bounds(bounds)
   # google map bounds will be in the following format:
@@ -304,6 +318,9 @@ Update your `BenchesMiddleware` so that it intercepts the `UPDATE_BOUNDS` action
 Your middleware's switch statement should look something like this:
 
 ```javascript
+// frontend/middleware/bench_middleware.js
+
+//...
   switch(action.type){
     case REQUEST_BENCHES:
       const filters = getState().filters
@@ -376,12 +393,16 @@ To pass `lat` and `lng` as query params:
   0.  Use `this.props.router.push` to send data along with the new `pathname`.
 
 ```javascript
-  _handleClick(coords){
+// frontend/components/bench_map/bench_map.jsx
+ 
+//...
+ _handleClick(coords){
     this.props.router.push({
       pathname: "benches/new",
       query: coords
     });
   }
+//...
 ```
 
 Test this before moving on. You should be able to click the map and make the
@@ -397,10 +418,14 @@ Inside of the `BenchFormContainer`...
   `ownProps.location.query`
 
 ```javascript
+// frontend/components/bench_form/bench_form_container.jsx
+
+//...
   const mapStateToProps = (state, ownProps) => ({
     lat: ownProps.location.query.lat,
     lng: ownProps.location.query.lng
   });
+//...
 ```
 
 Restructure your `BenchForm` component to accept `lat` and `lng` as props. Use
@@ -480,11 +505,15 @@ Next, let's write a new action creator. We're going to define a single action cr
 It should look like this:
 
 ```javascript
+// frontend/actions/bench_actions.js
+
+//...
 export const updateFilter = (filter, value) => ({
   type: UPDATE_FILTER,
   filter,
   value
 });
+//...
 ```
 
 The first parameter, `filter`, will tell our `FilterReducer` which property to
