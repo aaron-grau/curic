@@ -85,10 +85,10 @@ write that view:
 json.array! @cats
 ```
 
-Don't worry if you've never heard of Jbuilder. It's just a gem that lets us
+Don't worry if you've never heard of Jbuilder. It's a gem that lets us
 write Ruby to create JSON, like ERB is for creating HTML. Jbuilder lets us
 render a json array of cats by simply passing `@cats` to the `json.array!`
-method.
+method. 
 
 ## Using the API
 

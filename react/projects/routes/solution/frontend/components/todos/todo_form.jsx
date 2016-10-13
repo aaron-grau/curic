@@ -24,7 +24,10 @@ class TodoForm extends React.Component {
     e.preventDefault();
     this.props.createTodo({
       todo: this.state});
-    this.setState({title: "", body: ""}); // reset form
+    this.setState({
+      title: "",
+      body: ""
+    }); // reset form
   }
 
   render() {
@@ -50,7 +53,7 @@ class TodoForm extends React.Component {
             onChange={this.update('body')}
             required />
         </label>
-        <input type="submit" value="Create Todo!" />
+        <input className="submit" type="submit" value="Create Todo!" />
       </form>
     );
   }

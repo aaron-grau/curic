@@ -129,7 +129,7 @@ h2, h4 {
 
 .app .dashboard {
   width: 100%;
-  padding-top: 20px;
+  // padding-top: 20px;
   flex: 1 1 auto;
   text-align: center;
   background-image: url(coffee-dashboard.jpeg);
@@ -150,7 +150,7 @@ h2, h4 {
   font-weight: 400;
   border-bottom: 2px solid $eggshell;
   flex: 0 1 auto;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .dashboard main {
@@ -163,12 +163,11 @@ h2, h4 {
 }
 
 .dashboard main > section {
-  margin: 20px;
+  margin: 0 10px;
   background: $eggshell;
   min-width: 400px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .dashboard main > section:hover {
-  opacity: 0.95;
 }
