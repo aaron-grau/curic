@@ -8,7 +8,7 @@ import { selectBench } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const benchId = parseInt(ownProps.params.benchId);
-  const bench = selectBench(state.benches, benchId);
+  const bench = selectBench(state, benchId);
   return {
     benchId,
     bench

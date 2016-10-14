@@ -440,8 +440,9 @@ connect it to your Redux store.
   )(Synth);
   ```
 
-* In your `App` component, import your `SynthContainer` and render it. Make sure you can `webpack` your app and that there are
-no errors in the console before moving on. Make sure you can now see 'Synth' somewhere on your webpage!
+* In your `App` component, import your `SynthContainer` and render it. Make sure
+you can `webpack` your app and that there are no errors in the console before
+moving on. Make sure you can now see 'Synth' somewhere on your webpage!
 
 [connect]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
 
@@ -450,8 +451,8 @@ no errors in the console before moving on. Make sure you can now see 'Synth' som
 `Synth` is an example of a presentational component. Presentational components
 are typically written as functional components unless they require internal
 state, lifecycle hooks, etc. Your `Synth` component will initialize an array of
-`Note` objects, calling `start` and `stop` depending on the notes in the store and
-define key listeners on the window.
+`Note` objects, calling `start` and `stop` depending on the notes in the store
+and define key listeners on the window.
 
 * Import your `NOTE_NAMES` and `TONES` constants, and `Note` class.
 * In the `constructor`, initialize an array of `Note` instances and setting it to `this.notes.` Flashback: your `Note`
