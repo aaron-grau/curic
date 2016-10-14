@@ -167,10 +167,10 @@ the React curriculum materials. Review the
 
 ### Readings (80 min)
 - [Intro to React Router][react_router_intro]  (15 min)
+- [`<Link>`][link] (5 min)
 - [Index Routes][index_routes] (5 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
 - [`withRouter`][with_router] (10 min)
-- [`<Link>`][link] (5 min)
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
 
@@ -181,8 +181,10 @@ the React curriculum materials. Review the
 - [Pokedex][pokedex]
 
 ### Additional Resources
--	[React Router Documentation][react_router_docs]
-	- Check the `API` docs for quick reference
+- [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
+- [Route Matching](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md)
+- [React Router Documentation][react_router_docs]
+  - Check the `API` docs for quick reference
 
 [react_router_intro]: readings/intro_to_react_router.md
 [link]: readings/link.md
