@@ -6,13 +6,15 @@
 library that helps you add views to your React application, while keeping the 
 URL in sync with what's being displayed on the page.
 
-To use React Router, import `<Router>`, `<hashHistory>`, and `<Route>` from
-the `react-router` library.
+To use React Router in your projects `npm install --save react-router`. Then
+import `<Router>`, `<hashHistory>`, and `<Route>` from the `react-router` library.
 
 * `<Router>` is the primary component of the router that wraps our route hierarchy
 * `<hashHistory>` listens to the browser's address bar for changes so the router
-can match the URL to routes.
-* `<Route>` contains a path and component used to define a route.
+can match the URL to routes
+* `<Route>` defines a route's `path` and the React `component` rendered
+at that URL
+
 
 Let's look at an example.
 
@@ -33,7 +35,7 @@ const Root = () => (
 );
 ```
 
-This route config would cause the app to render the specified components at 
+The `<Router>` config above would cause an app to render the specified components at 
 the following paths.
 
 Path                    | Rendered Components
@@ -43,14 +45,14 @@ Path                    | Rendered Components
 `/inbox`                | `App -> Inbox`
 `/inbox/messages/:id`   | `App -> Inbox -> Message`
 
-Underneath the hood, the router converts the `<Route>` element 
-hierarchy to an array of routes. When the app is directed to a new URL, the 
+Underneath the hood, React Router converts the hierarchy of 
+`<Route>` elements to an array of routes. When the app is directed to a new URL, the 
 router attempts to match the new path to one found in this array. 
 When a URL matches the path of a `<Route>`, the corresponding 
 component or components are displayed to the user.
 
-As you can see from the app's route hierarchy it's possible by nesting 
-routes to build longer paths the router will try to match. When a user 
+As you can see from the example, it's possible to render nested components 
+and build longer paths by nesting routes. For example, when a user 
 visits `/about` both `App` and `About` are rendered. When a user visits 
 `/inbox/messages/:id` `App`, `Inbox`, and `Message` are rendered.
 
@@ -58,23 +60,18 @@ visits `/about` both `App` and `About` are rendered. When a user visits
 
 While the router figures out what components to be rendered based on the URL,
 it does not determine how they are rendered. Instead, parent components have 
-access via `props` to children components nested one level below.
+access via `props` to `children` components nested one level below.
 
-These are the components we created routes for in our `root.jsx` router 
-example above.
+For example, the `<Router>` above renders the following React components:
 
 ```js
-// message.jsx
-
 const Message = () => (
   <h3>Message</h3>
 );
 ```
 
 ```js
-// inbox.jsx
-
-const Inbox = ({children}) => (
+const Inbox = ({ children }) => (
   <div>
     <h2>Inbox</h2>
     {children}
@@ -84,9 +81,7 @@ const Inbox = ({children}) => (
 ```
 
 ```js
-// app.jsx
-
-const App = ({children}) => (
+const App = ({ children }) => (
   <div>
     <h1>App</h1>
     {children}
@@ -94,10 +89,14 @@ const App = ({children}) => (
 );
 ```
 
-Because we nested `Inbox` under `App` in our router, we are given access to the
-`Inbox` component in `App`'s props. All we have to do is render `children` in
-`App` to render `Inbox`. We can similarly call `children` in `Inbox` to
-render `Message`.
+Since we nested `Inbox` under `App` in our router, we gain access to the
+`Inbox` component in `App`'s props as `props.children`. All we have to do is render 
+`children` in `App` to render `Inbox`. We similarly render `children` in `Inbox` to
+render `Message` because `Message` is nested under `App`.
+
+**NB**: If your nested component isn't rendering in your parent component,
+there's a good chance you are not rendering `props.children` in your parent component's
+render method.
 
 It's also possible to use [`named components`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#named-components) to allow a parent component to render multiple children.
 
@@ -153,22 +152,25 @@ We can use this id to fetch the corresponding message from the server and
 display it to our users.
 
 ```js
-// message.jsx
-
 class Message extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   
   componentDidMount() {
     const id = this.props.params.id
-
     fetchMessage(id, message => this.setState({ message }));
-    
-  };
+  }
+  
+  render () {
+    // ...
+   }
 }
 
 ```
 
 We're not just limited to matching params though. Because route paths are just
-strings, we can also use symbols to [dynamically match routes to different URLs](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md#path-syntax).
+strings, we can also use symbols to [dynamically match routes to different URLs](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md#path-syntax)!
 
 ## Resources
 
