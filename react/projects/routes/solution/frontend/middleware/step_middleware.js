@@ -20,7 +20,6 @@ import { REQUEST_TODO } from '../actions/todos_actions';
 
 export default ({getState, dispatch}) => next => action => {
   const stepsSuccess = data => {
-    debugger
     dispatch(receiveSteps(data))
   };
   const stepSuccess = data => dispatch(receiveStep(data));
@@ -28,6 +27,7 @@ export default ({getState, dispatch}) => next => action => {
 
   switch(action.type) {
     case REQUEST_STEPS:
+      debugger
       fetchSteps(action.todoId, stepsSuccess);
       return next(action);
     case CREATE_STEP:

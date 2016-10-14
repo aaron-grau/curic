@@ -7,22 +7,20 @@ import SplashPageContainer from './splash_page/splash_page_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import TodoFormContainer from './todos/todo_form_container';
 import TodoDetailViewContainer from './todos/todo_detail_view_container';
-import StepListContainer from './steps/step_list_container';
+// import StepFormContainer from './steps/step_form_container';
 
-import { requestTodos, requestTodo } from '../actions/todos_actions.js';
+import { requestTodos, requestTodo } from '../actions/todos_actions';
+import { requestSteps } from '../actions/steps_actions';
 
 const Root = ({ store }) => {
   const requestTodosOnEnter = (nextState) => {
     store.dispatch(requestTodos());
   }
 
-  const requestTodoOnEnter = (nextState) => {
+  const requestTodoDetailsOnEnter = (nextState) => {
     if (!store.getState().todos[nextState.params.todoId]) { // todo does not exist in state
       store.dispatch(requestTodo(nextState.params.todoId));
     }
-  }
-
-  const requestStepsOnEnter = (nextState) => {
     store.dispatch(requestSteps(nextState.params.todoId));
   }
 
@@ -33,8 +31,8 @@ const Root = ({ store }) => {
           <IndexRoute component={SplashPageContainer}/>
           <Route path="dashboard" component={DashboardContainer} onEnter={requestTodosOnEnter}>
             <IndexRoute component={TodoFormContainer} />
-            <Route path="todos/:todoId" component={TodoDetailViewContainer} onEnter={requestTodoOnEnter}>
-              <Route path="edit" component={StepListContainer} />
+            <Route path="todos/:todoId" component={TodoDetailViewContainer} onEnter={requestTodoDetailsOnEnter}>
+              {/*<Route path="edit" component={StepFormContainer} />*/}
             </Route>
           </Route>
         </Route>

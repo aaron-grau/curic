@@ -4,11 +4,13 @@ import TodoDetailView from './todo_detail_view';
 import { destroyTodo } from '../../actions/todos_actions';
 import { requestSteps } from '../../actions/steps_actions';
 
+import { withRouter } from 'react-router';
+
 import { selectTodo } from '../../reducers/selectors';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, { params }) => {
   return ({
-    todo: selectTodo(state, ownProps.params.todoId)
+    todo: selectTodo(state, params.todoId)
   });
 };
 
@@ -17,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
   destroyTodo: id => dispatch(destroyTodo(id))
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoDetailView);
+)(TodoDetailView));

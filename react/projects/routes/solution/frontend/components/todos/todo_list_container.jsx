@@ -1,25 +1,20 @@
 import { connect } from 'react-redux';
-import TodoList from './todo_list';
-// Actions
-import { requestTodos, createTodo, updateTodo, destroyTodo } from '../../actions/todos_actions';
+import { withRouter } from 'react-router';
+
+import { updateTodo } from '../../actions/todos_actions';
 import { allTodos } from '../../reducers/selectors';
+
+import TodoList from './todo_list';
 
 const mapStateToProps = state => ({
   todos: allTodos(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestTodos: () => dispatch(requestTodos()),
-  createTodo: todo => dispatch(createTodo(todo)),
-  toggleTodo: todo => () =>	{
-    const toggledTodo = Object.assign({}, todo, {
-      done: !todo.done
-    });
-    dispatch(updateTodo(toggledTodo));
-  }
+  toggleTodo: toggledTodo => dispatch(updateTodo(toggledTodo)),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoList);
+)(TodoList));

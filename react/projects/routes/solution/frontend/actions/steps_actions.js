@@ -6,9 +6,9 @@ export const CREATE_STEP = "CREATE_STEP";
 export const UPDATE_STEP = "UPDATE_STEP";
 export const DESTROY_STEP = "DESTROY_STEP";
 
-export const requestSteps = todo_id => ({
+export const requestSteps = todoId => ({
   type: REQUEST_STEPS,
-  todo_id
+  todoId
 });
 
 export const receiveSteps = steps => ({

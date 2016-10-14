@@ -2,8 +2,8 @@ import React from 'react';
 
 class TodoForm extends React.Component {
   constructor(props) {
-    // debugger
     super(props);
+
     this.state = {
       title: "",
       body: "",
@@ -23,11 +23,14 @@ class TodoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createTodo({
-      todo: this.state});
+      todo: this.state
+    });
+
+    // reset form
     this.setState({
       title: "",
       body: ""
-    }); // reset form
+    });
   }
 
   render() {
@@ -49,6 +52,7 @@ class TodoForm extends React.Component {
           <input
             type='text'
             ref="body"
+            placeholder="2% or skim"
             value={this.state.body}
             onChange={this.update('body')}
             required />
