@@ -166,11 +166,11 @@ the React curriculum materials. Review the
 ## w7d4
 
 ### Readings (80 min)
-- [Intro to react router][react_router_intro]  (15 min)
-- [Link][link] (5 min)
+- [Intro to React Router][react_router_intro]  (15 min)
 - [Index Routes][index_routes] (5 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
 - [`withRouter`][with_router] (10 min)
+- [`<Link>`][link] (5 min)
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
 
