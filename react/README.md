@@ -1,11 +1,12 @@
 # React / Redux Curriculum
 
-## w7d1
+## w6d5
 ### Video Lectures (94 min)
-**N.B.** These lectures were recorded prior to the introduction of ES6-style syntax to
-React. As a result, you may see a slightly different syntax than in the rest of
-the React curriculum materials. Review the
-[component declaration][component-declaration] reading for more discussion of the differences.
+**N.B.** These lectures were recorded prior to the introduction of ES6-style
+syntax to React. As a result, you may see a slightly different syntax than in
+the rest of the React curriculum materials. Review the [component
+declaration][component-declaration] reading for more discussion of the
+differences.
 
 :closed_lock_with_key: `go_video_go`
 - :movie_camera: [Part 1: Intro to React][react_video_01] (5 min)
@@ -81,7 +82,7 @@ the React curriculum materials. Review the
 
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
-## w7d2
+## w7d1
 
 ### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
@@ -136,7 +137,7 @@ the React curriculum materials. Review the
 
 [synthesizer]: projects/synthesizer
 
-## w7d3
+## w7d2
 
 ### Readings (60 min)
 - [Higher-order functions][higher_order_functions] (15 min)
@@ -163,7 +164,7 @@ the React curriculum materials. Review the
 [todos]: projects/todos
 
 
-## w7d4
+## w7d3
 
 ### Readings (80 min)
 - [Intro to react router][react_router_intro] (12 min)
@@ -197,6 +198,11 @@ the React curriculum materials. Review the
 [pokedex]: projects/pokedex
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
+## w7d4
+
+### Projects
+* Continue [Pokedex][pokedex]
+
 ## w7d5
 
 ### Readings (28 min)
@@ -216,7 +222,7 @@ the React curriculum materials. Review the
   * You'll be surprised how much of it you've forgotten by now. It's normal.
 
 ### Projects
-- **Solo:** [BenchBNB][bench_bnb]
+- **Solo:** [BenchBnB][bench_bnb]
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
 
@@ -241,7 +247,7 @@ the React curriculum materials. Review the
   * **Due by 9am on Monday**
 
 ### Projects
-* **Solo:** [BenchBnB Day 2][bench_bnb]
+* **Solo:** Continue [BenchBnB][bench_bnb]
 
 ### Additional Resources
 * See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.

@@ -1,5 +1,9 @@
 # BenchBnB Day 2 - Benches!
 
+Check out the live demo [here][live-demo]!
+
+[live-demo]: http://aa-benchbnb.herokuapp.com
+
 [maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
 
 ## Phase 4: `Bench` Redux Cycle
