@@ -24,15 +24,23 @@
 .gear-dropdown .editions li,
 .gear-dropdown .help li {
 	margin: 5px 0;
-	padding: 5px 5px;
 	cursor: pointer;
 	border-radius: 3px;
 	font-size: 12px;
 }
 
+.gear-dropdown a {
+	display: block;
+	padding: 5px 5px;
+}
+
+.editions a {
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
 .gear-dropdown .help li {
 	color: $blue;
-	text-transform: initial;
 }
 
 .gear-dropdown .editions li:hover {

@@ -1,8 +1,7 @@
 /* global $ */
 
 // dropdown function that toggles 'hidden' class to the gear-dropdown ul
-const toggleDropdown = (e) => {
-	e.preventDefault();
+const toggleDropdown = () => {
 	$('#gear-dropdown').toggleClass('hidden');
 };
 

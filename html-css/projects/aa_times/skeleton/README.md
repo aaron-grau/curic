@@ -99,7 +99,7 @@ Compare the provided HTML structure in `/views/shared/_main_nav.html.erb` to the
 
 - add another `<nav>` for the right side
 - add the buttons
-- add the gear icon inside of a button
+- add the gear icon inside of a list element
 
 The icons are being imported from FontAwesome and are applied using classes. Use [this list of classes][font-awesome] to find the right image and the html in the `left-nav` as an example.
 
@@ -114,11 +114,11 @@ Now it is time to style in the `_main_nav.scss` file. For this section we have p
 
 - `flex` the `main-nav` and use `justify-content` for horizontal spacing
 - Use `padding` on the main nav for vertical spacing
-- Override the button styling on the left nav to have buttons without backgrounds or borders and with black text
-- Use the `$lightest-gray` color for the search, sections and gear button hovers
-- Style the necessary `margin` spacing
+- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property vertically align them
+- Apply the font and sizing properties to the list elements themselves
+- Use the `$lightest-gray` hover for the list elements without buttons
+- Style the necessary `margin` spacing between the text and the icons
 - Use `font-size` to make the gear icon bigger
-- The `vertical-align` property describes the baseline for text elements
 
 ## MastHead
 
@@ -151,7 +151,7 @@ Open up the `javascripts/components` folder and take a look at the `dropdown.js`
 
 Open the `_gear_dropdown.html.erb` file where we have created the HTML structure of the dropdown. Notice the classes used to divide the different unordered lists and the span elements for the subtitles.
 
-- Render the partial as a child of the gear button using `<%= render partial: 'shared/gear_dropdown' %>`
+- Render the partial as a child of the list element with the gear icon using `<%= render partial: 'shared/gear_dropdown' %>`
 - Click the gear icon to test the toggling of the `hidden` class.
 
 Style the dropdown in `_gear_dropdown.scss` according to the screenshot:
@@ -222,7 +222,7 @@ Now let's code the sections sidebar so that mobile users still have a way of nav
 
 - Copy and paste the HTML from the `sections_nav.html.erb` file into the `sections_sidebar.html.erb` file as a starting point.
 - Take a look at the `sidebar.js` to see how the sidebar functions
-- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of a button with `id="sections-sidebar-btn"`
+- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of the corresponding list element with `id="sections-sidebar-btn"`
 - In `_sections_sidebar.scss`, start with a selector to style the `opacity: 0` normally and `opacity: 1` when it has the additional `.expand` class
 
 **N.B.** We use opacity here instead of display because it is transitionable. 

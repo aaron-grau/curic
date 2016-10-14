@@ -1,25 +1,34 @@
 .main-nav {
-	
+
 }
 
-.left-nav button, 
-.right-nav button:last-of-type {
-	
+.left-nav > ul,
+.right-nav > ul {
+
 }
 
-.left-nav button:hover, 
-.right-nav button:last-of-type:hover {
-	
+.left-nav > ul > li {
+
+}
+
+.right-nav > ul > li {
+
+}
+
+.right-nav > ul > li:last-of-type {
+
+}
+
+.left-nav > ul > li:hover,
+.right-nav > ul > li:last-of-type:hover {
+
 }
 
 .left-nav span {
-	
+
 }
+
 
 .right-nav i {
-	
-}
 
-.right-nav button:last-of-type {
-	
 }

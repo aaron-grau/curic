@@ -56,7 +56,6 @@ Some notes on this project before starting:
 - Html is rendered using rails partials in the `/app/views/static_pages/index.html.erb` file to allow styling of each component separately.
 - Images for the application may be found in the `app/assets/images` folder 
 - The `docs` folder contains directories `screenshots` of completed designs and `copy` to be pasted as content
-- The designer provided sticky notes on the designs to describe hover effects
 - Javascript files are provided in the `app/assets/javascripts` folder
 - A script tag in the application.html.erb file loads [fontawesome](http://fontawesome.io/icons/) icon classes
 - Text content is given in separate text files within the `app/assets/text` folder for you to copy and paste.
@@ -77,7 +76,7 @@ Always start with a clean slate, by "resetting" the user agent stylesheet provid
 
 # Phase 2: The Layout
 
-Start by looking over the `docs/screenshots/overall.png` file to get a feel for the overall application design.
+Start by looking over the `docs/screenshots/main_content.png` file to get a feel for the overall application design.
 
 In order to write "cascading" style sheets it is important that we pick out common design elements and essential layout features. We will use the `layout.scss` file when styling aspects common to our entire application.
 
@@ -100,7 +99,7 @@ Compare the provided HTML structure in `/views/shared/_main_nav.html.erb` to the
 
 - add another `<nav>` for the right side
 - add the buttons
-- add the gear icon inside of a button
+- add the gear icon inside of a list element
 
 The icons are being imported from FontAwesome and are applied using classes. Use [this list of classes][font-awesome] to find the right image and the html in the `left-nav` as an example.
 
@@ -108,18 +107,18 @@ The icons are being imported from FontAwesome and are applied using classes. Use
 
 A great use for the `layout.scss` stylesheet is to code common button styling for your project. Keeping button styling consistent makes it easier for users to know where to click.
 
-- style the buttons according to the "Subscribe Now" and "Log In" button designs in the `main_nav.jpg` screenshot
+- style the buttons according to the "Subscribe Now" and "Log In" button designs in the `main_nav.png` screenshot
 - each css property has been provided as a comment
 
 Now it is time to style in the `_main_nav.scss` file. For this section we have provided the selectors for you. Here are some tips:
 
 - `flex` the `main-nav` and use `justify-content` for horizontal spacing
 - Use `padding` on the main nav for vertical spacing
-- Override the button styling on the left nav to have buttons without backgrounds or borders and with black text
-- Use the `$lightest-gray` color for the search, sections and gear button hovers
-- Style the necessary `margin` spacing
+- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property vertically align them
+- Apply the font and sizing properties to the list elements themselves
+- Use the `$lightest-gray` hover for the list elements without buttons
+- Style the necessary `margin` spacing between the text and the icons
 - Use `font-size` to make the gear icon bigger
-- The `vertical-align` property describes the baseline for text elements
 
 ## MastHead
 
@@ -152,7 +151,7 @@ Open up the `javascripts/components` folder and take a look at the `dropdown.js`
 
 Open the `_gear_dropdown.html.erb` file where we have created the HTML structure of the dropdown. Notice the classes used to divide the different unordered lists and the span elements for the subtitles.
 
-- Render the partial as a child of the gear button using `<%= render partial: 'shared/gear_dropdown' %>`
+- Render the partial as a child of the list element with the gear icon using `<%= render partial: 'shared/gear_dropdown' %>`
 - Click the gear icon to test the toggling of the `hidden` class.
 
 Style the dropdown in `_gear_dropdown.scss` according to the screenshot:
@@ -195,7 +194,7 @@ This is what we are looking for to start:
 
 [css-grid-homework]: https://github.com/appacademy/curriculum/blob/master/html-css/assets/custom_grid.css
 
-- Now that we have flexible columns in place, use the `main_content.jpg` design to look for elements that are styled similarly and give them some tags/classes. Here are some examples:
+- Now that we have flexible columns in place, use the `main_content.png` design to look for elements that are styled similarly and give them some tags/classes. Here are some examples:
     + The bold headers like "Opinion Pages" and "Cat Academy"
     + The "By [example]" lines
 
@@ -211,7 +210,7 @@ This is what we are looking for to start:
 
 # Phase 5: The Sections Sidebar
 
-Notice that our flexible website breaks a bit because we don't have flexible fonts. We will leave this discussion for another time and instead use media queries to complete our responsive design. Notice how the amount of links in the sections nav is too big for smaller screen sizes. Refence the `mobile.jpg` screenshot and:
+Notice that our flexible website breaks a bit because we don't have flexible fonts. We will leave this discussion for another time and instead use media queries to complete our responsive design. Notice how the amount of links in the sections nav is too big for smaller screen sizes. Refence the `mobile.png` screenshot and:
 
 - Write a media query similar to the one used in the `grid.scss` to hide the sections nav at the same viewport width that the columns convert to 100%
 - Write a similar media query to hide the language nav
@@ -223,7 +222,7 @@ Now let's code the sections sidebar so that mobile users still have a way of nav
 
 - Copy and paste the HTML from the `sections_nav.html.erb` file into the `sections_sidebar.html.erb` file as a starting point.
 - Take a look at the `sidebar.js` to see how the sidebar functions
-- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of a button with `id="sections-sidebar-btn"`
+- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of the corresponding list element with `id="sections-sidebar-btn"`
 - In `_sections_sidebar.scss`, start with a selector to style the `opacity: 0` normally and `opacity: 1` when it has the additional `.expand` class
 
 **N.B.** We use opacity here instead of display because it is transitionable. 
@@ -234,7 +233,7 @@ This is the effect we are going for:
 
 - The submenu text content may be found in the `docs/copy` folder
 - Add the remaining HTML to the `sections_sidebar` by nesting `ul` elements within the `li` elements that require an additional dropdown
-- Style according to the `sections_sidebar.jpg` screenshot
+- Style according to the `sections_sidebar.png` screenshot
 
 Create pure css dropdowns with the following example code:
 ```html
@@ -292,7 +291,7 @@ Use pseudo element [css triangles][css-triangles] on top of triangles to create 
 
 Modals are distinct from dropdowns because they appear to float independently over the application. A common characteristic of a modal is also that the app beneath becomes more opaque and clicking away from the modal will close it.
 
-Take a look at the `search-modal.jpg` screenshot to get a better idea of what this is supposed to look like. Use the `search-modal.js` file to get the id necesary for the search button, modal and overlay.
+Take a look at the `search-modal.png` screenshot to get a better idea of what this is supposed to look like. Use the `search-modal.js` file to get the id necesary for the search button, modal and overlay.
 
 Create the HTML in the `_search_modal.html.erb` file and style in `_search_modal.scss`. We created a `<section id="overlay" class="overlay hidden"></section>` at the bottom of the `main_content` section.
 
