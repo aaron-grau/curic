@@ -730,8 +730,7 @@ because the `_redirectIfLoggedIn` runs synchronously.
 
 [onEnter]: ../../readings/on_enter.md
 
-
-**Test your work. You've completed Day 1!**
+:confetti_ball: You've finished adding front-end user auth to your app! Now let's add benches! 
 
 [rails]: ../../../rails#readings-after-you-finish-all-videos
 [onEnter]: ../../readings/on_enter.md
