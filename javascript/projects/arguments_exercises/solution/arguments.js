@@ -51,7 +51,7 @@ function curriedSum(numArgs) {
   return _curriedSum;
 }
 
-// using splat
+// using spread
 Function.prototype.curry = function (numArgs) {
   const args = [];
   const fn = this;
