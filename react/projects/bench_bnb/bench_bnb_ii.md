@@ -1,6 +1,366 @@
-# BenchBnB Day 2
+# BenchBnB Day 2 - Benches!
 
 [maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
+
+## Phase 4: `Bench` Redux Cycle
+
+In this phase, you will build the pieces necessary to display a basic index of
+benches.
+
+### `BenchApiUtil`
+
+To start, let's create an API utility for `BenchesMiddleware` to use that will request data via AJAX from our Rails server.
+
++ Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`.
+
+This function should accept a single argument: `success`, a callback. It should
+then dispatch an `$.ajax` request, passing `success` to the `$.ajax` call.
+Define an error callback, to, for debugging.
+
+Your function should look something like this:
+
+```javascript
+// frontend/util/bench_api_util.js
+
+export const fetchBenches = success => {
+  $.ajax({
+    method: // ,
+    url: //,
+    success,
+    error: () => console.log('error')
+  })
+}
+```
+
+As before, put this function on the window for testing, and make sure it works
+before moving on!
+
+### Bench State Shape
+
+We want to build a bench state that has the following shape.
+
+```js
+benches: {
+  1: {
+    id: 1,
+    description: "...",
+    lat: 0.0,
+    lng: 0.0
+  },
+  2: {
+    id: 2,
+    description: "...",
+    lat: 0.0,
+    lng: 0.0
+  },
+  3: {
+    id: 3,
+    description: "...",
+    lat: 0.0,
+    lng: 0.0
+  }
+}
+```
+
+Note that our benches object use each bench's id as a primary key.
+
+### Action Creators
+
+Before we move on to the fun stuff -- populating a Google map with benches from
+our database -- we need to write an `actions` file that helps our other major
+pieces function.
+
+We need two `actions`: one that will tell our `Middleware` to go fetch all the
+benches from our Rails API, and one that tells our `store` to change our
+application state to represent the bench data in our `action`.
+
+* Create an `actions` file: `actions/bench_actions`.
++ Write `requestBenches`. It doesn't need to accept any arguments. It should just
+return an `action` with type `"REQUEST_BENCHES"`.
++ Write `receiveBenches`. It should accept a single argument, `benches`, and
+produce an `action` with type `"RECEIVE_BENCHES"` and a `benches` property that
+represents all of our bench data.
++ Don't forget to defined the corresponding action types.
++ Export everything.
+
+Before continuing, *test that they return the correct objects*. For example,
+add `requestBenches` to the `window` for testing later!
+
+```js
+// frontend/bench_bnb.jsx
+
+window.requestBenches = requestBenches;
+requestBenches(); //=> { type: 'REQUEST_BENCHES' }
+```
+
+Remember to require `requestBenches` for testing
+
+### Bench Reducer
+In this step, we're going to create a reducer that manages the `benches` section
+of our application state.
+
+* Create a file, `reducers/benches_reducer.js` that exports a `BenchesReducer` function.
+
+Let's start by just setting up our `BenchesReducer` to return its default state:
+Remember to use `Object.freeze` to prevent the state from being mutated.
+
+```javascript
+// frontend/reducers/benches_reducer.js
+
+import merge from 'lodash/merge';
+
+const BenchesReducer = (state = {}, action) => {
+  Object.freeze(state)
+  switch(action.type) {
+    //...
+    default:
+      return state
+  }
+}
+
+export default BenchesReducer;
+```
+
+Then add `BenchesReducer` to your `root_reducer.js`
+
+```javascript
+// frontend/reducers/root_reducer.jsx
+
+import { combineReducers } from 'redux';
+
+import BenchesReducer from './benches_reducer';
+import SessionReducer from './session_reducer';
+
+const RootReducer = combineReducers({
+  benches: BenchesReducer,
+  session: SessionReducer
+});
+
+export default RootReducer;
+```
+
+At this point, our default application state should look like this.
+
+```js
+{
+  session: {
+    currentUser: null,
+    errors: []
+  },
+
+  benches: {}
+}
+```
+
+### `BenchesMiddleware`
+
+Our `BenchesMiddleware` will be responsible for a number of things, including
+triggering api calls that eventually populate our `store` with benches!
+
+Remember, `Middleware` receives dispatches before the store. It can decide to
+intercept the dispatch, trigger another dispatch, or simply pass on it and do
+nothing.
+
+* Create a file, `middleware/benches_middleware.js`
+* Import the relevant action types. Like so,
+
+  ```javascript
+  import { REQUEST_BENCHES, RECEIVE_BENCHES } from '../actions/bench_actions.js';
+  ```
+
+Recall that [Redux Middleware][middleware-docs] employs a currying strategy to
+link several `Middleware` to each other and ultimately to the store. You'll need
+to define 3 functions that wrap one-another like so:
+
+```javascript
+const BenchesMiddleware = ({ getState, dispatch }) => next => action => {
+  // ...
+}
+```
+
++ Let's start by writing some `Middleware` that will just `console.log` whenever it sees a `REQUEST_BENCHES` action type.
+
+  ```javascript
+  const BenchesMiddleware = ({getState, dispatch}) => next => action => {
+    switch(action.type){
+      case REQUEST_BENCHES:
+        console.log('time to fetch!')
+        return next(action);
+      default:
+        return next(action);
+    }
+  }
+  ```
+
++ Export your `BenchesMiddleware`!
+
+  ```javascript
+  export default BenchesMiddleware;
+  ```
+
++ Add it to our list of middlewares in our `RootMiddleware` to connect it to the `store`.
+
+We'll come back to our `BenchesMiddleware` to flesh it out later.
+
+[middleware-docs]: http://redux.js.org/docs/advanced/Middleware.html
+
+### Connect `BenchesMiddleware` to `BenchAPIUtil`
+
+Let's connect our `BenchesMiddleware` to this new `fetchBenches` function!
+
+Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware`
+whenever a `REQUEST_BENCHES` action is received. For now, make `success` a
+function that logs the data from the response.
+
+```javascript
+// frontend/middleware/bench_middleware.js
+
+import { fetchBenches } from '../util/bench_api_util';
+import { REQUEST_BENCHES } from '../ actions/bench_actions';
+
+const BenchesMiddleware = ({ getState, dispatch }) => next => action => {
+  switch(action.type){
+    case REQUEST_BENCHES:
+      const success = data => console.log(data);
+      fetchBenches(success);
+      return next(action);
+    default:
+      return next(action);
+  }
+}
+```
+
+Check now that when we run this code in the console..
+
+```javascript
+store.dispatch(requestBenches())
+```
+
+We should see a `console.log` of all our bench data!
+
+Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.log`ing
+the bench data, it dispatches the data as part of an action.
+
+* Import the `receiveBenches` Action Creator.
+* Re-write your success callback to dispatch a `RECEIVE_BENCHES` action with the
+response `data`. To do this you'll need to add another case statement. It
+should look something like the following.
+
+```javascript
+case REQUEST_BENCHES:
+  const success = data => dispatch(receiveBenches(data));
+  fetchBenches(success);
+  return next(action);
+```
+
+### Back to the reducer
+
+Update your `BenchesReducer` to update the `benches` in your state when it receives
+the `RECEIVE_BENCHES` action. Your reducer should look something like:
+
+```javascript
+// frontend/components/reducers/benches_reducer.js
+
+import { RECEIVE_BENCHES } from '../actions/bench_actions';
+
+const BenchesReducer = (state = {}, action) => {
+  Object.freeze(state);
+  switch(action.type) {
+    case RECEIVE_BENCHES:
+      return action.benches;
+    default:
+      return state;
+  }
+};
+```
+
+## Phase 5: `BenchIndex` Components
+
+Let's create a component that shows our benches.
+
+* First we'll start by making make two files: `components/bench_index.jsx` and
+`components/bench_index_container.js`
+
+After we've made both of these components, we'll add the container to our
+router in `root.jsx` to it's rendered when users visit our site.
+
+### The Container Component
+
+Inside your container component, `connect` your `BenchIndex` as outlined below.
+Don't worry that we haven't constructed `BenchIndex` yet; but we'll fix that in
+the next step!
+
+#### `mapStateToProps`
+
+Our `BenchIndex` component needs `state` information about the `benches` in order to render.
+
+#### `mapDispatchToProps`
+
+The `BenchIndex` also needs a way to trigger a request for benches once it has
+mounted. Let's give it a `requestBenches` prop that it can use to call a
+dispatch with the `requestBenches()` action creator.
+
+#### Export it!
+
+Finally, let's use the `connect` function to export a new component that is
+connected to our `store`.
+
+```javascript
+// frontend/components/bench_index_container.jsx
+
+import BenchIndex from './bench_index.jsx'
+
+//...
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BenchIndex);
+```
+
+### The Presentational Component
+
+Let's create the `BenchIndex` presentational component. It should render a list of benches, showing the description of each bench.
+
+```javascript
+// frontend/components/bench_index.jsx
+
+class BenchIndex extends React.Component {
+  componentDidMount() {
+    // request benches from your API here
+  }
+
+  render() {
+    // ...
+  }
+};
+```
+
+Create another `BenchIndexItem`, to clean up your `BenchIndex` component's
+`render()` function.
+
+### Render Time!
+
+Let's make sure that our `BenchIndexContainer` is the default component rendered
+inside `App`. Use an `IndexRoute` to accomplish this.
+
+```javascript
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={BenchIndexContainer} />
+        <Route path="/login" component={SessionFormContainer} />
+        <Route path="/signup" component={SessionFormContainer} />
+      </Route>
+    </Router>
+  </Provider>
+)
+```
+
+Your app should now be populated with benches! **Confirm with a TA.**
+
+---
 
 ## Phase 6: The Map
 
@@ -18,7 +378,7 @@ search and display benches.
 `#map-container` to `500px`.
 * We'll return to this component in a bit.
 
-### Create a parent component: `Search`
+### Create a arent component: `Search`
 
 * Create a new React component, `Search`.
 * `Search` should render a `div` containing a `BenchMap` and `BenchIndex`.
@@ -72,6 +432,7 @@ to be rendered on the page.
 
 class BenchMap extends React.Component {
   //...
+
   componentDidMount() {
     // find the `<map>` node on the DOM
     const mapDOMNode = this.refs.map;
@@ -85,6 +446,7 @@ class BenchMap extends React.Component {
     // wrap the mapDOMNode in a Google Map
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
   }
+
   //...
 }
 ```
@@ -577,7 +939,6 @@ Show reviews of a bench on `BenchShow`. Reviews for a bench should comprise:
 Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average score
 for a bench and also list the reviews for that bench. Modify and add the
 appropriate API endpoints, actions, utils, and components.
-
 
 ## Phase 13: Pictures!
 * when you create a new bench, allow a user to also add a photo using

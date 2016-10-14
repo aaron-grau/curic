@@ -10,4 +10,4 @@ const RootReducer = combineReducers({
   session: SessionReducer
 });
 
-export default RootReducer
+export default RootReducer;

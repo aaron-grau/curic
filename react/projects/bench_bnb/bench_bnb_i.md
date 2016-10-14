@@ -1,4 +1,4 @@
-# Bench BnB
+# BenchBnB Day 1 - Front-End Auth!
 
 Check out the live demo [here][live-demo]!
 
@@ -129,16 +129,16 @@ import these functions in your entry file and save them to the window (e.g.,
 
 ### State Shape
 
-We want our app state to hold two pieces of information concerning user auth which
-we'll nest under session:
-1. The current user and
-2. An array of errors.
+We want our app state to hold two pieces of information concerning user auth
+which we'll nest under `session`:
+1. the `current user` and
+2. an array of `errors`.
 
-If no user is signed in `session.currentUser` is `null`. If a user is signed in
+If no user is signed in, `session.currentUser` is `null`. If a user is signed in
 `session.currentUser` returns information on the user. App's state might look
-something like this.
+something like this:
 
-```
+```js
 {
   session: {
     currentUser: null,
@@ -147,7 +147,9 @@ something like this.
 }
 ```
 
-```
+or this:
+
+```js
 {
   session: {
     currentUser: {
@@ -159,11 +161,11 @@ something like this.
 }
 ```
 
-By default, `session` should return a `null` `currentUser`, and an empty
-array of `errors`.
+By default, there no user is signed in. Thus `session` should return a `null`
+`currentUser`, and an empty array of `errors`.
 
-Hint: Use the default application state listed above as a template for any
-session information we might receive.
+Hint: Use this default application state as a template for any session
+information we might receive.
 
 ### Session Actions
 
@@ -263,23 +265,6 @@ const configureStore = (preloadedState = {}) => (
 export default configureStore;
 ```
 
-### Recap
-
-So far, we have built our redux store and told it to use our session reducing function.
-
-**Test that everything works**:
-* Inside your `DOMContentLoaded` callback in `bench_bnb.jsx`, call `configureStore()`
-and assign the result to the `window`. Note: this is just for testing!
-
-  ```javascript
-  window.store = configureStore();
-  ```
-
-* Run `store.getState()` in the console and inspect the results. Your state
-should look like the default state mentioned above!
-+ Test that your `SessionReducer` works by dispatching session actions
-(from the console) and then checking your application state.
-
 ### `SessionMiddleware`
 
 Your `SessionMiddleware` should only listen for and respond to 3 of our action types:
@@ -349,9 +334,9 @@ Similar to our pattern for creating a `RootReducer`, we'll create a `RootMiddlew
 * Use the `applyMiddleware` function to create a `RootMiddleware`
 * `export default` `RootMiddleware`
 
-Your `RootMiddleware` should look like this.
+Your `RootMiddleware` should look like this:
 
- ```javascript
+```javascript
 // frontend/middleware/root_middleware.js
 
 import { applyMiddleware } from 'redux';
@@ -366,30 +351,28 @@ export default RootMiddleware;
 
 #### Add `RootMiddleware` to the `store`
 
-For starters, let's open `store.js` and import our `RootMiddleware`.
-
-```javascript
-import RootMiddleware from '../middleware/root_middleware';
-```
-
-Finally, let's add our `RootMiddleware` as the third argument to the `createStore`
-function.
+To start, let's re-visit `store.js` and import our `RootMiddleware`.
 
 ```javascript
 // frontend/store/store.js
 
-//...
+import RootMiddleware from '../middleware/root_middleware';
+```
+
+Let's add our `RootMiddleware` as the third argument to the `createStore`
+function.
+
+```javascript
 createStore(
   RootReducer,
   preloadedState,
   RootMiddleware
 );
-//...
 ```
 
 **Test that your `SessionMiddleware` is connected to the store** by dispatching
-`login`, `logout`, and `signup` actions from the console and then seeing your
-application state updates in response.
+session actions from the console and then checking to see if your application
+state updates accordingly in response.
 
 ## Phase 2: React Router and Session Components
 
@@ -416,6 +399,8 @@ Create and export a new **functional component** that renders an `<h1>` tag with
 ```javascript
 // frontend/components/App.jsx
 
+import React from 'react';
+
 const App = ({ children }) => (
   <div>
     <h1>Bench BnB</h1>
@@ -428,13 +413,13 @@ export default App;
 
 ### The `Root` component
 
-Create and export a **functional component** called `Root`. The component should
-accept the `store` as a prop, and it should render routes wrapped in the
-`Provider` and the `Router`
+Create and export a **functional component** called `Root`. It will  accept the
+`store` as a prop, and render routes wrapped by the `Provider`.
 
 ```javascript
 // frontend/components/root.jsx
 
+import React from 'react';
 import { Provider } from 'react-redux';
 
 const Root = ({ store }) => (
@@ -444,19 +429,14 @@ const Root = ({ store }) => (
 );
 ```
 
-### The `Routes`
+### React Router
 
-Start by importing the following into `root.jsx`:
-* `React` from 'react'
+Import the following to `root.jsx`:
 * `Router`, `Route`, `IndexRoute`, and `hashHistory` from `react-router`
-* Your `App` component
 
-Set up your `Root` to use `hashHistory`. Like so,
+Set up the `Router` to use `hashHistory`. Like so,
 
 ```javascript
-// frontend/components/root.jsx
-
-import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 const Root = ({ store }) => (
@@ -467,17 +447,13 @@ const Root = ({ store }) => (
   </Provider>
 );
 ```
+
 #### Routes
 
-Let's define a new `Route` that tells the router to render our `App`
-component when the URL matches the route url `'/'`:
+Define a new `Route` that tells the router to render our `App`
+component at the root url `'/'`.
 
 ```javascript
-// frontend/components/root.jsx
-
-import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
@@ -487,7 +463,9 @@ const Root = ({ store }) => (
 );
 ```
 
-### The Entry Point
+Thus `App` will be rendered for all routes in your app.
+
+### Updating the Entry Point
 
 Let's modify our entry file, `bench_bnb.jsx`, to only import the following:
   * `React` & `ReactDOM`
@@ -502,8 +480,8 @@ the `Root` component as a prop.
 // frontend/bench_bnb.jsx
 
 import ReactDOM from 'react-dom';
-import Root from './components/root';
 import configureStore from './store/store';
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
   store = configureStore();
@@ -530,13 +508,10 @@ If the user **is not logged in**, then the `Greeting` should contain:
   * A [`<Link to>`][link-docs] `/#/signup`
   * A [`<Link to`>][link-docs] `/#/login`
 
-Change your `App` to render the `GreetingContainer` above our other content.
-
-It should look a lot like this:
+Update your `App` component so that it renders the `GreetingContainer` above
+other content. It should look like this:
 
 ```js
-// frontend/components/App.jsx
-
 import GreetingContainer from './greeting/greeting_container';
 
 const App = ({ children }) => (
@@ -556,7 +531,7 @@ clicking the logout button logs out the current user before moving on.
 
 To make our React components modular, we will reuse and render the same form component on login and signup.
 
-* Create a container `SessionFormContainer` and its controlled component, `SessionForm`.
+* Create a container `SessionFormContainer` and its controlled component `SessionForm`.
 
 #### `SessionFormContainer`
 
@@ -574,8 +549,6 @@ The `SessionForm` component should be responsible for a number of tasks:
   * Render a controlled component with `state` governed by user interface. For example,
 
   ```js
-  // frontend/components/session_form/session_form.jsx
-
   class SessionForm extends React.Component {
   	constructor(props) {
   		super(props);
@@ -584,6 +557,7 @@ The `SessionForm` component should be responsible for a number of tasks:
   			password: ""
   		};
     }
+
     //...
   }
   ```
@@ -591,15 +565,17 @@ The `SessionForm` component should be responsible for a number of tasks:
     + Define a helper method `handleSubmit(e)` like so:
 
     ```js
-    // frontend/components/session_form/session_form.jsx
+    class SessionForm extends React.Component {
+      //...
 
-    //...
-   	handleSubmit(e) {
-  		e.preventDefault();
-  		const user = this.state;
-  		this.props.processForm({user});
-  	}
-    //...
+      handleSubmit(e) {
+        e.preventDefault();
+        const user = this.state;
+        this.props.processForm({user});
+      }
+
+      //...
+    }
     ```
 
     + Pass it as a callback to your form's `onSubmit`.
@@ -610,30 +586,27 @@ The `SessionForm` component should be responsible for a number of tasks:
 
 ### Session Routes
 
-Now it's time to create corresponding routes for logging in and signing up.
+Now it's time to create routes for logging in and signing up.
 
-  * Create 2 new routes in your `Root` component for `/#/login` and `/#/signup`.
-    * The `<Route>`s' paths should be `"login"` and `"signup"`.
-    + They should both render the `SessionFormContainer`.
-    + For example,
+* Create two new routes in your `Root` component for `/#/login` and `/#/signup`.
+  * The `<Route>`s' paths should be `"login"` and `"signup"`.
+  + They should both render the `SessionFormContainer`.
 
-    ```js
-    // frontend/components/root.jsx
-    
-    const Root = ({ store }) => (    
-      <Provider store={store}>
-        <Router history={hashHistory}>
-          <Route path="/" component={App}>
-            <Route path="/login" component={SessionFormContainer} />
-            <Route path="/signup" component={SessionFormContainer} />
-            //...
-          </Route>
-        </Router>
-      </Provider>
-    )
-    ```
+Your `Root` should now look a lot like this:
+```js
+const Root = ({ store }) => (    
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <Route path="/login" component={SessionFormContainer} />
+        <Route path="/signup" component={SessionFormContainer} />
+      </Route>
+    </Router>
+  </Provider>
+)
+```
 
-**Call a TA over and show them your `SessionForm` before moving on!**
+**Call a TA over and show them your `SessionForm` renders for logging and signing up before moving on!**
 
 [link-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/Introduction.md#with-react-router
 
@@ -647,8 +620,8 @@ current user and then fetch that information when the app mounts. However, since
 the request would be asynchronous, our app would momentarily have no current
 user. This would cause it to briefly render in a 'not-logged-in' state and then
 re-render when the current user was received, causing a strange, flickering
-effect. To circumvent this, we'll 'bootstrap' the current user alongside our HTML
-when the page initially loads.
+effect. To circumvent this, we'll 'bootstrap' the current user alongside our
+HTML when the page initially loads.
 
 #### Edit your `root.html.erb`
 
@@ -661,14 +634,15 @@ interpolation. The result will be a hard-coded assignment in our rendered html
 that looks something like this:
 
 ```html
-  // root.html.erb
-  ...
-  <script type="text/javascript">
-      window.currentUser = {"id":3,"username":"senecy_the_cat"}
-  </script>
+// root.html.erb
 
-  <main id="root"></main>
-  ...
+//...
+<script type="text/javascript">
+    window.currentUser = {"id":3,"username":"senecy_the_cat"}
+</script>
+
+<main id="root"></main>
+//...
 ```
 
 where `{"id": 3, "username": "senecy_the_cat"}` is inserted via `ERB`.
@@ -681,8 +655,8 @@ In your script, assign your `window.currentUser` to an ERB expression:
 window.currentUser = <%=  %>
 ```
 
-Make sure to use `<%= %>` so that the result of your ruby code is rendered into the
-script ( it will eventually return a JSON object).
+Make sure to use `<%= %>` so that the result of your ruby code is rendered into
+the script (it will eventually return a JSON object).
 
 Inside your erb expression, `render` your jbuilder `_user` partial, passing it
 the `current_user`. Specify the whole path, including `.json.jbuilder`, to
@@ -724,12 +698,9 @@ Your entry point should now have the following code:
 // frontend/bench_bnb.jsx
 
 //...
+let store;
 if (window.currentUser) {
-  const preloadedState = {
-    session: {
-      currentUser: window.currentUser
-    }
-  };
+  const preloadedState = {session: {currentUser: window.currentUser}};
   store = configureStore(preloadedState);
 } else {
   store = configureStore();
@@ -741,8 +712,8 @@ if (window.currentUser) {
 
 ### Protecting your front-end routes with `onEnter` hooks!
 
-Let's make sure users can't get to our `"/#/login"` or `"/#/signup"` routes on
-the front-end if they are already logged in.
+Let's make sure users can't visit our `"/#/login"` or `"/#/signup"` routes if
+they are already logged in on the front-end.
 
 Refer to the `onEnter` [reading][onEnter] for this part.
 
@@ -753,420 +724,14 @@ Refer to the `onEnter` [reading][onEnter] for this part.
 * Add an `onEnter` prop to the Routes we want to protect.
   * Remember, we want to redirect users from `"/#/login"` and  `"/#/signup"` if they are already logged in.
 
-**NB**: Remember that `replace` won't add a "fake" entry to the browser's history, whereas
-`push` will. We also don't need an `asyncDoneCallback` because the `_redirectIfLoggedIn` runs synchronously.
+**NB**: Remember that `replace` won't add a "fake" entry to the browser's
+history, whereas `push` will. We also don't need an `asyncDoneCallback`
+because the `_redirectIfLoggedIn` runs synchronously.
 
 [onEnter]: ../../readings/on_enter.md
 
-## Phase 4: `Bench` redux cycle
-
-In this phase, you will build the pieces necessary to display a basic index of
-benches.
-
-### `BenchApiUtil`
-
-To start, let's create an API utility for `BenchesMiddleware` to use that will request data via AJAX from our Rails server.
-
-+ Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`.
-
-This function should accept a single argument: `success`, a callback. It should
-then dispatch an `$.ajax` request, passing `success` to the `$.ajax` call.
-Define an error callback, to, for debugging.
-
-Your function should look something like this:
-
-```javascript
-// frontend/util/bench_api_util.js
-
-export const fetchBenches = success => {
-  $.ajax({
-    method: // ,
-    url: //,
-    success,
-    error: () => console.log('error')
-  })
-}
-```
-
-As before, put this function on the window for testing, and make sure it works
-before moving on!
-
-### Bench State Shape
-
-We want to build a bench state that has the following shape.
-
-```js
-benches: {
-  1: {
-    id: 1,
-    description: "...",
-    lat: 0.0,
-    lng: 0.0
-  },
-  2: {
-    id: 2,
-    description: "...",
-    lat: 0.0,
-    lng: 0.0
-  },
-  3: {
-    id: 3,
-    description: "...",
-    lat: 0.0,
-    lng: 0.0
-  }
-}
-```
-
-Note that our benches object will use each bench's id as its primary key.
-
-### Action Creators
-
-Before we move on to the fun stuff -- populating a Google map with benches from
-our database -- we need to write an `actions` file that helps our other major
-pieces function.
-
-We need two `actions`: one that will tell our `Middleware` to go fetch all the
-benches from our Rails API, and one that tells our `store` to change our
-application state to represent the bench data in our `action`.
-
-* Create an `actions` file: `actions/bench_actions`.
-+ Write `requestBenches`. It doesn't need to accept any arguments. It should just
-return an `action` with type `"REQUEST_BENCHES"`.
-+ Write `receiveBenches`. It should accept a single argument, `benches`, and
-produce an `action` with type `"RECEIVE_BENCHES"` and a `benches` property that
-represents all of our bench data.
-+ Don't forget to defined the corresponding action types.
-+ Export everything.
-
-Before continuing, *test that they return the correct objects*. For example,
-add `requestBenches` to the `window` for testing later!
-
-```js
-// frontend/bench_bnb.jsx
-
-window.requestBenches = requestBenches;
-requestBenches(); //=> { type: 'REQUEST_BENCHES' }
-```
-
-Remember to require `requestBenches` for testing
-
-### Bench Reducer
-In this step, we're going to create a reducer that manages the `benches` section
-of our application state.
-
-* Create a file, `reducers/benches_reducer.js` that exports a `BenchesReducer` function.
-
-Let's start by just setting up our `BenchesReducer` to return its default state:
-Remember to use `Object.freeze` to prevent the state from being mutated.
-
-```javascript
-// frontend/reducers/benches_reducer.js
-
-import merge from 'lodash/merge';
-
-const BenchesReducer = (state = {}, action) => {
-  Object.freeze(state)
-  switch(action.type) {
-    //...
-    default:
-      return state
-  }
-}
-
-export default BenchesReducer;
-```
-
-Then add `BenchesReducer` to your `root_reducer.js`
-
-```javascript
-// frontend/reducers/root_reducer.jsx
-
-import { combineReducers } from 'redux';
-
-import BenchesReducer from './benches_reducer';
-import SessionReducer from './session_reducer';
-
-export default combineReducers({
-  benches: BenchesReducer,
-  session: SessionReducer
-});
-```
-
-At this point, our default application state should be something like this.
-
-```
-{
-  session: {
-    currentUser: null,
-    errors: []
-  },
-
-  benches: {}
-}
-```
-
-### `BenchesMiddleware`
-
-Our `BenchesMiddleware` will be responsible for a number of things, including
-triggering api calls that eventually populate our `store` with benches!
-
-Remember, `Middleware` receives dispatches before the store. It can decide to
-intercept the dispatch, trigger another dispatch, or simply pass on it and do
-nothing.
-
-* Create a file, `middleware/benches_middleware.js`
-* Import the relevant action types. Like so,
-
-  ```javascript
-  import { REQUEST_BENCHES, RECEIVE_BENCHES } from '../actions/bench_actions.js';
-  ```
-
-Recall that [Redux Middleware][middleware-docs] employs a currying strategy to
-link several `Middleware` to each other and ultimately to the store. You'll need
-to define 3 functions that wrap one-another like so:
-
-```javascript
-const BenchesMiddleware = ({ getState, dispatch }) => next => action => {
-  // ...
-}
-```
-
-+ Let's start by writing some `Middleware` that will just `console.log` whenever it
-sees a `REQUEST_BENCHES` action type.
-
-  ```javascript
-    const BenchesMiddleware = ({getState, dispatch}) => next => action => {
-      switch(action.type){
-        case REQUEST_BENCHES:
-          console.log('time to fetch!')
-          return next(action);
-        default:
-          return next(action);
-      }
-    }
-  ```
-
-+ Export your `BenchesMiddleware`!
-
-  ```javascript
-  export default BenchesMiddleware;
-  ```
-
-+ Add it to our list of middlewares in our `RootMiddleware` to connect it to the `store`.
-
-We'll come back to our `BenchesMiddleware` to flesh it out later.
-
-[middleware-docs]: http://redux.js.org/docs/advanced/Middleware.html
-
-#### Recap
-
-Since our last recap, we have created a `bench_actions` file that holds bench-related
-action creators and action types. They help ensure that our `Views`,
-`Middleware`, and `store` are communicating effectively. We have also create
-`BenchesMiddleware` which will be responsible for intercepting and triggering
-bench-related dispatches.
-
-**Let's test that our setup works!** Go to the console, and type:
-
-```javascript
-store.dispatch(requestBenches())
-```
-
-You should see the `console.log` that we imbedded in our `BenchesMiddleware`!
-Make sure this works before moving on.
-
-
-### Connect `BenchesMiddleware` to `BenchAPIUtil`
-
-Let's connect our `BenchesMiddleware` to this new `fetchBenches` function!
-
-Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware`
-whenever a `REQUEST_BENCHES` action is received. For now, make `success` a
-function that logs the data from the response.
-
-```javascript
-// frontend/middleware/bench_middleware.js
-
-import { fetchBenches } from '../util/bench_api_util';
-import { REQUEST_BENCHES } from '../ actions/bench_actions';
-
-const BenchesMiddleware = ({ getState, dispatch }) => next => action => {
-  switch(action.type){
-    case REQUEST_BENCHES:
-      const success = data => console.log(data);
-      fetchBenches(success);
-      return next(action);
-    default:
-      return next(action);
-  }
-}
-```
-
-Check now that when we run this code in the console..
-
-```javascript
-store.dispatch(requestBenches())
-```
-
-We should see a `console.log` of all our bench data!
-
-Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.log`ing
-the bench data, it dispatches the data as part of an action.
-
-* Import the `receiveBenches` Action Creator.
-* Re-write your success callback to dispatch a `RECEIVE_BENCHES` action with the
-response `data`. To do this you'll need to add another case statement. It
-should look something like the following.
-
-```javascript
-case REQUEST_BENCHES:
-  const success = data => dispatch(receiveBenches(data))
-  fetchBenches(success);
-  return next(action);
-```
-
-### Back to the reducer
-
-Update your `BenchesReducer` to update the `benches` in your state when it receives
-the `RECEIVE_BENCHES` action. Your reducer should look something like:
-
-```javascript
-// frontend/components/reducers/benches_reducer.js
-
-import { RECEIVE_BENCHES } from '../actions/bench_actions';
-
-const BenchesReducer = (state = {}, action) => {
-  Object.freeze(state)
-  switch(action.type) {
-    case RECEIVE_BENCHES:
-      return action.benches;
-    default:
-      return state;
-  }
-};
-```
-
-#### Recap
-
-You should now be able to run the following in the console:
-
-```javascript
-store.getState(); //: returns default state object
-store.dispatch(requestBenches());
-store.getState(); //: returns a new state object, fully populated!
-```
-
-Congrats! **Call over a TA and explain your benches redux cycle.**
-
-## Phase 5: `BenchIndex`
-
-Let's create a component that shows our benches.
-
-* First we'll start by making make two files: `components/bench_index.jsx` and
-`components/bench_index_container.js`
-
-After we've made both of these components, we'll add the container to our
-router in `root.jsx` to it's rendered when users visit our site.
-
-### The Container Component
-
-Inside your container component, `connect` your `BenchIndex` as outlined below.
-Don't worry that we haven't constructed `BenchIndex` yet; but we'll fix that in
-the next step!
-
-#### `mapStateToProps`
-
-Our `BenchIndex` component needs `state` information about the `benches` in order to render.
-
-#### `mapDispatchToProps`
-
-The `BenchIndex` also needs a way to trigger a request for benches once it has
-mounted. Let's give it a `requestBenches` prop that it can use to call a dispatch with
-the `requestBenches()` action creator.
-
-#### Export it!
-
-Finally, let's use the `connect` function to export a new component that is
-connected to our `store`.
-
-```javascript
-// frontend/components/bench_index_container.jsx
-
-import BenchIndex from './bench_index.jsx'
-
-//...
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BenchIndex);
-```
-
-### The Presentational Component
-
-Let's create the `BenchIndex` presentational component. It should render a list of benches, showing the description of each bench.
-
-```javascript
-// frontend/components/bench_index.jsx
-
-class BenchIndex extends React.Component {
-  componentDidMount() {
-    // request benches from your API here
-  }
-
-  render() {
-    // ...
-  }
-};
-```
-
-Create another `BenchIndexItem`, to clean up your `BenchIndex` component's `render()` function.
-
-### Render Time!
-
-Let's make sure that our `BenchIndexContainer` is the default component rendered
-inside `App`. Use an `IndexRoute` to accomplish this.
-
-```javascript
-// frontend/components/root.jsx
-
-const Root = ({ store }) => (
-  <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={BenchIndexContainer} />
-        <Route path="/login" component={SessionFormContainer} />
-        <Route path="/signup" component={SessionFormContainer} />
-        //...
-      </Route>
-    </Router>
-  </Provider>
-)
-```
-
-Your app should now be populated with benches!
-
-#### Recap
-
-Here's a summary of your redux loop so far:
-
-* The document loads and our doc-ready callback is triggered.
-* In the doc-ready callback, we tell `React` to render our `BenchIndex` component.
-* The `BenchIndex` component mounts and dispatches an `action` with type `REQUEST_BENCHES`.
-* Our `BenchesMiddleware` intercepts this `action` and triggers an `ajax` request to our rails api.
-* On success, the `ajax` request dispatches an `action` with type `RECEIVE_BENCHES.`
-* When the `BenchesReducer` receives this action, it updates the application state
-with the bench data contained in the `action`.
-* When the application state changes, it triggers a callback that was provided by
-the connect function.
-* That callback runs our `mapStateToProps` and `mapDispatchToProps` functions. The
-return values of these functions are then merged and the resulting object is passed as new props to `BenchIndex`.
-* When `BenchIndex` receives these new props, it re-renders. Phew!
 
 **Test your work. You've completed Day 1!**
 
 [rails]: ../../../rails#readings-after-you-finish-all-videos
 [onEnter]: ../../readings/on_enter.md
-[context-docs]: https://facebook.github.io/react/docs/context.html
-[store-context]: https://egghead.io/lessons/javascript-redux-passing-the-store-down-implicitly-via-context
