@@ -167,9 +167,8 @@ differences.
 ## w7d3
 
 ### Readings (80 min)
-- [Intro to react router][react_router_intro] (12 min)
-- [Route Configuration][route_configuration] (12 min)
-- [Route Matching][route_matching] (5 min)
+- [Intro to React Router][react_router_intro]  (15 min)
+- [`<Link>`][link] (5 min)
 - [Index Routes][index_routes] (5 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
 - [`withRouter`][with_router] (10 min)
@@ -183,12 +182,13 @@ differences.
 - [Pokedex][pokedex]
 
 ### Additional Resources
--	[React Router Documentation][react_router_docs]
-	- Check the `API` docs for quick reference
+- [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
+- [Route Matching](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md)
+- [React Router Documentation][react_router_docs]
+  - Check the `API` docs for quick reference
 
-[react_router_intro]: https://github.com/reactjs/react-router/blob/master/docs/Introduction.md
-[route_configuration]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
-[route_matching]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteMatching.md
+[react_router_intro]: readings/intro_to_react_router.md
+[link]: readings/link.md
 [index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
 [with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [on_enter]: readings/on_enter.md
