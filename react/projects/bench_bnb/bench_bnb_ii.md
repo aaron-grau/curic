@@ -32,8 +32,8 @@ deconstruct your props for cleaner syntax.
 
 ### Render your `SearchContainer`
 
-* In your `IndexRoute`, render the `SearchContainer` component instead of 
-`BenchIndexContainer`. This should cause both the `BenchMap` and the `BenchIndex` 
+* In your `IndexRoute`, render the `SearchContainer` component instead of
+`BenchIndexContainer`. This should cause both the `BenchMap` and the `BenchIndex`
 to be rendered on the page.
 * Verify your work before moving on.
 
@@ -69,8 +69,6 @@ to be rendered on the page.
 
 ```javascript
 // frontend/components/bench_map/bench_map.jsx
-
-import React from 'react';
 
 class BenchMap extends React.Component {
   //...
@@ -233,13 +231,27 @@ Test your updated `fetchBenches` methods to see that it applies the filters!
 ### Updated State Shape
 
 We want a default state that looks something like this. In addition to our
-benches, we'll also add a new slice of state to keep track of our filters.
+benches and session, we'll also add a new slice of state to keep track of our filters.
 
 ```
 {
-  benches: {},
+  benches: {
+    1: {
+      id: 1,
+      description: "...",
+      lat: 0.0,
+      lng: 0.0
+    }
+  },
   filters: {
     bounds: {}
+  },
+  session: {
+    currentUser: {
+      id: 1,
+      username: 'breakfast'
+    },
+    errors: []
   }
 }
 ```
@@ -394,7 +406,7 @@ To pass `lat` and `lng` as query params:
 
 ```javascript
 // frontend/components/bench_map/bench_map.jsx
- 
+
 //...
  _handleClick(coords){
     this.props.router.push({

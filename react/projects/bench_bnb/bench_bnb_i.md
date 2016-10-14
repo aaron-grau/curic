@@ -108,7 +108,7 @@ key differences:
   * **Caution**: Rails will format error responses differently than normal
   responses.
 
-**Test your routes** using `$.ajax` in the console before moving on. You should 
+**Test your routes** using `$.ajax` in the console before moving on. You should
 be able to create a user, log out, and log in using `$.ajax` commands.
 
 ### `SessionApiUtil`
@@ -129,16 +129,39 @@ import these functions in your entry file and save them to the window (e.g.,
 
 ### State Shape
 
-By the time we're done setting up our reducer to manage sessions, we'll want
-the default session slice of our state to hold two pieces of information, 1)
-the current user and 2) an array of errors. We'll want it to look something
-like this.
+We want our app state to hold two pieces of information concerning user auth which
+we'll nest under session:
+1. The current user and
+2. An array of errors.
+
+If no user is signed in `session.currentUser` is `null`. If a user is signed in
+`session.currentUser` returns information on the user. App's state might look
+something like this.
+
 ```
 {
-  currentUser: null,
-  errors: []
+  session: {
+    currentUser: null,
+    errors: ["Invalid credentials"]
+  }
 }
 ```
+
+```
+{
+  session: {
+    currentUser: {
+      id: 1,
+      username: 'breakfast'
+    },
+    errors: []
+  }
+}
+```
+
+By default, `session` should return a `null` `currentUser`, and an empty
+array of `errors`.
+
 Hint: Use the default application state listed above as a template for any
 session information we might receive.
 
@@ -154,7 +177,7 @@ creators in a new file `actions/session_actions.js`:
 
 + Don't forget to define and export the corresponding action types as well
 (e.g., `export const LOGIN = 'LOGIN'`).  
-+ `logout` won't accept an argument. `receiveErrors` will take an array. All 
++ `logout` won't accept an argument. `receiveErrors` will take an array. All
 other action creators accept a user object.
 
 ### `SessionReducer`
@@ -167,7 +190,7 @@ The `SessionReducer` should listen for 3 action types and respond to each like s
   * `RECEIVE_ERRORS` - sets `errors` to the action's errors and clears the `currentUser`
   * `LOGOUT` - clears both `errors` and `currentUser`
 
-Your `SessionReducer` should maintain it's own default state. To do that pass in
+Your `SessionReducer` should maintain its own default state. To do that pass in
 an object as a default argument to SessionReducer with `currentUser` set to `null`
 and `errors` set to an empty array.
 
@@ -192,7 +215,7 @@ Your `RootReducer` should look like this:
 ```javascript
 // frontend/reducers/root_reducer.jsx
 
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 import SessionReducer from './session_reducer';
 
@@ -326,9 +349,9 @@ Similar to our pattern for creating a `RootReducer`, we'll create a `RootMiddlew
 * Use the `applyMiddleware` function to create a `RootMiddleware`
 * `export default` `RootMiddleware`
 
-Your `RootMiddleware` should look like this. 
- 
- ```javascript 
+Your `RootMiddleware` should look like this.
+
+ ```javascript
 // frontend/middleware/root_middleware.js
 
 import { applyMiddleware } from 'redux';
@@ -393,8 +416,6 @@ Create and export a new **functional component** that renders an `<h1>` tag with
 ```javascript
 // frontend/components/App.jsx
 
-import React from 'react';
-
 const App = ({ children }) => (
   <div>
     <h1>Bench BnB</h1>
@@ -414,7 +435,6 @@ accept the `store` as a prop, and it should render routes wrapped in the
 ```javascript
 // frontend/components/root.jsx
 
-import React from 'react';
 import { Provider } from 'react-redux';
 
 const Root = ({ store }) => (
@@ -436,7 +456,6 @@ Set up your `Root` to use `hashHistory`. Like so,
 ```javascript
 // frontend/components/root.jsx
 
-import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
@@ -456,7 +475,6 @@ component when the URL matches the route url `'/'`:
 ```javascript
 // frontend/components/root.jsx
 
-import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
@@ -483,13 +501,8 @@ the `Root` component as a prop.
 ```javascript
 // frontend/bench_bnb.jsx
 
-//React 
-import React from 'react';
 import ReactDOM from 'react-dom';
-
-// Components
 import Root from './components/root';
-// Actions
 import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -524,7 +537,6 @@ It should look a lot like this:
 ```js
 // frontend/components/App.jsx
 
-import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
 
 const App = ({ children }) => (
@@ -544,7 +556,7 @@ clicking the logout button logs out the current user before moving on.
 
 To make our React components modular, we will reuse and render the same form component on login and signup.
 
-* Create a container `SessionFormContainer` and it's controlled component, `SessionForm`.
+* Create a container `SessionFormContainer` and its controlled component, `SessionForm`.
 
 #### `SessionFormContainer`
 
@@ -564,8 +576,6 @@ The `SessionForm` component should be responsible for a number of tasks:
   ```js
   // frontend/components/session_form/session_form.jsx
 
-  import React from 'react';
-  
   class SessionForm extends React.Component {
   	constructor(props) {
   		super(props);
@@ -582,7 +592,7 @@ The `SessionForm` component should be responsible for a number of tasks:
 
     ```js
     // frontend/components/session_form/session_form.jsx
-    
+
     //...
    	handleSubmit(e) {
   		e.preventDefault();
@@ -600,7 +610,7 @@ The `SessionForm` component should be responsible for a number of tasks:
 
 ### Session Routes
 
-Now it's time to create some routes for our new forms.
+Now it's time to create corresponding routes for logging in and signing up.
 
   * Create 2 new routes in your `Root` component for `/#/login` and `/#/signup`.
     * The `<Route>`s' paths should be `"login"` and `"signup"`.
@@ -609,20 +619,18 @@ Now it's time to create some routes for our new forms.
 
     ```js
     // frontend/components/root.jsx
-
-    import React from 'react';
-    import { Provider } from 'react-redux';
-    import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-   
-    <Provider store={store}>
-      <Router history={hashHistory}>
-        <Route path="/" component={App}>
-          <Route path="/login" component={SessionFormContainer} />
-          <Route path="/signup" component={SessionFormContainer} />
-          //...
-        </Route>
-      </Router>
-    </Provider>
+    
+    const Root = ({ store }) => (    
+      <Provider store={store}>
+        <Router history={hashHistory}>
+          <Route path="/" component={App}>
+            <Route path="/login" component={SessionFormContainer} />
+            <Route path="/signup" component={SessionFormContainer} />
+            //...
+          </Route>
+        </Router>
+      </Provider>
+    )
     ```
 
 **Call a TA over and show them your `SessionForm` before moving on!**
@@ -745,7 +753,7 @@ Refer to the `onEnter` [reading][onEnter] for this part.
 * Add an `onEnter` prop to the Routes we want to protect.
   * Remember, we want to redirect users from `"/#/login"` and  `"/#/signup"` if they are already logged in.
 
-**NB**: Remember that `replace` won't add a "fake" entry to the browser's history, whereas 
+**NB**: Remember that `replace` won't add a "fake" entry to the browser's history, whereas
 `push` will. We also don't need an `asyncDoneCallback` because the `_redirectIfLoggedIn` runs synchronously.
 
 [onEnter]: ../../readings/on_enter.md
@@ -770,7 +778,7 @@ Your function should look something like this:
 ```javascript
 // frontend/util/bench_api_util.js
 
-export const fetchBenches = function(success){
+export const fetchBenches = success => {
   $.ajax({
     method: // ,
     url: //,
@@ -874,7 +882,7 @@ Then add `BenchesReducer` to your `root_reducer.js`
 ```javascript
 // frontend/reducers/root_reducer.jsx
 
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 import BenchesReducer from './benches_reducer';
 import SessionReducer from './session_reducer';
@@ -973,8 +981,8 @@ Make sure this works before moving on.
 
 Let's connect our `BenchesMiddleware` to this new `fetchBenches` function!
 
-Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware` 
-whenever a `REQUEST_BENCHES` action is received. For now, make `success` a 
+Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware`
+whenever a `REQUEST_BENCHES` action is received. For now, make `success` a
 function that logs the data from the response.
 
 ```javascript
@@ -983,7 +991,7 @@ function that logs the data from the response.
 import { fetchBenches } from '../util/bench_api_util';
 import { REQUEST_BENCHES } from '../ actions/bench_actions';
 
-const BenchesMiddleware = ({getState, dispatch}) => next => action => {
+const BenchesMiddleware = ({ getState, dispatch }) => next => action => {
   switch(action.type){
     case REQUEST_BENCHES:
       const success = data => console.log(data);
@@ -1003,12 +1011,12 @@ store.dispatch(requestBenches())
 
 We should see a `console.log` of all our bench data!
 
-Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.log`ing 
+Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.log`ing
 the bench data, it dispatches the data as part of an action.
 
 * Import the `receiveBenches` Action Creator.
 * Re-write your success callback to dispatch a `RECEIVE_BENCHES` action with the
-response `data`. To do this you'll need to add another case statement. It 
+response `data`. To do this you'll need to add another case statement. It
 should look something like the following.
 
 ```javascript
@@ -1020,7 +1028,7 @@ case REQUEST_BENCHES:
 
 ### Back to the reducer
 
-Update your `BenchesReducer` to update the `benches` in your state when it receives 
+Update your `BenchesReducer` to update the `benches` in your state when it receives
 the `RECEIVE_BENCHES` action. Your reducer should look something like:
 
 ```javascript
@@ -1102,8 +1110,6 @@ Let's create the `BenchIndex` presentational component. It should render a list 
 ```javascript
 // frontend/components/bench_index.jsx
 
-import React from 'react';
-
 class BenchIndex extends React.Component {
   componentDidMount() {
     // request benches from your API here
@@ -1125,20 +1131,18 @@ inside `App`. Use an `IndexRoute` to accomplish this.
 ```javascript
 // frontend/components/root.jsx
 
-import React from 'react';
-import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-   
-<Provider store={store}>
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={ BenchIndexContainer } />
-      <Route path="/login" component={SessionFormContainer} />
-      <Route path="/signup" component={SessionFormContainer} />
-      //...
-    </Route>
-  </Router>
-</Provider>
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={BenchIndexContainer} />
+        <Route path="/login" component={SessionFormContainer} />
+        <Route path="/signup" component={SessionFormContainer} />
+        //...
+      </Route>
+    </Router>
+  </Provider>
+)
 ```
 
 Your app should now be populated with benches!
