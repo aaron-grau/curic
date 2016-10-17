@@ -7,7 +7,7 @@ specifications for you to convert into neat, maintainable HTML and CSS.
 Download the [`skeleton`][skeleton] to get started on making an App Academy
 clone of [The New York Times homepage](http://nytimes.com)!
 
-![aa-times](./solution/app/screenshots/overall.png)
+![aa-times](./solution/docs/screenshots/overall.png)
 
 [skeleton]:./skeleton.zip?raw=true
 
