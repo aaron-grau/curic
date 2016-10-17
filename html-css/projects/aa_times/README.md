@@ -81,7 +81,11 @@ each component separately.
 - The images you will use to style your app are located in the
 `app/assets/images` folder.
 - Javascript files are provided in the `app/assets/javascripts` folder.
-- A script tag in the `application.html.erb` loads [fontawesome](http://fontawesome.io/icons/) icon classes.
+- A script tag in the `application.html.erb` loads [Font Awesome's](font-awesome) icon classes. For our app's icons, we will being
+using ones imported from Font Awesome's list of icons and applying them to
+elements using classes.
+
+[font-awesome]: http://fontawesome.io/icons/
 
 # Phase 1: Reset
 
@@ -106,6 +110,8 @@ Set `img` `width` and `height` properties accordingly.
 
 Study `docs/screenshots/main_content.png` to get an idea of the app's overall design.
 
+- [Layout Mockup](./solution/docs/screenshots/main_content.jpg)
+
 In order to write "cascading" style sheets, it is important that we pick out
 common design elements and essential layout features. We will use the
 `layout.scss` file when styling aspects common to our entire application.
@@ -123,85 +129,128 @@ In `stylesheets/base/layout.scss`, style the `body`:
 
 # Phase 3: The Header
 
-With our layout styling started we can now begin focusing on each component. Notice that we can break the header down into a `main_nav`, a `masthead` with the logo and a `sections_nav`.
+With our layout styling started we can now begin focusing on each component.
+Notice that we can break the header down into `main_nav` (the `masthead` with
+the logo) and `sections_nav` components.
 
-Breaking down stylesheets into components like this will be essential to developing maintanable code. After coding each section we will return to the main navigation and style the gear dropdown.
+- [Main Nav Mockup][sreenshot-main-nav]
+- [Masthead Mockup](./solution/docs/screenshots/masthead,jpg)
+- [Sections Nav Mockup](./solution/docs/screenshots/sections_nav.jpg)
+
+We will style each of these components in its own stylesheet. **NB:** Breaking
+down stylesheets into each component is key to writing maintainable and modular
+stylesheets.
+
+[screenshot-main-nav]:./solution/docs/screenshots/main_nav.jpg
 
 ## Main Nav
 
-Compare the provided HTML structure in `/views/shared/_main_nav.html.erb` to the design. Notice we are missing the right side navigation.
+[Main Nav Mockup][sreenshot-main-nav]
 
-- add another `<nav>` for the right side
-- add the buttons
-- add the gear icon inside of a list element
+Compare the provided HTML structure in `/views/shared/_main_nav.html.erb` to the
+mockup. Notice we are missing the HTML for the right-side navigation. Let's add
+it right now!
 
-The icons are being imported from FontAwesome and are applied using classes. Use [this list of classes][font-awesome] to find the right image and the html in the `left-nav` as an example.
+In `/views/shared/_main_nav.html.erb`:
+- Add a `<nav>` with the class `"right-nav"`. Make sure it's contained within
+the `"main-nav"` element.
+- Add a `ul` element to your new `nav`. Make the buttons and gear icon list items of this unordered list.
+- Add "Subscribe Now" and "Log In" buttons.
+- Add the gear icon.
+  - Use [this list of Font Awesome icon classes][font-awesome] to find the right
+  gear image.
+  - Use the "Sections" and "Search" buttons defined in the `left-nav` as guides.
 
-[font-awesome]: http://fontawesome.io/icons/
+A great use for the `layout.scss` stylesheet is to define styling shared by
+multiple for elements. For example, the styling for the "Subscribe Now" button
+and is identical to the styling for the "Log In" button. **NB**: Using the same
+styling on buttons makes it easier for users to know where to click throughout
+your app.
 
-A great use for the `layout.scss` stylesheet is to code common button styling for your project. Keeping button styling consistent makes it easier for users to know where to click.
-
-- style the buttons according to the "Subscribe Now" and "Log In" button designs in the `main_nav.png` screenshot
+In `stylesheets/base/layout.scss`:
+- Style the buttons to look like the buttons in the mockup.
 - each css property has been provided as a comment
 
-Now it is time to style in the `_main_nav.scss` file. For this section we have provided the selectors for you. Here are some tips:
+Now it is time to style in the `components/_main_nav.scss` stylesheet. We have provided the selectors for you. Here are some guidelines:
 
-- `flex` the `main-nav` and use `justify-content` for horizontal spacing
-- Use `padding` on the main nav for vertical spacing
-- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property vertically align them
-- Apply the font and sizing properties to the list elements themselves
-- Use the `$lightest-gray` hover for the list elements without buttons
-- Style the necessary `margin` spacing between the text and the icons
-- Use `font-size` to make the gear icon bigger
+- Add `display: flex` the `"main-nav"` and use `justify-content` for horizontal spacing.
+- Add `padding` for vertical spacing.
+- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property vertically align them.
+- Apply font and sizing properties to the list elements themselves.
+- Use the `$lightest-gray` hover for the list elements without buttons.
+- Style the necessary `margin` spacing between the texts and the icons.
+- Use `font-size` to make the gear icon bigger.
 
 ## MastHead
 
-Open up the `_masthead.html.erb` file in `app/assets/views/shared` split screen next to the provided `_masthead.scss` file.
+[Masthead Mockup](./solution/docs/screenshots/masthead,jpg)
 
-First copy and paste all of the text content from `docs/copy/masthead.txt` and then build the HTML structure around it. Here are some tips:
+Open up `views/shared_masthead.html.erb`. Pull up the provided
+`components/_masthead.scss` stylesheet next to it using split screen.
 
-- Notice that the `.masthead` is a flex parent which means it will be used as a containing HTML element and all immediate child elements will become flex-children
-- The `align-items` property centers the flex-children horizontally
-- The Rails Asset Pipeline takes care of precompiling our assets, so the correct filepath for images in the `assets/images` folder is `assets/example_image.jpg`
-- Only list elements should be present within unordered lists, but list elements may contain other elements such as anchor tags or buttons
+Copy and paste all of the text content from `docs/copy/masthead.txt` into the
+html file. We will build the HTML structure around the content. Here are some
+guidelines:
 
-**After some HTML structuring you will notice some problems with the styling. Refer to the `masthead` screenshot and fix the following items:**
+- Notice that the `.masthead` is a flex-parent which means it will be used as an
+html container element and all of its immediate child elements will be
+flex-children.
+- Use `align-items` property to center the flex-children horizontally.
+- The Rails Asset Pipeline takes care of precompiling our assets, so the correct file path for images in the `assets/images` folder is `assets/example_image.jpg`
+- Only list elements should be present within unordered lists, but list elements may contain other elements such as anchor tags or buttons.
 
-- correctly position the `language-nav`
-- remove the last border-right from `masthead-links`
-- make the first link in the `language-nav` bold
-- add application styling for anchor tags using the `layout.scss` file
+After some HTML structuring you will notice some problems with the styling.
+Refer to the `masthead` screenshot and edit the stylesheet to fix the following
+things:
+
+- Correct the positioning of the `.language-nav`.
+- Remove the last border-right from `.masthead-links`.
+- Make the first link in the `.language-nav` bold.
+- Add application styling for anchor tags using the `layout.scss` file.
 
 ## Sections Nav
 
-Place your styles in the `_sections_nav.scss` file and HTML in the `_sections_nav.html.erb` file. The text content can be found in the `docs/copy` folder. Once you have fully completed the sections navigation bar **call over a TA for review**.
+[Sections Nav Mockup](./solution/docs/screenshots/sections_nav.jpg)
+
+Follow the patterns and coding patterns described above to style the Sections Nav component. Define its styles in `stylesheets/components/_sections_nav.scss` and HTML in `views/shared/_sections_nav.html.erb` file. Copy and paste the text content from `docs/copy/sections_nav.txt`. Once you have fully completed the Sections Nav bar **call over a TA to code review your Header**!
 
 ## Gear Dropdown
 
-Open up the `javascripts/components` folder and take a look at the `dropdown.js` file. Read the comments to get an understanding how the script works.
+[Gear Dropdown Mockup](./solution/docs/screenshots/gear_dropdown.jp)
 
-- Add the necessary id attribute to the gear icon in the `main_nav`
-- Add the corresponding `.hidden` selector in `layout.scss`
+Take a look at the `app/assets/javascripts/components/dropdown.js` file. Read
+the comments to get an understanding how the script works.
 
-Open the `_gear_dropdown.html.erb` file where we have created the HTML structure of the dropdown. Notice the classes used to divide the different unordered lists and the span elements for the subtitles.
+- Add the necessary `id` attribute to the gear icon in the defined in `_main_nav.html.erb`
+- Add the corresponding `.hidden` selector in `layout.scss`.
+
+Open the `_gear_dropdown.html.erb` file where we have defined the HTML structure
+for the dropdown. Notice the classes used to divide the different unordered
+lists and the span elements for the subtitles.
 
 - Render the partial as a child of the list element with the gear icon using `<%= render partial: 'shared/gear_dropdown' %>`
 - Click the gear icon to test the toggling of the `hidden` class.
 
 Style the dropdown in `_gear_dropdown.scss` according to the screenshot:
 
-- Apply the necessary positioning properties
-    + position the icon relatively
-    + position the dropdown absolutely and use `top, right` to adjust
-- Give the dropdown some background, padding, and a border
-- Using a defined px `width` for a dropdown is perfectly acceptable
-- The `z-index` property is used on positioned elements to place them in front of or behind other elements with the largest `z-index` being in front
-- Style the remaining fonts and margins being sure to use propper selectors
+- Style its position:
+    + Position the icon relatively.
+    + Position the dropdown absolutely and use `top` and `right` to adjust.
+- Give the dropdown some background, padding, and a border.
+- Using a defined px `width` for a dropdown is perfectly acceptable.
+- Set the `z-index`. Remember the `z-index` property is used on positioned
+elements to place them in front of or behind other elements with the largest
+`z-index` being in front.
+- Style the remaining fonts and margins being sure to use proper selectors.
 
-For a final touch apply some `box-shadow` to the dropdown to give it a bit more dimension. Box Shadows are highly customizable with values for the `x-offset`, `y-offset`, `blur-radius`, `spread-radius` and `color`. Here is an example using `rgba` colors where the `Alpha` value makes the color super transparent.
+For a final touch apply some `box-shadow` styling to the dropdown to give it a
+bit more dimension. Box shadows are highly customizable with values for the
+`x-offset`, `y-offset`, `blur-radius`, `spread-radius` and `color`. Here is an
+example using `rgba` colors where the `Alpha` value makes the color super
+transparent.
 
-```
-    box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+```css
+box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
 ```
 
 # Phase 4: The Main Content

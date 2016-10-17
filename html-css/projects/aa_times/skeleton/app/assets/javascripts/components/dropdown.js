@@ -7,4 +7,3 @@ const toggleDropdown = () => {
 
 // Add click listener to gear icon which invokes toggle function
 $(() => $('#gear-dropdown-btn').on('click', toggleDropdown));
-
