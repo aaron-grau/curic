@@ -5,7 +5,7 @@
 ## Database Scalability
 
 
-
+## Stateless Web Architecture
 
 
 
@@ -15,6 +15,7 @@
 ### MongoDB
 
 
+## CapEx vs. OpEx
 
 # Sources
 
@@ -30,6 +31,8 @@ http://softwareengineeringdaily.com/2016/06/22/scaling-twitter-buoyant-ios-willi
 https://www.youtube.com/watch?v=kb-m2fasdDY 
 
 http://highscalability.com/
+
+http://highscalability.com/blog/2014/5/12/4-architecture-issues-when-scaling-web-applications-bottlene.html
 
 
 https://blog.cloudflare.com/
