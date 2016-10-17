@@ -1,16 +1,30 @@
 # App Academy Times
 
-- Bundle Install
-- `rails s` in one tab
-- `bundle exec guard -P livereload` in another tab
+Often when working as a front-end developer you'll be collaborating with a
+designer. Most likely they will provide you with a sequence of screenshots and
+specifications for you to convert into neat, maintainable HTML and CSS. Like so:
+
+![aa-times](./solution/docs/screenshots/overall.png)
+
+Download the [`skeleton`][skeleton] to get started on making an App Academy
+clone of [The New York Times homepage](http://nytimes.com)!
+
+[skeleton]:./skeleton.zip?raw=true
+
+# Phase 0: Setup
+
+- Navigate to the root directory and `bundle install`.
+- Run `rails s` in one tab.
+- In another tab, run `bundle exec guard -P livereload`.
 
 The `guard -P livereload` implements an easy-to-setup workflow using "style injection." *Style injection is the ability to see styling changes immediately after authoring them without having to manually refresh your browser.* Here is a [blog post][guard-livereload] explaining the setup and how it works.
 
 [guard-livereload]: https://mattbrictson.com/lightning-fast-sass-reloading-in-rails
 
-## File Structure
+## Stylesheets File Structure
 
-Begin by becoming familiar with the file structure:
+Begin by familiarizing yourself with the stylesheets file structure, which will
+house all of our CSS code for this project.
 
 ```
 /app/assets/stylesheets
@@ -21,14 +35,19 @@ Begin by becoming familiar with the file structure:
 |   +-- layout.scss
 |   +-- reset.scss
 +-- components
+|   +-- _gear_dropdown.scss
+|   +-- _main_content.scss
 |   +-- _main_nav.scss
-|   +-- _example.scss
+|   +-- _masthead.scss
+|   +-- _search_modal.scss
+|   +-- _sections_nav.scss
+|   +-- _sections_sidebar.scss
 +-- application.scss
 ```
 
-Take a look at the application.scss file:
+Next take a look at the `application.scss` file:
 
-```css
+```scss
 // CSS Reset
 @import "base/reset.scss";
 
@@ -44,150 +63,244 @@ Take a look at the application.scss file:
 @import "components/*";
 ```
 
-The file is using SASS imports in order to create general styles applied to our entire application and enforce the importing of these stylesheets in a particular order.
+This file uses SASS `import`s to define general styles that will apply to your
+entire application and enforce the importing of these stylesheets in a
+particular order.
 
-Take a peek at the `colors.scss` & `fonts.scss` files that establish SASS variables for you to use throughout styling the application. This makes changing fonts or colors for your entire application much more maintainable.
+Check out the `colors.scss` and `fonts.scss` files. They define SASS variables
+for you to use throughout the project to style your app. Defining SASS variables
+for an app's fonts and colors make changing any of them at any point more
+maintainable and consistent. Use these given SASS variables when defining any
+fonts or color values.
 
-We won't dive any deeper into SASS throughout this project but it does provide a couple more features if you would like to [read][sass-features] about them. For now just note that when providing font or color values, use the corresponding SASS variables.
+**N.B.**: We won't dive any deeper into SASS for this project but it does provide
+a couple more cool features! Read about them [here][sass-features] if you're interested.
 
 [sass-features]: https://github.com/rails/sass-rails#features
 
 [rails-pipeline]: http://guides.rubyonrails.org/asset_pipeline.html#manifest-files-and-directives
 
-Some notes on this project before starting:
+## A Few Things Before You Start...
 
 - The project is provided as a Rails application to give you practice working with the Rails Asset Pipeline and navigating file structure
-- Sometimes the HTML will be given and you must style it yourself, sometimes the styles will be given and you must provide the HTML structure, and sometimes you will be required to do code both
-- Html is rendered using rails partials in the `/app/views/static_pages/index.html.erb` file to allow styling of each component separately.
-- Images for the application may be found in the `app/assets/images` folder 
-- The `docs` folder contains directories `screenshots` of completed designs and `copy` to be pasted as content
-- Javascript files are provided in the `app/assets/javascripts` folder
-- A script tag in the application.html.erb file loads [fontawesome](http://fontawesome.io/icons/) icon classes
-- Text content is given in separate text files within the `app/assets/text` folder for you to copy and paste.
-
-# Phase 1: Reset
-
-Always start with a clean slate, by "resetting" the user agent stylesheet provided by the browser with a `stylesheets/base/reset.scss` file. We provided the tag selectors to get you started. Be wise about which properties to inherit, and which to hard-code. 
-
-- Set the `box-sizing` property to inherit, to have all elements behave the same, which is `content-box`, by default.
-- Make all images `block` elements, have them expand to the full
-`100%` width of their parent container, and have their height grow
-`auto`, which means proportionally
-- Remove the bullets from list items
-- Show the pointer hand on buttons to make it obvious for users to click
-- Include the clearfix in your code
-
-# Phase 2: The Layout
-
-Start by looking over the `docs/screenshots/main_content.png` file to get a feel for the overall application design.
-
-In order to write "cascading" style sheets it is important that we pick out common design elements and essential layout features. We will use the `layout.scss` file when styling aspects common to our entire application.
-
-Notice that all of the content is within a defined content region, meaning that all elements are contained within clean edges away from the side of the screen. This is essential for user experience because it makes content easier to read.
-
-- Apply an `80%` width to the `body` element
-- Center the body using the `margin: 0 auto;` trick
-- Use the `font-family: $serif` for the base font
-- Use `12px` as the deafult `font-size`
-
-# Phase 3: The Header
-
-With our layout styling started we can now begin focusing on each component. Notice that we can break the header down into a `main_nav`, a `masthead` with the logo and a `sections_nav`. 
-
-Breaking down stylesheets into components like this will be essential to developing maintanable code. After coding each section we will return to the main navigation and style the gear dropdown. 
-
-## Main Nav
-
-Compare the provided HTML structure in `/views/shared/_main_nav.html.erb` to the design. Notice we are missing the right side navigation.
-
-- add another `<nav>` for the right side
-- add the buttons
-- add the gear icon inside of a list element
-
-The icons are being imported from FontAwesome and are applied using classes. Use [this list of classes][font-awesome] to find the right image and the html in the `left-nav` as an example.
+- Sometimes the HTML will be given and you will need to style with CSS;
+sometimes the styles will be given and you will need to define the HTML
+structure; and sometimes you will be required to code both.
+- The `docs` folder contains two directories: `screenshots` and `copy`. You'll use the images found in `screenshots` for your mockups as you are styling. `copy` contains the text you'll copy and paste for app's content.
+- **Pro Tip**: Keep each mockup open and use it for reference as your styling a component.
+- HTML is rendered using rails partials in the
+`/app/views/static_pages/index.html.erb` file, allowing for the styling of
+each component separately.
+- The images you will use to style your app are located in the
+`app/assets/images` folder.
+- Javascript files are provided in the `app/assets/javascripts` folder.
+- A script tag in the `application.html.erb` loads [Font Awesome's][font-awesome] icon classes. For our app's icons, we will being
+using ones imported from Font Awesome's list of icons and applying them to
+elements using classes.
 
 [font-awesome]: http://fontawesome.io/icons/
 
-A great use for the `layout.scss` stylesheet is to code common button styling for your project. Keeping button styling consistent makes it easier for users to know where to click.
+# Phase 1: Reset
 
-- style the buttons according to the "Subscribe Now" and "Log In" button designs in the `main_nav.png` screenshot
+Always begin styling an app with a clean slate by "resetting" the user agent
+stylesheet provided by the browser in your `stylesheets/base/reset.scss` file.
+
+To speed things up, we provided some tag selectors to get you started.
+
+- Be wise about which properties to inherit, and which to hard-code.
+- Besides the regular, set the `box-sizing` property to inherit, to have all
+elements behave the same, which is `content-box`, by default.
+- Make all images `block` elements. Each image's widths should be equal to its
+parent's width (`100%`) and its height should grow proportionally (`auto`).
+Set `img` `width` and `height` properties accordingly.
+- Remove the bullets from list items.
+- Set the `cursor` to be the pointer hand on `button`s to make it obvious for users to click.
+- Lastly, define clearfix.
+
+# Phase 2: The Layout
+
+Study the mockup to get an idea of the app's overall design.
+
+- [Layout Mockup](./solution/docs/screenshots/main_content.jpg)
+
+In order to write "cascading" style sheets, it is important that we pick out
+common design elements and essential layout features. We will use the
+`layout.scss` file when styling aspects common to our entire application.
+
+Notice that all of app's content is styled in a defined blocked away from
+the edges of the screen. Each component is also contained within regions with
+clean margins. This is essential for user experience because it makes content
+easier to read.
+
+In `stylesheets/base/layout.scss`, style the `body`:
+- Apply a width of `80%`.
+- Center using `margin: 0 auto;`.
+- Set the base font to `font-family: $serif`.
+- Set `12px` as the default `font-size`.
+
+---
+
+# Phase 3: The Header
+
+With our layout styling started we can now begin focusing on each component,
+like the header. We can break the header down further into smaller components:
+`main_nav` (with a `masthead` component containing our logo) and `sections_nav`
+(with a `gear_dropdown` component).
+
+- [Main Nav Mockup](./solution/docs/screenshots/main_nav.jpg)
+- [Masthead Mockup](./solution/docs/screenshots/masthead.jpg)
+- [Sections Nav Mockup](./solution/docs/screenshots/sections_nav.jpg)
+- [Gear Dropdown Mockup](./solution/docs/screenshots/gear_dropdown.jpg)
+
+We will style each one of these components in its own stylesheet. **N.B.:**
+Breaking down stylesheets into each component is key to writing maintainable and
+modular stylesheets.
+
+## Main Nav
+
+[Main Nav Mockup](./solution/docs/screenshots/main_nav.jpg)
+
+Compare the provided HTML structure in `/views/shared/_main_nav.html.erb` to the
+mockup. Notice we are missing the HTML for the right-side navigation. Let's add
+it right now!
+
+In `/views/shared/_main_nav.html.erb`:
+- Add a `<nav>` with the class `"right-nav"`. Make sure it's contained within
+the `"main-nav"` element.
+- Add a `ul` element to your new `nav`. Make the buttons and gear icon list items of this unordered list.
+- Add "Subscribe Now" and "Log In" buttons.
+- Add the gear icon.
+  - Use [this list of Font Awesome icon classes][font-awesome] to find the right
+  gear image.
+  - Use the "Sections" and "Search" buttons defined in the `left-nav` as guides.
+
+A great use for the `layout.scss` stylesheet is to define styling shared by
+multiple for elements. For example, the styling for the "Subscribe Now" button
+and is identical to the styling for the "Log In" button. **N.B.**: Using the same
+styling on buttons makes it easier for users to know where to click throughout
+your app.
+
+In `stylesheets/base/layout.scss`:
+- Style the buttons to look like the buttons in the mockup.
 - each css property has been provided as a comment
 
-Now it is time to style in the `_main_nav.scss` file. For this section we have provided the selectors for you. Here are some tips:
+Now it is time to style in the `components/_main_nav.scss` stylesheet. We have provided the selectors for you. Here are some guidelines:
 
-- `flex` the `main-nav` and use `justify-content` for horizontal spacing
-- Use `padding` on the main nav for vertical spacing
-- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property vertically align them
-- Apply the font and sizing properties to the list elements themselves
-- Use the `$lightest-gray` hover for the list elements without buttons
-- Style the necessary `margin` spacing between the text and the icons
-- Use `font-size` to make the gear icon bigger
+- Add `display: flex` the `"main-nav"` and use `justify-content` for horizontal spacing.
+- Add `padding` for vertical spacing.
+- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property vertically align them.
+- Apply font and sizing properties to the list elements themselves.
+- Use the `$lightest-gray` hover for the list elements without buttons.
+- Style the necessary `margin` spacing between the texts and the icons.
+- Use `font-size` to make the gear icon bigger.
 
-## MastHead
+## Masthead
 
-Open up the `_masthead.html.erb` file in `app/assets/views/shared` split screen next to the provided `_masthead.scss` file.
+[Masthead Mockup](./solution/docs/screenshots/masthead.jpg)
 
-First copy and paste all of the text content from `docs/copy/masthead.txt` and then build the HTML structure around it. Here are some tips:
+Open up `views/shared_masthead.html.erb`. Pull up the provided
+`components/_masthead.scss` stylesheet next to it using split screen.
 
-- Notice that the `.masthead` is a flex parent which means it will be used as a containing HTML element and all immediate child elements will become flex-children
-- The `align-items` property centers the flex-children horizontally
-- The Rails Asset Pipeline takes care of precompiling our assets, so the correct filepath for images in the `assets/images` folder is `assets/example_image.jpg`
-- Only list elements should be present within unordered lists, but list elements may contain other elements such as anchor tags or buttons
+Copy and paste all of the text content from `docs/copy/masthead.txt` into the
+html file. We will build the HTML structure around the content. Here are some
+guidelines:
 
-**After some HTML structuring you will notice some problems with the styling. Refer to the `masthead` screenshot and fix the following items:**
+- Notice that the `.masthead` is a flex-parent which means it will be used as an
+html container element and all of its immediate child elements will be
+flex-children.
+- Use `align-items` property to center the flex-children horizontally.
+- The Rails Asset Pipeline takes care of precompiling our assets, so the correct file path for images in the `assets/images` folder is `assets/example_image.jpg`
+- Only list elements should be present within unordered lists, but list elements may contain other elements such as anchor tags or buttons.
 
-- correctly position the `language-nav`
-- remove the last border-right from `masthead-links`
-- make the first link in the `language-nav` bold
-- add application styling for anchor tags using the `layout.scss` file
+After some HTML structuring you will notice some problems with the styling.
+Refer to the masthead mock up and edit the stylesheet to fix the following
+things:
+
+- Correct the positioning of the `.language-nav`.
+- Remove the last border-right from `.masthead-links`.
+- Make the first link in the `.language-nav` bold.
+- Add application styling for anchor tags using the `layout.scss` file.
 
 ## Sections Nav
 
-Place your styles in the `_sections_nav.scss` file and HTML in the `_sections_nav.html.erb` file. The text content can be found in the `docs/copy` folder. Once you have fully completed the sections navigation bar **call over a TA for review**.
+[Sections Nav Mockup](./solution/docs/screenshots/sections_nav.jpg)
+
+Follow the patterns and coding patterns described above to style the Sections Nav component. Define its styles in `stylesheets/components/_sections_nav.scss` and HTML in `views/shared/_sections_nav.html.erb` file. Copy and paste the text content from `docs/copy/sections_nav.txt`. Once you have fully completed the Sections Nav bar **call over a TA to code review your Header**!
 
 ## Gear Dropdown
 
-Open up the `javascripts/components` folder and take a look at the `dropdown.js` file. Read the comments to get an understanding how the script works. 
+[Gear Dropdown Mockup](./solution/docs/screenshots/gear_dropdown.jpg)
 
-- Add the necessary id attribute to the gear icon in the `main_nav`
-- Add the corresponding `.hidden` selector in `layout.scss`
+Take a look at the `app/assets/javascripts/components/dropdown.js` file. Read
+the comments to get an understanding how the script works.
 
-Open the `_gear_dropdown.html.erb` file where we have created the HTML structure of the dropdown. Notice the classes used to divide the different unordered lists and the span elements for the subtitles.
+- Add the necessary `id` attribute to the gear icon in the defined in `_main_nav.html.erb`
+- Add the corresponding `.hidden` selector in `layout.scss`.
+
+Open the `_gear_dropdown.html.erb` file where we have defined the HTML structure
+for the dropdown. Notice the classes used to divide the different unordered
+lists and the span elements for the subtitles.
 
 - Render the partial as a child of the list element with the gear icon using `<%= render partial: 'shared/gear_dropdown' %>`
 - Click the gear icon to test the toggling of the `hidden` class.
 
-Style the dropdown in `_gear_dropdown.scss` according to the screenshot:
+Style the dropdown in `_gear_dropdown.scss` according to the mockup:
 
-- Apply the necessary positioning properties
-    + position the icon relatively
-    + position the dropdown absolutely and use `top, right` to adjust
-- Give the dropdown some background, padding, and a border
-- Using a defined px `width` for a dropdown is perfectly acceptable
-- The `z-index` property is used on positioned elements to place them in front of or behind other elements with the largest `z-index` being in front
-- Style the remaining fonts and margins being sure to use propper selectors
+- Style its position:
+    + Position the icon relatively.
+    + Position the dropdown absolutely and use `top` and `right` to adjust.
+- Give the dropdown some background, padding, and a border.
+- Using a defined px `width` for a dropdown is perfectly acceptable.
+- Set the `z-index`. Remember the `z-index` property is used on positioned
+elements to place them in front of or behind other elements with the largest
+`z-index` being in front.
+- Style the remaining fonts and margins being sure to use proper selectors.
 
-For a final touch apply some `box-shadow` to the dropdown to give it a bit more dimension. Box Shadows are highly customizable with values for the `x-offset`, `y-offset`, `blur-radius`, `spread-radius` and `color`. Here is an example using `rgba` colors where the `Alpha` value makes the color super transparent.
+For a final touch apply some `box-shadow` styling to the dropdown to give it a
+bit more dimension. Box shadows are highly customizable with values for the
+`x-offset`, `y-offset`, `blur-radius`, `spread-radius` and `color`. Here is an
+example using `rgba` colors where the `Alpha` value makes the color super
+transparent.
 
+```css
+box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
 ```
-    box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
-```
+
+---
 
 # Phase 4: The Main Content
 
-For the next phase we will be adding some of the latest App Academy Times news using a flexible grid system. 
-
-- The `docs/copy` folder contains the content for each section. We will copy and paste then build the HTML around it, but first, let's make sure we have a flexible application by using a custom grid system.
+For the next phase we will add the latest App Academy Times news using a
+flexible grid system. The `docs/copy` folder contains the content for each
+section, which we will copy and paste. We will building the HTML structure
+around the content, like we did for the Masthead. But first let's make sure we
+have a flexible application by implementing a custom grid system.
 
 ## Custom Flexible Grid
 
-Grids are much less complicated than they sound but are used all throughout the web. Popular style frameworks like `bootstrap` by Twitter and `material` by Google all use flexible grid systems. For App Academy Times, we will handroll a simple grid just like in the [CSS Homework][css-grid-homework]. 
+Grids are much less complicated than they sound and are commonly used throughout
+the web. Popular style frameworks like `bootstrap` by Twitter and `material` by
+Google all use flexible grid systems. For App Academy Times, hand-roll a
+simple grid just like you did in the [CSS Homework][css-grid-homework].
 
-Please don't just copy and paste this code. Typing and Debugging CSS/HTML is the best way to learn. Make sure to include the media query with a nice break point that maintains your design, we used `1000px`.
+Define your grid's CSS in the `grid.scss` stylesheet. Make sure to include the
+media query with a nice break point that maintains your design like `1000px`. So that it behaves like so:
+
+![custom-grid](skeleton/docs/screenshots/grid.gif)
+
+**N.B.**: Please don't just copy and paste any code. Writing out and debugging
+CSS/HTML is the best way to learn!
+
+[css-grid-homework]: https://github.com/appacademy/curriculum/blob/master/html-css/assets/custom_grid.css
+
 
 ## News Content
 
-Copy in all the content from `docs/copy/main_content.txt` and start by using your grid classes combined with section elements to define the flexible content columns.
+[News Content Mockup](./solution/docs/screenshots/main_content.jpg)
+
+Copy and paste all the content from `docs/copy/main_content.txt` to
+`views/shared/_main_content.html.erb`. Start by using your newly defined grid
+classes with `section` elements to structure the content into flexible columns.
 
 Use the following code snippet to embed the video content from YouTube:
 
@@ -195,50 +308,54 @@ Use the following code snippet to embed the video content from YouTube:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ARe9FupzuOA" frameborder="0" allowfullscreen></iframe>
 ```
 
-This is what we are looking for to start:
+Once you have all of your content defined in flexible columns, follow the mockup style. Add additional HTML elements if necessary. Here are some guidelines:
 
-![custom-grid-example](docs/screenshots/grid.gif)
-
-[css-grid-homework]: https://github.com/appacademy/curriculum/blob/master/html-css/assets/custom_grid.css
-
-- Now that we have flexible columns in place, use the `main_content.png` design to look for elements that are styled similarly and give them some tags/classes. Here are some examples:
-    + The bold headers like "Opinion Pages" and "Cat Academy"
-    + The "By [example]" lines
-
-- We used <hr> elements and classes for `.hr-top`, `.hr-bottom` written in the `layout.scss` file to get the double lines separating pieces of content
-- We used a pseudo content `:after` and `content = ''` to create the blue square next to the comments link
++ Headers like "Opinion Pages" and "Cat Academy" are bold.
+- `.hr-top` and `.hr-bottom` defined in `layout.scss` can be used to get the double lines that separate different content.
+- We used a pseudo content `:after` and `content = ''` to create the blue square next to the comments link.
 - Using `flex: 1` on the input element will force it to grow or shrink to take up all the space next to it's flex sibling Sign Up button
 - Place the `new_office.jpg` image inside of a div with a class like `thumbnail`. This way you can reuse this `thumbnail` class with a styled `height` in px and then make all images `width: 100%` & `height: 100%`. Use `object-fit: cover` on all images inside `thumbnail` to assure the images cover the containing div correctly.
 - Try to put as many of the application-wide selectors into the `layout.scss` file as possible. Selectors such as `h1, h2,  img, small, hr, .thumbnail` etc. make more sense in the layout file because we will likely reuse them.
 
 **Get A TA to Review your page before continuing**
 
+---
+
 # Phase 5: The Sections Sidebar
 
-Notice that our flexible website breaks a bit because we don't have flexible fonts. We will leave this discussion for another time and instead use media queries to complete our responsive design. Notice how the amount of links in the sections nav is too big for smaller screen sizes. Refence the `mobile.png` screenshot and:
+Now try resizing the window. Notice that our flexible website breaks a bit
+because we don't have flexible fonts. We will leave this discussion for another
+time and instead use media queries to complete our responsive design. Notice how
+the amount of links in the Sections Nav is too big for smaller screen sizes (ie.
+mobile screens). Let's adjust for mobile!
 
-- Write a media query similar to the one used in the `grid.scss` to hide the sections nav at the same viewport width that the columns convert to 100%
-- Write a similar media query to hide the language nav
-- Finally hide the Subscribe button, Login button and take the margin off the `.left-nav` in the `main_nav` styles. We added a bit of padding as well.
+[Mobile Mockup](./solution/docs/screenshots/mobile.png)
+
+- Write a media query similar to the one used in the `grid.scss` to hide the sections nav at the same viewport width that the columns convert to `100%`.
+- Write a similar media query to hide the Language Nav.
+- Finally hide the "Subscribe" button, "Login" button and take the margin off the `.left-nav` in the `main_nav` styles. We added a bit of padding as well.
 
 **N.B.** With just these few media queries and a flexible grid system we have a completely responsive website!
 
-Now let's code the sections sidebar so that mobile users still have a way of navigating the many App Academy Times sections. Check out the screenshot for the `sections_sidebar`.
+Now let's code a Sections Sidebar so that mobile users still have a way of
+navigating all of the different App Academy Times sections. Style it according
+to the mockup.
 
-- Copy and paste the HTML from the `sections_nav.html.erb` file into the `sections_sidebar.html.erb` file as a starting point.
-- Take a look at the `sidebar.js` to see how the sidebar functions
-- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of the corresponding list element with `id="sections-sidebar-btn"`
-- In `_sections_sidebar.scss`, start with a selector to style the `opacity: 0` normally and `opacity: 1` when it has the additional `.expand` class
+[Sections Sidebar Mockup](./solution/docs/screenshots/sections_sidebar.jpg)
 
-**N.B.** We use opacity here instead of display because it is transitionable. 
+- Copy and paste the HTML from the `sections_nav.html.erb` file into the `sections_sidebar.html.erb` file to use as a skeleton and guide.
+- Take a look at the `app/assets/javascripts/components/sidebar.js` to see how the Sidebar functions.
+- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of the corresponding list element with `id="sections-sidebar-btn"`.
+- In `_sections_sidebar.scss`, start with a selector to style the `opacity: 0` normally and `opacity: 1` when it has the additional `.expand` class.
+
+**N.B.** We use opacity here instead of display because it is transition-able.
 
 This is the effect we are going for:
 
-![sidebar-example](docs/screenshots/sidebar.gif)
+<img src="skeleton/docs/screenshots/sidebar.gif" alt="sidebar example" width=" 400" height="500"/>
 
-- The submenu text content may be found in the `docs/copy` folder
-- Add the remaining HTML to the `sections_sidebar` by nesting `ul` elements within the `li` elements that require an additional dropdown
-- Style according to the `sections_sidebar.png` screenshot
+- Copy and paste the content from `docs/copy/sidebar_submenus.txt`.
+- Add the remaining HTML to the `sections_sidebar` by nesting `ul` elements within the `li` elements that require an additional dropdown.
 
 Create pure css dropdowns with the following example code:
 ```html
@@ -249,7 +366,6 @@ Create pure css dropdowns with the following example code:
     </ul>
 </section>
 ```
-
 
 ```css
 .dropdown {
@@ -292,15 +408,27 @@ Use pseudo element [css triangles][css-triangles] on top of triangles to create 
 
 [css-triangles]:[https://css-tricks.com/snippets/css/css-triangle/]
 
+---
+
 # Phase 6: Search Modal
 
-Modals are distinct from dropdowns because they appear to float independently over the application. A common characteristic of a modal is also that the app beneath becomes more opaque and clicking away from the modal will close it.
+[Search Modal Mockup](./solution/docs/screenshots/search_modal.jpg)
 
-Take a look at the `search-modal.png` screenshot to get a better idea of what this is supposed to look like. Use the `search-modal.js` file to get the id necesary for the search button, modal and overlay.
+Modals are distinct from dropdowns because they appear to float independently
+over the application. A common characteristic of a modal is also that the app
+beneath becomes more opaque and clicking away from the modal will close it.
 
-Create the HTML in the `_search_modal.html.erb` file and style in `_search_modal.scss`. We created a `<section id="overlay" class="overlay hidden"></section>` at the bottom of the `main_content` section.
+Take a look at the `search-modal.png` screenshot to get a better idea of what
+this is supposed to look like. Use the `search-modal.js` file to get the id
+necesary for the search button, modal and overlay.
 
-Here is a trick to making content take up the full width of the viewport even when inside of a smaller container by using viewport units (`vw = viewport width, vh = viewport height`).
+Create the HTML in the `_search_modal.html.erb` file and style in
+`_search_modal.scss`. We created a `<section id="overlay" class="overlay
+hidden"></section>` at the bottom of the `main_content` section.
+
+Here is a trick to making content take up the full width of the viewport even
+when inside of a smaller container by using viewport units (`vw = viewport
+width, vh = viewport height`).
 
 ```css
   position: absolute;
@@ -314,10 +442,8 @@ Here is a trick to making content take up the full width of the viewport even wh
 
 Before continuing **Call over a TA for review**.
 
-# Phase 7: A Fixed Header
+# Bonus: A Fixed Header
 
-When scrolling past the `sections_nav` a `fixed_sections_nav` should appear. Use the [NYTimes](http://nytimes.com) as an example.
-
-# Phase 8: Photo Gallery
-
-# Phase 9: Scrolling Feed Section
+Use what you have learned to create a Fixed Header. When scrolling past the
+`sections_nav` a `fixed_sections_nav` should appear. Use the
+[NYTimes](http://nytimes.com) as an example.
