@@ -23,4 +23,11 @@ class Pokemon < ActiveRecord::Base
   validates :attack, :defense, :image_url, :name, :poke_type, presence: true
   validates :attack, :defense, numericality: true
   validates :poke_type, inclusion: { in: TYPES }
+
+  def items_hash
+    items_hash = {}
+    items.each { |item| items_hash[item.id] = item }
+    items_hash
+  end
+
 end

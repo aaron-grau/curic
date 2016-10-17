@@ -15,46 +15,51 @@ views for you to start with in the [skeleton][skeleton-zip].
 
 Get yourself oriented.
 
-+ Take a look at the schema, routes file, and jbuilder views for `Pokemon` and `Toys`.
++ Take a look at the `schema`, `routes`, and `StaticPagesController`.
 + Open up the rails console (`rails c`) to see what's in the database.
-+ Start up the rails server (`rails s`) and visit each api route to see what
-data is served up from the backend at each endpoint.
-  + Run `rake routes` to see what routes are available.
-  + For example, visiting `http://localhost:3000/api/pokemon/63` returns
-  information about the pokemon Squirtle parsed by the jbuilder view at
-  `app/views/api/pokemon/show.json.jbuilder`.
-
-  ```
-  {
-    id: 63,
-    attack: 48,
-    defense: 65,
-    image_url: "/assets/pokemon_snaps/007.png",
-    moves: [
-      "tackle",
-      "bubble",
-      "water gun"
-    ],
-    name: "Squirtle",
-    poke_type: "water",
-    toys: {
-      187: { id: 187, happiness: 72, image_url: "http://placekitten.com/200/300?image=3", name: "Falcon", pokemon_id: 63, price: 84 },
-      188: { id: 188, happiness: 37, image_url: "http://placekitten.com/200/300?image=8", name: "Dormammu Dragon", pokemon_id: 63, price: 1 },
-      189: { id: 189, happiness: 5, image_url: "http://placekitten.com/200/300?image=12", name: "General Blob", pokemon_id: 63, price: 82 }
-    }
-  }
-  ```
-
-**NB**: The `defaults: {format: :json}` in the `routes.rb` file means
-HTTP requests for the `pokemon` resource should be assumed to be asking for a
-JSON response instead of HTML. When we render a template, instead of looking
-for `template.html.erb`, Rails will look for `template.json.jbuilder`.
++ Start up the rails server (`rails s`) and visit the root url.
 
 :art: Stylesheets have been provided for you in the skeleton! **Follow the
 sample jsx structures provided in the instructions to have these stylings
 applied.** :art:
 
 [skeleton-zip]: ./skeleton.zip?raw=true
+
+### The api namespace
+
+Let's build routes for our pokemon! We want these routes to be nested under an api namespace.
+
+  ```ruby
+    namespace :api, defaults: {format: :json} do
+      # api routes
+    end
+  ```
+
+  Your routes should look *something* like the following:
+
+  | Prefix           | Verb  | URI Pattern      | Controller#Action
+  |------------------|-------|------------------|-------------------
+  |root              | GET   | /                | static_pages#root
+  |api_pokemon_index | GET   | /api/pokemon     | api/pokemon#index
+  |                  | POST  | /api/pokemon     | pi/pokemon#create
+  |api_pokemon       | GET   | /api/pokemon/:id | api/pokemon#show
+  |                  | PATCH | /api/pokemon/:id | api/pokemon#update
+  |                  | DELETE| /api/pokemon/:id | api/pokemon#destroy
+
+
+  **NB**: The `defaults: {format: :json}` in the `routes.rb` file means
+  HTTP requests for the `pokemon` resource should be assumed to be asking for a
+  JSON response instead of HTML. When we render a template, instead of looking
+  for `template.html.erb`, Rails will look for `template.json.jbuilder`.
+
+### Pokemon Controller
+
+  Build a controller to handle our pokémon resource. Start by defining the `#index` and `#show` methods. Remember, we want these actions to **render json views**. To make the job easier for our frontend.
+  
+
+
+
+
 
 ## Phase 1: Frontend Setup
 
