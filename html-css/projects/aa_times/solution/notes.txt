@@ -1,4 +1,0 @@
-CSS Workflow:
-https://mattbrictson.com/lightning-fast-sass-reloading-in-rails
-
-If you want to use multiple Sass files, you should generally use the Sass @import rule instead of these Sprockets directives. When using Sprockets directives, Sass files exist within their own scope, making variables or mixins only available within the document they were defined in.
