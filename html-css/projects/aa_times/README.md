@@ -1,17 +1,19 @@
 # App Academy Times
 
-Often when working as a front-end developer you'll be collaborating with
-a designer. Most likely they will provide you with a sequence of
-screenshots and specifications for you to convert into neat,
-maintainable HTML and CSS.
+Often when working as a front-end developer you'll be collaborating with a
+designer. Most likely they will provide you with a sequence of screenshots and
+specifications for you to convert into neat, maintainable HTML and CSS.
 
-Download the `skeleton.zip` and extract to get started making an App Academy clone of [The New York Times Homepage](http://nytimes.com).
+Download the [`skeleton`][skeleton] to get started on making an App Academy
+clone of [The New York Times Homepage](http://nytimes.com)!
+
+[skeleton]:./skeleton.zip?raw=true
 
 # Phase 0: Setup
 
-- Run `bundle install`.
+- Navigate to the root directory and `bundle install`.
 - Run `rails s` in one tab.
-- In another, run `bundle exec guard -P livereload`.
+- In another tab, run `bundle exec guard -P livereload`.
 
 ## Stylesheets File Structure
 
