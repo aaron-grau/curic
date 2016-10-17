@@ -5,15 +5,27 @@ ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
 span, article, footer, time, small {
-
+  // margin:
+  // padding:
+  // border:
+  // outline:
+  // font:
+  // color:
+  // text-align:
+  // text-decoration:
+  // vertical-align:
+  // box-sizing:
+  // background:
 }
 
-ul {
-
+ol, ul {
+  // list-style:
 }
 
 img {
-
+  // display:
+  // width:
+  // height:
 }
 
 input[type="password"],
@@ -28,15 +40,16 @@ button {
   */
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearnace: none;
 }
 
 button,
 input[type="submit"] {
-
+  // cursor:
 }
 
 /* Clearfix */
 
 .group:after {
-
+  // ...
 }
