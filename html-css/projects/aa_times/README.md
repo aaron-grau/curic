@@ -1,14 +1,21 @@
 # App Academy Times
 
+Often when working as a front-end developer you'll be collaborating with
+a designer. Most likely they will provide you with a sequence of
+screenshots and specifications for you to convert into neat,
+maintainable HTML and CSS.
+
 Download the `skeleton.zip` and extract to get started making an App Academy clone of [The New York Times Homepage](http://nytimes.com).
 
-- Bundle Install
-- `rails s` in one tab
-- `bundle exec guard -P livereload` in another tab
+# Phase 0: Setup
 
-## File Structure
+- Run `bundle install`.
+- Run `rails s` in one tab.
+- In another, run `bundle exec guard -P livereload`.
 
-Begin by becoming familiar with the file structure:
+## Stylesheets File Structure
+
+Begin by familiarizing yourself with the file structure:
 
 ```
 /app/assets/stylesheets
@@ -24,9 +31,9 @@ Begin by becoming familiar with the file structure:
 +-- application.scss
 ```
 
-Take a look at the application.scss file:
+Take a look at the `application.scss` file:
 
-```css
+```scss
 // CSS Reset
 @import "base/reset.scss";
 
@@ -42,29 +49,36 @@ Take a look at the application.scss file:
 @import "components/*";
 ```
 
-The file is using SASS imports in order to create general styles applied to our entire application and enforce the importing of these stylesheets in a particular order.
+This file uses SASS `import`s to define general styles that will apply to your
+entire application and enforce the importing of these stylesheets in a
+particular order.
 
-Take a peek at the `colors.scss` & `fonts.scss` files that establish SASS variables for you to use throughout styling the application. This makes changing fonts or colors for your entire application much more maintainable.
+Next check out the `colors.scss` and `fonts.scss` files. They define SASS
+variables for you to use throughout the project to style your app. Defining SASS
+variables for an app's fonts and colors make changing any of them at any point
+more maintainable and consistent.
 
-We won't dive any deeper into SASS throughout this project but it does provide a couple more features if you would like to [read][sass-features] about them. For now just note that when providing font or color values, use the corresponding SASS variables.
+We won't dive any deeper into SASS throughout this project but it does provide a
+couple more features if you would like to [read][sass-features] about them. For
+now just note that when providing font or color values, use the given SASS
+variables.
 
 [sass-features]: https://github.com/rails/sass-rails#features
 
 [rails-pipeline]: http://guides.rubyonrails.org/asset_pipeline.html#manifest-files-and-directives
 
-Some notes on this project before starting:
+## A Few Things Before You Start...
 
-- Sometimes the HTML will be given and you must style it yourself, sometimes the styles will be given and you must provide the HTML structure, and sometimes you will be required to do code both
-- Html is rendered using rails partials in the `/app/views/static_pages/index.html.erb` file to allow styling of each component separately.
-- Images for the application may be found in the `app/assets/images` folder 
-- The `docs` folder contains directories `screenshots` of completed designs and `copy` to be pasted as content
-- Javascript files are provided in the `app/assets/javascripts` folder
-- A script tag in the application.html.erb file loads [fontawesome](http://fontawesome.io/icons/) icon classes
-- Text content is given in separate text files within the `app/assets/text` folder for you to copy and paste.
+- Sometimes the HTML will be given and you will need to style with CSS; sometimes the styles will be given and you will need to define the HTML structure; and sometimes you will be required to do code both.
+- HTML is rendered using rails partials in the `/app/views/static_pages/index.html.erb` file to allow styling of each component separately.
+- Images for styling are located in the `app/assets/images` folder.
+- The `docs` folder contains two directories: `screenshots` and `copy`. You'll use the images found in `screenshots` for your mockups as you are styling. `copy` contains the text you'll copy and paste for app's content.
+- Javascript files are provided in the `app/assets/javascripts` folder.
+- A script tag in the `application.html.erb` loads [fontawesome](http://fontawesome.io/icons/) icon classes.
 
 # Phase 1: Reset
 
-Always start with a clean slate, by "resetting" the user agent stylesheet provided by the browser with a `stylesheets/base/reset.scss` file. We provided the tag selectors to get you started. Be wise about which properties to inherit, and which to hard-code. 
+Always start with a clean slate, by "resetting" the user agent stylesheet provided by the browser with a `stylesheets/base/reset.scss` file. We provided the tag selectors to get you started. Be wise about which properties to inherit, and which to hard-code.
 
 - Set the `box-sizing` property to inherit, to have all elements behave the same, which is `content-box`, by default.
 - Make all images `block` elements, have them expand to the full
@@ -91,9 +105,9 @@ Notice that all of the content is within a defined content region, meaning that 
 
 # Phase 3: The Header
 
-With our layout styling started we can now begin focusing on each component. Notice that we can break the header down into a `main_nav`, a `masthead` with the logo and a `sections_nav`. 
+With our layout styling started we can now begin focusing on each component. Notice that we can break the header down into a `main_nav`, a `masthead` with the logo and a `sections_nav`.
 
-Breaking down stylesheets into components like this will be essential to developing maintanable code. After coding each section we will return to the main navigation and style the gear dropdown. 
+Breaking down stylesheets into components like this will be essential to developing maintanable code. After coding each section we will return to the main navigation and style the gear dropdown.
 
 ## Main Nav
 
@@ -146,7 +160,7 @@ Place your styles in the `_sections_nav.scss` file and HTML in the `_sections_na
 
 ## Gear Dropdown
 
-Open up the `javascripts/components` folder and take a look at the `dropdown.js` file. Read the comments to get an understanding how the script works. 
+Open up the `javascripts/components` folder and take a look at the `dropdown.js` file. Read the comments to get an understanding how the script works.
 
 - Add the necessary id attribute to the gear icon in the `main_nav`
 - Add the corresponding `.hidden` selector in `layout.scss`
@@ -174,13 +188,13 @@ For a final touch apply some `box-shadow` to the dropdown to give it a bit more 
 
 # Phase 4: The Main Content
 
-For the next phase we will be adding some of the latest App Academy Times news using a flexible grid system. 
+For the next phase we will be adding some of the latest App Academy Times news using a flexible grid system.
 
 - The `docs/copy` folder contains the content for each section. We will copy and paste then build the HTML around it, but first, let's make sure we have a flexible application by using a custom grid system.
 
 ## Custom Flexible Grid
 
-Grids are much less complicated than they sound but are used all throughout the web. Popular style frameworks like `bootstrap` by Twitter and `material` by Google all use flexible grid systems. For App Academy Times, we will handroll a simple grid just like in the [CSS Homework][css-grid-homework]. 
+Grids are much less complicated than they sound but are used all throughout the web. Popular style frameworks like `bootstrap` by Twitter and `material` by Google all use flexible grid systems. For App Academy Times, we will handroll a simple grid just like in the [CSS Homework][css-grid-homework].
 
 Please don't just copy and paste this code. Typing and Debugging CSS/HTML is the best way to learn. Make sure to include the media query with a nice break point that maintains your design, we used `1000px`.
 
@@ -227,7 +241,7 @@ Now let's code the sections sidebar so that mobile users still have a way of nav
 - Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of the corresponding list element with `id="sections-sidebar-btn"`
 - In `_sections_sidebar.scss`, start with a selector to style the `opacity: 0` normally and `opacity: 1` when it has the additional `.expand` class
 
-**N.B.** We use opacity here instead of display because it is transitionable. 
+**N.B.** We use opacity here instead of display because it is transitionable.
 
 This is the effect we are going for:
 
@@ -314,5 +328,3 @@ Before continuing **Call over a TA for review**.
 # Phase 7: A Fixed Header
 
 When scrolling past the `sections_nav` a `fixed_sections_nav` should appear. Use the [NYTimes](http://nytimes.com) as an example.
-
-
