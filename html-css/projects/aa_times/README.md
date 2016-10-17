@@ -104,7 +104,7 @@ Set `img` `width` and `height` properties accordingly.
 
 # Phase 2: The Layout
 
-Study [`docs/screenshots/main_content.png`][screenshot-main-content] to get an idea of the app's overall design.
+Study `docs/screenshots/main_content.png` to get an idea of the app's overall design.
 
 In order to write "cascading" style sheets, it is important that we pick out
 common design elements and essential layout features. We will use the
@@ -120,8 +120,6 @@ In `stylesheets/base/layout.scss`, style the `body`:
 - Center using `margin: 0 auto;`.
 - Set the base font to `font-family: $serif`.
 - Set `12px` as the default `font-size`.
-
-[screen-main-content]: ./solution/docs/screenshots/main_content.jpg
 
 # Phase 3: The Header
 
