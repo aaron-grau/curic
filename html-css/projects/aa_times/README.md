@@ -324,7 +324,7 @@ time and instead use media queries to complete our responsive design. Notice how
 the amount of links in the Sections Nav is too big for smaller screen sizes (ie.
 mobile screens). Let's adjust for mobile!
 
-[Mobile Mockup](./solution/docs/screenshots/mobile.jpg)
+[Mobile Mockup](./solution/docs/screenshots/mobile.png)
 
 - Write a media query similar to the one used in the `grid.scss` to hide the sections nav at the same viewport width that the columns convert to `100%`.
 - Write a similar media query to hide the Language Nav.
@@ -346,8 +346,6 @@ to the mockup.
 **N.B.** We use opacity here instead of display because it is transition-able.
 
 This is the effect we are going for:
-
-![sidebar](skeleton/docs/screenshots/sidebar.gif)
 
 <img src="skeleton/docs/screenshots/sidebar.gif" alt="sidebar example" width=" 400" height="500"/>
 
@@ -409,15 +407,23 @@ Use pseudo element [css triangles][css-triangles] on top of triangles to create 
 
 # Phase 6: Search Modal
 
-[Search Modal](./solution/docs/screenshots/search_modal.jpg)
+[Search Modal Mockup](./solution/docs/screenshots/search_modal.jpg)
 
-Modals are distinct from dropdowns because they appear to float independently over the application. A common characteristic of a modal is also that the app beneath becomes more opaque and clicking away from the modal will close it.
+Modals are distinct from dropdowns because they appear to float independently
+over the application. A common characteristic of a modal is also that the app
+beneath becomes more opaque and clicking away from the modal will close it.
 
-Take a look at the `search-modal.png` screenshot to get a better idea of what this is supposed to look like. Use the `search-modal.js` file to get the id necesary for the search button, modal and overlay.
+Take a look at the `search-modal.png` screenshot to get a better idea of what
+this is supposed to look like. Use the `search-modal.js` file to get the id
+necesary for the search button, modal and overlay.
 
-Create the HTML in the `_search_modal.html.erb` file and style in `_search_modal.scss`. We created a `<section id="overlay" class="overlay hidden"></section>` at the bottom of the `main_content` section.
+Create the HTML in the `_search_modal.html.erb` file and style in
+`_search_modal.scss`. We created a `<section id="overlay" class="overlay
+hidden"></section>` at the bottom of the `main_content` section.
 
-Here is a trick to making content take up the full width of the viewport even when inside of a smaller container by using viewport units (`vw = viewport width, vh = viewport height`).
+Here is a trick to making content take up the full width of the viewport even
+when inside of a smaller container by using viewport units (`vw = viewport
+width, vh = viewport height`).
 
 ```css
   position: absolute;
