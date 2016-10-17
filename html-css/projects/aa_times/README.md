@@ -2,12 +2,12 @@
 
 Often when working as a front-end developer you'll be collaborating with a
 designer. Most likely they will provide you with a sequence of screenshots and
-specifications for you to convert into neat, maintainable HTML and CSS.
+specifications for you to convert into neat, maintainable HTML and CSS. Like so:
+
+![aa-times](./solution/docs/screenshots/overall.png)
 
 Download the [`skeleton`][skeleton] to get started on making an App Academy
 clone of [The New York Times homepage](http://nytimes.com)!
-
-![aa-times](./solution/docs/screenshots/overall.png)
 
 [skeleton]:./skeleton.zip?raw=true
 
