@@ -4,6 +4,10 @@
 - `rails s` in one tab
 - `bundle exec guard -P livereload` in another tab
 
+The `guard -P livereload` implements an easy-to-setup workflow using "style injection." *Style injection is the ability to see styling changes immediately after authoring them without having to manually refresh your browser.* Here is a [blog post][guard-livereload] explaining the setup and how it works.
+
+[guard-livereload]: https://mattbrictson.com/lightning-fast-sass-reloading-in-rails
+
 ## File Structure
 
 Begin by becoming familiar with the file structure:
@@ -52,6 +56,7 @@ We won't dive any deeper into SASS throughout this project but it does provide a
 
 Some notes on this project before starting:
 
+- The project is provided as a Rails application to give you practice working with the Rails Asset Pipeline and navigating file structure
 - Sometimes the HTML will be given and you must style it yourself, sometimes the styles will be given and you must provide the HTML structure, and sometimes you will be required to do code both
 - Html is rendered using rails partials in the `/app/views/static_pages/index.html.erb` file to allow styling of each component separately.
 - Images for the application may be found in the `app/assets/images` folder 
@@ -71,8 +76,6 @@ Always start with a clean slate, by "resetting" the user agent stylesheet provid
 - Remove the bullets from list items
 - Show the pointer hand on buttons to make it obvious for users to click
 - Include the clearfix in your code
-
-[appearance-info]: https://css-tricks.com/almanac/properties/a/appearance/
 
 # Phase 2: The Layout
 
@@ -186,7 +189,11 @@ Please don't just copy and paste this code. Typing and Debugging CSS/HTML is the
 
 Copy in all the content from `docs/copy/main_content.txt` and start by using your grid classes combined with section elements to define the flexible content columns.
 
-- Note that we provided the `<iframe>` video copied from YouTube
+Use the following code snippet to embed the video content from YouTube:
+
+```html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ARe9FupzuOA" frameborder="0" allowfullscreen></iframe>
+```
 
 This is what we are looking for to start:
 
@@ -205,8 +212,6 @@ This is what we are looking for to start:
 - Try to put as many of the application-wide selectors into the `layout.scss` file as possible. Selectors such as `h1, h2,  img, small, hr, .thumbnail` etc. make more sense in the layout file because we will likely reuse them.
 
 **Get A TA to Review your page before continuing**
-
-[app-academy-video]: https://www.youtube.com/watch?v=ARe9FupzuOA
 
 # Phase 5: The Sections Sidebar
 
