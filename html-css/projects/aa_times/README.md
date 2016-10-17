@@ -86,31 +86,42 @@ each component separately.
 # Phase 1: Reset
 
 Always begin styling an app with a clean slate by "resetting" the user agent
-stylesheet provided by the browser using a `stylesheets/base/reset.scss` file.
-Be wise about which properties to inherit, and which to hard-code.
+stylesheet provided by the browser in your `stylesheets/base/reset.scss` file.
 
-For this project, we provided the tag selectors to get you started.
+To speed things up, we provided some tag selectors to get you started.
 
-- Set the `box-sizing` property to inherit, to have all elements behave the same, which is `content-box`, by default.
-- `img`: Make all images `block` elements. Set their `width`s to be that of their parent containers (`100%`) and their `height`s to grow proportionally (`auto`).
-- `ul`: Remove list-styling (ie. remove buttons from list elements).
-- `button, input[type="submit"]`: Show the pointer hand on buttons to make it obvious for users to click.
-- Define `clearfix`.
+- Be wise about which properties to inherit, and which to hard-code.
+- Besides the regular, set the `box-sizing` property to inherit, to have all
+elements behave the same, which is `content-box`, by default.
+- Make all images `block` elements. Each image's widths should be equal to its
+parent's width (`100%`) and its height should grow proportionally (`auto`).
+Set `img` `width` and `height` properties accordingly.
+- Remove the bullets from list items.
+- Set the `cursor` to be the pointer hand on `button`s to make it obvious for users to click.
+- Lastly, define clearfix.
 
 [appearance-info]: https://css-tricks.com/almanac/properties/a/appearance/
 
 # Phase 2: The Layout
 
-Start by looking over the `docs/screenshots/main_content.png` file to get a feel for the overall application design.
+Study [`docs/screenshots/main_content.png`][screenshot-main-content] to get an idea of the app's overall design.
 
-In order to write "cascading" style sheets it is important that we pick out common design elements and essential layout features. We will use the `layout.scss` file when styling aspects common to our entire application.
+In order to write "cascading" style sheets, it is important that we pick out
+common design elements and essential layout features. We will use the
+`layout.scss` file when styling aspects common to our entire application.
 
-Notice that all of the content is within a defined content region, meaning that all elements are contained within clean edges away from the side of the screen. This is essential for user experience because it makes content easier to read.
+Notice that all of app's content is styled in a defined blocked away from
+the edges of the screen. Each component is also contained within regions with
+clean margins. This is essential for user experience because it makes content
+easier to read.
 
-- Apply an `80%` width to the `body` element
-- Center the body using the `margin: 0 auto;` trick
-- Use the `font-family: $serif` for the base font
-- Use `12px` as the deafult `font-size`
+In `stylesheets/base/layout.scss`, style the `body`:
+- Apply a width of `80%`.
+- Center using `margin: 0 auto;`.
+- Set the base font to `font-family: $serif`.
+- Set `12px` as the default `font-size`.
+
+[screen-main-content]: ./solution/docs/screenshots/main_content.jpg
 
 # Phase 3: The Header
 
