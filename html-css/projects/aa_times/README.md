@@ -1,5 +1,7 @@
 # App Academy Times
 
+Download the `skeleton.zip` and extract to get started making an App Academy clone of [The New York Times Homepage](http://nytimes.com).
+
 - Bundle Install
 - `rails s` in one tab
 - `bundle exec guard -P livereload` in another tab
@@ -190,7 +192,7 @@ Copy in all the content from `docs/copy/main_content.txt` and start by using you
 
 This is what we are looking for to start:
 
-![custom-grid-example](docs/screenshots/grid.gif)
+![custom-grid-example](skeleton/docs/screenshots/grid.gif)
 
 [css-grid-homework]: https://github.com/appacademy/curriculum/blob/master/html-css/assets/custom_grid.css
 
@@ -229,7 +231,7 @@ Now let's code the sections sidebar so that mobile users still have a way of nav
 
 This is the effect we are going for:
 
-![sidebar-example](docs/screenshots/sidebar.gif)
+<img src="skeleton/docs/screenshots/sidebar.gif" alt="sidebar example" width=" 400" height="500"/>
 
 - The submenu text content may be found in the `docs/copy` folder
 - Add the remaining HTML to the `sections_sidebar` by nesting `ul` elements within the `li` elements that require an additional dropdown
@@ -313,6 +315,4 @@ Before continuing **Call over a TA for review**.
 
 When scrolling past the `sections_nav` a `fixed_sections_nav` should appear. Use the [NYTimes](http://nytimes.com) as an example.
 
-# Phase 8: Photo Gallery
 
-# Phase 9: Scrolling Feed Section
