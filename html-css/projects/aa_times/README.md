@@ -5,7 +5,7 @@ designer. Most likely they will provide you with a sequence of screenshots and
 specifications for you to convert into neat, maintainable HTML and CSS.
 
 Download the [`skeleton`][skeleton] to get started on making an App Academy
-clone of [The New York Times Homepage](http://nytimes.com)!
+clone of [The New York Times homepage](http://nytimes.com)!
 
 [skeleton]:./skeleton.zip?raw=true
 
@@ -71,24 +71,31 @@ variables.
 
 ## A Few Things Before You Start...
 
-- Sometimes the HTML will be given and you will need to style with CSS; sometimes the styles will be given and you will need to define the HTML structure; and sometimes you will be required to do code both.
-- HTML is rendered using rails partials in the `/app/views/static_pages/index.html.erb` file to allow styling of each component separately.
-- Images for styling are located in the `app/assets/images` folder.
+- Sometimes the HTML will be given and you will need to style with CSS;
+sometimes the styles will be given and you will need to define the HTML
+structure; and sometimes you will be required to code both.
 - The `docs` folder contains two directories: `screenshots` and `copy`. You'll use the images found in `screenshots` for your mockups as you are styling. `copy` contains the text you'll copy and paste for app's content.
+- HTML is rendered using rails partials in the
+`/app/views/static_pages/index.html.erb` file, allowing for the styling of
+each component separately.
+- The images you will use to style your app are located in the
+`app/assets/images` folder.
 - Javascript files are provided in the `app/assets/javascripts` folder.
 - A script tag in the `application.html.erb` loads [fontawesome](http://fontawesome.io/icons/) icon classes.
 
 # Phase 1: Reset
 
-Always start with a clean slate, by "resetting" the user agent stylesheet provided by the browser with a `stylesheets/base/reset.scss` file. We provided the tag selectors to get you started. Be wise about which properties to inherit, and which to hard-code.
+Always begin styling an app with a clean slate by "resetting" the user agent
+stylesheet provided by the browser using a `stylesheets/base/reset.scss` file.
+Be wise about which properties to inherit, and which to hard-code.
+
+For this project, we provided the tag selectors to get you started.
 
 - Set the `box-sizing` property to inherit, to have all elements behave the same, which is `content-box`, by default.
-- Make all images `block` elements, have them expand to the full
-`100%` width of their parent container, and have their height grow
-`auto`, which means proportionally
-- Remove the bullets from list items
-- Show the pointer hand on buttons to make it obvious for users to click
-- Include the clearfix in your code
+- `img`: Make all images `block` elements. Set their `width`s to be that of their parent containers (`100%`) and their `height`s to grow proportionally (`auto`).
+- `ul`: Remove list-styling (ie. remove buttons from list elements).
+- `button, input[type="submit"]`: Show the pointer hand on buttons to make it obvious for users to click.
+- Define `clearfix`.
 
 [appearance-info]: https://css-tricks.com/almanac/properties/a/appearance/
 
