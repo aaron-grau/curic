@@ -1,12 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import IndexReducer from '../reducers/index_reducer';
-import PokemonMiddleware from '../middleware/pokemon_middleware';
+import IndexMiddleware from '../middleware/index_middleware';
 
-const configureStore = (preloadedState = {}) => (
+const configureStore = () => (
   createStore(
     IndexReducer,
-    preloadedState,
-    applyMiddleware(PokemonMiddleware)
+    applyMiddleware(IndexMiddleware)
   )
 );
 
