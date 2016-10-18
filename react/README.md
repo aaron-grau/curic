@@ -88,8 +88,8 @@ differences.
 
 ### Readings (105 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
-- [Store][store] (25 min)
-- [Reducers][reducers] (15 min)
+- [Store][store] (20 min)
+- [Reducers][reducers] (20 min)
 - [Actions][actions] (10 min)
 - [`<Provider/>`][provider] (15 min)
 - [`connect()`][connect] (15 min)
@@ -108,8 +108,7 @@ differences.
   + [Live demo][fruit-stand-01-live]
   + :computer: [Source code][fruit-stand-01-source]
 + Phase II - React/Redux (1 hr)
-  + :movie_camera: [Video demo][fruit-stand-02-video] (45 min)
-    + :closed_lock_with_key: `go_video_go`
+  + :movie_camera: [Video demo][fruit-stand-02-video] :closed_lock_with_key: `go_video_go` (45 min)
   + [Live demo][fruit-stand-02-live]
   + :computer: [Source code][fruit-stand-02-source]
 

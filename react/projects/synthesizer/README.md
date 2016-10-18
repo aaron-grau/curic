@@ -244,9 +244,6 @@ state and return it. No side effects, such as mutating its arguments!
 
 Let's write a reducer for our app which handles the actions we defined above.
 
-
-
-
 #### `notes` Reducer
 
 + Create a `reducers/notes_reducer.js` file that exports a `notes` reducer, a pure function that takes two arguments:
@@ -314,21 +311,26 @@ new store with the root reducer.
 + In your entry file (`synthesizer.jsx`), import `configureStore` and create your app's `store`. It would be a good idea to define the store on your window. Our code should look something like the following:
 
 ```js
-  // synthesizer.jsx
+// synthesizer.jsx
 
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import configureStore from './store/store';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import configureStore from './store/store';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const store = configureStore();
-    const rootEl = document.getElementById('root');
-    ReactDOM.render(<h1> Hi from Synth </h1>, rootEl);
-    window.store = store; // for testing
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  const store = configureStore();
+  const rootEl = document.getElementById('root');
+  ReactDOM.render(<h1> Synthesizer</h1>, rootEl);
+
+  window.store = store; // for testing
+});
 ```
 
-Note that you should *never* invoke `configureStore()` more than once - you only need one store! Run `open index.html` in your terminal and open up chrome dev tools, does `store.getState()` return what you would expect?
+**NB**: that you should *never* invoke `configureStore()` more than once - your
+app only need one store!
+
+Test your new store. Run `open index.html` in your terminal and open up
+Chrome Dev Tools. Does `store.getState()` return what you would expect?
 
 [create-store]: http://redux.js.org/docs/api/createStore.html
 
@@ -372,23 +374,15 @@ wraps your `App` with a `Provider`. Like so:
   ```
 
 + Update your entry file to render your `Root` component, passing it the store
-returned by `configureStore`. Your entry file should now look something like the following:
+returned by `configureStore`. Your entry should now contain something like the following:
 
-```js
-  // synthesizer.jsx
-
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import configureStore from './store/store';
-  import Root from './components/root';
-
+  ```js
   document.addEventListener('DOMContentLoaded', () => {
     const store = configureStore();
     const rootEl = document.getElementById('root');
     ReactDOM.render(< Root, store={store} />, rootEl);
-    window.store = store; //for testing
   });
-```
+  ```
 
 [provider]: https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store
 
@@ -419,7 +413,7 @@ Fortunately, `react-redux` provides a function that does this for us: [`connect`
 * Import your `keyPressed` and `keyReleased` action creators from `../../actions/note_actions`.
 * Define a `mapDispatchToProps(dispatch)` function. Return an object containing callback props for your action creators.
 
-For example,
+  For example,
 
   ```js
   const mapDispatchToProps = dispatch => ({
@@ -475,7 +469,7 @@ KeyboardEvent.
   ```js
   // components/synth/synth_component.jsx
 
-  componentDidMount(){
+  componentDidMount() {
     $(document).on('keydown', e => this.onKeyDown(e));
     $(document).on('keyup', e => this.onKeyUp(e));
   }
@@ -512,10 +506,11 @@ the visual representation of a single note in your piano.
 * Render a list of `NoteKey`s instead of a list `this.notes`, passing as a prop the note name.
 * Change your `NoteKey` component to display the name of the note.
 
-Cool, you now have the core of your Redux Synthesizer done. Let's start adding additional features!
-
+Cool, you now have the core of your Redux Synthesizer done. Let's start adding
+additional features!
 
 [destructing]: ../../readings/object_destructuring.md
+
 ---
 
 ## Phase 4: Recorder Redux Structure
@@ -603,6 +598,7 @@ discussing the details of our track objects for a little later.
 `tracks` should be an object that stores track objects using their `id`s as keys.
 
 Let's take a closer look at a track object.
+
 ```js
 {
   id: 1,
@@ -650,10 +646,10 @@ Let's get stated writing our `tracksReducer`:
     + Grab the `notes` played from the `action` and calculate the `timeSlice` as you did above.
     + Return the new state.
 
-*NB*: State must never be mutated in the redux, so make sure you are calling `Object.freeze(state)` and creating
-and returning new objects and arrays. `Object.assign` returns a shallow copy of
-an object, which is why for nested objects we must rely on `merge` from
-`lodash`.
+**NB**: State must never be mutated in the redux, so make sure you are calling
+`Object.freeze(state)` and creating and returning new objects and arrays.
+`Object.assign` returns a shallow copy of an object, which is why for nested
+objects we must rely on `merge` from `lodash`.
 
 [merge-lodash]:https://lodash.com/docs#merge
 
@@ -693,34 +689,34 @@ store.
 * Disable the "Stop" button if not `isRecording`, and `onClick`, `stopRecording`.
 
 Your code should look something like the following:
+
 ```js
 // components/recorder/recorder.jsx
 
 import React from 'react';
 
 const Recorder = ({ isRecording, isPlaying, startRecording, stopRecording }) => (
-    <div className='recorder'>
-      <div className='recorder-title'>
-        Recorder
-      </div>
-      <button
-        className ='start-button'
-        onClick={startRecording}
-        disabled={isRecording || isPlaying}>
-        Start
-      </button>
-      <button
-        className='stop-button'
-        onClick={stopRecording}
-        disabled={!isRecording || isPlaying}>
-        Stop
-      </button>
+  <div className='recorder'>
+    <div className='recorder-title'>
+      Recorder
+    </div>
+    <button
+      className ='start-button'
+      onClick={startRecording}
+      disabled={isRecording || isPlaying}>
+      Start
+    </button>
+    <button
+      className='stop-button'
+      onClick={stopRecording}
+      disabled={!isRecording || isPlaying}>
+      Stop
+    </button>
   </div>
 );
 
 
 export default Recorder;
-
 ```
 
 [destructure]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Pulling_fields_from_objects_passed_as_function_parameter
@@ -742,8 +738,6 @@ export default Recorder;
 Now your synthesizer plays musical notes and records tracks! Nice.
 
 ## Phase 6: Jukebox
-
-<!-- TODO: latest stopping point  -->
 
 Let's create a `Jukebox` to display and play our recorded tracks. We're going to
 add to the state a boolean `isPlaying` to indicate if a track is playing or not.
