@@ -5,7 +5,7 @@ import { selectDetail, selectItems } from '../../reducers/selectors';
 const mapStateToProps = state => {
   return ({
     pokemonDetail: state.pokemonDetail,
-    items: selectItems(state)
+    items: state.pokemonDetail.items
   });
 };
 

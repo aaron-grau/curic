@@ -736,42 +736,12 @@ Implement the `PokemonDetail` component just like we did the `PokemonIndex`:
 3. Create a `PokemonDetailReducer` reducer to respond to the receiving of a Pokemon.
 4. Update the `PokemonMiddleware` to respond to the requesting of a Pokemon.
 5. Create a `PokemonDetailContainer` that maps props for `PokemonDetail`.
-
-You will notice that the toys data are not well formatted for turning into
-`ToyItem` components.  But this nesting will be helpful later on when we render
-a `ToyDetail` component, so we will opt to use a selector rather than edit the
-jBuilder template.  The selector will take state as a parameter and serve as a
-utility function to return an array of toy objects that we can easily map over.
-Create a `selectors.js` file in the `reducers` folder.  Provide this piece of
-state to the props of your `PokemonDetail` component using your imported
-selector.
-
 6. Create a `PokemonDetail` component.
 
 Just like the `PokemonIndex`, use an `onEnter` hook in the Route to invoke the
 `RequestSinglePokemon` action. But this time we will need to pass an ID to the
 action. Refer to the [`onEnter` documentation][on-enter] to figure out how we
 get this information.
-
-We recommend you follow the below structure for `PokemonDetail`:
-```html
-<section className="pokemon-detail">
-  <ul>
-    <img src={} alt=""/>
-      <li><h2>{}</h2></li>
-      <li>Type: {}</li>
-      <li>Attack: {}</li>
-      <li>Defense: {}</li>
-      <li>Moves: &#34;{}&#34;</li>
-    <section>
-        <h3>Toys</h3>
-      <ul>
-        {}
-      </ul>
-    </section>
-  </ul>
-</section>
-```
 
 7. Complete the corresponding route that renders the `PokemonDetailContainer`
 
@@ -789,36 +759,38 @@ As a reminder, the syntax for nested routes follows the following pattern:
 
 [on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
 
-## Phase 5: Toy Detail
+## Phase 5: Item Detail
 
-Implement the ability to click on a Toy and be taken to a path such as
-`/pokemon/1/toys/1` where a `ToyDetail` component displays information about a
-Toy below the `PokemonDetail` component. This should be completed without any
+Implement the ability to click on an item and be taken to a path such as
+`/pokemon/1/items/1` where an `ItemDetail` component displays information about an
+Item below the `PokemonDetail` component. This should be completed without any
 additional changes to the application state.
 
 You will need to:
-1. Create a `ToyDetailContainer` that provides the toy's information as props
-2. Create a `ToyDetail` component that displays its props
-3. Create a nested route that renders the `ToyDetailContainer` when the path matches `/pokemon/:pokemonId/toys/:toyId`
+1. Create an `ItemDetailContainer` that provides the item's information as props
+2. Create an `ItemDetail` component that displays its props
+3. Create a nested route that renders the `ItemDetailContainer` when the path matches `/pokemon/:pokemonId/items/:itemId`
 
-When providing the toy to the `ToyDetail` component from the
-`ToyDetailContainer`, remember that `mapStateToProps` accepts a second parameter
-`ownProps`. Use this to key into the correct toy.
+When providing the item to the `ItemDetail` component from the
+`ItemDetailContainer`, remember that `mapStateToProps` accepts a second parameter
+`ownProps`. Use this to find into the correct item.
 
 **Hint:** A component rendered by a route receives `params` as a prop, which includes information about the route.
 
-**Test your code** by clicking on a Pokemon's toy and making sure that a `ToyDetail` component is rendered with the correct information.
+**Test your code** by clicking on a Pokemon's item and making sure that a `ItemDetail` component is rendered with the correct information.
 
 ## Phase 6: Creating Pokemon
 
 Our next feature will be to allow the creation of new Pokemon. To allow users to create Pokemon, you will need to:
 
-1. Create an API function that sends a single Pokemon's information as part of a `POST` request to the backend
-2. Create actions for both creating and receiving a new Pokemon
-3. Update the reducer to respond to receiving a new Pokemon (**Hint:** This should merge multiple pieces of state)
-4. Update the middleware to respond to a `CREATE_POKEMON` action
-5. Create a `PokemonFormContainer` that only connects `mapDispatchToProps`
-6. Create a `PokemonForm` controlled component
+0. Define a `#create` controller action for the `PokemonController`
+0. Create an API function that sends a single Pokemon's information as part of a `POST` request to the backend
+0. Create actions for both creating and receiving a new Pokemon
+0. Update the reducer to respond to receiving a new Pokemon (**Hint:** This should merge multiple pieces of state)
+0. Update the middleware to respond to a `CREATE_POKEMON` action
+0. Create a `PokemonFormContainer` that only connects `mapDispatchToProps`
+  0. Pass a function prop called `createPokemon` that dispatches your `CREATE_POKEMON` action
+0. Create a `PokemonForm` controlled component
 
 A controlled component is one which overrides the default functionality of the
 browser, allowing your code to entirely control your application. This is most
@@ -826,16 +798,9 @@ commonly used in forms to ensure that input field values are being tracked in
 internal state and that submit buttons perform actions as described by the
 application.
 
-Use the `constructor()` method to provide a default internal state to your form.
-Even though Javascript prefers camelCase, it is often easiest to define data in
-the format our server expects when making a "POST" request.  In Ruby, this means
-snake_case.
+Use the `constructor()` method to provide a default internal state to your form. Even though Javascript convention is to use camelCase, it is often easiest to define data in the format our server expects when making a "POST" request.  In Ruby, this means snake_case.
 
-Normally these constructor functions are taken care of by React. This is how
-React creates parent/child relationships between components and why we never
-need to bind child methods. In this case, we are overriding the constructor
-function to have a default internal state, so it is our responsibility to make
-sure all functions are properly bound.
+Normally these constructor functions are taken care of by React. In this case, we are overriding the constructor function to have a default internal state, so it is our responsibility to make sure all functions are properly bound.
 
 ```javascript
   constructor(props) {
@@ -851,14 +816,18 @@ For the input elements, use an `onChange` listener and write a single `update`
 function to call the `setState` method.
 
 An basic example of an `update` method is below:
-```js
-update(property) {
-    return e => this.setState({[property]: e.target.value});
-  }
-```
+  ```js
+    update(property) {
+      return e => this.setState({[property]: e.target.value});
+    }
+  ```
 
 The best html element for the Pokemon type is a `<select>` element, which
-appears to the user as a dropdown. In order to get all of the Pokemon types, we
+appears to the user as a dropdown. Copy / paste the array of pokémon types from the model and use it in your `PokemonForm`.
+
+
+
+<!-- In order to get all of the Pokemon types, we
 have provided a script tag in the `application.html.erb` file which stores an
 array of types on the window. To maintain the Redux pattern, pass it into your
 `configureStore` invocation as preloaded state. Then map it to your
@@ -882,22 +851,8 @@ file):
 
 ```js
 const store = configureStore(window.pokemonTypes);
-```
+``` -->
 
-Sample `PokemonForm` jsx structure:
-```html
-      <section className="pokemon-detail">
-        <img src="/assets/pokemon-logo.png"/>
-        <ul>
-          {// map list elements for errors with class "error"}
-        </ul>
-        <form className="pokemon-form" onSubmit={this.handleSubmit}>
-            {// input elements for all but Pokemon types}
-            {// use select and option elements for Pokemon types }
-          <button>Create Pokemon</button>
-        </form>
-      </section>
-```
 
 Write a `handleSubmit` method as well that prevents the default event action and
 instead calls the `createPokemon` function from props. Make sure to pass this
@@ -911,49 +866,73 @@ tools and pass it the `PokemonFormContainer`.
 **NB**: There are a couple of tricky aspects to getting the form to work properly which
 will be great debugging practice. Use a `debugger` in your `postPokemon`
 function to ensure that you are always passing the correct parameters to your
-API. You may need to add a conditional to your update function as well.
+API.
 
-**Next steps:** The final tricky parts of the Pokemon form are the redirect callback and error
-handling.
+**Next steps:** The final tricky parts of the `PokemonForm` are the redirect callback and error handling.
 
 ### Redirecting
 
-Once the posting is complete we want the application to redirect to the newly
-created Pokemon. We need to wait because we need this Pokemon's ID in order to
-push to that URL. Unfortunately this is one of the downfalls to implementing the
-react router separate from Redux. We do not have the router as a part of our
-application state, so instead we suggest using the slightly older way of
-implementing navigation: `import {hashHistory} from 'react-router';`
+Once the posting is complete we want the application to redirect to the newly created Pokemon. We need to wait, however, because we need this Pokemon's ID in order to push to that URL. This should happen in our `PokemonMiddleware`. In order to change location outside of React components, we need to import the `hashHistory` module.
+
+  ```js
+    import {hashHistory} from 'react-router';
+  ```
 
 This imports a reference to the `hashHistory` object that we can push directly
 to. Call `hashHistory.push` with the correct url inside of your `postPokemon`
 success callback.
 
-**Challenge: There is an additional request being made to the server. Plan out
-with your partner how to fix this and improve your application.**
+Your `PokemonMiddleware` should look something like this:
+
+  ```js
+    const PokemonMiddleware = default ({dispatch}) => next => action => {
+
+      const receiveNewPokemonSuccess = pokemon => {
+        dispatch(receiveNewPokemon(pokemon));
+        hashHistory.push(`/pokemon/${pokemon.id}`);
+      };
+
+      // ...
+
+      switch (action.type) {
+        //...
+
+        case CREATE_POKEMON:
+          postPokemon(action.pokemon, receiveNewPokemonSuccess);
+          next(action);
+          break;
+      }
+    };
+  ```
 
 ### Error Handling
 
-The server is great at telling us whether or not our new Pokemon is being
-inserted into the database correctly, but so far we have no way of letting our
-users know what happened. We need a way of displaying errors on the front-end
-after an unsuccessful post request.
+The server will tell us whether or not our new Pokemon was created successfully. But so far, we have no way of letting our users know what happened. We need a way of displaying errors on the front-end after an unsuccessful POST request.
 
-1. Add a failure callback to the `createPokemon` function.
-2. Add a `pokemonError` action
-3. Update the middleware and reducer to use this new action type
-4. Add a `mapStateToProps` function that connects to the `PokemonFormContainer`
-5. Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
+0. Add a failure callback to the `postPokemon` api util function
+0. Add a `pokemonError` action
+  0. Also create the necessary constants
+0. Add a new reducer, `ErrorsReducer`
+0. Update the `PokemonMiddleware` to use this new action
+  0. `PokemonMiddleware` should also be responsible for constructing the error callback
+0. Add a `mapStateToProps` function that connects to the `PokemonFormContainer`
+0. Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
+0. Add a `mapStateToProps` function in the `PokemonFormContainer` to provide the `PokemonForm` with a list of errors
 
 ## Bonus
 
 ### Loading Spinner
 
-Use `next(action)` in your `PokemonMiddleware` to always ensure the passing of
-your actions to the reducer. This way you can reduce actions such as
-`RequestPokemon` in order to describe an intermediary state of your application.
-Set this state back to normal when reducing `ReceivePokemon` actions.
+In this phase we'll create a 'loading' spinner that displays while we're fetching information from the backend.
 
-### Update Toys
+0. Google search "css spinners" -- pick one you like!
+0. Create a new reducer, the `LoadingReducer`
+  0. Your `LoadingReducer` shoulw care about all `REQUEST_` and `RECEIVE_` action types
+  0. When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
+0. Use `next(action)` in your `PokemonMiddleware` to always ensure the passing of
+your actions to the reducer
+0. Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
 
-Add the ability to reassign toys to different Pokemon.
+### Update Items
+
+Add the ability to reassign items to different Pokemon. This time, design is up to you!
