@@ -2,29 +2,8 @@
 
 ## w6d5
 
-### Video Lectures (94 min)
-**N.B.** These lectures were recorded prior to the introduction of ES6-style
-syntax to React. As a result, you may see a slightly different syntax than in
-the rest of the React curriculum materials. Review the [component
-declaration][component-declaration] reading for more discussion of the
-differences.
-
-:closed_lock_with_key: `go_video_go`
-- :movie_camera: [Part 1: Intro to React][react_video_01] (5 min)
-- :movie_camera: [Part 2: Anatomy/Physiology of Components][react_video_02] (15 min)
-- :movie_camera: [Part 3: Rendering Components in the Browser][react_video_03] (10 min)
-- :movie_camera: [Part 4: JSX][react_video_04] (7 min)
-- :movie_camera: [Part 5: Babel/Transpiling JSX][react_video_05] (6 min)
-- :movie_camera: [Part 6: The Grand Demo][react_video_06] (51 min)
-  - :computer: [Source code][watch-demo]
-
-[react_video_01]: https://vimeo.com/album/3686654/video/147897911
-[react_video_02]: https://vimeo.com/album/3686654/video/147899305
-[react_video_03]: https://vimeo.com/album/3686654/video/147900089
-[react_video_04]: https://vimeo.com/album/3686654/video/147900661
-[react_video_05]: https://vimeo.com/album/3686654/video/147900472
-[react_video_06]: https://vimeo.com/album/3686654/video/147900885
-[watch-demo]: demos/watch_webpack_demo
+### :clock10: Class will start at 10am! :clock10:
+- **Progress Tracker reports are still due at 9am.**
 
 ### Readings (110 min)
 #### Configuration (30 min)
@@ -62,6 +41,8 @@ differences.
 [component_lifecycle]: readings/component_lifecycle.md
 [synthetic_events]: readings/synthetic_events.md
 
+<!--  Videos -->
+
 ### Homeworks (60 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (30 min)
@@ -83,9 +64,6 @@ differences.
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
 ## w7d1
-
-### :clock10: Class will start at 10am! :clock10:
-- **Progress Tracker reports are still due at 9am.**
 
 ### Readings (105 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
@@ -140,7 +118,7 @@ differences.
 ## w7d2
 
 ### Readings (65 min)
-- [Higher-order functions][higher_order_functions] (15 min)
+- [Higher-order Functions][higher_order_functions] (15 min)
 - [Middleware][middleware] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
 - [Selectors][selectors] (10 min)
@@ -183,7 +161,7 @@ differences.
 
 ### Homeworks (30 min)
 - [Rainbow Routes][rainbow_routes]
-- [Submit Tentative Full-Stack Project Proposal][tentative-proposal]
+- [Submit your tentative full-stack project proposal][tentative-proposal]
   -	**Due by 9AM Thursday w7d4**
 
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
