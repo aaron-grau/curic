@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 
 const PokemonIndexItem = ({pokemon, router}) => {
 
-  const handleClick = url => router.push(url);
+  const handleClick = url => () => router.push(url);
 
   return(
     <li

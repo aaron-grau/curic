@@ -5,7 +5,7 @@ import IndexMiddleware from '../middleware/index_middleware';
 const configureStore = () => (
   createStore(
     IndexReducer,
-    applyMiddleware(IndexMiddleware)
+    IndexMiddleware
   )
 );
 
