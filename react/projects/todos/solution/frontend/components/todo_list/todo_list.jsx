@@ -8,8 +8,6 @@ class TodoList extends React.Component {
     this.props.requestTodos();
   }
 
-
-
   render() {
     const { todos, createTodo, updateTodo } = this.props;
     return(
