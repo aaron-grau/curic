@@ -1,6 +1,6 @@
 # Your First AJAX Request
 
-You're going to dive more into AJAX in a bit, but we need to give you a taste before building jQuery lite.
+You're going to dive more into AJAX in a bit, but we need to give you a taste before building jQuery lite in a few days.
 
 ## Part 1: Up and Running
 
