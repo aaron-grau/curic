@@ -261,8 +261,6 @@
 
 ## w6d3
 
-### Study Hall 9 - 10am
-
 ### Video Lectures (55 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [AJAX Video Lecture][ajax-lecture]  (20 min)
