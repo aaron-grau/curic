@@ -17,7 +17,7 @@ class Api::PokemonController < ApplicationController
 
   def index
     sleep 1
-    @pokemon = Pokemon.all
+    @pokemon = Pokemon.all.select(:id, :name, :image_url)
   end
 
   def show

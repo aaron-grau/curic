@@ -57,27 +57,45 @@ Let's build routes for our pokémon! We want these routes to be nested under an 
     }
   ```
 
-  Here, the keys in your json response are the primary keys of the pokémon. The values are the pokémon themselves. Let's do something like this:
+  Here, the keys in your json response are the primary keys of the pokémon. The values are the pokémon themselves. Let's use jBuilder here!
+
+  * Iterate over each pokémon.
+  * Use `json.set!` to explicity set the key to the pokémon's id
+  * Use `json.extract!` to grab the pokémon's id, name, and image_url
+    * We don't need to return any more information than this for our index route!
 
   ```ruby
-    def index
-      pokemon_hash = {}
-
-      Pokemon.all.each do |pokemon|
-        pokemon_hash[pokemon.id] = pokemon
+    @pokemon.each do |poke|
+      json.set! poke.id do
+        json.extract! poke, :id, :name, :image_url
       end
-
-      render json: pokemon_hash
     end
   ```
 
-  Finally, build a `#show` action as well. We'll want the `#show` action to render all the information about our pokémon, including the pokémon's items. Do so like this:
+  Finally, build a `#show` action as well. We'll want the `#show` action to render all the information about our pokémon, **including the pokémon's items.** Do so like this:
 
-  ```ruby
-    render json: pokemon, include: [:items]
+  A GET request to `localhost:3000/api/pokemon/5` should yield something like:
+
+  ```
+    {
+      "id": 4,
+        ...
+      "moves": [ ... ],
+      "items": [
+        {
+        "id": 12,
+        "name": "General Iron Fist Man",
+        "pokemon_id": 4,
+        "price": 41,
+        "happiness": 74,
+        "image_url": "/assets/pokeball.png"
+        },
+        ...
+      ]
+    }
   ```
 
-  **Test your routes and controller actions** by making get requests to `localhost:3000/api/pokemon` and `localhost:3000/api/pokemon/#`.
+**Test your routes and controller actions** by making GET requests to `localhost:3000/api/pokemon` and `localhost:3000/api/pokemon/#`.
 
 
 ## Phase 1: Frontend Setup
