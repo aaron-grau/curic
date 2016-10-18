@@ -265,6 +265,16 @@ const configureStore = (preloadedState = {}) => (
 export default configureStore;
 ```
 
+Before moving on, inside the `DOMContentLoaded` callback in `frontend/bench_bnb.jsx` 
+call `configureStore()` and assign the result to the window. 
+
+```javascript
+window.store = configureStore(); //just for testing!
+```
+
+Run `store.getState()` in the console and inspect the results. Your state 
+should look like the default state mentioned above! 
+
 ### `SessionMiddleware`
 
 Your `SessionMiddleware` should only listen for and respond to 3 of our action types:
@@ -389,7 +399,6 @@ Define 2 new files at the root of your `frontend/components` folder:
 
 * `frontend/components/app.jsx`
 * `frontend/components/root.jsx`
-
 
 ### The `App` component
 
