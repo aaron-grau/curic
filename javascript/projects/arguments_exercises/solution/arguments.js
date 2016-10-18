@@ -32,7 +32,7 @@ Function.prototype.myBind2 = function (ctx, ...bindArgs) {
 };
 
 function curriedSum(numArgs) {
-  var numbers = [];
+  const numbers = [];
 
   function _curriedSum(num) {
     numbers.push(num);
