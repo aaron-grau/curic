@@ -1,33 +1,28 @@
 class Api::PokemonController < ApplicationController
   def create
-    pokemon = Pokemon.new(pokemon_params)
+    @pokemon = Pokemon.new(pokemon_params)
 
-    if pokemon.save
-      render json: pokemon
+    if @pokemon.save
+      render :show
     else
-      render json: pokemon.errors.full_messages, status: 422
+      render json: @pokemon.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    pokemon = Pokemon.find(params[:id])
-    pokemon.destroy
-    render json: pokemon
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
+    render :show
   end
 
   def index
     sleep 1
-    pokemon_hash = {}
-    Pokemon.all.each do |pokemon|
-      pokemon_hash[pokemon.id] = pokemon
-    end
-    render json: pokemon_hash
+    @pokemon = Pokemon.all
   end
 
   def show
     sleep 1
-    pokemon = Pokemon.find(params[:id])
-    render json: pokemon, include: [:items]
+    @pokemon = Pokemon.find(params[:id])
   end
 
   private
