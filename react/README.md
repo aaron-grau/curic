@@ -15,13 +15,21 @@ differences.
 - :movie_camera: [Part 4: JSX][react_video_04] (7 min)
 - :movie_camera: [Part 5: Babel/Transpiling JSX][react_video_05] (6 min)
 - :movie_camera: [Part 6: The Grand Demo][react_video_06] (51 min)
-  - :computer: [demo source code][watch-demo]
+  - :computer: [Source code][watch-demo]
 
-### Readings (115 min)
-#### Configuration (35 min)
+[react_video_01]: https://vimeo.com/album/3686654/video/147897911
+[react_video_02]: https://vimeo.com/album/3686654/video/147899305
+[react_video_03]: https://vimeo.com/album/3686654/video/147900089
+[react_video_04]: https://vimeo.com/album/3686654/video/147900661
+[react_video_05]: https://vimeo.com/album/3686654/video/147900472
+[react_video_06]: https://vimeo.com/album/3686654/video/147900885
+[watch-demo]: demos/watch_webpack_demo
+
+### Readings (110 min)
+#### Configuration (30 min)
 - [NPM][npm_configuration] (15 min)
 - [Webpack][webpack_configuration] (10 min)
-- [Babel][babel_configuration] (10 min)
+- [Babel][babel_configuration] (5 min)
 
 #### ES6 & Lodash (25 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
@@ -39,6 +47,20 @@ differences.
 - [Lifecycle Methods][component_lifecycle] (5 min)
 - [Synthetic Events][synthetic_events] (5 min)
 
+[npm_configuration]: readings/npm_configuration.md
+[webpack_configuration]: readings/webpack_configuration.md
+[babel_configuration]: readings/babel_configuration.md
+[import_export]: readings/import_export.md
+[object_destructuring]: readings/object_destructuring.md
+[lodash]: readings/lodash.md
+[intro_to_react]: readings/intro_to_react.md
+[intro_to_jsx]: readings/intro_to_jsx.md
+[intro_to_react_components]: readings/intro_to_react_components.md
+[props_and_state]: readings/props_and_state.md
+[component_declaration]: readings/component_declaration.md
+[component_lifecycle]: readings/component_lifecycle.md
+[synthetic_events]: readings/synthetic_events.md
+
 ### Homeworks (60 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (30 min)
@@ -50,29 +72,6 @@ differences.
 ### Additional Resources
 - [Official React Documentation][react_docs]
 	- Most Helpful: REFERENCE Section (Left Sidebar)
-
-[component-declaration]: readings/component_declaration.md
-[react_video_01]: https://vimeo.com/album/3686654/video/147897911
-[react_video_02]: https://vimeo.com/album/3686654/video/147899305
-[react_video_03]: https://vimeo.com/album/3686654/video/147900089
-[react_video_04]: https://vimeo.com/album/3686654/video/147900661
-[react_video_05]: https://vimeo.com/album/3686654/video/147900472
-[react_video_06]: https://vimeo.com/album/3686654/video/147900885
-[watch-demo]: demos/watch_webpack_demo
-
-[import_export]: readings/import_export.md
-[object_destructuring]: readings/object_destructuring.md
-[intro_to_react]: readings/intro_to_react.md
-[intro_to_jsx]: readings/intro_to_jsx.md
-[intro_to_react_components]: readings/intro_to_react_components.md
-[props_and_state]: readings/props_and_state.md
-[component_declaration]: readings/component_declaration.md
-[component_lifecycle]: readings/component_lifecycle.md
-[synthetic_events]: readings/synthetic_events.md
-[npm_configuration]: readings/npm_configuration.md
-[webpack_configuration]: readings/webpack_configuration.md
-[babel_configuration]: readings/babel_configuration.md
-[lodash]: readings/lodash.md
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/questions/calculator.md
@@ -96,15 +95,29 @@ differences.
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
+[store]: readings/store.md
+[reducers]: readings/reducers.md
+[actions]: readings/actions.md
+[flux_redux]: readings/flux_redux.md
+[provider]: readings/provider.md
+[connect]: readings/connect.md
+[containers]: readings/containers.md
+
 ### Fruit Stand App Demo (1 hr 15 min)
 + Phase I - Redux only (15 min)
   + [Live demo][fruit-stand-01-live]
-  + [Source code][fruit-stand-01-source]
+  + :computer: [Source code][fruit-stand-01-source]
 + Phase II - React/Redux (1 hr)
   + :movie_camera: [Video demo][fruit-stand-02-video] (45 min)
     + :closed_lock_with_key: `go_video_go`
   + [Live demo][fruit-stand-02-live]
-  + [Source code][fruit-stand-02-source]
+  + :computer: [Source code][fruit-stand-02-source]
+
+  [fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
+  [fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
+  [fruit-stand-02-video]: https://vimeo.com/184374712
+  [fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
+  [fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit_stand_02
 
 ### Homeworks (45 min)
 - [Dollar Store][dollar_store_hw] (45 min)
@@ -117,23 +130,10 @@ differences.
 - [Official `react-redux` Documentation][react_redux_docs]
   -	*Note: The 'API' sections are especially useful.*
 
-[store]: readings/store.md
-[reducers]: readings/reducers.md
-[actions]: readings/actions.md
-[flux_redux]: readings/flux_redux.md
-[provider]: readings/provider.md
-[connect]: readings/connect.md
-[containers]: readings/containers.md
 [redux_docs]: http://redux.js.org/index.html
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
-[fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
-[fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
-[fruit-stand-02-video]: https://vimeo.com/184374712
-[fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
-[fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit_stand_02
-
-[dollar_store_hw]: homeworks/questions/stores.md
+[dollar_store_hw]: homeworks/questions/dollar_store
 
 [synthesizer]: projects/synthesizer
 
@@ -160,7 +160,7 @@ differences.
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
 [redux_api_interactions]: readings/redux_api_interactions.md
-[middleware_homework]: homeworks/questions/middleware.md
+[middleware_homework]: homeworks/questions/middleware
 [todos]: projects/todos
 
 

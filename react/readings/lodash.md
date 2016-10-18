@@ -35,13 +35,14 @@ pairs are unique vis-a-vis each other.
 ```js
 import union from 'lodash/union';
 
-let ids = [1,4,5];
-let newIds = [2,3,4];
+let ids = [1, 4, 5];
+let newIds = [2, 3, 4];
 
-let result = union(ids, newIds); // [1,4,5,2,3]
+let result = union(ids, newIds); //=> [1, 4, 5, 2, 3]
 ```
 
 Contrast this to vanilla JS:
+
 ```js
 let ids = [1, 4, 5];
 let newIds = [2, 3, 4];
@@ -52,7 +53,7 @@ let result = ids.slice();
 
 newIds.forEach(newId => {
 	if (!result.includes(newId)) {
-		result.push(newId)
+		result.push(newId);
 	}
 });
 
@@ -60,17 +61,16 @@ newIds.forEach(newId => {
 
 var result = ids.slice();
 
-newIds.forEach(function(newId){
+newIds.forEach(function(newId) {
 	var shouldInsert = true;
 
-	ids.forEach(function(oldId){
+	ids.forEach(function(oldId) {
 		if (oldId === newId) {
 			shouldInsert = false;
-			break;
 		}
 	});
 
-	if (shouldInsert){
+	if (shouldInsert) {
 		result.push(newId);
 	}
 

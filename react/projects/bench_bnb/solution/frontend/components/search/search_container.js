@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
-import Search from './search';
 
-// Actions
 import { updateFilter } from '../../actions/filter_actions';
-// Selectors
 import { asArray } from '../../reducers/selectors';
+
+import Search from './search';
 
 const mapStateToProps = state => ({
   benches: asArray(state),

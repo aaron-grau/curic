@@ -30,12 +30,14 @@ const quotes = React.createElement(
 );
 ```
 
-Both blocks of code ultimately produce the HTML:
+Both blocks of code ultimately produce the same HTML:
+
 ```html
 <div class='quotes'><h1>I love JavaScript!</h1></div>
 ```
 
 and are rendered onto the `document.body` using:
+
 ```js
 ReactDOM.render(quotes, document.body)
 ```
@@ -60,7 +62,8 @@ const myElement = (
 	</h1>
 );		
 ```
-`myElement` renders as
+`myElement` renders as:
+
 ```html
 <h1 class='example'>6<h1>
 ```
@@ -84,8 +87,7 @@ const myElement = (
 
 JSX cannot be directly interpreted by browsers like Chrome or Firefox. Instead,
 JSX code must be passed through a preprocessor, such as `Babel`, that
-**transpiles** it into vanilla Javascript. You'll learn more about this in a
-moment.
+**transpiles** it into vanilla Javascript.
 
 ## Official Documentation
 

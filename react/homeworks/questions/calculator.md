@@ -35,18 +35,18 @@ Make a new file called `calculator.jsx`. Paste in this skeleton.
 ```javascript
 import React from 'react';
 
-class Calculator extends React.Component{
-  constructor(props){
+class Calculator extends React.Component {
+  constructor(props) {
     super(props);
-    // your code will be here
+    // your code here
   }
 
-  // your code will be here
+  // your code here
 
   render(){
     return (
       <div>
-        <h1>Hello World</h1> // you'll be replacing this with your own code
+        <h1>Hello World</h1> // replace this with your code
       </div>
     );
   }
@@ -78,7 +78,7 @@ interpolate the result, which is stored in our state, into the
 jsx. It'll look something like this.
 
 ```javascript
-render(){
+render() {
   return (
     <div>
       <h1>{this.state.result}</h1>
@@ -103,7 +103,7 @@ if the value was an empty string (i.e., the user hit backspace
 after entering something).
 
 ```javascript
-setNum1(e){
+setNum1(e) {
   // your code here
 }
 ```
@@ -164,14 +164,12 @@ before the `return` statement!
 
 ```javascript
 render(){
-  //your destructuring code will go here
+  // your destructuring code here
   return (
-    //other code
+    // refactor variables defined
   );
 }
 ```
-
-Think about other ways you could refactor your code.
 
 Congratulations! You've created your first component!
 

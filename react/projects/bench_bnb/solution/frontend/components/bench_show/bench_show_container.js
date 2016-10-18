@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
-import BenchShow from './bench_show';
-// Actions
+
 import { requestBench } from '../../actions/bench_actions';
-// Selectors
 import { selectBench } from '../../reducers/selectors';
 
+import BenchShow from './bench_show';
 
-const mapStateToProps = (state, ownProps) => {
-  const benchId = parseInt(ownProps.params.benchId);
+const mapStateToProps = (state, { params }) => {
+  const benchId = parseInt(params.benchId);
   const bench = selectBench(state, benchId);
   return {
     benchId,

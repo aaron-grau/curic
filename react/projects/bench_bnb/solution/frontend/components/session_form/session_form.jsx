@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -15,9 +15,9 @@ class SessionForm extends React.Component {
 		this.redirectIfLoggedIn();
 	}
 
-	redirectIfLoggedIn(){
+	redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
-			hashHistory.push("/");
+			this.props.router.push("/");
 		}
 	}
 
@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
 					Welcome to BenchBnB!
 					<br/>
 					Please {this.props.formType} or {this.navLink()}
-					{ this.renderErrors() }
+					{this.renderErrors()}
 					<div className="login-form">
 						<br/>
 						<label> Username:
@@ -69,7 +69,6 @@ class SessionForm extends React.Component {
 								onChange={this.update("username")}
 								className="login-input" />
 						</label>
-
 						<br/>
 						<label> Password:
 							<input type="password"
@@ -77,7 +76,6 @@ class SessionForm extends React.Component {
 								onChange={this.update("password")}
 								className="login-input" />
 						</label>
-
 						<br/>
 						<input type="submit" value="Submit" />
 					</div>
@@ -88,4 +86,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

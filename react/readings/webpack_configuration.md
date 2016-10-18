@@ -2,14 +2,15 @@
 
 ## `.gitignore`
 
-Before discuss into webpack configuration, you should know that running webpack 
-and using NPM create many redundant and very large files in your local project
-directory. Use a `.gitignore` file to prevent these files from being pushed to and 
-pulled from your remote Git repositories. Create a `.gitignore` file in your 
-project's root directory and list the files or directories you want to ignore, 
-one per line. Use a trailing `/` to indicate a directory to ignore.
+Before discuss into webpack configuration, you should know that running webpack
+and using npm create many redundant and very large files in your local project
+directory. Use a `.gitignore` file to prevent these files from being pushed to
+and pulled from your remote Git repositories. Create a `.gitignore` file in
+your project's root directory and list the files or directories you want to
+ignore, one per line. Use a trailing `/` to indicate a directory to ignore.
 
 For example,
+
 ```
 # .gitignore
 
@@ -46,7 +47,8 @@ module.exports = {
 ```
 
 **NB**: For Rails projects, make sure to locate the bundle in your
-`app/assets/javascripts` folder so that it's included in your asset pipeline.
+`app/assets/javascripts` folder so that it's included in the Rails asset
+pipeline.
 
 ### Dev Tools / Source Map
 
@@ -82,9 +84,9 @@ module.exports = {
 };
 ```
 
-By including an empty string, you can write import statements more succinctly:
+By including an empty string as an option, you can write import statements more
+succinctly. For example,
 
-For example,
 ```js
 import App from './components/app';
 import { createTodos } from './actions/todos';
@@ -96,10 +98,10 @@ import { createTodos } from './actions/todos';
 // webpack.config.js
 
 module.exports = {
-  entry: "path/to/entry.jsx",
+  entry: 'path/to/entry.jsx',
   output: {
-    path: "app/assets/javascripts",
-    filename: "bundle.js",
+    path: 'app/assets/javascripts',
+    filename: 'bundle.js',
   },
   module: {
     loaders: [
@@ -115,7 +117,7 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: ['', '.js', '.jsx' ]
   }
 };
 ```
