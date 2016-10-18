@@ -3,9 +3,9 @@
 So far, we've used Rails to handle all the different parts of our web
 application stack:
 
-	0.	database management (ActiveRecord )
-	0.	request routing (router and controllers), and
-	0.	rendering the user interface (views).
+	1.	database management (ActiveRecord )
+	2.	request routing (router and controllers), and
+	3.	rendering the user interface (views).
 
 While Rails certainly excels at all these things, we're now moving into the next
 iteration of our web-application stack: client-side rendering. Going forward,
