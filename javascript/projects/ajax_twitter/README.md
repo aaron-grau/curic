@@ -6,16 +6,16 @@
 
 ## Phase 0: Setup
 
-Download the project [skeleton](skeleton.zip?raw=true). Start by running `rake
-db:create db:migrate db:seed`. You will also need to run `webpack -w` to compile
-the JavaScript.
+Download the project [skeleton](skeleton.zip?raw=true). Start by running `bundle
+install`. To setup the database, run `rake db:setup` which creates, migrates and
+seeds the db in one command! Next run `webpack -w` to compile the JavaScript.
 
-Take a look at the `webpack.config.js`. Note that our entry point is
-`frontend/twitter.js`, so our other JavaScript files should live in `frontend/`
-too. Webpack will compile them from there and place `bundle.js` in
-`app/assets/javascripts/`.
+Take a quick look at the `webpack.config.js`. Note that our entry point is
+`frontend/twitter.js`, so all of our other JavaScript file should be defined in
+the `frontend` folder also. Webpack will compile them from there and create a
+`bundle.js` file in `app/assets/javascripts/`.
 
-Next look at `app/assets/javascripts/application.js`. This is Rails' manifest
+Next checkout `app/assets/javascripts/application.js`. This is Rails' manifest
 file for JavaScript. All required javascript files are listed in the comment
 block at the top. This works in a similar fashion to placing `<script>` tags in
 our HTML, except that Rails compiles them all into a single file for production.
@@ -23,7 +23,12 @@ But unlike Webpack, Rails doesn't intelligently manage dependencies, so you
 still have to be extra careful about the load order.
 
 It's currently only requiring jQuery. Make it require `bundle.js` as well. Now
-we shouldn't have to worry about compiling our JS files again because Webpack will do it for us as long as we remember to webpack (ie. run `webpack` or `webpack --watch`).
+we shouldn't have to worry about compiling our JS files again because Webpack
+will do it for us as long as we remember to webpack (ie. run `webpack` or
+`webpack --watch`).
+
+Before writing any code, run `rails s` and familiarize yourself with the
+skeleton!
 
 ## Phase I: `FollowToggle`
 
@@ -162,7 +167,11 @@ json.array!(@users) do |user|
 end
 ```
 
-The above code takes your `@users` instance variable and turns it into an array
+**NB**: Last night you read a little bit about [Jbuilder][jbuilder], a very
+useful gem that allow us to write Ruby that create JSON views. We'll learn about
+and use it much more next week. For now, just follow along!
+
+The code above takes your `@users` instance variable and turns it into an array
 of JSON objects. Each object will have all of its information as well as
 `followed`, which will be either true or false depending on whether the current
 user is following this user.
@@ -177,16 +186,17 @@ linking to the user. Use the jQuery `append` method to add each result to the
 
 **Test your code**: Check that you can now interactively search users.
 
-Now let's fix that n+1 query. It's coming from the fact that the data labeled 
-`current_user.follows?(user)` gets called each time we want to render 
-`search.json.jbuilder`, so we can fix it by chaining a `.includes(:follows)` 
-call onto our controller's `.where` call. 
+Now let's fix that n+1 query. It's coming from the fact that the data labeled
+`current_user.follows?(user)` gets called each time we want to render
+`search.json.jbuilder`, so we can fix it by chaining a `.includes(:out_follows)`
+call onto our controller's `.where` call.
 
 Last, we want to add follow toggle buttons for each of these results. When
 building the `li` tags for each user, build a `button`, too. You can create a
 FollowToggle instance for the button to setup the follow toggle.
 
-**NB:** Inspect the JSON objects that you are getting from the server to see whether or not they are currently being followed.
+**NB:** Inspect the JSON objects that you are getting from the server to see
+ whether or not they are currently being followed.
 
 You could make this work by setting data attributes on the button for `user-id`
 and `initial-follow-state`. In this context, that's kind of annoying. Instead,
@@ -210,24 +220,26 @@ See if this helps you set up the follow toggle.
 
 ## Phase III: `TweetCompose`
 
-First, we're going to update our TweetsController to handle JSON requests, similarly
-to how we updated our UsersController before. If we've successfully created a tweet from
-a JSON request, then we should render that tweet back as json. We could `render json:
-@tweet`, but then we might not have all of the information we need. Add a `respond_to`
-block and put cases for `format.html` and `format.json` inside it. If the request
-matches `format.json`, call `render :show` so that we can structure our response to our
-application's needs.
+First, we're going to update our TweetsController to handle JSON requests,
+similarly to how we updated our UsersController before. If we've successfully
+created a tweet from a JSON request, then we should render that tweet back as
+json. We could `render json: @tweet`, but then we might not have all of the
+information we need. Add a `respond_to` block and put cases for `format.html`
+and `format.json` inside it. If the request matches `format.json`, call `render
+:show` so that we can structure our response to our application's needs.
 
-Now, just as we did before, let's create a show view for our tweets. We're going to call
-a partial in this view; to that end, we'll put the following code in `show.json.jbuilder`:
+Now, just as we did before, let's create a show view for our tweets. We're going
+to call a partial in this view; to that end, we'll put the following code in
+`show.json.jbuilder`:
 
 ```ruby
 json.partial!("tweets/tweet", tweet: @tweet)
 ```
 
-Partials in Jbuilder work the same way they do in ERB - the partial file name starts with
-a `_` and you pass in a piece of information for the partial to render using a hash. Let's
-create that partial right now at `_tweet.json.jbuiler` and put the following code into it:
+Partials in Jbuilder work the same way they do in ERB - the partial file name
+starts with a `_` and you pass in a piece of information for the partial to
+render using a hash. Let's create that partial right now at
+`_tweet.json.jbuiler` and put the following code into it:
 
 ```ruby
 json.(tweet, *Tweet.column_names)
@@ -363,7 +375,9 @@ respond_to do |format|
 end
 ```
 
-Now, also in a repetition of our earlier process, let's build out the rest of our JSON API. We'll start by creating a `feeds/show.json.jbuilder`. We can reuse the tweet partial we already wrote by calling it in this show view:
+Now, also in a repetition of our earlier process, let's build out the rest of
+our JSON API. We'll start by creating a `feeds/show.json.jbuilder`. We can reuse
+the tweet partial we already wrote by calling it in this show view:
 
 ```ruby
 json.array!(@feed_tweets) do |tweet|
@@ -409,74 +423,77 @@ fetch the same tweet again when you make an AJAX call to `/feed`.
 
 ## Phase V: Jbuilder Practice
 
-Since we're going to be using Jbuilder so often over the next few weeks, let's
-get some more practice with it today. We'll start by creating a simple view for
-our FollowsController to use. In both its `create` and `destroy` methods,
-the FollowsController calls `render json: @follow`. Replace that with
-`render :show` and write a `show` view in Jbuilder. This view should have the
-same effect as calling `render json: @follow` - all of the follow's information
-should get sent to the frontend.
+Since we're going to be using Jbuilder often over the next few weeks, let's
+get some more practice with it today. Use its [docs][jbuilder] a guide.
+
+Let's start by creating a simple view for
+our FollowsController to use. In both its `create` and `destroy` methods, the
+FollowsController calls `render json: @follow`. Replace that with `render :show`
+and write a `show` view in Jbuilder. This view should have the same effect as
+calling `render json: @follow` - all of the follow's information should get sent
+to the frontend.
 
 Test your new view by creating and destroying `Follows` using your app. Does it
 still work?
 
-Next, we'll work on a `show` view for users. In a full Rails API backend, we might use
-this view when a user is created, destroyed, or shown, as well as whenever a user
-logs in or out. This view should be similar to the view we just wrote, with one
-crucial difference: we need to keep our users' private information from being sent
-over the internet. Write a `users/show.json.jbuilder` that only returns a user's
-`username` and `id`, keeping their `password_digest` and `session_token` safe on
-the server.
+Next, we'll work on a `show` view for users. In a full Rails API backend, we
+might use this view when a user is created, destroyed, or shown, as well as
+whenever a user logs in or out. This view should be similar to the view we just
+wrote, with one crucial difference: we need to keep our users' private
+information from being sent over the internet. Write a
+`users/show.json.jbuilder` that only returns a user's `username` and `id`,
+keeping their `password_digest` and `session_token` safe on the server.
 
-Test your new view by modifying your `User#create` method to `render :show` when it
-receives a JSON request. Does your view send back the correct information if you test
-it using Postman? After your test succeeds, change your controller code back.
+Test your new view by modifying your `User#create` method to `render :show` when
+it receives a JSON request. Does your view send back the correct information if
+you test it using Postman? After your test succeeds, change your controller code
+back.
 
-Finally, we'll write an `index` view for tweets. This view isn't strictly applicable
-to our current application, but it demonstrates a pattern that you will use in
-future full-stack applications, particularly when we start using Redux. We're going
-to return an object filled with tweets, each tweet keyed by its id. It will look like
-the following:
+Finally, we'll write an `index` view for tweets. This view isn't strictly
+applicable to our current application, but it demonstrates a pattern that you
+will use in future full-stack applications, particularly when we start using
+Redux. We're going to return an object filled with tweets, each tweet keyed by
+its id. It will look like the following:
 
 ```js
 {
-  "1":{
-    "content":"Set world napping record",
-    "user_id":1
+  "1": {
+    "content": "Set world napping record",
+    "user_id": 1
   },
-  "2":{
-    "content":"Jumped to the top of the shelf!",
-    "user_id":1
+  "2": {
+    "content": "Jumped to the top of the shelf!",
+    "user_id": 1
   },
 }
 ```
 
-Write a `tweets/index.json.jbuilder` that returns an object full of tweets. Create
-a `Tweets#index` method and route, and render your new index view in it. Test your
-new code by navigating to `localhost:3000/tweets`.
+Write a `tweets/index.json.jbuilder` that returns an object full of tweets.
+Create a `Tweets#index` method and route, and render your new index view in it.
+Test your new code by navigating to `localhost:3000/tweets`.
 
-Next, include the tweeter's username along with each tweet. Prevent n+1 queries by
-using `includes`. Check your server log and make sure that only two queries are being
-fired to display all of the tweets and usernames.
+Next, include the tweeter's username along with each tweet. Prevent n+1 queries
+by using `includes`. Check your server log and make sure that only two queries
+are being fired to display all of the tweets and usernames.
 
-Next, include a list of each tweet's mentioned users along with each tweet. Make sure
-to add `:mentioned_users` to your `includes` statement to prevent n+1 queries. Test
-your new code by navigating to `localhost:3000/tweets` - your returned JSON should look
-like this:
+Next, include a list of each tweet's mentioned users along with each tweet. Make
+sure to add `:mentioned_users` to your `includes` statement to prevent n+1
+queries. Test your new code by navigating to `localhost:3000/tweets` - your
+returned JSON should look like this:
 
 ```js
 {
-  "1":{
-    "content":"Set world napping record",
-    "user_id":1,
-    "username":"breakfast",
-    "mentioned_users":[]
+  "1": {
+    "content": "Set world napping record",
+    "user_id": 1,
+    "username": "breakfast",
+    "mentioned_users": []
   },
-  "2":{
-    "content":"Jumped to the top of the shelf!",
-    "user_id":1,
-    "username":"breakfast",
-    "mentioned_users":[]
+  "2": {
+    "content": "Jumped to the top of the shelf!",
+    "user_id": 1,
+    "username": "breakfast",
+    "mentioned_users": []
   },
 }
 ```
@@ -496,7 +513,7 @@ In your `div.infinite-tweets`, make a `<script type="text/template">` as before.
 Inside here, write an Underscore template that iterates through a `tweets`
 array, building one `li` for each. This is a lot like Ruby, except:
 
-```
+```html
 <% tweets.each do |tweet| %>
   ...
 <% end %>
@@ -523,3 +540,4 @@ Check that this works. Call your TA over to double check your work.
 
 [underscore_rails]: https://github.com/rweng/underscore-rails
 [underscore_erb]: ../../readings/underscore-templates.md#erb--underscore
+[jbuilder]: https://github.com/rails/jbuilder/blob/master/README.md

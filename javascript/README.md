@@ -294,7 +294,7 @@
 [jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
 
 ### Projects
-* [AjaxTwitter (with rails backend)][ajax-twitter]
+* [AjaxTwitter][ajax-twitter]
 
 [ajax-twitter]: projects/ajax_twitter
 

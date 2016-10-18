@@ -85,16 +85,21 @@ write that view:
 json.array! @cats
 ```
 
-Don't worry if you've never heard of Jbuilder. It's just a gem that lets us
-write Ruby to create JSON, like ERB is for creating HTML. Jbuilder lets us
-render a json array of cats by simply passing `@cats` to the `json.array!`
-method.
+The code above renders a json array of cat objects by simply passing `@cats` to
+the Jbuilder's `json.array!` method.
+
+Don't worry if you've never heard of [Jbuilder][jbuilder]. It's just a gem that
+lets us write Ruby code to create JSON objects, much like how ERB is used to
+create HTML. We'll continue learning more about and using it soon!
+
+[jbuilder]: https://github.com/rails/jbuilder
 
 ## Using the API
 
-If we now use our client-side rendering scripts to make an AJAX `GET` request (which sets a `ContentType: application/json` header) to
-`localhost:3000/cats`, instead of our HTML view, we'll get a string of text that
-looks something like this:
+If we now use our client-side rendering scripts to make an AJAX `GET` request
+(which sets a `ContentType: application/json` header) to `localhost:3000/cats`,
+instead of our HTML view, we'll get a string of text that looks something like
+this:
 
 ```json
 [
@@ -145,10 +150,5 @@ Finally, we have to move our `index.json.jbuilder` view to
 `app/views/api/cats/index.json.jbuilder` so our new `Api:CatsController` can
 find it. Now we can access our api endpoint and our HTML view on
 `localhost:3000/api/cats` and `localhost:3000/cats`, respectively.
-
-## Conclusion
-
-We hope you have enjoyed eviserating this Rails web app and turning it into a lean
-/ mean / data-focused API with us.
 
 [wiki]: https://en.wikipedia.org/wiki/Web_API
