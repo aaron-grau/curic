@@ -825,35 +825,6 @@ An basic example of an `update` method is below:
 The best html element for the Pokemon type is a `<select>` element, which
 appears to the user as a dropdown. Copy / paste the array of pokémon types from the model and use it in your `PokemonForm`.
 
-
-
-<!-- In order to get all of the Pokemon types, we
-have provided a script tag in the `application.html.erb` file which stores an
-array of types on the window. To maintain the Redux pattern, pass it into your
-`configureStore` invocation as preloaded state. Then map it to your
-`PokemonForm` as props.
-
-Your `configureStore` method, with `preloadedState` added, will now look like
-the following:
-
-```js
-const configureStore = (preloadedState = {}) => (
-  createStore(
-    PokemonReducer,
-    preloadedState,
-    applyMiddleware(PokemonMiddleware)
-  )
-);
-```
-
-You will pass `preloadedState` in to `configureStore` like so (inside your entry
-file):
-
-```js
-const store = configureStore(window.pokemonTypes);
-``` -->
-
-
 Write a `handleSubmit` method as well that prevents the default event action and
 instead calls the `createPokemon` function from props. Make sure to pass this
 function to the `onSubmit` listener of the form.
@@ -909,35 +880,41 @@ Your `PokemonMiddleware` should look something like this:
 
 The server will tell us whether or not our new Pokemon was created successfully. But so far, we have no way of letting our users know what happened. We need a way of displaying errors on the front-end after an unsuccessful POST request.
 
-0. Add a failure callback to the `postPokemon` api util function
-0. Add a `pokemonError` action
-  0. Also create the necessary constants
-0. Add a new reducer, `ErrorsReducer`
-0. Update the `PokemonMiddleware` to use this new action
-  0. `PokemonMiddleware` should also be responsible for constructing the error callback
-0. Add a `mapStateToProps` function that connects to the `PokemonFormContainer`
-0. Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
-0. Add a `mapStateToProps` function in the `PokemonFormContainer` to provide the `PokemonForm` with a list of errors
-
-## Bonus
+  0. Add a failure callback to the `postPokemon` api util function
+  0. Add a `pokemonError` action
+    0. Also create the necessary constants
+  0. Add a new reducer, `ErrorsReducer`
+  0. Update the `PokemonMiddleware` to use this new action
+    0. `PokemonMiddleware` should also be responsible for constructing the error callback
+  0. Add a `mapStateToProps` function that connects to the `PokemonFormContainer`
+  0. Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
+  0. Add a `mapStateToProps` function in the `PokemonFormContainer` to provide the `PokemonForm` with a list of errors
 
 ### Loading Spinner
 
 In this phase we'll create a 'loading' spinner that displays while we're fetching information from the backend.
 
-0. Google search "css spinners" -- pick one you like!
-0. Create a new reducer, the `LoadingReducer`
-  0. Your `LoadingReducer` shoulw care about all `REQUEST_` and `RECEIVE_` action types
-  0. When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
-0. Use `next(action)` in your `PokemonMiddleware` to always ensure the passing of
-your actions to the reducer
-0. Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
+  0. Google search "css spinners" -- pick one you like!
+  0. Create a new reducer, the `LoadingReducer`
+    0. Your `LoadingReducer` shoulw care about all `REQUEST_` and `RECEIVE_` action types
+    0. When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
+  0. Use `next(action)` in your `PokemonMiddleware` to always ensure the passing of
+  your actions to the reducer
+  0. Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
 
 ### Bootstrap Pokétypes
 
 We have a list of pokétypes in two places: our `Pokemon` model and our `PokemonForm` React component. This is not very dry. Let's employ a tactic called "bootstrapping" to tell our form all the pokémon types.
 
   0. Delete the `POKEMON_TYPES` constant from your `PokemonForm` component
+  0. Open `application.html.erb`
+    0. Add a `<script>` tag; inside, set the value of window.POKEMON_TYPES to the POKEMON_TYPES constant used in the `PokemonModel`
+    0. Use the `#raw` method to tell rails not to escape the symbols in our array
+  0. Update you `PokemonForm` to use `window.POKEMON_TYPES` instead
+
+  ```js
+    window.POKEMON_TYPES = <%=raw Pokemon::TYPES %>
+  ```
 
 ### Update Items
 
