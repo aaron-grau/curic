@@ -49,7 +49,7 @@ A selector can be used in multiple components' `mapStateToProps`. For example,
 
 import { getAllTodos } from '../../reducers/selectors';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	todos: getAllTodos(state),
 });
 ```
@@ -81,7 +81,7 @@ export const getFilteredTodos = ({ todos, filter }) => {
 
 import { getAllTodos, getFilteredTodos } from '../../reducers/selectors';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	todos: getAllTodos(state),
 	filteredTodos: getFilteredTodos(state),
 });
