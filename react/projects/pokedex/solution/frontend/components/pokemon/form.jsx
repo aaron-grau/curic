@@ -1,24 +1,5 @@
 import React from 'react';
 
-const POKEMON_TYPES = [
-  "fire",
-  "electric",
-  "normal",
-  "ghost",
-  "psychic",
-  "water",
-  "bug",
-  "dragon",
-  "grass",
-  "fighting",
-  "ice",
-  "flying",
-  "poison",
-  "ground",
-  "rock",
-  "steel"
-];
-
 class PokemonForm extends React.Component {
   constructor(props) {
     super(props);

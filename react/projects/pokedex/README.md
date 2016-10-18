@@ -933,6 +933,12 @@ In this phase we'll create a 'loading' spinner that displays while we're fetchin
 your actions to the reducer
 0. Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
 
+### Bootstrap Pokétypes
+
+We have a list of pokétypes in two places: our `Pokemon` model and our `PokemonForm` React component. This is not very dry. Let's employ a tactic called "bootstrapping" to tell our form all the pokémon types.
+
+  0. Delete the `POKEMON_TYPES` constant from your `PokemonForm` component
+
 ### Update Items
 
 Add the ability to reassign items to different Pokemon. This time, design is up to you!
