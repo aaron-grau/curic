@@ -1,18 +1,20 @@
 import React from 'react';
-import History from '../../util/history';
+import { withRouter } from 'react-router';
 
-const handleClick = url => (
-  () => History.push(url)
-);
 
-const PokemonIndexItem = ({pokemon}) => (
-		<li
+const PokemonIndexItem = ({pokemon, router}) => {
+
+  const handleClick = url => router.push(url);
+
+  return(
+    <li
       className="pokemon-index-item"
       onClick={handleClick(`/pokemon/${pokemon.id}`)}>
-			<span>{pokemon.id}</span>
-			<img src={pokemon.image_url} alt={pokemon.name}/>
-			<span>{pokemon.name}</span>
-		</li>
-);
+      <span>{pokemon.id}</span>
+      <img src={pokemon.image_url} alt={pokemon.name}/>
+      <span>{pokemon.name}</span>
+    </li>
+  );
+};
 
-export default PokemonIndexItem;
+export default withRouter(PokemonIndexItem);
