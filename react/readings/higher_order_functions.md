@@ -1,43 +1,52 @@
-# Higher-order Functions
+# Higher-Order Functions
 
-Functions that operate on other functions, either by taking them as arguments or by returning them, are called **higher-order functions**.
+Functions that operate on other functions, either by receiving them as arguments
+or returning them, are called **higher-order functions**. Functions that are
+passed as parameters to and invoked in a *high-order function* are known as
+**callbacks**. This perspective makes it especially easy to abstract over the
+actions they represent.
 
-Functions, in JavaScript and several other programming languages, can be passed around as parameters (we call them 'callbacks'). This perspective makes it especially easy to abstract over the actions they represent.
+## Closures
 
-## Closure
-
-Closure, also known as **lexical scoping**, is when inner functions get access to all of the variables defined in an outer function. Closure tends to come in handy when writing higher-order functions. Consider the following program:
+A **closure**, also known as *lexical scoping*, is a function that uses **free variables**, variables defined outside of its scope. Closures tend to come in handy when writing higher-order functions. Consider the following code:
 
 ```js
-const noisy = (f) => {
-  return (arg) => {
-    console.log("calling with", arg);
-    const val = f(arg);
-    console.log("called with", arg, "- got", val);
-    return val;
+const calculator = function (operationCb) { // high-order function
+  return function (op1, op2) { // closure
+    console.log(`calling with ${op1} ${op2}`);
+    const result = operationCb(op1, op2);
+    console.log(`equals ${result}`);
   };
 }
 
-const newLog = noisy(console.log.bind(console));
-// we bind console because log needs its context to be console instead of window
-newLog("test");
-// calling with test
-// test
-// called with test - got undefined
+const addition = function (n1, n2) { // callback
+  console.log(`${n1} + ${n2}`);
+  return n1 + n2;
+}
+
+const adder = calculator(addition);
+adder(1, 2);
+// calling with 1 2
+// 1 + 2
+// equals 3
 ```
 
-The above function receives a function as an argument and calls that function in the function it returns. The function would not work if the inner function could not close over `f`.
+The `calculator` function receives a callback as an argument (`operationCb`)
+which is called in the anonymous function `calculator` returns. This return
+value would not work if the inner function could not close over `operationCb`, a
+variable defined outside of its scope.
 
-## Composing functions
+## Composing Functions
 
-Composing functions is an idea that you probably first ran into in math class. A function that composes two functions might look like the below code:
+Composing functions is an idea that you were probably first introduced to in
+math class. A function that composes two functions might look like the following:
 
 ```js
-const compose = (f, g) => {
-  return (x) => {
+const compose = function (f, g) {
+  return function (x) {
     return f(g(x));
-  }
-}
+  };
+};
 ```
 
 This would allow us to do the following:
@@ -47,44 +56,51 @@ const timesTwo = (num) => num * 2;
 const plusSix = (num) => num + 6;
 
 const plusThenTimes = compose(timesTwo, plusSix);
-
-plusThenTimes(3); // 18
+plusThenTimes(3); //=> 18
 
 const timesThenPlus = compose(plusSix, timesTwo);
-timesThenPlus(3); // 12
+timesThenPlus(3); //=> 12
 ```
 
-This pattern applies to more than just mathematical functions, of course -- we can use this pattern more generally.
+This pattern applies to more than just mathematical operations, of course -- we can use this pattern more generally.
 
-## Currying functions
+## Currying Functions
 
-We've already written `Function.prototype.curry` that takes as an argument a total number of arguments to get passed in and collects arguments until their count reaches that number. At that point, it calls the original function. This pattern allows us to write functions that can take arguments as they become available and, in the meantime, get passed around between other functions.
+We've already written `Function.prototype.curry` that takes as an argument a
+number `n` representing the total number of arguments to be passed in and
+collects these arguments until their count reaches that `n`. At which point, it
+calls the original function. This pattern allows us to write functions that can
+take arguments as they become available and, in the meantime, be passed around
+among other functions.
 
 ## ES6 Syntax
 
-ES6 makes it easy to write higher-order functions. The two examples below illustrate the same function:
+ES6 makes it easy to write higher-order functions using fat-arrow function
+notation. The two examples below illustrate the same function:
 
 ```js
-// es-5:
-function outerLevel(args1) {
-  return function(args2) {
-    return function(args3) {
-      console.log(`${args1} came before ${args2} and ${args3} came last`);
+// ES5:
+function foo(arg1) {
+  return function(arg2) {
+    return function(arg3) {
+      console.log(`${arg1} came before ${arg2} and ${arg3} came last`);
     };
   };
 }
 
-// es-6:
-const outerLevel = args1 => args2 => args3 => {
-  console.log(`${args1} came before ${args2} and ${args3} came last`);
+// ES6:
+const foo = arg1 => arg2 => arg3 => {
+  console.log(`${arg1} came before ${arg2} and ${arg3} came last`);
 };
 ```
 
-## Examples of higher-order functions
+**NB:** Remember, ES6 arrow functions, unlike normal JS functions, do not create
+a new scope. They are *not* lexically scoped. In other words, `this` means the
+same thing inside an arrow function that it does outside of it.
 
-+ Functions that create functions.
-  + i.e., the metaprogramming you did in the ActiveRecord and Rails Lite projects.
-+ Functions that use callbacks.
-  + i.e., `each`/`forEach`, `$.ajax`.
-+ Functions that return functions.
-  + i.e. the `outerLevel` and `innerLevel` functions in this reading.
+## Summary of Higher-Order Functions
+
++ High-order functions are functions that:
+  + Define and return functions;
+  + Accept callbacks as arguments;
+  + Or do both.

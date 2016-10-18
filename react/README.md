@@ -1,6 +1,7 @@
 # React / Redux Curriculum
 
 ## w6d5
+
 ### Video Lectures (94 min)
 **N.B.** These lectures were recorded prior to the introduction of ES6-style
 syntax to React. As a result, you may see a slightly different syntax than in
@@ -65,19 +66,19 @@ differences.
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (30 min)
 
+[getting_started]: homeworks/getting_started
+[react_calculator]: homeworks/questions/calculator.md
+
 ### Projects
 - [Widgets][widgets]
 - [Minesweeper][minesweeper]
 
+[widgets]: projects/widgets
+[minesweeper]: projects/react_minesweeper
+
 ### Additional Resources
 - [Official React Documentation][react_docs]
 	- Most Helpful: REFERENCE Section (Left Sidebar)
-
-[getting_started]: homeworks/getting_started
-[react_calculator]: homeworks/questions/calculator.md
-
-[widgets]: projects/widgets
-[minesweeper]: projects/react_minesweeper
 
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
@@ -112,17 +113,21 @@ differences.
   + [Live demo][fruit-stand-02-live]
   + :computer: [Source code][fruit-stand-02-source]
 
-  [fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
-  [fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
-  [fruit-stand-02-video]: https://vimeo.com/184374712
-  [fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
-  [fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit_stand_02
+[fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
+[fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
+[fruit-stand-02-video]: https://vimeo.com/184374712
+[fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
+[fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit_stand_02
 
 ### Homeworks (45 min)
 - [Dollar Store][dollar_store_hw] (45 min)
 
+[dollar_store_hw]: homeworks/questions/dollar_store
+
 ### Projects
 - [Synthesizer][synthesizer]
+
+[synthesizer]: projects/synthesizer
 
 ### Additional Resources
 - [Official `redux` Documentation][redux_docs]
@@ -132,36 +137,30 @@ differences.
 [redux_docs]: http://redux.js.org/index.html
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
-[dollar_store_hw]: homeworks/questions/dollar_store
-
-[synthesizer]: projects/synthesizer
-
 ## w7d2
 
-### Readings (60 min)
+### Readings (65 min)
 - [Higher-order functions][higher_order_functions] (15 min)
 - [Middleware][middleware] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
 - [Selectors][selectors] (10 min)
-- [Object.freeze][obj-freeze] (15 min)
+- [Object.freeze][obj-freeze] (10 min)
+
+[higher_order_functions]: readings/higher_order_functions.md
+[middleware]: readings/middleware.md
+[redux_api_interactions]: readings/redux_api_interactions.md
+[selectors]: readings/selectors.md
+[obj-freeze]: readings/object_freeze.md
 
 ### Homework (45 min)
 - [Middleware Homework][middleware_homework] (45 min)
-- [Submit tentative project proposal][tentative-proposal]
-  -	due w7d4 9AM
+
+[middleware_homework]: homeworks/questions/middleware.md
 
 ### Projects
 - [Todos][todos]
 
-[obj-freeze]: readings/object_freeze.md
-[selectors]: readings/selectors.md
-[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
-[higher_order_functions]: readings/higher_order_functions.md
-[middleware]: readings/middleware.md
-[redux_api_interactions]: readings/redux_api_interactions.md
-[middleware_homework]: homeworks/questions/middleware
 [todos]: projects/todos
-
 
 ## w7d3
 
@@ -174,11 +173,26 @@ differences.
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
 
+[react_router_intro]: readings/intro_to_react_router.md
+[link]: readings/link.md
+[index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[on_enter]: readings/on_enter.md
+[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
+[jbuilder-intro]: readings/intro_to_jbuilder.md
+[jbuilder_docs]: https://github.com/rails/jbuilder
+
 ### Homeworks (30 min)
 - [Rainbow Routes][rainbow_routes]
+- [Submit Tentative Full-Stack Project Proposal][tentative-proposal]
+  -	**Due by 9AM Thursday w7d4**
+
+[rainbow_routes]: homeworks/questions/rainbow_routes.md
+[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 
 ### Projects
 - [Pokedex][pokedex]
+
+[pokedex]: projects/pokedex
 
 ### Additional Resources
 - [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
@@ -186,64 +200,66 @@ differences.
 - [React Router Documentation][react_router_docs]
   - Check the `API` docs for quick reference
 
-[react_router_intro]: readings/intro_to_react_router.md
-[link]: readings/link.md
-[index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
-[on_enter]: readings/on_enter.md
-[jbuilder-intro]: readings/intro_to_jbuilder.md
-[jbuilder_docs]: https://github.com/rails/jbuilder
-[rainbow_routes]: homeworks/questions/rainbow_routes.md
-[pokedex]: projects/pokedex
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ## w7d4
+
+### Homeworks (45 min)
+* [Jbuilder][jbuilder_homework] (45 min)
+
+[jbuilder_homework]: homeworks/questions/jbuilder.md
 
 ### Projects
 * Continue [Pokedex][pokedex]
 
 ## w7d5
 
-### Readings (28 min)
--	[React Map Demo][react_map_demo] (15 min)
-- [`preloadedState`][preloaded_state] (3 min)
-- [User Authentication][user_authentication] (10 min)
+### Readings (20 min)
+- [`preloadedState`][preloaded_state] (5 min)
+- [Front End Authentication][user_authentication] (15 min)
+
+[preloaded_state]: readings/preloaded_state.md
+[user_authentication]: readings/front_end_auth.md
 
 ### Additional Resources
 - [Rails/React/Redux Configuration Checklist][checklist]
 - [React Context][context]
 - [`localStorage`][local_storage]
 
-### Homeworks (100 min)
-* [Jbuilder][jbuilder_homework] (40 min)
-* Do the auth part of [A04 Prep][a04_prep] (1 hr)
-  * Frontend auth (the main concept in BenchBnB Day 1) builds on top of regular Rails backend auth, so make sure you build on a solid base.
+[checklist]: readings/checklist.md
+[context]: https://facebook.github.io/react/docs/context.html
+[local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+### Homeworks (60 min)
+* Do the auth part of [A04 Prep][a04_prep] (60 min)
+  * Front-end auth (the main concept in BenchBnB Day 1) builds on top of regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's normal.
+
+[a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4
 
 ### Projects
 - **Solo:** [BenchBnB][bench_bnb]
 
-### :joy_cat: **Happy Hour!** :joy_cat:
-
-[local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-[context]: https://facebook.github.io/react/docs/context.html
-[preloaded_state]: readings/preloaded_state.md
-[react_map_demo]: demos/react_map_demo
-[checklist]: readings/checklist.md
-[jbuilder_homework]: homeworks/questions/jbuilder.md
 [bench_bnb]: projects/bench_bnb
-[user_authentication]: readings/front_end_auth.md
+
+### :joy_cat: **Happy Hour!** :joy_cat:
 
 ## w8d1
 
 **Project Proposal Review Period for Instructional Staff**
 
-### Readings (20 min)
+### Readings (35 min)
+-	[React Map Demo][react_map_demo] (15 min)
 * [Think in React][think_in_react] (20 min)
+
+[react_map_demo]: demos/react_map_demo
+[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 
 ### Homework (5 hrs)
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
-  * **Due by 9am on Monday**
+  * **Due by 9am on Monday w8d1**
+
+[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
 
 ### Projects
 * **Solo:** Continue [BenchBnB][bench_bnb]
@@ -251,8 +267,4 @@ differences.
 ### Additional Resources
 * See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
 
-
-[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 [full_stack_project_curriculum]: ../full-stack-project
-[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
-[a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4

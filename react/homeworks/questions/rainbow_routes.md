@@ -62,5 +62,4 @@ Test that your code works by navigating through all the routes.  Time to celebra
 [with-router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [hash-history]: https://github.com/reactjs/react-router/blob/master/upgrade-guides/v2.0.0.md#using-history-with-router
 
-[live-demo]: /
 [zip-skeleton]: ./rainbow_routes.zip?raw=true
