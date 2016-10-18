@@ -12,10 +12,12 @@ class TodoListItem extends React.Component {
 
   toggleDetail(e) {
     e.preventDefault();
-    this.setState({detail: !this.state.detail});
+    this.setState({
+      detail: !this.state.detail
+    });
   }
 
-  toggleTodo(e){
+  toggleTodo(e) {
     e.preventDefault();
     const toggledTodo = merge({}, this.props.todo, {
        done: !this.props.todo.done
@@ -28,10 +30,9 @@ class TodoListItem extends React.Component {
     const { title, done } = todo;
     let detail;
     if (this.state.detail) {
-      detail = (
-        <TodoDetailViewContainer todo={todo} />
-      );
+      detail = <TodoDetailViewContainer todo={todo} />;
     }
+    
     return (
       <li className="todo-list-item">
         <div className="todo-header">
