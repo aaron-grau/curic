@@ -167,7 +167,7 @@ json.array!(@users) do |user|
 end
 ```
 
-**NB**: Last night you read a little bit about [Jbuilder][jbuilder], a very
+**NB**: Take some time to learn a little bit about [Jbuilder][jbuilder], a very
 useful gem that allow us to write Ruby that create JSON views. We'll learn about
 and use it much more next week. For now, just follow along!
 
@@ -266,7 +266,7 @@ As before, disable the form when the submit is made. You can't disable an entire
 form, so you'll have to disable all the inputs. To get all the inputs, use
 jQuery's [`:input` pseudo-CSS selector][input-selector]. Make sure not to
 disable your inputs until after you've serialized the form contents, or their
-values will be ignored :(
+values will be ignored. :(
 
 [input-selector]: http://api.jquery.com/input-selector
 
