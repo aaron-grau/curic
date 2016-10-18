@@ -1,8 +1,6 @@
 import { RECEIVE_STEPS,
          RECEIVE_STEP,
-         REMOVE_STEP
-       } from '../actions/step_actions';
-
+         REMOVE_STEP } from '../actions/step_actions';
 import merge from 'lodash/merge';
 
 const StepsReducer = (state = {}, action) => {

@@ -5,7 +5,7 @@ import merge from 'lodash/merge';
 class TodoListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { detail: false };
+    this.state = {detail: false};
     this.toggleDetail = this.toggleDetail.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
   }
@@ -32,7 +32,7 @@ class TodoListItem extends React.Component {
     if (this.state.detail) {
       detail = <TodoDetailViewContainer todo={todo} />;
     }
-    
+
     return (
       <li className="todo-list-item">
         <div className="todo-header">

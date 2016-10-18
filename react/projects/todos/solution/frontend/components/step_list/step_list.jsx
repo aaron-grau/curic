@@ -7,12 +7,12 @@ const StepList = ({ steps, todo_id, createStep }) => (
   <div>
     <ul className="step-list">
       {steps.map(step => (
-        <StepListItemContainer 
-          key={step.id} 
+        <StepListItemContainer
+          key={step.id}
           step={step} />
       ))}
     </ul>
-    <StepForm todo_id={todo_id} createStep={createStep}/>      
+    <StepForm todo_id={todo_id} createStep={createStep} />
   </div>
 );
 

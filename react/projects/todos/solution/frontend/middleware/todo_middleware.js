@@ -1,23 +1,21 @@
-// Todo API Util
+// Todo API Utils
 import { fetchTodos,
          fetchTodo,
          createTodo,
          updateTodo,
-         destroyTodo
-       } from '../util/todo_api_util';
-// Todo Action Creators
+         destroyTodo } from '../util/todo_api_util';
+
+// TOdo Action Creatoes and Type Constants
 import { requestTodos,
          receiveTodo,
          receiveTodos,
          removeTodo,
          todoError,
-// Todo Type Constants
          REQUEST_TODOS,
          REQUEST_TODO,
          CREATE_TODO,
          UPDATE_TODO,
-         DESTROY_TODO
-       } from '../actions/todo_actions';
+         DESTROY_TODO } from '../actions/todo_actions';
 
 export default ({ getState, dispatch }) => next => action => {
   const todosSuccess = data => dispatch(receiveTodos(data));
@@ -28,20 +26,20 @@ export default ({ getState, dispatch }) => next => action => {
   switch(action.type) {
     case REQUEST_TODOS:
       fetchTodos(todosSuccess);
-      break;
+      return next(action);
     case REQUEST_TODO:
       fetchTodo(action.id, todoSuccess);
-      break;
+      return next(action);
     case CREATE_TODO:
       createTodo(action.todo, todoSuccess, todoErrored);
-      break;
+      return next(action);
     case UPDATE_TODO:
       updateTodo(action.todo, todoSuccess);
-      break;
+      return next(action);
     case DESTROY_TODO:
       destroyTodo(action.todo, todoRemoved);
-      break;
+      return next(action);
     default:
-      next(action);
+      return next(action);
   }
 };
