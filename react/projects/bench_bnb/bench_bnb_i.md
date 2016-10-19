@@ -1,4 +1,4 @@
-# BenchBnB Day 1 - Front-End Auth!
+# BenchBnB Part 1 - Front-End Auth!
 
 Check out the live demo [here][live-demo]!
 
