@@ -741,5 +741,9 @@ because the `_redirectIfLoggedIn` runs synchronously.
 
 :confetti_ball: You've finished adding front-end user auth to your app! Now let's add benches! 
 
+---
+
+Continue to [Part 2](./benchbnb_ii.md).
+
 [rails]: ../../../rails#readings-after-you-finish-all-videos
 [onEnter]: ../../readings/on_enter.md
