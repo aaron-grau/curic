@@ -520,4 +520,5 @@ the results. Feel free to style the button, too!
 Style the login page and signup page. These can look very similar, so think about
 how you can reuse classes to produce a standard, repeated aesthetic for the site.
 
+[g-fonts]: https://fonts.google.com
 [jbuilder]: https://github.com/rails/jbuilder/blob/master/README.md
