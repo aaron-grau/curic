@@ -1,137 +1,178 @@
 # Pokedex: An Introduction to the React Router
 
+In this project, we'll write an app to manage `Pokemon` and their `Items`.
+
 [**Live Demo!**](http://aa-pokedex.herokuapp.com/)
 
-In this project, we'll write an app to manage your `Pokemon` and their `Items`.
-
 ## Phase 0: Rails API Setup
-We've already set up a Rails backend with migrations and models in the [skeleton][skeleton-zip].
+We've already set up a Rails backend with migrations and models in the
+[skeleton][skeleton-zip].
 
-  * Download the [skeleton][skeleton-zip].
-  * Run `bundle install`.
-  * Make sure Postgres is running then run `rake db:setup` (short for
-  `rake db:create db:migrate db:seed`).
+* Download the [skeleton][skeleton-zip].
+* Run `bundle install`.
+* Make sure Postgres is running, then run `rake db:setup` (short for
+`rake db:create db:migrate db:seed`).
 
 Get yourself oriented.
 
-  * Take a look at the `schema`, `routes`, and `StaticPagesController`.
-  * Also look at the `Pokemon` and `Item` models.
-  * Open up the rails console (`rails c`) to see what's in the database.
-  * Start up the rails server (`rails s`) and visit the root url.
+* Take a look at the `schema`, `routes`, and `StaticPagesController`.
+* Also look at the `Pokemon` and `Item` models.
+* Open up the rails console (`rails c`) to see what's in the database.
+* Start up the rails server (`rails s`) and visit the root url.
 
 :art: Stylesheets have been provided for you in the skeleton! :art:
 
 [skeleton-zip]: ./skeleton.zip?raw=true
 
-### The api namespace
+### API Namespace
 
-Let's build routes for our pokémon! We want these routes to be nested under an api namespace.
+Let's build routes for our pokémon! We want these routes to be nested under an
+api namespace. Like so:
 
-  ```ruby
-    namespace :api, defaults: {format: :json} do
-      # api routes
-    end
-  ```
+```ruby
+namespace :api, defaults: {format: :json} do
+  # api routes
+end
+```
 
-  Build the appropriate routes. Your routes table should look *something* like the following:
+The `defaults: {format: :json}` option tells the controller to first look for a
+`.json.jbuilder` view rather than an `html.erb` view. Edit `routes.rb` to add
+the following routes to our app. Your routes table should look like the
+following:
 
-  | Prefix           | Verb  | URI Pattern      | Controller#Action
-  |------------------|-------|------------------|-------------------
-  |root              | GET   | /                | static_pages#root
-  |api_pokemon_index | GET   | /api/pokemon     | api/pokemon#index
-  |                  | POST  | /api/pokemon     | pi/pokemon#create
-  |api_pokemon       | GET   | /api/pokemon/:id | api/pokemon#show
-  |                  | PATCH | /api/pokemon/:id | api/pokemon#update
-  |                  | DELETE| /api/pokemon/:id | api/pokemon#destroy
-
-
-The `defaults: {format: :json}` option tells the controller to first look for a `.json.jbuilder` view rather than an `html.erb` view
-
+```
+           Prefix Verb   URI Pattern                Controller#Action
+             root GET    /                          static_pages#root
+api_pokemon_index GET    /api/pokemon(.:format)     api/pokemon#index {:format=>:json}
+                  POST   /api/pokemon(.:format)     api/pokemon#create {:format=>:json}
+      api_pokemon GET    /api/pokemon/:id(.:format) api/pokemon#show {:format=>:json}
+                  PATCH  /api/pokemon/:id(.:format) api/pokemon#update {:format=>:json}
+                  PUT    /api/pokemon/:id(.:format) api/pokemon#update {:format=>:json}
+                  DELETE /api/pokemon/:id(.:format) api/pokemon#destroy {:format=>:json}
+```
 
 ### Pokemon Controller
 
-Build a controller to handle our pokémon resource. Start by defining the `#index` and `#show` actions. Remember, we want these actions to **render json responses**. To make the job easier for our frontend, you should format your index response like this:
+Build a controller to handle our pokémon resource.
 
-  ```
+* Generate a `Api::PokemonController`.
+* Define `#index` and `#show` actions.
+
+Remember, we want these actions to **render json responses**. To make the job
+easier for our frontend, you should format your index action to serve up json
+responses that look something like this:
+
+```js
+{
+  1: {
+    id: 1,
+    name: /*...*/,
+    image_url: /*...*/
+  },
+  2: {
+    id: 2,
+    name: /*...*/,
+    image_url: /*...*/
+  },
+  //..
+}
+```
+
+Here, the keys in your json response are the primary keys of the pokémon. The
+values are the pokémon objects themselves. Let's use Jbuilder here!
+
+* Create a `views/api/pokemon/index.json.jbuilder` file.
+* Iterate over each pokémon.
+* Use `json.set!` to explicitly set the key to the pokémon's id.
+* Use `json.extract!` to grab the pokémon's `id`, `name`, and `image_url`.
+
+Like so:
+
+```ruby
+@pokemon.each do |poke|
+  json.set! poke.id do
+    json.extract! poke, :id, :name, :image_url
+  end
+end
+```
+
+We don't need to return any more information than this for our index route!
+Remember, Jbuilder allows us to *curate* our data, retrieving only the
+attributes we are interested in.
+
+* Next create a Jbuilder view for `#show`. We want the `#show` action to
+render all the information about our pokémon, including the pokémon's items.
+
+A GET request to `localhost:3000/api/pokemon/5` should render this:
+
+```js
+{
+  id: 5,
+  name: "Rhydon",
+  attack: 130,
+  defense: 120,
+  image_url: "/assets/pokemon_snaps/112.png",
+  moves: [
+    "horn attack",
+    //...
+  ],
+  poke_type: "ground",
+  items: [
     {
-      1: { ..pokémon 1 info.. },
-      2: { ..pokémon 2 info.. },
-      ...
-    }
-  ```
+      id: 15,
+      name: "Dark Vulcan",
+      pokemon_id: 5,
+      price: 12,
+      happiness: 58,
+      image_url: "/assets/pokeball.png"
+    },
+    //...
+  ]
+}
+```
 
-  Here, the keys in your json response are the primary keys of the pokémon. The values are the pokémon themselves. Let's use jBuilder here!
-
-  * Iterate over each pokémon.
-  * Use `json.set!` to explicity set the key to the pokémon's id.
-  * Use `json.extract!` to grab the pokémon's id, name, and image_url.
-    * We don't need to return any more information than this for our index route!
-
-  ```ruby
-    @pokemon.each do |poke|
-      json.set! poke.id do
-        json.extract! poke, :id, :name, :image_url
-      end
-    end
-  ```
-
-  Finally, build a `#show` action as well. We'll want the `#show` action to render all the information about our pokémon, **including the pokémon's items.**
-
-  A GET request to `localhost:3000/api/pokemon/5` should yield something like:
-
-  ```
-    {
-      "id": 4,
-      "name": "Electrode",
-        ...
-      "moves": [ ... ],
-      "items": [
-        {
-        "id": 12,
-        "name": "Pokeball",
-        "pokemon_id": 4,
-        "price": 41,
-        "happiness": 74,
-        "image_url": "/assets/pokeball.png"
-        },
-        ...
-      ]
-    }
-  ```
-
-**Test your routes and controller actions** by making GET requests to `localhost:3000/api/pokemon` and `localhost:3000/api/pokemon/#`.
+**Test your routes and controller actions**: Makie GET requests to (i.e. visit)
+`localhost:3000/api/pokemon` and `localhost:3000/api/pokemon/:id`.
 
 
 ## Phase 1: Frontend Setup
 
 ### Node Package Manager
 
-As with previous projects, you will need to set up a `package.json` and a `webpack.config.js` file to configure your application to use NPM and Webpack.
+As with previous projects, you will need to set up a `package.json` and a
+`webpack.config.js` file to configure your application to use NPM and Webpack.
 
-  * First, run `npm init -f` to initialize `package.json` with the default settings.
+* Run `npm init -f` to initialize your app's `package.json` with the default
+boilerplace settings.
 
 Instead of proceeding to run `npm install --save <package-name>` to install
 dependencies, we want to use specific versions of each package.
 
-  * `npm install --save` the following packages:
-    * webpack
-    * react
-    * react-dom
-    * react-router
-    * redux
-    * react-redux
-    * babel-loader
-    * babel-core
-    * babel-preset-es2015
-    * babel-preset-react
-    * lodash
+* Add (or replace if it already exists) a `"dependencies"` key in the `package.json`
+file with the following:
+  ```json
+  "dependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-core": "^6.13.2",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "lodash": "^4.15.0",
+    "react-redux": "^4.4.5",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-router": "^2.6.1",
+    "redux": "^3.5.2",
+    "webpack": "^1.13.1"
+  }
+  ```
+* Run `npm install` to install these packages and generate your `node_modules` folder.
 
 ### Webpack
 
 Next we need to configure Webpack to compile our `bundle.js` file.
 
-  * Create a new file called `webpack.config.js` in the root of your project.
-  * Copy and paste the following configuration:
+* Create a new file called `webpack.config.js` in the root of your project.
+* Copy and paste the following configuration:
 
   ```js
     const path = require('path');
@@ -162,40 +203,45 @@ Next we need to configure Webpack to compile our `bundle.js` file.
     };
   ```
 
-  * Now that Webpack knows to create `bundle.js`, require it in our `application.js`:
+* Now that Webpack knows to create `bundle.js`, require it in our `application.js`:
 
   ```js
-    //= require jquery_ujs
-    //= require bundle
+  //= require jquery_ujs
+  //= require bundle
   ```
 
 Notice that the `entry` key in `webpack.config.js` expects a file called
 `./frontend/pokedex.jsx` to exist.
 
-  * Make the `frontend` folder in the root directory of your project.
-  * Add an entry file called `pokedex.jsx` - this is going to be the starting
-  point for the rest of your app.
-  * `import` both the `react` and `react-dom` packages.
-  * Add an event listener for `DOMContentLoaded`.
-  * In the callback to this listener, try rendering a simple stateless React component to test everything we've written so far.
-  * Don't forget to run `webpack --watch` to generate your `bundle.js`.
+* Create a `frontend` folder in the root directory of your project.
+* Add an entry file called `pokedex.jsx`.
+* `import` both the `react` and `react-dom` packages.
+* Add an event listener for `DOMContentLoaded`.
+* In the callback to this listener, try rendering a simple stateless React
+component to test everything we've written so far.
+* Don't forget to run `webpack --watch` to generate your `bundle.js`.
 
-Your entry file might look something like the following:
-  ```js
-    import React from 'react';
-    import ReactDOM from 'react-dom';
+Your entry file might look like the following:
 
-    document.addEventListener('DOMContentLoaded', () => {
-    	const root = document.getElementById('root');
-    	ReactDOM.render(<h1>hello</h1>, root);
-    });
+```js
+// frontend/pokedex.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+document.addEventListener('DOMContentLoaded', () => {
+	const rootEl = document.getElementById('root');
+	ReactDOM.render(<h1>Pokedex</h1>, rootEl);
+});
   ```
 
-**Test your code** - make sure that your test component renders at `localhost:3000/`.
+**Test your frontend setup**: Make sure that your test component renders at
+`localhost:3000/`.
 
 ### Frontend Structure
-Next, define the structure of your `frontend` directory. You should have folders
-called `actions`, `components`, `reducers`, `store`, `middleware` and `util`.
+Finish your frontend setup by defining the structure of your `frontend`
+folder. Nest folders called `actions`, `components`, `reducers`, `store`,
+`middleware` and `util` within `frontend`.
 
 ## Phase 2: Redux Setup
 
