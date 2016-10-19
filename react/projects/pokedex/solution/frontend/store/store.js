@@ -1,11 +1,11 @@
-import { createStore, applyMiddleware } from 'redux';
-import IndexReducer from '../reducers/index_reducer';
-import IndexMiddleware from '../middleware/index_middleware';
+import { createStore } from 'redux';
+import RootReducer from '../reducers/root_reducer';
+import MasterMiddleware from '../middleware/master_middleware';
 
 const configureStore = () => (
   createStore(
-    IndexReducer,
-    IndexMiddleware
+    RootReducer,
+    MasterMiddleware
   )
 );
 
