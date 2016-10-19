@@ -1,4 +1,4 @@
-# BenchBnB Phase 2 - Benches!
+# BenchBnB Part 2 - Benches!
 
 Check out the live demo [here][live-demo]!
 
