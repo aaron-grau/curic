@@ -51,18 +51,25 @@ factorial(3)
 => 6
 ```
 
-## Inductive reasoning
+## Mathematical induction
 
-Recursion allows us to solve larger problems by breaking them up into
-smaller problems that we can solve. Reasoning about problems like this
-is called *inductive reasoning*.
+Recursion allows us to solve larger problems by breaking them up into similar,
+smaller sub-problems that we can solve. Solving a problem using the solution(s)
+to these smaller sub-problems uses an important concept called *mathematical
+induction*, or simply *induction*.
 
-Here's an example. I know that if I can count to `n`, I can count to
-`n+1` by (a) first counting to `n` and (b) then counting one more,
-`n+1`. Since I know how to count to `1` (just say "one"; the base
-case), I know that I can count to any number, no matter how large.
+Generally used in mathematical proofs, mathematical induction tells us that if
+we can solve for a base case and we can solve for the general (or nth) case,
+then we have solved for all the cases.
 
-The key to applying inductive reasoning to solve problems is to (a)
+Here's an example:
+I know that if I can count from `1` to `2`, by incrementing `1` by `1` (`1`
+being the base case), I can count to `n+1` by (a) starting at `n` and (b) then
+counting one more, `n+1`. Since I know how to count to `2` from `1` (just say
+"one"; the base case), I know that I can count to `n` or any other number, no
+matter how large.
+
+The key to applying induction to solve problems is to (a)
 identify how you can grow a smaller solution into a bigger solution,
 and (b) identify base cases which will be the "foundation" of your
 tower of recursion.
