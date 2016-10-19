@@ -28,7 +28,9 @@ Save a new sample file (don't add it yet).  Run `git status` and compare. Play a
 
 ### Adding multiple files to git
 
-Create three new files (don't add them individually), then run `git add -A`. (NB NYC folk - we blocked `git add -A` on our office computers. We will explain why in lecture.)  Run `git status` and compare.
+Create three new files (don't add them individually), then run `git add -A`. Run `git status` and compare.
+
+**NB** - NYC folk - we blocked `git add -A` on our office computers. We will explain why in lecture.
 
 ### Resetting a file
 
