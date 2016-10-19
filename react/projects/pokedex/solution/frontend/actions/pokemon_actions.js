@@ -25,10 +25,9 @@ export const requestSinglePokemon = id => ({
 	id
 });
 
-export const createPokemon = (pokemon, push) => ({
+export const createPokemon = (pokemon) => ({
 	type: CREATE_POKEMON,
 	pokemon,
-	push
 });
 
 export const receiveNewPokemon = pokemon => ({
@@ -36,7 +35,7 @@ export const receiveNewPokemon = pokemon => ({
 	pokemon
 });
 
-export const pokemonErrors = errors => ({
+export const receivePokemonErrors = errors => ({
 	type: RECEIVE_POKEMON_ERRORS,
 	errors
 });

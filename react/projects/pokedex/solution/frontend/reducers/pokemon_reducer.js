@@ -1,42 +1,17 @@
+import { merge } from 'lodash';
+
 import {
   RECEIVE_ALL_POKEMON,
-  RECEIVE_SINGLE_POKEMON,
-  RECEIVE_NEW_POKEMON,
-  POKEMON_ERROR,
-  REQUEST_ALL_POKEMON,
-  REQUEST_SINGLE_POKEMON } from '../actions/pokemon_actions';
-  
-import merge from 'lodash/merge';
+  RECEIVE_NEW_POKEMON
+} from '../actions/pokemon_actions';
 
-const PokemonReducer = (state = {loading: false, pokemon: []}, action) => {
+const PokemonReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
-      return merge({}, state, {
-        loading: false,
-        pokemon: action.pokemon
-      });
-    case RECEIVE_SINGLE_POKEMON:
-      return merge({}, state, {
-        loading: false,
-        pokemonDetail: action.pokemon
-      });
+      return merge({}, action.pokemon);
     case RECEIVE_NEW_POKEMON:
-      action.pokemon.toys = {};
       return merge({}, state, {
-        pokemonDetail: action.pokemon,
-        pokemon: [...state.pokemon, action.pokemon]
-      });
-    case POKEMON_ERROR:
-      return merge({}, state, {
-        pokemonErrors: action.errors
-      });
-    case REQUEST_ALL_POKEMON:
-      return merge({}, state, {
-        loading: true
-      });
-    case REQUEST_SINGLE_POKEMON:
-      return merge({}, state, {
-        loading: true
+        [action.pokemon.id]: action.pokemon
       });
     default:
       return state;

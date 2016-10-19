@@ -1,20 +1,8 @@
-export const selectPokemonToy = ({ pokemonDetail }, toyId) => pokemonDetail.toys[toyId] || {};
+import { values } from 'lodash';
 
-export const selectDetail = (pokemonDetail) => {
-  if (pokemonDetail)
-    return pokemonDetail;
-  return {
-    image_url: '',
-    name: '',
-    poke_type: '',
-    attack: '',
-    defense: '',
-    moves: []
-  };
-};
+export const selectPokemonItem = ({ pokemonDetail }, itemId) => {
+	const foundItem = pokemonDetail.items.find(item => item.id === itemId);
+	return foundItem || {};
+}
 
-export const selectToys = (pokemonDetail) => {
-	return pokemonDetail && pokemonDetail.toys ? Object.keys(pokemonDetail.toys).map((toyId) => {
-		return pokemonDetail.toys[toyId];
-	}) : [];
-};
+export const selectAllPokemon = ({ pokemon }) => values(pokemon);

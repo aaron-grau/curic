@@ -7,35 +7,34 @@ import { fetchAllPokemon,
 import { receiveAllPokemon,
 			   receiveSinglePokemon,
          receiveNewPokemon,
-         REQUEST_ALL_POKEMON, 
+         REQUEST_ALL_POKEMON,
          REQUEST_SINGLE_POKEMON,
          CREATE_POKEMON,
-         pokemonErrors } from '../actions/pokemon_actions';
+         receivePokemonErrors } from '../actions/pokemon_actions';
 
 
-export default ({dispatch}) => next => action => {
+export default ({ dispatch }) => next => action => {
   const receivePokemonSuccess = data => dispatch(receiveAllPokemon(data));
   const receiveSinglePokemonSuccess = data => dispatch(receiveSinglePokemon(data));
-  const receiveNewPokemonSuccess = (data) => {
+  const receiveNewPokemonSuccess = data => {
     dispatch(receiveNewPokemon(data));
     hashHistory.push(`/pokemon/${data.id}`);
   };
-  const pokemonFailure = errors => dispatch(pokemonErrors(errors));
+  const pokemonFailure = errors => {
+    dispatch(receivePokemonErrors(errors.responseJSON));
+  }
 
   switch (action.type) {
     case REQUEST_ALL_POKEMON:
       fetchAllPokemon(receivePokemonSuccess);
-      next(action);
-      break;
+      return next(action);
     case REQUEST_SINGLE_POKEMON:
       fetchSinglePokemon(action.id, receiveSinglePokemonSuccess);
-      next(action);
-      break;
+      return next(action);
     case CREATE_POKEMON:
       postPokemon(action.pokemon, receiveNewPokemonSuccess, pokemonFailure);
-      next(action);
-      break;
+      return next(action);
     default:
-      next(action);
+      return next(action);
   }
 };
