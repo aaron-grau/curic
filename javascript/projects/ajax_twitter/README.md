@@ -500,6 +500,24 @@ returned JSON should look like this:
 
 ## Phase VIII: CSS
 
-Take a look at the live twitter website. See how close you can get your app to look like it.
+Take a look at the live twitter website. See how close you can get your app to
+look like it.
+
+Pick a nice font from [Google fonts][g-fonts]. Add it to the head of your
+`layouts/application.html.erb` view. Make an `index.css` file in
+`app/assets/stylesheets` for all of your CSS to go in. As long as your CSS files
+are in this folder, Rails will automatically load them.
+
+Start with the page layout. Have the main section contain the feed and a sidebar
+contain everything else. Use a flexbox to get everything to line up.
+
+Style the feed next. Add borders and any other flourishes you'd like to make each
+tweet visually distinct from the next.
+
+After your main layout and feed look nice, style the user search page. Space out
+the results. Feel free to style the button, too!
+
+Style the login page and signup page. These can look very similar, so think about
+how you can reuse classes to produce a standard, repeated aesthetic for the site.
 
 [jbuilder]: https://github.com/rails/jbuilder/blob/master/README.md
