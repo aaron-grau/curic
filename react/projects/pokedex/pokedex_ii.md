@@ -2,9 +2,6 @@
 
 Check out the live demo [here](http://aa-pokedex.herokuapp.com/)!
 
-Refer to our readings and the instructions for Part 1 to help guide you through
-Part 2.
-
 ### `PokemonIndexItem`
 
 Let's refactor your presentational component so that each pokemon object is rendered in an `PokemonIndexItem` component. This is a great pattern for keeping components minimal and modular.
