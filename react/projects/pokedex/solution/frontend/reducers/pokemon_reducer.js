@@ -8,10 +8,11 @@ import {
 const PokemonReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
-      return action.pokemon;
+      return merge({}, action.pokemon);
     case RECEIVE_NEW_POKEMON:
-      const newPokemon = {[action.pokemon.id]: action.pokemon};
-      return merge({}, state, newPokemon);
+      return merge({}, state, {
+        [action.pokemon.id]: action.pokemon
+      });
     default:
       return state;
   }

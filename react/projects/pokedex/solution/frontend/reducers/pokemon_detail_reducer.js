@@ -1,9 +1,11 @@
+import { merge } from 'lodash';
+
 import {
   RECEIVE_SINGLE_POKEMON,
   RECEIVE_NEW_POKEMON
  } from '../actions/pokemon_actions';
 
-const _defaultState = {
+const _defaultPokemon = {
   image_url: '',
   name: '',
   poke_type: '',
@@ -13,12 +15,11 @@ const _defaultState = {
   items: []
 };
 
-export default (state = _defaultState, action) => {
+export default (state = _defaultPokemon, action) => {
   switch(action.type){
     case RECEIVE_SINGLE_POKEMON:
-      return action.pokemon;
     case RECEIVE_NEW_POKEMON:
-      return action.pokemon;
+      return merge({}, action.pokemon);
     default:
       return state;
   }

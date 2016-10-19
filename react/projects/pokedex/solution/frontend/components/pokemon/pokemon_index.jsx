@@ -1,5 +1,5 @@
 import React from 'react';
-import PokemonIndexItem from './index_item';
+import PokemonIndexItem from './pokemon_index_item';
 
 const PokemonIndex = ({ pokemon, loading, children }) => {
 	if (loading) {

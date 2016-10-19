@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import PokemonDetail from './detail';
+import PokemonDetail from './pokemon_detail';
 
 const mapStateToProps = ({ pokemonDetail }) => ({
   items: pokemonDetail.items,

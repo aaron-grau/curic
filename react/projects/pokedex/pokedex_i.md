@@ -1,9 +1,10 @@
 # Pokedex: An Introduction to the React Router - Part 1
 
 In this project, we'll write an React/Redux/Rails app to manage `Pokemon` and
-their `Items`!
+their `Items`! Check out the live demo [here](http://aa-pokedex.herokuapp.com/)!
 
-Check out the live demo [here](http://aa-pokedex.herokuapp.com/)!
+Note: The singular and plural forms of the word "pokemon" do not
+differ.
 
 ## Phase 0: Rails API Setup
 We've already set up a Rails backend with migrations and models in the
@@ -27,19 +28,20 @@ Get yourself oriented.
 
 ### API Namespace
 
-Let's build routes for our pokémon! We want these routes to be nested under an
+Let's build routes for our pokemon! We want these routes to be nested under an
 api namespace. Like so:
 
 ```ruby
 namespace :api, defaults: {format: :json} do
-  # api routes
+  resources :pokemon
 end
 ```
 
 The `defaults: {format: :json}` option tells the controller to first look for a
 `.json.jbuilder` view rather than an `html.erb` view. Edit `routes.rb` to add
-the following routes to our app. Your routes table should look like the
-following:
+the following routes to our app.
+
+Edit your `routes.rb`. Your routes table should look like the following:
 
 ```
            Prefix Verb   URI Pattern                Controller#Action
@@ -54,7 +56,7 @@ api_pokemon_index GET    /api/pokemon(.:format)     api/pokemon#index {:format=>
 
 ### Pokemon Controller
 
-Build a controller to handle our pokémon `resources`.
+Build a controller to handle our pokemon `resources`.
 
 * Generate an `Api::PokemonController`.
 * Define `#index` and `#show` actions.
@@ -79,13 +81,13 @@ responses that look something like this:
 }
 ```
 
-Here, the keys in your json response are the primary keys of the pokémon. The
-values are the pokémon objects themselves. Let's use Jbuilder here!
+Here, the keys in your json response are the primary keys of the pokemon. The
+values are the pokemon objects themselves. Let's use Jbuilder here!
 
 * Create a `views/api/pokemon/index.json.jbuilder` file.
-* Iterate over each pokémon.
-* Use `json.set!` to explicitly set the key to the pokémon's id.
-* Use `json.extract!` to grab the pokémon's `id`, `name`, and `image_url`.
+* Iterate over each pokemon.
+* Use `json.set!` to explicitly set the key to the pokemon's id.
+* Use `json.extract!` to grab the pokemon's `id`, `name`, and `image_url`.
 
 Like so:
 
@@ -102,7 +104,7 @@ Remember, Jbuilder allows us to *curate* our data, retrieving only the
 attributes we are interested in.
 
 * Next create a Jbuilder view for `PokemonController#show`. We want the action
-to render all the information about a single pokémon, including its items.
+to render all the information about a single pokemon, including its items.
 
 A GET request to `localhost:3000/api/pokemon/5` should render this:
 
@@ -241,7 +243,7 @@ folder. Nest folders called `actions`, `components`, `reducers`, `store`,
 Before we actually build anything, we need to talk about the shape of our
 application state. **This is an important first step!** Don't ever skip it. For
 now, we just want to be able to render all of our pokemon. This means we'll
-probably want a `pokemon` slice of state that returns a collection of pokémon
+probably want a `pokemon` slice of state that returns a collection of pokemon
 objects.
 
 
@@ -268,7 +270,7 @@ Sample State Shape:
 We recommend using an object to store collections of objects in an app's state.
 While this may impose a few more obstacles for iterating over the collection to
 render, an object will prove far superior for updating or deleting individual
-pokémon in our collection (re: time complexity of objects vs array methods).
+pokemon in our collection (re: time complexity of objects vs array methods).
 Note the current sample state looks a lot like the json response returned by the
 `PokemonController#index` action.
 
@@ -420,7 +422,7 @@ Remember, middleware receives dispatched actions before the reducer. It can
 intercept the dispatched action, trigger another dispatch, or simply pass on it
 and do nothing. Our `PokemonMiddleware` will be responsible for a number of
 things, including triggering api calls that eventually populate our `store` with
-all of the pokémon in the datbase.
+all of the pokemon in the datbase.
 
 * Create a file, `middleware/pokemon_middleware.js`
 * Import the following:
@@ -535,7 +537,7 @@ in a `selectors.js` file in your app's `frontend/reducers` folder.
 
 * Create a `frontend/reducers/selectors.js` file.
 * Define and export a function, `selectAllPokemon(state)`, which accepts the
-application state as an argument and exports an array of all the pokémon
+application state as an argument and exports an array of all the pokemon
 objects. Use [lodash's values][lodash-values] method.
 
 **Test your selector in the browser**. You should should be able to do the following:
@@ -652,7 +654,7 @@ an unordered list of pokemon names next to corresponding images.
 
 * Create a `frontend/components/pokemon/pokemon_index.jsx` file.
 * Define and export a *stateless*, *functional* component that renders a `<li>` for each pokemon object in the `this.props.pokemon` array.
-  * Display the pokémon's name and a *small* image. Use the given stylesheets.
+  * Display the pokemon's name and a *small* image. Use the given stylesheets.
 * Import the container component to `root.jsx`.
 * Nest and rendera `<PokemonIndexContainer />` within your `<Root />` component.
 
@@ -669,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-Now you should see your list of pokémon whenever you refresh the page. Go ahead
+Now you should see your list of pokemon whenever you refresh the page. Go ahead
 and remove all other extraneous action creators, constants, and code snippets
 used for testing from our entry point if you haven't already. **Show a TA that your pokemon React components render before moving on!**
 
@@ -742,7 +744,7 @@ This allows us to re-factor our `requestAllPokemon` dispatch, which we're
 currently triggering in the doc-ready callback. Let's add an onEnter
 hook to our `/` component. This hook will trigger a function whenever we visit
 the root url. Thus when the page first loads, we'll trigger an action that
-fetches all our pokémon from the database.
+fetches all our pokemon from the database.
 
 In `root.jsx`:
 * Import the `requestAllPokemon` action creator.

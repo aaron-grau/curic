@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
-
 const PokemonIndexItem = ({ pokemon, router }) => {
   const handleClick = url => e => router.push(url);
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import PokemonIndex from './index';
+import PokemonIndex from './pokemon_index';
 import { selectAllPokemon } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
