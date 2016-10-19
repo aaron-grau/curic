@@ -12,7 +12,7 @@
 def create_random_item!(pokemon)
   Item.create!(
     pokemon_id: pokemon.id,
-    name: Faker::Superhero.name,
+    name: Faker::Commerce.product_name,
     price: (1..100).to_a.sample,
     happiness: (1..100).to_a.sample,
     image_url: %w(
