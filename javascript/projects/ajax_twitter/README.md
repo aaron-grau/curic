@@ -421,7 +421,7 @@ well.
 variable. If you were to compose a tweet and not set `lastCreatedAt`, you'll
 fetch the same tweet again when you make an AJAX call to `/feed`.
 
-## Phase V: Jbuilder Practice
+## Phase VII: Jbuilder Practice
 
 Since we're going to be using Jbuilder often over the next few weeks, let's
 get some more practice with it today. Use its [docs][jbuilder] a guide.
@@ -498,46 +498,8 @@ returned JSON should look like this:
 }
 ```
 
-## Bonus: Underscore Templates
+## Phase VIII: CSS
 
-When we fetch the tweets, we don't just want to stick the JSON representation
-in; we want to render a partial to insert HTML into the page.
+Take a look at the live twitter website. See how close you can get your app to look like it.
 
-In theory, we could build HTML in JavaScript. This would be tortuous as the HTML
-got more sophisticated. Just like we use ERB in Ruby, we'll use another
-templating language called Underscore templates in JavaScript. Download the
-underscore.js library. One option for doing so is the [underscore-rails
-gem][underscore_rails].
-
-In your `div.infinite-tweets`, make a `<script type="text/template">` as before.
-Inside here, write an Underscore template that iterates through a `tweets`
-array, building one `li` for each. This is a lot like Ruby, except:
-
-```html
-<% tweets.each do |tweet| %>
-  ...
-<% end %>
-
-VS.
-
-<% tweets.forEach(function (tweet) { %>
-  ...
-<% }); %>
-```
-
-But don't forget to use double-percents (`%%`) so ERB doesn't try to interpret
-your Underscore template code as Ruby. See [this example][underscore_erb] for a
-refresher on how this works.
-
-As you did for `TweetCompose`, have your `InfiniteTweets` find the template and
-extract it. Modify the `#insertTweets` method. Take the template code and pass
-it to the `_.template` method, which will build a function from your Underscore
-template code. Call the compiled template function, passing in `{ tweets: tweets }`,
-which makes the tweets variable available to the template. Insert the rendered
-partial.
-
-Check that this works. Call your TA over to double check your work.
-
-[underscore_rails]: https://github.com/rweng/underscore-rails
-[underscore_erb]: ../../readings/underscore-templates.md#erb--underscore
 [jbuilder]: https://github.com/rails/jbuilder/blob/master/README.md
