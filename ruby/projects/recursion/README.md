@@ -235,7 +235,7 @@ To `make_better_change`, we only take one coin at a time and never rule out deno
 Discuss the following game plan and then work together to implement your new method:
 
   - Iterate over each coin.
-  - **Grab only one** of that one coin and recursively call `make_better_change` on the remainder using all of the same coins.
+  - **Grab only one** of that one coin and recursively call `make_better_change` on the remainder using coins of less than or equal to the current coin.
   - Add the change for the remainder to the single coin you originally grabbed to obtain a possible solution.
   - Keep track of the best solution and return it at the end.
 
