@@ -743,7 +743,7 @@ because the `_redirectIfLoggedIn` runs synchronously.
 
 ---
 
-Continue to [Part 2](./benchbnb_ii.md).
+Continue to [Part 2](./bench_bnb_ii.md).
 
 [rails]: ../../../rails#readings-after-you-finish-all-videos
 [onEnter]: ../../readings/on_enter.md
