@@ -246,8 +246,7 @@ now, we just want to be able to render all of our pokemon. This means we'll
 probably want a `pokemon` slice of state that returns a collection of pokemon
 objects.
 
-
-Sample State Shape:
+Sample state shape:
 
 ```js
 {
@@ -374,13 +373,9 @@ Let's create our app's store.
 * Import `createStore` from the `redux` package.
 * Import our `RootReducer`.
 
-Redux's `createStore` function accepts the following parameters:
-  * the reducer;
-  * an optional `preloadedState`;
-  * and any enhancers like as middleware.
+Redux's `createStore` function accepts the following parameters: the reducer, an optional `preloadedState`, and any enhancers like as middleware.
 
-* For now, call `createStore` and pass it our imported `RootReducer`. We will come back
-to the other arguments later.
+* For now, call `createStore` and pass it our imported `RootReducer`. We will come back to the other arguments later.
 * Wrap the creation of the store in a `configureStore` function. Like so:
 
   ```js

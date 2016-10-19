@@ -500,15 +500,15 @@ const TodosReducer = (state = {}, action) => {
 You should now be able to run the following in the console:
 
 ```javascript
-store.getState(); // --> returns default state object
+store.getState(); // should return default state object
 store.dispatch(requestTodos());
-store.getState(); // --> returns a new state object, fully populated!
+store.getState(); // should return an updated fully populated with todos!
 ```
 
-Examine your state object - is it the shape we had decided it should be back in
+Examine your state object - Is it the shape we had decided it should be back in
 the reducers section? Specifically, are the `todos` being stored as values in an
 object? If it is not, refactor the code in your reducer so that your `todos` are
-being stored correctly. Test again.**
+being stored correctly. **Test again.**
 
 **NB**: You've now implemented a full Redux cycle with middleware! Call over a TA for a code review.
 
@@ -533,7 +533,9 @@ reload.
 
 ### `Root`
 
-The `Root` component serves to wrap your `App` component with a `react-redux` `Provider`. Remember the `Provider` gives all of your components access to your `store`, allowing them to read the application state and dispatch actions.
+The `Root` component serves to wrap your `App` component with a `react-redux`
+`Provider`. Remember the `Provider` gives all of your components access to your
+`store`, allowing them to read the application state and dispatch actions.
 
 + Create a file `components/root.jsx`
 + Import React and the `react-redux`'s `Provider`
@@ -543,6 +545,7 @@ The `Root` component serves to wrap your `App` component with a `react-redux` `P
   + De-structure `props` accordingly
 
 Your `Root` should look like the following:
+
 ```javascript
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -556,12 +559,12 @@ export default Root;
 + Update your entry file to render your `Root` component into `#content`!
 
 
-
 ### TodoList
 
 This component will display the items in our todo list.
 
-**NB**: Because we're using the react/redux design principle of separating container and presentational components, this will actually be two components!
+**NB**: Because we're using the react/redux design principle of separating
+container and presentational components, this will actually be two components!
 
 #### `TodoListContainer`
 
@@ -584,6 +587,7 @@ reading if you need a refresher on container components.
 + Export the result of this function call
 
 Your code should look like the following:
+
 ```js
 const mapStateToProps = state => ({
   todos: allTodos(state)
@@ -603,7 +607,8 @@ export default connect(
 
 Create your `TodoList` presentational component.
 
-If we've done our job with our container component, all this presentational component will have to do is:
+If we've done our job with our container component, all this presentational
+component will have to do is:
 
 + Dispatch a `requestTodos` action on `componentDidMount`
 + Render the titles of its `todos` prop as list items inside of a `<ul>`
@@ -629,7 +634,10 @@ In this phase you will create a form that allows users to create new todo items.
 
 You've already set up a redux cycle - now it's time to flesh it out so that a
 user can create todo list items.
-+ Create a new API utility function (in `util/todo_api_util.js`) that sends `POST` requests to create a new Todo in the database called `createTodo(todo, success, error)`. Make sure to set the `data` property of your AJAX request.
++ Create a new API utility function (in `util/todo_api_util.js`) that sends
+`POST` requests to create a new Todo in the database called
+`createTodo(todo, success, error)`. Make sure to set the `data` property of
+your AJAX request.
 + In `actions/todo_actions.js`, create two new action creator methods and their respective constants
   + `createTodo`
   + `receiveTodo`
@@ -647,7 +655,8 @@ user can create todo list items.
 + Update your `TodoListContainer` to pass in the props that your `TodoForm` will need
   + Add `createTodo` to the container's `mapDispatchToProps` function and pass this as a prop to `TodoForm`
 
-**Test your code** - Try creating a new todo list item using your form. Does it appear on your page? Call over a TA for a code review.
+**Test your code** - Try creating a new todo list item using your form. Does it
+appear on your page? Call over a TA for a code review.
 
 ---
 
@@ -675,7 +684,8 @@ In this phase, you will add new actions and buttons so that you can mark `todo`s
       + Hint: Write a helper method to update the todo item's `done` attribute when the button is clicked
       + Call `updateTodo` to change the status of the todo item
 
-**Test your code** - You should now be able to create, toggle, and delete todo items on your list.
+**Test your code** - You should now be able to create, toggle, and delete todo
+items on your list.
 
 ---
 
@@ -687,10 +697,13 @@ In this phase you will update your app so that each todo list item can have its
 own sub-list of `steps`. You will need to build out your backend, your redux
 cycle, as well as add several new components for this to work.
 
-**You should be testing your code regularly as you finish features like we did for Todos. It will save you a lot of time if you debug as you code.**
+**You should be testing your code regularly as you finish features like we
+did for Todos. It will save you a lot of time if you debug as you code.**
 
 Let's start by getting your `TodoListItem`s ready for their own sub-lists by
-refactoring their display into multiple parts. We will wrap the `TodoDetailView` in a container component so that it can dispatch functions and receive information from the `store`. Follow these steps:
+refactoring their display into multiple parts. We will wrap the `TodoDetailView`
+in a container component so that it can dispatch functions and receive
+information from the `store`. Follow these steps:
 
 + Create a container for your `TodoDetailView` component
   + Create a `MapDispatchToProps` function that passes `destroyTodo` as a prop to `TodoDetailView`
@@ -704,11 +717,14 @@ refactoring their display into multiple parts. We will wrap the `TodoDetailView`
     + Allow users to change that value to true by clicking on the item's title
     + Render the `TodoDetailView` only if `detail` is true
 
-**NB**: Eventually, your `TodoDetailView` will hold a `StepList` component that will hold all of the `Steps` for a given `TodoListItem`. We will also update the `TodoDetailView` container to request `Steps`.
+**NB**: Eventually, your `TodoDetailView` will hold a `StepList` component that
+will hold all of the `Steps` for a given `TodoListItem`. We will also update
+the `TodoDetailView` container to request `Steps`.
 
 ### Adding a Steps API
 
-In this section you will create a new set of API endpoints that will serve `Steps` (each with a `title`, a `todo_id`, and a boolean `done` value) as JSON.
+In this section you will create a new set of API endpoints that will serve
+`Steps` (each with a `title`, a `todo_id`, and a boolean `done` value) as JSON.
 
 + Create a `Step` model with `title`, `todo_id`, and a boolean `done`
 + Create a `StepsController` to handle API requests
@@ -717,11 +733,13 @@ In this section you will create a new set of API endpoints that will serve `Step
     + Don't nest your `update` action under `:todos`
   + Make your controller actions serve JSON-formatted responses
 
-**Test your code** - In the console, test out your new API endpoints by making `$.ajax` calls to them.
+**Test your code** - In the console, test out your new API endpoints by making
+`$.ajax` calls to them.
 
 ### Re-Designing the State Shape
 
-In this section you will create another Redux cycle for `Steps`, the sub-items within a given todo.
+In this section you will create another Redux cycle for `Steps`, the sub-items
+within a given todo.
 
 #### API Utils
 
@@ -794,7 +812,9 @@ Your application state will end up looking like this:
 
 #### Middleware
 
-In this section you will create a new middleware to use your Step API utils in case it receives an action with the correct type. This will also be very similar to your `TodoMiddleware`.
+In this section you will create a new middleware to use your Step API utils in
+case it receives an action with the correct type. This will also be very similar
+to your `TodoMiddleware`.
 
 + Create a file `middleware/step_middleware.js` to hold a `StepMiddleware`
   + This middleware will use the API utility functions that you just wrote and pass along the HTTP Responses to your `store`
@@ -804,7 +824,9 @@ In this section you will create a new middleware to use your Step API utils in c
 
 ## Phase 7: Steps Components
 
-In this phase, you will create React components to display the steps for a given todo list item, as well as a form that allows users to create new steps. These components will be rendered inside your `TodoDetailView` component.
+In this phase, you will create React components to display the steps for a given
+todo list item, as well as a form that allows users to create new steps. These
+components will be rendered inside your `TodoDetailView` component.
 
 Follow these steps, **testing your code as you go** :
 

@@ -82,7 +82,7 @@
 [connect]: readings/connect.md
 [containers]: readings/containers.md
 
-### Fruit Stand App Demo (1 hr 15 min)
+### Fruit Stand App Demo (75 min)
 + Phase I - Redux only (15 min)
   + [Live demo][fruit-stand-01-live]
   + :computer: [Source code][fruit-stand-01-source]
@@ -199,15 +199,6 @@
 [preloaded_state]: readings/preloaded_state.md
 [user_authentication]: readings/front_end_auth.md
 
-### Additional Resources
-- [Rails/React/Redux Configuration Checklist][checklist]
-- [React Context][context]
-- [`localStorage`][local_storage]
-
-[checklist]: readings/checklist.md
-[context]: https://facebook.github.io/react/docs/context.html
-[local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-
 ### Homeworks (60 min)
 * Do the auth part of [A04 Prep][a04_prep] (60 min)
   * Front-end auth (the main concept in BenchBnB Day 1) builds on top of regular Rails backend auth, so make sure you build on a solid base.
@@ -219,6 +210,15 @@
 - **Solo:** [BenchBnB][bench_bnb]
 
 [bench_bnb]: projects/bench_bnb
+
+### Additional Resources
+- [Rails/React/Redux Configuration Checklist][checklist]
+- [React Context][context]
+- [`localStorage`][local_storage]
+
+[checklist]: readings/checklist.md
+[context]: https://facebook.github.io/react/docs/context.html
+[local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
 

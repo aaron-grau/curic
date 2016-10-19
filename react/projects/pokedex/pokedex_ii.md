@@ -158,6 +158,7 @@ slice of the app state.
 	  <Route path='CHILD_PATH' component='CHILD_COMPONENT'/>
 	</Route>
 	```
+
 	* Render `this.props.children` in `PokemonIndex`. This will ensure that
 	both parent (`PokemonIndexContainer`) and child
 	(`PokemonDetailContainer`) components are rendered when a user visits
@@ -207,6 +208,7 @@ into the `pokemonDetail` slice of state when a single pokemon is selected.
 forget to render `this.props.children`.
 
 Your app's `Router` should look like this:
+
 ```js
 <Router history={hashistory}>
 	<Route path="/" component={PokemonIndexContainer} onEnter={requestAllPokemonOnEnter}>
@@ -215,7 +217,7 @@ Your app's `Router` should look like this:
 		</Route>
 	</Route>
 </Router>
-	```
+```
 
 **Test your `ItemDetail` components and route!** Does it behave like the [live
 demo][live-demo]? Show a TA before moving on.
