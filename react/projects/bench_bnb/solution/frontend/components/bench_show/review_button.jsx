@@ -2,26 +2,26 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 class ReviewButton extends React.Component{
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    this._handleClick = this._handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  _handleClick(){
+  handleClick() {
     const benchId = this.props.benchId;
     const url = `/benches/${benchId}/review`;
     this.props.router.push(url);
   }
 
-  render(){
-    return(
-      <button className="review-button"
-              onClick={this._handleClick}>
+  render() {
+    return (
+      <button
+        className="review-button"
+        onClick={this.handleClick}>
         Leave a Review
       </button>
     );
   }
-}
+};
 
 export default withRouter(ReviewButton);

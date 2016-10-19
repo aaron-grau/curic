@@ -23,10 +23,10 @@ Write a set of classes to model `Student`s and `Course`s.
   * Probably can rely upon `Student.prototype.enroll`.
 
 ### Phase 2:
-* Each course should also take a set of days of the week (`:mon`,
-  `:tue`, ...), plus a time block (assume each day is broken into 8
+* Each course should also take a set of days of the week (`'mon'`,
+  `'tue'`, ...), plus a time block (assume each day is broken into 8
   consecutive time blocks). So a course could meet
-  `[:mon, :wed, :fri]` during block #1.
+  `['mon', 'wed', 'fri']` during block #1.
     * Update your `initialize` method to also take a time block and
       days of the week.
 * Write a method `Course.prototype.conflictsWith` which takes a second

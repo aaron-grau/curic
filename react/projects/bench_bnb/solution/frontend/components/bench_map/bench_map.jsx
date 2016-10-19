@@ -19,7 +19,7 @@ class BenchMap extends React.Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, _mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
-    if(this.props.singleBench) {
+    if (this.props.singleBench) {
       this.props.requestBench(this.props.benchId);
     } else {
       this._registerListeners();
@@ -50,7 +50,7 @@ class BenchMap extends React.Component {
   }
 
   _handleMarkerClick(bench) {
-    this.props.router.push("benches/" + bench.id );
+    this.props.router.push(`benches/${bench.id}`);
   }
 
   _handleClick(coords) {
@@ -61,7 +61,7 @@ class BenchMap extends React.Component {
   }
 
   render() {
-    return <div className="map" ref="map">Map</div> ;
+    return <div className="map" ref="map">Map</div>;
   }
 }
 
