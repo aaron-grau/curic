@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Review = ({rating, body}) => (
+const Review = ({ rating, body }) => (
   <div>
     <ul>
       <li>Rating: {rating}</li>

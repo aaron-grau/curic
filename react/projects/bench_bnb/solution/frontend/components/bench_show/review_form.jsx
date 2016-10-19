@@ -1,27 +1,28 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router';
 
 class ReviewForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = { rating: 5, body: "" };
+    this.state = {
+      rating: 5,
+      body: ""
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToBenchShow = this.navigateToBenchShow.bind(this);
   }
 
   navigateToBenchShow() {
-    const benchUrl = "/benches/" + this.props.params.benchId;
-    hashHistory.push(benchUrl);
+    this.props.router.push(`/benches/${this.props.params.benchId}`)
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
     const benchId = parseInt(this.props.params.benchId);
-    const review = Object.assign(
-      {},
-      this.state,
-      { bench_id: benchId }
-    );
+    const review = Object.assign({}, this.state, {
+      bench_id: benchId
+    });
     this.props.createReview({review});
     this.navigateToBenchShow();
   }
@@ -42,7 +43,7 @@ class ReviewForm extends React.Component {
           <br/>
           <input type="number"
             value={this.state.rating}
-            onChange={this.update.bind(this, "rating")}/>
+            onChange={this.update("rating")}/>
           <br/>
 
           <label>Comment</label>
@@ -61,4 +62,4 @@ class ReviewForm extends React.Component {
  }
 }
 
-export default ReviewForm;
+export default withRouter(ReviewForm);

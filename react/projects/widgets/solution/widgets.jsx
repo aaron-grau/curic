@@ -23,7 +23,7 @@ const Panes = [
   {title: 'three', content: 'Third pane here'}
 ];
 
-class MyComponent extends React.Component {
+class Root extends React.Component {
   render() {
     return(
       <div>
@@ -36,8 +36,8 @@ class MyComponent extends React.Component {
       </div>
     );
   }
-};
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<MyComponent/>, document.getElementById('main'));
+  ReactDOM.render(<Root/>, document.getElementById('main'));
 });

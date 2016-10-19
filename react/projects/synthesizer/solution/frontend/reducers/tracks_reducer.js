@@ -3,12 +3,13 @@ import { START_RECORDING,
          ADD_NOTES,
          DELETE_TRACK
        } from '../actions/tracks_actions';
-       
+
 import merge from 'lodash/merge';
 
 let currTrackId = 0;
 
-const track = (state, action) => {
+const trackReducer = (state, action) => {
+  Object.freeze(state)
   switch(action.type) {
     case START_RECORDING:
       return {
@@ -36,20 +37,21 @@ const track = (state, action) => {
   }
 };
 
-const tracks = (state = {}, action) => {
+const tracksReducer = (state = {}, action) => {
+  Object.freeze(state)
   switch(action.type) {
     case START_RECORDING:
       currTrackId++; // increment id of current (newest) track
       return merge({}, state, {
-        [currTrackId]: track(undefined, action)
+        [currTrackId]: trackReducer(undefined, action)
       });
     case STOP_RECORDING:
       return merge({}, state, {
-        [currTrackId]: track(state[currTrackId], action)
+        [currTrackId]: trackReducer(state[currTrackId], action)
       });
     case ADD_NOTES:
       return merge({}, state, {
-        [currTrackId]: track(state[currTrackId], action)
+        [currTrackId]: trackReducer(state[currTrackId], action)
       });
     case DELETE_TRACK:
       let nextState = merge({}, state);
@@ -60,7 +62,7 @@ const tracks = (state = {}, action) => {
   }
 };
 
-export default tracks;
+export default tracksReducer;
 
 // sample state tree - tracks:
 // {

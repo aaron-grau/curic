@@ -2,9 +2,11 @@
 
 ## Overview
 
-In this homework, you will modify an app's `dispatch` function so that it does more than just dispatch actions to the store. You will use this pattern again tomorrow in a more sophisticated way.
+In this homework, you will modify the Synthesizer project's `dispatch` function
+so that it does more than just dispatch actions to the store. You will use this
+pattern again tomorrow in a more sophisticated way.
 
-Download the provided [skeleton](./middleware/skeleton.zip?raw=true).
+Download the provided [skeleton](../../projects/synthesizer/solution.zip?raw=true).
 
 **You will be updating `synthesizer.jsx` and `store/configure_store.js`**
 
@@ -17,7 +19,7 @@ Test your code at each step using the provided test cases.
   + The config file is already written; you should be able to run `webpack -w` and have it work
 + open `index.html` in your browser
 
-** Test the skeleton: does it work? **
+**Test the skeleton**: Does it work?
 
 ## Logging
 
@@ -33,7 +35,7 @@ In `synthesizer.jsx`, do the following steps:
     + Log `store.getState()` again - this is the new state
 + Inside the `"DOMContentLoaded"` callback reassign `store.dispatch` to your new function, passing in the `store`
 
-** Test your code: if you interact with the app, can you see the old state, action, and new state in the console? **
+**Test your code**: If you interact with the app, can you see the old state, action, and new state in the console?
 
 ## Refactoring
 
@@ -46,19 +48,21 @@ In order to do this, we'll have to rewrite our `addLoggingToDispatch` function:
   + This inner function will return the function from the "Logging" step
 
 This might seem confusing at first glance, but it's not so bad. Your code should now look something like the following:
+
 ```javascript
-function addLoggingToDispatch(store){
-  return (next) => {
-    return (action) => {
-      //code lives here
-    }
-  }
-}
+function addLoggingToDispatch(store) {
+  return function (next) {
+    return function (action) {
+      // your code here
+    };
+  };
+};
 ```
-which you can refactor to:
+which you can refactor using ES6 fat arrow notation to:
+
 ```javascript
-const addLoggingToDispatch = (store) => (next) => (action) => {
-  // code lives here
+const addLoggingToDispatch = store => next => action => {
+  // your code here
 }
 ```
 This is a great real-world example of currying (remember that problem on the Javascript assessment?) - a function collecting arguments across consecutive calls.
@@ -73,11 +77,13 @@ To use this function, let's replace our reassignment of `store.dispatch` inside 
 + A reassignment of `store` to the result of calling `applyMiddlewares`
   + We need to pass in the `store` and each middleware that we want to apply
 
-** Test your code: if you interact with the app, your logging middleware should still be sending information about the state and the actions to the console ** 
+**Test your code**: If you interact with the app, your logging middleware should still send information about the state and actions to the console.
 
 ## Redux `applyMiddleware`
 
-I know what you're thinking - didn't somebody else write code for this? It turns out that there is! It's called `applyMiddleware`, and it's part of the `redux` npm package.
+I know what you're thinking - didn't somebody else write code for this? It turns
+out that there is! It's called `applyMiddleware`, and it's part of the `redux`
+npm package.
 
 To implement it, in `store/store.js`:
 + Import `applyMiddleware` from `redux`
@@ -87,4 +93,4 @@ To implement it, in `store/store.js`:
 
 Then, restore `synthesizer.jsx` to its original state.
 
-** Test your code: Everything that worked before should still work **
+**Test your code**: Everything that worked before should still work!

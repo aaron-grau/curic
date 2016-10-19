@@ -8,24 +8,27 @@ class TodoForm extends React.Component {
       body: "",
       done: false
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
   }
 
-  handleSubmit(){
-    return (e) => {
-      e.preventDefault();
-      const todo = Object.assign({}, this.state);
-      this.props.createTodo({todo});
-      this.setState({title: "", body: ""}); // reset form
-    }
+  handleSubmit(e) {
+    e.preventDefault();
+    const todo = Object.assign({}, this.state);
+    this.props.createTodo({todo});
+    this.setState({
+      title: "",
+      body: ""
+    }); // reset form
   }
 
   render() {
     return (
-      <form className="todo-form" onSubmit={this.handleSubmit()}>
+      <form className="todo-form" onSubmit={this.handleSubmit}>
         <label>Title:
           <input
             className="input"
@@ -42,6 +45,7 @@ class TodoForm extends React.Component {
             cols='20'
             value={this.state.body}
             rows='5'
+            placeholder="2% or whatever is on sale!"
             onChange={this.update('body')}
             required></textarea>
         </label>

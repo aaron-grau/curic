@@ -2,14 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import ReviewShow from './review_show.jsx';
 
-
-const reviewList = (reviews=[]) => (
-  reviews.map( (review) => (
-    <ReviewShow rating={review.rating} body={review.body} key={review.id}/>
+const reviewList = (reviews = []) => (
+  reviews.map(review => (
+    <ReviewShow rating={review.rating} body={review.body} key={review.id} />
   ))
 );
 
-const BenchDetail = ({bench}) => (
+const BenchDetail = ({ bench }) => (
   <div>
     <ul className="bench-list">
       <img className="index-image" src={bench.picture_url}/>
@@ -19,13 +18,10 @@ const BenchDetail = ({bench}) => (
       <li>Latitude: {bench.lat}</li>
       <li>Longitude: {bench.lng}</li>
     </ul>
-    {/*<button onClick={this.toggleFavorite} className="like-button">
-      {this._isLiked()}
-    </button>*/}
     <br/>
     <div className="reviews">
       <h3>Reviews</h3>
-      { reviewList(bench.reviews) }
+      {reviewList(bench.reviews)}
     </div>
   </div>
 );

@@ -8,31 +8,25 @@ class IndexItem extends React.Component {
   }
 
   handleClick() {
-    const benchID = this.props.bench.id;
-    hashHistory.push("benches/" + benchID );
+    const benchId = this.props.bench.id;
+    hashHistory.push(`benches/${benchId}`);
   }
 
   render() {
-    const bench = this.props.bench;
+    const { average_rating, description, picture_url } = this.props.bench;
+
     return (
       <div className="bench-index-item"
            onClick={this.handleClick}>
         <div className="index-item-info">
           <span className="index-item-category">Rating: </span>
           <span className="index-item-copy">
-            {bench.average_rating || "No reviews yet"}
-          </span>
-          <span className="index-item-category">Number of Likes: </span>
-          <span className="index-item-copy">
-          {/*TODO remove the  || 0 below*/}
-            {/*{bench.favorite_users.length || 0 }*/}
+            {average_rating || "No reviews yet"}
           </span>
           <span className="index-item-category">Description: </span>
-          <span className="index-item-copy">
-            {bench.description}
-          </span>
+          <span className="index-item-copy">{description}</span>
         </div>
-        <img src={bench.picture_url}/>
+        <img src={picture_url}/>
       </div>
     );
   }
