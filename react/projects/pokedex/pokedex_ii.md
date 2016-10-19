@@ -5,7 +5,58 @@ Check out the live demo [here](http://aa-pokedex.herokuapp.com/)!
 Refer to our readings and the instructions for Part 1 to help guide you through
 Part 2.
 
-## Phase 4: Pokemon Detail
+### `PokemonIndexItem`
+
+Let's refactor your presentational component so that each pokemon object is rendered in an `PokemonIndexItem` component. This is a great pattern for keeping components minimal and modular.
+
+Now the list will only care about rendering all of the list items and the items will care about the functionality of showing their details.
+
+We will structure the index item components to receive all their information through props. This way they do not need lifecycle methods and will work perfectly as stateless functional components. Write a `PokemonIndexItem` component and refactor `PokemonIndex` to utilize this new component.  
+
+**Test your code** to ensure everything still renders as it did before.  
+
+In order to pass `PokemonIndexItem` a reference to the router we will wrap the component in what is referred to as an Higher Order Component (HOC). These components, much like our containers, serve only to pass down information through props. To implement this we'll use the `withRouter` function from `react-router`.
+
+  ```js
+    import { withRouter } from 'react-router';
+  ```
+
+Then call this function on `PokemonIndexItem` when we export it:
+
+  ```js
+    export default withRouter(ComponentName);
+  ```
+
+Add this code to your `PokemonIndexItem`. Make sure to add `router` to the list of props being received by `PokemonIndexItem`.
+
+Now that `PokemonIndexItem` has a reference to the router we can use `router.push(url)` to redirect our user to different routes!
+
+Create a `handleClick` function inside of `PokemonIndexItem`.
+
+  ```js
+    const PokemonIndexItem = ({pokemon, router}) => {
+
+      const handleClick = url => router.push(url);
+
+      return (
+        // ...
+      );
+    };
+  ```
+
+Note that `handleClick` employs a currying pattern to generate the appropriate click handler. Inside of our return statement, we should have something like:
+
+  ```js
+    <li onClick={handleClick(`/pokemon/${pokemon.id}`)}>
+  ```
+
+We're **invoking** `handleClick`, and setting it's return value to the property of `onClick`.
+
+**Call over a TA** if this doesn't make sense!
+
+While the route will change, you may have noticed the following error in your browser console: `[react-router] Location "/pokemon/:id" did not match any routes`.  This tells us that the router was looking for a component to render for that route but was unable to find one. To fix this, let's make a `PokemonDetail` component.
+
+## Phase 5: Pokemon Detail
 
 Before creating a component, we should always plan out where and how it will get its information. Eventually, we will want the `PokemonDetail` to display a Pokemon's information as well as its `Items`. Talk over the following questions with your partner:
 
@@ -42,7 +93,7 @@ As a reminder, the syntax for nested routes follows the following pattern:
 
 [on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
 
-## Phase 5: Item Detail
+## Phase 6: Item Detail
 
 Implement the ability to click on an item and be taken to a path such as
 `/pokemon/1/items/1` where an `ItemDetail` component displays information about an
