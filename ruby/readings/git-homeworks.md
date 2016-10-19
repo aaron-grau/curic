@@ -15,14 +15,14 @@ Starting today, and for the duration of the cohort, you will use git to submit a
   cd homeworks
   git init
   ```
-  
+
 * Make an initial git commit
   ```
   git add -A
-  git commit -m "create homeworks repo"
+  git commit -m "Create homeworks repo"
   ```
 
-  * **NB: git commit messages should start with verbs in the present tense that tell what the commit does**
+  * **NB: git commit messages should start with capitalized verbs in the present tense that tell what the commit does and should not have any trailing punctuation**
 
 * Set a remote
   * Create a new repository on `github.com` through the 'New repository' button

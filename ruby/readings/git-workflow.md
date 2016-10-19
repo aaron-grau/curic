@@ -43,7 +43,7 @@ repo, which you can reference with `your_alias`; time to start working.
 Now you've written some code and are ready to commit. You need three commands:
 ```
   git add -A
-  git commit -m "some comment"
+  git commit -m "Some comment"
   git push
 ```
 Line by line:
@@ -54,13 +54,13 @@ option that will update all files in the entire working tree.
 So far, all we've done is told git to prepare to commit; nothing is persisted to
 the repository.
 
-* `git commit -m 'your commit message here'`: `git commit` takes currently staged
+* `git commit -m '[Your commit message here]'`: `git commit` takes currently staged
 files and stores them in the repository. `-m` is a flag indicating that we want
-to write our commit message on the command line. A commit message is a brief
-summary of the changes that we're committing. If we don't use the `-m` flag,
-then git will open our default editor so that we can compose our commit. Make
-your commit message descriptive, so that someone reading your commit history
-(maybe you!) can understand what you changed.
+to write our commit message on the command line rather than in our default editor.
+A commit message is a brief summary of the changes that we're committing. Your
+commit message should be descriptive, so that someone reading your commit history
+(maybe you!) can understand what you changed. Always start your commit messages with
+with a capital letter and an imperative verb and leave off any trailing punctuation.
 
 At this point, our local repository has a record of the commit, but we haven't
 touched the remote repo.
@@ -104,3 +104,5 @@ When you create a new GitHub repository in the browser, GitHub will provide a
 summary of the commands needed to connect it to a local repository.
 
 For common git commands, check out the [git summary](./git-summary.md).
+
+For more on writing good commit messages, check out [this post](http://chris.beams.io/posts/git-commit/) by Chris Beams.
