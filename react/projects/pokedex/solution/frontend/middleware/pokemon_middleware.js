@@ -10,7 +10,7 @@ import { receiveAllPokemon,
          REQUEST_ALL_POKEMON,
          REQUEST_SINGLE_POKEMON,
          CREATE_POKEMON,
-         pokemonErrors } from '../actions/pokemon_actions';
+         receivePokemonErrors } from '../actions/pokemon_actions';
 
 
 export default ({dispatch}) => next => action => {
@@ -21,7 +21,7 @@ export default ({dispatch}) => next => action => {
     History.push(`/pokemon/${data.id}`);
   };
   const pokemonFailure = errors => {
-    dispatch(pokemonErrors(errors.responseJSON));
+    dispatch(receivePokemonErrors(errors.responseJSON));
   }
 
   switch (action.type) {

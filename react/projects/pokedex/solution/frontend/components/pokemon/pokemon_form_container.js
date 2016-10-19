@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { createPokemon } from '../../actions/pokemon_actions';
 import PokemonForm from './form';
 
-const mapStateToProps = state => ({
-  errors: state.errors
+const mapStateToProps = ({ errors }) => ({
+  errors
 });
 
 const mapDispatchToProps = dispatch => ({

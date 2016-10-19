@@ -244,23 +244,24 @@ now, we just want to be able to render all of our pokemon. This means we'll
 probably want a `pokemon` slice of state that returns a collection of pokémon
 objects.
 
-<!-- TODO -->
+
+Sample State Shape:
 
 ```js
-// State Shape
 {
   pokemon: {
-    1: { ..pokémon 1 info.. },
-    2: { ..pokémon 2 info.. }
-  },
-
-  pokemonDetail: {
-    id: 3,
-    name: "electrode",
-    ...
-  },
-
-  errors: [ "message 1", "message 2" ]
+    1: {
+      id: 1,
+      name: /*...*/,
+      image_url: /*...*/
+    },
+    2: {
+      id: 2,
+      name: /*...*/,
+      image_url: /*...*/
+    },
+    //...
+  }
 }
 ```
 

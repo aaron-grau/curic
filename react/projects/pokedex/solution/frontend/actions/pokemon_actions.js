@@ -35,7 +35,7 @@ export const receiveNewPokemon = pokemon => ({
 	pokemon
 });
 
-export const pokemonErrors = errors => ({
+export const receivePokemonErrors = errors => ({
 	type: RECEIVE_POKEMON_ERRORS,
 	errors
 });

@@ -2,11 +2,10 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 
-const PokemonIndexItem = ({pokemon, router}) => {
+const PokemonIndexItem = ({ pokemon, router }) => {
+  const handleClick = url => e => router.push(url);
 
-  const handleClick = url => () => router.push(url);
-
-  return(
+  return (
     <li
       className="pokemon-index-item"
       onClick={handleClick(`/pokemon/${pokemon.id}`)}>

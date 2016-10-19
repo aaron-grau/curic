@@ -8,7 +8,7 @@ const PokemonIndex = ({ pokemon, loading, children }) => {
 				src="http://orig15.deviantart.net/4317/f/2015/094/c/c/pokeball_by_watolf-d8ogz4y.gif"
 				alt="pokemon loading"
 			/>
-			);
+		);
 	} else {
 		return (
 			<section className="pokedex">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
-const ToyItem = ({item, router}) => {
+const ToyItem = ({ item, router }) => {
   const handleClick = url => () => router.push(url);
 
   return(
