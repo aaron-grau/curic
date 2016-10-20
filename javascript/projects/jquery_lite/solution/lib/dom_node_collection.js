@@ -1,10 +1,11 @@
 class DomNodeCollection {
   constructor(nodes) {
-    // We coerce array-like objects to Arrays because NodeList has no
-    // #forEach method. We should be able to count on the type of
-    // `nodes` so that we can prevent TypeErrors later on. This is best
-    // practice even in dynamically-typed languages.
-    this.nodes = Array.from(nodes);
+    // The nodes passed in must always be an Array. NodeList has no
+    // #forEach method, so we need to be able to count on the type of
+    // `nodes` so that we can prevent TypeErrors later on. We therefore
+    // must ensure we only pass the `DomNodeCollection` constructor
+    // Arrays in our core function.
+    this.nodes = nodes;
   }
 
   each(cb) {
