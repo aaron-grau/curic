@@ -12,12 +12,22 @@
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
 
+[npm_configuration]: readings/npm_configuration.md
+[webpack_configuration]: readings/webpack_configuration.md
+[import_export]: readings/import_export.md
+[object_destructuring]: readings/object_destructuring.md
+
 ### Video Lectures (68 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [React: Intro][react-intro] (27 min)
 * :movie_camera: [React: Transpilation][react-transpilation] (8 min)
 * :movie_camera: [React: Functional Components][react-func-comps] (22 min)
 * :movie_camera: [React: Lifecycle Methods][react-lifecycle] (11 min)
+
+[react-intro]: https://vimeo.com/188074204
+[react-transpilation]: https://vimeo.com/188087366
+[react-func-comps]: https://vimeo.com/188090786
+[react-lifecycle]: https://vimeo.com/188093789
 
 ### Homeworks (75 min)
 - [Getting Started with NPM][getting_started] (30 min)
@@ -26,18 +36,6 @@
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/questions/calculator.md
 
-### Additional Resources
-- [Official React Documentation][react_docs]
-	- Most Helpful: REFERENCE Section (Left Sidebar)
-- [Babel][babel_configuration]
-- [React][intro_to_react]
-- [JSX][intro_to_jsx]
-- [React Components][intro_to_react_components]
--	[Declaration][component_declaration]
-- [Props and State][props_and_state]
-- [Lifecycle Methods][component_lifecycle]
-- [Synthetic Events][synthetic_events]
-
 ### Projects
 - [Widgets][widgets]
 - [Minesweeper][minesweeper]
@@ -45,11 +43,19 @@
 [widgets]: projects/widgets
 [minesweeper]: projects/react_minesweeper
 
-[npm_configuration]: readings/npm_configuration.md
-[webpack_configuration]: readings/webpack_configuration.md
+### Additional Resources
+- [Babel][babel_configuration]
+- [React][intro_to_react]
+- [JSX][intro_to_jsx]
+- [React Components][intro_to_react_components]
+- [Declaration][component_declaration]
+- [Props and State][props_and_state]
+- [Lifecycle Methods][component_lifecycle]
+- [Synthetic Events][synthetic_events]
+- [Official React Documentation][react_docs]
+	- Most Helpful: REFERENCE Section (Left Sidebar)
+
 [babel_configuration]: readings/babel_configuration.md
-[import_export]: readings/import_export.md
-[object_destructuring]: readings/object_destructuring.md
 [intro_to_react]: readings/intro_to_react.md
 [intro_to_jsx]: readings/intro_to_jsx.md
 [intro_to_react_components]: readings/intro_to_react_components.md
@@ -57,28 +63,22 @@
 [component_declaration]: readings/component_declaration.md
 [component_lifecycle]: readings/component_lifecycle.md
 [synthetic_events]: readings/synthetic_events.md
-
-[react-intro]: https://vimeo.com/188074204
-[react-transpilation]: https://vimeo.com/188087366
-[react-func-comps]: https://vimeo.com/188090786
-[react-lifecycle]: https://vimeo.com/188093789
-
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
 ## w7d1
 
 ### Readings (105 min)
+- [Lodash][lodash] (5 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
 - [Store][store] (20 min)
-- [Lodash][lodash] (5 min)
 - [Reducers][reducers] (20 min)
 - [Actions][actions] (10 min)
 - [`<Provider/>`][provider] (15 min)
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
-[store]: readings/store.md
 [lodash]: readings/lodash.md
+[store]: readings/store.md
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
 [flux_redux]: readings/flux_redux.md
@@ -114,7 +114,7 @@
 ### Additional Resources
 - [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
-  -	*Note: The 'API' sections are especially useful.*
+  - *Note: The 'API' sections are especially useful.*
 
 [redux_docs]: http://redux.js.org/index.html
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
@@ -166,7 +166,7 @@
 ### Homeworks (30 min)
 - [Rainbow Routes][rainbow_routes]
 - [Submit your tentative full-stack project proposal][tentative-proposal]
-  -	**Due by 9AM Thursday w7d4**
+  - **Due by 9AM Thursday w7d4**
 
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
