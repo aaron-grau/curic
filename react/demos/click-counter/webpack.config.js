@@ -1,24 +1,22 @@
-"use strict";
-
 module.exports = {
-  context: __dirname,
-  entry: "./counter.jsx",
+  entry: "./entry.jsx",
   output: {
     path: "./",
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     loaders: [
       {
         test: [/\.jsx?$/, /\.js?$/],
-        exclude: /node_modules/,
+        exclude: /(node_modules)/,
         loader: 'babel',
         query: {
-          presets: ['react', 'es2015']
+          presets: ['es2015', 'react']
         }
       }
     ]
   },
+  devtool: 'source-map',
   resolve: {
     extensions: ["", ".js", ".jsx" ]
   }
