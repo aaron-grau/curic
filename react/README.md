@@ -5,34 +5,50 @@
 ### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
 
-### Readings (110 min)
-#### Configuration (30 min)
+### Readings (45 min)
+**Tonight only, please do the readings before watching the video lectures**
 - [NPM][npm_configuration] (15 min)
 - [Webpack][webpack_configuration] (10 min)
-- [Babel][babel_configuration] (5 min)
-
-#### ES6 & Lodash (25 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
-- [Lodash][lodash] (5 min)
-
-#### Intro to React and JSX (25 min)
-- [React][intro_to_react] (5 min)
-- [JSX][intro_to_jsx] (10 min)
-- [React Components][intro_to_react_components] (10 min)
-
-#### Components in Detail (30 min)
--	[Declaration][component_declaration] (10 min)
-- [Props and State][props_and_state] (10 min)
-- [Lifecycle Methods][component_lifecycle] (5 min)
-- [Synthetic Events][synthetic_events] (5 min)
 
 [npm_configuration]: readings/npm_configuration.md
 [webpack_configuration]: readings/webpack_configuration.md
-[babel_configuration]: readings/babel_configuration.md
 [import_export]: readings/import_export.md
 [object_destructuring]: readings/object_destructuring.md
-[lodash]: readings/lodash.md
+
+### Video Lectures (68 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [React: Intro][react-intro] (27 min)
+* :movie_camera: [React: Transpilation][react-transpilation] (8 min)
+* :movie_camera: [React: Functional Components][react-func-comps] (22 min)
+* :movie_camera: [React: Lifecycle Methods][react-lifecycle] (11 min)
+
+[react-intro]: https://vimeo.com/188074204
+[react-transpilation]: https://vimeo.com/188087366
+[react-func-comps]: https://vimeo.com/188090786
+[react-lifecycle]: https://vimeo.com/188093789
+
+### Homeworks (75 min)
+- [Getting Started with NPM][getting_started] (30 min)
+- [React Calculator][react_calculator] (45 min)
+
+[getting_started]: homeworks/getting_started
+[react_calculator]: homeworks/questions/calculator.md
+
+### Additional Resources
+- [Babel][babel_configuration]
+- [React][intro_to_react]
+- [JSX][intro_to_jsx]
+- [React Components][intro_to_react_components]
+- [Declaration][component_declaration]
+- [Props and State][props_and_state]
+- [Lifecycle Methods][component_lifecycle]
+- [Synthetic Events][synthetic_events]
+- [Official React Documentation][react_docs]
+	- Most Helpful: REFERENCE Section (Left Sidebar)
+
+[babel_configuration]: readings/babel_configuration.md
 [intro_to_react]: readings/intro_to_react.md
 [intro_to_jsx]: readings/intro_to_jsx.md
 [intro_to_react_components]: readings/intro_to_react_components.md
@@ -40,15 +56,7 @@
 [component_declaration]: readings/component_declaration.md
 [component_lifecycle]: readings/component_lifecycle.md
 [synthetic_events]: readings/synthetic_events.md
-
-<!--  Videos -->
-
-### Homeworks (60 min)
-- [Getting Started with NPM][getting_started] (30 min)
-- [React Calculator][react_calculator] (30 min)
-
-[getting_started]: homeworks/getting_started
-[react_calculator]: homeworks/questions/calculator.md
+[react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
 ### Projects
 - [Widgets][widgets]
@@ -57,15 +65,10 @@
 [widgets]: projects/widgets
 [minesweeper]: projects/react_minesweeper
 
-### Additional Resources
-- [Official React Documentation][react_docs]
-	- Most Helpful: REFERENCE Section (Left Sidebar)
-
-[react_docs]: https://facebook.github.io/react/docs/getting-started.html
-
 ## w7d1
 
 ### Readings (105 min)
+- [Lodash][lodash] (5 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
 - [Store][store] (20 min)
 - [Reducers][reducers] (20 min)
@@ -74,6 +77,7 @@
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 
+[lodash]: readings/lodash.md
 [store]: readings/store.md
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
@@ -102,18 +106,18 @@
 
 [dollar_store_hw]: homeworks/questions/dollar_store
 
+### Additional Resources
+- [Official `redux` Documentation][redux_docs]
+- [Official `react-redux` Documentation][react_redux_docs]
+  - *Note: The 'API' sections are especially useful.*
+
+[redux_docs]: http://redux.js.org/index.html
+[react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
+
 ### Projects
 - [Synthesizer][synthesizer]
 
 [synthesizer]: projects/synthesizer
-
-### Additional Resources
-- [Official `redux` Documentation][redux_docs]
-- [Official `react-redux` Documentation][react_redux_docs]
-  -	*Note: The 'API' sections are especially useful.*
-
-[redux_docs]: http://redux.js.org/index.html
-[react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
 ## w7d2
 
@@ -162,15 +166,10 @@
 ### Homeworks (30 min)
 - [Rainbow Routes][rainbow_routes]
 - [Submit your tentative full-stack project proposal][tentative-proposal]
-  -	**Due by 9AM Thursday w7d4**
+  - **Due by 9AM Thursday w7d4**
 
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
-
-### Projects
-- [Pokedex][pokedex]
-
-[pokedex]: projects/pokedex
 
 ### Additional Resources
 - [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
@@ -179,6 +178,11 @@
   - Check the `API` docs for quick reference
 
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
+
+### Projects
+- [Pokedex][pokedex]
+
+[pokedex]: projects/pokedex
 
 ## w7d4
 
@@ -206,11 +210,6 @@
 
 [a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4
 
-### Projects
-- **Solo:** [BenchBnB][bench_bnb]
-
-[bench_bnb]: projects/bench_bnb
-
 ### Additional Resources
 - [Rails/React/Redux Configuration Checklist][checklist]
 - [React Context][context]
@@ -219,6 +218,11 @@
 [checklist]: readings/checklist.md
 [context]: https://facebook.github.io/react/docs/context.html
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+### Projects
+- **Solo:** [BenchBnB][bench_bnb]
+
+[bench_bnb]: projects/bench_bnb
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
 
@@ -239,10 +243,10 @@
 
 [full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
 
-### Projects
-* **Solo:** Continue [BenchBnB][bench_bnb]
-
 ### Additional Resources
 * See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
 
 [full_stack_project_curriculum]: ../full-stack-project
+
+### Projects
+* **Solo:** Continue [BenchBnB][bench_bnb]
