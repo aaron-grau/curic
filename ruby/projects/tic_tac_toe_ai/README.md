@@ -2,10 +2,11 @@
 
 We're going to write a computer AI that can't be beaten at TicTacToe. Download
 [the skeleton][ttt-skeleton] to get started. In the `skeleton` is a
-`tic_tac_toe.rb` file which contains the TTT solution from w1d2. Today, we will
-be writing a `TicTacToeNode` class which utilizes the `Board` class from the TTT
-solution. We will also be writing a `SuperComputerPlayer` class which builds on
-top of the `ComputerPlayer` class from the TTT solution.
+`tic_tac_toe.rb` file which contains an improved version of the TTT solution from 
+w2d4 in the App Academy Prepwork. Today, we will be writing a `TicTacToeNode` 
+class which utilizes the `Board` class from the TTT solution. We will also be 
+writing a `SuperComputerPlayer` class which builds on top of the `ComputerPlayer` 
+class from the TTT solution.
 
 Once you've downloaded the files from the repo, check that you can run the specs:
 
