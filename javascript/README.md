@@ -208,9 +208,10 @@
 [jquery-04-all-the-ways]: readings/jquery-04-all-the-ways.md
 [jquery-05-data-attributes]: readings/jquery-05-data-attributes.md
 
-### Homeworks (140 min)
+### Homeworks (225 min)
 * [CSS Curriculum 3: Reset & Advanced Selectors][css-3] (40 min)
 * [CSS Curriculum 4: The Display Property & The Box Model][css-4] (55 min)
+* [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
 * [Wacky jQuery][wacky-project] (45 min)
 
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
@@ -238,11 +239,7 @@
 
 ## w6d2
 
-### :clock10: Class will start at 10am! :clock10:
-- **Progress Tracker reports are still due at 9am.**
-
-### Homeworks (235 min)
-* [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
+### Homeworks (150 min)
 * [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
 

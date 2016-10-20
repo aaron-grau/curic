@@ -9,6 +9,8 @@ Estimated time: 2hrs
 
 ## Phase 0: Description
 
+Download [this skeleton][tree-node-rspec].
+
 Write a class named `PolyTreeNode` which represents a node in a
 tree. We'll write a tree node class that can have an arbitrary number
 of children (not just two left/right children). It should have the
@@ -23,16 +25,17 @@ following interface:
     * A `#children` method that returns an array of children of a
       node.
     * A `#value` method that returns the value stored at the node.
-* Write a `parent=` method which (1) sets the parent property and (2)
+* Write a `#parent=` method which (1) sets the parent property and (2)
   adds the node to their parent's array of children (unless we're
   setting parent to `nil`).
 
-Test your code out with [this RSpec directory][tree-node-rspec]. Run
-`bundle exec rspec` to run the tests.
+Run `bundle exec rspec` to run the provided tests. At this point, all
+the specs for `#initialize` and most of the specs for `#parent=` should pass.
+(We'll get to the other specs soon!)
 
 ## Phase 2: Re-assigning Parents
 
-Your `parent=` code likely leaves a mess when re-assigning a
+Your `#parent=` code likely leaves a mess when re-assigning a
 parent. Here's what I mean:
 
 ```ruby
@@ -56,15 +59,15 @@ raise "Bad parent=!" unless n1.children == []
 In addition to (1) re-assigning the parent attribute of the child and
 (2) adding it to the new parent's array of children, we should also
 **remove** the child from the **old** parent's list of children (if
-the old parent isn't `nil`). Modify your `parent=` method to do this.
+the old parent isn't `nil`). Modify your `#parent=` method to do this.
 
-**Make sure all the parent= specs pass before proceeding!**
+**Make sure all the `#parent=` specs pass before proceeding!**
 
 ## Phase 3: Adding Children
 
 The easiest phase!
 
-Write `add_child(child_node)` and `remove_child(child)` methods. These methods should be one- or two-liners that call `#parent=`.
+Write `add_child(child_node)` and `remove_child(child_node)` methods. These methods should be one- or two-liners that call `#parent=`.
 
 ## Phase 4: Searching
 
