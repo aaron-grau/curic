@@ -1,6 +1,6 @@
 # Click Counter Demo
 
-*Download zip [here][demo-raw]*
+*Download zip [here][demo-raw].*
 
 To run:
 * Navigate to project directory and run `npm install`
@@ -8,4 +8,4 @@ To run:
   * (or `webpack -w` if you plan to make changes to the code)
 * Open `index.html` in your browser
 
-[demo-raw]: ./click-counter.zip?raw=true
+[demo-raw]: ../click-counter.zip?raw=true

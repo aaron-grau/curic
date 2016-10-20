@@ -18,7 +18,7 @@
 * :movie_camera: [React: Transpilation][react-transpilation] (8 min)
 * :movie_camera: [React: Functional Components][react-func-comps] (22 min)
 * :movie_camera: [React: Lifecycle Methods][react-lifecycle] (11 min)
-	* [code from click counter demo][click-demo]
+	* :computer: [code from click counter demo][click-demo]
 
 ### Homeworks (75 min)
 - [Getting Started with NPM][getting_started] (30 min)
