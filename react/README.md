@@ -23,6 +23,7 @@
 * :movie_camera: [React: Transpilation][react-transpilation] (8 min)
 * :movie_camera: [React: Functional Components][react-func-comps] (22 min)
 * :movie_camera: [React: Lifecycle Methods][react-lifecycle] (11 min)
+	* :computer: [code from click counter demo][click-demo]
 
 [react-intro]: https://vimeo.com/188074204
 [react-transpilation]: https://vimeo.com/188087366
@@ -48,6 +49,17 @@
 - [Official React Documentation][react_docs]
 	- Most Helpful: REFERENCE Section (Left Sidebar)
 
+### Projects
+- [Widgets][widgets]
+- [Minesweeper][minesweeper]
+
+[widgets]: projects/widgets
+[minesweeper]: projects/react_minesweeper
+
+[click-demo]: demos/click-counter
+
+[npm_configuration]: readings/npm_configuration.md
+[webpack_configuration]: readings/webpack_configuration.md
 [babel_configuration]: readings/babel_configuration.md
 [intro_to_react]: readings/intro_to_react.md
 [intro_to_jsx]: readings/intro_to_jsx.md
@@ -57,13 +69,6 @@
 [component_lifecycle]: readings/component_lifecycle.md
 [synthetic_events]: readings/synthetic_events.md
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
-
-### Projects
-- [Widgets][widgets]
-- [Minesweeper][minesweeper]
-
-[widgets]: projects/widgets
-[minesweeper]: projects/react_minesweeper
 
 ## w7d1
 
