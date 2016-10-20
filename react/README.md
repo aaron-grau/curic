@@ -36,13 +36,6 @@
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/questions/calculator.md
 
-### Projects
-- [Widgets][widgets]
-- [Minesweeper][minesweeper]
-
-[widgets]: projects/widgets
-[minesweeper]: projects/react_minesweeper
-
 ### Additional Resources
 - [Babel][babel_configuration]
 - [React][intro_to_react]
@@ -64,6 +57,13 @@
 [component_lifecycle]: readings/component_lifecycle.md
 [synthetic_events]: readings/synthetic_events.md
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
+
+### Projects
+- [Widgets][widgets]
+- [Minesweeper][minesweeper]
+
+[widgets]: projects/widgets
+[minesweeper]: projects/react_minesweeper
 
 ## w7d1
 
@@ -106,11 +106,6 @@
 
 [dollar_store_hw]: homeworks/questions/dollar_store
 
-### Projects
-- [Synthesizer][synthesizer]
-
-[synthesizer]: projects/synthesizer
-
 ### Additional Resources
 - [Official `redux` Documentation][redux_docs]
 - [Official `react-redux` Documentation][react_redux_docs]
@@ -118,6 +113,11 @@
 
 [redux_docs]: http://redux.js.org/index.html
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
+
+### Projects
+- [Synthesizer][synthesizer]
+
+[synthesizer]: projects/synthesizer
 
 ## w7d2
 
@@ -171,11 +171,6 @@
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 
-### Projects
-- [Pokedex][pokedex]
-
-[pokedex]: projects/pokedex
-
 ### Additional Resources
 - [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
 - [Route Matching](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md)
@@ -183,6 +178,11 @@
   - Check the `API` docs for quick reference
 
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
+
+### Projects
+- [Pokedex][pokedex]
+
+[pokedex]: projects/pokedex
 
 ## w7d4
 
@@ -210,11 +210,6 @@
 
 [a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4
 
-### Projects
-- **Solo:** [BenchBnB][bench_bnb]
-
-[bench_bnb]: projects/bench_bnb
-
 ### Additional Resources
 - [Rails/React/Redux Configuration Checklist][checklist]
 - [React Context][context]
@@ -223,6 +218,11 @@
 [checklist]: readings/checklist.md
 [context]: https://facebook.github.io/react/docs/context.html
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+### Projects
+- **Solo:** [BenchBnB][bench_bnb]
+
+[bench_bnb]: projects/bench_bnb
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
 
@@ -243,10 +243,10 @@
 
 [full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
 
-### Projects
-* **Solo:** Continue [BenchBnB][bench_bnb]
-
 ### Additional Resources
 * See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
 
 [full_stack_project_curriculum]: ../full-stack-project
+
+### Projects
+* **Solo:** Continue [BenchBnB][bench_bnb]
