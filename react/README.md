@@ -5,50 +5,38 @@
 ### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
 
-### Readings (110 min)
-#### Configuration (30 min)
+### Readings (45 min)
+**Tonight only, please do the readings before watching the video lectures**
 - [NPM][npm_configuration] (15 min)
 - [Webpack][webpack_configuration] (10 min)
-- [Babel][babel_configuration] (5 min)
-
-#### ES6 & Lodash (25 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
-- [Lodash][lodash] (5 min)
 
-#### Intro to React and JSX (25 min)
-- [React][intro_to_react] (5 min)
-- [JSX][intro_to_jsx] (10 min)
-- [React Components][intro_to_react_components] (10 min)
+### Video Lectures (68 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [React: Intro][react-intro] (27 min)
+* :movie_camera: [React: Transpilation][react-transpilation] (8 min)
+* :movie_camera: [React: Functional Components][react-func-comps] (22 min)
+* :movie_camera: [React: Lifecycle Methods][react-lifecycle] (11 min)
 
-#### Components in Detail (30 min)
--	[Declaration][component_declaration] (10 min)
-- [Props and State][props_and_state] (10 min)
-- [Lifecycle Methods][component_lifecycle] (5 min)
-- [Synthetic Events][synthetic_events] (5 min)
-
-[npm_configuration]: readings/npm_configuration.md
-[webpack_configuration]: readings/webpack_configuration.md
-[babel_configuration]: readings/babel_configuration.md
-[import_export]: readings/import_export.md
-[object_destructuring]: readings/object_destructuring.md
-[lodash]: readings/lodash.md
-[intro_to_react]: readings/intro_to_react.md
-[intro_to_jsx]: readings/intro_to_jsx.md
-[intro_to_react_components]: readings/intro_to_react_components.md
-[props_and_state]: readings/props_and_state.md
-[component_declaration]: readings/component_declaration.md
-[component_lifecycle]: readings/component_lifecycle.md
-[synthetic_events]: readings/synthetic_events.md
-
-<!--  Videos -->
-
-### Homeworks (60 min)
+### Homeworks (75 min)
 - [Getting Started with NPM][getting_started] (30 min)
-- [React Calculator][react_calculator] (30 min)
+- [React Calculator][react_calculator] (45 min)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/questions/calculator.md
+
+### Additional Resources
+- [Official React Documentation][react_docs]
+	- Most Helpful: REFERENCE Section (Left Sidebar)
+- [Babel][babel_configuration]
+- [React][intro_to_react]
+- [JSX][intro_to_jsx]
+- [React Components][intro_to_react_components]
+-	[Declaration][component_declaration]
+- [Props and State][props_and_state]
+- [Lifecycle Methods][component_lifecycle]
+- [Synthetic Events][synthetic_events]
 
 ### Projects
 - [Widgets][widgets]
@@ -57,9 +45,23 @@
 [widgets]: projects/widgets
 [minesweeper]: projects/react_minesweeper
 
-### Additional Resources
-- [Official React Documentation][react_docs]
-	- Most Helpful: REFERENCE Section (Left Sidebar)
+[npm_configuration]: readings/npm_configuration.md
+[webpack_configuration]: readings/webpack_configuration.md
+[babel_configuration]: readings/babel_configuration.md
+[import_export]: readings/import_export.md
+[object_destructuring]: readings/object_destructuring.md
+[intro_to_react]: readings/intro_to_react.md
+[intro_to_jsx]: readings/intro_to_jsx.md
+[intro_to_react_components]: readings/intro_to_react_components.md
+[props_and_state]: readings/props_and_state.md
+[component_declaration]: readings/component_declaration.md
+[component_lifecycle]: readings/component_lifecycle.md
+[synthetic_events]: readings/synthetic_events.md
+
+[react-intro]: https://vimeo.com/188074204
+[react-transpilation]: https://vimeo.com/188087366
+[react-func-comps]: https://vimeo.com/188090786
+[react-lifecycle]: https://vimeo.com/188093789
 
 [react_docs]: https://facebook.github.io/react/docs/getting-started.html
 
@@ -68,6 +70,7 @@
 ### Readings (105 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
 - [Store][store] (20 min)
+- [Lodash][lodash] (5 min)
 - [Reducers][reducers] (20 min)
 - [Actions][actions] (10 min)
 - [`<Provider/>`][provider] (15 min)
@@ -75,6 +78,7 @@
 - [Containers][containers] (10 min)
 
 [store]: readings/store.md
+[lodash]: readings/lodash.md
 [reducers]: readings/reducers.md
 [actions]: readings/actions.md
 [flux_redux]: readings/flux_redux.md
