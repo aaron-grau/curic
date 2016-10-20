@@ -13,7 +13,7 @@ function for updating its `state` that:
 
 Recall the reducer from our fruit stand app:
 ```js
-// reducers/fruit_reducer.js
+// fruit_reducer.js
 
 const fruitReducer = (state = [], action) => {
   Object.freeze(state)
@@ -54,7 +54,7 @@ Let's update our fruit stand app's `reducer` to handle a few more actions:
 + `"SELL_OUT"` - Someone bought your whole inventory of fruit! Return an empty array.
 
 ```js
-// reducers/fruit_reducer.js
+// fruit_reducer.js
 const fruitReducer = (state = [], action) => {
 	switch(action.type) {
 		case "ADD_FRUIT":
