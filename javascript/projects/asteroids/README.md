@@ -35,7 +35,7 @@ classes/sourcefiles:
     * Installs a timer to call `Game.prototype.step`.
 
 ## Important Note Regarding ES6
- 
+
 ** Do not use ES6 class syntax in this project.**  Understanding prototypal
 inheritance is a main focus of today's project. Because ES6 class syntax
 obscures how prototypal inheritance works, and has some incompatibilities with
@@ -141,8 +141,20 @@ the `Asteroid` class: `Asteroid.COLOR` and `Asteroid.RADIUS`.
 
 Write your `Asteroid` constructor so that the caller specifies the `pos` and
 calls the `MovingObject` superconstructor, setting `color` and `radius` to the
-`Asteroid` defaults, and choosing a random vector for `vel`. You may want to
-consider writing a `Util.randomVec(length)` helper function.
+`Asteroid` defaults, and choosing a random vector for `vel`. Use the following
+helper functions to help you create a random vector.
+
+```js
+// Return a randomly oriented vector with the given length.
+randomVec (length) {
+  const deg = 2 * Math.PI * Math.random();
+  return Util.scale([Math.sin(deg), Math.cos(deg)], length);
+},
+// Scale the length of a vector by the given amount.
+scale (vec, m) {
+  return [vec[0] * m, vec[1] * m];
+}
+```
 
 ```js
 // Other properties are filled in for you.
@@ -159,7 +171,7 @@ such as `this.pos` and `this.vel`. Its the equivalent to calling `super` in a
 class's `#initialize` method in Ruby.
 
 **Note:** Invoking an ES2015 class constructor without `new` (such as `MovingObject` with
-`call()`) throws an error. Hence the need to use ES5 syntax for this project. 
+`call()`) throws an error. Hence the need to use ES5 syntax for this project.
 
 ### `Game`
 
