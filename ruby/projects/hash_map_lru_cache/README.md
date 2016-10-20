@@ -206,7 +206,8 @@ Given these properties of our `LinkedList`, how might we check if our list is em
 Go forth and implement the following methods:
 - `first`
 - `empty?`
-- `#insert(key, val)` - If a link with that key already exists in the list, replace its value with the new value. Otherwise, append a new link with the key and value to that bucket.
+- `#append(key, val)` - Append a new link to the end of the list.
+- `#update(key, val)` - Find an existing link by key and update it's value.
 - `#get(key)`
 - `#include?(key)`
 - `#remove(key)`
@@ -220,18 +221,18 @@ to when you wrote `Array#my_each`, and let's get this thing enumerating. The blo
 Once you have `#each` defined, you can include the `Enumerable` module
 into your class. As long as you have `each` defined, the `Enumerable`
 module gives you `map`, `each_with_index`, `select`, `any?` and all of
-the other enumeration methods for free! (Note: you may wish to refactor your `#insert`, `#get`, and `#include` methods to use your `#each` method for cleaner code!)
+the other enumeration methods for free! (Note: you may wish to refactor your `#update`, `#get`, and `#include` methods to use your `#each` method for cleaner code!)
 
 ## Phase 5: Hash Map (reprise)
 
 So now let's incorporate our linked list into our hash buckets. Instead
 of Arrays, we'll use `LinkedLists` for our buckets. Each linked list will
 start out empty. But whenever we want to insert an item into that
-bucket, we'll just tack it into the end of that linked list.
+bucket, we'll just append it to the end of that linked list.
 
 So here again is a summary of how you use our hash map:
 - Hash the key, mod by the number of buckets (implement the `#bucket` method first for cleaner code - it should return the correct bucket for a hashed key)
-- To **set**, insert a new link with the key and value into the correct bucket. (You can use your `LinkedList#insert` method.)
+- To **set**, insert a new link with the key and value into the correct bucket. (You can use your `LinkedList#append` method.) If the key already exists, you will need to update the existing link.
 - To **get**, check whether the linked list contains the key you're
   looking up
 - To **delete**, remove the link corresponding to that key from the

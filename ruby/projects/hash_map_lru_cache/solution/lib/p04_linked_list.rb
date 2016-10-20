@@ -11,6 +11,15 @@ class Link
   def to_s
     "#{@key}: #{@val}"
   end
+
+  def remove
+    self.prev.next = self.next if self.prev
+    self.next.prev = self.prev if self.next
+    self.next = nil
+    self.prev = nil
+    self
+  end
+
 end
 
 class LinkedList
@@ -49,9 +58,7 @@ class LinkedList
     any? { |link| link.key == key }
   end
 
-  def insert(key, val)
-    each { |link| return link.val = val if link.key == key }
-
+  def append(key, val)
     new_link = Link.new(key, val)
 
     @tail.prev.next = new_link
@@ -61,13 +68,20 @@ class LinkedList
 
     new_link
   end
+  
+  def update(key, val)
+    each do |link|
+      if link.key == key
+        link.val = val
+        return link;
+      end
+    end
+  end
 
   def remove(key)
     each do |link|
       if link.key == key
-        link.prev.next = link.next
-        link.next.prev = link.prev
-        link.next, link.prev = nil, nil
+        link.remove
         return link.val
       end
     end

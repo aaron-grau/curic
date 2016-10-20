@@ -1,5 +1,4 @@
 require 'rspec'
-require_relative 'spec_helper'
 require 'p04_linked_list'
 
 describe LinkedList do
@@ -12,7 +11,7 @@ describe LinkedList do
   let(:list) do
     list = LinkedList.new
     k_v_pairs.each do |key, val|
-      list.insert(key, val)
+      list.append(key, val)
     end
     list
   end
@@ -24,15 +23,28 @@ describe LinkedList do
     end
   end
 
-  describe "#insert" do 
-    it "inserts links" do 
-      empty_list.insert(:first, 1)
+  describe "#append" do
+    it "appends links" do
+      empty_list.append(:first, 1)
       expect(empty_list.empty?).to be false
     end
 
-    it "inserts links in order" do
+    it "appends links in order" do
       expect(list.first.key).to be(:first)
       expect(list.last.key).to be(:third)
+    end
+  end
+
+  describe "#update" do
+    it "updates links" do
+      empty_list.append(:first, 1)
+      empty_list.update(:first, 2)
+      expect(empty_list.first.val).to be 2
+    end
+
+    it "doesn't add new links" do
+      empty_list.update(:first, 2)
+      expect(empty_list.empty?).to be true
     end
   end
 
