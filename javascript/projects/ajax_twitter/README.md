@@ -366,7 +366,7 @@ In `#fetchTweets`, make an AJAX request to `/feed`. In the success handler, call
 an `#insertTweets` method. For simplicity, for each tweet, just append `<li>`
 items with `JSON.stringify(tweet)` into the appropriate `ul`.
 
-As we did before, we're going to have to update our FeedsController to handle JSON requests. Replace the `render :show` line in `FeedsController#search` with the following code:
+As we did before, we're going to have to update our FeedsController to handle JSON requests. Replace the `render :show` line in `FeedsController#show` with the following code:
 
 ```ruby
 respond_to do |format|
