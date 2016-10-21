@@ -18,7 +18,7 @@
 **SearchResultsContainer**
  - Search
  - NoteIndex
-             
+
 **TagContainer**
  - NotebookHeader
   + NoteIndex
@@ -55,7 +55,7 @@
 
 ## Routes
 
-|Path   | Component   | 
+|Path   | Component   |
 |-------|-------------|
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
@@ -70,7 +70,3 @@
 | "/new-tag" | "NewTag" |
 | "/tag-search" | "TagSearch" |
 | "/notebook-search" | "NotebookSearch" |
-
-
-
-
