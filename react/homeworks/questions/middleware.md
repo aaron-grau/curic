@@ -8,7 +8,7 @@ pattern again tomorrow in a more sophisticated way.
 
 Download the provided [skeleton](../../projects/synthesizer/solution.zip?raw=true).
 
-**You will be updating `synthesizer.jsx` and `store/configure_store.js`**
+**You will be updating `synthesizer.jsx` and `store/store.js`**
 
 Test your code at each step using the provided test cases.
 
