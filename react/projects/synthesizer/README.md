@@ -740,7 +740,7 @@ Now your synthesizer plays musical notes and records tracks! Nice.
 ## Phase 6: Jukebox
 
 Let's create a `Jukebox` to display and play our recorded tracks. We're going to
-add to the state a boolean `isPlaying` to indicate if a track is playing or not.
+add to the state a boolean `isPlaying` to indicate if a track is playing or not and add `isPlaying:false` to your preloaded state.
 
 ### Action Creators
 * Create a `actions/playing_actions.js` file.
