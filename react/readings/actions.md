@@ -55,7 +55,7 @@ Let's update our actions to include `"ADD_FRUIT"`, `"ADD_FRUITS"`, `"SELL_FRUIT"
 // actions/fruit_actions.js
 
 export const ADD_FRUIT = "ADD_FRUIT";
-export const ADD_FRUIT = "ADD_FRUIT";
+export const ADD_FRUITS = "ADD_FRUITS";
 export const SELL_FRUIT = "SELL_FRUIT";
 
 export const addFruit = fruit => ({
