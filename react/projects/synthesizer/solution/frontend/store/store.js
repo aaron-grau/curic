@@ -10,10 +10,10 @@ const preloadedState = {
 }
 
 
-const configureStore = () => (
+const configureStore = (state = preloadedState) => (
   createStore(
     rootReducer,
-    preloadedState
+    state
   )
 );
 
