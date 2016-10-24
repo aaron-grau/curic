@@ -2,7 +2,7 @@
 
 [Heroku link][heroku] **Note:** This should be a link to your production site
 
-[Trello link][trello] **Note:** This should link to your trello board
+[Trello link][trello]
 
 [heroku]: http://www.herokuapp.com
 [trello]: https://trello.com/b/ALgfuX0Q/freshernote
