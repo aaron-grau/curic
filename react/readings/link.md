@@ -32,4 +32,4 @@ like any other click handler.
   <a href="/users/123">Michael</a>
 
   ```
-See the [React docs](https://github.com/ReactTraining/react-router/blob/master/docs/guides/IndexRoutes.md) for more information on using `<Link>`.
+See the [React docs](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link) for more information on using `<Link>`.
