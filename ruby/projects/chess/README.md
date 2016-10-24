@@ -30,8 +30,8 @@ position in the board either holds a moving `Piece` or a `NullPiece`
 (`NullPiece` will inherit from `Piece`).
 
 You'll want to create an empty `Piece` class as a placeholder for now. Write
-code for `initialize` so we setup the board with `Piece`s in locations where a
-`Queen`/`Rook`/`Knight`/ ect. will start and empty arrays where `NullPiece`s
+code for `initialize` so we setup the board with new instances of `Piece` in locations where a
+`Queen`/`Rook`/`Knight`/ ect. will start and `nil` where the `NullPiece` 
 will start.
 
 The `Board` class should have a `#move_piece(start_pos, end_pos)` method. This
