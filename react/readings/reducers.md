@@ -255,7 +255,7 @@ export default rootReducer;
 import { createStore } from 'redux';
 import rootReducer from './reducers/root_reducer.js';
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 // initial state
 store.getState(); // { fruits: [], farmers: {} }
