@@ -651,7 +651,7 @@ an unordered list of pokemon names next to corresponding images.
 * Define and export a *stateless*, *functional* component that renders a `<li>` for each pokemon object in the `this.props.pokemon` array.
   * Display the pokemon's name and a *small* image. Use the given stylesheets.
 * Import the container component to `root.jsx`.
-* Nest and rendera `<PokemonIndexContainer />` within your `<Root />` component.
+* Nest and render a `<PokemonIndexContainer />` within your `<Root />` component.
 
 **Test your `PokemonIndex` components**: To start, your app should render and empty
 of pokemon objects reflecting your app's initial state. Look for webpack and console errors when debugging. Next, amend your doc-ready callback to `dispatch` a `REQUEST_ALL_POKEMON` action. Like so:
