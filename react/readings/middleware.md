@@ -130,7 +130,7 @@ clicked. Just memorize the middleware signature and you will be OK.
 
 ## Example: Contacts
 
-Say that we are building a web application that stores a user's contacts. On logging in we will need to fetch all of that user's contacts from our database. We would use middleware to tigger the AJAX request responsible for this action. Our AJAX request and middleware might look something like the following:
+Say that we are building a web application that stores a user's contacts. On logging in we will need to fetch all of that user's contacts from our database. We would use middleware to trigger the AJAX request responsible for this action. Our AJAX request and middleware might look something like the following:
 
 ```js
 // utils/api_contacts_utils.js
