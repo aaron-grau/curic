@@ -174,8 +174,8 @@ of conditions separated by `AND` or `OR`; only rows matching these
 conditions are returned..
 
 SQL provides powerful filtering with `WHERE`; it supports the standard
-comparison and equality operators (`<`, `>`, `>=`, `<=`) as well as
-grouping the logical operators (`AND`, `OR`, `NOT`).
+comparison and equality operators (`<`, `>`, `>=`, `<=`, `=`, `!=`) as well as 
+boolean operators (`AND`, `OR`, `NOT`).
 
 There are 4 main data manipulation operations that SQL provides:
 
