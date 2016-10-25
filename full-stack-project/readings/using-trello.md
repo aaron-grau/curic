@@ -31,6 +31,8 @@ heroku, each feature should also have a checklist with the following items:
 
 Add your project manager to your board so they can access it.
 
+When you are finished, you should have something [like this][sample].
+
 ## Working with your Project Manager
 
 The goal is to complete all 7 key MVP features and ideally finish some bonus
@@ -56,3 +58,4 @@ a specific kind of help would be useful to you, go right ahead!
 
 [trello]: https://trello.com/
 [mvp]: ./mvp-list.md
+[sample]: https://trello.com/b/ALgfuX0Q/freshernote
