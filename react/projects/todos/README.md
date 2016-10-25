@@ -147,7 +147,7 @@ configuration works.
     todo_redux.jsx
   ```
 
-+ Run `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
++ Run `npm init -y` and then `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
   + This command installs the npm packages that we will be using to create our React/Redux app.
 + Set up your `webpack.config.js` file so that your bundle.js is saved in `app/assets/javascripts`
 + Run `webpack -w` to automatically compile your assets into `app/assets/javascripts/bundle.js` as you update them.
