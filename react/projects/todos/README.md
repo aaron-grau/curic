@@ -440,9 +440,9 @@ export default ({ getState, dispatch }) => next => action => {
       const success = data => console.log(data);
       const error = e => console.log(e);
       fetchTodos(success, error);
-      break;
+      return next(action);
     default:
-      next(action);
+      return next(action);
   }
 };
 ```
