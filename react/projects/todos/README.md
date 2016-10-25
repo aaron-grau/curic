@@ -38,7 +38,12 @@ Let's get started!
 ### `Todo`s
 + Create a `Todo` model with a `title` string (required), a `body` string (required), and a `done` boolean (required).
   + Run `rails g model todo title body done:boolean`.
-  + Add the necessary validations to the database (`null: false`) and model (`presence: true`).
+  + Add the necessary validations to the database and model.
+    + NB: Validating boolean fields creates interesting bugs. `null: false` will 
+    fail because `false` is considered `null` by the db, and `presence: true` 
+    will fail because `false` is not considered present by the model. Instead, 
+    skip the database validation and use `validates :boolean_field_name, inclusion: { in: [true, false] }` 
+    at the model level to validate boolean fields.
 + Make sure Postgres is running on your machine
   + Run `rake db:setup`.
   + Run `rake db:migrate`.
