@@ -35,14 +35,14 @@ strategy is:
 * Also keep a list of `@all_seen_words`. Start this with just
   `[source]`.
 * Begin an outer loop which will run as long as `@current_words` is
-  not empty.
-* The first thing to do in the inner loop is to create a new, empty
+  not empty. This will halt our exploration when all words adjacent to `@current_word` have been discovered.
+* Begin an inner loop which creates a new, empty
   list of `new_current_words`. We're going to fill this up with new
   words (that aren't in `@all_seen_words`) that are adjacent (one step
   away) from a word in `@current_words`.
-* To fill up `new_current_words`, begin an inner loop through
+* To fill up `new_current_words`, begin a second inner loop through
   `@current_words`.
-* For each `current_word`, iterate through all
+* For each `current_word`, begin a third inner loop, iterating through all
   `adjacent_words(current_word)`. This is a triply nested loop.
 * For each `adjacent_word`, skip it if it's already in
   `@all_seen_words`; we don't need to reconsider a word we've seen
@@ -53,17 +53,20 @@ strategy is:
   `new_current_words`, and reset `@current_words` to
   `new_current_words`.
 
-Test your word chainer to make sure it returns (1) first the words
+Make sure your `run` method eventually terminates: it should
+eventually enumerate all the words that are reachable from `source`,
+at which point `new_current_words` will come out empty. After setting
+`@current_words = new_current_words` the outermost loop should
+terminate.
+
+After executing `#run`, `@all_seen_words` will contain a list of all 
+the words encountered in our 'exploration.'
+
+Test your word chainer to make sure it outputs (1) first the words
 that are one letter away from `source`, (2) next words that are one
 letter away from words one letter away from `source` (i.e., two
 letters away from source), etc. This is a **breadth first**
 enumeration of words that you can reach from the `source`.
-
-Make sure your `run` method eventually terminates: it should
-eventually enumerate all the words that are reachable from `source`,
-at which point `new_current_words` will come out empty. After setting
-`@current_words = new_current_words`. The outermost loop should
-terminate.
 
 **Call your TA over to check your work**.
 
