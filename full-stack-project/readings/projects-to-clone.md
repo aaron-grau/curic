@@ -1,6 +1,5 @@
 # Project Ideas
 
-- [9gag] (http://www.9gag.com)
 - [500px] (http://www.500px.com)
 - [AirBnB] (http://www.airbnb.com)
 - [Asana] (http://www.asana.com)
