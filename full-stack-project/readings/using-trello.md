@@ -15,6 +15,7 @@ Head to [Trello][trello] and set up an account if you don't already have one,
 it's free! Make a new board for your project and give it the same name.
 
 Make 5 lists:
+
 0. Incomplete MVP Features
 0. MVP Features to Review
 0. Complete MVP Features
