@@ -319,6 +319,8 @@
 ### Additional Resources
 + [Plain English explanation of Big O][stack-overflow-big-o]
   + Read first few answers
++ [Big O Notation][interview-cake-big-o]
+  + Textual review with Ruby code examples
 + [Merge Sort][merge-sort-visual] and [Bubble Sort][bubble-sort-visual] visualization
 + [Big O Cheatsheet][big-o-cheatsheet]
 
@@ -338,6 +340,7 @@
 [big-O-set]: https://vimeo.com/175568481
 [big-O-space]: https://vimeo.com/175565092
 
+[interview-cake-big-o]: https://www.interviewcake.com/article/ruby/big-o-notation-time-and-space-complexity
 [stack-overflow-big-o]: http://stackoverflow.com/questions/487258/plain-english-explanation-of-big-o
 [big-o-cheatsheet]: http://bigocheatsheet.com/
 [algorithm-visual]: http://www.algomation.com/
