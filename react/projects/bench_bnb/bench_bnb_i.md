@@ -34,7 +34,7 @@ frontend:
     bench_bnb.jsx
   ```
 
-* Run `npm init`.
+* Run `npm init -y`.
 * Run `npm install --save` the following packages:
   * `webpack`
   * `react`
