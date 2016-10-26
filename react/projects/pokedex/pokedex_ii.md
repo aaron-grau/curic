@@ -383,7 +383,7 @@ A signification portion of the time you spend working on your full-stack project
 will involve styling. You'll need to use html and css to style your project to
 look good and like the site you're cloning. Let's practice that now!
 
-Style your app to look like the [live demo][live-demo]. ur HTML/CSS
+Style your app to look like the [live demo][live-demo]. Our HTML/CSS
 [curriculum](../../html-css), the [Complete Guide to
 Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), and the
 internet are good resources if you get stuck! :art:
