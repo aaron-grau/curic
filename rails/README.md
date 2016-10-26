@@ -231,7 +231,7 @@
 ### Additional Resources
 * **Bonus Topic:** [Decorators][decorators]
 * [Checkboxes and Id Setters Reference][checkboxes-id-setters]
-
+t
 ### Projects
 * [RedditClone][reddit-clone]
 
@@ -261,8 +261,6 @@
 
 ### Homeworks (60 min)
 * [Capybara][capybara-hw] (45 min)
-* [Implicit Bias Test][bias-quiz] (15 min)
-  * Please take the Gender-Career Quiz to help you prepare for our diversity and inclusion event tomorrow
 
 ### Additional Resources
 * [Spring and Guard Setup][spring-guard]
