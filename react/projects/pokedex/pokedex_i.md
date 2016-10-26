@@ -146,7 +146,7 @@ A GET request to `localhost:3000/api/pokemon/5` should render this:
 As with previous projects, you will need to set up a `package.json` and a
 `webpack.config.js` file to configure your application to use NPM and Webpack.
 
-* Run `npm init -f` to initialize your app's `package.json` with the default
+* Run `npm init -y` to initialize your app's `package.json` with the default
 boilerplace settings.
 * `npm install --save` the following packages:
   * webpack
