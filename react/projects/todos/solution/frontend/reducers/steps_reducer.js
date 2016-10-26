@@ -4,6 +4,7 @@ import { RECEIVE_STEPS,
 import merge from 'lodash/merge';
 
 const StepsReducer = (state = {}, action) => {
+  Object.freeze(state);
   let newState = {};
   switch(action.type) {
     case RECEIVE_STEPS:
