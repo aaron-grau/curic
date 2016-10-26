@@ -377,7 +377,18 @@ adding an `errors` slice to our state.
 * Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
 * Add a `mapStateToProps` function in the `PokemonFormContainer` to provide the `PokemonForm` with a list of errors
 
-## Phase 8: Loading Spinner
+## Phase 8: Style
+
+A solid portion of your two weeks working on your full-stack project will
+involve styling it using html and css to look like the site you're cloning.
+Let's practice that now!
+
+Style your app to look like the [live demo][live-demo]. Our HTML/CSS
+[curriculum](../../html-css), the [Complete Guide to
+Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), and the
+internet are good resources if you get stuck!
+
+## Phase 9: Loading Spinner
 
 In this phase we'll create a 'loading' spinner that displays while we're fetching information from the backend.
 
@@ -389,7 +400,7 @@ In this phase we'll create a 'loading' spinner that displays while we're fetchin
 your actions to the reducer
 * Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
 
-## Phase 9: Bootstrap Poketypes
+## Phase 10: Bootstrap Poketypes
 
 We have a list of pokétypes in two places: our `Pokemon` model and our
 `PokemonForm` React component. This is not very dry. Let's employ a tactic

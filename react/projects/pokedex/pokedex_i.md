@@ -22,8 +22,6 @@ Get yourself oriented.
 * Open up the rails console (`rails c`) to see what's in the database.
 * Start up the rails server (`rails s`) and visit the root url.
 
-:art: Stylesheets have been provided for you in the skeleton! :art:
-
 [skeleton-zip]: ./skeleton.zip?raw=true
 
 ### API Namespace
@@ -649,7 +647,7 @@ an unordered list of pokemon names next to corresponding images.
 
 * Create a `frontend/components/pokemon/pokemon_index.jsx` file.
 * Define and export a *stateless*, *functional* component that renders a `<li>` for each pokemon object in the `this.props.pokemon` array.
-  * Display the pokemon's name and a *small* image. Use the given stylesheets.
+  * Display the pokemon's name and a *small* image.
 * Import the container component to `root.jsx`.
 * Nest and render a `<PokemonIndexContainer />` within your `<Root />` component.
 
