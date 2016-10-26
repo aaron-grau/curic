@@ -353,7 +353,7 @@ This will make it easier to grow our application state.
 
 * Create a new file: `/frontend/reducers/root_reducer.js`
 * Import `combineReducers` from `redux` and our `PokemonReducer`:
-* Call `combineReducer` so that our `PokemonReducer` is responsible for the
+* Call `combineReducers` so that our `PokemonReducer` is responsible for the
 `pokemon` slice of the app state. Like so:
 
   ```js
