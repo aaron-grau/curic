@@ -52,12 +52,12 @@ serves to pass down information (namely the `router`) through props.
   ```
 
 Your `PokemonIndexItem` will now have access to your app's router via
-`this.props.router`! We can now use `router.push(path)` to redirect our user to
+`props.router`! We can now use `router.push(path)` to redirect our user to
 different routes!
 
 Define a `handleClick` function inside of `PokemonIndexItem`. It will take a
 string `url` and return a function that will take an event `e` and use
-`this.props.router` to redirect our user to `url`. Use ES6 currying pattern to
+`props.router` to redirect our user to `url`. Use ES6 currying pattern to
 generate the appropriate click handler.
 
 Your `PokemonIndexItem` should look something like this:
@@ -65,12 +65,12 @@ Your `PokemonIndexItem` should look something like this:
 ```js
 const PokemonIndexItem = (props) => {
 
-  const handleClick = url => e => this.props.router.push(url);
+  const handleClick = url => e => props.router.push(url);
 
   return (
     <li
       className="pokemon-index-item"
-      onClick={handleClick(`/pokemon/${this.props.pokemon.id}`)}>
+      onClick={handleClick(`/pokemon/${props.pokemon.id}`)}>
 			// pokemon information...
     </li>
   );
