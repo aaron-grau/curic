@@ -394,7 +394,7 @@ In this phase we'll create a 'loading' spinner that displays while we're fetchin
 
 * Google search "css spinners" -- pick one you like!
 * Create a new reducer, the `LoadingReducer`
-  * Your `LoadingReducer` shoulw care about all `REQUEST_` and `RECEIVE_` action types
+  * Your `LoadingReducer` should care about all `REQUEST_` and `RECEIVE_` action types
   * When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
 * Use `next(action)` in your `PokemonMiddleware` to always ensure the passing of
 your actions to the reducer
