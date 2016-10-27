@@ -19,7 +19,7 @@ To start, let's create an API utility for `BenchesMiddleware` to use that will r
 
 This function should accept a single argument: `success`, a callback. It should
 then dispatch an `$.ajax` request, passing `success` to the `$.ajax` call.
-Define an error callback, to, for debugging.
+Define an error callback for debugging.
 
 Your function should look something like this:
 
