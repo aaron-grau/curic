@@ -9,7 +9,7 @@ Today's homework is going to focus on controllers.
 A basic rails project has already been made for you - except for the controllers. Download the [skeleton zip][skeleton]. To set up, navigate into the project directory and run:
 ```
 bundle install
-rake db:setup
+bundle exec rake db:setup
 rails s
 ```
 Now we have some basic data and our server is running and ready to take requests.
@@ -30,7 +30,7 @@ Check those out by navigating to `localhost:3000/books`. Whoops! We get this err
 
 Our books' `index` view is expecting there to be a `@books` variable that contains all the books from the database, but it's currently `nil`. This is a job for our controller's `index` action! Get your index working so that `@books` is correctly set to all books and we can see our library's index page.
 
-Now we can see our awesome library of books, but how about deleting them? Try one of those delete buttons and you'll notice another error: `Template is missing`. Rails is automatically searching for our `destroy` template. But we actually don't need one! We don't want to render a delete page -- we just want to update the index page so that our deleted book is no longer showing.
+Now we can see our awesome library of books, but how about deleting them? Try one of those delete buttons and you'll notice another error: `Missing template`. Rails is automatically searching for our `destroy` template. But we actually don't need one! We don't want to render a delete page -- we just want to update the index page so that our deleted book is no longer showing.
 
 When we hit the 'delete' button, it hits our controller's `destroy` action. Using ActiveRecord, find the book in question, delete it, and `redirect_to` the index page. This redirect will override the default search for a `destroy` template. **Hint:** the controller has access to the `params` that are passed through as part of the request. Because we have the `binding_of_caller` and `better_errors` gems installed (as part of the gemfile), you can throw a `fail` in to your `destroy` action, try to delete a book, and use the console that appears in the browser to see exactly what the `params` look like. What param will we use to find the correct book in our ActiveRecord query?
 
@@ -47,7 +47,8 @@ end
 Now we can check our existing routes by running `bundle exec rake routes` in the terminal. We have these `:new` and `:create` routes now, and they are expecting the corresponding controller actions to work properly when we navigate to them. Let's finish up by writing those `new` and `create` controller actions! The `new` action's job is just to direct us to the page with the form to add a book; `create` is what will actually save that new book with the parameters we give it to the database.
 
 Hints:
-- the `create` action needs to `redirect_to` the `index` page if we want to see our new book added to the library)
+- the `new` template has already been made for you and is located at `app/views/books/new.html.erb`
+- the `create` action needs to `redirect_to` the `index` page if we want to see our new book added to the library
 - you can hit the `:new` route by either clicking on the 'Add a book!' link or navigating directly to `localhost:3000/books/new`
 - our `create` action has access to the values submitted through the new book form via the private `book_params` method provided for you in the `BooksController`
 

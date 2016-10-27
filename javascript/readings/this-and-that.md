@@ -1,6 +1,6 @@
 # `this`
 
-Consider this example: 
+Consider this example:
 
 ```javascript
 let cat = {
@@ -26,9 +26,9 @@ Unlike Ruby's `self`, `this` is not optional if you want to access the attribute
 
 If we had used `purr()` instead of `this.purr()` in `purrMore`, the function would have first looked for a **local variable** named `purr` in the scope of `purrMore` and if it hadn't found it there, it would have then looked up its scope chain. `this.purr()` tells `purrMore` to look at `cat`, the object it was invoked on, to find `purr`.
 
-This is because `cat.purrMore` function is called **method-style**, i.e. `object.method(arguments, ...)`. Using method-style invocation (a.k.a. dot-notation) sets `this` to the object preceding the dot. 
+This is because `cat.purrMore` function is called **method-style**, i.e. `object.method(arguments, ...)`. Using method-style invocation (a.k.a. dot-notation) sets `this` to the object preceding the dot.
 
-Calling a function in the traditional **function style** (`f(a, b, c)`) **does not** set `this` properly. In such cases, `this` is set to the global scope (either `window` or `global`). 
+Calling a function in the traditional **function style** (`f(a, b, c)`) **does not** set `this` properly. In such cases, `this` is set to the global scope (either `window` or `global`).
 
 ```js
 var purrLots = cat.purrMore;
@@ -106,7 +106,7 @@ times(10, cat.ageOneYear.bind(cat));
 `bind` works just like the closure we made, in which `cat#ageOneYear` is called method style on the `cat`
 object. `cat.ageOneYear.bind(cat)` returns a closure that will still be called function-style, but which calls `cat.ageOneYear` method-style inside of it.
 
-Note that you can bind functions to any scope, not just `this`: 
+Note that you can bind functions to any scope, not just `this`:
 
 ```javascript
 const crazyMethod = cat.ageOneYear.bind(dog);

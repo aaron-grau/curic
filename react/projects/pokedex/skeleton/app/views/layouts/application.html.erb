@@ -12,19 +12,7 @@
   <img src="./assets/pokedex-header.png" alt="pokedex">
   <div></div>
 </header>
-<nav>
-  <ul>
-    <li><a href="/">Pokedex</a></li>
-    <li><a href="/#/">Create Pokemon</a></li>
-  </ul>
-</nav>
 
-  <script>
-    window.pokemonTypes = {'pokemonTypes': []};
-    <% Pokemon::TYPES.each do |type| %>
-      window.pokemonTypes['pokemonTypes'].push("<%= type.html_safe %>");
-    <% end %>
-  </script>
 
   <%= yield %>
 

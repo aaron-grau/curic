@@ -1,3 +1,5 @@
-json.array!(@pokemon) do |pokemon|
-  json.partial!('pokemon', pokemon: pokemon, show_toys: false)
+@pokemon.each do |poke|
+  json.set! poke.id do
+    json.extract! poke, :id, :name, :image_url
+  end
 end

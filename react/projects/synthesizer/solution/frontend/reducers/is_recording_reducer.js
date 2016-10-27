@@ -2,7 +2,7 @@ import  { START_RECORDING,
           STOP_RECORDING
         } from '../actions/tracks_actions';
 
-const isRecording = (state = false, action) => {
+const isRecordingReducer = (state = false, action) => {
   switch(action.type) {
     case START_RECORDING:
       return true;
@@ -13,4 +13,4 @@ const isRecording = (state = false, action) => {
   }
 };
 
-export default isRecording;
+export default isRecordingReducer;

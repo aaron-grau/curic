@@ -17,8 +17,8 @@ class Game
   def play
     until board.checkmate?(current_player)
       begin
-        from_pos, to_pos = players[current_player].make_move(board)
-        board.move_piece(current_player, from_pos, to_pos)
+        start_pos, end_pos = players[current_player].make_move(board)
+        board.move_piece(current_player, start_pos, end_pos)
 
         swap_turn!
         notify_players

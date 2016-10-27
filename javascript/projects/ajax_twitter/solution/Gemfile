@@ -22,6 +22,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 group :development do
+  gem 'byebug'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'

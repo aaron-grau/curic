@@ -19,7 +19,7 @@ it.
 
 ## Setting up the Project Repo
 
-0. Create a new Rails project. 
+0. Create a new Rails project.
 	-	`--skip-turbolinks=true`
 	- `--database=postgresql`
 0. `git init` a repository for your project.
@@ -40,21 +40,19 @@ materials. The main document there will be a development README that outlines
 all the major facets of your development process.
 
 0. Create a `docs` folder in your project directory.
-0. The `docs` directory must contain the following: 
+0. The `docs` directory must contain the following:
 
 	0. A `README.md` file. This is your Development README, which will:
-		-	outline the architecture,
 		- show wireframes,
 		- describe features, and
 		- outline a development timeline for your application.
 
-		**Note:** this README is NOT the same as the Production README that lives at 
+		**Note:** this README is NOT the same as the Production README that lives at
 		the project's root directory.
 
-	0. The following files, which should be linked to in the Development README: 
+	0. The following files, which should be linked to in the Development README:
 		- `api-endpoints.md`
-		- `component-heirarchy.md`
-		- `redux-structure.md`
+		- `component-hierarchy.md`
 		- `sample-state.md`
 		- `schema.md`
 
@@ -82,25 +80,27 @@ would be absolutely necessary for the app to be marketable. Your MVP section mus
 - `/wireframes`
 
 Links to wireframes of your application's UI views. Each wireframe should be a
-basic representation of the layout and information presented in a view. If you
-plan to use nested React components, clearly indicate the hierarchy in your
+basic representation of the layout and information presented in a view. Since you will
+certainly use nested React components, clearly indicate the hierarchy in your
 wireframes. We should be able to see every view of your website using your
 wireframes, and how each view is reached.
 
-**NB**: You can use any tool you like to create your wireframes (pen and paper are
-completely acceptable). If your writing looks like chicken scratches, try
-[draw.io][draw.io].
+**NB**: Your wireframes will be viewed not only by yourself and the App Academy
+staff, but potentially future employers. If you are going to use pen and
+paper, it should look great. Otherwise, we recommend [draw.io][draw.io].
 
 [draw.io]: https://www.draw.io/
 
 ### React Components
 
-- `component-heirarchy.md`
+- `component-hierarchy.md`
 
 In addition to the wireframes, you should diagram a tree indicating your
-application's overall component structure. 
+application's overall component structure.
 
-Discuss how you will nest your components. If components will need containers, indicate what state and dispatch props they will need. For presentational components, discuss what props and state they will need.
+Discuss how you will nest your components. If components will need containers,
+indicate what state and dispatch props they will need. For presentational
+components, discuss what props and state they will need.
 
 Map out your React Routes with their respective components and paths.
 
@@ -113,20 +113,6 @@ See the sample project proposal for an example of this.
 Create a basic illustration of your state shape. Think about what information
 you need to store for your app to work, and how best to organize it to minimize
 duplication and maximize ease of access.
-
-### Redux Architecture
-
-- `redux-structure.md`
-
-Discuss how information will move through your application state and where it
-will be stored.
-
-Organize your discussion around each `slice` (i.e. reducer) of state that will
-be needed. You should be able to use this document to trace an action starting
-with where it was dispatched, through any middlewares and API utils involved,
-through the reducer, and finally to the components that update as a result. This
-is important because once you start implementing your redux loops, that's
-precisely what you'll need to do.
 
 ### DB Schema
 
@@ -149,15 +135,20 @@ endpoint, and what information will be returned.
 
 Create a section in your proposal README for each `phase` of your project to develop an implementation timeline.
 
-Refer back to your MVP and group the features into logical phases with detailed lists of each task necessary to develop the feature. This will be
-the road map for your application. Rather than building the entire project all
-at once, you're going to implement one feature at a time. You should have a
-working app at the end of each phase (even if not all of your features are in
-yet). For each phase, write a brief game plan and list out any third-party APIs, front-end and back-end components you will need to implement.
+Refer back to your MVP and group the features into logical phases. Rather than
+building the entire project all at once, you're going to implement one feature
+at a time. You should have a working app at the end of each phase (even if not
+all of your features are in yet).
+
+This is crucial both here and in the industry. The truth is, one never knows
+how long implementing any particular phase will take. Constraints change.
+Timelines are shortened without warning. An app after any phase must be able
+to stand on it's on. We call this building in 'slices' instead of 'layers'.
 
 ## Submission
 
-When you've finished setting up your full-stack project repo, add it to Progress Tracker and email your instructors (instructors-sf@appacademy.io or
-instructors-ny@appacademy.io).  A TA will review each proposal and leave
-their comments in issues on the project repo. Be prepared to respond to
-feedback, and keep your README up to date as you make progress. Happy hunting!
+When you've finished setting up your full-stack project repo, add it to Progress
+Tracker and email your instructors (instructors-sf@appacademy.io or
+instructors-ny@appacademy.io).  A TA will review each proposal and leave their
+comments in issues on the project repo. Be prepared to respond to feedback, and
+keep your README up to date as you make progress. Happy hunting!

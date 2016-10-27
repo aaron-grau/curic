@@ -6,13 +6,15 @@
   * **W8D1**: Submit [full-stack project proposal][readings] by 9am
     * [Sample Proposal][sample-proposal]
     * [MVP Checklist][mvp-checklist]
-  * **W9D2**: Peer Review 
+    * [Trello][trello]
+  * **W9D2**: Peer Review
 
 [tentative-proposal]: readings/tentative-project-proposal.md
 [good-projects]: readings/projects-to-clone.md
 [readings]: readings/full-stack-project-proposal.md
 [sample-proposal]: demos/sample_project_proposal
 [mvp-checklist]: readings/mvp-list.md
+[trello]: readings/using-trello.md
 
 ## Resources
   * [Deploying to Heroku][heroku-deployment]

@@ -93,7 +93,6 @@ $.ajax({
   },
   success(widgetData) {
     console.log("Widget created!");
-
     // `create` action should `render json: @widget`
     // this gives the client access to the `id` attribute issued by
     // the server.

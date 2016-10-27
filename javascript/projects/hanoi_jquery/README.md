@@ -15,7 +15,7 @@ Run `webpack --watch ./js/main.js ./js/bundle.js`. Include the resultant bundled
 a `<script>` in `index.html`. To ensure that all's well, add a `console.log()` to
 the `main.js` file and check that it prints in our browser's terminal.
 
-Write a `hanoi-view.js` file, and a `HanoiView` class. Pass in a `HanoiGame` and
+Write a `hanoi-view.js` file, and a `View` class. Pass in a `HanoiGame` and
 a DOM element. Require it in the `main.js` file.
 
 Write a `View.prototype.setupTowers` method to fill the main DOM element with a

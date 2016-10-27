@@ -1,20 +1,22 @@
 import { RECEIVE_TODOS,
          RECEIVE_TODO,
          REMOVE_TODO,
-         TODO_ERROR
-       } from '../actions/todo_actions';
+         TODO_ERROR } from '../actions/todo_actions';
+import merge from 'lodash/merge';
 
 const TodosReducer = (state = {}, action) => {
+  Object.freeze(state);
+  let newState = {};
   switch(action.type){
     case RECEIVE_TODOS:
-      let newState = {};
       action.todos.forEach(todo => newState[todo.id] = todo);
       return newState;
     case RECEIVE_TODO:
       const newTodo = {[action.todo.id]: action.todo};
-      return Object.assign({}, state, newTodo);
+      newState = merge({}, state, newTodo);
+      return newState;
     case REMOVE_TODO:
-      newState = Object.assign({}, state);
+      newState = merge({}, state);
       delete newState[action.todo.id];
       return newState;
     case TODO_ERROR:

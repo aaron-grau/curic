@@ -193,7 +193,7 @@ phone numbers.  There is a bootstrap class for this.
 
 0. Create a jumbotron. Give it a snappy `<h1>`.
 
-0. Use two columns for text in the jumbotron. Like [this][about].
+0. Use two columns for text in the jumbotron.
 
 0. After your jumbotron, add a 'meet the team' section, this will
 require a new `row`. Use an `<h1>` to start the section's content.
@@ -210,7 +210,6 @@ name of the team member below the image in an `<h2>`.
 easy as adding the class `text-center` to the `row` `<div>`.
 
 [jumbo]: http://getbootstrap.com/components/#jumbotron
-[about]: ../images/bootstrap-jumbo.png
 [images]: http://getbootstrap.com/css/#images
 
 ## Phase 7: Index/Home Page

@@ -1,8 +1,4 @@
-# Rails Lite II: Bonus
-
-Welcome to the bonus! From here on out, things will be a bit different.
-These phases are meant to be harder than the previous ones, so don't be
-discouraged if you're struggling with them. Keep at it! And use those specs!
+# Rails Lite II
 
 ## Phase VII: Finish ActiveRecord Lite!
 
@@ -29,7 +25,7 @@ We won't provide any more detailed instructions at this stage as this is a bonus
 
 [flash-docs]: http://guides.rubyonrails.org/action_controller_overview.html#the-flash
 
-## Phase IX: Rack Middleware - Exceptions ##
+## Phase IX: Rack Middleware - Exceptions
 
 Let's add some middleware to our application to make it even more powerful! Right now if our application encounters a Runtime exception, the server just returns `Internal Server Error`. This is a pretty scary and unhelpful error. Let's make a middleware that returns a nicely formatted error page just like Rails does! Your middleware should minimally render the following:
 - The stack trace
@@ -45,7 +41,7 @@ Hints:
 
 [exception-docs]: http://ruby-doc.org/core-2.1.2/Exception.html
 
-## Phase X: Rack Middleware - Static Assets ##
+## Phase X: Rack Middleware - Static Assets
 
 Let's make another middleware. This time, our middleware will make static assets such as images, Javascript, and CSS files available client-side. You app should be able to find resources in a specific directory (ex. `/lib/public/yourAsset.jpg`) and serve them up via HTTP, (ex. `localhost:3000/public/yourAsset.jpg`).
 
@@ -85,7 +81,7 @@ Double extra credit if you make an app with this framework.
 
 Triple extra credit if you implement `rails new`.
 
-## Phase XII: Monster Bonus
+## Phase XII: Bonus
 
 Time to become a rails guru! Some more awesome `rails_lite` features:
 - Right now your app can't handle "PATCH" or "DELETE" requests. Fix this!

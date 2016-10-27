@@ -9,29 +9,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-def create_random_toy!(pokemon)
-  Toy.create!(
+def create_random_item!(pokemon)
+  Item.create!(
     pokemon_id: pokemon.id,
-    name: Faker::Superhero.name,
+    name: Faker::Commerce.product_name,
     price: (1..100).to_a.sample,
     happiness: (1..100).to_a.sample,
     image_url: %w(
-      http://placekitten.com/200/300?image=1
-      http://placekitten.com/200/300?image=2
-      http://placekitten.com/200/300?image=3
-      http://placekitten.com/200/300?image=4
-      http://placekitten.com/200/300?image=5
-      http://placekitten.com/200/300?image=6
-      http://placekitten.com/200/300?image=7
-      http://placekitten.com/200/300?image=8
-      http://placekitten.com/200/300?image=9
-      http://placekitten.com/200/300?image=10
-      http://placekitten.com/200/300?image=11
-      http://placekitten.com/200/300?image=12
-      http://placekitten.com/200/300?image=13
-      http://placekitten.com/200/300?image=14
-      http://placekitten.com/200/300?image=15
-      http://placekitten.com/200/300?image=16
+      /assets/lucky_egg.png
+      /assets/pokeball.png
+      /assets/pokemon_berry1.png
+      /assets/pokemon_berry2.png
     ).sample
   )
 end
@@ -1392,7 +1380,6 @@ ActiveRecord::Base.transaction do
 
   Pokemon.create!(pokemon.shuffle)
   Pokemon.all.each do |pokemon|
-    3.times { create_random_toy!(pokemon) }
+    3.times { create_random_item!(pokemon) }
   end
 end
-

@@ -4,10 +4,10 @@ Object destructuring in ES6 makes it possible to extract parts of an object and
 assign those parts to different variables. For example:
 
 ```javascript
-const { a, b } = { a: 1, b: 2 };
+const { a, b } = {a: 1, b: 2};
 
-a; // 1
-b; // 2
+a; //=> 1
+b; //=> 2
 ```
 
 It works by matching object properties, so we don't have to worry about order
@@ -15,9 +15,9 @@ and can choose exactly what we want. If we only wanted to save some
 properties, we could do this:
 
 ```javascript
-const { a, c } = { a: 1, b: 2, c: 3 };
-a; // 1
-c; // 3
+const { a, c } = {a: 1, b: 2, c: 3};
+a; //=> 1
+c; //=> 3
 ```
 
 It also works for nested objects:
@@ -25,26 +25,27 @@ It also works for nested objects:
 ```js
 const {a: { b }} = {a: {b: 2}};
 
-a; // undefined (gasp)
-b; // 2
+a; //=> undefined (gasp)
+b; //=> 2
 ```
-To reference both `a` and `b` above, we need to do:
+To reference both `a` and the nested `b` from the example, we need to do:
 
 ```js
-const { a } = { a: {b} } = { a: {b: 2} };
-a; // {b: 2}
-b; // 2
+const { a } = {a: { b }} = {a: {b: 2}};
+a; //=> {b: 2}
+b; //=> 2
 
 ```
+
 This works even if we have a variable or function that returns an object.
 
 ```javascript
 const multiply = n => { one: n, two: n * 2, three: n * 3 };
 
 const { one, two, three } = multiply(10);
-one; // 10
-two; // 20
-three; // 30
+one; //=> 10
+two; //=> 20
+three; //=> 30
 ```
 
 ```javascript
@@ -57,9 +58,9 @@ this.props = {
 };
 
 const { userId, user: { fname, lname } } = this.props;
-userId; // 1
-fname; // 'Ned'
-lname; // 'Ruggeri'
+userId; //=> 1
+fname; //=> 'Ned'
+lname; //=> 'Ruggeri'
 ```
 
 It's much nicer to have these variables to refer to instead of having to call

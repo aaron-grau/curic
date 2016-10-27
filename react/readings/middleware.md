@@ -1,20 +1,24 @@
 # Redux Middleware
 
-Middleware, as you saw with Rack, is software that intercepts a process, either
+Middleware, as you saw with [Rack][rack], is software that intercepts a process, either
 to redirect it or generate some side effect.
 
 In Redux, middleware specifically refers to an `enhancer` passed to the Store
 via `createStore()`. When a `dispatch` is made, the middleware intercepts the
-`action` before it reaches the `reducer`. The middleware can then:
+[`action`][action] before it reaches the [`reducer`][reducers]. The middleware can then:
 - **resolve the action itself** (for example, by making an AJAX request),
 - **pass along the action** (if the middleware isn't concerned with it),
-- **generate a side effect** (such as logging debugging information), 
+- **generate a side effect** (such as logging debugging information),
 - **send another dispatch** (if the action triggers other actions),
-- or some combination thereof. 
+- or some combination thereof.
 
 We will use Redux middleware for logging information about the store and making
 asynchronous API requests, but you can also use it for crash reporting, routing,
 and many other applications.
+
+[rack]:../../rails/readings/rack.md
+[action]: ./actions.md
+[reducers]: ./reducers.md
 
 ## Applying Middleware to a Redux Store
 
@@ -27,23 +31,30 @@ Consider the following example, where we import a third-party `logger`
 middleware:
 
 ```js
+  // store/store.js
+
 import { createStore, applyMiddleware } from 'redux';
 import RootReducer from 'reducers';
 import createLogger from 'redux-logger';
 
 const logger = createLogger();
 
-let store = createStore(
-  RootReducer,
-  applyMiddleware(logger);
+let configureStore = (preloadedState = {}) => (
+  createStore(
+    RootReducer,
+    preloadedState,
+    applyMiddleware(logger)
+  )
 );
+
+export default configureStore;
 ```
 
 Any actions dispatched to the `store` pass through our `logger` middleware,
 which prints the store's state before and after the `action` is processed.
 
-**Note:** `applyMiddleware()` accepts multiple arguments, so we can also apply 
-more middleware if necessary. 
+**Note:** `applyMiddleware()` accepts multiple arguments, so we can also apply
+more middleware if necessary.
 
 ## Middleware Signature
 
@@ -52,8 +63,8 @@ will sometimes need to roll your own. All middleware functions need to conform
 to  the same signature in order to be compatible with the Store and
 other middlewares.
 
-A [**function signature**][signature] is the set of inputs and output of a 
-function. A Redux middleware must always have the following signature: 
+A [**function signature**][signature] is the set of inputs and output of a
+function. A Redux middleware must always have the following signature:
 
 ```js
 const middleware = store => next => action => {
@@ -87,10 +98,10 @@ are working as expected. This middleware should:
 - return a function that receives the `next` middleware,
 -	which should itself return a function receiving the `action`.
 
-The body of the innermost function is where we want to do our logging. That function should: 
+The body of the innermost function is where we want to do our logging. That function should:
 - `console.log` the `action`
 - `console.log` the result of `store.getState()` (pre-dispatch)
-- call `next(action)` to pass the action on to the rest of the middlewares, and 
+- call `next(action)` to pass the action on to the rest of the middlewares, and
 eventually, the reducer.
 - save the `result` of the `next(action)` variable, to be returned later.
 - `console.log` the new `store.getState()`
@@ -107,7 +118,7 @@ const logger = store => next => action => {
   console.log('State post-dispatch:', store.getState());
 
   return result;
-} 
+}
 ```
 
 Now, whenever we dispatch an action, we'll see its effect on the Store.
@@ -115,5 +126,55 @@ Now, whenever we dispatch an action, we'll see its effect on the Store.
 I know that those last few paragraphs probably seemed crazy, and they are.
 Understanding middleware takes practice, so don't worry if every detail hasn't
 clicked. Just memorize the middleware signature and you will be OK.
+
+
+## Example: Contacts
+
+Say that we are building a web application that stores a user's contacts. On logging in we will need to fetch all of that user's contacts from our database. We would use middleware to trigger the AJAX request responsible for this action. Our AJAX request and middleware might look something like the following:
+
+```js
+// utils/api_contacts_utils.js
+
+fetchContacts = (success, error) => ({
+  $.ajax({
+    method: 'GET',
+    url: 'api/contacts'
+    success,
+    error
+  })
+});
+
+export default fetchContacts;
+```
+
+```js
+// middleware/contacts_middleware.js
+
+import fetchContacts from '../utils/api_contacts_utils'
+import { receiveContacts, RECEIVE_CONTACTS } from '../actions/contacts_actions'
+
+const contactsMiddleware = ({ getState, dispatch }) => next => action => {
+  const successCallback = contacts => {
+    dispatch(receiveContacts(contacts))
+  };
+  const errorCallback = errors => console.log(errors);
+
+  switch (action.type) {
+    case RECEIVE_CONTACTS:
+      fetchContacts(successCallback, errorCallback);
+      return next(action)
+    default:
+      return next(action)
+  };
+};
+
+export default contactsMiddleware;
+```
+In the above example when we have an action type of `"RECEIVE_CONTACTS"` the `contactsMiddleware` makes an AJAX request, if this request is successful we dispatch an action to receive the contacts, if it is unsuccessful we log the errors on our console. Note that since we just use `dispatch` we have de-structured the `store` argument into `{ getState, dispatch }`.  
+
+
+
+
+
 
 [signature]: https://developer.mozilla.org/en-US/docs/Glossary/Signature/Function

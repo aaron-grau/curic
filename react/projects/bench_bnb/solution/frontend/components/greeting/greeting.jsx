@@ -11,20 +11,13 @@ const sessionLinks = () => (
 
 const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-group">
-		<h2 className="header-name">Hi, {currentUser.username}!</h2>
-    <h3 className="header-favorites">
-      You have {currentUser.favorite_benches.length} favorite benches
-    </h3>
-		<button className="header-button" onClick={logout}>Log Out</button>
+    <h2 className="header-name">Hi, {currentUser.username}!</h2>
+    <button className="header-button" onClick={logout}>Log Out</button>
 	</hgroup>
 );
 
-const Greeting = ({ currentUser, logout }) => {
-  if (currentUser) {
-    return personalGreeting(currentUser, logout);
-  } else {
-    return sessionLinks();
-  }
-}
+const Greeting = ({ currentUser, logout }) => (
+  currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
+);
 
 export default Greeting;

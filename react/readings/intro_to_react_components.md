@@ -45,4 +45,4 @@ In order to create React components, you will need to require the `react` and
 `react-dom` packages from [`npm`][npm].
 
 [simple_component]: ../demos/simple_component
-[npm]:./npm_configuration
+[npm]:./npm_configuration.md

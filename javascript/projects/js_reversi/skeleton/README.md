@@ -1,15 +1,7 @@
-# REVERSI JS STYLE
+# Reversi in JavaScript
 
-Before beginning, install dependencies with
+Before beginning, install dependencies with: `npm install`.
 
-```
-npm install
-```
+To play the game, run: `npm start`.
 
-To play the game, run
-
-    npm start
-
-To run the tests, run
-
-    npm test
+To run the tests, run: `npm test`.

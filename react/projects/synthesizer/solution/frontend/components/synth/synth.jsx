@@ -16,7 +16,6 @@ class Synth extends React.Component {
   }
 
   onKeyUp(e) {
-    // let { isRecording, notes, keyDown, addNotes } = this.props;
     this.props.keyReleased(e.key);
 
     if (this.props.isRecording) {
@@ -25,7 +24,6 @@ class Synth extends React.Component {
   }
 
   onKeyDown(e) {
-    // let { isRecording, notes, keyDown, addNotes } = this.props;
     this.props.keyPressed(e.key);
 
     if (this.props.isRecording) {
@@ -33,7 +31,7 @@ class Synth extends React.Component {
     }
   }
 
-  playNotes () {
+  playNotes() {
     NOTE_NAMES.forEach((note, idx) => {
       if (this.props.notes.indexOf(note) !== -1) { // play notes present in state
         this.notes[idx].start();
@@ -45,9 +43,9 @@ class Synth extends React.Component {
 
   render() {
     this.playNotes();
-    const noteKeys = NOTE_NAMES.map((note, idx) => {
-      return (<NoteKey key={idx} note={note} pressed={this.props.notes.includes(note)}/>);
-    });
+    const noteKeys = NOTE_NAMES.map((note, idx) => (
+      <NoteKey key={idx} note={note} pressed={this.props.notes.includes(note)}/>
+    ));
 
     return (
       <div className="synth">

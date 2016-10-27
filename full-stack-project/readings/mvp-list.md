@@ -30,14 +30,6 @@ Make sure outline your MVP features using the following structure when writing y
 
 ## Required Features for Approved Clones
 
-#### 9gag
-* Post Pictures
-* Comment
-* Upvote/Downvote
-* Tags
-* **Bonus**: Tags Index
-* **Bonus**: User Profile with past activity
-
 #### 500px
 * Post Pictures
 * Follows
@@ -78,7 +70,7 @@ Make sure outline your MVP features using the following structure when writing y
 * Schedule
 * **Bonus**: Upload Documents & Files
 * **Bonus**: Messaging within a basecamp
- 
+
 #### Behance
 * Portfolio Viewing
 * Explore Portfolios
@@ -87,7 +79,7 @@ Make sure outline your MVP features using the following structure when writing y
 * **Bonus**: Tags
 * **Bonus**: Follows
 * **Bonus**: Views
- 
+
 #### BillPin
 * Friends
 * Feed with transactions
@@ -187,7 +179,7 @@ Make sure outline your MVP features using the following structure when writing y
 * Bookshelves
 * Reviews
 * Read Status (will read, have read, etc.)
-* **Bonus**: Ratings
+* **Bonus**: Search across multiple models
 * **Bonus**: Tags
 
 #### Indiegogo
@@ -338,10 +330,11 @@ Make sure outline your MVP features using the following structure when writing y
 
 #### Soundcloud
 * Song CRUD
-* Continuous play while navigating site
+* Playing songs with progress bar with continuous play
 * Comments
 * User pages
 * **Bonus**: Wave Forms
+* **Bonus**: Playlists
 * **Bonus**: Likes
 
 #### SplitWise
@@ -410,10 +403,11 @@ similar but not identical.
 * **Bonus**: User show page (blog)
 
 #### Untappd
+* Drinks CRUD
 * Checkins / reviews
 * Review feed
-* Friends
 * Profile
+* **Bonus**: Friendships
 * **Bonus**: Search
 * **Bonus**: Venues
 * **Bonus**: Badges

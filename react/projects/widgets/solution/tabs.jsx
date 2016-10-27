@@ -26,7 +26,7 @@ class Headers extends React.Component {
 
     );
  }
-};
+}
 
 export default class Tabs extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ export default class Tabs extends React.Component {
     this.state = {
       selectedPane: 0
     };
-    this.selectTab = this.selectTab.bind(this)
+    this.selectTab = this.selectTab.bind(this);
   }
 
   selectTab(num) {

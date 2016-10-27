@@ -5,12 +5,7 @@ import { updateStep, destroyStep } from '../../actions/step_actions';
 
 const mapDispatchToProps = (dispatch, { step }) => ({
   destroyStep: () => dispatch(destroyStep(step)),
-  toggleStep: () => {
-    const toggledStep = Object.assign({}, step, {
-      done: !step.done
-    });
-    dispatch(updateStep(toggledStep))
-  }
+  updateStep: updatedStep => dispatch(updateStep(updatedStep))
 });
 
 export default connect(

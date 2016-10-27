@@ -6,7 +6,7 @@ You will want to refer [the configuration readings][readings-list] throughout.
 
 ## Initialize NPM
 
-In your project directory, run: 
+In your project directory, run:
 
 ```
 npm init --yes
@@ -18,7 +18,7 @@ npm init --yes
 npm install --save package1 package2 etc
 ```
 
-You'll need the following packages: 
+You'll need the following packages:
 
 - `webpack`
 - `react`
@@ -28,7 +28,7 @@ You'll need the following packages:
 - `babel-preset-es2015`
 - `babel-preset-react`
 
-You might also need (in other projects): 
+You might also need (in other projects):
 
 - `redux`
 - `react-redux`
@@ -51,5 +51,5 @@ In `webpack.config.js`:
 Run `npm run webpack` in your terminal, then open `index.html`. Congratulations:
 you're up and running!
 
-[readings-list]: ../../README.md#configuration-35-min
+[readings-list]: ../../README.md#configuration-30-min
 [skeleton]: skeleton.zip?raw=true

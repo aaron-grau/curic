@@ -19,7 +19,10 @@ classes. I recommend `import`ing all objects into your JSX files aliased as
 Alright, let's get started!
 
 [live-solution]: http://appacademy.github.io/curriculum/minesweeper/index.html
-[minesweeper-js]: https://github.com/appacademy/curriculum/blob/master/react/projects/react_minesweeper/solution/minesweeper.js
+[minesweeper-js]: ./solution/minesweeper.js
+
+
+[Live Demo!][live-solution]
 
 ## Phase 0: Setup
 

@@ -117,7 +117,7 @@ because of [SQL ternary logic][sql-ternary-logic].
 
 #### Step 2: `not_duplicate_response`
 
-Next use `#sibling_responses` to write `#respondent_already_answered?`.
+Next use `Response#sibling_responses` to write `Response#respondent_already_answered?`.
 This is a predicate method that checks to see if any sibling
 [`exists?`][exists?-docs] with the same `respondent_id`.
 
