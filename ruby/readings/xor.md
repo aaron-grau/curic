@@ -72,7 +72,7 @@ which may need to be offset with other methods where a hashing function needs to
 have a more unpredictable 'spread' of hashed values.
 
 What separates XOR from other bit-wise operators is uniformity - Only XOR returns
-`1` and `0` in equal probability, given any two inputs (see truth tale below). This allows it to
+`1` and `0` in equal probability, given any two inputs (see truth table below). This allows it to
 produce more uniformly distributed values, distinguishing it as a desirable
 hashing method.
 
