@@ -31,12 +31,12 @@ const _nullUser = {
 
 const SessionReducer = (state = _nullUser, action) => {
   switch(action.type) {
-    case SessionConstants.RECEIVE_CURRENT_USER:
+    case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
       return merge({}, _nullUser, {currentUser});
-    case SessionConstants.LOGOUT:
+    case LOGOUT:
       return _nullUser;
-    case SessionConstants.RECEIVE_ERRORS:
+    case RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, _nullUser, {errors});
     default:
