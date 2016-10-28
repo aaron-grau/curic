@@ -4,8 +4,8 @@ require_relative '../questions_database'
 
 describe User do
 
-  before(:each) {QuestionsDatabase.reset!}
-  after(:each) {QuestionsDatabase.reset!}
+  before(:each) { QuestionsDatabase.reset! }
+  after(:each) { QuestionsDatabase.reset! }
   
   describe '::find_by_id' do 
     it 'returns an instance of the user class' do
@@ -38,7 +38,7 @@ describe User do
   end 
  
   describe '#save' do 
-    let(:user) {described_class.new({'fname' => "test_fname", 'lname' => "test_lname"})}
+    let(:user) {described_class.new( {'fname' => "test_fname", 'lname' => "test_lname"}) }
     
     it 'persists a new user to the database' do 
       user.save
@@ -54,8 +54,8 @@ describe User do
   end 
  
   describe '#authored_questions' do 
-    subject(:user) {described_class.find_by_id(1)}
-    let(:question) {class_double("Question").as_stubbed_const}
+    subject(:user) { described_class.find_by_id(1) }
+    let(:question) { class_double("Question").as_stubbed_const }
     
     it 'calls Question::find_by_author_id' do
       expect(question).to receive(:find_by_author_id).with(user.id)
@@ -64,8 +64,8 @@ describe User do
   end 
  
   describe '#followed_questions' do 
-    subject(:user) {described_class.find_by_id(1)}
-    let(:questionfollow) {class_double("QuestionFollow").as_stubbed_const}
+    subject(:user) { described_class.find_by_id(1) }
+    let(:questionfollow) { class_double("QuestionFollow").as_stubbed_const }
     
     it 'calls QuestionFollow::followed_questions_for_user_id' do 
       expect(questionfollow).to receive(:followed_questions_for_user_id).with(user.id)
@@ -74,8 +74,8 @@ describe User do
   end
  
   describe '#authored_replies' do 
-    subject(:user) {described_class.find_by_id(1)}
-    let(:reply) {class_double("Reply").as_stubbed_const}
+    subject(:user) { described_class.find_by_id(1) }
+    let(:reply) { class_double("Reply").as_stubbed_const }
 
     it 'calls Reply::find_by_user_id' do 
       expect(reply).to receive(:find_by_user_id).with(1)
@@ -84,8 +84,8 @@ describe User do
   end
 
   describe '#liked_questions' do 
-    subject(:user) {described_class.find_by_id(1)}
-    let(:questionlike) {class_double("QuestionLike").as_stubbed_const}
+    subject(:user) { described_class.find_by_id(1) }
+    let(:questionlike) { class_double("QuestionLike").as_stubbed_const }
 
     it 'calls QuestionLike::liked_questions_for_user_id' do 
       expect(questionlike).to receive(:liked_questions_for_user_id).with(user.id)
@@ -95,12 +95,12 @@ describe User do
 
   describe "#average_karma" do 
     it 'returns the correct average karma for a user' do 
-      user = User.find_by_id(1)
+      user = described_class.find_by_id(1)
       expect(user.average_karma).to eq(1.0)
     end
 
     it 'only hits the database once' do 
-      user = User.find_by_id(2)
+      user = described_class.find_by_id(2)
       expect(QuestionsDatabase).to receive(:get_first_value).exactly(1).times.and_call_original
       user.average_karma
     end 

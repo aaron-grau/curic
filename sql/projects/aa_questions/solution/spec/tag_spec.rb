@@ -1,13 +1,12 @@
 require 'rspec'
 require_relative '../tag' 
 require_relative '../questions_database' 
-require_relative '../model_base.rb'
 
 
 describe Tag do 
 
-  before(:each) {QuestionsDatabase.reset!}
-  after(:each) {QuestionsDatabase.reset!}
+  before(:each) { QuestionsDatabase.reset! }
+  after(:each) { QuestionsDatabase.reset! }
   
   describe '::most_popular' do 
     it 'returns an array of instances of the tag class' do 
