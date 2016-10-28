@@ -201,6 +201,9 @@
 
 ## w7d5
 
+### Assessment06 Practice
+* [Practice][assessment-prep-6]
+
 ### Readings (20 min)
 - [`preloadedState`][preloaded_state] (5 min)
 - [Front End Authentication][user_authentication] (15 min)
@@ -253,3 +256,10 @@
 
 ### Projects
 * **Solo:** Continue [BenchBnB][bench_bnb]
+
+## w8d2
+
+### Assessment06
++ [Practice][assessment-prep-6]
+
+[assessment-prep-6]:https://github.com/appacademy/assessment-prep#assessment-6
