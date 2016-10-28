@@ -26,10 +26,10 @@
 **NoteIndex**
  - NoteIndexItem
   + NoteDetail
-   * NoteTools
+    + NoteTools
     - NotebookSearch
     - Tags
-     + Tag
+      - Tag
     * Note
 
 **NewNoteContainer**
