@@ -388,6 +388,14 @@ Make sure outline your MVP features using the following structure when writing y
 * **Bonus**: Google Map API showing events based on location
 * **Bonus**: Suggestions based on event details and user profiles
 
+#### Trello
+* Boards
+* Lists & Cards
+* Sharing Boards
+* Comments and Due Dates
+* **Bonus**: Board Settings
+* **Bonus**: Hotkeys
+
 Warning! The tumblr team are very protective of their copyrights,
 if you clone this project don't make a url referencing theirs
 i.e. stumblr, grumblr, humblr, etc.
