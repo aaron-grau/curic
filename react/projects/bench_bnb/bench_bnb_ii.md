@@ -382,7 +382,7 @@ search and display benches.
 `#map-container` to `500px`.
 * We'll return to this component in a bit.
 
-### Create a arent component: `Search`
+### Create a React component: `Search`
 
 * Create a new React component, `Search`.
 * `Search` should render a `div` containing a `BenchMap` and `BenchIndex`.
