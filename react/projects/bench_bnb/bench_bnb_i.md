@@ -108,8 +108,8 @@ key differences:
   * **Caution**: Rails will format error responses differently than normal
   responses.
 
-**Test your routes** using `$.ajax` in the console before moving on. You should
-be able to create a user, log out, and log in using `$.ajax` commands.
+**Test your routes** using `$.ajax` methods in the console or with Postman before moving on. You should
+be able to create a user, log out, and log in.
 
 ### `SessionApiUtil`
 
