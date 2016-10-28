@@ -229,8 +229,6 @@
 
 [bench_bnb]: projects/bench_bnb
 
-### :joy_cat: **Happy Hour!** :joy_cat:
-
 ## w8d1
 
 **Project Proposal Review Period for Instructional Staff**
