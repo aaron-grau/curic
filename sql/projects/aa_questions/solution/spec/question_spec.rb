@@ -3,8 +3,8 @@ require_relative '../question'
 require_relative '../questions_database' 
 
 describe Question do 
-  before(:each) {QuestionsDatabase.reset!}
-  after(:each) {QuestionsDatabase.reset!}
+  before(:each) { QuestionsDatabase.reset! }
+  after(:each) { QuestionsDatabase.reset! }
   
   describe '::find' do 
     it 'returns an instance of the question class' do 
@@ -37,7 +37,7 @@ describe Question do
   end 
   
   describe '::most_followed' do 
-    let(:questionfollow) {class_double("QuestionFollow").as_stubbed_const }
+    let(:questionfollow) { class_double("QuestionFollow").as_stubbed_const }
     
     it 'calls QuestionFollow::most_followed_questions'  do
       expect(questionfollow).to receive(:most_followed_questions).with(1)
@@ -46,7 +46,7 @@ describe Question do
   end 
   
   describe '::most_liked' do 
-    let(:questionlike) {class_double("QuestionLike").as_stubbed_const }
+    let(:questionlike) { class_double("QuestionLike").as_stubbed_const }
     
     it 'calls QuestionLike::most_liked_questions' do 
       expect(questionlike).to receive(:most_liked_questions).with(1)
@@ -55,10 +55,10 @@ describe Question do
   end 
  
   describe '#save' do 
-    let(:question) {described_class.new(
+    let(:question) { described_class.new(
       {'title' => "test_title", 
        'body' => "test_body", 
-       'author_id' => 1 }
+       'author_id' => 1}
     )}
     
     it 'persists a new question to the database' do 
@@ -76,7 +76,7 @@ describe Question do
  
   describe '#author' do 
     subject(:question) {described_class.find(1)}
-    let(:user) {class_double("User").as_stubbed_const}
+    let(:user) { class_double("User").as_stubbed_const }
 
     it 'calls QuestionFollow::followers_for_question_id' do 
       expect(user).to receive(:find_by_id).with(1)
@@ -85,8 +85,8 @@ describe Question do
   end
   
   describe '#followers' do 
-    subject(:question) {described_class.find(3)}
-    let(:questionfollow) {class_double("QuestionFollow").as_stubbed_const}
+    subject(:question) { described_class.find(3) }
+    let(:questionfollow) { class_double("QuestionFollow").as_stubbed_const }
     
     it 'calls QuestionFollow::followers_for_question_id' do 
       expect(questionfollow).to receive(:followers_for_question_id).with(3)
@@ -95,8 +95,8 @@ describe Question do
   end 
  
   describe '#num_likes' do 
-    subject(:question) {described_class.find(1)}
-    let(:questionlike) {class_double("QuestionLike").as_stubbed_const}
+    subject(:question) { described_class.find(1) }
+    let(:questionlike) { class_double("QuestionLike").as_stubbed_const }
     
     it 'calls QuestionLike::num_likes_for_question_id' do 
       expect(questionlike).to receive(:num_likes_for_question_id).with(1)
@@ -105,8 +105,8 @@ describe Question do
   end 
 
   describe '#replies' do 
-    subject(:question) {described_class.find(3)}
-    let (:reply) {class_double("Reply").as_stubbed_const} 
+    subject(:question) { described_class.find(3) }
+    let (:reply) { class_double("Reply").as_stubbed_const } 
 
     it 'calls Reply::find_by_question_id' do 
       expect(reply).to receive(:find_by_question_id).with(3)

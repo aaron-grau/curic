@@ -1,6 +1,7 @@
 require_relative 'question'
 require_relative 'questions_database'
 require_relative 'user'
+require_relative 'model_base'
 
 class Reply < ModelBase
   def self.find(id)

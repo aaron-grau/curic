@@ -4,11 +4,11 @@ require_relative '../questions_database'
 
 describe Reply do 
   
-  before(:each) {QuestionsDatabase.reset!}
-  after(:each) {QuestionsDatabase.reset!}
+  before(:each) { QuestionsDatabase.reset! }
+  after(:each) { QuestionsDatabase.reset! }
   
   describe '::find' do 
-    subject(:reply) {described_class.find(1)}
+    subject(:reply) { described_class.find(1) }
     
     it 'returns an instance of the reply class' do
       expect(reply).to be_kind_of(described_class)
@@ -25,47 +25,47 @@ describe Reply do
   end 
   
   describe '::find_by_parent_id' do
-    subject(:replies) {described_class.find_by_parent_id(1)}
+    subject(:replies) { described_class.find_by_parent_id(1) }
     
     it 'returns an array of reply objects' do 
       expect(replies).to all(be_an(described_class))
     end 
     
     it 'returns only replies with the correct parent_id' do 
-      parent_ids = replies.map {|reply| reply.parent_reply_id}
+      parent_ids = replies.map { |reply| reply.parent_reply_id }
       expect(parent_ids).to all(eq(1))
     end 
   end   
   
   describe '::find_by_question_id' do
-    subject(:replies) {described_class.find_by_question_id(3)}
+    subject(:replies) { described_class.find_by_question_id(3) }
     
     it 'returns an array of reply objects' do 
       expect(replies).to all(be_an(described_class))
     end 
     
     it 'returns only replies with the correct question_id' do 
-      question_ids = replies.map {|reply| reply.question_id}
+      question_ids = replies.map { |reply| reply.question_id }
       expect(question_ids).to all(eq(3))
     end   
   end 
     
   describe '::find_by_user_id' do
-    subject(:replies) {described_class.find_by_user_id(2)}
+    subject(:replies) { described_class.find_by_user_id(2) }
     
     it 'returns an array of reply objects' do 
       expect(replies).to all(be_an(described_class))
     end  
     
     it 'returns only replies with the correct user_id' do 
-      author_ids = replies.map {|reply| reply.author_id}
+      author_ids = replies.map { |reply| reply.author_id }
       expect(author_ids).to all(eq(2))
     end 
   end 
   
   describe '#author' do
-    subject(:reply) {described_class.find(1)}
-    let(:user) {class_double("User").as_stubbed_const}
+    subject(:reply) { described_class.find(1) }
+    let(:user) { class_double("User").as_stubbed_const }
 
     it 'calls User::find_by_id' do 
       expect(user).to receive(:find_by_id).with(1)
@@ -74,7 +74,7 @@ describe Reply do
   end  
   
   describe '#child_replies' do
-    subject(:reply) {described_class.find(2)}
+    subject(:reply) { described_class.find(2) }
 
     it 'calls Reply::find_by_author_id' do 
       expect(described_class).to receive(:find_by_parent_id).with(reply.id)
@@ -83,7 +83,7 @@ describe Reply do
   end 
   
   describe '#parent_reply' do
-    subject(:reply) {described_class.find(2)}
+    subject(:reply) { described_class.find(2) }
     
     it 'calls Reply::find' do
       expect(described_class).to receive(:find).with(reply.parent_reply_id)
@@ -92,8 +92,8 @@ describe Reply do
   end 
   
   describe '#question' do 
-    subject(:reply) {described_class.find(1)}
-    let(:question) {class_double("Question").as_stubbed_const}
+    subject(:reply) { described_class.find(1) }
+    let(:question) { class_double("Question").as_stubbed_const }
     
     it 'calls Question::find' do
       expect(question).to receive(:find).with(reply.question_id)
@@ -102,11 +102,11 @@ describe Reply do
   end 
   
   describe '#save' do 
-    let(:reply) {described_class.new(
+    let(:reply) { described_class.new(
       {'author_id' => 1, 
        'body' => "body",
        'question_id' => 1, 
-       'parent_reply_id' => 1 }
+       'parent_reply_id' => 1}
     )}
     
     it 'persists a new reply to the database' do 

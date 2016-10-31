@@ -1,10 +1,10 @@
 require 'rspec'
-require_relative '../model_base' 
 require_relative '../question_like'
+require_relative '../questions_database'
 
 describe QuestionLike do 
-  before(:each) {QuestionsDatabase.reset!}
-  after(:each) {QuestionsDatabase.reset!}
+  before(:each) { QuestionsDatabase.reset! }
+  after(:each) { QuestionsDatabase.reset! }
   
   describe '::likers_for_question_id' do 
     it 'only hits the database once' do
@@ -19,7 +19,7 @@ describe QuestionLike do
 
     it 'returns the correct likers for a question_id' do
       users = described_class.likers_for_question_id(2)
-      liker_ids = users.map {|user| user.id}
+      liker_ids = users.map { |user| user.id }
       expect(liker_ids).to match_array([1])
     end 
   end
@@ -49,7 +49,7 @@ describe QuestionLike do
 
     it 'returns the correct liked questions for a user_id' do 
       questions = described_class.liked_questions_for_user_id(1)
-      question_ids = questions.map {|question| question.id}
+      question_ids = questions.map { |question| question.id }
       expect(question_ids).to match_array([1,2])
     end 
   end
@@ -67,7 +67,7 @@ describe QuestionLike do
 
     it 'correctly returns the most liked questions' do 
       questions = described_class.most_liked_questions(2)
-      question_ids = questions.map {|question| question.id}
+      question_ids = questions.map { |question| question.id }
       expect(question_ids).to match_array([1,2])
     end 
   end

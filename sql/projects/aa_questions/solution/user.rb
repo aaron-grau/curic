@@ -1,6 +1,7 @@
 require_relative 'question'
 require_relative 'questions_database'
 require_relative 'question_follow'
+require_relative 'model_base'
 
 class User < ModelBase
   def self.find_by_id(id)
