@@ -6,7 +6,20 @@ Check out the live demo [here][live-demo]!
 
 [maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
 
-## Phase 4: `Bench` Redux Cycle
+## Phase 4: `Bench` Backend
+
+* Create a `Bench` model with required `description` (string) , `lat` (float) and `lng` (float) attributes.
+* Make a `BenchesController` to handle your API requests. It will need `index` and
+`create` actions to start.
+* Add routes for your `BenchesController` actions.
+  * These should be namespace-d under `api/benches` and return JSON by default.
+* Populate `seeds.rb` with bench seed data using [real coordinates in SF][maps-sf] (click around to get coordinates).
+* **Test your benches API in the Dev Tools console using `$.ajax` calls**.
+
+[maps-sf]: https://www.google.com/maps/place/San+Francisco,+CA/
+
+
+## Phase 5: `Bench` Redux Cycle
 
 In this phase, you will build the pieces necessary to display a basic index of
 benches.
@@ -278,7 +291,7 @@ const BenchesReducer = (state = {}, action) => {
 };
 ```
 
-## Phase 5: `BenchIndex` Components
+## Phase 6: `BenchIndex` Components
 
 Let's create a component that shows our benches.
 
@@ -366,7 +379,7 @@ Your app should now be populated with benches! **Confirm with a TA.**
 
 ---
 
-## Phase 6: The Map
+## Phase 7: The Map
 
 Now we're going to add a map alongside our index to visually convey our bench
 information. When it's done, we'll replace `BenchIndexContainer` with a new
@@ -457,7 +470,7 @@ class BenchMap extends React.Component {
 
 **Test:** This should cause a Google Map to be rendered to the page.
 
-## Phase 7: Markers on the Map
+## Phase 8: Markers on the Map
 
 We're now going to implement map markers for our benches.
 
@@ -552,7 +565,7 @@ Use your helper methods in `updateMarkers()` to create markers for any new bench
 
 Make sure you can see markers before moving on!
 
-## Phase 8: Filtering by Map Location
+## Phase 9: Filtering by Map Location
 
 When the map idles, we are going to use its current bounds to request only
 benches within the boundaries of the map. First, let's prepare the back end to
@@ -721,7 +734,7 @@ TA!**
 [map-markers]: https://developers.google.com/maps/documentation/javascript/markers
 [lat-lng-docs]: https://developers.google.com/maps/documentation/javascript/reference#LatLngBounds
 
-## Phase 8: Creating Benches
+## Phase 10: Creating Benches
 
 ### Adding a `BenchForm`
 
@@ -862,7 +875,7 @@ Refer to the `onEnter` [reading][onEnter] for this part.
  already logged in. In addition, you should be re-directed to logging in if you
  try to create a bench and aren't logged in.
 
-## Phase 10: Filtering By Seating
+## Phase 11: Filtering By Seating
 
 In this section, we want to build the functionality that will allow our users to filter benches by both their geographic bounds and their number of seats.
 
@@ -925,7 +938,7 @@ to pass as props. `SearchContainer` should also pass an `updateFilter` prop to
 You should be able to see the markers change on the screen as you toggle the values
 in the form!
 
-## Phase 11: Show Page
+## Phase 12: Show Page
 
 Create a `BenchShow` component. It should be a full-page component displaying a
 single bench's information and a map showing the bench. Your `BenchShow` page should mount whenever someone clicks on an item in your `BenchIndex` or a marker in your `BenchMap`.
@@ -934,7 +947,7 @@ single bench's information and a map showing the bench. Your `BenchShow` page sh
 * Nest a `BenchMap` in your `BenchShow`, passing the bench as a prop.
 * Center the map on the single bench and prevent the map from being dragged.
 
-## Phase 12: Reviews
+## Phase 13: Reviews
 
 Show reviews of a bench on `BenchShow`. Reviews for a bench should comprise:
 * A rating from 1 to 5.
@@ -944,7 +957,7 @@ Add a `ReviewIndex` and `ReviewForm`. `ReviewIndex` should show the average scor
 for a bench and also list the reviews for that bench. Modify and add the
 appropriate API endpoints, actions, utils, and components.
 
-## Phase 13: Pictures!
+## Phase 14: Pictures!
 * when you create a new bench, allow a user to also add a photo using
   [Cloudinary][cloudinary-js]!
 * You will need to create a new column in your benches table.
