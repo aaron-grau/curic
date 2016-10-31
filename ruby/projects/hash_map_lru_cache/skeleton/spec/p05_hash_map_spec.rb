@@ -68,6 +68,11 @@ describe HashMap do
       expect(hash.count).to eq(3)
     end
 
+    it "does not change count when updating existing key" do
+      hash.insert(:first, 1)
+      expect(hash.count).to eq(3)
+    end
+
     it "keeps counts through deletions" do
       hash.delete(:first)
       expect(hash.count).to eq(2)
