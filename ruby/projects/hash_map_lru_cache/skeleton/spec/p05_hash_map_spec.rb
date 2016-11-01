@@ -59,7 +59,7 @@ describe HashMap do
     it "deletes keys" do
       expect(hash[:first]).to eq(1)
       hash.delete(:first)
-      expect(hash.get(:first)).to be_nil
+      expect(hash[:first]).to be_nil
     end
   end
 
@@ -69,7 +69,7 @@ describe HashMap do
     end
 
     it "does not change count when updating existing key" do
-      hash.insert(:first, 1)
+      hash[:first] = 1
       expect(hash.count).to eq(3)
     end
 
