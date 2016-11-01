@@ -59,12 +59,17 @@ describe HashMap do
     it "deletes keys" do
       expect(hash[:first]).to eq(1)
       hash.delete(:first)
-      expect(hash.get(:first)).to be_nil
+      expect(hash[:first]).to be_nil
     end
   end
 
   describe "#count" do
     it "keeps count through insertions" do
+      expect(hash.count).to eq(3)
+    end
+
+    it "does not change count when updating existing key" do
+      hash[:first] = 1
       expect(hash.count).to eq(3)
     end
 
