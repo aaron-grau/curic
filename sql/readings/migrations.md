@@ -20,7 +20,7 @@ Database *migrations* are a solution to these problems. A migration is
 a file containing Ruby code that describes a set of changes applied to
 the database. It may create or drop tables; it may add or remove
 columns from a table. Each new set of changes is written inside a new
-migration file, which is checked into the repository. Active record
+migration file, which is checked into the repository. ActiveRecord
 will take responsibility for performing the necessary migrations when
 you ask it.
 
