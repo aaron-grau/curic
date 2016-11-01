@@ -89,6 +89,8 @@ end
 def rock_superstars
   # Select the artist who has recorded the most rock albums, as well as the
   # number of albums. HINT: use LIKE '%Rock%' in your query.
+  execute(<<-SQL)
+  SQL
 end
 
 def expensive_tastes
@@ -99,7 +101,6 @@ def expensive_tastes
   # HINT: Start by getting the number of tracks per album. You can do this in a
   # subquery. Next, JOIN the styles table to this result and use aggregates to
   # determine the average price per track.
-
   execute(<<-SQL)
   SQL
 end
