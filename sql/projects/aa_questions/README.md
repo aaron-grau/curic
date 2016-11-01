@@ -36,28 +36,32 @@ in a SQL script named `import_db.sql`.
 
 You will probably also want to write some `INSERT` statements at the
 bottom of your `import_db.sql` file, so that you have some data in
-each table to play with. We call this '*seeding the database*.'
+each table to play with. We call this '*seeding the database*'.
 
 After you've written the SQL, don't forget to run the SQL commands and
 create the db - in terminal, run:
 
-```
+```SQL
 cat import_db.sql | sqlite3 questions.db
 ```
+
+Now go into your shiny, new sqlite database and try making 
+some basic queries to ensure that seeding proceeded as planned. 
+Use `sqlite3 questions.db` to open the sqlite3 console with *questions.db* loaded.
 
 ## Gemfile
 
 We're going to be using the sqlite3 gem for this project, so we'll
-need to create a gemfile to specify it. Start by initting bundler:
+need to create a gemfile to include it. Start by initting bundler:
 
-```
+```bash
 bundle init
 ```
 
 This will create a starter `Gemfile`. Open it up and add a line to
 include the `sqlite3` gem:
 
-```
+```ruby
 gem 'sqlite3'
 ```
 
@@ -70,10 +74,9 @@ Keep a tab open with the sqlite3 gem's [documentation][sqlite3-docs]. Use these
 docs to help you figure out what methods are available and how to use them!
 
 Write a `QuestionsDatabase` class similar to one created in last night's demo:
-[PlaysDatabase][plays.rb]. This class should inherit
-from `SQLite3::Database`; you will only need one instance. If you use
-the `Singleton` module this will be available through a
-`QuestionsDatabase::instance` method.
+[PlaysDatabase][plays.rb]. This class should inherit from `SQLite3::Database`; 
+you will only need one instance. If you use the Singleton module this will be 
+available through a `QuestionsDatabase::instance` method.
 
 
 [sqlite3-docs]: http://www.rubydoc.info/github/luislavena/sqlite3-ruby/SQLite3/Database
@@ -108,13 +111,13 @@ experienced with this pattern as we transition into Rails.*
 * For each class, add a class method `find_by_id` which will lookup an
   `id` in the table, and return an *object* representing that row. For
   example, our `Question::find_by_id` should return an **instance** of
-  our `Question` class! **NOT** the data hash returned by the
-  `QuestionsDatabase`!. Your `::find_by_id` method should contain
+  our `Question` class **NOT** the data hash returned by the
+  `QuestionsDatabase`! Your `::find_by_id` method should contain
   `Question.new` somewhere.
     * We'll add additional query class methods as needed. For
       instance, the user class will have `User::find_by_name(fname,
       lname)`.
-* Your initialize method should take an options hash of attributes and
+* Your `initialize` method should take an options hash of attributes and
   construct an object **wrapping** that data. We do this because the
   DB query return value is an array of hashes in exactly this format.
     * E.g., `User.new('fname' => 'Ned', 'lname' => 'Ruggeri',
@@ -129,7 +132,7 @@ experienced with this pattern as we transition into Rails.*
 Before writing any more code, take some time to make sure what you've
 done so far works by jumping into pry. Load the files you want to test 
 and call your new methods. Check that your queries return the 
-correct results and that those results are ruby objects.
+correct results and that those results are Ruby objects.
 
 ## Queries
 
@@ -287,7 +290,8 @@ Add a class method `where` which accepts an options hash as an argument
 and searches the database for records whose column matches the options key
 and whose value matches the options value. It should return all the records
 which match the criteria:
-```
+
+```ruby
 Question.where({author_id: 2})
 User.where({fname: "Tywin", lname: "Lannister"})
 ```
@@ -299,7 +303,8 @@ Add this to your base class.
 
 Using `method_missing`, implement a dynamic `find_by` which allows users to
 find records with any number of arguments. Let's see an example:
-```
+
+```ruby
 User.find_by_lname_and_fname("Oberyn", "Martell")
 Question.find_by_title("Who is Jon Snow's mother?")
 Reply.find_by_question_id_and_author_id(3, 1)
@@ -311,7 +316,8 @@ Reply.find_by_question_id_and_author_id(3, 1)
 
 Allow `where` to also accept a string fragment. The string fragment will
 be used to directly define the 'WHERE' statement in the SQL query:
-```
+
+```ruby
 User.where("lname = 'Stark'")
 Question.where("title LIKE '%Who%' AND title LIKE '%Arstan Whitebeard%'")
 ```
