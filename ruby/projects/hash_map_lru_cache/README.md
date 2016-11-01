@@ -127,31 +127,35 @@ to the same value.
 So let's construct a nice hashing function that'll do that for us. Be
 creative here!
 
+Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentially.
+
+  - Use `Fixnum#hash` as a base hashing function. The trick here will be to create a 
+    scheme to convert instances of each class to a `Fixnum` and then apply this 
+    hashing function. This can be used on `Numeric`s such as the index of an array 
+    element.
+    - Don't try to overwrite Ruby's native `Fixnum#hash`; making a hash function 
+      for numbers is something that's outside the scope of this assignment.
+  - Ordering of elements is essential to hashing an `Array` or `String`. This means each 
+    element in an `Array` or `String` should be associated with its index during hashing. 
+    Ex. `[1, 2, 3].hash != [3, 2, 1].hash # => false`
+  - On the other hand, ordering is **not** to be considered with a `Hash`. Hashes are based 
+    on sets and have no fixed order. Ex. `{a: 1, b: 2}.hash == {b: 2, a: 1}.hash # => true` 
+
+### Hints: 
+  - Can you write `String#hash` in terms of `Array#hash`?
+  - When you get to hashing hashes: one trick to make a hash function
+    order-agnostic is to turn the object into an array, stably sort
+    the array, and then hash the array. This'll make it so every
+    unordered version of that same object will hash to the same value.
+      
 #### Notes:
 
 * **Don't spend more than 30 minutes working on hashing functions**. Great hashing functions are hard to write. Your goal is to write a good-enough hashing function and move forth to the fun stuff ahead! Call over a TA if needed.
 * **You may want to refer to the resource on
 [XOR][xor-info]** (`^` in Ruby). XOR is a great tool for hashing because
 it's fast, and it provides a good, nearly uniform output of bits.
-* **`Fixnum#hash` is provided for you**. You can
-use this on numerical values (for instance, the index of an array
-element). Don't try to overwrite Ruby's native `Fixnum#hash`; making a hash function for numbers is something that's outside the scope
-of this assignment.
 
 [More reading on hash functions][hash-info].
-
-Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentially.
-
-  - Order of elements is relevant for arrays and strings, but it's
-    irrelevant for the `Hash` instances (e.g. `[1, 2, 3]` should hash to
-    a different value from `[3, 2, 1]`, but `{a: 1, b: 2}` should hash
-    the same as `{b: 2, a: 1}`).
-  - Keep track of indices for arrays and strings.
-  - **Hint**: Can you write `String#hash` in terms of `Array#hash`?
-  - When you get to hashing hashes: one trick to make a hash function
-      order-agnostic is to turn the object into an array, stably sort
-      the array, and then hash the array. This'll make it so every
-      unordered version of that same object will hash to the same value.
 
 [hash-info]: https://en.wikipedia.org/wiki/Hash_function
 [xor-info]: http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/xor.html
