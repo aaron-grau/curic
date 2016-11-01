@@ -16,7 +16,7 @@ Remember, our `PlayDBConnection` class accesses the database stored in `plays.db
 
 As always, thoroughly test your ORM to make sure all the methods are functioning properly.  
 
-Solutions can be found in the [homework solutions folder][hw-solutions].  Please wait until you have completed the exercise to check the solutions.  
+Solutions can be found in the [homework solutions folder][plays-solutions].  Please wait until you have completed the exercise to check the solutions.  
 
 [plays-demo]: plays_demo.zip?raw=true
-[hw-solutions]: ../solutions
+[plays-solutions]: ../solutions/plays_demo
