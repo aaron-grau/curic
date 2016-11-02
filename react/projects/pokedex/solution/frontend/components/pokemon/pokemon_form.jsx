@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class PokemonForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class PokemonForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPokemon(this.state);
+    this.props.createPokemon(this.state)
+      .then(() => hashHistory.push(`/pokemon/${data.id}`));
   }
 
   update(property) {
