@@ -1,3 +1,5 @@
+const APIUtil = require('./api_util')
+
 class InfiniteTweets {
   constructor(el) {
     this.$el = $(el);
@@ -11,31 +13,21 @@ class InfiniteTweets {
     event.preventDefault();
 
     const infiniteTweets = this;
+    const data = {};
+    if (this.lastCreatedAt) data.max_created_at = this.lastCreatedAt;
 
-    const options = {
-      url: "/feed",
-      dataType: "json",
-      success(data) {
-        infiniteTweets.insertTweets(data);
+    APIUtil.fetchTweets(data).then((data) => {
+      infiniteTweets.insertTweets(data);
 
-        if (data.length < 20) {
-          infiniteTweets.$el.find(".fetch-more")
-                            .replaceWith("<b>No more tweets!</b>");
-        }
-
-        if (data.length > 0) {
-          infiniteTweets.lastCreatedAt = data[data.length - 1].created_at;
-        }
+      if (data.length < 20) {
+        infiniteTweets.$el.find(".fetch-more")
+                          .replaceWith("<b>No more tweets!</b>");
       }
-    };
 
-    if (this.lastCreatedAt) {
-      options.data = {
-        max_created_at: this.lastCreatedAt
-      };
-    }
-
-    $.ajax(options);
+      if (data.length > 0) {
+        infiniteTweets.lastCreatedAt = data[data.length - 1].created_at;
+      }
+    });
   }
 
   insertTweet(event, data) {

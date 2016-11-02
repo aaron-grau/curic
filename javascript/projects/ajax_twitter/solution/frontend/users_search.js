@@ -1,3 +1,5 @@
+const APIUtil = require('./api_util')
+
 const FollowToggle = require('./follow_toggle');
 
 class UsersSearch {
@@ -14,14 +16,8 @@ class UsersSearch {
       this.renderResults([]);
       return;
     }
-
-    $.ajax({
-      url: "/users/search",
-      dataType: "json",
-      method: "GET",
-      data: { query: this.$input.val() },
-      success: this.renderResults.bind(this)
-    });
+    APIUtil.searchUsers(this.$input.val())
+      .then(users => this.renderResults(users));
   }
 
   renderResults(users) {
