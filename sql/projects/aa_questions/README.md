@@ -282,8 +282,9 @@ instance variable names that represent columns.
 For the purposes of this project it's necessary to interpolate the name
 of the table directly into your SQL queries (ie `#{table}` vs  `?`). 
 The sqlite3 gem does not support the `?` interpolation for table names. 
-We're going to assume our users aren't malicious and that we don't have 
-to worry about them performing SQL injection attacks.
+In this case, we don't need to worry about SQL injection on table 
+names but still need to sanitize our `WHERE` values. How are these 
+interpolated values different and why is one safe while the other is not?
 
 ### `where`
 
