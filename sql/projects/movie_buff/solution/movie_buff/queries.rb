@@ -144,5 +144,5 @@ def longest_career
     .joins(:movies)
     .order("career DESC, name")
     .group(:id)
-    .first
+    .limit(2)
 end

@@ -35,7 +35,7 @@ describe 'movie_names_before_1940' do
 	end
 
   it "hits the database exactly once" do
-    expect{ subject }.to make_database_queries(count: 1)
+    expect{ subject.to_a }.to make_database_queries(count: 1)
   end
 
 end
@@ -85,7 +85,7 @@ describe "eighties_b_movies" do
 	end
 
   it "hits the database exactly once" do
-    expect{ subject }.to make_database_queries(count: 1)
+    expect{ subject.to_a }.to make_database_queries(count: 1)
   end
 end
 
@@ -155,7 +155,7 @@ describe "vanity_projects" do
 			{"id"=>1745, "title"=>"Young Einstein", "name"=>"Yahoo Serious"})
 	end
   it "hits the database exactly once" do
-    expect{ subject }.to make_database_queries(count: 1)
+    expect{ subject.to_a }.to make_database_queries(count: 1)
   end
 end
 
@@ -170,9 +170,9 @@ describe "starring(whazzername)" do
 	end
 
 	it "hits the database exactly once" do
-		expect{ lester }.to make_database_queries(count: 1)
-		expect{ me }.to make_database_queries(count: 1)
-		expect{ ery }.to make_database_queries(count: 1)
+		expect{ lester.to_a }.to make_database_queries(count: 1)
+		expect{ me.to_a }.to make_database_queries(count: 1)
+		expect{ ery.to_a }.to make_database_queries(count: 1)
 	end
 
 end
@@ -239,8 +239,8 @@ describe "costars" do
 	end
 
 	it "hits the database at most twice" do
-    expect{ julie_andrews }.to make_database_queries(count: 1..2)
-    expect{ kevin_bacon }.to make_database_queries(count: 1..2)
+    expect{ julie_andrews.to_a }.to make_database_queries(count: 1)
+    expect{ kevin_bacon.to_a }.to make_database_queries(count: 1)
   end
 end
 
@@ -252,7 +252,7 @@ describe "most_supportive" do
 			{"id"=>44, "name"=>"Robert Duvall", "roles"=>20})
 	end
 	it "hits the database exactly once" do
-		expect{ subject }.to make_database_queries(count: 1)
+		expect{ subject.to_a }.to make_database_queries(count: 1)
 	end
 end
 
@@ -277,8 +277,8 @@ describe "what_was_that_one_with" do
 	end
 
 	it "hits the database exactly once" do
-		expect{ ben_and_matt }.to make_database_queries(count: 1)
-		expect{ geena_and_susan }.to make_database_queries(count: 1)
+		expect{ ben_and_matt.to_a }.to make_database_queries(count: 1)
+		expect{ geena_and_susan.to_a }.to make_database_queries(count: 1)
 	end
 
 end
@@ -302,6 +302,6 @@ describe "longest_career" do
 	end
 
 	it "hits the database exactly once" do
-		expect{ subject }.to make_database_queries(count: 1)
+		expect{ subject.to_a }.to make_database_queries(count: 1)
 	end
 end
