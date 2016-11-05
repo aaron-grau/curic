@@ -55,9 +55,9 @@ essential question: what data does my application need to function?
 
 When implementing a database schema, you must decide on three things:
 
-* the tables you will have,
-* the columns each of those tables will have,
-* and the data type of each of those columns.
+* the tables you will have
+* the columns each of those tables will have
+* and the data type of each of those columns
 
 Schemas are mutable, so the decisions up front are not at all set
 in stone. Still, you should spend time thinking about your schema at
@@ -174,7 +174,7 @@ of conditions separated by `AND` or `OR`; only rows matching these
 conditions are returned..
 
 SQL provides powerful filtering with `WHERE`; it supports the standard
-comparison and equality operators (`<`, `>`, `>=`, `<=`, `=`, `!=`) as well as 
+comparison and equality operators (`<`, `>`, `>=`, `<=`, `=`, `!=`) as well as
 boolean operators (`AND`, `OR`, `NOT`).
 
 There are 4 main data manipulation operations that SQL provides:
