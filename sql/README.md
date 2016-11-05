@@ -9,16 +9,17 @@
 
 ### Readings (85 min)
 
-+ SQL Fundamentals - read these first!
++ [Programming Paradigms][paradigms] (5 min)
++ SQL Fundamentals
     + [SQL For The Impatient][sql-intro] (20 min)
     + [A Visual Explanation of Joins][visual-joins] (5 min)
     + [Formatting SQL Code][sql-formatting] (5 min)
-+ [Learning SQL: Setup][learning-sql-setup] (10 min)
-+ [Learning SQL: Part I][learning-sql-part-i] (45 min)
+    + [Subqueries][subquery]
++ [PostgreSQL Setup][postgres-setup] (10 min)
 
-### Homeworks (30 min)
+### Homeworks (120 min)
 
-+ Complete [SQL Zoo Select Basics][sql-zoo-select] on the Sql Zoo Website (30 min)
++ Complete [SQL Bolt Tutorial][sql-bolt] (120 min)
 
 ### Projects
 
@@ -28,14 +29,16 @@
 
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
+[paradigms]: readings/paradigms.md
 [sql-intro]: readings/sql-intro.md
 [visual-joins]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
 [sql-formatting]: readings/formatting.md
+[subquery]: https://sqlbolt.com/topic/subqueries
 
-[learning-sql-setup]: readings/setup.md
-[learning-sql-part-i]: readings/part-i.md
+[postgres-setup]: readings/setup.md
+
 [sqlzoo-readme]: projects/sqlzoo
-[sql-zoo-select]: http://sqlzoo.net/wiki/SQLZOO:SELECT_basics
+[sql-bolt]: https://sqlbolt.com/
 [julie-andrews-vid]: https://vimeo.com/184539804
 [craiglockhart-vid]: https://vimeo.com/184539167
 
