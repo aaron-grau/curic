@@ -429,7 +429,7 @@ create_user("Gizmo", "gizmo@gizmo.gizmo")
 Notice how we've namespaced all the parameters of the user to create
 under `:user`. This leverages mass-assignment to set all the uploaded
 attributes. This is an extremely common Rails pattern: pretty much
-every time we upload parameters we will nest them under in an inner
+every time we upload parameters we will nest them under an inner
 hash to use for mass assignment.
 
 ### Handling Submission Errors
