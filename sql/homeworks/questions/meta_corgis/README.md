@@ -1,6 +1,6 @@
-# Meta-Programming MetaCorgis
+# Metaprogramming MetaCorgis
 
-Today we'll use meta-programming to refactor an unwieldy `CorgiPerkPackage` class.
+Today we'll use metaprogramming to refactor an unwieldy `CorgiPerkPackage` class.
 
 ## Phase 0: Tour the Code!
 
@@ -13,7 +13,7 @@ Today we'll use meta-programming to refactor an unwieldy `CorgiPerkPackage` clas
 The `ShoppingList` class represents our database. 
 
 The database has three perk packages, stored in the `DATA` constant. Each 
-packages has three corgi perks - a bone, kibble, and a silly outfit.
+package has three corgi perks - a bone, kibble, and a silly outfit.
 
 It also has methods defined to tell us the info and happiness level of a
 given perk in whichever package we specify - e.g. `get_{perk}_info` and
