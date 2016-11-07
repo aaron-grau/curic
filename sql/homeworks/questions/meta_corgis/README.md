@@ -133,5 +133,9 @@ pry(main)> meta_package.kibble # => "* Kibble: Delicately braised hamhocks: 33 l
 pry(main)> meta_package.silly_outfit # => "Silly Outfit: A tiny Ronald McDonald costume: 0 licks"
 ```
 
+Solutions can be found in the [homework solutions folder][solutions]. Please wait until you have completed the exercise to check the solutions.
+
+
 [grep]: http://ruby-doc.org/core-2.3.1/Enumerable.html#method-i-grep
 [meta_reading]: ../../../../readings/metaprogramming.md
+[solutions]: https://github.com/appacademy/curriculum/blob/master/sql/homeworks/solutions/meta_corgis.rb
