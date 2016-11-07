@@ -35,7 +35,7 @@ describe 'movie_names_before_1940' do
 	end
 
   it "hits the database exactly once" do
-    expect{ subject.to_a }.to make_database_queries(count: 1)
+    expect{ subject }.to make_database_queries(count: 1)
   end
 
 end
@@ -85,7 +85,7 @@ describe "eighties_b_movies" do
 	end
 
   it "hits the database exactly once" do
-    expect{ subject.to_a }.to make_database_queries(count: 1)
+    expect{ subject }.to make_database_queries(count: 1)
   end
 end
 
@@ -155,14 +155,14 @@ describe "vanity_projects" do
 			{"id"=>1745, "title"=>"Young Einstein", "name"=>"Yahoo Serious"})
 	end
   it "hits the database exactly once" do
-    expect{ subject.to_a }.to make_database_queries(count: 1)
+    expect{ subject }.to make_database_queries(count: 1)
   end
 end
 
 describe "starring(whazzername)" do
-	let (:lester) { starring("lester stone")}
-	let (:me) {starring("me book")}
-	let (:ery) {starring("ery steep")}
+	let (:lester) { starring("lester stone") }
+	let (:me) { starring("me book") }
+	let (:ery) { starring("ery steep") }
 	it "retrieves the correct information" do
 		expect(lester).to contain_exactly(*Actor.find_by(name: "Sylvester Stallone").movies)
 		expect(me).to contain_exactly(*Actor.find_by(name: "Mel Brooks").movies)
@@ -170,9 +170,9 @@ describe "starring(whazzername)" do
 	end
 
 	it "hits the database exactly once" do
-		expect{ lester.to_a }.to make_database_queries(count: 1)
-		expect{ me.to_a }.to make_database_queries(count: 1)
-		expect{ ery.to_a }.to make_database_queries(count: 1)
+		expect{ lester.as_json }.to make_database_queries(count: 1)
+		expect{ me.as_json }.to make_database_queries(count: 1)
+		expect{ ery.as_json }.to make_database_queries(count: 1)
 	end
 
 end
@@ -185,7 +185,7 @@ describe "bad_years" do
 	end
 
   it "hits the database exactly once" do
-    expect{ subject }.to make_database_queries(count: 1)
+    expect{ subject.as_json }.to make_database_queries(count: 1)
   end
 
 end
@@ -202,10 +202,10 @@ describe "golden_age" do
 end
 
 describe "cast_list" do
-	let(:star_wars) { cast_list("Star Wars") }
-	let(:forrest_gump) { cast_list("Forrest Gump") }
+	let(:star_wars) { cast_list("Star Wars").as_json }
+	let(:forrest_gump) { cast_list("Forrest Gump").as_json }
 	it "retrieves the correct information" do
-		expect(star_wars.as_json).to contain_exactly(
+		expect(star_wars).to eq([
 			{"id"=>552, "name"=>"Mark Hamill"},
 			{"id"=>6, "name"=>"Harrison Ford"},
 			{"id"=>462, "name"=>"Carrie Fisher"},
@@ -215,13 +215,15 @@ describe "cast_list" do
 			{"id"=>2881, "name"=>"Kenny Baker (I)"},
 			{"id"=>3178, "name"=>"Peter Mayhew (II)"},
 			{"id"=>3707, "name"=>"David Prowse"},
-			{"id"=>5788, "name"=>"Jack Purvis"})
-		expect(forrest_gump.as_json).to contain_exactly(
+			{"id"=>5788, "name"=>"Jack Purvis"}
+		])
+		expect(forrest_gump).to eq([
 			{"id"=>8, "name"=>"Tom Hanks"},
 			{"id"=>536, "name"=>"Robin Wright"},
 			{"id"=>255, "name"=>"Gary Sinise"},
 			{"id"=>1204, "name"=>"Mykelti Williamson"},
-			{"id"=>369, "name"=>"Sally Field"})
+			{"id"=>369, "name"=>"Sally Field"}
+		])
 	end
 
 	 it "hits the database exactly once" do
@@ -231,16 +233,72 @@ describe "cast_list" do
 end
 
 describe "costars" do
-	let (:julie_andrews) { costars("Julie Andrews") }
-	let (:kevin_bacon) { costars("Kevin Bacon")}
+	let (:julie_andrews) { costars("Julie Andrews").to_a }
+	let (:humphrey_bogart) { costars("Humphrey Bogart").to_a }
 	it "retrieves the correct information" do
-		expect(julie_andrews).to contain_exactly("Bo Derek", "Peter Arne", "Richard Haydn", "Peggy Wood", "Graham Stark", "Dee Wallace-Stone", "Alex Karras", "Ben Wright (I)", "Eleanor Parker (I)", "Robert Preston (I)", "James Garner", "Brian Dennehy", "Dudley Moore", "Sam J. Jones", "Don Calfa", "Deborah Rush", "Lesley Ann Warren", "John Rhys-Davies", "Robert Webber (I)", "Christopher Plummer")
-		expect(kevin_bacon).to contain_exactly("Richard Marcus", "Edie McClurg", "Ed Harris", "Holland Taylor", "David Strathairn", "Minnie Driver", "William Windom", "Kevin Pollak", "Rex Everhart", "Reba McEntire", "Billy Crudup", "Aeryk Egan", "Greg Grunberg", "Mark Beech", "John Rothman", "Kevin Dunn (I)", "Ron Eldard", "Zachary David Cope", "Timothy Daly", "Miko Hughes", "Kimberly Scott", "Brad Dourif", "Tom Cruise", "Marc Macaulay", "Carrie Snodgress", "Olympia Dukakis", "Denise Richards", "Paul Reiser", "Adrienne King", "Elisabeth Shue", "Christian Slater", "Chris Penn", "Kathryn Erbe", "Tom Hanks", "Christopher Guest", "Mia Kirshner", "Victor Wong (III)", "Josh Brolin", "Bruno Kirby", "David Andrews (I)", "Tony Genaro", "Brad Renfro", "Paul Gleason (I)", "Terry Kinney", "Jeannine Taylor", "Bill Murray", "Brad Pitt", "Jason Patric", "Chris Ellis (I)", "Dustin Hoffman", "Richard Herd", "Steve Martin", "Kathleen Quinlan", "Martin Ferrero", "John C. Reilly", "Jennifer Aniston", "Kim Dickens", "Michael Tucker (I)", "Matt Dillon", "Mary Kate Schellhardt", "Stephanie Sawyer", "Faith Prince", "Michael McKean", "Stephen Tobolowsky", "Illeana Douglas", "Embeth Davidtz", "Dylan Baker", "Robert Wagner", "Xander Berkeley", "Stefan Gierasch", "Frankie Muniz", "Michael Gross (I)", "Robbi Morgan", "Daniel Stern", "Alec Baldwin", "William Devane", "Jack Nicholson", "Elizabeth Hoffman", "Ariana Richards", "Lori Singer", "John Candy", "Joseph Mazzello", "William H. Macy", "Oliver Platt", "Matt Craven", "Hope Davis", "Meryl Streep", "Julia Roberts", "Kiefer Sutherland", "John M. Jackson", "Joey Slotnick", "Finn Carter", "Kyra Sedgwick", "Dennis Dugan", "Ellen Barkin", "Peter McRobbie", "William Baldwin", "Gary Sinise", "Bill Paxton", "Elizabeth McGovern", "Laila Robins", "J.T. Walsh", "Mickey Rourke", "R. Lee Ermey", "Charlotte Stewart", "Robert De Niro", "Gary Oldman", "J.A. Preston", "John Lithgow", "Bibi Besch", "Joshua Rudoy", "Dianne Wiest", "Luke Wilson", "Jay Mohr", "John Ashton (I)", "Demi Moore", "Betsy Palmer", "Benjamin Bratt", "Fred Ward", "Larry Hankin", "Neve Campbell", "Diane Lane", "Sarah Jessica Parker", "Theresa Russell", "Lee McCain", "Steve Guttenberg")
+		expect(julie_andrews).to contain_exactly(
+			"Bo Derek",
+			"Peter Arne",
+			"Richard Haydn",
+			"Peggy Wood",
+			"Graham Stark",
+			"Dee Wallace-Stone",
+			"Alex Karras",
+			"Ben Wright (I)",
+			"Eleanor Parker (I)",
+			"Robert Preston (I)",
+			"James Garner",
+			"Brian Dennehy",
+			"Dudley Moore",
+			"Sam J. Jones",
+			"Don Calfa",
+			"Deborah Rush",
+			"Lesley Ann Warren",
+			"John Rhys-Davies",
+			"Robert Webber (I)",
+			"Christopher Plummer"
+		)
+		expect(humphrey_bogart).to contain_exactly(
+			"Barton MacLane",
+			"Bruce Bennett",
+			"Claude Akins",
+			"Claude Rains",
+			"Conrad Veidt",
+			"Curt Bois",
+			"Dolores Moran",
+			"Dorothy Malone",
+			"E.G. Marshall",
+			"Elisha Cook Jr.",
+			"Fred MacMurray",
+			"Hoagy Carmichael",
+			"Ingrid Bergman",
+			"Jerry Paris",
+			"John Qualen",
+			"John Ridgely",
+			"Jos&#233; Ferrer",
+			"Katharine Hepburn",
+			"Lauren Bacall",
+			"Lee Marvin",
+			"Madeleine LeBeau",
+			"Martha Vickers",
+			"Paul Henreid",
+			"Peter Bull (I)",
+			"Peter Lorre",
+			"Regis Toomey",
+			"Robert Francis (I)",
+			"Robert Morley (I)",
+			"Theodore Bikel",
+			"Tim Holt",
+			"Van Johnson",
+			"Walter Brennan",
+			"Walter Gotell",
+			"Walter Huston"
+		)
 	end
 
 	it "hits the database at most twice" do
-    expect{ julie_andrews.to_a }.to make_database_queries(count: 1)
-    expect{ kevin_bacon.to_a }.to make_database_queries(count: 1)
+    expect{ julie_andrews }.to make_database_queries(count: 1..2)
+    expect{ humphrey_bogart }.to make_database_queries(count: 1..2)
   end
 end
 
@@ -252,33 +310,35 @@ describe "most_supportive" do
 			{"id"=>44, "name"=>"Robert Duvall", "roles"=>20})
 	end
 	it "hits the database exactly once" do
-		expect{ subject.to_a }.to make_database_queries(count: 1)
+		expect{ subject }.to make_database_queries(count: 1)
 	end
 end
 
 describe "what_was_that_one_with" do
 	let(:ben_and_matt) {what_was_that_one_with([
 		"Ben Affleck", "Matt Damon"
-		]).as_json}
+	]).as_json}
 
 	let(:geena_and_susan) {what_was_that_one_with([
 		"Geena Davis", "Susan Sarandon"
-		]).as_json}
+	]).as_json}
 
 	it "retrieves the correct information" do
 		expect(ben_and_matt).to contain_exactly(
 			{"id"=>1449, "title"=>"School Ties"},
 			{"id"=>29, "title"=>"Good Will Hunting"},
 			{"id"=>98, "title"=>"Dogma"},
-			{"id"=>95, "title"=>"Chasing Amy"})
+			{"id"=>95, "title"=>"Chasing Amy"}
+		)
 
 		expect(geena_and_susan).to eq([
-			{"id"=>201, "title"=>"Thelma & Louise"}])
+			{"id"=>201, "title"=>"Thelma & Louise"}
+		])
 	end
 
 	it "hits the database exactly once" do
-		expect{ ben_and_matt.to_a }.to make_database_queries(count: 1)
-		expect{ geena_and_susan.to_a }.to make_database_queries(count: 1)
+		expect{ ben_and_matt }.to make_database_queries(count: 1)
+		expect{ geena_and_susan }.to make_database_queries(count: 1)
 	end
 
 end
@@ -295,13 +355,16 @@ describe "actor_out_of_work" do
 end
 
 describe "longest_career" do
-		subject { longest_career.as_json }
+	subject { longest_career.as_json }
 	it "retrieves the correct information" do
-		expect(subject).to eq(
-			{"id"=>3537, "name"=>"Deems Taylor", "career"=>59})
+		expect(subject).to eq([
+			{"id"=>3537, "name"=>"Deems Taylor", "career"=>59},
+			{"id"=>1915, "name"=>"Leopold Stokowski", "career"=>59},
+			{"id"=>845, "name"=>"Robert Stack", "career"=>56}
+		])
 	end
 
 	it "hits the database exactly once" do
-		expect{ subject.to_a }.to make_database_queries(count: 1)
+		expect{ subject }.to make_database_queries(count: 1)
 	end
 end

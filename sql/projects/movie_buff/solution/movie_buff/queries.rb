@@ -61,21 +61,19 @@ def starring(whazzername)
   # Actor.where("name ilike ?", matcher).first.movies
 
   # As the Postgres docs say,
-  #"the keyword ILIKE can be used instead of LIKE to make the match case insensitive according to the active locale.
+  # "the keyword ILIKE can be used instead of LIKE to make the match case insensitive according to the active locale.
   # This is not in the SQL standard but is a PostgreSQL extension."
 end
 
 def bad_years
-
   # List the years in which a movie with a rating above 8 was not released.
-
   Movie.select(:yr, "MAX(score)").group(:yr).having("MAX(score) < 8").pluck(:yr)
 end
 
 def golden_age
 	# Find the decade with the highest average movie score.
 	Movie
-    .select("AVG(score), yr/ 10 * 10 as decade")
+    .select("AVG(score), (yr / 10) * 10 AS decade")
     .group("decade")
     .order("avg(score) DESC")
     .first
@@ -83,8 +81,12 @@ def golden_age
 end
 
 def cast_list(title)
-  # List all the actors for a particular movie, given the title.  Sort the results by starring order (ord).
-  Movie.find_by(title: title).actors.order("castings.ord")
+  # List all the actors for a particular movie, given the title.
+  # Sort the results by starring order (ord).
+  Actor
+    .joins(:movies)
+    .where("movies.title = ?", title)
+    .order("castings.ord")
 end
 
 def costars(name)
@@ -110,11 +112,11 @@ def most_supportive
     .group("actors.id")
     .order("roles DESC")
     .limit(2)
-
 end
 
 def what_was_that_one_with(those_actors)
-	# Find the movies starring all `those_actors` (an array of actor names). Show each movie's title and id.
+	# Find the movies starring all `those_actors` (an array of actor names).
+  # Show each movie's title and id.
 
 	Movie
     .select(:title, :id)
@@ -122,7 +124,6 @@ def what_was_that_one_with(those_actors)
     .where("actors.name in (?)", those_actors)
     .group(:id)
     .having("COUNT(actors.id) >= ?", those_actors.length)
-
 end
 
 def actor_out_of_work
@@ -136,13 +137,14 @@ def actor_out_of_work
 end
 
 def longest_career
-	#Find the two actors who had the longest career (the greatest time between first and last movie).
-  #Order by actor names
+	# Find the 3 actors who had the longest careers
+  # (the greatest time between first and last movie).
+  # Order by actor names
 
 	Actor
     .select(:name, :id, "MAX(movies.yr) - MIN(movies.yr) AS career")
     .joins(:movies)
     .order("career DESC, name")
     .group(:id)
-    .limit(2)
+    .limit(3)
 end
