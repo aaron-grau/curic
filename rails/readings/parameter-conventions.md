@@ -7,7 +7,7 @@ example in a standard `create` action for a Person model,
 the person to create. The `params` hash can also contain arrays,
 arrays of hashes and so on.
 
-Fundamentally HTML forms don't know about any sort of structured data,
+Fundamentally, HTML forms don't know about any sort of structured data,
 all they generate is name–value pairs, where pairs are just plain
 strings. The arrays and hashes you see in your application are the
 result of some parameter naming conventions that Rails uses.
@@ -40,7 +40,7 @@ the `params` hash will contain
 and `params[:person][:name]` will retrieve the submitted value in the
 controller.
 
-Hashes can be nested as many levels as required, for example
+Hashes can be nested as many levels as required, for example:
 
 ```html
 <input id="person_address_city" name="person[address][city]" type="text" value="New York">
@@ -54,7 +54,7 @@ will result in the `params` hash being
 
 ## Basic Structures: Arrays
 
-Normally Rails ignores duplicate parameter name. For instance, if your
+Normally Rails ignores duplicate parameter names. For instance, if your
 form contains:
 
 ```html
@@ -72,7 +72,7 @@ When Rails goes to parse this, it will return:
 { "key" => "value2" }
 ```
 
-The last value wins. Rails discards any prior values. Note that Rails
+The last value wins. Rails overwrites any prior values. Note that Rails
 is the one which does this: the browser is happy to upload multiple
 values for the same name.
 
