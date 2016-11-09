@@ -15,15 +15,15 @@ This Curriculum focuses on the first two cornerstones of modern front-end develo
 HyperText Markup Language is made up of HTML Elements denoted using opening and closing tags:
 
 ```html
-<p>This is an example of a paragraph tag in HTML</p>
+<p>This is an example of a paragraph element in HTML</p>
 ```
 
 These elements form the building blocks of an HTML document and may either directly introduce content or wrap content to provide information about document text.
 
-For example, the above `<p></p>` tag wraps the containing document text into an HTML Element. The `<img/>` tag below is self-closing in that it does not wrap anything but instead directly inputs the provided image as an HTML Element.
+For example, the above `<p></p>` tags wrap the containing document text into an HTML Element. The `<img/>` tag below is self-closing in that it does not wrap anything but instead directly inputs the provided image as an HTML Element.
 
 ```html
-<img src="appacademy.io/images/app-academy-logo.img"/>
+<img src="appacademy.io/images/app-academy-logo.img" />
 ```
 
 Notice that this image tag received additional information by declaring what is called an **attribute**. Attributes receive **values** in double quotes.  The `src` attribute provides a url to the image tag for the browser to get and render the proper image inside the HTML Element. Mastering the various tags and attributes is the first key to becoming proficient in HTML.
@@ -32,24 +32,24 @@ Notice that this image tag received additional information by declaring what is 
 
 The following are examples of popular tags in HTML and how they are used.
 
-### Paragraphs and Headers
+### Paragraphs and Headings
 
 ```html
 <p>A paragraph tag is used to wrap a multi-line body of text</p>
 
-<h1>A Header1 tag is used to denote the largest title on the page</h1>
+<h1>A heading1 tag is used to denote the largest title on the page</h1>
 ```
 
-**N.B.** The H1 tag is that it is used in site ranking algorithms by search engines such as Google. It is important to only have one H1 tag per page and to have it contain a keyword summarizing the page content.
+**N.B.** The `<h1>` tag is used in site ranking algorithms by search engines such as Google. It is important to only have one `<h1>` element per page and to have it contain a keyword summarizing the page content.
 
 ```html
-<h2>Used for titles with a smaller font size than H1</h2>
+<h2>Used for titles with a smaller font size than h1</h2>
 ```
 
-These header tags should be used in descending order with regards to their containing font sizes. The smallest size is a:
+These heading tags should be used in descending order with regards to their containing font sizes. The smallest size is a:
 
 ```html
-<h5>Header five tag</h5>
+<h6>Heading six tag</h6>
 ```
 
 ### Lists
@@ -86,7 +86,7 @@ The definition list it not as common but is used to hold definition data and ter
 ```
 ### Links
 
-What is commonly referred to around the internet as a "Link" is a clickable element that directs the browser to another page or area on the page. This is not to be confused with a link tag, which will be discussed in future sections.
+What is commonly referred to around the internet as a "link" is a clickable element that directs the browser to another page or area on the page. This is not to be confused with a link tag, which will be discussed in future sections.
 
 To create a link using an html element we use what is called an anchor tag:
 
@@ -99,7 +99,7 @@ Notice that the URL for which this clickable anchor tag element will make a GET 
 In the following code we create two anchor tags. One is self-closing with a name attribute and the other contains text that has an href attribute with the same name value preceded by a `#`. This is how we create in-page links. Clicking the 'Back to top' link wherever it is placed on the page will now take the user to the location of the named anchor tag.
 
 ```html
-<a name="top-of-page"/>
+<a name="top-of-page" />
     <!-- Imagine all of your other content in between. By the way, this is how we denote comments in HTML. -->
 <a href="#top-of-page">Back to top</a> 
 ```
@@ -108,14 +108,10 @@ The use of the `#` in the beginning of the url tells the browser to find an elem
 
 ### Images
 
-We create image elements in html using a self-closing image tag with the src attribute referring to the path to the image data.
+We create image elements in HTML using a self-closing image tag with the `src` attribute referring to the path to the image data.
 
 ```html
-`<img src="http://appacademy.io/images/app-academy-logo.img" alt="app-academy-logo"/>`
+`<img src="http://appacademy.io/images/app-academy-logo.img" alt="app-academy-logo" />`
 ```
 
-The alt attribute provides alternate text for the image which is used in image search rankings, speech-accessibility, and displayed when a user hovers over the image.
-
-
-
-
+The `alt` attribute provides alternate text for the image which is used in image search rankings, speech-accessibility, and displayed when a user hovers over the image.
