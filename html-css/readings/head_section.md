@@ -12,7 +12,7 @@ The <title></title> element displays a title for the webpage:
 
 ### MetaData
 
-The meta tag is extremely important for all modern web pages because it is used to describe our websites to search engines.
+The `<meta>` tag is extremely important for all modern web pages because it is used to describe our websites to search engines.
 
 This topic of optimizing web pages for the best search results makes up an entire field of study called Search Engine Optimization (SEO).
 
@@ -41,15 +41,15 @@ Another metatag is the characterset information mentioned in the beginning of th
 
 [W3schools](http://www.w3schools.com/tags/ref_charactersets.asp) has a decent history lesson ending in the modern HTML default: Unicode UTF-8.
 
-Additional Metatags include page authorship, content-language, social media specific descriptions, and information for the browser about how the page should be served.
+Additional metatags include page authorship, content-language, social media specific descriptions, and information for the browser about how the page should be served.
 
 Additional Resources: [MDN Meta Tag Documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
 
 ### Scripts
 
-Another popular element found in the head section is a script tag. The language for these scripts defaults to Javascript but may also be specified with a type attribute.
+Another popular element found in the head section is a `<script>` tag. The language for these scripts defaults to Javascript but may also be specified with a type attribute.
 
-We may either write javascript within the script element or provide a src attribute that refers to an external javascript file.
+We may either write Javascript within the script element or provide a `src` attribute that refers to an external Javascript file.
 
 Here is an example of a script we should all have on our websites which loads Google's popular free analytics platform: Google Analytics.
 
@@ -68,7 +68,7 @@ Here is an example of a script we should all have on our websites which loads Go
 
 Don't worry about reading this script and trying to understand what it does. This script is provided by Google when creating a Google Analytics account and we are instructed to palce it at the bottom of our head section.
 
-Here is an example using an external javascript file with a declared type attribute:
+Here is an example using an external Javascript file with a declared `type` attribute:
 
 ```html
 <script type="text/javascript" src="review-submit-example.js"/>
@@ -76,7 +76,7 @@ Here is an example using an external javascript file with a declared type attrib
 
 ### Link Tag
 
-The final piece we will cover with regards to the head section is the link element. This is most commonly used to load an external style sheet covered in the next part of this curriculum: CSS.
+The final piece we will cover with regards to the head section is the link element. This is most commonly used to load an external stylesheet covered in the next part of this curriculum: CSS.
 
 Example:
 
@@ -84,10 +84,10 @@ Example:
 <link rel="stylesheet" href="style.css" type="text/css">
 ```
 
-The rel attribute defines the relationship and must refer to stylesheet when loading an external style sheet file.
+The `rel` attribute defines the relationship and must refer to stylesheet when loading an external stylesheet file.
 
-The href attribute specifies the URL of the defined resource, in this case the path to the css file being requested.
+The `href` attribute specifies the URL of the defined resource, in this case the path to the CSS file being requested.
 
-Similar to the script tag, type declares the content-language for the file being loaded.
+Similar to its use in the `<script>` tag, `type` declares the content-language for the file being loaded.
 
 Additional Documentation: [MDN Link Tag Documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
