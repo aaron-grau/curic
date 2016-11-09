@@ -84,7 +84,7 @@
 
 ### Additional Resources
 * [Easy Forms Demo][easy-forms-demo]
-* [Custom][custom-validations] Validations
+* [Custom Validations][custom-validations]
 
 ### Projects
 * [99 Cats][99-cats]
@@ -105,7 +105,7 @@
 [auth-04-session-token]: https://vimeo.com/groups/appacademy/videos/93101442
 
 [easy-forms-demo]: demos/easy_forms_demo
-[custom-validations]: readings/custom-validations.md
+[custom-validations]: ../sql/readings/custom-validations.md
 [99-cats]: projects/ninety_nine_cats_i
 
 ## w4d3
