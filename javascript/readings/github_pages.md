@@ -10,7 +10,7 @@ portfolio site.
 ## Personal Pages
 
 Every Github account can host a site on Github Pages. To create a new site, all
-you need is a repo named `[your username].github.io`. Once you push to Github, the site
+you need is a repo named `[your_username].github.io`. Once you push to Github, the site
 should go live within an hour. You probably want a file called `index.html`, which
 will be served when someone visits the root; otherwise, content is up to you.
 
