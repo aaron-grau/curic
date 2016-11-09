@@ -1,1845 +1,1847 @@
-Movie.create!(id: 1, title: "Star Wars", yr: 1977, score: 8.80000000000000071, votes: 53567, director_id: 360)
-Movie.create!(id: 2, title: "Shawshank Redemption, The", yr: 1994, score: 9, votes: 44974, director_id: 1040)
-Movie.create!(id: 3, title: "Pulp Fiction", yr: 1994, score: 8.59999999999999964, votes: 43993, director_id: 444)
-Movie.create!(id: 4, title: "Titanic", yr: 1997, score: 7.20000000000000018, votes: 43371, director_id: 198)
-Movie.create!(id: 5, title: "Star Wars: Episode V - The Empire Strikes Back", yr: 1980, score: 8.59999999999999964, votes: 39446, director_id: 651)
-Movie.create!(id: 6, title: "Usual Suspects, The", yr: 1995, score: 8.69999999999999929, votes: 35027, director_id: 639)
-Movie.create!(id: 7, title: "Schindler's List", yr: 1993, score: 8.80000000000000071, votes: 34251, director_id: 18)
-Movie.create!(id: 8, title: "Saving Private Ryan", yr: 1998, score: 8.5, votes: 34113, director_id: 18)
-Movie.create!(id: 9, title: "Braveheart", yr: 1995, score: 8.30000000000000071, votes: 32870, director_id: 22)
-Movie.create!(id: 10, title: "American Beauty", yr: 1999, score: 8.80000000000000071, votes: 32547, director_id: 2542)
-Movie.create!(id: 11, title: "Raiders of the Lost Ark", yr: 1981, score: 8.59999999999999964, votes: 31750, director_id: 18)
-Movie.create!(id: 12, title: "Godfather, The", yr: 1972, score: 9, votes: 31225, director_id: 28)
-Movie.create!(id: 13, title: "Star Wars: Episode VI - Return of the Jedi", yr: 1983, score: 8, votes: 30178, director_id: 1020)
-Movie.create!(id: 14, title: "Blade Runner", yr: 1982, score: 8.30000000000000071, votes: 29877, director_id: 110)
-Movie.create!(id: 15, title: "Silence of the Lambs, The", yr: 1991, score: 8.5, votes: 29582, director_id: 281)
-Movie.create!(id: 16, title: "Forrest Gump", yr: 1994, score: 7.79999999999999982, votes: 29400, director_id: 67)
-Movie.create!(id: 17, title: "Star Wars: Episode I - The Phantom Menace", yr: 1999, score: 7.29999999999999982, votes: 28641, director_id: 360)
-Movie.create!(id: 18, title: "Sixth Sense, The", yr: 1999, score: 8.5, votes: 27626, director_id: 966)
-Movie.create!(id: 19, title: "Independence Day", yr: 1996, score: 6, votes: 26259, director_id: 290)
-Movie.create!(id: 20, title: "Terminator 2: Judgment Day", yr: 1991, score: 7.90000000000000036, votes: 25767, director_id: 198)
-Movie.create!(id: 21, title: "Se7en", yr: 1995, score: 8.09999999999999964, votes: 25158, director_id: 414)
-Movie.create!(id: 22, title: "Fargo", yr: 1996, score: 8.19999999999999929, votes: 25044, director_id: 111)
-Movie.create!(id: 23, title: "2001: A Space Odyssey", yr: 1968, score: 8.30000000000000071, votes: 24536, director_id: 82)
-Movie.create!(id: 24, title: "Aliens", yr: 1986, score: 8.19999999999999929, votes: 23965, director_id: 198)
-Movie.create!(id: 25, title: "Truman Show, The", yr: 1998, score: 7.79999999999999982, votes: 23665, director_id: 86)
-Movie.create!(id: 26, title: "Back to the Future", yr: 1985, score: 7.79999999999999982, votes: 23306, director_id: 67)
-Movie.create!(id: 27, title: "Casablanca", yr: 1942, score: 8.80000000000000071, votes: 23283, director_id: 675)
-Movie.create!(id: 28, title: "One Flew Over the Cuckoo's Nest", yr: 1975, score: 8.69999999999999929, votes: 22868, director_id: 408)
-Movie.create!(id: 29, title: "Good Will Hunting", yr: 1997, score: 7.90000000000000036, votes: 22734, director_id: 271)
-Movie.create!(id: 30, title: "Fifth Element, The", yr: 1997, score: 7, votes: 22365, director_id: 389)
-Movie.create!(id: 31, title: "Twelve Monkeys", yr: 1995, score: 7.79999999999999982, votes: 22342, director_id: 59)
-Movie.create!(id: 32, title: "Gladiator", yr: 2000, score: 8.30000000000000071, votes: 21955, director_id: 110)
-Movie.create!(id: 33, title: "Fight Club", yr: 1999, score: 8.5, votes: 21391, director_id: 414)
-Movie.create!(id: 34, title: "Clockwork Orange, A", yr: 1971, score: 8.19999999999999929, votes: 21216, director_id: 82)
-Movie.create!(id: 35, title: "Alien", yr: 1979, score: 8.19999999999999929, votes: 20998, director_id: 110)
-Movie.create!(id: 36, title: "Princess Bride, The", yr: 1987, score: 8.19999999999999929, votes: 20931, director_id: 37)
-Movie.create!(id: 37, title: "Indiana Jones and the Last Crusade", yr: 1989, score: 7.79999999999999982, votes: 20897, director_id: 18)
-Movie.create!(id: 38, title: "Fugitive, The", yr: 1993, score: 7.79999999999999982, votes: 20843, director_id: 291)
-Movie.create!(id: 39, title: "Reservoir Dogs", yr: 1992, score: 8.19999999999999929, votes: 20343, director_id: 444)
-Movie.create!(id: 40, title: "Citizen Kane", yr: 1941, score: 8.80000000000000071, votes: 20269, director_id: 253)
-Movie.create!(id: 41, title: "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb", yr: 1964, score: 8.69999999999999929, votes: 20034, director_id: 82)
-Movie.create!(id: 42, title: "Die Hard", yr: 1988, score: 7.90000000000000036, votes: 19929, director_id: 196)
-Movie.create!(id: 43, title: "Goodfellas", yr: 1990, score: 8.5, votes: 19430, director_id: 78)
-Movie.create!(id: 44, title: "Scream", yr: 1996, score: 7.20000000000000018, votes: 19350, director_id: 133)
-Movie.create!(id: 45, title: "Apocalypse Now", yr: 1979, score: 8.30000000000000071, votes: 19335, director_id: 28)
-Movie.create!(id: 46, title: "Terminator, The", yr: 1984, score: 7.79999999999999982, votes: 18995, director_id: 198)
-Movie.create!(id: 47, title: "As Good As It Gets", yr: 1997, score: 7.79999999999999982, votes: 18856, director_id: 574)
-Movie.create!(id: 48, title: "Dead Poets Society", yr: 1989, score: 7.70000000000000018, votes: 18769, director_id: 86)
-Movie.create!(id: 49, title: "Monty Python and the Holy Grail", yr: 1975, score: 8.30000000000000071, votes: 18640, director_id: 59)
-Movie.create!(id: 50, title: "Trainspotting", yr: 1996, score: 7.79999999999999982, votes: 18428, director_id: 597)
-Movie.create!(id: 51, title: "Rock, The", yr: 1996, score: 7, votes: 18013, director_id: 678)
-Movie.create!(id: 52, title: "Shakespeare in Love", yr: 1998, score: 7.90000000000000036, votes: 17918, director_id: 1011)
-Movie.create!(id: 53, title: "Apollo 13", yr: 1995, score: 7.59999999999999964, votes: 17797, director_id: 21)
-Movie.create!(id: 54, title: "Psycho", yr: 1960, score: 8.59999999999999964, votes: 17734, director_id: 11)
-Movie.create!(id: 55, title: "Contact", yr: 1997, score: 7.59999999999999964, votes: 17390, director_id: 67)
-Movie.create!(id: 56, title: "There's Something About Mary", yr: 1998, score: 7.29999999999999982, votes: 17352, director_id: 2459)
-Movie.create!(id: 57, title: "Toy Story", yr: 1995, score: 7.90000000000000036, votes: 16971, director_id: 1044)
-Movie.create!(id: 58, title: "Armageddon", yr: 1998, score: 5.79999999999999982, votes: 16581, director_id: 678)
-Movie.create!(id: 59, title: "Blair Witch Project, The", yr: 1999, score: 6.59999999999999964, votes: 16204, director_id: 2248)
-Movie.create!(id: 60, title: "Rain Man", yr: 1988, score: 7.79999999999999982, votes: 15933, director_id: 38)
-Movie.create!(id: 61, title: "Godfather: Part II, The", yr: 1974, score: 8.80000000000000071, votes: 15487, director_id: 28)
-Movie.create!(id: 62, title: "Face/Off", yr: 1997, score: 7.20000000000000018, votes: 14744, director_id: 204)
-Movie.create!(id: 63, title: "Shining, The", yr: 1980, score: 8.09999999999999964, votes: 14653, director_id: 82)
-Movie.create!(id: 64, title: "Amadeus", yr: 1984, score: 8.19999999999999929, votes: 14351, director_id: 408)
-Movie.create!(id: 65, title: "Taxi Driver", yr: 1976, score: 8.40000000000000036, votes: 14090, director_id: 78)
-Movie.create!(id: 66, title: "E.T. the Extra-Terrestrial", yr: 1982, score: 7.70000000000000018, votes: 14062, director_id: 18)
-Movie.create!(id: 67, title: "Blues Brothers, The", yr: 1980, score: 7.5, votes: 13979, director_id: 62)
-Movie.create!(id: 68, title: "Star Trek: First Contact", yr: 1996, score: 7.20000000000000018, votes: 13948, director_id: 500)
-Movie.create!(id: 69, title: "Full Metal Jacket", yr: 1987, score: 8.09999999999999964, votes: 13863, director_id: 82)
-Movie.create!(id: 70, title: "Being John Malkovich", yr: 1999, score: 8.30000000000000071, votes: 13809, director_id: 1485)
-Movie.create!(id: 71, title: "Clerks", yr: 1994, score: 7.90000000000000036, votes: 13803, director_id: 445)
-Movie.create!(id: 72, title: "Wizard of Oz, The", yr: 1939, score: 8.30000000000000071, votes: 13444, director_id: 1151)
-Movie.create!(id: 73, title: "Green Mile, The", yr: 1999, score: 8.30000000000000071, votes: 13409, director_id: 1040)
-Movie.create!(id: 74, title: "Vita &#232; bella, La", yr: 1997, score: 8.59999999999999964, votes: 13403, director_id: 820)
-Movie.create!(id: 75, title: "Austin Powers: International Man of Mystery", yr: 1997, score: 7, votes: 13372, director_id: 604)
-Movie.create!(id: 76, title: "Ferris Bueller's Day Off", yr: 1986, score: 7.59999999999999964, votes: 13326, director_id: 144)
-Movie.create!(id: 77, title: "Starship Troopers", yr: 1997, score: 6.59999999999999964, votes: 13205, director_id: 201)
-Movie.create!(id: 78, title: "Groundhog Day", yr: 1993, score: 7.70000000000000018, votes: 13093, director_id: 108)
-Movie.create!(id: 79, title: "Mission: Impossible", yr: 1996, score: 6.40000000000000036, votes: 13029, director_id: 31)
-Movie.create!(id: 80, title: "Heat", yr: 1995, score: 7.70000000000000018, votes: 13016, director_id: 1106)
-Movie.create!(id: 81, title: "English Patient, The", yr: 1996, score: 7.09999999999999964, votes: 12995, director_id: 621)
-Movie.create!(id: 82, title: "American History X", yr: 1998, score: 8.30000000000000071, votes: 12977, director_id: 2663)
-Movie.create!(id: 83, title: "Top Gun", yr: 1986, score: 6.40000000000000036, votes: 12851, director_id: 107)
-Movie.create!(id: 84, title: "Speed", yr: 1994, score: 7, votes: 12715, director_id: 421)
-Movie.create!(id: 85, title: "Twister", yr: 1996, score: 5.90000000000000036, votes: 12597, director_id: 421)
-Movie.create!(id: 86, title: "Batman", yr: 1989, score: 7.09999999999999964, votes: 12512, director_id: 148)
-Movie.create!(id: 87, title: "Rear Window", yr: 1954, score: 8.69999999999999929, votes: 12484, director_id: 11)
-Movie.create!(id: 88, title: "Eyes Wide Shut", yr: 1999, score: 7.29999999999999982, votes: 12455, director_id: 82)
-Movie.create!(id: 89, title: "Brazil", yr: 1985, score: 8, votes: 12319, director_id: 59)
-Movie.create!(id: 90, title: "Big Lebowski, The", yr: 1998, score: 7.59999999999999964, votes: 12266, director_id: 111)
-Movie.create!(id: 91, title: "True Lies", yr: 1994, score: 7, votes: 12109, director_id: 198)
-Movie.create!(id: 92, title: "X-Men", yr: 2000, score: 7.79999999999999982, votes: 12093, director_id: 639)
-Movie.create!(id: 93, title: "Full Monty, The", yr: 1997, score: 7.40000000000000036, votes: 11852, director_id: 2757)
-Movie.create!(id: 94, title: "North by Northwest", yr: 1959, score: 8.59999999999999964, votes: 11588, director_id: 11)
-Movie.create!(id: 95, title: "Chasing Amy", yr: 1997, score: 7.59999999999999964, votes: 11563, director_id: 445)
-Movie.create!(id: 96, title: "Hunt for Red October, The", yr: 1990, score: 7.5, votes: 11251, director_id: 196)
-Movie.create!(id: 97, title: "Vertigo", yr: 1958, score: 8.5, votes: 11231, director_id: 11)
-Movie.create!(id: 98, title: "Dogma", yr: 1999, score: 7.59999999999999964, votes: 11133, director_id: 445)
-Movie.create!(id: 99, title: "Mission: Impossible II", yr: 2000, score: 6.29999999999999982, votes: 11117, director_id: 204)
-Movie.create!(id: 100, title: "Fish Called Wanda, A", yr: 1988, score: 7.70000000000000018, votes: 11075, director_id: 2247)
-Movie.create!(id: 101, title: "American Pie", yr: 1999, score: 7.09999999999999964, votes: 10908, director_id: 2859)
-Movie.create!(id: 102, title: "Austin Powers: The Spy Who Shagged Me", yr: 1999, score: 6.5, votes: 10891, director_id: 604)
-Movie.create!(id: 103, title: "Indiana Jones and the Temple of Doom", yr: 1984, score: 6.90000000000000036, votes: 10674, director_id: 18)
-Movie.create!(id: 104, title: "When Harry Met Sally...", yr: 1989, score: 7.59999999999999964, votes: 10663, director_id: 37)
-Movie.create!(id: 105, title: "Gone with the Wind", yr: 1939, score: 8.09999999999999964, votes: 10628, director_id: 1151)
-Movie.create!(id: 106, title: "Stand by Me", yr: 1986, score: 7.79999999999999982, votes: 10579, director_id: 37)
-Movie.create!(id: 107, title: "Batman & Robin", yr: 1997, score: 3.5, votes: 10577, director_id: 105)
-Movie.create!(id: 108, title: "Ghostbusters", yr: 1984, score: 7.29999999999999982, votes: 10543, director_id: 109)
-Movie.create!(id: 109, title: "Dances with Wolves", yr: 1990, score: 7.59999999999999964, votes: 10522, director_id: 10)
-Movie.create!(id: 110, title: "Sleepy Hollow", yr: 1999, score: 7.5, votes: 10514, director_id: 148)
-Movie.create!(id: 111, title: "South Park: Bigger, Longer and Uncut", yr: 1999, score: 7.70000000000000018, votes: 10471, director_id: 270)
-Movie.create!(id: 112, title: "Three Kings", yr: 1999, score: 7.70000000000000018, votes: 10319, director_id: 1070)
-Movie.create!(id: 113, title: "Platoon", yr: 1986, score: 7.90000000000000036, votes: 10272, director_id: 69)
-Movie.create!(id: 114, title: "From Dusk Till Dawn", yr: 1996, score: 6.59999999999999964, votes: 10152, director_id: 666)
-Movie.create!(id: 115, title: "Mummy, The", yr: 1999, score: 6.59999999999999964, votes: 10125, director_id: 1103)
-Movie.create!(id: 116, title: "Toy Story 2", yr: 1999, score: 8.5, votes: 10020, director_id: 2043)
-Movie.create!(id: 117, title: "Air Force One", yr: 1997, score: 6.5, votes: 9941, director_id: 140)
-Movie.create!(id: 118, title: "Unforgiven", yr: 1992, score: 7.90000000000000036, votes: 9903, director_id: 2)
-Movie.create!(id: 119, title: "Breakfast Club, The", yr: 1985, score: 7.40000000000000036, votes: 9760, director_id: 144)
-Movie.create!(id: 120, title: "Field of Dreams", yr: 1989, score: 7.59999999999999964, votes: 9717, director_id: 993)
-Movie.create!(id: 121, title: "To Kill a Mockingbird", yr: 1962, score: 8.5, votes: 9707, director_id: 2586)
-Movie.create!(id: 122, title: "Untouchables, The", yr: 1987, score: 7.79999999999999982, votes: 9592, director_id: 31)
-Movie.create!(id: 123, title: "Graduate, The", yr: 1967, score: 8.09999999999999964, votes: 9558, director_id: 47)
-Movie.create!(id: 124, title: "Thin Red Line, The", yr: 1998, score: 7.20000000000000018, votes: 9555, director_id: 686)
-Movie.create!(id: 125, title: "Game, The", yr: 1997, score: 7.5, votes: 9552, director_id: 414)
-Movie.create!(id: 126, title: "Godzilla", yr: 1998, score: 4.20000000000000018, votes: 9464, director_id: 290)
-Movie.create!(id: 127, title: "Boogie Nights", yr: 1997, score: 7.5, votes: 9458, director_id: 1037)
-Movie.create!(id: 128, title: "Abyss, The", yr: 1989, score: 7.29999999999999982, votes: 9434, director_id: 198)
-Movie.create!(id: 129, title: "Romeo + Juliet", yr: 1996, score: 6.59999999999999964, votes: 9274, director_id: 1069)
-Movie.create!(id: 130, title: "Total Recall", yr: 1990, score: 7.09999999999999964, votes: 9261, director_id: 201)
-Movie.create!(id: 131, title: "Grosse Pointe Blank", yr: 1997, score: 7.40000000000000036, votes: 9211, director_id: 2103)
-Movie.create!(id: 132, title: "X Files, The", yr: 1998, score: 6.79999999999999982, votes: 9114, director_id: 2673)
-Movie.create!(id: 133, title: "Close Encounters of the Third Kind", yr: 1977, score: 7.70000000000000018, votes: 9107, director_id: 18)
-Movie.create!(id: 134, title: "Few Good Men, A", yr: 1992, score: 7.40000000000000036, votes: 9077, director_id: 37)
-Movie.create!(id: 135, title: "Exorcist, The", yr: 1973, score: 7.90000000000000036, votes: 8984, director_id: 264)
-Movie.create!(id: 136, title: "Devil's Advocate, The", yr: 1997, score: 7, votes: 8983, director_id: 674)
-Movie.create!(id: 137, title: "Scream 2", yr: 1997, score: 6.20000000000000018, votes: 8970, director_id: 133)
-Movie.create!(id: 138, title: "Pleasantville", yr: 1998, score: 7.5, votes: 8969, director_id: 2118)
-Movie.create!(id: 139, title: "Deep Impact", yr: 1998, score: 6, votes: 8950, director_id: 589)
-Movie.create!(id: 140, title: "Con Air", yr: 1997, score: 6.29999999999999982, votes: 8917, director_id: 1114)
-Movie.create!(id: 141, title: "Grease", yr: 1978, score: 6.59999999999999964, votes: 8857, director_id: 383)
-Movie.create!(id: 142, title: "Natural Born Killers", yr: 1994, score: 6.29999999999999982, votes: 8744, director_id: 69)
-Movie.create!(id: 143, title: "Sling Blade", yr: 1996, score: 8.09999999999999964, votes: 8740, director_id: 298)
-Movie.create!(id: 144, title: "True Romance", yr: 1993, score: 7.5, votes: 8657, director_id: 107)
-Movie.create!(id: 145, title: "GoldenEye", yr: 1995, score: 6.70000000000000018, votes: 8484, director_id: 2539)
-Movie.create!(id: 146, title: "Bug's Life, A", yr: 1998, score: 7.70000000000000018, votes: 8481, director_id: 1044)
-Movie.create!(id: 147, title: "Airplane!", yr: 1980, score: 7.59999999999999964, votes: 8431, director_id: 189)
-Movie.create!(id: 148, title: "Back to the Future Part II", yr: 1989, score: 6.59999999999999964, votes: 8411, director_id: 67)
-Movie.create!(id: 149, title: "Deer Hunter, The", yr: 1978, score: 8.09999999999999964, votes: 8393, director_id: 2645)
-Movie.create!(id: 150, title: "Boot, Das", yr: 1981, score: 8.5, votes: 8392, director_id: 140)
-Movie.create!(id: 151, title: "Gattaca", yr: 1997, score: 7.40000000000000036, votes: 8388, director_id: 2020)
-Movie.create!(id: 152, title: "Alien: Resurrection", yr: 1997, score: 6, votes: 8363, director_id: 2235)
-Movie.create!(id: 153, title: "Beauty and the Beast", yr: 1991, score: 7.79999999999999982, votes: 8306, director_id: 2126)
-Movie.create!(id: 154, title: "Chinatown", yr: 1974, score: 8.40000000000000036, votes: 8280, director_id: 90)
-Movie.create!(id: 155, title: "Casino", yr: 1995, score: 7.59999999999999964, votes: 8247, director_id: 78)
-Movie.create!(id: 156, title: "World Is Not Enough, The", yr: 1999, score: 6.59999999999999964, votes: 8226, director_id: 199)
-Movie.create!(id: 157, title: "Raising Arizona", yr: 1987, score: 7.59999999999999964, votes: 8185, director_id: 111)
-Movie.create!(id: 158, title: "Army of Darkness", yr: 1993, score: 7.20000000000000018, votes: 8165, director_id: 141)
-Movie.create!(id: 159, title: "12 Angry Men", yr: 1957, score: 8.59999999999999964, votes: 8158, director_id: 80)
-Movie.create!(id: 160, title: "Batman Forever", yr: 1995, score: 5.29999999999999982, votes: 8130, director_id: 105)
-Movie.create!(id: 161, title: "Sting, The", yr: 1973, score: 8.19999999999999929, votes: 8108, director_id: 276)
-Movie.create!(id: 162, title: "Glory", yr: 1989, score: 8.09999999999999964, votes: 8079, director_id: 382)
-Movie.create!(id: 163, title: "Raging Bull", yr: 1980, score: 8.40000000000000036, votes: 8029, director_id: 78)
-Movie.create!(id: 164, title: "Dark City", yr: 1998, score: 7.5, votes: 8024, director_id: 1047)
-Movie.create!(id: 165, title: "Wallace & Gromit: The Wrong Trousers", yr: 1993, score: 8.5, votes: 8024, director_id: 572)
-Movie.create!(id: 166, title: "Beetlejuice", yr: 1988, score: 6.90000000000000036, votes: 8019, director_id: 148)
-Movie.create!(id: 167, title: "Highlander", yr: 1986, score: 7.09999999999999964, votes: 8013, director_id: 577)
-Movie.create!(id: 168, title: "Pretty Woman", yr: 1990, score: 6.5, votes: 7993, director_id: 129)
-Movie.create!(id: 169, title: "Notting Hill", yr: 1999, score: 7.29999999999999982, votes: 7977, director_id: 2760)
-Movie.create!(id: 170, title: "Go", yr: 1999, score: 7.79999999999999982, votes: 7935, director_id: 1163)
-Movie.create!(id: 171, title: "Sound of Music, The", yr: 1965, score: 7.59999999999999964, votes: 7913, director_id: 286)
-Movie.create!(id: 172, title: "Crow, The", yr: 1994, score: 6.90000000000000036, votes: 7869, director_id: 1047)
-Movie.create!(id: 173, title: "Patriot, The", yr: 2000, score: 7.29999999999999982, votes: 7826, director_id: 290)
-Movie.create!(id: 174, title: "Enemy of the State", yr: 1998, score: 7.20000000000000018, votes: 7817, director_id: 107)
-Movie.create!(id: 175, title: "Babe", yr: 1995, score: 7.59999999999999964, votes: 7811, director_id: 2353)
-Movie.create!(id: 176, title: "Talented Mr. Ripley, The", yr: 1999, score: 7.20000000000000018, votes: 7797, director_id: 621)
-Movie.create!(id: 177, title: "Who Framed Roger Rabbit", yr: 1988, score: 7.29999999999999982, votes: 7789, director_id: 67)
-Movie.create!(id: 178, title: "Tomorrow Never Dies", yr: 1997, score: 6.5, votes: 7683, director_id: 407)
-Movie.create!(id: 179, title: "Dead Man Walking", yr: 1995, score: 7.70000000000000018, votes: 7636, director_id: 25)
-Movie.create!(id: 180, title: "Out of Sight", yr: 1998, score: 7.59999999999999964, votes: 7555, director_id: 689)
-Movie.create!(id: 181, title: "Sleepless in Seattle", yr: 1993, score: 6.79999999999999982, votes: 7551, director_id: 1091)
-Movie.create!(id: 182, title: "Die Hard: With a Vengeance", yr: 1995, score: 6.79999999999999982, votes: 7544, director_id: 196)
-Movie.create!(id: 183, title: "Aladdin", yr: 1992, score: 7.5, votes: 7537, director_id: 1152)
-Movie.create!(id: 184, title: "Dumb & Dumber", yr: 1994, score: 6.20000000000000018, votes: 7444, director_id: 2825)
-Movie.create!(id: 185, title: "Wedding Singer, The", yr: 1998, score: 6.79999999999999982, votes: 7431, director_id: 1054)
-Movie.create!(id: 186, title: "Insider, The", yr: 1999, score: 8.19999999999999929, votes: 7429, director_id: 1106)
-Movie.create!(id: 187, title: "Negotiator, The", yr: 1998, score: 7.20000000000000018, votes: 7420, director_id: 1035)
-Movie.create!(id: 188, title: "Perfect Storm, The", yr: 2000, score: 6.59999999999999964, votes: 7414, director_id: 140)
-Movie.create!(id: 189, title: "Bridge on the River Kwai, The", yr: 1957, score: 8.40000000000000036, votes: 7395, director_id: 1080)
-Movie.create!(id: 190, title: "Four Weddings and a Funeral", yr: 1994, score: 7.20000000000000018, votes: 7394, director_id: 585)
-Movie.create!(id: 191, title: "Ransom", yr: 1996, score: 6.70000000000000018, votes: 7377, director_id: 21)
-Movie.create!(id: 192, title: "Back to the Future Part III", yr: 1990, score: 6.40000000000000036, votes: 7337, director_id: 67)
-Movie.create!(id: 193, title: "Rocky Horror Picture Show, The", yr: 1975, score: 6.5, votes: 7288, director_id: 2325)
-Movie.create!(id: 194, title: "Rushmore", yr: 1998, score: 7.59999999999999964, votes: 7269, director_id: 1034)
-Movie.create!(id: 195, title: "Spaceballs", yr: 1987, score: 6.40000000000000036, votes: 7225, director_id: 29)
-Movie.create!(id: 196, title: "Analyze This", yr: 1999, score: 6.79999999999999982, votes: 7224, director_id: 108)
-Movie.create!(id: 197, title: "Die Hard 2", yr: 1990, score: 6.59999999999999964, votes: 7197, director_id: 210)
-Movie.create!(id: 198, title: "Young Frankenstein", yr: 1974, score: 8, votes: 7186, director_id: 29)
-Movie.create!(id: 199, title: "Goldfinger", yr: 1964, score: 7.70000000000000018, votes: 7180, director_id: 636)
-Movie.create!(id: 200, title: "Clueless", yr: 1995, score: 6.70000000000000018, votes: 7159, director_id: 403)
-Movie.create!(id: 201, title: "Thelma & Louise", yr: 1991, score: 7.20000000000000018, votes: 7153, director_id: 110)
-Movie.create!(id: 202, title: "Ronin", yr: 1998, score: 7, votes: 7144, director_id: 676)
-Movie.create!(id: 203, title: "Predator", yr: 1987, score: 7.09999999999999964, votes: 7136, director_id: 196)
-Movie.create!(id: 204, title: "Cruel Intentions", yr: 1999, score: 6.70000000000000018, votes: 7081, director_id: 2765)
-Movie.create!(id: 205, title: "Batman Returns", yr: 1992, score: 6.20000000000000018, votes: 7063, director_id: 148)
-Movie.create!(id: 206, title: "Swingers", yr: 1996, score: 7.5, votes: 7038, director_id: 1163)
-Movie.create!(id: 207, title: "Basic Instinct", yr: 1992, score: 6.5, votes: 7011, director_id: 201)
-Movie.create!(id: 208, title: "Annie Hall", yr: 1977, score: 8.19999999999999929, votes: 6989, director_id: 1)
-Movie.create!(id: 209, title: "Star Trek: The Wrath of Khan", yr: 1982, score: 7.40000000000000036, votes: 6969, director_id: 571)
-Movie.create!(id: 210, title: "Waterworld", yr: 1995, score: 5.29999999999999982, votes: 6934, director_id: 378)
-Movie.create!(id: 211, title: "Ben-Hur", yr: 1959, score: 8.09999999999999964, votes: 6927, director_id: 620)
-Movie.create!(id: 212, title: "Animal House", yr: 1978, score: 7.40000000000000036, votes: 6925, director_id: 62)
-Movie.create!(id: 213, title: "Blade", yr: 1998, score: 6.70000000000000018, votes: 6885, director_id: 2861)
-Movie.create!(id: 214, title: "Dune", yr: 1984, score: 6.09999999999999964, votes: 6884, director_id: 139)
-Movie.create!(id: 215, title: "Galaxy Quest", yr: 1999, score: 7.5, votes: 6841, director_id: 1101)
-Movie.create!(id: 216, title: "Shine", yr: 1996, score: 7.5, votes: 6837, director_id: 1135)
-Movie.create!(id: 217, title: "Simple Plan, A", yr: 1998, score: 7.70000000000000018, votes: 6763, director_id: 141)
-Movie.create!(id: 218, title: "Ghost", yr: 1990, score: 6.70000000000000018, votes: 6741, director_id: 1116)
-Movie.create!(id: 219, title: "Big", yr: 1988, score: 7.20000000000000018, votes: 6741, director_id: 361)
-Movie.create!(id: 220, title: "Edward Scissorhands", yr: 1990, score: 7.29999999999999982, votes: 6697, director_id: 148)
-Movie.create!(id: 221, title: "Christmas Story, A", yr: 1983, score: 8.09999999999999964, votes: 6693, director_id: 579)
-Movie.create!(id: 222, title: "Singin' in the Rain", yr: 1952, score: 8.5, votes: 6662, director_id: 428)
-Movie.create!(id: 223, title: "Time to Kill, A", yr: 1996, score: 6.90000000000000036, votes: 6658, director_id: 105)
-Movie.create!(id: 224, title: "You've Got Mail", yr: 1998, score: 6.40000000000000036, votes: 6654, director_id: 1091)
-Movie.create!(id: 225, title: "Butch Cassidy and the Sundance Kid", yr: 1969, score: 8.09999999999999964, votes: 6637, director_id: 276)
-Movie.create!(id: 226, title: "Halloween", yr: 1978, score: 7.5, votes: 6621, director_id: 23)
-Movie.create!(id: 227, title: "Stargate", yr: 1994, score: 6.20000000000000018, votes: 6604, director_id: 290)
-Movie.create!(id: 228, title: "Ed Wood", yr: 1994, score: 7.79999999999999982, votes: 6587, director_id: 148)
-Movie.create!(id: 229, title: "Wild Things", yr: 1998, score: 6.79999999999999982, votes: 6569, director_id: 974)
-Movie.create!(id: 230, title: "Elizabeth", yr: 1998, score: 7.70000000000000018, votes: 6562, director_id: 2755)
-Movie.create!(id: 231, title: "Dracula", yr: 1992, score: 6.90000000000000036, votes: 6551, director_id: 28)
-Movie.create!(id: 232, title: "My Best Friend's Wedding", yr: 1997, score: 6.5, votes: 6543, director_id: 1169)
-Movie.create!(id: 233, title: "Robin Hood: Prince of Thieves", yr: 1991, score: 6.29999999999999982, votes: 6540, director_id: 378)
-Movie.create!(id: 234, title: "High Fidelity", yr: 2000, score: 7.90000000000000036, votes: 6535, director_id: 292)
-Movie.create!(id: 235, title: "Chicken Run", yr: 2000, score: 8, votes: 6534, director_id: 2802)
-Movie.create!(id: 236, title: "Sense and Sensibility", yr: 1995, score: 7.70000000000000018, votes: 6476, director_id: 273)
-Movie.create!(id: 237, title: "Some Like It Hot", yr: 1959, score: 8.40000000000000036, votes: 6445, director_id: 79)
-Movie.create!(id: 238, title: "Much Ado About Nothing", yr: 1993, score: 7.5, votes: 6443, director_id: 48)
-Movie.create!(id: 239, title: "Home Alone", yr: 1990, score: 6.09999999999999964, votes: 6430, director_id: 156)
-Movie.create!(id: 240, title: "Ace Ventura: Pet Detective", yr: 1994, score: 6.09999999999999964, votes: 6414, director_id: 586)
-Movie.create!(id: 241, title: "Shichinin no samurai", yr: 1954, score: 9, votes: 6357, director_id: 208)
-Movie.create!(id: 242, title: "While You Were Sleeping", yr: 1995, score: 6.59999999999999964, votes: 6353, director_id: 411)
-Movie.create!(id: 243, title: "Witness", yr: 1985, score: 7.59999999999999964, votes: 6332, director_id: 86)
-Movie.create!(id: 244, title: "I Know What You Did Last Summer", yr: 1997, score: 5.29999999999999982, votes: 6305, director_id: 2420)
-Movie.create!(id: 245, title: "Alien&#179;", yr: 1992, score: 5.79999999999999982, votes: 6293, director_id: 414)
-Movie.create!(id: 246, title: "Player, The", yr: 1992, score: 7.79999999999999982, votes: 6278, director_id: 155)
-Movie.create!(id: 247, title: "Wag the Dog", yr: 1997, score: 6.90000000000000036, votes: 6244, director_id: 38)
-Movie.create!(id: 248, title: "Tombstone", yr: 1993, score: 7.20000000000000018, votes: 6171, director_id: 631)
-Movie.create!(id: 249, title: "Buono, il brutto, il cattivo, Il", yr: 1966, score: 8.5, votes: 6161, director_id: 268)
-Movie.create!(id: 250, title: "Erin Brockovich", yr: 2000, score: 7.59999999999999964, votes: 6152, director_id: 689)
-Movie.create!(id: 251, title: "End of Days", yr: 1999, score: 5.5, votes: 6095, director_id: 103)
-Movie.create!(id: 252, title: "Star Trek: Insurrection", yr: 1998, score: 6.40000000000000036, votes: 6088, director_id: 500)
-Movie.create!(id: 253, title: "Sleepers", yr: 1996, score: 6.79999999999999982, votes: 6052, director_id: 38)
-Movie.create!(id: 254, title: "Antz", yr: 1998, score: 7.20000000000000018, votes: 6045, director_id: 2072)
-Movie.create!(id: 255, title: "City of Angels", yr: 1998, score: 6.29999999999999982, votes: 6022, director_id: 1139)
-Movie.create!(id: 256, title: "Event Horizon", yr: 1997, score: 5.40000000000000036, votes: 5993, director_id: 653)
-Movie.create!(id: 257, title: "Birds, The", yr: 1963, score: 7.79999999999999982, votes: 5969, director_id: 11)
-Movie.create!(id: 258, title: "Superman", yr: 1978, score: 6.90000000000000036, votes: 5958, director_id: 209)
-Movie.create!(id: 259, title: "Mrs. Doubtfire", yr: 1993, score: 6.40000000000000036, votes: 5956, director_id: 156)
-Movie.create!(id: 260, title: "Entrapment", yr: 1999, score: 6.20000000000000018, votes: 5940, director_id: 669)
-Movie.create!(id: 261, title: "Rocky", yr: 1976, score: 7.59999999999999964, votes: 5933, director_id: 683)
-Movie.create!(id: 262, title: "Goonies, The", yr: 1985, score: 6.70000000000000018, votes: 5908, director_id: 209)
-Movie.create!(id: 263, title: "Blazing Saddles", yr: 1974, score: 7.59999999999999964, votes: 5876, director_id: 29)
-Movie.create!(id: 264, title: "This Is Spinal Tap", yr: 1984, score: 7.90000000000000036, votes: 5854, director_id: 37)
-Movie.create!(id: 265, title: "Hook", yr: 1991, score: 5.59999999999999964, votes: 5852, director_id: 18)
-Movie.create!(id: 266, title: "Donnie Brasco", yr: 1997, score: 7.5, votes: 5832, director_id: 585)
-Movie.create!(id: 267, title: "What's Eating Gilbert Grape", yr: 1993, score: 7.5, votes: 5808, director_id: 387)
-Movie.create!(id: 268, title: "Scent of a Woman", yr: 1992, score: 7.20000000000000018, votes: 5799, director_id: 595)
-Movie.create!(id: 269, title: "Philadelphia", yr: 1993, score: 7.29999999999999982, votes: 5790, director_id: 281)
-Movie.create!(id: 270, title: "Crimson Tide", yr: 1995, score: 7.09999999999999964, votes: 5784, director_id: 107)
-Movie.create!(id: 271, title: "Great Escape, The", yr: 1963, score: 8.19999999999999929, votes: 5783, director_id: 2473)
-Movie.create!(id: 272, title: "Wayne's World", yr: 1992, score: 6.59999999999999964, votes: 5756, director_id: 1021)
-Movie.create!(id: 273, title: "Broken Arrow", yr: 1996, score: 5.79999999999999982, votes: 5751, director_id: 204)
-Movie.create!(id: 274, title: "8MM", yr: 1999, score: 6, votes: 5744, director_id: 105)
-Movie.create!(id: 275, title: "Beverly Hills Cop", yr: 1984, score: 7, votes: 5717, director_id: 595)
-Movie.create!(id: 276, title: "Excalibur", yr: 1981, score: 7.40000000000000036, votes: 5716, director_id: 293)
-Movie.create!(id: 277, title: "Election", yr: 1999, score: 7.70000000000000018, votes: 5713, director_id: 2199)
-Movie.create!(id: 278, title: "Unbreakable", yr: 2000, score: 7.5, votes: 5701, director_id: 966)
-Movie.create!(id: 279, title: "Get Shorty", yr: 1995, score: 7, votes: 5693, director_id: 422)
-Movie.create!(id: 280, title: "Star Trek: Generations", yr: 1994, score: 6, votes: 5674, director_id: 2282)
-Movie.create!(id: 281, title: "Dangerous Liaisons", yr: 1988, score: 7.70000000000000018, votes: 5651, director_id: 292)
-Movie.create!(id: 282, title: "Dazed and Confused", yr: 1993, score: 7.09999999999999964, votes: 5643, director_id: 205)
-Movie.create!(id: 283, title: "Gandhi", yr: 1982, score: 7.79999999999999982, votes: 5643, director_id: 235)
-Movie.create!(id: 284, title: "Blue Velvet", yr: 1986, score: 7.59999999999999964, votes: 5628, director_id: 139)
-Movie.create!(id: 285, title: "Sneakers", yr: 1992, score: 7, votes: 5627, director_id: 993)
-Movie.create!(id: 286, title: "RoboCop", yr: 1987, score: 6.90000000000000036, votes: 5596, director_id: 201)
-Movie.create!(id: 287, title: "Cider House Rules, The", yr: 1999, score: 7.70000000000000018, votes: 5588, director_id: 387)
-Movie.create!(id: 288, title: "Third Man, The", yr: 1949, score: 8.59999999999999964, votes: 5576, director_id: 1003)
-Movie.create!(id: 289, title: "Payback", yr: 1999, score: 7, votes: 5566, director_id: 2427)
-Movie.create!(id: 290, title: "Fantasia", yr: 1940, score: 7.90000000000000036, votes: 5552, director_id: 1167)
-Movie.create!(id: 291, title: "Happy Gilmore", yr: 1996, score: 6.59999999999999964, votes: 5539, director_id: 330)
-Movie.create!(id: 292, title: "Piano, The", yr: 1993, score: 7.29999999999999982, votes: 5526, director_id: 575)
-Movie.create!(id: 293, title: "Saint, The", yr: 1997, score: 5.70000000000000018, votes: 5522, director_id: 212)
-Movie.create!(id: 294, title: "Desperado", yr: 1995, score: 6.59999999999999964, votes: 5510, director_id: 666)
-Movie.create!(id: 295, title: "Eraser", yr: 1996, score: 6, votes: 5504, director_id: 1122)
-Movie.create!(id: 296, title: "Strange Days", yr: 1995, score: 6.90000000000000036, votes: 5489, director_id: 641)
-Movie.create!(id: 297, title: "Good Morning, Vietnam", yr: 1987, score: 7, votes: 5485, director_id: 38)
-Movie.create!(id: 298, title: "In the Line of Fire", yr: 1993, score: 7.29999999999999982, votes: 5481, director_id: 140)
-Movie.create!(id: 299, title: "African Queen, The", yr: 1951, score: 8.19999999999999929, votes: 5468, director_id: 312)
-Movie.create!(id: 300, title: "Phenomenon", yr: 1996, score: 6.40000000000000036, votes: 5456, director_id: 411)
-Movie.create!(id: 301, title: "Thomas Crown Affair, The", yr: 1999, score: 6.79999999999999982, votes: 5444, director_id: 196)
-Movie.create!(id: 302, title: "Fisher King, The", yr: 1991, score: 7.29999999999999982, votes: 5441, director_id: 59)
-Movie.create!(id: 303, title: "Central do Brasil", yr: 1998, score: 8.09999999999999964, votes: 5429, director_id: 2560)
-Movie.create!(id: 304, title: "Arlington Road", yr: 1999, score: 7.20000000000000018, votes: 5422, director_id: 1897)
-Movie.create!(id: 305, title: "Mission to Mars", yr: 2000, score: 4.79999999999999982, votes: 5420, director_id: 31)
-Movie.create!(id: 306, title: "Willy Wonka & the Chocolate Factory", yr: 1971, score: 7.40000000000000036, votes: 5392, director_id: 2740)
-Movie.create!(id: 307, title: "Fried Green Tomatoes", yr: 1991, score: 7.29999999999999982, votes: 5388, director_id: 691)
-Movie.create!(id: 308, title: "Deep Blue Sea", yr: 1999, score: 6, votes: 5336, director_id: 210)
-Movie.create!(id: 309, title: "Heathers", yr: 1989, score: 7.40000000000000036, votes: 5327, director_id: 371)
-Movie.create!(id: 310, title: "Wild Wild West", yr: 1999, score: 4, votes: 5323, director_id: 422)
-Movie.create!(id: 311, title: "Conspiracy Theory", yr: 1997, score: 6.5, votes: 5322, director_id: 209)
-Movie.create!(id: 312, title: "Cape Fear", yr: 1991, score: 7, votes: 5319, director_id: 78)
-Movie.create!(id: 313, title: "Hamlet", yr: 1996, score: 7.70000000000000018, votes: 5317, director_id: 48)
-Movie.create!(id: 314, title: "Gremlins", yr: 1984, score: 6.59999999999999964, votes: 5297, director_id: 150)
-Movie.create!(id: 315, title: "Tootsie", yr: 1982, score: 7.5, votes: 5291, director_id: 92)
-Movie.create!(id: 316, title: "Waterboy, The", yr: 1998, score: 5.5, votes: 5272, director_id: 1054)
-Movie.create!(id: 317, title: "Scream 3", yr: 2000, score: 6.09999999999999964, votes: 5268, director_id: 133)
-Movie.create!(id: 318, title: "Net, The", yr: 1995, score: 5.59999999999999964, votes: 5263, director_id: 1172)
-Movie.create!(id: 319, title: "Firm, The", yr: 1993, score: 6.5, votes: 5255, director_id: 92)
-Movie.create!(id: 320, title: "That Thing You Do!", yr: 1996, score: 6.59999999999999964, votes: 5253, director_id: 8)
-Movie.create!(id: 321, title: "Rush Hour", yr: 1998, score: 6.70000000000000018, votes: 5246, director_id: 1094)
-Movie.create!(id: 322, title: "Gone in Sixty Seconds", yr: 2000, score: 6, votes: 5234, director_id: 2362)
-Movie.create!(id: 323, title: "Nightmare Before Christmas, The", yr: 1993, score: 7.5, votes: 5226, director_id: 1036)
-Movie.create!(id: 324, title: "Nuovo cinema Paradiso", yr: 1988, score: 8.19999999999999929, votes: 5178, director_id: 2142)
-Movie.create!(id: 325, title: "Bound", yr: 1996, score: 7.5, votes: 5127, director_id: 2024)
-Movie.create!(id: 326, title: "West Side Story", yr: 1961, score: 7.70000000000000018, votes: 5101, director_id: 2295)
-Movie.create!(id: 327, title: "Quiz Show", yr: 1994, score: 7.40000000000000036, votes: 5094, director_id: 36)
-Movie.create!(id: 328, title: "WarGames", yr: 1983, score: 6.79999999999999982, votes: 5074, director_id: 66)
-Movie.create!(id: 329, title: "Scary Movie", yr: 2000, score: 5.79999999999999982, votes: 5059, director_id: 1361)
-Movie.create!(id: 330, title: "In & Out", yr: 1997, score: 6.20000000000000018, votes: 5055, director_id: 123)
-Movie.create!(id: 331, title: "Wo hu zang long", yr: 2000, score: 9, votes: 5016, director_id: 273)
-Movie.create!(id: 332, title: "Spartacus", yr: 1960, score: 8, votes: 5006, director_id: 82)
-Movie.create!(id: 333, title: "Right Stuff, The", yr: 1983, score: 8, votes: 5006, director_id: 288)
-Movie.create!(id: 334, title: "Outbreak", yr: 1995, score: 6.5, votes: 4999, director_id: 140)
-Movie.create!(id: 335, title: "Evil Dead II", yr: 1987, score: 7.40000000000000036, votes: 4994, director_id: 141)
-Movie.create!(id: 336, title: "Sphere", yr: 1998, score: 5.09999999999999964, votes: 4991, director_id: 38)
-Movie.create!(id: 337, title: "Caddyshack", yr: 1980, score: 6.79999999999999982, votes: 4989, director_id: 108)
-Movie.create!(id: 338, title: "Cable Guy, The", yr: 1996, score: 5.40000000000000036, votes: 4985, director_id: 242)
-Movie.create!(id: 339, title: "American President, The", yr: 1995, score: 7, votes: 4975, director_id: 37)
-Movie.create!(id: 340, title: "My Fair Lady", yr: 1964, score: 7.79999999999999982, votes: 4969, director_id: 628)
-Movie.create!(id: 341, title: "Crocodile Dundee", yr: 1986, score: 6.5, votes: 4962, director_id: 2823)
-Movie.create!(id: 342, title: "Once Upon a Time in America", yr: 1984, score: 8, votes: 4959, director_id: 268)
-Movie.create!(id: 343, title: "Backdraft", yr: 1991, score: 6.5, votes: 4949, director_id: 21)
-Movie.create!(id: 344, title: "Clear and Present Danger", yr: 1994, score: 6.90000000000000036, votes: 4943, director_id: 212)
-Movie.create!(id: 345, title: "Ghostbusters II", yr: 1989, score: 5.29999999999999982, votes: 4919, director_id: 109)
-Movie.create!(id: 346, title: "U-571", yr: 2000, score: 6.90000000000000036, votes: 4917, director_id: 1120)
-Movie.create!(id: 347, title: "Birdcage, The", yr: 1996, score: 6.5, votes: 4902, director_id: 47)
-Movie.create!(id: 348, title: "Sliding Doors", yr: 1998, score: 7, votes: 4886, director_id: 1940)
-Movie.create!(id: 349, title: "Star Trek IV: The Voyage Home", yr: 1986, score: 7, votes: 4879, director_id: 193)
-Movie.create!(id: 350, title: "Scarface", yr: 1983, score: 7.40000000000000036, votes: 4877, director_id: 31)
-Movie.create!(id: 351, title: "People vs. Larry Flynt, The", yr: 1996, score: 7.20000000000000018, votes: 4873, director_id: 408)
-Movie.create!(id: 352, title: "Mr. Holland's Opus", yr: 1995, score: 7, votes: 4865, director_id: 149)
-Movie.create!(id: 353, title: "Haunting, The", yr: 1999, score: 4.79999999999999982, votes: 4835, director_id: 421)
-Movie.create!(id: 354, title: "Bone Collector, The", yr: 1999, score: 6.20000000000000018, votes: 4810, director_id: 212)
-Movie.create!(id: 355, title: "In the Name of the Father", yr: 1993, score: 7.70000000000000018, votes: 4793, director_id: 581)
-Movie.create!(id: 356, title: "Patriot Games", yr: 1992, score: 6.79999999999999982, votes: 4774, director_id: 212)
-Movie.create!(id: 357, title: "Dirty Dancing", yr: 1987, score: 5.79999999999999982, votes: 4769, director_id: 662)
-Movie.create!(id: 358, title: "Ever After", yr: 1998, score: 7.20000000000000018, votes: 4764, director_id: 654)
-Movie.create!(id: 359, title: "Bowfinger", yr: 1999, score: 6.79999999999999982, votes: 4759, director_id: 123)
-Movie.create!(id: 360, title: "Thing, The", yr: 1982, score: 7.5, votes: 4751, director_id: 23)
-Movie.create!(id: 361, title: "Hudsucker Proxy, The", yr: 1994, score: 7.29999999999999982, votes: 4743, director_id: 111)
-Movie.create!(id: 362, title: "Planet of the Apes", yr: 1968, score: 7.59999999999999964, votes: 4742, director_id: 405)
-Movie.create!(id: 363, title: "Elephant Man, The", yr: 1980, score: 8, votes: 4728, director_id: 139)
-Movie.create!(id: 364, title: "Any Given Sunday", yr: 1999, score: 6.70000000000000018, votes: 4722, director_id: 69)
-Movie.create!(id: 365, title: "Ice Storm, The", yr: 1997, score: 7.5, votes: 4718, director_id: 273)
-Movie.create!(id: 366, title: "Nikita", yr: 1990, score: 7.59999999999999964, votes: 4714, director_id: 389)
-Movie.create!(id: 367, title: "Naked Gun: From the Files of Police Squad!, The", yr: 1988, score: 7.29999999999999982, votes: 4707, director_id: 573)
-Movie.create!(id: 368, title: "What Dreams May Come", yr: 1998, score: 6.20000000000000018, votes: 4686, director_id: 2500)
-Movie.create!(id: 369, title: "Demolition Man", yr: 1993, score: 6.09999999999999964, votes: 4682, director_id: 1182)
-Movie.create!(id: 370, title: "Showgirls", yr: 1995, score: 3.5, votes: 4672, director_id: 201)
-Movie.create!(id: 371, title: "American Graffiti", yr: 1973, score: 7.70000000000000018, votes: 4669, director_id: 360)
-Movie.create!(id: 372, title: "Awakenings", yr: 1990, score: 7.40000000000000036, votes: 4662, director_id: 361)
-Movie.create!(id: 373, title: "Fear and Loathing in Las Vegas", yr: 1998, score: 6.5, votes: 4658, director_id: 59)
-Movie.create!(id: 374, title: "Breaking the Waves", yr: 1996, score: 7.70000000000000018, votes: 4645, director_id: 615)
-Movie.create!(id: 375, title: "Private Parts", yr: 1997, score: 6.59999999999999964, votes: 4644, director_id: 425)
-Movie.create!(id: 376, title: "Patton", yr: 1970, score: 8.09999999999999964, votes: 4637, director_id: 405)
-Movie.create!(id: 377, title: "Cool Hand Luke", yr: 1967, score: 8.09999999999999964, votes: 4635, director_id: 1029)
-Movie.create!(id: 378, title: "Postino, Il", yr: 1994, score: 7.70000000000000018, votes: 4630, director_id: 1154)
-Movie.create!(id: 379, title: "Whole Nine Yards, The", yr: 2000, score: 6.70000000000000018, votes: 4626, director_id: 262)
-Movie.create!(id: 380, title: "Avengers, The", yr: 1998, score: 3.39999999999999991, votes: 4623, director_id: 412)
-Movie.create!(id: 381, title: "Heavenly Creatures", yr: 1994, score: 7.79999999999999982, votes: 4592, director_id: 326)
-Movie.create!(id: 382, title: "Patch Adams", yr: 1998, score: 6.20000000000000018, votes: 4569, director_id: 586)
-Movie.create!(id: 383, title: "Wallace & Gromit: A Close Shave", yr: 1995, score: 8.19999999999999929, votes: 4561, director_id: 572)
-Movie.create!(id: 384, title: "10 Things I Hate About You", yr: 1999, score: 7.09999999999999964, votes: 4539, director_id: 2129)
-Movie.create!(id: 385, title: "Snake Eyes", yr: 1998, score: 5.70000000000000018, votes: 4536, director_id: 31)
-Movie.create!(id: 386, title: "Remains of the Day, The", yr: 1993, score: 7.79999999999999982, votes: 4528, director_id: 576)
-Movie.create!(id: 387, title: "October Sky", yr: 1999, score: 8, votes: 4510, director_id: 424)
-Movie.create!(id: 388, title: "Addams Family, The", yr: 1991, score: 6.40000000000000036, votes: 4499, director_id: 422)
-Movie.create!(id: 389, title: "American Psycho", yr: 2000, score: 7, votes: 4487, director_id: 2531)
-Movie.create!(id: 390, title: "Breakfast at Tiffany's", yr: 1961, score: 7.70000000000000018, votes: 4483, director_id: 65)
-Movie.create!(id: 391, title: "Boys Don't Cry", yr: 1999, score: 8, votes: 4481, director_id: 2172)
-Movie.create!(id: 392, title: "Miller's Crossing", yr: 1990, score: 7.90000000000000036, votes: 4453, director_id: 111)
-Movie.create!(id: 393, title: "Name der Rose, Der", yr: 1986, score: 7.5, votes: 4453, director_id: 1131)
-Movie.create!(id: 394, title: "Dragonheart", yr: 1996, score: 6.20000000000000018, votes: 4432, director_id: 376)
-Movie.create!(id: 395, title: "Bringing Out the Dead", yr: 1999, score: 7, votes: 4431, director_id: 78)
-Movie.create!(id: 396, title: "Deliverance", yr: 1972, score: 7.79999999999999982, votes: 4418, director_id: 293)
-Movie.create!(id: 397, title: "Delicatessen", yr: 1991, score: 7.70000000000000018, votes: 4394, director_id: 995)
-Movie.create!(id: 398, title: "Shallow Grave", yr: 1994, score: 7.40000000000000036, votes: 4387, director_id: 597)
-Movie.create!(id: 399, title: "Charlie's Angels", yr: 2000, score: 6.90000000000000036, votes: 4374, director_id: 2358)
-Movie.create!(id: 400, title: "All the President's Men", yr: 1976, score: 7.79999999999999982, votes: 4361, director_id: 275)
-Movie.create!(id: 401, title: "Mulan", yr: 1998, score: 7.40000000000000036, votes: 4360, director_id: 2651)
-Movie.create!(id: 402, title: "Star Trek: The Motion Picture", yr: 1979, score: 5.5, votes: 4358, director_id: 286)
-Movie.create!(id: 403, title: "Conan the Barbarian", yr: 1982, score: 6.20000000000000018, votes: 4356, director_id: 693)
-Movie.create!(id: 404, title: "Akira", yr: 1988, score: 7.40000000000000036, votes: 4321, director_id: 2045)
-Movie.create!(id: 405, title: "Double Jeopardy", yr: 1999, score: 6, votes: 4321, director_id: 685)
-Movie.create!(id: 406, title: "Twins", yr: 1988, score: 6, votes: 4318, director_id: 109)
-Movie.create!(id: 407, title: "Speed 2: Cruise Control", yr: 1997, score: 3.20000000000000018, votes: 4313, director_id: 421)
-Movie.create!(id: 408, title: "Dave", yr: 1993, score: 7.09999999999999964, votes: 4305, director_id: 109)
-Movie.create!(id: 409, title: "Rebel Without a Cause", yr: 1955, score: 7.79999999999999982, votes: 4296, director_id: 1706)
-Movie.create!(id: 410, title: "Star Trek VI: The Undiscovered Country", yr: 1991, score: 6.70000000000000018, votes: 4287, director_id: 571)
-Movie.create!(id: 411, title: "Faculty, The", yr: 1998, score: 6.29999999999999982, votes: 4287, director_id: 666)
-Movie.create!(id: 412, title: "Pi", yr: 1998, score: 7.5, votes: 4283, director_id: 1136)
-Movie.create!(id: 413, title: "Big Daddy", yr: 1999, score: 6.09999999999999964, votes: 4275, director_id: 330)
-Movie.create!(id: 414, title: "Say Anything...", yr: 1989, score: 7.5, votes: 4257, director_id: 391)
-Movie.create!(id: 415, title: "Ace Ventura: When Nature Calls", yr: 1995, score: 4.5, votes: 4250, director_id: 948)
-Movie.create!(id: 416, title: "Midnight Cowboy", yr: 1969, score: 7.90000000000000036, votes: 4250, director_id: 677)
-Movie.create!(id: 417, title: "Gods and Monsters", yr: 1998, score: 7.79999999999999982, votes: 4241, director_id: 2365)
-Movie.create!(id: 418, title: "She's All That", yr: 1999, score: 6, votes: 4240, director_id: 2491)
-Movie.create!(id: 419, title: "Nutty Professor, The", yr: 1996, score: 6, votes: 4234, director_id: 586)
-Movie.create!(id: 420, title: "Pitch Black", yr: 2000, score: 6.59999999999999964, votes: 4216, director_id: 1071)
-Movie.create!(id: 421, title: "Bill & Ted's Excellent Adventure", yr: 1989, score: 6.5, votes: 4214, director_id: 149)
-Movie.create!(id: 422, title: "Monty Python's The Meaning of Life", yr: 1983, score: 7.20000000000000018, votes: 4212, director_id: 59)
-Movie.create!(id: 423, title: "Highlander II: The Quickening", yr: 1991, score: 3.20000000000000018, votes: 4211, director_id: 577)
-Movie.create!(id: 424, title: "Final Destination", yr: 2000, score: 6.79999999999999982, votes: 4196, director_id: 2426)
-Movie.create!(id: 425, title: "Crying Game, The", yr: 1992, score: 7.29999999999999982, votes: 4192, director_id: 153)
-Movie.create!(id: 426, title: "Bad Boys", yr: 1995, score: 6.29999999999999982, votes: 4190, director_id: 678)
-Movie.create!(id: 427, title: "Poltergeist", yr: 1982, score: 7.20000000000000018, votes: 4182, director_id: 1123)
-Movie.create!(id: 428, title: "Cop Land", yr: 1997, score: 6.70000000000000018, votes: 4173, director_id: 1099)
-Movie.create!(id: 429, title: "What Lies Beneath", yr: 2000, score: 6.79999999999999982, votes: 4162, director_id: 67)
-Movie.create!(id: 430, title: "Falling Down", yr: 1993, score: 6.90000000000000036, votes: 4161, director_id: 105)
-Movie.create!(id: 431, title: "Coming to America", yr: 1988, score: 6.5, votes: 4147, director_id: 62)
-Movie.create!(id: 432, title: "Stigmata", yr: 1999, score: 6.09999999999999964, votes: 4141, director_id: 2557)
-Movie.create!(id: 433, title: "eXistenZ", yr: 1999, score: 6.90000000000000036, votes: 4130, director_id: 97)
-Movie.create!(id: 434, title: "Evita", yr: 1996, score: 6.29999999999999982, votes: 4129, director_id: 68)
-Movie.create!(id: 435, title: "Trois couleurs: Rouge", yr: 1994, score: 8.19999999999999929, votes: 4113, director_id: 398)
-Movie.create!(id: 436, title: "Six Days Seven Nights", yr: 1998, score: 5.70000000000000018, votes: 4107, director_id: 109)
-Movie.create!(id: 437, title: "Godfather: Part III, The", yr: 1990, score: 7, votes: 4105, director_id: 28)
-Movie.create!(id: 438, title: "Star Trek III: The Search for Spock", yr: 1984, score: 6.09999999999999964, votes: 4094, director_id: 193)
-Movie.create!(id: 439, title: "13th Warrior, The", yr: 1999, score: 6.20000000000000018, votes: 4089, director_id: 196)
-Movie.create!(id: 440, title: "Sweet Hereafter, The", yr: 1997, score: 8, votes: 4067, director_id: 665)
-Movie.create!(id: 441, title: "Cliffhanger", yr: 1993, score: 6, votes: 4064, director_id: 210)
-Movie.create!(id: 442, title: "Sunset Blvd.", yr: 1950, score: 8.59999999999999964, votes: 4050, director_id: 79)
-Movie.create!(id: 443, title: "Smoke", yr: 1995, score: 7.5, votes: 4049, director_id: 664)
-Movie.create!(id: 444, title: "Mystery Men", yr: 1999, score: 6.09999999999999964, votes: 4043, director_id: 2187)
-Movie.create!(id: 445, title: "Pink Floyd The Wall", yr: 1982, score: 7.20000000000000018, votes: 4043, director_id: 68)
-Movie.create!(id: 446, title: "Cell, The", yr: 2000, score: 6.5, votes: 4037, director_id: 2528)
-Movie.create!(id: 447, title: "Misery", yr: 1990, score: 7.40000000000000036, votes: 4026, director_id: 37)
-Movie.create!(id: 448, title: "Happiness", yr: 1998, score: 7.79999999999999982, votes: 4011, director_id: 1121)
-Movie.create!(id: 449, title: "My Cousin Vinny", yr: 1992, score: 7.09999999999999964, votes: 4011, director_id: 262)
-Movie.create!(id: 450, title: "Born on the Fourth of July", yr: 1989, score: 6.90000000000000036, votes: 4002, director_id: 69)
-Movie.create!(id: 451, title: "Office Space", yr: 1999, score: 7.09999999999999964, votes: 3997, director_id: 582)
-Movie.create!(id: 452, title: "Courage Under Fire", yr: 1996, score: 6.90000000000000036, votes: 3987, director_id: 382)
-Movie.create!(id: 453, title: "Mr. Smith Goes to Washington", yr: 1939, score: 8.40000000000000036, votes: 3977, director_id: 392)
-Movie.create!(id: 454, title: "Color Purple, The", yr: 1985, score: 7.40000000000000036, votes: 3973, director_id: 18)
-Movie.create!(id: 455, title: "Arsenic and Old Lace", yr: 1944, score: 8.09999999999999964, votes: 3970, director_id: 392)
-Movie.create!(id: 456, title: "Romancing the Stone", yr: 1984, score: 6.79999999999999982, votes: 3967, director_id: 67)
-Movie.create!(id: 457, title: "Secrets & Lies", yr: 1996, score: 7.79999999999999982, votes: 3967, director_id: 583)
-Movie.create!(id: 458, title: "Craft, The", yr: 1996, score: 5.90000000000000036, votes: 3966, director_id: 657)
-Movie.create!(id: 459, title: "Primal Fear", yr: 1996, score: 7.29999999999999982, votes: 3953, director_id: 630)
-Movie.create!(id: 460, title: "Cit&#233; des enfants perdus, La", yr: 1995, score: 7.70000000000000018, votes: 3946, director_id: 995)
-Movie.create!(id: 461, title: "Evil Dead, The", yr: 1982, score: 7.09999999999999964, votes: 3941, director_id: 141)
-Movie.create!(id: 462, title: "General's Daughter, The", yr: 1999, score: 6.20000000000000018, votes: 3939, director_id: 1114)
-Movie.create!(id: 463, title: "Tarzan", yr: 1999, score: 7.59999999999999964, votes: 3937, director_id: 2334)
-Movie.create!(id: 464, title: "Snow White and the Seven Dwarfs", yr: 1937, score: 7.79999999999999982, votes: 3931, director_id: 1117)
-Movie.create!(id: 465, title: "Frequency", yr: 2000, score: 7.59999999999999964, votes: 3928, director_id: 630)
-Movie.create!(id: 466, title: "Planes, Trains & Automobiles", yr: 1987, score: 7.09999999999999964, votes: 3925, director_id: 144)
-Movie.create!(id: 467, title: "Henry V", yr: 1989, score: 8, votes: 3921, director_id: 48)
-Movie.create!(id: 468, title: "Trading Places", yr: 1983, score: 7.20000000000000018, votes: 3910, director_id: 62)
-Movie.create!(id: 469, title: "Beach, The", yr: 2000, score: 5.79999999999999982, votes: 3908, director_id: 597)
-Movie.create!(id: 470, title: "Point Break", yr: 1991, score: 6.29999999999999982, votes: 3907, director_id: 641)
-Movie.create!(id: 471, title: "Doctor Zhivago", yr: 1965, score: 7.70000000000000018, votes: 3903, director_id: 1080)
-Movie.create!(id: 472, title: "Star Trek V: The Final Frontier", yr: 1989, score: 4.59999999999999964, votes: 3880, director_id: 128)
-Movie.create!(id: 473, title: "All About Eve", yr: 1950, score: 8.59999999999999964, votes: 3876, director_id: 1111)
-Movie.create!(id: 474, title: "Being There", yr: 1979, score: 7.90000000000000036, votes: 3872, director_id: 971)
-Movie.create!(id: 475, title: "Searching for Bobby Fischer", yr: 1993, score: 7.59999999999999964, votes: 3870, director_id: 1043)
-Movie.create!(id: 476, title: "High Noon", yr: 1952, score: 8.19999999999999929, votes: 3864, director_id: 617)
-Movie.create!(id: 477, title: "Running Man, The", yr: 1987, score: 6.20000000000000018, votes: 3864, director_id: 890)
-Movie.create!(id: 478, title: "Philadelphia Story, The", yr: 1940, score: 8.19999999999999929, votes: 3856, director_id: 628)
-Movie.create!(id: 479, title: "Dr. No", yr: 1962, score: 7.09999999999999964, votes: 3850, director_id: 388)
-Movie.create!(id: 480, title: "Trois couleurs: Bleu", yr: 1993, score: 7.90000000000000036, votes: 3848, director_id: 398)
-Movie.create!(id: 481, title: "Better Off Dead...", yr: 1985, score: 7.09999999999999964, votes: 3843, director_id: 2674)
-Movie.create!(id: 482, title: "Working Girl", yr: 1988, score: 6.5, votes: 3821, director_id: 47)
-Movie.create!(id: 483, title: "Wild Bunch, The", yr: 1969, score: 8.09999999999999964, votes: 3814, director_id: 1072)
-Movie.create!(id: 484, title: "Ghost and the Darkness, The", yr: 1996, score: 6.40000000000000036, votes: 3812, director_id: 672)
-Movie.create!(id: 485, title: "Harold and Maude", yr: 1971, score: 7.70000000000000018, votes: 3811, director_id: 971)
-Movie.create!(id: 486, title: "On the Waterfront", yr: 1954, score: 8.30000000000000071, votes: 3800, director_id: 655)
-Movie.create!(id: 487, title: "Clue", yr: 1985, score: 6.29999999999999982, votes: 3794, director_id: 262)
-Movie.create!(id: 488, title: "Beavis and Butt-head Do America", yr: 1996, score: 5.90000000000000036, votes: 3770, director_id: 582)
-Movie.create!(id: 489, title: "Opposite of Sex, The", yr: 1998, score: 7, votes: 3767, director_id: 2382)
-Movie.create!(id: 490, title: "Bodyguard, The", yr: 1992, score: 5.20000000000000018, votes: 3757, director_id: 1118)
-Movie.create!(id: 491, title: "Runaway Bride", yr: 1999, score: 6, votes: 3753, director_id: 129)
-Movie.create!(id: 492, title: "Wall Street", yr: 1987, score: 7, votes: 3736, director_id: 69)
-Movie.create!(id: 493, title: "Witches of Eastwick, The", yr: 1987, score: 6.29999999999999982, votes: 3736, director_id: 979)
-Movie.create!(id: 494, title: "Hackers", yr: 1995, score: 5.70000000000000018, votes: 3734, director_id: 988)
-Movie.create!(id: 495, title: "Midnight Run", yr: 1988, score: 7.40000000000000036, votes: 3732, director_id: 595)
-Movie.create!(id: 496, title: "Fly, The", yr: 1986, score: 6.90000000000000036, votes: 3729, director_id: 97)
-Movie.create!(id: 497, title: "U.S. Marshals", yr: 1998, score: 6.20000000000000018, votes: 3716, director_id: 1064)
-Movie.create!(id: 498, title: "Dog Day Afternoon", yr: 1975, score: 7.79999999999999982, votes: 3715, director_id: 80)
-Movie.create!(id: 499, title: "Bulworth", yr: 1998, score: 7.09999999999999964, votes: 3700, director_id: 60)
-Movie.create!(id: 500, title: "Amistad", yr: 1997, score: 7.20000000000000018, votes: 3700, director_id: 18)
-Movie.create!(id: 501, title: "Time Bandits", yr: 1981, score: 6.79999999999999982, votes: 3698, director_id: 59)
-Movie.create!(id: 502, title: "Truth About Cats & Dogs, The", yr: 1996, score: 6.59999999999999964, votes: 3690, director_id: 371)
-Movie.create!(id: 503, title: "Doors, The", yr: 1991, score: 6.29999999999999982, votes: 3681, director_id: 69)
-Movie.create!(id: 504, title: "Day the Earth Stood Still, The", yr: 1951, score: 7.79999999999999982, votes: 3676, director_id: 286)
-Movie.create!(id: 505, title: "Waking Ned Devine", yr: 1998, score: 7.5, votes: 3671, director_id: 2166)
-Movie.create!(id: 506, title: "Prince of Egypt, The", yr: 1998, score: 7.20000000000000018, votes: 3669, director_id: 2472)
-Movie.create!(id: 507, title: "Hurricane, The", yr: 1999, score: 7.70000000000000018, votes: 3665, director_id: 81)
-Movie.create!(id: 508, title: "Frighteners, The", yr: 1996, score: 6.79999999999999982, votes: 3662, director_id: 326)
-Movie.create!(id: 509, title: "Very Bad Things", yr: 1998, score: 5.79999999999999982, votes: 3657, director_id: 806)
-Movie.create!(id: 510, title: "Ran", yr: 1985, score: 8.5, votes: 3654, director_id: 208)
-Movie.create!(id: 511, title: "City Slickers", yr: 1991, score: 6.70000000000000018, votes: 3648, director_id: 415)
-Movie.create!(id: 512, title: "Empire of the Sun", yr: 1987, score: 7.29999999999999982, votes: 3647, director_id: 18)
-Movie.create!(id: 513, title: "Splash", yr: 1984, score: 6.40000000000000036, votes: 3646, director_id: 21)
-Movie.create!(id: 514, title: "Fast Times at Ridgemont High", yr: 1982, score: 6.90000000000000036, votes: 3640, director_id: 403)
-Movie.create!(id: 515, title: "Almost Famous", yr: 2000, score: 8.59999999999999964, votes: 3639, director_id: 391)
-Movie.create!(id: 516, title: "Spanish Prisoner, The", yr: 1997, score: 7.59999999999999964, votes: 3633, director_id: 606)
-Movie.create!(id: 517, title: "Naked Gun 2 1/2: The Smell of Fear, The", yr: 1991, score: 6.09999999999999964, votes: 3626, director_id: 573)
-Movie.create!(id: 518, title: "Paths of Glory", yr: 1957, score: 8.80000000000000071, votes: 3620, director_id: 82)
-Movie.create!(id: 519, title: "Ten Commandments, The", yr: 1956, score: 7.70000000000000018, votes: 3618, director_id: 1906)
-Movie.create!(id: 520, title: "Dead Again", yr: 1991, score: 7.20000000000000018, votes: 3616, director_id: 48)
-Movie.create!(id: 521, title: "Superman II", yr: 1980, score: 6.29999999999999982, votes: 3609, director_id: 274)
-Movie.create!(id: 522, title: "Touch of Evil", yr: 1958, score: 8.5, votes: 3607, director_id: 253)
-Movie.create!(id: 523, title: "Girl, Interrupted", yr: 1999, score: 7.09999999999999964, votes: 3605, director_id: 1099)
-Movie.create!(id: 524, title: "Rounders", yr: 1998, score: 7, votes: 3598, director_id: 1062)
-Movie.create!(id: 525, title: "Flatliners", yr: 1990, score: 6.09999999999999964, votes: 3593, director_id: 105)
-Movie.create!(id: 526, title: "Bonnie and Clyde", yr: 1967, score: 7.90000000000000036, votes: 3589, director_id: 2059)
-Movie.create!(id: 527, title: "Shaft", yr: 2000, score: 6.40000000000000036, votes: 3579, director_id: 396)
-Movie.create!(id: 528, title: "Species", yr: 1995, score: 5.29999999999999982, votes: 3577, director_id: 146)
-Movie.create!(id: 529, title: "Carrie", yr: 1976, score: 7.09999999999999964, votes: 3577, director_id: 31)
-Movie.create!(id: 530, title: "Beverly Hills Cop II", yr: 1987, score: 5.59999999999999964, votes: 3574, director_id: 107)
-Movie.create!(id: 531, title: "Short Cuts", yr: 1993, score: 7.59999999999999964, votes: 3569, director_id: 155)
-Movie.create!(id: 532, title: "Hot Shots!", yr: 1991, score: 6.09999999999999964, votes: 3551, director_id: 189)
-Movie.create!(id: 533, title: "Hollow Man", yr: 2000, score: 5.59999999999999964, votes: 3540, director_id: 201)
-Movie.create!(id: 534, title: "Sister Act", yr: 1992, score: 5.90000000000000036, votes: 3535, director_id: 662)
-Movie.create!(id: 535, title: "Empire Records", yr: 1995, score: 6, votes: 3520, director_id: 1025)
-Movie.create!(id: 536, title: "Congo", yr: 1995, score: 4.29999999999999982, votes: 3512, director_id: 614)
-Movie.create!(id: 537, title: "Battlefield Earth", yr: 2000, score: 2.29999999999999982, votes: 3507, director_id: 2806)
-Movie.create!(id: 538, title: "Striptease", yr: 1996, score: 3.79999999999999982, votes: 3506, director_id: 375)
-Movie.create!(id: 539, title: "Braindead", yr: 1992, score: 7.20000000000000018, votes: 3505, director_id: 326)
-Movie.create!(id: 540, title: "Cube", yr: 1997, score: 7.29999999999999982, votes: 3504, director_id: 2585)
-Movie.create!(id: 541, title: "Todo sobre mi madre", yr: 1999, score: 8.30000000000000071, votes: 3501, director_id: 394)
-Movie.create!(id: 542, title: "Cocoon", yr: 1985, score: 6.59999999999999964, votes: 3500, director_id: 21)
-Movie.create!(id: 543, title: "Glengarry Glen Ross", yr: 1992, score: 7.59999999999999964, votes: 3498, director_id: 423)
-Movie.create!(id: 544, title: "Perfect Murder, A", yr: 1998, score: 6.40000000000000036, votes: 3495, director_id: 291)
-Movie.create!(id: 545, title: "48 Hrs.", yr: 1982, score: 6.70000000000000018, votes: 3492, director_id: 143)
-Movie.create!(id: 546, title: "Nightmare on Elm Street, A", yr: 1984, score: 6.90000000000000036, votes: 3490, director_id: 133)
-Movie.create!(id: 547, title: "Carlito's Way", yr: 1993, score: 7.40000000000000036, votes: 3490, director_id: 31)
-Movie.create!(id: 548, title: "Grand bleu, Le", yr: 1988, score: 7.20000000000000018, votes: 3490, director_id: 389)
-Movie.create!(id: 549, title: "Boyz N the Hood", yr: 1991, score: 7.70000000000000018, votes: 3489, director_id: 396)
-Movie.create!(id: 550, title: "Sixteen Candles", yr: 1984, score: 6.79999999999999982, votes: 3484, director_id: 144)
-Movie.create!(id: 551, title: "Rebecca", yr: 1940, score: 8.19999999999999929, votes: 3476, director_id: 11)
-Movie.create!(id: 552, title: "Adventures of Priscilla, Queen of the Desert, The", yr: 1994, score: 7.09999999999999964, votes: 3474, director_id: 1138)
-Movie.create!(id: 553, title: "Sabrina", yr: 1995, score: 6.20000000000000018, votes: 3453, director_id: 92)
-Movie.create!(id: 554, title: "Home Alone 2: Lost in New York", yr: 1992, score: 4.59999999999999964, votes: 3447, director_id: 156)
-Movie.create!(id: 555, title: "Duck Soup", yr: 1933, score: 8.40000000000000036, votes: 3447, director_id: 992)
-Movie.create!(id: 556, title: "Room with a View, A", yr: 1986, score: 7.5, votes: 3441, director_id: 576)
-Movie.create!(id: 557, title: "Dante's Peak", yr: 1997, score: 5.70000000000000018, votes: 3439, director_id: 146)
-Movie.create!(id: 558, title: "Ninth Gate, The", yr: 1999, score: 6.5, votes: 3435, director_id: 90)
-Movie.create!(id: 559, title: "Cocktail", yr: 1988, score: 5.09999999999999964, votes: 3434, director_id: 146)
-Movie.create!(id: 560, title: "I Still Know What You Did Last Summer", yr: 1998, score: 4, votes: 3423, director_id: 1129)
-Movie.create!(id: 561, title: "Easy Rider", yr: 1969, score: 7.09999999999999964, votes: 3422, director_id: 125)
-Movie.create!(id: 562, title: "Death Becomes Her", yr: 1992, score: 5.40000000000000036, votes: 3420, director_id: 67)
-Movie.create!(id: 563, title: "Three Men and a Baby", yr: 1987, score: 5.59999999999999964, votes: 3405, director_id: 193)
-Movie.create!(id: 564, title: "Bean", yr: 1997, score: 5.29999999999999982, votes: 3396, director_id: 1864)
-Movie.create!(id: 565, title: "Treasure of the Sierra Madre, The", yr: 1948, score: 8.5, votes: 3392, director_id: 312)
-Movie.create!(id: 566, title: "Big Trouble in Little China", yr: 1986, score: 6.40000000000000036, votes: 3390, director_id: 23)
-Movie.create!(id: 567, title: "Dick Tracy", yr: 1990, score: 5.5, votes: 3387, director_id: 60)
-Movie.create!(id: 568, title: "Wild at Heart", yr: 1990, score: 6.79999999999999982, votes: 3382, director_id: 139)
-Movie.create!(id: 569, title: "Barton Fink", yr: 1991, score: 7.20000000000000018, votes: 3380, director_id: 111)
-Movie.create!(id: 570, title: "Straight Story, The", yr: 1999, score: 8.40000000000000036, votes: 3353, director_id: 139)
-Movie.create!(id: 571, title: "Stir of Echoes", yr: 1999, score: 7.20000000000000018, votes: 3342, director_id: 2271)
-Movie.create!(id: 572, title: "Volcano", yr: 1997, score: 5.29999999999999982, votes: 3334, director_id: 1118)
-Movie.create!(id: 573, title: "Dead Man", yr: 1995, score: 7.40000000000000036, votes: 3333, director_id: 175)
-Movie.create!(id: 574, title: "Adventures of Baron Munchausen, The", yr: 1988, score: 6.70000000000000018, votes: 3319, director_id: 59)
-Movie.create!(id: 575, title: "Bull Durham", yr: 1988, score: 7.20000000000000018, votes: 3311, director_id: 642)
-Movie.create!(id: 576, title: "Rainmaker, The", yr: 1997, score: 6.90000000000000036, votes: 3309, director_id: 28)
-Movie.create!(id: 577, title: "Three Amigos!", yr: 1986, score: 5.59999999999999964, votes: 3309, director_id: 62)
-Movie.create!(id: 578, title: "Tron", yr: 1982, score: 6.09999999999999964, votes: 3306, director_id: 2575)
-Movie.create!(id: 579, title: "From Russia with Love", yr: 1963, score: 7.20000000000000018, votes: 3302, director_id: 388)
-Movie.create!(id: 580, title: "C'era una volta il West", yr: 1969, score: 8.5, votes: 3297, director_id: 268)
-Movie.create!(id: 581, title: "Driving Miss Daisy", yr: 1989, score: 7.29999999999999982, votes: 3288, director_id: 685)
-Movie.create!(id: 582, title: "Double Indemnity", yr: 1944, score: 8.5, votes: 3283, director_id: 79)
-Movie.create!(id: 583, title: "Papillon", yr: 1973, score: 7.59999999999999964, votes: 3281, director_id: 405)
-Movie.create!(id: 584, title: "Big Sleep, The", yr: 1946, score: 8.19999999999999929, votes: 3274, director_id: 197)
-Movie.create!(id: 585, title: "Never Been Kissed", yr: 1999, score: 6.09999999999999964, votes: 3271, director_id: 633)
-Movie.create!(id: 586, title: "Do the Right Thing", yr: 1989, score: 7.59999999999999964, votes: 3268, director_id: 206)
-Movie.create!(id: 587, title: "Tremors", yr: 1990, score: 6.79999999999999982, votes: 3258, director_id: 415)
-Movie.create!(id: 588, title: "Pelican Brief, The", yr: 1993, score: 6.20000000000000018, votes: 3251, director_id: 275)
-Movie.create!(id: 589, title: "Modern Times", yr: 1936, score: 8.40000000000000036, votes: 3249, director_id: 145)
-Movie.create!(id: 590, title: "Under Siege", yr: 1992, score: 6.20000000000000018, votes: 3247, director_id: 291)
-Movie.create!(id: 591, title: "Hudson Hawk", yr: 1991, score: 4.90000000000000036, votes: 3244, director_id: 371)
-Movie.create!(id: 592, title: "Crash", yr: 1996, score: 5.5, votes: 3241, director_id: 97)
-Movie.create!(id: 593, title: "Scrooged", yr: 1988, score: 6.29999999999999982, votes: 3239, director_id: 209)
-Movie.create!(id: 594, title: "Escape from New York", yr: 1981, score: 6.70000000000000018, votes: 3238, director_id: 23)
-Movie.create!(id: 595, title: "Four Rooms", yr: 1995, score: 5.70000000000000018, votes: 3232, director_id: 2163)
-Movie.create!(id: 596, title: "Fletch", yr: 1985, score: 6.40000000000000036, votes: 3231, director_id: 418)
-Movie.create!(id: 597, title: "Reality Bites", yr: 1994, score: 6.09999999999999964, votes: 3226, director_id: 242)
-Movie.create!(id: 598, title: "G.I. Jane", yr: 1997, score: 5.59999999999999964, votes: 3226, director_id: 110)
-Movie.create!(id: 599, title: "Midnight in the Garden of Good and Evil", yr: 1997, score: 6.29999999999999982, votes: 3226, director_id: 2)
-Movie.create!(id: 600, title: "Primary Colors", yr: 1998, score: 6.90000000000000036, votes: 3225, director_id: 47)
-Movie.create!(id: 601, title: "Blood Simple", yr: 1984, score: 7.70000000000000018, votes: 3223, director_id: 111)
-Movie.create!(id: 602, title: "Dawn of the Dead", yr: 1978, score: 7.5, votes: 3220, director_id: 379)
-Movie.create!(id: 603, title: "Edtv", yr: 1999, score: 6.59999999999999964, votes: 3215, director_id: 21)
-Movie.create!(id: 604, title: "Siege, The", yr: 1998, score: 5.90000000000000036, votes: 3211, director_id: 382)
-Movie.create!(id: 605, title: "Shanghai Noon", yr: 2000, score: 7.20000000000000018, votes: 3207, director_id: 2633)
-Movie.create!(id: 606, title: "First Blood", yr: 1982, score: 6.5, votes: 3207, director_id: 954)
-Movie.create!(id: 607, title: "Rocky IV", yr: 1985, score: 4.79999999999999982, votes: 3200, director_id: 5)
-Movie.create!(id: 608, title: "Honey, I Shrunk the Kids", yr: 1989, score: 5.79999999999999982, votes: 3198, director_id: 424)
-Movie.create!(id: 609, title: "Father of the Bride", yr: 1991, score: 6.29999999999999982, votes: 3178, director_id: 397)
-Movie.create!(id: 610, title: "Vampires", yr: 1998, score: 5.59999999999999964, votes: 3178, director_id: 23)
-Movie.create!(id: 611, title: "Weird Science", yr: 1985, score: 6, votes: 3175, director_id: 144)
-Movie.create!(id: 612, title: "Risky Business", yr: 1983, score: 6.70000000000000018, votes: 3164, director_id: 2556)
-Movie.create!(id: 613, title: "Moonraker", yr: 1979, score: 5.79999999999999982, votes: 3161, director_id: 390)
-Movie.create!(id: 614, title: "Anaconda", yr: 1997, score: 4.20000000000000018, votes: 3160, director_id: 1053)
-Movie.create!(id: 615, title: "Billy Madison", yr: 1995, score: 6, votes: 3154, director_id: 1055)
-Movie.create!(id: 616, title: "Beautiful Girls", yr: 1996, score: 7.09999999999999964, votes: 3150, director_id: 1048)
-Movie.create!(id: 617, title: "Urban Legend", yr: 1998, score: 5.09999999999999964, votes: 3150, director_id: 2430)
-Movie.create!(id: 618, title: "Client, The", yr: 1994, score: 6.40000000000000036, votes: 3145, director_id: 105)
-Movie.create!(id: 619, title: "Copycat", yr: 1995, score: 6.5, votes: 3142, director_id: 669)
-Movie.create!(id: 620, title: "U Turn", yr: 1997, score: 6.40000000000000036, votes: 3137, director_id: 69)
-Movie.create!(id: 621, title: "Christmas Vacation", yr: 1989, score: 6.59999999999999964, votes: 3137, director_id: 412)
-Movie.create!(id: 622, title: "Arachnophobia", yr: 1990, score: 6.09999999999999964, votes: 3134, director_id: 614)
-Movie.create!(id: 623, title: "Fatal Attraction", yr: 1987, score: 6.59999999999999964, votes: 3132, director_id: 283)
-Movie.create!(id: 624, title: "Tommy Boy", yr: 1995, score: 6.20000000000000018, votes: 3130, director_id: 384)
-Movie.create!(id: 625, title: "Roxanne", yr: 1987, score: 6.90000000000000036, votes: 3128, director_id: 272)
-Movie.create!(id: 626, title: "Dirty Harry", yr: 1971, score: 7.40000000000000036, votes: 3126, director_id: 346)
-Movie.create!(id: 627, title: "Peacemaker, The", yr: 1997, score: 5.79999999999999982, votes: 3120, director_id: 589)
-Movie.create!(id: 628, title: "Road Trip", yr: 2000, score: 6.79999999999999982, votes: 3115, director_id: 2619)
-Movie.create!(id: 629, title: "Pump Up the Volume", yr: 1990, score: 6.59999999999999964, votes: 3114, director_id: 1025)
-Movie.create!(id: 630, title: "Days of Thunder", yr: 1990, score: 5.20000000000000018, votes: 3114, director_id: 107)
-Movie.create!(id: 631, title: "Robin Hood: Men in Tights", yr: 1993, score: 5.29999999999999982, votes: 3093, director_id: 29)
-Movie.create!(id: 632, title: "Fallen", yr: 1998, score: 6.59999999999999964, votes: 3088, director_id: 630)
-Movie.create!(id: 633, title: "Top Secret!", yr:  1984, score: 6.59999999999999964, votes: 3079, director_id: 189)
-Movie.create!(id: 634, title: "Civil Action, A", yr: 1998, score: 6.40000000000000036, votes: 3077, director_id: 1043)
-Movie.create!(id: 635, title: "Postman, The", yr: 1997, score: 5.29999999999999982, votes: 3076, director_id: 10)
-Movie.create!(id: 636, title: "2010", yr: 1984, score: 6.40000000000000036, votes: 3071, director_id: 103)
-Movie.create!(id: 637, title: "Color of Money, The", yr: 1986, score: 6.70000000000000018, votes: 3068, director_id: 78)
-Movie.create!(id: 638, title: "River Runs Through It, A", yr: 1992, score: 7, votes: 3066, director_id: 36)
-Movie.create!(id: 639, title: "Can't Hardly Wait", yr: 1998, score: 6.29999999999999982, votes: 3058, director_id: 2168)
-Movie.create!(id: 640, title: "Dirty Rotten Scoundrels", yr: 1988, score: 6.70000000000000018, votes: 3057, director_id: 123)
-Movie.create!(id: 641, title: "Mighty Aphrodite", yr: 1995, score: 7, votes: 3054, director_id: 1)
-Movie.create!(id: 642, title: "Deconstructing Harry", yr: 1997, score: 7.09999999999999964, votes: 3049, director_id: 1)
-Movie.create!(id: 643, title: "First Knight", yr: 1995, score: 5.59999999999999964, votes: 3045, director_id: 1116)
-Movie.create!(id: 644, title: "Searchers, The", yr: 1956, score: 8.30000000000000071, votes: 3042, director_id: 287)
-Movie.create!(id: 645, title: "Great Expectations", yr: 1998, score: 6.20000000000000018, votes: 3032, director_id: 2226)
-Movie.create!(id: 646, title: "Notorious", yr: 1946, score: 8.19999999999999929, votes: 3030, director_id: 11)
-Movie.create!(id: 647, title: "Seven Years in Tibet", yr: 1997, score: 6.5, votes: 3023, director_id: 1131)
-Movie.create!(id: 648, title: "Mississippi Burning", yr: 1988, score: 7.40000000000000036, votes: 3021, director_id: 68)
-Movie.create!(id: 649, title: "Replacement Killers, The", yr: 1998, score: 5.79999999999999982, votes: 3021, director_id: 2091)
-Movie.create!(id: 650, title: "Naked Gun 33 1/3: The Final Insult", yr: 1994, score: 5.70000000000000018, votes: 3021, director_id: 384)
-Movie.create!(id: 651, title: "Bridges of Madison County, The", yr: 1995, score: 6.70000000000000018, votes: 3020, director_id: 2)
-Movie.create!(id: 652, title: "Natural, The", yr: 1984, score: 7.20000000000000018, votes: 3016, director_id: 38)
-Movie.create!(id: 653, title: "Casper", yr: 1995, score: 5.70000000000000018, votes: 3011, director_id: 1139)
-Movie.create!(id: 654, title: "War of the Roses, The", yr: 1989, score: 6.29999999999999982, votes: 3011, director_id: 24)
-Movie.create!(id: 655, title: "Night of the Living Dead", yr: 1968, score: 7.5, votes: 3010, director_id: 379)
-Movie.create!(id: 656, title: "Wayne's World 2", yr: 1993, score: 5.40000000000000036, votes: 3006, director_id: 2842)
-Movie.create!(id: 657, title: "Absolute Power", yr: 1997, score: 6.40000000000000036, votes: 3006, director_id: 2)
-Movie.create!(id: 658, title: "French Kiss", yr: 1995, score: 6.29999999999999982, votes: 3005, director_id: 87)
-Movie.create!(id: 659, title: "Bambi", yr: 1942, score: 7.59999999999999964, votes: 3005, director_id: 1117)
-Movie.create!(id: 660, title: "Rashomon", yr: 1950, score: 8.59999999999999964, votes: 3004, director_id: 208)
-Movie.create!(id: 661, title: "Innerspace", yr: 1987, score: 6.29999999999999982, votes: 3002, director_id: 150)
-Movie.create!(id: 662, title: "Devil's Own, The", yr: 1997, score: 5.79999999999999982, votes: 2999, director_id: 275)
-Movie.create!(id: 663, title: "Howard the Duck", yr: 1986, score: 3.70000000000000018, votes: 2990, director_id: 2779)
-Movie.create!(id: 664, title: "Mononoke Hime", yr: 1997, score: 8.5, votes: 2989, director_id: 1051)
-Movie.create!(id: 665, title: "French Connection, The", yr: 1971, score: 7.59999999999999964, votes: 2986, director_id: 264)
-Movie.create!(id: 666, title: "Far and Away", yr: 1992, score: 6.29999999999999982, votes: 2986, director_id: 21)
-Movie.create!(id: 667, title: "Bringing Up Baby", yr: 1938, score: 8.30000000000000071, votes: 2983, director_id: 197)
-Movie.create!(id: 668, title: "Network", yr: 1976, score: 7.90000000000000036, votes: 2982, director_id: 80)
-Movie.create!(id: 669, title: "Vacation", yr: 1983, score: 6.79999999999999982, votes: 2979, director_id: 108)
-Movie.create!(id: 670, title: "Parenthood", yr: 1989, score: 7, votes: 2979, director_id: 21)
-Movie.create!(id: 671, title: "Forbidden Planet", yr: 1956, score: 7.5, votes: 2967, director_id: 2217)
-Movie.create!(id: 672, title: "Himmel &#252;ber Berlin, Der", yr: 1987, score: 8, votes: 2966, director_id: 269)
-Movie.create!(id: 673, title: "Mortal Kombat", yr: 1995, score: 5, votes: 2966, director_id: 653)
-Movie.create!(id: 674, title: "Executive Decision", yr: 1996, score: 6.5, votes: 2966, director_id: 1064)
-Movie.create!(id: 675, title: "Police Academy", yr: 1984, score: 5.5, votes: 2965, director_id: 377)
-Movie.create!(id: 676, title: "Commando", yr: 1985, score: 5.59999999999999964, votes: 2964, director_id: 1073)
-Movie.create!(id: 677, title: "Ghost Dog: The Way of the Samurai", yr: 1999, score: 7.79999999999999982, votes: 2959, director_id: 175)
-Movie.create!(id: 678, title: "Romy and Michele's High School Reunion", yr: 1997, score: 6, votes: 2953, director_id: 2445)
-Movie.create!(id: 679, title: "What About Bob?", yr: 1991, score: 6.40000000000000036, votes: 2951, director_id: 123)
-Movie.create!(id: 680, title: "Perfect World, A", yr: 1993, score: 6.79999999999999982, votes: 2943, director_id: 2)
-Movie.create!(id: 681, title: "Dial M for Murder", yr: 1954, score: 7.59999999999999964, votes: 2942, director_id: 11)
-Movie.create!(id: 682, title: "'Crocodile' Dundee II", yr: 1988, score: 5, votes: 2942, director_id: 2252)
-Movie.create!(id: 683, title: "Strangers on a Train", yr: 1951, score: 8.30000000000000071, votes: 2937, director_id: 11)
-Movie.create!(id: 684, title: "Angel Heart", yr: 1987, score: 6.90000000000000036, votes: 2937, director_id: 68)
-Movie.create!(id: 685, title: "Emma", yr: 1996, score: 6.90000000000000036, votes: 2936, director_id: 2194)
-Movie.create!(id: 686, title: "Die xue shuang xiong", yr: 1989, score: 8.19999999999999929, votes: 2935, director_id: 204)
-Movie.create!(id: 687, title: "Plan 9 from Outer Space", yr: 1958, score: 3.29999999999999982, votes: 2931, director_id: 2038)
-Movie.create!(id: 688, title: "To Die for", yr: 1995, score: 6.70000000000000018, votes: 2925, director_id: 271)
-Movie.create!(id: 689, title: "Fucking &#197;m&#229;l", yr: 1998, score: 8.19999999999999929, votes: 2919, director_id: 2803)
-Movie.create!(id: 690, title: "Roman Holiday", yr: 1953, score: 8, votes: 2918, director_id: 620)
-Movie.create!(id: 691, title: "Predator 2", yr: 1990, score: 5.40000000000000036, votes: 2909, director_id: 672)
-Movie.create!(id: 692, title: "Bill & Ted's Bogus Journey", yr: 1991, score: 5.40000000000000036, votes: 2908, director_id: 2793)
-Movie.create!(id: 693, title: "Before Sunrise", yr: 1995, score: 7.20000000000000018, votes: 2906, director_id: 205)
-Movie.create!(id: 694, title: "Streetcar Named Desire, A", yr: 1951, score: 8.19999999999999929, votes: 2904, director_id: 655)
-Movie.create!(id: 695, title: "Real Genius", yr: 1985, score: 6.70000000000000018, votes: 2890, director_id: 1141)
-Movie.create!(id: 696, title: "Halloween H20: 20 Years Later", yr: 1998, score: 5.29999999999999982, votes: 2884, director_id: 365)
-Movie.create!(id: 697, title: "Producers, The", yr: 1968, score: 7.70000000000000018, votes: 2884, director_id: 29)
-Movie.create!(id: 698, title: "Escape from L.A.", yr: 1996, score: 4.70000000000000018, votes: 2882, director_id: 23)
-Movie.create!(id: 699, title: "Tin Cup", yr: 1996, score: 6.29999999999999982, votes: 2879, director_id: 642)
-Movie.create!(id: 700, title: "Conversation, The", yr: 1974, score: 8.09999999999999964, votes: 2876, director_id: 28)
-Movie.create!(id: 701, title: "Everyone Says I Love You", yr: 1996, score: 6.90000000000000036, votes: 2867, director_id: 1)
-Movie.create!(id: 702, title: "American Werewolf in London, An", yr: 1981, score: 7.09999999999999964, votes: 2865, director_id: 62)
-Movie.create!(id: 703, title: "Rambo: First Blood Part II", yr: 1985, score: 4.79999999999999982, votes: 2863, director_id: 631)
-Movie.create!(id: 704, title: "Rosemary's Baby", yr: 1968, score: 7.70000000000000018, votes: 2856, director_id: 90)
-Movie.create!(id: 705, title: "Hannah and Her Sisters", yr: 1986, score: 7.70000000000000018, votes: 2851, director_id: 1)
-Movie.create!(id: 706, title: "O Brother, Where Art Thou?", yr: 2000, score: 8, votes: 2849, director_id: 111)
-Movie.create!(id: 707, title: "Apartment, The", yr: 1960, score: 8.30000000000000071, votes: 2846, director_id: 79)
-Movie.create!(id: 708, title: "Rosencrantz and Guildenstern Are Dead", yr: 1990, score: 7.09999999999999964, votes: 2844, director_id: 2675)
-Movie.create!(id: 709, title: "Sex, Lies, and Videotape", yr: 1989, score: 6.90000000000000036, votes: 2841, director_id: 689)
-Movie.create!(id: 710, title: "Summer of Sam", yr: 1999, score: 6.5, votes: 2837, director_id: 206)
-Movie.create!(id: 711, title: "Spawn", yr: 1997, score: 4.59999999999999964, votes: 2836, director_id: 2614)
-Movie.create!(id: 712, title: "Breakdown", yr: 1997, score: 6.70000000000000018, votes: 2828, director_id: 1120)
-Movie.create!(id: 713, title: "Chariots of Fire", yr: 1981, score: 7.20000000000000018, votes: 2826, director_id: 1063)
-Movie.create!(id: 714, title: "Addams Family Values", yr: 1993, score: 6.09999999999999964, votes: 2825, director_id: 422)
-Movie.create!(id: 715, title: "Great Dictator, The", yr: 1940, score: 8.30000000000000071, votes: 2819, director_id: 145)
-Movie.create!(id: 716, title: "Commitments, The", yr: 1991, score: 7.29999999999999982, votes: 2818, director_id: 68)
-Movie.create!(id: 717, title: "Pee-wee's Big Adventure", yr: 1985, score: 6.5, votes: 2803, director_id: 148)
-Movie.create!(id: 718, title: "Muriel's Wedding", yr: 1994, score: 7, votes: 2803, director_id: 1169)
-Movie.create!(id: 719, title: "Muppet Movie, The", yr: 1979, score: 7.20000000000000018, votes: 2801, director_id: 2462)
-Movie.create!(id: 720, title: "Varsity Blues", yr: 1999, score: 6.09999999999999964, votes: 2801, director_id: 2453)
-Movie.create!(id: 721, title: "Once Were Warriors", yr: 1994, score: 7.79999999999999982, votes: 2799, director_id: 624)
-Movie.create!(id: 722, title: "Saturday Night Fever", yr: 1977, score: 6.40000000000000036, votes: 2796, director_id: 66)
-Movie.create!(id: 723, title: "View to a Kill, A", yr: 1985, score: 5.79999999999999982, votes: 2790, director_id: 668)
-Movie.create!(id: 724, title: "Crimes and Misdemeanors", yr: 1989, score: 7.90000000000000036, votes: 2781, director_id: 1)
-Movie.create!(id: 725, title: "Barry Lyndon", yr: 1975, score: 7.70000000000000018, votes: 2772, director_id: 82)
-Movie.create!(id: 726, title: "For Your Eyes Only", yr: 1981, score: 6.70000000000000018, votes: 2771, director_id: 668)
-Movie.create!(id: 727, title: "House on Haunted Hill", yr: 1999, score: 5.29999999999999982, votes: 2767, director_id: 2763)
-Movie.create!(id: 728, title: "UHF", yr: 1989, score: 6.5, votes: 2755, director_id: 2267)
-Movie.create!(id: 729, title: "Octopussy", yr: 1983, score: 6.20000000000000018, votes: 2755, director_id: 668)
-Movie.create!(id: 730, title: "Horse Whisperer, The", yr: 1998, score: 6.5, votes: 2753, director_id: 36)
-Movie.create!(id: 731, title: "Big Chill, The", yr: 1983, score: 7.20000000000000018, votes: 2753, director_id: 87)
-Movie.create!(id: 732, title: "Transformers: The Movie, The", yr: 1986, score: 6.40000000000000036, votes: 2746, director_id: 2684)
-Movie.create!(id: 733, title: "Bronx Tale, A", yr: 1993, score: 7.5, votes: 2730, director_id: 3)
-Movie.create!(id: 734, title: "Quiet Man, The", yr: 1952, score: 8.09999999999999964, votes: 2729, director_id: 287)
-Movie.create!(id: 735, title: "Stripes", yr: 1981, score: 6.79999999999999982, votes: 2724, director_id: 109)
-Movie.create!(id: 736, title: "Rocky III", yr: 1982, score: 5.29999999999999982, votes: 2708, director_id: 5)
-Movie.create!(id: 737, title: "Blast from the Past", yr: 1999, score: 6.79999999999999982, votes: 2695, director_id: 377)
-Movie.create!(id: 738, title: "Spice World", yr: 1997, score: 3, votes: 2694, director_id: 2461)
-Movie.create!(id: 739, title: "Hot Shots! Part Deux", yr: 1993, score: 5.5, votes: 2685, director_id: 189)
-Movie.create!(id: 740, title: "Flintstones, The", yr: 1994, score: 4.40000000000000036, votes: 2685, director_id: 395)
-Movie.create!(id: 741, title: "First Wives Club, The", yr: 1996, score: 5.5, votes: 2680, director_id: 377)
-Movie.create!(id: 742, title: "Young Guns", yr: 1988, score: 6.29999999999999982, votes: 2673, director_id: 2305)
-Movie.create!(id: 743, title: "Practical Magic", yr: 1998, score: 5.40000000000000036, votes: 2668, director_id: 332)
-Movie.create!(id: 744, title: "Romeo Must Die", yr: 2000, score: 6, votes: 2667, director_id: 2023)
-Movie.create!(id: 745, title: "My Own Private Idaho", yr: 1991, score: 6.5, votes: 2662, director_id: 271)
-Movie.create!(id: 746, title: "Psycho", yr: 1998, score: 5.40000000000000036, votes: 2661, director_id: 271)
-Movie.create!(id: 747, title: "Diamonds Are Forever", yr: 1971, score: 6.59999999999999964, votes: 2659, director_id: 636)
-Movie.create!(id: 748, title: "One Fine Day", yr: 1996, score: 6.20000000000000018, votes: 2659, director_id: 401)
-Movie.create!(id: 749, title: "Nell", yr: 1994, score: 6.29999999999999982, votes: 2649, director_id: 199)
-Movie.create!(id: 750, title: "Officer and a Gentleman, An", yr: 1982, score: 6.70000000000000018, votes: 2634, director_id: 674)
-Movie.create!(id: 751, title: "White Men Can't Jump", yr: 1992, score: 6.20000000000000018, votes: 2634, director_id: 642)
-Movie.create!(id: 752, title: "Big Hit, The", yr: 1998, score: 5.79999999999999982, votes: 2632, director_id: 2167)
-Movie.create!(id: 753, title: "Big Night", yr: 1996, score: 7.40000000000000036, votes: 2629, director_id: 1260)
-Movie.create!(id: 754, title: "Cyrano de Bergerac", yr: 1990, score: 7.59999999999999964, votes: 2629, director_id: 2233)
-Movie.create!(id: 755, title: "So I Married an Axe Murderer", yr: 1993, score: 6.20000000000000018, votes: 2629, director_id: 2745)
-Movie.create!(id: 756, title: "Stepmom", yr: 1998, score: 6.29999999999999982, votes: 2615, director_id: 156)
-Movie.create!(id: 757, title: "Cook the Thief His Wife & Her Lover, The", yr: 1989, score: 6.90000000000000036, votes: 2615, director_id: 386)
-Movie.create!(id: 758, title: "Dancer in the Dark", yr: 2000, score: 8.30000000000000071, votes: 2614, director_id: 615)
-Movie.create!(id: 759, title: "Space Jam", yr: 1996, score: 5.20000000000000018, votes: 2614, director_id: 2351)
-Movie.create!(id: 760, title: "Out of Africa", yr: 1985, score: 6.70000000000000018, votes: 2612, director_id: 92)
-Movie.create!(id: 761, title: "Rob Roy", yr: 1995, score: 6.79999999999999982, votes: 2612, director_id: 374)
-Movie.create!(id: 762, title: "Rocky II", yr: 1979, score: 5.90000000000000036, votes: 2610, director_id: 5)
-Movie.create!(id: 763, title: "Quick and the Dead, The", yr: 1995, score: 5.90000000000000036, votes: 2607, director_id: 141)
-Movie.create!(id: 764, title: "Regarding Henry", yr: 1991, score: 6.5, votes: 2603, director_id: 47)
-Movie.create!(id: 765, title: "Airplane II: The Sequel", yr: 1982, score: 5.5, votes: 2600, director_id: 2054)
-Movie.create!(id: 766, title: "Cabaret", yr: 1972, score: 7.70000000000000018, votes: 2588, director_id: 1124)
-Movie.create!(id: 767, title: "Bullets Over Broadway", yr: 1994, score: 7.59999999999999964, votes: 2585, director_id: 1)
-Movie.create!(id: 768, title: "Beautiful Thing", yr: 1996, score: 7.20000000000000018, votes: 2585, director_id: 2084)
-Movie.create!(id: 769, title: "Space Cowboys", yr: 2000, score: 7, votes: 2583, director_id: 2)
-Movie.create!(id: 770, title: "Moonstruck", yr: 1987, score: 7.09999999999999964, votes: 2581, director_id: 81)
-Movie.create!(id: 771, title: "Never Say Never Again", yr: 1983, score: 6.09999999999999964, votes: 2579, director_id: 651)
-Movie.create!(id: 772, title: "Strange Brew", yr: 1983, score: 6.40000000000000036, votes: 2571, director_id: 147)
-Movie.create!(id: 773, title: "Doc Hollywood", yr: 1991, score: 5.79999999999999982, votes: 2564, director_id: 374)
-Movie.create!(id: 774, title: "Gallipoli", yr: 1981, score: 7.70000000000000018, votes: 2563, director_id: 86)
-Movie.create!(id: 775, title: "Disclosure", yr: 1994, score: 6, votes: 2563, director_id: 38)
-Movie.create!(id: 776, title: "Spies Like Us", yr: 1985, score: 5.59999999999999964, votes: 2562, director_id: 62)
-Movie.create!(id: 777, title: "Sjunde inseglet, Det", yr: 1957, score: 8.40000000000000036, votes: 2559, director_id: 420)
-Movie.create!(id: 778, title: "Grapes of Wrath, The", yr: 1940, score: 8.30000000000000071, votes: 2552, director_id: 287)
-Movie.create!(id: 779, title: "Indecent Proposal", yr: 1993, score: 5.09999999999999964, votes: 2552, director_id: 283)
-Movie.create!(id: 780, title: "Singles", yr: 1992, score: 6.5, votes: 2548, director_id: 391)
-Movie.create!(id: 781, title: "Hoosiers", yr: 1986, score: 7.40000000000000036, votes: 2545, director_id: 1133)
-Movie.create!(id: 782, title: "Adventures of Buckaroo Banzai Across the 8th Dimension, The", yr: 1984, score: 6, votes: 2543, director_id: 2558)
-Movie.create!(id: 783, title: "Frantic", yr: 1988, score: 6.5, votes: 2543, director_id: 90)
-Movie.create!(id: 784, title: "Sliver", yr: 1993, score: 4.5, votes: 2542, director_id: 212)
-Movie.create!(id: 785, title: "Hustler, The", yr: 1961, score: 8.19999999999999929, votes: 2541, director_id: 2605)
-Movie.create!(id: 786, title: "Howards End", yr: 1992, score: 7.40000000000000036, votes: 2540, director_id: 576)
-Movie.create!(id: 787, title: "Spy Who Loved Me, The", yr: 1977, score: 6.90000000000000036, votes: 2534, director_id: 390)
-Movie.create!(id: 788, title: "Mimic", yr: 1997, score: 5.59999999999999964, votes: 2534, director_id: 2178)
-Movie.create!(id: 789, title: "Tango & Cash", yr: 1989, score: 5.20000000000000018, votes: 2528, director_id: 1049)
-Movie.create!(id: 790, title: "Night on Earth", yr: 1991, score: 7.20000000000000018, votes: 2527, director_id: 175)
-Movie.create!(id: 791, title: "Enter the Dragon", yr: 1973, score: 7.20000000000000018, votes: 2523, director_id: 2706)
-Movie.create!(id: 792, title: "Short Circuit", yr: 1986, score: 5.79999999999999982, votes: 2522, director_id: 66)
-Movie.create!(id: 793, title: "Gremlins 2: The New Batch", yr: 1990, score: 5.59999999999999964, votes: 2520, director_id: 150)
-Movie.create!(id: 794, title: "Mission, The", yr: 1986, score: 7.20000000000000018, votes: 2516, director_id: 1170)
-Movie.create!(id: 795, title: "Violon rouge, Le", yr: 1998, score: 8, votes: 2516, director_id: 2184)
-Movie.create!(id: 796, title: "Fiddler on the Roof", yr: 1971, score: 7.40000000000000036, votes: 2513, director_id: 81)
-Movie.create!(id: 797, title: "Nine 1/2 Weeks", yr: 1986, score: 5.20000000000000018, votes: 2509, director_id: 283)
-Movie.create!(id: 798, title: "Strictly Ballroom", yr: 1992, score: 7.20000000000000018, votes: 2506, director_id: 1069)
-Movie.create!(id: 799, title: "Harvey", yr: 1950, score: 8, votes: 2505, director_id: 2029)
-Movie.create!(id: 800, title: "54", yr: 1998, score: 5.29999999999999982, votes: 2504, director_id: 2592)
-Movie.create!(id: 801, title: "You Only Live Twice", yr: 1967, score: 6.79999999999999982, votes: 2503, director_id: 390)
-Movie.create!(id: 802, title: "Wolf", yr: 1994, score: 5.79999999999999982, votes: 2485, director_id: 47)
-Movie.create!(id: 803, title: "Unbearable Lightness of Being, The", yr: 1988, score: 7.20000000000000018, votes: 2485, director_id: 288)
-Movie.create!(id: 804, title: "Dark Crystal, The", yr: 1982, score: 6.79999999999999982, votes: 2478, director_id: 952)
-Movie.create!(id: 805, title: "Mystery Science Theater 3000: The Movie", yr: 1996, score: 7, votes: 2473, director_id: 1469)
-Movie.create!(id: 806, title: "Rambo III", yr: 1988, score: 3.70000000000000018, votes: 2468, director_id: 2804)
-Movie.create!(id: 807, title: "Twin Peaks: Fire Walk with Me", yr: 1992, score: 6.09999999999999964, votes: 2466, director_id: 139)
-Movie.create!(id: 808, title: "Small Soldiers", yr: 1998, score: 6, votes: 2463, director_id: 150)
-Movie.create!(id: 809, title: "Titan A.E.", yr: 2000, score: 6.79999999999999982, votes: 2455, director_id: 409)
-Movie.create!(id: 810, title: "Thunderball", yr: 1965, score: 6.79999999999999982, votes: 2454, director_id: 388)
-Movie.create!(id: 811, title: "World According to Garp, The", yr: 1982, score: 7, votes: 2454, director_id: 276)
-Movie.create!(id: 812, title: "Outlaw Josey Wales, The", yr: 1976, score: 7.59999999999999964, votes: 2447, director_id: 2)
-Movie.create!(id: 813, title: "Dragnet", yr: 1987, score: 5.5, votes: 2441, director_id: 2670)
-Movie.create!(id: 814, title: "Superman III", yr: 1983, score: 4.29999999999999982, votes: 2439, director_id: 274)
-Movie.create!(id: 815, title: "Friday", yr: 1995, score: 6.70000000000000018, votes: 2435, director_id: 1035)
-Movie.create!(id: 816, title: "Forces of Nature", yr: 1999, score: 5.70000000000000018, votes: 2427, director_id: 2262)
-Movie.create!(id: 817, title: "One Hundred and One Dalmatians", yr: 1961, score: 7.20000000000000018, votes: 2423, director_id: 266)
-Movie.create!(id: 818, title: "Silverado", yr: 1985, score: 7, votes: 2422, director_id: 87)
-Movie.create!(id: 819, title: "Thirteenth Floor, The", yr: 1999, score: 6.5, votes: 2422, director_id: 2388)
-Movie.create!(id: 820, title: "Paris, Texas", yr: 1984, score: 7.40000000000000036, votes: 2415, director_id: 269)
-Movie.create!(id: 821, title: "Rocketeer, The", yr: 1991, score: 5.79999999999999982, votes: 2415, director_id: 424)
-Movie.create!(id: 822, title: "Buffy the Vampire Slayer", yr: 1992, score: 5.40000000000000036, votes: 2414, director_id: 2181)
-Movie.create!(id: 823, title: "On Her Majesty's Secret Service", yr: 1969, score: 6.59999999999999964, votes: 2413, director_id: 2809)
-Movie.create!(id: 824, title: "Repo Man", yr: 1984, score: 6.70000000000000018, votes: 2401, director_id: 1041)
-Movie.create!(id: 825, title: "Addicted to Love", yr: 1997, score: 6.20000000000000018, votes: 2399, director_id: 332)
-Movie.create!(id: 826, title: "8 1/2", yr: 1963, score: 8, votes: 2397, director_id: 399)
-Movie.create!(id: 827, title: "Who's Afraid of Virginia Woolf?", yr: 1966, score: 8.19999999999999929, votes: 2395, director_id: 47)
-Movie.create!(id: 828, title: "Daylight", yr: 1996, score: 5.40000000000000036, votes: 2393, director_id: 376)
-Movie.create!(id: 829, title: "Rope", yr: 1948, score: 7.70000000000000018, votes: 2389, director_id: 11)
-Movie.create!(id: 830, title: "Zero Effect", yr: 1998, score: 7.29999999999999982, votes: 2387, director_id: 1927)
-Movie.create!(id: 831, title: "Wonder Boys", yr: 2000, score: 7.70000000000000018, votes: 2386, director_id: 607)
-Movie.create!(id: 832, title: "Buffalo '66", yr: 1998, score: 7.20000000000000018, votes: 2385, director_id: 819)
-Movie.create!(id: 833, title: "Gods Must Be Crazy, The", yr: 1980, score: 6.90000000000000036, votes: 2385, director_id: 1955)
-Movie.create!(id: 834, title: "Midnight Express", yr: 1978, score: 7.40000000000000036, votes: 2384, director_id: 68)
-Movie.create!(id: 835, title: "Throw Momma from the Train", yr: 1987, score: 5.79999999999999982, votes: 2381, director_id: 24)
-Movie.create!(id: 836, title: "Welcome to the Dollhouse", yr: 1995, score: 7.5, votes: 2376, director_id: 1121)
-Movie.create!(id: 837, title: "Ordinary People", yr: 1980, score: 7.70000000000000018, votes: 2372, director_id: 36)
-Movie.create!(id: 838, title: "Doctor Dolittle", yr: 1998, score: 5.40000000000000036, votes: 2365, director_id: 425)
-Movie.create!(id: 839, title: "Apt Pupil", yr: 1998, score: 6.5, votes: 2363, director_id: 639)
-Movie.create!(id: 840, title: "Outsiders, The", yr: 1983, score: 6.79999999999999982, votes: 2363, director_id: 28)
-Movie.create!(id: 841, title: "Deuce Bigalow: Male Gigolo", yr: 1999, score: 5.5, votes: 2359, director_id: 2620)
-Movie.create!(id: 842, title: "'burbs, The", yr: 1989, score: 5.5, votes: 2354, director_id: 150)
-Movie.create!(id: 843, title: "Pretty in Pink", yr: 1986, score: 6.20000000000000018, votes: 2349, director_id: 285)
-Movie.create!(id: 844, title: "Peggy Sue Got Married", yr: 1986, score: 6.29999999999999982, votes: 2336, director_id: 28)
-Movie.create!(id: 845, title: "Revenge of the Nerds", yr: 1984, score: 5.90000000000000036, votes: 2335, director_id: 2257)
-Movie.create!(id: 846, title: "How the Grinch Stole Christmas", yr: 2000, score: 6.59999999999999964, votes: 2333, director_id: 21)
-Movie.create!(id: 847, title: "Texas Chain Saw Massacre, The", yr: 1974, score: 6.70000000000000018, votes: 2333, director_id: 1123)
-Movie.create!(id: 848, title: "City Lights", yr: 1931, score: 8.59999999999999964, votes: 2325, director_id: 145)
-Movie.create!(id: 849, title: "Money Pit, The", yr: 1986, score: 5.29999999999999982, votes: 2319, director_id: 320)
-Movie.create!(id: 850, title: "Relic, The", yr: 1997, score: 5.20000000000000018, votes: 2318, director_id: 103)
-Movie.create!(id: 851, title: "No Way Out", yr: 1987, score: 7, votes: 2314, director_id: 146)
-Movie.create!(id: 852, title: "Golden Child, The", yr: 1986, score: 5.20000000000000018, votes: 2313, director_id: 418)
-Movie.create!(id: 853, title: "Exotica", yr: 1994, score: 7.09999999999999964, votes: 2311, director_id: 665)
-Movie.create!(id: 854, title: "Heavy Metal", yr: 1981, score: 6.20000000000000018, votes: 2311, director_id: 2156)
-Movie.create!(id: 855, title: "Darkman", yr: 1990, score: 5.90000000000000036, votes: 2310, director_id: 141)
-Movie.create!(id: 856, title: "Age of Innocence, The", yr: 1993, score: 7, votes: 2299, director_id: 78)
-Movie.create!(id: 857, title: "Charade", yr: 1963, score: 8, votes: 2298, director_id: 428)
-Movie.create!(id: 858, title: "Desperately Seeking Susan", yr: 1985, score: 5.59999999999999964, votes: 2297, director_id: 2615)
-Movie.create!(id: 859, title: "Brassed Off", yr: 1996, score: 7.09999999999999964, votes: 2297, director_id: 2596)
-Movie.create!(id: 860, title: "Adventures in Babysitting", yr: 1987, score: 6.29999999999999982, votes: 2293, director_id: 156)
-Movie.create!(id: 861, title: "Benny & Joon", yr: 1993, score: 6.59999999999999964, votes: 2292, director_id: 412)
-Movie.create!(id: 862, title: "Cool Runnings", yr: 1993, score: 6.20000000000000018, votes: 2291, director_id: 411)
-Movie.create!(id: 863, title: "Superman IV: The Quest for Peace", yr: 1987, score: 3.10000000000000009, votes: 2289, director_id: 2838)
-Movie.create!(id: 864, title: "Starman", yr: 1984, score: 6.70000000000000018, votes: 2288, director_id: 23)
-Movie.create!(id: 865, title: "Presumed Innocent", yr: 1990, score: 6.90000000000000036, votes: 2279, director_id: 275)
-Movie.create!(id: 866, title: "Pushing Tin", yr: 1999, score: 6, votes: 2278, director_id: 585)
-Movie.create!(id: 867, title: "Robocop 2", yr: 1990, score: 4.29999999999999982, votes: 2277, director_id: 651)
-Movie.create!(id: 868, title: "European Vacation", yr: 1985, score: 5, votes: 2272, director_id: 403)
-Movie.create!(id: 869, title: "Don Juan DeMarco", yr: 1995, score: 6.5, votes: 2267, director_id: 2356)
-Movie.create!(id: 870, title: "Green Card", yr: 1990, score: 5.90000000000000036, votes: 2263, director_id: 86)
-Movie.create!(id: 871, title: "Hard Rain", yr: 1998, score: 5.5, votes: 2260, director_id: 2631)
-Movie.create!(id: 872, title: "Roger & Me", yr: 1989, score: 7.70000000000000018, votes: 2259, director_id: 955)
-Movie.create!(id: 873, title: "Eraserhead", yr: 1977, score: 6.59999999999999964, votes: 2258, director_id: 139)
-Movie.create!(id: 874, title: "Terms of Endearment", yr: 1983, score: 7.20000000000000018, votes: 2256, director_id: 574)
-Movie.create!(id: 875, title: "George of the Jungle", yr: 1997, score: 5.70000000000000018, votes: 2253, director_id: 1075)
-Movie.create!(id: 876, title: "39 Steps, The", yr: 1935, score: 8, votes: 2250, director_id: 11)
-Movie.create!(id: 877, title: "Broadcast News", yr: 1987, score: 7, votes: 2243, director_id: 574)
-Movie.create!(id: 878, title: "Underground", yr: 1995, score: 7.79999999999999982, votes: 2242, director_id: 663)
-Movie.create!(id: 879, title: "Miracle on 34th Street", yr: 1947, score: 7.90000000000000036, votes: 2237, director_id: 1061)
-Movie.create!(id: 880, title: "Rising Sun", yr: 1993, score: 6, votes: 2237, director_id: 288)
-Movie.create!(id: 881, title: "Frankenstein", yr: 1994, score: 5.90000000000000036, votes: 2233, director_id: 48)
-Movie.create!(id: 882, title: "Steel Magnolias", yr: 1989, score: 6.70000000000000018, votes: 2231, director_id: 200)
-Movie.create!(id: 883, title: "Hard Day's Night, A", yr: 1964, score: 7.59999999999999964, votes: 2228, director_id: 274)
-Movie.create!(id: 884, title: "St. Elmo's Fire", yr: 1985, score: 5.79999999999999982, votes: 2222, director_id: 105)
-Movie.create!(id: 885, title: "1941", yr: 1979, score: 5.5, votes: 2222, director_id: 18)
-Movie.create!(id: 886, title: "Grumpy Old Men", yr: 1993, score: 6.5, votes: 2222, director_id: 599)
-Movie.create!(id: 887, title: "Flash Gordon", yr: 1980, score: 5.59999999999999964, votes: 2222, director_id: 2628)
-Movie.create!(id: 888, title: "Hoop Dreams", yr: 1994, score: 7.79999999999999982, votes: 2220, director_id: 2571)
-Movie.create!(id: 889, title: "Trzy kolory: Bialy", yr: 1994, score: 7.70000000000000018, votes: 2213, director_id: 398)
-Movie.create!(id: 890, title: "Red Dawn", yr: 1984, score: 5.59999999999999964, votes: 2213, director_id: 693)
-Movie.create!(id: 891, title: "Random Hearts", yr: 1999, score: 4.79999999999999982, votes: 2212, director_id: 92)
-Movie.create!(id: 892, title: "Shadowlands", yr: 1993, score: 7.20000000000000018, votes: 2204, director_id: 235)
-Movie.create!(id: 893, title: "After Hours", yr: 1985, score: 7.29999999999999982, votes: 2199, director_id: 78)
-Movie.create!(id: 894, title: "Dangerous Minds", yr: 1995, score: 5.70000000000000018, votes: 2198, director_id: 2448)
-Movie.create!(id: 895, title: "Up in Smoke", yr: 1978, score: 6.20000000000000018, votes: 2198, director_id: 2819)
-Movie.create!(id: 896, title: "Dirty Dozen, The", yr: 1967, score: 7.5, votes: 2191, director_id: 1060)
-Movie.create!(id: 897, title: "Specialist, The", yr: 1994, score: 4.59999999999999964, votes: 2191, director_id: 1053)
-Movie.create!(id: 898, title: "2 Days in the Valley", yr: 1996, score: 6.40000000000000036, votes: 2189, director_id: 1700)
-Movie.create!(id: 899, title: "Three Musketeers, The", yr: 1993, score: 5.90000000000000036, votes: 2188, director_id: 149)
-Movie.create!(id: 900, title: "Slap Shot", yr: 1977, score: 7, votes: 2184, director_id: 276)
-Movie.create!(id: 901, title: "Fierce Creatures", yr: 1997, score: 6.09999999999999964, votes: 2182, director_id: 272)
-Movie.create!(id: 902, title: "Toys", yr: 1992, score: 4.5, votes: 2179, director_id: 38)
-Movie.create!(id: 903, title: "Assassins", yr: 1995, score: 5.70000000000000018, votes: 2173, director_id: 209)
-Movie.create!(id: 904, title: "Footloose", yr: 1984, score: 5.79999999999999982, votes: 2167, director_id: 200)
-Movie.create!(id: 905, title: "Wallace & Gromit: A Grand Day Out", yr: 1992, score: 7.70000000000000018, votes: 2167, director_id: 572)
-Movie.create!(id: 906, title: "Uncle Buck", yr: 1989, score: 6.09999999999999964, votes: 2163, director_id: 144)
-Movie.create!(id: 907, title: "Shane", yr: 1953, score: 7.79999999999999982, votes: 2161, director_id: 1022)
-Movie.create!(id: 908, title: "Nine Months", yr: 1995, score: 5.20000000000000018, votes: 2153, director_id: 156)
-Movie.create!(id: 909, title: "Blue Streak", yr: 1999, score: 6.09999999999999964, votes: 2153, director_id: 632)
-Movie.create!(id: 910, title: "My Left Foot", yr: 1989, score: 7.40000000000000036, votes: 2152, director_id: 581)
-Movie.create!(id: 911, title: "Omen, The", yr: 1976, score: 7.09999999999999964, votes: 2151, director_id: 209)
-Movie.create!(id: 912, title: "Anna and the King", yr: 1999, score: 7, votes: 2150, director_id: 654)
-Movie.create!(id: 913, title: "Nine to Five", yr: 1980, score: 6.20000000000000018, votes: 2148, director_id: 1110)
-Movie.create!(id: 914, title: "Hellraiser", yr: 1987, score: 6.29999999999999982, votes: 2144, director_id: 2327)
-Movie.create!(id: 915, title: "Gettysburg", yr: 1993, score: 7.40000000000000036, votes: 2144, director_id: 2761)
-Movie.create!(id: 916, title: "Hand That Rocks the Cradle, The", yr: 1992, score: 6.20000000000000018, votes: 2138, director_id: 607)
-Movie.create!(id: 917, title: "Three Days of the Condor", yr: 1975, score: 7.29999999999999982, votes: 2137, director_id: 92)
-Movie.create!(id: 918, title: "Pocahontas", yr: 1995, score: 5.59999999999999964, votes: 2130, director_id: 2630)
-Movie.create!(id: 919, title: "Timecop", yr: 1994, score: 5.59999999999999964, votes: 2121, director_id: 103)
-Movie.create!(id: 920, title: "Rio Bravo", yr: 1959, score: 8, votes: 2119, director_id: 197)
-Movie.create!(id: 921, title: "Sleeper", yr: 1973, score: 7.29999999999999982, votes: 2113, director_id: 1)
-Movie.create!(id: 922, title: "Gold Rush, The", yr: 1925, score: 8.30000000000000071, votes: 2113, director_id: 145)
-Movie.create!(id: 923, title: "Body Heat", yr: 1981, score: 7.29999999999999982, votes: 2112, director_id: 87)
-Movie.create!(id: 924, title: "Adventures of Robin Hood, The", yr: 1938, score: 8.09999999999999964, votes: 2111, director_id: 675)
-Movie.create!(id: 925, title: "Conan the Destroyer", yr: 1984, score: 5.20000000000000018, votes: 2104, director_id: 402)
-Movie.create!(id: 926, title: "Bicentennial Man", yr: 1999, score: 6.5, votes: 2103, director_id: 156)
-Movie.create!(id: 927, title: "Waiting for Guffman", yr: 1996, score: 7.59999999999999964, votes: 2097, director_id: 352)
-Movie.create!(id: 928, title: "Basketball Diaries, The", yr: 1995, score: 6.59999999999999964, votes: 2092, director_id: 2634)
-Movie.create!(id: 929, title: "Michael Collins", yr: 1996, score: 6.90000000000000036, votes: 2092, director_id: 153)
-Movie.create!(id: 930, title: "Bob Roberts", yr: 1992, score: 7.09999999999999964, votes: 2084, director_id: 25)
-Movie.create!(id: 931, title: "Swimming with Sharks", yr: 1994, score: 7.20000000000000018, votes: 2072, director_id: 2127)
-Movie.create!(id: 932, title: "Yellow Submarine", yr: 1968, score: 6.90000000000000036, votes: 2069, director_id: 2109)
-Movie.create!(id: 933, title: "Turner & Hooch", yr: 1989, score: 5.29999999999999982, votes: 2057, director_id: 407)
-Movie.create!(id: 934, title: "Nixon", yr: 1995, score: 7, votes: 2055, director_id: 69)
-Movie.create!(id: 935, title: "Porky's", yr: 1981, score: 5.09999999999999964, votes: 2051, director_id: 579)
-Movie.create!(id: 936, title: "Coyote Ugly", yr: 2000, score: 5.90000000000000036, votes: 2051, director_id: 2478)
-Movie.create!(id: 937, title: "Edge, The", yr: 1997, score: 6.90000000000000036, votes: 2050, director_id: 624)
-Movie.create!(id: 938, title: "Double vie de V&#233;ronique, La", yr: 1991, score: 7.29999999999999982, votes: 2050, director_id: 398)
-Movie.create!(id: 939, title: "Always", yr: 1989, score: 6.20000000000000018, votes: 2050, director_id: 18)
-Movie.create!(id: 940, title: "Boiler Room", yr: 2000, score: 7, votes: 2049, director_id: 2419)
-Movie.create!(id: 941, title: "Stuart Little", yr: 1999, score: 6.29999999999999982, votes: 2045, director_id: 2623)
-Movie.create!(id: 942, title: "Things to Do in Denver When You're Dead", yr: 1995, score: 6.59999999999999964, votes: 2045, director_id: 2114)
-Movie.create!(id: 943, title: "Rudy", yr: 1993, score: 6.90000000000000036, votes: 2037, director_id: 1133)
-Movie.create!(id: 944, title: "Some Kind of Wonderful", yr: 1987, score: 6.5, votes: 2036, director_id: 285)
-Movie.create!(id: 945, title: "Poseidon Adventure, The", yr: 1972, score: 6.59999999999999964, votes: 2035, director_id: 2759)
-Movie.create!(id: 946, title: "History of the World: Part I", yr: 1981, score: 6.20000000000000018, votes: 2034, director_id: 29)
-Movie.create!(id: 947, title: "Forever Young", yr: 1992, score: 6.09999999999999964, votes: 2034, director_id: 365)
-Movie.create!(id: 948, title: "To Catch a Thief", yr: 1955, score: 7.5, votes: 2032, director_id: 11)
-Movie.create!(id: 949, title: "Police Academy 4: Citizens on Patrol", yr: 1987, score: 3.10000000000000009, votes: 2028, director_id: 2317)
-Movie.create!(id: 950, title: "Night of the Hunter, The", yr: 1955, score: 8.40000000000000036, votes: 2027, director_id: 1183)
-Movie.create!(id: 951, title: "Bad Taste", yr: 1987, score: 6.70000000000000018, votes: 2026, director_id: 326)
-Movie.create!(id: 952, title: "His Girl Friday", yr: 1940, score: 8.30000000000000071, votes: 2023, director_id: 197)
-Movie.create!(id: 953, title: "Rules of Engagement", yr: 2000, score: 6.5, votes: 2020, director_id: 264)
-Movie.create!(id: 954, title: "I.Q.", yr: 1994, score: 6.09999999999999964, votes: 2019, director_id: 272)
-Movie.create!(id: 955, title: "Police Academy 5: Assignment: Miami Beach", yr: 1988, score: 2.5, votes: 2014, director_id: 2122)
-Movie.create!(id: 956, title: "Alive", yr: 1993, score: 6.5, votes: 2011, director_id: 614)
-Movie.create!(id: 957, title: "Sabrina", yr: 1954, score: 7.59999999999999964, votes: 2011, director_id: 79)
-Movie.create!(id: 958, title: "Best Years of Our Lives, The", yr: 1946, score: 8.5, votes: 2010, director_id: 620)
-Movie.create!(id: 959, title: "Mickey Blue Eyes", yr: 1999, score: 5.90000000000000036, votes: 2003, director_id: 2080)
-Movie.create!(id: 960, title: "All Quiet on the Western Front", yr: 1930, score: 8.40000000000000036, votes: 2002, director_id: 2138)
-Movie.create!(id: 961, title: "Now and Then", yr: 1995, score: 6, votes: 1999, director_id: 2151)
-Movie.create!(id: 962, title: "Snatch", yr: 2000, score: 8.09999999999999964, votes: 1996, director_id: 2205)
-Movie.create!(id: 963, title: "Accidental Tourist, The", yr: 1988, score: 6.70000000000000018, votes: 1995, director_id: 87)
-Movie.create!(id: 964, title: "For Love of the Game", yr: 1999, score: 6.59999999999999964, votes: 1990, director_id: 141)
-Movie.create!(id: 965, title: "Drugstore Cowboy", yr: 1989, score: 7.5, votes: 1988, director_id: 271)
-Movie.create!(id: 966, title: "Night at the Opera, A", yr: 1935, score: 8.19999999999999929, votes: 1983, director_id: 2532)
-Movie.create!(id: 967, title: "Ruthless People", yr: 1986, score: 6.79999999999999982, votes: 1981, director_id: 189)
-Movie.create!(id: 968, title: "Barbarella", yr: 1968, score: 5.40000000000000036, votes: 1980, director_id: 2752)
-Movie.create!(id: 969, title: "Grifters, The", yr: 1990, score: 7.20000000000000018, votes: 1978, director_id: 292)
-Movie.create!(id: 970, title: "Tequila Sunrise", yr: 1988, score: 5.79999999999999982, votes: 1976, director_id: 2582)
-Movie.create!(id: 971, title: "Pink Panther, The", yr: 1963, score: 7.20000000000000018, votes: 1973, director_id: 65)
-Movie.create!(id: 972, title: "Brady Bunch Movie, The", yr: 1995, score: 5.59999999999999964, votes: 1972, director_id: 425)
-Movie.create!(id: 973, title: "Chain Reaction", yr: 1996, score: 5.09999999999999964, votes: 1971, director_id: 291)
-Movie.create!(id: 974, title: "Yojimbo", yr: 1961, score: 8.59999999999999964, votes: 1961, director_id: 208)
-Movie.create!(id: 975, title: "In the Heat of the Night", yr: 1967, score: 7.90000000000000036, votes: 1961, director_id: 81)
-Movie.create!(id: 976, title: "Billy Elliot", yr: 2000, score: 8.30000000000000071, votes: 1960, director_id: 2784)
-Movie.create!(id: 977, title: "Powder", yr: 1995, score: 5.90000000000000036, votes: 1958, director_id: 2540)
-Movie.create!(id: 978, title: "Virgin Suicides, The", yr: 1999, score: 7.40000000000000036, votes: 1957, director_id: 1471)
-Movie.create!(id: 979, title: "F/X", yr: 1986, score: 6.59999999999999964, votes: 1952, director_id: 1007)
-Movie.create!(id: 980, title: "Mosquito Coast, The", yr: 1986, score: 6.40000000000000036, votes: 1949, director_id: 86)
-Movie.create!(id: 981, title: "Hong faan kui", yr: 1995, score: 6.59999999999999964, votes: 1949, director_id: 667)
-Movie.create!(id: 982, title: "Stalag 17", yr: 1953, score: 8.30000000000000071, votes: 1941, director_id: 79)
-Movie.create!(id: 983, title: "Nosferatu, eine Symphonie des Grauens", yr: 1922, score: 8.19999999999999929, votes: 1941, director_id: 2035)
-Movie.create!(id: 984, title: "Drop Dead Gorgeous", yr: 1999, score: 6.40000000000000036, votes: 1941, director_id: 2676)
-Movie.create!(id: 985, title: "Of Mice and Men", yr: 1992, score: 7.59999999999999964, votes: 1940, director_id: 255)
-Movie.create!(id: 986, title: "Multiplicity", yr: 1996, score: 5.70000000000000018, votes: 1939, director_id: 108)
-Movie.create!(id: 987, title: "Object of My Affection, The", yr: 1998, score: 6.09999999999999964, votes: 1939, director_id: 1149)
-Movie.create!(id: 988, title: "Suicide Kings", yr: 1997, score: 6.90000000000000036, votes: 1937, director_id: 2810)
-Movie.create!(id: 989, title: "Towering Inferno, The", yr: 1974, score: 6.20000000000000018, votes: 1937, director_id: 2018)
-Movie.create!(id: 990, title: "Purple Rose of Cairo, The", yr: 1985, score: 7.5, votes: 1937, director_id: 1)
-Movie.create!(id: 991, title: "Arthur", yr: 1981, score: 6.5, votes: 1932, director_id: 2847)
-Movie.create!(id: 992, title: "Hope Floats", yr: 1998, score: 5.40000000000000036, votes: 1927, director_id: 157)
-Movie.create!(id: 993, title: "General, The", yr: 1927, score: 8.69999999999999929, votes: 1926, director_id: 2343)
-Movie.create!(id: 994, title: "Somewhere in Time", yr: 1980, score: 6.70000000000000018, votes: 1923, director_id: 600)
-Movie.create!(id: 995, title: "Rocky V", yr: 1990, score: 3.70000000000000018, votes: 1923, director_id: 683)
-Movie.create!(id: 996, title: "Eye of the Beholder", yr: 1999, score: 4.20000000000000018, votes: 1921, director_id: 1138)
-Movie.create!(id: 997, title: "Cinderella", yr: 1950, score: 7.5, votes: 1911, director_id: 266)
-Movie.create!(id: 998, title: "Under Siege 2: Dark Territory", yr: 1995, score: 4.90000000000000036, votes: 1909, director_id: 627)
-Movie.create!(id: 999, title: "Point of No Return", yr: 1993, score: 5.70000000000000018, votes: 1908, director_id: 66)
-Movie.create!(id: 1000, title: "Haunting, The", yr: 1963, score: 7.70000000000000018, votes: 1907, director_id: 286)
-Movie.create!(id: 1001, title: "Ideal Husband, An", yr: 1999, score: 7.29999999999999982, votes: 1904, director_id: 1930)
-Movie.create!(id: 1002, title: "Grand Canyon", yr: 1991, score: 6.79999999999999982, votes: 1903, director_id: 87)
-Movie.create!(id: 1003, title: "Barb Wire", yr: 1996, score: 3.29999999999999982, votes: 1900, director_id: 2264)
-Movie.create!(id: 1004, title: "Dead Zone, The", yr: 1983, score: 7.09999999999999964, votes: 1898, director_id: 97)
-Movie.create!(id: 1005, title: "Accused, The", yr: 1988, score: 7.09999999999999964, votes: 1886, director_id: 580)
-Movie.create!(id: 1006, title: "Cookie's Fortune", yr: 1999, score: 7.29999999999999982, votes: 1885, director_id: 155)
-Movie.create!(id: 1007, title: "Ref, The", yr: 1994, score: 6.79999999999999982, votes: 1883, director_id: 1048)
-Movie.create!(id: 1008, title: "Blues Brothers 2000", yr: 1998, score: 4.20000000000000018, votes: 1880, director_id: 62)
-Movie.create!(id: 1009, title: "Red Heat", yr: 1988, score: 5.29999999999999982, votes: 1878, director_id: 143)
-Movie.create!(id: 1010, title: "Pet Sematary", yr: 1989, score: 5.40000000000000036, votes: 1876, director_id: 2701)
-Movie.create!(id: 1011, title: "Fearless", yr: 1993, score: 7.09999999999999964, votes: 1872, director_id: 86)
-Movie.create!(id: 1012, title: "Fabulous Baker Boys, The", yr: 1989, score: 6.59999999999999964, votes: 1872, director_id: 2577)
-Movie.create!(id: 1013, title: "Apostle, The", yr: 1997, score: 7.20000000000000018, votes: 1870, director_id: 44)
-Movie.create!(id: 1014, title: "Dead Calm", yr: 1989, score: 6.90000000000000036, votes: 1864, director_id: 212)
-Movie.create!(id: 1015, title: "Naked Lunch", yr: 1991, score: 6.29999999999999982, votes: 1863, director_id: 97)
-Movie.create!(id: 1016, title: "Anastasia", yr: 1997, score: 6.59999999999999964, votes: 1860, director_id: 409)
-Movie.create!(id: 1017, title: "Soldier", yr: 1998, score: 5.29999999999999982, votes: 1858, director_id: 653)
-Movie.create!(id: 1018, title: "Popeye", yr: 1980, score: 4.70000000000000018, votes: 1857, director_id: 155)
-Movie.create!(id: 1019, title: "Arrival, The", yr: 1996, score: 6, votes: 1855, director_id: 1071)
-Movie.create!(id: 1020, title: "Withnail and I", yr: 1987, score: 6.90000000000000036, votes: 1852, director_id: 1028)
-Movie.create!(id: 1021, title: "Twilight Zone: The Movie", yr: 1983, score: 6, votes: 1848, director_id: 150)
-Movie.create!(id: 1022, title: "Police Academy 2: Their First Assignment", yr: 1985, score: 4, votes: 1848, director_id: 967)
-Movie.create!(id: 1023, title: "Breaking Away", yr: 1979, score: 7.70000000000000018, votes: 1846, director_id: 994)
-Movie.create!(id: 1024, title: "Grease 2", yr: 1982, score: 3.29999999999999982, votes: 1846, director_id: 2601)
-Movie.create!(id: 1025, title: "Fools Rush In", yr: 1997, score: 5.90000000000000036, votes: 1840, director_id: 654)
-Movie.create!(id: 1026, title: "Nothing to Lose", yr: 1997, score: 6.70000000000000018, votes: 1836, director_id: 948)
-Movie.create!(id: 1027, title: "True Crime", yr: 1999, score: 6.29999999999999982, votes: 1833, director_id: 2)
-Movie.create!(id: 1028, title: "Flashdance", yr: 1983, score: 5.40000000000000036, votes: 1830, director_id: 283)
-Movie.create!(id: 1029, title: "Smokey and the Bandit", yr: 1977, score: 6, votes: 1822, director_id: 618)
-Movie.create!(id: 1030, title: "Celebrity", yr: 1998, score: 6.20000000000000018, votes: 1820, director_id: 1)
-Movie.create!(id: 1031, title: "Stop! Or My Mom Will Shoot", yr: 1992, score: 3, votes: 1817, director_id: 407)
-Movie.create!(id: 1032, title: "Wing Commander", yr: 1999, score: 3.70000000000000018, votes: 1811, director_id: 2352)
-Movie.create!(id: 1033, title: "Street Fighter", yr: 1994, score: 3.10000000000000009, votes: 1809, director_id: 2581)
-Movie.create!(id: 1034, title: "Black Rain", yr: 1989, score: 6.20000000000000018, votes: 1809, director_id: 110)
-Movie.create!(id: 1035, title: "Midsummer Night's Dream, A", yr: 1999, score: 6.5, votes: 1809, director_id: 401)
-Movie.create!(id: 1036, title: "Christine", yr: 1983, score: 5.90000000000000036, votes: 1806, director_id: 23)
-Movie.create!(id: 1037, title: "Sea of Love", yr: 1989, score: 6.59999999999999964, votes: 1806, director_id: 616)
-Movie.create!(id: 1038, title: "C'est arriv&#233; pr&#232;s de chez vous", yr: 1992, score: 7.40000000000000036, votes: 1806, director_id: 2783)
-Movie.create!(id: 1039, title: "Prizzi's Honor", yr: 1985, score: 7, votes: 1803, director_id: 312)
-Movie.create!(id: 1040, title: "Mortal Kombat: Annihilation", yr: 1997, score: 3, votes: 1802, director_id: 2424)
-Movie.create!(id: 1041, title: "Serial Mom", yr: 1994, score: 6.20000000000000018, votes: 1801, director_id: 364)
-Movie.create!(id: 1042, title: "Zulu", yr: 1964, score: 7.59999999999999964, votes: 1797, director_id: 2341)
-Movie.create!(id: 1043, title: "Bachelor Party", yr: 1984, score: 5.5, votes: 1796, director_id: 2715)
-Movie.create!(id: 1044, title: "From Here to Eternity", yr: 1953, score: 8, votes: 1794, director_id: 617)
-Movie.create!(id: 1045, title: "Playing by Heart", yr: 1998, score: 7.40000000000000036, votes: 1793, director_id: 2777)
-Movie.create!(id: 1046, title: "Freeway", yr: 1996, score: 6.70000000000000018, votes: 1787, director_id: 2699)
-Movie.create!(id: 1047, title: "Hamlet", yr: 1990, score: 6.90000000000000036, votes: 1784, director_id: 1058)
-Movie.create!(id: 1048, title: "Murder in the First", yr: 1995, score: 6.90000000000000036, votes: 1782, director_id: 2570)
-Movie.create!(id: 1049, title: "Dead Men Don't Wear Plaid", yr: 1982, score: 6.40000000000000036, votes: 1781, director_id: 221)
-Movie.create!(id: 1050, title: "Bird on a Wire", yr: 1990, score: 5.09999999999999964, votes: 1781, director_id: 66)
-Movie.create!(id: 1051, title: "Deep Rising", yr: 1998, score: 5.29999999999999982, votes: 1780, director_id: 1103)
-Movie.create!(id: 1052, title: "Disturbing Behavior", yr: 1998, score: 5.09999999999999964, votes: 1779, director_id: 2447)
-Movie.create!(id: 1053, title: "Dolores Claiborne", yr: 1995, score: 7.20000000000000018, votes: 1779, director_id: 674)
-Movie.create!(id: 1054, title: "Fan, The", yr: 1996, score: 5.40000000000000036, votes: 1779, director_id: 107)
-Movie.create!(id: 1055, title: "Simon Birch", yr: 1998, score: 7.09999999999999964, votes: 1775, director_id: 2512)
-Movie.create!(id: 1056, title: "Adventures of Ford Fairlane, The", yr: 1990, score: 4.70000000000000018, votes: 1774, director_id: 210)
-Movie.create!(id: 1057, title: "Reindeer Games", yr: 2000, score: 5.59999999999999964, votes: 1772, director_id: 676)
-Movie.create!(id: 1058, title: "Mis&#233;rables, Les", yr: 1998, score: 7.09999999999999964, votes: 1768, director_id: 584)
-Movie.create!(id: 1059, title: "Haine, La", yr: 1995, score: 7.59999999999999964, votes: 1766, director_id: 1923)
-Movie.create!(id: 1060, title: "Unendliche Geschichte, Die", yr: 1984, score: 6.90000000000000036, votes: 1764, director_id: 140)
-Movie.create!(id: 1061, title: "Where Eagles Dare", yr: 1969, score: 7.29999999999999982, votes: 1763, director_id: 2432)
-Movie.create!(id: 1062, title: "On Golden Pond", yr: 1981, score: 7.20000000000000018, votes: 1759, director_id: 2518)
-Movie.create!(id: 1063, title: "Down by Law", yr: 1986, score: 7.40000000000000036, votes: 1758, director_id: 175)
-Movie.create!(id: 1064, title: "Frankenstein", yr: 1931, score: 7.90000000000000036, votes: 1755, director_id: 1097)
-Movie.create!(id: 1065, title: "Red Rock West", yr: 1992, score: 7, votes: 1752, director_id: 1062)
-Movie.create!(id: 1066, title: "Naked", yr: 1993, score: 7.40000000000000036, votes: 1752, director_id: 583)
-Movie.create!(id: 1067, title: "Friday the 13th", yr: 1980, score: 5.5, votes: 1749, director_id: 2509)
-Movie.create!(id: 1068, title: "BASEketball", yr: 1998, score: 6, votes: 1747, director_id: 573)
-Movie.create!(id: 1069, title: "Cannonball Run, The", yr: 1981, score: 5.09999999999999964, votes: 1747, director_id: 618)
-Movie.create!(id: 1070, title: "Police Academy 6: City Under Siege", yr: 1989, score: 2.5, votes: 1739, director_id: 2754)
-Movie.create!(id: 1071, title: "Astronaut's Wife, The", yr: 1999, score: 4.59999999999999964, votes: 1736, director_id: 2868)
-Movie.create!(id: 1072, title: "Sleeping Beauty", yr: 1959, score: 7.40000000000000036, votes: 1735, director_id: 266)
-Movie.create!(id: 1073, title: "Zelig", yr: 1983, score: 7.40000000000000036, votes: 1732, director_id: 1)
-Movie.create!(id: 1074, title: "Andromeda Strain, The", yr: 1971, score: 6.90000000000000036, votes: 1731, director_id: 286)
-Movie.create!(id: 1075, title: "Overboard", yr: 1987, score: 6, votes: 1726, director_id: 129)
-Movie.create!(id: 1076, title: "Caine Mutiny, The", yr: 1954, score: 8, votes: 1722, director_id: 2027)
-Movie.create!(id: 1077, title: "Hero", yr: 1992, score: 6.09999999999999964, votes: 1719, director_id: 292)
-Movie.create!(id: 1078, title: "Bottle Rocket", yr: 1996, score: 7.29999999999999982, votes: 1717, director_id: 1034)
-Movie.create!(id: 1079, title: "Spy Hard", yr: 1996, score: 4.5, votes: 1716, director_id: 2729)
-Movie.create!(id: 1080, title: "Dark Star", yr: 1973, score: 6.59999999999999964, votes: 1716, director_id: 23)
-Movie.create!(id: 1081, title: "Odd Couple, The", yr: 1968, score: 7.5, votes: 1714, director_id: 1267)
-Movie.create!(id: 1082, title: "Music Man, The", yr: 1962, score: 7.5, votes: 1714, director_id: 1137)
-Movie.create!(id: 1083, title: "Cobra", yr: 1986, score: 4, votes: 1712, director_id: 631)
-Movie.create!(id: 1084, title: "Dinosaur", yr: 2000, score: 6.5, votes: 1710, director_id: 2090)
-Movie.create!(id: 1085, title: "Virus", yr: 1999, score: 3.89999999999999991, votes: 1709, director_id: 1174)
-Movie.create!(id: 1086, title: "My Stepmother Is an Alien", yr: 1988, score: 4.70000000000000018, votes: 1708, director_id: 320)
-Movie.create!(id: 1087, title: "Hair", yr: 1979, score: 6.59999999999999964, votes: 1708, director_id: 408)
-Movie.create!(id: 1088, title: "Secret of My Succe$s, The", yr: 1987, score: 6, votes: 1705, director_id: 200)
-Movie.create!(id: 1089, title: "Return to Me", yr: 2000, score: 7.29999999999999982, votes: 1705, director_id: 307)
-Movie.create!(id: 1090, title: "Crow: City of Angels, The", yr: 1996, score: 3.70000000000000018, votes: 1704, director_id: 2727)
-Movie.create!(id: 1091, title: "Threesome", yr: 1994, score: 6, votes: 1704, director_id: 657)
-Movie.create!(id: 1092, title: "End of the Affair, The", yr: 1999, score: 7.40000000000000036, votes: 1703, director_id: 153)
-Movie.create!(id: 1093, title: "Willow", yr: 1988, score: 6.59999999999999964, votes: 1703, director_id: 21)
-Movie.create!(id: 1094, title: "Shall We Dansu?", yr: 1996, score: 7.90000000000000036, votes: 1701, director_id: 2712)
-Movie.create!(id: 1095, title: "Nurse Betty", yr: 2000, score: 7.29999999999999982, votes: 1700, director_id: 593)
-Movie.create!(id: 1096, title: "*batteries not included", yr: 1987, score: 5.5, votes: 1696, director_id: 2693)
-Movie.create!(id: 1097, title: "Enemy Mine", yr: 1985, score: 6.20000000000000018, votes: 1695, director_id: 140)
-Movie.create!(id: 1098, title: "Per un pugno di dollari", yr: 1964, score: 7.5, votes: 1694, director_id: 268)
-Movie.create!(id: 1099, title: "Bullitt", yr: 1968, score: 7.40000000000000036, votes: 1693, director_id: 994)
-Movie.create!(id: 1100, title: "Sleeping with the Enemy", yr: 1991, score: 5.70000000000000018, votes: 1692, director_id: 410)
-Movie.create!(id: 1101, title: "Beaches", yr: 1988, score: 5.90000000000000036, votes: 1691, director_id: 129)
-Movie.create!(id: 1102, title: "Earth Girls Are Easy", yr: 1989, score: 5, votes: 1689, director_id: 2028)
-Movie.create!(id: 1103, title: "Stagecoach", yr: 1939, score: 8.09999999999999964, votes: 1689, director_id: 287)
-Movie.create!(id: 1104, title: "Cutting Edge, The", yr: 1992, score: 6.40000000000000036, votes: 1688, director_id: 890)
-Movie.create!(id: 1105, title: "Como agua para chocolate", yr: 1992, score: 7.20000000000000018, votes: 1686, director_id: 756)
-Movie.create!(id: 1106, title: "Back to School", yr: 1986, score: 5.79999999999999982, votes: 1684, director_id: 1010)
-Movie.create!(id: 1107, title: "Blue Lagoon, The", yr: 1980, score: 4.29999999999999982, votes: 1681, director_id: 383)
-Movie.create!(id: 1108, title: "In the Mouth of Madness", yr: 1995, score: 6.29999999999999982, votes: 1681, director_id: 23)
-Movie.create!(id: 1109, title: "Hercules", yr: 1997, score: 6.79999999999999982, votes: 1681, director_id: 1152)
-Movie.create!(id: 1110, title: "Stakeout", yr: 1987, score: 6.5, votes: 1680, director_id: 66)
-Movie.create!(id: 1111, title: "Per qualche dollaro in pi&#249;", yr: 1965, score: 7.70000000000000018, votes: 1680, director_id: 268)
-Movie.create!(id: 1112, title: "Flirting with Disaster", yr: 1996, score: 7.20000000000000018, votes: 1674, director_id: 1070)
-Movie.create!(id: 1113, title: "Fear", yr: 1996, score: 5.79999999999999982, votes: 1669, director_id: 423)
-Movie.create!(id: 1114, title: "Nobody's Fool", yr: 1994, score: 7.29999999999999982, votes: 1664, director_id: 660)
-Movie.create!(id: 1115, title: "Story of Us, The", yr: 1999, score: 5.59999999999999964, votes: 1659, director_id: 37)
-Movie.create!(id: 1116, title: "Pr&#234;t-&#224;-Porter", yr: 1994, score: 4.70000000000000018, votes: 1652, director_id: 155)
-Movie.create!(id: 1117, title: "Bugsy", yr: 1991, score: 6.59999999999999964, votes: 1648, director_id: 38)
-Movie.create!(id: 1118, title: "Secret of NIMH, The", yr: 1982, score: 7.20000000000000018, votes: 1646, director_id: 409)
-Movie.create!(id: 1119, title: "Big Momma's House", yr: 2000, score: 4.79999999999999982, votes: 1645, director_id: 633)
-Movie.create!(id: 1120, title: "Sleuth", yr: 1972, score: 7.79999999999999982, votes: 1645, director_id: 1111)
-Movie.create!(id: 1121, title: "Everything You Always Wanted to Know About Sex", yr: 1972, score: 6.59999999999999964, votes: 1643, director_id: 1)
-Movie.create!(id: 1122, title: "Heaven Can Wait", yr: 1978, score: 6.70000000000000018, votes: 1641, director_id: 60)
-Movie.create!(id: 1123, title: "Another 48 Hrs.", yr: 1990, score: 4.90000000000000036, votes: 1639, director_id: 143)
-Movie.create!(id: 1124, title: "In the Company of Men", yr: 1997, score: 7.29999999999999982, votes: 1635, director_id: 593)
-Movie.create!(id: 1125, title: "Bronenosets Potyomkin", yr: 1925, score: 8.40000000000000036, votes: 1634, director_id: 2128)
-Movie.create!(id: 1126, title: "Priest", yr: 1994, score: 7, votes: 1632, director_id: 1159)
-Movie.create!(id: 1127, title: "Tank Girl", yr: 1995, score: 4.70000000000000018, votes: 1632, director_id: 1032)
-Movie.create!(id: 1128, title: "Six Degrees of Separation", yr: 1993, score: 7, votes: 1628, director_id: 272)
-Movie.create!(id: 1129, title: "Walk in the Clouds, A", yr: 1995, score: 6.29999999999999982, votes: 1625, director_id: 756)
-Movie.create!(id: 1130, title: "Amarcord", yr: 1974, score: 8.19999999999999929, votes: 1624, director_id: 399)
-Movie.create!(id: 1131, title: "Sure Thing, The", yr: 1985, score: 6.79999999999999982, votes: 1622, director_id: 37)
-Movie.create!(id: 1132, title: "City Hall", yr: 1996, score: 6.09999999999999964, votes: 1622, director_id: 616)
-Movie.create!(id: 1133, title: "Mr. Mom", yr: 1983, score: 6.09999999999999964, votes: 1620, director_id: 2829)
-Movie.create!(id: 1134, title: "Quatre cents coups, Les", yr: 1959, score: 8.59999999999999964, votes: 1619, director_id: 505)
-Movie.create!(id: 1135, title: "Halloween II", yr: 1981, score: 5.29999999999999982, votes: 1612, director_id: 2618)
-Movie.create!(id: 1136, title: "Mouse Hunt", yr: 1997, score: 5.79999999999999982, votes: 1612, director_id: 2132)
-Movie.create!(id: 1137, title: "Bad Lieutenant", yr: 1992, score: 6.5, votes: 1612, director_id: 2133)
-Movie.create!(id: 1138, title: "Down and Out in Beverly Hills", yr: 1986, score: 6, votes: 1611, director_id: 720)
-Movie.create!(id: 1139, title: "American Werewolf in Paris, An", yr: 1997, score: 5.09999999999999964, votes: 1611, director_id: 2086)
-Movie.create!(id: 1140, title: "Pillow Book, The", yr: 1996, score: 6.59999999999999964, votes: 1606, director_id: 386)
-Movie.create!(id: 1141, title: "Immortal Beloved", yr: 1994, score: 7, votes: 1599, director_id: 1150)
-Movie.create!(id: 1142, title: "Velvet Goldmine", yr: 1998, score: 6.20000000000000018, votes: 1598, director_id: 2647)
-Movie.create!(id: 1143, title: "Day of the Jackal, The", yr: 1973, score: 7.5, votes: 1595, director_id: 617)
-Movie.create!(id: 1144, title: "Dead Ringers", yr: 1988, score: 6.79999999999999982, votes: 1595, director_id: 97)
-Movie.create!(id: 1145, title: "Scrooge", yr: 1951, score: 8.19999999999999929, votes: 1591, director_id: 2434)
-Movie.create!(id: 1146, title: "Birdy", yr: 1984, score: 7.20000000000000018, votes: 1587, director_id: 68)
-Movie.create!(id: 1147, title: "House of Games", yr: 1987, score: 7.5, votes: 1581, director_id: 606)
-Movie.create!(id: 1148, title: "Police Academy 3: Back in Training", yr: 1986, score: 3.39999999999999991, votes: 1579, director_id: 967)
-Movie.create!(id: 1149, title: "Crucible, The", yr: 1996, score: 6.90000000000000036, votes: 1579, director_id: 1149)
-Movie.create!(id: 1150, title: "Smilla's Sense of Snow", yr: 1997, score: 6.20000000000000018, votes: 1575, director_id: 584)
-Movie.create!(id: 1151, title: "Ravenous", yr: 1999, score: 6.5, votes: 1575, director_id: 1159)
-Movie.create!(id: 1152, title: "Sommersby", yr: 1993, score: 5.90000000000000036, votes: 1575, director_id: 669)
-Movie.create!(id: 1153, title: "200 Cigarettes", yr: 1999, score: 5.29999999999999982, votes: 1573, director_id: 2664)
-Movie.create!(id: 1154, title: "Diva", yr: 1981, score: 7.29999999999999982, votes: 1569, director_id: 1132)
-Movie.create!(id: 1155, title: "Snow Falling on Cedars", yr: 1999, score: 7.09999999999999964, votes: 1566, director_id: 1135)
-Movie.create!(id: 1156, title: "Soapdish", yr: 1991, score: 6.09999999999999964, votes: 1566, director_id: 401)
-Movie.create!(id: 1157, title: "Skulls, The", yr: 2000, score: 5.29999999999999982, votes: 1563, director_id: 376)
-Movie.create!(id: 1158, title: "Police Academy: Mission to Moscow", yr: 1994, score: 1.89999999999999991, votes: 1563, director_id: 1010)
-Movie.create!(id: 1159, title: "Cat on a Hot Tin Roof", yr: 1958, score: 7.70000000000000018, votes: 1561, director_id: 2606)
-Movie.create!(id: 1160, title: "China Syndrome, The", yr: 1979, score: 7.20000000000000018, votes: 1560, director_id: 2389)
-Movie.create!(id: 1161, title: "Biloxi Blues", yr: 1988, score: 6.40000000000000036, votes: 1558, director_id: 47)
-Movie.create!(id: 1162, title: "28 Days", yr: 2000, score: 6.29999999999999982, votes: 1556, director_id: 425)
-Movie.create!(id: 1163, title: "Beverly Hills Cop III", yr: 1994, score: 4.5, votes: 1555, director_id: 62)
-Movie.create!(id: 1164, title: "Dolce vita, La", yr: 1960, score: 8, votes: 1555, director_id: 399)
-Movie.create!(id: 1165, title: "Private Benjamin", yr: 1980, score: 6, votes: 1553, director_id: 661)
-Movie.create!(id: 1166, title: "Stalker", yr: 1979, score: 7.20000000000000018, votes: 1551, director_id: 658)
-Movie.create!(id: 1167, title: "My Girl", yr: 1991, score: 6.20000000000000018, votes: 1551, director_id: 661)
-Movie.create!(id: 1168, title: "Mitt liv som hund", yr: 1985, score: 7.59999999999999964, votes: 1548, director_id: 387)
-Movie.create!(id: 1169, title: "Sweet and Lowdown", yr: 1999, score: 7.29999999999999982, votes: 1548, director_id: 1)
-Movie.create!(id: 1170, title: "Dick", yr: 1999, score: 6.59999999999999964, votes: 1543, director_id: 657)
-Movie.create!(id: 1171, title: "Caddyshack II", yr: 1988, score: 3.5, votes: 1541, director_id: 2215)
-Movie.create!(id: 1172, title: "Corruptor, The", yr: 1999, score: 6, votes: 1540, director_id: 423)
-Movie.create!(id: 1173, title: "Casino Royale", yr: 1967, score: 5.20000000000000018, votes: 1529, director_id: 2690)
-Movie.create!(id: 1174, title: "Night at the Roxbury, A", yr: 1998, score: 4.79999999999999982, votes: 1526, director_id: 2236)
-Movie.create!(id: 1175, title: "Pay It Forward", yr: 2000, score: 7.29999999999999982, votes: 1512, director_id: 589)
-Movie.create!(id: 1176, title: "River Wild, The", yr: 1994, score: 6.20000000000000018, votes: 1507, director_id: 607)
-Movie.create!(id: 1177, title: "Greystoke: The Legend of Tarzan, Lord of the Apes", yr: 1984, score: 5.90000000000000036, votes: 1505, director_id: 1063)
-Movie.create!(id: 1178, title: "Videodrome", yr: 1983, score: 6.59999999999999964, votes: 1504, director_id: 97)
-Movie.create!(id: 1179, title: "Peter Pan", yr: 1953, score: 7.29999999999999982, votes: 1504, director_id: 266)
-Movie.create!(id: 1180, title: "Freshman, The", yr: 1990, score: 6.59999999999999964, votes: 1503, director_id: 375)
-Movie.create!(id: 1181, title: "Au revoir les enfants", yr: 1987, score: 8.09999999999999964, votes: 1503, director_id: 619)
-Movie.create!(id: 1182, title: "Black Hole, The", yr: 1979, score: 5.20000000000000018, votes: 1499, director_id: 2117)
-Movie.create!(id: 1183, title: "Pecker", yr: 1998, score: 6.70000000000000018, votes: 1494, director_id: 364)
-Movie.create!(id: 1184, title: "Replacements, The", yr: 2000, score: 6.59999999999999964, votes: 1493, director_id: 285)
-Movie.create!(id: 1185, title: "Bridge Too Far, A", yr: 1977, score: 6.79999999999999982, votes: 1487, director_id: 235)
-Movie.create!(id: 1186, title: "Mujeres al borde de un ataque de nervios", yr: 1988, score: 7.70000000000000018, votes: 1486, director_id: 394)
-Movie.create!(id: 1187, title: "Airheads", yr: 1994, score: 5.29999999999999982, votes: 1484, director_id: 371)
-Movie.create!(id: 1188, title: "Color of Night", yr: 1994, score: 4.79999999999999982, votes: 1481, director_id: 1039)
-Movie.create!(id: 1189, title: "Soylent Green", yr: 1973, score: 6.5, votes: 1481, director_id: 402)
-Movie.create!(id: 1190, title: "All of Me", yr: 1984, score: 6.79999999999999982, votes: 1479, director_id: 221)
-Movie.create!(id: 1191, title: "Passenger 57", yr: 1992, score: 5.40000000000000036, votes: 1479, director_id: 1885)
-Movie.create!(id: 1192, title: "Mystery, Alaska", yr: 1999, score: 6.79999999999999982, votes: 1477, director_id: 604)
-Movie.create!(id: 1193, title: "Strada, La", yr: 1954, score: 8.30000000000000071, votes: 1475, director_id: 399)
-Movie.create!(id: 1194, title: "Picnic at Hanging Rock", yr: 1975, score: 7.59999999999999964, votes: 1475, director_id: 86)
-Movie.create!(id: 1195, title: "Radio Days", yr: 1987, score: 7.29999999999999982, votes: 1473, director_id: 1)
-Movie.create!(id: 1196, title: "Year of Living Dangerously, The", yr: 1982, score: 7.20000000000000018, votes: 1471, director_id: 86)
-Movie.create!(id: 1197, title: "Species II", yr: 1998, score: 3.5, votes: 1470, director_id: 1001)
-Movie.create!(id: 1198, title: "Teaching Mrs. Tingle", yr: 1999, score: 5, votes: 1469, director_id: 2212)
-Movie.create!(id: 1199, title: "Universal Soldier", yr: 1992, score: 5, votes: 1467, director_id: 290)
-Movie.create!(id: 1200, title: "Fanny och Alexander", yr: 1982, score: 8.19999999999999929, votes: 1467, director_id: 420)
-Movie.create!(id: 1201, title: "Richard III", yr: 1995, score: 7.70000000000000018, votes: 1467, director_id: 2526)
-Movie.create!(id: 1202, title: "Requiem for a Dream", yr: 2000, score: 8.69999999999999929, votes: 1466, director_id: 1136)
-Movie.create!(id: 1203, title: "Babe: Pig in the City", yr: 1998, score: 6.90000000000000036, votes: 1465, director_id: 979)
-Movie.create!(id: 1204, title: "Wyatt Earp", yr: 1994, score: 6, votes: 1460, director_id: 87)
-Movie.create!(id: 1205, title: "Return to Paradise", yr: 1998, score: 6.79999999999999982, votes: 1458, director_id: 410)
-Movie.create!(id: 1206, title: "Affliction", yr: 1997, score: 7, votes: 1456, director_id: 652)
-Movie.create!(id: 1207, title: "Smoke Signals", yr: 1998, score: 7.29999999999999982, votes: 1454, director_id: 2355)
-Movie.create!(id: 1208, title: "Mister Roberts", yr: 1955, score: 7.90000000000000036, votes: 1452, director_id: 287)
-Movie.create!(id: 1209, title: "In Dreams", yr: 1998, score: 5.20000000000000018, votes: 1451, director_id: 153)
-Movie.create!(id: 1210, title: "Husbands and Wives", yr: 1992, score: 7.5, votes: 1449, director_id: 1)
-Movie.create!(id: 1211, title: "Westworld", yr: 1973, score: 6.79999999999999982, votes: 1447, director_id: 1017)
-Movie.create!(id: 1212, title: "Fantasia/2000", yr: 1999, score: 7.90000000000000036, votes: 1445, director_id: 1167)
-Movie.create!(id: 1213, title: "Chongqing senlin", yr: 1994, score: 7.70000000000000018, votes: 1445, director_id: 1095)
-Movie.create!(id: 1214, title: "Warriors, The", yr: 1979, score: 6.90000000000000036, votes: 1444, director_id: 143)
-Movie.create!(id: 1215, title: "Thin Man, The", yr: 1934, score: 8.09999999999999964, votes: 1444, director_id: 2564)
-Movie.create!(id: 1216, title: "Remember the Titans", yr: 2000, score: 8, votes: 1438, director_id: 2376)
-Movie.create!(id: 1217, title: "Mrs. Brown", yr: 1997, score: 7.5, votes: 1434, director_id: 1011)
-Movie.create!(id: 1218, title: "Pinocchio", yr: 1940, score: 7.79999999999999982, votes: 1429, director_id: 2224)
-Movie.create!(id: 1219, title: "Coneheads", yr: 1993, score: 5, votes: 1427, director_id: 1096)
-Movie.create!(id: 1220, title: "Stealing Beauty", yr: 1996, score: 6.29999999999999982, votes: 1423, director_id: 598)
-Movie.create!(id: 1221, title: "Prophecy, The", yr: 1995, score: 6.59999999999999964, votes: 1420, director_id: 2105)
-Movie.create!(id: 1222, title: "Inherit the Wind", yr: 1960, score: 8, votes: 1420, director_id: 673)
-Movie.create!(id: 1223, title: "Single White Female", yr: 1992, score: 6.20000000000000018, votes: 1419, director_id: 1104)
-Movie.create!(id: 1224, title: "Death and the Maiden", yr: 1994, score: 7, votes: 1414, director_id: 90)
-Movie.create!(id: 1225, title: "Three to Tango", yr: 1999, score: 6.40000000000000036, votes: 1412, director_id: 2279)
-Movie.create!(id: 1226, title: "Badlands", yr: 1973, score: 7.79999999999999982, votes: 1410, director_id: 686)
-Movie.create!(id: 1227, title: "Half Baked", yr: 1998, score: 5.79999999999999982, votes: 1409, director_id: 1055)
-Movie.create!(id: 1228, title: "Idle Hands", yr: 1999, score: 5.5, votes: 1407, director_id: 2797)
-Movie.create!(id: 1229, title: "Candyman", yr: 1992, score: 6.09999999999999964, votes: 1403, director_id: 1150)
-Movie.create!(id: 1230, title: "Da hong deng long gao gao gua", yr: 1991, score: 8.30000000000000071, votes: 1403, director_id: 2830)
-Movie.create!(id: 1231, title: "Hana-bi", yr: 1997, score: 7.90000000000000036, votes: 1402, director_id: 1484)
-Movie.create!(id: 1232, title: "Outland", yr: 1981, score: 6.40000000000000036, votes: 1402, director_id: 103)
-Movie.create!(id: 1233, title: "10", yr: 1979, score: 5.5, votes: 1395, director_id: 65)
-Movie.create!(id: 1234, title: "Grande illusion, La", yr: 1937, score: 8.59999999999999964, votes: 1393, director_id: 2292)
-Movie.create!(id: 1235, title: "Flubber", yr: 1997, score: 4.70000000000000018, votes: 1393, director_id: 632)
-Movie.create!(id: 1236, title: "Nineteen Eighty-Four", yr: 1984, score: 6.70000000000000018, votes: 1390, director_id: 1154)
-Movie.create!(id: 1237, title: "And Now for Something Completely Different", yr: 1971, score: 7.20000000000000018, votes: 1388, director_id: 59)
-Movie.create!(id: 1238, title: "THX 1138", yr: 1970, score: 6.40000000000000036, votes: 1388, director_id: 360)
-Movie.create!(id: 1239, title: "Up Close & Personal", yr: 1996, score: 5.79999999999999982, votes: 1386, director_id: 691)
-Movie.create!(id: 1240, title: "Hurlyburly", yr: 1998, score: 5.70000000000000018, votes: 1385, director_id: 2039)
-Movie.create!(id: 1241, title: "Oliver!", yr: 1968, score: 7.29999999999999982, votes: 1381, director_id: 1003)
-Movie.create!(id: 1242, title: "They Live", yr: 1988, score: 6.29999999999999982, votes: 1378, director_id: 23)
-Movie.create!(id: 1243, title: "Money Train", yr: 1995, score: 5.09999999999999964, votes: 1378, director_id: 410)
-Movie.create!(id: 1244, title: "Small Time Crooks", yr: 2000, score: 6.70000000000000018, votes: 1378, director_id: 1)
-Movie.create!(id: 1245, title: "Dumbo", yr: 1941, score: 7.5, votes: 1377, director_id: 2245)
-Movie.create!(id: 1246, title: "To Have and Have Not", yr: 1944, score: 7.90000000000000036, votes: 1374, director_id: 197)
-Movie.create!(id: 1247, title: "Shadow of a Doubt", yr: 1943, score: 8.30000000000000071, votes: 1370, director_id: 11)
-Movie.create!(id: 1248, title: "Witness for the Prosecution", yr: 1957, score: 8.30000000000000071, votes: 1370, director_id: 79)
-Movie.create!(id: 1249, title: "Victor/Victoria", yr: 1982, score: 7.09999999999999964, votes: 1365, director_id: 65)
-Movie.create!(id: 1250, title: "Trees Lounge", yr: 1996, score: 7, votes: 1365, director_id: 186)
-Movie.create!(id: 1251, title: "Swing Kids", yr: 1993, score: 6, votes: 1365, director_id: 2743)
-Movie.create!(id: 1252, title: "All That Jazz", yr: 1979, score: 7.5, votes: 1362, director_id: 1124)
-Movie.create!(id: 1253, title: "Teenage Mutant Ninja Turtles", yr: 1990, score: 5.20000000000000018, votes: 1348, director_id: 1096)
-Movie.create!(id: 1254, title: "Bloodsport", yr: 1988, score: 5.79999999999999982, votes: 1348, director_id: 2689)
-Movie.create!(id: 1255, title: "Topsy-Turvy", yr: 1999, score: 7.70000000000000018, votes: 1346, director_id: 583)
-Movie.create!(id: 1256, title: "Diabolique", yr: 1996, score: 4.90000000000000036, votes: 1345, director_id: 412)
-Movie.create!(id: 1257, title: "101 Dalmatians", yr: 1996, score: 5.70000000000000018, votes: 1343, director_id: 149)
-Movie.create!(id: 1258, title: "Mirror Has Two Faces, The", yr: 1996, score: 5.59999999999999964, votes: 1343, director_id: 207)
-Movie.create!(id: 1259, title: "Nashville", yr: 1975, score: 7.90000000000000036, votes: 1340, director_id: 155)
-Movie.create!(id: 1260, title: "He Got Game", yr: 1998, score: 6.79999999999999982, votes: 1339, director_id: 206)
-Movie.create!(id: 1261, title: "Five Easy Pieces", yr: 1970, score: 7.40000000000000036, votes: 1338, director_id: 2467)
-Movie.create!(id: 1262, title: "East of Eden", yr: 1955, score: 7.79999999999999982, votes: 1337, director_id: 655)
-Movie.create!(id: 1263, title: "She's the One", yr: 1996, score: 6.20000000000000018, votes: 1334, director_id: 485)
-Movie.create!(id: 1264, title: "Eight Men Out", yr: 1988, score: 7.29999999999999982, votes: 1331, director_id: 931)
-Movie.create!(id: 1265, title: "Solyaris", yr: 1972, score: 7.40000000000000036, votes: 1330, director_id: 658)
-Movie.create!(id: 1266, title: "Body Double", yr: 1984, score: 6.29999999999999982, votes: 1327, director_id: 31)
-Movie.create!(id: 1267, title: "Spellbound", yr: 1945, score: 7.5, votes: 1327, director_id: 11)
-Movie.create!(id: 1268, title: "This Boy's Life", yr: 1993, score: 7.09999999999999964, votes: 1325, director_id: 374)
-Movie.create!(id: 1269, title: "Silent Running", yr: 1971, score: 6.79999999999999982, votes: 1324, director_id: 1156)
-Movie.create!(id: 1270, title: "About Last Night...", yr: 1986, score: 5.79999999999999982, votes: 1324, director_id: 382)
-Movie.create!(id: 1271, title: "Bride of Chucky", yr: 1998, score: 5.5, votes: 1323, director_id: 2824)
-Movie.create!(id: 1272, title: "Nick of Time", yr: 1995, score: 6.09999999999999964, votes: 1323, director_id: 66)
-Movie.create!(id: 1273, title: "Freaks", yr: 1932, score: 7.70000000000000018, votes: 1322, director_id: 2644)
-Movie.create!(id: 1274, title: "Altered States", yr: 1980, score: 6.59999999999999964, votes: 1321, director_id: 909)
-Movie.create!(id: 1275, title: "Amazon Women on the Moon", yr: 1987, score: 5.5, votes: 1317, director_id: 150)
-Movie.create!(id: 1276, title: "Serpico", yr: 1973, score: 7.5, votes: 1317, director_id: 80)
-Movie.create!(id: 1277, title: "Murder at 1600", yr: 1997, score: 6, votes: 1314, director_id: 1178)
-Movie.create!(id: 1278, title: "Blown Away", yr: 1994, score: 5.70000000000000018, votes: 1314, director_id: 672)
-Movie.create!(id: 1279, title: "Teen Wolf", yr: 1985, score: 5, votes: 1310, director_id: 2758)
-Movie.create!(id: 1280, title: "Pok&#233;mon the First Movie: Mewtwo Strikes Back", yr: 1999, score: 4, votes: 1308, director_id: 2625)
-Movie.create!(id: 1281, title: "Big Easy, The", yr: 1987, score: 6.59999999999999964, votes: 1304, director_id: 2315)
-Movie.create!(id: 1282, title: "Escape from Alcatraz", yr: 1979, score: 7, votes: 1303, director_id: 346)
-Movie.create!(id: 1283, title: "At First Sight", yr: 1999, score: 6.09999999999999964, votes: 1302, director_id: 1172)
-Movie.create!(id: 1284, title: "Frankie and Johnny", yr: 1991, score: 6.5, votes: 1302, director_id: 129)
-Movie.create!(id: 1285, title: "Rumble Fish", yr: 1983, score: 6.70000000000000018, votes: 1299, director_id: 28)
-Movie.create!(id: 1286, title: "Wings of the Dove, The", yr: 1997, score: 6.90000000000000036, votes: 1296, director_id: 988)
-Movie.create!(id: 1287, title: "Parent Trap, The", yr: 1998, score: 6.90000000000000036, votes: 1295, director_id: 2747)
-Movie.create!(id: 1288, title: "Arizona Dream", yr: 1993, score: 6.79999999999999982, votes: 1285, director_id: 663)
-Movie.create!(id: 1289, title: "Sister Act 2: Back in the Habit", yr: 1993, score: 4.40000000000000036, votes: 1285, director_id: 537)
-Movie.create!(id: 1290, title: "Santa Clause, The", yr: 1994, score: 5.90000000000000036, votes: 1284, director_id: 2452)
-Movie.create!(id: 1291, title: "Caligula", yr: 1980, score: 4.29999999999999982, votes: 1282, director_id: 2642)
-Movie.create!(id: 1292, title: "Honeymoon in Vegas", yr: 1992, score: 6.09999999999999964, votes: 1282, director_id: 375)
-Movie.create!(id: 1293, title: "Affair to Remember, An", yr: 1957, score: 7.09999999999999964, votes: 1281, director_id: 992)
-Movie.create!(id: 1294, title: "To Wong Foo, Thanks for Everything, Julie Newmar", yr: 1995, score: 5.5, votes: 1281, director_id: 2399)
-Movie.create!(id: 1295, title: "Gorillas in the Mist", yr: 1988, score: 6.70000000000000018, votes: 1280, director_id: 199)
-Movie.create!(id: 1296, title: "White Squall", yr: 1996, score: 6.59999999999999964, votes: 1280, director_id: 110)
-Movie.create!(id: 1297, title: "Dirty Work", yr: 1998, score: 5.70000000000000018, votes: 1280, director_id: 2464)
-Movie.create!(id: 1298, title: "Party, The", yr: 1968, score: 7.29999999999999982, votes: 1278, director_id: 65)
-Movie.create!(id: 1299, title: "Smultronst&#228;llet", yr: 1957, score: 8.5, votes: 1278, director_id: 420)
-Movie.create!(id: 1300, title: "Virtuosity", yr: 1995, score: 5.40000000000000036, votes: 1277, director_id: 2455)
-Movie.create!(id: 1301, title: "Book of Shadows: Blair Witch 2", yr: 2000, score: 4.5, votes: 1277, director_id: 1862)
-Movie.create!(id: 1302, title: "Taxi", yr: 1998, score: 6.70000000000000018, votes: 1276, director_id: 2204)
-Movie.create!(id: 1303, title: "Crumb", yr: 1994, score: 7.79999999999999982, votes: 1273, director_id: 2696)
-Movie.create!(id: 1304, title: "Fly Away Home", yr: 1996, score: 7, votes: 1270, director_id: 2239)
-Movie.create!(id: 1305, title: "Orgazmo", yr: 1997, score: 5.70000000000000018, votes: 1269, director_id: 270)
-Movie.create!(id: 1306, title: "Cat People", yr: 1982, score: 5.79999999999999982, votes: 1267, director_id: 652)
-Movie.create!(id: 1307, title: "Cool World", yr: 1992, score: 4, votes: 1265, director_id: 2849)
-Movie.create!(id: 1308, title: "Children of a Lesser God", yr: 1986, score: 7, votes: 1265, director_id: 2787)
-Movie.create!(id: 1309, title: "37&#176;2 le matin", yr: 1986, score: 6.90000000000000036, votes: 1264, director_id: 1132)
-Movie.create!(id: 1310, title: "Bonfire of the Vanities, The", yr: 1990, score: 4.79999999999999982, votes: 1262, director_id: 31)
-Movie.create!(id: 1311, title: "Tampopo", yr: 1986, score: 7.79999999999999982, votes: 1259, director_id: 2011)
-Movie.create!(id: 1312, title: "Guns of Navarone, The", yr: 1961, score: 7.40000000000000036, votes: 1259, director_id: 1164)
-Movie.create!(id: 1313, title: "Chaplin", yr: 1992, score: 6.79999999999999982, votes: 1257, director_id: 235)
-Movie.create!(id: 1314, title: "Hard Target", yr: 1993, score: 5.70000000000000018, votes: 1256, director_id: 204)
-Movie.create!(id: 1315, title: "Nutty Professor II: The Klumps", yr: 2000, score: 4.70000000000000018, votes: 1251, director_id: 384)
-Movie.create!(id: 1316, title: "Highlander III: The Sorcerer", yr: 1994, score: 3.79999999999999982, votes: 1249, director_id: 2017)
-Movie.create!(id: 1317, title: "Eve's Bayou", yr: 1997, score: 7.29999999999999982, votes: 1247, director_id: 1232)
-Movie.create!(id: 1318, title: "Bananas", yr: 1971, score: 7, votes: 1247, director_id: 1)
-Movie.create!(id: 1319, title: "Where the Heart Is", yr: 2000, score: 6.79999999999999982, votes: 1245, director_id: 2688)
-Movie.create!(id: 1320, title: "When We Were Kings", yr: 1996, score: 7.79999999999999982, votes: 1241, director_id: 2111)
-Movie.create!(id: 1321, title: "Seven Brides for Seven Brothers", yr: 1954, score: 7.20000000000000018, votes: 1238, director_id: 428)
-Movie.create!(id: 1322, title: "Brewster's Millions", yr: 1985, score: 5.5, votes: 1236, director_id: 143)
-Movie.create!(id: 1323, title: "Titus", yr: 1999, score: 7.79999999999999982, votes: 1236, director_id: 2025)
-Movie.create!(id: 1324, title: "Prince of Tides, The", yr: 1991, score: 6.40000000000000036, votes: 1232, director_id: 207)
-Movie.create!(id: 1325, title: "Sophie's Choice", yr: 1982, score: 7.59999999999999964, votes: 1231, director_id: 275)
-Movie.create!(id: 1326, title: "T2 3-D: Battle Across Time", yr: 1996, score: 7.79999999999999982, votes: 1231, director_id: 1174)
-Movie.create!(id: 1327, title: "Ulee's Gold", yr: 1997, score: 7.20000000000000018, votes: 1227, director_id: 2541)
-Movie.create!(id: 1328, title: "East Is East", yr: 1999, score: 7.20000000000000018, votes: 1226, director_id: 2337)
-Movie.create!(id: 1329, title: "Hitcher, The", yr: 1986, score: 6.79999999999999982, votes: 1223, director_id: 2493)
-Movie.create!(id: 1330, title: "Night to Remember, A", yr: 1958, score: 7.70000000000000018, votes: 1221, director_id: 2776)
-Movie.create!(id: 1331, title: "Anywhere But Here", yr: 1999, score: 6.29999999999999982, votes: 1219, director_id: 664)
-Movie.create!(id: 1332, title: "Pale Rider", yr: 1985, score: 6.79999999999999982, votes: 1218, director_id: 2)
-Movie.create!(id: 1333, title: "Blowup", yr: 1966, score: 7.20000000000000018, votes: 1214, director_id: 2587)
-Movie.create!(id: 1334, title: "Mystic Pizza", yr: 1988, score: 6, votes: 1212, director_id: 599)
-Movie.create!(id: 1335, title: "Young Guns II", yr: 1990, score: 5.70000000000000018, votes: 1209, director_id: 627)
-Movie.create!(id: 1336, title: "Belle de jour", yr: 1967, score: 7.70000000000000018, votes: 1208, director_id: 815)
-Movie.create!(id: 1337, title: "Blind Date", yr: 1987, score: 5.29999999999999982, votes: 1206, director_id: 65)
-Movie.create!(id: 1338, title: "Fahrenheit 451", yr: 1966, score: 7, votes: 1206, director_id: 505)
-Movie.create!(id: 1339, title: "Ba wang bie ji", yr: 1993, score: 7.79999999999999982, votes: 1206, director_id: 2001)
-Movie.create!(id: 1340, title: "Vegas Vacation", yr: 1997, score: 4.79999999999999982, votes: 1204, director_id: 2775)
-Movie.create!(id: 1341, title: "Best in Show", yr: 2000, score: 8, votes: 1203, director_id: 352)
-Movie.create!(id: 1342, title: "When a Man Loves a Woman", yr: 1994, score: 6.5, votes: 1203, director_id: 2795)
-Movie.create!(id: 1343, title: "Murder by Death", yr: 1976, score: 6.79999999999999982, votes: 1202, director_id: 2588)
-Movie.create!(id: 1344, title: "Straw Dogs", yr: 1971, score: 7.20000000000000018, votes: 1200, director_id: 1072)
-Movie.create!(id: 1345, title: "Fail-Safe", yr: 1964, score: 7.79999999999999982, votes: 1199, director_id: 80)
-Movie.create!(id: 1346, title: "Spitfire Grill, The", yr: 1996, score: 6.70000000000000018, votes: 1196, director_id: 2116)
-Movie.create!(id: 1347, title: "Hilary and Jackie", yr: 1998, score: 7.70000000000000018, votes: 1196, director_id: 2186)
-Movie.create!(id: 1348, title: "Henry: Portrait of a Serial Killer", yr: 1986, score: 7.20000000000000018, votes: 1194, director_id: 974)
-Movie.create!(id: 1349, title: "Shooting Fish", yr: 1997, score: 6.70000000000000018, votes: 1190, director_id: 2833)
-Movie.create!(id: 1350, title: "Crna macka, beli macor", yr: 1998, score: 8.09999999999999964, votes: 1189, director_id: 663)
-Movie.create!(id: 1351, title: "Cutthroat Island", yr: 1995, score: 5.20000000000000018, votes: 1188, director_id: 210)
-Movie.create!(id: 1352, title: "Father of the Bride Part II", yr: 1995, score: 5.5, votes: 1188, director_id: 397)
-Movie.create!(id: 1353, title: "Bis ans Ende der Welt", yr: 1991, score: 6.5, votes: 1185, director_id: 269)
-Movie.create!(id: 1354, title: "Shadow, The", yr: 1994, score: 5.29999999999999982, votes: 1184, director_id: 577)
-Movie.create!(id: 1355, title: "Sgt. Bilko", yr: 1996, score: 5.09999999999999964, votes: 1181, director_id: 262)
-Movie.create!(id: 1356, title: "Nightmare on Elm Street 3: Dream Warriors, A", yr: 1987, score: 5.70000000000000018, votes: 1177, director_id: 1122)
-Movie.create!(id: 1357, title: "Reine Margot, La", yr: 1994, score: 7.5, votes: 1176, director_id: 2613)
-Movie.create!(id: 1358, title: "RoboCop 3", yr: 1993, score: 3.10000000000000009, votes: 1175, director_id: 2311)
-Movie.create!(id: 1359, title: "Dangerous Beauty", yr: 1998, score: 7.09999999999999964, votes: 1174, director_id: 2492)
-Movie.create!(id: 1360, title: "Weekend at Bernie's", yr: 1989, score: 5.40000000000000036, votes: 1173, director_id: 954)
-Movie.create!(id: 1361, title: "Phantoms", yr: 1998, score: 5, votes: 1172, director_id: 1127)
-Movie.create!(id: 1362, title: "Dead Pool, The", yr: 1988, score: 5.70000000000000018, votes: 1168, director_id: 2293)
-Movie.create!(id: 1363, title: "Presidio, The", yr: 1988, score: 5.70000000000000018, votes: 1162, director_id: 103)
-Movie.create!(id: 1364, title: "Shaft", yr: 1971, score: 6.5, votes: 1160, director_id: 2134)
-Movie.create!(id: 1365, title: "Murder on the Orient Express", yr: 1974, score: 6.90000000000000036, votes: 1158, director_id: 80)
-Movie.create!(id: 1366, title: "Englishman Who Went Up a Hill But Came Down a Mountain, The", yr: 1995, score: 6.5, votes: 1155, director_id: 2323)
-Movie.create!(id: 1367, title: "Diner", yr: 1982, score: 7.40000000000000036, votes: 1154, director_id: 38)
-Movie.create!(id: 1368, title: "Your Friends & Neighbors", yr: 1998, score: 6.40000000000000036, votes: 1153, director_id: 593)
-Movie.create!(id: 1369, title: "White Christmas", yr: 1954, score: 7, votes: 1153, director_id: 675)
-Movie.create!(id: 1370, title: "Tucker: The Man and His Dream", yr: 1988, score: 6.79999999999999982, votes: 1152, director_id: 28)
-Movie.create!(id: 1371, title: "Sirens", yr: 1994, score: 6, votes: 1152, director_id: 1926)
-Movie.create!(id: 1372, title: "Bring It On", yr: 2000, score: 6.5, votes: 1152, director_id: 2808)
-Movie.create!(id: 1373, title: "Secret Garden, The", yr: 1993, score: 7.09999999999999964, votes: 1150, director_id: 997)
-Movie.create!(id: 1374, title: "Forget Paris", yr: 1995, score: 6.29999999999999982, votes: 1150, director_id: 158)
-Movie.create!(id: 1375, title: "Supernova", yr: 2000, score: 3.89999999999999991, votes: 1149, director_id: 143)
-Movie.create!(id: 1376, title: "Mulholland Falls", yr: 1996, score: 5.70000000000000018, votes: 1148, director_id: 624)
-Movie.create!(id: 1377, title: "Cradle Will Rock", yr: 1999, score: 7.20000000000000018, votes: 1147, director_id: 25)
-Movie.create!(id: 1378, title: "Striking Distance", yr: 1993, score: 5.29999999999999982, votes: 1145, director_id: 1090)
-Movie.create!(id: 1379, title: "Anatomy of a Murder", yr: 1959, score: 8.19999999999999929, votes: 1143, director_id: 1406)
-Movie.create!(id: 1380, title: "New Nightmare", yr: 1994, score: 6.20000000000000018, votes: 1142, director_id: 133)
-Movie.create!(id: 1381, title: "&#192; bout de souffle", yr: 1960, score: 8, votes: 1141, director_id: 1689)
-Movie.create!(id: 1382, title: "Doom Generation, The", yr: 1995, score: 4.90000000000000036, votes: 1141, director_id: 2152)
-Movie.create!(id: 1383, title: "Extreme Measures", yr: 1996, score: 6.09999999999999964, votes: 1139, director_id: 199)
-Movie.create!(id: 1384, title: "Way of the Gun, The", yr: 2000, score: 7, votes: 1137, director_id: 2324)
-Movie.create!(id: 1385, title: "Something Wild", yr: 1986, score: 6.59999999999999964, votes: 1135, director_id: 281)
-Movie.create!(id: 1386, title: "Romper Stomper", yr: 1992, score: 7.09999999999999964, votes: 1133, director_id: 2101)
-Movie.create!(id: 1387, title: "Angela's Ashes", yr: 1999, score: 7, votes: 1131, director_id: 68)
-Movie.create!(id: 1388, title: "Don't Tell Mom the Babysitter's Dead", yr: 1991, score: 5.09999999999999964, votes: 1127, director_id: 149)
-Movie.create!(id: 1389, title: "Halloween III: Season of the Witch", yr: 1982, score: 3.39999999999999991, votes: 1126, director_id: 2680)
-Movie.create!(id: 1390, title: "Red Sonja", yr: 1985, score: 4.09999999999999964, votes: 1124, director_id: 402)
-Movie.create!(id: 1391, title: "Gingerbread Man, The", yr: 1998, score: 5.90000000000000036, votes: 1123, director_id: 155)
-Movie.create!(id: 1392, title: "Mumford", yr: 1999, score: 7.20000000000000018, votes: 1121, director_id: 87)
-Movie.create!(id: 1393, title: "Encino Man", yr: 1992, score: 4.79999999999999982, votes: 1120, director_id: 632)
-Movie.create!(id: 1394, title: "Casualties of War", yr: 1989, score: 6.59999999999999964, votes: 1119, director_id: 31)
-Movie.create!(id: 1395, title: "Giant", yr: 1956, score: 7.59999999999999964, votes: 1116, director_id: 1022)
-Movie.create!(id: 1396, title: "Three Musketeers, The", yr: 1973, score: 7.40000000000000036, votes: 1116, director_id: 274)
-Movie.create!(id: 1397, title: "Seventh Sign, The", yr: 1988, score: 5.79999999999999982, votes: 1115, director_id: 2232)
-Movie.create!(id: 1398, title: "Auntie Mame", yr: 1958, score: 7.5, votes: 1113, director_id: 1137)
-Movie.create!(id: 1399, title: "Short Circuit 2", yr: 1988, score: 4.29999999999999982, votes: 1110, director_id: 2006)
-Movie.create!(id: 1400, title: "Muse, The", yr: 1999, score: 5.79999999999999982, votes: 1110, director_id: 247)
-Movie.create!(id: 1401, title: "Phantom, The", yr: 1996, score: 5.09999999999999964, votes: 1107, director_id: 1115)
-Movie.create!(id: 1402, title: "Enfants du paradis, Les", yr: 1945, score: 8.40000000000000036, votes: 1106, director_id: 2573)
-Movie.create!(id: 1403, title: "Other Sister, The", yr: 1999, score: 6.29999999999999982, votes: 1104, director_id: 129)
-Movie.create!(id: 1404, title: "Pacific Heights", yr: 1990, score: 6.20000000000000018, votes: 1102, director_id: 677)
-Movie.create!(id: 1405, title: "Walkabout", yr: 1971, score: 7.5, votes: 1101, director_id: 1076)
-Movie.create!(id: 1406, title: "Aguirre, der Zorn Gottes", yr: 1972, score: 8.09999999999999964, votes: 1101, director_id: 1886)
-Movie.create!(id: 1407, title: "Nothing But Trouble", yr: 1991, score: 3.39999999999999991, votes: 1100, director_id: 15)
-Movie.create!(id: 1408, title: "Bitter Moon", yr: 1992, score: 6.70000000000000018, votes: 1100, director_id: 90)
-Movie.create!(id: 1409, title: "Grumpier Old Men", yr: 1995, score: 6.29999999999999982, votes: 1100, director_id: 285)
-Movie.create!(id: 1410, title: "House of the Spirits, The", yr: 1993, score: 6, votes: 1099, director_id: 584)
-Movie.create!(id: 1411, title: "Time Machine, The", yr: 1960, score: 7.29999999999999982, votes: 1097, director_id: 2149)
-Movie.create!(id: 1412, title: "Catch-22", yr: 1970, score: 6.90000000000000036, votes: 1094, director_id: 47)
-Movie.create!(id: 1413, title: "Hanging Up", yr: 2000, score: 4.5, votes: 1093, director_id: 94)
-Movie.create!(id: 1414, title: "Can't Buy Me Love", yr: 1987, score: 6.09999999999999964, votes: 1091, director_id: 2574)
-Movie.create!(id: 1415, title: "Trust", yr: 1990, score: 7.70000000000000018, votes: 1090, director_id: 982)
-Movie.create!(id: 1416, title: "Boondock Saints, The", yr: 1999, score: 7.40000000000000036, votes: 1089, director_id: 2641)
-Movie.create!(id: 1417, title: "Babettes g&#230;stebud", yr: 1987, score: 7.90000000000000036, votes: 1088, director_id: 2221)
-Movie.create!(id: 1418, title: "Nattevagten", yr: 1994, score: 7.59999999999999964, votes: 1085, director_id: 1166)
-Movie.create!(id: 1419, title: "Air America", yr: 1990, score: 5.20000000000000018, votes: 1085, director_id: 407)
-Movie.create!(id: 1420, title: "Ultimo tango a Parigi", yr: 1972, score: 6.90000000000000036, votes: 1081, director_id: 598)
-Movie.create!(id: 1421, title: "How to Make an American Quilt", yr: 1995, score: 6.09999999999999964, votes: 1081, director_id: 2299)
-Movie.create!(id: 1422, title: "Runaway Train", yr: 1985, score: 7, votes: 1081, director_id: 1049)
-Movie.create!(id: 1423, title: "Problem Child 2", yr: 1991, score: 2.70000000000000018, votes: 1080, director_id: 395)
-Movie.create!(id: 1424, title: "Fright Night", yr: 1985, score: 6.5, votes: 1079, director_id: 562)
-Movie.create!(id: 1425, title: "Higher Learning", yr: 1995, score: 6.29999999999999982, votes: 1078, director_id: 396)
-Movie.create!(id: 1426, title: "Defending Your Life", yr: 1991, score: 7.09999999999999964, votes: 1078, director_id: 247)
-Movie.create!(id: 1427, title: "Annie", yr: 1982, score: 5.29999999999999982, votes: 1077, director_id: 312)
-Movie.create!(id: 1428, title: "Slums of Beverly Hills", yr: 1998, score: 6.40000000000000036, votes: 1076, director_id: 2543)
-Movie.create!(id: 1429, title: "Days of Heaven", yr: 1978, score: 7.79999999999999982, votes: 1076, director_id: 686)
-Movie.create!(id: 1430, title: "Newsies", yr: 1992, score: 5.20000000000000018, votes: 1075, director_id: 991)
-Movie.create!(id: 1431, title: "Picture Perfect", yr: 1997, score: 5.79999999999999982, votes: 1075, director_id: 2139)
-Movie.create!(id: 1432, title: "Batman: Mask of the Phantasm", yr: 1993, score: 6.90000000000000036, votes: 1075, director_id: 2089)
-Movie.create!(id: 1433, title: "High Plains Drifter", yr: 1972, score: 7.09999999999999964, votes: 1075, director_id: 2)
-Movie.create!(id: 1434, title: "Cheech & Chong's Next Movie", yr: 1980, score: 5.20000000000000018, votes: 1074, director_id: 721)
-Movie.create!(id: 1435, title: "Adam's Rib", yr: 1949, score: 7.79999999999999982, votes: 1073, director_id: 628)
-Movie.create!(id: 1436, title: "'Breaker' Morant", yr: 1980, score: 7.79999999999999982, votes: 1072, director_id: 685)
-Movie.create!(id: 1437, title: "Brokedown Palace", yr: 1999, score: 6.09999999999999964, votes: 1071, director_id: 580)
-Movie.create!(id: 1438, title: "Tea with Mussolini", yr: 1999, score: 6.90000000000000036, votes: 1071, director_id: 1058)
-Movie.create!(id: 1439, title: "Super Mario Bros.", yr: 1993, score: 3.39999999999999991, votes: 1071, director_id: 1175)
-Movie.create!(id: 1440, title: "Firefox", yr: 1982, score: 5.29999999999999982, votes: 1070, director_id: 2)
-Movie.create!(id: 1441, title: "Stranger Than Paradise", yr: 1984, score: 7.40000000000000036, votes: 1069, director_id: 175)
-Movie.create!(id: 1442, title: "Bedazzled", yr: 2000, score: 6.40000000000000036, votes: 1065, director_id: 108)
-Movie.create!(id: 1443, title: "Yin shi nan nu", yr: 1994, score: 7.79999999999999982, votes: 1063, director_id: 273)
-Movie.create!(id: 1444, title: "Detroit Rock City", yr: 1999, score: 6.20000000000000018, votes: 1061, director_id: 977)
-Movie.create!(id: 1445, title: "Untamed Heart", yr: 1993, score: 6.5, votes: 1061, director_id: 2661)
-Movie.create!(id: 1446, title: "Antonia", yr: 1995, score: 7.79999999999999982, votes: 1061, director_id: 2501)
-Movie.create!(id: 1447, title: "Young Sherlock Holmes", yr: 1985, score: 6.29999999999999982, votes: 1059, director_id: 38)
-Movie.create!(id: 1448, title: "Tommy", yr: 1975, score: 5.90000000000000036, votes: 1059, director_id: 909)
-Movie.create!(id: 1449, title: "School Ties", yr: 1992, score: 6.70000000000000018, votes: 1059, director_id: 1007)
-Movie.create!(id: 1450, title: "One True Thing", yr: 1998, score: 7.40000000000000036, votes: 1058, director_id: 998)
-Movie.create!(id: 1451, title: "Boys on the Side", yr: 1995, score: 6.20000000000000018, votes: 1058, director_id: 200)
-Movie.create!(id: 1452, title: "Buena Vista Social Club", yr: 1999, score: 7.40000000000000036, votes: 1057, director_id: 269)
-Movie.create!(id: 1453, title: "Clash of the Titans", yr: 1981, score: 5.70000000000000018, votes: 1056, director_id: 2468)
-Movie.create!(id: 1454, title: "Hellbound: Hellraiser II", yr: 1988, score: 5.59999999999999964, votes: 1056, director_id: 2655)
-Movie.create!(id: 1455, title: "Holy Man", yr: 1998, score: 5.20000000000000018, votes: 1055, director_id: 149)
-Movie.create!(id: 1456, title: "Bachelor, The", yr: 1999, score: 5.09999999999999964, votes: 1055, director_id: 2112)
-Movie.create!(id: 1457, title: "Down Periscope", yr: 1996, score: 5.29999999999999982, votes: 1055, director_id: 2425)
-Movie.create!(id: 1458, title: "Happy, Texas", yr: 1999, score: 6.70000000000000018, votes: 1054, director_id: 2598)
-Movie.create!(id: 1459, title: "Guess Who's Coming to Dinner", yr: 1967, score: 7.20000000000000018, votes: 1054, director_id: 673)
-Movie.create!(id: 1460, title: "Fearless Vampire Killers, The", yr: 1967, score: 6.79999999999999982, votes: 1051, director_id: 90)
-Movie.create!(id: 1461, title: "Assault on Precinct 13", yr: 1976, score: 7.20000000000000018, votes: 1050, director_id: 23)
-Movie.create!(id: 1462, title: "Chase, The", yr: 1994, score: 5.29999999999999982, votes: 1046, director_id: 977)
-Movie.create!(id: 1463, title: "Mod Squad, The", yr: 1999, score: 3.60000000000000009, votes: 1045, director_id: 2725)
-Movie.create!(id: 1464, title: "Great Outdoors, The", yr: 1988, score: 5.5, votes: 1044, director_id: 285)
-Movie.create!(id: 1465, title: "Hairspray", yr: 1988, score: 6.5, votes: 1044, director_id: 364)
-Movie.create!(id: 1466, title: "Shootist, The", yr: 1976, score: 7.40000000000000036, votes: 1044, director_id: 346)
-Movie.create!(id: 1467, title: "Un coeur en hiver", yr: 1992, score: 7.70000000000000018, votes: 1044, director_id: 2296)
-Movie.create!(id: 1468, title: "Europa", yr: 1991, score: 7.59999999999999964, votes: 1042, director_id: 615)
-Movie.create!(id: 1469, title: "Running on Empty", yr: 1988, score: 7.09999999999999964, votes: 1042, director_id: 80)
-Movie.create!(id: 1470, title: "Nightmare on Elm Street Part 2: Freddy's Revenge, A", yr: 1985, score: 4.40000000000000036, votes: 1041, director_id: 1173)
-Movie.create!(id: 1471, title: "Paper, The", yr: 1994, score: 6.29999999999999982, votes: 1040, director_id: 21)
-Movie.create!(id: 1472, title: "Holy Smoke", yr: 1999, score: 5.79999999999999982, votes: 1039, director_id: 575)
-Movie.create!(id: 1473, title: "Near Dark", yr: 1987, score: 7, votes: 1039, director_id: 641)
-Movie.create!(id: 1474, title: "With Honors", yr: 1994, score: 6.20000000000000018, votes: 1036, director_id: 2208)
-Movie.create!(id: 1475, title: "Clockers", yr: 1995, score: 6.90000000000000036, votes: 1035, director_id: 206)
-Movie.create!(id: 1476, title: "Vanishing, The", yr: 1993, score: 5.90000000000000036, votes: 1035, director_id: 2162)
-Movie.create!(id: 1477, title: "Getaway, The", yr: 1994, score: 5.59999999999999964, votes: 1034, director_id: 146)
-Movie.create!(id: 1478, title: "Belle &#233;poque", yr: 1992, score: 7.29999999999999982, votes: 1033, director_id: 2015)
-Movie.create!(id: 1479, title: "Road to Wellville, The", yr: 1994, score: 5, votes: 1033, director_id: 68)
-Movie.create!(id: 1480, title: "Peter's Friends", yr: 1992, score: 6.59999999999999964, votes: 1033, director_id: 48)
-Movie.create!(id: 1481, title: "Torch Song Trilogy", yr: 1988, score: 6.70000000000000018, votes: 1032, director_id: 2567)
-Movie.create!(id: 1482, title: "Trouble with Harry, The", yr: 1955, score: 7.29999999999999982, votes: 1031, director_id: 11)
-Movie.create!(id: 1483, title: "American in Paris, An", yr: 1951, score: 7.5, votes: 1030, director_id: 2597)
-Movie.create!(id: 1484, title: "Muppet Christmas Carol, The", yr: 1992, score: 6.90000000000000036, votes: 1030, director_id: 1493)
-Movie.create!(id: 1485, title: "Secret of Roan Inish, The", yr: 1994, score: 7.5, votes: 1030, director_id: 931)
-Movie.create!(id: 1486, title: "Adventures of Rocky & Bullwinkle, The", yr: 2000, score: 4.79999999999999982, votes: 1028, director_id: 2466)
-Movie.create!(id: 1487, title: "Child's Play", yr: 1988, score: 5.59999999999999964, votes: 1028, director_id: 562)
-Movie.create!(id: 1488, title: "Help!", yr: 1965, score: 6.79999999999999982, votes: 1027, director_id: 274)
-Movie.create!(id: 1489, title: "Rage: Carrie 2, The", yr: 1999, score: 4.79999999999999982, votes: 1026, director_id: 1160)
-Movie.create!(id: 1490, title: "Oscar", yr: 1991, score: 5.29999999999999982, votes: 1024, director_id: 62)
-Movie.create!(id: 1491, title: "Desperate Measures", yr: 1998, score: 5.5, votes: 1024, director_id: 1104)
-Movie.create!(id: 1492, title: "Frenzy", yr: 1972, score: 7.29999999999999982, votes: 1022, director_id: 11)
-Movie.create!(id: 1493, title: "Drop Dead Fred", yr: 1991, score: 4.29999999999999982, votes: 1022, director_id: 2046)
-Movie.create!(id: 1494, title: "My Blue Heaven", yr: 1990, score: 5.90000000000000036, votes: 1022, director_id: 200)
-Movie.create!(id: 1495, title: "Sid and Nancy", yr: 1986, score: 7, votes: 1020, director_id: 1041)
-Movie.create!(id: 1496, title: "What Ever Happened to Baby Jane?", yr: 1962, score: 7.79999999999999982, votes: 1020, director_id: 1060)
-Movie.create!(id: 1497, title: "Freejack", yr: 1992, score: 4.79999999999999982, votes: 1019, director_id: 627)
-Movie.create!(id: 1498, title: "Alice in Wonderland", yr: 1951, score: 7.20000000000000018, votes: 1018, director_id: 266)
-Movie.create!(id: 1499, title: "Vie r&#234;v&#233;e des anges, La", yr: 1998, score: 8.09999999999999964, votes: 1017, director_id: 2073)
-Movie.create!(id: 1500, title: "Butcher Boy, The", yr: 1997, score: 7.20000000000000018, votes: 1017, director_id: 153)
-Movie.create!(id: 1501, title: "Carne tr&#233;mula", yr: 1997, score: 7.5, votes: 1016, director_id: 394)
-Movie.create!(id: 1502, title: "Red Corner", yr: 1997, score: 6, votes: 1016, director_id: 691)
-Movie.create!(id: 1503, title: "Tonari no Totoro", yr: 1988, score: 7.90000000000000036, votes: 1014, director_id: 1051)
-Movie.create!(id: 1504, title: "Rollerball", yr: 1975, score: 6.20000000000000018, votes: 1013, director_id: 81)
-Movie.create!(id: 1505, title: "Outside Providence", yr: 1999, score: 6.29999999999999982, votes: 1010, director_id: 2626)
-Movie.create!(id: 1506, title: "Verdict, The", yr: 1982, score: 7.5, votes: 1010, director_id: 80)
-Movie.create!(id: 1507, title: "PCU", yr: 1994, score: 5.79999999999999982, votes: 1009, director_id: 730)
-Movie.create!(id: 1508, title: "Noises Off...", yr: 1992, score: 6.79999999999999982, votes: 1006, director_id: 612)
-Movie.create!(id: 1509, title: "City Slickers II: The Legend of Curly's Gold", yr: 1994, score: 5, votes: 1006, director_id: 2860)
-Movie.create!(id: 1510, title: "Sydney", yr: 1996, score: 7.5, votes: 1006, director_id: 1037)
-Movie.create!(id: 1511, title: "Clay Pigeons", yr: 1998, score: 6.70000000000000018, votes: 1005, director_id: 2283)
-Movie.create!(id: 1512, title: "Suspiria", yr: 1977, score: 7.09999999999999964, votes: 1004, director_id: 2259)
-Movie.create!(id: 1513, title: "Excess Baggage", yr: 1997, score: 4.59999999999999964, votes: 1003, director_id: 1182)
-Movie.create!(id: 1514, title: "Mighty Ducks, The", yr: 1992, score: 5.70000000000000018, votes: 1003, director_id: 149)
-Movie.create!(id: 1515, title: "Creepshow", yr: 1982, score: 5.90000000000000036, votes: 1001, director_id: 379)
-Movie.create!(id: 1516, title: "Basquiat", yr: 1996, score: 6.5, votes: 1001, director_id: 2390)
-Movie.create!(id: 1517, title: "Baraka", yr: 1992, score: 7.59999999999999964, votes: 1000, director_id: 2846)
-Movie.create!(id: 1518, title: "Heartbreak Ridge", yr: 1986, score: 6.09999999999999964, votes: 1000, director_id: 2)
-Movie.create!(id: 1519, title: "On Deadly Ground", yr: 1994, score: 3.70000000000000018, votes: 999, director_id: 171)
-Movie.create!(id: 1520, title: "Circle of Friends", yr: 1995, score: 6.79999999999999982, votes: 999, director_id: 2610)
-Movie.create!(id: 1521, title: "Dracula: Dead and Loving It", yr: 1995, score: 4.40000000000000036, votes: 999, director_id: 29)
-Movie.create!(id: 1522, title: "Andrei Rublyov", yr: 1969, score: 8.40000000000000036, votes: 996, director_id: 658)
-Movie.create!(id: 1523, title: "HouseSitter", yr: 1992, score: 6, votes: 995, director_id: 123)
-Movie.create!(id: 1524, title: "Free Willy", yr: 1993, score: 5.20000000000000018, votes: 993, director_id: 1115)
-Movie.create!(id: 1525, title: "Nightmare on Elm Street 4: The Dream Master, A", yr: 1988, score: 4.79999999999999982, votes: 992, director_id: 210)
-Movie.create!(id: 1526, title: "Trick", yr: 1999, score: 7.70000000000000018, votes: 992, director_id: 2314)
-Movie.create!(id: 1527, title: "Fog, The", yr: 1980, score: 6.20000000000000018, votes: 991, director_id: 23)
-Movie.create!(id: 1528, title: "Twilight", yr: 1998, score: 6.09999999999999964, votes: 988, director_id: 660)
-Movie.create!(id: 1529, title: "Colors", yr: 1988, score: 6.29999999999999982, votes: 988, director_id: 125)
-Movie.create!(id: 1530, title: "Bambi Meets Godzilla", yr: 1969, score: 7.5, votes: 985, director_id: 2544)
-Movie.create!(id: 1531, title: "Sholay", yr: 1975, score: 7.5, votes: 985, director_id: 2848)
-Movie.create!(id: 1532, title: "D.O.A.", yr: 1988, score: 6.09999999999999964, votes: 983, director_id: 1175)
-Movie.create!(id: 1533, title: "War of the Worlds, The", yr: 1953, score: 7.09999999999999964, votes: 983, director_id: 2260)
-Movie.create!(id: 1534, title: "Midnight Clear, A", yr: 1991, score: 7.5, votes: 981, director_id: 644)
-Movie.create!(id: 1535, title: "Winslow Boy, The", yr: 1999, score: 7.5, votes: 979, director_id: 606)
-Movie.create!(id: 1536, title: "Tesis", yr: 1996, score: 7.79999999999999982, votes: 977, director_id: 985)
-Movie.create!(id: 1537, title: "Saving Grace", yr: 2000, score: 7.29999999999999982, votes: 977, director_id: 2503)
-Movie.create!(id: 1538, title: "Wrongfully Accused", yr: 1998, score: 5.29999999999999982, votes: 976, director_id: 2593)
-Movie.create!(id: 1539, title: "Cry-Baby", yr: 1990, score: 5.90000000000000036, votes: 972, director_id: 364)
-Movie.create!(id: 1540, title: "Mighty, The", yr: 1998, score: 7.5, votes: 972, director_id: 2770)
-Movie.create!(id: 1541, title: "1492: Conquest of Paradise", yr: 1992, score: 6, votes: 970, director_id: 110)
-Movie.create!(id: 1542, title: "Beneath the Planet of the Apes", yr: 1970, score: 5.5, votes: 969, director_id: 2692)
-Movie.create!(id: 1543, title: "Utomlyonnye solntsem", yr: 1994, score: 7.70000000000000018, votes: 968, director_id: 1503)
-Movie.create!(id: 1544, title: "New York Stories", yr: 1989, score: 6.20000000000000018, votes: 968, director_id: 1)
-Movie.create!(id: 1545, title: "Henry & June", yr: 1990, score: 6.29999999999999982, votes: 963, director_id: 288)
-Movie.create!(id: 1546, title: "Deep End of the Ocean, The", yr: 1999, score: 6.09999999999999964, votes: 962, director_id: 2734)
-Movie.create!(id: 1547, title: "Mighty Joe Young", yr: 1998, score: 5.90000000000000036, votes: 962, director_id: 415)
-Movie.create!(id: 1548, title: "Blow Out", yr: 1981, score: 7, votes: 961, director_id: 31)
-Movie.create!(id: 1549, title: "Sandlot, The", yr: 1993, score: 6.70000000000000018, votes: 959, director_id: 2273)
-Movie.create!(id: 1550, title: "Dressed to Kill", yr: 1980, score: 6.90000000000000036, votes: 958, director_id: 31)
-Movie.create!(id: 1551, title: "Beethoven", yr: 1992, score: 5.09999999999999964, votes: 958, director_id: 395)
-Movie.create!(id: 1552, title: "Re-Animator", yr: 1985, score: 6.70000000000000018, votes: 957, director_id: 2561)
-Movie.create!(id: 1553, title: "Fletch Lives", yr: 1989, score: 5.09999999999999964, votes: 955, director_id: 418)
-Movie.create!(id: 1554, title: "Hsi yen", yr: 1993, score: 7.70000000000000018, votes: 954, director_id: 273)
-Movie.create!(id: 1555, title: "Thunderheart", yr: 1992, score: 6.5, votes: 953, director_id: 199)
-Movie.create!(id: 1556, title: "Dellamorte Dellamore", yr: 1994, score: 7.09999999999999964, votes: 953, director_id: 2659)
-Movie.create!(id: 1557, title: "Nightwatch", yr: 1998, score: 6, votes: 953, director_id: 1166)
-Movie.create!(id: 1558, title: "Pred dozhdot", yr: 1994, score: 7.59999999999999964, votes: 952, director_id: 2643)
-Movie.create!(id: 1559, title: "Play It Again, Sam", yr: 1972, score: 7.29999999999999982, votes: 952, director_id: 200)
-Movie.create!(id: 1560, title: "Harry and the Hendersons", yr: 1987, score: 5.29999999999999982, votes: 951, director_id: 1059)
-Movie.create!(id: 1561, title: "Bio-Dome", yr: 1996, score: 3.60000000000000009, votes: 951, director_id: 2275)
-Movie.create!(id: 1562, title: "Quick Change", yr: 1990, score: 6.59999999999999964, votes: 950, director_id: 2061)
-Movie.create!(id: 1563, title: "My Dinner with Andr&#233;", yr: 1981, score: 7.20000000000000018, votes: 950, director_id: 619)
-Movie.create!(id: 1564, title: "Wicker Man, The", yr: 1973, score: 7.29999999999999982, votes: 949, director_id: 2863)
-Movie.create!(id: 1565, title: "Boomerang", yr: 1992, score: 5.29999999999999982, votes: 949, director_id: 2852)
-Movie.create!(id: 1566, title: "Dragon: The Bruce Lee Story", yr: 1993, score: 6.79999999999999982, votes: 946, director_id: 376)
-Movie.create!(id: 1567, title: "Bulletproof", yr: 1996, score: 5.5, votes: 945, director_id: 2094)
-Movie.create!(id: 1568, title: "Bride of Frankenstein", yr: 1935, score: 8.09999999999999964, votes: 945, director_id: 1097)
-Movie.create!(id: 1569, title: "Cabin Boy", yr: 1994, score: 4.29999999999999982, votes: 944, director_id: 2110)
-Movie.create!(id: 1570, title: "Quadrophenia", yr: 1979, score: 6.70000000000000018, votes: 944, director_id: 2196)
-Movie.create!(id: 1571, title: "Mifunes sidste sang", yr: 1999, score: 7.40000000000000036, votes: 940, director_id: 2594)
-Movie.create!(id: 1572, title: "Baby Geniuses", yr: 1999, score: 2.20000000000000018, votes: 939, director_id: 579)
-Movie.create!(id: 1573, title: "Next Best Thing, The", yr: 2000, score: 5, votes: 939, director_id: 677)
-Movie.create!(id: 1574, title: "Coma", yr: 1978, score: 6.40000000000000036, votes: 939, director_id: 1017)
-Movie.create!(id: 1575, title: "Night Shift", yr: 1982, score: 6.29999999999999982, votes: 936, director_id: 21)
-Movie.create!(id: 1576, title: "Blue in the Face", yr: 1995, score: 6.40000000000000036, votes: 936, director_id: 2552)
-Movie.create!(id: 1577, title: "Out-of-Towners, The", yr: 1999, score: 5, votes: 936, director_id: 1075)
-Movie.create!(id: 1578, title: "Take the Money and Run", yr: 1969, score: 7.20000000000000018, votes: 936, director_id: 1)
-Movie.create!(id: 1579, title: "Screamers", yr: 1995, score: 5.5, votes: 935, director_id: 2347)
-Movie.create!(id: 1580, title: "Watership Down", yr: 1978, score: 7.20000000000000018, votes: 935, director_id: 2551)
-Movie.create!(id: 1581, title: "Freddy's Dead: The Final Nightmare", yr: 1991, score: 4.20000000000000018, votes: 935, director_id: 1032)
-Movie.create!(id: 1582, title: "Screamers", yr: 1995, score: 5.5, votes: 935, director_id: 2346)
-Movie.create!(id: 1583, title: "House of Yes, The", yr: 1997, score: 6.70000000000000018, votes: 934, director_id: 2510)
-Movie.create!(id: 1584, title: "Road House", yr: 1989, score: 5.20000000000000018, votes: 932, director_id: 1090)
-Movie.create!(id: 1585, title: "New Jack City", yr: 1991, score: 6.09999999999999964, votes: 932, director_id: 727)
-Movie.create!(id: 1586, title: "Chitty Chitty Bang Bang", yr: 1968, score: 6.09999999999999964, votes: 932, director_id: 2002)
-Movie.create!(id: 1587, title: "Down to You", yr: 2000, score: 4.59999999999999964, votes: 931, director_id: 2176)
-Movie.create!(id: 1588, title: "Mystery Train", yr: 1989, score: 7.09999999999999964, votes: 930, director_id: 175)
-Movie.create!(id: 1589, title: "Return of the Pink Panther, The", yr: 1974, score: 6.59999999999999964, votes: 929, director_id: 65)
-Movie.create!(id: 1590, title: "Palmetto", yr: 1998, score: 5.40000000000000036, votes: 929, director_id: 980)
-Movie.create!(id: 1591, title: "Ngo hai sui", yr: 1998, score: 6.90000000000000036, votes: 926, director_id: 2406)
-Movie.create!(id: 1592, title: "Beloved", yr: 1998, score: 5.79999999999999982, votes: 926, director_id: 281)
-Movie.create!(id: 1593, title: "Subway", yr: 1985, score: 6.40000000000000036, votes: 925, director_id: 389)
-Movie.create!(id: 1594, title: "Black Sheep", yr: 1996, score: 4.90000000000000036, votes: 924, director_id: 1021)
-Movie.create!(id: 1595, title: "Power of One, The", yr: 1992, score: 6.20000000000000018, votes: 923, director_id: 683)
-Movie.create!(id: 1596, title: "Fair Game", yr: 1995, score: 3.89999999999999991, votes: 922, director_id: 2021)
-Movie.create!(id: 1597, title: "Boxing Helena", yr: 1993, score: 3.89999999999999991, votes: 921, director_id: 2339)
-Movie.create!(id: 1598, title: "Dennis the Menace", yr: 1993, score: 4.79999999999999982, votes: 921, director_id: 2716)
-Movie.create!(id: 1599, title: "Brothers McMullen, The", yr: 1995, score: 6.59999999999999964, votes: 920, director_id: 485)
-Movie.create!(id: 1600, title: "Drowning Mona", yr: 2000, score: 5.29999999999999982, votes: 920, director_id: 2704)
-Movie.create!(id: 1601, title: "Problem Child", yr: 1990, score: 3.60000000000000009, votes: 918, director_id: 330)
-Movie.create!(id: 1602, title: "Children of the Corn", yr: 1984, score: 4.59999999999999964, votes: 918, director_id: 2206)
-Movie.create!(id: 1603, title: "Capricorn One", yr: 1978, score: 6.20000000000000018, votes: 917, director_id: 103)
-Movie.create!(id: 1604, title: "Postcards from the Edge", yr: 1990, score: 6.29999999999999982, votes: 917, director_id: 47)
-Movie.create!(id: 1605, title: "Cocoon: The Return", yr: 1988, score: 4.79999999999999982, votes: 917, director_id: 2250)
-Movie.create!(id: 1606, title: "Romeo Is Bleeding", yr: 1993, score: 6.09999999999999964, votes: 915, director_id: 1001)
-Movie.create!(id: 1607, title: "Silkwood", yr: 1983, score: 6.90000000000000036, votes: 915, director_id: 47)
-Movie.create!(id: 1608, title: "Hunger, The", yr: 1983, score: 6.20000000000000018, votes: 914, director_id: 107)
-Movie.create!(id: 1609, title: "Shot in the Dark, A", yr: 1964, score: 7.40000000000000036, votes: 914, director_id: 65)
-Movie.create!(id: 1610, title: "1900", yr: 1976, score: 7.59999999999999964, votes: 913, director_id: 598)
-Movie.create!(id: 1611, title: "Chamber, The", yr: 1996, score: 5.59999999999999964, votes: 913, director_id: 423)
-Movie.create!(id: 1612, title: "Fame", yr: 1980, score: 6.29999999999999982, votes: 912, director_id: 68)
-Movie.create!(id: 1613, title: "American Tail, An", yr: 1986, score: 6.40000000000000036, votes: 911, director_id: 409)
-Movie.create!(id: 1614, title: "Friday the 13th Part 2", yr: 1981, score: 4.40000000000000036, votes: 907, director_id: 365)
-Movie.create!(id: 1615, title: "D&#238;ner de cons, Le", yr: 1998, score: 7.70000000000000018, votes: 906, director_id: 2169)
-Movie.create!(id: 1616, title: "Big Kahuna, The", yr: 1999, score: 7.09999999999999964, votes: 905, director_id: 2474)
-Movie.create!(id: 1617, title: "Beastmaster, The", yr: 1982, score: 5.09999999999999964, votes: 904, director_id: 2373)
-Movie.create!(id: 1618, title: "Taps", yr: 1981, score: 6.20000000000000018, votes: 903, director_id: 616)
-Movie.create!(id: 1619, title: "Highlander: Endgame", yr: 2000, score: 5.20000000000000018, votes: 901, director_id: 2418)
-Movie.create!(id: 1620, title: "American Movie: The Making of Northwestern", yr: 1999, score: 7.70000000000000018, votes: 901, director_id: 2342)
-Movie.create!(id: 1621, title: "Cadillac Man", yr: 1990, score: 5.20000000000000018, votes: 901, director_id: 146)
-Movie.create!(id: 1622, title: "Zardoz", yr: 1974, score: 5.40000000000000036, votes: 900, director_id: 293)
-Movie.create!(id: 1623, title: "Blechtrommel, Die", yr: 1979, score: 7.90000000000000036, votes: 900, director_id: 980)
-Movie.create!(id: 1624, title: "High Anxiety", yr: 1977, score: 6.29999999999999982, votes: 898, director_id: 29)
-Movie.create!(id: 1625, title: "Beverly Hills Ninja", yr: 1997, score: 4.79999999999999982, votes: 898, director_id: 330)
-Movie.create!(id: 1626, title: "Next Friday", yr: 2000, score: 4.90000000000000036, votes: 897, director_id: 2853)
-Movie.create!(id: 1627, title: "Tin Men", yr: 1987, score: 6.29999999999999982, votes: 894, director_id: 38)
-Movie.create!(id: 1628, title: "Silent Movie", yr: 1976, score: 6, votes: 893, director_id: 29)
-Movie.create!(id: 1629, title: "She's So Lovely", yr: 1997, score: 5.79999999999999982, votes: 893, director_id: 1495)
-Movie.create!(id: 1630, title: "Funny Farm", yr: 1988, score: 5.20000000000000018, votes: 891, director_id: 276)
-Movie.create!(id: 1631, title: "True Grit", yr: 1969, score: 7.09999999999999964, votes: 891, director_id: 2040)
-Movie.create!(id: 1632, title: "Abre los ojos", yr: 1997, score: 8, votes: 891, director_id: 985)
-Movie.create!(id: 1633, title: "Simply Irresistible", yr: 1999, score: 4.79999999999999982, votes: 891, director_id: 2515)
-Movie.create!(id: 1634, title: "Death Race 2000", yr: 1975, score: 5.59999999999999964, votes: 890, director_id: 1329)
-Movie.create!(id: 1635, title: "Final Countdown, The", yr: 1980, score: 6.5, votes: 889, director_id: 489)
-Movie.create!(id: 1636, title: "Home Fries", yr: 1998, score: 5, votes: 888, director_id: 1101)
-Movie.create!(id: 1637, title: "Above the Law", yr: 1988, score: 5.20000000000000018, votes: 888, director_id: 291)
-Movie.create!(id: 1638, title: "Dead Man on Campus", yr: 1998, score: 5.5, votes: 888, director_id: 2125)
-Movie.create!(id: 1639, title: "Supergirl", yr: 1984, score: 3.70000000000000018, votes: 888, director_id: 600)
-Movie.create!(id: 1640, title: "Cure, The", yr: 1995, score: 6.90000000000000036, votes: 887, director_id: 836)
-Movie.create!(id: 1641, title: "Cannonball Run II", yr: 1984, score: 3.5, votes: 887, director_id: 618)
-Movie.create!(id: 1642, title: "Fathers' Day", yr: 1997, score: 4.59999999999999964, votes: 886, director_id: 109)
-Movie.create!(id: 1643, title: "Persona", yr: 1966, score: 8, votes: 885, director_id: 420)
-Movie.create!(id: 1644, title: "Russia House, The", yr: 1990, score: 6.09999999999999964, votes: 885, director_id: 272)
-Movie.create!(id: 1645, title: "Devil in a Blue Dress", yr: 1995, score: 6.70000000000000018, votes: 885, director_id: 998)
-Movie.create!(id: 1646, title: "Over the Top", yr: 1987, score: 3.79999999999999982, votes: 885, director_id: 2726)
-Movie.create!(id: 1647, title: "3 Men and a Little Lady", yr: 1990, score: 4.5, votes: 885, director_id: 662)
-Movie.create!(id: 1648, title: "Broadway Danny Rose", yr: 1984, score: 7.29999999999999982, votes: 884, director_id: 1)
-Movie.create!(id: 1649, title: "Ying huang boon sik", yr: 1986, score: 7.40000000000000036, votes: 884, director_id: 204)
-Movie.create!(id: 1650, title: "Xanadu", yr: 1980, score: 4.29999999999999982, votes: 884, director_id: 2517)
-Movie.create!(id: 1651, title: "Plunkett & Macleane", yr: 1999, score: 6.40000000000000036, votes: 883, director_id: 2385)
-Movie.create!(id: 1652, title: "Visiteurs, Les", yr: 1993, score: 6.29999999999999982, votes: 882, director_id: 2280)
-Movie.create!(id: 1653, title: "Fl&#229;klypa Grand Prix", yr: 1975, score: 7.79999999999999982, votes: 881, director_id: 2400)
-Movie.create!(id: 1654, title: "Drop Zone", yr: 1994, score: 5.5, votes: 880, director_id: 66)
-Movie.create!(id: 1655, title: "Seven Year Itch, The", yr: 1955, score: 7.09999999999999964, votes: 880, director_id: 79)
-Movie.create!(id: 1656, title: "Thing From Another World, The", yr: 1951, score: 7.29999999999999982, votes: 878, director_id: 2345)
-Movie.create!(id: 1657, title: "I Love You to Death", yr: 1990, score: 6, votes: 878, director_id: 87)
-Movie.create!(id: 1658, title: "Repulsion", yr: 1965, score: 7.90000000000000036, votes: 877, director_id: 90)
-Movie.create!(id: 1659, title: "Rosewood", yr: 1997, score: 6.70000000000000018, votes: 876, director_id: 396)
-Movie.create!(id: 1660, title: "Firestarter", yr: 1984, score: 5.59999999999999964, votes: 875, director_id: 1073)
-Movie.create!(id: 1661, title: "To Live and Die in L.A.", yr: 1985, score: 6.59999999999999964, votes: 874, director_id: 264)
-Movie.create!(id: 1662, title: "Reds", yr: 1981, score: 6.90000000000000036, votes: 873, director_id: 60)
-Movie.create!(id: 1663, title: "Flight of the Navigator", yr: 1986, score: 6.29999999999999982, votes: 873, director_id: 383)
-Movie.create!(id: 1664, title: "High Art", yr: 1998, score: 7.29999999999999982, votes: 872, director_id: 2867)
-Movie.create!(id: 1665, title: "Bed of Roses", yr: 1996, score: 6.20000000000000018, votes: 872, director_id: 2621)
-Movie.create!(id: 1666, title: "Feeling Minnesota", yr: 1996, score: 5.29999999999999982, votes: 870, director_id: 2578)
-Movie.create!(id: 1667, title: "Monty Python Live at the Hollywood Bowl", yr: 1982, score: 7.09999999999999964, votes: 869, director_id: 2691)
-Movie.create!(id: 1668, title: "She's Having a Baby", yr: 1988, score: 5.59999999999999964, votes: 868, director_id: 144)
-Movie.create!(id: 1669, title: "What's Up, Doc?", yr: 1972, score: 7.29999999999999982, votes: 868, director_id: 612)
-Movie.create!(id: 1670, title: "Drowning by Numbers", yr: 1988, score: 6.90000000000000036, votes: 868, director_id: 386)
-Movie.create!(id: 1671, title: "Stop Making Sense", yr: 1984, score: 7.59999999999999964, votes: 867, director_id: 281)
-Movie.create!(id: 1672, title: "One Eight Seven", yr: 1997, score: 6.5, votes: 867, director_id: 378)
-Movie.create!(id: 1673, title: "Oscar and Lucinda", yr: 1997, score: 6.79999999999999982, votes: 866, director_id: 2140)
-Movie.create!(id: 1674, title: "Amateur", yr: 1994, score: 7.09999999999999964, votes: 865, director_id: 982)
-Movie.create!(id: 1675, title: "Something to Talk About", yr: 1995, score: 5.79999999999999982, votes: 864, director_id: 387)
-Movie.create!(id: 1676, title: "My Fellow Americans", yr: 1996, score: 6.5, votes: 864, director_id: 384)
-Movie.create!(id: 1677, title: "Day of the Dead", yr: 1985, score: 6.40000000000000036, votes: 864, director_id: 379)
-Movie.create!(id: 1678, title: "Fandango", yr: 1985, score: 6.29999999999999982, votes: 864, director_id: 378)
-Movie.create!(id: 1679, title: "Purple Rain", yr: 1984, score: 5.40000000000000036, votes: 862, director_id: 2211)
-Movie.create!(id: 1680, title: "My Dog Skip", yr: 2000, score: 7.40000000000000036, votes: 862, director_id: 2284)
-Movie.create!(id: 1681, title: "Universal Soldier: The Return", yr: 1999, score: 3.29999999999999982, votes: 862, director_id: 1866)
-Movie.create!(id: 1682, title: "Boxer, The", yr: 1997, score: 6.90000000000000036, votes: 862, director_id: 581)
-Movie.create!(id: 1683, title: "Prospero's Books", yr: 1991, score: 5.90000000000000036, votes: 860, director_id: 386)
-Movie.create!(id: 1684, title: "Home for the Holidays", yr: 1995, score: 6.29999999999999982, votes: 859, director_id: 215)
-Movie.create!(id: 1685, title: "Gorky Park", yr: 1983, score: 6.5, votes: 858, director_id: 199)
-Movie.create!(id: 1686, title: "Dream Team, The", yr: 1989, score: 6, votes: 858, director_id: 661)
-Movie.create!(id: 1687, title: "Gummo", yr: 1997, score: 5.40000000000000036, votes: 858, director_id: 1970)
-Movie.create!(id: 1688, title: "Cotton Club, The", yr: 1984, score: 6.09999999999999964, votes: 857, director_id: 28)
-Movie.create!(id: 1689, title: "Renaissance Man", yr: 1994, score: 5.79999999999999982, votes: 857, director_id: 361)
-Movie.create!(id: 1690, title: "Only You", yr: 1994, score: 6.29999999999999982, votes: 855, director_id: 81)
-Movie.create!(id: 1691, title: "Ridicule", yr: 1996, score: 7.20000000000000018, votes: 854, director_id: 2612)
-Movie.create!(id: 1692, title: "Pink Panther Strikes Again, The", yr: 1976, score: 6.79999999999999982, votes: 852, director_id: 65)
-Movie.create!(id: 1693, title: "Needful Things", yr: 1993, score: 5.70000000000000018, votes: 851, director_id: 2175)
-Movie.create!(id: 1694, title: "Sudden Death", yr: 1995, score: 5.09999999999999964, votes: 851, director_id: 103)
-Movie.create!(id: 1695, title: "20,000 Leagues Under the Sea", yr: 1954, score: 7.09999999999999964, votes: 850, director_id: 402)
-Movie.create!(id: 1696, title: "Suspicion", yr: 1941, score: 7.5, votes: 850, director_id: 11)
-Movie.create!(id: 1697, title: "Stunt Man, The", yr: 1980, score: 7.40000000000000036, votes: 849, director_id: 1039)
-Movie.create!(id: 1698, title: "Bad News Bears, The", yr: 1976, score: 6.5, votes: 847, director_id: 418)
-Movie.create!(id: 1699, title: "Song of the South", yr: 1946, score: 7.20000000000000018, votes: 847, director_id: 2190)
-Movie.create!(id: 1700, title: "Airport", yr: 1970, score: 6.29999999999999982, votes: 846, director_id: 1061)
-Movie.create!(id: 1701, title: "Contender, The", yr: 2000, score: 7, votes: 846, director_id: 2768)
-Movie.create!(id: 1702, title: "Superstar", yr: 1999, score: 4.5, votes: 846, director_id: 1506)
-Movie.create!(id: 1703, title: "Drive Me Crazy", yr: 1999, score: 5.09999999999999964, votes: 846, director_id: 2423)
-Movie.create!(id: 1704, title: "Prince of Darkness", yr: 1987, score: 6.20000000000000018, votes: 844, director_id: 23)
-Movie.create!(id: 1705, title: "Exorcist II: The Heretic", yr: 1977, score: 3.20000000000000018, votes: 842, director_id: 293)
-Movie.create!(id: 1706, title: "I Love Trouble", yr: 1994, score: 5.20000000000000018, votes: 842, director_id: 397)
-Movie.create!(id: 1707, title: "Blue Thunder", yr: 1983, score: 6, votes: 840, director_id: 66)
-Movie.create!(id: 1708, title: "Amityville Horror, The", yr: 1979, score: 5.09999999999999964, votes: 839, director_id: 1029)
-Movie.create!(id: 1709, title: "Blame It on Rio", yr: 1984, score: 5.09999999999999964, votes: 839, director_id: 428)
-Movie.create!(id: 1710, title: "Omega Man, The", yr: 1971, score: 6.29999999999999982, votes: 838, director_id: 2483)
-Movie.create!(id: 1711, title: "Attack of the Killer Tomatoes!", yr: 1978, score: 3.60000000000000009, votes: 837, director_id: 2242)
-Movie.create!(id: 1712, title: "Scanners", yr: 1981, score: 6.29999999999999982, votes: 837, director_id: 97)
-Movie.create!(id: 1713, title: "Damien: Omen II", yr: 1978, score: 5.5, votes: 837, director_id: 489)
-Movie.create!(id: 1714, title: "Around the World in Eighty Days", yr: 1956, score: 6.70000000000000018, votes: 836, director_id: 2698)
-Movie.create!(id: 1715, title: "Indochine", yr: 1992, score: 6.90000000000000036, votes: 835, director_id: 2785)
-Movie.create!(id: 1716, title: "Oh, God!", yr: 1977, score: 5.90000000000000036, votes: 832, director_id: 221)
-Movie.create!(id: 1717, title: "Body of Evidence", yr: 1993, score: 4.09999999999999964, votes: 831, director_id: 2735)
-Movie.create!(id: 1718, title: "Canadian Bacon", yr: 1995, score: 5.40000000000000036, votes: 829, director_id: 955)
-Movie.create!(id: 1719, title: "Wait Until Dark", yr: 1967, score: 7.5, votes: 829, director_id: 388)
-Movie.create!(id: 1720, title: "Felicia's Journey", yr: 1999, score: 7.20000000000000018, votes: 827, director_id: 665)
-Movie.create!(id: 1721, title: "Yume", yr: 1990, score: 7.40000000000000036, votes: 825, director_id: 208)
-Movie.create!(id: 1722, title: "Home Alone 3", yr: 1997, score: 3.70000000000000018, votes: 825, director_id: 633)
-Movie.create!(id: 1723, title: "Hotaru no haka", yr: 1988, score: 8.5, votes: 822, director_id: 2401)
-Movie.create!(id: 1724, title: "1776", yr: 1972, score: 7, votes: 821, director_id: 2822)
-Movie.create!(id: 1725, title: "Brainstorm", yr: 1983, score: 6.20000000000000018, votes: 821, director_id: 1156)
-Movie.create!(id: 1726, title: "Wilde", yr: 1997, score: 7, votes: 820, director_id: 2431)
-Movie.create!(id: 1727, title: "Escape from the Planet of the Apes", yr: 1971, score: 5.79999999999999982, votes: 819, director_id: 489)
-Movie.create!(id: 1728, title: "Foul Play", yr: 1978, score: 6.5, votes: 818, director_id: 1110)
-Movie.create!(id: 1729, title: "One, Two, Three", yr: 1961, score: 7.70000000000000018, votes: 818, director_id: 79)
-Movie.create!(id: 1730, title: "Turbulence", yr: 1997, score: 4.20000000000000018, votes: 818, director_id: 2707)
-Movie.create!(id: 1731, title: "Halloween 4: The Return of Michael Myers", yr: 1988, score: 5, votes: 818, director_id: 1178)
-Movie.create!(id: 1732, title: "Moscow on the Hudson", yr: 1984, score: 6.20000000000000018, votes: 818, director_id: 720)
-Movie.create!(id: 1733, title: "Pallbearer, The", yr: 1996, score: 4.90000000000000036, votes: 817, director_id: 2686)
-Movie.create!(id: 1734, title: "See No Evil, Hear No Evil", yr: 1989, score: 5.59999999999999964, votes: 817, director_id: 1087)
-Movie.create!(id: 1735, title: "Crush, The", yr: 1993, score: 5.29999999999999982, votes: 817, director_id: 2115)
-Movie.create!(id: 1736, title: "Guarding Tess", yr: 1994, score: 6.09999999999999964, votes: 816, director_id: 377)
-Movie.create!(id: 1737, title: "Hotel New Hampshire, The", yr: 1984, score: 5.79999999999999982, votes: 814, director_id: 2653)
-Movie.create!(id: 1738, title: "Music of the Heart", yr: 1999, score: 6.90000000000000036, votes: 814, director_id: 133)
-Movie.create!(id: 1739, title: "Yatgo ho yan", yr: 1997, score: 6.40000000000000036, votes: 814, director_id: 1691)
-Movie.create!(id: 1740, title: "Erik the Viking", yr: 1989, score: 5.59999999999999964, votes: 814, director_id: 694)
-Movie.create!(id: 1741, title: "Red River", yr: 1948, score: 8.40000000000000036, votes: 813, director_id: 197)
-Movie.create!(id: 1742, title: "We're No Angels", yr: 1989, score: 5.29999999999999982, votes: 812, director_id: 153)
-Movie.create!(id: 1743, title: "SLC Punk!", yr: 1999, score: 7.09999999999999964, votes: 811, director_id: 2479)
-Movie.create!(id: 1744, title: "Boys from Brazil, The", yr: 1978, score: 6.5, votes: 809, director_id: 405)
-Movie.create!(id: 1745, title: "Young Einstein", yr: 1988, score: 4.79999999999999982, votes: 809, director_id: 999)
-Movie.create!(id: 1746, title: "Hitlerjunge Salomon", yr: 1990, score: 7.70000000000000018, votes: 808, director_id: 997)
-Movie.create!(id: 1747, title: "Navy SEALS", yr: 1990, score: 5, votes: 807, director_id: 1016)
-Movie.create!(id: 1748, title: "Poison Ivy", yr: 1992, score: 5, votes: 806, director_id: 1160)
-Movie.create!(id: 1749, title: "Ikiru", yr: 1952, score: 8.80000000000000071, votes: 805, director_id: 208)
-Movie.create!(id: 1750, title: "Hope and Glory", yr: 1987, score: 7.59999999999999964, votes: 803, director_id: 293)
-Movie.create!(id: 1751, title: "Cape Fear", yr: 1962, score: 7.59999999999999964, votes: 803, director_id: 1164)
-Movie.create!(id: 1752, title: "Yentl", yr: 1983, score: 5.70000000000000018, votes: 803, director_id: 207)
-Movie.create!(id: 1753, title: "Bounty, The", yr: 1984, score: 6.70000000000000018, votes: 802, director_id: 146)
-Movie.create!(id: 1754, title: "Talk Radio", yr: 1988, score: 6.79999999999999982, votes: 799, director_id: 69)
-Movie.create!(id: 1755, title: "Silver Streak", yr: 1976, score: 6.5, votes: 798, director_id: 1087)
-Movie.create!(id: 1756, title: "Exit to Eden", yr: 1994, score: 3.89999999999999991, votes: 797, director_id: 129)
-Movie.create!(id: 1757, title: "Dobermann", yr: 1997, score: 6.59999999999999964, votes: 797, director_id: 2451)
-Movie.create!(id: 1758, title: "Poltergeist II: The Other Side", yr: 1986, score: 4.79999999999999982, votes: 796, director_id: 1171)
-Movie.create!(id: 1759, title: "Hush", yr: 1998, score: 4.40000000000000036, votes: 796, director_id: 2378)
-Movie.create!(id: 1760, title: "Phantom of the Paradise", yr: 1974, score: 6.59999999999999964, votes: 796, director_id: 31)
-Movie.create!(id: 1761, title: "Terminal Velocity", yr: 1994, score: 5.40000000000000036, votes: 795, director_id: 2463)
-Movie.create!(id: 1762, title: "Wishmaster", yr: 1997, score: 4.90000000000000036, votes: 794, director_id: 2502)
-Movie.create!(id: 1763, title: "Honey, I Blew Up the Kid", yr: 1992, score: 4.29999999999999982, votes: 793, director_id: 383)
-Movie.create!(id: 1764, title: "Thomas Crown Affair, The", yr: 1968, score: 6.79999999999999982, votes: 793, director_id: 81)
-Movie.create!(id: 1765, title: "...And Justice for All", yr: 1979, score: 6.70000000000000018, votes: 791, director_id: 81)
-Movie.create!(id: 1766, title: "Halloween: The Curse of Michael Myers", yr: 1995, score: 4.29999999999999982, votes: 791, director_id: 1127)
-Movie.create!(id: 1767, title: "Paper Moon", yr: 1973, score: 7.5, votes: 790, director_id: 612)
-Movie.create!(id: 1768, title: "To Be or Not to Be", yr: 1942, score: 8.5, votes: 789, director_id: 2014)
-Movie.create!(id: 1769, title: "Toy Soldiers", yr: 1991, score: 5.79999999999999982, votes: 789, director_id: 2253)
-Movie.create!(id: 1770, title: "Midsummer Night's Sex Comedy, A", yr: 1982, score: 6.20000000000000018, votes: 789, director_id: 1)
-Movie.create!(id: 1771, title: "Death on the Nile", yr: 1978, score: 6.5, votes: 787, director_id: 2287)
-Movie.create!(id: 1772, title: "Funny Games", yr: 1997, score: 7.40000000000000036, votes: 786, director_id: 2629)
-Movie.create!(id: 1773, title: "Stand and Deliver", yr: 1987, score: 7, votes: 786, director_id: 2840)
-Movie.create!(id: 1774, title: "Gung Ho", yr: 1986, score: 5.59999999999999964, votes: 786, director_id: 21)
-Movie.create!(id: 1775, title: "Distinguished Gentleman, The", yr: 1992, score: 5.70000000000000018, votes: 786, director_id: 262)
-Movie.create!(id: 1776, title: "Good Son, The", yr: 1993, score: 5.5, votes: 785, director_id: 410)
-Movie.create!(id: 1777, title: "Milk Money", yr: 1994, score: 5.20000000000000018, votes: 785, director_id: 320)
-Movie.create!(id: 1778, title: "Family Business", yr: 1989, score: 5.20000000000000018, votes: 783, director_id: 80)
-Movie.create!(id: 1779, title: "Sudden Impact", yr: 1983, score: 6.09999999999999964, votes: 782, director_id: 2)
-Movie.create!(id: 1780, title: "Remo Williams: The Adventure Begins...", yr: 1985, score: 5.59999999999999964, votes: 781, director_id: 636)
-Movie.create!(id: 1781, title: "Hidden, The", yr: 1987, score: 6.90000000000000036, votes: 781, director_id: 1173)
-Movie.create!(id: 1782, title: "SubUrbia", yr: 1997, score: 6.40000000000000036, votes: 780, director_id: 205)
-Movie.create!(id: 1783, title: "Scarlet Letter, The", yr: 1995, score: 4.20000000000000018, votes: 780, director_id: 1170)
-Movie.create!(id: 1784, title: "SpaceCamp", yr: 1986, score: 5.29999999999999982, votes: 780, director_id: 2191)
-Movie.create!(id: 1785, title: "Glimmer Man, The", yr: 1996, score: 5, votes: 779, director_id: 2278)
-Movie.create!(id: 1786, title: "Richie Rich", yr: 1994, score: 4.29999999999999982, votes: 778, director_id: 599)
-Movie.create!(id: 1787, title: "Double Team", yr: 1997, score: 4.20000000000000018, votes: 778, director_id: 2164)
-Movie.create!(id: 1788, title: "Atlantic City", yr: 1980, score: 7.79999999999999982, votes: 777, director_id: 619)
-Movie.create!(id: 1789, title: "Educating Rita", yr: 1983, score: 6.79999999999999982, votes: 777, director_id: 390)
-Movie.create!(id: 1790, title: "Court Jester, The", yr: 1956, score: 8.19999999999999929, votes: 777, director_id: 2717)
-Movie.create!(id: 1791, title: "Teen Wolf Too", yr: 1987, score: 2.5, votes: 775, director_id: 2298)
-Movie.create!(id: 1792, title: "Slacker", yr: 1991, score: 6.79999999999999982, votes: 774, director_id: 205)
-Movie.create!(id: 1793, title: "Two Girls and a Guy", yr: 1997, score: 5.79999999999999982, votes: 773, director_id: 2429)
-Movie.create!(id: 1794, title: "Raw Deal", yr: 1986, score: 4.70000000000000018, votes: 773, director_id: 2265)
-Movie.create!(id: 1795, title: "Taking of Pelham One Two Three, The", yr: 1974, score: 7.5, votes: 773, director_id: 1119)
-Movie.create!(id: 1796, title: "Psycho II", yr: 1983, score: 5.59999999999999964, votes: 772, director_id: 2513)
-Movie.create!(id: 1797, title: "Friday the 13th Part 3: 3D", yr: 1982, score: 3.79999999999999982, votes: 772, director_id: 365)
-Movie.create!(id: 1798, title: "Ghosts of Mississippi", yr: 1996, score: 6.5, votes: 772, director_id: 37)
-Movie.create!(id: 1799, title: "Great Race, The", yr: 1965, score: 6.79999999999999982, votes: 772, director_id: 65)
-Movie.create!(id: 1800, title: "Un chien andalou", yr: 1929, score: 8.30000000000000071, votes: 772, director_id: 815)
-Movie.create!(id: 1801, title: "Hearts of Darkness: A Filmmaker's Apocalypse", yr: 1991, score: 8.19999999999999929, votes: 772, director_id: 2031)
-Movie.create!(id: 1802, title: "Hoffa", yr: 1992, score: 6, votes: 771, director_id: 24)
-Movie.create!(id: 1803, title: "Don't Look Now", yr: 1973, score: 7.5, votes: 770, director_id: 1076)
-Movie.create!(id: 1804, title: "Teenage Mutant Ninja Turtles II: The Secret of the Ooze", yr: 1991, score: 4.09999999999999964, votes: 769, director_id: 2652)
-Movie.create!(id: 1805, title: "Orlando", yr: 1992, score: 6.5, votes: 769, director_id: 2489)
-Movie.create!(id: 1806, title: "Playing God", yr: 1997, score: 5.40000000000000036, votes: 768, director_id: 2026)
-Movie.create!(id: 1807, title: "American Gigolo", yr: 1980, score: 5.70000000000000018, votes: 768, director_id: 652)
-Movie.create!(id: 1808, title: "Serpent and the Rainbow, The", yr: 1988, score: 5.79999999999999982, votes: 768, director_id: 133)
-Movie.create!(id: 1809, title: "U2: Rattle and Hum", yr: 1988, score: 6.79999999999999982, votes: 767, director_id: 2807)
-Movie.create!(id: 1810, title: "Used Cars", yr: 1980, score: 6.29999999999999982, votes: 767, director_id: 67)
-Movie.create!(id: 1811, title: "Valley Girl", yr: 1983, score: 6, votes: 767, director_id: 1141)
-Movie.create!(id: 1812, title: "Shadows and Fog", yr: 1992, score: 6.20000000000000018, votes: 767, director_id: 1)
-Movie.create!(id: 1813, title: "Out of Rosenheim", yr: 1988, score: 7.20000000000000018, votes: 767, director_id: 2771)
-Movie.create!(id: 1814, title: "Portrait of a Lady, The", yr: 1996, score: 5.79999999999999982, votes: 767, director_id: 575)
-Movie.create!(id: 1815, title: "Selena", yr: 1997, score: 6.09999999999999964, votes: 765, director_id: 2155)
-Movie.create!(id: 1816, title: "My Beautiful Laundrette", yr: 1985, score: 6.79999999999999982, votes: 764, director_id: 292)
-Movie.create!(id: 1817, title: "Project X", yr: 1987, score: 5.79999999999999982, votes: 763, director_id: 580)
-Movie.create!(id: 1818, title: "Robin Hood", yr: 1973, score: 7.09999999999999964, votes: 762, director_id: 1004)
-Movie.create!(id: 1819, title: "Newton Boys, The", yr: 1998, score: 5.79999999999999982, votes: 762, director_id: 205)
-Movie.create!(id: 1820, title: "Money Talks", yr: 1997, score: 5.59999999999999964, votes: 760, director_id: 1094)
-Movie.create!(id: 1821, title: "Don't Be a Menace to South Central While Drinking Your Juice in the Hood", yr: 1996, score: 5.90000000000000036, votes: 760, director_id: 2599)
-Movie.create!(id: 1822, title: "Billy Bathgate", yr: 1991, score: 5.70000000000000018, votes: 760, director_id: 660)
-Movie.create!(id: 1823, title: "Muppets From Space", yr: 1999, score: 6.20000000000000018, votes: 760, director_id: 2721)
-Movie.create!(id: 1824, title: "Hocus Pocus", yr: 1993, score: 4.90000000000000036, votes: 760, director_id: 991)
-Movie.create!(id: 1825, title: "Thinner", yr: 1996, score: 4.90000000000000036, votes: 759, director_id: 562)
-Movie.create!(id: 1826, title: "Restoration", yr: 1995, score: 6.79999999999999982, votes: 759, director_id: 401)
-Movie.create!(id: 1827, title: "Hard Way, The", yr: 1991, score: 6, votes: 758, director_id: 66)
-Movie.create!(id: 1828, title: "Baby Boom", yr: 1987, score: 5.70000000000000018, votes: 758, director_id: 397)
-Movie.create!(id: 1829, title: "Time After Time", yr: 1979, score: 7.09999999999999964, votes: 757, director_id: 571)
-Movie.create!(id: 1830, title: "&#161;&#193;tame!", yr: 1990, score: 6.70000000000000018, votes: 755, director_id: 394)
-Movie.create!(id: 1831, title: "Angels in the Outfield", yr: 1994, score: 5.5, votes: 752, director_id: 1059)
-Movie.create!(id: 1832, title: "Parent Trap, The", yr: 1961, score: 6.90000000000000036, votes: 752, director_id: 2433)
-Movie.create!(id: 1833, title: "Santa Claus Conquers the Martians", yr: 1964, score: 2.10000000000000009, votes: 750, director_id: 2713)
-Movie.create!(id: 1834, title: "Truly Madly Deeply", yr: 1991, score: 6.79999999999999982, votes: 749, director_id: 621)
-Movie.create!(id: 1835, title: "Very Brady Sequel, A", yr: 1996, score: 5.29999999999999982, votes: 749, director_id: 2048)
-Movie.create!(id: 1836, title: "Duoluo tianshi", yr: 1995, score: 7.40000000000000036, votes: 747, director_id: 1095)
-Movie.create!(id: 1837, title: "Summer School", yr: 1987, score: 5.79999999999999982, votes: 745, director_id: 221)
-Movie.create!(id: 1838, title: "Bewegte Mann, Der", yr: 1994, score: 6.70000000000000018, votes: 743, director_id: 2589)
-Movie.create!(id: 1839, title: "Streets of Fire", yr: 1984, score: 6.09999999999999964, votes: 742, director_id: 143)
-Movie.create!(id: 1840, title: "Heart and Souls", yr: 1993, score: 6.79999999999999982, votes: 736, director_id: 415)
-Movie.create!(id: 1841, title: "Barcelona", yr: 1994, score: 6.59999999999999964, votes: 734, director_id: 2857)
-Movie.create!(id: 1842, title: "Absence of Malice", yr: 1981, score: 6.70000000000000018, votes: 734, director_id: 92)
-Movie.create!(id: 1843, title: "Milagro Beanfield War, The", yr: 1988, score: 6.70000000000000018, votes: 726, director_id: 36)
-Movie.create!(id: 1844, title: "End of Violence, The", yr: 1997, score: 5.59999999999999964, votes: 724, director_id: 269)
-Movie.create!(id: 1845, title: "Hollywood Knights, The", yr: 1980, score: 5.5, votes: 721, director_id: 2016)
+Movie.import(
+[:id, :title, :yr, :score, :votes, :director_id],
+[[ 1,  "Star Wars",  1977,  8.80000000000000071,  53567,  360],
+[ 2,  "Shawshank Redemption, The",  1994,  9,  44974,  1040],
+[ 3,  "Pulp Fiction",  1994,  8.59999999999999964,  43993,  444],
+[ 4,  "Titanic",  1997,  7.20000000000000018,  43371,  198],
+[ 5,  "Star Wars: Episode V - The Empire Strikes Back",  1980,  8.59999999999999964,  39446,  651],
+[ 6,  "Usual Suspects, The",  1995,  8.69999999999999929,  35027,  639],
+[ 7,  "Schindler's List",  1993,  8.80000000000000071,  34251,  18],
+[ 8,  "Saving Private Ryan",  1998,  8.5,  34113,  18],
+[ 9,  "Braveheart",  1995,  8.30000000000000071,  32870,  22],
+[ 10,  "American Beauty",  1999,  8.80000000000000071,  32547,  2542],
+[ 11,  "Raiders of the Lost Ark",  1981,  8.59999999999999964,  31750,  18],
+[ 12,  "Godfather, The",  1972,  9,  31225,  28],
+[ 13,  "Star Wars: Episode VI - Return of the Jedi",  1983,  8,  30178,  1020],
+[ 14,  "Blade Runner",  1982,  8.30000000000000071,  29877,  110],
+[ 15,  "Silence of the Lambs, The",  1991,  8.5,  29582,  281],
+[ 16,  "Forrest Gump",  1994,  7.79999999999999982,  29400,  67],
+[ 17,  "Star Wars: Episode I - The Phantom Menace",  1999,  7.29999999999999982,  28641,  360],
+[ 18,  "Sixth Sense, The",  1999,  8.5,  27626,  966],
+[ 19,  "Independence Day",  1996,  6,  26259,  290],
+[ 20,  "Terminator 2: Judgment Day",  1991,  7.90000000000000036,  25767,  198],
+[ 21,  "Se7en",  1995,  8.09999999999999964,  25158,  414],
+[ 22,  "Fargo",  1996,  8.19999999999999929,  25044,  111],
+[ 23,  "2001: A Space Odyssey",  1968,  8.30000000000000071,  24536,  82],
+[ 24,  "Aliens",  1986,  8.19999999999999929,  23965,  198],
+[ 25,  "Truman Show, The",  1998,  7.79999999999999982,  23665,  86],
+[ 26,  "Back to the Future",  1985,  7.79999999999999982,  23306,  67],
+[ 27,  "Casablanca",  1942,  8.80000000000000071,  23283,  675],
+[ 28,  "One Flew Over the Cuckoo's Nest",  1975,  8.69999999999999929,  22868,  408],
+[ 29,  "Good Will Hunting",  1997,  7.90000000000000036,  22734,  271],
+[ 30,  "Fifth Element, The",  1997,  7,  22365,  389],
+[ 31,  "Twelve Monkeys",  1995,  7.79999999999999982,  22342,  59],
+[ 32,  "Gladiator",  2000,  8.30000000000000071,  21955,  110],
+[ 33,  "Fight Club",  1999,  8.5,  21391,  414],
+[ 34,  "Clockwork Orange, A",  1971,  8.19999999999999929,  21216,  82],
+[ 35,  "Alien",  1979,  8.19999999999999929,  20998,  110],
+[ 36,  "Princess Bride, The",  1987,  8.19999999999999929,  20931,  37],
+[ 37,  "Indiana Jones and the Last Crusade",  1989,  7.79999999999999982,  20897,  18],
+[ 38,  "Fugitive, The",  1993,  7.79999999999999982,  20843,  291],
+[ 39,  "Reservoir Dogs",  1992,  8.19999999999999929,  20343,  444],
+[ 40,  "Citizen Kane",  1941,  8.80000000000000071,  20269,  253],
+[ 41,  "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",  1964,  8.69999999999999929,  20034,  82],
+[ 42,  "Die Hard",  1988,  7.90000000000000036,  19929,  196],
+[ 43,  "Goodfellas",  1990,  8.5,  19430,  78],
+[ 44,  "Scream",  1996,  7.20000000000000018,  19350,  133],
+[ 45,  "Apocalypse Now",  1979,  8.30000000000000071,  19335,  28],
+[ 46,  "Terminator, The",  1984,  7.79999999999999982,  18995,  198],
+[ 47,  "As Good As It Gets",  1997,  7.79999999999999982,  18856,  574],
+[ 48,  "Dead Poets Society",  1989,  7.70000000000000018,  18769,  86],
+[ 49,  "Monty Python and the Holy Grail",  1975,  8.30000000000000071,  18640,  59],
+[ 50,  "Trainspotting",  1996,  7.79999999999999982,  18428,  597],
+[ 51,  "Rock, The",  1996,  7,  18013,  678],
+[ 52,  "Shakespeare in Love",  1998,  7.90000000000000036,  17918,  1011],
+[ 53,  "Apollo 13",  1995,  7.59999999999999964,  17797,  21],
+[ 54,  "Psycho",  1960,  8.59999999999999964,  17734,  11],
+[ 55,  "Contact",  1997,  7.59999999999999964,  17390,  67],
+[ 56,  "There's Something About Mary",  1998,  7.29999999999999982,  17352,  2459],
+[ 57,  "Toy Story",  1995,  7.90000000000000036,  16971,  1044],
+[ 58,  "Armageddon",  1998,  5.79999999999999982,  16581,  678],
+[ 59,  "Blair Witch Project, The",  1999,  6.59999999999999964,  16204,  2248],
+[ 60,  "Rain Man",  1988,  7.79999999999999982,  15933,  38],
+[ 61,  "Godfather: Part II, The",  1974,  8.80000000000000071,  15487,  28],
+[ 62,  "Face/Off",  1997,  7.20000000000000018,  14744,  204],
+[ 63,  "Shining, The",  1980,  8.09999999999999964,  14653,  82],
+[ 64,  "Amadeus",  1984,  8.19999999999999929,  14351,  408],
+[ 65,  "Taxi Driver",  1976,  8.40000000000000036,  14090,  78],
+[ 66,  "E.T. the Extra-Terrestrial",  1982,  7.70000000000000018,  14062,  18],
+[ 67,  "Blues Brothers, The",  1980,  7.5,  13979,  62],
+[ 68,  "Star Trek: First Contact",  1996,  7.20000000000000018,  13948,  500],
+[ 69,  "Full Metal Jacket",  1987,  8.09999999999999964,  13863,  82],
+[ 70,  "Being John Malkovich",  1999,  8.30000000000000071,  13809,  1485],
+[ 71,  "Clerks",  1994,  7.90000000000000036,  13803,  445],
+[ 72,  "Wizard of Oz, The",  1939,  8.30000000000000071,  13444,  1151],
+[ 73,  "Green Mile, The",  1999,  8.30000000000000071,  13409,  1040],
+[ 74,  "Vita &#232; bella, La",  1997,  8.59999999999999964,  13403,  820],
+[ 75,  "Austin Powers: International Man of Mystery",  1997,  7,  13372,  604],
+[ 76,  "Ferris Bueller's Day Off",  1986,  7.59999999999999964,  13326,  144],
+[ 77,  "Starship Troopers",  1997,  6.59999999999999964,  13205,  201],
+[ 78,  "Groundhog Day",  1993,  7.70000000000000018,  13093,  108],
+[ 79,  "Mission: Impossible",  1996,  6.40000000000000036,  13029,  31],
+[ 80,  "Heat",  1995,  7.70000000000000018,  13016,  1106],
+[ 81,  "English Patient, The",  1996,  7.09999999999999964,  12995,  621],
+[ 82,  "American History X",  1998,  8.30000000000000071,  12977,  2663],
+[ 83,  "Top Gun",  1986,  6.40000000000000036,  12851,  107],
+[ 84,  "Speed",  1994,  7,  12715,  421],
+[ 85,  "Twister",  1996,  5.90000000000000036,  12597,  421],
+[ 86,  "Batman",  1989,  7.09999999999999964,  12512,  148],
+[ 87,  "Rear Window",  1954,  8.69999999999999929,  12484,  11],
+[ 88,  "Eyes Wide Shut",  1999,  7.29999999999999982,  12455,  82],
+[ 89,  "Brazil",  1985,  8,  12319,  59],
+[ 90,  "Big Lebowski, The",  1998,  7.59999999999999964,  12266,  111],
+[ 91,  "True Lies",  1994,  7,  12109,  198],
+[ 92,  "X-Men",  2000,  7.79999999999999982,  12093,  639],
+[ 93,  "Full Monty, The",  1997,  7.40000000000000036,  11852,  2757],
+[ 94,  "North by Northwest",  1959,  8.59999999999999964,  11588,  11],
+[ 95,  "Chasing Amy",  1997,  7.59999999999999964,  11563,  445],
+[ 96,  "Hunt for Red October, The",  1990,  7.5,  11251,  196],
+[ 97,  "Vertigo",  1958,  8.5,  11231,  11],
+[ 98,  "Dogma",  1999,  7.59999999999999964,  11133,  445],
+[ 99,  "Mission: Impossible II",  2000,  6.29999999999999982,  11117,  204],
+[ 100,  "Fish Called Wanda, A",  1988,  7.70000000000000018,  11075,  2247],
+[ 101,  "American Pie",  1999,  7.09999999999999964,  10908,  2859],
+[ 102,  "Austin Powers: The Spy Who Shagged Me",  1999,  6.5,  10891,  604],
+[ 103,  "Indiana Jones and the Temple of Doom",  1984,  6.90000000000000036,  10674,  18],
+[ 104,  "When Harry Met Sally...",  1989,  7.59999999999999964,  10663,  37],
+[ 105,  "Gone with the Wind",  1939,  8.09999999999999964,  10628,  1151],
+[ 106,  "Stand by Me",  1986,  7.79999999999999982,  10579,  37],
+[ 107,  "Batman & Robin",  1997,  3.5,  10577,  105],
+[ 108,  "Ghostbusters",  1984,  7.29999999999999982,  10543,  109],
+[ 109,  "Dances with Wolves",  1990,  7.59999999999999964,  10522,  10],
+[ 110,  "Sleepy Hollow",  1999,  7.5,  10514,  148],
+[ 111,  "South Park: Bigger, Longer and Uncut",  1999,  7.70000000000000018,  10471,  270],
+[ 112,  "Three Kings",  1999,  7.70000000000000018,  10319,  1070],
+[ 113,  "Platoon",  1986,  7.90000000000000036,  10272,  69],
+[ 114,  "From Dusk Till Dawn",  1996,  6.59999999999999964,  10152,  666],
+[ 115,  "Mummy, The",  1999,  6.59999999999999964,  10125,  1103],
+[ 116,  "Toy Story 2",  1999,  8.5,  10020,  2043],
+[ 117,  "Air Force One",  1997,  6.5,  9941,  140],
+[ 118,  "Unforgiven",  1992,  7.90000000000000036,  9903,  2],
+[ 119,  "Breakfast Club, The",  1985,  7.40000000000000036,  9760,  144],
+[ 120,  "Field of Dreams",  1989,  7.59999999999999964,  9717,  993],
+[ 121,  "To Kill a Mockingbird",  1962,  8.5,  9707,  2586],
+[ 122,  "Untouchables, The",  1987,  7.79999999999999982,  9592,  31],
+[ 123,  "Graduate, The",  1967,  8.09999999999999964,  9558,  47],
+[ 124,  "Thin Red Line, The",  1998,  7.20000000000000018,  9555,  686],
+[ 125,  "Game, The",  1997,  7.5,  9552,  414],
+[ 126,  "Godzilla",  1998,  4.20000000000000018,  9464,  290],
+[ 127,  "Boogie Nights",  1997,  7.5,  9458,  1037],
+[ 128,  "Abyss, The",  1989,  7.29999999999999982,  9434,  198],
+[ 129,  "Romeo + Juliet",  1996,  6.59999999999999964,  9274,  1069],
+[ 130,  "Total Recall",  1990,  7.09999999999999964,  9261,  201],
+[ 131,  "Grosse Pointe Blank",  1997,  7.40000000000000036,  9211,  2103],
+[ 132,  "X Files, The",  1998,  6.79999999999999982,  9114,  2673],
+[ 133,  "Close Encounters of the Third Kind",  1977,  7.70000000000000018,  9107,  18],
+[ 134,  "Few Good Men, A",  1992,  7.40000000000000036,  9077,  37],
+[ 135,  "Exorcist, The",  1973,  7.90000000000000036,  8984,  264],
+[ 136,  "Devil's Advocate, The",  1997,  7,  8983,  674],
+[ 137,  "Scream 2",  1997,  6.20000000000000018,  8970,  133],
+[ 138,  "Pleasantville",  1998,  7.5,  8969,  2118],
+[ 139,  "Deep Impact",  1998,  6,  8950,  589],
+[ 140,  "Con Air",  1997,  6.29999999999999982,  8917,  1114],
+[ 141,  "Grease",  1978,  6.59999999999999964,  8857,  383],
+[ 142,  "Natural Born Killers",  1994,  6.29999999999999982,  8744,  69],
+[ 143,  "Sling Blade",  1996,  8.09999999999999964,  8740,  298],
+[ 144,  "True Romance",  1993,  7.5,  8657,  107],
+[ 145,  "GoldenEye",  1995,  6.70000000000000018,  8484,  2539],
+[ 146,  "Bug's Life, A",  1998,  7.70000000000000018,  8481,  1044],
+[ 147,  "Airplane!",  1980,  7.59999999999999964,  8431,  189],
+[ 148,  "Back to the Future Part II",  1989,  6.59999999999999964,  8411,  67],
+[ 149,  "Deer Hunter, The",  1978,  8.09999999999999964,  8393,  2645],
+[ 150,  "Boot, Das",  1981,  8.5,  8392,  140],
+[ 151,  "Gattaca",  1997,  7.40000000000000036,  8388,  2020],
+[ 152,  "Alien: Resurrection",  1997,  6,  8363,  2235],
+[ 153,  "Beauty and the Beast",  1991,  7.79999999999999982,  8306,  2126],
+[ 154,  "Chinatown",  1974,  8.40000000000000036,  8280,  90],
+[ 155,  "Casino",  1995,  7.59999999999999964,  8247,  78],
+[ 156,  "World Is Not Enough, The",  1999,  6.59999999999999964,  8226,  199],
+[ 157,  "Raising Arizona",  1987,  7.59999999999999964,  8185,  111],
+[ 158,  "Army of Darkness",  1993,  7.20000000000000018,  8165,  141],
+[ 159,  "12 Angry Men",  1957,  8.59999999999999964,  8158,  80],
+[ 160,  "Batman Forever",  1995,  5.29999999999999982,  8130,  105],
+[ 161,  "Sting, The",  1973,  8.19999999999999929,  8108,  276],
+[ 162,  "Glory",  1989,  8.09999999999999964,  8079,  382],
+[ 163,  "Raging Bull",  1980,  8.40000000000000036,  8029,  78],
+[ 164,  "Dark City",  1998,  7.5,  8024,  1047],
+[ 165,  "Wallace & Gromit: The Wrong Trousers",  1993,  8.5,  8024,  572],
+[ 166,  "Beetlejuice",  1988,  6.90000000000000036,  8019,  148],
+[ 167,  "Highlander",  1986,  7.09999999999999964,  8013,  577],
+[ 168,  "Pretty Woman",  1990,  6.5,  7993,  129],
+[ 169,  "Notting Hill",  1999,  7.29999999999999982,  7977,  2760],
+[ 170,  "Go",  1999,  7.79999999999999982,  7935,  1163],
+[ 171,  "Sound of Music, The",  1965,  7.59999999999999964,  7913,  286],
+[ 172,  "Crow, The",  1994,  6.90000000000000036,  7869,  1047],
+[ 173,  "Patriot, The",  2000,  7.29999999999999982,  7826,  290],
+[ 174,  "Enemy of the State",  1998,  7.20000000000000018,  7817,  107],
+[ 175,  "Babe",  1995,  7.59999999999999964,  7811,  2353],
+[ 176,  "Talented Mr. Ripley, The",  1999,  7.20000000000000018,  7797,  621],
+[ 177,  "Who Framed Roger Rabbit",  1988,  7.29999999999999982,  7789,  67],
+[ 178,  "Tomorrow Never Dies",  1997,  6.5,  7683,  407],
+[ 179,  "Dead Man Walking",  1995,  7.70000000000000018,  7636,  25],
+[ 180,  "Out of Sight",  1998,  7.59999999999999964,  7555,  689],
+[ 181,  "Sleepless in Seattle",  1993,  6.79999999999999982,  7551,  1091],
+[ 182,  "Die Hard: With a Vengeance",  1995,  6.79999999999999982,  7544,  196],
+[ 183,  "Aladdin",  1992,  7.5,  7537,  1152],
+[ 184,  "Dumb & Dumber",  1994,  6.20000000000000018,  7444,  2825],
+[ 185,  "Wedding Singer, The",  1998,  6.79999999999999982,  7431,  1054],
+[ 186,  "Insider, The",  1999,  8.19999999999999929,  7429,  1106],
+[ 187,  "Negotiator, The",  1998,  7.20000000000000018,  7420,  1035],
+[ 188,  "Perfect Storm, The",  2000,  6.59999999999999964,  7414,  140],
+[ 189,  "Bridge on the River Kwai, The",  1957,  8.40000000000000036,  7395,  1080],
+[ 190,  "Four Weddings and a Funeral",  1994,  7.20000000000000018,  7394,  585],
+[ 191,  "Ransom",  1996,  6.70000000000000018,  7377,  21],
+[ 192,  "Back to the Future Part III",  1990,  6.40000000000000036,  7337,  67],
+[ 193,  "Rocky Horror Picture Show, The",  1975,  6.5,  7288,  2325],
+[ 194,  "Rushmore",  1998,  7.59999999999999964,  7269,  1034],
+[ 195,  "Spaceballs",  1987,  6.40000000000000036,  7225,  29],
+[ 196,  "Analyze This",  1999,  6.79999999999999982,  7224,  108],
+[ 197,  "Die Hard 2",  1990,  6.59999999999999964,  7197,  210],
+[ 198,  "Young Frankenstein",  1974,  8,  7186,  29],
+[ 199,  "Goldfinger",  1964,  7.70000000000000018,  7180,  636],
+[ 200,  "Clueless",  1995,  6.70000000000000018,  7159,  403],
+[ 201,  "Thelma & Louise",  1991,  7.20000000000000018,  7153,  110],
+[ 202,  "Ronin",  1998,  7,  7144,  676],
+[ 203,  "Predator",  1987,  7.09999999999999964,  7136,  196],
+[ 204,  "Cruel Intentions",  1999,  6.70000000000000018,  7081,  2765],
+[ 205,  "Batman Returns",  1992,  6.20000000000000018,  7063,  148],
+[ 206,  "Swingers",  1996,  7.5,  7038,  1163],
+[ 207,  "Basic Instinct",  1992,  6.5,  7011,  201],
+[ 208,  "Annie Hall",  1977,  8.19999999999999929,  6989,  1],
+[ 209,  "Star Trek: The Wrath of Khan",  1982,  7.40000000000000036,  6969,  571],
+[ 210,  "Waterworld",  1995,  5.29999999999999982,  6934,  378],
+[ 211,  "Ben-Hur",  1959,  8.09999999999999964,  6927,  620],
+[ 212,  "Animal House",  1978,  7.40000000000000036,  6925,  62],
+[ 213,  "Blade",  1998,  6.70000000000000018,  6885,  2861],
+[ 214,  "Dune",  1984,  6.09999999999999964,  6884,  139],
+[ 215,  "Galaxy Quest",  1999,  7.5,  6841,  1101],
+[ 216,  "Shine",  1996,  7.5,  6837,  1135],
+[ 217,  "Simple Plan, A",  1998,  7.70000000000000018,  6763,  141],
+[ 218,  "Ghost",  1990,  6.70000000000000018,  6741,  1116],
+[ 219,  "Big",  1988,  7.20000000000000018,  6741,  361],
+[ 220,  "Edward Scissorhands",  1990,  7.29999999999999982,  6697,  148],
+[ 221,  "Christmas Story, A",  1983,  8.09999999999999964,  6693,  579],
+[ 222,  "Singin' in the Rain",  1952,  8.5,  6662,  428],
+[ 223,  "Time to Kill, A",  1996,  6.90000000000000036,  6658,  105],
+[ 224,  "You've Got Mail",  1998,  6.40000000000000036,  6654,  1091],
+[ 225,  "Butch Cassidy and the Sundance Kid",  1969,  8.09999999999999964,  6637,  276],
+[ 226,  "Halloween",  1978,  7.5,  6621,  23],
+[ 227,  "Stargate",  1994,  6.20000000000000018,  6604,  290],
+[ 228,  "Ed Wood",  1994,  7.79999999999999982,  6587,  148],
+[ 229,  "Wild Things",  1998,  6.79999999999999982,  6569,  974],
+[ 230,  "Elizabeth",  1998,  7.70000000000000018,  6562,  2755],
+[ 231,  "Dracula",  1992,  6.90000000000000036,  6551,  28],
+[ 232,  "My Best Friend's Wedding",  1997,  6.5,  6543,  1169],
+[ 233,  "Robin Hood: Prince of Thieves",  1991,  6.29999999999999982,  6540,  378],
+[ 234,  "High Fidelity",  2000,  7.90000000000000036,  6535,  292],
+[ 235,  "Chicken Run",  2000,  8,  6534,  2802],
+[ 236,  "Sense and Sensibility",  1995,  7.70000000000000018,  6476,  273],
+[ 237,  "Some Like It Hot",  1959,  8.40000000000000036,  6445,  79],
+[ 238,  "Much Ado About Nothing",  1993,  7.5,  6443,  48],
+[ 239,  "Home Alone",  1990,  6.09999999999999964,  6430,  156],
+[ 240,  "Ace Ventura: Pet Detective",  1994,  6.09999999999999964,  6414,  586],
+[ 241,  "Shichinin no samurai",  1954,  9,  6357,  208],
+[ 242,  "While You Were Sleeping",  1995,  6.59999999999999964,  6353,  411],
+[ 243,  "Witness",  1985,  7.59999999999999964,  6332,  86],
+[ 244,  "I Know What You Did Last Summer",  1997,  5.29999999999999982,  6305,  2420],
+[ 245,  "Alien&#179;",  1992,  5.79999999999999982,  6293,  414],
+[ 246,  "Player, The",  1992,  7.79999999999999982,  6278,  155],
+[ 247,  "Wag the Dog",  1997,  6.90000000000000036,  6244,  38],
+[ 248,  "Tombstone",  1993,  7.20000000000000018,  6171,  631],
+[ 249,  "Buono, il brutto, il cattivo, Il",  1966,  8.5,  6161,  268],
+[ 250,  "Erin Brockovich",  2000,  7.59999999999999964,  6152,  689],
+[ 251,  "End of Days",  1999,  5.5,  6095,  103],
+[ 252,  "Star Trek: Insurrection",  1998,  6.40000000000000036,  6088,  500],
+[ 253,  "Sleepers",  1996,  6.79999999999999982,  6052,  38],
+[ 254,  "Antz",  1998,  7.20000000000000018,  6045,  2072],
+[ 255,  "City of Angels",  1998,  6.29999999999999982,  6022,  1139],
+[ 256,  "Event Horizon",  1997,  5.40000000000000036,  5993,  653],
+[ 257,  "Birds, The",  1963,  7.79999999999999982,  5969,  11],
+[ 258,  "Superman",  1978,  6.90000000000000036,  5958,  209],
+[ 259,  "Mrs. Doubtfire",  1993,  6.40000000000000036,  5956,  156],
+[ 260,  "Entrapment",  1999,  6.20000000000000018,  5940,  669],
+[ 261,  "Rocky",  1976,  7.59999999999999964,  5933,  683],
+[ 262,  "Goonies, The",  1985,  6.70000000000000018,  5908,  209],
+[ 263,  "Blazing Saddles",  1974,  7.59999999999999964,  5876,  29],
+[ 264,  "This Is Spinal Tap",  1984,  7.90000000000000036,  5854,  37],
+[ 265,  "Hook",  1991,  5.59999999999999964,  5852,  18],
+[ 266,  "Donnie Brasco",  1997,  7.5,  5832,  585],
+[ 267,  "What's Eating Gilbert Grape",  1993,  7.5,  5808,  387],
+[ 268,  "Scent of a Woman",  1992,  7.20000000000000018,  5799,  595],
+[ 269,  "Philadelphia",  1993,  7.29999999999999982,  5790,  281],
+[ 270,  "Crimson Tide",  1995,  7.09999999999999964,  5784,  107],
+[ 271,  "Great Escape, The",  1963,  8.19999999999999929,  5783,  2473],
+[ 272,  "Wayne's World",  1992,  6.59999999999999964,  5756,  1021],
+[ 273,  "Broken Arrow",  1996,  5.79999999999999982,  5751,  204],
+[ 274,  "8MM",  1999,  6,  5744,  105],
+[ 275,  "Beverly Hills Cop",  1984,  7,  5717,  595],
+[ 276,  "Excalibur",  1981,  7.40000000000000036,  5716,  293],
+[ 277,  "Election",  1999,  7.70000000000000018,  5713,  2199],
+[ 278,  "Unbreakable",  2000,  7.5,  5701,  966],
+[ 279,  "Get Shorty",  1995,  7,  5693,  422],
+[ 280,  "Star Trek: Generations",  1994,  6,  5674,  2282],
+[ 281,  "Dangerous Liaisons",  1988,  7.70000000000000018,  5651,  292],
+[ 282,  "Dazed and Confused",  1993,  7.09999999999999964,  5643,  205],
+[ 283,  "Gandhi",  1982,  7.79999999999999982,  5643,  235],
+[ 284,  "Blue Velvet",  1986,  7.59999999999999964,  5628,  139],
+[ 285,  "Sneakers",  1992,  7,  5627,  993],
+[ 286,  "RoboCop",  1987,  6.90000000000000036,  5596,  201],
+[ 287,  "Cider House Rules, The",  1999,  7.70000000000000018,  5588,  387],
+[ 288,  "Third Man, The",  1949,  8.59999999999999964,  5576,  1003],
+[ 289,  "Payback",  1999,  7,  5566,  2427],
+[ 290,  "Fantasia",  1940,  7.90000000000000036,  5552,  1167],
+[ 291,  "Happy Gilmore",  1996,  6.59999999999999964,  5539,  330],
+[ 292,  "Piano, The",  1993,  7.29999999999999982,  5526,  575],
+[ 293,  "Saint, The",  1997,  5.70000000000000018,  5522,  212],
+[ 294,  "Desperado",  1995,  6.59999999999999964,  5510,  666],
+[ 295,  "Eraser",  1996,  6,  5504,  1122],
+[ 296,  "Strange Days",  1995,  6.90000000000000036,  5489,  641],
+[ 297,  "Good Morning, Vietnam",  1987,  7,  5485,  38],
+[ 298,  "In the Line of Fire",  1993,  7.29999999999999982,  5481,  140],
+[ 299,  "African Queen, The",  1951,  8.19999999999999929,  5468,  312],
+[ 300,  "Phenomenon",  1996,  6.40000000000000036,  5456,  411],
+[ 301,  "Thomas Crown Affair, The",  1999,  6.79999999999999982,  5444,  196],
+[ 302,  "Fisher King, The",  1991,  7.29999999999999982,  5441,  59],
+[ 303,  "Central do Brasil",  1998,  8.09999999999999964,  5429,  2560],
+[ 304,  "Arlington Road",  1999,  7.20000000000000018,  5422,  1897],
+[ 305,  "Mission to Mars",  2000,  4.79999999999999982,  5420,  31],
+[ 306,  "Willy Wonka & the Chocolate Factory",  1971,  7.40000000000000036,  5392,  2740],
+[ 307,  "Fried Green Tomatoes",  1991,  7.29999999999999982,  5388,  691],
+[ 308,  "Deep Blue Sea",  1999,  6,  5336,  210],
+[ 309,  "Heathers",  1989,  7.40000000000000036,  5327,  371],
+[ 310,  "Wild Wild West",  1999,  4,  5323,  422],
+[ 311,  "Conspiracy Theory",  1997,  6.5,  5322,  209],
+[ 312,  "Cape Fear",  1991,  7,  5319,  78],
+[ 313,  "Hamlet",  1996,  7.70000000000000018,  5317,  48],
+[ 314,  "Gremlins",  1984,  6.59999999999999964,  5297,  150],
+[ 315,  "Tootsie",  1982,  7.5,  5291,  92],
+[ 316,  "Waterboy, The",  1998,  5.5,  5272,  1054],
+[ 317,  "Scream 3",  2000,  6.09999999999999964,  5268,  133],
+[ 318,  "Net, The",  1995,  5.59999999999999964,  5263,  1172],
+[ 319,  "Firm, The",  1993,  6.5,  5255,  92],
+[ 320,  "That Thing You Do!",  1996,  6.59999999999999964,  5253,  8],
+[ 321,  "Rush Hour",  1998,  6.70000000000000018,  5246,  1094],
+[ 322,  "Gone in Sixty Seconds",  2000,  6,  5234,  2362],
+[ 323,  "Nightmare Before Christmas, The",  1993,  7.5,  5226,  1036],
+[ 324,  "Nuovo cinema Paradiso",  1988,  8.19999999999999929,  5178,  2142],
+[ 325,  "Bound",  1996,  7.5,  5127,  2024],
+[ 326,  "West Side Story",  1961,  7.70000000000000018,  5101,  2295],
+[ 327,  "Quiz Show",  1994,  7.40000000000000036,  5094,  36],
+[ 328,  "WarGames",  1983,  6.79999999999999982,  5074,  66],
+[ 329,  "Scary Movie",  2000,  5.79999999999999982,  5059,  1361],
+[ 330,  "In & Out",  1997,  6.20000000000000018,  5055,  123],
+[ 331,  "Wo hu zang long",  2000,  9,  5016,  273],
+[ 332,  "Spartacus",  1960,  8,  5006,  82],
+[ 333,  "Right Stuff, The",  1983,  8,  5006,  288],
+[ 334,  "Outbreak",  1995,  6.5,  4999,  140],
+[ 335,  "Evil Dead II",  1987,  7.40000000000000036,  4994,  141],
+[ 336,  "Sphere",  1998,  5.09999999999999964,  4991,  38],
+[ 337,  "Caddyshack",  1980,  6.79999999999999982,  4989,  108],
+[ 338,  "Cable Guy, The",  1996,  5.40000000000000036,  4985,  242],
+[ 339,  "American President, The",  1995,  7,  4975,  37],
+[ 340,  "My Fair Lady",  1964,  7.79999999999999982,  4969,  628],
+[ 341,  "Crocodile Dundee",  1986,  6.5,  4962,  2823],
+[ 342,  "Once Upon a Time in America",  1984,  8,  4959,  268],
+[ 343,  "Backdraft",  1991,  6.5,  4949,  21],
+[ 344,  "Clear and Present Danger",  1994,  6.90000000000000036,  4943,  212],
+[ 345,  "Ghostbusters II",  1989,  5.29999999999999982,  4919,  109],
+[ 346,  "U-571",  2000,  6.90000000000000036,  4917,  1120],
+[ 347,  "Birdcage, The",  1996,  6.5,  4902,  47],
+[ 348,  "Sliding Doors",  1998,  7,  4886,  1940],
+[ 349,  "Star Trek IV: The Voyage Home",  1986,  7,  4879,  193],
+[ 350,  "Scarface",  1983,  7.40000000000000036,  4877,  31],
+[ 351,  "People vs. Larry Flynt, The",  1996,  7.20000000000000018,  4873,  408],
+[ 352,  "Mr. Holland's Opus",  1995,  7,  4865,  149],
+[ 353,  "Haunting, The",  1999,  4.79999999999999982,  4835,  421],
+[ 354,  "Bone Collector, The",  1999,  6.20000000000000018,  4810,  212],
+[ 355,  "In the Name of the Father",  1993,  7.70000000000000018,  4793,  581],
+[ 356,  "Patriot Games",  1992,  6.79999999999999982,  4774,  212],
+[ 357,  "Dirty Dancing",  1987,  5.79999999999999982,  4769,  662],
+[ 358,  "Ever After",  1998,  7.20000000000000018,  4764,  654],
+[ 359,  "Bowfinger",  1999,  6.79999999999999982,  4759,  123],
+[ 360,  "Thing, The",  1982,  7.5,  4751,  23],
+[ 361,  "Hudsucker Proxy, The",  1994,  7.29999999999999982,  4743,  111],
+[ 362,  "Planet of the Apes",  1968,  7.59999999999999964,  4742,  405],
+[ 363,  "Elephant Man, The",  1980,  8,  4728,  139],
+[ 364,  "Any Given Sunday",  1999,  6.70000000000000018,  4722,  69],
+[ 365,  "Ice Storm, The",  1997,  7.5,  4718,  273],
+[ 366,  "Nikita",  1990,  7.59999999999999964,  4714,  389],
+[ 367,  "Naked Gun: From the Files of Police Squad!, The",  1988,  7.29999999999999982,  4707,  573],
+[ 368,  "What Dreams May Come",  1998,  6.20000000000000018,  4686,  2500],
+[ 369,  "Demolition Man",  1993,  6.09999999999999964,  4682,  1182],
+[ 370,  "Showgirls",  1995,  3.5,  4672,  201],
+[ 371,  "American Graffiti",  1973,  7.70000000000000018,  4669,  360],
+[ 372,  "Awakenings",  1990,  7.40000000000000036,  4662,  361],
+[ 373,  "Fear and Loathing in Las Vegas",  1998,  6.5,  4658,  59],
+[ 374,  "Breaking the Waves",  1996,  7.70000000000000018,  4645,  615],
+[ 375,  "Private Parts",  1997,  6.59999999999999964,  4644,  425],
+[ 376,  "Patton",  1970,  8.09999999999999964,  4637,  405],
+[ 377,  "Cool Hand Luke",  1967,  8.09999999999999964,  4635,  1029],
+[ 378,  "Postino, Il",  1994,  7.70000000000000018,  4630,  1154],
+[ 379,  "Whole Nine Yards, The",  2000,  6.70000000000000018,  4626,  262],
+[ 380,  "Avengers, The",  1998,  3.39999999999999991,  4623,  412],
+[ 381,  "Heavenly Creatures",  1994,  7.79999999999999982,  4592,  326],
+[ 382,  "Patch Adams",  1998,  6.20000000000000018,  4569,  586],
+[ 383,  "Wallace & Gromit: A Close Shave",  1995,  8.19999999999999929,  4561,  572],
+[ 384,  "10 Things I Hate About You",  1999,  7.09999999999999964,  4539,  2129],
+[ 385,  "Snake Eyes",  1998,  5.70000000000000018,  4536,  31],
+[ 386,  "Remains of the Day, The",  1993,  7.79999999999999982,  4528,  576],
+[ 387,  "October Sky",  1999,  8,  4510,  424],
+[ 388,  "Addams Family, The",  1991,  6.40000000000000036,  4499,  422],
+[ 389,  "American Psycho",  2000,  7,  4487,  2531],
+[ 390,  "Breakfast at Tiffany's",  1961,  7.70000000000000018,  4483,  65],
+[ 391,  "Boys Don't Cry",  1999,  8,  4481,  2172],
+[ 392,  "Miller's Crossing",  1990,  7.90000000000000036,  4453,  111],
+[ 393,  "Name der Rose, Der",  1986,  7.5,  4453,  1131],
+[ 394,  "Dragonheart",  1996,  6.20000000000000018,  4432,  376],
+[ 395,  "Bringing Out the Dead",  1999,  7,  4431,  78],
+[ 396,  "Deliverance",  1972,  7.79999999999999982,  4418,  293],
+[ 397,  "Delicatessen",  1991,  7.70000000000000018,  4394,  995],
+[ 398,  "Shallow Grave",  1994,  7.40000000000000036,  4387,  597],
+[ 399,  "Charlie's Angels",  2000,  6.90000000000000036,  4374,  2358],
+[ 400,  "All the President's Men",  1976,  7.79999999999999982,  4361,  275],
+[ 401,  "Mulan",  1998,  7.40000000000000036,  4360,  2651],
+[ 402,  "Star Trek: The Motion Picture",  1979,  5.5,  4358,  286],
+[ 403,  "Conan the Barbarian",  1982,  6.20000000000000018,  4356,  693],
+[ 404,  "Akira",  1988,  7.40000000000000036,  4321,  2045],
+[ 405,  "Double Jeopardy",  1999,  6,  4321,  685],
+[ 406,  "Twins",  1988,  6,  4318,  109],
+[ 407,  "Speed 2: Cruise Control",  1997,  3.20000000000000018,  4313,  421],
+[ 408,  "Dave",  1993,  7.09999999999999964,  4305,  109],
+[ 409,  "Rebel Without a Cause",  1955,  7.79999999999999982,  4296,  1706],
+[ 410,  "Star Trek VI: The Undiscovered Country",  1991,  6.70000000000000018,  4287,  571],
+[ 411,  "Faculty, The",  1998,  6.29999999999999982,  4287,  666],
+[ 412,  "Pi",  1998,  7.5,  4283,  1136],
+[ 413,  "Big Daddy",  1999,  6.09999999999999964,  4275,  330],
+[ 414,  "Say Anything...",  1989,  7.5,  4257,  391],
+[ 415,  "Ace Ventura: When Nature Calls",  1995,  4.5,  4250,  948],
+[ 416,  "Midnight Cowboy",  1969,  7.90000000000000036,  4250,  677],
+[ 417,  "Gods and Monsters",  1998,  7.79999999999999982,  4241,  2365],
+[ 418,  "She's All That",  1999,  6,  4240,  2491],
+[ 419,  "Nutty Professor, The",  1996,  6,  4234,  586],
+[ 420,  "Pitch Black",  2000,  6.59999999999999964,  4216,  1071],
+[ 421,  "Bill & Ted's Excellent Adventure",  1989,  6.5,  4214,  149],
+[ 422,  "Monty Python's The Meaning of Life",  1983,  7.20000000000000018,  4212,  59],
+[ 423,  "Highlander II: The Quickening",  1991,  3.20000000000000018,  4211,  577],
+[ 424,  "Final Destination",  2000,  6.79999999999999982,  4196,  2426],
+[ 425,  "Crying Game, The",  1992,  7.29999999999999982,  4192,  153],
+[ 426,  "Bad Boys",  1995,  6.29999999999999982,  4190,  678],
+[ 427,  "Poltergeist",  1982,  7.20000000000000018,  4182,  1123],
+[ 428,  "Cop Land",  1997,  6.70000000000000018,  4173,  1099],
+[ 429,  "What Lies Beneath",  2000,  6.79999999999999982,  4162,  67],
+[ 430,  "Falling Down",  1993,  6.90000000000000036,  4161,  105],
+[ 431,  "Coming to America",  1988,  6.5,  4147,  62],
+[ 432,  "Stigmata",  1999,  6.09999999999999964,  4141,  2557],
+[ 433,  "eXistenZ",  1999,  6.90000000000000036,  4130,  97],
+[ 434,  "Evita",  1996,  6.29999999999999982,  4129,  68],
+[ 435,  "Trois couleurs: Rouge",  1994,  8.19999999999999929,  4113,  398],
+[ 436,  "Six Days Seven Nights",  1998,  5.70000000000000018,  4107,  109],
+[ 437,  "Godfather: Part III, The",  1990,  7,  4105,  28],
+[ 438,  "Star Trek III: The Search for Spock",  1984,  6.09999999999999964,  4094,  193],
+[ 439,  "13th Warrior, The",  1999,  6.20000000000000018,  4089,  196],
+[ 440,  "Sweet Hereafter, The",  1997,  8,  4067,  665],
+[ 441,  "Cliffhanger",  1993,  6,  4064,  210],
+[ 442,  "Sunset Blvd.",  1950,  8.59999999999999964,  4050,  79],
+[ 443,  "Smoke",  1995,  7.5,  4049,  664],
+[ 444,  "Mystery Men",  1999,  6.09999999999999964,  4043,  2187],
+[ 445,  "Pink Floyd The Wall",  1982,  7.20000000000000018,  4043,  68],
+[ 446,  "Cell, The",  2000,  6.5,  4037,  2528],
+[ 447,  "Misery",  1990,  7.40000000000000036,  4026,  37],
+[ 448,  "Happiness",  1998,  7.79999999999999982,  4011,  1121],
+[ 449,  "My Cousin Vinny",  1992,  7.09999999999999964,  4011,  262],
+[ 450,  "Born on the Fourth of July",  1989,  6.90000000000000036,  4002,  69],
+[ 451,  "Office Space",  1999,  7.09999999999999964,  3997,  582],
+[ 452,  "Courage Under Fire",  1996,  6.90000000000000036,  3987,  382],
+[ 453,  "Mr. Smith Goes to Washington",  1939,  8.40000000000000036,  3977,  392],
+[ 454,  "Color Purple, The",  1985,  7.40000000000000036,  3973,  18],
+[ 455,  "Arsenic and Old Lace",  1944,  8.09999999999999964,  3970,  392],
+[ 456,  "Romancing the Stone",  1984,  6.79999999999999982,  3967,  67],
+[ 457,  "Secrets & Lies",  1996,  7.79999999999999982,  3967,  583],
+[ 458,  "Craft, The",  1996,  5.90000000000000036,  3966,  657],
+[ 459,  "Primal Fear",  1996,  7.29999999999999982,  3953,  630],
+[ 460,  "Cit&#233; des enfants perdus, La",  1995,  7.70000000000000018,  3946,  995],
+[ 461,  "Evil Dead, The",  1982,  7.09999999999999964,  3941,  141],
+[ 462,  "General's Daughter, The",  1999,  6.20000000000000018,  3939,  1114],
+[ 463,  "Tarzan",  1999,  7.59999999999999964,  3937,  2334],
+[ 464,  "Snow White and the Seven Dwarfs",  1937,  7.79999999999999982,  3931,  1117],
+[ 465,  "Frequency",  2000,  7.59999999999999964,  3928,  630],
+[ 466,  "Planes, Trains & Automobiles",  1987,  7.09999999999999964,  3925,  144],
+[ 467,  "Henry V",  1989,  8,  3921,  48],
+[ 468,  "Trading Places",  1983,  7.20000000000000018,  3910,  62],
+[ 469,  "Beach, The",  2000,  5.79999999999999982,  3908,  597],
+[ 470,  "Point Break",  1991,  6.29999999999999982,  3907,  641],
+[ 471,  "Doctor Zhivago",  1965,  7.70000000000000018,  3903,  1080],
+[ 472,  "Star Trek V: The Final Frontier",  1989,  4.59999999999999964,  3880,  128],
+[ 473,  "All About Eve",  1950,  8.59999999999999964,  3876,  1111],
+[ 474,  "Being There",  1979,  7.90000000000000036,  3872,  971],
+[ 475,  "Searching for Bobby Fischer",  1993,  7.59999999999999964,  3870,  1043],
+[ 476,  "High Noon",  1952,  8.19999999999999929,  3864,  617],
+[ 477,  "Running Man, The",  1987,  6.20000000000000018,  3864,  890],
+[ 478,  "Philadelphia Story, The",  1940,  8.19999999999999929,  3856,  628],
+[ 479,  "Dr. No",  1962,  7.09999999999999964,  3850,  388],
+[ 480,  "Trois couleurs: Bleu",  1993,  7.90000000000000036,  3848,  398],
+[ 481,  "Better Off Dead...",  1985,  7.09999999999999964,  3843,  2674],
+[ 482,  "Working Girl",  1988,  6.5,  3821,  47],
+[ 483,  "Wild Bunch, The",  1969,  8.09999999999999964,  3814,  1072],
+[ 484,  "Ghost and the Darkness, The",  1996,  6.40000000000000036,  3812,  672],
+[ 485,  "Harold and Maude",  1971,  7.70000000000000018,  3811,  971],
+[ 486,  "On the Waterfront",  1954,  8.30000000000000071,  3800,  655],
+[ 487,  "Clue",  1985,  6.29999999999999982,  3794,  262],
+[ 488,  "Beavis and Butt-head Do America",  1996,  5.90000000000000036,  3770,  582],
+[ 489,  "Opposite of Sex, The",  1998,  7,  3767,  2382],
+[ 490,  "Bodyguard, The",  1992,  5.20000000000000018,  3757,  1118],
+[ 491,  "Runaway Bride",  1999,  6,  3753,  129],
+[ 492,  "Wall Street",  1987,  7,  3736,  69],
+[ 493,  "Witches of Eastwick, The",  1987,  6.29999999999999982,  3736,  979],
+[ 494,  "Hackers",  1995,  5.70000000000000018,  3734,  988],
+[ 495,  "Midnight Run",  1988,  7.40000000000000036,  3732,  595],
+[ 496,  "Fly, The",  1986,  6.90000000000000036,  3729,  97],
+[ 497,  "U.S. Marshals",  1998,  6.20000000000000018,  3716,  1064],
+[ 498,  "Dog Day Afternoon",  1975,  7.79999999999999982,  3715,  80],
+[ 499,  "Bulworth",  1998,  7.09999999999999964,  3700,  60],
+[ 500,  "Amistad",  1997,  7.20000000000000018,  3700,  18],
+[ 501,  "Time Bandits",  1981,  6.79999999999999982,  3698,  59],
+[ 502,  "Truth About Cats & Dogs, The",  1996,  6.59999999999999964,  3690,  371],
+[ 503,  "Doors, The",  1991,  6.29999999999999982,  3681,  69],
+[ 504,  "Day the Earth Stood Still, The",  1951,  7.79999999999999982,  3676,  286],
+[ 505,  "Waking Ned Devine",  1998,  7.5,  3671,  2166],
+[ 506,  "Prince of Egypt, The",  1998,  7.20000000000000018,  3669,  2472],
+[ 507,  "Hurricane, The",  1999,  7.70000000000000018,  3665,  81],
+[ 508,  "Frighteners, The",  1996,  6.79999999999999982,  3662,  326],
+[ 509,  "Very Bad Things",  1998,  5.79999999999999982,  3657,  806],
+[ 510,  "Ran",  1985,  8.5,  3654,  208],
+[ 511,  "City Slickers",  1991,  6.70000000000000018,  3648,  415],
+[ 512,  "Empire of the Sun",  1987,  7.29999999999999982,  3647,  18],
+[ 513,  "Splash",  1984,  6.40000000000000036,  3646,  21],
+[ 514,  "Fast Times at Ridgemont High",  1982,  6.90000000000000036,  3640,  403],
+[ 515,  "Almost Famous",  2000,  8.59999999999999964,  3639,  391],
+[ 516,  "Spanish Prisoner, The",  1997,  7.59999999999999964,  3633,  606],
+[ 517,  "Naked Gun 2 1/2: The Smell of Fear, The",  1991,  6.09999999999999964,  3626,  573],
+[ 518,  "Paths of Glory",  1957,  8.80000000000000071,  3620,  82],
+[ 519,  "Ten Commandments, The",  1956,  7.70000000000000018,  3618,  1906],
+[ 520,  "Dead Again",  1991,  7.20000000000000018,  3616,  48],
+[ 521,  "Superman II",  1980,  6.29999999999999982,  3609,  274],
+[ 522,  "Touch of Evil",  1958,  8.5,  3607,  253],
+[ 523,  "Girl, Interrupted",  1999,  7.09999999999999964,  3605,  1099],
+[ 524,  "Rounders",  1998,  7,  3598,  1062],
+[ 525,  "Flatliners",  1990,  6.09999999999999964,  3593,  105],
+[ 526,  "Bonnie and Clyde",  1967,  7.90000000000000036,  3589,  2059],
+[ 527,  "Shaft",  2000,  6.40000000000000036,  3579,  396],
+[ 528,  "Species",  1995,  5.29999999999999982,  3577,  146],
+[ 529,  "Carrie",  1976,  7.09999999999999964,  3577,  31],
+[ 530,  "Beverly Hills Cop II",  1987,  5.59999999999999964,  3574,  107],
+[ 531,  "Short Cuts",  1993,  7.59999999999999964,  3569,  155],
+[ 532,  "Hot Shots!",  1991,  6.09999999999999964,  3551,  189],
+[ 533,  "Hollow Man",  2000,  5.59999999999999964,  3540,  201],
+[ 534,  "Sister Act",  1992,  5.90000000000000036,  3535,  662],
+[ 535,  "Empire Records",  1995,  6,  3520,  1025],
+[ 536,  "Congo",  1995,  4.29999999999999982,  3512,  614],
+[ 537,  "Battlefield Earth",  2000,  2.29999999999999982,  3507,  2806],
+[ 538,  "Striptease",  1996,  3.79999999999999982,  3506,  375],
+[ 539,  "Braindead",  1992,  7.20000000000000018,  3505,  326],
+[ 540,  "Cube",  1997,  7.29999999999999982,  3504,  2585],
+[ 541,  "Todo sobre mi madre",  1999,  8.30000000000000071,  3501,  394],
+[ 542,  "Cocoon",  1985,  6.59999999999999964,  3500,  21],
+[ 543,  "Glengarry Glen Ross",  1992,  7.59999999999999964,  3498,  423],
+[ 544,  "Perfect Murder, A",  1998,  6.40000000000000036,  3495,  291],
+[ 545,  "48 Hrs.",  1982,  6.70000000000000018,  3492,  143],
+[ 546,  "Nightmare on Elm Street, A",  1984,  6.90000000000000036,  3490,  133],
+[ 547,  "Carlito's Way",  1993,  7.40000000000000036,  3490,  31],
+[ 548,  "Grand bleu, Le",  1988,  7.20000000000000018,  3490,  389],
+[ 549,  "Boyz N the Hood",  1991,  7.70000000000000018,  3489,  396],
+[ 550,  "Sixteen Candles",  1984,  6.79999999999999982,  3484,  144],
+[ 551,  "Rebecca",  1940,  8.19999999999999929,  3476,  11],
+[ 552,  "Adventures of Priscilla, Queen of the Desert, The",  1994,  7.09999999999999964,  3474,  1138],
+[ 553,  "Sabrina",  1995,  6.20000000000000018,  3453,  92],
+[ 554,  "Home Alone 2: Lost in New York",  1992,  4.59999999999999964,  3447,  156],
+[ 555,  "Duck Soup",  1933,  8.40000000000000036,  3447,  992],
+[ 556,  "Room with a View, A",  1986,  7.5,  3441,  576],
+[ 557,  "Dante's Peak",  1997,  5.70000000000000018,  3439,  146],
+[ 558,  "Ninth Gate, The",  1999,  6.5,  3435,  90],
+[ 559,  "Cocktail",  1988,  5.09999999999999964,  3434,  146],
+[ 560,  "I Still Know What You Did Last Summer",  1998,  4,  3423,  1129],
+[ 561,  "Easy Rider",  1969,  7.09999999999999964,  3422,  125],
+[ 562,  "Death Becomes Her",  1992,  5.40000000000000036,  3420,  67],
+[ 563,  "Three Men and a Baby",  1987,  5.59999999999999964,  3405,  193],
+[ 564,  "Bean",  1997,  5.29999999999999982,  3396,  1864],
+[ 565,  "Treasure of the Sierra Madre, The",  1948,  8.5,  3392,  312],
+[ 566,  "Big Trouble in Little China",  1986,  6.40000000000000036,  3390,  23],
+[ 567,  "Dick Tracy",  1990,  5.5,  3387,  60],
+[ 568,  "Wild at Heart",  1990,  6.79999999999999982,  3382,  139],
+[ 569,  "Barton Fink",  1991,  7.20000000000000018,  3380,  111],
+[ 570,  "Straight Story, The",  1999,  8.40000000000000036,  3353,  139],
+[ 571,  "Stir of Echoes",  1999,  7.20000000000000018,  3342,  2271],
+[ 572,  "Volcano",  1997,  5.29999999999999982,  3334,  1118],
+[ 573,  "Dead Man",  1995,  7.40000000000000036,  3333,  175],
+[ 574,  "Adventures of Baron Munchausen, The",  1988,  6.70000000000000018,  3319,  59],
+[ 575,  "Bull Durham",  1988,  7.20000000000000018,  3311,  642],
+[ 576,  "Rainmaker, The",  1997,  6.90000000000000036,  3309,  28],
+[ 577,  "Three Amigos!",  1986,  5.59999999999999964,  3309,  62],
+[ 578,  "Tron",  1982,  6.09999999999999964,  3306,  2575],
+[ 579,  "From Russia with Love",  1963,  7.20000000000000018,  3302,  388],
+[ 580,  "C'era una volta il West",  1969,  8.5,  3297,  268],
+[ 581,  "Driving Miss Daisy",  1989,  7.29999999999999982,  3288,  685],
+[ 582,  "Double Indemnity",  1944,  8.5,  3283,  79],
+[ 583,  "Papillon",  1973,  7.59999999999999964,  3281,  405],
+[ 584,  "Big Sleep, The",  1946,  8.19999999999999929,  3274,  197],
+[ 585,  "Never Been Kissed",  1999,  6.09999999999999964,  3271,  633],
+[ 586,  "Do the Right Thing",  1989,  7.59999999999999964,  3268,  206],
+[ 587,  "Tremors",  1990,  6.79999999999999982,  3258,  415],
+[ 588,  "Pelican Brief, The",  1993,  6.20000000000000018,  3251,  275],
+[ 589,  "Modern Times",  1936,  8.40000000000000036,  3249,  145],
+[ 590,  "Under Siege",  1992,  6.20000000000000018,  3247,  291],
+[ 591,  "Hudson Hawk",  1991,  4.90000000000000036,  3244,  371],
+[ 592,  "Crash",  1996,  5.5,  3241,  97],
+[ 593,  "Scrooged",  1988,  6.29999999999999982,  3239,  209],
+[ 594,  "Escape from New York",  1981,  6.70000000000000018,  3238,  23],
+[ 595,  "Four Rooms",  1995,  5.70000000000000018,  3232,  2163],
+[ 596,  "Fletch",  1985,  6.40000000000000036,  3231,  418],
+[ 597,  "Reality Bites",  1994,  6.09999999999999964,  3226,  242],
+[ 598,  "G.I. Jane",  1997,  5.59999999999999964,  3226,  110],
+[ 599,  "Midnight in the Garden of Good and Evil",  1997,  6.29999999999999982,  3226,  2],
+[ 600,  "Primary Colors",  1998,  6.90000000000000036,  3225,  47],
+[ 601,  "Blood Simple",  1984,  7.70000000000000018,  3223,  111],
+[ 602,  "Dawn of the Dead",  1978,  7.5,  3220,  379],
+[ 603,  "Edtv",  1999,  6.59999999999999964,  3215,  21],
+[ 604,  "Siege, The",  1998,  5.90000000000000036,  3211,  382],
+[ 605,  "Shanghai Noon",  2000,  7.20000000000000018,  3207,  2633],
+[ 606,  "First Blood",  1982,  6.5,  3207,  954],
+[ 607,  "Rocky IV",  1985,  4.79999999999999982,  3200,  5],
+[ 608,  "Honey, I Shrunk the Kids",  1989,  5.79999999999999982,  3198,  424],
+[ 609,  "Father of the Bride",  1991,  6.29999999999999982,  3178,  397],
+[ 610,  "Vampires",  1998,  5.59999999999999964,  3178,  23],
+[ 611,  "Weird Science",  1985,  6,  3175,  144],
+[ 612,  "Risky Business",  1983,  6.70000000000000018,  3164,  2556],
+[ 613,  "Moonraker",  1979,  5.79999999999999982,  3161,  390],
+[ 614,  "Anaconda",  1997,  4.20000000000000018,  3160,  1053],
+[ 615,  "Billy Madison",  1995,  6,  3154,  1055],
+[ 616,  "Beautiful Girls",  1996,  7.09999999999999964,  3150,  1048],
+[ 617,  "Urban Legend",  1998,  5.09999999999999964,  3150,  2430],
+[ 618,  "Client, The",  1994,  6.40000000000000036,  3145,  105],
+[ 619,  "Copycat",  1995,  6.5,  3142,  669],
+[ 620,  "U Turn",  1997,  6.40000000000000036,  3137,  69],
+[ 621,  "Christmas Vacation",  1989,  6.59999999999999964,  3137,  412],
+[ 622,  "Arachnophobia",  1990,  6.09999999999999964,  3134,  614],
+[ 623,  "Fatal Attraction",  1987,  6.59999999999999964,  3132,  283],
+[ 624,  "Tommy Boy",  1995,  6.20000000000000018,  3130,  384],
+[ 625,  "Roxanne",  1987,  6.90000000000000036,  3128,  272],
+[ 626,  "Dirty Harry",  1971,  7.40000000000000036,  3126,  346],
+[ 627,  "Peacemaker, The",  1997,  5.79999999999999982,  3120,  589],
+[ 628,  "Road Trip",  2000,  6.79999999999999982,  3115,  2619],
+[ 629,  "Pump Up the Volume",  1990,  6.59999999999999964,  3114,  1025],
+[ 630,  "Days of Thunder",  1990,  5.20000000000000018,  3114,  107],
+[ 631,  "Robin Hood: Men in Tights",  1993,  5.29999999999999982,  3093,  29],
+[ 632,  "Fallen",  1998,  6.59999999999999964,  3088,  630],
+[ 633,  "Top Secret!",   1984,  6.59999999999999964,  3079,  189],
+[ 634,  "Civil Action, A",  1998,  6.40000000000000036,  3077,  1043],
+[ 635,  "Postman, The",  1997,  5.29999999999999982,  3076,  10],
+[ 636,  "2010",  1984,  6.40000000000000036,  3071,  103],
+[ 637,  "Color of Money, The",  1986,  6.70000000000000018,  3068,  78],
+[ 638,  "River Runs Through It, A",  1992,  7,  3066,  36],
+[ 639,  "Can't Hardly Wait",  1998,  6.29999999999999982,  3058,  2168],
+[ 640,  "Dirty Rotten Scoundrels",  1988,  6.70000000000000018,  3057,  123],
+[ 641,  "Mighty Aphrodite",  1995,  7,  3054,  1],
+[ 642,  "Deconstructing Harry",  1997,  7.09999999999999964,  3049,  1],
+[ 643,  "First Knight",  1995,  5.59999999999999964,  3045,  1116],
+[ 644,  "Searchers, The",  1956,  8.30000000000000071,  3042,  287],
+[ 645,  "Great Expectations",  1998,  6.20000000000000018,  3032,  2226],
+[ 646,  "Notorious",  1946,  8.19999999999999929,  3030,  11],
+[ 647,  "Seven Years in Tibet",  1997,  6.5,  3023,  1131],
+[ 648,  "Mississippi Burning",  1988,  7.40000000000000036,  3021,  68],
+[ 649,  "Replacement Killers, The",  1998,  5.79999999999999982,  3021,  2091],
+[ 650,  "Naked Gun 33 1/3: The Final Insult",  1994,  5.70000000000000018,  3021,  384],
+[ 651,  "Bridges of Madison County, The",  1995,  6.70000000000000018,  3020,  2],
+[ 652,  "Natural, The",  1984,  7.20000000000000018,  3016,  38],
+[ 653,  "Casper",  1995,  5.70000000000000018,  3011,  1139],
+[ 654,  "War of the Roses, The",  1989,  6.29999999999999982,  3011,  24],
+[ 655,  "Night of the Living Dead",  1968,  7.5,  3010,  379],
+[ 656,  "Wayne's World 2",  1993,  5.40000000000000036,  3006,  2842],
+[ 657,  "Absolute Power",  1997,  6.40000000000000036,  3006,  2],
+[ 658,  "French Kiss",  1995,  6.29999999999999982,  3005,  87],
+[ 659,  "Bambi",  1942,  7.59999999999999964,  3005,  1117],
+[ 660,  "Rashomon",  1950,  8.59999999999999964,  3004,  208],
+[ 661,  "Innerspace",  1987,  6.29999999999999982,  3002,  150],
+[ 662,  "Devil's Own, The",  1997,  5.79999999999999982,  2999,  275],
+[ 663,  "Howard the Duck",  1986,  3.70000000000000018,  2990,  2779],
+[ 664,  "Mononoke Hime",  1997,  8.5,  2989,  1051],
+[ 665,  "French Connection, The",  1971,  7.59999999999999964,  2986,  264],
+[ 666,  "Far and Away",  1992,  6.29999999999999982,  2986,  21],
+[ 667,  "Bringing Up Baby",  1938,  8.30000000000000071,  2983,  197],
+[ 668,  "Network",  1976,  7.90000000000000036,  2982,  80],
+[ 669,  "Vacation",  1983,  6.79999999999999982,  2979,  108],
+[ 670,  "Parenthood",  1989,  7,  2979,  21],
+[ 671,  "Forbidden Planet",  1956,  7.5,  2967,  2217],
+[ 672,  "Himmel &#252;ber Berlin, Der",  1987,  8,  2966,  269],
+[ 673,  "Mortal Kombat",  1995,  5,  2966,  653],
+[ 674,  "Executive Decision",  1996,  6.5,  2966,  1064],
+[ 675,  "Police Academy",  1984,  5.5,  2965,  377],
+[ 676,  "Commando",  1985,  5.59999999999999964,  2964,  1073],
+[ 677,  "Ghost Dog: The Way of the Samurai",  1999,  7.79999999999999982,  2959,  175],
+[ 678,  "Romy and Michele's High School Reunion",  1997,  6,  2953,  2445],
+[ 679,  "What About Bob?",  1991,  6.40000000000000036,  2951,  123],
+[ 680,  "Perfect World, A",  1993,  6.79999999999999982,  2943,  2],
+[ 681,  "Dial M for Murder",  1954,  7.59999999999999964,  2942,  11],
+[ 682,  "'Crocodile' Dundee II",  1988,  5,  2942,  2252],
+[ 683,  "Strangers on a Train",  1951,  8.30000000000000071,  2937,  11],
+[ 684,  "Angel Heart",  1987,  6.90000000000000036,  2937,  68],
+[ 685,  "Emma",  1996,  6.90000000000000036,  2936,  2194],
+[ 686,  "Die xue shuang xiong",  1989,  8.19999999999999929,  2935,  204],
+[ 687,  "Plan 9 from Outer Space",  1958,  3.29999999999999982,  2931,  2038],
+[ 688,  "To Die for",  1995,  6.70000000000000018,  2925,  271],
+[ 689,  "Fucking &#197;m&#229;l",  1998,  8.19999999999999929,  2919,  2803],
+[ 690,  "Roman Holiday",  1953,  8,  2918,  620],
+[ 691,  "Predator 2",  1990,  5.40000000000000036,  2909,  672],
+[ 692,  "Bill & Ted's Bogus Journey",  1991,  5.40000000000000036,  2908,  2793],
+[ 693,  "Before Sunrise",  1995,  7.20000000000000018,  2906,  205],
+[ 694,  "Streetcar Named Desire, A",  1951,  8.19999999999999929,  2904,  655],
+[ 695,  "Real Genius",  1985,  6.70000000000000018,  2890,  1141],
+[ 696,  "Halloween H20: 20 Years Later",  1998,  5.29999999999999982,  2884,  365],
+[ 697,  "Producers, The",  1968,  7.70000000000000018,  2884,  29],
+[ 698,  "Escape from L.A.",  1996,  4.70000000000000018,  2882,  23],
+[ 699,  "Tin Cup",  1996,  6.29999999999999982,  2879,  642],
+[ 700,  "Conversation, The",  1974,  8.09999999999999964,  2876,  28],
+[ 701,  "Everyone Says I Love You",  1996,  6.90000000000000036,  2867,  1],
+[ 702,  "American Werewolf in London, An",  1981,  7.09999999999999964,  2865,  62],
+[ 703,  "Rambo: First Blood Part II",  1985,  4.79999999999999982,  2863,  631],
+[ 704,  "Rosemary's Baby",  1968,  7.70000000000000018,  2856,  90],
+[ 705,  "Hannah and Her Sisters",  1986,  7.70000000000000018,  2851,  1],
+[ 706,  "O Brother, Where Art Thou?",  2000,  8,  2849,  111],
+[ 707,  "Apartment, The",  1960,  8.30000000000000071,  2846,  79],
+[ 708,  "Rosencrantz and Guildenstern Are Dead",  1990,  7.09999999999999964,  2844,  2675],
+[ 709,  "Sex, Lies, and Videotape",  1989,  6.90000000000000036,  2841,  689],
+[ 710,  "Summer of Sam",  1999,  6.5,  2837,  206],
+[ 711,  "Spawn",  1997,  4.59999999999999964,  2836,  2614],
+[ 712,  "Breakdown",  1997,  6.70000000000000018,  2828,  1120],
+[ 713,  "Chariots of Fire",  1981,  7.20000000000000018,  2826,  1063],
+[ 714,  "Addams Family Values",  1993,  6.09999999999999964,  2825,  422],
+[ 715,  "Great Dictator, The",  1940,  8.30000000000000071,  2819,  145],
+[ 716,  "Commitments, The",  1991,  7.29999999999999982,  2818,  68],
+[ 717,  "Pee-wee's Big Adventure",  1985,  6.5,  2803,  148],
+[ 718,  "Muriel's Wedding",  1994,  7,  2803,  1169],
+[ 719,  "Muppet Movie, The",  1979,  7.20000000000000018,  2801,  2462],
+[ 720,  "Varsity Blues",  1999,  6.09999999999999964,  2801,  2453],
+[ 721,  "Once Were Warriors",  1994,  7.79999999999999982,  2799,  624],
+[ 722,  "Saturday Night Fever",  1977,  6.40000000000000036,  2796,  66],
+[ 723,  "View to a Kill, A",  1985,  5.79999999999999982,  2790,  668],
+[ 724,  "Crimes and Misdemeanors",  1989,  7.90000000000000036,  2781,  1],
+[ 725,  "Barry Lyndon",  1975,  7.70000000000000018,  2772,  82],
+[ 726,  "For Your Eyes Only",  1981,  6.70000000000000018,  2771,  668],
+[ 727,  "House on Haunted Hill",  1999,  5.29999999999999982,  2767,  2763],
+[ 728,  "UHF",  1989,  6.5,  2755,  2267],
+[ 729,  "Octopussy",  1983,  6.20000000000000018,  2755,  668],
+[ 730,  "Horse Whisperer, The",  1998,  6.5,  2753,  36],
+[ 731,  "Big Chill, The",  1983,  7.20000000000000018,  2753,  87],
+[ 732,  "Transformers: The Movie, The",  1986,  6.40000000000000036,  2746,  2684],
+[ 733,  "Bronx Tale, A",  1993,  7.5,  2730,  3],
+[ 734,  "Quiet Man, The",  1952,  8.09999999999999964,  2729,  287],
+[ 735,  "Stripes",  1981,  6.79999999999999982,  2724,  109],
+[ 736,  "Rocky III",  1982,  5.29999999999999982,  2708,  5],
+[ 737,  "Blast from the Past",  1999,  6.79999999999999982,  2695,  377],
+[ 738,  "Spice World",  1997,  3,  2694,  2461],
+[ 739,  "Hot Shots! Part Deux",  1993,  5.5,  2685,  189],
+[ 740,  "Flintstones, The",  1994,  4.40000000000000036,  2685,  395],
+[ 741,  "First Wives Club, The",  1996,  5.5,  2680,  377],
+[ 742,  "Young Guns",  1988,  6.29999999999999982,  2673,  2305],
+[ 743,  "Practical Magic",  1998,  5.40000000000000036,  2668,  332],
+[ 744,  "Romeo Must Die",  2000,  6,  2667,  2023],
+[ 745,  "My Own Private Idaho",  1991,  6.5,  2662,  271],
+[ 746,  "Psycho",  1998,  5.40000000000000036,  2661,  271],
+[ 747,  "Diamonds Are Forever",  1971,  6.59999999999999964,  2659,  636],
+[ 748,  "One Fine Day",  1996,  6.20000000000000018,  2659,  401],
+[ 749,  "Nell",  1994,  6.29999999999999982,  2649,  199],
+[ 750,  "Officer and a Gentleman, An",  1982,  6.70000000000000018,  2634,  674],
+[ 751,  "White Men Can't Jump",  1992,  6.20000000000000018,  2634,  642],
+[ 752,  "Big Hit, The",  1998,  5.79999999999999982,  2632,  2167],
+[ 753,  "Big Night",  1996,  7.40000000000000036,  2629,  1260],
+[ 754,  "Cyrano de Bergerac",  1990,  7.59999999999999964,  2629,  2233],
+[ 755,  "So I Married an Axe Murderer",  1993,  6.20000000000000018,  2629,  2745],
+[ 756,  "Stepmom",  1998,  6.29999999999999982,  2615,  156],
+[ 757,  "Cook the Thief His Wife & Her Lover, The",  1989,  6.90000000000000036,  2615,  386],
+[ 758,  "Dancer in the Dark",  2000,  8.30000000000000071,  2614,  615],
+[ 759,  "Space Jam",  1996,  5.20000000000000018,  2614,  2351],
+[ 760,  "Out of Africa",  1985,  6.70000000000000018,  2612,  92],
+[ 761,  "Rob Roy",  1995,  6.79999999999999982,  2612,  374],
+[ 762,  "Rocky II",  1979,  5.90000000000000036,  2610,  5],
+[ 763,  "Quick and the Dead, The",  1995,  5.90000000000000036,  2607,  141],
+[ 764,  "Regarding Henry",  1991,  6.5,  2603,  47],
+[ 765,  "Airplane II: The Sequel",  1982,  5.5,  2600,  2054],
+[ 766,  "Cabaret",  1972,  7.70000000000000018,  2588,  1124],
+[ 767,  "Bullets Over Broadway",  1994,  7.59999999999999964,  2585,  1],
+[ 768,  "Beautiful Thing",  1996,  7.20000000000000018,  2585,  2084],
+[ 769,  "Space Cowboys",  2000,  7,  2583,  2],
+[ 770,  "Moonstruck",  1987,  7.09999999999999964,  2581,  81],
+[ 771,  "Never Say Never Again",  1983,  6.09999999999999964,  2579,  651],
+[ 772,  "Strange Brew",  1983,  6.40000000000000036,  2571,  147],
+[ 773,  "Doc Hollywood",  1991,  5.79999999999999982,  2564,  374],
+[ 774,  "Gallipoli",  1981,  7.70000000000000018,  2563,  86],
+[ 775,  "Disclosure",  1994,  6,  2563,  38],
+[ 776,  "Spies Like Us",  1985,  5.59999999999999964,  2562,  62],
+[ 777,  "Sjunde inseglet, Det",  1957,  8.40000000000000036,  2559,  420],
+[ 778,  "Grapes of Wrath, The",  1940,  8.30000000000000071,  2552,  287],
+[ 779,  "Indecent Proposal",  1993,  5.09999999999999964,  2552,  283],
+[ 780,  "Singles",  1992,  6.5,  2548,  391],
+[ 781,  "Hoosiers",  1986,  7.40000000000000036,  2545,  1133],
+[ 782,  "Adventures of Buckaroo Banzai Across the 8th Dimension, The",  1984,  6,  2543,  2558],
+[ 783,  "Frantic",  1988,  6.5,  2543,  90],
+[ 784,  "Sliver",  1993,  4.5,  2542,  212],
+[ 785,  "Hustler, The",  1961,  8.19999999999999929,  2541,  2605],
+[ 786,  "Howards End",  1992,  7.40000000000000036,  2540,  576],
+[ 787,  "Spy Who Loved Me, The",  1977,  6.90000000000000036,  2534,  390],
+[ 788,  "Mimic",  1997,  5.59999999999999964,  2534,  2178],
+[ 789,  "Tango & Cash",  1989,  5.20000000000000018,  2528,  1049],
+[ 790,  "Night on Earth",  1991,  7.20000000000000018,  2527,  175],
+[ 791,  "Enter the Dragon",  1973,  7.20000000000000018,  2523,  2706],
+[ 792,  "Short Circuit",  1986,  5.79999999999999982,  2522,  66],
+[ 793,  "Gremlins 2: The New Batch",  1990,  5.59999999999999964,  2520,  150],
+[ 794,  "Mission, The",  1986,  7.20000000000000018,  2516,  1170],
+[ 795,  "Violon rouge, Le",  1998,  8,  2516,  2184],
+[ 796,  "Fiddler on the Roof",  1971,  7.40000000000000036,  2513,  81],
+[ 797,  "Nine 1/2 Weeks",  1986,  5.20000000000000018,  2509,  283],
+[ 798,  "Strictly Ballroom",  1992,  7.20000000000000018,  2506,  1069],
+[ 799,  "Harvey",  1950,  8,  2505,  2029],
+[ 800,  "54",  1998,  5.29999999999999982,  2504,  2592],
+[ 801,  "You Only Live Twice",  1967,  6.79999999999999982,  2503,  390],
+[ 802,  "Wolf",  1994,  5.79999999999999982,  2485,  47],
+[ 803,  "Unbearable Lightness of Being, The",  1988,  7.20000000000000018,  2485,  288],
+[ 804,  "Dark Crystal, The",  1982,  6.79999999999999982,  2478,  952],
+[ 805,  "Mystery Science Theater 3000: The Movie",  1996,  7,  2473,  1469],
+[ 806,  "Rambo III",  1988,  3.70000000000000018,  2468,  2804],
+[ 807,  "Twin Peaks: Fire Walk with Me",  1992,  6.09999999999999964,  2466,  139],
+[ 808,  "Small Soldiers",  1998,  6,  2463,  150],
+[ 809,  "Titan A.E.",  2000,  6.79999999999999982,  2455,  409],
+[ 810,  "Thunderball",  1965,  6.79999999999999982,  2454,  388],
+[ 811,  "World According to Garp, The",  1982,  7,  2454,  276],
+[ 812,  "Outlaw Josey Wales, The",  1976,  7.59999999999999964,  2447,  2],
+[ 813,  "Dragnet",  1987,  5.5,  2441,  2670],
+[ 814,  "Superman III",  1983,  4.29999999999999982,  2439,  274],
+[ 815,  "Friday",  1995,  6.70000000000000018,  2435,  1035],
+[ 816,  "Forces of Nature",  1999,  5.70000000000000018,  2427,  2262],
+[ 817,  "One Hundred and One Dalmatians",  1961,  7.20000000000000018,  2423,  266],
+[ 818,  "Silverado",  1985,  7,  2422,  87],
+[ 819,  "Thirteenth Floor, The",  1999,  6.5,  2422,  2388],
+[ 820,  "Paris, Texas",  1984,  7.40000000000000036,  2415,  269],
+[ 821,  "Rocketeer, The",  1991,  5.79999999999999982,  2415,  424],
+[ 822,  "Buffy the Vampire Slayer",  1992,  5.40000000000000036,  2414,  2181],
+[ 823,  "On Her Majesty's Secret Service",  1969,  6.59999999999999964,  2413,  2809],
+[ 824,  "Repo Man",  1984,  6.70000000000000018,  2401,  1041],
+[ 825,  "Addicted to Love",  1997,  6.20000000000000018,  2399,  332],
+[ 826,  "8 1/2",  1963,  8,  2397,  399],
+[ 827,  "Who's Afraid of Virginia Woolf?",  1966,  8.19999999999999929,  2395,  47],
+[ 828,  "Daylight",  1996,  5.40000000000000036,  2393,  376],
+[ 829,  "Rope",  1948,  7.70000000000000018,  2389,  11],
+[ 830,  "Zero Effect",  1998,  7.29999999999999982,  2387,  1927],
+[ 831,  "Wonder Boys",  2000,  7.70000000000000018,  2386,  607],
+[ 832,  "Buffalo '66",  1998,  7.20000000000000018,  2385,  819],
+[ 833,  "Gods Must Be Crazy, The",  1980,  6.90000000000000036,  2385,  1955],
+[ 834,  "Midnight Express",  1978,  7.40000000000000036,  2384,  68],
+[ 835,  "Throw Momma from the Train",  1987,  5.79999999999999982,  2381,  24],
+[ 836,  "Welcome to the Dollhouse",  1995,  7.5,  2376,  1121],
+[ 837,  "Ordinary People",  1980,  7.70000000000000018,  2372,  36],
+[ 838,  "Doctor Dolittle",  1998,  5.40000000000000036,  2365,  425],
+[ 839,  "Apt Pupil",  1998,  6.5,  2363,  639],
+[ 840,  "Outsiders, The",  1983,  6.79999999999999982,  2363,  28],
+[ 841,  "Deuce Bigalow: Male Gigolo",  1999,  5.5,  2359,  2620],
+[ 842,  "'burbs, The",  1989,  5.5,  2354,  150],
+[ 843,  "Pretty in Pink",  1986,  6.20000000000000018,  2349,  285],
+[ 844,  "Peggy Sue Got Married",  1986,  6.29999999999999982,  2336,  28],
+[ 845,  "Revenge of the Nerds",  1984,  5.90000000000000036,  2335,  2257],
+[ 846,  "How the Grinch Stole Christmas",  2000,  6.59999999999999964,  2333,  21],
+[ 847,  "Texas Chain Saw Massacre, The",  1974,  6.70000000000000018,  2333,  1123],
+[ 848,  "City Lights",  1931,  8.59999999999999964,  2325,  145],
+[ 849,  "Money Pit, The",  1986,  5.29999999999999982,  2319,  320],
+[ 850,  "Relic, The",  1997,  5.20000000000000018,  2318,  103],
+[ 851,  "No Way Out",  1987,  7,  2314,  146],
+[ 852,  "Golden Child, The",  1986,  5.20000000000000018,  2313,  418],
+[ 853,  "Exotica",  1994,  7.09999999999999964,  2311,  665],
+[ 854,  "Heavy Metal",  1981,  6.20000000000000018,  2311,  2156],
+[ 855,  "Darkman",  1990,  5.90000000000000036,  2310,  141],
+[ 856,  "Age of Innocence, The",  1993,  7,  2299,  78],
+[ 857,  "Charade",  1963,  8,  2298,  428],
+[ 858,  "Desperately Seeking Susan",  1985,  5.59999999999999964,  2297,  2615],
+[ 859,  "Brassed Off",  1996,  7.09999999999999964,  2297,  2596],
+[ 860,  "Adventures in Babysitting",  1987,  6.29999999999999982,  2293,  156],
+[ 861,  "Benny & Joon",  1993,  6.59999999999999964,  2292,  412],
+[ 862,  "Cool Runnings",  1993,  6.20000000000000018,  2291,  411],
+[ 863,  "Superman IV: The Quest for Peace",  1987,  3.10000000000000009,  2289,  2838],
+[ 864,  "Starman",  1984,  6.70000000000000018,  2288,  23],
+[ 865,  "Presumed Innocent",  1990,  6.90000000000000036,  2279,  275],
+[ 866,  "Pushing Tin",  1999,  6,  2278,  585],
+[ 867,  "Robocop 2",  1990,  4.29999999999999982,  2277,  651],
+[ 868,  "European Vacation",  1985,  5,  2272,  403],
+[ 869,  "Don Juan DeMarco",  1995,  6.5,  2267,  2356],
+[ 870,  "Green Card",  1990,  5.90000000000000036,  2263,  86],
+[ 871,  "Hard Rain",  1998,  5.5,  2260,  2631],
+[ 872,  "Roger & Me",  1989,  7.70000000000000018,  2259,  955],
+[ 873,  "Eraserhead",  1977,  6.59999999999999964,  2258,  139],
+[ 874,  "Terms of Endearment",  1983,  7.20000000000000018,  2256,  574],
+[ 875,  "George of the Jungle",  1997,  5.70000000000000018,  2253,  1075],
+[ 876,  "39 Steps, The",  1935,  8,  2250,  11],
+[ 877,  "Broadcast News",  1987,  7,  2243,  574],
+[ 878,  "Underground",  1995,  7.79999999999999982,  2242,  663],
+[ 879,  "Miracle on 34th Street",  1947,  7.90000000000000036,  2237,  1061],
+[ 880,  "Rising Sun",  1993,  6,  2237,  288],
+[ 881,  "Frankenstein",  1994,  5.90000000000000036,  2233,  48],
+[ 882,  "Steel Magnolias",  1989,  6.70000000000000018,  2231,  200],
+[ 883,  "Hard Day's Night, A",  1964,  7.59999999999999964,  2228,  274],
+[ 884,  "St. Elmo's Fire",  1985,  5.79999999999999982,  2222,  105],
+[ 885,  "1941",  1979,  5.5,  2222,  18],
+[ 886,  "Grumpy Old Men",  1993,  6.5,  2222,  599],
+[ 887,  "Flash Gordon",  1980,  5.59999999999999964,  2222,  2628],
+[ 888,  "Hoop Dreams",  1994,  7.79999999999999982,  2220,  2571],
+[ 889,  "Trzy kolory: Bialy",  1994,  7.70000000000000018,  2213,  398],
+[ 890,  "Red Dawn",  1984,  5.59999999999999964,  2213,  693],
+[ 891,  "Random Hearts",  1999,  4.79999999999999982,  2212,  92],
+[ 892,  "Shadowlands",  1993,  7.20000000000000018,  2204,  235],
+[ 893,  "After Hours",  1985,  7.29999999999999982,  2199,  78],
+[ 894,  "Dangerous Minds",  1995,  5.70000000000000018,  2198,  2448],
+[ 895,  "Up in Smoke",  1978,  6.20000000000000018,  2198,  2819],
+[ 896,  "Dirty Dozen, The",  1967,  7.5,  2191,  1060],
+[ 897,  "Specialist, The",  1994,  4.59999999999999964,  2191,  1053],
+[ 898,  "2 Days in the Valley",  1996,  6.40000000000000036,  2189,  1700],
+[ 899,  "Three Musketeers, The",  1993,  5.90000000000000036,  2188,  149],
+[ 900,  "Slap Shot",  1977,  7,  2184,  276],
+[ 901,  "Fierce Creatures",  1997,  6.09999999999999964,  2182,  272],
+[ 902,  "Toys",  1992,  4.5,  2179,  38],
+[ 903,  "Assassins",  1995,  5.70000000000000018,  2173,  209],
+[ 904,  "Footloose",  1984,  5.79999999999999982,  2167,  200],
+[ 905,  "Wallace & Gromit: A Grand Day Out",  1992,  7.70000000000000018,  2167,  572],
+[ 906,  "Uncle Buck",  1989,  6.09999999999999964,  2163,  144],
+[ 907,  "Shane",  1953,  7.79999999999999982,  2161,  1022],
+[ 908,  "Nine Months",  1995,  5.20000000000000018,  2153,  156],
+[ 909,  "Blue Streak",  1999,  6.09999999999999964,  2153,  632],
+[ 910,  "My Left Foot",  1989,  7.40000000000000036,  2152,  581],
+[ 911,  "Omen, The",  1976,  7.09999999999999964,  2151,  209],
+[ 912,  "Anna and the King",  1999,  7,  2150,  654],
+[ 913,  "Nine to Five",  1980,  6.20000000000000018,  2148,  1110],
+[ 914,  "Hellraiser",  1987,  6.29999999999999982,  2144,  2327],
+[ 915,  "Gettysburg",  1993,  7.40000000000000036,  2144,  2761],
+[ 916,  "Hand That Rocks the Cradle, The",  1992,  6.20000000000000018,  2138,  607],
+[ 917,  "Three Days of the Condor",  1975,  7.29999999999999982,  2137,  92],
+[ 918,  "Pocahontas",  1995,  5.59999999999999964,  2130,  2630],
+[ 919,  "Timecop",  1994,  5.59999999999999964,  2121,  103],
+[ 920,  "Rio Bravo",  1959,  8,  2119,  197],
+[ 921,  "Sleeper",  1973,  7.29999999999999982,  2113,  1],
+[ 922,  "Gold Rush, The",  1925,  8.30000000000000071,  2113,  145],
+[ 923,  "Body Heat",  1981,  7.29999999999999982,  2112,  87],
+[ 924,  "Adventures of Robin Hood, The",  1938,  8.09999999999999964,  2111,  675],
+[ 925,  "Conan the Destroyer",  1984,  5.20000000000000018,  2104,  402],
+[ 926,  "Bicentennial Man",  1999,  6.5,  2103,  156],
+[ 927,  "Waiting for Guffman",  1996,  7.59999999999999964,  2097,  352],
+[ 928,  "Basketball Diaries, The",  1995,  6.59999999999999964,  2092,  2634],
+[ 929,  "Michael Collins",  1996,  6.90000000000000036,  2092,  153],
+[ 930,  "Bob Roberts",  1992,  7.09999999999999964,  2084,  25],
+[ 931,  "Swimming with Sharks",  1994,  7.20000000000000018,  2072,  2127],
+[ 932,  "Yellow Submarine",  1968,  6.90000000000000036,  2069,  2109],
+[ 933,  "Turner & Hooch",  1989,  5.29999999999999982,  2057,  407],
+[ 934,  "Nixon",  1995,  7,  2055,  69],
+[ 935,  "Porky's",  1981,  5.09999999999999964,  2051,  579],
+[ 936,  "Coyote Ugly",  2000,  5.90000000000000036,  2051,  2478],
+[ 937,  "Edge, The",  1997,  6.90000000000000036,  2050,  624],
+[ 938,  "Double vie de V&#233;ronique, La",  1991,  7.29999999999999982,  2050,  398],
+[ 939,  "Always",  1989,  6.20000000000000018,  2050,  18],
+[ 940,  "Boiler Room",  2000,  7,  2049,  2419],
+[ 941,  "Stuart Little",  1999,  6.29999999999999982,  2045,  2623],
+[ 942,  "Things to Do in Denver When You're Dead",  1995,  6.59999999999999964,  2045,  2114],
+[ 943,  "Rudy",  1993,  6.90000000000000036,  2037,  1133],
+[ 944,  "Some Kind of Wonderful",  1987,  6.5,  2036,  285],
+[ 945,  "Poseidon Adventure, The",  1972,  6.59999999999999964,  2035,  2759],
+[ 946,  "History of the World: Part I",  1981,  6.20000000000000018,  2034,  29],
+[ 947,  "Forever Young",  1992,  6.09999999999999964,  2034,  365],
+[ 948,  "To Catch a Thief",  1955,  7.5,  2032,  11],
+[ 949,  "Police Academy 4: Citizens on Patrol",  1987,  3.10000000000000009,  2028,  2317],
+[ 950,  "Night of the Hunter, The",  1955,  8.40000000000000036,  2027,  1183],
+[ 951,  "Bad Taste",  1987,  6.70000000000000018,  2026,  326],
+[ 952,  "His Girl Friday",  1940,  8.30000000000000071,  2023,  197],
+[ 953,  "Rules of Engagement",  2000,  6.5,  2020,  264],
+[ 954,  "I.Q.",  1994,  6.09999999999999964,  2019,  272],
+[ 955,  "Police Academy 5: Assignment: Miami Beach",  1988,  2.5,  2014,  2122],
+[ 956,  "Alive",  1993,  6.5,  2011,  614],
+[ 957,  "Sabrina",  1954,  7.59999999999999964,  2011,  79],
+[ 958,  "Best Years of Our Lives, The",  1946,  8.5,  2010,  620],
+[ 959,  "Mickey Blue Eyes",  1999,  5.90000000000000036,  2003,  2080],
+[ 960,  "All Quiet on the Western Front",  1930,  8.40000000000000036,  2002,  2138],
+[ 961,  "Now and Then",  1995,  6,  1999,  2151],
+[ 962,  "Snatch",  2000,  8.09999999999999964,  1996,  2205],
+[ 963,  "Accidental Tourist, The",  1988,  6.70000000000000018,  1995,  87],
+[ 964,  "For Love of the Game",  1999,  6.59999999999999964,  1990,  141],
+[ 965,  "Drugstore Cowboy",  1989,  7.5,  1988,  271],
+[ 966,  "Night at the Opera, A",  1935,  8.19999999999999929,  1983,  2532],
+[ 967,  "Ruthless People",  1986,  6.79999999999999982,  1981,  189],
+[ 968,  "Barbarella",  1968,  5.40000000000000036,  1980,  2752],
+[ 969,  "Grifters, The",  1990,  7.20000000000000018,  1978,  292],
+[ 970,  "Tequila Sunrise",  1988,  5.79999999999999982,  1976,  2582],
+[ 971,  "Pink Panther, The",  1963,  7.20000000000000018,  1973,  65],
+[ 972,  "Brady Bunch Movie, The",  1995,  5.59999999999999964,  1972,  425],
+[ 973,  "Chain Reaction",  1996,  5.09999999999999964,  1971,  291],
+[ 974,  "Yojimbo",  1961,  8.59999999999999964,  1961,  208],
+[ 975,  "In the Heat of the Night",  1967,  7.90000000000000036,  1961,  81],
+[ 976,  "Billy Elliot",  2000,  8.30000000000000071,  1960,  2784],
+[ 977,  "Powder",  1995,  5.90000000000000036,  1958,  2540],
+[ 978,  "Virgin Suicides, The",  1999,  7.40000000000000036,  1957,  1471],
+[ 979,  "F/X",  1986,  6.59999999999999964,  1952,  1007],
+[ 980,  "Mosquito Coast, The",  1986,  6.40000000000000036,  1949,  86],
+[ 981,  "Hong faan kui",  1995,  6.59999999999999964,  1949,  667],
+[ 982,  "Stalag 17",  1953,  8.30000000000000071,  1941,  79],
+[ 983,  "Nosferatu, eine Symphonie des Grauens",  1922,  8.19999999999999929,  1941,  2035],
+[ 984,  "Drop Dead Gorgeous",  1999,  6.40000000000000036,  1941,  2676],
+[ 985,  "Of Mice and Men",  1992,  7.59999999999999964,  1940,  255],
+[ 986,  "Multiplicity",  1996,  5.70000000000000018,  1939,  108],
+[ 987,  "Object of My Affection, The",  1998,  6.09999999999999964,  1939,  1149],
+[ 988,  "Suicide Kings",  1997,  6.90000000000000036,  1937,  2810],
+[ 989,  "Towering Inferno, The",  1974,  6.20000000000000018,  1937,  2018],
+[ 990,  "Purple Rose of Cairo, The",  1985,  7.5,  1937,  1],
+[ 991,  "Arthur",  1981,  6.5,  1932,  2847],
+[ 992,  "Hope Floats",  1998,  5.40000000000000036,  1927,  157],
+[ 993,  "General, The",  1927,  8.69999999999999929,  1926,  2343],
+[ 994,  "Somewhere in Time",  1980,  6.70000000000000018,  1923,  600],
+[ 995,  "Rocky V",  1990,  3.70000000000000018,  1923,  683],
+[ 996,  "Eye of the Beholder",  1999,  4.20000000000000018,  1921,  1138],
+[ 997,  "Cinderella",  1950,  7.5,  1911,  266],
+[ 998,  "Under Siege 2: Dark Territory",  1995,  4.90000000000000036,  1909,  627],
+[ 999,  "Point of No Return",  1993,  5.70000000000000018,  1908,  66],
+[ 1000,  "Haunting, The",  1963,  7.70000000000000018,  1907,  286],
+[ 1001,  "Ideal Husband, An",  1999,  7.29999999999999982,  1904,  1930],
+[ 1002,  "Grand Canyon",  1991,  6.79999999999999982,  1903,  87],
+[ 1003,  "Barb Wire",  1996,  3.29999999999999982,  1900,  2264],
+[ 1004,  "Dead Zone, The",  1983,  7.09999999999999964,  1898,  97],
+[ 1005,  "Accused, The",  1988,  7.09999999999999964,  1886,  580],
+[ 1006,  "Cookie's Fortune",  1999,  7.29999999999999982,  1885,  155],
+[ 1007,  "Ref, The",  1994,  6.79999999999999982,  1883,  1048],
+[ 1008,  "Blues Brothers 2000",  1998,  4.20000000000000018,  1880,  62],
+[ 1009,  "Red Heat",  1988,  5.29999999999999982,  1878,  143],
+[ 1010,  "Pet Sematary",  1989,  5.40000000000000036,  1876,  2701],
+[ 1011,  "Fearless",  1993,  7.09999999999999964,  1872,  86],
+[ 1012,  "Fabulous Baker Boys, The",  1989,  6.59999999999999964,  1872,  2577],
+[ 1013,  "Apostle, The",  1997,  7.20000000000000018,  1870,  44],
+[ 1014,  "Dead Calm",  1989,  6.90000000000000036,  1864,  212],
+[ 1015,  "Naked Lunch",  1991,  6.29999999999999982,  1863,  97],
+[ 1016,  "Anastasia",  1997,  6.59999999999999964,  1860,  409],
+[ 1017,  "Soldier",  1998,  5.29999999999999982,  1858,  653],
+[ 1018,  "Popeye",  1980,  4.70000000000000018,  1857,  155],
+[ 1019,  "Arrival, The",  1996,  6,  1855,  1071],
+[ 1020,  "Withnail and I",  1987,  6.90000000000000036,  1852,  1028],
+[ 1021,  "Twilight Zone: The Movie",  1983,  6,  1848,  150],
+[ 1022,  "Police Academy 2: Their First Assignment",  1985,  4,  1848,  967],
+[ 1023,  "Breaking Away",  1979,  7.70000000000000018,  1846,  994],
+[ 1024,  "Grease 2",  1982,  3.29999999999999982,  1846,  2601],
+[ 1025,  "Fools Rush In",  1997,  5.90000000000000036,  1840,  654],
+[ 1026,  "Nothing to Lose",  1997,  6.70000000000000018,  1836,  948],
+[ 1027,  "True Crime",  1999,  6.29999999999999982,  1833,  2],
+[ 1028,  "Flashdance",  1983,  5.40000000000000036,  1830,  283],
+[ 1029,  "Smokey and the Bandit",  1977,  6,  1822,  618],
+[ 1030,  "Celebrity",  1998,  6.20000000000000018,  1820,  1],
+[ 1031,  "Stop! Or My Mom Will Shoot",  1992,  3,  1817,  407],
+[ 1032,  "Wing Commander",  1999,  3.70000000000000018,  1811,  2352],
+[ 1033,  "Street Fighter",  1994,  3.10000000000000009,  1809,  2581],
+[ 1034,  "Black Rain",  1989,  6.20000000000000018,  1809,  110],
+[ 1035,  "Midsummer Night's Dream, A",  1999,  6.5,  1809,  401],
+[ 1036,  "Christine",  1983,  5.90000000000000036,  1806,  23],
+[ 1037,  "Sea of Love",  1989,  6.59999999999999964,  1806,  616],
+[ 1038,  "C'est arriv&#233; pr&#232;s de chez vous",  1992,  7.40000000000000036,  1806,  2783],
+[ 1039,  "Prizzi's Honor",  1985,  7,  1803,  312],
+[ 1040,  "Mortal Kombat: Annihilation",  1997,  3,  1802,  2424],
+[ 1041,  "Serial Mom",  1994,  6.20000000000000018,  1801,  364],
+[ 1042,  "Zulu",  1964,  7.59999999999999964,  1797,  2341],
+[ 1043,  "Bachelor Party",  1984,  5.5,  1796,  2715],
+[ 1044,  "From Here to Eternity",  1953,  8,  1794,  617],
+[ 1045,  "Playing by Heart",  1998,  7.40000000000000036,  1793,  2777],
+[ 1046,  "Freeway",  1996,  6.70000000000000018,  1787,  2699],
+[ 1047,  "Hamlet",  1990,  6.90000000000000036,  1784,  1058],
+[ 1048,  "Murder in the First",  1995,  6.90000000000000036,  1782,  2570],
+[ 1049,  "Dead Men Don't Wear Plaid",  1982,  6.40000000000000036,  1781,  221],
+[ 1050,  "Bird on a Wire",  1990,  5.09999999999999964,  1781,  66],
+[ 1051,  "Deep Rising",  1998,  5.29999999999999982,  1780,  1103],
+[ 1052,  "Disturbing Behavior",  1998,  5.09999999999999964,  1779,  2447],
+[ 1053,  "Dolores Claiborne",  1995,  7.20000000000000018,  1779,  674],
+[ 1054,  "Fan, The",  1996,  5.40000000000000036,  1779,  107],
+[ 1055,  "Simon Birch",  1998,  7.09999999999999964,  1775,  2512],
+[ 1056,  "Adventures of Ford Fairlane, The",  1990,  4.70000000000000018,  1774,  210],
+[ 1057,  "Reindeer Games",  2000,  5.59999999999999964,  1772,  676],
+[ 1058,  "Mis&#233;rables, Les",  1998,  7.09999999999999964,  1768,  584],
+[ 1059,  "Haine, La",  1995,  7.59999999999999964,  1766,  1923],
+[ 1060,  "Unendliche Geschichte, Die",  1984,  6.90000000000000036,  1764,  140],
+[ 1061,  "Where Eagles Dare",  1969,  7.29999999999999982,  1763,  2432],
+[ 1062,  "On Golden Pond",  1981,  7.20000000000000018,  1759,  2518],
+[ 1063,  "Down by Law",  1986,  7.40000000000000036,  1758,  175],
+[ 1064,  "Frankenstein",  1931,  7.90000000000000036,  1755,  1097],
+[ 1065,  "Red Rock West",  1992,  7,  1752,  1062],
+[ 1066,  "Naked",  1993,  7.40000000000000036,  1752,  583],
+[ 1067,  "Friday the 13th",  1980,  5.5,  1749,  2509],
+[ 1068,  "BASEketball",  1998,  6,  1747,  573],
+[ 1069,  "Cannonball Run, The",  1981,  5.09999999999999964,  1747,  618],
+[ 1070,  "Police Academy 6: City Under Siege",  1989,  2.5,  1739,  2754],
+[ 1071,  "Astronaut's Wife, The",  1999,  4.59999999999999964,  1736,  2868],
+[ 1072,  "Sleeping Beauty",  1959,  7.40000000000000036,  1735,  266],
+[ 1073,  "Zelig",  1983,  7.40000000000000036,  1732,  1],
+[ 1074,  "Andromeda Strain, The",  1971,  6.90000000000000036,  1731,  286],
+[ 1075,  "Overboard",  1987,  6,  1726,  129],
+[ 1076,  "Caine Mutiny, The",  1954,  8,  1722,  2027],
+[ 1077,  "Hero",  1992,  6.09999999999999964,  1719,  292],
+[ 1078,  "Bottle Rocket",  1996,  7.29999999999999982,  1717,  1034],
+[ 1079,  "Spy Hard",  1996,  4.5,  1716,  2729],
+[ 1080,  "Dark Star",  1973,  6.59999999999999964,  1716,  23],
+[ 1081,  "Odd Couple, The",  1968,  7.5,  1714,  1267],
+[ 1082,  "Music Man, The",  1962,  7.5,  1714,  1137],
+[ 1083,  "Cobra",  1986,  4,  1712,  631],
+[ 1084,  "Dinosaur",  2000,  6.5,  1710,  2090],
+[ 1085,  "Virus",  1999,  3.89999999999999991,  1709,  1174],
+[ 1086,  "My Stepmother Is an Alien",  1988,  4.70000000000000018,  1708,  320],
+[ 1087,  "Hair",  1979,  6.59999999999999964,  1708,  408],
+[ 1088,  "Secret of My Succe$s, The",  1987,  6,  1705,  200],
+[ 1089,  "Return to Me",  2000,  7.29999999999999982,  1705,  307],
+[ 1090,  "Crow: City of Angels, The",  1996,  3.70000000000000018,  1704,  2727],
+[ 1091,  "Threesome",  1994,  6,  1704,  657],
+[ 1092,  "End of the Affair, The",  1999,  7.40000000000000036,  1703,  153],
+[ 1093,  "Willow",  1988,  6.59999999999999964,  1703,  21],
+[ 1094,  "Shall We Dansu?",  1996,  7.90000000000000036,  1701,  2712],
+[ 1095,  "Nurse Betty",  2000,  7.29999999999999982,  1700,  593],
+[ 1096,  "*batteries not included",  1987,  5.5,  1696,  2693],
+[ 1097,  "Enemy Mine",  1985,  6.20000000000000018,  1695,  140],
+[ 1098,  "Per un pugno di dollari",  1964,  7.5,  1694,  268],
+[ 1099,  "Bullitt",  1968,  7.40000000000000036,  1693,  994],
+[ 1100,  "Sleeping with the Enemy",  1991,  5.70000000000000018,  1692,  410],
+[ 1101,  "Beaches",  1988,  5.90000000000000036,  1691,  129],
+[ 1102,  "Earth Girls Are Easy",  1989,  5,  1689,  2028],
+[ 1103,  "Stagecoach",  1939,  8.09999999999999964,  1689,  287],
+[ 1104,  "Cutting Edge, The",  1992,  6.40000000000000036,  1688,  890],
+[ 1105,  "Como agua para chocolate",  1992,  7.20000000000000018,  1686,  756],
+[ 1106,  "Back to School",  1986,  5.79999999999999982,  1684,  1010],
+[ 1107,  "Blue Lagoon, The",  1980,  4.29999999999999982,  1681,  383],
+[ 1108,  "In the Mouth of Madness",  1995,  6.29999999999999982,  1681,  23],
+[ 1109,  "Hercules",  1997,  6.79999999999999982,  1681,  1152],
+[ 1110,  "Stakeout",  1987,  6.5,  1680,  66],
+[ 1111,  "Per qualche dollaro in pi&#249;",  1965,  7.70000000000000018,  1680,  268],
+[ 1112,  "Flirting with Disaster",  1996,  7.20000000000000018,  1674,  1070],
+[ 1113,  "Fear",  1996,  5.79999999999999982,  1669,  423],
+[ 1114,  "Nobody's Fool",  1994,  7.29999999999999982,  1664,  660],
+[ 1115,  "Story of Us, The",  1999,  5.59999999999999964,  1659,  37],
+[ 1116,  "Pr&#234;t-&#224;-Porter",  1994,  4.70000000000000018,  1652,  155],
+[ 1117,  "Bugsy",  1991,  6.59999999999999964,  1648,  38],
+[ 1118,  "Secret of NIMH, The",  1982,  7.20000000000000018,  1646,  409],
+[ 1119,  "Big Momma's House",  2000,  4.79999999999999982,  1645,  633],
+[ 1120,  "Sleuth",  1972,  7.79999999999999982,  1645,  1111],
+[ 1121,  "Everything You Always Wanted to Know About Sex",  1972,  6.59999999999999964,  1643,  1],
+[ 1122,  "Heaven Can Wait",  1978,  6.70000000000000018,  1641,  60],
+[ 1123,  "Another 48 Hrs.",  1990,  4.90000000000000036,  1639,  143],
+[ 1124,  "In the Company of Men",  1997,  7.29999999999999982,  1635,  593],
+[ 1125,  "Bronenosets Potyomkin",  1925,  8.40000000000000036,  1634,  2128],
+[ 1126,  "Priest",  1994,  7,  1632,  1159],
+[ 1127,  "Tank Girl",  1995,  4.70000000000000018,  1632,  1032],
+[ 1128,  "Six Degrees of Separation",  1993,  7,  1628,  272],
+[ 1129,  "Walk in the Clouds, A",  1995,  6.29999999999999982,  1625,  756],
+[ 1130,  "Amarcord",  1974,  8.19999999999999929,  1624,  399],
+[ 1131,  "Sure Thing, The",  1985,  6.79999999999999982,  1622,  37],
+[ 1132,  "City Hall",  1996,  6.09999999999999964,  1622,  616],
+[ 1133,  "Mr. Mom",  1983,  6.09999999999999964,  1620,  2829],
+[ 1134,  "Quatre cents coups, Les",  1959,  8.59999999999999964,  1619,  505],
+[ 1135,  "Halloween II",  1981,  5.29999999999999982,  1612,  2618],
+[ 1136,  "Mouse Hunt",  1997,  5.79999999999999982,  1612,  2132],
+[ 1137,  "Bad Lieutenant",  1992,  6.5,  1612,  2133],
+[ 1138,  "Down and Out in Beverly Hills",  1986,  6,  1611,  720],
+[ 1139,  "American Werewolf in Paris, An",  1997,  5.09999999999999964,  1611,  2086],
+[ 1140,  "Pillow Book, The",  1996,  6.59999999999999964,  1606,  386],
+[ 1141,  "Immortal Beloved",  1994,  7,  1599,  1150],
+[ 1142,  "Velvet Goldmine",  1998,  6.20000000000000018,  1598,  2647],
+[ 1143,  "Day of the Jackal, The",  1973,  7.5,  1595,  617],
+[ 1144,  "Dead Ringers",  1988,  6.79999999999999982,  1595,  97],
+[ 1145,  "Scrooge",  1951,  8.19999999999999929,  1591,  2434],
+[ 1146,  "Birdy",  1984,  7.20000000000000018,  1587,  68],
+[ 1147,  "House of Games",  1987,  7.5,  1581,  606],
+[ 1148,  "Police Academy 3: Back in Training",  1986,  3.39999999999999991,  1579,  967],
+[ 1149,  "Crucible, The",  1996,  6.90000000000000036,  1579,  1149],
+[ 1150,  "Smilla's Sense of Snow",  1997,  6.20000000000000018,  1575,  584],
+[ 1151,  "Ravenous",  1999,  6.5,  1575,  1159],
+[ 1152,  "Sommersby",  1993,  5.90000000000000036,  1575,  669],
+[ 1153,  "200 Cigarettes",  1999,  5.29999999999999982,  1573,  2664],
+[ 1154,  "Diva",  1981,  7.29999999999999982,  1569,  1132],
+[ 1155,  "Snow Falling on Cedars",  1999,  7.09999999999999964,  1566,  1135],
+[ 1156,  "Soapdish",  1991,  6.09999999999999964,  1566,  401],
+[ 1157,  "Skulls, The",  2000,  5.29999999999999982,  1563,  376],
+[ 1158,  "Police Academy: Mission to Moscow",  1994,  1.89999999999999991,  1563,  1010],
+[ 1159,  "Cat on a Hot Tin Roof",  1958,  7.70000000000000018,  1561,  2606],
+[ 1160,  "China Syndrome, The",  1979,  7.20000000000000018,  1560,  2389],
+[ 1161,  "Biloxi Blues",  1988,  6.40000000000000036,  1558,  47],
+[ 1162,  "28 Days",  2000,  6.29999999999999982,  1556,  425],
+[ 1163,  "Beverly Hills Cop III",  1994,  4.5,  1555,  62],
+[ 1164,  "Dolce vita, La",  1960,  8,  1555,  399],
+[ 1165,  "Private Benjamin",  1980,  6,  1553,  661],
+[ 1166,  "Stalker",  1979,  7.20000000000000018,  1551,  658],
+[ 1167,  "My Girl",  1991,  6.20000000000000018,  1551,  661],
+[ 1168,  "Mitt liv som hund",  1985,  7.59999999999999964,  1548,  387],
+[ 1169,  "Sweet and Lowdown",  1999,  7.29999999999999982,  1548,  1],
+[ 1170,  "Dick",  1999,  6.59999999999999964,  1543,  657],
+[ 1171,  "Caddyshack II",  1988,  3.5,  1541,  2215],
+[ 1172,  "Corruptor, The",  1999,  6,  1540,  423],
+[ 1173,  "Casino Royale",  1967,  5.20000000000000018,  1529,  2690],
+[ 1174,  "Night at the Roxbury, A",  1998,  4.79999999999999982,  1526,  2236],
+[ 1175,  "Pay It Forward",  2000,  7.29999999999999982,  1512,  589],
+[ 1176,  "River Wild, The",  1994,  6.20000000000000018,  1507,  607],
+[ 1177,  "Greystoke: The Legend of Tarzan, Lord of the Apes",  1984,  5.90000000000000036,  1505,  1063],
+[ 1178,  "Videodrome",  1983,  6.59999999999999964,  1504,  97],
+[ 1179,  "Peter Pan",  1953,  7.29999999999999982,  1504,  266],
+[ 1180,  "Freshman, The",  1990,  6.59999999999999964,  1503,  375],
+[ 1181,  "Au revoir les enfants",  1987,  8.09999999999999964,  1503,  619],
+[ 1182,  "Black Hole, The",  1979,  5.20000000000000018,  1499,  2117],
+[ 1183,  "Pecker",  1998,  6.70000000000000018,  1494,  364],
+[ 1184,  "Replacements, The",  2000,  6.59999999999999964,  1493,  285],
+[ 1185,  "Bridge Too Far, A",  1977,  6.79999999999999982,  1487,  235],
+[ 1186,  "Mujeres al borde de un ataque de nervios",  1988,  7.70000000000000018,  1486,  394],
+[ 1187,  "Airheads",  1994,  5.29999999999999982,  1484,  371],
+[ 1188,  "Color of Night",  1994,  4.79999999999999982,  1481,  1039],
+[ 1189,  "Soylent Green",  1973,  6.5,  1481,  402],
+[ 1190,  "All of Me",  1984,  6.79999999999999982,  1479,  221],
+[ 1191,  "Passenger 57",  1992,  5.40000000000000036,  1479,  1885],
+[ 1192,  "Mystery, Alaska",  1999,  6.79999999999999982,  1477,  604],
+[ 1193,  "Strada, La",  1954,  8.30000000000000071,  1475,  399],
+[ 1194,  "Picnic at Hanging Rock",  1975,  7.59999999999999964,  1475,  86],
+[ 1195,  "Radio Days",  1987,  7.29999999999999982,  1473,  1],
+[ 1196,  "Year of Living Dangerously, The",  1982,  7.20000000000000018,  1471,  86],
+[ 1197,  "Species II",  1998,  3.5,  1470,  1001],
+[ 1198,  "Teaching Mrs. Tingle",  1999,  5,  1469,  2212],
+[ 1199,  "Universal Soldier",  1992,  5,  1467,  290],
+[ 1200,  "Fanny och Alexander",  1982,  8.19999999999999929,  1467,  420],
+[ 1201,  "Richard III",  1995,  7.70000000000000018,  1467,  2526],
+[ 1202,  "Requiem for a Dream",  2000,  8.69999999999999929,  1466,  1136],
+[ 1203,  "Babe: Pig in the City",  1998,  6.90000000000000036,  1465,  979],
+[ 1204,  "Wyatt Earp",  1994,  6,  1460,  87],
+[ 1205,  "Return to Paradise",  1998,  6.79999999999999982,  1458,  410],
+[ 1206,  "Affliction",  1997,  7,  1456,  652],
+[ 1207,  "Smoke Signals",  1998,  7.29999999999999982,  1454,  2355],
+[ 1208,  "Mister Roberts",  1955,  7.90000000000000036,  1452,  287],
+[ 1209,  "In Dreams",  1998,  5.20000000000000018,  1451,  153],
+[ 1210,  "Husbands and Wives",  1992,  7.5,  1449,  1],
+[ 1211,  "Westworld",  1973,  6.79999999999999982,  1447,  1017],
+[ 1212,  "Fantasia/2000",  1999,  7.90000000000000036,  1445,  1167],
+[ 1213,  "Chongqing senlin",  1994,  7.70000000000000018,  1445,  1095],
+[ 1214,  "Warriors, The",  1979,  6.90000000000000036,  1444,  143],
+[ 1215,  "Thin Man, The",  1934,  8.09999999999999964,  1444,  2564],
+[ 1216,  "Remember the Titans",  2000,  8,  1438,  2376],
+[ 1217,  "Mrs. Brown",  1997,  7.5,  1434,  1011],
+[ 1218,  "Pinocchio",  1940,  7.79999999999999982,  1429,  2224],
+[ 1219,  "Coneheads",  1993,  5,  1427,  1096],
+[ 1220,  "Stealing Beauty",  1996,  6.29999999999999982,  1423,  598],
+[ 1221,  "Prophecy, The",  1995,  6.59999999999999964,  1420,  2105],
+[ 1222,  "Inherit the Wind",  1960,  8,  1420,  673],
+[ 1223,  "Single White Female",  1992,  6.20000000000000018,  1419,  1104],
+[ 1224,  "Death and the Maiden",  1994,  7,  1414,  90],
+[ 1225,  "Three to Tango",  1999,  6.40000000000000036,  1412,  2279],
+[ 1226,  "Badlands",  1973,  7.79999999999999982,  1410,  686],
+[ 1227,  "Half Baked",  1998,  5.79999999999999982,  1409,  1055],
+[ 1228,  "Idle Hands",  1999,  5.5,  1407,  2797],
+[ 1229,  "Candyman",  1992,  6.09999999999999964,  1403,  1150],
+[ 1230,  "Da hong deng long gao gao gua",  1991,  8.30000000000000071,  1403,  2830],
+[ 1231,  "Hana-bi",  1997,  7.90000000000000036,  1402,  1484],
+[ 1232,  "Outland",  1981,  6.40000000000000036,  1402,  103],
+[ 1233,  "10",  1979,  5.5,  1395,  65],
+[ 1234,  "Grande illusion, La",  1937,  8.59999999999999964,  1393,  2292],
+[ 1235,  "Flubber",  1997,  4.70000000000000018,  1393,  632],
+[ 1236,  "Nineteen Eighty-Four",  1984,  6.70000000000000018,  1390,  1154],
+[ 1237,  "And Now for Something Completely Different",  1971,  7.20000000000000018,  1388,  59],
+[ 1238,  "THX 1138",  1970,  6.40000000000000036,  1388,  360],
+[ 1239,  "Up Close & Personal",  1996,  5.79999999999999982,  1386,  691],
+[ 1240,  "Hurlyburly",  1998,  5.70000000000000018,  1385,  2039],
+[ 1241,  "Oliver!",  1968,  7.29999999999999982,  1381,  1003],
+[ 1242,  "They Live",  1988,  6.29999999999999982,  1378,  23],
+[ 1243,  "Money Train",  1995,  5.09999999999999964,  1378,  410],
+[ 1244,  "Small Time Crooks",  2000,  6.70000000000000018,  1378,  1],
+[ 1245,  "Dumbo",  1941,  7.5,  1377,  2245],
+[ 1246,  "To Have and Have Not",  1944,  7.90000000000000036,  1374,  197],
+[ 1247,  "Shadow of a Doubt",  1943,  8.30000000000000071,  1370,  11],
+[ 1248,  "Witness for the Prosecution",  1957,  8.30000000000000071,  1370,  79],
+[ 1249,  "Victor/Victoria",  1982,  7.09999999999999964,  1365,  65],
+[ 1250,  "Trees Lounge",  1996,  7,  1365,  186],
+[ 1251,  "Swing Kids",  1993,  6,  1365,  2743],
+[ 1252,  "All That Jazz",  1979,  7.5,  1362,  1124],
+[ 1253,  "Teenage Mutant Ninja Turtles",  1990,  5.20000000000000018,  1348,  1096],
+[ 1254,  "Bloodsport",  1988,  5.79999999999999982,  1348,  2689],
+[ 1255,  "Topsy-Turvy",  1999,  7.70000000000000018,  1346,  583],
+[ 1256,  "Diabolique",  1996,  4.90000000000000036,  1345,  412],
+[ 1257,  "101 Dalmatians",  1996,  5.70000000000000018,  1343,  149],
+[ 1258,  "Mirror Has Two Faces, The",  1996,  5.59999999999999964,  1343,  207],
+[ 1259,  "Nashville",  1975,  7.90000000000000036,  1340,  155],
+[ 1260,  "He Got Game",  1998,  6.79999999999999982,  1339,  206],
+[ 1261,  "Five Easy Pieces",  1970,  7.40000000000000036,  1338,  2467],
+[ 1262,  "East of Eden",  1955,  7.79999999999999982,  1337,  655],
+[ 1263,  "She's the One",  1996,  6.20000000000000018,  1334,  485],
+[ 1264,  "Eight Men Out",  1988,  7.29999999999999982,  1331,  931],
+[ 1265,  "Solyaris",  1972,  7.40000000000000036,  1330,  658],
+[ 1266,  "Body Double",  1984,  6.29999999999999982,  1327,  31],
+[ 1267,  "Spellbound",  1945,  7.5,  1327,  11],
+[ 1268,  "This Boy's Life",  1993,  7.09999999999999964,  1325,  374],
+[ 1269,  "Silent Running",  1971,  6.79999999999999982,  1324,  1156],
+[ 1270,  "About Last Night...",  1986,  5.79999999999999982,  1324,  382],
+[ 1271,  "Bride of Chucky",  1998,  5.5,  1323,  2824],
+[ 1272,  "Nick of Time",  1995,  6.09999999999999964,  1323,  66],
+[ 1273,  "Freaks",  1932,  7.70000000000000018,  1322,  2644],
+[ 1274,  "Altered States",  1980,  6.59999999999999964,  1321,  909],
+[ 1275,  "Amazon Women on the Moon",  1987,  5.5,  1317,  150],
+[ 1276,  "Serpico",  1973,  7.5,  1317,  80],
+[ 1277,  "Murder at 1600",  1997,  6,  1314,  1178],
+[ 1278,  "Blown Away",  1994,  5.70000000000000018,  1314,  672],
+[ 1279,  "Teen Wolf",  1985,  5,  1310,  2758],
+[ 1280,  "Pok&#233;mon the First Movie: Mewtwo Strikes Back",  1999,  4,  1308,  2625],
+[ 1281,  "Big Easy, The",  1987,  6.59999999999999964,  1304,  2315],
+[ 1282,  "Escape from Alcatraz",  1979,  7,  1303,  346],
+[ 1283,  "At First Sight",  1999,  6.09999999999999964,  1302,  1172],
+[ 1284,  "Frankie and Johnny",  1991,  6.5,  1302,  129],
+[ 1285,  "Rumble Fish",  1983,  6.70000000000000018,  1299,  28],
+[ 1286,  "Wings of the Dove, The",  1997,  6.90000000000000036,  1296,  988],
+[ 1287,  "Parent Trap, The",  1998,  6.90000000000000036,  1295,  2747],
+[ 1288,  "Arizona Dream",  1993,  6.79999999999999982,  1285,  663],
+[ 1289,  "Sister Act 2: Back in the Habit",  1993,  4.40000000000000036,  1285,  537],
+[ 1290,  "Santa Clause, The",  1994,  5.90000000000000036,  1284,  2452],
+[ 1291,  "Caligula",  1980,  4.29999999999999982,  1282,  2642],
+[ 1292,  "Honeymoon in Vegas",  1992,  6.09999999999999964,  1282,  375],
+[ 1293,  "Affair to Remember, An",  1957,  7.09999999999999964,  1281,  992],
+[ 1294,  "To Wong Foo, Thanks for Everything, Julie Newmar",  1995,  5.5,  1281,  2399],
+[ 1295,  "Gorillas in the Mist",  1988,  6.70000000000000018,  1280,  199],
+[ 1296,  "White Squall",  1996,  6.59999999999999964,  1280,  110],
+[ 1297,  "Dirty Work",  1998,  5.70000000000000018,  1280,  2464],
+[ 1298,  "Party, The",  1968,  7.29999999999999982,  1278,  65],
+[ 1299,  "Smultronst&#228;llet",  1957,  8.5,  1278,  420],
+[ 1300,  "Virtuosity",  1995,  5.40000000000000036,  1277,  2455],
+[ 1301,  "Book of Shadows: Blair Witch 2",  2000,  4.5,  1277,  1862],
+[ 1302,  "Taxi",  1998,  6.70000000000000018,  1276,  2204],
+[ 1303,  "Crumb",  1994,  7.79999999999999982,  1273,  2696],
+[ 1304,  "Fly Away Home",  1996,  7,  1270,  2239],
+[ 1305,  "Orgazmo",  1997,  5.70000000000000018,  1269,  270],
+[ 1306,  "Cat People",  1982,  5.79999999999999982,  1267,  652],
+[ 1307,  "Cool World",  1992,  4,  1265,  2849],
+[ 1308,  "Children of a Lesser God",  1986,  7,  1265,  2787],
+[ 1309,  "37&#176;2 le matin",  1986,  6.90000000000000036,  1264,  1132],
+[ 1310,  "Bonfire of the Vanities, The",  1990,  4.79999999999999982,  1262,  31],
+[ 1311,  "Tampopo",  1986,  7.79999999999999982,  1259,  2011],
+[ 1312,  "Guns of Navarone, The",  1961,  7.40000000000000036,  1259,  1164],
+[ 1313,  "Chaplin",  1992,  6.79999999999999982,  1257,  235],
+[ 1314,  "Hard Target",  1993,  5.70000000000000018,  1256,  204],
+[ 1315,  "Nutty Professor II: The Klumps",  2000,  4.70000000000000018,  1251,  384],
+[ 1316,  "Highlander III: The Sorcerer",  1994,  3.79999999999999982,  1249,  2017],
+[ 1317,  "Eve's Bayou",  1997,  7.29999999999999982,  1247,  1232],
+[ 1318,  "Bananas",  1971,  7,  1247,  1],
+[ 1319,  "Where the Heart Is",  2000,  6.79999999999999982,  1245,  2688],
+[ 1320,  "When We Were Kings",  1996,  7.79999999999999982,  1241,  2111],
+[ 1321,  "Seven Brides for Seven Brothers",  1954,  7.20000000000000018,  1238,  428],
+[ 1322,  "Brewster's Millions",  1985,  5.5,  1236,  143],
+[ 1323,  "Titus",  1999,  7.79999999999999982,  1236,  2025],
+[ 1324,  "Prince of Tides, The",  1991,  6.40000000000000036,  1232,  207],
+[ 1325,  "Sophie's Choice",  1982,  7.59999999999999964,  1231,  275],
+[ 1326,  "T2 3-D: Battle Across Time",  1996,  7.79999999999999982,  1231,  1174],
+[ 1327,  "Ulee's Gold",  1997,  7.20000000000000018,  1227,  2541],
+[ 1328,  "East Is East",  1999,  7.20000000000000018,  1226,  2337],
+[ 1329,  "Hitcher, The",  1986,  6.79999999999999982,  1223,  2493],
+[ 1330,  "Night to Remember, A",  1958,  7.70000000000000018,  1221,  2776],
+[ 1331,  "Anywhere But Here",  1999,  6.29999999999999982,  1219,  664],
+[ 1332,  "Pale Rider",  1985,  6.79999999999999982,  1218,  2],
+[ 1333,  "Blowup",  1966,  7.20000000000000018,  1214,  2587],
+[ 1334,  "Mystic Pizza",  1988,  6,  1212,  599],
+[ 1335,  "Young Guns II",  1990,  5.70000000000000018,  1209,  627],
+[ 1336,  "Belle de jour",  1967,  7.70000000000000018,  1208,  815],
+[ 1337,  "Blind Date",  1987,  5.29999999999999982,  1206,  65],
+[ 1338,  "Fahrenheit 451",  1966,  7,  1206,  505],
+[ 1339,  "Ba wang bie ji",  1993,  7.79999999999999982,  1206,  2001],
+[ 1340,  "Vegas Vacation",  1997,  4.79999999999999982,  1204,  2775],
+[ 1341,  "Best in Show",  2000,  8,  1203,  352],
+[ 1342,  "When a Man Loves a Woman",  1994,  6.5,  1203,  2795],
+[ 1343,  "Murder by Death",  1976,  6.79999999999999982,  1202,  2588],
+[ 1344,  "Straw Dogs",  1971,  7.20000000000000018,  1200,  1072],
+[ 1345,  "Fail-Safe",  1964,  7.79999999999999982,  1199,  80],
+[ 1346,  "Spitfire Grill, The",  1996,  6.70000000000000018,  1196,  2116],
+[ 1347,  "Hilary and Jackie",  1998,  7.70000000000000018,  1196,  2186],
+[ 1348,  "Henry: Portrait of a Serial Killer",  1986,  7.20000000000000018,  1194,  974],
+[ 1349,  "Shooting Fish",  1997,  6.70000000000000018,  1190,  2833],
+[ 1350,  "Crna macka, beli macor",  1998,  8.09999999999999964,  1189,  663],
+[ 1351,  "Cutthroat Island",  1995,  5.20000000000000018,  1188,  210],
+[ 1352,  "Father of the Bride Part II",  1995,  5.5,  1188,  397],
+[ 1353,  "Bis ans Ende der Welt",  1991,  6.5,  1185,  269],
+[ 1354,  "Shadow, The",  1994,  5.29999999999999982,  1184,  577],
+[ 1355,  "Sgt. Bilko",  1996,  5.09999999999999964,  1181,  262],
+[ 1356,  "Nightmare on Elm Street 3: Dream Warriors, A",  1987,  5.70000000000000018,  1177,  1122],
+[ 1357,  "Reine Margot, La",  1994,  7.5,  1176,  2613],
+[ 1358,  "RoboCop 3",  1993,  3.10000000000000009,  1175,  2311],
+[ 1359,  "Dangerous Beauty",  1998,  7.09999999999999964,  1174,  2492],
+[ 1360,  "Weekend at Bernie's",  1989,  5.40000000000000036,  1173,  954],
+[ 1361,  "Phantoms",  1998,  5,  1172,  1127],
+[ 1362,  "Dead Pool, The",  1988,  5.70000000000000018,  1168,  2293],
+[ 1363,  "Presidio, The",  1988,  5.70000000000000018,  1162,  103],
+[ 1364,  "Shaft",  1971,  6.5,  1160,  2134],
+[ 1365,  "Murder on the Orient Express",  1974,  6.90000000000000036,  1158,  80],
+[ 1366,  "Englishman Who Went Up a Hill But Came Down a Mountain, The",  1995,  6.5,  1155,  2323],
+[ 1367,  "Diner",  1982,  7.40000000000000036,  1154,  38],
+[ 1368,  "Your Friends & Neighbors",  1998,  6.40000000000000036,  1153,  593],
+[ 1369,  "White Christmas",  1954,  7,  1153,  675],
+[ 1370,  "Tucker: The Man and His Dream",  1988,  6.79999999999999982,  1152,  28],
+[ 1371,  "Sirens",  1994,  6,  1152,  1926],
+[ 1372,  "Bring It On",  2000,  6.5,  1152,  2808],
+[ 1373,  "Secret Garden, The",  1993,  7.09999999999999964,  1150,  997],
+[ 1374,  "Forget Paris",  1995,  6.29999999999999982,  1150,  158],
+[ 1375,  "Supernova",  2000,  3.89999999999999991,  1149,  143],
+[ 1376,  "Mulholland Falls",  1996,  5.70000000000000018,  1148,  624],
+[ 1377,  "Cradle Will Rock",  1999,  7.20000000000000018,  1147,  25],
+[ 1378,  "Striking Distance",  1993,  5.29999999999999982,  1145,  1090],
+[ 1379,  "Anatomy of a Murder",  1959,  8.19999999999999929,  1143,  1406],
+[ 1380,  "New Nightmare",  1994,  6.20000000000000018,  1142,  133],
+[ 1381,  "&#192; bout de souffle",  1960,  8,  1141,  1689],
+[ 1382,  "Doom Generation, The",  1995,  4.90000000000000036,  1141,  2152],
+[ 1383,  "Extreme Measures",  1996,  6.09999999999999964,  1139,  199],
+[ 1384,  "Way of the Gun, The",  2000,  7,  1137,  2324],
+[ 1385,  "Something Wild",  1986,  6.59999999999999964,  1135,  281],
+[ 1386,  "Romper Stomper",  1992,  7.09999999999999964,  1133,  2101],
+[ 1387,  "Angela's Ashes",  1999,  7,  1131,  68],
+[ 1388,  "Don't Tell Mom the Babysitter's Dead",  1991,  5.09999999999999964,  1127,  149],
+[ 1389,  "Halloween III: Season of the Witch",  1982,  3.39999999999999991,  1126,  2680],
+[ 1390,  "Red Sonja",  1985,  4.09999999999999964,  1124,  402],
+[ 1391,  "Gingerbread Man, The",  1998,  5.90000000000000036,  1123,  155],
+[ 1392,  "Mumford",  1999,  7.20000000000000018,  1121,  87],
+[ 1393,  "Encino Man",  1992,  4.79999999999999982,  1120,  632],
+[ 1394,  "Casualties of War",  1989,  6.59999999999999964,  1119,  31],
+[ 1395,  "Giant",  1956,  7.59999999999999964,  1116,  1022],
+[ 1396,  "Three Musketeers, The",  1973,  7.40000000000000036,  1116,  274],
+[ 1397,  "Seventh Sign, The",  1988,  5.79999999999999982,  1115,  2232],
+[ 1398,  "Auntie Mame",  1958,  7.5,  1113,  1137],
+[ 1399,  "Short Circuit 2",  1988,  4.29999999999999982,  1110,  2006],
+[ 1400,  "Muse, The",  1999,  5.79999999999999982,  1110,  247],
+[ 1401,  "Phantom, The",  1996,  5.09999999999999964,  1107,  1115],
+[ 1402,  "Enfants du paradis, Les",  1945,  8.40000000000000036,  1106,  2573],
+[ 1403,  "Other Sister, The",  1999,  6.29999999999999982,  1104,  129],
+[ 1404,  "Pacific Heights",  1990,  6.20000000000000018,  1102,  677],
+[ 1405,  "Walkabout",  1971,  7.5,  1101,  1076],
+[ 1406,  "Aguirre, der Zorn Gottes",  1972,  8.09999999999999964,  1101,  1886],
+[ 1407,  "Nothing But Trouble",  1991,  3.39999999999999991,  1100,  15],
+[ 1408,  "Bitter Moon",  1992,  6.70000000000000018,  1100,  90],
+[ 1409,  "Grumpier Old Men",  1995,  6.29999999999999982,  1100,  285],
+[ 1410,  "House of the Spirits, The",  1993,  6,  1099,  584],
+[ 1411,  "Time Machine, The",  1960,  7.29999999999999982,  1097,  2149],
+[ 1412,  "Catch-22",  1970,  6.90000000000000036,  1094,  47],
+[ 1413,  "Hanging Up",  2000,  4.5,  1093,  94],
+[ 1414,  "Can't Buy Me Love",  1987,  6.09999999999999964,  1091,  2574],
+[ 1415,  "Trust",  1990,  7.70000000000000018,  1090,  982],
+[ 1416,  "Boondock Saints, The",  1999,  7.40000000000000036,  1089,  2641],
+[ 1417,  "Babettes g&#230;stebud",  1987,  7.90000000000000036,  1088,  2221],
+[ 1418,  "Nattevagten",  1994,  7.59999999999999964,  1085,  1166],
+[ 1419,  "Air America",  1990,  5.20000000000000018,  1085,  407],
+[ 1420,  "Ultimo tango a Parigi",  1972,  6.90000000000000036,  1081,  598],
+[ 1421,  "How to Make an American Quilt",  1995,  6.09999999999999964,  1081,  2299],
+[ 1422,  "Runaway Train",  1985,  7,  1081,  1049],
+[ 1423,  "Problem Child 2",  1991,  2.70000000000000018,  1080,  395],
+[ 1424,  "Fright Night",  1985,  6.5,  1079,  562],
+[ 1425,  "Higher Learning",  1995,  6.29999999999999982,  1078,  396],
+[ 1426,  "Defending Your Life",  1991,  7.09999999999999964,  1078,  247],
+[ 1427,  "Annie",  1982,  5.29999999999999982,  1077,  312],
+[ 1428,  "Slums of Beverly Hills",  1998,  6.40000000000000036,  1076,  2543],
+[ 1429,  "Days of Heaven",  1978,  7.79999999999999982,  1076,  686],
+[ 1430,  "Newsies",  1992,  5.20000000000000018,  1075,  991],
+[ 1431,  "Picture Perfect",  1997,  5.79999999999999982,  1075,  2139],
+[ 1432,  "Batman: Mask of the Phantasm",  1993,  6.90000000000000036,  1075,  2089],
+[ 1433,  "High Plains Drifter",  1972,  7.09999999999999964,  1075,  2],
+[ 1434,  "Cheech & Chong's Next Movie",  1980,  5.20000000000000018,  1074,  721],
+[ 1435,  "Adam's Rib",  1949,  7.79999999999999982,  1073,  628],
+[ 1436,  "'Breaker' Morant",  1980,  7.79999999999999982,  1072,  685],
+[ 1437,  "Brokedown Palace",  1999,  6.09999999999999964,  1071,  580],
+[ 1438,  "Tea with Mussolini",  1999,  6.90000000000000036,  1071,  1058],
+[ 1439,  "Super Mario Bros.",  1993,  3.39999999999999991,  1071,  1175],
+[ 1440,  "Firefox",  1982,  5.29999999999999982,  1070,  2],
+[ 1441,  "Stranger Than Paradise",  1984,  7.40000000000000036,  1069,  175],
+[ 1442,  "Bedazzled",  2000,  6.40000000000000036,  1065,  108],
+[ 1443,  "Yin shi nan nu",  1994,  7.79999999999999982,  1063,  273],
+[ 1444,  "Detroit Rock City",  1999,  6.20000000000000018,  1061,  977],
+[ 1445,  "Untamed Heart",  1993,  6.5,  1061,  2661],
+[ 1446,  "Antonia",  1995,  7.79999999999999982,  1061,  2501],
+[ 1447,  "Young Sherlock Holmes",  1985,  6.29999999999999982,  1059,  38],
+[ 1448,  "Tommy",  1975,  5.90000000000000036,  1059,  909],
+[ 1449,  "School Ties",  1992,  6.70000000000000018,  1059,  1007],
+[ 1450,  "One True Thing",  1998,  7.40000000000000036,  1058,  998],
+[ 1451,  "Boys on the Side",  1995,  6.20000000000000018,  1058,  200],
+[ 1452,  "Buena Vista Social Club",  1999,  7.40000000000000036,  1057,  269],
+[ 1453,  "Clash of the Titans",  1981,  5.70000000000000018,  1056,  2468],
+[ 1454,  "Hellbound: Hellraiser II",  1988,  5.59999999999999964,  1056,  2655],
+[ 1455,  "Holy Man",  1998,  5.20000000000000018,  1055,  149],
+[ 1456,  "Bachelor, The",  1999,  5.09999999999999964,  1055,  2112],
+[ 1457,  "Down Periscope",  1996,  5.29999999999999982,  1055,  2425],
+[ 1458,  "Happy, Texas",  1999,  6.70000000000000018,  1054,  2598],
+[ 1459,  "Guess Who's Coming to Dinner",  1967,  7.20000000000000018,  1054,  673],
+[ 1460,  "Fearless Vampire Killers, The",  1967,  6.79999999999999982,  1051,  90],
+[ 1461,  "Assault on Precinct 13",  1976,  7.20000000000000018,  1050,  23],
+[ 1462,  "Chase, The",  1994,  5.29999999999999982,  1046,  977],
+[ 1463,  "Mod Squad, The",  1999,  3.60000000000000009,  1045,  2725],
+[ 1464,  "Great Outdoors, The",  1988,  5.5,  1044,  285],
+[ 1465,  "Hairspray",  1988,  6.5,  1044,  364],
+[ 1466,  "Shootist, The",  1976,  7.40000000000000036,  1044,  346],
+[ 1467,  "Un coeur en hiver",  1992,  7.70000000000000018,  1044,  2296],
+[ 1468,  "Europa",  1991,  7.59999999999999964,  1042,  615],
+[ 1469,  "Running on Empty",  1988,  7.09999999999999964,  1042,  80],
+[ 1470,  "Nightmare on Elm Street Part 2: Freddy's Revenge, A",  1985,  4.40000000000000036,  1041,  1173],
+[ 1471,  "Paper, The",  1994,  6.29999999999999982,  1040,  21],
+[ 1472,  "Holy Smoke",  1999,  5.79999999999999982,  1039,  575],
+[ 1473,  "Near Dark",  1987,  7,  1039,  641],
+[ 1474,  "With Honors",  1994,  6.20000000000000018,  1036,  2208],
+[ 1475,  "Clockers",  1995,  6.90000000000000036,  1035,  206],
+[ 1476,  "Vanishing, The",  1993,  5.90000000000000036,  1035,  2162],
+[ 1477,  "Getaway, The",  1994,  5.59999999999999964,  1034,  146],
+[ 1478,  "Belle &#233;poque",  1992,  7.29999999999999982,  1033,  2015],
+[ 1479,  "Road to Wellville, The",  1994,  5,  1033,  68],
+[ 1480,  "Peter's Friends",  1992,  6.59999999999999964,  1033,  48],
+[ 1481,  "Torch Song Trilogy",  1988,  6.70000000000000018,  1032,  2567],
+[ 1482,  "Trouble with Harry, The",  1955,  7.29999999999999982,  1031,  11],
+[ 1483,  "American in Paris, An",  1951,  7.5,  1030,  2597],
+[ 1484,  "Muppet Christmas Carol, The",  1992,  6.90000000000000036,  1030,  1493],
+[ 1485,  "Secret of Roan Inish, The",  1994,  7.5,  1030,  931],
+[ 1486,  "Adventures of Rocky & Bullwinkle, The",  2000,  4.79999999999999982,  1028,  2466],
+[ 1487,  "Child's Play",  1988,  5.59999999999999964,  1028,  562],
+[ 1488,  "Help!",  1965,  6.79999999999999982,  1027,  274],
+[ 1489,  "Rage: Carrie 2, The",  1999,  4.79999999999999982,  1026,  1160],
+[ 1490,  "Oscar",  1991,  5.29999999999999982,  1024,  62],
+[ 1491,  "Desperate Measures",  1998,  5.5,  1024,  1104],
+[ 1492,  "Frenzy",  1972,  7.29999999999999982,  1022,  11],
+[ 1493,  "Drop Dead Fred",  1991,  4.29999999999999982,  1022,  2046],
+[ 1494,  "My Blue Heaven",  1990,  5.90000000000000036,  1022,  200],
+[ 1495,  "Sid and Nancy",  1986,  7,  1020,  1041],
+[ 1496,  "What Ever Happened to Baby Jane?",  1962,  7.79999999999999982,  1020,  1060],
+[ 1497,  "Freejack",  1992,  4.79999999999999982,  1019,  627],
+[ 1498,  "Alice in Wonderland",  1951,  7.20000000000000018,  1018,  266],
+[ 1499,  "Vie r&#234;v&#233;e des anges, La",  1998,  8.09999999999999964,  1017,  2073],
+[ 1500,  "Butcher Boy, The",  1997,  7.20000000000000018,  1017,  153],
+[ 1501,  "Carne tr&#233;mula",  1997,  7.5,  1016,  394],
+[ 1502,  "Red Corner",  1997,  6,  1016,  691],
+[ 1503,  "Tonari no Totoro",  1988,  7.90000000000000036,  1014,  1051],
+[ 1504,  "Rollerball",  1975,  6.20000000000000018,  1013,  81],
+[ 1505,  "Outside Providence",  1999,  6.29999999999999982,  1010,  2626],
+[ 1506,  "Verdict, The",  1982,  7.5,  1010,  80],
+[ 1507,  "PCU",  1994,  5.79999999999999982,  1009,  730],
+[ 1508,  "Noises Off...",  1992,  6.79999999999999982,  1006,  612],
+[ 1509,  "City Slickers II: The Legend of Curly's Gold",  1994,  5,  1006,  2860],
+[ 1510,  "Sydney",  1996,  7.5,  1006,  1037],
+[ 1511,  "Clay Pigeons",  1998,  6.70000000000000018,  1005,  2283],
+[ 1512,  "Suspiria",  1977,  7.09999999999999964,  1004,  2259],
+[ 1513,  "Excess Baggage",  1997,  4.59999999999999964,  1003,  1182],
+[ 1514,  "Mighty Ducks, The",  1992,  5.70000000000000018,  1003,  149],
+[ 1515,  "Creepshow",  1982,  5.90000000000000036,  1001,  379],
+[ 1516,  "Basquiat",  1996,  6.5,  1001,  2390],
+[ 1517,  "Baraka",  1992,  7.59999999999999964,  1000,  2846],
+[ 1518,  "Heartbreak Ridge",  1986,  6.09999999999999964,  1000,  2],
+[ 1519,  "On Deadly Ground",  1994,  3.70000000000000018,  999,  171],
+[ 1520,  "Circle of Friends",  1995,  6.79999999999999982,  999,  2610],
+[ 1521,  "Dracula: Dead and Loving It",  1995,  4.40000000000000036,  999,  29],
+[ 1522,  "Andrei Rublyov",  1969,  8.40000000000000036,  996,  658],
+[ 1523,  "HouseSitter",  1992,  6,  995,  123],
+[ 1524,  "Free Willy",  1993,  5.20000000000000018,  993,  1115],
+[ 1525,  "Nightmare on Elm Street 4: The Dream Master, A",  1988,  4.79999999999999982,  992,  210],
+[ 1526,  "Trick",  1999,  7.70000000000000018,  992,  2314],
+[ 1527,  "Fog, The",  1980,  6.20000000000000018,  991,  23],
+[ 1528,  "Twilight",  1998,  6.09999999999999964,  988,  660],
+[ 1529,  "Colors",  1988,  6.29999999999999982,  988,  125],
+[ 1530,  "Bambi Meets Godzilla",  1969,  7.5,  985,  2544],
+[ 1531,  "Sholay",  1975,  7.5,  985,  2848],
+[ 1532,  "D.O.A.",  1988,  6.09999999999999964,  983,  1175],
+[ 1533,  "War of the Worlds, The",  1953,  7.09999999999999964,  983,  2260],
+[ 1534,  "Midnight Clear, A",  1991,  7.5,  981,  644],
+[ 1535,  "Winslow Boy, The",  1999,  7.5,  979,  606],
+[ 1536,  "Tesis",  1996,  7.79999999999999982,  977,  985],
+[ 1537,  "Saving Grace",  2000,  7.29999999999999982,  977,  2503],
+[ 1538,  "Wrongfully Accused",  1998,  5.29999999999999982,  976,  2593],
+[ 1539,  "Cry-Baby",  1990,  5.90000000000000036,  972,  364],
+[ 1540,  "Mighty, The",  1998,  7.5,  972,  2770],
+[ 1541,  "1492: Conquest of Paradise",  1992,  6,  970,  110],
+[ 1542,  "Beneath the Planet of the Apes",  1970,  5.5,  969,  2692],
+[ 1543,  "Utomlyonnye solntsem",  1994,  7.70000000000000018,  968,  1503],
+[ 1544,  "New York Stories",  1989,  6.20000000000000018,  968,  1],
+[ 1545,  "Henry & June",  1990,  6.29999999999999982,  963,  288],
+[ 1546,  "Deep End of the Ocean, The",  1999,  6.09999999999999964,  962,  2734],
+[ 1547,  "Mighty Joe Young",  1998,  5.90000000000000036,  962,  415],
+[ 1548,  "Blow Out",  1981,  7,  961,  31],
+[ 1549,  "Sandlot, The",  1993,  6.70000000000000018,  959,  2273],
+[ 1550,  "Dressed to Kill",  1980,  6.90000000000000036,  958,  31],
+[ 1551,  "Beethoven",  1992,  5.09999999999999964,  958,  395],
+[ 1552,  "Re-Animator",  1985,  6.70000000000000018,  957,  2561],
+[ 1553,  "Fletch Lives",  1989,  5.09999999999999964,  955,  418],
+[ 1554,  "Hsi yen",  1993,  7.70000000000000018,  954,  273],
+[ 1555,  "Thunderheart",  1992,  6.5,  953,  199],
+[ 1556,  "Dellamorte Dellamore",  1994,  7.09999999999999964,  953,  2659],
+[ 1557,  "Nightwatch",  1998,  6,  953,  1166],
+[ 1558,  "Pred dozhdot",  1994,  7.59999999999999964,  952,  2643],
+[ 1559,  "Play It Again, Sam",  1972,  7.29999999999999982,  952,  200],
+[ 1560,  "Harry and the Hendersons",  1987,  5.29999999999999982,  951,  1059],
+[ 1561,  "Bio-Dome",  1996,  3.60000000000000009,  951,  2275],
+[ 1562,  "Quick Change",  1990,  6.59999999999999964,  950,  2061],
+[ 1563,  "My Dinner with Andr&#233;",  1981,  7.20000000000000018,  950,  619],
+[ 1564,  "Wicker Man, The",  1973,  7.29999999999999982,  949,  2863],
+[ 1565,  "Boomerang",  1992,  5.29999999999999982,  949,  2852],
+[ 1566,  "Dragon: The Bruce Lee Story",  1993,  6.79999999999999982,  946,  376],
+[ 1567,  "Bulletproof",  1996,  5.5,  945,  2094],
+[ 1568,  "Bride of Frankenstein",  1935,  8.09999999999999964,  945,  1097],
+[ 1569,  "Cabin Boy",  1994,  4.29999999999999982,  944,  2110],
+[ 1570,  "Quadrophenia",  1979,  6.70000000000000018,  944,  2196],
+[ 1571,  "Mifunes sidste sang",  1999,  7.40000000000000036,  940,  2594],
+[ 1572,  "Baby Geniuses",  1999,  2.20000000000000018,  939,  579],
+[ 1573,  "Next Best Thing, The",  2000,  5,  939,  677],
+[ 1574,  "Coma",  1978,  6.40000000000000036,  939,  1017],
+[ 1575,  "Night Shift",  1982,  6.29999999999999982,  936,  21],
+[ 1576,  "Blue in the Face",  1995,  6.40000000000000036,  936,  2552],
+[ 1577,  "Out-of-Towners, The",  1999,  5,  936,  1075],
+[ 1578,  "Take the Money and Run",  1969,  7.20000000000000018,  936,  1],
+[ 1579,  "Screamers",  1995,  5.5,  935,  2347],
+[ 1580,  "Watership Down",  1978,  7.20000000000000018,  935,  2551],
+[ 1581,  "Freddy's Dead: The Final Nightmare",  1991,  4.20000000000000018,  935,  1032],
+[ 1582,  "Screamers",  1995,  5.5,  935,  2346],
+[ 1583,  "House of Yes, The",  1997,  6.70000000000000018,  934,  2510],
+[ 1584,  "Road House",  1989,  5.20000000000000018,  932,  1090],
+[ 1585,  "New Jack City",  1991,  6.09999999999999964,  932,  727],
+[ 1586,  "Chitty Chitty Bang Bang",  1968,  6.09999999999999964,  932,  2002],
+[ 1587,  "Down to You",  2000,  4.59999999999999964,  931,  2176],
+[ 1588,  "Mystery Train",  1989,  7.09999999999999964,  930,  175],
+[ 1589,  "Return of the Pink Panther, The",  1974,  6.59999999999999964,  929,  65],
+[ 1590,  "Palmetto",  1998,  5.40000000000000036,  929,  980],
+[ 1591,  "Ngo hai sui",  1998,  6.90000000000000036,  926,  2406],
+[ 1592,  "Beloved",  1998,  5.79999999999999982,  926,  281],
+[ 1593,  "Subway",  1985,  6.40000000000000036,  925,  389],
+[ 1594,  "Black Sheep",  1996,  4.90000000000000036,  924,  1021],
+[ 1595,  "Power of One, The",  1992,  6.20000000000000018,  923,  683],
+[ 1596,  "Fair Game",  1995,  3.89999999999999991,  922,  2021],
+[ 1597,  "Boxing Helena",  1993,  3.89999999999999991,  921,  2339],
+[ 1598,  "Dennis the Menace",  1993,  4.79999999999999982,  921,  2716],
+[ 1599,  "Brothers McMullen, The",  1995,  6.59999999999999964,  920,  485],
+[ 1600,  "Drowning Mona",  2000,  5.29999999999999982,  920,  2704],
+[ 1601,  "Problem Child",  1990,  3.60000000000000009,  918,  330],
+[ 1602,  "Children of the Corn",  1984,  4.59999999999999964,  918,  2206],
+[ 1603,  "Capricorn One",  1978,  6.20000000000000018,  917,  103],
+[ 1604,  "Postcards from the Edge",  1990,  6.29999999999999982,  917,  47],
+[ 1605,  "Cocoon: The Return",  1988,  4.79999999999999982,  917,  2250],
+[ 1606,  "Romeo Is Bleeding",  1993,  6.09999999999999964,  915,  1001],
+[ 1607,  "Silkwood",  1983,  6.90000000000000036,  915,  47],
+[ 1608,  "Hunger, The",  1983,  6.20000000000000018,  914,  107],
+[ 1609,  "Shot in the Dark, A",  1964,  7.40000000000000036,  914,  65],
+[ 1610,  "1900",  1976,  7.59999999999999964,  913,  598],
+[ 1611,  "Chamber, The",  1996,  5.59999999999999964,  913,  423],
+[ 1612,  "Fame",  1980,  6.29999999999999982,  912,  68],
+[ 1613,  "American Tail, An",  1986,  6.40000000000000036,  911,  409],
+[ 1614,  "Friday the 13th Part 2",  1981,  4.40000000000000036,  907,  365],
+[ 1615,  "D&#238;ner de cons, Le",  1998,  7.70000000000000018,  906,  2169],
+[ 1616,  "Big Kahuna, The",  1999,  7.09999999999999964,  905,  2474],
+[ 1617,  "Beastmaster, The",  1982,  5.09999999999999964,  904,  2373],
+[ 1618,  "Taps",  1981,  6.20000000000000018,  903,  616],
+[ 1619,  "Highlander: Endgame",  2000,  5.20000000000000018,  901,  2418],
+[ 1620,  "American Movie: The Making of Northwestern",  1999,  7.70000000000000018,  901,  2342],
+[ 1621,  "Cadillac Man",  1990,  5.20000000000000018,  901,  146],
+[ 1622,  "Zardoz",  1974,  5.40000000000000036,  900,  293],
+[ 1623,  "Blechtrommel, Die",  1979,  7.90000000000000036,  900,  980],
+[ 1624,  "High Anxiety",  1977,  6.29999999999999982,  898,  29],
+[ 1625,  "Beverly Hills Ninja",  1997,  4.79999999999999982,  898,  330],
+[ 1626,  "Next Friday",  2000,  4.90000000000000036,  897,  2853],
+[ 1627,  "Tin Men",  1987,  6.29999999999999982,  894,  38],
+[ 1628,  "Silent Movie",  1976,  6,  893,  29],
+[ 1629,  "She's So Lovely",  1997,  5.79999999999999982,  893,  1495],
+[ 1630,  "Funny Farm",  1988,  5.20000000000000018,  891,  276],
+[ 1631,  "True Grit",  1969,  7.09999999999999964,  891,  2040],
+[ 1632,  "Abre los ojos",  1997,  8,  891,  985],
+[ 1633,  "Simply Irresistible",  1999,  4.79999999999999982,  891,  2515],
+[ 1634,  "Death Race 2000",  1975,  5.59999999999999964,  890,  1329],
+[ 1635,  "Final Countdown, The",  1980,  6.5,  889,  489],
+[ 1636,  "Home Fries",  1998,  5,  888,  1101],
+[ 1637,  "Above the Law",  1988,  5.20000000000000018,  888,  291],
+[ 1638,  "Dead Man on Campus",  1998,  5.5,  888,  2125],
+[ 1639,  "Supergirl",  1984,  3.70000000000000018,  888,  600],
+[ 1640,  "Cure, The",  1995,  6.90000000000000036,  887,  836],
+[ 1641,  "Cannonball Run II",  1984,  3.5,  887,  618],
+[ 1642,  "Fathers' Day",  1997,  4.59999999999999964,  886,  109],
+[ 1643,  "Persona",  1966,  8,  885,  420],
+[ 1644,  "Russia House, The",  1990,  6.09999999999999964,  885,  272],
+[ 1645,  "Devil in a Blue Dress",  1995,  6.70000000000000018,  885,  998],
+[ 1646,  "Over the Top",  1987,  3.79999999999999982,  885,  2726],
+[ 1647,  "3 Men and a Little Lady",  1990,  4.5,  885,  662],
+[ 1648,  "Broadway Danny Rose",  1984,  7.29999999999999982,  884,  1],
+[ 1649,  "Ying huang boon sik",  1986,  7.40000000000000036,  884,  204],
+[ 1650,  "Xanadu",  1980,  4.29999999999999982,  884,  2517],
+[ 1651,  "Plunkett & Macleane",  1999,  6.40000000000000036,  883,  2385],
+[ 1652,  "Visiteurs, Les",  1993,  6.29999999999999982,  882,  2280],
+[ 1653,  "Fl&#229;klypa Grand Prix",  1975,  7.79999999999999982,  881,  2400],
+[ 1654,  "Drop Zone",  1994,  5.5,  880,  66],
+[ 1655,  "Seven Year Itch, The",  1955,  7.09999999999999964,  880,  79],
+[ 1656,  "Thing From Another World, The",  1951,  7.29999999999999982,  878,  2345],
+[ 1657,  "I Love You to Death",  1990,  6,  878,  87],
+[ 1658,  "Repulsion",  1965,  7.90000000000000036,  877,  90],
+[ 1659,  "Rosewood",  1997,  6.70000000000000018,  876,  396],
+[ 1660,  "Firestarter",  1984,  5.59999999999999964,  875,  1073],
+[ 1661,  "To Live and Die in L.A.",  1985,  6.59999999999999964,  874,  264],
+[ 1662,  "Reds",  1981,  6.90000000000000036,  873,  60],
+[ 1663,  "Flight of the Navigator",  1986,  6.29999999999999982,  873,  383],
+[ 1664,  "High Art",  1998,  7.29999999999999982,  872,  2867],
+[ 1665,  "Bed of Roses",  1996,  6.20000000000000018,  872,  2621],
+[ 1666,  "Feeling Minnesota",  1996,  5.29999999999999982,  870,  2578],
+[ 1667,  "Monty Python Live at the Hollywood Bowl",  1982,  7.09999999999999964,  869,  2691],
+[ 1668,  "She's Having a Baby",  1988,  5.59999999999999964,  868,  144],
+[ 1669,  "What's Up, Doc?",  1972,  7.29999999999999982,  868,  612],
+[ 1670,  "Drowning by Numbers",  1988,  6.90000000000000036,  868,  386],
+[ 1671,  "Stop Making Sense",  1984,  7.59999999999999964,  867,  281],
+[ 1672,  "One Eight Seven",  1997,  6.5,  867,  378],
+[ 1673,  "Oscar and Lucinda",  1997,  6.79999999999999982,  866,  2140],
+[ 1674,  "Amateur",  1994,  7.09999999999999964,  865,  982],
+[ 1675,  "Something to Talk About",  1995,  5.79999999999999982,  864,  387],
+[ 1676,  "My Fellow Americans",  1996,  6.5,  864,  384],
+[ 1677,  "Day of the Dead",  1985,  6.40000000000000036,  864,  379],
+[ 1678,  "Fandango",  1985,  6.29999999999999982,  864,  378],
+[ 1679,  "Purple Rain",  1984,  5.40000000000000036,  862,  2211],
+[ 1680,  "My Dog Skip",  2000,  7.40000000000000036,  862,  2284],
+[ 1681,  "Universal Soldier: The Return",  1999,  3.29999999999999982,  862,  1866],
+[ 1682,  "Boxer, The",  1997,  6.90000000000000036,  862,  581],
+[ 1683,  "Prospero's Books",  1991,  5.90000000000000036,  860,  386],
+[ 1684,  "Home for the Holidays",  1995,  6.29999999999999982,  859,  215],
+[ 1685,  "Gorky Park",  1983,  6.5,  858,  199],
+[ 1686,  "Dream Team, The",  1989,  6,  858,  661],
+[ 1687,  "Gummo",  1997,  5.40000000000000036,  858,  1970],
+[ 1688,  "Cotton Club, The",  1984,  6.09999999999999964,  857,  28],
+[ 1689,  "Renaissance Man",  1994,  5.79999999999999982,  857,  361],
+[ 1690,  "Only You",  1994,  6.29999999999999982,  855,  81],
+[ 1691,  "Ridicule",  1996,  7.20000000000000018,  854,  2612],
+[ 1692,  "Pink Panther Strikes Again, The",  1976,  6.79999999999999982,  852,  65],
+[ 1693,  "Needful Things",  1993,  5.70000000000000018,  851,  2175],
+[ 1694,  "Sudden Death",  1995,  5.09999999999999964,  851,  103],
+[ 1695,  "20,000 Leagues Under the Sea",  1954,  7.09999999999999964,  850,  402],
+[ 1696,  "Suspicion",  1941,  7.5,  850,  11],
+[ 1697,  "Stunt Man, The",  1980,  7.40000000000000036,  849,  1039],
+[ 1698,  "Bad News Bears, The",  1976,  6.5,  847,  418],
+[ 1699,  "Song of the South",  1946,  7.20000000000000018,  847,  2190],
+[ 1700,  "Airport",  1970,  6.29999999999999982,  846,  1061],
+[ 1701,  "Contender, The",  2000,  7,  846,  2768],
+[ 1702,  "Superstar",  1999,  4.5,  846,  1506],
+[ 1703,  "Drive Me Crazy",  1999,  5.09999999999999964,  846,  2423],
+[ 1704,  "Prince of Darkness",  1987,  6.20000000000000018,  844,  23],
+[ 1705,  "Exorcist II: The Heretic",  1977,  3.20000000000000018,  842,  293],
+[ 1706,  "I Love Trouble",  1994,  5.20000000000000018,  842,  397],
+[ 1707,  "Blue Thunder",  1983,  6,  840,  66],
+[ 1708,  "Amityville Horror, The",  1979,  5.09999999999999964,  839,  1029],
+[ 1709,  "Blame It on Rio",  1984,  5.09999999999999964,  839,  428],
+[ 1710,  "Omega Man, The",  1971,  6.29999999999999982,  838,  2483],
+[ 1711,  "Attack of the Killer Tomatoes!",  1978,  3.60000000000000009,  837,  2242],
+[ 1712,  "Scanners",  1981,  6.29999999999999982,  837,  97],
+[ 1713,  "Damien: Omen II",  1978,  5.5,  837,  489],
+[ 1714,  "Around the World in Eighty Days",  1956,  6.70000000000000018,  836,  2698],
+[ 1715,  "Indochine",  1992,  6.90000000000000036,  835,  2785],
+[ 1716,  "Oh, God!",  1977,  5.90000000000000036,  832,  221],
+[ 1717,  "Body of Evidence",  1993,  4.09999999999999964,  831,  2735],
+[ 1718,  "Canadian Bacon",  1995,  5.40000000000000036,  829,  955],
+[ 1719,  "Wait Until Dark",  1967,  7.5,  829,  388],
+[ 1720,  "Felicia's Journey",  1999,  7.20000000000000018,  827,  665],
+[ 1721,  "Yume",  1990,  7.40000000000000036,  825,  208],
+[ 1722,  "Home Alone 3",  1997,  3.70000000000000018,  825,  633],
+[ 1723,  "Hotaru no haka",  1988,  8.5,  822,  2401],
+[ 1724,  "1776",  1972,  7,  821,  2822],
+[ 1725,  "Brainstorm",  1983,  6.20000000000000018,  821,  1156],
+[ 1726,  "Wilde",  1997,  7,  820,  2431],
+[ 1727,  "Escape from the Planet of the Apes",  1971,  5.79999999999999982,  819,  489],
+[ 1728,  "Foul Play",  1978,  6.5,  818,  1110],
+[ 1729,  "One, Two, Three",  1961,  7.70000000000000018,  818,  79],
+[ 1730,  "Turbulence",  1997,  4.20000000000000018,  818,  2707],
+[ 1731,  "Halloween 4: The Return of Michael Myers",  1988,  5,  818,  1178],
+[ 1732,  "Moscow on the Hudson",  1984,  6.20000000000000018,  818,  720],
+[ 1733,  "Pallbearer, The",  1996,  4.90000000000000036,  817,  2686],
+[ 1734,  "See No Evil, Hear No Evil",  1989,  5.59999999999999964,  817,  1087],
+[ 1735,  "Crush, The",  1993,  5.29999999999999982,  817,  2115],
+[ 1736,  "Guarding Tess",  1994,  6.09999999999999964,  816,  377],
+[ 1737,  "Hotel New Hampshire, The",  1984,  5.79999999999999982,  814,  2653],
+[ 1738,  "Music of the Heart",  1999,  6.90000000000000036,  814,  133],
+[ 1739,  "Yatgo ho yan",  1997,  6.40000000000000036,  814,  1691],
+[ 1740,  "Erik the Viking",  1989,  5.59999999999999964,  814,  694],
+[ 1741,  "Red River",  1948,  8.40000000000000036,  813,  197],
+[ 1742,  "We're No Angels",  1989,  5.29999999999999982,  812,  153],
+[ 1743,  "SLC Punk!",  1999,  7.09999999999999964,  811,  2479],
+[ 1744,  "Boys from Brazil, The",  1978,  6.5,  809,  405],
+[ 1745,  "Young Einstein",  1988,  4.79999999999999982,  809,  999],
+[ 1746,  "Hitlerjunge Salomon",  1990,  7.70000000000000018,  808,  997],
+[ 1747,  "Navy SEALS",  1990,  5,  807,  1016],
+[ 1748,  "Poison Ivy",  1992,  5,  806,  1160],
+[ 1749,  "Ikiru",  1952,  8.80000000000000071,  805,  208],
+[ 1750,  "Hope and Glory",  1987,  7.59999999999999964,  803,  293],
+[ 1751,  "Cape Fear",  1962,  7.59999999999999964,  803,  1164],
+[ 1752,  "Yentl",  1983,  5.70000000000000018,  803,  207],
+[ 1753,  "Bounty, The",  1984,  6.70000000000000018,  802,  146],
+[ 1754,  "Talk Radio",  1988,  6.79999999999999982,  799,  69],
+[ 1755,  "Silver Streak",  1976,  6.5,  798,  1087],
+[ 1756,  "Exit to Eden",  1994,  3.89999999999999991,  797,  129],
+[ 1757,  "Dobermann",  1997,  6.59999999999999964,  797,  2451],
+[ 1758,  "Poltergeist II: The Other Side",  1986,  4.79999999999999982,  796,  1171],
+[ 1759,  "Hush",  1998,  4.40000000000000036,  796,  2378],
+[ 1760,  "Phantom of the Paradise",  1974,  6.59999999999999964,  796,  31],
+[ 1761,  "Terminal Velocity",  1994,  5.40000000000000036,  795,  2463],
+[ 1762,  "Wishmaster",  1997,  4.90000000000000036,  794,  2502],
+[ 1763,  "Honey, I Blew Up the Kid",  1992,  4.29999999999999982,  793,  383],
+[ 1764,  "Thomas Crown Affair, The",  1968,  6.79999999999999982,  793,  81],
+[ 1765,  "...And Justice for All",  1979,  6.70000000000000018,  791,  81],
+[ 1766,  "Halloween: The Curse of Michael Myers",  1995,  4.29999999999999982,  791,  1127],
+[ 1767,  "Paper Moon",  1973,  7.5,  790,  612],
+[ 1768,  "To Be or Not to Be",  1942,  8.5,  789,  2014],
+[ 1769,  "Toy Soldiers",  1991,  5.79999999999999982,  789,  2253],
+[ 1770,  "Midsummer Night's Sex Comedy, A",  1982,  6.20000000000000018,  789,  1],
+[ 1771,  "Death on the Nile",  1978,  6.5,  787,  2287],
+[ 1772,  "Funny Games",  1997,  7.40000000000000036,  786,  2629],
+[ 1773,  "Stand and Deliver",  1987,  7,  786,  2840],
+[ 1774,  "Gung Ho",  1986,  5.59999999999999964,  786,  21],
+[ 1775,  "Distinguished Gentleman, The",  1992,  5.70000000000000018,  786,  262],
+[ 1776,  "Good Son, The",  1993,  5.5,  785,  410],
+[ 1777,  "Milk Money",  1994,  5.20000000000000018,  785,  320],
+[ 1778,  "Family Business",  1989,  5.20000000000000018,  783,  80],
+[ 1779,  "Sudden Impact",  1983,  6.09999999999999964,  782,  2],
+[ 1780,  "Remo Williams: The Adventure Begins...",  1985,  5.59999999999999964,  781,  636],
+[ 1781,  "Hidden, The",  1987,  6.90000000000000036,  781,  1173],
+[ 1782,  "SubUrbia",  1997,  6.40000000000000036,  780,  205],
+[ 1783,  "Scarlet Letter, The",  1995,  4.20000000000000018,  780,  1170],
+[ 1784,  "SpaceCamp",  1986,  5.29999999999999982,  780,  2191],
+[ 1785,  "Glimmer Man, The",  1996,  5,  779,  2278],
+[ 1786,  "Richie Rich",  1994,  4.29999999999999982,  778,  599],
+[ 1787,  "Double Team",  1997,  4.20000000000000018,  778,  2164],
+[ 1788,  "Atlantic City",  1980,  7.79999999999999982,  777,  619],
+[ 1789,  "Educating Rita",  1983,  6.79999999999999982,  777,  390],
+[ 1790,  "Court Jester, The",  1956,  8.19999999999999929,  777,  2717],
+[ 1791,  "Teen Wolf Too",  1987,  2.5,  775,  2298],
+[ 1792,  "Slacker",  1991,  6.79999999999999982,  774,  205],
+[ 1793,  "Two Girls and a Guy",  1997,  5.79999999999999982,  773,  2429],
+[ 1794,  "Raw Deal",  1986,  4.70000000000000018,  773,  2265],
+[ 1795,  "Taking of Pelham One Two Three, The",  1974,  7.5,  773,  1119],
+[ 1796,  "Psycho II",  1983,  5.59999999999999964,  772,  2513],
+[ 1797,  "Friday the 13th Part 3: 3D",  1982,  3.79999999999999982,  772,  365],
+[ 1798,  "Ghosts of Mississippi",  1996,  6.5,  772,  37],
+[ 1799,  "Great Race, The",  1965,  6.79999999999999982,  772,  65],
+[ 1800,  "Un chien andalou",  1929,  8.30000000000000071,  772,  815],
+[ 1801,  "Hearts of Darkness: A Filmmaker's Apocalypse",  1991,  8.19999999999999929,  772,  2031],
+[ 1802,  "Hoffa",  1992,  6,  771,  24],
+[ 1803,  "Don't Look Now",  1973,  7.5,  770,  1076],
+[ 1804,  "Teenage Mutant Ninja Turtles II: The Secret of the Ooze",  1991,  4.09999999999999964,  769,  2652],
+[ 1805,  "Orlando",  1992,  6.5,  769,  2489],
+[ 1806,  "Playing God",  1997,  5.40000000000000036,  768,  2026],
+[ 1807,  "American Gigolo",  1980,  5.70000000000000018,  768,  652],
+[ 1808,  "Serpent and the Rainbow, The",  1988,  5.79999999999999982,  768,  133],
+[ 1809,  "U2: Rattle and Hum",  1988,  6.79999999999999982,  767,  2807],
+[ 1810,  "Used Cars",  1980,  6.29999999999999982,  767,  67],
+[ 1811,  "Valley Girl",  1983,  6,  767,  1141],
+[ 1812,  "Shadows and Fog",  1992,  6.20000000000000018,  767,  1],
+[ 1813,  "Out of Rosenheim",  1988,  7.20000000000000018,  767,  2771],
+[ 1814,  "Portrait of a Lady, The",  1996,  5.79999999999999982,  767,  575],
+[ 1815,  "Selena",  1997,  6.09999999999999964,  765,  2155],
+[ 1816,  "My Beautiful Laundrette",  1985,  6.79999999999999982,  764,  292],
+[ 1817,  "Project X",  1987,  5.79999999999999982,  763,  580],
+[ 1818,  "Robin Hood",  1973,  7.09999999999999964,  762,  1004],
+[ 1819,  "Newton Boys, The",  1998,  5.79999999999999982,  762,  205],
+[ 1820,  "Money Talks",  1997,  5.59999999999999964,  760,  1094],
+[ 1821,  "Don't Be a Menace to South Central While Drinking Your Juice in the Hood",  1996,  5.90000000000000036,  760,  2599],
+[ 1822,  "Billy Bathgate",  1991,  5.70000000000000018,  760,  660],
+[ 1823,  "Muppets From Space",  1999,  6.20000000000000018,  760,  2721],
+[ 1824,  "Hocus Pocus",  1993,  4.90000000000000036,  760,  991],
+[ 1825,  "Thinner",  1996,  4.90000000000000036,  759,  562],
+[ 1826,  "Restoration",  1995,  6.79999999999999982,  759,  401],
+[ 1827,  "Hard Way, The",  1991,  6,  758,  66],
+[ 1828,  "Baby Boom",  1987,  5.70000000000000018,  758,  397],
+[ 1829,  "Time After Time",  1979,  7.09999999999999964,  757,  571],
+[ 1830,  "&#161;&#193;tame!",  1990,  6.70000000000000018,  755,  394],
+[ 1831,  "Angels in the Outfield",  1994,  5.5,  752,  1059],
+[ 1832,  "Parent Trap, The",  1961,  6.90000000000000036,  752,  2433],
+[ 1833,  "Santa Claus Conquers the Martians",  1964,  2.10000000000000009,  750,  2713],
+[ 1834,  "Truly Madly Deeply",  1991,  6.79999999999999982,  749,  621],
+[ 1835,  "Very Brady Sequel, A",  1996,  5.29999999999999982,  749,  2048],
+[ 1836,  "Duoluo tianshi",  1995,  7.40000000000000036,  747,  1095],
+[ 1837,  "Summer School",  1987,  5.79999999999999982,  745,  221],
+[ 1838,  "Bewegte Mann, Der",  1994,  6.70000000000000018,  743,  2589],
+[ 1839,  "Streets of Fire",  1984,  6.09999999999999964,  742,  143],
+[ 1840,  "Heart and Souls",  1993,  6.79999999999999982,  736,  415],
+[ 1841,  "Barcelona",  1994,  6.59999999999999964,  734,  2857],
+[ 1842,  "Absence of Malice",  1981,  6.70000000000000018,  734,  92],
+[ 1843,  "Milagro Beanfield War, The",  1988,  6.70000000000000018,  726,  36],
+[ 1844,  "End of Violence, The",  1997,  5.59999999999999964,  724,  269],
+[ 1845,  "Hollywood Knights, The",  1980,  5.5,  721,  2016]])
