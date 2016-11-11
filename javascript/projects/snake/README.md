@@ -36,8 +36,7 @@ other games for guidance on constructing this file.
 
 ## Phase II: Write a simple `View` class
 
-* Write your UI code in a `snake-view.js` file. Use the same
-  namespace.
+* Write your UI code in a `snake-view.js` file.
     * **Do not mix UI into your model layer**. Keep `snake.js`
       agnostic of the code that displays the game, or that listens for
       browser events.
