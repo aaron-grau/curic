@@ -8,7 +8,10 @@
     * [MVP Checklist][mvp-checklist]
     * [Trello][trello]
   * **W9D2**: Peer Review
-
+  * **W9D5**: Turn in Full Stack Project 
+    * [How to Turn in Your Project][turn-in-fullstack]
+    
+[turn-in-fullstack]:readings/turn_in_fullstack.md
 [tentative-proposal]: readings/tentative-project-proposal.md
 [good-projects]: readings/projects-to-clone.md
 [readings]: readings/full-stack-project-proposal.md
