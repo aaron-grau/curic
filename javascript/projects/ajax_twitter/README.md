@@ -105,7 +105,7 @@ controller can then react to this `Content-Type` request by using the
 [respond-to-docs]: http://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to
 [$.ajax-docs]: http://api.jquery.com/jquery.ajax/
 
-Check to make sure this works!
+Check to make sure this works! Once you have it working, refactor your ajax calls into an `api_util` file. Your API util should export an object with the methods `APIUtil#followUser(id, success)` and `APIUtil#unfollowUser(id, success)`
 
 Lastly, let's freeze-out the button so that people can't click it while the AJAX
 request is pending. In `handleClick` set `followState` to `following` or
@@ -136,10 +136,9 @@ file. As before, automatically build a `UsersSearch` for each
 versions of the `el`, its `input` and its `ul`. Additionally in the constructor,
 we'll be installing a listener for the `input` event on the input tag.
 
-Write a `UsersSearch#handleInput` handler. On each `input` event, make an AJAX
-request to `/users/search`, sending the input's `val` as the query parameter.
-You can send query parameters along with an `$.ajax` call through the `data`
-option. Don't forget to set `dataType`!
+Write an `APIUtil#searchUsers(queryVal)` to make a request to `/users/search`. You can send query parameters along with an `$.ajax` call through the `data`. Don't forget to set `dataType`!
+
+Write a `UsersSearch#handleInput` handler. On each `input` event, call `APIUtil.searchUsers`, sending the input's `val` as the query parameter.
 
 Now, let's set up your controller to respond to AJAX requests with JSON. Because
 your controller will be handling both HTML and JSON requests, let's separate out
@@ -163,7 +162,7 @@ following code:
 ```ruby
 json.array!(@users) do |user|
   json.(user, *User.column_names)
-  json.followed(current_user.follows?(user)) # hidden N+1 query!
+  json.followed(current_user.follows?(user))
 end
 ```
 
@@ -239,7 +238,7 @@ json.partial!("tweets/tweet", tweet: @tweet)
 Partials in Jbuilder work the same way they do in ERB - the partial file name
 starts with a `_` and you pass in a piece of information for the partial to
 render using a hash. Let's create that partial right now at
-`_tweet.json.jbuiler` and put the following code into it:
+`_tweet.json.jbuilder` and put the following code into it:
 
 ```ruby
 json.(tweet, *Tweet.column_names)
@@ -259,8 +258,9 @@ Give the form a class `tweet-compose`. Write a TweetCompose class that grabs
 this form and installs itself.
 
 In the `TweetCompose` `constructor`, install a `submit` event handler. Write a
-`TweetCompose#submit` method that uses `serializeJSON` to build JSON from the
-form contents and use `$.ajax` to submit the form.
+`TweetCompose#submit` method that uses `serializeJSON` to build JSON from the form contents and write an `APIUtil.createTweet(data)` function to submit the form. This time, rather than passing a success callback as an argument, [use a promise][promise]!
+
+[promise]: ../../readings/promises.md
 
 As before, disable the form when the submit is made. You can't disable an entire
 form, so you'll have to disable all the inputs. To get all the inputs, use
