@@ -7,14 +7,14 @@
   + We'll implement a simple version of a well-known card game. We'll announce
   the specific game, and you can look up the basic rules ahead of time.
 
-### Readings (85 min)
+### Readings (50 min)
 
 + [Programming Paradigms][paradigms] (5 min)
 + SQL Fundamentals
     + [SQL For The Impatient][sql-intro] (20 min)
     + [A Visual Explanation of Joins][visual-joins] (5 min)
     + [Formatting SQL Code][sql-formatting] (5 min)
-    + [Subqueries][subquery]
+    + [Subqueries][subquery] (5 min)
 + [PostgreSQL Setup][postgres-setup] (10 min)
 
 ### Homeworks (120 min)
@@ -69,7 +69,6 @@
 [sqlite3]: readings/sqlite3.md
 [heredocs]: readings/heredocs.md
 [xkcd-bobby-tables]: http://xkcd.com/327/
-[sql-ex]: http://www.sql-ex.ru/
 
 [plays-orm]: homeworks/questions/plays_orm.md
 
