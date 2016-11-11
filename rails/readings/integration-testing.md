@@ -1,6 +1,6 @@
 # Integration Testing
 
-**Integration tests** do exactly what it sounds like they do. They test
+**Integration tests** do exactly what their name suggests. They test
 the *integration* of different components. **Unit tests** ensure that
 each individual *unit* of the application works independently, but no
 amount of unit testing can guarantee that all the parts of your
