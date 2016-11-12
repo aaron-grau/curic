@@ -13,6 +13,7 @@
 + SQL Fundamentals
     + [SQL For The Impatient][sql-intro] (20 min)
     + [A Visual Explanation of Joins][visual-joins] (5 min)
+    + [Self-Joins][self] (5 min)
     + [Formatting SQL Code][sql-formatting] (5 min)
     + [Subqueries][subquery] (5 min)
 + [PostgreSQL Setup][postgres-setup] (10 min)
@@ -32,6 +33,7 @@
 [paradigms]: readings/paradigms.md
 [sql-intro]: readings/sql-intro.md
 [visual-joins]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
+[self]: readings/self-joins.md
 [sql-formatting]: readings/formatting.md
 [subquery]: https://sqlbolt.com/topic/subqueries
 
