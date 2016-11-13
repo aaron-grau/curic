@@ -456,7 +456,7 @@ to get around this.
 
 Remember our old friend `Binding#eval` from the template section? Well
 it has a cousin `Object#instance_eval` that takes a proc and
-evaluate it in the context of the object. Let's watch it work its
+evaluates it in the context of the object. Let's watch it work its
 magic:
 
 ```ruby
@@ -486,7 +486,7 @@ block in the router object's context.
 
 ### Phase Ve: Route params
 
-To  simplify things, we won't support defining routes as strings like
+To simplify things, we won't support defining routes as strings like
 Rails does (e.g. `"/users/:id/"`). Instead, we'll require a `Route`'s
 `pattern` argument to be a `Regexp` (e.g. `Regexp.new
 '/users/(?<id>\d+)'`). This is a little more complicated for other
