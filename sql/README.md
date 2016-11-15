@@ -56,7 +56,7 @@
 + :movie_camera: [ORM Demo][orm-demo-video] (25 min)
 
 ### Readings (67 min)
-+ [Learning SQL: Part II][learning-sql-part-ii] (45 min)
+
 + [SQLite3][sqlite3] (15 min)
 + [Heredocs][heredocs] (5 min)
 + [Little Bobby Tables][xkcd-bobby-tables] (2 min)
