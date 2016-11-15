@@ -312,9 +312,9 @@
 * [:movie_camera: (cc) 01-protocols][01-protocols] (14 min)
   * old news at this point; recommended speed >= 2x
 * [:movie_camera: (cc) 02-http][02-http] (43 min)
-* [Middleware][middleware]
 * [HTTP][http]
 * [Rack][rack]
+* [Rack Middleware Stack][middleware]
 
 ### Solo Project
 * [Rails Lite][rails-lite]
