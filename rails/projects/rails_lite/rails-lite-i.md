@@ -405,8 +405,8 @@ So when we hit the corresponding route (i.e., when we go to `localhost:3000/post
     * Use inherited `Object#send` to call the appropriate action (like `new` or `show`)
     * Check to see if a template was rendered; if not call
       `render` in `invoke_action`. This will handle the default action rendering just like Rails.
-* Add a method `Route#run(req, res, params)` that (1) instantiates an instance
-  of the controller class, (2) calls `invoke_action` and (3) sets the route params. For now, pass an empty
+* Add a method `Route#run(req, res)` that (1) instantiates an instance
+  of the controller class, (2) calls `invoke_action`. For now, pass an empty
   hash as the third argument to `ControllerBase#initialize`.
   This will serve as a stub for the route params which we will replace that with the real route params soon.
 * Add a method `Router#run(req, res)` that calls `#run` on the first
