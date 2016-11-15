@@ -48,7 +48,7 @@ require('rack')
 class App
   def call(env)
     http_status = '200'
-    headers = { 'Content-Type': 'text/html' }
+    headers = { 'Content-Type' => 'text/html' }
     body = ['hello world']
 
     [http_status, headers, body]
