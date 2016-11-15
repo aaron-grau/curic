@@ -124,7 +124,7 @@ inherits from `ActionController::Base`). Let's get started!
 We'll write our version of `ActionController::Base` in phases in the `lib`
 directory of the project. `ControllerBase#initialize` should take a
 `Rack::Request` and `Rack::Response` object as inputs and save them as instance variables (ivars) for later use. The stored
-request (will be used to help fill out the response in one of the actions (`:new`, `:edit`, etc.) defined within children that inherit from it.
+request (will be used to help fill out the response in one of the actions (`:new`, `:edit`, etc.) defined within controllers that inherit from it.
 
 Consider this code from 99cats:
 
@@ -141,7 +141,7 @@ end
 
 ```
 
-You've probably accidentally written code like this in a project at some point.  The app probably yelled at you about a "double render" error.  We now get to write that error.
+You've probably accidentally written code like this in a project at some point.  Rails probably yelled at you about a "double render" error.  We now get to write that error.
 
 First, write a method named `#render_content(content, content_type)`. This
 should set the response object's `content_type` and `body`. It should
@@ -277,8 +277,7 @@ attributes.
 You have a skeleton helper class, `Session`, in `lib/session.rb`,
 which is passed an instance of `Rack::Request` on initialization.
 Inside `Session#initialize` you should grab the cookie named `_rails_lite_app`.
-If the session cookie has been set before, you should use JSON to deserialize the value and store it in an ivar. If no cookie has been set before this ivar
-should be set to `{}`.
+If the session cookie has been set before, you should use JSON to deserialize the value and store it in an ivar. If no cookie has been set before, you should set the ivar to `{}`.
 
 Provide the following methods in your `Session` class:
 * `#[]` and `#[]=` - will get/set the session content;
@@ -400,7 +399,7 @@ end
 
 The code above defines the "new" action for the PostsController.
 
-So when we hit the corresponding route (i.e., when we go to `localhost:3000/posts/new` in Google Chrome), the `PostsController#new` method will eventually run. There's another way of saying that we want to run a method that we've defined on the controller: we want to "invoke" the "action" on the controller.
+So when we hit the corresponding route (i.e., when we go to `localhost:3000/posts/new` in the browser), the `PostsController#new` method will eventually run. There's another way of saying that we want to run a method that we've defined on the controller: we want to "invoke" the "action" on the controller.
 
 * Add a method `ControllerBase#invoke_action(action_name)`
     * Use inherited `Object#send` to call the appropriate action (like `new` or `show`)
