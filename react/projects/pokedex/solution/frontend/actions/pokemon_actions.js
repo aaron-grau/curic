@@ -6,32 +6,38 @@ export const CREATE_POKEMON         = 'CREATE_POKEMON';
 export const RECEIVE_NEW_POKEMON    = 'RECEIVE_NEW_POKEMON';
 export const RECEIVE_POKEMON_ERRORS = 'RECEIVE_POKEMON_ERRORS';
 
-import {
-	fetchAllPokemon,
-	fetchSinglePokemon,
-	postPokemon
-} from '../util/api_util';
+import * as APIUtil from '../util/api_util';
 
-export function requestAllPokemon() {
+export function fetchAllPokemon() {
 	return (dispatch) => {
-		fetchSinglePokemon()
-			.then(pokemon => dispatch(receiveAllPokemon(pokemon));
+		dispatch(requestAllPokemon());
+		APIUtil.fetchAllPokemon()
+			.then(pokemon => dispatch(receiveAllPokemon(pokemon)));
 	}
 }
 
-export function requestSinglePokemon(id) {
+export function fetchSinglePokemon(id) {
 	return (dispatch) => {
-		fetchAllPokemon()
-			.then(pokemon => dispatch(receiveSinglePokemon(pokemon));
+		dispatch(requestSinglePokemon());
+		APIUtil.fetchSinglePokemon(id)
+			.then(pokemon => dispatch(receiveSinglePokemon(pokemon)));
 	}
 }
 
 export function createPokemon(pokemon) {
 	return (dispatch) => {
-		postPokemon()
-			.then(pokemon => dispatch(receiveNewPokemon(pokemon));
+		APIUtil.postPokemon()
+			.then(pokemon => dispatch(receiveNewPokemon(pokemon)));
 	}
 }
+
+export const requestAllPokemon = () => ({
+	type: REQUEST_ALL_POKEMON
+});
+
+export const requestSinglePokemon = () => ({
+	type: REQUEST_SINGLE_POKEMON
+});
 
 export const receiveAllPokemon = pokemon => ({
 	type: RECEIVE_ALL_POKEMON,

@@ -35,7 +35,7 @@ header {
 		z-index: 1;
 	}
 	div {
-		background: url(/assets/pokedex-header-nav.png);
+		background: asset-url("pokedex-header-nav.png");
 		width: 100%;
 		height: 46px;
 		margin-right: -10px;
@@ -51,7 +51,7 @@ nav {
   	display: flex;
   	border-bottom: 1px solid grey;
   	padding-left: 220px;
-		
+
   	li {
 
   		a {

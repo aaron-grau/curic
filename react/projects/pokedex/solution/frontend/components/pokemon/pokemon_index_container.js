@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import PokemonIndex from './pokemon_index';
+import { fetchAllPokemon } from '../../actions/pokemon_actions';
 import { selectAllPokemon } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
   pokemon: selectAllPokemon(state),
-  loading: state.loading
+  loading: state.loading.indexLoading
 });
 
-export default connect(mapStateToProps)(PokemonIndex);
+const mapDispatchToProps = dispatch => {
+  return { fetchAllPokemon: () => dispatch(fetchAllPokemon()) }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonIndex);

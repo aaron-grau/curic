@@ -25,6 +25,7 @@ def create_random_item!(pokemon)
 end
 
 ActiveRecord::Base.transaction do
+  Pokemon.destroy_all
   pokemon = {
     "1"=>{
       "name"=>"Bulbasaur",
@@ -1378,7 +1379,7 @@ ActiveRecord::Base.transaction do
     stats
   end
 
-  Pokemon.create!(pokemon.shuffle)
+  Pokemon.create!(pokemon)
   Pokemon.all.each do |pokemon|
     3.times { create_random_item!(pokemon) }
   end
