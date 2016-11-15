@@ -35,6 +35,22 @@ describe Flash do
       expect(cookie_hash).to be_instance_of(Hash)
       expect(cookie_hash['first_key']).to eq('first_val')
     end
+
+    it "does not persist data more than 1 request" do 
+      second_req = Rack::Request.new({'rack.input' => {}})
+      second_res = Rack::Response.new([], '200', {}) 
+      second_req.cookies.merge!(req.cookies)
+
+      second_flash = Flash.new(second_req)
+      second_flash.store_flash(second_res)
+      
+      cookie_str = second_res.headers['Set-Cookie']
+      cookie = Rack::Utils.parse_query(cookie_str)
+      cookie_val = cookie["_rails_lite_app_flash"]
+      cookie_hash = JSON.parse(cookie_val)
+
+      expect(cookie_hash).not_to have_key('first_key')
+    end
   end
 
   describe "#[]" do
