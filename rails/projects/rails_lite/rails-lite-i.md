@@ -170,7 +170,7 @@ Lastly, run the spec: `bundle exec rspec spec/p02_controller_spec.rb`.
 
 Let's try it out:
 
-```
+```ruby
 [1] pry(main)> require 'erb'
 => true
 [2] pry(main)> template = ERB.new('<%= (1..10).to_a.join(", ") %>')
@@ -186,7 +186,7 @@ Let's try it out:
 
 ERB will also interpolate values:
 
-```
+```ruby
 [5] pry(main)> x = "Hello there, world!"
 => "Hello there, world!"
 [6] pry(main)> ERB.new("<%= x %>").result # raises exception
@@ -197,7 +197,7 @@ ERB will also interpolate values:
 (variables, methods, and self) that are in-scope at any point of a Ruby
 program and makes them available in another context. For instance:
 
-```
+```ruby
 [1] pry(main)> def f
 [1] pry(main)*   x = 4
 [1] pry(main)*   binding
