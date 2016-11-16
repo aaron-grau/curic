@@ -1,13 +1,10 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			username: "",
-			password: ""
-		};
+		this.state = { username: "", password: "" };
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -17,7 +14,7 @@ class SessionForm extends React.Component {
 
 	redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
-			this.props.router.push("/");
+			hashHistory.push("/");
 		}
 	}
 
@@ -86,4 +83,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default withRouter(SessionForm);
+export default SessionForm;

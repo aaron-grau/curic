@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { hashHistory } from 'react-router';
 
 class BenchForm extends React.Component{
   constructor(props) {
@@ -15,7 +15,7 @@ class BenchForm extends React.Component{
   }
 
   navigateToSearch() {
-    this.props.router.push("/");
+    hashHistory.push("/");
   }
 
   update(property) {
@@ -77,4 +77,4 @@ class BenchForm extends React.Component{
   }
 }
 
-export default withRouter(BenchForm);
+export default BenchForm;

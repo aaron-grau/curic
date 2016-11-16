@@ -1,20 +1,17 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { hashHistory } from 'react-router';
 
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      rating: 5,
-      body: ""
-    };
+    this.state = { rating: 5, body: "" };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToBenchShow = this.navigateToBenchShow.bind(this);
   }
 
   navigateToBenchShow() {
-    this.props.router.push(`/benches/${this.props.params.benchId}`)
+    hashHistory.push(`/benches/${this.props.params.benchId}`);
   }
 
   handleSubmit(e) {
@@ -28,11 +25,7 @@ class ReviewForm extends React.Component {
   }
 
   update(property) {
-    return e => {
-      this.setState({
-        [property]: e.currentTarget.value
-      });
-    };
+    return e => this.setState({ [property]: e.currentTarget.value });
   }
 
   render() {
@@ -62,4 +55,4 @@ class ReviewForm extends React.Component {
  }
 }
 
-export default withRouter(ReviewForm);
+export default ReviewForm;

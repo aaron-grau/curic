@@ -2,7 +2,7 @@ import { UPDATE_FILTER } from '../actions/filter_actions';
 import merge from 'lodash/merge';
 
 const _defaultFilters = Object.freeze({
-  bounds:{},
+  bounds: {},
   minSeating: 1,
   maxSeating: 10
 });

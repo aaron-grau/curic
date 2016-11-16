@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { withRouter } from 'react-router';
+import { hashHistory } from 'react-router';
 import MarkerManager from '../../util/marker_manager';
 
 const _getCoordsObj = latLng => ({
@@ -13,7 +13,7 @@ let _mapOptions = {
   zoom: 13
 };
 
-class BenchMap extends React.Component {
+class BenchMap extends Component {
 
   componentDidMount() {
     const map = this.refs.map;
@@ -50,11 +50,11 @@ class BenchMap extends React.Component {
   }
 
   _handleMarkerClick(bench) {
-    this.props.router.push(`benches/${bench.id}`);
+    hashHistory.push(`benches/${bench.id}`);
   }
 
   _handleClick(coords) {
-    this.props.router.push({
+    hashHistory.push({
       pathname: "benches/new",
       query: coords
     });
@@ -65,4 +65,4 @@ class BenchMap extends React.Component {
   }
 }
 
-export default withRouter(BenchMap);
+export default BenchMap;
