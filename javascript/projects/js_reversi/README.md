@@ -26,7 +26,7 @@ Read the entirety of the project description before starting!
 
 ---
 
-**NB**: This project uses the node's [module pattern][module-pattern] to import and export classes. We'll read more on that tonight. For now all you need to know is that node uses `require` to allow one JS file to load a second JS file. For example,
+**NB**: This project uses Node's [module pattern][module-pattern] to import and export classes. We'll read more on that tonight. For now all you need to know is that node uses `require` to allow one JS file to load a second JS file. For example,
 
 ```js
 // lib/game.js
