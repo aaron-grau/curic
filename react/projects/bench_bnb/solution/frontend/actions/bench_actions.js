@@ -4,6 +4,37 @@ export const REQUEST_BENCHES = "REQUEST_BENCHES";
 export const REQUEST_BENCH = "REQUEST_BENCH";
 export const CREATE_BENCH = "CREATE_BENCH";
 export const CREATE_REVIEW = "CREATE_REVIEW";
+export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
+
+export function fetchBenches() {
+  return (dispatch) => {
+    dispatch(requestBenches());
+    return APIUtil.fetchBenches()
+      .then(benches => dispatch(receiveBenches(benches)));
+  }
+}
+
+export function fetchBench(id) {
+  return (dispatch) => {
+    dispatch(requestBench(id));
+    return APIUtil.fetchBench(id)
+      .then(bench => dispatch(receiveBench(bench)));
+  }
+}
+
+export function createBench(bench) {
+  return (dispatch) => {
+    return APIUtil.createBench(id)
+      .then(bench => dispatch(receiveBench(bench)));
+  }
+}
+
+export function createReview(bench) {
+  return (dispatch) => {
+    return APIUtil.createBench(id)
+      .then(bench => dispatch(receiveBench(bench)));
+  }
+}
 
 export const requestBenches = () => ({
   type: REQUEST_BENCHES
@@ -24,12 +55,7 @@ export const receiveBench = bench => ({
   bench
 });
 
-export const createBench = bench => ({
-  type: CREATE_BENCH,
-  bench
-});
-
-export const createReview = review => ({
-  type: CREATE_REVIEW,
+export const receiveReview = review => ({
+  type: RECEIVE_REVIEW,
   review
 });

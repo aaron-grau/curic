@@ -20,7 +20,7 @@ class BenchMap extends React.Component {
     this.map = new google.maps.Map(map, _mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
     if (this.props.singleBench) {
-      this.props.requestBench(this.props.benchId);
+      this.props.fetchBench(this.props.benchId);
     } else {
       this._registerListeners();
       this.MarkerManager.updateMarkers(this.props.benches);

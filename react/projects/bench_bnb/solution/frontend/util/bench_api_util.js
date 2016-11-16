@@ -1,34 +1,30 @@
-export const fetchBenches = (filters, success) => {
-  $.ajax({
+export const fetchBenches = (data) => {
+  return $.ajax({
     method: 'GET',
     url: 'api/benches',
-    data: filters,
-    success
+    data
   });
 };
 
-export const fetchBench = (id, success) => {
+export const fetchBench = (id) => {
   $.ajax({
     method: 'GET',
-    url: `api/benches/${id}`,
-    success
+    url: `api/benches/${id}`
   });
 };
 
-export const createReview = (review, success) => {
+export const createReview = (data) => {
   $.ajax({
     method: 'POST',
     url: 'api/reviews',
-    data: review,
-    success
+    data
   });
 };
 
-export const createBench = (bench, success) => {
+export const createBench = (data) => {
   $.ajax({
     method: 'POST',
     url: 'api/benches',
-    data: bench,
-    success
+    data
   });
 };
