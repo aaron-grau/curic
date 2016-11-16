@@ -5,7 +5,7 @@ Here's our [reading][oo-js] Object-Oriented Programming in JS. Use it for refere
 Write a set of classes to model `Student`s and `Course`s.
 
 ### Phase 1:
-* `Student.prototype.initialize` should take a first and last name.
+* `Student`, a constructor function which should take a first and last name.
 * `Student.prototype.name` should return the concatenation of the student's
   first and last name.
 * `Student.prototype.courses` should return a list of the `Course`s in which
@@ -16,7 +16,7 @@ Write a set of classes to model `Student`s and `Course`s.
     * `enroll` should ignore attempts to re-enroll a student.
 * `Student.prototype.courseLoad` should return a hash of departments to # of
   credits the student is taking in that department.
-* `Course.prototype.initialize` should take the course name, department, and
+* `Course`, a constructor function which should take the course name, department, and
   number of credits.
 * `Course.prototype.students` should return a list of the enrolled students.
 * `Course.prototype.addStudent` should add a student to the class.
@@ -27,7 +27,7 @@ Write a set of classes to model `Student`s and `Course`s.
   `'tue'`, ...), plus a time block (assume each day is broken into 8
   consecutive time blocks). So a course could meet
   `['mon', 'wed', 'fri']` during block #1.
-    * Update your `initialize` method to also take a time block and
+    * Update your constructor function to also take a time block and
       days of the week.
 * Write a method `Course.prototype.conflictsWith` which takes a second
   `Course` and returns true if they conflict.
