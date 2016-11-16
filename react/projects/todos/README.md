@@ -234,7 +234,7 @@ requested `todos`.
 
 Remember that:
   + Redux actions are plain-old javascript objects that have a `type` property.
-  + Action creators don't directly interact directly with middleware, reducers
+  + Action creators don't directly interact with middleware, reducers
   or the `store`; they simply return action objects
   + These returned action objects are passed through our `Middleware`, and
   `RootReducer` only when `store.dispatch(action)` is called.
