@@ -1,26 +1,22 @@
-export const fetchAllPokemon = success => {
+export const fetchAllPokemon = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/pokemon',
-    success
+    url: 'api/pokemon'
   });
 };
 
-export const fetchSinglePokemon = (id, success) => {
+export const fetchSinglePokemon = (id) => {
   return $.ajax({
     method: 'GET',
-    url: `api/pokemon/${id}`,
-    success
+    url: `api/pokemon/${id}`
   });
 };
 
-export const postPokemon = (pokemon, success, error) => {
+export const postPokemon = (pokemon) => {
   pokemon.moves = Object.keys(pokemon.moves).map(k => pokemon.moves[k]);
   return $.ajax({
     method: 'POST',
     url: 'api/pokemon/',
-    data: {pokemon},
-    success,
-    error
+    data: { pokemon }
   });
 };
