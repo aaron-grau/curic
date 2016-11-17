@@ -1,18 +1,17 @@
-# Styling
+# Styling Tips and Examples
+
 * [The Basics of CSS Syntax][css-overview]
-* [Autoprefixer][autoprefixer]
-* [CSS Transitions Webcast][css-transitions-webcast] :movie_camera:
-* [Pre-processing, Boilerplate Frameworks, and Type][sass-bootstrap-type]
 * [CSS Demos][css-demos]
-* [Purchasing a Theme][themes]
-* Further Resources: [Railscasts on Styling][styling-railscasts]
-* [30 Selectors you must know][30-selectors]
+* [Autoprefixer][autoprefixer]
+* [Pre-processing, Boilerplate Frameworks, and Type][sass-bootstrap-type]
+* [30 selectors you must know][30-selectors]
 * [CSS Flexbox][flexbox-tutorial]
 * [Parallax][parallax-blog]
 * [High-resolution photos][unsplash] (especially good for splash pages)
 * CSS Transitions
- * [Blog][css-transitions-blog]
- * [CSS Generator][css-transitions-generator]
+  * [CSS Transitions Webcast][css-transitions-webcast] :movie_camera:
+  * [Blog][css-transitions-blog]
+  * [CSS Generator][css-transitions-generator]
 
 [autoprefixer]: ./autoprefixer.md
 [css-overview]: ./css.md
