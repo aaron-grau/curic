@@ -98,8 +98,8 @@ then let's take the rest of the information and print it out to the console.
 
 ```javascript
 const printUser = ({ userId }) => ({
-  // fetch user object via userId...
-  console.log(`${fname} ${lname}`);
+  // code to fetch user object via userId goes here...
+  console.log(`${user.fname} ${user.lname}`);
 });
 
 const printReview = ({ movie, comment, rating }) => ({
