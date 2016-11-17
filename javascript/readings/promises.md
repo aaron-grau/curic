@@ -104,7 +104,7 @@ let request = new Promise( resolve => {
 request.then( receiveResponse );
 ```
 
-In the example above, `receiveResponse` is invoked with `'success message` passed as an argument.
+In the example above, `receiveResponse` is invoked with `'success message'` passed as an argument.
 
 ## `then` and `catch`
 
