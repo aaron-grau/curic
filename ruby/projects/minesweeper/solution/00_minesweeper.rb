@@ -140,7 +140,7 @@ class Board
   end
 
   def won?
-    @grid.flatten.none? { |tile| tile.bombed? != tile.explored? }
+    @grid.flatten.all? { |tile| tile.bombed? != tile.explored? }
   end
 
   private
