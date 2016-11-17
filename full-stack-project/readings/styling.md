@@ -1,17 +1,43 @@
 # Styling Tips and Examples
 
-* [The Basics of CSS Syntax][css-overview]
-* [CSS Demos][css-demos]
-* [Autoprefixer][autoprefixer]
-* [Pre-processing, Boilerplate Frameworks, and Type][sass-bootstrap-type]
-* [30 selectors you must know][30-selectors]
-* [CSS Flexbox][flexbox-tutorial]
-* [Parallax][parallax-blog]
-* [High-resolution photos][unsplash] (especially good for splash pages)
+One of the drawbacks of our program is that we don't have enough time to teach our students how to be designers or UX/UI engineers. Fortunately, there are numerous resources online to help you design and build a attractive and engaging full-stack project. Our favorites are listed below:
+
+* General
+  * [The Basics of CSS Syntax][css-overview]
+  * [CSS Demos][css-demos]
+  * [Autoprefixer Gem][autoprefixer]
+  * [Preprocessing, Boilerplate Frameworks, and Type][sass-bootstrap-type]
+  * [30 Selectors You Must Know][30-selectors]
+  * [Parallax][parallax-blog]
 * CSS Transitions
   * [CSS Transitions Webcast][css-transitions-webcast] :movie_camera:
   * [Blog][css-transitions-blog]
   * [CSS Generator][css-transitions-generator]
+* CSS Flexbox
+  * [Flexbox Froggy](http://flexboxfroggy.com/)
+  * [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+  * [`flex-grow`](https://css-tricks.com/almanac/properties/f/flex-grow/)
+* Navbars and Footers
+  * [Holy Grail Layout](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/)
+  * [Sticky Footer](https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/)
+* Images and Icons
+  * [High-resolution photos][unsplash] (especially good for splash pages)
+  * [Flat Icon](http://www.flaticon.com/)
+  * [Font Awesome](http://fontawesome.io/icons/)
+* Typography
+  * [Google Fonts](https://fonts.google.com/)
+  * [Top 5 Google Font Combinations blog post](http://briangardner.com/google-font-combinations/)
+  * [Top 10 Google Font Pairing Sites](http://www.labnol.org/internet/best-google-font-combinations/28987/)
+* Color Schemes (make your site look cohesive!)
+  * [Website Color Schemes: The Palettes of 50 Visually Impactful Websites to Inspire You](https://designschool.canva.com/blog/website-color-schemes/)
+  * [Trendy Web Color Palettes and Material Design Color Schemes & Tools](http://www.awwwards.com/trendy-web-color-palettes-and-material-design-color-schemes-tools.html)
+  * [25 Awesome Tools for Choosing a Website Color Scheme](https://codemyviews.com/blog/25-awesome-tools-for-choosing-a-website-color-scheme)
+* Sample Splash Pages
+  * [Evernote](https://evernote.com/)
+  * [Nest](https://nest.com/)
+  * [Eventbrite](https://www.eventbrite.com/)
+* Lastly, select websites that you find visually appealing. Use them as inspiration!
+
 
 [autoprefixer]: ./autoprefixer.md
 [css-overview]: ./css.md
@@ -22,7 +48,6 @@
 [30-selectors]: http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
 [parallax-blog]:http://keithclark.co.uk/articles/pure-css-parallax-websites/
 [unsplash]:https://unsplash.com/
-[flexbox-tutorial]:http://flexboxfroggy.com/
 [css-transitions-blog]:https://robots.thoughtbot.com/transitions-and-transforms
 [css-transitions-generator]:http://css3generator.com/
 [css-transitions-webcast]: https://vimeo.com/164928587
