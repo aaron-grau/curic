@@ -32,6 +32,7 @@ One of the drawbacks of our program is that we don't have enough time to teach o
   * [Website Color Schemes: The Palettes of 50 Visually Impactful Websites to Inspire You](https://designschool.canva.com/blog/website-color-schemes/)
   * [Trendy Web Color Palettes and Material Design Color Schemes & Tools](http://www.awwwards.com/trendy-web-color-palettes-and-material-design-color-schemes-tools.html)
   * [25 Awesome Tools for Choosing a Website Color Scheme](https://codemyviews.com/blog/25-awesome-tools-for-choosing-a-website-color-scheme)
+  * [Material UI Colors](https://www.materialui.co/colors)
 * Sample Splash Pages
   * [Evernote](https://evernote.com/)
   * [Nest](https://nest.com/)
