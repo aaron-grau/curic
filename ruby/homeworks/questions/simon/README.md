@@ -21,4 +21,4 @@ When you're finished, check out the [solution][solution].
 
 [simon]: http://www.freesimon.org/
 [skeleton]: ./skeleton.zip?raw=true
-[solution]: ../../..solution/simon/solution
+[solution]: ../../solution/simon/solution
