@@ -233,6 +233,9 @@
 + [Singleton][singleton] (2 min)
     + Just the section on usage
 
+### Homeworks (45 min)
++ [Simon][simon] (45 min)
+
 ### Projects
 + [Class inheritance][inheritance-exercises]
 + [Exceptions, error handling][errors-exercises]
@@ -249,6 +252,7 @@
 [inheritance-design]: readings/inheritance-design.md
 [hiding]: readings/hiding.md
 [chess]: projects/chess
+[simon]: homeworks/questions/simon
 
 ## w2d2
 
