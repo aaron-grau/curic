@@ -24,6 +24,7 @@ One of the drawbacks of our program is that we don't have enough time to teach o
   * [High-resolution photos][unsplash] (especially good for splash pages)
   * [Flat Icon](http://www.flaticon.com/)
   * [Font Awesome](http://fontawesome.io/icons/)
+  * [Material UI Icons](https://www.materialui.co/icons)
 * Typography
   * [Google Fonts](https://fonts.google.com/)
   * [Top 5 Google Font Combinations blog post](http://briangardner.com/google-font-combinations/)
