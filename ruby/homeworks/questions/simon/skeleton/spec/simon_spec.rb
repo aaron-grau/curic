@@ -27,6 +27,18 @@ describe Simon do
     it 'adds a color included in the options' do
       expect(%w(red blue yellow green)).to include(simon.seq.last)
     end
+
+    it 'adds a random color' do
+      simon.add_random_color
+      simon.add_random_color
+      simon.add_random_color
+      simon.add_random_color
+      simon.add_random_color
+      simon.add_random_color
+      simon.add_random_color
+      simon.add_random_color
+      expect(simon.seq.all? { |color| color == simon.seq[0] }).to be(false) 
+    end
   end
 
   describe '#take_turn' do
@@ -57,6 +69,14 @@ describe Simon do
   describe '#play' do
     it 'calls #take_turn' do
       expect(simon).to receive(:take_turn) { simon.game_over = true }
+      simon.play
+    end
+
+    it 'calls #take_turn multiple times' do
+      expect(simon).to receive(:take_turn) {  }
+      expect(simon).to receive(:take_turn) {  }
+      expect(simon).to receive(:take_turn) { simon.game_over = true }
+
       simon.play
     end
 
