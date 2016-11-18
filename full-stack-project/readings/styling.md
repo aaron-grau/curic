@@ -13,7 +13,8 @@ One of the drawbacks of our program is that we don't have enough time to teach o
   * [CSS Transitions Webcast][css-transitions-webcast] :movie_camera:
   * [Blog][css-transitions-blog]
   * [CSS Generator][css-transitions-generator]
-  * [Animate.css][https://github.com/daneden/animate.css]
+  * [Animate.css](https://github.com/daneden/animate.css)
+    * [Demo](https://daneden.github.io/animate.css/)
 * CSS Flexbox
   * [Flexbox Froggy](http://flexboxfroggy.com/)
   * [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
