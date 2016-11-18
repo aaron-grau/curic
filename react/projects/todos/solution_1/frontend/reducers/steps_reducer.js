@@ -3,17 +3,18 @@ import { RECEIVE_STEPS,
          REMOVE_STEP } from '../actions/step_actions';
 
 const stepsReducer = (state = {}, action) => {
-  const nextState = Object.assign({}, state);
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_STEPS:
-      action.steps.forEach((step) => nextState[step.id] = step);
-      return nextState
+      const newState = {}
+      action.steps.forEach((step) => newState[step.id] = step);
+      return Object.assign({}, state, newState);
     case RECEIVE_STEP:
       return Object.assign({}, state, { [action.step.id]: action.step });
     case REMOVE_STEP:
-      delete nextState[action.step.id]
-      return nextState
+      const newState = Object.assign({}, state);
+      delete newState[action.step.id]
+      return newState
     default:
       return state;
   }
