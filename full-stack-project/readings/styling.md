@@ -38,7 +38,7 @@ One of the drawbacks of our program is that we don't have enough time to teach o
   * [Material UI Colors](https://www.materialui.co/colors)
 * Sample Splash Pages
   * [Evernote](https://evernote.com/)
-  * [Nest](https://nest.com/)
+  * [Little Weaver](https://littleweaverweb.com/)
   * [Eventbrite](https://www.eventbrite.com/)
 * Lastly, select websites that you find visually appealing. Use them as inspiration!
 
