@@ -1,10 +1,10 @@
 const APIUtil = {
 
-  followUser(id, success) {
+  followUser(id) {
     return APIUtil.changeFollowStatus(id, "POST");
   },
 
-  unfollowUser(id, success) {
+  unfollowUser(id) {
     return APIUtil.changeFollowStatus(id, "DELETE");
   },
 
