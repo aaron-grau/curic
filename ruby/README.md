@@ -275,8 +275,8 @@
 + **Demo Reading**: review spec files for A00 and A01 [assessment-prep][assessment-prep] (9 min)
 + **Demo Reading**: review spec files for [OO Robot RSpec Example][robot-demo] (6 min)
 
-### Homeworks (25 min)
-+ [RSpec][rspec-homework] (25 min)
+### Homeworks (40 min)
++ [RSpec][rspec-homework] (40 min)
 
 ### Projects
 + [First TDD Projects][first-tdd-projects]
