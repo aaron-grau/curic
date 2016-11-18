@@ -37,7 +37,7 @@ describe Simon do
       simon.add_random_color
       simon.add_random_color
       simon.add_random_color
-      expect(simon.seq.all? { |color| color == simon.seq[0] }).to be(false) 
+      expect(simon.seq.all? { |color| color == simon.seq[0] }).to be(false)
     end
   end
 
@@ -72,7 +72,7 @@ describe Simon do
       simon.play
     end
 
-    it 'calls #take_turn multiple times' do
+    it 'calls #take_turn until the game is over' do
       expect(simon).to receive(:take_turn) {  }
       expect(simon).to receive(:take_turn) {  }
       expect(simon).to receive(:take_turn) { simon.game_over = true }
