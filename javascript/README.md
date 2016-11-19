@@ -317,8 +317,8 @@
 * [Vanilla AJAX][vanilla-ajax]
 
 ### Projects
-* [jQuery Lite][jquery-lite]
-* [Mail][mail]
+* **Solo** [jQuery Lite][jquery-lite]
+* **Solo** [Mail][mail]
 * **Bonus:** [Snake][snake-project] using your jQuery Lite
 
 [jquery-06-event-delegation]: readings/jquery-06-event-delegation.md

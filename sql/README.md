@@ -22,7 +22,7 @@
 
 ### Projects
 
-+ [SQL Zoo][sqlzoo-readme]
++ **Solo** [SQL Zoo][sqlzoo-readme]
   + [Video solution to Julie Andrews query][julie-andrews-vid]
   + [Video solution to Craiglockhart to Sighthill query][craiglockhart-vid]
 
