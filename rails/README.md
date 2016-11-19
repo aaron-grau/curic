@@ -40,8 +40,8 @@
   + [:computer: Code from demos][rails-videos-code]
 
 ### Projects
-+ [First Routes and Controllers][first-routes]
-+ [Contacts API][contacts-api]
++ **Solo** [First Routes and Controllers][first-routes]
++ **Solo** [Contacts API][contacts-api]
 
 [assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
 [api-video]: https://vimeo.com/168498417
