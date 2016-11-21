@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router';
 
 class PokemonForm extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class PokemonForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPokemon(this.state)
-      .then((data) => hashHistory.push(`/pokemon/${data.id}`));
+      .then((data) => this.props.router.push(`/pokemon/${data.id}`));
   }
 
   update(property) {
@@ -100,4 +100,4 @@ class PokemonForm extends React.Component {
 	}
 }
 
-export default PokemonForm;
+export default withRouter(PokemonForm);

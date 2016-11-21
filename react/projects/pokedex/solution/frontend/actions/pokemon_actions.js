@@ -20,7 +20,10 @@ export function fetchSinglePokemon(id) {
 	return (dispatch) => {
 		dispatch(requestSinglePokemon());
 		return APIUtil.fetchSinglePokemon(id)
-			.then(pokemon => dispatch(receiveSinglePokemon(pokemon)));
+			.then(pokemon => {
+				dispatch(receiveSinglePokemon(pokemon))
+				return pokemon;
+			});
 	}
 }
 

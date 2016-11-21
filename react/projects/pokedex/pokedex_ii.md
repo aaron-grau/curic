@@ -18,11 +18,13 @@ new component. Your `PokemonIndex` should map each pokemon objects in
 this:
 
 ```
+const pokemonItems = pokemon.map(poke => {
+	<PokemonIndexItem key={ poke.id } pokemon={ poke } />
+});
+
 <section className="pokedex">
 	<ul>
-		{pokemon.map(poke => (
-			<PokemonIndexItem key={poke.id} pokemon={poke} />
-		))}
+		{ pokemonItems }
 	</ul>
 </section>
 ```
@@ -39,26 +41,14 @@ component with `react-router`'s `withRouter` function. `withRouter` is referred
 to as a **Higher Order Component** (HOC). Much like our container components, it
 serves to pass down information (namely the `router`) through props.
 
-* Import `withRouter` to your `PokemonIndexItem` like so:
+* Import `Link` to your `PokemonIndexItem` like so:
 
 	```js
-	import { withRouter } from 'react-router';
+	import { Link } from 'react-router';
 	```
 
-* Call this function on `PokemonIndexItem` before exporting it like so:
-
-  ```js
-  export default withRouter(PokemonIndexItem);
-  ```
-
-Your `PokemonIndexItem` will now have access to your app's router via
-`props.router`! We can now use `router.push(path)` to redirect our user to
-different routes!
-
-Define a `handleClick` function inside of `PokemonIndexItem`. It will take a
-string `url` and return a function that will take an event `e` and use
-`props.router` to redirect our user to `url`. Use ES6 currying pattern to
-generate the appropriate click handler.
+Inside each li, wrap the pokemon information in a `Link` tag. Give it a `to` prop
+with the path for the frontend pokemon show page (`/pokemon/:pokemonId`).
 
 Your `PokemonIndexItem` should look something like this:
 
@@ -69,21 +59,23 @@ const PokemonIndexItem = (props) => {
 
   return (
     <li
-      className="pokemon-index-item"
-      onClick={handleClick(`/pokemon/${props.pokemon.id}`)}>
-			// pokemon information...
+      className="pokemon-index-item">
+			<Link to{ `/pokemon/${props.pokemon.id}` }>
+				// pokemon information...
+			</Link>
     </li>
   );
 };
 ```
 
-The `handleClick` function is called, and its return value is set to the `li`'s
-`onClick` property. Now whenever a user clicks a `PokemonIndexItem` the router
-will redirect them to the url passed to the call of `handleClick`.
+The `Link` tag will generate an appropriate link to this path. While it would be
+possible to accomplish the same thing with an `a` tag and an href property, using
+react routers own `Link` tag is less brittle and will do the right thing, even if
+we use a different kind of history other than `hashHistory`.
 
 While clicking on a `PokemonIndexItem` will change the browser's url, you may
 have noticed the following error in your browser console: `[react-router]
-Location "/pokemon/:id" did not match any routes`.  This tells us that the
+Location "/pokemon/:pokemonId" did not match any routes`.  This tells us that the
 router was looking for a `Route` with a matching `path` in the `Router` and
 could not find one. Let's fix this.
 
@@ -146,9 +138,9 @@ Make sure to **test at each step!**
 requires defining a new constant and action creator for each action.
 * Create a `PokemonDetailReducer` reducer to respond to the `pokemonDetail`
 slice of the app state.
-* Update the `PokemonMiddleware` to respond to the request of a single pokemon.
+* Create a `fetchSinglePokemon` thunk action creator.
 * Create a `PokemonDetailContainer` that maps props to `PokemonDetail`.
-* Create a functional `PokemonDetail` component that returns information of the pokemon.
+* Create a class `PokemonDetail` component that returns information of the pokemon.
 * Add a `Route` that renders the `PokemonDetailContainer` component when the url matches the path `"pokemon/:pokemonId`".
 	* Nest the `PokemonDetailContainer` route under the route for the
 	`PokemonIndexContainer`. Like so:
@@ -161,19 +153,16 @@ slice of the app state.
 
 	* Render `this.props.children` in `PokemonIndex`. This will ensure that
 	both parent (`PokemonIndexContainer`) and child
-	(`PokemonDetailContainer`) components are rendered when a user visits
-	`"/pokemon/:pokemonId"`.
-	* Use an `onEnter` hook in the Route to dispatch a call to the
-	`requestSinglePokemon` action creator. Pass it the pokemon's id from the
-	`params`. Refer to the [`onEnter` documentation][on-enter] to figure out how
-	we get this information.
+	(`PokemonDetailContainer`) components are rendered when a user visits `"/pokemon/:pokemonId"`.
+	* Inside of `PokemonDetail` on `componentDidMount`, call `this.props.fetchSinglePokemon`.
+	Pass it the pokemon's id from the `this.props.params.pokemonId`.
 
 Your app's `Router` should look like this:
 
 ```js
-<Router history={History}>
-	<Route path="/" component={PokemonIndexContainer} onEnter={requestAllPokemonOnEnter}>
-		<Route path="pokemon/:pokemonId" component={PokemonDetailContainer} onEnter={requestSinglePokemonOnEnter} />
+<Router history={ hashHistory }>
+	<Route path="/" component={ PokemonIndexContainer } >
+		<Route path="pokemon/:pokemonId" component={ PokemonDetailContainer } />
 		</Route>
 	</Route>
 </Router>
@@ -181,8 +170,6 @@ Your app's `Router` should look like this:
 
 **Test your `PokemonDetail` redux cycle and route!** Does it behave like the
 [live demo][live-demo]. Show a TA before moving on.
-
-[on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
 
 ## Phase 6: `ItemDetail`
 
@@ -210,10 +197,10 @@ forget to render `this.props.children`.
 Your app's `Router` should look like this:
 
 ```js
-<Router history={hashistory}>
-	<Route path="/" component={PokemonIndexContainer} onEnter={requestAllPokemonOnEnter}>
-		<Route path="pokemon/:pokemonId" component={PokemonDetailContainer} onEnter={requestSinglePokemonOnEnter}>
-			<Route path="item/:itemId" component={ItemDetailContainer} />
+<Router history={ hashHistory }>
+	<Route path="/" component={ PokemonIndexContainer }>
+		<Route path="pokemon/:pokemonId" component={ PokemonDetailContainer }>
+			<Route path="item/:itemId" component={ ItemDetailContainer } />
 		</Route>
 	</Route>
 </Router>
@@ -230,9 +217,8 @@ to create Pokemon, you will need to:
 * Define a `#create` controller action for the `PokemonController`.
 * Create an API function that sends a single Pokemon's information as part of a
 `POST` request to the backend.
-* Create actions for both creating and receiving a new Pokemon.
+* Create actions for both creating and receiving a new Pokemon (creation should be a thunk, receiving is a regular action).
 * Update the reducer to respond to receiving a new Pokemon.
-* Update the middleware to respond to a `CREATE_POKEMON` action.
 * Create a `PokemonFormContainer` that only connects `mapDispatchToProps`.
   * Pass a function prop called `createPokemon` that dispatches your
 	`CREATE_POKEMON` action.
@@ -313,39 +299,67 @@ The final parts of the `PokemonForm` are redirecting callback and error handling
 
 Once the posting is complete we want the application to redirect to the newly
 created Pokemon. We need to wait, however, because we need this Pokemon's ID in
-order to push to that URL. This should happen in our `PokemonMiddleware`. In
-order to change location outside of React components, we need to import the
-`hashHistory` module.
+order to push to that URL. We will only have this id after the response has come back
+from the server, so we can take on another `.then` after our promise resolves and
+redirect from there.
+
+Make sure that your `fetchSinglePokemon` action creator returns the promise and any
+`.then`s you take on to the end return the pokemon. The reason for this is that
+when chaining calls to `then` the return value of the previous as passed as the input
+to the next. This can be handy for gradually building up a value, in our case we
+want to do two things with the same input, so we must pass it through.
+
+Your `fetchSinglePokemon` should look like this:
+
+```js
+export function fetchSinglePokemon(id) {
+	return (dispatch) => {
+		dispatch(requestSinglePokemon());
+		return APIUtil.fetchSinglePokemon(id)
+			.then(pokemon => {
+				dispatch(receiveSinglePokemon(pokemon))
+				return pokemon;
+			});
+	}
+}
+```
+
+In order to get the router to send us to a new location from within the component,
+we can use `react-router`'s `withRouter` function. `withRouter` is referred
+to as a **Higher Order Component** (HOC). Much like our container components, it
+serves to pass down information (namely the `router`) through props.
+
+* Import `withRouter` to your `PokemonIndexItem` like so:
+
+	```js
+	import { withRouter } from 'react-router';
+	```
+
+* Call this function on `PokemonIndexItem` before exporting it like so:
 
   ```js
-  import { hashHistory } from 'react-router';
+  export default withRouter(PokemonIndexItem);
   ```
 
-This imports a reference to the `hashHistory` object that we can push directly
-to. Call `hashHistory.push` with the correct url inside of your `postPokemon`
-success callback.
+Your `PokemonForm` will now have access to your app's router via
+`props.router`! We can now use `router.push(path)` to redirect our user to
+different routes!
 
-Your `PokemonMiddleware` should look something like this:
+On successful submission of your form, redirect the user to the pokemon show page.
 
-  ```js
-  const PokemonMiddleware = store => next => action => {
 
-    const receiveNewPokemonSuccess = pokemon => {
-      dispatch(receiveNewPokemon(pokemon));
-      hashHistory.push(`/pokemon/${pokemon.id}`);
-    };
 
-    switch (action.type) {
-      //...
+```js
 
-      case CREATE_POKEMON:
-        postPokemon(action.pokemon, receiveNewPokemonSuccess);
-        return next(action);
-
-			//...
-    }
-  };
-  ```
+class PokemonForm extends Component {
+	handleSubmit(e) {
+		e.preventDefault();
+		this.props.createPokemon(this.state).then(newPokemon => {
+			this.props.router.push(`pokemon/${newPokemon.id}`);
+		})
+	};
+}
+```
 
 ### Error Handling
 
@@ -371,8 +385,7 @@ adding an `errors` slice to our state.
 * Add a failure callback to the `postPokemon` api util function.
 * Add a `receivePokemonErrors` action and corresponding constant.
 * Add a new reducer, `ErrorsReducer`, to handle the `errors` slice to your app state.
-* Update the `PokemonMiddleware` to use this new action
-  * `PokemonMiddleware` should also be responsible for constructing the error callback
+* Update the `createPokemon` thunk action creator to use this new action on failure
 * Add a `mapStateToProps` function that connects to the `PokemonFormContainer`
 * Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
 * Add a `mapStateToProps` function in the `PokemonFormContainer` to provide the `PokemonForm` with a list of errors
@@ -393,11 +406,10 @@ internet are good resources if you get stuck! :art:
 In this phase we'll create a 'loading' spinner that displays while we're fetching information from the backend.
 
 * Google search "css spinners" -- pick one you like!
+* Before calling the `apiUtil`, have your async actions also dispatch an action with `type: REQUEST_POKEMON`
 * Create a new reducer, the `LoadingReducer`
   * Your `LoadingReducer` should care about all `REQUEST_` and `RECEIVE_` action types
   * When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
-* Use `next(action)` in your `PokemonMiddleware` to always ensure the passing of
-your actions to the reducer
 * Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
 
 ## Phase 10: Bootstrap Poketypes
@@ -431,7 +443,6 @@ This route should render an edit page where you can update the properties of you
 
 But you should have to refactor the following pieces:
 
-* `PokemonMiddleware`
 * `PokemonFormContainer`
 * `PokemonForm`
 
@@ -439,5 +450,3 @@ But you should have to refactor the following pieces:
 ## Bonus: Update Items
 
 Add the ability to reassign items to different Pokemon. This time, design is up to you!
-
-
