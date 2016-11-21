@@ -21,8 +21,7 @@ In this phase you will create a file system to structure your frontend,
 configure your npm packages and webpack, and test that your frontend
 configuration works.
 
-+ Create a `/frontend` folder at the root directory of your project.
-+ Model your `/frontend` folder to look like the directory tree below:
++ Model your project folder to look like the directory tree below:
 
   ```
   index.html
@@ -504,7 +503,7 @@ In this section you will create essentially parallel action creators to those in
   + Set a default action to take in its `switch` statement
   + Add this reducer to your `rootReducer` via `combineReducers`
 + Add another selector to your `reducers/selectors.js` file that will allow components to get the steps as an array.
-  + Write a function `stepsByTodoId(state, todoId)` CHECK THIS
+  + Write a function `stepsByTodoId(state, todoId)`
   + You will need to loop through all the steps searching for the ones with the correct `todoId`.
 
 **Test your code.**
@@ -582,7 +581,7 @@ Follow these steps, **testing your code as you go** :
 
 ## Bonus
 
-## Persist State with localStorage
+### Persist State with localStorage
 
 One major flaw with our app is that all the todo data is lost between page refreshes.
 We will store this data in a database with Rails tomorrow,
@@ -590,25 +589,25 @@ but you can accomplish a similar effect for the end user
 by storing the data directly in their browser. Users can't share information this way
 (it is all local to their computer) but updates will persist through page refreshes.
 
-Before begining, [review the reading] on `localStorage` if neccssary.
+Before beginning, [review the reading][local-storage] on `localStorage` if necessary.
 
 #### Saving state in localStorage
 
 We want our store to save to `localStorage` after every dispatch, (that is, every time our state has changed).
 There are a few ways to go about implementing this behavior, the simplest of which is subscribing to the store as soon as it's created.
-Inside `configureStore`, once the store is created, call `store.subscribe` and pass it a callback.
-Inside the callback, call `store.getState` and save the results in localStorage.
++ Inside `configureStore`, once the store is created, call `store.subscribe` and pass it a callback.
++ Inside the callback, call `store.getState` and save the results in localStorage.
 
 Before moving on, verify that if you change your state through actions, the value stored in localStorage reflects those changes.
 
 #### Loading from localStorage
 
 We now want to be able to populate our store with the value saved in localStorage. We'll also do this inside of configureStore.
-First, check if you have a value saved in localStorage. If you do not, create your store without an initialState. If there is a value, pass that is as the 2nd arguement to `createStore`.
+First, check if you have a value saved in localStorage. If you do not, create your store without an initialState. If there is a value, pass that is as the 2nd argument to `createStore`.
 
-That's it! Try making some todos or steps and then refreshing the page. Are they persistant?  
+That's it! Try making some todos or steps and then refreshing the page. Do the changes you made persist?  
 
-## Make it Beautiful
+### Make it Beautiful
 
 + Style your site so that it looks presentable to investors!
   + Make a styles folder in your root directory, and include any CSS files you write in `index.html`
@@ -626,3 +625,4 @@ That's it! Try making some todos or steps and then refreshing the page. Are they
 [props_and_state_reading]: ../../readings/props_and_state.md
 [selector_reading]: ../../readings/selectors.md
 [demo]: https://aa-todos.herokuapp.com/
+[local-storage]: https://localstorage.com/

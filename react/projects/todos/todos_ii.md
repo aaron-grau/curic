@@ -28,17 +28,17 @@ Let's get started!
 + Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
 + Update your Gemfile with `pry-rails`, and `annotate`.
 
-### `Todo`s
+### Todos
 + Create a `Todo` model with a `title` string (required), a `body` string (required), and a `done` boolean (required).
   + Run `rails g model todo title body done:boolean`.
   + Add the necessary validations to the database and model.
-    + NB: Validating boolean fields creates interesting bugs. `null: false` will
-    fail because `false` is considered `null` by the db, and `presence: true`
-    will fail because `false` is not considered present by the model. Instead,
-    skip the database validation and use `validates :boolean_field_name, inclusion: { in: [true, false] }`
+    + NB: Validating boolean fields at the model level can create interesting bugs. `presence: true` will
+    fail because rails checks for presence by calling `blank?` on the validated attribute.
+    Since `false` is considered `blank` it will fail the validation. Instead, use
+    `validates :boolean_field_name, inclusion: { in: [true, false] }`
     at the model level to validate boolean fields.
 + Make sure Postgres is running on your machine
-  + Run `rake db:setup`.
+  + Run `rake db:create`.
   + Run `rake db:migrate`.
 
 **Test your setup** - Try creating a couple of todos in your database using the
@@ -51,7 +51,7 @@ rails console (`rails c`).
 + Make your controller actions serve JSON-formatted responses.
 + Define a private helper method for `todos_params`.
 
-For example, your `show` and `create` actions should look something like this:
+For example, your `show` and `create` actions should look like this:
 ```rb
 # app/controller/api/todos_controller.rb
 def show
@@ -76,8 +76,8 @@ end
 Your `routes.rb` should look something like this:
 ```rb
 Rails.application.routes.draw do
-  namespace :api, defaults: {format: :json} do
-    resources :todos, only: [:index, :show, :create, :destroy, :update]
+  namespace :api, defaults: { format: :json } do
+    resources :todos, except: [:new, :edit]
   end
 end
 ```
@@ -100,7 +100,7 @@ api_todos GET    /api/todos(.:format)     api/todos#index {:format=>:json}
 You're almost ready to go!
 + Seed your database with a few todos for testing.
 + Start your server (`rails s`) so that it can respond to HTTP requests.
-+ Visit [http://localhost:3000/][local-host]. It should render your root page.
++ Visit http://localhost:3000/. It should render your root page.
   + Inspect the page and double check that `<div id="content"></div>` is present.
 
 **Test your API** - Try out your API endpoints using `$.ajax`. You should be able
@@ -110,17 +110,9 @@ responses in the console.
 For example, try:
 
 ```
-const success = data => console.log(data);
-const error = e => alert(e);
-$.ajax({
-    method: 'GET',
-    url: 'api/todos',
-    success,
-    error
-  });
+$.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
 ```
 
-[local-host]: http://localhost:3000/
 [namespace-docs]: http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing
 
 ---
@@ -217,11 +209,11 @@ Since our thunk middleware returns the promise back to the caller, we can take o
 ```js
 // inside of handleSubmit
 this.props.createTodo({ todo }).then(
-  this.setState({ title: "", body: "" });
+  () => this.setState({ title: "", body: "" });
 );
 ```
 
-#### Error Handling
+### Error Handling
 
 We now have to deal with the unfortunate possibility that our request may fail.
 When we attempt to create a todo with invalid params, the server will render a json array of errors.
@@ -260,8 +252,8 @@ Change your components to use your new action instead of calling receiveTodo dir
 
 #### Deleting Todos
 
-You know the drill! Make your `APIUtil`, and thunk action creator (it should dispatch
-`removeTodo` on success) for deletion. Update your components appropriately.
+You know the drill! Make your `APIUtil` function, and thunk action creator `deleteTodo` (it should dispatch
+`removeTodo` on success). Update your components to use the new action.
 
 ### Steps
 
@@ -309,15 +301,18 @@ You now have a fully authenticated todo app! Celebrate!
 + Disable your update and delete buttons while the dispatch is pending.
 Consider adding a `fetching` boolean to state and new sync actions like
 `requestTodos` to tell the reducer to set `fetching` to true.
-+ Add additional features:
-  + Steps can have sub-steps (polymorphic associations)
-  + Steps can have tags (make taggings polymorphic, consider using a concern)
-  + Allow markdown or text styling in todos ([quill.js](https://quilljs.com/))
-  + Allow users to update todo title & body
-  + Sorting by priority
-  + Adding a time when something is due
-    + Sort by due date
-    + Item pops up when it is due
+
+
+#### Add additional features:
+
++ Steps can have sub-steps (polymorphic associations)
++ Steps can have tags (make taggings polymorphic, consider using a concern)
++ Allow markdown or text styling in todos ([quill.js](https://quilljs.com/))
++ Allow users to update todo title & body
++ Sorting by priority
++ Adding a time when something is due
+  + Sort by due date
+  + Item pops up when it is due
 
 
 [store_reading]: ../../readings/store.md
