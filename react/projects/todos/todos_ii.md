@@ -201,15 +201,17 @@ Inside `frontend/actions/todo_actions`, add a new thunk action creator `createTo
 The returned function, when invoked, should call the `APIUtil` to create a todo and resolve the promise by dispatching
 your synchronous `receiveTodo(todo)` action.
 
-Now inside the `todo_list_container.js`, instead of passing in `recieveTodo` in `mapDispatchToProps`,
-pass in `createTodo`. Inside the todo form, instead of call `receiveTodo`, call `createTodo`.
+* Inside the `todo_list_container.js`, instead of passing in `receiveTodo` in `mapDispatchToProps`,
+pass in `createTodo`.
+* Inside the `todo_form`, instead of call `receiveTodo`, call `createTodo`.
+
 Since we only want to clear the form if the post to the server is successful, clear the form after the promise resolves.
 Since our thunk middleware returns the promise back to the caller, we can take on another `.then` to clear the form like so.
 
 ```js
 // inside of handleSubmit
 this.props.createTodo({ todo }).then(
-  () => this.setState({ title: "", body: "" });
+  () => this.setState({ title: "", body: "" })
 );
 ```
 
@@ -219,11 +221,11 @@ We now have to deal with the unfortunate possibility that our request may fail.
 When we attempt to create a todo with invalid params, the server will render a json array of errors.
 We need a place in our redux store to house these errors. Time for a new reducer!
 Create `frontend/reducers/error_reducer`. It's initial state should be an empty array. Now let's write
-some actions to modify this portion of state. Create `frontend/actions/error_actions`.
-You only need two sync actions here, `receiveErrors(errors)` and `clearErrors`. You will
-also need constants for each action, `RECEIVE_ERRORS` and `CLEAR_ERRORS`.
+some actions to modify this portion of state.
 
-Back in your reducer, handle these actions by either returning `action.errors`, or an empty array.
+* Create `frontend/actions/error_actions`. You only need two sync actions here, `receiveErrors(errors)` and `clearErrors`.
+* Create the necessary constants for each action, `RECEIVE_ERRORS` and `CLEAR_ERRORS`.
+* Back in your reducer, handle these actions by either returning `action.errors`, or an empty array.
 
 Now that we have somewhere to store errors, when todo creation fails, dispatch those errors.
 You will need to update your `createTodo` action like this.
@@ -239,8 +241,8 @@ export function createTodo(todo) {
 ```
 
 Verify that your error state is populated if you try to create a todo with invalid params.
-Then, inside your todo form component, display the todos. You will need to pass the errors through
-the top level component and add error state to `mapStateToProps`.
+Then, inside your todo form component, display the errors. You will need to pass the errors through
+`mapStateToProps` of the top level component.
 
 #### Updating Todos
 
@@ -270,43 +272,70 @@ go through the same process with steps! You will have to write:
 ## Phase 3: Authentication
 
 Right now all users of our todo app share the same todos. That's not gonna work in the long run,
-let's authenticate users and only show them their own todos. We are going to authenticate our app the same way
-we have in the past, frontend authentication is a topic that will be explored later this week.
-You will not need redux (or javascript at all) for authentication today.
+let's authenticate users and only show them their own todos. You will not need redux (or javascript at all)
+for authentication today. We are going to authenticate our app the same way
+we have up to this point. Frontend authentication is a topic that will be explored later this week.
 
-Create a user model with a
-`username` and all other columns needed for authentication. You will also need a users and session controller.
-Make rails views for `users/new` and `sessions/new` (they can probably share a form partial).
-On successful account creation or log in, redirect users to `static_pages#root`.
-Use `before_action` callbacks to ensure logged in users get redirected from sign in routes to `static_pages#root`
-and logged out users are redirected from `root` to `sessions/new`. You can render a
-log out button inside of `static_pages#root` outside of your react content.
-
-Once you can sign up and sign in and out, associate todos with a user! Make a new migration to
-add a `user_id` column to the `todos` table. In the todos controller, associate created todos with the `current_user` like so.
+* Create a user model with a `username` and all other columns needed for authentication.
+* Create a users and session controller with `new` and `create` actions for both and `destroy` for session.
+* Make rails views for `users/new` and `sessions/new` (they can probably share a form partial).
+* On successful account creation or log in, redirect users to `static_pages#root`.
+* Use `before_action` callbacks to ensure logged in users get redirected from sign in routes to `static_pages#root`
+and logged out users are redirected from `root` to `sessions/new`.
+* Render a log out button inside of `static_pages#root` outside of your react content.
+* Once you can sign up and sign in and out, associate todos with a user! Make a new migration to
+add a `user_id` column to the `todos` table.
+* In the todos controller, associate created todos with the `current_user` like so.
 
 ```ruby
 def create
   @todo = current_user.todos.new(todo_params)
   # ... etc
 ```
+* Lastly, modify the index action to only render the current users todos.
 
-Lastly, modify the index action to only render the current users todos.
 You now have a fully authenticated todo app! Celebrate!
 
 ## Phase 4: Tags
+
+Let's add tags to our todos.
+
+* Create a Tag model with a `name` attribute.
+* Create a taggings model. Taggings is a join table between todos and tags. Todos will `have_many` tags through taggings.
+* We want our users to be able to define their own tags rather than selecting from a predetermined list, so rather than
+an array of tag ids, we will expect tags to be sent to the back end as an array of tag names.
+Let's write a model method to take care of settings the tags for a specific todo.
+It should create the tag names sent up that do not already exist and find the ones that do.
+It should remove old taggings and create new ones where appropriate. Active record `collection_ids=` method is perfect for this.
+Our method looks like this.
+```ruby
+def update_tags(tag_names)
+  tags_ids = tag_names.map do |tag_name|
+    Tag.find_or_create_by({ name: tag_name }).id
+  end
+  self.tag_ids = tags.map(&:id)
+end
+```
+* Inside your todo controller create method, call `update_tags` passing in `params[:todo][:tags]` if they exist.
+* We need our todos to be rendered with their associated tags. You can tell rails to
+render associated items with the syntax `render json: @todos, include: :tags`. This approach can get messy
+when including multiple associations. We will use `jbuilder` to solve this problem later.
+* In your todo form, add a `tags` array to your component state and display `this.state.tags` in a ul inside the form.
+You will also need an input to add new tags and a button to submit the new tag. However, we must be careful that this button
+does not accidentally submit the form. To avoid this, make sure to use `<button type="button">`. Explicitly setting a type of
+`button` overrides the default type of `submit`. On click of this button, add the input value to the current list of tags and clear the input.
 
 ## Bonus
 
 + Disable your update and delete buttons while the dispatch is pending.
 Consider adding a `fetching` boolean to state and new sync actions like
 `requestTodos` to tell the reducer to set `fetching` to true.
-
-
-#### Add additional features:
-
++ Expand tags
+  + Allow updating of tags from todo detail view
+  + Filter todos by tag (filter on the frontend, or send tags in a query string on `fetchTodos`).
+  + Tag suggestions (tag search on the back end) when inputing a new tag.
+  + Steps can have tags (make taggings polymorphic, consider using a concern)
 + Steps can have sub-steps (polymorphic associations)
-+ Steps can have tags (make taggings polymorphic, consider using a concern)
 + Allow markdown or text styling in todos ([quill.js](https://quilljs.com/))
 + Allow users to update todo title & body
 + Sorting by priority

@@ -112,16 +112,19 @@
    margin-bottom: 5px;
  }
 
-
- .button {
-   height: 30px;
+ .bubble {
    font-size: 14px;
    font-weight: bold;
    color: $white;
    border-radius: 5px;
    padding: 5px 10px;
-   cursor: pointer;
    margin: 10px;
+ }
+
+ .button {
+   @extend .bubble;
+   height: 30px;
+   cursor: pointer;
  }
  .button:focus, a:focus {
    outline: none;
@@ -183,12 +186,20 @@
    label {
      @extend .flex-col;
      margin: 10px 20px;
-     // align-items: center;
    }
    input, textarea {
      margin: 10px 10px;
      border: 1px solid $teal;
      border-radius: 3px;
+   }
+
+   .tag-list {
+     .bubble {
+       cursor: pointer;
+       &:hover {
+         background-color: $red;
+       }
+     }
    }
  }
 
@@ -221,3 +232,11 @@
    padding: 20px;
    margin: 20px 0;
  }
+
+.tag-list {
+  @extend .flex-row;
+  li {
+    @extend .bubble;
+    background-color: $darker-teal;
+  }
+}

@@ -34,7 +34,7 @@ export const updateTodo = (todo, success) => {
 };
 
 export const destroyTodo = (todo, success) => {
-  $.ajax({
+  return $.ajax({
     method: 'DELETE',
     url: `api/todos/${todo.id}`,
     success
