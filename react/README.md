@@ -120,9 +120,7 @@
 [react_redux_docs]: https://github.com/reactjs/react-redux/blob/master/docs/
 
 ### Projects
-- [Synthesizer][synthesizer]
-
-[synthesizer]: projects/synthesizer
+- [Todos][todos]
 
 ## w7d2
 
@@ -147,7 +145,7 @@
 [middleware_homework]: homeworks/questions/middleware.md
 
 ### Projects
-- [Todos][todos]
+- Continue [Todos][todos]
 
 [todos]: projects/todos
 
