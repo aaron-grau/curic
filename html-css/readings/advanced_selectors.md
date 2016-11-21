@@ -22,9 +22,9 @@ We can target elements with specified attributes by using `[]` . This is a popul
 
 This example selects all input elements with type attributes equal to "radio" and styles several properties.
 
-**N.B.** The -webkit-appearance property is native to the Webkit rendering engine used by Safari and Chrome. The `-webkit-` part of the property is called a vendor prefix. It's used to declare that this CSS property is from a proprietary rendering engine not yet declared by CSS W3 standards. Other vendor prefixes include -moz- for Firefox, -o- for opera, and -ms- for Internet Explorer.
+**N.B.** The `-webkit-appearance` property is native to the Webkit rendering engine used by Safari and Chrome. The `-webkit-` part of the property is called a vendor prefix. It's used to declare that this CSS property is from a proprietary rendering engine not yet declared by CSS W3 standards. Other vendor prefixes include -moz- for Firefox, -o- for opera, and -ms- for Internet Explorer.
 
-The outline property is set to none to reset the default browser action of outlining the radio button in blue. If we wanted to do this for all radio buttons in our application, it may make more sense for this to be in the css_reset.css file.
+The `outline` property is set to `none` to reset the default browser action of outlining the radio button in blue. If we wanted to do this for all radio buttons in our application, it may make more sense for this to be in the `css_reset.css` file.
 
 ## Pseudo Selectors
 
@@ -32,7 +32,7 @@ Most advanced selectors fall under this W3 category called pseudo-class selector
 
 ### State selectors
 
-Some state selectors refer to specific html elements like option and select.
+Some state selectors refer to specific HTML elements like `<option>` and `<select>`.
 
 ```css
     input[type="radio"]:checked {
@@ -82,7 +82,7 @@ Structural pseudo selectors help target elements without adding extra HTML marku
 
 We have already seen a couple examples of combining selectors with a space to select descendants or with a `>` to select children.
 
-We can also use `ElementA + ElementB` to target all ElementB elements that immediately precede ElementA elements.
+We can also use `ElementA + ElementB` to target all ElementB elements that immediately follow ElementA elements.
 
 ```css
 div ~ p {
@@ -90,6 +90,6 @@ div ~ p {
 }
 ```
 
-This example uses the `~` combinator to make a general selection of all siblings. It would select all paragraph elements that are within the same parent as any div elements.
+This example uses the `~` combinator to make a general selection of subsequent siblings. It would select all `<p>` elements that follow and are within the same parent as any `<div>` elements.
 
 There are plenty more selectors in the documentation. Most of the time the basics of CSS will be just fine, but for tough cases where you don't want to make changes to your HTML, these advanced combinators can sometimes really help.
