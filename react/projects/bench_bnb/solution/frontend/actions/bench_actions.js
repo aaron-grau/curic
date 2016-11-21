@@ -8,6 +8,14 @@ export const CREATE_BENCH = "CREATE_BENCH";
 export const CREATE_REVIEW = "CREATE_REVIEW";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 
+export function fetchBenches(filters) {
+  return (dispatch) => {
+    dispatch(requestBenches());
+    return APIUtil.fetchBenches(filters)
+      .then(benches => dispatch(receiveBench(benches)));
+  }
+}
+
 export function fetchBench(id) {
   return (dispatch) => {
     dispatch(requestBench(id));

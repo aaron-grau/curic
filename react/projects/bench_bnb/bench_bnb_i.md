@@ -171,16 +171,17 @@ information we might receive.
 
 + Before we get to the reducer, let's write and export the following action
 creators in a new file `actions/session_actions.js`:
-  * `login(user)`
-  * `logout()`
-  * `signup(user)`
-  * `receiveCurrentUser(currentUser)`
-  * `receiveErrors(errors)`
+  * `login(user)` (thunk action creator)
+  * `logout()` (thunk action creator)
+  * `signup(user)` (thunk action creator)
+  * `receiveCurrentUser(currentUser)` (regular action creator)
+  * `receiveErrors(errors)` (regular action creator)
 
 + Don't forget to define and export the corresponding action types as well
-(e.g., `export const LOGIN = 'LOGIN'`).  
+(e.g., `export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'`).  
 + `logout` won't accept an argument. `receiveErrors` will take an array. All
-other action creators accept a user object.
+other action creators accept a user object. On logout success dispatch
+`receiveCurrentUser(null)` to remove the current user.
 
 ### `SessionReducer`
 
@@ -190,7 +191,6 @@ current user and error messages.
 The `SessionReducer` should listen for 3 action types and respond to each like so:
   * `RECEIVE_CURRENT_USER` - sets `currentUser` to the action's user and clears `errors`
   * `RECEIVE_ERRORS` - sets `errors` to the action's errors and clears the `currentUser`
-  * `LOGOUT` - clears both `errors` and `currentUser`
 
 Your `SessionReducer` should maintain its own default state. To do that pass in
 an object as a default argument to SessionReducer with `currentUser` set to `null`
@@ -199,20 +199,20 @@ and `errors` set to an empty array.
 Remember to use both `Object.freeze()` and `merge` from the `lodash` library
 to prevent the state from being accidentally mutated.
 
-### `RootReducer`
+### `rootReducer`
 
 Create a new file, `reducers/root_reducer.js`. This file will be responsible for
-combining our multiple, domain-specific reducers. It will export a single `RootReducer`.
+combining our multiple, domain-specific reducers. It will export a single `rootReducer`.
 
   * Import `combineReducers` from the `redux` library.
   * Also import the `SessionReducer` function we just created!
-  * Create a `RootReducer` using the `combineReducers` function.
+  * Create a `rootReducer` using the `combineReducers` function.
     * Remember, the `combineReducers` function accepts a single argument: an object
       whose properties will represent properties of our application state, and values
       that correspond to domain-specific reducing functions.
-  * `export default RootReducer`.
+  * `export default rootReducer`.
 
-Your `RootReducer` should look like this:
+Your `rootReducer` should look like this:
 
 ```javascript
 // frontend/reducers/root_reducer.jsx
@@ -221,11 +221,11 @@ import { combineReducers } from 'redux';
 
 import SessionReducer from './session_reducer';
 
-const RootReducer = combineReducers({
+const rootReducer = combineReducers({
   session: SessionReducer
 });
 
-export default RootReducer;
+export default rootReducer;
 ```
 
 So far, our default application state should look something like this:
@@ -244,145 +244,38 @@ So far, our default application state should look something like this:
 Set up a `configureStore` method for initializing our Store:
 
 * Create a new file, `/store/store.js`.
-* Import `createStore` from the redux library.
-* Import our `RootReducer`.
+* Import `createStore` and `applyMiddleware` from the redux library.
+* Import our `rootReducer` and thunk middleware (write it yourself, or import the library).
 * Define a new function, `configureStore`, that accepts a single argument, `preloadedState`.
-* `configureStore` should return a new `store` with the `RootReducer` and `preloadedState` passed in.
+* `configureStore` should return a new `store` with the `rootReducer` and `preloadedState` passed in.
 
 ```javascript
 // frontend/store/store.js
 
-import { createStore } from 'redux';
-import RootReducer from '../reducers/root_reducer';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from '../reducers/root_reducer';
 
 const configureStore = (preloadedState = {}) => (
   createStore(
-    RootReducer,
-    preloadedState
+    rootReducer,
+    preloadedState,
+    applyMiddleware(thunk)
   );
 );
 
 export default configureStore;
 ```
 
-Before moving on, inside the `DOMContentLoaded` callback in `frontend/bench_bnb.jsx` 
-call `configureStore()` and assign the result to the window. 
+Before moving on, inside the `DOMContentLoaded` callback in `frontend/bench_bnb.jsx`
+call `configureStore()` and assign the result to the window.
 
 ```javascript
 window.store = configureStore(); //just for testing!
 ```
 
-Run `store.getState()` in the console and inspect the results. Your state 
-should look like the default state mentioned above! 
-
-### `SessionMiddleware`
-
-Your `SessionMiddleware` should only listen for and respond to 3 of our action types:
-  * `LOGIN`
-  * `LOGOUT`
-  * `SIGNUP`
-
-Your middleware should be responsible for invoking the appropriate
-`SessionApiUtil` function and passing the appropriate callbacks.
-+ The success callback for `login` and `signup` requests should `dispatch` a
-`receiveCurrentUser` action.  
-+ The error callbacks should dispatch `receiveErrors`.
-+ The success callback of `logout` should simply be to invoke `next(action)`.
-
-**NB**: It is **very** important that we carefully consider where we invoke our
-`next` function. Once our middleware is finished doing whatever it needs to
-do, it needs to call the `next` middleware in the chain, passing it the same
-`action`. If our `Middleware` doesn't care about this `action`, then it
-should, by default, pass the action on to the next middleware in the chain.
-
-Your `SessionMiddleware` should look a lot like this:
-
-```js
-// frontend/middleware/session_middleware.js
-
-import { receiveCurrentUser,
-         receiveErrors,
-         LOGIN,
-         LOGOUT,
-         SIGNUP
-       } from '../actions/session_actions';
-
-import { login, signup, logout } from '../util/session_api_util';
-
-export default ({ getState, dispatch }) => next => action => {
-  const successCallback = user => dispatch(receiveCurrentUser(user));
-  const errorCallback = xhr => dispatch(receiveErrors(xhr.responseJSON));
-
-  switch(action.type) {
-    case LOGIN:
-      login(action.user, successCallback, errorCallback);
-      return next(action);
-    case LOGOUT:
-      logout(() => next(action));
-      break;
-    case SIGNUP:
-      signup(action.user, successCallback, errorCallback);
-      return next(action);
-    default:
-      return next(action);
-  }
-};
-
-```
-
-### Connecting Middleware and the `store`
-
-Let's add our `SessionMiddleware` to the `store`.
-
-#### `RootMiddleware`
-
-Similar to our pattern for creating a `RootReducer`, we'll create a `RootMiddleware`.
-
-* Create a new file, `middleware/root_middleware.js`
-* Import `applyMiddleware` from `redux`
-* Import your `SessionMiddleware`
-* Use the `applyMiddleware` function to create a `RootMiddleware`
-* `export default` `RootMiddleware`
-
-Your `RootMiddleware` should look like this:
-
-```javascript
-// frontend/middleware/root_middleware.js
-
-import { applyMiddleware } from 'redux';
-import SessionMiddleware from './session_middleware';
-
-const RootMiddleware = applyMiddleware(
-  SessionMiddleware
-);
-
-export default RootMiddleware;
-```
-
-#### Add `RootMiddleware` to the `store`
-
-To start, let's re-visit `store.js` and import our `RootMiddleware`.
-
-```javascript
-// frontend/store/store.js
-
-import RootMiddleware from '../middleware/root_middleware';
-```
-
-Let's add our `RootMiddleware` as the third argument to the `createStore`
-function.
-
-```javascript
-createStore(
-  RootReducer,
-  preloadedState,
-  RootMiddleware
-);
-```
-
-**Test that your `SessionMiddleware` is connected to the store** by dispatching
-session actions from the console and then checking to see if your application
-state updates accordingly in response.
+Run `store.getState()` in the console and inspect the results. Your state
+should look like the default state mentioned above!
 
 ## Phase 2: React Router and Session Components
 
@@ -413,7 +306,7 @@ import React from 'react';
 const App = ({ children }) => (
   <div>
     <h1>Bench BnB</h1>
-    {children}
+    { children }
   </div>
 );
 
@@ -449,8 +342,8 @@ Set up the `Router` to use `hashHistory`. Like so,
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 const Root = ({ store }) => (
-  <Provider store={store}>
-    <Router history={hashHistory}>
+  <Provider store={ store }>
+    <Router history={ hashHistory }>
       // Routes go here...
     </Router>
   </Provider>
@@ -464,9 +357,9 @@ component at the root url `'/'`.
 
 ```javascript
 const Root = ({ store }) => (
-  <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route path="/" component={App} />
+  <Provider store={ store }>
+    <Router history={ hashHistory }>
+      <Route path="/" component={ App } />
     </Router>
   </Provider>
 );
@@ -493,9 +386,9 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
-  store = configureStore();
+  const store = configureStore();
   const root = document.getElementById('root');
-  ReactDOM.render(<Root store={store}/>, root);
+  ReactDOM.render(<Root store={ store }/>, root);
 });
 ```
 
@@ -527,7 +420,7 @@ const App = ({ children }) => (
   <div>
     <h1>Bench BnB</h1>
     <GreetingContainer />
-    {children}
+    { children }
   </div>
 );
 ```
@@ -604,11 +497,11 @@ Now it's time to create routes for logging in and signing up.
 Your `Root` should now look a lot like this:
 ```js
 const Root = ({ store }) => (    
-  <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <Route path="/login" component={SessionFormContainer} />
-        <Route path="/signup" component={SessionFormContainer} />
+  <Provider store={ store }>
+    <Router history={ hashHistory }>
+      <Route path="/" component={ App }>
+        <Route path="/login" component={ SessionFormContainer } />
+        <Route path="/signup" component={ SessionFormContainer } />
       </Route>
     </Router>
   </Provider>
@@ -647,14 +540,14 @@ that looks something like this:
 
 //...
 <script type="text/javascript">
-    window.currentUser = {"id":3,"username":"senecy_the_cat"}
+    window.currentUser = {"id":3,"username":"sennecy_the_cat"}
 </script>
 
 <main id="root"></main>
 //...
 ```
 
-where `{"id": 3, "username": "senecy_the_cat"}` is inserted via `ERB`.
+where `{"id": 3, "username": "sennecy_the_cat"}` is inserted via `ERB`.
 
 #### Interpolate `current user`
 
@@ -675,17 +568,17 @@ compatible object to assign to `window.currentUser`. Add interpolation around
 your  `window.currentUser=` assignment so that it only runs if someone is logged
 in. You should have something like this:
 
-```html
-// root.html.erb
+```
+<!-- root.html.erb -->
 
-//...
 <script type="text/javascript">
   <% if logged_in? %>
-    window.currentUser = <%= render("api/users/user.json.jbuilder",
-      user: current_user).html_safe %>
+    window.currentUser = <%= render(
+      "api/users/user.json.jbuilder",
+      user: current_user
+    ).html_safe %>
   <% end %>
 </script>
-//...
 ```
 
 Log in, refresh your page, and check out your `elements` in the Dev Tools.
@@ -709,7 +602,7 @@ Your entry point should now have the following code:
 //...
 let store;
 if (window.currentUser) {
-  const preloadedState = {session: {currentUser: window.currentUser}};
+  const preloadedState = { session: { currentUser: window.currentUser } };
   store = configureStore(preloadedState);
 } else {
   store = configureStore();
@@ -739,7 +632,7 @@ because the `_redirectIfLoggedIn` runs synchronously.
 
 [onEnter]: ../../readings/on_enter.md
 
-:confetti_ball: You've finished adding front-end user auth to your app! Now let's add benches! 
+:confetti_ball: You've finished adding front-end user auth to your app! Now let's add benches!
 
 ---
 

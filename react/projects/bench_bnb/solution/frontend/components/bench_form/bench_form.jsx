@@ -27,7 +27,7 @@ class BenchForm extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     const bench = Object.assign({}, this.state, this.coords);
-    this.props.createBench({bench});
+    this.props.createBench({ bench });
     this.navigateToSearch();
   }
 
