@@ -84,7 +84,7 @@ export const createTodo = todo => ({
 });
 ```
 
-**NB**: Exporting each function as its defined is the preferred method when
+**NB**: Exporting each function as it's defined is the preferred method when
 exporting multiple items from a single file.
 
 ### One Item per File
