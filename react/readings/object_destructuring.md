@@ -4,7 +4,15 @@ Object destructuring in ES6 makes it possible to extract parts of an object and
 assign those parts to different variables. For example:
 
 ```javascript
-const { a, b } = {a: 1, b: 2};
+const { a: x, b: y } = { a: 1, b: 2 };
+
+x; //=> 1
+y; //=> 2
+```
+This assigns `x` to the value that the `a` key is pointing to and `y` to the value that the `b` key is pointing to. A shorthand is available if you want to have the extracted variables have the same name as their associated keys:
+```js
+// note that the ordering is unimportant
+const { b, a } = { a: 1, b: 2 };
 
 a; //=> 1
 b; //=> 2
@@ -15,7 +23,7 @@ and can choose exactly what we want. If we only wanted to save some
 properties, we could do this:
 
 ```javascript
-const { a, c } = {a: 1, b: 2, c: 3};
+const { a, c } = { a: 1, b: 2, c: 3 };
 a; //=> 1
 c; //=> 3
 ```
@@ -23,7 +31,7 @@ c; //=> 3
 It also works for nested objects:
 
 ```js
-const {a: { b }} = {a: {b: 2}};
+const { a: { b } } = { a: { b: 2 } };
 
 a; //=> undefined (gasp)
 b; //=> 2
@@ -31,15 +39,21 @@ b; //=> 2
 To reference both `a` and the nested `b` from the example, we need to do:
 
 ```js
-const { a } = {a: { b }} = {a: {b: 2}};
-a; //=> {b: 2}
+const { a } = { a: { b } } = { a: { b: 2 } };
+a; //=> { b: 2 }
 b; //=> 2
+```
 
+...or in a single assignment, not using shorthand assignment for `a`:
+```js
+const { a: a, a: { b } } = { a: { b: 2 } };
+a; //=> { b: 2 }
+b; //=> 2
 ```
 
 This works even if we have a variable or function that returns an object.
 
-```javascript
+```js
 const multiply = n => { one: n, two: n * 2, three: n * 3 };
 
 const { one, two, three } = multiply(10);
@@ -79,36 +93,37 @@ few different places.
 ```javascript
 const review = {
   id: 1,
-  userId: 1,
+  userId: 2,
   movie: 'Star Trek',
   comment: 'It was excellent!',
   rating: 5
 };
 
 const user = {
-  id: 1,
+  id: 2,
   fname: 'Ned',
   lname: 'Ruggeri'
 };
 ```
 
-It would be nice to get some more information about our user. Let's take the
-`userId` and send it to one function that will retrieve user information. And
-then let's take the rest of the information and print it out to the console.
+It would be nice to get some more information about our user. Let's extract the
+`userId` from the review object and pass it to a function that will return a user object by the user's id. Then let's print the user's name to the console.
 
 ```javascript
-const printUser = ({ userId }) => ({
-  // code to fetch user object via userId goes here...
+// printUser can receive an ob
+const printReviewUser = ({ userId: id }) => {
+  // code to fetch user object via userId
+  const user = fetchUserById(id);
   console.log(`${user.fname} ${user.lname}`);
-});
+};
 
-const printReview = ({ movie, comment, rating }) => ({
+const printReview = ({ movie, comment, rating }) => {
   console.log(`Watched ${movie}`);
   console.log(`Gave it ${rating} stars!`);
   console.log(`${comment}`);
-});
+};
 
-printUser(review);
+printReviewUser(review);
 // Ned Ruggeri
 
 printReview(review);
