@@ -129,12 +129,14 @@
 ### Readings (65 min)
 - [Higher-order Functions][higher_order_functions] (15 min)
 - [Middleware][middleware] (15 min)
+- [Thunks][thunks] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
 - [Selectors][selectors] (10 min)
 - [Object.freeze][obj-freeze] (10 min)
 
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
+[thunks]: readings/thunks.md
 [redux_api_interactions]: readings/redux_api_interactions.md
 [selectors]: readings/selectors.md
 [obj-freeze]: readings/object_freeze.md
