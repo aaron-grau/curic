@@ -28,9 +28,11 @@ You can have as many style declarations as you wish in a CSS document. In some s
 p {
     color: black;
 }
+
 p span {
     font-style: bold;
 }
+
 p span.highlight {
     color: yellow;
 }
@@ -39,12 +41,18 @@ p span.highlight {
 
 ```html
 <p>
-This is some text in a paragraph element. 
-<span>This text has been styled bold because it is in a span element 
-that's a child of a paragraph element.</span>
-<span class="highlight">This text is yellow because the class selector overrides 
-the tag selector when multiple style declarations apply to the same attribute (`color`) of the same element. 
-It's still bold though!</span>
+  This is some text in a paragraph element. 
+  
+  <span>
+    This text has been styled bold because it is in a span element 
+    that's a child of a paragraph element.
+   </span>
+  
+  <span class="highlight">
+    This text is yellow because the class selector overrides 
+    the tag selector when multiple style declarations apply to the same
+    attribute (`color`) of the same element. It's still bold though!
+   </span>
 </p>
 ```
 
@@ -54,7 +62,7 @@ The above example introduces another type of selector and hints at how we can ma
 
 **Element Selector**
 
-You can directly select html elements by stating their name.
+You can directly select HTML elements by stating their name.
 
 Example: Select all `<h1>` elements and make their font size 24px.
 
@@ -82,6 +90,7 @@ Reference a class selector with a `.`
 
 ```html
 <section>This is a normal section</section>
+
 <section class="bg-grey">This section has a grey background</section>
 ```
 
@@ -130,7 +139,7 @@ Precedence governs which styles are overridden. The more specific a selector is,
 Both the type of selector and how it's applied to the HTML document determine specificity. Here's the hierarchy of specificity (from most to least):
 
 *  inline styles
-*  id selectors
+*  ID selectors
 *  class selectors
 *  element selectors
 
