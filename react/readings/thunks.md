@@ -1,26 +1,26 @@
 # Thunks
 
-One of the most common problems we need middleware to solve is asynchronicity. When building web applications that interact with a server, we need to request resources and then dispatch the response to our store. While it would be possible to make these API calls from our components and dispatch synchronously on success, we would prefer to have the source of every change to our app state be an action creators for consistancy and reusablity. Thunks are a new kind of action creator that will allow us to do just that.
+One of the most common problems we need middleware to solve is asynchronicity. When building web applications that interact with a server, we need to request resources and then dispatch the response to our store when it eventually gets back. While it would be possible to make these API calls from our components and dispatch synchronously on success, we would prefer to have the source of every change to our app state be an action creators for consistency and reusability. Thunks are a new kind of action creator that will allow us to do just that.
 
 Rather than returning a plain object, thunk action creators return a function. This function, when called with an argument of `dispatch`, can then dispatch one or more actions, immediately, or later. Here's an example.
 
 ```js
-function thunkActionCreator(sentence) {
+function thunkActionCreator() {
   return function (dispatch) {
     dispatch({
       type: "RECEIVE_MESSSAGE",
-      message: "We're about to set a timeout!"
+      message: "This will be dispatched immediately."
     });
 
     setTimeout(() => dispatch({
       type: "RECEIVE_MESSSAGE",
-      message: "This will be dispatched 1 second later"
+      message: "This will be dispatched 1 second later."
     }, 1000));
   };
 }
 ```
 
-This is great, but without custom middleware this will break as soon as the action hits our reducer. We need middleware to intercept all actions of type `function` and rather then passing them to the reducer, call them passing in `dispatch` as an argument.
+This is great, but without custom middleware it will break as soon as the function action hits our reducer. We need middleware to intercept all actions of type `function` and rather then passing them to the reducer, call them passing in `dispatch` as an argument.
 
 ```js
 // middleware/thunk_middleware.js
@@ -40,9 +40,9 @@ Say that we are building a web application that stores a user's contacts. On log
 ```js
 // utils/contacts_api_util.js
 
-export function fetchContacts = () => ({
+export function fetchContacts() {
   return $.ajax({ method: 'GET', url: 'api/contacts' });
-});
+}
 ```
 
 An action creator that fetches contacts might look like this.
@@ -53,6 +53,7 @@ import * as APIUtil from '../utils/contacts_api_util'
 // async action creator which returns a function
 export function fetchContacts() {
   return (dispatch) => {
+    dispatch(requestContacts());
     return APIUtil.fetchContacts().then(contacts => {
       dispatch(receiveContacts(contacts));
     });
@@ -60,6 +61,9 @@ export function fetchContacts() {
 }
 
 //sync action creator which returns an object
+export const requestContacts = (contacts) => {
+  return { type: REQUEST_CONTACTS };
+}
 export const receiveContacts = (contacts) => {
   return { type: RECEIVE_CONTACTS, contacts };
 }
