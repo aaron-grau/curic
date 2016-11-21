@@ -1,4 +1,4 @@
-# ReduxTodos
+# ReduxTodos Day 1 - Frontend
 
 ## Overview
 

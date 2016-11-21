@@ -19,11 +19,9 @@ class TodoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const todo = Object.assign({}, this.state);
-    this.props.createTodo({todo});
-    this.setState({
-      title: "",
-      body: ""
-    }); // reset form
+    this.props.createTodo({ todo }).then(
+      this.setState({ title: "", body: "" });
+    );
   }
 
   render() {

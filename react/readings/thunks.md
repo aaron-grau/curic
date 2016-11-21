@@ -2,7 +2,7 @@
 
 One of the most common problems we need middleware to solve is asynchronicity. When building web applications that interact with a server, we need to request resources and then dispatch the response to our store when it eventually gets back. While it would be possible to make these API calls from our components and dispatch synchronously on success, we would prefer to have the source of every change to our app state be an action creators for consistency and reusability. Thunks are a new kind of action creator that will allow us to do just that.
 
-Rather than returning a plain object, thunk action creators return a function. This function, when called with an argument of `dispatch`, can then dispatch one or more actions, immediately, or later. Here's an example.
+Rather than returning a plain object, a thunk action creator returns a function. This function, when called with an argument of `dispatch`, can then dispatch one or more actions, immediately, or later. Here's an example.
 
 ```js
 function thunkActionCreator() {
@@ -53,7 +53,7 @@ import * as APIUtil from '../utils/contacts_api_util'
 // async action creator which returns a function
 export function fetchContacts() {
   return (dispatch) => {
-    dispatch(requestContacts());
+    dispatch(requestContacts()); // allow reducer to set state to `fetching: true`
     return APIUtil.fetchContacts().then(contacts => {
       dispatch(receiveContacts(contacts));
     });
