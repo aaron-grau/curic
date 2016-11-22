@@ -11,7 +11,7 @@ initialization.
 
 ```js
 // app.jsx
-import Dog from 'dog'
+import Dog from './dog';
 
 const App = () => (
   <Dog name='Fido' breed='Greyhound'></Dog>
@@ -84,6 +84,8 @@ class WordInput extends React.Component {
   }
 
   linkState(key) {
+    // here we use '[key]' to set the key to be the value of the 'key' variable,
+    // as opposed to a string of 'key'
     return (event => this.setState({[key]: event.currentTarget.value}));
   }
 
