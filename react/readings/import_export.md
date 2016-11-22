@@ -89,7 +89,7 @@ exporting multiple items from a single file.
 
 ### One Item per File
 
-Exporting is slightly different for files which have a single export. To export a one item from a single file use ES6's `export default`:
+Exporting is slightly different for files which have a single export. To export a single object from a file use ES6's `export default`:
 
 ```javascript
 // todo_list.js
@@ -101,8 +101,7 @@ class TodoList {
 export default TodoList;
 ```
 
-We can also use `export default` if there is just a single function in the file,
-like so:
+We can also use `export default` for functions, because functions are just objects in JavaScript.
 
 ```javascript
 // app.js
@@ -149,15 +148,20 @@ with named exports, the import names have to exactly match.  If we want all the
 contents of a file containing multiple exports, we can use a `*` to gather up everything:
 
 ```javascript
-import * as todoActions from './todo_actions';
+import * as TodoActions from './todo_actions';
+// TodoActions now acts as a wrapper object for all the methods
+// defined in 'todo_actions.js'
+
+let todo = ...;
+TodoActions.createTodo(todo);
 ```
 
-Note that we must _alias_ our imported objects using the `as` keyword to be able
-to refer to them later.
+Note that we must _alias_ our imported object using the `as` keyword to be able
+to refer to it later. Aliasing can be used to namespace all the exported functions, constants, etc. from a file to wrap them into a single, easily referenced object. 
 
 ## Additional Resources
 
 * [StackOverflow answer](https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281)
-* [Import docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
-* [Export docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+* [MDN Import docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+* [MDN Export docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 * [AirBnB style guide](https://github.com/airbnb/javascript#modules)
