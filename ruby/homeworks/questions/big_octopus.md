@@ -51,5 +51,8 @@ fast_dance("right-down", new_tiles_data_structure)
 > 3
 ```
 
+When you're finished, check out [the solutions][octopus-solutions]!
+
 [ddr]: https://en.wikipedia.org/wiki/DDR
 [sorting-demo]: ./sorting_demo
+[octopus-solutions]: ../solution/big_octopus.rb
