@@ -268,12 +268,21 @@
 
 ## w2d3
 
-### Readings (45 min)
-+ [Introduction to RSpec][intro-rspec] (5 min)
+### Video Lectures (26 min)
+:video_camera: :key: : `go_video_go`
++ [Intro to RSpec][intro-rspec-video] (3 min)
++ [Setup and Basic Syntax][rspec-setup-syntax] (7 min)
++ [Errors, Equality Matchers, Subject/Let, and Doubles][rspec-more-syntax] (8 min)
++ [Code Demo][rspec-demo] (8 min)
+
+### Readings (20 min)
 + [RSpec Syntax][rspec-syntax] (8 min)
 + [`subject` and `let`][subject-and-let] (5 min)
 + [Order of RSpec methods][rspec-order] (2 min)
 + [Test doubles][test-doubles] (5 min)
+
+### Additional Resources (25 min)
++ [Introduction to RSpec][intro-rspec] (5 min)
 + [TDD][intro-tdd] (3 min)
 + [guard-rspec][guard-rspec] (2 min)
 + **Demo Reading**: review spec files for A00 and A01 [assessment-prep][assessment-prep] (9 min)
@@ -287,6 +296,11 @@
 + [Poker][poker-project]
 
 [assessment-prep]: https://github.com/appacademy/assessment-prep
+
+[intro-rspec-video]: https://vimeo.com/192497364
+[rspec-syntax]: https://vimeo.com/192665133
+[rspec-more-syntax]: https://vimeo.com/192662950
+[rspec-demo]: https://vimeo.com/192666370
 [intro-rspec]: readings/intro-rspec.md
 [rspec-syntax]: readings/rspec-syntax.md
 [intro-tdd]: readings/intro-tdd.md
