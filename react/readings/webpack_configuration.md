@@ -2,14 +2,17 @@
 
 ## `.gitignore`
 
-Before discuss into webpack configuration, you should know that running webpack
-and using npm create many redundant and very large files in your local project
-directory. Use a `.gitignore` file to prevent these files from being pushed to
-and pulled from your remote Git repositories. Create a `.gitignore` file in
-your project's root directory and list the files or directories you want to
-ignore, one per line. Use a trailing `/` to indicate a directory to ignore.
+Before discussing how to configure webpack, be aware that running webpack
+and using npm creates many redundant, large files in your local project
+directory. To avoid this use a `.gitignore` file in your project's root directory to 
+prevent these files from being pushed to and pulled from your remote Git
+repositories. Create a `.gitignore` file in your project's root directory 
+and list the files or directories you want to ignore, one per line. Use a 
+trailing `/` to indicate a directory to ignore. To re-fetch the the NPM modules, 
+we can run `npm install`, which fetches all the modules specified in `package.json`.
+Then run `webpack` to regenerate the `bundle.js` and `bundle.js.map` files.
 
-For example,
+For example:
 
 ```
 # .gitignore
@@ -53,9 +56,10 @@ pipeline.
 ### Dev Tools / Source Map
 
 `webpack.config.js` accepts a `devtool` key that can be used to enable useful
-tools, particularly `source-map`. A source map makes it possible for you to get
-line references to your code when errors are raised, which is impossible
-otherwise due to bundling.
+tools, particularly `source-map`. A source map makes it possible for you to see
+the line numbers of your original source code when errors are raised. This is 
+generally is not possible because your `bundle.js` does not maintain the line numbers 
+from the files it is bundling.
 
 ```js
 // webpack.config.js
