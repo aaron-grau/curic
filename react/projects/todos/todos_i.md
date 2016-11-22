@@ -357,7 +357,7 @@ reading if you need a refresher on container components.
 + Create a `mapStateToProps` function
   + Create a prop called `todos` whose value is the return value of your `allTodos` selector passed the `state`
 + Create a `mapDispatchToProps` function
-  + Create a prop called `receiveTodos` whose value is a call to `dispatch`, passing the result of a call to your `receiveTodos` action creator
+  + Create a prop called `receiveTodo` whose value is a call to `dispatch`, passing the result of a call to your `receiveTodo` action creator
 + Pass your `mapStateToProps` and `mapDispatchToProps` functions to `connect`
 + Call the result of this `connect` function with your `TodoList` presentational component as an argument
 + Export the result of this function call
@@ -370,7 +370,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  receiveTodos: () => dispatch(receiveTodos())
+  receiveTodo: () => dispatch(receiveTodo())
 });
 
 export default connect(
@@ -384,10 +384,7 @@ export default connect(
 Create your `TodoList` presentational component.
 
 If we've done our job with our container component, all this presentational
-component will have to do is:
-
-+ Dispatch a `requestTodos` action on `componentDidMount`
-+ Render the titles of its `todos` prop as list items inside of a `<ul>`
+component will have to do is render the titles of its `todos` prop as list items inside of a `<ul>`
 
 **Test your code** - Add `TodoListContainer` to your `App` component. Reload your app and see your list of `todos`!
 
@@ -412,8 +409,7 @@ In this phase you will create a form that allows users to create new todo items.
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
     + If you don't remember how to set up controlled inputs in a React component, look at this reading about [props and state][props_and_state_reading]
   + Render this component in your `TodoList` component
-+ Update your `TodoListContainer` to pass in the props that your `TodoForm` will need
-  + Add `receiveTodo` to the container's `mapDispatchToProps` function and pass this as a prop to `TodoForm`
++ Update your `TodoList` to pass `receiveTodo` down to your `TodoForm`
 
 Before your create your todos by calling `receiveTodo` on submission of the form, we
 need to give our todos unique ids. Usually, our database would take care of this for us.
