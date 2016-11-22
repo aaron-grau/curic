@@ -269,11 +269,11 @@
 ## w2d3
 
 ### Video Lectures (26 min)
-:video_camera: :key: : `go_video_go`
-+ [Intro to RSpec][intro-rspec-video] (3 min)
-+ [Setup and Basic Syntax][rspec-setup-syntax] (7 min)
-+ [Errors, Equality Matchers, Subject/Let, and Doubles][rspec-more-syntax] (8 min)
-+ [Code Demo][rspec-demo] (8 min)
+:closed_lock_with_key: `go_video_go`
++ :movie_camera: [Intro to RSpec][intro-rspec-video] (3 min)
++ :movie_camera: [Setup and Basic Syntax][rspec-setup-syntax] (7 min)
++ :movie_camera: [Errors, Equality Matchers, Subject/Let, and Doubles][rspec-more-syntax] (8 min)
++ :movie_camera: [Code Demo][rspec-demo] (8 min)
 
 ### Readings (20 min)
 + [RSpec Syntax][rspec-syntax] (8 min)
@@ -281,15 +281,15 @@
 + [Order of RSpec methods][rspec-order] (2 min)
 + [Test doubles][test-doubles] (5 min)
 
-### Additional Resources (25 min)
-+ [Introduction to RSpec][intro-rspec] (5 min)
-+ [TDD][intro-tdd] (3 min)
-+ [guard-rspec][guard-rspec] (2 min)
-+ **Demo Reading**: review spec files for A00 and A01 [assessment-prep][assessment-prep] (9 min)
-+ **Demo Reading**: review spec files for [OO Robot RSpec Example][robot-demo] (6 min)
-
 ### Homeworks (40 min)
 + [RSpec][rspec-homework] (40 min)
+
+### Additional Resources
++ [Introduction to RSpec][intro-rspec]
++ [TDD][intro-tdd]
++ [guard-rspec][guard-rspec]
++ review spec files for A00 and A01 [assessment-prep][assessment-prep]
++ review spec files for [OO Robot RSpec Example][robot-demo]
 
 ### Projects
 + [First TDD Projects][first-tdd-projects]
@@ -298,7 +298,7 @@
 [assessment-prep]: https://github.com/appacademy/assessment-prep
 
 [intro-rspec-video]: https://vimeo.com/192497364
-[rspec-syntax]: https://vimeo.com/192665133
+[rspec-setup-syntax]: https://vimeo.com/192665133
 [rspec-more-syntax]: https://vimeo.com/192662950
 [rspec-demo]: https://vimeo.com/192666370
 [intro-rspec]: readings/intro-rspec.md
