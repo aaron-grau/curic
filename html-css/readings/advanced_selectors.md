@@ -2,7 +2,7 @@
 
 With powerful tools like the Chrome Developer tools aiding our workflow, it's important to understand how to write cleaner stylesheets with more advanced selectors.
 
-Learning these selectors gives greater flexibility in selecting aspects of our HTML document, thereby enhancing user experience. This [W3 documentation](http://www.w3.org/TR/CSS21/selector.html#pattern-matching) shows the multitude of CSS selectors available. Take a look then read through an explanation of the most popular ones below.
+Learning these selectors gives greater flexibility in selecting aspects of our HTML document, thereby enhancing user experience. MDN has a great list of the available selectors [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors). Take a look then read through an explanation of the most popular ones below.
 
 ## Attribute selectors
 
