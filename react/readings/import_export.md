@@ -148,11 +148,16 @@ with named exports, the import names have to exactly match.  If we want all the
 contents of a file containing multiple exports, we can use a `*` to gather up everything:
 
 ```javascript
-import * as todoActions from './todo_actions';
+import * as TodoActions from './todo_actions';
+// TodoActions now acts as a wrapper object for all the methods
+// defined in 'todo_actions.js'
+
+let todo = ...;
+TodoActions.createTodo(todo);
 ```
 
 Note that we must _alias_ our imported object using the `as` keyword to be able
-to refer to it later. This can be used similarly to namespacing in Ruby.
+to refer to it later. Aliasing can be used to namespace all the exported functions, constants, etc. from a file to wrap them into a single, easily referenced object. 
 
 ## Additional Resources
 
