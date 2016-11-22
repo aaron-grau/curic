@@ -19,4 +19,4 @@ Hint: You saw a sorting algorithm that runs in O(n log n) in the [Sorting Demo][
 Find the longest fish in O(n) time. The octopus can hold on to the longest fish that you have found so far while stepping through the array only once.
 
 
-[sorting-demo]: homeworks/questions/sorting_demo
+[sorting-demo]: ./sorting_demo
