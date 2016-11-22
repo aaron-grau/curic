@@ -1,4 +1,4 @@
-# w6d5: AJAX Twitter
+# AJAX Twitter
 
 [**Live Demo!**][live-demo]
 
