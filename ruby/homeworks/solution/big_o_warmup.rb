@@ -60,12 +60,10 @@ end
 def linear_biggest_fish(fishes)
   #hold the biggest fish
   biggest_fish = fishes.first
-  max_length = fishes.first.length
 
   fishes.each do |fish|
-    if fish.length > max_length
+    if fish.length > biggest_fish.length 
       #update the biggest fish
-      max_length = fish.length
       biggest_fish = fish
     end
   end
