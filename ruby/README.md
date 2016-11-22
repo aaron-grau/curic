@@ -268,18 +268,18 @@
 
 ## w2d3
 
+### Readings (20 min)
++ [RSpec Syntax][rspec-syntax] (8 min)
++ [`subject` and `let`][subject-and-let] (5 min)
++ [Order of RSpec methods][rspec-order] (2 min)
++ [Test doubles][test-doubles] (5 min)
+
 ### Video Lectures (26 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Intro to RSpec][intro-rspec-video] (3 min)
 + :movie_camera: [Setup and Basic Syntax][rspec-setup-syntax] (7 min)
 + :movie_camera: [Errors, Equality Matchers, Subject/Let, and Doubles][rspec-more-syntax] (8 min)
 + :movie_camera: [Code Demo][rspec-demo] (8 min)
-
-### Readings (20 min)
-+ [RSpec Syntax][rspec-syntax] (8 min)
-+ [`subject` and `let`][subject-and-let] (5 min)
-+ [Order of RSpec methods][rspec-order] (2 min)
-+ [Test doubles][test-doubles] (5 min)
 
 ### Homeworks (40 min)
 + [RSpec][rspec-homework] (40 min)
