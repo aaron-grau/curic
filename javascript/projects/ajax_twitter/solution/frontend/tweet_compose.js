@@ -21,6 +21,7 @@ class TweetCompose {
 
     const $mentionedUserSelect = $(this.$mentionedUsersDiv.find("script").html());
     this.$mentionedUsersDiv.find("ul").append($mentionedUserSelect);
+    return false;
   }
 
   clearInput() {
