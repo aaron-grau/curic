@@ -39,8 +39,8 @@ const APIUtil = {
       url: "/feed",
       dataType: "json",
       data
-    })
+    });
   }
-}
+};
 
-module.exports = APIUtil
+module.exports = APIUtil;

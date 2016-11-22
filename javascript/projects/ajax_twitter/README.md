@@ -9,8 +9,8 @@
 Download the project [skeleton](skeleton.zip?raw=true). Start by running `bundle install`. To setup the database, run `rake db:setup` which creates, loads from schema and seeds the db in one command. Run `webpack --watch` or `webpack -w` in a new tab to transpile the JavaScript.
 
 Take a quick look at the `webpack.config.js`. Note that our entry point is
-`frontend/twitter.js`, so all of our other JavaScript file should be defined in
-the `frontend` folder also. Webpack will compile them from there and create a
+`frontend/twitter.js`, so all of our other JavaScript files should be defined in
+the `frontend` folder also. Webpack will transpile them from there and create a
 `bundle.js` file in `app/assets/javascripts/`.
 
 Next checkout `app/assets/javascripts/application.js`. This is Rails' manifest
@@ -44,7 +44,7 @@ that gets updated via our front-end javascript.
 these in `data-*` attributes.
 * Leave the inner HTML of the button empty: the FollowToggle class will be responsible for setting this.
 
-#### FollowToggle Class
+#### `FollowToggle` Class
 
 **NB:** Each of
 your JavaScript classes for this project should be in a separate file in
@@ -53,11 +53,9 @@ your JavaScript classes for this project should be in a separate file in
 * Create a new file in `frontend/` called `follow_toggle.js`.
 
 * Define the `constructor` for `FollowToggle`. In the `constructor`, extract the
-`user-id` and `initial-follow-state` from `el`
-* save those in instance
-variables `userId` and `followState` for later use.
+`user-id` and `initial-follow-state` data from `el` and save them as `this.userId` and `this.followState` for later use.
 *  You might also find it convenient to store a jQuery wrapped `el` as an instance variable.
-* Set 'module.exports' to your `FollowToggle` class to make it `require`-able.
+* Set `module.exports` to your `FollowToggle` class to make it `require`-able.
 
 Using this class, we can now build a `FollowToggle` instance for each `follow-toggle` button on the page.
 
@@ -80,13 +78,12 @@ Call your `#render` method inside the `constructor` to initially set the inner H
 
 Next, write a `FollowToggle#handleClick` method. Install this click handler in the constructor. Your click handler should:
 * Prevent the default action.
-* Make a `$.ajax` request to `POST /users/:id/follow` if we are not following the user (check `followState`).
-* Else, it should make a `DELETE` request.
+* Make a `$.ajax` request to `POST /users/:id/follow` if we are not following the user (check `followState`), else, it should make a `DELETE` request.
 * On success of the `POST`/`DELETE`, we should toggle the `followState` and re-render.
 
 **Hint**: You probably want to set the `dataType` option for `$.ajax`. This way you can have jQuery automatically parse the response as JSON. Read the documentation [here][$.ajax-docs]
 
-#### Content-Types and respond_to
+#### Content-Types and `respond_to`
 
 You may also be wondering what's going on with the `respond_to` inside the
 `FollowsController`. Well, when we make a http request to a server, we can
@@ -120,11 +117,9 @@ module.exports = APIUtil
 ```
 
 Lastly, let's freeze-out the button so that people can't click it while the AJAX request is pending.
-* In `handleClick` set `followState` to `following` or
-`unfollowing` and call `#render`.
+* In `handleClick` set `followState` to `following` or `unfollowing` and call `#render`.
 * Update your `#render` method to set the `disabled` property if the `followState` is `following` or `unfollowing`;
-* Otherwise, make sure `disabled` is set to false. (hint: Use jQuery's `#prop`
-method.)
+* Otherwise, make sure `disabled` is set to false. (Use jQuery's `#prop` method).
 
 Check that everything works and call over your TA so that they can check your work!
 
@@ -137,17 +132,18 @@ Review `app/controllers/users_controller.rb` and
 every keypress as the user types in a username, we'll show the matching users
 for the current input.
 
-#### UsersSearch Class
+#### `UsersSearch` Class
 
 * Replace the entire form with a `nav` with class `users-search`.
 * Add an input field for the user to type the name.
 * Nested in the `nav.users-search`, have a `ul.users` for displaying results.
-* Create a `frontend/users_search.js`
-file.
-* As with `FollowToggle`, build a `UsersSearch` for each `nav.users-search`.
-* You might find it convenient to store jQuery wrapped versions of the `el`, its `input` and its `ul`.
-* Write an `APIUtil#searchUsers(queryVal)` to make a request to `/users/search`. You can send query parameters along with an `$.ajax` call through the `data`. Don't forget to set `dataType`!
-* Write a `UsersSearch#handleInput` handler. On each `input` event, call `APIUtil.searchUsers`, sending the input's `val` as the query parameter.
+* Create a `frontend/users_search.js` file and define the `UsersSearch` class.
+* As with `FollowToggle`, build a `UsersSearch` for each `nav.users-search` in your entry file.
+* In the constructor, store jQuery wrapped versions of the `el`, its `input` and its `ul` on `this`.
+* Write an `APIUtil#searchUsers(queryVal)` to make a request to `/users/search`.
+You can send query parameters along with an `$.ajax` call through the `data`. Don't forget to set `dataType`!
+* Write a `UsersSearch#handleInput` handler. On each `input` event, call `APIUtil.searchUsers`,
+sending the input's `val` as the query parameter.
 
 #### Users Controller
 
@@ -167,7 +163,7 @@ end
 
 #### Jbuilder Teaser
 
-This tells your controller to render the `:search` HTML view for requests that
+We've told the controller to render the `:search` HTML view for requests that
 want HTML and to render the `:search` JSON view for requests that want JSON. But
 we don't yet have a `search.json` view! Let's make one. The file, in the
 `/users/` folder, should be named `search.json.jbuilder` and should contain the
@@ -193,10 +189,9 @@ user is following this user.
 
 When the AJAX call successfully returns a list of matching users, we want to
 display those results in the `ul.users`.
-* Write a method `UsersSearch#renderResults` for your AJAX success handler.
-* Empty out `ul.users`.
-* Iterate through the fetched array of users and for each result, use jQuery to
-build an `li` containing an anchor tag linking to the user.
+Write a method `UsersSearch#renderResults` for your AJAX success handler. It should:
+* Empty out `ul.users` and iterate through the fetched array of users.
+* For each result, use jQuery to build an `li` containing an anchor tag linking to the user.
 * Use the jQuery `append` method to add each result to the `ul`.
 
 **Test your code**: Check that you can now interactively search users.
@@ -232,8 +227,6 @@ class FollowToggle {
   }
 }
 ```
-
-See if this helps you set up the follow toggle.
 
 ## Phase III: `TweetCompose`
 
@@ -271,7 +264,7 @@ end
 
 What this code is doing is collecting the tweet's information, the tweeter's information, and also information about each of that tweet's mentions.
 
-#### TweetCompose Class
+#### `TweetCompose` Class
 
 * Open `app/views/tweets/_form.HTML.erb` and give the form a class `tweet-compose`.
 * Write a TweetCompose class that grabs this form and installs itself.
@@ -279,24 +272,32 @@ What this code is doing is collecting the tweet's information, the tweeter's inf
 * Write a `TweetCompose#submit` method that uses `serializeJSON` to build JSON from the
 form contents and write an `APIUtil.createTweet(data)` function to submit the form.
 
-#### Promises
-
-This time (and throughout the rest of the project), rather than passing a success callback as an argument, [use a promise][promise]!
-
-```js
-// arrow function for binding
-APIUtil.createTweet(data).then(tweet => this.handleSuccess(tweet));
-```
-
-[promise]: ../../readings/promises.md
-
 As before, disable the form when the submit is made. You can't disable an entire form, so you'll have to disable all the inputs. To get all the inputs, use jQuery's [`:input` pseudo-CSS selector][input-selector]. Make sure not to
 disable your inputs until after you've serialized the form contents, or their
 values will be ignored. :(
 
 [input-selector]: http://api.jquery.com/input-selector
 
-#### Handling Success
+#### Handling Success with Promises
+
+This time (and throughout the rest of the project), rather than passing a success callback as an argument, [use a promise][promise]!
+
+```js
+// api_util.js
+createTweet(data) {
+  return $.ajax({
+    //...
+  });
+}
+```
+
+```js
+// tweet_compose.js
+// arrow function for binding
+APIUtil.createTweet(data).then(tweet => this.handleSuccess(tweet));
+```
+
+[promise]: ../../readings/promises.md
 
 Write a `TweetCompose#clearInput` method to empty out all the inputs after a
 tweet is successfully created. Write a `TweetCompose#handleSuccess` method. This
@@ -330,6 +331,8 @@ The next part is to allow us to tag multiple users in a tweet. Right now we can
 select a single user to tag. Our killer feature will be to dynamically create
 more select tags so we can tag more users.
 
+#### Adding mentions
+
 Rather than have just one select tag visible all the time, we want to have no
 select tags to start. Instead, we want to show an "Add mention" link which will
 let us add multiple select tags to the page.
@@ -339,7 +342,7 @@ tag. This tells the browser not to put the `select` in the DOM. If you reload,
 you should see no select tag.
 
 Write an "Add mention" anchor tag. Give it a placeholder href.
-`href=#"` is fine, bu make sure to return `false` from the event handler to prevent being scrolled to the top of the page. Also give it a class
+`href="#"` is fine, bu make sure to return `false` from the event handler to prevent being scrolled to the top of the page. Also give it a class
 `add-mentioned-user`. I also added a `div.mentioned-users` that will house all
 these newly generated select tags.
 
@@ -351,6 +354,8 @@ these newly generated select tags.
 * Don't forget to return false from `addMentionedUser`!
 
 Test this out and make sure you can create new `select` tags by clicking the link.
+
+#### Removing mentions
 
 Next, I also want to be able to **remove** select tags. Say we clicked "add"
 accidentally and want to remove the `select`.
@@ -414,21 +419,20 @@ json.array!(@feed_tweets) do |tweet|
 end
 ```
 
-#### InfiniteTweets Class
+#### `InfiniteTweets` Class
 
 Begin writing an `InfiniteTweets` class.
 * Listen for clicks to fetch more;
 * Create an `InfiniteTweets#fetchTweets` method.
-* Create an APIUtil method to make requests to `/feed`
-* In `#fetchTweets`, call your `APIUtil`, on resolution of the promise call an `#insertTweets` method.
-* For simplicity, for each tweet, just append `<li>` items with `JSON.stringify(tweet)`
-into the appropriate `ul`.
+* Create an `APIUtil` method to make requests to `/feed`
+* In `#fetchTweets`, call your `APIUtil`, and on resolution of the promise call an `#insertTweets` method.
+* For simplicity, for each tweet, just append `<li>` items with `JSON.stringify(tweet)` into the appropriate `ul`.
 
 
 If you click the link twice, you'll fetch the same set of tweets twice. We need
 to send the `max_created_at` parameter.
 * In the `InfiniteTweets` `constructor`, initialize `this.maxCreatedAt` to `null`.
-* In the `#fetchTweets` method, if `maxCreatedAt != null`, send it in the AJAX `data` parameter. (Notice the often
+* In the `#fetchTweets` method, if `maxCreatedAt !== null`, send it in the AJAX `data` parameter. (Notice the often
 confusing mix of Ruby and JS naming conventions).
 * When successfully fetching tweets, record `this.max_created_at` by looking at the
 `created_at` attribute of the last tweet fetched. This should ensure that each

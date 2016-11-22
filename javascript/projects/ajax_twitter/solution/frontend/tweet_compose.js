@@ -1,4 +1,4 @@
-const APIUtil = require('./api_util')
+const APIUtil = require('./api_util');
 
 class TweetCompose {
   constructor(el) {
