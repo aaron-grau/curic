@@ -1,3 +1,5 @@
+const APIUtil = require('./api_util');
+
 class TweetCompose {
   constructor(el) {
     this.$el = $(el);
@@ -19,6 +21,7 @@ class TweetCompose {
 
     const $mentionedUserSelect = $(this.$mentionedUsersDiv.find("script").html());
     this.$mentionedUsersDiv.find("ul").append($mentionedUserSelect);
+    return false;
   }
 
   clearInput() {
@@ -52,13 +55,7 @@ class TweetCompose {
     const data = this.$el.serializeJSON();
     this.$el.find(":input").prop("disabled", true);
 
-    $.ajax({
-      url: "/tweets",
-      method: "POST",
-      data,
-      dataType: "json",
-      success: this.handleSuccess.bind(this)
-    });
+    APIUtil.createTweet(data).then(tweet => this.handleSuccess(tweet));
   }
 }
 
