@@ -58,20 +58,19 @@ const PokemonIndexItem = (props) => {
   const handleClick = url => e => props.router.push(url);
 
   return (
-    <li
-      className="pokemon-index-item">
-			<Link to{ `/pokemon/${props.pokemon.id}` }>
-				// pokemon information...
-			</Link>
+    <li className="pokemon-index-item">
+		  <Link to{ `/pokemon/${props.pokemon.id}` }>
+			  // pokemon information...
+		  </Link>
     </li>
   );
 };
 ```
 
 The `Link` tag will generate an appropriate link to this path. While it would be
-possible to accomplish the same thing with an `a` tag and an href property, using
+possible to accomplish the same thing with an `a` tag and an `href` property, using
 react routers own `Link` tag is less brittle and will do the right thing, even if
-we use a different kind of history other than `hashHistory`.
+we use `browserHistory` rather than `hashHistory` for example.
 
 While clicking on a `PokemonIndexItem` will change the browser's url, you may
 have noticed the following error in your browser console: `[react-router]
@@ -315,11 +314,11 @@ Your `fetchSinglePokemon` should look like this:
 export function fetchSinglePokemon(id) {
 	return (dispatch) => {
 		dispatch(requestSinglePokemon());
-		return APIUtil.fetchSinglePokemon(id)
-			.then(pokemon => {
-				dispatch(receiveSinglePokemon(pokemon))
-				return pokemon;
-			});
+
+		return APIUtil.fetchSinglePokemon(id).then(pokemon => {
+			dispatch(receiveSinglePokemon(pokemon));
+			return pokemon;
+		});
 	}
 }
 ```

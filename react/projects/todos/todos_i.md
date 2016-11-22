@@ -220,14 +220,19 @@ console. Does your store's initial state match the default state you defined?
 
 [Selectors][selector_reading] are "getter" methods for the application state.
 They receive the state as an argument and return a subset of the state
-data formatted in a specific way. In this case, we will want to present the
-`todos` as an array, rather than as values in an object.
+data formatted in a specific way. We will explore them in more detail but for now
+all we need is a function to transform and object filled with todos, into an array
+for easy consumption by our components.
 
-+ Create a file `reducers/selector.js`.
++ Create a file `reducers/selectors.js`.
 + Export a function named `allTodos` that receives the entire state as an argument.
   + Use `Object.keys(state.todos)` to get the keys for the `state.todos`.
   + Map the array of todo ids to an array of todos.
   + Return your new array.
+
+```js
+export const allTodos = ({ todos }) => Object.keys(todos).map(id => todos[id]);
+```
 
 **Test your selector** - Put your selector on the `window` and pass it the
 default state. Does it format the data into an array of `todos`?
@@ -585,7 +590,7 @@ but you can accomplish a similar effect for the end user
 by storing the data directly in their browser. Users can't share information this way
 (it is all local to their computer) but updates will persist through page refreshes.
 
-Before beginning, [review the reading][local-storage] on `localStorage` if necessary.
+Before beginning, [read up on](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) on `localStorage` if necessary.
 
 #### Saving state in localStorage
 

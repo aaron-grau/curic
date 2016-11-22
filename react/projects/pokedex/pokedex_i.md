@@ -645,7 +645,7 @@ Instead of rendering the `PokemonIndexContainer` directly, setup a root
 ```js
 <Provider store={ store }>
   <Router history={ hashHistory }>
-		<Route path="/" component={ PokemonIndexContainer } />
+	  <Route path="/" component={ PokemonIndexContainer } />
   </Router>
 </Provider>
 ```

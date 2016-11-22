@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router';
 import MarkerManager from '../../util/marker_manager';
 
 const _getCoordsObj = latLng => ({
@@ -50,11 +50,11 @@ class BenchMap extends Component {
   }
 
   _handleMarkerClick(bench) {
-    hashHistory.push(`benches/${bench.id}`);
+    this.props.router.push(`benches/${bench.id}`);
   }
 
   _handleClick(coords) {
-    hashHistory.push({
+    this.props.router.push({
       pathname: "benches/new",
       query: coords
     });

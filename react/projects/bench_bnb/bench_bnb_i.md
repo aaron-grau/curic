@@ -196,8 +196,8 @@ Your `SessionReducer` should maintain its own default state. To do that pass in
 an object as a default argument to SessionReducer with `currentUser` set to `null`
 and `errors` set to an empty array.
 
-Remember to use both `Object.freeze()` and `merge` from the `lodash` library
-to prevent the state from being accidentally mutated.
+Remember to use both `Object.freeze()` and `Object.assign` or `lodash/merge` to
+prevent the state from being accidentally mutated.
 
 ### `rootReducer`
 
@@ -245,7 +245,7 @@ Set up a `configureStore` method for initializing our Store:
 
 * Create a new file, `/store/store.js`.
 * Import `createStore` and `applyMiddleware` from the redux library.
-* Import our `rootReducer` and thunk middleware (write it yourself, or import the library).
+* Import our `rootReducer` and thunk middleware. Write it yourself, or import the library. If you use the library don't forget to install it!
 * Define a new function, `configureStore`, that accepts a single argument, `preloadedState`.
 * `configureStore` should return a new `store` with the `rootReducer` and `preloadedState` passed in.
 
@@ -325,7 +325,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 const Root = ({ store }) => (
-  <Provider store={store}>
+  <Provider store={ store }>
     // Router goes here...
   </Provider>
 );

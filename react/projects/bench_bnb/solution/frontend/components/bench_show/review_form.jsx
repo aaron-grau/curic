@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class ReviewForm extends React.Component {
   }
 
   navigateToBenchShow() {
-    hashHistory.push(`/benches/${this.props.params.benchId}`);
+    this.props.router.push(`/benches/${this.props.params.benchId}`);
   }
 
   handleSubmit(e) {
@@ -31,12 +31,12 @@ class ReviewForm extends React.Component {
   render() {
     return (
       <div className="review-form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={ this.handleSubmit }>
           <label>Rating</label>
           <br/>
           <input type="number"
-            value={this.state.rating}
-            onChange={this.update("rating")}/>
+            value={ this.state.rating }
+            onChange={ this.update("rating") }/>
           <br/>
 
           <label>Comment</label>
@@ -44,15 +44,15 @@ class ReviewForm extends React.Component {
           <textarea
             cols='30'
             rows='10'
-            value={this.state.body}
-            onChange={this.update("body")}></textarea>
+            value={ this.state.body }
+            onChange={ this.update("body") }></textarea>
           <br/>
           <input type="submit"/>
         </form>
-        <button onClick={this.navigateToBenchShow}>Cancel</button>
+        <button onClick={ this.navigateToBenchShow }>Cancel</button>
       </div>
     );
  }
 }
 
-export default ReviewForm;
+export default withRouter(ReviewForm);

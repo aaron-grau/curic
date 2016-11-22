@@ -5,14 +5,13 @@ import LoadingIcon from './loading_icon';
 const PokemonIndexItems = ({ pokemon }) => {
 	return (
 		<ul>
-			{pokemon.map(poke => (
-				<PokemonIndexItem key={poke.id} pokemon={poke} />
-			))}
+			{ pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />) }
 		</ul>
 	);
 };
 
 class PokemonIndex extends Component {
+	
 	componentDidMount() {
 		this.props.fetchAllPokemon();
 	}

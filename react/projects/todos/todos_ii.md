@@ -100,7 +100,7 @@ api_todos GET    /api/todos(.:format)     api/todos#index {:format=>:json}
 You're almost ready to go!
 + Seed your database with a few todos for testing.
 + Start your server (`rails s`) so that it can respond to HTTP requests.
-+ Visit http://localhost:3000/. It should render your root page.
++ Visit [http://localhost:3000/](http://localhost:3000/). It should render your root page.
   + Inspect the page and double check that `<div id="content"></div>` is present.
 
 **Test your API** - Try out your API endpoints using `$.ajax`. You should be able
@@ -124,10 +124,8 @@ You will also need your package.json and webpack config which should be put in t
 
 Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than `build`.
 
-**Test your setup** - Set up your entry file `todo_redux.jsx` to render
-`<h1>Todos App</h1>` into your root page's `#content` container. You should be able to visit
-`localhost:3000` and confirm that it worked. You should have your entire work from
-yesterday working on `localhost:3000` before continuing.
+**Test your setup** - You should be able to visit `localhost:3000` and confirm
+that you have your entire work from yesterday working on `localhost:3000` before continuing.
 
 ---
 ## Phase 2: Todos Redux Structure
@@ -139,9 +137,8 @@ For this we will use an `APIUtil` and thunk action creators.
 ### API Utils
 
 Your API utilities are what actually make the `$.ajax` requests that will hit
-your backend and fetch or (eventually) update your data.
-These utility functions should return a promise so that the caller of the
-function can handle success and failure however they see fit.
+your backend and fetch your data. These utility functions should return a promise
+so that the caller of the function can handle success and failure however they see fit.
 
 Let's write our Todo API Util.
 
@@ -157,19 +154,20 @@ Before we can start writing thunk action creators, we need a middleware to handl
 make a new file `frontend/middleware/thunk.js`. From this, export a single middleware function.
 This function should check the type of each incoming action and see if it is of type `function`.
 If so, return `action(dispatch, getState)`. If not, return `next(action)`.
-Refer to the middleware and thunk readings if you need more guidance.
+Refer to the [middleware][middleware_reading] and [thunk][thunks_reading] readings
+if you need more guidance.
 
 Now modify your store to use your shiny new middleware. Inside `store.js`,
 import `applyMiddlware` from `redux`, and the thunk middleware. As the last
 argument to `createStore`, pass `applyMiddleware(thunk)`.
 
 You can test that your thunk middleware is working by dispatching a function,
-if the function is called it's working!
+if the function is called, it's working.
 
 ```js
 store.dispatch((dispatch) => {
   console.log('If this prints out, the thunk middleware is working!')
-})
+});
 ```
 
 ### Thunk Action Creators
@@ -202,8 +200,8 @@ The returned function, when invoked, should call the `APIUtil` to create a todo 
 your synchronous `receiveTodo(todo)` action.
 
 * Inside the `todo_list_container.js`, instead of passing in `receiveTodo` in `mapDispatchToProps`,
-pass in `createTodo`.
-* Inside the `todo_form`, instead of call `receiveTodo`, call `createTodo`.
+pass in `createTodo` and pass it through to `TodoForm`.
+* Inside the `todo_form`, instead of `receiveTodo`, call `createTodo`.
 
 Since we only want to clear the form if the post to the server is successful, clear the form after the promise resolves.
 Since our thunk middleware returns the promise back to the caller, we can take on another `.then` to clear the form like so.
@@ -211,7 +209,7 @@ Since our thunk middleware returns the promise back to the caller, we can take o
 ```js
 // inside of handleSubmit
 this.props.createTodo({ todo }).then(
-  () => this.setState({ title: "", body: "" })
+  () => this.setState({ title: "", body: "" });
 );
 ```
 
@@ -345,6 +343,7 @@ Consider adding a `fetching` boolean to state and new sync actions like
 
 
 [store_reading]: ../../readings/store.md
+[thunks_reading]: ../../readings/thunks.md
 [middleware_reading]: ../../readings/middleware.md
 [components_reading]: ../../readings/containers.md
 [connect_reading]: ../../readings/connect.md
