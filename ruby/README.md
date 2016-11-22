@@ -353,6 +353,7 @@
 [bubble-sort-visual]: http://www.algomation.com/player?algorithm=541a6ea7a7fe980200089c5e
 
 [sorting-demo]: homeworks/questions/sorting_demo
+[octopus-hw]: homeworks/questions/big_octopus.md
 [execution-time]: projects/execution_time_differences
 [anagrams]: projects/anagrams
 [two-sum]: projects/two_sum
