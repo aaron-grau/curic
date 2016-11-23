@@ -24,6 +24,10 @@
 
 ### Additional Resources
 
++ [CASE][case]
++ [COALESCE][coalesce]
++ [NULLIF][nullif]
+
 ### Projects
 
 + [SQL Zoo][sqlzoo-readme]
@@ -38,8 +42,11 @@
 [self]: readings/self-joins.md
 [sql-formatting]: readings/formatting.md
 [subquery]: https://sqlbolt.com/topic/subqueries
-
 [postgres-setup]: readings/setup.md
+
+[case]: http://www.postgresqltutorial.com/postgresql-case/
+[coalesce]: http://www.postgresqltutorial.com/postgresql-coalesce/
+[nullif]: http://www.postgresqltutorial.com/postgresql-nullif/
 
 [sqlzoo-readme]: projects/sqlzoo
 [sql-bolt]: https://sqlbolt.com/
@@ -70,7 +77,7 @@
 + [PostgreSQL Tutorial][postgresql]
   + Familiarize yourself with Section 2 - 12, but don't try to remember
     it all. Keep this for future reference.
-
++ 
 ### Projects
 + [AA Questions][aa-questions]
 
