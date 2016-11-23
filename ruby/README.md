@@ -331,8 +331,9 @@
 + :movie_camera: [Set Definition][big-O-set] (8 min)
 + :movie_camera: [Space Complexity][big-O-space] (12 min)
 
-### Homeworks (15 min)
+### Homeworks (40 min)
 + [Sorting Complexity][sorting-demo] (15 min)
++ [Octopus Problems][octopus-hw] (25 min)
 
 ### Additional Resources
 + [Plain English explanation of Big O][stack-overflow-big-o]
@@ -366,6 +367,7 @@
 [bubble-sort-visual]: http://www.algomation.com/player?algorithm=541a6ea7a7fe980200089c5e
 
 [sorting-demo]: homeworks/questions/sorting_demo
+[octopus-hw]: homeworks/questions/big_octopus.md
 [execution-time]: projects/execution_time_differences
 [anagrams]: projects/anagrams
 [two-sum]: projects/two_sum
