@@ -17,16 +17,15 @@ Write an [AJAX request][simple-ajax-example] underneath the top `console.log`. S
     - In the success callback, `console.log` out what the weather is.
 
 
-Write another console.log at the bottom of the file (outside of the ajax request).  Your file should have this rough structure:
+Write another console.log at the bottom of the file (outside of the AJAX request). Your file should have this rough structure:
 
 ```js
-    console.log("Hello from the JavaScript console!");
+console.log("Hello from the JavaScript console!");
 
-    // your AJAX request
-        // --> including a console.log for the data in the success callback
+// your AJAX request
+    // --> including a console.log for the data in the success callback
 
-    // another console.log down here
-
+// another console.log down here
 ```
 
 Notice the order that the `console.log`s run.
