@@ -29,8 +29,7 @@ SELECT
 FROM
   employee AS team_member
 JOIN
-  employee AS manager
-  ON manager.id = team_member.manager_id
+  employee AS manager ON manager.id = team_member.manager_id
 ```
 
 | team_member.first_name | team_member.last_name | manager.first_name | manager.last_name |
@@ -60,8 +59,7 @@ SELECT
 FROM
   employee team_member
 JOIN
-  employee manager
-  ON manager.id = team_member.manager_id
+  employee manager ON manager.id = team_member.manager_id
 ```
 
 [query-pro]: readings/db-stack.md
