@@ -21,6 +21,50 @@
 #  ord         :integer
 
 
+def it_was_ok
+  # We can use ranges (a..b) inside the where method
+  # For example, to find all movies made in the 70s I could do the following
+  #
+  # Movie.where(yr: 1970..1979)
+  #
+  # Find all movies with scores between 2 and 3
+
+end
+
+def biggest_cast
+  # Sometimes we need to use agregate sequel functions like
+  # COUNT, MAX, and AVG
+  # These are often combined with group
+  # For example, to find the actor with the most roles we could do
+  #
+  # Actor
+  #   .joins(:movies)
+  #   .group("actors.id")
+  #   .order("COUNT(movies.id) DESC")
+  #   .first
+  #
+  # Find the movie with the largest cast (i.e most actors)
+
+end
+
+def directed_by_one_of(them)
+  # We can use IN to test if an element is in a list
+  # To test if a movie was made in one of a list of years called 'years'
+  # we could do
+  #
+  # Movie.where("yr IN (?)", years)
+  #
+  # them will be a list of names of directors
+  # Find all the movies direct by one of them
+
+end
+
+def bad_taste
+  # Find the actor whose with the lowest average score among movies they've been in
+  # Hint: look at your solution for biggest_cast
+
+end
+
 def movie_names_before_1940
   # Find all the movies made before 1940. Show the id, title, and year.
 end
