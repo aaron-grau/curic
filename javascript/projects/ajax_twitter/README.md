@@ -14,11 +14,11 @@ the `frontend` folder also. Webpack will transpile them from there and create a
 `bundle.js` file in `app/assets/javascripts/`.
 
 Next checkout `app/assets/javascripts/application.js`. This is Rails' manifest
-file for JavaScript. All required javascript files are listed in the comment
+file for JavaScript. All required JavaScript files are listed in the comment
 block at the top. This works in a similar fashion to placing `<script>` tags in
 our HTML, except that Rails compiles them all into a single file for production. But unlike Webpack, Rails doesn't intelligently manage dependencies, so you still have to be extra careful about the load order.
 
-It's currently only requiring jQuery. Make it require `bundle.js` as well. Now
+It's currently only requiring jQuery. Make it requires `bundle.js` as well. Now
 we shouldn't have to worry about compiling our JS files again because Webpack
 will do it for us as long as we remember to webpack (ie. run `webpack` or
 `webpack --watch`).
@@ -36,7 +36,7 @@ front-end manipulation. Look at `app/views/follows/_form.html.erb`. Notice that
 there are two branches of logic: the button will be a 'follow' button if the
 current user is not yet following the user, and an 'unfollow' button if they
 are. We want to replace the contents of this form with a single HTML element
-that gets updated via our front-end javascript.
+that gets updated via our front-end JavaScript.
 
 * Replace the contents of the button form with a single `<button>`.  
 * Give the button a class of `follow-toggle`.  
@@ -48,7 +48,7 @@ these in `data-*` attributes.
 
 **NB:** Each of
 your JavaScript classes for this project should be in a separate file in
-`frontend/`. Name the files in snake_case to match the casing of the rest of the rails app.
+`frontend/`. Name the files in snake_case to match the casing of the rest of the Rails app.
 
 * Create a new file in `frontend/` called `follow_toggle.js`.
 
@@ -66,7 +66,7 @@ because later we'll add more states in addition to followed/unfollowed.
 You'll probably want to start testing this out about now. But if you run Webpack at this point, nothing will get transpiled because `twitter.js` (the entry point) is empty, so let's fill it in.
 + Require your new `FollowToggle`class at the top,
 and define a document ready callback below.
-+ The callback should apply call your `constructor` once for each `button.follow-toggle` element.
++ The callback should call your `constructor` once for each `button.follow-toggle` element.
 + You can use [jQuery#each][jquery-each] for this, but **beware**: the DOM element is the _second_ callback argument; index comes first.
 
 Once you're sure that your `FollowToggle` `constructor` is being called
@@ -86,7 +86,7 @@ Next, write a `FollowToggle#handleClick` method. Install this click handler in t
 #### Content-Types and `respond_to`
 
 You may also be wondering what's going on with the `respond_to` inside the
-`FollowsController`. Well, when we make a http request to a server, we can
+`FollowsController`. Well, when we make an HTTP request to a server, we can
 specify the `Content-Type` to ask for HTML, XML, JSON, text, etc. Until now, our controllers were serving HTML by default.
 
 The browser sets this `Content-Type` header for us based on how we make the
@@ -100,7 +100,7 @@ Check to make sure this works!
 
 #### API Util
 
-Let's refactor our ajax calls into an `api_util` file. Your API util should export an object with the methods `APIUtil#followUser(id, success)` and `APIUtil#unfollowUser(id, success)`
+Let's refactor our AJAX calls into an `api_util` file. Your API util should export an object with the methods `APIUtil#followUser(id, success)` and `APIUtil#unfollowUser(id, success)`
 
 ```js
 const APIUtil = {
@@ -121,7 +121,7 @@ Lastly, let's freeze-out the button so that people can't click it while the AJAX
 * Update your `#render` method to set the `disabled` property if the `followState` is `following` or `unfollowing`;
 * Otherwise, make sure `disabled` is set to false. (Use jQuery's `#prop` method).
 
-Check that everything works and call over your TA so that they can check your work!
+**Check that everything works and call over your TA so that they can check your work!**
 
 [jquery-each]: https://api.jquery.com/each
 
@@ -216,7 +216,6 @@ it is common to allow jQuery plugins to take options. I modified my
 `FollowToggle` like so:
 
 ```js
-
 class FollowToggle {
   constructor(el, options) {
     this.$el = $(el);
@@ -230,10 +229,10 @@ class FollowToggle {
 
 ## Phase III: `TweetCompose`
 
-First, we're going to update our TweetsController to handle JSON requests,
-similarly to how we updated our UsersController before. If we've successfully
+First, we're going to update our `TweetsController` to handle JSON requests,
+similarly to how we updated our `UsersController` before. If we've successfully
 created a tweet from a JSON request, then we should render that tweet back as
-json. We could `render json: @tweet`, but then we might not have all of the
+JSON. We could `render json: @tweet`, but then we might not have all of the
 information we need. Add a `respond_to` block and put cases for `format.html`
 and `format.json` inside it. If the request matches `format.json`, call `render
 :show` so that we can structure our response to our application's needs.
@@ -309,7 +308,7 @@ attribute on the form where the value is the selector that corresponds to the
 target `ul`. For example, if we give the target `ul` an id of `#feed`, we can
 give our form the following data attribute: `data-tweets-ul="#feed"`. Our
 `TweetCompose` can pull out this data attribute and use the selector `#feed` to
-find the ul. This is better than hard coding `#feed` into the JS.
+find the `ul`. This is better than hard coding `#feed` into the JS.
 
 A successful AJAX post request for a tweet should return back the newly created
 tweet in JSON format. For simplicity, have `TweetCompose` call `JSON.stringify`
@@ -323,7 +322,7 @@ for a tweet (starting at 140). Add a `strong` tag with class `.chars-left` to
 the form. In the `TweetCompose` `constructor`, add an `input` event handler on the `textarea`.
 In it, update the `strong` tag with the number of characters remaining.
 
-Call your TA over to check your work!
+**Call your TA over to check your work!**
 
 ## Phase IV: `TweetCompose`: Mentioned Users
 
@@ -341,7 +340,7 @@ To do this, first move the `select` tag into a `<script type="text/template">`
 tag. This tells the browser not to put the `select` in the DOM. If you reload,
 you should see no select tag.
 
-Write an "Add mention" anchor tag. Give it a placeholder href.
+Write an "Add mention" anchor tag. Give it a placeholder `href`.
 `href="#"` is fine, bu make sure to return `false` from the event handler to prevent being scrolled to the top of the page. Also give it a class
 `add-mentioned-user`. I also added a `div.mentioned-users` that will house all
 these newly generated select tags.
@@ -549,7 +548,7 @@ returned JSON should look like this:
 
 ## Phase VIII: CSS
 
-Take a look at the live twitter website. See how close you can get your app to
+Take a look at the live Twitter website. See how close you can get your app to
 look like it.
 
 Pick a nice font from [Google fonts][g-fonts]. Add it to the head of your
