@@ -13,7 +13,7 @@ The store is responsible for:
 
 ## Creating the Store
 
-The `redux` library provides us with a `createStore()` method, which takes up
+The `redux` library provides us with a `createStore()` method, which takes up to
 three arguments and returns a Redux `store`.
 
 ```js
