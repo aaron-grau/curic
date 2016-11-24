@@ -108,7 +108,7 @@ Let's look at the above code one more time, stopping the event when we reach the
   });
 
   const innerDiv = document.querySelector('.inner');
-  outerDiv.addEventListener('click', function (e) {
+  innerDiv.addEventListener('click', function (e) {
     alert('inner');
   });
 </script>
