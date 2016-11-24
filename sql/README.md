@@ -16,17 +16,14 @@
     + [Self-Joins][self] (5 min)
     + [Formatting SQL Code][sql-formatting] (5 min)
     + [Subqueries][subquery] (5 min)
+    + [NULL][null] 
+    + [CASE][case]
+    + [COALESCE][coalesce]
 + [PostgreSQL Setup][postgres-setup] (10 min)
 
 ### Homeworks (80 min)
 
 + Complete [SQL Bolt Tutorial][sql-bolt] sections 1 - 12 (80 min)
-
-### Additional Resources
-
-+ [CASE][case]
-+ [COALESCE][coalesce]
-+ [NULLIF][nullif]
 
 ### Projects
 
@@ -43,10 +40,10 @@
 [sql-formatting]: readings/formatting.md
 [subquery]: https://sqlbolt.com/topic/subqueries
 [postgres-setup]: readings/setup.md
+[null]: readings/null.md
 
 [case]: http://www.postgresqltutorial.com/postgresql-case/
 [coalesce]: http://www.postgresqltutorial.com/postgresql-coalesce/
-[nullif]: http://www.postgresqltutorial.com/postgresql-nullif/
 
 [sqlzoo-readme]: projects/sqlzoo
 [sql-bolt]: https://sqlbolt.com/
@@ -77,7 +74,7 @@
 + [PostgreSQL Tutorial][postgresql]
   + Familiarize yourself with Section 2 - 12, but don't try to remember
     it all. Keep this for future reference.
-+ 
++
 ### Projects
 + [AA Questions][aa-questions]
 
