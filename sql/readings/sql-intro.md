@@ -145,6 +145,8 @@ duplicated across our database. Posts live in a single place, users in
 another, and the foreign key (`user_id`) in `posts` expresses the
 relation between the one and the other.
 
+[one-to-many diagram](./assets/one-to-many.png)
+
 ## Structured Query Language (SQL)
 
 Now that we know what these tables look like and generally how

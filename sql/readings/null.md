@@ -1,13 +1,11 @@
 ## NULL and Ternary Logic in SQL
 
 SQL uses **ternary logic**. This means that a conditional statement can
-evaluate to `TRUE`, `FALSE` or `NULL`. Whaaaa? :open_mouth: That is
-strange.
+evaluate to `TRUE`, `FALSE` or `NULL`. Whaaaa? :open_mouth: And somehow `NULL`
+is still 'falsy'? Unfortunately, this won't be the only time you run into logic
+that defies intuition. *Stay tuned for Javascript quirks.*
 
-How in the world do you get a conditional statement to return `NULL`?
-You compare something to `NULL`, that's how!
-
-Incidentally, `NULL` compared to anything (including `NULL`) is `NULL`,
-and `NULL` is falsy, so `WHERE` clauses that compare to `NULL` will
-_always_ return nothing. This is why you see `IS NULL` and `IS NOT NULL`
-in SQL queries instead of `= NULL` or `!= NULL`.
+The only way that a conditional statement will evaluate to `NULL` is by using
+the traditional `==` or `!=` comparisons to check if something is `NULL`. Given
+that this sort of comparison doesn't yield any useful information, always use
+`IS NULL` or `IS NOT NULL` in place of the traditional comparisons.

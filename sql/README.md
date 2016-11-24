@@ -7,7 +7,7 @@
   + We'll implement a simple version of a well-known card game. We'll announce
   the specific game, and you can look up the basic rules ahead of time.
 
-### Readings (55 min)
+### Readings (67 min)
 
 + [Programming Paradigms][paradigms] (5 min)
 + SQL Fundamentals
@@ -16,9 +16,9 @@
     + [Self-Joins][self] (5 min)
     + [Formatting SQL Code][sql-formatting] (5 min)
     + [Subqueries][subquery] (5 min)
-    + [NULL][null] 
-    + [CASE][case]
-    + [COALESCE][coalesce]
+    + [NULL][null] (2 min)
+    + [CASE][case] (5 min)
+    + [COALESCE][coalesce] (5 min)
 + [PostgreSQL Setup][postgres-setup] (10 min)
 
 ### Homeworks (80 min)
@@ -41,7 +41,6 @@
 [subquery]: https://sqlbolt.com/topic/subqueries
 [postgres-setup]: readings/setup.md
 [null]: readings/null.md
-
 [case]: http://www.postgresqltutorial.com/postgresql-case/
 [coalesce]: http://www.postgresqltutorial.com/postgresql-coalesce/
 
