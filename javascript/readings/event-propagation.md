@@ -69,7 +69,7 @@ Let's alter the above code slightly to add multiple listeners.
   });
 
   const innerDiv = document.querySelector('.inner');
-  outerDiv.addEventListener('click', function (e) {
+  innerDiv.addEventListener('click', function (e) {
     alert('inner');
   });
 </script>
