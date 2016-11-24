@@ -140,7 +140,7 @@ const unsubscribeDisplay = store.subscribe(display);
 store.dispatch(addOrange); // ['orange', 'orange']
 
 // ...later (when we are done displaying)
-unsubscribeDisplay(); // addOrange will no longer be invoked after store.dispatch()
+unsubscribeDisplay(); // display will no longer be invoked after store.dispatch()
 ```
 
 In the example above, the store processed the dispatched action and then called
