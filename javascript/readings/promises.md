@@ -76,7 +76,7 @@ While promises can be a little tricky to understand, they are extremely easy to 
 ```js
 // Passing a callback
 function fetchCat(catId, success, error) {
-  $.ajax.({ url: `/cats/${catId}`, method: 'GET', success, error })
+  $.ajax({ url: `/cats/${catId}`, method: 'GET', success, error })
 }
 
 fetchCat(1, cat => console.log(cat), err => console.log(err))
@@ -84,13 +84,13 @@ fetchCat(1, cat => console.log(cat), err => console.log(err))
 // Using a promise.
 function fetchCat(catId) {
   // Don't forget to return the promise!
-  return $.ajax.({ url: `/cats/${catId}` })
+  return $.ajax({ url: `/cats/${catId}` })
 }
 
 fetchCat(1).then(cat => console.log(cat), err => console.log(err))
 ```
 
-In this small example there difference is negligible. Promises really excel at error handling and separating concerns. In the second example, the `fetchCat` function no longer needs to be involved or 'know about' the expected outcome. 
+In this small example their difference is negligible. Promises really excel at error handling and separating concerns. In the second example, the `fetchCat` function no longer needs to be involved or 'know about' the expected outcome. 
 
 ## Creating a Promise
 
