@@ -390,20 +390,6 @@ JOIN
 
 This query will give a list of user names and the posts they have liked.
 
-## SQL Conventions
-
-Different programmers use different SQL conventions, but in
-preparation for ActiveRecord and Rails, which have their own
-conventions, you should:
-
-* Always name SQL tables **snake\_case** and
-  **pluralized**. (e.g., `musical_instruments`, `favorite_cats`)
-* If a `musician` belongs to a `band`, your `musicians` table will
-  need to store a foreign key that refers to the `id` column in the
-  `bands` table.  The foreign key column should be named `band_id`.
-* Always have a column named `id`, and use it as the primary key for a
-  table.
-
 ## Resources
 
 * [Intro Video][youtube-dbclass]
