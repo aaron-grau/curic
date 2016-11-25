@@ -8,7 +8,12 @@
     * [MVP Checklist][mvp-checklist]
     * [Trello][trello]
   * **W9D2**: Peer Review
-
+  * **W9D5**: Turn in Full Stack Project 
+    * [How to Turn in Your Project][turn-in-fullstack]
+    * Next Steps: [Check out the Job Search Curriculum][jobsearch]
+    
+[turn-in-fullstack]:readings/turn_in_fullstack.md
+[jobsearch]:https://github.com/appacademy/job-search-curriculum/blob/master/SF.md#week10
 [tentative-proposal]: readings/tentative-project-proposal.md
 [good-projects]: readings/projects-to-clone.md
 [readings]: readings/full-stack-project-proposal.md

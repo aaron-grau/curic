@@ -89,7 +89,7 @@ retHi(); // "hi"
 ## Assigning properties to a function
 
 ```javascript
-var fun = function () {
+const fun = function () {
   console.log("So much fun");
 };
 
@@ -111,7 +111,7 @@ Programming][oop] in JavaScript.
 
 ```javascript
 function logIfEven(num) {
-  if (num % 2 == 0) {
+  if (num % 2 === 0) {
     console.log(`${num} is an even number!`);
   }
 }
@@ -128,7 +128,7 @@ Let's write our own `forEach`:
 
 ```javascript
 function myForEach(array, cb) {
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     cb(array[i]);
   }
 }
@@ -141,7 +141,7 @@ It is very common to pass *anonymous functions* as arguments:
 ```javascript
 // **Notice the formatting!**
 [1, 2, 3].forEach(function (num) {
-  if ((num % 2) == 0) {
+  if ((num % 2) === 0) {
     console.log(num);
   }
 });

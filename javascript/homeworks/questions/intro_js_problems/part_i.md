@@ -58,7 +58,7 @@ function mysteryScoping5() {
 
 ### `madLib`
 
-Write a function that takes three strings - a verb, an adjective, and a noun - uppercases and interpolates them into the sentence "We shall **VERB** the **aADJECTIVE** **NOUN**". Use ES6 template literals.
+Write a function that takes three strings - a verb, an adjective, and a noun - uppercases and interpolates them into the sentence "We shall **VERB** the **ADJECTIVE** **NOUN**". Use ES6 template literals.
 
 For example,
 ```js

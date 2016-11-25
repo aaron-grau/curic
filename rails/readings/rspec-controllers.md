@@ -10,7 +10,7 @@ Controller testing in Rails is an example of "service level testing" - the middl
 
 If you've already run `rails generate rspec:install`, then Rails will
 automatically make spec files for you when you generate a controller.
-Otherwise, run `rails generate rspec:controller #{model_name}`.
+Otherwise, run `rails generate rspec:controller #{table_name}`.
 
 To run the controller tests file-by-file, run `rspec spec/controllers/{controller_name}_spec.rb`.
 

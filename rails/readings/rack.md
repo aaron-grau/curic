@@ -6,27 +6,30 @@ generating HTTP responses to send back to the client. When we build
 RailsLite, we will build up some of this functionality for ourselves,
 but we won't have to start from scratch.
 
-There are many Web application frameworks for each language (Rails is one of
-them) because everyone is opinionated and thinks things should be done 
-differently. There are also many different web servers. This is great because it
+There are many different Web application frameworks for each language (Ruby has
+Rails, Sinatra, Hanami and others). Everyone is has different opinions about
+what is important and how things should be done. There are also many different
+web servers. This is great because it
 gives application developers a ton of freedom to choose servers and frameworks
 that they like and that suit their application.
 
-However it does mean that every framework needs to be able to integrate with
+However, it does mean that every framework needs to be able to integrate with
 every server. As an enterprising framework developer who wants your framework to
 work with every single server you might be worried about writing a different
 handler for each server.
 
-Fortunately there is something called middleware to make this much easier.
-Middleware is software that sits between the web server and the web framework 
-and provides a standardized interface. This way as long as your framework is 
-built on middleware that all the web servers know how to integrate with, any
+### Middleware to the rescue
+
+Fortunately there is something called *middleware* to make this much easier.
+Middleware is software that sits between the web server and the web framework
+and provides a standardized interface. This way as long as your framework is
+built on middleware that knows how to integrate with all the web servers, any
 web server will work out of the box.
 
 The middleware used by ruby developers is called Rack. Rack has a lot of cool
 utilities and functions, but at its core it is very simple and allows you to
 make Web application frameworks without knowing the nitty gritty of how each and
-every webserver functions under the hood.
+every web server functions under the hood.
 
 To create a very simple Rack server, we only need to follow a few basic steps:
 * Require the 'rack' library
@@ -45,7 +48,7 @@ require('rack')
 class App
   def call(env)
     http_status = '200'
-    headers = {'Content-Type' => 'text/html'}
+    headers = { 'Content-Type' => 'text/html' }
     body = ['hello world']
 
     [http_status, headers, body]
@@ -62,6 +65,8 @@ similar to what happens when we run `rails server`. Now navigate to
 `localhost:8080` (this is the default port, but we can change that by passing an
 option to `Rack::Server#start`). You should now see the response body 'hello
 world' in the browser!
+
+### Rack as a simple web framework
 
 Now recall that HTTP requests and responses are basically just specially
 formatted strings. We don't want to parse or construct these
@@ -92,7 +97,7 @@ We then give the `app` to Rack and tell it to start the server on port 3000. It
 will then take incoming requests from the server and parse and package up the
 request string into an env object.
 
-Our `app` then takes that `env` object and creates a blank `Rack::Response` object so
+Our `app` then takes that `env` object, generates a `Request` object from it, and also creates a blank `Rack::Response` object so
 we don't have to worry about properly serializing and formatting the response
 ourselves. The `req` and `res` objects are then given to `MyController` which we call
 the `go` method on to build up the response object.

@@ -123,6 +123,28 @@ You shouldn't have to pass any arrays between methods; you should be
 able to do this just passing a single argument for the number of
 Fibonacci numbers requested.
 
+### Array Subsets
+
+Write a method `subsets` that will return all subsets of an array.
+
+```ruby
+subsets([]) # => [[]]
+subsets([1]) # => [[], [1]]
+subsets([1, 2]) # => [[], [1], [2], [1, 2]]
+subsets([1, 2, 3])
+# => [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+```
+
+You can implement this as an Array method if you prefer.
+
+**Hint**: For `subsets([1, 2, 3])`, there are two kinds of subsets:
+
+* Those that do not contain `3` (all of these are subsets of
+  `[1, 2]`).
+* For every subset that does not contain `3`, there is also a
+  corresponding subset that is the same, except it also **does**
+  contain `3`.
+
 ### Permutations
 
 Write a recursive method `permutations(array)` that calculates all the
@@ -187,29 +209,6 @@ Implement a method [`merge_sort`][wiki-merge-sort] that sorts an `Array`:
   a length-two array as a base case. This is unnecessary.
 * You'll want to write a `merge` helper method to merge the sorted halves.
 * To get a visual idea of how merge sort works, watch [this gif][wiki-merge-gif] and check out [this diagram][merge-diagram].
-
-
-### Array Subsets
-
-Write a method `subsets` that will return all subsets of an array.
-
-```ruby
-subsets([]) # => [[]]
-subsets([1]) # => [[], [1]]
-subsets([1, 2]) # => [[], [1], [2], [1, 2]]
-subsets([1, 2, 3])
-# => [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
-```
-
-You can implement this as an Array method if you prefer.
-
-**Hint**: For `subsets([1, 2, 3])`, there are two kinds of subsets:
-
-* Those that do not contain `3` (all of these are subsets of
-  `[1, 2]`).
-* For every subset that does not contain `3`, there is also a
-  corresponding subset that is the same, except it also **does**
-  contain `3`.
 
 [wiki-binary-search]: http://en.wikipedia.org/wiki/Binary_search
 [wiki-merge-sort]: http://en.wikipedia.org/wiki/Merge_sort

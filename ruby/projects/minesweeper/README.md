@@ -194,4 +194,4 @@ is broken. [This ruby-forum.com post][argv-description] explains how
 [awesome-sweeper]: http://blog.appacademy.io/post/88410347996/thejaggedhedgehog-minesweeper-today-we-built
 [overriding-inspect]: ../../readings/overriding_inspect.md
 [github-create-repository]: https://help.github.com/articles/creating-a-new-repository/
-[git-authorship-script]: ../w1d5/git-fix-authorship.md
+[git-authorship-script]: ../../readings/git-fix-authorship.md

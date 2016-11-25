@@ -84,6 +84,7 @@
 
 ### Additional Resources
 * [Easy Forms Demo][easy-forms-demo]
+* [Custom Validations][custom-validations]
 
 ### Projects
 * [99 Cats][99-cats]
@@ -104,11 +105,12 @@
 [auth-04-session-token]: https://vimeo.com/groups/appacademy/videos/93101442
 
 [easy-forms-demo]: demos/easy_forms_demo
+[custom-validations]: ../sql/readings/custom-validations.md
 [99-cats]: projects/ninety_nine_cats_i
 
 ## w4d3
 
-### :clock10: Class will start at 10am! :clock10: 
+### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
 
 ### Video Lectures (2 hr, 38 min)
@@ -310,9 +312,9 @@
 * [:movie_camera: (cc) 01-protocols][01-protocols] (14 min)
   * old news at this point; recommended speed >= 2x
 * [:movie_camera: (cc) 02-http][02-http] (43 min)
-* [Middleware][middleware]
 * [HTTP][http]
 * [Rack][rack]
+* [Rack Middleware Stack][middleware]
 
 ### Solo Project
 * [Rails Lite][rails-lite]

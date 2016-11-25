@@ -1,4 +1,4 @@
-# Rack middleware #
+# Rack middleware
 
 Building our framework on Rack does more for us than simply providing a
 convenient API for parsing HTTP requests and building responses. It also gives
@@ -12,12 +12,12 @@ request along, and some will result in a side effect like setting an instance
 variable in the application. There is no rule for what a middleware must do to
 be considered a middleware.
 
-Let's take a look at some of the middlewares that Rails uses. Go into an old 
+Let's take a look at some of the middlewares that Rails uses. Go into an old
 Rails project (or just make a new one) and run `rake middleware`. This will
-output the list of middleware used by Rails. As you can see many of Rails' 
+output the list of middleware used by Rails. As you can see many of Rails'
 features are actually implemented as middlewares.
 
-## Middleware stack ##
+## Middleware stack
 
 When we have an application with more than one middleware (as Rails does), we
 refer the group of middlewares as a stack. In particular, this representation
@@ -26,7 +26,7 @@ specified. To see how this works, let's analyze what happens in a typical Rails
 application. Start by looking back the results of `rake middleware`. The first
 middleware listed is `Rack::Sendfile`. This means that this middleware processes
 the request before any other part of Rails ever sees it. This particular
-middleware is responsible for efficiently serving files. 
+middleware is responsible for efficiently serving files.
 
 After this middleware runs, whether it has any effects or not, it will pass the
 request on to the next middleware in the stack. The following middleware may
@@ -40,7 +40,7 @@ what the application being run is by looking at the last line of `rake
 middleware`. In our Rails example, this is `run Rails.application.routes`, which
 starts the Rails application itself.
 
-## Writing a middleware ##
+## Writing a middleware
 
 A Rack middleware functions very similarly to a Rack application. When a
 middleware is next in the stack, it is initialized and passed the next item in
@@ -49,7 +49,7 @@ itself). Once it is initialized, Rack will send the middleware object the `call`
 method, passing the `env` just as if it were a normal Rack application. The
 middleware can then do whatever it is supposed to do and, barring an early
 return, will `call` the next application. We don't need to pass each middleware
-ourselves – a tool called `Rack::Builder` (more on this shortly) will manage the
+ourselves – a module called `Rack::Builder` (more on this shortly) will manage the
 process of passing each application.
 
 As an example, let's make a very simple authentication middleware. This
@@ -71,9 +71,13 @@ class AdminAuth
 
   def call(env)
     req = Rack::Request.new(env)
+
+    # here we are deciding whether to bypass the middleware
     if req.path.match(/^\/admin/)
+      # uses methods defined in middleware to verify request
       authenticate_admin(req)
     else
+      # skips any middleware functionality
       app.call(env)
     end
   end
@@ -82,8 +86,10 @@ class AdminAuth
 
   def authenticate_admin(req)
     if valid_admin?(req)
+      # passes request on to next middleware
       app.call(req.env)
     else
+      # stops progress in the stack and immediately returns a '401' response
       ['401', {}, ["Unauthorized"]]
     end
   end
@@ -102,11 +108,10 @@ authentication middleware would be more secure and robust than this, but you can
 see that with just a few lines of code, we can get some pretty exciting
 functionality.
 
-## Rack::Builder ##
+## Rack::Builder
 
 Rack provides a DSL for adding middleware to an application called
-`Rack::Builder`. The DSL looks very similar to how you write rails routes. You
-call `Rack::Builder.new` and pass a block with the middlewares you want to
+`Rack::Builder`. The DSL looks very similar to how you write rails routes. Call `Rack::Builder.new` and pass a block with the middlewares you want to
 include. Add a middleware with `use NameOfMiddleWare`. The order in which the
 middlewares are listed will be the order in which they will be called. Finally,
 add `run NameOfApp` at the end of the block to run your application.

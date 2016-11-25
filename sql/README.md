@@ -27,9 +27,12 @@
 
 ### Projects
 
-+ **Solo**: [SQL Zoo][sqlzoo-readme]
-  + [Video solution to Julie Andrews query][julie-andrews-vid]
-  + [Video solution to Craiglockhart to Sighthill query][craiglockhart-vid]
++ **Solo** [SQL Zoo][sqlzoo-readme]
+
+### Project Solutions
+
++ [Video solution to Julie Andrews query][julie-andrews-vid]
++ [Video solution to Craiglockhart to Sighthill query][craiglockhart-vid]
 
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 

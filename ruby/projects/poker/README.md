@@ -2,7 +2,8 @@
 
 Today we will be using TDD to write a poker game, specifically [five card draw][five-card-draw].  
 
-You'll want to use betterspecs as a cheatsheet/reference: http://betterspecs.org
+You'll want to use [betterspecs][betterspecs] as a cheatsheet/reference. You'll also want to 
+refer to the [reading on test doubles][doubles-reading] for help creating unit tests.  
 
 ## Rules
 
@@ -15,6 +16,8 @@ You'll want to use betterspecs as a cheatsheet/reference: http://betterspecs.org
   hand][poker-hands] wins the pot.
 
 [five-card-draw]: http://en.wikipedia.org/wiki/Five-card_draw
+[betterspecs]: http://betterspecs.org
+[doubles-reading]: ../../readings/test-doubles.md
 [poker-hands]: http://en.wikipedia.org/wiki/List_of_poker_hands
 
 ## Design

@@ -34,12 +34,9 @@ Also, pick a name for your app that is not "goal" or "goals", or
 anything else that will cause a conflict with a model class name.
 
 *You MUST use git* from the beginning with this project.  This means
-`git init` right away, and commit regularly.
+`git init` right away, and commit regularly. Try to commit at least after finishing each phase.
 
 Feel free to consult the [reading on git][git-reading].
-
-Git Tip: To add all changes, use `git add -A`. Prefer this to other
-methods for adding all changes. Read more about it [here][git-add].
 
 [git-reading]: ../../../ruby/readings/git-summary.md
 [git-add]:  ../../../ruby/readings/git-add.md
@@ -54,7 +51,9 @@ Today's main focus will be integration tests, but we will write some model and c
  2. Write model specs for `User`. Remember, model specs should test your model's validations, associations, and class scope methods (eg. `User::find_by_credentials`). Use `shoulda-matchers` to write tests for each of the validations in your user model. You won't have any associations written on your user model to begin with; go back and fill these in as you go. Refer to the reading on [RSpec Model Testing](../../readings/rspec-models.md) and last night's homework as needed.
  3. Next, write controller tests for each action in your `UsersController`. Refer to the [RSpec Controller reading](../../readings/rspec-controllers.md) and last night's homework as needed.
 
-Run your specs and watch them fail. Now, implement `User` and `UsersController` and experience the joy of turning your specs green!
+Run your specs and watch them fail. Now, implement `User` and `UsersController` and experience the joy of turning your specs green! 
+
+Let's skip any other model or controller specs so we can move on to new material, writing integration tests.
 
 ### Integration Tests
 
@@ -103,10 +102,10 @@ For the remainder of the day, we'll be writing integration tests and utilizing t
 
 Start filling in the missing test logic, one test at a time.
 
- 2. After you fill in each test, implement enough of the application
+ 0. After you fill in each test, implement enough of the application
  logic to make the test pass. Then go back and write the next test.
 
- 3. Refactor any obvious bugs or flaws which remain.
+ 0. Refactor any obvious bugs or flaws which remain.
 
 This is the 'Red, Green, Refactor' approach.
 
@@ -187,7 +186,7 @@ association. Specifically, `User`s and `Goal`s will both refer to the
 same `Comment` model.
 
 This is nothing to be intimidated by, it only requires a few extra
-lines of code and a couple extra columns in the `comments` table.
+lines of code and an extra column in the `comments` table.
 Here's the [reading on polymorphic associations][poly-reading] if you
 need a refresher.
 

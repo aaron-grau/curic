@@ -1,6 +1,6 @@
-# Meta-Programming MetaCorgis
+# Metaprogramming MetaCorgis
 
-Today we'll use meta-programming to refactor an unwieldy `CorgiPerkPackage` class.
+Today we'll use metaprogramming to refactor an unwieldy `CorgiPerkPackage` class.
 
 ## Phase 0: Tour the Code!
 
@@ -13,7 +13,7 @@ Today we'll use meta-programming to refactor an unwieldy `CorgiPerkPackage` clas
 The `ShoppingList` class represents our database. 
 
 The database has three perk packages, stored in the `DATA` constant. Each 
-packages has three corgi perks - a bone, kibble, and a silly outfit.
+package has three corgi perks - a bone, kibble, and a silly outfit.
 
 It also has methods defined to tell us the info and happiness level of a
 given perk in whichever package we specify - e.g. `get_{perk}_info` and
@@ -133,5 +133,9 @@ pry(main)> meta_package.kibble # => "* Kibble: Delicately braised hamhocks: 33 l
 pry(main)> meta_package.silly_outfit # => "Silly Outfit: A tiny Ronald McDonald costume: 0 licks"
 ```
 
+Solutions can be found in the [homework solutions folder][solutions]. Please wait until you have completed the exercise to check the solutions.
+
+
 [grep]: http://ruby-doc.org/core-2.3.1/Enumerable.html#method-i-grep
 [meta_reading]: ../../../../readings/metaprogramming.md
+[solutions]: https://github.com/appacademy/curriculum/blob/master/sql/homeworks/solutions/meta_corgis.rb

@@ -61,7 +61,7 @@ called the *state* of an object. `Minnow`s and `Shark`s have their own
 way of doing things (they both `#swim` differently); this is called
 *behavior*.
 
-Object orientated design is about breaking a complex problem down into
+Object oriented design is about breaking a complex problem down into
 classes, each of which is responsible for its own state and
 behavior. This lets us write our `Minnow` code mostly in isolation of
 code for the `Shark` or an `Aquarium` or `Fisherman`. Writing code in

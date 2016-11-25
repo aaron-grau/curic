@@ -15,8 +15,7 @@ Solve it first using the `arguments` keyword, then rewrite your solution to use 
 
 Rewrite your `myBind` method so that it can take both bind-time arguments and call-time arguments.
 
-For example:
-
+A few examples:
 ```javascript
 class Cat {
   constructor(name) {
@@ -36,18 +35,22 @@ markov.says("meow", "Ned");
 // Markov says meow to Ned!
 // true
 
+// bind time args are "meow" and "Kush", no call time args
 markov.says.myBind(breakfast, "meow", "Kush")();
 // Breakfast says meow to Kush!
 // true
 
+// no bind time args (other than context), call time args are "meow" and "me"
 markov.says.myBind(breakfast)("meow", "a tree");
 // Breakfast says meow to a tree!
 // true
 
+// bind time arg is "meow", call time arg is "Markov"
 markov.says.myBind(breakfast, "meow")("Markov");
 // Breakfast says meow to Markov!
 // true
 
+// no bind time args (other than context), call time args are "meow" and "me"
 const notMarkovSays = markov.says.myBind(breakfast);
 notMarkovSays("meow", "me");
 // Breakfast says meow to me!
@@ -67,17 +70,17 @@ That makes sense, because there are two arrays of `arguments` you care
 about: the extra `arguments` passed to `myBind`, and the `arguments`
 passed when the bound function is called.
 
-Once you've done that, **write a second version using the `...` [rest][rest-op] operator.**
+Once you've done that, **write a second version using the `...` [rest operator][rest-op].**
 
 [rest-op]: ../../readings/arguments.md#rest-parameters
 
 ## `curriedSum`
 
-**Functional programming** is another style of programming; it's an
-alternative to object-oriented programming, though the two styles can
+**Functional programming** is another programming paradigm. It's an
+alternative to object-oriented programming, though the two can
 also be mixed. We'll learn more about it later, but briefly,
-functional programming focuses on passing *functions* around instead of
-*objects*.
+functional programming focuses on *function composition* (writing functions
+which are given a function as an argument and return a new function).
 
 One pattern seen in functional programming is **currying**. Currying
 is the process of decomposing a function that takes multiple arguments
@@ -107,9 +110,9 @@ f1 = f1(6); // = 30
 sumThree.curry(3)(4)(20)(6); // == 30
 ```
 
-Note that the curried version returns functions at each step until it
+Note that the curried version returns functions at each invocation until it
 has the full number of arguments it needs. At this point it actually
-runs `sumThree` and returns the result.
+invokes `sumThree` and returns the result.
 
 Write a `curriedSum` function that takes an integer (how many numbers to sum) and returns a function that can be successively called with single arguments until it finally returns a sum. That is:
 
@@ -130,7 +133,7 @@ Hint: `curriedSum(numArgs)` should:
     * Else, it returns itself.
 * Returns `_curriedSum`.
 
-If you're confused, think of it this way: `_curriedSum` function keeps collecting arguments and returning itself until it has enough arguments, at which point it actually does the required work of summing.
+If you're confused, think of it this way: `_curriedSum` keeps collecting arguments and returning itself until it has enough arguments, at which point it actually does the required work of summing.
 
 ## `Function.prototype.curry`
 
@@ -139,7 +142,7 @@ Write a method `Function.prototype.curry(numArgs)`. This should return a functio
 * Collect up arguments until there are `numArgs` of them,
 * If there are too few arguments still, it should return itself.
 * When there are `numArgs` arguments, it should call the original function.
-* Write a version that uses `Function.prototype.apply` and another one that uses the [spread][spread-op] `...` operator.
+* Write a version that uses `Function.prototype.apply` and another one that uses `...` the [spread operator][spread-op].
 
 ** Make sure to call a TA to check over your work if you haven't already! **
 
