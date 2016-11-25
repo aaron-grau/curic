@@ -26,25 +26,23 @@ benches.
 
 ### `BenchApiUtil`
 
-To start, let's create an API utility for `BenchesMiddleware` to use that will request data via AJAX from our Rails server.
+To start, let's create an API utility for our thunks to use that will request data via AJAX from our Rails server.
 
 + Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`.
 
 This function should accept a single argument: `success`, a callback. It should
-then dispatch an `$.ajax` request, passing `success` to the `$.ajax` call.
-Define an error callback for debugging.
+then dispatch an `$.ajax` request and return a promise. You may choose to define an error callback for debugging.
 
 Your function should look something like this:
 
 ```javascript
 // frontend/util/bench_api_util.js
 
-export const fetchBenches = success => {
-  $.ajax({
+export const fetchBenches = () => {
+  return $.ajax({
     method: // ,
     url: //,
-    success,
-    error: () => console.log('error')
+    error: (err) => console.log(err)
   })
 }
 ```
@@ -87,69 +85,71 @@ Before we move on to the fun stuff -- populating a Google map with benches from
 our database -- we need to write an `actions` file that helps our other major
 pieces function.
 
-We need two `actions`: one that will tell our `Middleware` to go fetch all the
+We need two `actions`: one to go fetch all the
 benches from our Rails API, and one that tells our `store` to change our
 application state to represent the bench data in our `action`.
 
 * Create an `actions` file: `actions/bench_actions`.
-+ Write `requestBenches`. It doesn't need to accept any arguments. It should just
-return an `action` with type `"REQUEST_BENCHES"`.
 + Write `receiveBenches`. It should accept a single argument, `benches`, and
 produce an `action` with type `"RECEIVE_BENCHES"` and a `benches` property that
 represents all of our bench data.
++ Write `fetchBenches`. It doesn't need to accept any arguments. It should just
+return a thunk which calls the `APIUtil` and `then` dispatches `receiveBenches`
 + Don't forget to defined the corresponding action types.
-+ Export everything.
++ Export `fetchBenches` and your constants.
 
 Before continuing, *test that they return the correct objects*. For example,
-add `requestBenches` to the `window` for testing later!
+add `fetchBenches` to the `window` for testing later!
 
 ```js
 // frontend/bench_bnb.jsx
 
-window.requestBenches = requestBenches;
-requestBenches(); //=> { type: 'REQUEST_BENCHES' }
+window.fetchBenches = fetchBenches;
+fetchBenches().then(console.log); //=> { "1": { id: 1, description: ... } }
 ```
 
-Remember to require `requestBenches` for testing
+Remember to require `fetchBenches` for testing
 
 ### Bench Reducer
 In this step, we're going to create a reducer that manages the `benches` section
 of our application state.
 
-* Create a file, `reducers/benches_reducer.js` that exports a `BenchesReducer` function.
+* Create a file, `reducers/benches_reducer.js` that exports a `benchesReducer` function.
 
-Let's start by just setting up our `BenchesReducer` to return its default state:
+Let's start by just setting up our `benchesReducer` to return its default state:
 Remember to use `Object.freeze` to prevent the state from being mutated.
+
+Have your `benchesReducer` update the `benches` in your state when it receives
+the `RECEIVE_BENCHES` action. Your reducer should look like this:
 
 ```javascript
 // frontend/reducers/benches_reducer.js
 
-import merge from 'lodash/merge';
+import { RECEIVE_BENCHES } from '../actions/bench_actions';
 
-const BenchesReducer = (state = {}, action) => {
-  Object.freeze(state)
+const benchesReducer = (state = {}, action) => {
+  Object.freeze(state);
   switch(action.type) {
-    //...
+    case RECEIVE_BENCHES:
+      return action.benches;
     default:
-      return state
+      return state;
   }
-}
-
-export default BenchesReducer;
+};
 ```
 
-Then add `BenchesReducer` to your `root_reducer.js`
+Then add `benchesReducer` to your `root_reducer.js`
 
 ```javascript
 // frontend/reducers/root_reducer.jsx
 
 import { combineReducers } from 'redux';
 
-import BenchesReducer from './benches_reducer';
+import benchesReducer from './benches_reducer';
 import SessionReducer from './session_reducer';
 
 const RootReducer = combineReducers({
-  benches: BenchesReducer,
+  benches: benchesReducer,
   session: SessionReducer
 });
 
@@ -167,128 +167,6 @@ At this point, our default application state should look like this.
 
   benches: {}
 }
-```
-
-### `BenchesMiddleware`
-
-Our `BenchesMiddleware` will be responsible for a number of things, including
-triggering api calls that eventually populate our `store` with benches!
-
-Remember, `Middleware` receives dispatches before the store. It can decide to
-intercept the dispatch, trigger another dispatch, or simply pass on it and do
-nothing.
-
-* Create a file, `middleware/benches_middleware.js`
-* Import the relevant action types. Like so,
-
-  ```javascript
-  import { REQUEST_BENCHES, RECEIVE_BENCHES } from '../actions/bench_actions.js';
-  ```
-
-Recall that [Redux Middleware][middleware-docs] employs a currying strategy to
-link several `Middleware` to each other and ultimately to the store. You'll need
-to define 3 functions that wrap one-another like so:
-
-```javascript
-const BenchesMiddleware = ({ getState, dispatch }) => next => action => {
-  // ...
-}
-```
-
-+ Let's start by writing some `Middleware` that will just `console.log` whenever it sees a `REQUEST_BENCHES` action type.
-
-  ```javascript
-  const BenchesMiddleware = ({getState, dispatch}) => next => action => {
-    switch(action.type){
-      case REQUEST_BENCHES:
-        console.log('time to fetch!')
-        return next(action);
-      default:
-        return next(action);
-    }
-  }
-  ```
-
-+ Export your `BenchesMiddleware`!
-
-  ```javascript
-  export default BenchesMiddleware;
-  ```
-
-+ Add it to our list of middlewares in our `RootMiddleware` to connect it to the `store`.
-
-We'll come back to our `BenchesMiddleware` to flesh it out later.
-
-[middleware-docs]: http://redux.js.org/docs/advanced/Middleware.html
-
-### Connect `BenchesMiddleware` to `BenchAPIUtil`
-
-Let's connect our `BenchesMiddleware` to this new `fetchBenches` function!
-
-Start by importing `fetchBenches`. Let's invoke it in our `BenchesMiddleware`
-whenever a `REQUEST_BENCHES` action is received. For now, make `success` a
-function that logs the data from the response.
-
-```javascript
-// frontend/middleware/bench_middleware.js
-
-import { fetchBenches } from '../util/bench_api_util';
-import { REQUEST_BENCHES } from '../ actions/bench_actions';
-
-const BenchesMiddleware = ({ getState, dispatch }) => next => action => {
-  switch(action.type){
-    case REQUEST_BENCHES:
-      const success = data => console.log(data);
-      fetchBenches(success);
-      return next(action);
-    default:
-      return next(action);
-  }
-}
-```
-
-Check now that when we run this code in the console..
-
-```javascript
-store.dispatch(requestBenches())
-```
-
-We should see a `console.log` of all our bench data!
-
-Finally, we need to re-work our `BenchesMiddleware` so that instead of `console.log`ing
-the bench data, it dispatches the data as part of an action.
-
-* Import the `receiveBenches` Action Creator.
-* Re-write your success callback to dispatch a `RECEIVE_BENCHES` action with the
-response `data`. To do this you'll need to add another case statement. It
-should look something like the following.
-
-```javascript
-case REQUEST_BENCHES:
-  const success = data => dispatch(receiveBenches(data));
-  fetchBenches(success);
-  return next(action);
-```
-
-### Back to the reducer
-
-Update your `BenchesReducer` to update the `benches` in your state when it receives
-the `RECEIVE_BENCHES` action. Your reducer should look something like:
-
-```javascript
-// frontend/components/reducers/benches_reducer.js
-
-import { RECEIVE_BENCHES } from '../actions/bench_actions';
-
-const BenchesReducer = (state = {}, action) => {
-  Object.freeze(state);
-  switch(action.type) {
-    case RECEIVE_BENCHES:
-      return action.benches;
-    default:
-      return state;
-  }
-};
 ```
 
 ## Phase 6: `BenchIndex` Components
@@ -314,8 +192,8 @@ Our `BenchIndex` component needs `state` information about the `benches` in orde
 #### `mapDispatchToProps`
 
 The `BenchIndex` also needs a way to trigger a request for benches once it has
-mounted. Let's give it a `requestBenches` prop that it can use to call a
-dispatch with the `requestBenches()` action creator.
+mounted. Let's give it a `fetchBenches` prop that it can use to call a
+dispatch with the `fetchBenches()` action creator.
 
 #### Export it!
 
@@ -363,12 +241,12 @@ inside `App`. Use an `IndexRoute` to accomplish this.
 
 ```javascript
 const Root = ({ store }) => (
-  <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={BenchIndexContainer} />
-        <Route path="/login" component={SessionFormContainer} />
-        <Route path="/signup" component={SessionFormContainer} />
+  <Provider store={ store }>
+    <Router history={ hashHistory }>
+      <Route path="/" component={ App }>
+        <IndexRoute component={ BenchIndexContainer } />
+        <Route path="/login" component={ SessionFormContainer } />
+        <Route path="/signup" component={ SessionFormContainer } />
       </Route>
     </Router>
   </Provider>
@@ -451,17 +329,22 @@ class BenchMap extends React.Component {
   //...
 
   componentDidMount() {
-    // find the `<map>` node on the DOM
-    const mapDOMNode = this.refs.map;
-
     // set the map to show SF
     const mapOptions = {
-      center: {lat: 37.7758, lng: -122.435}, // this is SF
+      center: { lat: 37.7758, lng: -122.435 }, // this is SF
       zoom: 13
     };
 
     // wrap the mapDOMNode in a Google Map
-    this.map = new google.maps.Map(mapDOMNode, mapOptions);
+    this.map = new google.maps.Map(this.mapNode, mapOptions);
+  }
+
+  render() {
+    return (
+      // ...
+      <div ref={ map => this.mapNode = map }> // this ref gives us access to the map dom node
+      // ...
+    )
   }
 
   //...
@@ -542,7 +425,7 @@ Confirm that the `MarkerManager` utility works by checking the console for our
 `console.log` **both before and after** running the following code.
 
 ```javascript
-store.dispatch(requestBenches());
+store.dispatch(fetchBenches());
 ```
 
 Make sure this works before moving on!
@@ -691,38 +574,29 @@ and from `markers`.
 
 Call these methods in `updateMarkers()` to ensure that benches that leave our store have their markers removed from the map. RIP, benches.
 
-### `BenchesMiddleware`
+### Fetching Benches when the filters change
 
-Before moving on, remove the call to `requestBenches()` from the `BenchIndex`
+Before moving on, remove the call to `fetchBenches()` from the `BenchIndex`
 component's `componentDidMount`. **We no longer need to dispatch this action from
-our view.** Instead, we'll rely on our `BenchesMiddleware` to `requestBenches` after
-it sees an `UPDATE_BOUNDS` action.
+our view.** Instead, we'll rely on `updateBounds` to `fetchBenches` after
+it dispatches the `UPDATE_BOUNDS` action.
 
-Update your `BenchesMiddleware` so that it intercepts the `UPDATE_BOUNDS` action. Here is our goal:
+Turn your `updateBounds` action creator into a thunk
+  * Immediately dispatch the filter change
+  * import your `fetchBenches` action creator from Bench Actions
+  * Then, call fetchBenches passing in the current filters from `getState`
+  * Call the returned function with dispatch.
 
-  * Use `next` to pass the action on through to the store.
-  * Then, use `dispatch` and `requestBenches` to trigger a new dispatch.
-  * When `BenchesMiddleware` sees a `REQUEST_BENCHES` dispatch collect the filters
-  from the store using `getState`.
-  * Pass the filters and the appropriate callback on to `fetchBenches`.
-
-Your middleware's switch statement should look something like this:
+This is a little tricky, try follow this example and think about the flow of data.
 
 ```javascript
-// frontend/middleware/bench_middleware.js
-
-//...
-  switch(action.type){
-    case REQUEST_BENCHES:
-      const filters = getState().filters
-      fetchBenches(filters, benchesSuccess);
-      break;
-    case UPDATE_BOUNDS:
-      next(action);
-      dispatch(requestBenches());
-      break;
-    //...
+export function updateFilter(filter, value) {
+  return (dispatch, getState) => {
+    dispatch(changeFilter(filter, value));
+    return fetchBenches(getState().filters)(dispatch);
+    // delicious curry!
   }
+}
 ```
 
 That's it! The markers and bench index should now only display for benches that
@@ -829,20 +703,12 @@ so that our users don't try to edit them!
 
   * Add a `createBench` function to `bench_api_util.js`. It should make a `POST`
     request to your API.
-  * Create the following action types:
-    * `CREATE_BENCH`
-    * `RECEIVE_BENCH`
+  * Create a * `RECEIVE_BENCH` action type.
   * Add the following action creators to `bench_actions.js`:
-    * `createBench`
-    * `receiveBench`
+    * `receiveBench` (regular action creator)
+    * `createBench` (thunk action creator)
   * Add a `mapDispatchToProps` function to your `BenchFormContainer`; this should
-  pass a `handleSubmit` prop to `BenchForm`
-
-### `BenchMiddleware`
-
-Update your `BenchMiddleware` to invoke `createBench` from the `bench_api_util.js`
-when it receives a `CREATE_BENCH` dispatch. Your success callback should dispatch
-a `RECEIVE_BENCH` action.
+  pass a `createBench` prop to `BenchForm`
 
 ### `BenchReducer`
 

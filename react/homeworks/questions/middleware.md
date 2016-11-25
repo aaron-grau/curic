@@ -6,9 +6,9 @@ In this homework, you will modify the Synthesizer project's `dispatch` function
 so that it does more than just dispatch actions to the store. You will use this
 pattern again tomorrow in a more sophisticated way.
 
-Download the provided [skeleton](../../projects/synthesizer/solution.zip?raw=true).
+Download the provided [skeleton](../../projects/todos/solution_1.zip?raw=true).
 
-**You will be updating `synthesizer.jsx` and `store/store.js`**
+**You will be updating `todo_redux.jsx` and `store/store.js`**
 
 Test your code at each step using the provided test cases.
 
@@ -25,7 +25,7 @@ Test your code at each step using the provided test cases.
 
 In this section, we'll be adding a simple logger to our store's `dispatch` function. It will log the old state, the action, and the new state.
 
-In `synthesizer.jsx`, do the following steps:
+In `todo_redux.jsx`, do the following steps:
 + Write a new function `addLoggingToDispatch` that receives the store as an argument
   + Save `store.dispatch` as a local variable
   + Return a function that receives an action as an argument
@@ -39,7 +39,7 @@ In `synthesizer.jsx`, do the following steps:
 
 ## Refactoring
 
-Now let's refactor the code the we just wrote. The functionality of it is great, but overwriting `store.dispatch` is an antipattern that we'd really like to avoid.
+Now let's refactor the code the we just wrote. The functionality of it is great, but overwriting `store.dispatch` is an [anti-pattern][anti-pattern] that we'd really like to avoid.
 
 What we're going to do instead is write a generalized `applyMiddlewares` function that will run either a single middleware or a group of middlewares. `applyMiddlewares` will give the middlewares access to the store's `dispatch` function, as well as the `action` that is being dispatched.
 
@@ -91,6 +91,8 @@ To implement it, in `store/store.js`:
 + Add a call to `applyMiddleware` in your call to `createStore`
   + Pass in your logging middleware as an argument to `applyMiddleware`
 
-Then, restore `synthesizer.jsx` to its original state.
+Then, restore `todo_redux.jsx` to its original state.
 
 **Test your code**: Everything that worked before should still work!
+
+[anti-pattern]: https://en.wikipedia.org/wiki/Anti-pattern

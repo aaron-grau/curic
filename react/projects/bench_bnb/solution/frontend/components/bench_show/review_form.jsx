@@ -4,17 +4,14 @@ import { withRouter } from 'react-router';
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      rating: 5,
-      body: ""
-    };
+    this.state = { rating: 5, body: "" };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToBenchShow = this.navigateToBenchShow.bind(this);
   }
 
   navigateToBenchShow() {
-    this.props.router.push(`/benches/${this.props.params.benchId}`)
+    this.props.router.push(`/benches/${this.props.params.benchId}`);
   }
 
   handleSubmit(e) {
@@ -28,22 +25,18 @@ class ReviewForm extends React.Component {
   }
 
   update(property) {
-    return e => {
-      this.setState({
-        [property]: e.currentTarget.value
-      });
-    };
+    return e => this.setState({ [property]: e.currentTarget.value });
   }
 
   render() {
     return (
       <div className="review-form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={ this.handleSubmit }>
           <label>Rating</label>
           <br/>
           <input type="number"
-            value={this.state.rating}
-            onChange={this.update("rating")}/>
+            value={ this.state.rating }
+            onChange={ this.update("rating") }/>
           <br/>
 
           <label>Comment</label>
@@ -51,12 +44,12 @@ class ReviewForm extends React.Component {
           <textarea
             cols='30'
             rows='10'
-            value={this.state.body}
-            onChange={this.update("body")}></textarea>
+            value={ this.state.body }
+            onChange={ this.update("body") }></textarea>
           <br/>
           <input type="submit"/>
         </form>
-        <button onClick={this.navigateToBenchShow}>Cancel</button>
+        <button onClick={ this.navigateToBenchShow }>Cancel</button>
       </div>
     );
  }

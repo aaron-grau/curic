@@ -1,15 +1,14 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Link } from 'react-router';
 
-const ToyItem = ({ item, router }) => {
-  const handleClick = url => () => router.push(url);
-
+const ToyItem = ({ item }) => {
   return(
-		<li onClick={handleClick(`/pokemon/${item.pokemon_id}/item/${item.id}`)}>
-			<img src={item.image_url} alt={item.name}/>
-		</li>
+    <li>
+      <Link to={ `/pokemon/${item.pokemon_id}/item/${item.id}` }>
+        <img src={ item.image_url } alt={ item.name }/>
+      </Link>
+    </li>
   )
 };
 
-
-export default withRouter(ToyItem);
+export default ToyItem;

@@ -7,17 +7,23 @@ import {
   REQUEST_ALL_POKEMON,
   REQUEST_SINGLE_POKEMON } from '../actions/pokemon_actions';
 
-export default (state = false, action) => {
+const initialState = {
+  indexLoading: false,
+  detailLoading: false
+}
+
+export default (state = initialState, action) => {
   switch(action.type){
     case RECEIVE_ALL_POKEMON:
     case RECEIVE_NEW_POKEMON:
     case RECEIVE_SINGLE_POKEMON:
     case RECEIVE_POKEMON_ERRORS:
-      return false;
-    case CREATE_POKEMON:
+      return initialState;
     case REQUEST_ALL_POKEMON:
+    return Object.assign({}, state, { indexLoading: true });
+    case CREATE_POKEMON:
     case REQUEST_SINGLE_POKEMON:
-      return true;
+      return Object.assign({}, state, { detailLoading: true });
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router';
 import MarkerManager from '../../util/marker_manager';
@@ -13,14 +13,14 @@ let _mapOptions = {
   zoom: 13
 };
 
-class BenchMap extends React.Component {
+class BenchMap extends Component {
 
   componentDidMount() {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, _mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
     if (this.props.singleBench) {
-      this.props.requestBench(this.props.benchId);
+      this.props.fetchBench(this.props.benchId);
     } else {
       this._registerListeners();
       this.MarkerManager.updateMarkers(this.props.benches);
@@ -65,4 +65,4 @@ class BenchMap extends React.Component {
   }
 }
 
-export default withRouter(BenchMap);
+export default BenchMap;
