@@ -35,7 +35,7 @@ end
 def okay_two_sum_b?(arr, target_sum)
   arr = arr.sort
   arr.each_with_index do |el, i|
-    match_idx = arr.bsearch_index { |el2| target_sum - el - el2 }
+    match_idx = arr.bsearch_index { |el2| (target_sum - el) <=> el2 }
     return true if match_idx && match_idx != i
   end
   false
