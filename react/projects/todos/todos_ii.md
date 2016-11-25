@@ -14,13 +14,13 @@ In this phase you will create a Rails API that stores `Todo`s in a database
 and serves JSON in response to HTTP requests.
 
 **NB**: We first saw use of a Rails API in Ajax Twitter! Today, we will create
-an Rails API that will have controllers and models but will not have HTML
+a Rails API that will have controllers and models but will not have HTML
 views. Instead of being a full-stack app, its purpose will be to serve
 information between our Postgres database and React/Redux front-end. It will
 respond to HTTP requests using `Controller#Actions`, the same way as before.
-Its responses, however, will be JSON instead of HTML. Our app will render
-views via React components that parse and display these JSON responses. User
-interactions with React components will dispatch actions to our Redux store
+Its responses, however, will be JSON instead of HTML. On the client side, we will
+make requests for these JSON views, and will parse and display them via our React components.
+User interactions with React components will dispatch actions to our Redux store
 that either fire ajax requests or render the newest application state.
 
 Let's get started!
@@ -29,8 +29,7 @@ Let's get started!
 + Update your Gemfile with `pry-rails`, and `annotate`.
 
 ### Todos
-+ Create a `Todo` model with a `title` string (required), a `body` string (required), and a `done` boolean (required).
-  + Run `rails g model todo title body done:boolean`.
++ Create a `Todo` migration and model with a `title` string (required), a `body` string (required), and a `done` boolean (required).
   + Add the necessary validations to the database and model.
     + NB: Validating boolean fields at the model level can create interesting bugs. `presence: true` will
     fail because rails checks for presence by calling `blank?` on the validated attribute.
@@ -44,12 +43,11 @@ Let's get started!
 **Test your setup** - Try creating a couple of todos in your database using the
 rails console (`rails c`).
 
-+ Create a `Api::TodosController` to handle our API requests for `Todo`s.
-  + Run `rails g controller api/todos`.
++ Create an `Api::TodosController` to handle our API requests for `Todo`s.
   + It should create `app/controller/api/todos_controller.rb`.
 + Define `show`, `index`, `create`, `update`, and `destroy` actions in your controller.
 + Make your controller actions serve JSON-formatted responses.
-+ Define a private helper method for `todos_params`.
++ Define a private helper method for `todo_params`.
 
 For example, your `show` and `create` actions should look like this:
 ```rb
@@ -72,15 +70,6 @@ end
 + Create routes for `:index`, `:show`, `:create`, `:destroy`, and `:update`.
 + Nest your routes under [namespace][namespace-docs] `api`.
 + In `config/routes.rb`, set `defaults: {format: :json}` for your `api` namespace.
-
-Your `routes.rb` should look something like this:
-```rb
-Rails.application.routes.draw do
-  namespace :api, defaults: { format: :json } do
-    resources :todos, except: [:new, :edit]
-  end
-end
-```
 
 **Test your routes** - You should get the following when you run `rake routes`.
 ```
@@ -117,12 +106,12 @@ $.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
 
 ---
 
-## Phase 1: Async Actions
+## Phase 1: Putting it all together
 
 Your entire todos project from yesterday will function as the frontend folder for your rails app with some slight modifications.
 You will also need your package.json and webpack config which should be put in the root folder, but you do not need `index.html`.
 
-Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than `build`.
+Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than `build`. Don't forget to require your bundle inside of `application.js`.
 
 **Test your setup** - You should be able to visit `localhost:3000` and confirm
 that you have your entire work from yesterday working on `localhost:3000` before continuing.
@@ -161,8 +150,8 @@ Now modify your store to use your shiny new middleware. Inside `store.js`,
 import `applyMiddlware` from `redux`, and the thunk middleware. As the last
 argument to `createStore`, pass `applyMiddleware(thunk)`.
 
-You can test that your thunk middleware is working by dispatching a function,
-if the function is called, it's working.
+You can test that your thunk middleware is working by dispatching a function.
+If the function is called, it's working!
 
 ```js
 store.dispatch((dispatch) => {
@@ -264,13 +253,12 @@ go through the same process with steps! You will have to write:
 * The model
 * The controller
 * The API Util
-* The actions
-* The reducer
+* The async actions
 
 ## Phase 3: Authentication
 
-Right now all users of our todo app share the same todos. That's not gonna work in the long run,
-let's authenticate users and only show them their own todos. You will not need redux (or javascript at all)
+Right now all users of our todo app share the same todos. Let's authenticate users
+and only show them their own todos. You will not need redux (or javascript at all)
 for authentication today. We are going to authenticate our app the same way
 we have up to this point. Frontend authentication is a topic that will be explored later this week.
 
@@ -290,6 +278,10 @@ def create
   @todo = current_user.todos.new(todo_params)
   # ... etc
 ```
+* Do the same for update and destory actions, searching only the current users todos.
+```ruby
+@todo = current_user.todos.find(params[:id])
+```
 * Lastly, modify the index action to only render the current users todos.
 
 You now have a fully authenticated todo app! Celebrate!
@@ -304,28 +296,29 @@ Let's add tags to our todos.
 an array of tag ids, we will expect tags to be sent to the back end as an array of tag names.
 Let's write a model method to take care of settings the tags for a specific todo.
 It should create the tag names sent up that do not already exist and find the ones that do.
-It should remove old taggings and create new ones where appropriate. Active record `collection_ids=` method is perfect for this.
-Our method looks like this.
+It should remove old taggings and create new ones where appropriate. Active record allows you to do this by calling `collection=` and passing it a new collection. Our method looks like this.
 ```ruby
-def update_tags(tag_names)
-  tags_ids = tag_names.map do |tag_name|
-    Tag.find_or_create_by({ name: tag_name }).id
+def tag_names=(tag_names)
+  self.tags = tag_names.map do |tag_name|
+    Tag.find_or_create_by(name: tag_name)
   end
-  self.tag_ids = tags.map(&:id)
 end
 ```
-* Inside your todo controller create method, call `update_tags` passing in `params[:todo][:tags]` if they exist.
+* Inside your todo controller, add `tag_names` to the `todo_params`.
+Remember the alternate syntax to allow the `tag_names` param to be an array.
+When we create/update a todo, rails will automatically call `tag_names=` for us.
+This is similar to writing a custom `password=` method for auth.
 * We need our todos to be rendered with their associated tags. You can tell rails to
 render associated items with the syntax `render json: @todos, include: :tags`. This approach can get messy
 when including multiple associations. We will use `jbuilder` to solve this problem later.
-* In your todo form, add a `tags` array to your component state and display `this.state.tags` in a ul inside the form.
+* In your todo form, add a `tag_names` array to your component state and display `this.state.tag_names` in a ul inside the form.
 You will also need an input to add new tags and a button to submit the new tag. However, we must be careful that this button
 does not accidentally submit the form. To avoid this, make sure to use `<button type="button">`. Explicitly setting a type of
 `button` overrides the default type of `submit`. On click of this button, add the input value to the current list of tags and clear the input.
 
 ## Bonus
 
-+ Disable your update and delete buttons while the dispatch is pending.
++ Disable your update and delete buttons while the dispatch is pending. Add a spinner!
 Consider adding a `fetching` boolean to state and new sync actions like
 `requestTodos` to tell the reducer to set `fetching` to true.
 + Expand tags

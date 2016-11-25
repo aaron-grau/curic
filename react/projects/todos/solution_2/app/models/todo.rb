@@ -8,10 +8,9 @@ class Todo < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings, source: :tag
 
-  def update_tags(tag_names)
-    tags_ids = tag_names.map do |tag_name|
-      Tag.find_or_create_by({ name: tag_name }).id
+  def tag_names=(tag_names)
+    self.tags = tag_names.map do |tag_name|
+      Tag.find_or_create_by(name: tag_name)
     end
-    self.tag_ids = tags.map(&:id)
   end
 end

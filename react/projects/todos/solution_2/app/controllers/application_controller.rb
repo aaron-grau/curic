@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless logged_in?
   end
 
+  def deny_access_if_not_logged_in
+    render json: ["You must be logged in to do that"] unless logged_in?
+  end
+
   def user_params
     params.require(:user).permit(:username, :password)
   end

@@ -1,4 +1,6 @@
 class Api::TodosController < Api::ApiController
+  before_action :deny_access_if_not_logged_in
+
   def index
     render json: Todo.all, include: :tags
   end
@@ -10,7 +12,6 @@ class Api::TodosController < Api::ApiController
   def create
     @todo = current_user.todos.new(todo_params)
     if @todo.save
-      @todo.update_tags(tag_params)
       render json: @todo, include: :tags
     else
       render json: @todo.errors.full_messages, status: 422
@@ -18,25 +19,23 @@ class Api::TodosController < Api::ApiController
   end
 
   def destroy
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
     @todo.destroy
     render json: @todo, include: :tags
   end
 
   def update
     @todo = Todo.find(params[:id])
-    @todo.update(todo_params)
-    @todo.update_tags(tag_params)
-    render json: @todo, include: :tags
+    if @todo.update(todo_params)
+      render json: @todo, include: :tags
+    else
+      render json: @todo.errors.full_messages, status: 422
+    end
   end
 
   private
 
   def todo_params
-    params.require(:todo).permit(:title, :body, :done)
-  end
-
-  def tag_params
-    params.require(:todo).permit(tags: [])[:tags] || []
+    params.require(:todo).permit(:title, :body, :done, tag_names: [])
   end
 end

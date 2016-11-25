@@ -84,8 +84,8 @@ one will receive `todos` and populate the store, and the second one will receive
 
 Remember that:
   + Redux actions are plain-old javascript objects that have a `type` property.
-  + Action creators don't directly interact with, reducers
-  or the `store`; they simply return action objects
+  + Action creators don't directly interact with reducers or the `store`,
+  they simply return action objects.
   + These returned action objects are passed through our
   `rootReducer` only when `store.dispatch(action)` is called.
 
@@ -111,10 +111,11 @@ action creator so that it accepts an argument `todos` and returns an action obje
 `type` `RECEIVE_TODOS` and a `todos` property that represents all of our todos
 data.
 
-
 #### `receiveTodo`
 
 The same as `receiveTodos` but for a single todo. As simple as it sounds.
+
+### Reducers
 
 #### `todosReducer`
 
@@ -130,10 +131,11 @@ A Redux reducer accepts two arguments:
 Remember that reducers should:
 + Return the initial state if the state argument is undefined;
 + Return the `state` if the reducer doesn't care about the action;
-+ Return a new state object if the reducer cares about the `action` - it should never modify `state`!
++ Return a new state object if the reducer cares about the `action`
 
-Remember the `todosReducer` will only be passed the `todos` slice of the application
-state. Let's start by just setting up our `todosReducer` to return its default
+**N.B.** the reducer must never mutate the previous state. Instead it should return a brand new state object with the necessary changes."
+
+Let's start by just setting up our `todosReducer` to return its default
 state - an empty object with no todos:
 ```js
 const todosReducer = (state = {}, action) => {
@@ -230,10 +232,6 @@ for easy consumption by our components.
   + Map the array of todo ids to an array of todos.
   + Return your new array.
 
-```js
-export const allTodos = ({ todos }) => Object.keys(todos).map(id => todos[id]);
-```
-
 **Test your selector** - Put your selector on the `window` and pass it the
 default state. Does it format the data into an array of `todos`?
 
@@ -302,15 +300,21 @@ In this phase, you will create React components to display your todo list and it
 This component will hold all of the top-level concerns of your app. A top-level
 concern is a feature of the app that functions on its own and as such is not
 nested under any other features. In this case, that will only be the `TodoList`,
-but nonetheless it's a good design pattern to get used to.
+but nonetheless it's a good design pattern to get used to. You should define `App`
+in `frontend/components/App`.
 
 Your `App` component can also be functional, because it doesn't need to use any
 of React's lifecycle hooks. Because it doesn't rely on any of its props, the
 component doesn't need to receive any arguments.
 
-**Test your components** - Make your `App` component return a `h1` tag with the
-name of your app. You should be able see your app's name appear on the page on
-reload.
+To test your component, make your `App` component return a `h1` tag with the
+name of your app and temporarily render it in your entry file.
+
+```js
+ReactDOM.render(<App />, rootElement);
+```
+
+Make sure it works before continuing!
 
 ### `Root`
 
@@ -318,18 +322,18 @@ The `Root` component serves to wrap your `App` component with a `react-redux`
 `Provider`. Remember the `Provider` gives all of your components access to your
 `store`, allowing them to read the application state and dispatch actions.
 
-+ Create a file `components/root.jsx`
-+ Import React and the `react-redux`'s `Provider`
-+ Even though you haven't written your `App` component yet, import it from `./app`.
++ Create a file `components/root.jsx`.
++ Import React and the `react-redux`'s `Provider`.
++ Import your `App` component from `./app`.
 + Export `Root` as functional component that receives props as an argument and returns a block of `jsx` code.
-  + It receives your `store` as a prop
-  + Consider de-structure `props`
+  + It receives your `store` as a prop.
+  + Consider de-structuring `props`.
 
 Our `Root` looks like this:
 
 ```javascript
 const Root = ({ store }) => (
-  <Provider store={store}>
+  <Provider store={ store }>
     <App />
   </Provider>
 );
@@ -337,7 +341,7 @@ const Root = ({ store }) => (
 export default Root;
 ```
 
-+ Update your entry file to render your `Root` component into `#content`!
++ Update your entry file to render your `Root` component instead of `App` into `#content`!
 
 
 ### TodoList
@@ -410,13 +414,13 @@ Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a
 
 In this phase you will create a form that allows users to create new todo items.
 
-+ Create a new component (`components/todo_list/todo_form.jsx`) that dispatches your new action types
++ Create a new component (`components/todo_list/todo_form.jsx`).
   + This component will use controlled inputs to keep track of its form data; thus it will have a local state
     + If you don't remember how to set up controlled inputs in a React component, look at this reading about [props and state][props_and_state_reading]
   + Render this component in your `TodoList` component
 + Update your `TodoList` to pass `receiveTodo` down to your `TodoForm`
 
-Before your create your todos by calling `receiveTodo` on submission of the form, we
+Before you create your todos by calling `receiveTodo` on submission of the form, we
 need to give our todos unique ids. Usually, our database would take care of this for us.
 As an easy way to get unique sequential numbers, use the current unix timestamp.
 Make a util file to export the following function (or something similar).
@@ -472,7 +476,7 @@ in a container component so that it can dispatch functions and receive
 information from the `store`. Follow these steps:
 
 + Create a container for your `TodoDetailView` component
-  + Create a `MapDispatchToProps` function that passes `removeTodo` and `receiveTodo` as a prop to `TodoDetailView` CHECK THIS
+  + Create a `MapDispatchToProps` function that passes `removeTodo` as a prop to `TodoDetailView`
   + Export `connect(null, mapDispatchToProps)(TodoDetailView);` (null because the first argument to connect must always be mapStateToProps)
 + Create a file `components/todo_list/todo_detail_view.jsx` to hold the presentational component `TodoDetailView`
   + Refactor your `TodoListItem` so that it only renders the item's title and a button to change its status
@@ -590,7 +594,7 @@ but you can accomplish a similar effect for the end user
 by storing the data directly in their browser. Users can't share information this way
 (it is all local to their computer) but updates will persist through page refreshes.
 
-Before beginning, [read up on](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) on `localStorage` if necessary.
+Before beginning, [read up on `localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
 #### Saving state in localStorage
 

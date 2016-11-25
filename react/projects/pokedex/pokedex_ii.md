@@ -19,13 +19,13 @@ this:
 
 ```
 const pokemonItems = pokemon.map(poke => {
-	<PokemonIndexItem key={ poke.id } pokemon={ poke } />
+  <PokemonIndexItem key={ poke.id } pokemon={ poke } />
 });
 
 <section className="pokedex">
-	<ul>
-		{ pokemonItems }
-	</ul>
+  <ul>
+    { pokemonItems }
+  </ul>
 </section>
 ```
 
@@ -43,9 +43,9 @@ serves to pass down information (namely the `router`) through props.
 
 * Import `Link` to your `PokemonIndexItem` like so:
 
-	```js
-	import { Link } from 'react-router';
-	```
+  ```js
+  import { Link } from 'react-router';
+  ```
 
 Inside each li, wrap the pokemon information in a `Link` tag. Give it a `to` prop
 with the path for the frontend pokemon show page (`/pokemon/:pokemonId`).
@@ -59,9 +59,9 @@ const PokemonIndexItem = (props) => {
 
   return (
     <li className="pokemon-index-item">
-		  <Link to{ `/pokemon/${props.pokemon.id}` }>
-			  // pokemon information...
-		  </Link>
+      <Link to{ `/pokemon/${props.pokemon.id}` }>
+        // pokemon information...
+      </Link>
     </li>
   );
 };
@@ -96,35 +96,35 @@ Hint: Your the state shape will look something like this:
 {
   pokemon: {
     1: {
-			//...
-		},
+      //...
+    },
     2: {
-			//...
-		},
-		//...
+      //...
+    },
+    //...
   },
   pokemonDetail: {
     id: 5,
-	  name: "Rhydon",
-	  attack: 130,
-	  defense: 120,
-	  image_url: "/assets/pokemon_snaps/112.png",
-	  moves: [
-	    "horn attack",
-	    //...
-	  ],
-	  poke_type: "ground",
-	  items: [
-	    {
-	      id: 15,
-	      name: "Dark Vulcan",
-	      pokemon_id: 5,
-	      price: 12,
-	      happiness: 58,
-	      image_url: "/assets/pokeball.png"
-	    },
-	    //...
-	  ]
+    name: "Rhydon",
+    attack: 130,
+    defense: 120,
+    image_url: "/assets/pokemon_snaps/112.png",
+    moves: [
+      "horn attack",
+      //...
+    ],
+    poke_type: "ground",
+    items: [
+      {
+        id: 15,
+        name: "Dark Vulcan",
+        pokemon_id: 5,
+        price: 12,
+        happiness: 58,
+        image_url: "/assets/pokeball.png"
+      },
+      //...
+    ]
   }
 }
 ```
@@ -141,29 +141,29 @@ slice of the app state.
 * Create a `PokemonDetailContainer` that maps props to `PokemonDetail`.
 * Create a class `PokemonDetail` component that returns information of the pokemon.
 * Add a `Route` that renders the `PokemonDetailContainer` component when the url matches the path `"pokemon/:pokemonId`".
-	* Nest the `PokemonDetailContainer` route under the route for the
-	`PokemonIndexContainer`. Like so:
+  * Nest the `PokemonDetailContainer` route under the route for the
+  `PokemonIndexContainer`. Like so:
 
-	```js
-	<Route path='PARENT_PATH' component='PARENT_COMPONENT'>
-	  <Route path='CHILD_PATH' component='CHILD_COMPONENT'/>
-	</Route>
-	```
+  ```js
+  <Route path='PARENT_PATH' component='PARENT_COMPONENT'>
+    <Route path='CHILD_PATH' component='CHILD_COMPONENT'/>
+  </Route>
+  ```
 
-	* Render `this.props.children` in `PokemonIndex`. This will ensure that
-	both parent (`PokemonIndexContainer`) and child
-	(`PokemonDetailContainer`) components are rendered when a user visits `"/pokemon/:pokemonId"`.
-	* Inside of `PokemonDetail` on `componentDidMount`, call `this.props.fetchSinglePokemon`.
-	Pass it the pokemon's id from the `this.props.params.pokemonId`.
+  * Render `this.props.children` in `PokemonIndex`. This will ensure that
+  both parent (`PokemonIndexContainer`) and child
+  (`PokemonDetailContainer`) components are rendered when a user visits `"/pokemon/:pokemonId"`.
+  * Inside of `PokemonDetail` on `componentDidMount`, call `this.props.fetchSinglePokemon`.
+  Pass it the pokemon's id from the `this.props.params.pokemonId`.
 
 Your app's `Router` should look like this:
 
 ```js
 <Router history={ hashHistory }>
-	<Route path="/" component={ PokemonIndexContainer } >
-		<Route path="pokemon/:pokemonId" component={ PokemonDetailContainer } />
-		</Route>
-	</Route>
+  <Route path="/" component={ PokemonIndexContainer } >
+    <Route path="pokemon/:pokemonId" component={ PokemonDetailContainer } />
+    </Route>
+  </Route>
 </Router>
 ```
 
@@ -181,13 +181,13 @@ into the `pokemonDetail` slice of state when a single pokemon is selected.
 
 
 * Create an `ItemDetailContainer` that receives an item's information as `props`.
-	* When providing the item to the `ItemDetail` component from the
-	`ItemDetailContainer`, remember that `mapStateToProps` accepts a second parameter
-	`ownProps`. `ownProps.params` returns the params object.
-	* Use `ownProps.params.itemId` to select the correct item from the `state`.
-	* Define a new `selectPokemonItem(state, itemId)` selector and call it in `mapStateToProps`.
+  * When providing the item to the `ItemDetail` component from the
+  `ItemDetailContainer`, remember that `mapStateToProps` accepts a second parameter
+  `ownProps`. `ownProps.params` returns the params object.
+  * Use `ownProps.params.itemId` to select the correct item from the `state`.
+  * Define a new `selectPokemonItem(state, itemId)` selector and call it in `mapStateToProps`.
 * Create a functional `ItemDetail` component that displays its `item` prop.
-	* `ItemDetailContainer` connects it to the store.
+  * `ItemDetailContainer` connects it to the store.
 * Create a nested route that renders the `PokemonIndexContainer`,
 `PokemonDetailContainer` and `ItemDetailContainer` when the path matches
 `/pokemon/:pokemonId/items/:itemId`. Hint: nest your new `Route` and don't
@@ -197,11 +197,11 @@ Your app's `Router` should look like this:
 
 ```js
 <Router history={ hashHistory }>
-	<Route path="/" component={ PokemonIndexContainer }>
-		<Route path="pokemon/:pokemonId" component={ PokemonDetailContainer }>
-			<Route path="item/:itemId" component={ ItemDetailContainer } />
-		</Route>
-	</Route>
+  <Route path="/" component={ PokemonIndexContainer }>
+    <Route path="pokemon/:pokemonId" component={ PokemonDetailContainer }>
+      <Route path="item/:itemId" component={ ItemDetailContainer } />
+    </Route>
+  </Route>
 </Router>
 ```
 
@@ -220,7 +220,7 @@ to create Pokemon, you will need to:
 * Update the reducer to respond to receiving a new Pokemon.
 * Create a `PokemonFormContainer` that only connects `mapDispatchToProps`.
   * Pass a function prop called `createPokemon` that dispatches your
-	`CREATE_POKEMON` action.
+  `CREATE_POKEMON` action.
 
 **Test at each step!**
 
@@ -254,7 +254,7 @@ class ControlledComponent extends React.Component {
     this.exampleMethod = this.exampleMethod.bind(this);
   }
 
-	//...
+  //...
 }
 ```
 
@@ -264,13 +264,13 @@ function to call the `setState` method.
 An basic example of an `update` method is below:
 ```js
 class ControlledComponent extends React.Component {
-	//...
+  //...
 
-	update(property) {
-	  return e => this.setState({[property]: e.target.value});
-	}
+  update(property) {
+    return e => this.setState({[property]: e.target.value});
+  }
 
-	//...
+  //...
 }
 ```
 
@@ -299,12 +299,12 @@ The final parts of the `PokemonForm` are redirecting callback and error handling
 Once the posting is complete we want the application to redirect to the newly
 created Pokemon. We need to wait, however, because we need this Pokemon's ID in
 order to push to that URL. We will only have this id after the response has come back
-from the server, so we can take on another `.then` after our promise resolves and
+from the server, so we can tack on another `.then` after our promise resolves and
 redirect from there.
 
 Make sure that your `fetchSinglePokemon` action creator returns the promise and any
 `.then`s you take on to the end return the pokemon. The reason for this is that
-when chaining calls to `then` the return value of the previous as passed as the input
+when chaining calls to `then` the return value of the previous is passed as the input
 to the next. This can be handy for gradually building up a value, in our case we
 want to do two things with the same input, so we must pass it through.
 
@@ -312,14 +312,14 @@ Your `fetchSinglePokemon` should look like this:
 
 ```js
 export function fetchSinglePokemon(id) {
-	return (dispatch) => {
-		dispatch(requestSinglePokemon());
+  return (dispatch) => {
+    dispatch(requestSinglePokemon());
 
-		return APIUtil.fetchSinglePokemon(id).then(pokemon => {
-			dispatch(receiveSinglePokemon(pokemon));
-			return pokemon;
-		});
-	}
+    return APIUtil.fetchSinglePokemon(id).then(pokemon => {
+      dispatch(receiveSinglePokemon(pokemon));
+      return pokemon;
+    });
+  }
 }
 ```
 
@@ -330,9 +330,9 @@ serves to pass down information (namely the `router`) through props.
 
 * Import `withRouter` to your `PokemonIndexItem` like so:
 
-	```js
-	import { withRouter } from 'react-router';
-	```
+  ```js
+  import { withRouter } from 'react-router';
+  ```
 
 * Call this function on `PokemonIndexItem` before exporting it like so:
 
@@ -351,12 +351,12 @@ On successful submission of your form, redirect the user to the pokemon show pag
 ```js
 
 class PokemonForm extends Component {
-	handleSubmit(e) {
-		e.preventDefault();
-		this.props.createPokemon(this.state).then(newPokemon => {
-			this.props.router.push(`pokemon/${newPokemon.id}`);
-		})
-	};
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createPokemon(this.state).then(newPokemon => {
+      this.props.router.push(`pokemon/${newPokemon.id}`);
+    })
+  };
 }
 ```
 
@@ -371,10 +371,10 @@ adding an `errors` slice to our state.
 // Sample State Shape
 {
   pokemon: {
-		//...
+    //...
   },
   pokemonDetail: {
-  	//...
+    //...
   },
 
   errors: [ "message 1", "message 2" ]

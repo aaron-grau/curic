@@ -10,8 +10,12 @@ button {
   border: none;
 }
 
-html, body, #content {
-  min-height: 100%;
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #B2EBF2;
 }
 
 li {
@@ -21,7 +25,6 @@ li {
 #content {
   display: flex;
   justify-content: center;
-  background-color: #B2EBF2;
 }
 
 .app {

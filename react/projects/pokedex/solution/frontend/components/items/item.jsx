@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const ToyItem = ({ item, router }) => {
+const ToyItem = ({ item }) => {
   return(
-		<li>
+    <li>
       <Link to={ `/pokemon/${item.pokemon_id}/item/${item.id}` }>
         <img src={ item.image_url } alt={ item.name }/>
       </Link>
-		</li>
+    </li>
   )
 };
-
 
 export default ToyItem;

@@ -123,7 +123,7 @@ Have your `benchesReducer` update the `benches` in your state when it receives
 the `RECEIVE_BENCHES` action. Your reducer should look like this:
 
 ```javascript
-// frontend/components/reducers/benches_reducer.js
+// frontend/reducers/benches_reducer.js
 
 import { RECEIVE_BENCHES } from '../actions/bench_actions';
 

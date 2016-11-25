@@ -1,6 +1,6 @@
 # Thunks
 
-One of the most common problems we need middleware to solve is asynchronicity. When building web applications that interact with a server, we need to request resources and then dispatch the response to our store when it eventually gets back. While it would be possible to make these API calls from our components and dispatch synchronously on success, we would prefer to have the source of every change to our app state be an action creators for consistency and reusability. Thunks are a new kind of action creator that will allow us to do just that.
+One of the most common problems we need middleware to solve is asynchronicity. When building web applications that interact with a server, we need to request resources and then dispatch the response to our store when it eventually gets back. It would be possible to make these API calls from our components and dispatch synchronously on success, but for consistency and reusability we would prefer to have the source of every change to our app state be an action creator. Thunks are a new kind of action creator that will allow us to do that.
 
 Rather than returning a plain object, a thunk action creator returns a function. This function, when called with an argument of `dispatch`, can then dispatch one or more actions, immediately, or later. Here's an example.
 
@@ -69,6 +69,6 @@ export const receiveContacts = (contacts) => {
 }
 ```
 
-Much like the logger from the previous reading, thunk middleware is available as a library `redux-thunk`. The middleware we just wrote is almost the entire original library! ([check out the source code][thunk-source]). For more on thunks and handling asynchronicity and redux, you can check out [this interesting SO post from the creator][thunks-so].
+Much like the logger from the previous reading, thunk middleware is available as a library `redux-thunk`. The middleware we just wrote is almost the entire original library! ([check out the source code][thunk-source]). For more on thunks and handling asynchronicity in redux, you can check out [this interesting SO post from the creator][thunks-so].
 [thunk-source]: https://github.com/gaearon/redux-thunk/blob/master/src/index.js
 [thunks-so]: http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559#35415559

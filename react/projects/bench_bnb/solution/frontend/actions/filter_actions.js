@@ -5,7 +5,7 @@ export const UPDATE_FILTER = "UPDATE_FILTER";
 export function updateFilter(filter, value) {
   return (dispatch, getState) => {
     dispatch(changeFilter(filter, value));
-    return fetchBenches()(dispatch);
+    return fetchBenches(getState().filters)(dispatch);
   }
 }
 

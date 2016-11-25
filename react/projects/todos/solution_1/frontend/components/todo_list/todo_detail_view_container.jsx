@@ -5,7 +5,6 @@ import { removeTodo } from '../../actions/todo_actions';
 import { receiveSteps } from '../../actions/step_actions';
 
 const mapDispatchToProps = (dispatch, { todo }) => ({
-  receiveSteps: () => dispatch(receiveSteps(todo.id)),
   removeTodo: () => dispatch(removeTodo(todo))
 });
 

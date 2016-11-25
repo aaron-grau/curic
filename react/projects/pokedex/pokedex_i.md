@@ -13,7 +13,7 @@ We've already set up a Rails backend with migrations and models in the
 * Download the [skeleton][skeleton-zip].
 * Run `bundle install`.
 * Make sure Postgres is running, then run `rake db:setup` (short for
-`rake db:create`, `db:schema:load`, `db:seed`).
+`rake db:create db:schema:load db:seed`).
 
 Get yourself oriented.
 
@@ -222,8 +222,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 document.addEventListener('DOMContentLoaded', () => {
-	const rootEl = document.getElementById('root');
-	ReactDOM.render(<h1>Pokedex</h1>, rootEl);
+  const rootEl = document.getElementById('root');
+  ReactDOM.render(<h1>Pokedex</h1>, rootEl);
 });
 ```
 
@@ -507,9 +507,9 @@ Like so:
 
 ```js
 document.addEventListener('DOMContentLoaded', () => {
-	const store = configureStore();
-	const rootEl = document.getElementById('root');
-	ReactDOM.render(<Root store={store}/>, rootEl);
+  const store = configureStore();
+  const rootEl = document.getElementById('root');
+  ReactDOM.render(<Root store={store}/>, rootEl);
 });
 ```
 
@@ -580,8 +580,8 @@ an unordered list of pokemon names next to corresponding images.
 * Import the container component to `root.jsx`.
 * Nest and render a `<PokemonIndexContainer />` within your `<Root />` component.
 
-**Test your `PokemonIndex` components**: To start, your app should render and empty
-of pokemon objects reflecting your app's initial state. Look for webpack and console errors when debugging.
+**Test your `PokemonIndex` components**: To start, your app should render an empty `ul`
+reflecting your app's initial state, after the request to `fetchPokemon` succeeds the ul should be populated with pokemon. Look for webpack and console errors when debugging.
 
 ```js
 document.addEventListener('DOMContentLoaded', () => {
@@ -645,7 +645,7 @@ Instead of rendering the `PokemonIndexContainer` directly, setup a root
 ```js
 <Provider store={ store }>
   <Router history={ hashHistory }>
-	  <Route path="/" component={ PokemonIndexContainer } />
+    <Route path="/" component={ PokemonIndexContainer } />
   </Router>
 </Provider>
 ```

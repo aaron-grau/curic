@@ -6,7 +6,7 @@ class TodoForm extends React.Component {
     this.state = {
       title: "",
       body: "",
-      tags: [],
+      tag_names: [],
       done: false,
       newTag: ""
     };
@@ -17,7 +17,7 @@ class TodoForm extends React.Component {
 
   addTag(e) {
     this.setState({
-      tags: [ ...this.state.tags, this.state.newTag ],
+      tag_names: [ ...this.state.tag_names, this.state.newTag ],
       newTag: ""
     });
   }
@@ -35,12 +35,13 @@ class TodoForm extends React.Component {
   }
 
   removeTag(idx) {
-    debugger
-    this.setState({ tags: this.state.tags.filter((_, idy) => idy !== idx) });
+    this.setState({
+      tag_names: this.state.tag_names.filter((_, idy) => idy !== idx)
+    });
   }
 
   render() {
-    const tags = this.state.tags.map((tag, idx) => {
+    const tag_names = this.state.tag_names.map((tag, idx) => {
       const clickHandler = () => this.removeTag(idx);
       return <li key={ idx } onClick={ clickHandler }>{ tag }</li>
     });
@@ -79,7 +80,7 @@ class TodoForm extends React.Component {
           </button>
         </label>
         <ul className="tag-list">
-          { tags }
+          { tag_names }
         </ul>
 
         <button className="create-button">Create Todo!</button>
