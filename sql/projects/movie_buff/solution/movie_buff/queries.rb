@@ -22,27 +22,45 @@
 
 
 def it_was_ok
-  # We can use ranges (a..b) inside the where method
-  # For example, to find all movies made in the 70s I could do the following
+  # Consider the following:
   #
   # Movie.where(yr: 1970..1979)
+  #
+  # We can use ranges (a..b) inside a where method. 
   #
   # Find all movies with scores between 2 and 3
 
   Movie.where(score: 2..3)
 end
 
-def biggest_cast
-  # Sometimes we need to use agregate sql functions like
-  # COUNT, MAX, and AVG
-  # These are often combined with group
-  # For example, to find the actor with the most roles we could do
+def harrison_ford
+  # Consider the following:
   #
+  # Actor
+  #   .joins(:movies)
+  #   .where("movies.title = 'Blade Runner'")
+  #
+  # It's possible to join based on active record relations defined in models.
+  #
+  # Find all movies in which Harrison Ford appeared but not as a lead actor
+  
+  Movie
+    .joins(:actors)
+    .where("actors.name = 'Harrison Ford'")
+    .where("castings.ord != 1")
+end
+
+def biggest_cast
+  # Consider the following:
+  # 
   # Actor
   #   .joins(:movies)
   #   .group("actors.id")
   #   .order("COUNT(movies.id) DESC")
   #   .first
+  #
+  # Sometimes we need to use aggregate SQL functions like COUNT, MAX, and AVG.
+  # Often these are combined with group. 
   #
   # Find the movie with the largest cast (i.e most actors)
 
@@ -54,92 +72,32 @@ def biggest_cast
 end
 
 def directed_by_one_of(them)
-  # We can use IN to test if an element is in a list
-  # To test if a movie was made in one of a list of years called 'years'
-  # we could do
+  # Consider the following:
   #
   # Movie.where("yr IN (?)", years)
+  # 
+  # We can use IN to test if an element is present in an array. 
   #
-  # them will be a list of names of directors
-  # Find all the movies direct by one of them
+  # Find all the movies direct by one of 'them'.
 
   Movie
     .joins(:director)
     .where("actors.name IN (?)", them)
-end
-
-def bad_taste
-  # Find the actor whose with the lowest average score among movies they're cast in
-  # Hint: imitate your solution for biggest_cast
-
-  Actor
-    .joins(:movies)
-    .group(:id)
-    .order("AVG(movies.score) ASC")
-    .first
-end
-
-def it_was_ok
-  # We can use ranges (a..b) inside the where method
-  # For example, to find all movies made in the 70s I could do the following
-  #
-  # Movie.where(yr: 1970..1979)
-  #
-  # Find all movies with scores between 2 and 3
-
-  Movie.where(yr: 1970..1979)
-end
-
-def biggest_cast
-  # Sometimes we need to use agregate sequel functions like
-  # COUNT, MAX, and AVG
-  # For example, to find the actor with the most roles we could do
-  #
-  # Actor
-  #   .joins(:movies)
-  #   .group("actors.id")
-  #   .order("COUNT(movies.id) DESC")
-  #   .first
-  #
-  # Find the movie with the largest cast (i.e most actors)
-
-  Movie
-    .joins(:actors)
-    .group("movies.id")
-    .order("COUNT(actors.id) DESC")
-    .first
-end
-
-def directed_by_one_of(them)
-  # We can use IN to test if an element is in a list
-  # To test if a movie was made in one of a list of years called 'years'
-  # we could do
-  #
-  # Movie.where("yr IN (?)", years)
-  #
-  # them will be a list of names of directors
-  # Find all the movies direct by one of them
-
-  Movie
-    .joins(:director)
-    .where("actors.name IN (?)", them)
-end
-
-def bad_taste
-  # Find the actor whose with the highest average score among movies they've been in
-  # Hint: look at your solution for biggest_cast
-
-  Actor
-    .joins(:movies)
-    .group(:id)
-    .order("AVG(movies.score) ASC")
-    .first
 end
 
 def movie_names_before_1940
-  # Find all the movies made before 1940. Show the id, title, and year.
+  # Consider the following: 
+  #
+  # Movie.where("score < 2.0").pluck(:title)
+  # => ["Police Academy: Mission to Moscow"]
+  #
+  # Pluck works similarly to select, except that is converts a query result
+  # directly into a Ruby Array instead of an ActiveRecord object. This can bring
+  # an improvement in performace for larger queries.
+  #
+  # Use pluck to find the title of all movies made before 1940. 
 
-  Movie.select(:id, :title, :yr).where("yr < 1940")
+  Movie.where("yr < 1940").pluck(:title)
 end
 
 def eighties_b_movies
@@ -206,8 +164,10 @@ end
 
 def costars(name)
   # List the names of the actors that the named actor has ever appeared with.
+  # Hint: use a subquery
 
   subquery = Movie.select(:id).joins(:actors).where("actors.name = ?", name)
+  
   Movie
     .joins(:actors)
     .where("actors.name != ?", name)
@@ -218,7 +178,7 @@ end
 
 def most_supportive
   # Find the two actors with the largest number of non-starring roles.
-  #Show each actor's id, name and number of supporting roles.
+  # Show each actor's id, name and number of supporting roles.
 
   Actor
     .select(:id, :name, "COUNT(castings.actor_id) as roles")
