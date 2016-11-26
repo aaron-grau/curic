@@ -1,4 +1,4 @@
-# Learning SQL Setup
+# PostgreSQL Setup
 
 ## Installing Postgres
 

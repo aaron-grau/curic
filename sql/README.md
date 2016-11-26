@@ -7,22 +7,27 @@
   + We'll implement a simple version of a well-known card game. We'll announce
   the specific game, and you can look up the basic rules ahead of time.
 
-### Readings (85 min)
+### Readings (67 min)
 
-+ SQL Fundamentals - read these first!
++ [Programming Paradigms][paradigms] (5 min)
++ SQL Fundamentals
     + [SQL For The Impatient][sql-intro] (20 min)
     + [A Visual Explanation of Joins][visual-joins] (5 min)
+    + [Self-Joins][self] (5 min)
     + [Formatting SQL Code][sql-formatting] (5 min)
-+ [Learning SQL: Setup][learning-sql-setup] (10 min)
-+ [Learning SQL: Part I][learning-sql-part-i] (45 min)
+    + [Subqueries][subquery] (5 min)
+    + [NULL][null] (2 min)
+    + [CASE][case] (5 min)
+    + [COALESCE][coalesce] (5 min)
++ [PostgreSQL Setup][postgres-setup] (10 min)
 
-### Homeworks (30 min)
+### Homeworks (80 min)
 
-+ Complete [SQL Zoo Select Basics][sql-zoo-select] on the Sql Zoo Website (30 min)
++ Complete [SQL Bolt Tutorial][sql-bolt] sections 1 - 12 (80 min)
 
 ### Projects
 
-+ [SQL Zoo][sqlzoo-readme]
++ **Solo** [SQL Zoo][sqlzoo-readme]
 
 ### Project Solutions
 
@@ -31,14 +36,19 @@
 
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
+[paradigms]: readings/paradigms.md
 [sql-intro]: readings/sql-intro.md
 [visual-joins]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
+[self]: readings/self-joins.md
 [sql-formatting]: readings/formatting.md
+[subquery]: https://sqlbolt.com/topic/subqueries
+[postgres-setup]: readings/setup.md
+[null]: readings/null.md
+[case]: http://www.postgresqltutorial.com/postgresql-case/
+[coalesce]: http://www.postgresqltutorial.com/postgresql-coalesce/
 
-[learning-sql-setup]: readings/setup.md
-[learning-sql-part-i]: readings/part-i.md
 [sqlzoo-readme]: projects/sqlzoo
-[sql-zoo-select]: http://sqlzoo.net/wiki/SQLZOO:SELECT_basics
+[sql-bolt]: https://sqlbolt.com/
 [julie-andrews-vid]: https://vimeo.com/184539804
 [craiglockhart-vid]: https://vimeo.com/184539167
 
@@ -53,8 +63,8 @@
 + :movie_camera: [ORM Intro][orm-intro-video] (5 min)
 + :movie_camera: [ORM Demo][orm-demo-video] (25 min)
 
-### Readings (67 min)
-+ [Learning SQL: Part II][learning-sql-part-ii] (45 min)
+### Readings (17 min)
+
 + [SQLite3][sqlite3] (15 min)
 + [Heredocs][heredocs] (5 min)
 + [Little Bobby Tables][xkcd-bobby-tables] (2 min)
@@ -62,14 +72,18 @@
 ### Homeworks (35 min)
 + [Plays-Playwrights ORM][plays-orm] (35 min)
 
+### Additional Resources
++ [PostgreSQL Tutorial][postgresql]
+  + Familiarize yourself with Section 2 - 12, but don't try to remember
+    it all. Keep this for future reference.
++
 ### Projects
 + [AA Questions][aa-questions]
 
-[learning-sql-part-ii]: readings/part-ii.md
+[postgresql]: http://www.postgresqltutorial.com/
 [sqlite3]: readings/sqlite3.md
 [heredocs]: readings/heredocs.md
 [xkcd-bobby-tables]: http://xkcd.com/327/
-[sql-ex]: http://www.sql-ex.ru/
 
 [plays-orm]: homeworks/questions/plays_orm.md
 

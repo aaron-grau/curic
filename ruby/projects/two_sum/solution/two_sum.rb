@@ -35,10 +35,8 @@ end
 def okay_two_sum_b?(arr, target_sum)
   arr = arr.sort
   arr.each_with_index do |el, i|
-    search_result = arr.bsearch { |el2| target_sum - el - el2 }
-    next unless search_result
-    return [arr[i - 1], arr[i + 1]].include?(el) if search_result == el
-    return true
+    match_idx = arr.bsearch_index { |el2| (target_sum - el) <=> el2 }
+    return true if match_idx && match_idx != i
   end
   false
 end
@@ -59,20 +57,20 @@ end
 # This can be easily adapted to also return the indices of the two numbers:
 
 def two_sum_indices(arr, target_sum)
-    complements = {}
-    arr.each_with_index do |el, i|
-        complement, j = complements[target_sum - el] # these will both be nil if the complement doesn't exist
-        return [i, j] if complement
-        
-        complements[el] = [el, i]
-    end
-    nil
+  complements = {}
+  arr.each_with_index do |el, i|
+    complement, j = complements[target_sum - el] # these will both be nil if the complement doesn't exist
+    return [i, j] if complement
+
+    complements[el] = [el, i]
+  end
+  nil
 end
 
 # O(n^2) time complexity
 # O(n^2) space complexity
 
-def four_sum?(arr, target_sum) 
+def four_sum?(arr, target_sum)
 
   pairs = Hash.new
 
@@ -101,7 +99,7 @@ def four_sum?(arr, target_sum)
       # moves on unless there is a pair that sums to the complement-sum
       next unless pairs[complement]
 
-      # iterates over the complement-pairs, looking for possible values `c` that can be the third number in the foursome 
+      # iterates over the complement-pairs, looking for possible values `c` that can be the third number in the foursome
 
       pairs[complement].each do |c, thirds|
         # skip if no unused indices of the required value `c` remain

@@ -17,82 +17,82 @@ $black: #161616;
 $grey: #747474;
 
 html {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	font-family: sans-serif;
-	background: $black;
-	color: $grey;
-	font-size: 12px;
-	height: 100%;
-	padding-right: 10px;
+  font-family: sans-serif;
+  background: $black;
+  color: $grey;
+  font-size: 12px;
+  height: 100%;
+  padding-right: 10px;
 }
 
 header {
-	display: flex;
-	img {
-		z-index: 1;
-	}
-	div {
-		background: url(/assets/pokedex-header-nav.png);
-		width: 100%;
-		height: 46px;
-		margin-right: -10px;
-	}
+  display: flex;
+  img {
+    z-index: 1;
+  }
+  div {
+    background: asset-url("pokedex-header-nav.png");
+    width: 100%;
+    height: 46px;
+    margin-right: -10px;
+  }
 }
 
 nav {
-	position: absolute;
+  position: absolute;
   top: 45px;
-	width: 100%;
+  width: 100%;
 
   ul {
-  	display: flex;
-  	border-bottom: 1px solid grey;
-  	padding-left: 220px;
-		
-  	li {
+    display: flex;
+    border-bottom: 1px solid grey;
+    padding-left: 220px;
 
-  		a {
-  			color: $grey;
-  			display: block;
-  			padding: 15px;
-  			text-decoration: none;
-  			text-transform: uppercase;
-  			cursor: pointer;
-  			z-index: 1;
-  			position: relative;
+    li {
 
-  			&:hover {
-  				color: white;
-  			}
-  		}
-  	}
- 	}
+      a {
+        color: $grey;
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        z-index: 1;
+        position: relative;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+   }
 }
 
 #root {
-	margin-top: -31px;
-	height: 100%;
+  margin-top: -31px;
+  height: 100%;
 
-	> img {
-		position: fixed;
+  > img {
+    position: fixed;
     top: 25%;
     left: 25%;
-	}
+  }
 }
 
 h2 {
-	font-size: 32px;
+  font-size: 32px;
 }
 
 h3 {
-	font-size: 24px;
-	text-align: center;
-	color: $black;
+  font-size: 24px;
+  text-align: center;
+  color: $black;
 }
 
 .spinner {
-	background: url(pokemon_spinner.gif)
+  background: url(pokemon_spinner.gif)
 }

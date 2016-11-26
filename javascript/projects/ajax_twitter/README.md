@@ -140,7 +140,7 @@ for the current input.
 * Create a `frontend/users_search.js` file and define the `UsersSearch` class.
 * As with `FollowToggle`, build a `UsersSearch` for each `nav.users-search` in your entry file.
 * In the constructor, store jQuery wrapped versions of the `el`, its `input` and its `ul` on `this`.
-* Write an `APIUtil#searchUsers(queryVal)` to make a request to `/users/search`.
+* Write an `APIUtil#searchUsers(queryVal, success)` to make a request to `/users/search`.
 You can send query parameters along with an `$.ajax` call through the `data`. Don't forget to set `dataType`!
 * Write a `UsersSearch#handleInput` handler. On each `input` event, call `APIUtil.searchUsers`,
 sending the input's `val` as the query parameter.

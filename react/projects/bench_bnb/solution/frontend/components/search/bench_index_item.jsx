@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router';
 
 class IndexItem extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class IndexItem extends React.Component {
 
   handleClick() {
     const benchId = this.props.bench.id;
-    hashHistory.push(`benches/${benchId}`);
+    this.props.router.push(`benches/${benchId}`);
   }
 
   render() {
@@ -32,4 +32,4 @@ class IndexItem extends React.Component {
   }
 }
 
-export default IndexItem;
+export default withRouter(IndexItem);

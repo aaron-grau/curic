@@ -68,7 +68,7 @@ this array as an instance variable.
 #### `$l(HTMLElement)`
 * We are now going to modify the core `$l` function. It will recieve one argument,
   but let's make it flexible.
-* If the argument received is a jQuery object, (i.e. an `instanceof`
+* If the argument received is a HTML element, (i.e. an `instanceof`
   `HTMLElement`), you should put it into an array and return an instance of
   DOMNodeCollection.
 * This will allow a HTMLElement native element to be 'wrapped' in jQuery
