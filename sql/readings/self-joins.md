@@ -47,7 +47,7 @@ easy to reference a specific column in a table. Since we only deal with
 one table in a self join, we have to use **aliases**.
 
 An alias is essentially a nickname for a table (or, in some cases, a
-column). This is necessary because the [query processor][query-pro]
+column). This is necessary because the query processor
 needs to make a distinction between the duplicates of the same table to
 JOIN them. Keep in mind, the keyword **AS** is not necessary to alias
 tables or columns. The above SQL query could be rewritten:
