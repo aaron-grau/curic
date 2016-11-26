@@ -3,7 +3,7 @@ def it_was_ok
   #
   # Movie.where(yr: 1970..1979)
   #
-  # We can use ranges (a..b) inside a where method. 
+  # We can use ranges (a..b) inside a where method.
   #
   # Find all movies with scores between 2 and 3
 
@@ -20,7 +20,7 @@ def harrison_ford
   # It's possible to join based on active record relations defined in models.
   #
   # Find all movies in which Harrison Ford appeared but not as a lead actor
-  
+
   Movie
     .joins(:actors)
     .where("actors.name = 'Harrison Ford'")
@@ -29,7 +29,7 @@ end
 
 def biggest_cast
   # Consider the following:
-  # 
+  #
   # Actor
   #   .joins(:movies)
   #   .group("actors.id")
@@ -37,7 +37,7 @@ def biggest_cast
   #   .first
   #
   # Sometimes we need to use aggregate SQL functions like COUNT, MAX, and AVG.
-  # Often these are combined with group. 
+  # Often these are combined with group.
   #
   # Find the movie with the largest cast (i.e most actors)
 
@@ -52,8 +52,8 @@ def directed_by_one_of(them)
   # Consider the following:
   #
   # Movie.where("yr IN (?)", years)
-  # 
-  # We can use IN to test if an element is present in an array. 
+  #
+  # We can use IN to test if an element is present in an array.
   #
   # Find all the movies direct by one of 'them'.
 
@@ -63,16 +63,17 @@ def directed_by_one_of(them)
 end
 
 def movie_names_before_1940
-  # Consider the following: 
+  # Consider the following:
   #
   # Movie.where("score < 2.0").pluck(:title)
   # => ["Police Academy: Mission to Moscow"]
   #
   # Pluck works similarly to select, except that is converts a query result
-  # directly into a Ruby Array instead of an ActiveRecord object. This can bring
-  # an improvement in performace for larger queries.
+  # directly into a Ruby Array instead of an ActiveRecord object. This can
+  # improve performace for larger queries.
   #
-  # Use pluck to find the title of all movies made before 1940. 
+  # Use pluck to find the title of all movies made before 1940.
 
   Movie.where("yr < 1940").pluck(:title)
 end
+

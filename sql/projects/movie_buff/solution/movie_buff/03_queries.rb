@@ -1,11 +1,11 @@
 def starring(whazzername)
-	# Find the movies with an actor who had a name like `whazzername`.
-	# A name is like whazzername if the actor's name contains all of the letters in whazzername,
+  # Find the movies with an actor who had a name like `whazzername`.
+  # A name is like whazzername if the actor's name contains all of the letters in whazzername,
   # ignoring case, in order.
 
-	# ex. "Sylvester Stallone" is like "sylvester" and "lester stone" but not like "stallone sylvester" or "zylvester ztallone"
+  # ex. "Sylvester Stallone" is like "sylvester" and "lester stone" but not like "stallone sylvester" or "zylvester ztallone"
 
-	matcher = "%#{whazzername.split(//).join("%")}%"
+  matcher = "%#{whazzername.split(//).join("%")}%"
   Movie.joins(:actors).where("UPPER(actors.name) LIKE UPPER(?)", matcher)
 
   # Note: The below code also works:
@@ -22,8 +22,8 @@ def bad_years
 end
 
 def golden_age
-	# Find the decade with the highest average movie score.
-	Movie
+  # Find the decade with the highest average movie score.
+  Movie
     .select("AVG(score), (yr / 10) * 10 AS decade")
     .group("decade")
     .order("avg(score) DESC")
@@ -56,14 +56,15 @@ def actor_out_of_work
 end
 
 def longest_career
-	# Find the 3 actors who had the longest careers
+  # Find the 3 actors who had the longest careers
   # (the greatest time between first and last movie).
   # Order by actor names
 
-	Actor
+  Actor
     .select(:name, :id, "MAX(movies.yr) - MIN(movies.yr) AS career")
     .joins(:movies)
     .order("career DESC, name")
     .group(:id)
     .limit(3)
 end
+

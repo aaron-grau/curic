@@ -1,8 +1,8 @@
 def eighties_b_movies
-	# List all the movies from 1980-1989 with scores falling between 3 and 5 (inclusive).
+  # List all the movies from 1980-1989 with scores falling between 3 and 5 (inclusive).
   # Show the id, title, year, and score.
 
-	Movie.select(:id, :title, :yr, :score).where(yr: 1980..1989, score: 3..5)
+  Movie.select(:id, :title, :yr, :score).where(yr: 1980..1989, score: 3..5)
 end
 
 def vanity_projects
@@ -28,10 +28,10 @@ def cast_list(title)
 end
 
 def what_was_that_one_with(those_actors)
-	# Find the movies starring all `those_actors` (an array of actor names).
+  # Find the movies starring all `those_actors` (an array of actor names).
   # Show each movie's title and id.
 
-	Movie
+  Movie
     .select(:title, :id)
     .joins(:actors)
     .where("actors.name in (?)", those_actors)
@@ -52,5 +52,4 @@ def most_supportive
     .order("roles DESC")
     .limit(2)
 end
-
 
