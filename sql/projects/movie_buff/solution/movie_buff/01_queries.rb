@@ -5,9 +5,9 @@ def it_was_ok
   #
   # We can use ranges (a..b) inside a where method.
   #
-  # Find all movies with scores between 2 and 3
+  # Find the id, title, and score of all movies with scores between 2 and 3
 
-  Movie.where(score: 2..3)
+  Movie.select(:id, :title, :score).where(score: 2..3)
 end
 
 def harrison_ford
@@ -19,9 +19,10 @@ def harrison_ford
   #
   # It's possible to join based on active record relations defined in models.
   #
-  # Find all movies in which Harrison Ford appeared but not as a lead actor
+  # Find the id and title of all movies in which Harrison Ford appeared but not as a lead actor
 
   Movie
+    .select(:id, :title)
     .joins(:actors)
     .where("actors.name = 'Harrison Ford'")
     .where("castings.ord != 1")
@@ -39,9 +40,10 @@ def biggest_cast
   # Sometimes we need to use aggregate SQL functions like COUNT, MAX, and AVG.
   # Often these are combined with group.
   #
-  # Find the 3 movies with the largest casts (i.e most actors)
+  # Find the id and title of the 3 movies with the largest casts (i.e most actors)
 
   Movie
+    .select(:id, :title)
     .joins(:actors)
     .group("movies.id")
     .order("COUNT(actors.id) DESC")
@@ -58,6 +60,7 @@ def directed_by_one_of(them)
   # Find all the movies direct by one of 'them'.
 
   Movie
+    .select(:id, :title)
     .joins(:director)
     .where("actors.name IN (?)", them)
 end
