@@ -61,7 +61,7 @@ the end of a query you can inspect the SQL query ActiveRecord makes under the
 hood. This is particularly useful for debugging. ActiveRecord also has a method
 `as_json` that provides the jsonified output of a query.
 
-ActiveRecord can join associations defined on the model. We've gone ahead and
+Also, remember that ActiveRecord can join associations defined on the model. We've gone ahead and
 defined associations for actors, castings, and movies for you.
 
 Have fun and good luck!

@@ -34,18 +34,18 @@ def biggest_cast
   #   .joins(:movies)
   #   .group("actors.id")
   #   .order("COUNT(movies.id) DESC")
-  #   .first
+  #   .limit(1)
   #
   # Sometimes we need to use aggregate SQL functions like COUNT, MAX, and AVG.
   # Often these are combined with group.
   #
-  # Find the movie with the largest cast (i.e most actors)
+  # Find the 3 movies with the largest casts (i.e most actors)
 
   Movie
     .joins(:actors)
     .group("movies.id")
     .order("COUNT(actors.id) DESC")
-    .first
+    .limit(3)
 end
 
 def directed_by_one_of(them)
