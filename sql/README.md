@@ -76,7 +76,7 @@
 + [PostgreSQL Tutorial][postgresql]
   + Familiarize yourself with Section 2 - 12, but don't try to remember
     it all. Keep this for future reference.
-+
+
 ### Projects
 + [AA Questions][aa-questions]
 
