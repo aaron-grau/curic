@@ -169,7 +169,7 @@ fundamental pattern of building Redux apps. Because each reducer only handles a 
 
 Let's split up our popular fruit stand app's `reducer` into two reducers:
 + `fruits` - A reducing function that handles actions updating the `fruits` slice of our app state.
-+ `farmers` - A reduction function that handles actions updating the new `farmers` slice of our app state.
++ `farmers` - A reducing function that handles actions updating the new `farmers` slice of our app state.
 
 ```js
 // reducers/fruits_reducer.js
