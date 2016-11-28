@@ -223,7 +223,7 @@ console. Does your store's initial state match the default state you defined?
 [Selectors][selector_reading] are "getter" methods for the application state.
 They receive the state as an argument and return a subset of the state
 data formatted in a specific way. We will explore them in more detail but for now
-all we need is a function to transform and object filled with todos, into an array
+all we need is a function to transform an object filled with todos, into an array
 for easy consumption by our components.
 
 + Create a file `reducers/selectors.js`.
