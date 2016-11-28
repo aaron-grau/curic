@@ -301,7 +301,7 @@ This component will hold all of the top-level concerns of your app. A top-level
 concern is a feature of the app that functions on its own and as such is not
 nested under any other features. In this case, that will only be the `TodoList`,
 but nonetheless it's a good design pattern to get used to. You should define `App`
-in `frontend/components/App`.
+in `frontend/components/app.jsx`.
 
 Your `App` component can also be functional, because it doesn't need to use any
 of React's lifecycle hooks. Because it doesn't rely on any of its props, the
