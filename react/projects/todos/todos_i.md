@@ -361,7 +361,7 @@ presentational component.
 Refer to the [components][components_reading] and [connect][connect_reading]
 reading if you need a refresher on container components.
 
-+ Create a file `components/todo_list/todo_list_container.js`
++ Create a file `components/todo_list/todo_list_container.jsx`
 + Import both the `connect` function and the (as of yet unwritten) `TodoList` presentational component
 + Create a `mapStateToProps` function
   + Create a prop called `todos` whose value is the return value of your `allTodos` selector passed the `state`
