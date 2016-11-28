@@ -1,5 +1,5 @@
 require 'rspec'
-require '07a_more_joins'
+require '07a_joins_bonus'
 
 describe "music JOINs" do
   describe "alison_artist" do
