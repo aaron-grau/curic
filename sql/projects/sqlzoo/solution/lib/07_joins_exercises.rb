@@ -186,8 +186,6 @@ def prolific_actors
       actors
     JOIN
       castings ON castings.actor_id = actors.id
-    JOIN
-      movies ON movies.id = castings.movie_id
     WHERE
       castings.ord = 1
     GROUP BY
