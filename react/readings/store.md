@@ -73,7 +73,7 @@ const addOrange = {
 When `store.dispatch()` is called, the store passes its current `state`, along
 with the `action` being dispatched, to the `reducer`. The `reducer` function
 takes the two arguments (`state` and `action`) and returns the next `state`.
-You'll read more more on the `reducer` in the next reading, but for now, think
+You'll read more on the `reducer` in the next reading, but for now, think
 of it as a Redux app's traffic cop, routing new information to its rightful
 place in the state.
 
