@@ -165,8 +165,6 @@ it's fast, and it provides a good, nearly uniform output of bits.
 Now that we've got our hashing functions, we can store more than just
 integers. Let's make it so we can store any data type in our set.
 
-### 3a: MyHashSet
-
 This will be a simple improvement on ResizingIntSet. Just hash every
 item before performing any operation on it. This will return an integer,
 which you can modulo by the number of buckets. Implement the `#[]` method to dry up your code. With this simple
@@ -177,8 +175,6 @@ Time to request a **code review**.
 
 Now let's take it one step further.
 
-### 3b: MyHashMap
-
 Up until now, our hash set has only been able to insert and then check
 for inclusion. We couldn't create a map of values, as in key-value
 pairs. Let's change that and create a **hash map**. But first, we'll
@@ -187,10 +183,10 @@ have to build a subordinate, underlying data structure.
 ## Phase 4: Linked List
 
 A [linked list][linked-list-wiki] is a data structure that consists of a
-series of links. Each link holds a value and a pointer to the previous and next links (or `nil`). Given a pointer to the first (or head) link, you can access
+series of links. Each link holds a value and a pointer to the next link (or `nil`). Given a pointer to the first (or head) link, you can access
 any arbitrary link by traversing the links in order.
 
-We will be implementing a special type of linked list called a "doubly linked list" - this means that we should also keep a pointer to the last (or tail) link so that we can traverse the list in reverse order.
+We will be implementing a special type of linked list called a "doubly linked list" - this means that each link should also hold a pointer to the previous link. Given a pointer to the last (or tail) link, we can traverse the list in reverse order.
 
 Our LinkedLists will ultimately be used in lieu of arrays for our HashMap buckets. In order to make the HashMap work, each link in your linked list will need to store both a key and a value.
 
