@@ -366,7 +366,7 @@ reading if you need a refresher on container components.
 + Create a `mapStateToProps` function
   + Create a prop called `todos` whose value is the return value of your `allTodos` selector passed the `state`
 + Create a `mapDispatchToProps` function
-  + Create a prop called `receiveTodo` whose value is a function which takes the `todos` to be received and invokes a call to `dispatch`, passing the result of a call to the `receiveTodo` action creator with `todos` as the argument
+  + Create a prop called `receiveTodo` that accepts a `todo` and invokes a call to `dispatch` with the action returned from the `receiveTodo` action creator
 + Pass your `mapStateToProps` and `mapDispatchToProps` functions to `connect`
 + Call the result of this `connect` function with your `TodoList` presentational component as an argument
 + Export the result of this function call
