@@ -102,7 +102,7 @@ class Game
 
   def show_hands
     puts "HANDS"
-    players.each_with_index do |player, i|
+    players.each do |player|
       next if player.folded?
       puts "#{player.hand} (#{player.hand.rank})"
     end
