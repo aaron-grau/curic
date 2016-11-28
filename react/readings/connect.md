@@ -76,7 +76,7 @@ const mapStateToProps = (state, ownProps) => ({
 ConnectedComponent = connect(mapStateToProps)(Component);
 ```
 
-In the example above, the `Component` will receive two addition props (`firstName` and `initials`) via `connect()`, in addition to its explicit `lastName` prop.
+In the example above, the `Component` will receive two additional props (`firstName` and `initials`) via `connect()`, in addition to its explicit `lastName` prop.
 
 ## `mapDispatchToProps`
 
