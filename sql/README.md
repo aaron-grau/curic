@@ -157,7 +157,8 @@
 + [Scopes][scopes] (10 min)
 + [More on Querying][querying-ii] (15 min)
 
-### Homeworks (30 min)
+### Homeworks (60 min)
++ [Movie Buff in Training][movie-buff-hw] (30 min)
 + [N+1 Buster][n1-buster] (30 min)
 
 ### Additional Resources
@@ -175,6 +176,7 @@
 [sql-ternary-logic]: readings/sql-ternary-logic.md
 
 [n1-buster]: homeworks/questions/n_1_buster.md
+[movie-buff-hw]: homeworks/questions/active_record_warmup/README.md
 [movie-buff]: projects/movie_buff
 [polls-app]: projects/polls_app
 
