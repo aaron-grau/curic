@@ -17,8 +17,8 @@ You can manually test queries in the rails console. All queries should be writte
 Active Record.
 
 Note:
-1. ActiveRecord queries have two methods, to_sql and as_json, that you might find helpful for debugging. The specs use as_json -- feel free to refer to them while writing your queries.
-2. `find`, `find_by`, `find_by_#{attribute}`, etc. all return the first matching instance from
++ ActiveRecord queries have two methods, to_sql and as_json, that you might find helpful for debugging. The specs use as_json -- feel free to refer to them while writing your queries.
++ `find`, `find_by`, `find_by_#{attribute}`, etc. all return the first matching instance from
 the database; `where` returns a collection of instances, regardless of the number. Be careful about whether you are expecting the object itself or a collection-wrapped object/set of objects.
 
 [skeleton]: ./skeleton.zip?raw=true
