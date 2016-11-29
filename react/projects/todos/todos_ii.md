@@ -8,7 +8,11 @@ Today we will continue building from the frontend only todo app you built yester
 and incorporate rails so that our todos can be persisted on the backend and users can be authenticated.
 We will also learn to use and implement thunk middleware to handle asynchronous actions. Let's get started!
 
-## Phase 0: Rails API
+## Phase 0
+
+If you haven't already, finish part one of the project through phase 5 (up to, but not including, steps). You will not need to have steps implemented to work with most of todays project, but you will need a working todo form.
+
+## Phase 1: Rails API
 
 In this phase you will create a Rails API that stores `Todo`s in a database
 and serves JSON in response to HTTP requests.
@@ -106,7 +110,7 @@ $.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
 
 ---
 
-## Phase 1: Putting it all together
+## Phase 2: Putting it all together
 
 Your entire todos project from yesterday will function as the frontend folder for your rails app with some slight modifications.
 You will also need your package.json and webpack config which should be put in the root folder, but you do not need `index.html`.
@@ -116,10 +120,7 @@ Modify the output path in your webpack config to create bundle in `app/assets/ja
 **Test your setup** - You should be able to visit `localhost:3000` and confirm
 that you have your entire work from yesterday working on `localhost:3000` before continuing.
 
----
-## Phase 2: Todos Redux Structure
-
-In this phase you will expand our Redux loop to include the entire internet!
+Let's expand our Redux loop to include the entire internet!
 That is, make requests to our rails app and bring back todos from the database.
 For this we will use an `APIUtil` and thunk action creators.
 
@@ -244,7 +245,7 @@ Change your components to use your new action instead of calling receiveTodo dir
 You know the drill! Make your `APIUtil` function, and thunk action creator `deleteTodo` (it should dispatch
 `removeTodo` on success). Update your components to use the new action.
 
-### Steps
+### Phase 3: Steps
 
 Once your todos have all their original functionality back and persisting to the database,
 go through the same process with steps! You will have to write:
@@ -255,7 +256,7 @@ go through the same process with steps! You will have to write:
 * The API Util
 * The async actions
 
-## Phase 3: Authentication
+## Phase 4: Authentication
 
 Right now all users of our todo app share the same todos. Let's authenticate users
 and only show them their own todos. You will not need redux (or javascript at all)
@@ -286,7 +287,7 @@ def create
 
 You now have a fully authenticated todo app! Celebrate!
 
-## Phase 4: Tags
+## Phase 5: Tags
 
 Let's add tags to our todos.
 
