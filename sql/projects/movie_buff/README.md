@@ -4,7 +4,7 @@ Estimated Time: 4 hrs.
 
 For this project you will be writing ActiveRecord queries against the the actors,
 movies, and castings tables from the SQL Zoo project. We've written rspec tests
-to check both that you return the correct results and query the database the
+to check that you both return the correct results and query the database the
 correct number of times. Please run them to check your work. 
 
 It may be helpful to refer to the [SQL Zoo solutions][sql-zoo-solutions] for guidance as
