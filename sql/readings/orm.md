@@ -174,12 +174,7 @@ p.save!
 Notice that I use `#save!`; you may have also seen the plain ol'
 `#save`. The difference between the two is that `#save!` will warn you
 if you fail to save the object, whereas `#save` will quietly return
-`false` (it returns `true` on success). Since it is a common mistake
-to forget to check the return value of `#save`, make `#save!` your
-default.
-
-There is nothing worse than silently losing a bunch of data because
-you never made sure it was actually persisted to the database...
+`false` (it returns `true` on success). 
 
 To save some steps of `#save!`, we can use `#create!` to create a new
 record and immediately save it to the db:
