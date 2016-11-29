@@ -1,5 +1,14 @@
 # ContactsAPI
 
+## Learning Goals
+
++ be able to write Active Record models quickly
++ know how to write a `user_params` method
++ be able to write the five API RESTful controller methods
++ know how to test your API endpoints with RestClient or Postman
++ know how to create and destroy join table records via controller methods
++ know how a nested route works 
+
 ## Layering on Contacts
 
 We're going to continue building on the API we built in the first
