@@ -62,7 +62,8 @@ hood. This is particularly useful for debugging. ActiveRecord also has a method
 `as_json` that provides the jsonified output of a query.
 
 Also, remember that ActiveRecord can join associations defined on the model. We've gone ahead and
-defined associations for actors, castings, and movies for you.
+defined associations for actors, castings, and movies for you. Please take a look
+at these associations before you begin.
 
 Have fun and good luck!
 
