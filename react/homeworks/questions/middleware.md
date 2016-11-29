@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this homework, you will modify the Synthesizer project's `dispatch` function
+In this homework, you will modify the Todo project's `dispatch` function
 so that it does more than just dispatch actions to the store. You will use this
 pattern again tomorrow in a more sophisticated way.
 
