@@ -75,7 +75,7 @@ For all videos: :closed_lock_with_key: `go_video_go`
 [HTML Escaping]: ./xss.md
 [AWS-screencast1]: https://vimeo.com/169111348
 [AWS-screencast2]: https://vimeo.com/169111248
-[AWS-demo]:https://github.com/fsladkey/file-upload-demo
+[AWS-demo]:../demos/file_upload_demo
 
 ## Real-Time Communication
 (eg. notifications, messages, etc.)

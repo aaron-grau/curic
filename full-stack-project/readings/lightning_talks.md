@@ -30,6 +30,6 @@ Not seeing what you need?  Let the instructional staff know, and if there's enou
 [cloudinary-screencast]: https://vimeo.com/164612621
 [gon-webcast]: https://vimeo.com/168132088
 [cloudinary-demo]: https://github.com/appacademy/react_cloudinary_demo
-[AWS-demo]:https://github.com/fsladkey/file-upload-demo
+[AWS-demo]:../demos/file_upload_demo
 [AWS-screencast1]: https://vimeo.com/169111348
 [AWS-screencast2]: https://vimeo.com/169111248
