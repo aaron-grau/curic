@@ -230,7 +230,7 @@ export function createTodo(todo) {
 
 Verify that your error state is populated if you try to create a todo with invalid params.
 Then, inside your todo form component, display the errors. You will need to pass the errors through
-`mapStateToProps` of the top level component.
+`mapStateToProps` of the top level component. Make sure to clear the errors when the todo is successfully created!
 
 #### Updating Todos
 
