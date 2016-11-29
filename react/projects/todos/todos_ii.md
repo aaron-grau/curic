@@ -5,7 +5,7 @@
 [Live Demo!][demo]
 
 Today we will continue building from the frontend only todo app you built yesterday
-and incorporate rails so that our todos can be persisted on the backend and users can be authenticated.
+and incorporate Rails so that our todos can be persisted on the backend and users can be authenticated.
 We will also learn to use and implement thunk middleware to handle asynchronous actions. Let's get started!
 
 ## Phase 0
@@ -17,7 +17,7 @@ If you haven't already, finish part one of the project through phase 5 (up to, b
 In this phase you will create a Rails API that stores `Todo`s in a database
 and serves JSON in response to HTTP requests.
 
-**NB**: We first saw use of a Rails API in Ajax Twitter! Today, we will create
+**NB**: We first saw use of a Rails API in AJAX Twitter! Today, we will create
 a Rails API that will have controllers and models but will not have HTML
 views. Instead of being a full-stack app, its purpose will be to serve
 information between our Postgres database and React/Redux front-end. It will
@@ -25,7 +25,7 @@ respond to HTTP requests using `Controller#Actions`, the same way as before.
 Its responses, however, will be JSON instead of HTML. On the client side, we will
 make requests for these JSON views, and will parse and display them via our React components.
 User interactions with React components will dispatch actions to our Redux store
-that either fire ajax requests or render the newest application state.
+that either fire AJAX requests or render the newest application state.
 
 Let's get started!
 
@@ -36,7 +36,7 @@ Let's get started!
 + Create a `Todo` migration and model with a `title` string (required), a `body` string (required), and a `done` boolean (required).
   + Add the necessary validations to the database and model.
     + NB: Validating boolean fields at the model level can create interesting bugs. `presence: true` will
-    fail because rails checks for presence by calling `blank?` on the validated attribute.
+    fail because Rails checks for presence by calling `blank?` on the validated attribute.
     Since `false` is considered `blank` it will fail the validation. Instead, use
     `validates :boolean_field_name, inclusion: { in: [true, false] }`
     at the model level to validate boolean fields.
@@ -45,7 +45,7 @@ Let's get started!
   + Run `rake db:migrate`.
 
 **Test your setup** - Try creating a couple of todos in your database using the
-rails console (`rails c`).
+Rails console (`rails c`).
 
 + Create an `Api::TodosController` to handle our API requests for `Todo`s.
   + It should create `app/controller/api/todos_controller.rb`.
@@ -113,7 +113,7 @@ $.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
 ## Phase 2: Putting it all together
 
 Your entire todos project from yesterday will function as the frontend folder for your rails app with some slight modifications.
-You will also need your package.json and webpack config which should be put in the root folder, but you do not need `index.html`.
+You will also need your `package.json` and `webpack.config.js` which should be put in the root folder, but you do not need `index.html`.
 
 Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than `build`. Don't forget to require your bundle inside of `application.js`.
 
@@ -121,7 +121,7 @@ Modify the output path in your webpack config to create bundle in `app/assets/ja
 that you have your entire work from yesterday working on `localhost:3000` before continuing.
 
 Let's expand our Redux loop to include the entire internet!
-That is, make requests to our rails app and bring back todos from the database.
+That is, make requests to our Rails app and bring back todos from the database.
 For this we will use an `APIUtil` and thunk action creators.
 
 ### API Utils
@@ -171,7 +171,7 @@ and when invoked, call the `APIUtil` to fetch all todos. Resolve the promise by 
 your synchronous `receiveTodos()` action.
 
 Test it out! With your store and thunk action creator attached to the window you
-should be able to populate your redux store with todos from the database like so.
+should be able to populate your Redux store with todos from the database like so.
 
 ```js
 store.dispatch(fetchTodos());
@@ -206,9 +206,9 @@ this.props.createTodo({ todo }).then(
 ### Error Handling
 
 We now have to deal with the unfortunate possibility that our request may fail.
-When we attempt to create a todo with invalid params, the server will render a json array of errors.
-We need a place in our redux store to house these errors. Time for a new reducer!
-Create `frontend/reducers/error_reducer`. It's initial state should be an empty array. Now let's write
+When we attempt to create a todo with invalid params, the server will render a JSON array of errors.
+We need a place in our Redux store to house these errors. Time for a new reducer!
+Create `frontend/reducers/error_reducer`. Its initial state should be an empty array. Now let's write
 some actions to modify this portion of state.
 
 * Create `frontend/actions/error_actions`. You only need two sync actions here, `receiveErrors(errors)` and `clearErrors`.
@@ -238,7 +238,7 @@ This will be very similar to creating todos, (the resulting action will still be
 but we need a different action because we will hit a different route on the back end.
 Add `APIUtil.updateTodo(todo)` and a new thunk action creator `updateTodo(todo)`
 which dispatches `receiveTodo` upon success and `receiveError` on failure.
-Change your components to use your new action instead of calling receiveTodo directly.
+Change your components to use your new action instead of calling `receiveTodo` directly.
 
 #### Deleting Todos
 
@@ -259,13 +259,13 @@ go through the same process with steps! You will have to write:
 ## Phase 4: Authentication
 
 Right now all users of our todo app share the same todos. Let's authenticate users
-and only show them their own todos. You will not need redux (or javascript at all)
+and only show them their own todos. You will not need Redux (or JavaScript at all)
 for authentication today. We are going to authenticate our app the same way
 we have up to this point. Frontend authentication is a topic that will be explored later this week.
 
 * Create a user model with a `username` and all other columns needed for authentication.
 * Create a users and session controller with `new` and `create` actions for both and `destroy` for session.
-* Make rails views for `users/new` and `sessions/new` (they can probably share a form partial).
+* Make Rails views for `users/new` and `sessions/new` (they can probably share a form partial).
 * On successful account creation or log in, redirect users to `static_pages#root`.
 * Use `before_action` callbacks to ensure logged in users get redirected from sign in routes to `static_pages#root`
 and logged out users are redirected from `root` to `sessions/new`.
@@ -283,7 +283,7 @@ def create
 ```ruby
 @todo = current_user.todos.find(params[:id])
 ```
-* Lastly, modify the index action to only render the current users todos.
+* Lastly, modify the `index` action to only render the current user's todos.
 
 You now have a fully authenticated todo app! Celebrate!
 
@@ -305,14 +305,14 @@ def tag_names=(tag_names)
   end
 end
 ```
-* Inside your todo controller, add `tag_names` to the `todo_params`.
+* Inside your todos controller, add `tag_names` to the `todo_params`.
 Remember the alternate syntax to allow the `tag_names` param to be an array.
-When we create/update a todo, rails will automatically call `tag_names=` for us.
+When we create/update a todo, Rails will automatically call `tag_names=` for us.
 This is similar to writing a custom `password=` method for auth.
-* We need our todos to be rendered with their associated tags. You can tell rails to
+* We need our todos to be rendered with their associated tags. You can tell Rails to
 render associated items with the syntax `render json: @todos, include: :tags`. This approach can get messy
-when including multiple associations. We will use `jbuilder` to solve this problem later.
-* In your todo form, add a `tag_names` array to your component state and display `this.state.tag_names` in a ul inside the form.
+when including multiple associations. We will use Jbuilder to solve this problem later.
+* In your todo form, add a `tag_names` array to your component state and display `this.state.tag_names` in a `ul` inside the form.
 You will also need an input to add new tags and a button to submit the new tag. However, we must be careful that this button
 does not accidentally submit the form. To avoid this, make sure to use `<button type="button">`. Explicitly setting a type of
 `button` overrides the default type of `submit`. On click of this button, add the input value to the current list of tags and clear the input.
