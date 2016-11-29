@@ -29,6 +29,9 @@ it.
 	node_modules/
 	bundle.js
 	bundle.js.map
+	.byebug_history
+	.DS_Store
+	npm-debug.log
 	```
 0. Setup a remote repository on Github.
 0. Commit your files and push to your remote.
