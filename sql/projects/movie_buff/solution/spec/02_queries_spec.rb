@@ -53,6 +53,49 @@ describe "eighties_b_movies" do
   end
 end
 
+describe "bad_years" do
+	subject { bad_years }
+
+	it "retrieves the correct information" do
+		expect(subject).to contain_exactly(1947, 1932, 1965)
+	end
+
+  it "hits the database exactly once" do
+    expect{ subject.as_json }.to make_database_queries(count: 1)
+  end
+end
+
+describe "cast_list" do
+	let(:star_wars) { cast_list("Star Wars").as_json }
+	let(:forrest_gump) { cast_list("Forrest Gump").as_json }
+	it "retrieves the correct information" do
+		expect(star_wars).to eq([
+			{"id"=>552, "name"=>"Mark Hamill"},
+			{"id"=>6, "name"=>"Harrison Ford"},
+			{"id"=>462, "name"=>"Carrie Fisher"},
+			{"id"=>3234, "name"=>"Peter Cushing"},
+			{"id"=>925, "name"=>"Alec Guinness"},
+			{"id"=>1655, "name"=>"Anthony Daniels"},
+			{"id"=>2881, "name"=>"Kenny Baker (I)"},
+			{"id"=>3178, "name"=>"Peter Mayhew (II)"},
+			{"id"=>3707, "name"=>"David Prowse"},
+			{"id"=>5788, "name"=>"Jack Purvis"}
+		])
+		expect(forrest_gump).to eq([
+			{"id"=>8, "name"=>"Tom Hanks"},
+			{"id"=>536, "name"=>"Robin Wright"},
+			{"id"=>255, "name"=>"Gary Sinise"},
+			{"id"=>1204, "name"=>"Mykelti Williamson"},
+			{"id"=>369, "name"=>"Sally Field"}
+		])
+	end
+
+	 it "hits the database exactly once" do
+    expect{ star_wars }.to make_database_queries(count: 1)
+    expect{ forrest_gump }.to make_database_queries(count: 1)
+  end
+end
+
 describe "vanity_projects" do
 	subject { vanity_projects.as_json }
 	it "retrieves the correct information" do
@@ -121,65 +164,6 @@ describe "vanity_projects" do
   it "hits the database exactly once" do
     expect{ subject }.to make_database_queries(count: 1)
   end
-end
-
-describe "cast_list" do
-	let(:star_wars) { cast_list("Star Wars").as_json }
-	let(:forrest_gump) { cast_list("Forrest Gump").as_json }
-	it "retrieves the correct information" do
-		expect(star_wars).to eq([
-			{"id"=>552, "name"=>"Mark Hamill"},
-			{"id"=>6, "name"=>"Harrison Ford"},
-			{"id"=>462, "name"=>"Carrie Fisher"},
-			{"id"=>3234, "name"=>"Peter Cushing"},
-			{"id"=>925, "name"=>"Alec Guinness"},
-			{"id"=>1655, "name"=>"Anthony Daniels"},
-			{"id"=>2881, "name"=>"Kenny Baker (I)"},
-			{"id"=>3178, "name"=>"Peter Mayhew (II)"},
-			{"id"=>3707, "name"=>"David Prowse"},
-			{"id"=>5788, "name"=>"Jack Purvis"}
-		])
-		expect(forrest_gump).to eq([
-			{"id"=>8, "name"=>"Tom Hanks"},
-			{"id"=>536, "name"=>"Robin Wright"},
-			{"id"=>255, "name"=>"Gary Sinise"},
-			{"id"=>1204, "name"=>"Mykelti Williamson"},
-			{"id"=>369, "name"=>"Sally Field"}
-		])
-	end
-
-	 it "hits the database exactly once" do
-    expect{ star_wars }.to make_database_queries(count: 1)
-    expect{ forrest_gump }.to make_database_queries(count: 1)
-  end
-end
-
-describe "what_was_that_one_with" do
-	let(:ben_and_matt) {what_was_that_one_with([
-		"Ben Affleck", "Matt Damon"
-	]).as_json}
-
-	let(:geena_and_susan) {what_was_that_one_with([
-		"Geena Davis", "Susan Sarandon"
-	]).as_json}
-
-	it "retrieves the correct information" do
-		expect(ben_and_matt).to contain_exactly(
-			{"id"=>1449, "title"=>"School Ties"},
-			{"id"=>29, "title"=>"Good Will Hunting"},
-			{"id"=>98, "title"=>"Dogma"},
-			{"id"=>95, "title"=>"Chasing Amy"}
-		)
-
-		expect(geena_and_susan).to eq([
-			{"id"=>201, "title"=>"Thelma & Louise"}
-		])
-	end
-
-	it "hits the database exactly once" do
-		expect{ ben_and_matt }.to make_database_queries(count: 1)
-		expect{ geena_and_susan }.to make_database_queries(count: 1)
-	end
 end
 
 describe "most_supportive" do

@@ -1,24 +1,13 @@
-def starring(whazzername)
-  # Find the movies with an actor who had a name like `whazzername`.
-  # A name is like whazzername if the actor's name contains all of the letters in whazzername,
-  # ignoring case, in order.
+def what_was_that_one_with(those_actors)
+  # Find the movies starring all `those_actors` (an array of actor names).
+  # Show each movie's title and id.
 
-  # ex. "Sylvester Stallone" is like "sylvester" and "lester stone" but not like "stallone sylvester" or "zylvester ztallone"
-
-  matcher = "%#{whazzername.split(//).join("%")}%"
-  Movie.joins(:actors).where("UPPER(actors.name) LIKE UPPER(?)", matcher)
-
-  # Note: The below code also works:
-  # Actor.where("name ilike ?", matcher).first.movies
-
-  # As the Postgres docs say,
-  # "the keyword ILIKE can be used instead of LIKE to make the match case insensitive according to the active locale.
-  # This is not in the SQL standard but is a PostgreSQL extension."
-end
-
-def bad_years
-  # List the years in which a movie with a rating above 8 was not released.
-  Movie.select(:yr, "MAX(score)").group(:yr).having("MAX(score) < 8").pluck(:yr)
+  Movie
+    .select(:title, :id)
+    .joins(:actors)
+    .where("actors.name in (?)", those_actors)
+    .group(:id)
+    .having("COUNT(actors.id) >= ?", those_actors.length)
 end
 
 def golden_age
@@ -55,6 +44,24 @@ def actor_out_of_work
     .count
 end
 
+def starring(whazzername)
+  # Find the movies with an actor who had a name like `whazzername`.
+  # A name is like whazzername if the actor's name contains all of the letters in whazzername,
+  # ignoring case, in order.
+
+  # ex. "Sylvester Stallone" is like "sylvester" and "lester stone" but not like "stallone sylvester" or "zylvester ztallone"
+
+  matcher = "%#{whazzername.split(//).join("%")}%"
+  Movie.joins(:actors).where("UPPER(actors.name) LIKE UPPER(?)", matcher)
+
+  # Note: The below code also works:
+  # Actor.where("name ilike ?", matcher).first.movies
+
+  # As the Postgres docs say,
+  # "the keyword ILIKE can be used instead of LIKE to make the match case insensitive according to the active locale.
+  # This is not in the SQL standard but is a PostgreSQL extension."
+end
+
 def longest_career
   # Find the 3 actors who had the longest careers
   # (the greatest time between first and last movie).
@@ -67,4 +74,3 @@ def longest_career
     .group(:id)
     .limit(3)
 end
-
