@@ -70,7 +70,7 @@ function. A Redux middleware must always have the following signature:
 const middleware = store => next => action => {
 	// side effects, if any
 	return next(action);
-}
+};
 ```
 
 Every middleware receives the `store` as an argument and returns a function that
@@ -85,7 +85,7 @@ const middleware = store => next => action => {
 	const result = next(action);
 	// side effect using `result`
 	return result;
-}
+};
 ```
 
 ## Example: Logger
@@ -118,7 +118,7 @@ const logger = store => next => action => {
   console.log('State post-dispatch:', store.getState());
 
   return result;
-}
+};
 ```
 
 Now, whenever we dispatch an action, we'll see its effect on the Store.
