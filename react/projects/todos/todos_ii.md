@@ -141,14 +141,14 @@ you can resolve the promise by passing a function to `then`.
 ### Thunk Middleware
 
 Before we can start writing thunk action creators, we need a middleware to handle them.
-make a new file `frontend/middleware/thunk.js`. From this, export a single middleware function.
+Make a new file `frontend/middleware/thunk.js`. From this, export a single middleware function.
 This function should check the type of each incoming action and see if it is of type `function`.
 If so, return `action(dispatch, getState)`. If not, return `next(action)`.
 Refer to the [middleware][middleware_reading] and [thunk][thunks_reading] readings
 if you need more guidance.
 
 Now modify your store to use your shiny new middleware. Inside `store.js`,
-import `applyMiddlware` from `redux`, and the thunk middleware. As the last
+import `applyMiddleware` from `redux`, and the thunk middleware. As the last
 argument to `createStore`, pass `applyMiddleware(thunk)`.
 
 You can test that your thunk middleware is working by dispatching a function.
