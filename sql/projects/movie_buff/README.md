@@ -25,8 +25,8 @@ simply append the corresponding line number to the spec file you want to run.
 bundle exec rspec spec/01_queries_spec.rb:66
 ```
 
-You'll be  working in the `skeleton/movie_buff/` folder. Do the problems in `01_queries.rb`
-before moving on to `02_queries.rb` and `03_queries.rb`. Information on the tables you
+You'll be working in the `skeleton/movie_buff/` folder. Do the problems in `01_queries.rb`
+before moving on to `02_queries.rb` and then `03_queries.rb`. Information on the tables you
 will be working with can be found below:
 
 ```
