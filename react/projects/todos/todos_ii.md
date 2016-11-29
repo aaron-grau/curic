@@ -223,7 +223,7 @@ export function createTodo(todo) {
   return (dispatch) => {
     return APIUtil.createTodo(todo)
       .then(todo => dispatch(receiveTodo(todo)),
-            err => dispatch(todoError(err.responseJSON)));
+            err => dispatch(receiveErrors(err.responseJSON)));
   };
 }
 ```
