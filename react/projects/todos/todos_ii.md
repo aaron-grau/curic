@@ -238,7 +238,7 @@ This will be very similar to creating todos, (the resulting action will still be
 but we need a different action because we will hit a different route on the back end.
 Add `APIUtil.updateTodo(todo)` and a new thunk action creator `updateTodo(todo)`
 which dispatches `receiveTodo` upon success and `receiveError` on failure.
-Change your components to use your new action instead of calling `receiveTodo` directly.
+Update the `toggleTodo` in `TodoListItem` to use your new action instead of calling `receiveTodo` directly. 
 
 #### Deleting Todos
 
