@@ -199,7 +199,7 @@ Since our thunk middleware returns the promise back to the caller, we can take o
 ```js
 // inside of handleSubmit
 this.props.createTodo({ todo }).then(
-  () => this.setState({ title: "", body: "" });
+  () => this.setState({ title: "", body: "" })
 );
 ```
 
