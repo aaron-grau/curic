@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorList from './error_list';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class TodoForm extends React.Component {
 
     return (
       <form className="todo-form" onSubmit={ this.handleSubmit }>
+        <ErrorList errors={ this.props.errors } />
         <label>Title:
           <input
             className="input"
@@ -55,7 +57,7 @@ class TodoForm extends React.Component {
             value={ this.state.title }
             placeholder="buy milk"
             onChange={ this.update('title') }
-            required/>
+            />
         </label>
         <label>Body:
           <textarea
@@ -66,7 +68,7 @@ class TodoForm extends React.Component {
             rows='5'
             placeholder="2% or whatever is on sale!"
             onChange={ this.update('body') }
-            required></textarea>
+            ></textarea>
         </label>
         <label>
           Tags
