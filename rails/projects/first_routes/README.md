@@ -1,12 +1,20 @@
 # First Routes & Controllers
 
-In this project we'll start playing with Rails routing.  To start, generate a
-new, blank Rails project.
+## Learning Goals
 
++ be able to create routes in `routes.rb`
++ be able to read and understand rails server error messages
++ know the three places that `params` come from
++ be able to nest query value parameters
++ be able to write controller actions that read from and write to the database
++ know how and when to render errors
 
 [aa-contactsapi]: http://aa-contactsapi.herokuapp.com
 
 ## First Routes
+
+In this project we'll start playing with Rails routing.  To start, generate a
+new, blank Rails project.
 
 Go to `config/routes.rb` and generate your first routes with:
 
