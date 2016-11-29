@@ -59,6 +59,9 @@ For all videos: :closed_lock_with_key: `go_video_go`
 [sendgrid]: ./sendgrid.md
 
 ## File Upload and Security
+* [:movie_camera: File Upload with AWS (part 1)][AWS-screencast1]
+* [:movie_camera: File Upload with AWS (part 2)][AWS-screencast2]
+  * [:file_folder: completed code from demo][AWS-demo]
 * :movie_camera: [Cloudinary Demo][cloudinary-screencast]
   * :file_folder: [completed code from demo][cloudinary-demo]
 * [HTML Escaping and XSS (Cross-Site Scripting)][HTML Escaping]
@@ -70,6 +73,9 @@ For all videos: :closed_lock_with_key: `go_video_go`
 [security-railscasts]: ./security-railscasts.md
 [filepicker]: ./filepicker.md
 [HTML Escaping]: ./xss.md
+[AWS-screencast1]: https://vimeo.com/169111348
+[AWS-screencast2]: https://vimeo.com/169111248
+[AWS-demo]:https://github.com/fsladkey/file-upload-demo
 
 ## Real-Time Communication
 (eg. notifications, messages, etc.)
