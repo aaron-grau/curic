@@ -49,7 +49,7 @@ end
 
 def alphabetized_actors
   # display the first 10 actor names ordered from A-Z
-  # hint: use 'select', 'order', and 'limit'
+  # hint: use 'order' and 'limit'
 
 end
 

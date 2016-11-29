@@ -35,7 +35,7 @@ end
 
 def star_wars
   #display the id, title and year of each Star Wars movie in movies.
-  # 
+  #
   Movie
     .select(:id, :title, :yr)
     .where("title LIKE '%Star Wars%'")
@@ -48,7 +48,7 @@ def below_average_years
   #in descending order
   # hint: use 'select', 'where', 'group', 'order'
   Movie
-    .select("yr", "COUNT(movies.id) as bad_movies")
+    .select("yr", "COUNT(*) as bad_movies")
     .where("score < 5")
     .group("yr")
     .order("bad_movies DESC")
@@ -56,9 +56,8 @@ end
 
 def alphabetized_actors
   # display the first 10 actor names ordered from A-Z
-  # hint: use 'select', 'order', and 'limit'
+  # hint: use 'order' and 'limit'
   Actor
-    .select(:id, :name)
     .order("name ASC")
     .limit(10)
 end
@@ -70,7 +69,7 @@ def pulp_fiction_actors
   Actor
     .select(:id, :name)
     .joins(:movies)
-    .where("movies.title = 'Pulp Fiction'")
+    .where("title = 'Pulp Fiction'")
 end
 
 def uma_movies
@@ -81,6 +80,6 @@ def uma_movies
   Movie
     .select(:id, :title, :yr)
     .joins(:actors)
-    .where("actors.name = 'Uma Thurman'")
-    .order("movies.yr ASC")
+    .where("name = 'Uma Thurman'")
+    .order("yr ASC")
 end
