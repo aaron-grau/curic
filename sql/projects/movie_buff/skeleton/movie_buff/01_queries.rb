@@ -45,7 +45,7 @@ def directed_by_one_of(them)
   #
   # We can use IN to test if an element is present in an array.
   #
-  # Find all the movies directed by one of 'them'.
+  # Find the id and title of all the movies directed by one of 'them'.
 
 end
 

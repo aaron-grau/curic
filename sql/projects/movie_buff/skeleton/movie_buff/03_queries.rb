@@ -32,6 +32,6 @@ end
 def longest_career
   # Find the 3 actors who had the longest careers
   # (the greatest time between first and last movie).
-  # Order by actor names
+  # Order by actor names. Show each actor's id, name, and the length of their career.
 
 end
