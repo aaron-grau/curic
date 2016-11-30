@@ -310,7 +310,7 @@ export const receiveAllPokemon = pokemon => ({
 
   ```
   const fetchSuccess = pokemon => console.log(receiveAllPokemon(pokemon));
-  fetchAllPokemon(fetchSuccess);
+  fetchAllPokemon().then(fetchSuccess);
   ```
 
 ### `pokemonReducer`
@@ -389,7 +389,7 @@ snippet in the browser's console:
 store.getState(); // should return initial app state
 
 const fetchSuccess = pokemon => store.dispatch(receiveAllPokemon(pokemon));
-fetchAllPokemon(fetchSuccess);
+fetchAllPokemon().then(fetchSuccess);
 
 store.getState(); // should return the app state populated with pokemon
 ```
