@@ -179,8 +179,8 @@
 + [Ternary Logic in SQL][sql-ternary-logic]
 
 ### Projects
-+ [Movie Buff][movie-buff]
 + [Polls][polls-app]
++ [Movie Buff][movie-buff]
 
 [assessment-prep-3]: https://github.com/appacademy/assessment-prep#assessment-3
 [relation]: readings/relation.md
