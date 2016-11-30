@@ -1,5 +1,15 @@
 # 99cats
 
+## Learning Goals
+
++ be able to build a model with default values and validations
++ know how to build rails views for new and edit forms
+  + know how to use a hidden field to set the form's method
+  + be able to separate the form out into a partial that both forms use
+  + be able to show data and actions based on the form's type
+  + know how to use `select` and `input` HTML elements
++ be able to add methods to a rails model
+
 **[Live Demo!][live-demo]**
 
 This project asks you to clone the (now defunct) dress rental website
