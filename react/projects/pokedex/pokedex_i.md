@@ -145,7 +145,7 @@ As with previous projects, you will need to set up a `package.json` and a
 `webpack.config.js` file to configure your application to use NPM and Webpack.
 
 * Run `npm init -y` to initialize your app's `package.json` with the default
-boilerplace settings.
+boilerplate settings.
 * `npm install --save` the following packages:
   * webpack
   * react
@@ -464,7 +464,7 @@ const populatedState = store.getState();
 selectAllPokemon(populatedState); //=> array of pokemon objects!
 ```
 
-We'll use this selector later in our pokemon components. **Show a TA that your
+We'll use this selector later in our pokemon components. **Show a TA your
 bug-free pokemon redux cycle before moving on!** Make sure you can explain how
 the different pieces of Redux fit together (i.e. state shape, actions, reducer,
 store, middleware and selector).
