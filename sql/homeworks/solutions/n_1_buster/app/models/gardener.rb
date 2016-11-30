@@ -8,7 +8,7 @@ class Gardener < ActiveRecord::Base
 
   has_many(
     :plants,
-    class_name: "Gardener",
+    class_name: "Plant",
     foreign_key: :gardener_id,
     primary_key: :id
   )

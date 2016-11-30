@@ -10,7 +10,7 @@ class Artist < ActiveRecord::Base
     albums = self.albums
     tracks_count = {}
     albums.each do |album|
-      tracks_count[album.name] = album.tracks.length
+      tracks_count[album.title] = album.tracks.length
     end
 
     tracks_count
@@ -25,7 +25,7 @@ class Artist < ActiveRecord::Base
 
     album_counts = {}
     albums.each do |album|
-      album_counts[album.name] = album.tracks_count
+      album_counts[album.title] = album.tracks_count
     end
 
     album_counts
