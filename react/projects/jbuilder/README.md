@@ -144,6 +144,6 @@ and 50 years old. Normally we would always do this kind of selection using
 Active Record, but this gives us an opportunity to practice using Ruby in Jbuilder.
 
 [n_plus_one]: ../../../sql/readings/joins.md#the-n1-selects-problem
-[jbuilder-zip]: ./jbuilder.zip?raw=true
+[jbuilder-zip]: ./skeleton.zip?raw=true
 [formatter-link]: https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en
 [docs-link]: https://github.com/rails/jbuilder
