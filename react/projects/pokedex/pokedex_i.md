@@ -310,7 +310,7 @@ export const receiveAllPokemon = pokemon => ({
 
   ```
   const fetchSuccess = pokemon => console.log(receiveAllPokemon(pokemon));
-  fetchAllPokemon(fetchSuccess);
+  fetchAllPokemon().then(fetchSuccess);
   ```
 
 ### `pokemonReducer`
