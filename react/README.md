@@ -23,7 +23,7 @@
 * :movie_camera: [React: Transpilation][react-transpilation] (8 min)
 * :movie_camera: [React: Functional Components][react-func-comps] (22 min)
 * :movie_camera: [React: Lifecycle Methods][react-lifecycle] (11 min)
-	* :computer: [code from click counter demo][click-demo]
+  * :computer: [code from click counter demo][click-demo]
 
 [react-intro]: https://vimeo.com/188074204
 [react-transpilation]: https://vimeo.com/188087366
@@ -47,7 +47,7 @@
 - [Lifecycle Methods][component_lifecycle]
 - [Synthetic Events][synthetic_events]
 - [Official React Documentation][react_docs]
-	- Most Helpful: REFERENCE Section (Left Sidebar)
+  - Most Helpful: REFERENCE Section (Left Sidebar)
 
 ### Projects
 - [Widgets][widgets]
@@ -185,16 +185,15 @@
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ### Projects
+- [Jbuilder][jbuilder_exercise] (45 min)
 - [Pokedex][pokedex]
 
+
+[jbuilder_exercise]: projects/jbuilder
 [pokedex]: projects/pokedex
 
 ## w7d4
 
-### Homeworks (45 min)
-* [Jbuilder][jbuilder_homework] (45 min)
-
-[jbuilder_homework]: homeworks/questions/jbuilder.md
 
 ### Projects
 * Continue [Pokedex][pokedex]
