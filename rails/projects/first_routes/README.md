@@ -2,12 +2,12 @@
 
 ## Learning Goals
 
-+ be able to create routes in `routes.rb`
-+ be able to read and understand rails server error messages
-+ know the three places that `params` come from
-+ be able to nest query value parameters
-+ be able to write controller actions that read from and write to the database
-+ know how and when to render errors
++ Be able to create routes in `routes.rb`
++ Be able to read and understand rails server error messages
++ Know the three places that `params` come from
++ Be able to nest query value parameters
++ Be able to write controller actions that read from and write to the database
++ Know how and when to render errors
 
 [aa-contactsapi]: http://aa-contactsapi.herokuapp.com
 
