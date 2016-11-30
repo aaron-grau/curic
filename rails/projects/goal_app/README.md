@@ -7,9 +7,7 @@
 Today, we're going to create an app to help people keep track of goals
 they set for themselves. We'll also add a social element where people
 can view and comment on each other's goals, harnessing the power of
-*social* to motivate our users toward their hopes and dreams... or to
-dash them on the rocks as they bury their shame in a tub of ice cream
-while watching Netflix on the couch all weekend.
+*social* to motivate our users toward their hopes and dreams.
 
 ## Project Objectives
 
