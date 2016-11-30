@@ -1,6 +1,6 @@
 # Metaprogramming MetaCorgis
 
-Today we'll use metaprogramming to refactor an unwieldy `CorgiPerkPackage` class.
+Today we'll use metaprogramming to refactor an unwieldy `CorgiSnacks` class.
 
 ## Phase 0: Tour the Code!
 
@@ -8,66 +8,66 @@ Today we'll use metaprogramming to refactor an unwieldy `CorgiPerkPackage` class
 
 [skeleton]:./skeleton.zip?raw=true
 
-### `ShoppingList` Class
+### `SnackBox` Class
 
-The `ShoppingList` class represents our database. 
+The `SnackBox` class represents our database.
 
-The database has three perk packages, stored in the `DATA` constant. Each 
-package has three corgi perks - a bone, kibble, and a silly outfit.
+The database has three boxes of corgi snacks, stored in the `SNACK_BOX_DATA` constant. Each
+box has three corgi snacks - a bone, kibble, and a treat.
 
-It also has methods defined to tell us the info and happiness level of a
-given perk in whichever package we specify - e.g. `get_{perk}_info` and
-`get_{perk}_happiness`. So if we wanted to know the happiness level of the
-bone in package two, we would simply call `get_bone_happiness(2)` on an
-instance of `ShoppingList`.
+It also has methods defined to tell us the info and tastiness rating of a
+given snack in whichever box we specify - e.g. `get_{snack}_info` and
+`get_{snack}_tastiness`. So if we wanted to know the tastiness level of the
+bone in box two, we would simply call `get_bone_tastiness(2)` on an
+instance of `SnackBox`.
 
-### `CorgiPerkPackage` Class
+### `CorgiSnacks` Class
 
-The `CorgiPerkPackage` class serves as an interface with our database. 
+The `CorgiSnacks` class serves as an interface with our database.
 
-`CorgiPerkPackage` must contain a reference to the database
-(an instance of `ShoppingList`) and its `package_id` within the database.
-We should be able to call `bone`, `kibble`, or `silly_outfit` on any instance of
-`CorgiPerkPackage` get back a statement of the info and happiness level of that
-perk. 
+`CorgiSnacks` must contain a reference to the database
+(an instance of `SnackBox`) and its `box_id` within the database.
+We should be able to call `bone`, `kibble`, or `treat` on any instance of
+`CorgiSnacks` and get back a statement of the info and tastiness level of that
+snack.
 
 ### Test Drive
 
 Do a quick test of the code to get more familiar with how it all fits together.
 
-Check out the `ShoppingList`'s instance methods to get perk info and happiness levels:
+Check out the `SnackBox`'s instance methods to get snack info and tastiness levels:
 
 ```ruby
 pry(main)> load 'meta_corgis.rb'
-pry(main)> list = ShoppingList.new
-pry(main)> list.get_bone_info(1) # => "Phoenician rawhide"
-pry(main)> list.get_kibble_happiness(3) # => 17
+pry(main)> snack_box = SnackBox.new
+pry(main)> snack_box.get_bone_info(1) # => "Phoenician rawhide"
+pry(main)> snack_box.get_kibble_tastiness(3) # => 45
 ```
 
-Then test out the `CorgiPerkPackage` class:
+Then test out the `CorgiSnacks` class:
 
 ```ruby
-pry(main)> package = CorgiPerkPackage.new(list, 1)
-pry(main)> package.bone # => "Bone: Phoenician rawhide: 20 licks"
-pry(main)> package.kibble # => "* Kibble: Delicately braised hamhocks: 33 licks"
+pry(main)> snacks = CorgiSnacks.new(snack_box, 1)
+pry(main)> snacks.bone # => "Bone: Phoenician rawhide: 20"
+pry(main)> snacks.kibble # => "* Kibble: Delicately braised hamhocks: 33"
 ```
 
 ## Phase 1: Refactor with `#method_missing`
 
-When we call any perk instance method on a package, we get back a very similar
+When we call any snack instance method on a snack_box, we get back a very similar
 result:
 
-  + a star if the happiness level has gone above 30,
-  + the perk type,
-  + the perk description,
-  + and the number of licks (the happiness level).
-  
-It is repetitive and not modular to have all three methods defined on the
-`CorgiPerkPackage` class when they follow the same pattern.
+  + a star if the tastiness level has gone above 30,
+  + the snack type,
+  + the snack description,
+  + and the tastiness level.
 
-+ Using a `method_missing` instance method, re-factor `CorgiPerkPackage` into
-the new `MetaCorgiPerkPackage` class to DRY things up!
-+ Hint: Within `#method_missing` use `#send` to call methods on your `@shopping_list`.
+It is repetitive and not modular to have all three methods defined on the
+`CorgiSnacks` class when they follow the same pattern.
+
++ Using a `method_missing` instance method, re-factor `CorgiSnacks` into
+the new `MetaCorgiSnacks` class to DRY things up!
++ Hint: Within `#method_missing` use `#send` to call methods on your `@snack_box`.
 + Note: You can pass `#send` a string, allowing for interpolation. Review the
 [metaprogramming][meta_reading] reading if you need a reminder on how to do this.
 
@@ -76,61 +76,61 @@ just a lot DRY-er!
 
 ```ruby
 pry(main)> load 'meta_corgis.rb'
-pry(main)> list = ShoppingList.new
-pry(main)> meta_package = MetaCorgiPerkPackage.new(list, 1)
-pry(main)> meta_package.bone # => "Bone: Phoenician rawhide: 20 licks"
-pry(main)> meta_package.kibble # => "* Kibble: Delicately braised hamhocks: 33 licks"
+pry(main)> snack_box = SnackBox.new
+pry(main)> meta_snacks = MetaCorgiSnacks.new(snack_box, 1)
+pry(main)> meta_snacks.bone # => "Bone: Phoenician rawhide: 20 "
+pry(main)> meta_snacks.kibble # => "* Kibble: Delicately braised hamhocks: 33"
 ```
 
 ## Phase 2: Refactor with Dynamic Dispatch
 
 Let's refactor the class to use dynamic dispatch instead of `method_missing`.
 
-+ **Comment out** the `MetaCorgiPerkPackage#method_missing` instance method from the previous phase.
-+ Write a new **class** method called `::define_perk` that uses
-`::define_method` to dynamically build each of the perk methods (`bone`,
-`kibble`, and `silly_outfit`) on the `CorgiPerkPackage` class. + Once again,
-you'll want to use `#send` to call the right methods on the `@shopping_list`.
++ **Comment out** the `MetaCorgiSnacks#method_missing` instance method from the previous phase.
++ Write a new **class** method called `::define_snack` that uses
+`::define_method` to dynamically build each of the snack methods (`bone`,
+`kibble`, and `treat`) on the `CorgiSnacks` class. + Once again,
+you'll want to use `#send` to call the right methods on the `@snack_box`.
 
 Your class should function like this now:
 ```ruby
 pry(main)> load 'meta_corgis.rb'
-pry(main)> MetaCorgiPerkPackage.define_perk("bone")
-pry(main)> list = ShoppingList.new
-pry(main)> meta_package = MetaCorgiPerkPackage.new(list, 1)
-pry(main)> meta_package.bone # => "Bone: Phoenician rawhide: 20 licks"
-pry(main)> meta_package.kibble # => "NoMethodError: undefined method `kibble'...""
+pry(main)> MetaCorgiSnacks.define_snack("bone")
+pry(main)> snack_box = SnackBox.new
+pry(main)> meta_snacks = MetaCorgiSnacks.new(snack_box, 1)
+pry(main)> meta_snacks.bone # => "Bone: Phoenician rawhide: 20 "
+pry(main)> meta_snacks.kibble # => "NoMethodError: undefined method `kibble'...""
 ```
 
 Almost there! Now we just need to automatically call
-`CorgiPerkPackage::define_perk` for each perk upon initialization.
+`CorgiSnacks::define_snack` for each snack upon initialization.
 
-+ How do we know what the different perks are?
-+ One way to tell is to call `#methods` on our `@shopping_list`.
++ How do we know what the different snacks are?
++ One way to tell is to call `#methods` on our `@snack_box`.
 + This will give us back an array of all the methods defined on that object.
 + Then we can match the ones we care about using [grep][grep].
 + If we pass `grep` the argument `/^get_(.*)_info$/`, it will match any methods
-that are some variation of `get_{perk}_info` and "capture" the perk name - the `(.*)`
+that are some variation of `get_{snack}_info` and "capture" the snack name - the `(.*)`
 tells it to capture any number of characters that come between `get_` and
 `_info`.
-+ We can then use `$1` to get back the matching perk name that was captured.
-+ So we can pass the block `{ MetaCorgiPerkPackage.define_perk $1 }` to our
-`grep` call, and it will call `::define_perk` with each perk name.
++ We can then use `$1` to get back the matching snack name that was captured.
++ So we can pass the block `{ MetaCorgiSnacks.define_snack $1 }` to our
+`grep` call, and it will call `::define_snack` with each snack name.
 
 You should call something like this in the `initialize` method:
 ```ruby
-shopping_list.methods.grep(/^get_(.*)_info$/) { MetaCorgiPerkPackage.define_perk $1 }
+snack_box.methods.grep(/^get_(.*)_info$/) { MetaCorgiSnacks.define_snack $1 }
 ```
 
 This should work as before again!
 
 ```ruby
 pry(main)> load 'meta_corgis.rb'
-pry(main)> list = ShoppingList.new
-pry(main)> meta_package = MetaCorgiPerkPackage.new(list, 1)
-pry(main)> meta_package.bone # => "Bone: Phoenician rawhide: 20 licks"
-pry(main)> meta_package.kibble # => "* Kibble: Delicately braised hamhocks: 33 licks"
-pry(main)> meta_package.silly_outfit # => "Silly Outfit: A tiny Ronald McDonald costume: 0 licks"
+pry(main)> snack_box = SnackBox.new
+pry(main)> meta_snacks = MetaCorgiSnacks.new(snack_box, 1)
+pry(main)> meta_snacks.bone # => "Bone: Phoenician rawhide: 20 "
+pry(main)> meta_snacks.kibble # => "* Kibble: Delicately braised hamhocks: 33 "
+pry(main)> meta_snacks.treat # => "Treat: Chewy dental sticks: 0 "
 ```
 
 Solutions can be found in the [homework solutions folder][solutions]. Please wait until you have completed the exercise to check the solutions.

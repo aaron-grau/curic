@@ -1,118 +1,121 @@
-class ShoppingList
-  DATA = {
+class SnackBox
+  SNACK_BOX_DATA = {
     1 => {
       "bone" => {
         "info" => "Phoenician rawhide",
-        "happiness" => 20
+        "tastiness" => 20
       },
       "kibble" => {
         "info" => "Delicately braised hamhocks",
-        "happiness" => 33
+        "tastiness" => 33
       },
-      "silly_outfit" => {
-        "info" => "A tiny Ronald McDonald costume",
-        "happiness" => 0
+      "treat" => {
+        "info" => "Chewy dental sticks",
+        "tastiness" => 40
       }
     },
     2 => {
       "bone" => {
         "info" => "An old dirty bone",
-        "happiness" => 31
+        "tastiness" => 2
       },
       "kibble" => {
-        "info" => "An old dirty shoe",
-        "happiness" => 32
+        "info" => "Kale clusters",
+        "tastiness" => 1
       },
-      "silly_outfit" => {
-        "info" => "A muddy puddle to roll in",
-        "happiness" => 8
+      "treat" => {
+        "info" => "Bacon",
+        "tastiness" => 80
       }
     },
     3 => {
       "bone" => {
-        "info" => "A rock",
-        "happiness" => 4
+        "info" => "A steak bone",
+        "tastiness" => 64
       },
       "kibble" => {
-        "info" => "Avocado skins",
-        "happiness" => 17
+        "info" => "Sweet Potato nibbles",
+        "tastiness" => 45
       },
-      "silly_outfit" => {
-        "info" => "A Warriors uniform",
-        "happiness" => 24
+      "treat" => {
+        "info" => "Chicken bits",
+        "tastiness" => 75
       }
     }
   }
-  def initialize(data = DATA)
+  def initialize(data = SNACK_BOX_DATA)
     @data = data
   end
 
-  def get_bone_info(package_id)
-    @data[package_id]["bone"]["info"]
+  def get_bone_info(box_id)
+    @data[box_id]["bone"]["info"]
   end
 
-  def get_bone_happiness(package_id)
-    @data[package_id]["bone"]["happiness"]
+  def get_bone_tastiness(box_id)
+    @data[box_id]["bone"]["tastiness"]
   end
 
-  def get_kibble_info(package_id)
-    @data[package_id]["kibble"]["info"]
+  def get_kibble_info(box_id)
+    @data[box_id]["kibble"]["info"]
   end
 
-  def get_kibble_happiness(package_id)
-    @data[package_id]["kibble"]["happiness"]
+  def get_kibble_tastiness(box_id)
+    @data[box_id]["kibble"]["tastiness"]
   end
 
-  def get_silly_outfit_info(package_id)
-    @data[package_id]["silly_outfit"]["info"]
+  def get_treat_info(box_id)
+    @data[box_id]["treat"]["info"]
   end
 
-  def get_silly_outfit_happiness(package_id)
-    @data[package_id]["silly_outfit"]["happiness"]
+  def get_treat_tastiness(box_id)
+    @data[box_id]["treat"]["tastiness"]
   end
 end
 
-class CorgiPerkPackage
+class CorgiSnacks
 
-  def initialize(shopping_list, package_id)
-    @shopping_list = shopping_list
-    @package_id = package_id
+  def initialize(snack_box, box_id)
+    @snack_box = snack_box
+    @box_id = box_id
   end
 
   def bone
-    info = @shopping_list.get_bone_info(@package_id)
-    happiness = @shopping_list.get_bone_happiness(@package_id)
-    result = "Bone: #{info}: #{happiness} licks"
-    happiness > 30 ? "* #{result}" : result
+    info = @snack_box.get_bone_info(@box_id)
+    tastiness = @snack_box.get_bone_tastiness(@box_id)
+    result = "Bone: #{info}: #{tastiness} "
+    tastiness > 30 ? "* #{result}" : result
   end
 
   def kibble
-    info = @shopping_list.get_kibble_info(@package_id)
-    happiness = @shopping_list.get_kibble_happiness(@package_id)
-    result = "Kibble: #{info}: #{happiness} licks"
-    happiness > 30 ? "* #{result}" : result
+    info = @snack_box.get_kibble_info(@box_id)
+    tastiness = @snack_box.get_kibble_tastiness(@box_id)
+    result = "Kibble: #{info}: #{tastiness} "
+    tastiness > 30 ? "* #{result}" : result
   end
 
-  def silly_outfit
-    info = @shopping_list.get_silly_outfit_info(@package_id)
-    happiness = @shopping_list.get_silly_outfit_happiness(@package_id)
-    result = "Silly Outfit: #{info}: #{happiness} licks"
-    happiness > 30 ? "* #{result}" : result
+  def treat
+    info = @snack_box.get_treat_info(@box_id)
+    tastiness = @snack_box.get_treat_tastiness(@box_id)
+    result = "Treat: #{info}: #{tastiness} "
+    tastiness > 30 ? "* #{result}" : result
   end
 
 end
 
-class MetaCorgiPerkPackage
-  def initialize(shopping_list, package_id)
-    @shopping_list = shopping_list
-    @package_id = package_id
+
+class MetaCorgiSnacks
+  def initialize(snack_box, box_id)
+    @snack_box = snack_box
+    @box_id = box_id
+    snack_box.methods.grep(/^get_(.*)_info$/) { MetaCorgiSnacks.define_snack $1 }
   end
 
   def method_missing(name, *args)
     # Your code goes here...
   end
 
-  def self.define_perk(name)
+
+  def self.define_snack(name)
     # Your code goes here...
   end
 end
