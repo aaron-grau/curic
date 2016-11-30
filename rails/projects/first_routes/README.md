@@ -1,5 +1,9 @@
 # First Routes & Controllers
 
+In this project we'll start playing with Rails routing.
+
+[aa-contactsapi]: http://aa-contactsapi.herokuapp.com
+
 ## Learning Goals
 
 + Be able to create routes in `routes.rb`
@@ -9,12 +13,9 @@
 + Be able to write controller actions that read from and write to the database
 + Know how and when to render errors
 
-[aa-contactsapi]: http://aa-contactsapi.herokuapp.com
-
 ## First Routes
 
-In this project we'll start playing with Rails routing.  To start, generate a
-new, blank Rails project.
+To start, generate a new, blank Rails project.
 
 Go to `config/routes.rb` and generate your first routes with:
 
