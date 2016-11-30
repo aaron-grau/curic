@@ -2,12 +2,12 @@
 
 ## Learning Goals
 
-+ be able to write Active Record models quickly
-+ know how to write a `user_params` method
-+ be able to write the five API RESTful controller methods
-+ know how to test your API endpoints with RestClient or Postman
-+ know how to create and destroy join table records via controller methods
-+ know how a nested route works 
++ Be able to write Active Record models quickly
++ Know how to write a `user_params` method
++ Be able to write the five API RESTful controller methods
++ Know how to test your API endpoints with RestClient or Postman
++ Know how to create and destroy join table records via controller methods
++ Know how a nested route works 
 
 ## Layering on Contacts
 
