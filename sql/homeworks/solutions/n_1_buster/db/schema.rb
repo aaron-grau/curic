@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130004812) do
+ActiveRecord::Schema.define(version: 20161130182442) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20161130004812) do
   end
 
   create_table "plants", force: :cascade do |t|
-    t.string  "type"
     t.integer "gardener_id"
+    t.string  "species"
   end
 
   create_table "routes", force: :cascade do |t|
