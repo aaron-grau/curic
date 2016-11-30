@@ -425,7 +425,7 @@ This one's free!
 ```js
 export function fetchAllPokemon() {
   return (dispatch) => {
-    APIUtil.fetchAllPokemon().then(pokemon => dispatch(receiveAllPokemon(pokemon)));
+    return APIUtil.fetchAllPokemon().then(pokemon => dispatch(receiveAllPokemon(pokemon)));
   }
 }
 ```
@@ -458,7 +458,7 @@ objects. You can use [lodash's values][lodash-values] method.
 const initialState = store.getState();
 selectAllPokemon(initialState); //=> []
 
-store.dispatch(requestAllPokemon());
+store.dispatch(fetchAllPokemon());
 
 const populatedState = store.getState();
 selectAllPokemon(populatedState); //=> array of pokemon objects!
