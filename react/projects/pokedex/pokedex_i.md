@@ -425,7 +425,7 @@ This one's free!
 ```js
 export function fetchAllPokemon() {
   return (dispatch) => {
-    APIUtil.fetchAllPokemon().then(pokemon => dispatch(receiveAllPokemon()));
+    APIUtil.fetchAllPokemon().then(pokemon => dispatch(receiveAllPokemon(pokemon)));
   }
 }
 ```
