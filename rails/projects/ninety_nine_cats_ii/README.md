@@ -1,5 +1,14 @@
 # 99 Cats II: Auth
 
+## Learning Goals
+
++ be able to create a user authentication system
+  + know the user model's methods that are required for authentication
+    + `reset_session_token`, `password=`, `is_password?`, 'find_by_credentials`
+  + know what it means to create and destroy a session
+  + know how cookies and sessions interact in a `current_user` method
+  + know how to access the current user from within a view
+
 **[Live Demo!][live-demo]**
 
 Today we add a users and login to our 99Cats application.

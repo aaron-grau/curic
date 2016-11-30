@@ -7,7 +7,7 @@
 + Be able to write the five API RESTful controller methods
 + Know how to test your API endpoints with RestClient or Postman
 + Know how to create and destroy join table records via controller methods
-+ Know how a nested route works 
++ Know how a nested route works
 
 ## Layering on Contacts
 
