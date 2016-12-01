@@ -49,8 +49,8 @@ file. Run it using `bundle exec rspec` to check your work.
 ## Phase I: `SQLObject`: Overview
 
 Our job is to write a class, `SQLObject`, that will interact with the
-database. By the **end** of this phase, we will have written the
-following methods, just like the real `ActiveRecord::Base`:
+database. By the **end** of this phase, our ActiveRecord Lite will behave 
+just like the real `ActiveRecord::Base`, with methods including:
 
 * `::all`: return an array of all the records in the DB
 * `::find`: look up a single record by primary key
