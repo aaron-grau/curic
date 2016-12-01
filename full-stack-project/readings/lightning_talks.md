@@ -13,6 +13,9 @@ Most demos are done on the BenchBnB project.
   * [React Modals Reading][react-modal-reading]
 * [:movie_camera: CSS Transitions][css-transitions-webcast]
 * [:movie_camera: Keeping API Keys Safe with Figaro][figaro-screencast]
+* [:movie_camera: File Upload with AWS (part 1)][AWS-screencast1]
+* [:movie_camera: File Upload with AWS (part 2)][AWS-screencast2]
+  * [:file_folder: completed code from demo][AWS-demo]
 * [:movie_camera: Image Upload with Cloudinary][cloudinary-screencast]
   * [:file_folder: completed code from demo][cloudinary-demo]
 * [:movie_camera: Front End Auth with Gon][gon-webcast]
@@ -27,3 +30,6 @@ Not seeing what you need?  Let the instructional staff know, and if there's enou
 [cloudinary-screencast]: https://vimeo.com/164612621
 [gon-webcast]: https://vimeo.com/168132088
 [cloudinary-demo]: https://github.com/appacademy/react_cloudinary_demo
+[AWS-demo]:../demos/file_upload_demo
+[AWS-screencast1]: https://vimeo.com/169111348
+[AWS-screencast2]: https://vimeo.com/169111248
