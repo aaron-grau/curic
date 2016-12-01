@@ -17,7 +17,7 @@ new component. Your `PokemonIndex` should map each pokemon objects in
 `this.props.pokemon` to a `PokemonIndexItem`. It should look something like
 this:
 
-```
+```js
 const pokemonItems = pokemon.map(poke => {
   <PokemonIndexItem key={ poke.id } pokemon={ poke } />
 });
