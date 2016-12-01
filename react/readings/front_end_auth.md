@@ -1,27 +1,27 @@
 # Front-End Authentication
 
-The phrase "front-end auth" can be misleading. Our Rails auth pattern isn't
-going to change, but we have been interacting with our rails apps differently,as an API! So let's first clarify what this reading will cover. We want to
-build sleek single-page applications. We want to make all of our HTTP requests
-to our Rails endpoints for logging in, signing up, logging out, etc. via AJAX.
+Remember how much time we spent on authentication in weeks 4 and 5? Good news!
+We will continue to use that same pattern as we move toward front-end auth.
+
+The main difference is that we will use React components instead of Rails views,
+and all of our HTTP requests (for logging in, signing up, logging out) will be
+AJAX requests.
 
 **Your backend will look essentially the same!**
 
-Let's make sure we reinforce some key properties of authentication:
+As always:
   * A *session* is maintained by assigning a token to the user's cookie
-  * Cookies are sent by the browser to the server with every request: HTTP and AJAX!
+  * Cookies are sent by the browser to the server with every request (that includes AJAX requests!)
 
-We'll need the following pieces:
-  * SessionReducer
+The new parts:
+  * Session Reducer
   * Session Actions / Constants
   * Session API Util
   * LoginForm / SignupForm Components
 
 ---
 
-## `SessionReducer`
-
-Our `SessionReducer` might look something like this:
+## `Session Reducer`
 
 ```js
 const _nullUser = {
@@ -53,9 +53,12 @@ short').
 ## Action-Creators & API
 
 We'll need the following action-creators:
+
+* Asynchronous:
   * signup
   * login
   * logout
+* Synchronous:
   * receiveCurrentUser
   * receiveErrors
 
@@ -67,15 +70,13 @@ requests:
 
 ## Middleware
 
-The `SessionMiddleware` should be responsible for invoking our session API
-utility functions whenever it sees a relevant dispatch.
-
+We will continue to use thunk middleware to handle asynchronous actions.
 ```
-Actions                               Api Util      Success Dispatch
+Asyn Actions   Middleware   Api Util      Sync Actions
 
-signup ---->  SessionMiddleware  ----> signup ----> receiveCurrentUser
-login ----->  SessionMiddleware  ----> login -----> receiveCurrentUser
-logout ---->  SessionMiddleware  ----> logout ----> logout
+signup ----->  Thunk -----> signup -----> receiveCurrentUser(currentUser)
+login ------>  Thunk -----> login ------> receiveCurrentUser(currentUser)
+logout ----->  Thunk -----> logout -----> receiveCurrentUser(null)
 ```
 
 ## Front End Routes
@@ -121,19 +122,19 @@ We are going to suggest the following implementation:
 we can tell the browser to run, and we can generate it dynamically using ruby!
 * Inside the script tag, assign a jsonified `current_user` to the property of
 `window.currentUser`
-* Use a jbuilder template to make this process simple!
+* Use a jbuilder template!
 
 ```html
 <script type="text/javascript">
   <% if logged_in? %>
-  	window.currentUser = <%= render("api/users/user.json.jbuilder",
-  		user: current_user).html_safe %>
+  	window.currentUser =
+      <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>
 </script>
 ```
 
-* Inside of the doc-ready callback that we generally establish in our entry point,
-check for the presence of a `window.currentUser`
+* Inside our entry point, within the doc-ready callback,
+check for the presence of `window.currentUser`
 * If `window.currentUser` exists, generate a `preloadedState` and pass it
 to `configureStore`
 
@@ -141,7 +142,7 @@ to `configureStore`
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
-    const preloadedState = {session: {currentUser: window.currentUser}};
+    const preloadedState = { session: { currentUser: window.currentUser } };
     store = configureStore(preloadedState);
   } else {
     store = configureStore();
