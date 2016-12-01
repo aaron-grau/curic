@@ -36,11 +36,6 @@ Let's add functionality to our app. Every time a user clicks on a
 `PokemonDetail` component. To see this in action check out the [live
 demo][live-demo].
 
-In order to pass `PokemonIndexItem` a reference to the router we will wrap the
-component with `react-router`'s `withRouter` function. `withRouter` is referred
-to as a **Higher Order Component** (HOC). Much like our container components, it
-serves to pass down information (namely the `router`) through props.
-
 * Import `Link` to your `PokemonIndexItem` like so:
 
   ```js
@@ -49,23 +44,6 @@ serves to pass down information (namely the `router`) through props.
 
 Inside each li, wrap the pokemon information in a `Link` tag. Give it a `to` prop
 with the path for the frontend pokemon show page (`/pokemon/:pokemonId`).
-
-Your `PokemonIndexItem` should look something like this:
-
-```js
-const PokemonIndexItem = (props) => {
-
-  const handleClick = url => e => props.router.push(url);
-
-  return (
-    <li className="pokemon-index-item">
-      <Link to{ `/pokemon/${props.pokemon.id}` }>
-        // pokemon information...
-      </Link>
-    </li>
-  );
-};
-```
 
 The `Link` tag will generate an appropriate link to this path. While it would be
 possible to accomplish the same thing with an `a` tag and an `href` property, using
@@ -335,16 +313,16 @@ we can use `react-router`'s `withRouter` function. `withRouter` is referred
 to as a **Higher Order Component** (HOC). Much like our container components, it
 serves to pass down information (namely the `router`) through props.
 
-* Import `withRouter` to your `PokemonIndexItem` like so:
+* Import `withRouter` to your `PokemonForm` like so:
 
   ```js
   import { withRouter } from 'react-router';
   ```
 
-* Call this function on `PokemonIndexItem` before exporting it like so:
+* Call this function on `PokemonForm` before exporting it like so:
 
   ```js
-  export default withRouter(PokemonIndexItem);
+  export default withRouter(PokemonForm);
   ```
 
 Your `PokemonForm` will now have access to your app's router via
