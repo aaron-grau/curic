@@ -68,7 +68,7 @@ following questions with your partner:
 * Where will the `PokemonDetail` get its information from?
 * How will we pass this information to `PokemonDetail`?
 
-Hint: Your the state shape will look something like this:
+Hint: Your state shape will look something like this:
 ```js
 // Sample State Shape
 {
@@ -113,7 +113,7 @@ Make sure to **test at each step!**
 * Create an API utility function that fetches a single pokemon.
 * Create actions for both requesting and receiving a single Pokemon. This
 requires defining a new constant and action creator for each action.
-* Create a `PokemonDetailReducer` reducer to respond to the `pokemonDetail`
+* Create a `PokemonDetailReducer` to respond to the `pokemonDetail`
 slice of the app state.
 * Create a `fetchSinglePokemon` thunk action creator.
 * Create a `PokemonDetailContainer` that maps props to `PokemonDetail`.
@@ -145,7 +145,7 @@ Your app's `Router` should look like this:
 </Router>
 ```
 
-Once it works, try navigating to the route of a different pokemon. Your detail view won't update. 
+Once it works, try navigating to the route of a different pokemon. Your detail view won't update.
 This is because although the props (`this.props.params.pokemonId`) have changed, the component didn't remount.
 So we never fetched the new pokemon. We need to trigger a fetch on the props changing. There is a lifecycle method
 we can tap into to accomplish this `componentWillReceiveProps(newProps)`.
@@ -153,7 +153,7 @@ we can tap into to accomplish this `componentWillReceiveProps(newProps)`.
 * In your `PokemonDetail` componenent, on `componentWillReceiveProps(newProps)`, call `this.props.fetchSinglePokemon(newProps.params.pokemonId)`, but only if  the `pokemonId` has changed. You can check your current props to find out the previous value.
 
 **Test your `PokemonDetail` redux cycle and route!** Does it behave like the
-[live demo][live-demo]. Show a TA before moving on.
+[live demo][live-demo]? Show a TA before moving on.
 
 ## Phase 6: `ItemDetail`
 
@@ -288,7 +288,7 @@ from the server, so we can tack on another `.then` after our promise resolves an
 redirect from there.
 
 Make sure that your `fetchSinglePokemon` action creator returns the promise and any
-`.then`s you take on to the end return the pokemon. The reason for this is that
+`.then`s you tack onto the end return the pokemon. The reason for this is that
 when chaining calls to `then` the return value of the previous is passed as the input
 to the next. This can be handy for gradually building up a value, in our case we
 want to do two things with the same input, so we must pass it through.
