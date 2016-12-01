@@ -287,24 +287,22 @@ order to push to that URL. We will only have this id after the response has come
 from the server, so we can tack on another `.then` after our promise resolves and
 redirect from there.
 
-Make sure that your `fetchSinglePokemon` action creator returns the promise and any
+Make sure that your `createPokemon` action creator returns the promise and any
 `.then`s you tack onto the end return the pokemon. The reason for this is that
 when chaining calls to `then` the return value of the previous is passed as the input
 to the next. This can be handy for gradually building up a value, in our case we
 want to do two things with the same input, so we must pass it through.
 
-Your `fetchSinglePokemon` should look like this:
+Your `createPokemon` should look like this:
 
 ```js
-export function fetchSinglePokemon(id) {
-  return (dispatch) => {
-    dispatch(requestSinglePokemon());
-
-    return APIUtil.fetchSinglePokemon(id).then(pokemon => {
-      dispatch(receiveSinglePokemon(pokemon));
-      return pokemon;
-    });
-  }
+export function createPokemon(pokemon) {
+	return (dispatch) => {
+		return APIUtil.postPokemon(pokemon).then(pokemon => {
+			dispatch(receiveNewPokemon(pokemon));
+			return pokemon;
+		});
+	}
 }
 ```
 
