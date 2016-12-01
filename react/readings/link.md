@@ -13,7 +13,7 @@ To use it `import { Link } from 'react-router'`.
   <Link to="/about">About</Link>
   ```
 * `onClick(e)`: A custom click event handler. Can call `e.preventDefault` and `e.stopPropogation`
-like any other click handler. 
+like any other click handler.
 
   ```js
   <Link to="/about" onClick={e => this.handleClick(e)}>Link</Link>
@@ -25,11 +25,11 @@ like any other click handler.
   // app.jsx
   <Link to={`users/${user.id}`} activeClassName="active">{user.name}</Link>
 
-  // when at path `users/1` the following html is rendered
-  <a href="/users/123" class="active">Fred</a>
+  // when at path `users/123` the following html is rendered
+  <a href="#/users/123" class="active">Michael</a>
 
-  // when not at path `users/1` the following is html rendered
-  <a href="/users/123">Michael</a>
+  // when not at path `users/123` the following is html rendered
+  <a href="#/users/123">Michael</a>
 
   ```
 See the [React docs](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link) for more information on using `<Link>`.
