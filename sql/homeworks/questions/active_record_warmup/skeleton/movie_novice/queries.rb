@@ -51,8 +51,8 @@ def alphabetized_actors
   # display the first 10 actor names ordered from A-Z
   # hint: use 'order' and 'limit'
   # Note: Ubuntu users may find that special characters
-  # are alphatetized differently than the specs.
-  # This spec might fail for Ubuntu users. It's ok! 
+  # are alphabetized differently than the specs.
+  # This spec might fail for Ubuntu users. It's ok!
 
 end
 
