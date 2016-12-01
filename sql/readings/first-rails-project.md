@@ -66,10 +66,10 @@ listed in it.
 ## Postgres
 
 As noted above, you can initialize a new Rails app with a Postgres
-database by using the `--database=postgresql` option. If, however, you
-want to **switch** an existing Rails app from SQLite to Postgres, it is
-possible to do so. This is convenient because differences between your
-development and production databases can be frustrating.
+database by using the `--database=postgresql` option. You can also
+**switch** an existing Rails app from SQLite to Postgres. This is 
+convenient because differences between your development and 
+production databases can be frustrating.
 
 First, replace the `gem 'sqlite3'` line in the `Gemfile` with `gem
 'pg'`.
