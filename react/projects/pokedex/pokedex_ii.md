@@ -167,6 +167,13 @@ Your app's `Router` should look like this:
 </Router>
 ```
 
+Once it works, try navigating to the route of a different pokemon. Your detail view won't update. 
+This is because although the props (`this.props.params.pokemonId`) have changed, the component didn't remount.
+So we never fetched the new pokemon. We need to trigger a fetch on the props changing. There is a lifecycle method
+we can tap into to accomplish this `componentWillReceiveProps(newProps)`.
+
+* In your `PokemonDetail` componenent, on `componentWillReceiveProps(newProps)`, call `this.props.fetchSinglePokemon(newProps.params.pokemonId)`, but only if  the `pokemonId` has changed. You can check your current props to find out the previous value.
+
 **Test your `PokemonDetail` redux cycle and route!** Does it behave like the
 [live demo][live-demo]. Show a TA before moving on.
 
