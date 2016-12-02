@@ -11,13 +11,13 @@ can view and comment on each other's goals, harnessing the power of
 
 ## Learning Goals
 
- * Know how to write model and controller tests using RSpec.
- * Know how to write integration tests using Capybara and RSpec.
- * Know what and when to test.
- * Understand how to test *behavior* rather than *implementation*.
- * Learn to develop one feature at a time (the 'slices' approach).
+ * Know how to write model and controller tests using RSpec
+ * Know how to write integration tests using Capybara and RSpec
+ * Know what and when to test
+ * Understand how to test *behavior* rather than *implementation*
+ * Learn to develop one feature at a time (the 'slices' approach)
  * Recognize how **concerns** and **polymorphic associations** can
-   _dry_ up your code.
+   _dry_ up your code
 
 ## Set Up
 
