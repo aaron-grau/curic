@@ -1,6 +1,8 @@
 # First Routes & Controllers
 
-In this project we'll start playing with Rails routing.
+In this project we'll start playing with Rails routing.  To start, generate a
+new, blank Rails project. Remember to use Postgres as the database for this 
+project.
 
 [aa-contactsapi]: http://aa-contactsapi.herokuapp.com
 
