@@ -170,7 +170,7 @@ hash[cat1] = 'is the best cat'
 If we create another `Cat` instance with the same name, then try to use it to
 look up the value stored with the first instance, the hash won't be able to find
 it. This is a problem, as we want two `Cat` instances with the same data (name)
-to be treated at the same key by the hash:
+to be treated as the same key by the hash:
 
 ```ruby
 hash[cat1] #=> 'is the best cat'

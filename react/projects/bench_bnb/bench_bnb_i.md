@@ -472,8 +472,8 @@ The `SessionForm` component should be responsible for a number of tasks:
 
       handleSubmit(e) {
         e.preventDefault();
-        const user = this.state;
-        this.props.processForm({user});
+        const user = Object.assign({}, this.state);
+        this.props.processForm(user).then(() => this.redirect());
       }
 
       //...

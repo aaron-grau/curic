@@ -4,11 +4,21 @@ One of the drawbacks of our program is that we don't have enough time to teach o
 
 * General
   * [The Basics of CSS Syntax][css-overview]
+  * [CSS Tricks](https://css-tricks.com/) (great reference!)
   * [CSS Demos][css-demos]
   * [Autoprefixer Gem][autoprefixer]
-  * [Preprocessing, Boilerplate Frameworks, and Type][sass-bootstrap-type]
   * [30 Selectors You Must Know][30-selectors]
   * [Parallax][parallax-blog]
+* 7 Rules for Creating Gorgeous UI
+  * [Part I](https://medium.com/@erikdkennedy/7-rules-for-creating-gorgeous-ui-part-1-559d4e805cda#.sfyqyq3qz)
+    1. Light comes from the sky
+    2. Black and white first
+    3. Double your whitespace
+  * [Part II](https://medium.com/@erikdkennedy/7-rules-for-creating-gorgeous-ui-part-2-430de537ba96#.gr5f90jgz)
+    4. The methods of overlaying text on images
+    5. Make text pop— and un-pop
+    6. Only use good fonts
+    7. Steal like an artist
 * CSS Transitions
   * [CSS Transitions Webcast][css-transitions-webcast] :movie_camera:
   * [Blog][css-transitions-blog]
