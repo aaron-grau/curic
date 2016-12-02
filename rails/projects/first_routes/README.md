@@ -7,7 +7,7 @@ In this project we'll start playing with Rails routing.
 ## Learning Goals
 
 + Be able to create routes in `routes.rb`
-+ Be able to read and understand rails server error messages
++ Be able to read and understand Rails server error messages
 + Know the three places that `params` come from
 + Be able to nest query parameters
 + Be able to write controller actions that read from and write to the database
