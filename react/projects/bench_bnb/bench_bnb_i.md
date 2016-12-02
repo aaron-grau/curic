@@ -442,7 +442,7 @@ The `SessionFormContainer` should provide `SessionForm` with the following props
   * `loggedIn` (boolean) - representing whether a `currentUser` exists
   * `errors` (array) - list of errors from the state
 + From `mapDispatchToProps(dispatch, ownProps)`:
-  * `formType` (string): `'login'` or `'signup'` given the current `location.pathname`
+  * `formType` (string): `'login'` or `'signup'` given the current `ownProps.location.pathname`
   * `processForm` (function): dispatching action creators `login` or `signup` given `formType`
 
 #### `SessionForm`
