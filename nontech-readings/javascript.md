@@ -41,9 +41,13 @@ JavaScript, JScript, and ActionScript are all valid implementations of ECMAScrip
 [Apple and Adobe Flash controversy]: https://en.wikipedia.org/wiki/Apple_and_Adobe_Flash_controversy
 
 ## Package Managers: NPM vs. Bower
-JavaScript's ever-increasing modularity is of particular use to software engineers. Innumerable JavaScript libraries are available to developers as packages. There are libraries that offer everything from [helper methods][lodash] to [various data structures][yallist] to [monolithic frontend frameworks][angular]. Also, there are plenty of [humorous libraries]. While some programmers are [skeptical][David Haney] of the widespread use of libraries – perhaps rightfully so – the proliferation of package integration has likely led to significantly faster project development and production code that is both more stable and more secure.
+JavaScript's ever-increasing modularity is of particular use to software engineers. Innumerable JavaScript libraries are available to developers as packages. There are libraries that offer everything from [helper methods][lodash] to [various data structures][yallist] to [monolithic frontend frameworks][angular]. Also, there are plenty of [humorous libraries].
 
-To handle project dependencies, a package manager has to be used. Two of the most commonly used package managers are [npm] (node package manager) and [Bower]. While npm is intended to handle Node.js dependencies, it is able to handle frontend dependencies – those that are sent to the client for use in the browser – as well. However, in order to allow for these frontend dependencies to be easily required, a bundling tool like [Browserify] or [webpack] has to be used. Bower, on the other hand, is designed specifically for managing frontend dependencies, so a bundling tool is not required. A key difference between npm and Bower lies in their treatment of conflicting dependencies. Take the following dependency structure:
+While some programmers are [skeptical][David Haney] of the widespread use of libraries – perhaps rightfully so – the proliferation of package integration has likely led to significantly faster project development and production code that is both more stable and more secure.
+
+To handle project dependencies, a package manager has to be used. Two of the most commonly used package managers are [npm] (node package manager) and [Bower]. While npm is intended to handle Node.js dependencies, it is able to handle frontend dependencies – those that are sent to the client for use in the browser – as well. However, in order to allow for these frontend dependencies to be easily required, a bundling tool like [Browserify] or [webpack] has to be used.
+
+Bower, on the other hand, is designed specifically for managing frontend dependencies, so a bundling tool is not required. A key difference between npm and Bower lies in their treatment of conflicting dependencies. Take the following dependency structure:
 
 | Dependency    | Requires       |
 | ------------- |:--------------:|
