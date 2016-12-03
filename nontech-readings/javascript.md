@@ -1,11 +1,11 @@
 # About JavaScript
-Being one of the three primary languages that ships with the browser, JavaScript is a critical tool for any web developer. Whereas HTML and CSS respectively provide static content and its styling, JavaScript makes websites dynamic. With this critical language, the initially provided content can be selected, altered, and transformed on a conditional basis.
+Being one of the three primary languages that ships with the browser, JavaScript is a critical tool for any web developer. Whereas HTML and CSS respectively provide static content and its styling, JavaScript makes websites dynamic. With JavaScript, the initial content of a webpage can be selected, altered, and transformed on a conditional basis.
 
 It should also be noted that JavaScript is now no longer used just on the client-side, but on the server-side as well. There are various [Node.js] frameworks designed for this purpose.
 
 In order to get a better understanding of JavaScript, what follows is a description of its history, alternatives, and package managers. There is also a brief glossary of terms that are in frequent use in the JavaScript community.
 
-[Node.js][https://nodejs.org/en/]
+[Node.js]: https://nodejs.org/en/
 
 ## History
 JavaScript was introduced during the initial [browser wars]. In 1995, [Netscape Communications] recruited [Brendan Eich] to add a language to their browser, Netscape Navigator, that non-professional programmers could use with ease. Having decided to incorporate Java into their browser with the collaboration of [Sun Microsystems], Netscape Communications decided to have Eich's new language act as a complement to Java. Eich completed his tasked language in ten days, and it eventually became known as JavaScript.
