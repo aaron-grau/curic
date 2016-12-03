@@ -1,10 +1,16 @@
 # About JavaScript
-JavaScript is a critical tool for any web developer. In order to get a better understanding of it, what follows is a description of its history, alternatives, and package managers. There is also a brief glossary of terms that are in frequent use in the JavaScript community.
+Being one of the three primary languages that ships with the browser, JavaScript is a critical tool for any web developer. Whereas HTML and CSS respectively provide static content and its styling, JavaScript makes websites dynamic. With this critical language, the initially provided content can be selected, altered, and transformed on a conditional basis.
+
+It should also be noted that JavaScript is now no longer used just on the client-side, but on the server-side as well. There are various [Node.js] frameworks designed for this purpose.
+
+In order to get a better understanding of JavaScript, what follows is a description of its history, alternatives, and package managers. There is also a brief glossary of terms that are in frequent use in the JavaScript community.
+
+[Node.js][https://nodejs.org/en/]
 
 ## History
-JavaScript was introduced during the initial [browser wars]. In 1995, [Netscape Communications] recruited [Brendan Eich] to add a language to their browser, Netscape Navigator, that non-professional programmers could use with ease. Having decided to incorporate Java into their browser with the collaboration of [Sun Microsystems], Netscape Communications decided to have Eich's new language act as a complement to Java. Eich completed his tasked language in ten days. This new language, initially known as Mocha and Livescript, became known as JavaScript.
+JavaScript was introduced during the initial [browser wars]. In 1995, [Netscape Communications] recruited [Brendan Eich] to add a language to their browser, Netscape Navigator, that non-professional programmers could use with ease. Having decided to incorporate Java into their browser with the collaboration of [Sun Microsystems], Netscape Communications decided to have Eich's new language act as a complement to Java. Eich completed his tasked language in ten days, and it eventually became known as JavaScript.
 
-JavaScript was a success. Following suit, Microsoft released a similar dialect called JScript in Internet Explorer 3.0. In June 1997, [ECMAScript] was established as a scripting-language specification. Put simply, ECMAScript is a standard, and various languages are implementations of that standard. Both JavaScript and JScript aim to fulfill the ECMA standards, but both also offer functionality that goes beyond the mutual specification.
+Following suit, Microsoft released a similar dialect called JScript in Internet Explorer 3.0. In June 1997, [ECMAScript] was established as a scripting-language specification. Put simply, ECMAScript is a standard, and various languages are implementations of that standard. Both JavaScript and JScript aim to fulfill the ECMA standards, but both also offer functionality that goes beyond the mutual specification.
 
 *__Excerpted ECMAScript releases:__*
 
@@ -21,17 +27,18 @@ JavaScript was a success. Following suit, Microsoft released a similar dialect c
 [Sun Microsystems]: https://en.wikipedia.org/wiki/Sun_Microsystems
 [ECMAScript]: https://en.wikipedia.org/wiki/ECMAScript
 
-## Alternatives
+## Alternatives to JavaScript
 JavaScript, JScript, and ActionScript are all valid implementations of ECMAScript.
 
-* While it does maintain slight differences with JavaScript, JScript is essentially the same language with a different name to avoid trademark issues.
+* While it does maintain slight differences with JavaScript, JScript is essentially the same language with a different name to avoid trademark issues. However, the difference is so slight that anything written in JavaScript is presumed to run properly in a browser that is built on JScript. Microsoft's Internet Explorer is the only browser that uses JScript.
 
-* ActionScript is much more of an object-oriented language than JavaScript. For instance, it makes use of class inheritance, as opposed to JavaScript's prototypal inheritance. ActionScript was originally developed by [Macromedia Inc.], which merged into [Adobe Systems]. It is now associated with both [Adobe Flash] development and [Adobe AIR].
+* ActionScript is much more of an object-oriented language than JavaScript. For instance, it makes use of class inheritance, as opposed to JavaScript's prototypal inheritance. ActionScript was originally developed by [Macromedia Inc.], which merged into [Adobe Systems]. It is now associated with development in both [Adobe AIR] and [Adobe Flash], so it's use has rapidly declined since the [Apple and Adobe Flash controversy].
 
 [Macromedia Inc.]: https://en.wikipedia.org/wiki/Macromedia
 [Adobe Systems]: https://en.wikipedia.org/wiki/Adobe_Systems
 [Adobe Flash]: https://en.wikipedia.org/wiki/Adobe_Flash
 [Adobe AIR]: https://en.wikipedia.org/wiki/Adobe_AIR
+[Apple and Adobe Flash controversy]: https://en.wikipedia.org/wiki/Apple_and_Adobe_Flash_controversy
 
 ## Package Managers: NPM vs. Bower
 JavaScript's ever-increasing modularity is of particular use to software engineers. Innumerable JavaScript libraries are available to developers as packages. There are libraries that offer everything from [helper methods][lodash] to [various data structures][yallist] to [monolithic frontend frameworks][angular]. Also, there are plenty of [humorous libraries]. While some programmers are [skeptical][David Haney] of the widespread use of libraries – perhaps rightfully so – the proliferation of package integration has likely led to significantly faster project development and production code that is both more stable and more secure.
@@ -91,14 +98,17 @@ A *closure* is a function that makes use of a variable defined in an outer scope
 ```javascript
 function parent() {
   const x = 5;
-  return function closureTime() {
+  function closureTime() {
     console.log(x);
   }
+  return closureTime();
 }
+
+parent(); // => 5
 ```
 
 ### Callbacks
-A *callback* is an argument that is passed to a function that is itself a function. Callbacks can easily be called after . For instance:
+A *callback* is an argument that is passed to a function that is itself a function. Once passed in, the callback can be called at any time within the function. For instance:
 
 ```javascript
 function a() {
@@ -113,7 +123,7 @@ b(a); // => 'I have been called!'
 ```
 
 ### Currying
-*Currying* occurs when a function returns another function. This is typically used to break out multiple arguments into a multiple calls. For example:
+*Currying* occurs when a function returns another function. This is typically used to allow for partial evaluation of arguments. For example:
 
 ```javascript
 function f(x) {
@@ -121,6 +131,12 @@ function f(x) {
     console.log(`${x} and ${y} are good in curry!`);
   }
 }
+
+let partiallyEvaluated = f('curry powder');
+// partiallyEvaluated == function g(y) { console.log(`${x} and ${y} are good in curry!`); }
+partiallyEvaluated('cardamom'); // => 'curry powder and cardamom are good in curry!'
+
+// Also:
 
 f('cinnamon')('cloves') // => 'cinnamon and cloves are good in curry!'
 ```
@@ -160,15 +176,22 @@ console.log(callie.name); // => 'Callie';
 ```
 
 #### Through a Function Method
-Both `call` and `apply` allow for a way to call a function, with the additional ability of setting the context of the function. (Context is described below.) While it is ultimately pointless to do so, one could invoke a function with these methods without passing any arguments as follows:
+Both `call` and `apply` allow for a way to call a function, with the additional ability of setting the context of the function. (Context is described below.) A simple use of invocation through a function method would look as follows:
 
 ```javascript
-function meow() {
-  return 'meow';
+const callie = {
+  name: 'Callie'
 }
 
-meow.call(); // => 'meow'
-meow.apply(); //=> 'meow'
+function meow() {
+  return `${this.name} says "meow"`;
+}
+
+meow.call(callie); // => Callie says "meow"
+
+// Also:
+
+meow.apply(callie); //=> Callie says "meow"
 ```
 
 For examples where contexts are properly passed to these methods, see the reading on context below.
@@ -202,7 +225,7 @@ cat.lookInMirror.call(lion) == lion; // => true
 cat.lookInMirror.apply(lion) == lion; // => true
 ```
 
-However, `.call` and `.apply` are [not the same][call vs. apply]. Put simply, their difference lies in the format of the additional arguments passed.
+However, `.call` and `.apply` are [not the same][call vs. apply].
 
 [call vs. apply]: https://github.com/appacademy/curriculum/blob/master/javascript/readings/function-invocation-in-depth.md
 ### IIFE
