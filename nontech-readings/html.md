@@ -1,9 +1,3 @@
-Discuss a topic or technology in the context of modern web tech (e.g., Why a/A teaches RoR)
-+ History, alternative technologies, benefits/drawbacks of each. 
-+ Discuss companies that use a technology and why. 
-+ Provide lists of vocab words related to each lesson that a/A grads should know and be able to recall easily. (e.g., MVC, Single Page App, &c.)
-+ Include example sentences that show proper use of terms in the tech community.
-
 HTML: HTML is short for "HyperText Markup Language," which tells us several things about it. First, it is a markup language, which means that each piece of information is annotated with a description of what it is (e.g., a paragraph, a link, and image, &c.). Second, its defining characteristic is "HyperText" - the ability to click on a reference to another text and get access to it (i.e., links).
 HTML is the standard markup language for creating web pages and web applications. The original specs for HTML, as well as the browser software, were written by Tim Berners-Lee in 1990. Each new version of HTML undergoes a lengthy review process by its publishing body (recently W3C) before being released - for example, HTML5 was published as a working draft in 2008, but not released as a stable recommendation until 2014.
 

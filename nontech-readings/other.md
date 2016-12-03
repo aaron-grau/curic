@@ -4,5 +4,35 @@ Discuss a topic or technology in the context of modern web tech (e.g., Why a/A t
 + Provide lists of vocab words related to each lesson that a/A grads should know and be able to recall easily. (e.g., MVC, Single Page App, &c.)
 + Include example sentences that show proper use of terms in the tech community. 
 
-mobile dev, swift, go, heroku vs aws vs "host-your-own", "CDN" "API Key" "CMS" "jsonp" "scrum" "kanban" "standup", backend vs frontend vs full stack, canvas vs 3d webgl, web assembly, MEAN stack vs HELP stack vs Postgres/Rails/React stack, agile vs waterfall, tabs vs spaces
-agile/scrum, other methods used by companies.
+Web development vs. Mobile development
++ Swift
+
+Heroku vs. AWS vs. Host your own
+
+Backend vs. Frontend vs. Full Stack
+
+Tabs vs. Spaces
+
+Agile development vs. Waterfall development
+
+Canvas vs. Web GL (three.js, Unreal Engine 4, Unity 5)
+
+Vocab:
+
+Agile
+
+Scrum
+
+Kanban
+
+Standup
+
+"CDN"
+
+"API Key"
+
+"CMS"
+
+"jsonp"
+
+web assembly
