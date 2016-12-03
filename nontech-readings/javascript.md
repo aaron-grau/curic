@@ -160,6 +160,7 @@ const cat = {
     console.log('PURRpuuuuurrPUUUUURR');
   }
 }
+
 cat.purr(); // => 'PURRpuuuuurrPUUUUURR'
 ```
 
@@ -221,7 +222,9 @@ The context can also be set on the call of the function through use of `.call` o
 
 ```javascript
 cat.lookInMirror.call(lion) == lion; // => true
-// or
+
+// Also:
+
 cat.lookInMirror.apply(lion) == lion; // => true
 ```
 
