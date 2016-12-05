@@ -85,9 +85,6 @@
 * [ERB][erb]
 * [HTML Form Basics][html-forms]
 * [Rails Parameter Conventions][rails-params-conventions]
-* [Basic views][basic-views]
-* [Mass Assignment][mass-assignment]
-* [PATCH, PUT, and DELETE][patch-put-and-delete]
 * [Debugging][debugging-rails]
 * [Easy Forms Demo][easy-forms-demo]
 * [Custom Validations][custom-validations]
@@ -101,12 +98,9 @@
 [views-debugging]: https://vimeo.com/194394048
 [rails-views-code]: demos/library_demo
 
-[basic-views]: readings/basic-views.md
 [erb]: readings/erb.md
 [html-forms]: readings/html-forms.md
 [rails-params-conventions]: readings/parameter-conventions.md
-[mass-assignment]: readings/mass-assignment.md
-[patch-put-and-delete]: readings/patch-put-and-delete.md
 [debugging-rails]: readings/debugging-rails.md
 [partials]: readings/partials.md
 
