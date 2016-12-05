@@ -69,25 +69,37 @@
 
 ## w4d2
 
-### Readings (90 min)
-* [Basic views][basic-views] (15 min)
-* [Partials][partials] (15 min)
-* [ERB][erb] (15 min)
-* [HTML Form Basics][html-forms] (15 min)
-* [Rails Parameter Conventions][rails-params-conventions] (10 min)
-* [Mass Assignment][mass-assignment] (5 min)
-* [PATCH, PUT, and DELETE][patch-put-and-delete] (5 min)
-* [Debugging][debugging-rails] (10 min)
+### Video Lectures (2 hr, 3 min)
+:closed_lock_with_key: `go_video_go`
++ [:movie_camera: Rails Views: Intro][views-intro] (27 min)
++ [:movie_camera: Rails Views: Forms][views-forms] (40 min)
++ [:movie_camera: Rails Views: Partials][views-partials] (36 min)
++ [:movie_camera: Debugging a Rails Project][views-debugging] (20 min)
+  + [:computer: Code from demos][rails-views-code]
 
 ### Homeworks (30 min)
 * [HTML Curriculum 3: Forms][html-3] (30 min)
 
 ### Additional Resources
+* [Partials][partials]
+* [ERB][erb]
+* [HTML Form Basics][html-forms]
+* [Rails Parameter Conventions][rails-params-conventions]
+* [Basic views][basic-views]
+* [Mass Assignment][mass-assignment]
+* [PATCH, PUT, and DELETE][patch-put-and-delete]
+* [Debugging][debugging-rails]
 * [Easy Forms Demo][easy-forms-demo]
 * [Custom Validations][custom-validations]
 
 ### Projects
 * [99 Cats][99-cats]
+
+[views-intro]: https://vimeo.com/194372657
+[views-forms]: https://vimeo.com/194376967
+[views-partials]: https://vimeo.com/194385069
+[views-debugging]: https://vimeo.com/194394048
+[rails-views-code]: demos/library_demo
 
 [basic-views]: readings/basic-views.md
 [erb]: readings/erb.md
