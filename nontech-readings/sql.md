@@ -3,15 +3,20 @@
 ## Terminology
 
 **SQL** - Structured Query Language
+
 **RDBMS** - Relational Database Management System
+
 **Query** - An operation that retrieves data from one or more tables; describes
 desired data, leaving the database management system to plan, optimize, and
 carry out the operations necessary to produce the results
+
 **Three-Valued (Ternary) Logic** - A many-valued logic system with three truth values:
 True, False, and Unknown (null)
+
 **Transaction** - A unit of work performed against a database that is treated in
 a coherent and reliable way; all of the work within a transaction must succeed, or
 it is rolled back entirely, i.e. "all or nothing"
+
 **Normalization** - An approach to database storage that practices storing references
 to information in other locations rather than duplicating it and storing it in multiple
 places; opposite of denormalization
