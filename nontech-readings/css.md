@@ -1,0 +1,169 @@
+# CSS: A brief non-technical overview
+
+## What is CSS?
+
+CSS is an abbreviation of Cascading Style Sheets, a style sheet language for markup (XML, HTML, XHTML). It empowers developers to separate document content from presentation.
+
+Style sheets are collections of stylistic rules; they have been used by editors and typographers since long before the web. A style sheet language describes the presentation of structured documents, like an HTML document. CSS includes 'Cascading' because multiple files can be combined to style one page.
+
+
+## A Brief History of CSS
+
+![netscape-relic](./netscape96.png)
+Netscape October 20, 1996
+
+- Early 1990's: HTML popularity was increasing and developers were frustrated with its limited styling abilities.
+- October 1994: Hakon Wium Lie released the first draft of “Cascading HTML Style Sheets”
+- August 1996: Microsoft Internet Explorer became the first browser to support CSS
+- December 1996: CSS 1 release
+  - Included: font properties, text attributes, alignment of text, tables, images, colors of text and backgrounds, spacing of words, letters and lines, margins, borders, padding and positioning, unique identification and classification of groups of attributes.
+- Early 1997: The W3C formed the CSS and Formatting Properties Working Group to focus solely on CSS standards. (Browsers used to display styling much less consistently)
+- 1998: CSS 2 release
+  - Added: z-index, media types, bidirectional text, absolute, relative and fixed positioning
+- June 2011 and June 2012: CSS 3 capabilities were separated into modules.
+  - Four new modules were added: color, selectors level 3, namespaces, media queries
+
+## Adding Style to HTML: Inline, Internal, and External CSS
+
+There are three ways a developer may add style to an HTML document. External CSS is most often preferred, but you will undoubtedly encounter inline and internal styles in the wild. They are discussed in order of specificity: inline > internal > external
+
+### Inline Style Attribute
+
+Exactly what the title suggests: style attributes added directly on an HTML element inside of the element's opening HTML tag.
+
+```html
+<h2 style="color: #000000; font-size: 2em;"> Hi </h2>
+```
+
+Pros:
+  - Highest specificity: Ensures the style will be applied to the element
+
+Cons:
+  - Highest specificity: will overwrite any other styles in an internal or external sheet
+  - Redundant; not DRY
+  - Cluttered, unreadable HTML markup
+  - Difficult to manage
+  - Impossible to style pseudo-elements and classes like `visited`,  `hover`, and `active`
+
+Extra note: When you change a style using Javascript, it affects the inline style and can overwrite existing inline styles permanently
+
+### Internal: Embedded style tag
+
+Styles for many elements are collected between `<style>` tags in the `<head>` section of an HTML document. This is referred to as an internal style sheet or embedded style tag because it is a complete stylesheet embedded inside of an HTML document.
+
+```html
+<head>
+  <style type="text/css">
+
+   h2 {
+     color: #000000;
+     font-size: 2em;
+   }
+
+   h3 {
+     color: #FF69B4;
+     font-size: 1em;
+   }
+
+  </style>
+</head>
+```
+
+Pros:
+- Cleaner HTML markup than inline styles: all styles are in one section of the document
+- Selectors apply styles to multiple elements on a page
+  - Smaller page size than using all inline styles
+  - More DRY than inline styles
+- Apply styles to the document they are embedded within; not globally
+
+Cons:
+- Loaded with the HTML page and not cached by the browser
+
+### External file: linked stylesheet
+
+```html
+<link rel="stylesheet" type="text/css" href="styles.css" />
+```
+Pros:
+  - Can be cached by browsers for improved performance
+  - Global: can be used across pages in your site
+
+Cons:
+  - Global: the developer must structure the CSS such that styles are not applied to elements they are not intended for.
+
+## Popular CSS Pre-Processors
+
+CSS pre-processors extend CSS's functionality with variables, nesting, functions, mixins, operators, and more. They help with style sheet maintenance and allow developers to write DRY-er, more extensible code.
+
+### SCSS and Sass
+
+SCSS (Sassy CSS) is a superset of CSS3, which means that every valid CSS3 stylesheet also valid SCSS. It retains CSS brackets and semi-colons; a developer can add SCSS to a CSS file by simply changing the extension to `.scss`.
+
+Sass is the older version of SCSS. It uses line indentation rather than brackets and semi-colons to specify blocks. Many developers prefer this syntax because it feels cleaner and more concise.
+
+SCSS/Sass support while/ each loops and if/then/else statements, custom function declaration, nested selectors, variables, mixins, extends, and many more features that allow it to be used more like a complete programming language. SCSS/Sass is the most widely used CSS pre-processor and has gained a large following from designers.
+
+SCSS and Sass are Ruby-based, so they require that Ruby be installed before use.
+
+### Less
+
+Less is inspired by and very similar to Sass. It is preferred by some designers and developers because of its gentle learning curve: it has less features than Sass and relies mainly on mixins for custom functionality. Less includes "guarded mixins" which take place conditionally. Mixins can also call themselves recursively with updated values. It does not support `while` or `each` loops. Some of Less's popularity can be attributed to its past use by Bootstrap, a top CSS framework.
+
+Less is Javascript-based and run by NodeJS
+
+### Stylus
+
+Stylus syntax uses line indentation and white space instead of semi-colons and brackets. Of the popular CSS pre-processors it behaves most like a complete programming language. Some of its special features include splats, converting files to base64, hashes, and color blending. Because of its comparative power and complexity, Stylus is perceived as less beginner-friendly than SCSS/Sass and lacks its extensive community support.
+
+Stylus is Javascript-based and run by NodeJS
+
+## Popular CSS Frameworks
+
+A CSS Framework is a package of pre-structured and standardized code that supports CSS development. For example, a grid system framework will provide basic column sizes and styles that can be adapted to many different designs.
+
+
+### Bootstrap
+
+Twitter developed Bootstrap as a way to standardize their UI components. It was publicly released in August of 2011 and has since become the most popular front-end framework on the web. The massive community has developed countless themes and templates along with incredibly thorough support resources. Bootstrap used to be written in Less, but switched to Sass in the most recent release. This makes its styles easier to customize than in previous releases, but because components are already polished out of the box, many developers do not fight the pre-existing designs. Bootstrap is a great choice for projects that have to get off the ground quickly.
+
+Sites built with Bootstrap:
+- NBA.com
+- Walmart
+- Bloomberg Business
+
+### Foundation
+
+ZURB, a high profile design agency, developed Foundation as an internal style guide. They released it in September 2011 as an open-sourced front-end framework. Though its following is smaller than Bootstrap's, ZURB has an adequate amount of community technical support and resources. Foundation invites more customization than Bootstrap by offering minimally pre-styled components. Its grid system also supports mobile-first design, a strategy that has grown more popular with the need for responsive websites. Foundation aids projects with more designer support that aim for an original look and feel. 
+
+Sites built with Foundation:
+- Dr Martens
+- Lamborghini
+- L'Estrange London
+
+## Some terms related to CSS in industry
+- UI: Short for user interface, or how a user interacts with a device or technology. CSS helps a UI design communicate how a user might use a web app. If you see a job posting for a UI Developer, that role likely includes writing a lot of HTML and CSS.
+
+- Responsive: A web design is responsive if adjusts to (and looks decent across) different device screen sizes.
+  - Breakpoints: Set in a web page's styles, breakpoints are the markers at which a change will occur to improve the UI.
+    - Example: When a container element is <= 480px wide, its inner elements will stack in one column instead of two columns.
+  - Media queries: Used for device-specific breakpoints. They include an optional media type and expressions that limit the scope of their contained styles.
+
+  ```
+  @media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px){
+    font-size: 12px;
+  }
+  ```
+
+- Pixel perfect: Replicating a mockup perfectly (down to the pixel level).
+- Material UI: The React Components implementation of Google's design language, Material Design.
+- Flat design: A minimalist UI design language characterized by simple elements, subtle typography, and flat colors.
+- Skeuomorphism: A design language characterized by elements that look like their counterparts in the real world.
+
+- Grid system: A simple type of CSS framework that provides column systems for grid layouts, usually helpful for responsive designs
+- W3C: The group responsible for HTML and CSS standards. It is the largest standards body for Internet design and best practices.
+
+
+
+*TODO: add links *
