@@ -17,12 +17,13 @@ Netscape October 20, 1996
 - August 1996: Microsoft Internet Explorer became the first browser to support CSS
 - December 1996: CSS 1 release
   - Included: font properties, text attributes, alignment of text, tables, images, colors of text and backgrounds, spacing of words, letters and lines, margins, borders, padding and positioning, unique identification and classification of groups of attributes.
-- Early 1997: The W3C formed the CSS and Formatting Properties Working Group to focus solely on CSS standards. (Browsers used to display styling much less consistently)
+- Early 1997: The W3C formed the [CSS and Formatting Properties Working Group][css-working-group] to focus solely on CSS standards. (Browsers used to display styling much less consistently)
 - 1998: CSS 2 release
   - Added: z-index, media types, bidirectional text, absolute, relative and fixed positioning
 - June 2011 and June 2012: CSS 3 capabilities were separated into modules.
   - Four new modules were added: color, selectors level 3, namespaces, media queries
 
+[css-working-group]: https://en.wikipedia.org/wiki/CSS_Working_Group
 ## Adding Style to HTML: Inline, Internal, and External CSS
 
 There are three ways a developer may add style to an HTML document. External CSS is most often preferred, but you will undoubtedly encounter inline and internal styles in the wild. They are discussed in order of specificity: inline > internal > external
@@ -97,25 +98,33 @@ CSS pre-processors extend CSS's functionality with variables, nesting, functions
 
 ### SCSS and Sass
 
+[SCSS/Sass][sass] are the most widely used CSS pre-processors.
+
 SCSS (Sassy CSS) is a superset of CSS3, which means that every valid CSS3 stylesheet also valid SCSS. It retains CSS brackets and semi-colons; a developer can add SCSS to a CSS file by simply changing the extension to `.scss`.
 
 Sass is the older version of SCSS. It uses line indentation rather than brackets and semi-colons to specify blocks. Many developers prefer this syntax because it feels cleaner and more concise.
 
-SCSS/Sass support while/ each loops and if/then/else statements, custom function declaration, nested selectors, variables, mixins, extends, and many more features that allow it to be used more like a complete programming language. SCSS/Sass is the most widely used CSS pre-processor and has gained a large following from designers.
+SCSS/Sass support while/ each loops and if/then/else statements, custom function declaration, nested selectors, variables, mixins, extends, and many more features that allow it to be used more like a complete programming language. SCSS/Sass has gained a large following from designers and appears to be preferred by many developers ([according to this small survey][sass-v-less]).
 
 SCSS and Sass are Ruby-based, so they require that Ruby be installed before use.
 
+[sass]: http://sass-lang.com/
+[sass-v-less]: https://www.keycdn.com/blog/sass-vs-less/
 ### Less
 
-Less is inspired by and very similar to Sass. It is preferred by some designers and developers because of its gentle learning curve: it has less features than Sass and relies mainly on mixins for custom functionality. Less includes "guarded mixins" which take place conditionally. Mixins can also call themselves recursively with updated values. It does not support `while` or `each` loops. Some of Less's popularity can be attributed to its past use by Bootstrap, a top CSS framework.
+[Less][less] is inspired by and very similar to Sass. It is preferred by some designers and developers because of its gentle learning curve: it has less features than Sass and relies mainly on mixins for custom functionality. Less includes "guarded mixins" which take place conditionally. Mixins can also call themselves recursively with updated values. It does not support `while` or `each` loops. Some of Less's popularity can be attributed to its past use by Bootstrap, a top CSS framework.
 
 Less is Javascript-based and run by NodeJS
 
+[less]: http://lesscss.org/
+
 ### Stylus
 
-Stylus syntax uses line indentation and white space instead of semi-colons and brackets. Of the popular CSS pre-processors it behaves most like a complete programming language. Some of its special features include splats, converting files to base64, hashes, and color blending. Because of its comparative power and complexity, Stylus is perceived as less beginner-friendly than SCSS/Sass and lacks its extensive community support.
+[Stylus][stylus] syntax uses line indentation and white space instead of semi-colons and brackets. Of the popular CSS pre-processors it behaves most like a complete programming language. Some of its special features include splats, converting files to base64, hashes, and color blending. Because of its comparative power and complexity, Stylus is perceived as less beginner-friendly than SCSS/Sass and lacks its extensive community support.
 
 Stylus is Javascript-based and run by NodeJS
+
+[stylus]: http://stylus-lang.com/
 
 ## Popular CSS Frameworks
 
@@ -124,21 +133,32 @@ A CSS Framework is a package of pre-structured and standardized code that suppor
 
 ### Bootstrap
 
-Twitter developed Bootstrap as a way to standardize their UI components. It was publicly released in August of 2011 and has since become the most popular front-end framework on the web. The massive community has developed countless themes and templates along with incredibly thorough support resources. Bootstrap used to be written in Less, but switched to Sass in the most recent release. This makes its styles easier to customize than in previous releases, but because components are already polished out of the box, many developers do not fight the pre-existing designs. Bootstrap is a great choice for projects that have to get off the ground quickly.
+Twitter developed [Bootstrap][bootstrap] as a way to standardize their UI components. It was publicly released in August of 2011 and has since become the most popular front-end framework on the web. The massive community has developed countless themes and templates along with incredibly thorough support resources. Bootstrap used to be written in Less, but switched to Sass in the most recent release. This makes its styles easier to customize than in previous releases, but because components are already polished out of the box, many developers do not fight the pre-existing designs. Bootstrap is a great choice for projects that have to get off the ground quickly.
 
 Sites built with Bootstrap:
-- NBA.com
-- Walmart
-- Bloomberg Business
+- [NBA.com][nba]
+- [Walmart][walmart]
+- [Bloomberg Business][bloomberg]
+
+[bootstrap]: http://getbootstrap.com/
+[nba]: http://www.nba.com/
+[walmart]: https://www.walmart.com/
+[bloomberg]: http://www.bloomberg.com/
 
 ### Foundation
 
-ZURB, a high profile design agency, developed Foundation as an internal style guide. They released it in September 2011 as an open-sourced front-end framework. Though its following is smaller than Bootstrap's, ZURB has an adequate amount of community technical support and resources. Foundation invites more customization than Bootstrap by offering minimally pre-styled components. Its grid system also supports mobile-first design, a strategy that has grown more popular with the need for responsive websites. Foundation aids projects with more designer support that aim for an original look and feel. 
+[ZURB][zurb], a high profile design agency, developed [Foundation][foundation] as an internal style guide. They released it in September 2011 as an open-sourced front-end framework. Though its following is smaller than Bootstrap's, ZURB has an adequate amount of community technical support and resources. Foundation invites more customization than Bootstrap by offering minimally pre-styled components. Its grid system also supports mobile-first design, a strategy that has grown more popular with the need for responsive websites. Foundation aids projects with more designer support that aim for an original look and feel.
 
 Sites built with Foundation:
-- Dr Martens
-- Lamborghini
-- L'Estrange London
+- [Dr Martens][drmartens]
+- [Lamborghini][lambo]
+- [L'Estrange London][llondon]
+
+[zurb]: http://zurb.com/
+[foundation]: http://foundation.zurb.com/
+[drmartens]: http://www.drmartens.com/us/
+[lambo]: https://www.lamborghini.com/en-en/
+[llondon]: https://lestrangelondon.com/
 
 ## Some terms related to CSS in industry
 - UI: Short for user interface, or how a user interacts with a device or technology. CSS helps a UI design communicate how a user might use a web app. If you see a job posting for a UI Developer, that role likely includes writing a lot of HTML and CSS.
@@ -157,13 +177,12 @@ Sites built with Foundation:
   ```
 
 - Pixel perfect: Replicating a mockup perfectly (down to the pixel level).
-- Material UI: The React Components implementation of Google's design language, Material Design.
+- [Material UI][material-ui]: The React Components implementation of Google's design language, Material Design.
 - Flat design: A minimalist UI design language characterized by simple elements, subtle typography, and flat colors.
 - Skeuomorphism: A design language characterized by elements that look like their counterparts in the real world.
 
 - Grid system: A simple type of CSS framework that provides column systems for grid layouts, usually helpful for responsive designs
-- W3C: The group responsible for HTML and CSS standards. It is the largest standards body for Internet design and best practices.
+- [W3C][w3c]: The group responsible for HTML and CSS standards. It is the largest standards body for Internet design and best practices.
 
-
-
-*TODO: add links *
+[material-ui]: http://www.material-ui.com/
+[w3c]: https://www.w3.org/
