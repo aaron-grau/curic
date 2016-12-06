@@ -13,7 +13,7 @@
 class ShortenedUrl < ActiveRecord::Base
   validates :long_url, :short_url, :submitter_id, presence: true
   validates :short_url, uniqueness: true
-  validate :no_spamming
+  validate :no_spamming, :nonpremium_max
 
   belongs_to(
     :submitter,
@@ -82,8 +82,20 @@ class ShortenedUrl < ActiveRecord::Base
     .where(submitter_id: submitter_id)
     .length
 
-
     errors[:maximum] << "of five short urls per minute" if last_minute >= 5
+  end
+
+  def nonpremium_max
+    return if User.find(self.submitter_id).premium
+
+    number_of_urls =
+      ShortenedUrl
+      .where(submitter_id: submitter_id)
+      .length
+
+    if number_of_urls >= 5
+      errors[:Only] << "premium members can create more than 5 short urls"
+    end
   end
 
 

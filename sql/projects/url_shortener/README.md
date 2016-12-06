@@ -309,7 +309,7 @@ Loading development environment (Rails 3.2.11)
 
 Users should be able to choose one of a set of predefined `TagTopic`s
 for links (news, sports, music, etc.). Since the relationship between `TagTopic`s and `URL`s is many-to-many. You'll
-need a join model like `Tagging`s. After you have created these models with the appropriate nullity and uniqueness constraints write a method, `TagTopic#popular_links`, that returns the 5 most visited links along with the number of times each link has been clicked.
+need a join model like `Tagging`s. Before starting think over with your pair what columns should be indexed  After you have created these models with the appropriate nullity and uniqueness constraints and seeded your database with some `TagTopic`s and `Taggings` write a method, `TagTopic#popular_links`, that returns the 5 most visited links along with the number of times each link has been clicked.
 
 ## Phase VI: Add a Custom Validations
 *  Write a custom validation method `ShortenedUrl#no_spamming` that keeps users from submitting more than 5 urls in a single minute.
