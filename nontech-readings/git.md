@@ -47,9 +47,11 @@ Currently Used By: Bitbucket, OpenOffice
 + **client** - The computer connecting to the repo.
 + **atomic operations** - changes are rolled back if they are somehow interrupted before completion. This helps prevent source corruption.
 + **repository (repo)** - A collection of commits, and branches and tags to identify commits
++ **semantic versioning (a.b.c or x.y.z versioning)** - Given a version number MAJOR.MINOR.PATCH (e.g. 2.0.6), increment the MAJOR version when you add any backwards incompatible changes, the MINOR version when you add backwards compatible features, and the PATCH version when you make backwards compatible bug fixes.
 
 <!-- ### Sources
 + [Atlassian](https://www.atlassian.com/git/)
 + [Time Doctor](https://biz30.timedoctor.com/git-mecurial-and-cvs-comparison-of-svn-software/)
 + [Rhode Code](https://rhodecode.com/insights/version-control-systems-2016)
-+ [Stack Share](https://stackshare.io/stackups/git-vs-mercurial-vs-svn) -->
++ [Stack Share](https://stackshare.io/stackups/git-vs-mercurial-vs-svn)
++ [SemVer](http://semver.org/)-->
