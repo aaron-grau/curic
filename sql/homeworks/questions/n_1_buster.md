@@ -1,13 +1,19 @@
 # Welcome to the N+1 Query Buster!
 
-Your job today is to eliminate all the costly, inefficient `N+1` queries in the code snippets below. Read through the associations and methods for each example to understand what needs to be fetched, then decide whether `.includes` or `.joins` is a better fit for the situation and implement whichever you choose.
+Your job today is to eliminate all the costly, inefficient `N+1` queries in the code snippets below. Download and write your code in the [skeleton][skeleton] so you can test as you go.
+Make sure to run `rake db:setup` to get the database seeded for you. Read through the
+associations and methods for each example to understand what needs to be fetched, then
+decide whether `.includes` or `.joins` is a better fit for the situation and implement
+whichever you choose.
 
-In the methods containing `# TODO: your code here` write the Active Record code that will produce the same
-result without causing an N+1 query. There are no skeleton projects provided: you will have to carefully
-think through the effects of what you write.
+In the methods containing `# TODO: your code here`, write the Active Record code that
+will produce the same result without causing an N+1 query. Test the query methods in the
+rails console as you work. Remember, you can check the server logs to see if you're
+making an N+1 query.
 
 Refer to the [joins demo][demo] for hints on what you might want to do!
 
+[skeleton]: ../n_1_buster.zip?raw=true
 [demo]: ../../demos/joins_demo/lib
 
 ## Artists, Albums, and Tracks
@@ -69,8 +75,12 @@ class Artist
 end
 ```
 
+Test in the rails console:
 
-
+```ruby
+Artist.first.better_tracks_query
+# {'Lemonade': 2, 'Sasha Fierce': 2}
+```
 
 ## Plants, Gardeners, and Houses
 
@@ -224,6 +234,8 @@ class Route
 end
 ```
 
-Once you're done, check out [the solutions][solution].
+Once you're done, check out the [solutions page][solution] or download the
+[full rails project solution][full-solution].
 
 [solution]: ../solutions/n_1_buster.rb
+[full-solution]: ../solutions/n_1_buster.zip?raw=true
