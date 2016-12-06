@@ -3,27 +3,27 @@
 So far, we've used Rails to handle all the different parts of our web
 application stack:
 
-	1.	database management (ActiveRecord )
-	2.	request routing (router and controllers), and
-	3.	rendering the user interface (views).
+1. Database management (ActiveRecord )
+2. Request routing (router and controllers)
+3. User interface rendering (views).
 
 While Rails certainly excels at all these things, we're now moving into the next
 iteration of our web-application stack: client-side rendering. Going forward,
 we'll be applying more and more Javascript when rendering our pages to create
 dynamic content. This means that we'll be relying on Rails HTML views less and
 less. Eventually, our Rails **endpoints** (controller actions) will stop serving
-HTML and only serve database information (as `json`) to be used by our client-
-side rendering scripts. When a web server provides non-UI formatted information
+HTML and only serve database information (as `json`) to be used by our client-side
+rendering scripts. When a web server provides non-UI formatted information
 like this, we call it a **web API**.
 
 ## What is an API?
 
 From [Wikipedia][wiki]:  
 
-	A **server-side web API** is a programmatic interface consisting of one or
-	more publicly exposed endpoints to a defined request-response message system,
-	typically expressed in JSON or XML, which is exposed via the web—-most
-	commonly by means of an HTTP-based web server.
+> A **server-side web API** is a programmatic interface consisting of one or
+> more publicly exposed endpoints to a defined request-response message system,
+> typically expressed in JSON or XML, which is exposed via the web—most
+> commonly by means of an HTTP-based web server.
 
 The Rails projects we've done so far haven't been APIs, because they've tightly
 coupled database information to a pre-defined set of fixed UI-templates (our
@@ -42,19 +42,19 @@ information as it executes.
 Take a look at this `CatsController`:
 
 ```ruby
-	# app/controllers/cats_controller.rb
+# app/controllers/cats_controller.rb
 
-	class CatsController < ApplicationController
-		def index
-			@cats = Cat.all
-			render :index
-		end
+class CatsController < ApplicationController
+	def index
+		@cats = Cat.all
+		render :index
 	end
+end
 ```
 
 It should render the following template whenever we visit `localhost:3000/cats`:
 
-```html
+```erb
 <!-- app/views/cats/index.html.erb -->
 <h1> Cats </h1>
 <ul>
@@ -103,15 +103,15 @@ this:
 
 ```json
 [
-	{id: 1, name: "Amitabh", color: "Gray"},
-	{id: 2, name: "Fabio", color: "Calico"}
+	{"id": 1, "name": "Amitabh", "color": "Gray"},
+	{"id": 2, "name": "Fabio", "color": "Calico"}
 ]
 ```
 
 Our client-side JS can then parse and use the information easily to present our
 information dynamically (i.e. according to our instructions).
 
-**NB:** we can still get our old HTML view by making a `ContentType: text/html`
+**NB:** We can still get our old HTML view by making a `ContentType: text/html`
 request to `localhost:3000/cats`, but at this point, who'd want to? STOP LIVING
 IN THE PAST.
 
@@ -128,20 +128,19 @@ which is created in the `app/controllers/api/cats_controller.rb` file. Then we
 need to tell our router about our new controller:
 
 ```rb
-	# config/routes.rb
+# config/routes.rb
 
+resources :cats, only: [:index]
+
+namespace :api do
 	resources :cats, only: [:index]
-
-	namespace :api do
-		resources :cats, only: [:index]
-	end
-
+end
 ```
 
 Running rake routes, we get:
 
 ```
-	Prefix Verb URI Pattern         Controller#Action
+  Prefix Verb URI Pattern         Controller#Action
     cats GET  /cats(.:format)     cats#index
 api_cats GET  /api/cats(.:format) api/cats#index
 ```

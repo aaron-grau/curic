@@ -70,7 +70,7 @@ function. A Redux middleware must always have the following signature:
 const middleware = store => next => action => {
 	// side effects, if any
 	return next(action);
-}
+};
 ```
 
 Every middleware receives the `store` as an argument and returns a function that
@@ -85,7 +85,7 @@ const middleware = store => next => action => {
 	const result = next(action);
 	// side effect using `result`
 	return result;
-}
+};
 ```
 
 ## Example: Logger
@@ -118,7 +118,7 @@ const logger = store => next => action => {
   console.log('State post-dispatch:', store.getState());
 
   return result;
-}
+};
 ```
 
 Now, whenever we dispatch an action, we'll see its effect on the Store.
@@ -126,55 +126,5 @@ Now, whenever we dispatch an action, we'll see its effect on the Store.
 I know that those last few paragraphs probably seemed crazy, and they are.
 Understanding middleware takes practice, so don't worry if every detail hasn't
 clicked. Just memorize the middleware signature and you will be OK.
-
-
-## Example: Contacts
-
-Say that we are building a web application that stores a user's contacts. On logging in we will need to fetch all of that user's contacts from our database. We would use middleware to trigger the AJAX request responsible for this action. Our AJAX request and middleware might look something like the following:
-
-```js
-// utils/api_contacts_utils.js
-
-fetchContacts = (success, error) => ({
-  $.ajax({
-    method: 'GET',
-    url: 'api/contacts'
-    success,
-    error
-  })
-});
-
-export default fetchContacts;
-```
-
-```js
-// middleware/contacts_middleware.js
-
-import fetchContacts from '../utils/api_contacts_utils'
-import { receiveContacts, RECEIVE_CONTACTS } from '../actions/contacts_actions'
-
-const contactsMiddleware = ({ getState, dispatch }) => next => action => {
-  const successCallback = contacts => {
-    dispatch(receiveContacts(contacts))
-  };
-  const errorCallback = errors => console.log(errors);
-
-  switch (action.type) {
-    case RECEIVE_CONTACTS:
-      fetchContacts(successCallback, errorCallback);
-      return next(action)
-    default:
-      return next(action)
-  };
-};
-
-export default contactsMiddleware;
-```
-In the above example when we have an action type of `"RECEIVE_CONTACTS"` the `contactsMiddleware` makes an AJAX request, if this request is successful we dispatch an action to receive the contacts, if it is unsuccessful we log the errors on our console. Note that since we just use `dispatch` we have de-structured the `store` argument into `{ getState, dispatch }`.  
-
-
-
-
-
 
 [signature]: https://developer.mozilla.org/en-US/docs/Glossary/Signature/Function

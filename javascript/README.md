@@ -110,14 +110,12 @@
   *  [Crockford][crockford-style]
   *  [jQuery][jquery-style]
   *  [Air BnB][airbnb-style]
-* **Bonus Reading**: [Promises][promises]
 * **Bonus Reading**: [Tagging Template Literals][taggings]
 
 [indentation]: ./readings/indentation.md
 [crockford-style]: http://javascript.crockford.com/code.html
 [jquery-style]: http://contribute.jquery.org/style-guide/js/
 [airbnb-style]: https://github.com/airbnb/javascript
-[promises]: readings/promises.md
 [taggings]: readings/tagged-templates.md
 
 ### Projects
@@ -268,15 +266,17 @@
 [ajax-demo]: https://vimeo.com/162764008
 [ajax-demo-code]: demos/chat_demo
 
-### Readings (45 min)
+### Readings (60 min)
 * [Basic AJAX][basic-ajax] (10 min)
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
 * [Using Rails as an API][rails-api] (10 min)
+* [Promises][promises] (15 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
 [basic-ajax]: readings/basic-ajax.md
 [ajax-remote-forms]: readings/ajax-remote-forms.md
 [rails-api]: readings/rails-api.md
+[promises]: readings/promises.md
 
 ### Homeworks (30 min)
 * [Your First Ajax Request][first-ajax] (30 min)

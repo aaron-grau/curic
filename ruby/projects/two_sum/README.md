@@ -42,7 +42,7 @@ Write a second solution, called `okay_two_sum?`, which uses sorting. Make sure i
 ### Hash Map
 Finally, it's time to bust out the big guns: a hash map. Remember, a hash map has *O(1)* `#set` and *O(1)* `#get`, so you can build a hash out of each of the `n` elements in your array in *O(n)* time. That hash map prevents you from having to repeatedly find values in the array; now you can just look them up instantly.
 
-See if you can solve the `pair_sum?` problem in linear time now, using your hash map.
+See if you can solve the `two_sum?` problem in linear time now, using your hash map.
 
 Once you're finished, make sure you understand the time complexity of your solutions and then call over your TA and show them what you've got. Defend to them why each of your solutions has the time complexity you claim it does.
 

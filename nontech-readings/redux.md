@@ -1,0 +1,195 @@
+# Redux
+
+Redux is a javascript framework for managing the frontend state of a web application.
+It allows us to store information in an organized manner in a web app and to quickly retrieve that information from anywhere in the app.
+Redux is modeled on a few previous web technologies including Elm and Flux.
+Advantages of Redux include:
+* it simplifies some of the more cumbersome aspects of Flux
+* it is very lightweight; the library only takes up 2 kbs
+* it is very fast, i.e. the time to insert or retrieve data is low
+* it is predictable, i.e. interacting with the data store in the same way repeatedly will produce the same effect.
+
+
+## Terminology
+
+Here is a list of terms you might hear when discussing Redux along with definitions and sample uses.
+
+* **State**
+  "_Redux is a state manager._"
+  The _state_ of a program means all the information stored by that program at a particular point in time.
+  It is generally used to refer to the data stored by the program at a particular instance in time, as opposed to the logic of the program, which doesn't change over time.
+  The job of redux is to store the state of your app and make it available to entire app.
+
+* **Store**
+  "_Redux stores state in a single store._"
+  The Redux store is a single plain javascript object.
+  Any state you want Redux to handle goes in that object.
+
+* **Action**
+  "_The redux store is updated by dispatching actions._"
+  An action is a plain javascript object.
+  Actions contain information that can be used to update the store.
+  They can be _dispatched_, i.e. sent to the store, in response to user actions or AJAX requests.
+
+* **Reducer**
+  "_Redux handles actions using reducers._"
+  A reducer is a function that is called each time an action is dispatched.
+  The reducer receives an action and the current state as arguments and returns an updated state.
+
+* **Pure function**
+  "_Redux reducers are pure functions._"
+  A function is pure if its behavior depends only its arguments and it has no side effects.
+  This means the function can't depend on the value of any variables that aren't passed to it as arguments, and it can't alter the state of the program.
+  It simply takes in arguments and returns a value.
+
+  Redux reducers are required  to be pure functions of the action that was dispatched and the current state.
+  This makes their behavior very predictable and allows their effects to potentially be reversed.
+
+* **Time traveling dev tools**
+  "_Redux has time traveling dev tools._"
+  Redux reducers are pure functions of the previous state and an action.
+  This means that if one were to store a list of the previous states over time and the actions that had been dispatched, one could retroactively cancel an action and recalculate the state as if that action had never been dispatched.
+  This is precisely the functionality that the Redux dev tools provide.
+  You can look back through the history of the state and you can toggle past actions on and off and see a live recalculation of the state.
+  This ability to revert to a previous state is what is meant by time travel.
+
+
+## Alternative Frameworks
+
+  There are a variety of options for managing the front-end state of a web app.
+  For this course we have chosen Redux.
+  Here is a brief survey of some other options that are available.
+
+* **Flux:**
+  Flux is a coding pattern rather than a library.
+  It is an approach to structuring the storage of frontend data.
+  Flux was developed by Facebook to complement React.
+  It is now used by many companies that also use React including   Expedia and Kahn Academy.
+  One key to the design of Flux is the unidirectional flow of information.
+  Actions are dispatched, they modifiy the state, and that state is passed on to 'views', which make it available to the React components.
+  This is the inspiration for the unidirecitonal flow in Redux: action -> reducer -> store -> view.
+  Flux applications also maintain a central data store which is modified by dispatching actions.
+
+  Unlike Redux apps, Flux apps can have multiple stores.
+  Often actions must be dispatched to these stores in a particular order.
+  To manages this, Flux apps have an additional component not found in Redux apps called a _dispatcher_.
+  The dispatcher's job is to route each action to the correct store and keep the stores in synch.
+  Stores register functions with the dispatcher that are used to modify the store based on actions.
+  These functions play a similar roll to Redux reducers, however they need not be pure functions.
+  This can make the result of dispatching an action on the state hard to predict and even harder to reverse.
+  Redux solves this problem by requiring reducers to be pure functions.
+
+  Flux used by a number of companies including Facebok, Yahoo, and Trapit.
+
+* **Elm**
+  Elm is a frontend language that is compiled to JavaScript.
+  It includes libraries and programing patterns for frontend development.
+  Elem was designed by Evan Czaplicki for his thesis and is now managed by the Elm Software Foundation.
+
+  Elm is a statically typed functional programing language.
+  This means a few things.
+  All its data types are immutable; they can't be modified after they are created.
+  Each function expects to receive arguments of a certain type, and your code won't compile if that isn't satisfied.
+  All elm functions are pure.
+  This last fact influenced the Redux use of pure reducers.
+  In fact, much of the overall design pattern form Redux was inspired by Elm.
+
+  Elm is still in its early stages, but it has been adopted by a few companies including Permutive and RideCell, and more companies are in the process of transitioning from javascript to Elm.
+
+* **GraphQL**
+  All the frameworks we have discussed thus far assume that we want to store and manage some data in the frontend of our web app.
+  In general, of course, this doesn't have to be true.
+  If we are dealing with a full-stack web application then presumably all the information stored in the frontend will have been fetched from our backend web server.
+  One direction we could take would be to choose not to manage any information in the frontend, and simply fetch data from the backend as we needed to display it, hopefully already formatted.
+
+  This is precisely the functionality that GraphQL aims to provide.
+  GraphQL is a powerful and convenient query language that makes it easy to request exactly what you need from the backend server.
+  In a web app built around GraphQL the frontend becomes a presentational wrapper for data stored in the database, and holds very little state of its own.
+
+  Of course, one could use GraphQL in combination with a state manager such as Redux.
+  In that scenario, GraphQL would replace the use of, say, jQuery to make AJAX requests.
+  Once fetched, however, the data would still be managed by a frontend library and manipulated before being displayed or saved to the database.
+
+  GraphQL is used by a number of major companies including Facebook, ZeeMee, and EventGeek.
+
+* **MobX**
+  Web development is always a rapidly changing landscape, so it's only fitting to conclude with a technology that's even newer than Redux.
+  MobX was developed a few months after Redux.
+  The inspiration from MobX comes from spreadsheet programs such as Microsoft Excel.
+  In such a program, one can simply define the value of one cell in terms of another cell, and when the second cell is changed, the first will be updated as well.
+  There is no need either to worry about the way the cell was changed, or about letting dependent cells know that they should be updated.
+
+  MobX is built on that philosophy: there should be a central store of data; React components should be able to change that data (usually due to user interaction); if the change in data would affect another component, that component should automatically re-render without the programer having to explicitly tell it to.
+  
+  MobX is used by companies including Mendix, StackShare, and RepSpark.
+
+## Where did Redux come from?
+
+Redux was created by Dan Abramov in 2015.
+It was initially intended as an experiment to create a simplified version of Flux.
+Abramov wanted to remove some of what he saw as the unnecessary boilerplate code that was required to create a Flux app.
+
+Abramov also wanted to eliminate some of the aspects of development he found frustrating.
+When trying to debug a web app, one must often go through the series of steps that cause the bug to occur each time the code is changed.
+This quickly becomes repetitive and frustrating.
+Abramov envisioned dev tools that would allow one to undo or replay a series of actions at the click of a button.
+This idea became the Redux dev tools.
+
+The reason this works, as discussed above, is that Redux uses pure reducers, so one can simply replay a series of actions and be guaranteed to arrive at the same final state.
+As Redux was developed it also became more convenient to use a single object to store the state, rather than traditional Flux which uses multiple stores.
+
+These design choices allowed for the creation of an ecosystem of powerful Redux tools and extensions.
+Over time three principles were recognized as central to the philosophy of Redux.
+They are
+
+* **A Single Source of Truth**
+  The state for an entire Redux app is stored in a single, plain javascript object.
+
+* **State is Read Only**
+  The state object can not be directly modified.
+  Instead it is modified by dispatching actions.
+
+* **Changes Are Made with Pure Functions**
+  The reducers that receive the actions and return updated state are pure functions of the old state and the action.
+
+Beyond this, a guiding meta-philosophy of Redux is the idea that in a software library restrictions can be just as important as features.
+Redux deliberately places significant restrictions on the way state can be stored and updated, but in return it allows easy implementation of a number of powerful features that would extremely difficult to write using a less restrictive framework.
+
+Since its creation Redux has rapidly grown in popularity, quickly moving beyond its initial plan as an experiment.
+As of early 2016 it had over 3,000,000 downloads.
+The redux repository on github has over 25,000 stars, and redux is now used by a number of major companies including Exana, Patreon, and ClassPass.
+
+
+## Resources
+
+### Documentation
+
+* [Redux](http://redux.js.org/)
+
+* [Elm](http://elm-lang.org/docs)
+
+* [Flux](https://facebook.github.io/flux/docs/overview.html#content)
+
+* [GraphQL](http://graphql.org/learn/)
+
+* [MobX](http://mobxjs.github.io/mobx/faq/blogs.html)
+
+### Who uses it?
+
+* [Redux](https://stackshare.io/reduxjs)
+
+* [Elm](https://stackshare.io/elm)
+
+* [Flux](https://stackshare.io/flux)
+
+* [GraphQL](https://stackshare.io/graphql)
+
+* [MobX](https://stackshare.io/mobx)
+
+### Talks
+
+* [Introduction of Redux](https://www.youtube.com/watch?v=xsSnOQynTHs)
+
+* [Redux update one year in](https://www.youtube.com/watch?v=uvAXVMwHJXU)
+
+* [Talks on Redux by its creator](https://egghead.io/courses/getting-started-with-redux)

@@ -6,7 +6,7 @@ Promises are a tool for simplifying callbacks to asynchronous functions. Since t
 
 ## The Problem
 
-Sometimes we need to chain several asynchronous functions. For example, maybe we want to get our user's geolocation, then hit an API to `GET` the user's nearest surf spot, then hit a third API to get the surf conditions for that spot. 
+Sometimes we need to chain several asynchronous functions. For example, maybe we want to get our user's geolocation, then hit an API to `GET` the user's nearest surf spot, then hit a third API to get the surf conditions for that spot.
 
 To do this with traditional callbacks, we need to define the success callback of one function to invoke the next, and each function has to handle its own errors.
 
@@ -68,6 +68,30 @@ A few notes about functionality before moving on:
   * A promise cannot change it's state from fulfilled to rejected or vice-versa.
   * If a promise has already been settled and a callback is added that matches the promise's state, that callback will be invoked immediately.
 
+
+## Using Promises
+
+While promises can be a little tricky to understand, they are extremely easy to use. the jQuery `ajax` method allows use of success callbacks and also returns a promise, so we can use this to compare and contrast the different techniques. We can avoid passing a callback to `ajax` by calling `then` on the return value and passing the callback to `then`.
+
+```js
+// Passing a callback
+function fetchCat(catId, success, error) {
+  $.ajax({ url: `/cats/${catId}`, method: 'GET', success, error })
+}
+
+fetchCat(1, cat => console.log(cat), err => console.log(err))
+
+// Using a promise.
+function fetchCat(catId) {
+  // Don't forget to return the promise!
+  return $.ajax({ url: `/cats/${catId}` })
+}
+
+fetchCat(1).then(cat => console.log(cat), err => console.log(err))
+```
+
+In this small example their difference is negligible. Promises really excel at error handling and separating concerns. In the second example, the `fetchCat` function no longer needs to be involved or 'know about' the expected outcome. 
+
 ## Creating a Promise
 
 We can create a new promise using the promise constructor function:
@@ -89,7 +113,7 @@ let promise = new Promise( (resolve, reject) => {
 
 ## `resolve` and `reject`
 
-`resolve` and `reject` are responsible for telling the promise what arguments to pass on (via `then` or `catch`) once the promise has been settled. 
+`resolve` and `reject` are responsible for telling the promise what arguments to pass on (via `then` or `catch`) once the promise has been settled.
 
 ```javascript
 
@@ -128,9 +152,9 @@ somePromise.then(success).then(success2).catch(failure)
 ```
 ### Quirks about `then` and `catch`
 
-Consider these similar constructions: 
+Consider these similar constructions:
 ```javascript
-somePromise.then(success, error) 
+somePromise.then(success, error)
 somePromise.then(success).catch(error)
 ```
 In the first construction, `then` will always call either `success` or `failure`, but not both. In the later, both `success` and `failure` _could_ run if `somePromise` is fulfilled but `success` is rejected.

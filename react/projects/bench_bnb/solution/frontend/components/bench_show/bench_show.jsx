@@ -5,7 +5,7 @@ import BenchDetail from './bench_detail';
 import BenchMap from '../bench_map/bench_map';
 import ReviewButton from './review_button';
 
-const BenchShow = ({ bench, benchId, requestBench, children }) => {
+const BenchShow = ({ bench, benchId, fetchBench, children }) => {
   const benches = {
     [benchId]: bench
   };
@@ -18,7 +18,7 @@ const BenchShow = ({ bench, benchId, requestBench, children }) => {
           benches={benches}
           benchId={benchId}
           singleBench={true}
-          requestBench={requestBench}
+          fetchBench={fetchBench}
           />
       </div>
       <div className="right-half bench-details">

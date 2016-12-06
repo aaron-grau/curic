@@ -92,7 +92,7 @@ Should you ever explicitly need the CSRF token, you can do what
 `rails.js` does to look it up:
 
 ```js
-    $('meta[name="csrf-token"]').attr('content');
+$('meta[name="csrf-token"]').attr('content');
 ```
 
 [rails-csrf-protection]: https://github.com/rails/jquery-ujs/blob/master/src/rails.js#L55

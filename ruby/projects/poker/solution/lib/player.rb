@@ -80,8 +80,8 @@ class Player
   end
 
   def <=>(other_player)
-    p hand
-    p other_player.hand
+    hand
+    other_player.hand
     hand <=> other_player.hand
   end
 end

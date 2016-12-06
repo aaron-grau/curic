@@ -17,8 +17,7 @@ Webpack can be configured to transpile your JSX and ES6 source code into browser
 npm install --save babel-core babel-preset-es2015 babel-preset-react
 ```
 
-`babel-core` is the transpiling engine itself. `babel-preset-es2015` and `babel-
-preset-react` are configurations that tell the core transpiler how to interpret
+`babel-core` is the transpiling engine itself. `babel-preset-es2015` and `babel-preset-react` are configurations that tell the core transpiler how to interpret
 ES6 and JSX, respectively.
 
 **Configure the `module` key of your `webpack.config.js`:**

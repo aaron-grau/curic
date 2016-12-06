@@ -13,7 +13,7 @@ The store is responsible for:
 
 ## Creating the Store
 
-The `redux` library provides us with a `createStore()` method, which takes up
+The `redux` library provides us with a `createStore()` method, which takes up to
 three arguments and returns a Redux `store`.
 
 ```js
@@ -43,7 +43,7 @@ A Redux `store` is just an object that holds the application state, wrapped in a
 + `getState()` - Returns the store's current state.
 + `dispatch(action)` - Passes an `action` into the store's `reducer` telling it
  what information to update.
-+ `subscribe(listener)` - Registers callbacks to be triggered whenever the store updates.
++ `subscribe(callback)` - Registers callbacks to be triggered whenever the store updates. Returns a function, which when invoked, unsubscribes the callback function from the store.
 
 ## Updating the Store
 
@@ -62,6 +62,7 @@ handle the inventory. We would use the following action to add an orange to the
 app's state:
 
 ```js
+// actions.js
 const addOrange = {
 	type: 'ADD_FRUIT',
 	fruit: 'orange'
@@ -72,7 +73,7 @@ const addOrange = {
 When `store.dispatch()` is called, the store passes its current `state`, along
 with the `action` being dispatched, to the `reducer`. The `reducer` function
 takes the two arguments (`state` and `action`) and returns the next `state`.
-You'll read more more on the `reducer` in the next reading, but for now, think
+You'll read more on the `reducer` in the next reading, but for now, think
 of it as a Redux app's traffic cop, routing new information to its rightful
 place in the state.
 
@@ -135,8 +136,11 @@ const display = () => {
 	console.log(store.getState());
 };
 
-store.subscribe(display);
+const unsubscribeDisplay = store.subscribe(display);
 store.dispatch(addOrange); // ['orange', 'orange']
+
+// ...later (when we are done displaying)
+unsubscribeDisplay(); // display will no longer be invoked after store.dispatch()
 ```
 
 In the example above, the store processed the dispatched action and then called
@@ -160,7 +164,7 @@ class FruitStand extends React.Component {
 		/* Note: Subscribing `forceUpdate()` is not a recommended pattern and used
 		for illustration purposes only. See the `NB` below. */
 		this.forceUpdate = this.forceUpdate.bind(this);
-		this.props.store.subscribe(this.forceUpdate);
+		this.unsubscribe = this.props.store.subscribe(this.forceUpdate);
 	}
 
 	render() {
@@ -171,6 +175,12 @@ class FruitStand extends React.Component {
 			))}
 			</ul>
 		);
+	}
+	
+	// let's make sure that when we are done with our component
+	// we unsubscribe any callbacks we registered to the store
+	componentWillUnmount() {
+		this.unsubscribe();
 	}
 };
 

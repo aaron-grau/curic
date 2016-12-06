@@ -17,7 +17,7 @@ class Api::PokemonController < ApplicationController
 
   def index
     sleep 1
-    @pokemon = Pokemon.all.select(:id, :name, :image_url)
+    @pokemon = Pokemon.all
   end
 
   def show
@@ -29,7 +29,7 @@ class Api::PokemonController < ApplicationController
 
   def pokemon_params
     params
-    .require(:pokemon)
-    .permit(:image_url, :attack, :defense, :name, :poke_type, moves: [])
+      .require(:pokemon)
+      .permit(:image_url, :attack, :defense, :name, :poke_type, moves: [])
   end
 end

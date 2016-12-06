@@ -328,7 +328,7 @@ Let's monetize our URL Shortener app.
 + Now add code to ensure that non-premium users can only create a maximum of
 5 URLs (premium users get unlimited).
 
-## Phase VII: Pruning Stale URLs
+## Phase VIII: Pruning Stale URLs
 
 Write a `ShortenedUrl::prune` method that deletes any shortened urls that have
 not been visited in the last (n) minutes. Write a [rake task][rake-tutorial] to

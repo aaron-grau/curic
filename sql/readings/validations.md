@@ -72,10 +72,6 @@ To signal success saving the object, `save` will return `true`;
 otherwise `false` is returned. `save!` will instead raise an error if
 the validations fail.
 
-**Always use `save!` unless you are going to explicitly check if the
-validations failed**. Otherwise, you may silently fail to save
-records. Make `save!` your default!
-
 ## `valid?`
 
 Before saving, ActiveRecord calls the `valid?` method; this is what

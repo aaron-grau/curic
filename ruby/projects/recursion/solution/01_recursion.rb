@@ -77,6 +77,14 @@ def fibs_rec(n)
   end
 end
 
+class Array
+  def subsets
+    return [[]] if empty?
+    subs = take(count - 1).subsets
+    subs.concat(subs.map { |sub| sub + [last] })
+  end
+end
+
 def permutations(array)
   return [array] if array.length <= 1
 
@@ -148,14 +156,6 @@ class Array
     end
 
     merged_array + left + right
-  end
-end
-
-class Array
-  def subsets
-    return [[]] if empty?
-    subs = take(count - 1).subsets
-    subs.concat(subs.map { |sub| sub + [last] })
   end
 end
 

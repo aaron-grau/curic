@@ -6,7 +6,9 @@ actually works: how your ActiveRecord world is translated into SQL.
 
 ## Setup
 
-Download the skeleton from the project directory on GitHub.
+Download the [skeleton][skeleton].
+
+[skeleton]: ../skeleton.zip?raw=true
 
 There are specs in it which will guide you through the project. Because
 they're using a database, they run a little slow, so it might be helpful
@@ -49,8 +51,8 @@ file. Run it using `bundle exec rspec` to check your work.
 ## Phase I: `SQLObject`: Overview
 
 Our job is to write a class, `SQLObject`, that will interact with the
-database. By the **end** of this phase, we will have written the
-following methods, just like the real `ActiveRecord::Base`:
+database. By the **end** of this phase, our ActiveRecord Lite will behave
+just like the real `ActiveRecord::Base`, with methods including:
 
 * `::all`: return an array of all the records in the DB
 * `::find`: look up a single record by primary key
