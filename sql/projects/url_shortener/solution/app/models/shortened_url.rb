@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: shortened_urls
+#
+#  id           :integer          not null, primary key
+#  long_url     :string(255)      not null
+#  short_url    :string(255)      not null
+#  submitter_id :integer          not null
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 class ShortenedUrl < ActiveRecord::Base
   validates :long_url, :short_url, :submitter_id, presence: true
   validates :short_url, uniqueness: true
@@ -8,6 +20,15 @@ class ShortenedUrl < ActiveRecord::Base
     foreign_key: :submitter_id,
     primary_key: :id
   )
+
+  has_many :taggings,
+  primary_key: :id,
+  foreign_key: :shortened_url_id,
+  class_name: :Tagging
+
+  has_many :tag_topics,
+  through: :taggings,
+  source: :tag_topic
 
   has_many :visits
   # TA: Again, the association would return the same user multiple times. You
@@ -53,4 +74,7 @@ class ShortenedUrl < ActiveRecord::Base
       .distinct
       .count
   end
+
+  
+
 end

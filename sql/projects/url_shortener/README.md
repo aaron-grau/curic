@@ -308,11 +308,8 @@ Loading development environment (Rails 3.2.11)
 ## Phase V: `TagTopic`, `Tagging`s
 
 Users should be able to choose one of a set of predefined `TagTopic`s
-for links (news, sports, music, etc.). You should be able to query for
-the most popular links in each category.
-
-**NB**: the relationship between `TagTopic`s and `URL`s is many-to-many. You'll
-need a join model like `Tagging`s.
+for links (news, sports, music, etc.). Since the relationship between `TagTopic`s and `URL`s is many-to-many. You'll
+need a join model like `Tagging`s. After you have created these models with the appropriate nullity and uniqueness constraints write a method, `TagTopic#popular_links`, that returns the 5 most visited links along with the number of times each link has been clicked. 
 
 ## Phase VI: Add more validations
 
