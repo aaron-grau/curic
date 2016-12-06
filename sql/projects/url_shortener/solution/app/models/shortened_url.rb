@@ -13,6 +13,7 @@
 class ShortenedUrl < ActiveRecord::Base
   validates :long_url, :short_url, :submitter_id, presence: true
   validates :short_url, uniqueness: true
+  validate :no_spamming
 
   belongs_to(
     :submitter,
@@ -75,6 +76,16 @@ class ShortenedUrl < ActiveRecord::Base
       .count
   end
 
-  
+  def no_spamming
+    last_minute = ShortenedUrl
+    .where("created_at >= ?", 1.minute.ago)
+    .where(submitter_id: submitter_id)
+    .length
+
+
+    errors[:maximum] << "of five short urls per minute" if last_minute >= 5
+  end
+
+
 
 end
