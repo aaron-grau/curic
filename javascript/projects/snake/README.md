@@ -4,6 +4,13 @@ We're going to write a Snake game!
 
 **[Live Demo](http://appacademy.github.io/curriculum/snake/index.html)**
 
+## Learning Goals
+
++ Be able to set up Webpack
++ Be able to manage both game logic and display logic
++ Know how to set event listeners for key presses
++ Know how to use `setInterval` to create an animation frame rate
+
 ## Phase 0: Webpack Setup
 
 * Create a `main.js` file in the `js` folder. This will be the file that
