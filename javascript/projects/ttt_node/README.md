@@ -3,6 +3,8 @@
 ## Learning Goals
 
 + Be able to write object-oriented JavaScript programs comfortably
++ Be comfortable using readline in Node
++ Know how to approach creating an AI
 
 [Here][ruby-ttt]'s a link to the old instructions for Tic Tac Toe.
 
