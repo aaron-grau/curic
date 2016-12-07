@@ -99,13 +99,19 @@ class ShortenedUrl < ActiveRecord::Base
     end
   end
 
+  # run `rake prune:old_urls minutes=n` to see this task in action
   def self.prune(n)
-    # run `rake prune:old_urls[n]` to see this task in action
     ShortenedUrl
+    .joins(:submitter)
     .joins('LEFT JOIN visits ON visits.shortened_url_id = shortened_urls.id')
-    .destroy_all("visits.created_at < '#{n.minutes.ago}'
-    OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}')")
+    .destroy_all("(shortened_urls.id IN (SELECT shortened_urls.id
+                                FROM shortened_urls
+                                JOIN visits
+                                  ON visits.shortened_url_id = shortened_urls.id
+                                GROUP BY visits.shortened_url_id
+                                HAVING MAX(visits.created_at) < '#{n.minute.ago}')
+          OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
+          AND users.premium ='f'")
   end
-
 
 end
