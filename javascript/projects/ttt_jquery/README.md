@@ -7,6 +7,16 @@ user input.
 
 **[Live Demo](http://appacademy.github.io/curriculum/ttt_jquery/index.html)**
 
+## Learning Goals
+
++ Be able to set up Webpack
++ Know how a frontend (this project) and backend (the Node version of this
+project) relate to and communicate with each other
++ Know how to use JQuery to manage the DOM
+  + Know how to query the DOM using JQuery
+  + Know how to change the DOM using JQuery
++ Be able to use CSS to style a web page
+
 ## Tic-Tac-Toe
 
 We're looking to build something like [this][ttt-demo] (don't look at the
