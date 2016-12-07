@@ -32,7 +32,6 @@
 - [Poll Everywhere] (http://www.polleverywhere.com)
 - [Product Hunt] (https://www.producthunt.com/)
 - [Quora] (http://www.quora.com)
-- [Registry Love] (http://www.registrylove.com)
 - [Remember the Milk] (https://www.rememberthemilk.com/)
 - [Slack] (http://www.slack.com)
 - [Soundcloud] (http://www.soundcloud.com)
