@@ -103,9 +103,9 @@ add `fetchBenches` to the `window` for testing later!
 
 ```js
 // frontend/bench_bnb.jsx
-
+window.store = store
 window.fetchBenches = fetchBenches;
-fetchBenches().then(console.log); //=> { "1": { id: 1, description: ... } }
+store.dispatch(fetchBenches()).then(console.log); //=> { "1": { id: 1, description: ... } }
 ```
 
 Remember to require `fetchBenches` for testing
