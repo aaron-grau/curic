@@ -105,8 +105,8 @@ class SampleModal extends React.Component {
 
 The style object passed as a prop to the `<Modal />` component must contain two keys:
 
-* overlay --> styling for the "screen" behind the modal
-* content --> styling for the modal container
+* `overlay` --> styling for the "screen" behind the modal
+* `content` --> styling for the modal container
 
 An example might look like:
 
