@@ -1,4 +1,4 @@
-## Inherits Exercises
+## Inheritance Exercises
 
 ### `inherits`
 
