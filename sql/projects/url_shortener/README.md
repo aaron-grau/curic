@@ -327,8 +327,8 @@ Let's monetize our URL Shortener app.
 ## Phase VIII: Pruning Stale URLs
 
 Write a `ShortenedUrl::prune` method that deletes any shortened urls that have
-not been visited in the last (n) minutes. Write a [rake task][rake-tutorial] to
-automate this process. Once you have the basic functionality, adjust it so that
+not been visited in the last (n) minutes. Furthermore, delete any shortened urls that are older than (n) minutes and have never been visited. Once you have `ShortenedUrl::prune` working checkout ActiveRecord's [dependent: :destroy][destroy] for associations and use it to destroy the visits that belong to old shortened urls. Write a [rake task][rake-tutorial] to
+automate this process. Finally, adjust `ShortenedUrl::prune` so that
 URLs submitted by premium users are not pruned.
 
 ## Bonuses
@@ -343,5 +343,7 @@ URLs submitted by premium users are not pruned.
   * `ShortenedUrl::top`, sorted by total vote score
   * `ShortenedUrl::hot`, sorted by vote score in the last (n) minutes
 
+
+[destroy]: http://guides.rubyonrails.org/association_basics.html#has-many-association-reference
 [count-distinct-docs]: http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html#method-i-count
 [rake-tutorial]: http://tutorials.jumpstartlab.com/topics/systems/automation.html

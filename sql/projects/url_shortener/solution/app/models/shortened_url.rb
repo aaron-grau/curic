@@ -25,13 +25,14 @@ class ShortenedUrl < ActiveRecord::Base
   has_many :taggings,
   primary_key: :id,
   foreign_key: :shortened_url_id,
-  class_name: :Tagging
+  class_name: :Tagging,
+  dependent: :destroy
 
   has_many :tag_topics,
   through: :taggings,
   source: :tag_topic
 
-  has_many :visits
+  has_many :visits, dependent: :destroy
   # TA: Again, the association would return the same user multiple times. You
   # may uncomment the lambda below to eliminate duplicates in the result set.
   has_many(
@@ -98,6 +99,13 @@ class ShortenedUrl < ActiveRecord::Base
     end
   end
 
+  def self.prune(n)
+    # run `rake prune:old_urls[n]` to see this task in action
+    ShortenedUrl
+    .joins('LEFT JOIN visits ON visits.shortened_url_id = shortened_urls.id')
+    .destroy_all("visits.created_at < '#{n.minutes.ago}'
+    OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}')")
+  end
 
 
 end
