@@ -169,7 +169,7 @@
 [jbuilder_docs]: https://github.com/rails/jbuilder
 
 ### Homeworks (30 min)
-- [Rainbow Routes][rainbow_routes]
+- [Rainbow Routes][rainbow_routes] (30 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal]
   - **Due by 9AM Thursday w7d4**
 
@@ -185,7 +185,7 @@
 [react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ### Projects
-- [Jbuilder][jbuilder_exercise] (45 min)
+- [Jbuilder][jbuilder_exercise]
 - [Pokedex][pokedex]
 
 

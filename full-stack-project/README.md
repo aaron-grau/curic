@@ -46,12 +46,10 @@
 
 **NB** Creating a project proposal is a dynamic process that involves going back and forth between files as you outline your application. These videos demonstrate some of the thoughts one might have and decisions one might make while creating a proposal but much more may be done to create a fully outlined project. Use these videos as a reference for ideas not as an exact guide.
 
- * [:movie_camera: Sample Project Proposal Demo - Wireframe/Components][sppds-wireframes]
  * [:movie_camera: Sample Project Proposal Demo - Components/Routes][sppds-components-routes]
  * [:movie_camera: Sample Project Proposal Demo - Schema/State][sppds-schema-state]
  * [:movie_camera: Sample Project Proposal Demo - Redux Structure][sppds-redux-structure]
 
-[sppds-wireframes]: https://vimeo.com/180239042
 [sppds-components-routes]: https://vimeo.com/180334471
 [sppds-schema-state]: https://vimeo.com/180342687
 [sppds-redux-structure]: https://vimeo.com/180345105
