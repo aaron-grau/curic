@@ -32,7 +32,12 @@ class ShortenedUrl < ActiveRecord::Base
   through: :taggings,
   source: :tag_topic
 
-  has_many :visits, dependent: :destroy
+  has_many :visits,
+  primary_key: :id,
+  foreign_key: :shortened_url_id,
+  class_name: :Visit,
+  dependent: :destroy
+
   # TA: Again, the association would return the same user multiple times. You
   # may uncomment the lambda below to eliminate duplicates in the result set.
   has_many(
@@ -56,6 +61,7 @@ class ShortenedUrl < ActiveRecord::Base
       return random_code unless ShortenedUrl.exists?(short_url: random_code)
     end
   end
+
 
   def num_clicks
     visits.count
@@ -112,6 +118,20 @@ class ShortenedUrl < ActiveRecord::Base
                                 HAVING MAX(visits.created_at) < '#{n.minute.ago}')
           OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
           AND users.premium ='f'")
+
+    # The sql for the query would be:
+    #
+    # SELECT shortened_urls.*
+    # FROM shortened_urls
+    # JOIN users ON users.id = shortened_urls.submitter_id
+    # LEFT JOIN visits ON visits.shortened_url_id = shortened_urls.id
+    # WHERE (shortened_urls.id IN (SELECT shortened_urls.id
+    #                              FROM shortened_urls
+    #                              JOIN visits ON visits.shortened_url_id = shortened_urls.id
+    #                              GROUP BY visits.shortened_url_id
+    #                              HAVING MAX(visits.created_at) < '#{n.minute.ago}')
+    #       OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
+    #       AND users.premium ='f'"
   end
 
 end

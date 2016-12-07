@@ -316,7 +316,7 @@ need a join model like `Tagging`s. Before starting think over with your pair wha
 
 * make sure `long_url` is actually a website - for us this means has at least one period and "https//", "http//" or "www.". If you know about regular expressions - feel free to use these, otherwise (STILL NEED TO WRITE MUNYO)
 
-## Phase VII: Premium users
+## Phase VII: Premium users and a Custom Validation
 
 Let's monetize our URL Shortener app.
 
@@ -327,7 +327,34 @@ Let's monetize our URL Shortener app.
 ## Phase VIII: Pruning Stale URLs
 
 Write a `ShortenedUrl::prune` method that deletes any shortened urls that have
-not been visited in the last (n) minutes. Furthermore, delete any shortened urls that are older than (n) minutes and have never been visited. Once you have `ShortenedUrl::prune` working checkout ActiveRecord's [dependent: :destroy][destroy] for associations and use it to destroy the visits that belong to old shortened urls. Write a [rake task][rake-tutorial] to
+not been visited in the last (n) minutes. You will also need to delete any shortened urls that are older than (n) minutes and have never been visited - make sure `ShortenedUrl::prune` only fires a single query.. Use the following code snippet in rails console to make sure your `prune` is working as hoped.
+
+```ruby
+u1 = User.create!(email: "jefferson@cats.com", premium: true)
+u2 = User.create!(email: "markov@cats.com")
+
+su1 = ShortenedUrl.create_for_user_and_long_url!(u1, "www.boxes.com")
+su2 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.moewmix.com")
+su3 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.smallrodents.com")
+
+v1 = Visit.create!(user_id: u1.id, shortened_url_id: su1.id)
+v3 = Visit.create!(user_id: u1.id, shortened_url_id: su2.id)
+
+
+ShortenedUrl.all # should return only su1, su2 and su3
+ShortenedUrl.prune(5)
+ShortenedUrl.all # should return only su1
+
+su2 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.moewmix.com")
+v3 = Visit.create!(user_id: u1.id, shortened_url_id: su2.id)
+
+ShortenedUrl.all # should return su1 and su2
+# wait at least one minute
+ShortenedUrl.prune(1)
+ShortenedUrl.all # should return su1 and su2
+```
+
+Once you have `ShortenedUrl::prune` working checkout ActiveRecord's [dependent: :destroy][destroy] for associations and use it to destroy the visits and taggings that belong to old shortened urls. Once you have tested that your taggings and visits are being deleted write a [rake task][rake-tutorial] to
 automate this process. Finally, adjust `ShortenedUrl::prune` so that
 URLs submitted by premium users are not pruned.
 
