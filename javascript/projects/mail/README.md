@@ -1,10 +1,6 @@
 # Mail
 
-[**Live Demo!**](https://appacademy.github.io/curriculum/mail/)
-
-The goal of this project is to learn the basics of how to make a
-[single-page application][single-page-app]. Today, you're going to make an email
-client similar to Gmail.
+Today, you're going to make an single-page email client similar to Gmail.
 
 Some of the benefits of a single-page application include:
 * More responsive user experience because you don't need to complete a
@@ -12,6 +8,21 @@ Some of the benefits of a single-page application include:
 * Similar feeling to a native, desktop application.
 * Decoupling of server architecture from user-interface gives flexibility
   and opportunity for scaling.
+
+[**Live Demo!**](https://appacademy.github.io/curriculum/mail/)
+
+
+## Learning Goals
+
++ Understand the basics of how to make a [single-page application][single-page-app]
++ Know how to change a URL's hash fragment
++ Know how a frontend router works
+  + Know how to listen to changes in the hash fragment
+  + Know how to conditionally render different HTML based on the route
++ Understand the purpose of separating concerns
+  + Know why we write display code in components
+  + Know why we write data management code in our store
+
 
 There are several frameworks that facilitate the process of creating single-page
 applications, but it is important to understand the fundamental WebAPIs and
@@ -61,7 +72,7 @@ DOMContentLoaded`.
 
 Test that clicking on your sidebar items:
 * Changes the hash fragment in the URL.
-* Doesn't make a new request. You can do this easily by setting avariable in the
+* Doesn't make a new request. You can do this easily by setting a variable in the
   console in the Dev Tools. If it is still defined after clicking the sidebar
   element, you have not made a new request.
 
@@ -140,7 +151,7 @@ be responsible for returning a DOM Node to display. These modules are called
 Let's create a mapping from `routes` to `components`. This will allow us to
 specify the routing configuration from outside of the router. Separating
 the configuration logic from the routing logic promotes
-[separation ofconcerns][separation-of-concerns].
+[separation of concerns][separation-of-concerns].
 
 * Create the `routes`
   * Create an object called `routes`. You don't need to create this inside the
