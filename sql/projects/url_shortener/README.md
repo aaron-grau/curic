@@ -308,21 +308,19 @@ Loading development environment (Rails 3.2.11)
 ## Phase V: `TagTopic`, `Tagging`s
 
 Users should be able to choose one of a set of predefined `TagTopic`s
-for links (news, sports, music, etc.). Since the relationship between `TagTopic`s and `URL`s is many-to-many. You'll
-need a join model like `Tagging`s. Before starting think over with your pair what columns should be indexed  After you have created these models with the appropriate nullity and uniqueness constraints and seeded your database with some `TagTopic`s and `Taggings` write a method, `TagTopic#popular_links`, that returns the 5 most visited links along with the number of times each link has been clicked.
+for links (news, sports, music, etc.). Since the relationship between `TagTopic`s and `URL`s is many-to-many, you'll need a join model like `Tagging`s. Before starting think over with your pair what columns should be indexed  Created these models with the appropriate nullity and uniqueness constraints and seed your database with some `TagTopic`s and `Taggings`. Write a method `TagTopic#popular_links`, that returns the 5 most visited links along with the number of times each link has been clicked.
 
-## Phase VI: Add a Custom Validations
-*  Write a custom validation method `ShortenedUrl#no_spamming` that keeps users from submitting more than 5 urls in a single minute.
 
-* make sure `long_url` is actually a website - for us this means has at least one period and "https//", "http//" or "www.". If you know about regular expressions - feel free to use these, otherwise (STILL NEED TO WRITE MUNYO)
+## Phase VII: A Custom Validation and Premium Users
 
-## Phase VII: Premium users and a Custom Validation
+ Write a custom validation method `ShortenedUrl#no_spamming` that keeps users from submitting more than 5 urls in a single minute.
 
 Let's monetize our URL Shortener app.
 
 + Add a "premium" boolean column to your `Users` table; it should default to `false`.
 + Now add code to ensure that non-premium users can only create a maximum of
 5 URLs (premium users get unlimited).
++ Refactor your `ShortenedUrl#no_spamming` so that premium users can make 10 short urls a minute and we still only make a single query.
 
 ## Phase VIII: Pruning Stale URLs
 
@@ -357,6 +355,7 @@ ShortenedUrl.all # should return su1 and su2
 Once you have `ShortenedUrl::prune` working checkout ActiveRecord's [dependent: :destroy][destroy] for associations and use it to destroy the visits and taggings that belong to old shortened urls. Once you have tested that your taggings and visits are being deleted write a [rake task][rake-tutorial] to
 automate this process. Finally, adjust `ShortenedUrl::prune` so that
 URLs submitted by premium users are not pruned.
+
 
 ## Bonuses
 * Alternative URL shortening strategies
