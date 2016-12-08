@@ -196,7 +196,7 @@
 
 ## w3d5
 
-### Readings (45 min)
+### Readings (55 min)
 + [Metaprogramming][metaprogramming] (20 min)
 + [Class Instance Variables][class-instance-variables] (15 min)
 + [instance_eval and class_eval][instance-eval-and-class-eval] (10 min)
