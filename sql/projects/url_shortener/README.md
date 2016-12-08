@@ -320,7 +320,7 @@ Let's monetize our URL Shortener app.
 + Add a "premium" boolean column to your `Users` table; it should default to `false`.
 + Now add code to ensure that non-premium users can only create a maximum of
 5 URLs (premium users get unlimited).
-+ Refactor your `ShortenedUrl#no_spamming` so that premium users can make 10 short urls a minute and we still only make a single query.
+
 
 ## Phase VIII: Pruning Stale URLs
 
