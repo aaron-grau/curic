@@ -11,6 +11,15 @@ clone of [The New York Times homepage](http://nytimes.com)!
 
 [skeleton]:./skeleton.zip?raw=true
 
+## Learning Goals
+
++ Be able to use flexboxes to structure the display of HTML content
+    + Be able to order flex items vertically or horizontally
+    + Be able to align items to the center and justify them with `space-between`
++ Know how to style `:hover` effects on HTML elements
++ Be able to reason about styling approaches if given screenshots of a design
++ Feel comfortable adjusting styling until it looks perfect
+
 # Phase 0: Setup
 
 - Navigate to the root directory and `bundle install`.
@@ -171,10 +180,10 @@ In `/views/shared/_main_nav.html.erb`:
 the `"main-nav"` element.
 - Add a `ul` element to your new `nav`. Make the buttons and gear icon list items of this unordered list.
 - Add "Subscribe Now" and "Log In" buttons.
-  - Use the "Sections" and "Search" buttons defined in the `left-nav` as guides.
 - Add the gear icon.
   - Use [this list of Font Awesome icon classes][font-awesome] to find the right
   gear image.
+  - Use the "Sections" and "Search" buttons defined in the `left-nav` as guides.
 
 A great use for the `layout.scss` stylesheet is to define styling shared by
 multiple elements. For example, the styling for the "Subscribe Now" button
@@ -188,10 +197,10 @@ In `stylesheets/base/layout.scss`:
 
 Now it is time to style in the `components/_main_nav.scss` stylesheet. We have provided the selectors for you. Here are some guidelines:
 
-- Add `display: flex` the `"main-nav"` and use `justify-content` for horizontal spacing.
-- Add `padding` for vertical spacing.
-- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property vertically align them.
-- Apply font and sizing properties to the list elements themselves.
+- Add `display: flex` to the `.main-nav` and use `justify-content` for horizontal spacing.
+- Add `padding` to the `.main-nav` for vertical spacing.
+- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property to vertically align them.
+- Apply `font-family`, `font-size`, and `text-transform` properties to the list elements themselves.
 - Use the `$lightest-gray` hover for the list elements without buttons.
 - Style the necessary `margin` spacing between the texts and the icons.
 - Use `font-size` to make the gear icon bigger.
@@ -200,7 +209,7 @@ Now it is time to style in the `components/_main_nav.scss` stylesheet. We have p
 
 [Masthead Mockup](./solution/docs/screenshots/masthead.jpg)
 
-Open up `views/shared_masthead.html.erb`. Pull up the provided
+Open up `views/shared/_masthead.html.erb`. Pull up the provided
 `components/_masthead.scss` stylesheet next to it using split screen.
 
 Copy and paste all of the text content from `docs/copy/masthead.txt` into the
@@ -236,7 +245,7 @@ Follow the patterns and coding patterns described above to style the Sections Na
 Take a look at the `app/assets/javascripts/components/dropdown.js` file. Read
 the comments to get an understanding how the script works.
 
-- Add the necessary `id` attribute to the gear icon in the defined in `_main_nav.html.erb`
+- Add the necessary `id` attribute to the gear icon's `li` (defined in `_main_nav.html.erb`)
 - Add the corresponding `.hidden` selector in `layout.scss`.
 
 Open the `_gear_dropdown.html.erb` file where we have defined the HTML structure
