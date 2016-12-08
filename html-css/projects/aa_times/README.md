@@ -14,7 +14,7 @@ clone of [The New York Times homepage](http://nytimes.com)!
 # Phase 0: Setup
 
 - Navigate to the root directory and `bundle install`.
-- Run `rails s` in one tab.
+- Run `rails s` in one terminal tab.
 - In another tab, run `bundle exec guard -P livereload`.
 
 The `guard -P livereload` implements an easy-to-setup workflow using "style injection." *Style injection is the ability to see styling changes immediately after authoring them without having to manually refresh your browser.* Here is a [blog post][guard-livereload] explaining the setup and how it works.
@@ -86,7 +86,7 @@ a couple more cool features! Read about them [here][sass-features] if you're int
 - Sometimes the HTML will be given and you will need to style with CSS;
 sometimes the styles will be given and you will need to define the HTML
 structure; and sometimes you will be required to code both.
-- The `docs` folder contains two directories: `screenshots` and `copy`. You'll use the images found in `screenshots` for your mockups as you are styling. `copy` contains the text you'll copy and paste for app's content.
+- The `docs` folder contains two directories: `screenshots` and `copy`. You'll use the images found in `screenshots` for your mockups as you are styling. `copy` contains the text you'll copy and paste for the app's content.
 - **Pro Tip**: Keep each mockup open and use it for reference as your styling a component.
 - HTML is rendered using rails partials in the
 `/app/views/static_pages/index.html.erb` file, allowing for the styling of
@@ -108,12 +108,13 @@ stylesheet provided by the browser in your `stylesheets/base/reset.scss` file.
 To speed things up, we provided some tag selectors to get you started.
 
 - Be wise about which properties to inherit, and which to hard-code.
-- Besides the regular, set the `box-sizing` property to inherit, to have all
-elements behave the same, which is `content-box`, by default.
+- After you've set the other properties, set the `box-sizing` property to
+`inherit` to have all elements behave the same by default (they will all have
+their property set to `content-box`).
+- Remove the bullets from list items.
 - Make all images `block` elements. Each image's widths should be equal to its
 parent's width (`100%`) and its height should grow proportionally (`auto`).
 Set `img` `width` and `height` properties accordingly.
-- Remove the bullets from list items.
 - Set the `cursor` to be the pointer hand on `button`s to make it obvious for users to click.
 - Lastly, define clearfix.
 
@@ -127,7 +128,7 @@ In order to write "cascading" style sheets, it is important that we pick out
 common design elements and essential layout features. We will use the
 `layout.scss` file when styling aspects common to our entire application.
 
-Notice that all of app's content is styled in a defined blocked away from
+Notice that all of app's content is styled in a defined block away from
 the edges of the screen. Each component is also contained within regions with
 clean margins. This is essential for user experience because it makes content
 easier to read.
@@ -169,10 +170,10 @@ In `/views/shared/_main_nav.html.erb`:
 the `"main-nav"` element.
 - Add a `ul` element to your new `nav`. Make the buttons and gear icon list items of this unordered list.
 - Add "Subscribe Now" and "Log In" buttons.
+  - Use the "Sections" and "Search" buttons defined in the `left-nav` as guides.
 - Add the gear icon.
   - Use [this list of Font Awesome icon classes][font-awesome] to find the right
   gear image.
-  - Use the "Sections" and "Search" buttons defined in the `left-nav` as guides.
 
 A great use for the `layout.scss` stylesheet is to define styling shared by
 multiple for elements. For example, the styling for the "Subscribe Now" button
@@ -447,3 +448,9 @@ Before continuing **Call over a TA for review**.
 Use what you have learned to create a Fixed Header. When scrolling past the
 `sections_nav` a `fixed_sections_nav` should appear. Use the
 [NYTimes](http://nytimes.com) as an example.
+
+# Additional Reading
+
+Additional reading from today's project:
++ guard
++ sass
