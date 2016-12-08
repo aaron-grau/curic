@@ -16,6 +16,7 @@ clone of [The New York Times homepage](http://nytimes.com)!
 - Navigate to the root directory and `bundle install`.
 - Run `rails s` in one terminal tab.
 - In another tab, run `bundle exec guard -P livereload`.
+- Open `localhost:3000' to see the site you're working on.
 
 The `guard -P livereload` implements an easy-to-setup workflow using "style injection." *Style injection is the ability to see styling changes immediately after authoring them without having to manually refresh your browser.* Here is a [blog post][guard-livereload] explaining the setup and how it works.
 
