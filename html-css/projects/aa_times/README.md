@@ -13,12 +13,11 @@ clone of [The New York Times homepage](http://nytimes.com)!
 
 ## Learning Goals
 
-+ Be able to use flexboxes to structure the display of HTML content
-    + Be able to order flex items vertically or horizontally
-    + Be able to align items to the center and justify them with `space-between`
-+ Know how to style `:hover` effects on HTML elements
-+ Be able to reason about styling approaches if given screenshots of a design
-+ Feel comfortable adjusting styling until it looks perfect
++ Be able to reason about styling approaches from screenshots of a design
++ Be able to layout elements in a custom Grid system
++ Know how to create interactive elements such as sidebars and dropdowns
++ Know how to use an icon font system
++ Know how to organize stylesheets in a Rails Application
 
 # Phase 0: Setup
 
