@@ -220,7 +220,10 @@ guidelines:
 html container element and all of its immediate child elements will be
 flex-children.
 - Use `align-items` property to center the flex-children horizontally.
-- The Rails Asset Pipeline takes care of precompiling our assets, so the correct file path for images in the `assets/images` folder is `assets/example_image.jpg`
+- The Rails Asset Pipeline takes care of precompiling our assets, so the correct file path for images in the `assets/images` folder is `assets/example_image.jpg`.
+    + Images that are important to a website's search engine optimization (SEO)
+    should be image tags rather than background images, as image tags are
+    parsed by search engines.
 - Only list elements should be present within unordered lists, but list elements may contain other elements such as anchor tags or buttons.
 
 After some HTML structuring you will notice some problems with the styling.
@@ -258,10 +261,13 @@ lists and the span elements for the subtitles.
 Style the dropdown in `_gear_dropdown.scss` according to the mockup:
 
 - Style its position:
-    + Position the icon relatively.
+    + Position the icon's `li` relatively.
+        + This will allow the absolutely positioned dropdown to use this
+        element as a reference point.
     + Position the dropdown absolutely and use `top` and `right` to adjust.
 - Give the dropdown some background, padding, and a border.
-- Using a defined px `width` for a dropdown is perfectly acceptable.
+- Use a defined px `width` for this dropdown.
+    + Using px widths for HTML elements can be dangerous, as a page's styling can be ruined if either the window size or the content inside that element changes size drastically. For smaller elements with minimal content inside them, like this dropdown, there is less of a danger of that happening.
 - Set the `z-index`. Remember the `z-index` property is used on positioned
 elements to place them in front of or behind other elements with the largest
 `z-index` being in front.
@@ -318,6 +324,11 @@ Use the following code snippet to embed the video content from YouTube:
 ```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ARe9FupzuOA" frameborder="0" allowfullscreen></iframe>
 ```
+
+**N.B.**: Iframes define a frame that contains another website's content. They allow you
+to put that other site's content on your website. This is how many content
+services want other sites to present their information because they get to
+maintain control over access to their content.
 
 Once you have all of your content defined in flexible columns, follow the mockup style. Add additional HTML elements if necessary. Here are some guidelines:
 
@@ -387,7 +398,9 @@ Create pure css dropdowns with the following example code:
     position: absolute;
     /* use top, left, right, bottom to position */
 }
-.dropdown:hover > ul {
+.dropdown:hover > ul { 
+    /* applies the following style to uls inside .dropdown */
+    /* but only when .dropdown is being hovered over */
     display: block;
 }
 ```
