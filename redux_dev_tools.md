@@ -12,6 +12,7 @@ tools are now included in a chrome extension which allows them to open in a
 separate window. There are two steps to the setup:
 
 1) install a chrome extension
+
 2) add custom middleware to your store that allows the dev tools to track the
 state of your app and log any actions you dispatch.
 
@@ -76,9 +77,9 @@ const store = createStore(
 
 ## Use
 
-Now that we've set up the Redux dev tools, let's try them out. You should see a
-little atom icon on your Chrome toolbar, and if you've setup the dev tools
-correctly it should now be green.
+Now that we've set up the Redux dev tools, let's try them out. You should see
+an atom (a nucleus with electrons) icon on your Chrome toolbar, and if you've
+setup the dev tools correctly it should now be green.
 
 Click on it.
 
