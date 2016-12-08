@@ -177,8 +177,8 @@ the `"main-nav"` element.
   gear image.
 
 A great use for the `layout.scss` stylesheet is to define styling shared by
-multiple for elements. For example, the styling for the "Subscribe Now" button
-and is identical to the styling for the "Log In" button. **N.B.**: Using the same
+multiple elements. For example, the styling for the "Subscribe Now" button
+is identical to the styling for the "Log In" button. **N.B.**: Using the same
 styling on buttons makes it easier for users to know where to click throughout
 your app.
 
