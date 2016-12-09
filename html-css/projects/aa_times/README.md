@@ -178,7 +178,8 @@ it right now!
 In `/views/shared/_main_nav.html.erb`:
 - Add a `<nav>` with the class `"right-nav"`. Make sure it's contained within
 the `"main-nav"` element.
-- Add a `ul` element to your new `nav`. Make the buttons and gear icon list items of this unordered list.
+- Add a `ul` element to your new `nav`. Make the buttons and gear icon list
+items of this unordered list.
 - Add "Subscribe Now" and "Log In" buttons.
 - Add the gear icon.
   - Use [this list of Font Awesome icon classes][font-awesome] to find the right
@@ -197,10 +198,13 @@ In `stylesheets/base/layout.scss`:
 
 Now it is time to style in the `components/_main_nav.scss` stylesheet. We have provided the selectors for you. Here are some guidelines:
 
-- Add `display: flex` to the `.main-nav` and use `justify-content` for horizontal spacing.
+- Add `display: flex` to the `.main-nav` and use `justify-content` for
+horizontal spacing.
 - Add `padding` to the `.main-nav` for vertical spacing.
-- Flex the unordered lists to keep their children horizontally aligned and use the `align-items` property to vertically align them.
-- Apply `font-family`, `font-size`, and `text-transform` properties to the list elements themselves.
+- Flex the unordered lists to keep their children horizontally aligned and use
+the `align-items` property to vertically align them.
+- Apply `font-family`, `font-size`, and `text-transform` properties to the list
+elements themselves.
 - Use the `$lightest-gray` hover for the list elements without buttons.
 - Style the necessary `margin` spacing between the texts and the icons.
 - Use `font-size` to make the gear icon bigger.
@@ -220,11 +224,14 @@ guidelines:
 html container element and all of its immediate child elements will be
 flex-children.
 - Use `align-items` property to center the flex-children horizontally.
-- The Rails Asset Pipeline takes care of precompiling our assets, so the correct file path for images in the `assets/images` folder is `assets/example_image.jpg`.
+- The Rails Asset Pipeline takes care of precompiling our assets, so the
+correct file path for images in the `assets/images` folder is
+`assets/example_image.jpg`.
     + Images that are important to a website's search engine optimization (SEO)
     should be image tags rather than background images, as image tags are
     parsed by search engines.
-- Only list elements should be present within unordered lists, but list elements may contain other elements such as anchor tags or buttons.
+- Only list elements should be present within unordered lists, but list
+elements may contain other elements such as anchor tags or buttons.
 
 After some HTML structuring you will notice some problems with the styling.
 Refer to the masthead mock up and edit the stylesheet to fix the following
@@ -239,7 +246,11 @@ things:
 
 [Sections Nav Mockup](./solution/docs/screenshots/sections_nav.jpg)
 
-Follow the patterns and coding patterns described above to style the Sections Nav component. Define its styles in `stylesheets/components/_sections_nav.scss` and HTML in `views/shared/_sections_nav.html.erb` file. Copy and paste the text content from `docs/copy/sections_nav.txt`. Once you have fully completed the Sections Nav bar **call over a TA to code review your Header**!
+Follow the patterns and coding patterns described above to style the Sections
+Nav component. Define its styles in `stylesheets/components/_sections_nav.scss`
+and HTML in `views/shared/_sections_nav.html.erb` file. Copy and paste the text
+content from `docs/copy/sections_nav.txt`. Once you have fully completed the
+Sections Nav bar **call over a TA to code review your Header**!
 
 ## Gear Dropdown
 
@@ -248,14 +259,16 @@ Follow the patterns and coding patterns described above to style the Sections Na
 Take a look at the `app/assets/javascripts/components/dropdown.js` file. Read
 the comments to get an understanding how the script works.
 
-- Add the necessary `id` attribute to the gear icon's `li` (defined in `_main_nav.html.erb`)
+- Add the necessary `id` attribute to the gear icon's `li` (defined in
+`_main_nav.html.erb`)
 - Add the corresponding `.hidden` selector in `layout.scss`.
 
 Open the `_gear_dropdown.html.erb` file where we have defined the HTML structure
 for the dropdown. Notice the classes used to divide the different unordered
 lists and the span elements for the subtitles.
 
-- Render the partial as a child of the list element with the gear icon using `<%= render partial: 'shared/gear_dropdown' %>`
+- Render the partial as a child of the list element with the gear icon using
+`<%= render partial: 'shared/gear_dropdown' %>`
 - Click the gear icon to test the toggling of the `hidden` class.
 
 Style the dropdown in `_gear_dropdown.scss` according to the mockup:
@@ -267,7 +280,10 @@ Style the dropdown in `_gear_dropdown.scss` according to the mockup:
     + Position the dropdown absolutely and use `top` and `right` to adjust.
 - Give the dropdown some background, padding, and a border.
 - Use a defined px `width` for this dropdown.
-    + Using px widths for HTML elements can be dangerous, as a page's styling can be ruined if either the window size or the content inside that element changes size drastically. For smaller elements with minimal content inside them, like this dropdown, there is less of a danger of that happening.
+    + Using px widths for HTML elements can be dangerous, as a page's styling
+    can be ruined if either the window size or the content inside that element
+    changes size drastically. For smaller elements with minimal content inside
+    them, like this dropdown, there is less of a danger of that happening.
 - Set the `z-index`. Remember the `z-index` property is used on positioned
 elements to place them in front of or behind other elements with the largest
 `z-index` being in front.
@@ -301,7 +317,8 @@ Google all use flexible grid systems. For App Academy Times, hand-roll a
 simple grid just like you did in the [CSS Homework][css-grid-homework].
 
 Define your grid's CSS in the `grid.scss` stylesheet. Make sure to include the
-media query with a nice break point that maintains your design like `1000px`. So that it behaves like so:
+media query with a nice break point that maintains your design like `1000px`,
+so that it behaves like so:
 
 ![custom-grid](skeleton/docs/screenshots/grid.gif)
 
@@ -332,12 +349,21 @@ maintain control over access to their content.
 
 Once you have all of your content defined in flexible columns, follow the mockup style. Add additional HTML elements if necessary. Here are some guidelines:
 
-+ Headers like "Opinion Pages" and "Cat Academy" are bold.
-- `.hr-top` and `.hr-bottom` defined in `layout.scss` can be used to get the double lines that separate different content.
-- We used a pseudo content `:after` and `content = ''` to create the blue square next to the comments link.
-- Using `flex: 1` on the input element will force it to grow or shrink to take up all the space next to it's flex sibling Sign Up button
-- Place the `new_office.jpg` image inside of a div with a class like `thumbnail`. This way you can reuse this `thumbnail` class with a styled `height` in px and then make all images `width: 100%` & `height: 100%`. Use `object-fit: cover` on all images inside `thumbnail` to assure the images cover the containing div correctly.
-- Try to put as many of the application-wide selectors into the `layout.scss` file as possible. Selectors such as `h1, h2,  img, small, hr, .thumbnail` etc. make more sense in the layout file because we will likely reuse them.
+- Headers like "Opinion Pages" and "Cat Academy" are bold.
+- `.hr-top` and `.hr-bottom` defined in `layout.scss` can be used to get the
+double lines that separate different content.
+- We used a pseudo content `:after` and `content = ''` to create the blue
+square next to the comments link.
+- Using `flex: 1` on the input element will force it to grow or shrink to take
+up all the space next to it's flex sibling Sign Up button
+- Place the `new_office.jpg` image inside of a div with a class like
+`thumbnail`. This way you can reuse this `thumbnail` class with a styled
+`height` in px and then make all images `width: 100%` & `height: 100%`. Use
+`object-fit: cover` on all images inside `thumbnail` to assure the images cover
+the containing div correctly.
+- Try to put as many of the application-wide selectors into the `layout.scss`
+file as possible. Selectors such as `h1, h2, img, small, hr, .thumbnail` etc.
+make more sense in the layout file because we will likely reuse them.
 
 **Get A TA to Review your page before continuing**
 
@@ -353,7 +379,8 @@ mobile screens). Let's adjust for mobile!
 
 [Mobile Mockup](./solution/docs/screenshots/mobile.png)
 
-- Write a media query similar to the one used in the `grid.scss` to hide the sections nav at the same viewport width that the columns convert to `100%`.
+- Write a media query similar to the one used in the `grid.scss` to hide the
+sections nav at the same viewport width that the columns convert to `100%`.
 - Write a similar media query to hide the Language Nav.
 - Finally hide the "Subscribe" button, "Login" button and take the margin off the `.left-nav` in the `main_nav` styles. We added a bit of padding as well.
 
@@ -365,10 +392,15 @@ to the mockup.
 
 [Sections Sidebar Mockup](./solution/docs/screenshots/sections_sidebar.jpg)
 
-- Copy and paste the HTML from the `sections_nav.html.erb` file into the `sections_sidebar.html.erb` file to use as a skeleton and guide.
-- Take a look at the `app/assets/javascripts/components/sidebar.js` to see how the Sidebar functions.
-- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the `_main_nav.html.erb` as a child of the corresponding list element with `id="sections-sidebar-btn"`.
-- In `_sections_sidebar.scss`, start with a selector to style the `opacity: 0` normally and `opacity: 1` when it has the additional `.expand` class.
+- Copy and paste the HTML from the `sections_nav.html.erb` file into the
+`sections_sidebar.html.erb` file to use as a skeleton and guide.
+- Take a look at the `app/assets/javascripts/components/sidebar.js` to see how
+the Sidebar functions.
+- Add the `<%= render partial: 'shared/sections_sidebar' %>` to the
+`_main_nav.html.erb` as a child of the corresponding list element with
+`id="sections-sidebar-btn"`. - In `_sections_sidebar.scss`, start with a
+selector to style the `opacity: 0` normally and `opacity: 1` when it has the
+additional `.expand` class.
 
 **N.B.** We use opacity here instead of display because it is transition-able.
 
@@ -377,7 +409,8 @@ This is the effect we are going for:
 <img src="skeleton/docs/screenshots/sidebar.gif" alt="sidebar example" width=" 400" height="500"/>
 
 - Copy and paste the content from `docs/copy/sidebar_submenus.txt`.
-- Add the remaining HTML to the `sections_sidebar` by nesting `ul` elements within the `li` elements that require an additional dropdown.
+- Add the remaining HTML to the `sections_sidebar` by nesting `ul` elements
+within the `li` elements that require an additional dropdown.
 
 Create pure css dropdowns with the following example code:
 ```html
@@ -405,7 +438,10 @@ Create pure css dropdowns with the following example code:
 }
 ```
 
-Use pseudo element [css triangles][css-triangles] on top of triangles to create the arrows for the menu items as well as the submenu dropdown triangles. This code could apply right arrows to the list items in the dropdown HTML from above:
+Use pseudo element [css triangles][css-triangles] on top of triangles to create
+the arrows for the menu items as well as the submenu dropdown triangles. This
+code could apply right arrows to the list items in the dropdown HTML from
+above:
 
 ```css
 .dropdown li {
@@ -475,5 +511,5 @@ Use what you have learned to create a Fixed Header. When scrolling past the
 # Additional Reading
 
 Additional reading from today's project:
-+ guard
-+ sass
++ [guard][guard-livereload]
++ [sass][sass-features]
