@@ -1,5 +1,5 @@
 # Instance Eval and Class Eval
-Both `instance_eval` and `class_eval` are used in metaprogramming. What follows is a brief explanation of their use.
+Both `instance_eval` and `class_eval` are used in metaprogramming to create methods. What follows is a brief explanation of their use.
 
 ## Overview
 In a rather counterintuitive manner, `instance_eval` is often used to dynamically create class methods, and `class_eval` is often used to dynamically create instance methods.
