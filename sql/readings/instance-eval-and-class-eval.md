@@ -52,7 +52,7 @@ Cat.instance_eval do
   end
 end
 
-random_action = Cat::random_cat_action # => :sleep
+random_cat_action = Cat::random_cat_action # => :sleep
 my_cat = Cat.new
 my_cat.send(random_action) # => 'zzz'
 ```
