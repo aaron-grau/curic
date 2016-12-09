@@ -342,10 +342,10 @@ Use the following code snippet to embed the video content from YouTube:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ARe9FupzuOA" frameborder="0" allowfullscreen></iframe>
 ```
 
-**N.B.**: Iframes define a frame that contains another website's content. They allow you
-to put that other site's content on your website. This is how many content
-services want other sites to present their information because they get to
-maintain control over access to their content.
+**N.B.**: Iframes define a frame that contains another website's content. They
+allow you to put that other site's content on your website. Many content
+services want other sites to use iframes present their information because
+they allow them to maintain control over access to their content.
 
 Once you have all of your content defined in flexible columns, follow the mockup style. Add additional HTML elements if necessary. Here are some guidelines:
 
