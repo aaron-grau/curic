@@ -2,11 +2,19 @@
 Both `instance_eval` and `class_eval` are used in metaprogramming. What follows is a brief explanation of their use.
 
 ## Overview
-
 In a rather counterintuitive manner, `instance_eval` is often used to dynamically create class methods, and `class_eval` is often used to dynamically create instance methods.
 
+### Table: Evaluation Contexts When Defining Methods
+| Receiver      | `instance_eval`                                      | `class_eval`                                              |
+| ------------- |:-----------------------------------------------------| --------------------------------------------------------- |
+| instance      | Results in an instance method on a specific instance | n/a                                                       |
+| class         | Results in a class method                            | Results in an instance method on all instances of a class |
+
 ## `instance_eval`
-`instance_eval` evaluates a given string or code block in context of its receiver as an instance. In the following example, `add_cat!` is evaluated on `my_cats`, the receiver, which is an instance of the `Array` class. Notice that `add_cat!` is therefore only available on `my_cats` and not on all `Array` instances.
+`instance_eval` evaluates a given string or code block in context of its receiver as an instance.
+
+### Example
+In the following example, `add_cat!` is evaluated on `my_cats`, the receiver, which is an instance of the `Array` class. Notice that `add_cat!` is therefore only available on `my_cats` and not on all `Array` instances.
 
 ```ruby
 my_cats = Array.new
@@ -69,6 +77,8 @@ So what's the benefit of the `instance_eval` implementation? It can be used when
 ## `class_eval`
 As its name suggests, `class_eval` evaluates in the context of a receiver's class. This method essentially opens up the class as if you were initially defining the class or monkey-patching it.
 
+### Example
+
 As an example, one could use `class_eval` in the following manner:
 
 ```ruby
@@ -84,8 +94,8 @@ end
 acrocat_one.do_a_backflip # => 'tumble tumble'
 acrocat_two.do_a_backflip # => 'tumble tumble'
 ```
-Because `Cat` is evaluated as a class, the methods defined are treated as instance methods. This means that every instance of the `Cat` class will have access to `do_a_backflip` method.
-It essentially achieves the following:
+Because `Cat` is evaluated as a class, the methods defined are treated as instance methods. This means that every instance of the `Cat` class will have access to the `do_a_backflip` method.
+It is functionally equivalent to the following:
 
 ```ruby
 class Cat
@@ -99,9 +109,3 @@ Once again, the benefit of `class_eval` is that it can be used when the class na
 
 ## Recap
 `instance_eval` is typically used to dynamically create class methods, and `class_eval` is typically used to dynamically create instance methods.
-
-### Table: Evaluation Contexts When Defining Methods
-| Receiver      | `instance_eval`                                      | `class_eval`                                              |
-| ------------- |:-----------------------------------------------------| --------------------------------------------------------- |
-| instance      | Results in an instance method on a specific instance | n/a                                                       |
-| class         | Results in a class method                            | Results in an instance method on all instances of a class |
