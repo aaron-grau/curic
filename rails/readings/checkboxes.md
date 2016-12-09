@@ -159,5 +159,5 @@ inputs is `post[tag_ids][]`. This tells our form that when we submit, all the
 boxes we've checked will end up in the `tag_ids` array in our params.
 
 In addition, note the hidden input with an empty string for `post[tag_ids][]`.
-This just make sure that, even if we uncheck every box, a param is sent through
+This just makes sure that, even if we uncheck every box, a param is sent through
 for `post[tag_ids]`. You can think of it as a harmless placeholder.
