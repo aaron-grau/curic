@@ -9,19 +9,16 @@ worth the effort.
 The redux dev tools are contained in a custom React component. In the past one
 had to add this component to an app in order to use them. Fortunately, the dev
 tools are now included in a chrome extension which allows them to open in a
-separate window. There are two steps to the setup:
+separate window. 
 
-1) install a chrome extension
+There are two steps to the setup:
 
-2) add custom middleware to your store that allows the dev tools to track the
+1) Install the chrome extension by visiting [this url][chrome_extension] and follow the instructions.
+
+2) Add custom middleware to your store that allows the dev tools to track the
 state of your app and log any actions you dispatch.
 
-## Chrome extension
-
-To install the Chrome extension, visit [this url][chrome_extension] and follow the instructions.
-
-
-## Middleware
+## Redux DevTools Middleware
 
 We will use the [fruit stand app][fruit_stand] as an example. The Redux dev
 tools don't work if you are simply viewing a local file in your browser; your
