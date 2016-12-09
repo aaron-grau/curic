@@ -9,8 +9,8 @@ understand what needs to be fetched, then decide whether `.includes` or
 
 In the methods containing `# TODO: your code here`, write the Active Record
 code that will produce the same result without causing an N+1 query. Test the
-query methods in the rails console as you work. Remember, you can check the
-server logs to see if you're making an N+1 query.
+query methods in the rails console as you work. Remember to look at the SQL
+queries displayed in the console to see if you're making an N+1 query.
 
 Refer to the [joins demo][demo] for hints on what you might want to do!
 
