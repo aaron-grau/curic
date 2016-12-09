@@ -1,15 +1,16 @@
 # Welcome to the N+1 Query Buster!
 
-Your job today is to eliminate all the costly, inefficient `N+1` queries in the code snippets below. Download and write your code in the [skeleton][skeleton] so you can test as you go.
-Make sure to run `rake db:setup` to get the database seeded for you. Read through the
-associations and methods for each example to understand what needs to be fetched, then
-decide whether `.includes` or `.joins` is a better fit for the situation and implement
-whichever you choose.
+Your job today is to eliminate all the costly, inefficient `N+1` queries in the
+code snippets below. Download and write your code in the [skeleton][skeleton]
+so you can test as you go. Make sure to run `rake db:setup` to get the database
+seeded for you. Read through the associations and methods for each example to
+understand what needs to be fetched, then decide whether `.includes` or
+`.joins` is a better fit for the situation and implement whichever you choose.
 
-In the methods containing `# TODO: your code here`, write the Active Record code that
-will produce the same result without causing an N+1 query. Test the query methods in the
-rails console as you work. Remember, you can check the server logs to see if you're
-making an N+1 query.
+In the methods containing `# TODO: your code here`, write the Active Record
+code that will produce the same result without causing an N+1 query. Test the
+query methods in the rails console as you work. Remember, you can check the
+server logs to see if you're making an N+1 query.
 
 Refer to the [joins demo][demo] for hints on what you might want to do!
 
@@ -171,8 +172,11 @@ end
 
 ## MUNI Routes, Buses, and Drivers
 
-Create a hash with bus id's as keys and an array of bus drivers as the corresponding value.
-E.g. `{'1' => ['Joan Lee', 'Charlie McDonald', 'Kevin Quashie'], '2' => ['Ed Michaels', 'Lisa Frank', 'Sharla Alegria']}`
+Create a hash with bus id's as keys and an array of bus drivers as the
+corresponding value. 
+
+(e.g., `{'1' => ['Joan Lee', 'Charlie McDonald', 'Kevin
+Quashie'], '2' => ['Ed Michaels', 'Lisa Frank', 'Sharla Alegria']}`)
 
 ```ruby
 # app/models/driver.rb
