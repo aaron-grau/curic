@@ -223,7 +223,7 @@ guidelines:
 - Notice that the `.masthead` is a flex-parent which means it will be used as an
 html container element and all of its immediate child elements will be
 flex-children.
-- Use `align-items` property to center the flex-children horizontally.
+- Set the `align-items` property to center the flex-children horizontally.
 - The Rails Asset Pipeline takes care of precompiling our assets, so the
 correct file path for images in the `assets/images` folder is
 `assets/example_image.jpg`.
