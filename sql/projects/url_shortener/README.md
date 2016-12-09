@@ -305,7 +305,7 @@ Loading development environment (Rails 3.2.11)
  => [#<Visit id: 1, user_id: 1, shortened_url_id: 1, created_at: "2013-08-18 19:15:55", updated_at: "2013-08-18 19:15:55">]
 ```
 
-## Phase V: `TagTopic`, `Tagging`s
+## Phase V: TagTopic and Tagging
 
 Users should be able to choose one of a set of predefined `TagTopic`s
 for links (news, sports, music, etc.). Since the relationship between
@@ -314,14 +314,16 @@ for links (news, sports, music, etc.). Since the relationship between
 should be indexed. Create these models with the appropriate nullity
 and uniqueness constraints and seed your database with some `TagTopic`s
  and `Taggings`. Write a method `TagTopic#popular_links`, that returns
- the 5 most visited links along with the number of times each link has
+ the 5 most visited links for that `TagTopic` along with the number of times each link has
  been clicked.
 
 
-## Phase VI: A Custom Validation and Premium Users
+## Phase VI: A Custom Validation
+Write a custom validation method `ShortenedUrl#no_spamming` that keeps
+users from submitting more than 5 URLs in a single minute.
 
- Write a custom validation method `ShortenedUrl#no_spamming` that keeps
- users from submitting more than 5 URLs in a single minute.
+
+## Phase VII: A Custom Validation and Premium Users
 
 Let's monetize our URL Shortener app.
 
@@ -330,14 +332,14 @@ Let's monetize our URL Shortener app.
 5 URLs (premium users get unlimited).
 
 
-## Phase VII: Pruning Stale URLs
+## Phase VIII: Pruning Stale URLs
 
 Write a `ShortenedUrl::prune` method that deletes any shortened URLs
 that have not been visited in the last (n) minutes. You will also need
 to delete any shortened URLs that are older than (n) minutes and have
 never been visited - make sure `ShortenedUrl::prune` only fires a single
  query. Use the following code snippet in `rails console` to make sure
- your `prune` is working as hoped.
+ your `prune` method is working as hoped.
 
 ```ruby
 u1 = User.create!(email: "jefferson@cats.com", premium: true)
@@ -370,9 +372,12 @@ ShortenedUrl.all # should return su1 and su2
 
 ```
 
-Once you have `ShortenedUrl::prune` working, check out ActiveRecord's [dependent: :destroy][destroy] for associations and use it to destroy the visits and taggings that belong to old shortened URLs. Once you have tested that your taggings and visits, are being deleted write a [rake task][rake-tutorial] to
-automate this process. Finally, adjust `ShortenedUrl::prune` so that
-URLs submitted by premium users are not pruned.
+Once you have `ShortenedUrl::prune` working, check out ActiveRecord's
+[dependent: :destroy][destroy] for associations and use it to destroy
+the visits and taggings that belong to old shortened URLs. Once you
+have tested that your taggings and visits are deleted, are being deleted write a
+[rake task][rake-tutorial] to automate this process. Finally, adjust
+`ShortenedUrl::prune` so that URLs submitted by premium users are not pruned.
 
 
 ## Bonuses
