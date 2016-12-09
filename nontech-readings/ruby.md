@@ -104,7 +104,7 @@ manipulate these attributes.
 The most popular object-oriented languages, such as Java, Perl, Python, Ruby,
 Objective-C, Smalltalk and Swift are class-based. Objects are instances of
 classes, which usually determine type. Classes define the data format and
-methods available to their instances or to themselves.  
+methods available to their instances or to themselves.
 
 Classes often inherit from other classes in an "is-a-type-of" relationship. The
 Dog class (the child class) might inherit from the Pet class (the parent class).
@@ -169,7 +169,7 @@ Python is perhaps the most similar language to Ruby. Both are dynamic,
 reflective, object-oriented, multi-paradigm scripting languages. They even use
 similar syntax! Here are the primary linguistic differences:
 
-  1. Python doesn't support closures.
+  1. Python doesn't support blocks.
   2. Python has a richer set of data structures.
   3. Python is inflexible: there's one best way of doing things!
   4. Whitespace is syntactically significant in Python.

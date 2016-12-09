@@ -28,11 +28,11 @@ One convention that Rails makes extensive use of is the naming of various parts 
 CoC circumvents having to write a lot of boilerplate configuration. Part of why Rails is popular is that it allows developers to create an application very quickly due to all of this configuration being handled. It also means that any Rails developer can look at any project and know how to navigate it with less extensive documentation.
 
 ### REST
-REST, or Representational State Transfer, is an architectural style for web services. A RESTful web service allows for access to web resources (e.g., a document, image, web page -- practically anything accessible on the internet!) using standard operations, such as HTTP's `GET`, `POST`, `PATCH`, or `DELETE`. The idea behind REST is that each one of these operations, in combination with a particular resource identifier, will have a predictable, standardized result. For instance, a `GET` request to a resource with a specified `id` is expected to return data on that specific item. This is true no matter what the resource is.
+REST, or Representational State Transfer, is an architectural style for web services. A RESTful web service allows for access to web resources (e.g., a document, image, web page -- practically anything accessible on the internet!) using standard operations, such as HTTP's `GET`, `POST`, `PATCH`, or `DELETE`.
 
 RESTful web services are stateless; this means that each request/response cycle is independent of any other request/response cycle. The server will not retain any session information over multiple requests. However, data can be cached on the client side.
 
-Rails defaults to a RESTful API using its `resources` method, which automatically generates routes by linking HTTP verbs and URIs to controller actions.
+Rails defaults to a RESTful API.
 
 ## Components
 
@@ -60,7 +60,7 @@ Custom rake tasks are easy to create. They're simply written in Ruby and can acc
 
 ### Rack
 
-Rack is a piece of middleware that sits between the Rails router and the web server (e.g., WEBrick or Puma), receiving requests and generating responses back and forth between the two. There are many different Ruby frameworks that expect a request to come in in a certain way and format their responses in a certain way, and many different web servers that expect the same. Rack insures that every server can interface with every framework.
+Rack is a piece of middleware that sits between Rails and the server, receiving requests and generating responses back and forth between the two. There are many different Ruby frameworks that expect a request to come in in a certain way and format their responses in a certain way, and many different web servers that expect the same. Rack insures that every server can interface with every framework.
 
 ### WEBrick
 
@@ -72,11 +72,11 @@ Puma, however, is very fast and multi-threaded, able to handle requests concurre
 
 ### Sinatra (Ruby)
 
-While both frameworks are coded in Ruby, Sinatra is a lot smaller and simpler than Rails, and can be very useful for small apps. It's easy to make simple requests and present information, but code can get large and messy when trying to accomplish more complex tasks, such as interacting with a database or presenting complex views. To make Sinatra scaleable, we'd have to essentially implement code that comes packaged with Rails, such as ActiveRecord. For large applications, it's easier to simply use a more robust framework in the first place.
+While both frameworks are coded in Ruby, Sinatra is a lot smaller and simpler than Rails, and can be very useful for small apps. It's easy to make simple requests and present information, but code can get large and messy when trying to accomplish more complex tasks, such as interacting with a database or presenting complex views. To make Sinatra scaleable, we'd have to essentially implement code that comes packaged with Rails, such as ActiveRecord. For large applications, it's easier to simply use a more robust framework in the first place, but Sinatra is a wonderful choice for something simple.
 
 ### Node.js (JavaScript)
 
-Node.js is part of the MEAN stack. The MEAN stack consists of four JavaScript technologies (MongoDB, Express.js, AngularJS, Node.js) that can be used together to create a full-stack app, thus allowing developers to only use one language in all parts of their applications.
+Node.js is part of the MEAN stack. The MEAN stack consists of four JavaScript technologies that can be used together to create a full-stack app, thus allowing developers to only use one language in all parts of their applications.
 
 Node isn't exactly a framework. It's a runtime environment. It's simply something that runs JavaScript code. Like Ruby's gems, Node has packages called modules -- but unlike Rails, which comes with certain gems and functionality packaged into it, a Node user has to install any modules they want and then write a lot of code by hand to integrate them.
 
@@ -90,13 +90,13 @@ Using Rails over Django comes down to preference. Some developers prefer having 
 
 ### Spring MVC (Java)
 
-Spring MVC is a Java framework. There are a lot of resources available for Spring -- and more resources are continuing to be developed. However, Spring can be very slow. To see a change, Spring has to be completely restarted, which can take a lot of time -- in contrast with Rails, which allows for most changes to be seen upon simply refreshing the page. It has very few built-in tools. It also suffers from lack of scalability, because any kind of I/O holds up a thread and slows down the application. In today's world of single-page apps with constant user input, this is a serious drawback.
+Spring MVC is a Java framework. There are a lot of resources available for Spring -- and more resources are continuing to be developed. However, Spring can be very slow. To see a change, Spring has to be completely restarted, which can take a lot of time, and there are very few built-in tools. It also suffers from lack of scalability, because any kind of I/O holds up a thread and slows down the application. In today's world of single-page apps with constant user input, this is a serious drawback.
 
 ### Play! (Scala)
 
 Play! can be written in either Scala or Java, and was built to be a more dynamic framework that Java developers would be able to use. Unlike Spring, it supports hot reload, allowing for changes to the code to be seen upon refresh. It also has a lot more built-in functionality and is much more responsive than Spring.
 
-One of the real strengths of Rails is its gem library. Play! suffers from a lack of plugins. However, Scala is a faster language than Ruby, and that means that Play! can be a faster framework than Rails and therefore more scalable than Rails.
+One of the real strengths of Rails is its gem library. Play! suffers from a lack of plugins. However, Scala is a faster language than Ruby, and that means that Play! can be a faster framework than Rails and therefore more scaleable than Rails.
 
 ### ASP.NET MVC(.NET)
 
