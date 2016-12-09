@@ -308,12 +308,20 @@ Loading development environment (Rails 3.2.11)
 ## Phase V: `TagTopic`, `Tagging`s
 
 Users should be able to choose one of a set of predefined `TagTopic`s
-for links (news, sports, music, etc.). Since the relationship between `TagTopic`s and `URL`s is many-to-many, you'll need a join model like `Tagging`s. Before starting think over with your pair what columns should be indexed. Create these models with the appropriate nullity and uniqueness constraints and seed your database with some `TagTopic`s and `Taggings`. Write a method `TagTopic#popular_links`, that returns the 5 most visited links along with the number of times each link has been clicked.
+for links (news, sports, music, etc.). Since the relationship between
+`TagTopic`s and `URL`s is many-to-many, you'll need a join model like
+`Tagging`s. Before starting think over with your pair what columns
+should be indexed. Create these models with the appropriate nullity
+and uniqueness constraints and seed your database with some `TagTopic`s
+ and `Taggings`. Write a method `TagTopic#popular_links`, that returns
+ the 5 most visited links along with the number of times each link has
+ been clicked.
 
 
 ## Phase VI: A Custom Validation and Premium Users
 
- Write a custom validation method `ShortenedUrl#no_spamming` that keeps users from submitting more than 5 URLs in a single minute.
+ Write a custom validation method `ShortenedUrl#no_spamming` that keeps
+ users from submitting more than 5 URLs in a single minute.
 
 Let's monetize our URL Shortener app.
 
@@ -324,8 +332,12 @@ Let's monetize our URL Shortener app.
 
 ## Phase VII: Pruning Stale URLs
 
-Write a `ShortenedUrl::prune` method that deletes any shortened URLs that have
-not been visited in the last (n) minutes. You will also need to delete any shortened URLs that are older than (n) minutes and have never been visited - make sure `ShortenedUrl::prune` only fires a single query. Use the following code snippet in `rails console` to make sure your `prune` is working as hoped.
+Write a `ShortenedUrl::prune` method that deletes any shortened URLs
+that have not been visited in the last (n) minutes. You will also need
+to delete any shortened URLs that are older than (n) minutes and have
+never been visited - make sure `ShortenedUrl::prune` only fires a single
+ query. Use the following code snippet in `rails console` to make sure
+ your `prune` is working as hoped.
 
 ```ruby
 u1 = User.create!(email: "jefferson@cats.com", premium: true)
