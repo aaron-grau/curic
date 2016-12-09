@@ -245,8 +245,8 @@ user to select it. This is the purpose of the `hidden` tag.
 ```
 
 Here this form specifies that after processing the form the controller
-should redirect back to the current url (`request.original_url`). Let's see how we could implement this behavior in our
-controller:
+should redirect back to the current url (`request.original_url`). Let's
+see how we could implement this behavior in our controller:
 
 ```ruby
 class CatsController
