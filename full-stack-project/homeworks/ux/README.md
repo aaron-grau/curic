@@ -1,7 +1,7 @@
 # JotItDown
 
 Apply the UX concepts you know to create layouts for the `index.html` and
-`home.html` pages of a note-taking app. You may need to reorganize the
+`splash.html` pages of a note-taking app. You may need to reorganize the
 information, apply relevant markup, and add styling.
 
 Don't worry about making your site dynamic: focus on just representing one
