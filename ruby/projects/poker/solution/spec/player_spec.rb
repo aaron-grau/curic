@@ -25,9 +25,16 @@ describe Player do
   end
 
   describe '#take_bet' do
-    it 'should decrement the players bankroll by the bet amount' do
+    it 'should decrement the players bankroll by the bet amount on the first bet' do
       expect do
         player.take_bet(10)
+      end.to change { player.bankroll }.by(-10)
+    end
+
+    it 'should decrement the players bankroll by the raise amount' do
+      player.take_bet(10)
+      expect do
+        player.take_bet(20)
       end.to change { player.bankroll }.by(-10)
     end
 
@@ -84,15 +91,15 @@ describe Player do
   end
 
   describe '#folded?' do
-    let(:broke_player) { Player.new(0) }
-    let(:flush_player) { Player.new(1000) }
+    let(:player) { Player.new(1000) }
 
-    it 'should return true if player has no money' do
-      expect(broke_player).to be_folded
+    it 'should return true if player is folded' do
+      player.fold
+      expect(player).to be_folded
     end
 
     it 'should return false otherwise' do
-      expect(flush_player).to_not be_folded
+      expect(player).to_not be_folded
     end
   end
 end

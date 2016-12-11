@@ -1,5 +1,7 @@
 class Player
-  attr_reader :bankroll, :hand
+  attr_reader :bankroll, :hand, :current_bet
+
+  include Comparable
 
   def self.buy_in(bankroll)
     Player.new(bankroll)
@@ -7,6 +9,7 @@ class Player
 
   def initialize(bankroll)
     @bankroll = bankroll
+    @current_bet = 0
   end
 
   def deal_in(hand)
@@ -44,13 +47,19 @@ class Player
     print "Cards to trade? (ex. '1, 4, 5') > "
     card_indices = gets.chomp.split(', ').map(&:to_i)
     raise 'cannot trade more than three cards' unless card_indices.count <= 3
-    cards = card_indices.map { |i| hand.cards[i - 1] }
+    card_indices.map { |i| hand.cards[i - 1] }
   end
 
-  def take_bet(amount)
+  def take_bet(total_bet)
+    amount = total_bet - @current_bet
     raise 'not enough money' unless amount <= bankroll
+    @current_bet = total_bet
     @bankroll -= amount
     amount
+  end
+
+  def reset_current_bet
+    @current_bet = 0
   end
 
   def receive_winnings(amount)
@@ -72,7 +81,7 @@ class Player
   end
 
   def folded?
-    bankroll.zero? || @folded
+    @folded
   end
 
   def trade_cards(old_cards, new_cards)
