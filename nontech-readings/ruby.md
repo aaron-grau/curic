@@ -75,7 +75,7 @@ makes possible much of metaprogramming. Here's an example adapted from Wikipedia
 of non-reflective and reflective call sequences in Ruby:
 
 ```ruby
-# nonrefective
+# nonreflective
 obj = Foo.new
 obj.hello
 
