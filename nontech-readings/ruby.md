@@ -208,5 +208,4 @@ no equivalent to Python's SciPy, NumPy, Matplob lib, or NLTK (Natural Language
 Toolkit) libraries.
 
 Here's an excellent infographic from UpGuard comparing the two languages:
-
 [Python versus Ruby](assets/python_vs_ruby.jpg)
