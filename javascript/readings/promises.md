@@ -133,8 +133,7 @@ Here's another case:
 p.then(onFulfilled, onRejected).catch(error)
 ```
 
-If `somePromise` is rejected, `onRejected` will run but `error` will not, because
-`then` will return a fulfilled promise.
+If `p` is rejected, `onRejected` will run but `error` will not. An rejected promise ends the chain.
 
 ## `resolve` and `reject`
 
