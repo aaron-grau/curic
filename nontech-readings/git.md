@@ -63,10 +63,10 @@ commits are not atomic, and branch operations are expensive.
 SVN is another free, open source software, released under the Apache license.
 SVN improves upon CVS with atomic operations and cheaper branch operations.
 However, compared to other VCSs, it is still slow and doesn't have as many
-repository management commands. It is important to note that SVN uses a server
-based model rather than peer-to-peer, which may work better for some situations
-than others. It does not fix the bugs that CVS had with renaming files and
-directories.
+repository management commands. It is important to note that SVN is
+server-based rather than peer-to-peer, which may work better for some
+situations than others. It does not fix the bugs that CVS had with renaming
+files and directories.
 
 Currently Used By: LinkedIn, Atmel
 
