@@ -4,7 +4,15 @@
 
 Version control has been around as long as writing has been around. In print, this existed as the numbering of different book editions. However, version control became much more complicated when the era of computing began. Software developers needed a way to work simultaneously on the same project, while also keeping previous versions in case newer versions contained bugs. Thus, the version control system (VCS) was born.
 
-Git was developed in April 2005 after Larry McVoy withdrew free use of BitKeeper, the VCS that the Linux kernel community had been using. (Note: BitKeeper was originally proprietary software but has been released as open source software as of May 9, 2016). Linus Torvalds, creator of Linux, decided that none of the current free VCSs met his needs for performance. He wanted to design a system where (1) patching would take no more than three seconds, (2) workflow would be distributed, and (3) there would be very strong safeguards against corruption. Development began on April 3, the project was announced on April 6th, and it became self-hosting on April 7th. The first merge of multiple branches happened on April 18th. In July 2005, Linus handed over maintenance of the Git project to Junio Hamano.
+Git was developed in April 2005 after Larry McVoy withdrew free use of BitKeeper, the VCS that the Linux kernel community had been using. (Note: BitKeeper was originally proprietary software but has been released as open source software as of May 9, 2016). Linus Torvalds, creator of Linux, decided that none of the current free VCSs met his needs for performance. He wanted to design a system where:
+
+1. patching would take no more than three seconds
+
+1. workflow would be distributed
+
+1. there would be very strong safeguards against corruption. 
+
+Development began on April 3, the project was announced on April 6th, and it became self-hosting on April 7th. The first merge of multiple branches happened on April 18th. In July 2005, Linus handed over maintenance of the Git project to Junio Hamano.
 
 Since then, Git installations have skyrocketed and many users have switched over from other VCSs.
 
