@@ -98,10 +98,10 @@ eval "Foo.new.hello"
 
 Object-oriented programming is a programming paradigm that privileges objects
 rather than actions and data rather than functions or logic. Adherents to OOP
-conceive of a program as a society of objects that receive messages they use to
-perform their own discrete operations. Objects typically contain data in fields
-known as attributes and a set of associated methods that may access and
-manipulate these attributes.
+conceive of a program as a society of objects that receive messages that they
+then use to perform their own discrete operations. Objects typically contain
+data in fields known as attributes and a set of associated methods that may
+access and manipulate these attributes.
 
 The most popular object-oriented languages, such as Java, Perl, Python, Ruby,
 Objective-C, Smalltalk and Swift are class-based. Objects are instances of
