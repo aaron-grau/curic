@@ -1,10 +1,4 @@
-Discuss a topic or technology in the context of modern web tech (e.g., Why a/A teaches RoR)
-+ History, alternative technologies, benefits/drawbacks of each. 
-+ Discuss companies that use a technology and why. 
-+ Provide lists of vocab words related to each lesson that a/A grads should know and be able to recall easily. (e.g., MVC, Single Page App, &c.)
-+ Include example sentences that show proper use of terms in the tech community. 
-
-## System
+# System
 
 Bash:
 Bash (an acronym for Bourne-again shell) is a unix shell and command language written for the GNU project as a free software replacement for the Bourne (Unix) shell. Bash is a command processor / command line interpreter (CLI) that typically runs in a text window.
@@ -31,6 +25,7 @@ Kernel:
 The kernel is a computer program that has control over everything that occurs in that computer's operating system. It executes programs and decides what memory each process has access to.
 
 Homebrew:
+Homebrew is a free and open-source package management system for macOS. It was written in Ruby, and is particularly popular with Ruby on Rails developers. Homebrew can be used to install packages including `git`, `heroku`, and `rbenv`. 
 
 ## Text editors:
 
