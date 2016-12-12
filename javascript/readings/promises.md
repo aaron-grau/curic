@@ -8,11 +8,7 @@ Promises are a tool for simplifying callbacks to asynchronous functions. Since t
 
 Sometimes we need to chain several asynchronous functions. For example, maybe we want to get our user's geolocation, then hit an API to `GET` the user's nearest surf spot, then hit a third API to get the surf conditions for that spot.
 
-To do this with traditional callbacks, we need to define the success callback of one function to invoke the next, and each function has to handle its own errors.
-
 ```javascript
-// Warning: PSEUDO-CODE!!!
-
 function getForecastForLocation(){
   locationRequest({
     success: spotRequest({
@@ -25,10 +21,9 @@ function getForecastForLocation(){
     error: handleError
   });
 }
-//Jeez!
 ```
 
-To solve this without promises, we would have to define the success callback of one function to invoke the next, and each would have to handle its own errors. Nesting callbacks like this can only lead us to :fire: [callback hell][callback-hell] :fire: .
+We would have to define the success callback of one function to invoke the next, and each would have to handle its own errors. Nesting callbacks like this can only lead us to :fire: [callback hell][callback-hell] :fire: .
 
 ## The Solution
 
@@ -54,9 +49,9 @@ First let's define a couple terms:
 
 Promises can exist in one of three states:
 
-  * _Fulfilled_: The promise's action has succeeded.
-  * _Rejected_: The promise's action has failed.
-  * _Pending_: The promise has been neither fulfilled nor rejected.. yet!
+  * _fulfilled_: The promise's action has succeeded.
+  * _rejected_: The promise's action has failed.
+  * _pending_: The promise has been neither fulfilled nor rejected.
 
 A promise is considered **settled** when it has either been fulfilled or rejected.
 
@@ -71,13 +66,13 @@ A few notes about functionality before moving on:
 We can create a new promise using the promise constructor function:
 
 ```javascript
-  new Promise(executor)
+const p = new Promise(executor)
 ```
 
 The constructor function accepts a single `executor` argument, which is a function that takes up to two optional parameters: `resolve` and `reject`. Let's see an example:
 
 ```javascript
-const promise = new Promise((resolve, reject) => {
+const p = new Promise((resolve, reject) => {
   if (/* success condition */){
     resolve("success");
   } else {
@@ -86,7 +81,22 @@ const promise = new Promise((resolve, reject) => {
 });
 ```
 
-## `resolve` and `reject`
+## `then`
+
+Promise objects have two important methods: `then` and `catch`. Both `then` and `catch` return **a new promise object**, making them chainable.
+
+`then` accepts two parameters:
+  * `onFulfilled`: the function to invoke if the promise is _fulfilled_
+  * `onRejected`: the function to invoke if the promise is _rejected_
+
+Essentially, `onFulfilled` is the `resolve` function and `onRejected` is the `reject` function.
+
+```javascript
+p.then(onFulfilled) // this *might* run
+p.then(onFulfilled, onRejected) // one of these *will* run
+```
+
+### `resolve` and `reject`
 
 `resolve` and `reject` are responsible for telling the promise what arguments to pass on (via `then` or `catch`) once the promise has been settled.
 
@@ -102,39 +112,26 @@ request.then(receiveResponse);
 
 `receiveResponse` is the resolve callback, and will be invoked once `setTimeout` successfully goes off after one second. It receives `'success'` passed as an argument, and will print it out.
 
-## `then` and `catch`
+## `catch`
 
-Promise objects have two important methods: `then` and `catch`. Both `then` and `catch` return **a new promise object**, making them chainable.
-
-`then` accepts two parameters:
-  * `onFulfilled`: the function to invoke if the promise is _fulfilled_
-  * `onRejected`: the function to invoke if the promise is _rejected_
+`catch` only accepts an `onRejected` parameter. This function is invoked if any promise in the chain is rejected. In the example below, the function `rejected` will run if `p`, `firstFulfilled`, or `secondFulfilled` throw an error.
 
 ```javascript
-  somePromise.then(onFulfilled) // this *might* run
-  somePromise.then(onFulfilled, onRejected) // one of these *will* run
+p.then(firstFulfilled).then(secondFulfilled).catch(rejected)
 ```
 
-`catch` accepts a single parameter:
-  * `failure`: the function to invoke if anything in the promise chain is rejected
-  * `failure` will be invoked if `somePromise`, `success`, or `success2` are rejected in the example below.
+Consider this similar example:
 
-```javascript
-somePromise.then(success).then(success2).catch(failure)
+```js
+p.then(firstFulfilled, rejected).then(secondFulfilled)
 ```
-### Quirks about `then` and `catch`
 
-Consider these similar constructions:
-```javascript
-somePromise.then(success, error)
-somePromise.then(success).catch(error)
-```
-In the first construction, `then` will always call either `success` or `failure`, but not both. In the later, both `success` and `failure` _could_ run if `somePromise` is fulfilled but `success` is rejected.
+The difference here is that `rejected` will only be invoked if `p` is rejected. It doesn't handle the errors for `firstFulfilled` or `secondFulfilled`, because it's not chained onto either of them.
 
-Also consider this example:
+Here's another case:
 
 ```javascript
-somePromise.then(onFulfilled, onRejected).catch(error)
+p.then(onFulfilled, onRejected).catch(error)
 ```
 
 If `somePromise` is rejected, `onRejected` will run but `error` will not, because `then` will return a fulfilled promise.
@@ -145,6 +142,10 @@ While promises can be a little tricky to understand, they are extremely easy to 
 
 ```js
 // Passing a callback
+
+const fetchSuccess = cat => console.log(cat);
+const fetchError = err => console.log(err);
+
 const fetchCat = (catId, success, error) => (
   $.ajax({
     url: `/cats/${catId}`,
@@ -154,18 +155,22 @@ const fetchCat = (catId, success, error) => (
   })
 );
 
-fetchCat(1, cat => console.log(cat), err => console.log(err))
-
-// Using a promise.
-const fetchCat = catId => (
-  $.ajax({ url: `/cats/${catId}` })
-);
-// Note the implicit return!
-
-fetchCat(1).then(cat => console.log(cat), err => console.log(err))
+fetchCat(1, fetchSuccess, fetchError);
 ```
 
-In this small example their difference is negligible. Promises really excel at error handling and separating concerns. In the second example, the `fetchCat` function no longer needs to be involved or 'know about' the expected outcome.
+```js
+// Using a promise.
+
+const fetchSuccess = cat => console.log(cat);
+const fetchError = err => console.log(err);
+
+const fetchCat = catId => $.ajax({ url: `/cats/${catId}` });
+// Note the implicit return!
+
+fetchCat(1).then(fetchSuccess).catch(fetchError);
+```
+
+Promises really excel at error handling and separating concerns. In the second example, the `fetchCat` function no longer needs to be involved with or know about the expected outcome.
 
 ## Advanced Topics
 
@@ -175,7 +180,7 @@ We have only covered the very basics of what promises are and how they work. Her
 * [Promise.all][all]: Accepts an array of promises, and creates a single promise that only gets fulfilled if every promise in the array fulfilled.
 * A [polyfill][polyfill] is required for consistent functionality across older browsers.
 
-Also, check out a [really well written article][rwwa].
+Also, check out this [really well written article][rwwa].
 
 [callback-hell]: http://callbackhell.com
 [documentation]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
