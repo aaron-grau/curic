@@ -4,8 +4,7 @@ Yukihiro “Matz” Matsumoto released the first version of the Ruby programming
 language in 1995 in Japan. Ruby is dynamic, reflective, object-oriented, and
 multi-paradigm. Let’s examine those terms.
 
-
-## Dynamic
+### Dynamic
 
 A dynamic programming language is one that can execute many common programming
 behaviors at runtime (when the interpreter executes the program) that static
@@ -63,7 +62,7 @@ class StaticallyTypedError {
 ```
 
 
-## Reflective
+### Reflective
 
 Reflection is common among dynamic programming languages. Unlike mere type
 introspection, which refers to the ability of a program to examine the type and
@@ -94,7 +93,7 @@ eval "Foo.new.hello"
 ```
 
 
-## Object-Oriented
+### Object-Oriented
 
 Object-oriented programming is a programming paradigm that privileges objects
 rather than actions and data rather than functions or logic. Adherents to OOP
@@ -123,7 +122,7 @@ technique is called information hiding). Conversely, the programmer should expos
 via methods only what's necessary to a class's relationships with other classes,
 thereby preventing external interference and misuse.
 
-## Multi-Paradigm
+### Multi-Paradigm
 
 Although Ruby is perhaps the object-oriented programming language par
 excellence, it also supports procedural and functional programming.
