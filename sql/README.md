@@ -96,34 +96,20 @@
 
 ## w3d3
 
-### Video Lectures (73 min)
-:closed_lock_with_key: `go_video_go`
+### Today's Topics
 
-+ :movie_camera: [Starting a new Rails Project][rails-intro-video] (7 min)
-+ :movie_camera: [Migrations][migrations-video] (14 min)
-+ :movie_camera: [Models][models-video] (8 min)
-+ :movie_camera: [Basic Associations (belongs_to, has_many)][associations-video]  (12 min)
-+ :movie_camera: [More Associations (has_many through:...)][associations-2-video] (12 min)
-+ :movie_camera: [Validations][validations-video] (13 min)
-+ :movie_camera: [Indices][indices-video] (7 min)
++ Starting a new Rails Project ([video][rails-intro-video]) ([reading][first-rails-project])
++ Migrations ([video][migrations-video]) ([reading][ar-migrations])
++ ActiveRecord
+  + Overview ([video][models-video]) ([reading][ar-orm])
+  + `belongs_to` and `has_many` ([video][associations-video]) ([reading][belongs-to-has-many])
+  + `has_many through:...` ([video][associations-2-video]) ([reading][has-many-through], [reading][has-one], [reading][unconventional-associations])
++ Validations ([video][validations-video]) ([reading][validations], [reading][custom-validations], [reading][validations-misc])
++ Indices ([video][indices-video]) ([reading][ar-indexing])
 
 ### Homeworks (45 min)
 
 + [Intro to Rails][intro-rails-homework] (45 min)
-
-### Additional Resources
-* [Creating a new rails project][first-rails-project]
-+ [Migrations][ar-migrations]
-+ [ORM Review and Intro to Active Record][ar-orm]
-+ Associations:  
-  + [`belongs_to` and `has_many`][belongs-to-has-many]
-  + [`has_many :through`][has-many-through]
-  + [`has_one`][has-one]
-  + [Unconventional Associations][unconventional-associations]
-  + for now, always specify `class_name`/`primary_key`/`foreign_key`
-+ [Basic][validations] and [Custom][custom-validations] Validations
-  + [Miscellaneous][validations-misc]
-+ [ActiveRecord and Indexes][ar-indexing]
 
 ### Projects
 + [Associations Exercise][associations-exercise]
