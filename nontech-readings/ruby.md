@@ -83,7 +83,9 @@ obj.hello
 class_name = "Foo"
 method_name = :hello
 
-# The program can inspect and modify source code constructions such as classes and methods at runtime. It can even convert strings or symbols matching symbolic names of those constructions into references to them.
+# The program can inspect and modify source code constructions such as classes
+# and methods at runtime. It can even convert strings or symbols matching
+# symbolic names of those constructions into references to them.
 obj = Object.const_get(class_name).new
 obj.send method_name
 
