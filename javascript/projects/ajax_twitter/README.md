@@ -4,6 +4,15 @@
 
 [live-demo]: https://aa-ajax-twitter.herokuapp.com
 
+## Learning Goals
+
++ Know how AJAX requests allow the frontend and backend to communicate
++ Be able to change the backend of an app by sending an AJAX request
++ Be able to change the frontend of an app with data from an AJAX response
++ Be able to write AJAX requests in an API Util file
++ Be able to write basic JBuilder views
++ Know the basics of how Promises work
+
 ## Phase 0: Setup
 
 Download the project [skeleton](skeleton.zip?raw=true). Start by running `bundle install`. To setup the database, run `rake db:setup` which creates, loads from schema and seeds the db in one command. Run `webpack --watch` or `webpack -w` in a new tab to transpile the JavaScript.
