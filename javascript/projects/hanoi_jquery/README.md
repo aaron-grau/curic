@@ -4,6 +4,16 @@
 
 [hanoi-node]: https://www.github.com/appacademy/curriculum/tree/master/javascript/projects/hanoi_node/solution.zip
 
+## Learning Goals
+
++ Be able to set up Webpack
++ Know how a frontend (this project) and backend (the Node version of this
+project) relate to and communicate with each other
+  + Know how to send and receive messages between the frontend and backend
++ Know how to use JQuery to toggle classes on HTML elements
++ Be able to use CSS to style a web page
+  + Be familiar with styling classes versus styling tags
+
 Download the [skeleton][skeleton]. Set up the directory structure as
 before: make `css`, `html` and `js` directories. Remember to load all the
 relevant CSS and JQuery in your `index.html`. Move the provided 'main.js' file
