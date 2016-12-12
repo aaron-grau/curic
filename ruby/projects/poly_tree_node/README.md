@@ -7,6 +7,12 @@ Estimated time: 2hrs
 
 [intro-algos]: ../../readings/intro-algorithms-and-data-structures.md
 
+## Learning Goals
+
+* Know how to implement a polytree using polytree nodes
+* Know how to implement bfs and dfs for your polytree
+* Be able to explain the differences between bfs and dfs and when one might be preferred
+
 ## Phase 0: Description
 
 Download [this skeleton][tree-node-rspec].
