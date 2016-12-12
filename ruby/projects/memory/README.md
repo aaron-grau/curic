@@ -5,6 +5,13 @@ classic [Match 2 memory card game][match-memory].
 
 [match-memory]: http://games.aarp.org/games/metro-match/metro-match.aspx
 
+## Learning Goals
+
+* Understand how classes interact and how to use `require-relative`
+* Be able to write and explain how bracket methods `[]` and `[]=` work
+* Be able to use pry to test small parts of your code
+* Know how to initialize a new Array with a default value
+
 Write classes for Card, Board, and Game. Please put each class in its own file
 and use `require_relative` to include other files in your program.
 

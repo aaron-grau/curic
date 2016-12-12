@@ -15,6 +15,12 @@ engineer.  The faster you narrow down bugs:
 2. The more time you save each time you debug something new.
 3. The more you can solve problems on your own.
 
+## Learning Goals
+
+* Be able to read a stack trace and work backwards toward the source of your error
+* Be able to use a debugger effectively
+* Be comfortable using `git branch`, `git checkout`, and `git commit`
+* Know how to `git push` to your own Github repo
 
 ## Don'ts
 

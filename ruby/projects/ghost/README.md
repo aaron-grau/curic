@@ -5,6 +5,13 @@ just my) favorite road-trip word game, [Ghost][ghost-wiki].
 
 [ghost-wiki]: https://en.wikipedia.org/wiki/Ghost_(game)
 
+## Learning Goals
+
+* Understand how different classes interact and how to use `require-relative`
+* Be able to test methods in pry
+* Be able to read lines from a text file
+* Understand how `__FILE__ == $PROGRAM_NAME` works
+
 ## Phase 1: Playing a Single Round
 
 Let's start by writing the logic to play a single round of Ghost (that
