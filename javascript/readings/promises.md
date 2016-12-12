@@ -136,7 +136,7 @@ p.then(onFulfilled, onRejected).catch(error)
 If `somePromise` is rejected, `onRejected` will run but `error` will not, because
 `then` will return a fulfilled promise.
 
-### `resolve` and `reject`
+## `resolve` and `reject`
 
 `resolve` and `reject` are responsible for telling the promise what arguments to
 pass on (via `then` or `catch`) once the promise has been settled.
