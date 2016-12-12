@@ -2,6 +2,11 @@
 
 **Read the entire problem before beginning!**
 
+## Learning Goals
+
+* Be able to implement your PolyTreeNode to build a path from start to finish
+* Know when and why to use bfs or dfs
+
 ## Phase 0: Description
 
 In this problem we want to write a class that will find a path for a
