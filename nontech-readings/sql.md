@@ -1,26 +1,5 @@
 # SQL
 
-## Terminology
-
-**SQL** - Structured Query Language
-
-**RDBMS** - Relational Database Management System
-
-**Query** - An operation that retrieves data from one or more tables; describes
-desired data, leaving the database management system to plan, optimize, and
-carry out the operations necessary to produce the results
-
-**Three-Valued (Ternary) Logic** - A many-valued logic system with three truth values:
-True, False, and Unknown (null)
-
-**Transaction** - A unit of work performed against a database that is treated in
-a coherent and reliable way; all of the work within a transaction must succeed, or
-it is rolled back entirely, i.e. "all or nothing"
-
-**Normalization** - An approach to database storage that practices storing references
-to information in other locations rather than duplicating it and storing it in multiple
-places; opposite of denormalization
-
 ## A Brief History
 
 SQL was created in the early 1970s at IBM to manipulate and retrieve data in their database
@@ -170,3 +149,24 @@ Known for: Performance, advanced key-value cache storage (NoSQL), easy deploymen
 open source, speed
 
 Used by: Twitter, Instagram, 9GAG, Vine, Hootsuite, AirBnb, Uber, Medium
+
+## Terminology
+
+**SQL** - Structured Query Language
+
+**RDBMS** - Relational Database Management System
+
+**Query** - An operation that retrieves data from one or more tables; describes
+desired data, leaving the database management system to plan, optimize, and
+carry out the operations necessary to produce the results
+
+**Three-Valued (Ternary) Logic** - A many-valued logic system with three truth values:
+True, False, and Unknown (null)
+
+**Transaction** - A unit of work performed against a database that is treated in
+a coherent and reliable way; all of the work within a transaction must succeed, or
+it is rolled back entirely, i.e. "all or nothing"
+
+**Normalization** - An approach to database storage that practices storing references
+to information in other locations rather than duplicating it and storing it in multiple
+places; opposite of denormalization
