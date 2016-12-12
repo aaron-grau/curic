@@ -26,14 +26,15 @@ time their approach to data storage and retrieval went through a resurgence. It
 was at this time that the moniker "NoSQL" came about. NoSQL implementations
 like MongoDB have been relatively popular since the 2000s.
 
-There is quite a debate about whether SQL or NoSQL is better. In reality, there
-is not an answer; each is better suited to different purposes, so it depends on
-the project. At the most basic level, SQL and NoSQL differ in how they store
-data, and as a result, operations like inserting, retrieving, and updating data
-happen very differently.
+There is quite a debate about whether SQL or NoSQL is better. Speaking
+generally, there is not an answer; each is better suited to different purposes,
+so the choice of database system shoudl depend on the project. At the most
+basic level, SQL and NoSQL differ in how they store data, and as a result,
+operations like inserting, retrieving, and updating data happen very
+differently.
 
 SQL stores data in tables. NoSQL stores data in forms other than tables; these
-forms can be graphs, key-value pairs, or one of the many other options, but
+forms can be graphs, key-value pairs, or one of many other options, but
 most commonly they are documents. These documents are very similar to JSON
 objects with field-value pairs. For example, our NoSQL database might store a
 user like this:
