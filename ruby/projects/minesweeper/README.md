@@ -6,6 +6,12 @@ of this document.**
 Everyone remembers [Minesweeper][play-minesweeper]
 ([wiki][minesweeper-wiki]), right? Let's build it!
 
+## Learning Goals
+
+* Be comfortable using `git merge` to merge a feature branch to the master branch
+* Know how to create a remote repository and push to it
+* Know when to separate logic for different parts of your project into different classes
+
 ### _Git_ a good start!
 
 Remember, we're using Git today, so initialize a new repository.
