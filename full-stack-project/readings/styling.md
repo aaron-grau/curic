@@ -56,7 +56,7 @@ One of the drawbacks of our program is that we don't have enough time to teach o
 
 
 [autoprefixer]: ./autoprefixer.md
-[teac-access]: https://teachaccess.github.io/tutorial/
+[teach-access]: https://teachaccess.github.io/tutorial/
 [css-overview]: ./css.md
 [css-demos]: https://github.com/appacademy/css-demos
 [styling-railscasts]: ./styling-railscasts.md
