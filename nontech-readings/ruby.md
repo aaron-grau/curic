@@ -152,12 +152,12 @@ In 2008, Matz declared that the primary purpose of Ruby is to "help every
 programmer in the world to be productive, and to enjoy programming, and to be
 happy." He elaborated:
 
-  Often people, especially computer engineers, focus on the machines. They think,
-  "By doing this, the machine will run fast. By doing this, the machine will run
-  more effectively. By doing this, the machine will something something
-  something." They are focusing on machines. But in fact we need to focus on
-  humans, on how humans care about doing programming or operating the application
-  of the machines. We are the masters. They are the slaves.
+> Often people, especially computer engineers, focus on the machines. They
+think, "By doing this, the machine will run fast. By doing this, the machine
+will run more effectively. By doing this, the machine will something something
+something." They are focusing on machines. But in fact we need to focus on
+humans, on how humans care about doing programming or operating the application
+of the machines. We are the masters. They are the slaves.
 
 Ruby follows the Principle of Least Astonishment: it attempts to minimize
 confusion for experienced users. Much of Ruby reads like English. It's designed
