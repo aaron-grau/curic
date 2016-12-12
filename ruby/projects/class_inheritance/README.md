@@ -6,6 +6,12 @@ This mini-project will apply the skills you learned in last night's  [inheritanc
 
 Estimated time: 45min.
 
+## Learning Goals
+
+* Understand how a subclass inherits from a superclass
+* Know how to override methods from a parent class
+* Know when and how to use `super`
+
 ## Employee and Manager
 
 Write a class `Employee` that has attributes that return the
