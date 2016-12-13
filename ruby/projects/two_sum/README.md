@@ -1,4 +1,12 @@
 # `two_sum?`
+
+## Learning Goals
+
+* Be able to figure out and explain the time complexity of a method
+* Be able to figure out and explain the space complexity of a method
+* Be able to recognize when time or space complexity can be improved
+* Be able to compare different methods and discuss how changing inputs affects each ones overall runtime
+
 Given an array of unique integers and a target sum, determine whether any two integers in the array sum to that amount.
 
 

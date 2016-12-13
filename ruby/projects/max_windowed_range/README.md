@@ -1,5 +1,10 @@
 # Max Windowed Range
 
+## Learning Goals
+
+* Know the differences between a stack and a queue
+* Be able to explain the time complexity of your solution
+
 Given an array, and a window size `w`, find the maximum range
 (`max - min`) within a set of `w` elements.
 
