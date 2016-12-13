@@ -2,7 +2,14 @@
 
 Today we will be using TDD to write a poker game, specifically [five card draw][five-card-draw].  
 
-You'll want to use [betterspecs][betterspecs] as a cheatsheet/reference. You'll also want to 
+## Learning Goals
+
+* Be able to define desired functionality, write specs, and then implement
+* Know how to follow **red, green, refactor** TDD workflow
+* Know how to create and use test doubles
+* Know when to use `context` and `describe`
+
+You'll want to use [betterspecs][betterspecs] as a cheatsheet/reference. You'll also want to
 refer to the [reading on test doubles][doubles-reading] for help creating unit tests.  
 
 ## Rules
