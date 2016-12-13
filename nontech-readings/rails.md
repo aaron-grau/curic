@@ -168,26 +168,27 @@ faster because Rails has such strong defaults.
 ### Django (Python)
 
 Django is also an MVC framework, but where Rails follows the principles of CoC
-and the readability of Ruby, Django is written in Python, which follows a
-principle of "explicit is better than implicit." This means that Django code is
-easy to read and understand because every bit of functionality is explicitly
-written into every file -- but it also means that a developer will have to
-write all that code.
+and leverages the readability of Ruby, Django is written in Python, which
+follows a principle of "explicit is better than implicit." This means that
+Django code is easy to read and understand because every bit of functionality
+is explicitly written into every file - but it also means that a developer
+will have to write all that code.
 
 Using Rails over Django comes down to preference. Some developers prefer having
 a lot of the boilerplate done for them, and some prefer seeing and writing
-exactly what's happening.
+exactly how their server will construct a response.
 
 ### Spring MVC (Java)
 
 Spring MVC is a Java framework. There are a lot of resources available for
-Spring -- and more resources are continuing to be developed. However, Spring
-can be very slow. To see a change, Spring has to be completely restarted, which
-can take a lot of time -- in contrast with Rails, which allows for most changes
-to be seen upon simply refreshing the page. It has very few built-in tools. It
-also suffers from lack of scalability, because any kind of I/O holds up a
-thread and slows down the application. In today's world of single-page apps
-with constant user input, this is a serious drawback.
+Spring, and more resources are continuing to be developed. However, Spring can
+be very slow. In order for code changes to take effect, Spring has to be
+completely restarted, which can take a lot of time - in contrast with Rails,
+which allows for most code changes to be seen upon simply refreshing the page.
+It has very few built-in tools. It also suffers from lack of scalability,
+because any kind of I/O holds up a thread and slows down the application. In
+today's world of single-page apps with constant user input, this is a serious
+drawback.
 
 ### Play! (Scala)
 
@@ -199,8 +200,7 @@ Spring.
 
 One of the real strengths of Rails is its gem library. Play! suffers from a
 lack of plugins. However, Scala is a faster language than Ruby, and that means
-that Play! can be a faster framework than Rails and therefore more scalable
-than Rails.
+that Play! can be faster and therefore more scalable than Rails.
 
 ### ASP.NET MVC(.NET)
 
@@ -211,15 +211,17 @@ Rails, whose gems expect Unix-like behavior. A lot of enterprise projects are
 already built with .NET code, and it's easy to build an ASP.NET framework over
 them.
 
-Rails and ASP.NET are fairly similar, and a lot comes down to language
-preference between Ruby and C# or other .NET languages.
+Rails and ASP.NET are fairly similar, and often the decision to use one over
+the other comes down to language preference between Ruby and C# or other .NET
+languages.
 
 ### Laravel (PHP)
 
 PHP is the most popular server-side language in use, and Laravel, although
-fairly young, is its most popular framework. Its age does mean that it was
-developed with modern architecture in mind. PHP is an easier language to learn
-than Ruby, but is more verbose and was designed to be a scripting language.
-Laravel lacks the power of Rails's implicit conventions -- code needs to be
-more explicit. However, for this reason, it is more flexible because Rails is
-such a structured framework.
+fairly young, is its most popular framework. It was developed with modern
+architecture in mind, including support for user authentication, recurring
+billing services, and scheduling periodically executed tasks. PHP is an easier
+language to learn than Ruby, but is more verbose and was designed to be a
+scripting language. Laravel requires the code it runs to be more explicit; it
+lacks the power of Rails's implicit conventions. However, for this reason, it
+is more flexible because Rails is such a structured framework.
