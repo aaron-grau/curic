@@ -60,7 +60,7 @@ export const fetchAllContacts = () => dispatch => {
 );
 
 //sync action creator which returns an object
-export const requestContacts = contacts => ({
+export const requestContacts = () => ({
   type: REQUEST_CONTACTS
 });
 
