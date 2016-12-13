@@ -135,7 +135,7 @@ p.then(onFulfilled, onRejected).catch(error)
 
 If `p` is rejected, `onRejected` will run. `error` will run if either
 `p`, `onFulfilled`, or `onRejected` are rejected. Note: `onRejected` simply
-logging and error message would not trigger `error`, but it would if it
+logging an error message would not trigger `error`, but it would if it
 explicitly threw an error.
 
 ## `resolve` and `reject`
