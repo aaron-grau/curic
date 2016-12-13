@@ -26,12 +26,12 @@ Rails is an MVC framework. MVC, or model-view-controller, is a design pattern
 that divides an application into three basic parts, each responsible for
 handling a different task.
 
- + The model is concerned with retrieval of information and any logic done to
- that information.
- + The view is concerned with representation and output of information
- + The controller is concerned with accepting input and sends commands to the
- model to fetch or update information, and to the view to display information.
- It acts as the interface between the model and the view.
++ The model is concerned with retrieval of information from storage, as well
+as any logic done to that information.
++ The view is concerned with presenting information.
++ The controller is concerned with constructing the server's HTTP response and
+sends commands to the model to fetch or update information, and to the view to
+display information. It acts as the interface between the model and the view.
 
 ### Convention Over Configuration
 
@@ -97,9 +97,9 @@ modify data (e.g., `POST` or `PATCH` requests).
 ActionView is responsible for rendering the views. ActionView templates can
 take several forms. One of the supported file types is ERB, or Embedded Ruby.
 ERB files are a mixture of HTML and Ruby code. Writing Ruby code in the views
-is very helpful -- generating a list of items is as simple as writing a loop.
-Rails also has a number of built-in helper methods that generate HTML that can
-be added to a view with ERB.
+is very helpful - to generate a list of items, just write a loop! Rails also
+has a number of built-in helper methods that generate HTML that can be added to
+a view with ERB.
 
 Another supported file type is a builder file. Instead of rendering HTML, a
 view could instead render XML or JSON. This is incredibly useful for a route
@@ -111,26 +111,27 @@ Rake is a utility tool packaged with Rails that handles task management. It can
 be thought of as a scripting tool for Rails, used to carry out administrative
 tasks such as migrating a database and displaying routes.
 
-Custom rake tasks are easy to create. They're simply written in Ruby and can
-access any part of your Rails app, such as a model.
+Custom rake tasks are easy to create. They're written in Ruby and can access
+any part of your Rails app, such as a model.
 
 ### Rack
 
 Rack is a piece of middleware that sits between the Rails router and the web
-server (e.g., WEBrick or Puma), receiving requests and generating responses
-back and forth between the two. There are many different Ruby frameworks that
-expect a request to come in in a certain way and format their responses in a
-certain way, and many different web servers that expect the same. Rack insures
-that every server can interface with every framework.
+server (e.g., WEBrick or Puma), receiving HTTP requests from the server and
+generating responses using information from the router. There are many
+different Ruby frameworks that expect a request to come in in a certain way and
+format their responses in a certain way, and many different web servers that
+expect the same. Rack ensures that every server can interface with every
+framework.
 
 ### WEBrick
 
-WEBrick is the HTTP server that comes standard with Rails, though newer version
-of Rails are shipping with a default Puma server. WEBrick is written entirely
-in Ruby and is reliable and easy to use, but it is single threaded -- that is,
-it can only handle a single request at a time. This means it doesn't scale well
-and can experience a lot of delay. This makes it ideal for development but not
-for a production environment.
+WEBrick is the HTTP server that comes standard with Rails 4, though Rails 5
+ships with the Puma HTTP server. WEBrick is written entirely in Ruby and is
+reliable and easy to use, but it is single threaded - that is, it can only
+handle a single request at a time. This means it doesn't scale well and can
+experience a lot of delay. This makes it ideal for development but not for a
+production environment.
 
 Puma, however, is very fast and multi-threaded, able to handle requests
 concurrently, making it a good choice for a production server.
