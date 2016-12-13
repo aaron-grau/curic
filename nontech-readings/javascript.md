@@ -164,3 +164,13 @@ An *Immediately-Invoked Function Expression* is a function that is called immedi
   console.log('testing');
 })(); // => 'testing'
 ```
+
+### JQuery
+
+### Underscore.js
+
+### MEAN stack
+
+### Functional programming (immutable.js, cycle.js, &c.)
+
+### Gulp vs. Grunt vs. Brunch vs. Make vs. JSPM
