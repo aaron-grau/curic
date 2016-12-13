@@ -146,8 +146,7 @@ requests and present information, but code can get large and messy when trying
 to accomplish more complex tasks, such as interacting with a database or
 presenting complex views. To make Sinatra scaleable, we'd have to essentially
 implement code that comes packaged with Rails, such as ActiveRecord. For large
-applications, it's easier to simply use a more robust framework in the first
-place.
+applications, it is probably easier to use a more robust framework.
 
 ### Node.js (JavaScript)
 
@@ -156,15 +155,15 @@ technologies (MongoDB, Express.js, AngularJS, Node.js) that can be used
 together to create a full-stack app, thus allowing developers to only use one
 language in all parts of their applications.
 
-Node isn't exactly a framework. It's a runtime environment. It's simply
-something that runs JavaScript code. Like Ruby's gems, Node has packages called
-modules -- but unlike Rails, which comes with certain gems and functionality
-packaged into it, a Node user has to install any modules they want and then
-write a lot of code by hand to integrate them.
+Node isn't exactly a framework. It's a runtime environment, which means that it
+can run JavaScript code. Like Ruby's gems, Node has packages called modules --
+but unlike Rails, which comes with certain gems and functionality packaged into
+it, a Node user has to install any modules they want and then write the
+code to integrate them by hand.
 
 Node offers a lot of flexibility because a developer can choose exactly which
 modules they want to include, but developing in Rails can be significantly
-faster because Rails does so much of the work already.
+faster because Rails has such strong defaults.
 
 ### Django (Python)
 
