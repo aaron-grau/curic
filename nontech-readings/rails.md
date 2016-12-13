@@ -4,11 +4,19 @@ Ruby on Rails is a web application framework written in Ruby. It was developed b
 
 Not only is Rails popular with start-ups for its ease in deploying to production, but a number of larger companies like Twitter, Hulu, and Kickstarter use Rails in their stack as well.
 
-Rails became popular for a number of reasons. A major reason is that Ruby is a very readable, versatile, and elegant language. Ruby was designed to be a "joy to use" and that can be seen in its clean, concise code that reads like English.
+Rails became popular for a number of reasons. 
 
-Rails is an open-source framework, and has a large, active community. This community is another reason why Rails is so popular. Not only is the framework itself well maintained, but there are also a lot of external libraries available through RubyGems that can be easily added to a Rails application.
+One major reason is that Ruby is a very readable, versatile, and elegant
+language. Ruby was designed to be a "joy to use" and that can be seen in its
+clean, concise code that reads like English.
 
-Rails follows a number of design principles that also contribute to its efficacy in getting an application pushed to production quickly.
+Another reason why Rails is so popular is that it is an open-source framework
+and has a large, active community. Not only is the framework itself well
+maintained, but there are also a lot of external libraries available through
+RubyGems that can be easily added to a Rails application.
+
+Also, Rails follows a number of design principles that contribute to its
+efficacy in getting an application pushed to production quickly.
 
 ## Design Principles
 
