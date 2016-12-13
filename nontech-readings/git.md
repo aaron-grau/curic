@@ -84,40 +84,47 @@ Currently Used By: Bitbucket, OpenOffice
 
 ## Vocabulary
 
-+ **version control** - aka revision control or source control. Versions are
++ **Version control** - aka revision control or source control. Versions are
 usually identified by some number/code, a timestamp, and the person who made
-the change. Version control lets the user compare versions, revert to a
-previous version, or merge versions.
+the change. 
+Ex: "Version control lets the user compare versions, revert to a
+previous version, or merge versions."
 
-+ **open source software** - The original source code is available to be
-redistributed and modified.
++ **Open source software** - Software where the original source code is
+available to be redistributed and modified.
+Ex: "I believe in open source software, like Linux."
 
-+ **proprietary software** - Owned by an individual or company. There are
-usually restrictions to use and source code is often kept secret. Proprietary
-software that comes free of charge is called freeware.
++ **Proprietary software** - Software that is owned by an individual or
+company. There are usually restrictions to use and source code is often kept
+secret. Proprietary software that comes free of charge is called freeware. 
+Ex: "macOS is proprietary software - that's why building hackintoshes is
+illegal."
 
-+ **server-based** - There exists a single central repository that each client
++ **Server-based** - There exists a single central repository that each client
 synchronizes with.
+Ex: "Gmail is a server-based application."
 
-+ **peer-to-peer** - Each client holds a complete repository and synchronizes
++ **Peer-to-peer** - Each client holds a complete repository and synchronizes
 by exchanging patches peer-to-peer. This is an example of a **distributed
-system**
+system**.
+Ex: "Napster was one of the first major peer-to-peer applications."
 
-+ **server** - The computer storing the repo.
++ **Atomic operations** - Operations whose changes are rolled back if they are
+somehow interrupted before completion. This helps prevent source corruption.
+Ex: "The SQL standard requires database operations to be atomic."
 
-+ **client** - The computer connecting to the repo.
++ **Repository (repo)** - A collection of commits, and branches and tags to
+identify commits.
+Ex: "I wanted to be able to access it from home, so I pushed it to my Github
+repo."
 
-+ **atomic operations** - changes are rolled back if they are somehow
-interrupted before completion. This helps prevent source corruption.
-
-+ **repository (repo)** - A collection of commits, and branches and tags to
-identify commits
-
-+ **semantic versioning (a.b.c or x.y.z versioning)** - Given a version number
++ **Semantic versioning (a.b.c or x.y.z versioning)** - Given a version number
 MAJOR.MINOR.PATCH (e.g. 2.0.6), increment the MAJOR version when you add any
 backwards incompatible changes, the MINOR version when you add backwards
 compatible features, and the PATCH version when you make backwards compatible
 bug fixes.
+Ex: "Based on the semantic versioning, I can tell that the new version of Ruby
+isn't backwards compatible."
 
 <!-- ### Sources
 + [Atlassian](https://www.atlassian.com/git/)
