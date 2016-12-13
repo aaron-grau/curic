@@ -5,6 +5,13 @@ don't worry--we've provided specs. Download the [skeleton][skeleton] before you 
 
 [skeleton]: skeleton.zip?raw=true
 
+## Learning Goals
+
+* Be able to describe the characteristics of a good hashing function
+* Be able to explain how a linked list works
+* Be able to explain how a hash map works
+* Use your linked list and hash map to implement a LRU cache
+
 ## Phase 1: IntSet
 
 A **Set** is a data type that can store unordered, unique items. Sets
@@ -129,25 +136,25 @@ creative here!
 
 Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentially.
 
-  - Use `Fixnum#hash` as a base hashing function. The trick here will be to create a 
-    scheme to convert instances of each class to a `Fixnum` and then apply this 
-    hashing function. This can be used on `Numeric`s such as the index of an array 
+  - Use `Fixnum#hash` as a base hashing function. The trick here will be to create a
+    scheme to convert instances of each class to a `Fixnum` and then apply this
+    hashing function. This can be used on `Numeric`s such as the index of an array
     element.
-    - Don't try to overwrite Ruby's native `Fixnum#hash`; making a hash function 
+    - Don't try to overwrite Ruby's native `Fixnum#hash`; making a hash function
       for numbers is something that's outside the scope of this assignment.
-  - Ordering of elements is essential to hashing an `Array` or `String`. This means each 
-    element in an `Array` or `String` should be associated with its index during hashing. 
+  - Ordering of elements is essential to hashing an `Array` or `String`. This means each
+    element in an `Array` or `String` should be associated with its index during hashing.
     Ex. `[1, 2, 3].hash != [3, 2, 1].hash # => false`
-  - On the other hand, ordering is **not** to be considered with a `Hash`. Hashes are based 
-    on sets and have no fixed order. Ex. `{a: 1, b: 2}.hash == {b: 2, a: 1}.hash # => true` 
+  - On the other hand, ordering is **not** to be considered with a `Hash`. Hashes are based
+    on sets and have no fixed order. Ex. `{a: 1, b: 2}.hash == {b: 2, a: 1}.hash # => true`
 
-### Hints: 
+### Hints:
   - Can you write `String#hash` in terms of `Array#hash`?
   - When you get to hashing hashes: one trick to make a hash function
     order-agnostic is to turn the object into an array, stably sort
     the array, and then hash the array. This'll make it so every
     unordered version of that same object will hash to the same value.
-      
+
 #### Notes:
 
 * **Don't spend more than 30 minutes working on hashing functions**. Great hashing functions are hard to write. Your goal is to write a good-enough hashing function and move forth to the fun stuff ahead! Call over a TA if needed.
