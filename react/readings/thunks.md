@@ -65,16 +65,7 @@ An action creator that fetches contacts might look like this.
 ```js
 import { fetchContacts } from '../utils/contacts_api_util';
 
-// async action creator which returns a function
-export const fetchAllContacts = () => dispatch => {
-    dispatch(requestContacts()); // allow reducer to set state to `fetching: true`
-    return fetchContacts().then(contacts => {
-      dispatch(receiveContacts(contacts));
-    });
-  }
-);
-
-//sync action creator which returns an object
+//action creators which return objects
 export const requestContacts = () => ({
   type: REQUEST_CONTACTS
 });
@@ -83,6 +74,15 @@ export const receiveContacts = contacts => ({
   type: RECEIVE_CONTACTS,
   contacts
 });
+
+// async action creator which returns a function
+export const fetchAllContacts = () => dispatch => {
+    dispatch(requestContacts()); // allow reducer to set state to `fetching: true`
+    return fetchContacts().then(contacts => {
+      dispatch(receiveContacts(contacts));
+    });
+  }
+);
 ```
 
 Much like the logger from the previous reading, thunk middleware is available as
