@@ -1,16 +1,33 @@
-# About JavaScript
-Being one of the three primary languages that ships with the browser, JavaScript is a critical tool for any web developer. Whereas HTML and CSS respectively provide static content and its styling, JavaScript makes websites dynamic. With JavaScript, the initial content of a webpage can be selected, altered, and transformed on a conditional basis.
+# JavaScript
 
-It should also be noted that JavaScript is now no longer used just on the client-side, but on the server-side as well. There are various [Node.js] frameworks designed for this purpose.
+JavaScript is a critical tool for any web developer, as it is one of the three
+primary languages that ships with the browser. Whereas HTML and CSS
+respectively provide static content and its styling, JavaScript makes websites
+dynamic. With JavaScript, the initial content of a webpage can be selected,
+altered, and transformed on a conditional basis.
 
-In order to get a better understanding of JavaScript, what follows is a description of its history, alternatives, and package managers. There is also a brief glossary of terms that are in frequent use in the JavaScript community.
+JavaScript is now no longer used just on the client-side, but on the
+server-side as well. There are various [Node.js] frameworks designed for this
+purpose.
 
 [Node.js]: https://nodejs.org/en/
 
 ## History
-JavaScript was introduced during the initial [browser wars]. In 1995, [Netscape Communications] recruited [Brendan Eich] to add a language to their browser, Netscape Navigator, that non-professional programmers could use with ease. Having decided to incorporate Java into their browser with the collaboration of [Sun Microsystems], Netscape Communications decided to have Eich's new language act as a complement to Java. Eich completed his tasked language in ten days, and it eventually became known as JavaScript.
 
-Following suit, Microsoft released a similar dialect called JScript in Internet Explorer 3.0. In June 1997, [ECMAScript] was established as a scripting-language specification. Put simply, ECMAScript is a standard, and various languages are implementations of that standard. Both JavaScript and JScript aim to fulfill the ECMA standards, but both also offer functionality that goes beyond the mutual specification.
+JavaScript was introduced during the initial [browser wars]. In 1995, [Netscape
+Communications] recruited [Brendan Eich] to add a language to their browser,
+Netscape Navigator, that non-professional programmers could use with ease.
+Having decided to incorporate Java into their browser with the collaboration of
+[Sun Microsystems], Netscape Communications decided to have Eich's new language
+act as a complement to Java. Eich completed his tasked language in ten days,
+and it eventually became known as JavaScript.
+
+Following suit, Microsoft released a similar dialect called JScript in Internet
+Explorer 3.0. In June 1997, [ECMAScript] was established as a
+scripting-language specification - a standard - and various languages are
+implementations of that standard. Both JavaScript and JScript aim to fulfill
+the ECMA standards, but both also offer functionality that goes beyond the
+mutual specification.
 
 *__Excerpted ECMAScript releases:__*
 
@@ -28,11 +45,22 @@ Following suit, Microsoft released a similar dialect called JScript in Internet 
 [ECMAScript]: https://en.wikipedia.org/wiki/ECMAScript
 
 ## Alternatives to JavaScript
-JavaScript, JScript, and ActionScript are all valid implementations of ECMAScript.
 
-* While it does maintain slight differences with JavaScript, JScript is essentially the same language with a different name to avoid trademark issues. However, the difference is so slight that anything written in JavaScript is presumed to run properly in a browser that is built on JScript. Microsoft's Internet Explorer is the only browser that uses JScript.
+JavaScript, JScript, and ActionScript are all valid implementations of
+ECMAScript.
 
-* ActionScript is much more of an object-oriented language than JavaScript. For instance, it makes use of class inheritance, as opposed to JavaScript's prototypal inheritance. ActionScript was originally developed by [Macromedia Inc.], which merged into [Adobe Systems]. It is now associated with development in both [Adobe AIR] and [Adobe Flash], so it's use has rapidly declined since the [Apple and Adobe Flash controversy].
+* While it does maintain slight differences with JavaScript, JScript is
+essentially the same language with a different name to avoid trademark issues.
+However, the difference is so slight that anything written in JavaScript is
+presumed to run properly in a browser that is built on JScript. Microsoft's
+Internet Explorer is the only browser that uses JScript.
+
+* ActionScript is much more of an object-oriented language than JavaScript. For
+instance, it makes use of class inheritance, as opposed to JavaScript's
+prototypal inheritance. ActionScript was originally developed by [Macromedia
+Inc.], which merged into [Adobe Systems]. It is now associated with development
+in both [Adobe AIR] and [Adobe Flash], so its use has rapidly declined since
+the [Apple and Adobe Flash controversy].
 
 [Macromedia Inc.]: https://en.wikipedia.org/wiki/Macromedia
 [Adobe Systems]: https://en.wikipedia.org/wiki/Adobe_Systems
