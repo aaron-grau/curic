@@ -78,8 +78,22 @@ end
 Test in the rails console:
 
 ```ruby
+Artist.first.n_plus_one_tracks
+  Artist Load (0.1ms)  SELECT  "artists".* FROM "artists"  ORDER BY "artists"."id" ASC LIMIT 1
+  Album Load (0.2ms)  SELECT "albums".* FROM "albums" WHERE "albums"."artist_id" = ?  [["artist_id", 1]]
+  Track Load (0.2ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 1]]
+  Track Load (0.1ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 2]]
+  Track Load (0.1ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 3]]
+  Track Load (0.1ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 4]]
+  Track Load (0.2ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 5]]
+=> {"Lemonade"=>8, "I Am... Sasha Fierce"=>6, "Dangerously in Love"=>3, "B'Day"=>4, "4"=>1}
+
+
 Artist.first.better_tracks_query
-# {'Lemonade': 2, 'Sasha Fierce': 2}
+  Artist Load (1.0ms)  SELECT  "artists".* FROM "artists"  ORDER BY "artists"."id" ASC LIMIT 1
+  Album Load (0.3ms)  SELECT albums.*, COUNT(*) AS tracks_count FROM "albums" INNER JOIN "tracks" ON "tracks"."album_id" = "albums"."id" WHERE "albums"."artist_id" = ? GROUP BY albums.id  [["artist_id", 1]]
+=> {"Lemonade"=>8, "I Am... Sasha Fierce"=>6, "Dangerously in Love"=>3, "B'Day"=>4, "4"=>1}
+
 ```
 
 ## Plants, Gardeners, and Houses
