@@ -5,8 +5,8 @@ One of the most common problems we need middleware to solve is asynchronicity. W
 Rather than returning a plain object, a thunk action creator returns a function. This function, when called with an argument of `dispatch`, can then dispatch one or more actions, immediately, or later. Here's an example.
 
 ```js
-function thunkActionCreator() {
-  return function (dispatch) {
+const thunkActionCreator = () => (
+  dispatch => {
     dispatch({
       type: "RECEIVE_MESSSAGE",
       message: "This will be dispatched immediately."
@@ -16,59 +16,60 @@ function thunkActionCreator() {
       type: "RECEIVE_MESSSAGE",
       message: "This will be dispatched 1 second later."
     }, 1000));
-  };
-}
+  }
+);
 ```
 
-This is great, but without custom middleware it will break as soon as the function action hits our reducer. We need middleware to intercept all actions of type `function` and rather then passing them to the reducer, call them passing in `dispatch` as an argument.
+This is great, but without custom middleware it will break as soon as the function action hits our reducer. We need middleware to intercept all actions of type `function` and then trigger the dispatch.
 
 ```js
 // middleware/thunk_middleware.js
 
-const thunk = ({ getState, dispatch }) => (next) => (action) => {
-  if (typeof action === 'function') return action(dispatch, getState);
+const thunk = { getState, dispatch } => next => action => {
+  if (typeof action === 'function') {
+    return action(dispatch, getState);
+  }
   return next(action);
 };
 
 export default thunk;
 ```
 
-That's it! Notice we also passed in the getState function in case our async action creators need access to our application state. Now that we have all the pieces, let's see a more real life example.
+That's it! Notice we also passed in the `getState` function in case our async action creators need access to our application state. Now that we have all the pieces, let's see a more concrete example.
 
 Say that we are building a web application that stores a user's contacts. On logging in we will need to fetch all of that user's contacts from our database. We would use middleware to trigger the AJAX request responsible for this action. Our AJAX request might look something like the following:
 
 ```js
 // utils/contacts_api_util.js
 
-export function fetchContacts() {
-  return $.ajax({ method: 'GET', url: 'api/contacts' });
-}
+export const fetchContacts = () => $.ajax({ url: 'api/contacts' });
 ```
 
 An action creator that fetches contacts might look like this.
 
 ```js
-import * as APIUtil from '../utils/contacts_api_util'
+import { fetchContacts } from '../utils/contacts_api_util';
 
 // async action creator which returns a function
-export function fetchContacts() {
-  return (dispatch) => {
+export const fetchAllContacts = () => dispatch => {
     dispatch(requestContacts()); // allow reducer to set state to `fetching: true`
-    return APIUtil.fetchContacts().then(contacts => {
+    return fetchContacts().then(contacts => {
       dispatch(receiveContacts(contacts));
     });
   }
-}
+);
 
 //sync action creator which returns an object
-export const requestContacts = (contacts) => {
-  return { type: REQUEST_CONTACTS };
-}
-export const receiveContacts = (contacts) => {
-  return { type: RECEIVE_CONTACTS, contacts };
-}
+export const requestContacts = contacts => ({
+  type: REQUEST_CONTACTS
+});
+
+export const receiveContacts = contacts => ({
+  type: RECEIVE_CONTACTS,
+  contacts
+});
 ```
 
-Much like the logger from the previous reading, thunk middleware is available as a library `redux-thunk`. The middleware we just wrote is almost the entire original library! ([check out the source code][thunk-source]). For more on thunks and handling asynchronicity in redux, you can check out [this interesting SO post from the creator][thunks-so].
+Much like the logger from the previous reading, thunk middleware is available as the `redux-thunk` library. The middleware we just wrote is almost the entire original library! ([Check out the source code][thunk-source]). For more on thunks and handling asynchronicity in Redux, you can take a look at [this interesting SO post from the creator][thunks-so].
 [thunk-source]: https://github.com/gaearon/redux-thunk/blob/master/src/index.js
 [thunks-so]: http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559#35415559
