@@ -63,7 +63,7 @@ app = Proc.new do |env|
   res.finish
 end
 ```
-This is a creating an app that we could give to Rack that would simply return
+This is an app that we could give to Rack that would simply return
 the text hello world. Notice here we are creating `req` and `res` objects to
 make our lives easier. Setting the `Content-Type` header tells the browser what
 the server has given to it in response. We will only bother with HTML in this
