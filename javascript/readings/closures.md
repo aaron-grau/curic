@@ -84,7 +84,7 @@ console.log(counter()); // => 2
 counter.count; // undefined
 ```
 
-By **closing over** (or **capturing**) the `count` variable, the `Counter` functions has private, mutable state that cannot be accessed externally.
+By **closing over** (or **capturing**) the `count` variable, the `Counter` function has a private, mutable state that cannot be accessed externally.
 
 Compare that implementation against this one:
 
