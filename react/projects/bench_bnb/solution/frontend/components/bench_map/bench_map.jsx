@@ -65,4 +65,5 @@ class BenchMap extends Component {
   }
 }
 
-export default BenchMap;
+export default withRouter(BenchMap);
+

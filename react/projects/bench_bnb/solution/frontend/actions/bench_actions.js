@@ -10,7 +10,6 @@ export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 
 export function fetchBenches(filters) {
   return (dispatch) => {
-    dispatch(requestBenches());
     return APIUtil.fetchBenches(filters)
       .then(benches => dispatch(receiveBench(benches)));
   }
@@ -18,7 +17,6 @@ export function fetchBenches(filters) {
 
 export function fetchBench(id) {
   return (dispatch) => {
-    dispatch(requestBench(id));
     return APIUtil.fetchBench(id)
       .then(bench => dispatch(receiveBench(bench)));
   }
