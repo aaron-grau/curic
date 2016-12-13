@@ -73,4 +73,4 @@ heroku config:add PUSHER_SECRET=SECRET_SECRET_SECRET
 
 Since that seems like a lot of typing, we can have figaro read the
 `config/application.yml` and run the `config:add` commands for us by
-running `figaro heroku:set`.
+running `figaro heroku:set -e production`; this will set up our production environment on Heroku.
