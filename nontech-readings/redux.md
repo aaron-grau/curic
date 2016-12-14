@@ -1,49 +1,65 @@
 # Redux
 
-Redux is a javascript framework for managing the frontend state of a web application.
-It allows us to store information in an organized manner in a web app and to quickly retrieve that information from anywhere in the app.
-Redux is modeled on a few previous web technologies including Elm and Flux.
+Redux is a JavaScript framework for managing the frontend state of a web
+application. It allows us to store information in an organized manner in a web
+app and to quickly retrieve that information from anywhere in the app. Redux is
+modeled on a few previous web technologies including Elm and Flux.
+
 Advantages of Redux include:
+
 * it simplifies some of the more cumbersome aspects of Flux
 * it is very lightweight; the library only takes up 2 kbs
-* it is very fast, i.e. the time to insert or retrieve data is low
-* it is predictable, i.e. interacting with the data store in the same way repeatedly will produce the same effect.
+* it is very fast (the time to insert or retrieve data is low)
+* it is predictable, (interacting with the data store in the same way
+repeatedly will produce the same effect)
 
 ## Where did Redux come from?
 
-Redux was created by Dan Abramov in 2015.
-It was initially intended as an experiment to create a simplified version of Flux.
-Abramov wanted to remove some of what he saw as the unnecessary boilerplate code that was required to create a Flux app.
+Redux was created by Dan Abramov in 2015. It was initially intended as an
+experiment to create a simplified version of Flux. Abramov wanted to remove
+some of what he saw as the unnecessary boilerplate code that was required to
+create a Flux app.
 
-Abramov also wanted to eliminate some of the aspects of development he found frustrating.
-When trying to debug a web app, one must often go through the series of steps that cause the bug to occur each time the code is changed.
-This quickly becomes repetitive and frustrating.
-Abramov envisioned dev tools that would allow one to undo or replay a series of actions at the click of a button.
+Abramov also wanted to eliminate some of the aspects of development he found
+frustrating. When trying to debug a web app, one must often go through the
+series of steps that cause the bug to occur each time the code is changed. This
+quickly becomes repetitive and frustrating. Abramov envisioned dev tools that
+would allow one to undo or replay a series of actions at the click of a button.
 This idea became the Redux dev tools.
 
-The reason this works, as discussed above, is that Redux uses pure reducers, so one can simply replay a series of actions and be guaranteed to arrive at the same final state.
-As Redux was developed it also became more convenient to use a single object to store the state, rather than traditional Flux which uses multiple stores.
+The reason this works, as discussed above, is that Redux uses pure reducers, so
+one can simply replay a series of actions and be guaranteed to arrive at the
+same final state. As Redux was developed it also became more convenient to use
+a single object to store the state, as opposed to traditional Flux which uses
+multiple stores.
 
-These design choices allowed for the creation of an ecosystem of powerful Redux tools and extensions.
-Over time three principles were recognized as central to the philosophy of Redux.
-They are
+These design choices allowed for the creation of an ecosystem of powerful Redux
+tools and extensions. Over time three principles were recognized as central to
+the philosophy of Redux. They are:
 
 * **A Single Source of Truth**
-  The state for an entire Redux app is stored in a single, plain javascript object.
+  The state for an entire Redux app is stored in a single, plain JavaScript
+  object.
 
 * **State is Read Only**
-  The state object can not be directly modified.
-  Instead it is modified by dispatching actions.
+  The state object can not be directly modified. Instead it is modified by
+  dispatching actions.
 
 * **Changes Are Made with Pure Functions**
-  The reducers that receive the actions and return updated state are pure functions of the old state and the action.
+  The reducers that receive the actions and return updated state are pure
+  functions of the old state and the action.
 
-Beyond this, a guiding meta-philosophy of Redux is the idea that in a software library restrictions can be just as important as features.
-Redux deliberately places significant restrictions on the way state can be stored and updated, but in return it allows easy implementation of a number of powerful features that would extremely difficult to write using a less restrictive framework.
+Beyond this, a guiding meta-philosophy of Redux is the idea that in a software
+library restrictions can be just as important as features. Redux deliberately
+places significant restrictions on the way state can be stored and updated, but
+in return it allows easy implementation of a number of powerful features that
+would extremely difficult to write using a less restrictive framework.
 
-Since its creation Redux has rapidly grown in popularity, quickly moving beyond its initial plan as an experiment.
-As of early 2016 it had over 3,000,000 downloads.
-The redux repository on github has over 25,000 stars, and redux is now used by a number of major companies including Exana, Patreon, and ClassPass.
+Since its creation Redux has rapidly grown in popularity, quickly moving beyond
+its initial plan as an experiment. As of early 2016 it had over 3,000,000
+downloads. The redux repository on github has over 25,000 stars, and redux is
+now used by a number of major companies including Exana, Patreon, and
+ClassPass.
 
 
 ## Terminology
@@ -51,43 +67,60 @@ The redux repository on github has over 25,000 stars, and redux is now used by a
 Here is a list of terms you might hear when discussing Redux along with definitions and sample uses.
 
 * **State**
-  "_Redux is a state manager._"
+
+  Ex: "_Redux is a state manager._"
   The _state_ of a program means all the information stored by that program at a particular point in time.
   It is generally used to refer to the data stored by the program at a particular instance in time, as opposed to the logic of the program, which doesn't change over time.
   The job of redux is to store the state of your app and make it available to entire app.
 
 * **Store**
-  "_Redux stores state in a single store._"
-  The Redux store is a single plain javascript object.
-  Any state you want Redux to handle goes in that object.
+
+  Ex: "_Redux stores state in a single store._"
+
+  The Redux store is a single plain JavaScript object. Any state you want Redux
+  to handle goes in that object.
 
 * **Action**
-  "_The redux store is updated by dispatching actions._"
-  An action is a plain javascript object.
-  Actions contain information that can be used to update the store.
-  They can be _dispatched_, i.e. sent to the store, in response to user actions or AJAX requests.
+
+  Ex: "_The redux store is updated by dispatching actions._"
+
+  An action is a plain JavaScript object. Actions contain information that can
+  be used to update the store. They can be _dispatched_, i.e. sent to the
+  store, in response to user actions or AJAX requests.
 
 * **Reducer**
-  "_Redux handles actions using reducers._"
-  A reducer is a function that is called each time an action is dispatched.
-  The reducer receives an action and the current state as arguments and returns an updated state.
+
+  Ex: "_Redux handles actions using reducers._"
+
+  A reducer is a function that is called each time an action is dispatched. The
+  reducer receives an action and the current state as arguments and returns an
+  updated state.
 
 * **Pure function**
-  "_Redux reducers are pure functions._"
-  A function is pure if its behavior depends only its arguments and it has no side effects.
-  This means the function can't depend on the value of any variables that aren't passed to it as arguments, and it can't alter the state of the program.
-  It simply takes in arguments and returns a value.
 
-  Redux reducers are required  to be pure functions of the action that was dispatched and the current state.
-  This makes their behavior very predictable and allows their effects to potentially be reversed.
+  Ex: "_Redux reducers are pure functions._"
+
+  A function is pure if its behavior depends only its arguments and it has no
+  side effects. This means the function can't depend on the value of any
+  variables that aren't passed to it as arguments, and it can't alter the state
+  of the program. It simply takes in arguments and returns a value.
+
+  Redux reducers are required to be pure functions of the action that was
+  dispatched and the current state. This makes their behavior very predictable
+  and allows their effects to potentially be reversed.
 
 * **Time traveling dev tools**
-  "_Redux has time traveling dev tools._"
-  Redux reducers are pure functions of the previous state and an action.
-  This means that if one were to store a list of the previous states over time and the actions that had been dispatched, one could retroactively cancel an action and recalculate the state as if that action had never been dispatched.
-  This is precisely the functionality that the Redux dev tools provide.
-  You can look back through the history of the state and you can toggle past actions on and off and see a live recalculation of the state.
-  This ability to revert to a previous state is what is meant by time travel.
+
+  Ex: "_Redux has time traveling dev tools._"
+
+  Redux reducers are pure functions of the previous state and an action. This
+  means that if one were to store a list of the previous states over time and
+  the actions that had been dispatched, one could retroactively cancel an
+  action and recalculate the state as if that action had never been dispatched.
+  This is precisely the functionality that the Redux dev tools provide. You can
+  look back through the history of the state and you can toggle past actions on
+  and off and see a live recalculation of the state. This ability to revert to
+  a previous state is what is meant by time travel.
 
 
 ## Alternative Frameworks
