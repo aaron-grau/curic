@@ -18,6 +18,14 @@ we can use the `launchy` gem to pop open the original URL in a browser.
 [goo-gl]: https://goo.gl
 [what-is-cli]: http://www.techopedia.com/definition/3337/command-line-interface-cli
 
+## Learning Goals
+
+* Know how to create a new rails project
+* Know how to create migrations
+* Know how to validate at both the database, and model level
+* Know how to write a `has_many :through` association
+* Understand the purpose of adding an index to columns in our database
+
 ## Phase I: `User`
 
 Go ahead and create a new rails project...
