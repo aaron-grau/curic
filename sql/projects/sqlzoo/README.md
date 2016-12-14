@@ -11,6 +11,13 @@ warned: we have made some changes, so don't let that trip you up.
 
 [sqlzoo]: http://sqlzoo.net
 
+## Learning Goals
+
+* Be able to write simple SQL queries using `SELECT`, `FROM`, `WHERE`
+* Know how to use `GROUP BY` with aggregate functions
+* Know how to use subqueries
+* Know how to use the various different types of `JOIN`
+
 ## Getting Started
 
 [Download the skeleton.zip](skeleton.zip?raw=true). To set up the
