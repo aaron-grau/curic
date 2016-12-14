@@ -1,0 +1,133 @@
+body {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.app {
+}
+
+.synth {
+  padding: 10px;
+}
+
+.synth-title {
+}
+
+.note-key-list {
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.note-key {
+  height: 200px;
+  width: 60px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  box-shadow: 0 10px 2px grey;
+}
+
+.note-key.pressed {
+  background: grey;
+  color: white;
+  box-shadow: 0 2px 10px grey;
+}
+
+.recorder {
+  padding: 10px;
+}
+
+.recorder-title {
+}
+
+.start-button {
+  font-size: 16px;
+  background: green;
+  border: 2px solid black;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+.start-button:hover {
+  box-shadow: 0 2px 2px grey;
+}
+
+.start-button:disabled {
+  background: white;
+  color: green;
+}
+
+.stop-button {
+  font-size: 16px;
+  background: red;
+  border: 2px solid black;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+.stop-button:hover {
+  box-shadow: 0 2px 2px grey;
+}
+
+.stop-button:disabled {
+  background: white;
+  color: red;
+}
+
+.juke-box {
+  padding: 10px;
+}
+
+.track-list {
+  font-weight: 100;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.track {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+}
+
+.track-buttons {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play-button {
+  background: lightblue;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.play-button:hover {
+  box-shadow: 0 2px 2px grey;
+}
+
+.play-button:disabled {
+}
+
+.delete-button {
+  background: lightgrey;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.delete-button:hover {
+  box-shadow: 0 2px 2px grey;
+}
+
+.delete-button:disabled {
+}
