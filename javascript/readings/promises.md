@@ -174,7 +174,6 @@ const fetchError = err => console.log(err);
 const fetchCat = (catId, success, error) => (
   $.ajax({
     url: `/cats/${catId}`,
-    method: 'GET',
     success,
     error
   })
