@@ -174,3 +174,5 @@ An *Immediately-Invoked Function Expression* is a function that is called immedi
 ### Functional programming (immutable.js, cycle.js, &c.)
 
 ### Gulp vs. Grunt vs. Brunch vs. Make vs. JSPM
+
+### POJO
