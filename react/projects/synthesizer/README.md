@@ -1,5 +1,7 @@
 # Redux Synthesizer
 
+## This project is deprecated as of 11/21/2016, and might use outdated patterns.
+
 ## Overview
 
 Today we're using React.js and Redux to create our own musical keyboard! Check out the live demo [here][live-demo] to get a sense of what you are building! If you have any trouble playing the keys update your chrome browser to the newest version.
