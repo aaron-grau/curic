@@ -81,6 +81,7 @@
 - [`<Provider/>`][provider] (15 min)
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
+- [Selectors][selectors] (10 min)
 
 [lodash]: readings/lodash.md
 [store]: readings/store.md
@@ -90,6 +91,7 @@
 [provider]: readings/provider.md
 [connect]: readings/connect.md
 [containers]: readings/containers.md
+[selectors]: readings/selectors.md
 
 ### Fruit Stand App Demo (75 min)
 + Phase I - Redux only (15 min)
@@ -129,14 +131,12 @@
 - [Middleware][middleware] (15 min)
 - [Thunks][thunks] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
-- [Selectors][selectors] (10 min)
 - [Object.freeze][obj-freeze] (10 min)
 
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
 [thunks]: readings/thunks.md
 [redux_api_interactions]: readings/redux_api_interactions.md
-[selectors]: readings/selectors.md
 [obj-freeze]: readings/object_freeze.md
 
 ### Homework (45 min)
