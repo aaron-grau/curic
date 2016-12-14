@@ -151,38 +151,18 @@
 
 ## w7d3
 
-### Readings (80 min)
-- [Intro to React Router][react_router_intro]  (15 min)
-- [`<Link>`][link] (5 min)
-- [Index Routes][index_routes] (5 min)
-- [Route Hooks (`onEnter`)][on_enter] (10 min)
-- [`withRouter`][with_router] (10 min)
+### Readings (25 min)
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
 
-[react_router_intro]: readings/intro_to_react_router.md
-[link]: readings/link.md
-[index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-[on_enter]: readings/on_enter.md
-[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 [jbuilder-intro]: readings/intro_to_jbuilder.md
 [jbuilder_docs]: https://github.com/rails/jbuilder
 
-### Homeworks (30 min)
-- [Rainbow Routes][rainbow_routes] (30 min)
+### Homeworks (10 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal]
   - **Due by 9AM Thursday w7d4**
 
-[rainbow_routes]: homeworks/questions/rainbow_routes.md
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
-
-### Additional Resources
-- [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
-- [Route Matching](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md)
-- [React Router Documentation][react_router_docs]
-  - Check the `API` docs for quick reference
-
-[react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ### Projects
 - [Jbuilder][jbuilder_exercise]
@@ -194,9 +174,33 @@
 
 ## w7d4
 
+### Readings (45 min)
+- [Intro to React Router][react_router_intro]  (15 min)
+- [`<Link>`][link] (5 min)
+- [Index Routes][index_routes] (5 min)
+- [Route Hooks (`onEnter`)][on_enter] (10 min)
+- [`withRouter`][with_router] (10 min)
+
+[react_router_intro]: readings/intro_to_react_router.md
+[link]: readings/link.md
+[index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[on_enter]: readings/on_enter.md
+[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
+
+### Homeworks (30 min)
+- [Rainbow Routes][rainbow_routes] (30 min)
+[rainbow_routes]: homeworks/questions/rainbow_routes.md
 
 ### Projects
 * Continue [Pokedex][pokedex]
+
+### Additional Resources
+- [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
+- [Route Matching](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md)
+- [React Router Documentation][react_router_docs]
+  - Check the `API` docs for quick reference
+
+[react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ## w7d5
 
