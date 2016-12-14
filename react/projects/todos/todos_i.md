@@ -37,11 +37,15 @@ configuration works.
 
 + Run `npm init -y` and then `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
   + This command installs the npm packages that we will be using to create our React/Redux app.
-+ Set up your `webpack.config.js` file so that your bundle.js is saved in the root directory of your project.
++ Set up your `webpack.config.js` file so that your bundle.js is saved in the root directory of your project. If you need to remind yourself how to set up the file look [here][webpack_setup].
 + Run `webpack -w` to automatically compile your assets into `bundle.js` as you update them.
 
 **Test your setup** - Set up your entry file `todo_redux.jsx` to render
 `<h1>Todos App</h1>` into your root page's `#content` container. Open `index.html` and confirm that it worked.
+
+
+[webpack_setup]: ../../readings/webpack_configuration.md
+
 
 ---
 ## Phase 2: Todos Redux Structure
@@ -120,8 +124,7 @@ The same as `receiveTodos` but for a single todo. As simple as it sounds.
 
 Redux reducers manage the shape of our application state.
 
-+ Create a file, `reducers/todos_reducer.js` that exports a reducing function
-`todosReducer`.
++ Create and export `todosReducer` in a file `reducers/todos_reducer.js`.
 
 A Redux reducer accepts two arguments:
 + `state` - the previous application state.
@@ -175,7 +178,7 @@ re-render. Let's create our Redux store.
 + Import `createStore` from the `redux` library.
 + Import our `rootReducer`.
 + Create a function `configureStore` which creates the store passing in the `rootReducer`.
-+ Export `configureStore`. The reason for wrapping createStore in another function is to give us greater flexibility later in the project.
++ Export `configureStore`.
 
 **Test your code** - Import the store to your entry file. Create your store by calling
 `configureStore`, set `window.store = store` and call `window.store.getState()` in
@@ -192,13 +195,13 @@ Try setting a initial value for state in your `todosReducer`. Feel free to use t
 ```js
 // reducers/todos_reducer.js
 const initialState = {
-  "1": {
+  1: {
     id: 1,
     title: "wash car",
     body: "with soap",
     done: false
   },
-  "2": {
+  2: {
     id: 2,
     title: "wash dog",
     body: "with shampoo",
@@ -523,7 +526,7 @@ Your application state will end up looking like this:
 ```js
 {
   todos: {
-    "1": {
+    1: {
       id: 1,
       title: "take a shower",
       body: "and be clean",
@@ -531,13 +534,13 @@ Your application state will end up looking like this:
     }
   },
   steps: {
-    "1": { // this is the step with id = 1
+    1: { // this is the step with id = 1
       id: 1,
       title: "walk to store",
       done: false,
       todo_id: 1
     },
-    "2": { // this is the step with id = 2
+    2: { // this is the step with id = 2
       id: 2,
       title: "buy soap",
       done: false,
