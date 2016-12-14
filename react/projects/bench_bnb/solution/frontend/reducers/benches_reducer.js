@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 
 const BenchesReducer = (state = {}, action) => {
   Object.freeze(state)
-  switch(action.type){
+  switch(action.type) {
     case RECEIVE_BENCHES:
       return action.benches;
     case RECEIVE_BENCH:
@@ -37,3 +37,4 @@ export default BenchesReducer;
   //      "http://www.concretedecor.net/CD/assets/Image/archives/CD1405/1405i_Page_32_Image_0001_600.jpg"
   //   }
   // };
+

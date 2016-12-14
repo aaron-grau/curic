@@ -2,9 +2,6 @@ import * as APIUtil from '../util/bench_api_util'
 
 export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
 export const RECEIVE_BENCH = "RECEIVE_BENCH";
-export const REQUEST_BENCHES = "REQUEST_BENCHES";
-export const REQUEST_BENCH = "REQUEST_BENCH";
-export const CREATE_BENCH = "CREATE_BENCH";
 export const CREATE_REVIEW = "CREATE_REVIEW";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 
@@ -35,11 +32,6 @@ export function createReview(review) {
       .then(review => dispatch(receiveReview(review)));
   }
 }
-
-export const requestBench = id => ({
-  type: REQUEST_BENCH,
-  id
-});
 
 export const receiveBenches = benches => ({
   type: RECEIVE_BENCHES,
