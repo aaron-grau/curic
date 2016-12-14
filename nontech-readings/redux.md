@@ -9,6 +9,42 @@ Advantages of Redux include:
 * it is very fast, i.e. the time to insert or retrieve data is low
 * it is predictable, i.e. interacting with the data store in the same way repeatedly will produce the same effect.
 
+## Where did Redux come from?
+
+Redux was created by Dan Abramov in 2015.
+It was initially intended as an experiment to create a simplified version of Flux.
+Abramov wanted to remove some of what he saw as the unnecessary boilerplate code that was required to create a Flux app.
+
+Abramov also wanted to eliminate some of the aspects of development he found frustrating.
+When trying to debug a web app, one must often go through the series of steps that cause the bug to occur each time the code is changed.
+This quickly becomes repetitive and frustrating.
+Abramov envisioned dev tools that would allow one to undo or replay a series of actions at the click of a button.
+This idea became the Redux dev tools.
+
+The reason this works, as discussed above, is that Redux uses pure reducers, so one can simply replay a series of actions and be guaranteed to arrive at the same final state.
+As Redux was developed it also became more convenient to use a single object to store the state, rather than traditional Flux which uses multiple stores.
+
+These design choices allowed for the creation of an ecosystem of powerful Redux tools and extensions.
+Over time three principles were recognized as central to the philosophy of Redux.
+They are
+
+* **A Single Source of Truth**
+  The state for an entire Redux app is stored in a single, plain javascript object.
+
+* **State is Read Only**
+  The state object can not be directly modified.
+  Instead it is modified by dispatching actions.
+
+* **Changes Are Made with Pure Functions**
+  The reducers that receive the actions and return updated state are pure functions of the old state and the action.
+
+Beyond this, a guiding meta-philosophy of Redux is the idea that in a software library restrictions can be just as important as features.
+Redux deliberately places significant restrictions on the way state can be stored and updated, but in return it allows easy implementation of a number of powerful features that would extremely difficult to write using a less restrictive framework.
+
+Since its creation Redux has rapidly grown in popularity, quickly moving beyond its initial plan as an experiment.
+As of early 2016 it had over 3,000,000 downloads.
+The redux repository on github has over 25,000 stars, and redux is now used by a number of major companies including Exana, Patreon, and ClassPass.
+
 
 ## Terminology
 
@@ -122,42 +158,6 @@ Here is a list of terms you might hear when discussing Redux along with definiti
   MobX is built on that philosophy: there should be a central store of data; React components should be able to change that data (usually due to user interaction); if the change in data would affect another component, that component should automatically re-render without the programer having to explicitly tell it to.
   
   MobX is used by companies including Mendix, StackShare, and RepSpark.
-
-## Where did Redux come from?
-
-Redux was created by Dan Abramov in 2015.
-It was initially intended as an experiment to create a simplified version of Flux.
-Abramov wanted to remove some of what he saw as the unnecessary boilerplate code that was required to create a Flux app.
-
-Abramov also wanted to eliminate some of the aspects of development he found frustrating.
-When trying to debug a web app, one must often go through the series of steps that cause the bug to occur each time the code is changed.
-This quickly becomes repetitive and frustrating.
-Abramov envisioned dev tools that would allow one to undo or replay a series of actions at the click of a button.
-This idea became the Redux dev tools.
-
-The reason this works, as discussed above, is that Redux uses pure reducers, so one can simply replay a series of actions and be guaranteed to arrive at the same final state.
-As Redux was developed it also became more convenient to use a single object to store the state, rather than traditional Flux which uses multiple stores.
-
-These design choices allowed for the creation of an ecosystem of powerful Redux tools and extensions.
-Over time three principles were recognized as central to the philosophy of Redux.
-They are
-
-* **A Single Source of Truth**
-  The state for an entire Redux app is stored in a single, plain javascript object.
-
-* **State is Read Only**
-  The state object can not be directly modified.
-  Instead it is modified by dispatching actions.
-
-* **Changes Are Made with Pure Functions**
-  The reducers that receive the actions and return updated state are pure functions of the old state and the action.
-
-Beyond this, a guiding meta-philosophy of Redux is the idea that in a software library restrictions can be just as important as features.
-Redux deliberately places significant restrictions on the way state can be stored and updated, but in return it allows easy implementation of a number of powerful features that would extremely difficult to write using a less restrictive framework.
-
-Since its creation Redux has rapidly grown in popularity, quickly moving beyond its initial plan as an experiment.
-As of early 2016 it had over 3,000,000 downloads.
-The redux repository on github has over 25,000 stars, and redux is now used by a number of major companies including Exana, Patreon, and ClassPass.
 
 
 ## Resources
