@@ -125,7 +125,7 @@ function whoDaBest() {
   return realMVP; // 'you'
 }
 
-whoDatBest(); // 'you'
+whoDaBest(); // 'you'
 ```
 
 While useful on occasion, global variables are usually best avoided, as they give too much code access to their values, increasing the likelihood of bugs.
