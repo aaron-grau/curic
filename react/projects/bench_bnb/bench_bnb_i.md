@@ -27,7 +27,6 @@ frontend:
   frontend
     + actions
     + components
-    + middleware
     + reducers
     + store
     + util
