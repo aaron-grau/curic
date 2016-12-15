@@ -23,7 +23,7 @@ When we have an application with more than one middleware (as Rails does), we
 refer the group of middlewares as a stack. In particular, this representation
 reinforces the fact that each middleware will be run one at time, in the order
 specified. To see how this works, let's analyze what happens in a typical Rails
-application. Start by looking back the results of `rake middleware`. The first
+application. Start by looking back at the results of `rake middleware`. The first
 middleware listed is `Rack::Sendfile`. This means that this middleware processes
 the request before any other part of Rails ever sees it. This particular
 middleware is responsible for efficiently serving files.
