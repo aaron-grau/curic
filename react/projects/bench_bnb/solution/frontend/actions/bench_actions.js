@@ -2,13 +2,11 @@ import * as APIUtil from '../util/bench_api_util'
 
 export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
 export const RECEIVE_BENCH = "RECEIVE_BENCH";
-export const CREATE_REVIEW = "CREATE_REVIEW";
-export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 
 export function fetchBenches(filters) {
   return (dispatch) => {
     return APIUtil.fetchBenches(filters)
-      .then(benches => dispatch(receiveBench(benches)));
+      .then(benches => dispatch(receiveBenches(benches)));
   }
 }
 
@@ -26,13 +24,6 @@ export function createBench(bench) {
   }
 }
 
-export function createReview(review) {
-  return (dispatch) => {
-    return APIUtil.createReview(review)
-      .then(review => dispatch(receiveReview(review)));
-  }
-}
-
 export const receiveBenches = benches => ({
   type: RECEIVE_BENCHES,
   benches
@@ -43,7 +34,3 @@ export const receiveBench = bench => ({
   bench
 });
 
-export const receiveReview = review => ({
-  type: RECEIVE_REVIEW,
-  review
-});

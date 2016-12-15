@@ -1,17 +1,19 @@
-import { RECEIVE_BENCHES, RECEIVE_BENCH } from '../actions/bench_actions';
+import { CREATE_REVIEW, RECEIVE_REVIEW } from '../actions/review_actions.js';
 import merge from 'lodash/merge';
 
 const ReviewsReducer = (state = {}, action) => {
-  Object.freeze(state)
+  Object.freeze(state);
+  const newState = merge({}, state);
+
   switch(action.type){
-    case RECEIVE_BENCHES:
-      return action.benches;
-    case RECEIVE_BENCH:
-      const newBench = {[action.bench.id]: action.bench};
-      return merge({}, state, newBench);
+    case RECEIVE_REVIEW:
+      const review = action.review;
+      newState.benches[review.bench_id].reviews = action.reviews
+      return newState;
     default:
       return state;
   }
 };
 
 export default ReviewsReducer;
+
