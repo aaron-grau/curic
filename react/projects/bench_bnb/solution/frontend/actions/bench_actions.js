@@ -9,26 +9,20 @@ export const createReview = review => dispatch => (
     .then(review => dispatch(receiveReview(review)))
 );
 
-export function fetchBenches(filters) {
-  return (dispatch) => {
-    return APIUtil.fetchBenches(filters)
-      .then(benches => dispatch(receiveBenches(benches)));
-  }
-}
+export const fetchBenches = filters => dispatch => (
+  APIUtil.fetchBenches(filters)
+    .then(benches => dispatch(receiveBenches(benches)))
+);
 
-export function fetchBench(id) {
-  return (dispatch) => {
-    return APIUtil.fetchBench(id)
-      .then(bench => dispatch(receiveBench(bench)));
-  }
-}
+export const fetchBench = id => dispatch => (
+  APIUtil.fetchBench(id)
+    .then(bench => dispatch(receiveBench(bench)))
+);
 
-export function createBench(bench) {
-  return (dispatch) => {
-    return APIUtil.createBench(bench)
-      .then(bench => dispatch(receiveBench(bench)));
-  }
-}
+export const createBench = bench => dispatch => (
+  APIUtil.createBench(bench)
+    .then(bench => dispatch(receiveBench(bench)))
+);
 
 export const receiveBenches = benches => ({
   type: RECEIVE_BENCHES,
