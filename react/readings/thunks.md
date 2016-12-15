@@ -76,10 +76,9 @@ export const receiveContacts = contacts => ({
 });
 
 // async action creator which returns a function
-export const fetchContacts = () => dispatch => {
-  dispatch(requestContacts()); // allow reducer to set state to `fetching: true`
-  return ContactApiUtil.fetchContacts().then(contacts => dispatch(receiveContacts(contacts)));
-}
+export const fetchContacts = () => dispatch => (
+  ContactApiUtil.fetchContacts().then(contacts => dispatch(receiveContacts(contacts)));
+);
 ```
 
 Much like the logger from the previous reading, thunk middleware is available as
