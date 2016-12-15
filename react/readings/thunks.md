@@ -35,7 +35,7 @@ action hits our reducer. We need middleware to intercept all actions of type
 ```js
 // middleware/thunk_middleware.js
 
-const thunk = { getState, dispatch } => next => action => {
+const thunk = { dispatch, getState } => next => action => {
   if (typeof action === 'function') {
     return action(dispatch, getState);
   }
@@ -77,12 +77,9 @@ export const receiveContacts = contacts => ({
 
 // async action creator which returns a function
 export const fetchAllContacts = () => dispatch => {
-    dispatch(requestContacts()); // allow reducer to set state to `fetching: true`
-    return fetchContacts().then(contacts => {
-      dispatch(receiveContacts(contacts));
-    });
-  }
-);
+  dispatch(requestContacts()); // allow reducer to set state to `fetching: true`
+  return fetchContacts().then(contacts => dispatch(receiveContacts(contacts)));
+}
 ```
 
 Much like the logger from the previous reading, thunk middleware is available as
