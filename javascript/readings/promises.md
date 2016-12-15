@@ -1,7 +1,7 @@
 # Promises
 
 Promises are a tool for simplifying callbacks to asynchronous functions. Since
-the introduction of ES2015, they have been included natively in Javascript.
+the introduction of ES6, they have been included natively in Javascript.
 
 [API Documentation][documentation]
 
@@ -28,7 +28,7 @@ function getForecastForLocation(){
 
 We would have to define the success callback of one function to invoke the next,
 and each would have to handle its own errors. Nesting callbacks like this can
-only lead us to :fire: [callback hell][callback-hell] :fire: .
+only lead us to :fire: callback hell :fire: .
 
 ## The Solution
 
@@ -37,10 +37,10 @@ With promises, we can write:
 ```javascript
 function getForecastForLocation(){
   locationRequest
-  .then(spotRequest)
-  .then(forecastRequest)
-  .then(handleSuccess)
-  .catch(handleError)
+    .then(spotRequest)
+    .then(forecastRequest)
+    .then(handleSuccess)
+    .catch(handleError)
 }
 ```
 
@@ -73,27 +73,27 @@ A few notes about functionality before moving on:
 We can create a new promise using the promise constructor function:
 
 ```javascript
-const p = new Promise(executor)
+const p = new Promise(executor);
 ```
 
 The constructor function accepts a single `executor` argument, which is a
-function that takes up to two optional parameters: `resolve` and `reject`. Let's
+function that takes two optional parameters: `resolve` and `reject`. Let's
 see an example:
 
 ```javascript
 const p = new Promise((resolve, reject) => {
   if (/* success condition */){
-    resolve("success");
+    resolve(/* any args */);
   } else {
-    reject("failure");
+    reject(/* any args */);
   }
 });
 ```
 
 ## `then`
 
-Promise objects have two important methods: `then` and `catch`. Both `then` and
-`catch` return **a new promise object**, making them chainable.
+Promise objects have two important pre-defined methods: `then` and `catch`. Both
+`then` and `catch` return **a new promise object**, making them chainable.
 
 `then` accepts two parameters:
   * `onFulfilled`: the function to invoke if the promise is _fulfilled_
@@ -110,20 +110,22 @@ p.then(onFulfilled, onRejected) // one of these *will* run
 ## `catch`
 
 `catch` only accepts an `onRejected` parameter. This function is invoked if any
-promise in the chain is rejected. In the example below, the function `rejected`
-will run if `p`, `firstFulfilled`, or `secondFulfilled` throw an error.
+promise in the chain is rejected. Besides this key difference, `catch` otherwise acts exactly like calling `then(null, onRejected)` on a promise.
+
+In the example below, the function `onRejected` will run if `p`,
+`firstFulfilled`, or `secondFulfilled` throw an error.
 
 ```javascript
-p.then(firstFulfilled).then(secondFulfilled).catch(rejected)
+p.then(firstFulfilled).then(secondFulfilled).catch(onRejected)
 ```
 
 Consider this similar example:
 
 ```js
-p.then(firstFulfilled, rejected).then(secondFulfilled)
+p.then(firstFulfilled, onRejected).then(secondFulfilled)
 ```
 
-The difference here is that `rejected` will only be invoked if `p` is rejected.
+The difference here is that `onRejected` will only be invoked if `p` is rejected.
 It doesn't handle the errors for `firstFulfilled` or `secondFulfilled`, because
 it's not chained onto either of them.
 
@@ -134,9 +136,18 @@ p.then(onFulfilled, onRejected).catch(error)
 ```
 
 If `p` is rejected, `onRejected` will run. `error` will run if either
-`p`, `onFulfilled`, or `onRejected` are rejected. Note: `onRejected` simply
-logging an error message would not trigger `error`, but it would if it
-explicitly threw an error.
+`p`, `onFulfilled`, or `onRejected` are rejected. We would choose to use
+`onRejected` in this manner if we only wanted to handle an error that comes from
+`p`.
+
+Note: `onRejected` simply logging an error message would not trigger `error`, but
+it would if it explicitly threw an error. In other words:
+
+```js
+const onRejected = err => console.log(error); // fulfilled; would not trigger error
+
+const onRejected = err => throw err; // rejected; would trigger error
+```
 
 ## `resolve` and `reject`
 
@@ -144,18 +155,18 @@ explicitly threw an error.
 pass on (via `then` or `catch`) once the promise has been settled.
 
 ```javascript
-const receiveResponse = msg => console.log(msg);
-
 const request = new Promise(resolve => {  
-  setTimeout(() => resolve('success'), 1000);
+  setTimeout(() => resolve(msg), 1000);
 });
+
+const receiveResponse = msg => console.log(msg);
 
 request.then(receiveResponse);
 ```
 
 `receiveResponse` is the resolve callback, and will be invoked once `setTimeout`
-successfully goes off after one second. It receives `'success'` passed as an
-argument, and will print it out.
+successfully goes off after one second. It receives an argument which will get
+passed to the resolve callback, which in this case prints it out.
 
 ## Using Promises
 
