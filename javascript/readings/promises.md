@@ -144,7 +144,7 @@ Note: `onRejected` simply logging an error message would not trigger `error`, bu
 it would if it explicitly threw an error. In other words:
 
 ```js
-const onRejected = err => console.log(error); // fulfilled; would not trigger error
+const onRejected = err => console.log(err); // fulfilled; would not trigger error
 
 const onRejected = err => throw err; // rejected; would trigger error
 ```
