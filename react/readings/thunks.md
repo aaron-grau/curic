@@ -63,7 +63,7 @@ export const fetchContacts = () => $.ajax({ url: 'api/contacts' });
 An action creator that fetches contacts might look like this.
 
 ```js
-import { fetchContacts } from '../utils/contacts_api_util';
+import * as ContactApiUtil from '../utils/contacts_api_util';
 
 //action creators which return objects
 export const requestContacts = () => ({
@@ -76,9 +76,9 @@ export const receiveContacts = contacts => ({
 });
 
 // async action creator which returns a function
-export const fetchAllContacts = () => dispatch => {
+export const fetchContacts = () => dispatch => {
   dispatch(requestContacts()); // allow reducer to set state to `fetching: true`
-  return fetchContacts().then(contacts => dispatch(receiveContacts(contacts)));
+  return ContactApiUtil.fetchContacts().then(contacts => dispatch(receiveContacts(contacts)));
 }
 ```
 
