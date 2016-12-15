@@ -5,7 +5,7 @@ class Artwork < ActiveRecord::Base
 
   validates :title, :image_url, :artist, presence: true
   validates :image_url, uniqueness: true
-  validates :image_url, uniqueness: { scope: :artist_id }
+  validates :title, uniqueness: { scope: :artist_id }
 
   # class method that returns all of the artworks made by the user OR
   # shared with the user

@@ -36,9 +36,8 @@ ActiveRecord::Schema.define(version: 20161214010736) do
   end
 
   add_index "artworks", ["artist_id"], name: "index_artworks_on_artist_id", using: :btree
-  add_index "artworks", ["image_url", "artist_id"], name: "index_artworks_on_image_url_and_artist_id", unique: true, using: :btree
   add_index "artworks", ["image_url"], name: "index_artworks_on_image_url", unique: true, using: :btree
-  add_index "artworks", ["title"], name: "index_artworks_on_title", using: :btree
+  add_index "artworks", ["title", "artist_id"], name: "index_artworks_on_title_and_artist_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",   null: false
