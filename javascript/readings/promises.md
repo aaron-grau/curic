@@ -36,7 +36,7 @@ With promises, we can write:
 
 ```javascript
 function getForecastForLocation(){
-  locationRequest
+  locationRequest()
     .then(spotRequest)
     .then(forecastRequest)
     .then(handleSuccess)
