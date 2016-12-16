@@ -9,7 +9,7 @@ def better_tracks_query
 
   album_counts = {}
   albums.each do |album|
-    album_counts[album.name] = album.tracks_count
+    album_counts[album.title] = album.tracks_count
   end
 
   album_counts
@@ -39,7 +39,7 @@ end
 
 def better_drivers_query
   buses = self.buses.includes(:drivers)
-  
+
   all_drivers = {}
   buses.each do |bus|
     drivers = []
