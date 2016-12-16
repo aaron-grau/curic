@@ -1,8 +1,6 @@
 # First Routes & Controllers
 
-In this project we'll start playing with Rails routing.  To start, generate a
-new, blank Rails project. Remember to use Postgres as the database for this 
-project.
+In this project we'll start playing with Rails routing.
 
 [aa-contactsapi]: http://aa-contactsapi.herokuapp.com
 
@@ -17,7 +15,10 @@ project.
 
 ## First Routes
 
-To start, generate a new, blank Rails project.
+To start, generate a new, blank Rails project. **Make sure to use Postgres as your
+database.** You can do this by appending `--database=postgresql` to the end of your
+`rails new project_name` command. When using Postgres, you then need to setup
+the database by running `bundle exec rake db:create`.
 
 Go to `config/routes.rb` and generate your first routes with:
 
@@ -52,14 +53,14 @@ specified action on the specified controller.
 We have our initial routes now and have the endpoints necessary to
 manage a `User` resource. Notice though that our routes point to a
 `UsersController`, which we don't actually have yet. Nor do we have a
-`User` model, we'll add that later, too. Soon!
+`User` model. We'll add that later, too. Soon!
 
 ## First Controller
 
-Each API endpoint creates/reads/updates/destroys a resource,
+Each API endpoint creates/reads/updates/destroys (CRUD) a resource.
 
-The router defines API endpoints (urls), and records which controller
-and action to invoke. Each API endpoint has a conventional meaning:
+The router defines API endpoints (URLs), and records which controller
+and action to invoke for each one. Each API endpoint has a conventional meaning:
 create/read/update/destroy a resource. The controllers and their
 actions are the ones actually doing the **CRUD** ing.
 

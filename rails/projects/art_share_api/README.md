@@ -71,11 +71,14 @@ validations?
 
 **ArtworkShare**
 
+The `artwork_shares` table is a joins table. Its whole purpose is to link a `User`
+(the person viewing the artwork) with an `Artwork`.
+
 * Columns:
     * `artwork_id`
     * `viewer_id`
-      * Again, prefer columns names that are more descriptive of the relationship
-        when possible.
+      * Again, prefer columns names that are more semantic (i.e. more descriptive
+        of the relationship) when possible.
 * Ensure that both are present. Add the two levels of
   validations/constraints.
 * Ensure that a user cannot have a single `Artwork` shared with them more than once.
