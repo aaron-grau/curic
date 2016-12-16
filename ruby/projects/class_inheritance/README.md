@@ -9,7 +9,7 @@ Estimated time: 45min.
 ## Learning Goals
 
 * Understand how a subclass inherits from a superclass
-* Know how to override methods from a parent class
+* Know how to override a parent class's method
 * Know when and how to use `super`
 
 ## Employee and Manager
