@@ -16,7 +16,7 @@ class InfiniteTweets {
     const data = {};
     if (this.lastCreatedAt) data.max_created_at = this.lastCreatedAt;
 
-    APIUtil.fetchTweets(data).then((data) => {
+    APIUtil.fetchTweets(data).then(data => {
       infiniteTweets.insertTweets(data);
 
       if (data.length < 20) {
