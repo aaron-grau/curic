@@ -34,7 +34,7 @@ The `guard -P livereload` implements an easy-to-setup workflow using "style inje
 ## Stylesheets File Structure
 
 Begin by familiarizing yourself with the stylesheets file structure, which will
-house all of our CSS code for this project.
+house all of our CSS code for this project. Notice how we separate the files by utility and specificity. The `base` directory holds styles that should apply to the app globally and be accessible to component styles, while `components` holds styles for specific components. This helps us maintain our sanity as more styles are added over the app's lifespan.
 
 ```
 /app/assets/stylesheets
@@ -73,17 +73,17 @@ Next take a look at the `application.scss` file:
 @import "components/*";
 ```
 
-This file uses SASS `import`s to define general styles that will apply to your
+This file uses SCSS `import`s to define general styles that will apply to your
 entire application and enforce the importing of these stylesheets in a
-particular order.
+particular order. The order is very important! You can think of `application.scss` as building all the imported files into one giant CSS file.
 
-Check out the `colors.scss` and `fonts.scss` files. They define SASS variables
-for you to use throughout the project to style your app. Defining SASS variables
+Check out the `colors.scss` and `fonts.scss` files. They define SCSS variables
+for you to use throughout the project to style your app. Defining SCSS variables
 for an app's fonts and colors make changing any of them at any point more
-maintainable and consistent. Use these given SASS variables when defining any
+maintainable and consistent. Use these given SCSS variables when defining any
 fonts or color values.
 
-**N.B.**: We won't dive any deeper into SASS for this project but it does provide
+**N.B.**: We won't dive any deeper into SCSS for this project but it does provide
 a couple more cool features! Read about them [here][sass-features] if you're interested.
 
 [sass-features]: https://github.com/rails/sass-rails#features
@@ -292,8 +292,7 @@ elements to place them in front of or behind other elements with the largest
 For a final touch apply some `box-shadow` styling to the dropdown to give it a
 bit more dimension. Box shadows are highly customizable with values for the
 `x-offset`, `y-offset`, `blur-radius`, `spread-radius` and `color`. Here is an
-example using `rgba` colors where the `Alpha` value makes the color super
-transparent.
+example using `rgba` colors. Set the `rgba` values like so: `rgba(Red, Green, Blue, Alpha)`. The `Alpha` value controls the transparency. Let's make this shadow very transparent.
 
 ```css
 box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
@@ -312,7 +311,7 @@ have a flexible application by implementing a custom grid system.
 ## Custom Flexible Grid
 
 Grids are much less complicated than they sound and are commonly used throughout
-the web. Popular style frameworks like `bootstrap` by Twitter and `material` by
+the web. Popular style frameworks like `bootstrap` by Twitter and `material-ui` inspired by
 Google all use flexible grid systems. For App Academy Times, hand-roll a
 simple grid just like you did in the [CSS Homework][css-grid-homework].
 
@@ -431,7 +430,7 @@ Create pure css dropdowns with the following example code:
     position: absolute;
     /* use top, left, right, bottom to position */
 }
-.dropdown:hover > ul { 
+.dropdown:hover > ul {
     /* applies the following style to uls inside .dropdown */
     /* but only when .dropdown is being hovered over */
     display: block;
@@ -488,7 +487,8 @@ hidden"></section>` at the bottom of the `main_content` section.
 
 Here is a trick to making content take up the full width of the viewport even
 when inside of a smaller container by using viewport units (`vw = viewport
-width, vh = viewport height`).
+width, vh = viewport height`). You can read more about viewport units and full width containers
+in limited width parents [here][css-tricks-containers].
 
 ```css
   position: absolute;
@@ -501,6 +501,8 @@ width, vh = viewport height`).
 - Inset box shadows with `box-shadow: inset 2px 3px 3px rgba(0,0,0,0.07);`
 
 Before continuing **Call over a TA for review**.
+
+[css-tricks-containers][https://css-tricks.com/full-width-containers-limited-width-parents/]
 
 # Bonus: A Fixed Header
 
