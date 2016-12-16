@@ -26,7 +26,7 @@ child.prototype.constructor = child;
 
 Changing the `__proto__` directly is something that's highly discouraged, so we
 can use `Object.getPrototypeOf` and `Object.setPrototypeOf` as our getter and
-setters instead.
+setter instead.
 
 For example:
 
