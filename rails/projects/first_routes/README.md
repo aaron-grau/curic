@@ -142,61 +142,17 @@ running Rails app with what will become a very familiar index page.
 
 ## First Request
 
-Create a script in your `bin/` folder; name it `my_script.rb`. We'll
-be using it to make requests to our Rails app. We'll be able to run
-this script with the `ruby` command.
+Postman should already be installed, but if not, go ahead and [install it][postman].
 
-Add `gem 'addressable'` and `gem 'rest-client'` to your `Gemfile` and `bundle install`.
+[postman]: https://www.getpostman.com/
 
-The Addressable gem makes it easy to construct URLs. Always prefer a tool
-like it over manually creating URLs via string interpolation. Certain
-characters are not permitted in URLs and so have to be escaped
-properly. This isn't something you want to have to worry about.
+Now let's try to get a list of all our users - our **users index**. This means we need
+to make a request that matches the HTTP verb and URI pattern that routes to
+'UsersController#index'. If we `rake routes`, we can see this is a `GET` request to
+'/users'. Go ahead and make that request with Postman. (Make sure to keep your rails
+server running in a terminal tab!)
 
-The RestClient gem provides a simple interface for making HTTP requests,
-providing methods like `::get`, `::post`, `::put`, `::patch`, and `::delete`.
-**NOTE**: RestClient will throw an exception when it receives a response
-from a request that is not 200-OK. This doesn't necessarily mean that
-your code is wrong. It means either the request is wrong or your Rails
-code is wrong. When you get a non-200 response check the Rails logs
-first to see if something went wrong on the Rails side.
-
-Require `addressable/uri` and `rest-client` so that we can construct
-our requests. Let's build (and then call) a method that will return all the users in the db.
-
-```ruby
-# bin/my_script.rb
-def index_users
-    url = Addressable::URI.new(
-      scheme: 'http',
-      host: 'localhost',
-      port: 3000,
-      path: '/users.html'
-    ).to_s
-
-    puts RestClient.get(url)
-end
-
-index_users
-```
-
-Make sure your rails server is still running (keep it in a tab in
-Terminal). In another tab, run the script:
-
-```
-~/FirstRoutes$ ruby bin/my_script.rb
-/Users/ruggeri/.rvm/gems/ruby-1.9.3-p194/gems/rest-client-1.6.7/lib/restclient/abstract_response.rb:48:in `return!': 404 Resource Not Found (RestClient::ResourceNotFound)
-        from /Users/ruggeri/.rvm/gems/ruby-1.9.3-p194/gems/rest-client-1.6.7/lib/restclient/request.rb:230:in `process_result'
-        from /Users/ruggeri/.rvm/gems/ruby-1.9.3-p194/gems/rest-client-1.6.7/lib/restclient/request.rb:178:in `block in transmit'
-        from /Users/ruggeri/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/net/http.rb:745:in `start'
-        from /Users/ruggeri/.rvm/gems/ruby-1.9.3-p194/gems/rest-client-1.6.7/lib/restclient/request.rb:172:in `transmit'
-        from /Users/ruggeri/.rvm/gems/ruby-1.9.3-p194/gems/rest-client-1.6.7/lib/restclient/request.rb:64:in `execute'
-        from /Users/ruggeri/.rvm/gems/ruby-1.9.3-p194/gems/rest-client-1.6.7/lib/restclient/request.rb:33:in `execute'
-        from /Users/ruggeri/.rvm/gems/ruby-1.9.3-p194/gems/rest-client-1.6.7/lib/restclient.rb:68:in `get'
-        from bin/my_script.rb:11:in `<main>'
-```
-
-Okay, that didn't work; we got a 404 error. Why?
+Okay, that didn't work. Why?
 
 The server log will be where you'll go to see what's going on in your
 application. All your `puts` and `p` statements in your application
@@ -227,7 +183,7 @@ class UsersController < ApplicationController
 end
 ```
 
-Run the script again. It fails again, so look at the log:
+Make the request in Postman again. It fails again, so look at the log:
 
 ```
 Started GET "/users.html" for 127.0.0.1 at 2013-08-12 10:52:35 -0700
@@ -271,7 +227,7 @@ For every request, the server will tell you which controller and
 action is processing it. In this case, it was the `UsersController`'s
 `index` action.
 
-Woohoo! Your RestClient call should have returned the string "I'm in
+Woohoo! Your Postman request should have returned the string "I'm in
 the index action!" Victory is yours. Congratulations on successfully
 setting up, making, and processing your first Rails request.
 
@@ -282,32 +238,83 @@ the outside world.
 
 The key method here is `#params`. `#params` is a method provided by
 `ActionController::Base` that returns a hash of all the parameters
-available. The parameters are sourced from three places:
+available. The parameters are complied by the router and are sourced
+from three places:
 
 * Route parameters (e.g. the `:id` from `/users/:id`)
 * Query string (the part of the URL after the `?`: `?key=value`)
 * POST/PATCH request data (the body of the HTTP request).
 
 Go ahead and make some GET requests to `/users` playing around with
-the query values. Check out the server log and notice that it logs
+the query values. Put some key/value pairs in the query string - e.g.
+`/users?fav_food=pizza` or `/users?admin=true`.
+
+Check out the server log and notice that it logs
 how the parameters are coming in:
 
 ```
-Started GET "/users.html?var1=val1" for 127.0.0.1 at 2013-08-12 10:55:44 -0700
+Started GET "/users.html?fav_food=pizza" for 127.0.0.1 at 2013-08-12 10:55:44 -0700
 Processing by UsersController#index as HTML
-  Parameters: {"var1"=>"val1"}
+  Parameters: {"fav_food"=>"pizza"}
   Rendered text template (0.0ms)
 Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
 ```
 
 Now make some POST requests to `/users` playing around with POST data
-and seeing how the parameters come in. Think about what controller
-action you need to POST to `/users` (check your routes again). Try using [Postman][postman-guide] for this.
+and seeing how the parameters come in. This means putting the data not in the
+query string, but in the request body. Click on the 'Body' tab in Postman, and
+enter the key/value pairs there. Make sure to change the HTTP verb to POST.
 
-Now make a couple requests to `/users/:id` and see how the `:id`
-parameter comes in.
+Think about what controller action we will hit when we make a POST request to `/users`
+(check your routes again). Once again, we'll get the error that this action is not
+defined on our `UsersController`:
 
-[postman-guide]: https://www.getpostman.com/docs/requests
+```
+todo: add error message from console here
+...
+```
+
+Go ahead and add that method to the controller. Again, if we don't explicitly render or
+redirect, Rails is going to try to render the template with the same name; it's going
+to look for `create.html.erb` in our `app/views/users` folder, which we don't have. To
+prevent this, we need to explicitly render something simple back. In this case, let's go
+ahead and render the params that came in with the request back. We can `render json:`, which
+will automatically call `to_json` on the object we're rendering (in this case, our params hash)
+and package it up for us so that it can be sent back with the response:
+
+```ruby
+class UsersController < ApplicationController
+  def create
+    render json: params
+  end
+end
+```
+
+Try making the request in Postman again. You should see the right response now!
+
+```
+{ todo: put params here }
+```
+
+Okay, now we've seen params come from the query string and the request body. Let's
+see them come from the third and final place they can come from: the route params.
+
+When we have `show`, `delete`, and `update` resources, Rails constructs URI patterns
+for these that include a "wildcard" matcher. If we look at our routes, we can see these
+wherever the URI pattern is `users/:id(format)`. The `:id` indicates that the router will match
+anything put into that part of the URL and save it in the params under the key `id`.
+
+Let's try making a GET request to `/users/:id`. In Postman, this means setting the URL to
+something like '/users/2', where 2 is the `id` of the `User` we want to see.
+
+Once again we get the same error. We are matching the `UsersController#show` route, but we
+don't have that action defined on the controller. Go ahead and add it, and once again
+`render json: params`. Now try the request again. We see the `:id` matcher saved the `2` from
+our URL in the params!
+
+```
+{ todo: put params here }
+```
 
 ### Nesting Parameters
 
@@ -333,37 +340,24 @@ a hash) like so:
 Here's how we would accomplish that:
 
 ```
-url = Addressable::URI.new(
-  scheme: 'http',
-  host: 'localhost',
-  port: 3000,
-  path: '/users/5.json',
-  query_values: {
-    'some_category[a_key]' => 'another value',
-    'some_category[a_second_key]' => 'yet another value',
-    'some_category[inner_inner_hash][key]' => 'value',
-    'something_else' => 'aaahhhhh'
-  }
-).to_s
+<!-- in Postman's "Body" tab: -->
+some_category[a_key] => 'another value'
+some_category[a_second_key] => 'yet another value'
+some_category[inner_inner_hash][key] => 'value'
+something_else => 'aaahhhhh'
+
+<!-- in the query string -->
+'/users?some_category[a_key]=another+key&some_category[a_second_key]=yet+another_value'
+<!-- ...etc. -->
 ```
 
 If we follow this bracket notation, Rails will nest parameters for
 us. The rule is that the keys with brackets gets nested deeper in the
 params.
 
-Try it out a few times with both GETs and POSTs.
-
-## Rendering JSON
-
-For a few requests, play around with rendering JSON.
-
-```ruby
-render json: {'a_key' => 'a value'}
-```
-
-Also play around with the `to_json` method that Rails adds to the
-`Object` class. See how various Ruby data structures are converted to
-JSON.
+Try it out a few times with both GETs and POSTs. Make sure you're looking
+at the params that came in with the request, either through your controller
+action's rendering them back as JSON to Postman or in the server logs.
 
 ## Using Models
 
@@ -377,11 +371,11 @@ columns for `name` and `email`. Migrate your database and add a couple
 users through the console. Add validations for presence of name and
 email.
 
-In your `UsersController#index`, grab all the users and render them as
-JSON. Remember that when you hand `render json:` anything, it
-automatically calls `to_json` on it for you.
+In your `UsersController#index`, fetch all the users from the database
+and render them as JSON. Remember that when you hand `render json:`
+anything, it automatically calls `to_json` on it for you.
 
-Make the request in your script and make sure you're getting the right
+Make the request in Postman and make sure you're getting the right
 JSON back. Check your server log and note that the SQL that ran is
 logged there for you. All SQL queries your app makes will show up in
 the server log - yet another useful piece of information that the log
@@ -416,33 +410,15 @@ def create
 end
 ```
 
-Likewise, let's write and call a method in `my_script.rb` to send the
-attributes:
+Go ahead and make a POST request to create a new user with Postman. Make
+sure to nest your params currently! The `UsersController#create` method is
+written expecting that all user params will be nested under the key `:user`
+in the params hash.
 
-```ruby
-# my_script.rb
-def create_user(name, email)
-  url = Addressable::URI.new(
-    scheme: 'http',
-    host: 'localhost',
-    port: 3000,
-    path: '/users.json'
-  ).to_s
-
-  puts RestClient.post(
-    url,
-    { user: { name: name, email: email } }
-  )
-end
-
-create_user("Gizmo", "gizmo@gizmo.gizmo")
-```
-
-Notice how we've namespaced all the parameters of the user to create
-under `:user`. This leverages mass-assignment to set all the uploaded
-attributes. This is an extremely common Rails pattern: pretty much
-every time we upload parameters we will nest them under an inner
-hash to use for mass assignment.
+This namespacing of all user params under `:user` leverages mass-assignment
+to set all the uploaded attributes at once. This is an extremely common
+Rails pattern: pretty much every time we upload parameters we will nest
+them under an inner hash to use for mass assignment.
 
 ### Handling Submission Errors
 
