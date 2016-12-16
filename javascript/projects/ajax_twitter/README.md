@@ -113,16 +113,16 @@ Let's refactor our AJAX calls into an `api_util` file. Your API util should expo
 
 ```js
 const APIUtil = {
-  followUser(id, success) {
+  followUser: (id, success) => {
     // ...
   },
 
-  unfollowUser(id, success) {
+  unfollowUser: (id, success) => {
     // ...
   }
 }
 
-module.exports = APIUtil
+module.exports = APIUtil;
 ```
 
 Lastly, let's freeze-out the button so that people can't click it while the AJAX request is pending.
@@ -292,11 +292,11 @@ This time (and throughout the rest of the project), rather than passing a succes
 
 ```js
 // api_util.js
-createTweet(data) {
-  return $.ajax({
+createTweet: data => (
+  $.ajax({
     //...
-  });
-}
+  })
+);
 ```
 
 ```js
