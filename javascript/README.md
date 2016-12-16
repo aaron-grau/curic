@@ -247,11 +247,11 @@
 * **Bonus**: [CSS Transform property][css-transform]
 
 ### Projects
-* [CSS Friends][css-friends]
+* [AA Times][aa-times]
 * **Bonus**: [Google Homepage][css-bonus-assignment]
 
 [css-demos]: ../html-css/demos/css_demos#demos
-[css-friends]: ../html-css/projects/css_friends
+[aa-times]: ../html-css/projects/aa_times
 [css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-warmup]: ../html-css/projects/css_warm_up
