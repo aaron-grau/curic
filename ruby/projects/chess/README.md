@@ -23,6 +23,14 @@ any kind of software developer.
 [require-relative]: http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative
 [minesweeper]: ../minesweeper/
 
+## Learning Goals
+
+* Know when and why private methods are used
+* Be able to read UML and understand the benefits of UML
+* Be familiar with how to use the Singleton module
+* Know how to use modules
+* Know how class inheritance works
+
 ## Phase I: `Board`
 
 Your `Board` class should hold a 2-dimensional array (an array of arrays). Each
@@ -31,7 +39,7 @@ position in the board either holds a moving `Piece` or a `NullPiece`
 
 You'll want to create an empty `Piece` class as a placeholder for now. Write
 code for `initialize` so we setup the board with new instances of `Piece` in locations where a
-`Queen`/`Rook`/`Knight`/ ect. will start and `nil` where the `NullPiece` 
+`Queen`/`Rook`/`Knight`/ ect. will start and `nil` where the `NullPiece`
 will start.
 
 The `Board` class should have a `#move_piece(start_pos, end_pos)` method. This
