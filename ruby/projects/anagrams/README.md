@@ -11,10 +11,10 @@ Assume that there is no whitespace or punctuation in the given strings.
 
 ## Learning Goals
 
-* Be able to figure out and explain the time complexity of a method
-* Be able to figure out and explain the space complexity of a method
-* Be able to recognize when time or space complexity can be improved
-* Be able to compare different methods and discuss how changing inputs affects each ones overall runtime
+* Be able to determine the time and space complexity of a method
+* Be able to recognize when and how time or space complexity can be improved
+* Be able to compare different methods and discuss how changing inputs affects
+each one's overall runtime
 
 ## Phase I:
 Write a method `#first_anagram?` that will generate and store all the possible anagrams of the first string. Check if the second string is one of these.
