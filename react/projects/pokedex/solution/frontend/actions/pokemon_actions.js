@@ -8,7 +8,7 @@ export const RECEIVE_POKEMON_ERRORS = 'RECEIVE_POKEMON_ERRORS';
 
 import * as APIUtil from '../util/api_util';
 
-export function fetchAllPokemon() {
+export const fetchAllPokemon = () => {
 	return (dispatch) => {
 		dispatch(requestAllPokemon());
 		return APIUtil.getAllPokemon()
@@ -16,7 +16,7 @@ export function fetchAllPokemon() {
 	}
 }
 
-export function fetchSinglePokemon(id) {
+export const fetchSinglePokemon = (id) => {
 	return (dispatch) => {
 		dispatch(requestSinglePokemon());
 		return APIUtil.getSinglePokemon(id).then(pokemon => {
@@ -26,7 +26,7 @@ export function fetchSinglePokemon(id) {
 	}
 }
 
-export function createPokemon(pokemon) {
+export const createPokemon = (pokemon) => {
 	return (dispatch) => {
 		return APIUtil.postPokemon(pokemon).then(pokemon => {
 			dispatch(receiveNewPokemon(pokemon));
