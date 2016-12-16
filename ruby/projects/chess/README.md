@@ -1,13 +1,5 @@
 # Chess
 
-## Learning Goals
-
-* Know when and why private methods are used
-* Be able to read UML and understand the benefits of UML
-* Be familiar with how to use the Singleton module
-* Know how to use modules
-* Know how class inheritance works
-
 Write a [chess game][wiki-chess] using object-oriented programming.
 
 **Please read all through the various phases before proceeding.**
@@ -30,6 +22,14 @@ any kind of software developer.
 [chess-uml]: ../../assets/Chess_Diagram.png
 [require-relative]: http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative
 [minesweeper]: ../minesweeper/
+
+## Learning Goals
+
+* Know when and why private methods are used
+* Be able to read UML and understand the benefits of UML
+* Be familiar with how to use the Singleton module
+* Know how to use modules
+* Know how class inheritance works
 
 ## Phase I: `Board`
 
