@@ -90,6 +90,25 @@ const p = new Promise((resolve, reject) => {
 });
 ```
 
+## `resolve` and `reject`
+
+`resolve` and `reject` are responsible for telling the promise what arguments to
+pass on once the promise has been settled.
+
+```javascript
+const request = new Promise(resolve => {  
+  setTimeout(() => resolve(msg), 1000);
+});
+
+const receiveResponse = msg => console.log(msg);
+
+request.then(receiveResponse);
+```
+
+`receiveResponse` is the resolve callback, and will be invoked once `setTimeout`
+successfully goes off after one second. It receives an argument which will get
+passed to the resolve callback, which in this case prints it out.
+
 ## `then`
 
 Promise objects have two important pre-defined methods: `then` and `catch`. Both
@@ -103,8 +122,8 @@ Essentially, `onFulfilled` is the `resolve` function and `onRejected` is the
 `reject` function.
 
 ```javascript
-p.then(onFulfilled) // this *might* run
-p.then(onFulfilled, onRejected) // one of these *will* run
+p.then(onFulfilled) // onFulfilled *might* run
+p.then(onFulfilled, onRejected) // either onFulfilled or onRejected *will* run
 ```
 
 ## `catch`
@@ -148,25 +167,6 @@ const onRejected = err => console.log(err); // fulfilled; would not trigger erro
 
 const onRejected = err => throw err; // rejected; would trigger error
 ```
-
-## `resolve` and `reject`
-
-`resolve` and `reject` are responsible for telling the promise what arguments to
-pass on (via `then` or `catch`) once the promise has been settled.
-
-```javascript
-const request = new Promise(resolve => {  
-  setTimeout(() => resolve(msg), 1000);
-});
-
-const receiveResponse = msg => console.log(msg);
-
-request.then(receiveResponse);
-```
-
-`receiveResponse` is the resolve callback, and will be invoked once `setTimeout`
-successfully goes off after one second. It receives an argument which will get
-passed to the resolve callback, which in this case prints it out.
 
 ## Using Promises
 
