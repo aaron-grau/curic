@@ -508,8 +508,8 @@ Like so:
 ```js
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
-  const rootEl = document.getElementById('root');
-  ReactDOM.render(<Root store={store}/>, rootEl);
+  const root = document.getElementById('root');
+  ReactDOM.render(<Root store={store}/>, root);
 });
 ```
 
@@ -582,15 +582,6 @@ an unordered list of pokemon names next to corresponding images.
 
 **Test your `PokemonIndex` components**: To start, your app should render an empty `ul`
 reflecting your app's initial state, after the request to `fetchPokemon` succeeds the ul should be populated with pokemon. Look for webpack and console errors when debugging.
-
-```js
-document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
-  const root = document.getElementById('root');
-  ReactDOM.render(<Root store={store}/>, root);
-
-});
-```
 
 Now you should see your list of pokemon whenever you refresh the page. Go ahead
 and remove all other extraneous action creators, constants, and code snippets
