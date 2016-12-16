@@ -48,4 +48,4 @@ child.prototype = Object.create(parent.prototype);
 child.prototype.constructor = child;
 ```
 
-This is currently the recommended way to establish inheritance in JavaScript.
+This is currently the recommended way to establish prototypal inheritance in JavaScript.
