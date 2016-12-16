@@ -3,6 +3,12 @@
 In the spirit of enfranchisement, we're going to build a polling app
 today!
 
+## Learning Goals
+
+* Be comfortable writing migrations with indices and constraints
+* Be comfortable writing associations and validations in the model
+* Know how to use heredocs in your ruby code to write queries
+
 Make sure to refer to the [ActiveRecord documentation][ar-docs] and this [ActiveRecord query guide][ar-guide] for help with writing your queries.
 
 Generate a new rails project called `PollApp`. Refer to yesterday's instructions if you need a reminder. Don't forget to include a PostgreSQL flag:  `rails new PollApp --database=postgresql`.
