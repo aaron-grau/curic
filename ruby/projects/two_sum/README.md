@@ -1,12 +1,5 @@
 # `two_sum?`
 
-## Learning Goals
-
-* Be able to figure out and explain the time complexity of a method
-* Be able to figure out and explain the space complexity of a method
-* Be able to recognize when time or space complexity can be improved
-* Be able to compare different methods and discuss how changing inputs affects each ones overall runtime
-
 Given an array of unique integers and a target sum, determine whether any two integers in the array sum to that amount.
 
 
@@ -19,6 +12,13 @@ arr = [0, 1, 5, 7]
 two_sum?(arr, 6) # => should be true
 two_sum?(arr, 10) # => should be false
 ```
+
+## Learning Goals
+
+* Be able to reason about a difficult problem and think of ways to solve it.
+* Be able to determine and explain the time and space complexity of a method
+* Be able to recognize when time or space complexity can be improved
+* Know some common tricks to improve time or space complexity
 
 **Before you start coding anything, talk it over with your partner. Sketch out on paper how you'd approach this problem. What would be the running time of your proposed solution? Take as long as you need, but don't write any code yet.**
 
