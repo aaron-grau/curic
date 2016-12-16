@@ -10,8 +10,9 @@ Estimated time: 2hrs
 ## Learning Goals
 
 * Know how to implement a polytree using polytree nodes
-* Know how to implement bfs and dfs for your polytree
-* Be able to explain the differences between bfs and dfs and when one might be preferred
+* Know how to implement BFS and DFS for your polytree
+* Be able to explain the differences between BFS and DFS and when one might be
+preferred
 
 ## Phase 0: Description
 
