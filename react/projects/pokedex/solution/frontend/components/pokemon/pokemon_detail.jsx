@@ -3,7 +3,6 @@ import Item from '../items/item';
 import LoadingIcon from './loading_icon';
 
 class PokemonDetail extends Component {
-
   componentDidMount() {
     this.props.fetchSinglePokemon(this.props.params.pokemonId);
   }

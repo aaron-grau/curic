@@ -8,8 +8,8 @@ const mapStateToProps = state => ({
   loading: state.loading.indexLoading
 });
 
-const mapDispatchToProps = dispatch => {
-  return { fetchAllPokemon: () => dispatch(fetchAllPokemon()) }
-};
+const mapDispatchToProps = dispatch => ({
+  fetchAllPokemon: () => dispatch(fetchAllPokemon())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonIndex);

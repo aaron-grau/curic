@@ -11,7 +11,6 @@ const PokemonIndexItems = ({ pokemon }) => {
 };
 
 class PokemonIndex extends Component {
-
   componentDidMount() {
     this.props.fetchAllPokemon();
   }
