@@ -2,8 +2,10 @@
 
 ## Learning Goals
 
+* Be able to explain what functionality your testing will cover
+* Know the hierarchy / syntax of RSpec methods (`describe`, `before`, `let`,
+`it`, `expect`, etc.)
 * Be comfortable writing RSpec tests
-* Know the hierarchy/ordering of RSpec methods (`describe`, `before`, `let`, `it`, `expect`, etc.)
 * Know when to use `let` and `subject`
 
 **Expected time: 2hrs**
