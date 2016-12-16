@@ -65,11 +65,7 @@ An action creator that fetches contacts might look like this.
 ```js
 import * as ContactAPIUtil from '../utils/contacts_api_util';
 
-//action creators which return objects
-export const requestContacts = () => ({
-  type: REQUEST_CONTACTS
-});
-
+//action creator which returns an object
 export const receiveContacts = contacts => ({
   type: RECEIVE_CONTACTS,
   contacts
