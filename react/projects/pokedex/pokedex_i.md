@@ -278,11 +278,11 @@ them from the back end.
 
 * Create an `api_util.js` file inside your `frontend/util` folder.
   * Inside this file, we'll define functions that make ajax requests fetching information from our rails api.
-* Export a function called `fetchAllPokemon` that returns a promise.
+* Export a function called `getAllPokemon` that returns a promise.
   * The function should make an AJAX request that will make a http request to our `PokemonController#index` endpoint.
   * Run `rake routes` to determine the appropriate url for this request.
 
-Next, define action creator to be called on success of `APIUtil#fetchAllPokemon`.
+Next, define action creator to be called on success of `APIUtil#getAllPokemon`.
 
 * Create a `pokemon_actions.js` file within your `frontend/actions` folder.
 * Export a constant called `RECEIVE_ALL_POKEMON` with the value `"RECEIVE_ALL_POKEMON"`
@@ -309,8 +309,8 @@ export const receiveAllPokemon = pokemon => ({
 * You should be able to run:
 
   ```
-  const fetchSuccess = pokemon => console.log(receiveAllPokemon(pokemon));
-  fetchAllPokemon().then(fetchSuccess);
+  const getSuccess = pokemon => console.log(receiveAllPokemon(pokemon));
+  getAllPokemon().then(getSuccess);
   ```
 
 ### `pokemonReducer`
@@ -388,8 +388,8 @@ snippet in the browser's console:
 ```js
 store.getState(); // should return initial app state
 
-const fetchSuccess = pokemon => store.dispatch(receiveAllPokemon(pokemon));
-fetchAllPokemon().then(fetchSuccess);
+const getSuccess = pokemon => store.dispatch(receiveAllPokemon(pokemon));
+getAllPokemon().then(getSuccess);
 
 store.getState(); // should return the app state populated with pokemon
 ```

@@ -11,7 +11,7 @@ import * as APIUtil from '../util/api_util';
 export function fetchAllPokemon() {
 	return (dispatch) => {
 		dispatch(requestAllPokemon());
-		return APIUtil.fetchAllPokemon()
+		return APIUtil.getAllPokemon()
 			.then(pokemon => dispatch(receiveAllPokemon(pokemon)));
 	}
 }
@@ -19,7 +19,7 @@ export function fetchAllPokemon() {
 export function fetchSinglePokemon(id) {
 	return (dispatch) => {
 		dispatch(requestSinglePokemon());
-		return APIUtil.fetchSinglePokemon(id).then(pokemon => {
+		return APIUtil.getSinglePokemon(id).then(pokemon => {
 			dispatch(receiveSinglePokemon(pokemon))
 			return pokemon;
 		});
