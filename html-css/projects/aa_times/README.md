@@ -502,7 +502,7 @@ in limited width parents [here][css-tricks-containers].
 
 Before continuing **Call over a TA for review**.
 
-[css-tricks-containers][https://css-tricks.com/full-width-containers-limited-width-parents/]
+[css-tricks-containers]: https://css-tricks.com/full-width-containers-limited-width-parents/
 
 # Bonus: A Fixed Header
 
