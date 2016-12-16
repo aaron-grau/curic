@@ -5,7 +5,8 @@
 ## Learning Goals
 
 * Be able to implement your PolyTreeNode to build a path from start to finish
-* Know when and why to use bfs or dfs
+* Know how to store and traverse a tree
+* Know when and why to use BFS vs. DFS
 
 ## Phase 0: Description
 
