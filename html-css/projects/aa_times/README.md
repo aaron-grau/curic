@@ -33,8 +33,7 @@ The `guard -P livereload` implements an easy-to-setup workflow using "style inje
 
 ## Stylesheets File Structure
 
-Begin by familiarizing yourself with the stylesheets file structure, which will
-house all of our CSS code for this project. Notice how we separate the files by utility and specificity. The `base` directory holds styles that should apply to the app globally and be accessible to component styles, while `components` holds styles for specific components. This helps us maintain our sanity as more styles are added over the app's lifespan.
+Begin by familiarizing yourself with the stylesheets file structure. The `base` directory holds styles that should apply to the app globally and be accessible to component styles. The `components` directory holds styles for specific components. This helps us maintain our sanity as more styles are added over the app's lifespan.
 
 ```
 /app/assets/stylesheets
