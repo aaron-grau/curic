@@ -215,6 +215,7 @@
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
 
 ### Additional Resources
+* [ES6 Prototypal Inheritance][es6-inherits]
 * [jQuery Documentation][jquery-docs]
 * [jQuery Fundamentals][jquery-fundamentals]
   * Skip JS Basics (ch1).
@@ -223,6 +224,7 @@
   * Read Events & Event Delegation (ch4).
   * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
 
+[es6-inherits]: readings/new-prototypal-inheritance.md
 [jquery-docs]: http://api.jquery.com/
 [jquery-fundamentals]: http://jqfundamentals.com/
 
