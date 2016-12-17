@@ -92,7 +92,7 @@ describe ResizingIntSet do
       expect(set.count).to eq(1)
     end
 
-    it "should do nothing when removing and item that hasn't been added" do
+    it "should do nothing when removing an item that hasn't been added" do
       set.insert(1)
       expect(set.count).to eq(1)
       set.remove(2)

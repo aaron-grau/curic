@@ -215,6 +215,7 @@
 [wacky-project]: homeworks/questions/jquery-wacky-homework.md
 
 ### Additional Resources
+* [ES6 Prototypal Inheritance][es6-inherits]
 * [jQuery Documentation][jquery-docs]
 * [jQuery Fundamentals][jquery-fundamentals]
   * Skip JS Basics (ch1).
@@ -223,6 +224,7 @@
   * Read Events & Event Delegation (ch4).
   * Skip Effects (ch5) and save AJAX & Deferreds (ch6) for later.
 
+[es6-inherits]: readings/new-prototypal-inheritance.md
 [jquery-docs]: http://api.jquery.com/
 [jquery-fundamentals]: http://jqfundamentals.com/
 
@@ -245,11 +247,11 @@
 * **Bonus**: [CSS Transform property][css-transform]
 
 ### Projects
-* [CSS Friends][css-friends]
+* [AA Times][aa-times]
 * **Bonus**: [Google Homepage][css-bonus-assignment]
 
 [css-demos]: ../html-css/demos/css_demos#demos
-[css-friends]: ../html-css/projects/css_friends
+[aa-times]: ../html-css/projects/aa_times
 [css-bonus-assignment]: ../html-css/projects/google_homepage
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 [css-warmup]: ../html-css/projects/css_warm_up
