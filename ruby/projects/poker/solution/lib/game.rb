@@ -12,91 +12,74 @@ class Game
 
   def play
     play_round until game_over?
-    end_game
+    game_over
   end
 
   def play_round
     deck.shuffle
-    reset_players
+    unfold_players
     deal_cards
     take_bets
+    (end_round && return) if game_over?
     trade_cards
     take_bets
     end_round
   end
 
-  def reset_players
+  def unfold_players
     players.each(&:unfold)
   end
 
   def deal_cards
     players.each do |player|
-      next if player.bankroll <= 0
+      next if player.folded?
       player.deal_in(deck.deal_hand)
     end
   end
 
   def take_bets
-    players.each(&:reset_current_bet)
     high_bet = 0
     no_raises = false
-    most_recent_better = nil
+    pivoted_players = players.dup
+    pivot_point = 0
+    betted_player = nil
 
     until no_raises
       no_raises = true
-      players.each_with_index do |player, i|
+      # pivoted_players.rotate(pivot_point)
+      pivoted_players.each_with_index do |player, i|
         next if player.folded?
-        break if most_recent_better == player
-
-        display_status(i, high_bet)
-
+        next if betted_player == player
+        puts "High bet: $#{high_bet}"
+        puts "Player #{i + 1}:"
+        puts player.hand
         response = player.respond_bet
         case response
         when :call
-          add_to_pot(player.take_bet(high_bet))
+          player.take_bet(high_bet)
+          add_to_pot(high_bet)
         when :bet
           no_raises = false
-          most_recent_better = player
-          begin
-            bet = player.get_bet
-            raise "bet must be at least $#{high_bet}" unless bet >= high_bet
-          rescue
-            retry
-          end
-          rs = player.take_bet(bet)
-          high_bet = bet
-          add_to_pot(rs)
+          pivot_point = i
+          betted_player = player
+          bet = player.get_bet
+          raise "bet must be at least $#{high_bet}" unless bet >= high_bet
+          high_bet = add_to_pot(player.take_bet(bet))
         when :fold
           player.fold
         end
 
-        puts
-        puts "pot: #{@pot}"
-        puts
-
-        return if round_over?
+        return if game_over?
       end
-    end
-  end
 
-  def display_status(index, high_bet)
-    puts
-    puts "High bet: $#{high_bet}"
-
-    players.each_with_index do |player, i|
-      puts "Player #{i} has #{player.bankroll}"
     end
 
-    puts
-    puts "Current player: #{index + 1} has:"
-    puts "Current bet: #{players[index].current_bet}"
-    puts players[index].hand
   end
 
   def trade_cards
     players.each_with_index do |player, i|
       next if player.folded?
-      print "Player #{i + 1}, number of cards to trade: "
+      puts "Player #{i + 1}:"
       puts player.hand
       cards = player.get_cards_to_trade
       deck.return(cards)
@@ -113,7 +96,8 @@ class Game
   end
 
   def winner
-    players.max
+    #raise 'game is not over' unless game_over?
+    players.sort.last
   end
 
   def show_hands
@@ -128,20 +112,12 @@ class Game
     (@pot += amount) && amount
   end
 
-  def round_over?
-    players.count { |player| !player.folded? } <= 1
-  end
-
   def game_over?
-    players.count { |player| player.bankroll > 0 } <= 1
+    players.select { |player| !player.folded? }.count == 1
   end
 
   def add_players(n, buy_in)
     n.times { @players << Player.buy_in(buy_in) }
-  end
-
-  def end_game
-    puts "The game is over"
   end
 end
 
@@ -150,10 +126,3 @@ def test
   g.add_players(2, 100)
   g.play_round
 end
-
-if __FILE__ == $PROGRAM_NAME
-  game = Game.new
-  game.add_players(2, 100)
-  game.play
-end
-
