@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_many :todos
 
+  has_many :steps,
+  through: :todos,
+  source: :steps
+
   def self.find_by_credentials(user_params)
     user = User.find_by(username: user_params[:username])
     user && user.is_password?(user_params[:password]) ? user : nil

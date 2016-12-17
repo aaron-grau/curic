@@ -4,4 +4,8 @@ class Step < ActiveRecord::Base
   after_initialize { self.done = false if self.done.nil? }
 
   belongs_to :todo
+
+  has_one :user,
+  through: :todo,
+  source: :user
 end

@@ -14,7 +14,7 @@ If you haven't already, finish part one of the project through phase 5 (up to, b
 
 ## Phase 1: Rails API
 
-In this phase you will create a Rails API that stores `Todo`s in a database
+In this phase you will create a Rails API that stores todos in a database
 and serves JSON in response to HTTP requests.
 
 **NB**: We first saw use of a Rails API in AJAX Twitter! Today, we will create
@@ -47,7 +47,7 @@ Let's get started!
 **Test your setup** - Try creating a couple of todos in your database using the
 Rails console (`rails c`).
 
-+ Create an `Api::TodosController` to handle our API requests for `Todo`s.
++ Create an `Api::TodosController` to handle our API requests for todos.
   + It should create `app/controller/api/todos_controller.rb`.
 + Define `show`, `index`, `create`, `update`, and `destroy` actions in your controller.
 + Make your controller actions serve JSON-formatted responses.
@@ -115,7 +115,7 @@ $.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
 Your entire todos project from yesterday will function as the frontend folder for your rails app with some slight modifications.
 You will also need your `package.json` and `webpack.config.js` which should be put in the root folder, but you do not need `index.html`.
 
-Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than `build`. Don't forget to require your bundle inside of `application.js`.
+Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than the root directoryÂ. Don't forget to require your bundle inside of `application.js`.
 
 **Test your setup** - You should be able to visit `localhost:3000` and confirm
 that you have your entire work from yesterday working on `localhost:3000` before continuing.
@@ -238,7 +238,7 @@ This will be very similar to creating todos, (the resulting action will still be
 but we need a different action because we will hit a different route on the back end.
 Add `APIUtil.updateTodo(todo)` and a new thunk action creator `updateTodo(todo)`
 which dispatches `receiveTodo` upon success and `receiveError` on failure.
-Update `toggleTodo` in `TodoListItem` to use your new action instead of calling `receiveTodo` directly. 
+Update `toggleTodo` in `TodoListItem` to use your new action instead of calling `receiveTodo` directly.
 
 #### Deleting Todos
 
