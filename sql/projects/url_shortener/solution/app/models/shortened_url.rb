@@ -83,27 +83,6 @@ class ShortenedUrl < ActiveRecord::Base
       .count
   end
 
-  def no_spamming
-    last_minute = ShortenedUrl
-    .where("created_at >= ?", 1.minute.ago)
-    .where(submitter_id: submitter_id)
-    .length
-
-    errors[:maximum] << "of five short urls per minute" if last_minute >= 5
-  end
-
-  def nonpremium_max
-    return if User.find(self.submitter_id).premium
-
-    number_of_urls =
-      ShortenedUrl
-      .where(submitter_id: submitter_id)
-      .length
-
-    if number_of_urls >= 5
-      errors[:Only] << "premium members can create more than 5 short urls"
-    end
-  end
 
   # run `rake prune:old_urls minutes=n` to see this task in action
   def self.prune(n)
@@ -132,6 +111,30 @@ class ShortenedUrl < ActiveRecord::Base
     #                              HAVING MAX(visits.created_at) < '#{n.minute.ago}')
     #       OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
     #       AND users.premium ='f'"
+  end
+
+  private 
+
+  def no_spamming
+    last_minute = ShortenedUrl
+    .where("created_at >= ?", 1.minute.ago)
+    .where(submitter_id: submitter_id)
+    .length
+
+    errors[:maximum] << "of five short urls per minute" if last_minute >= 5
+  end
+
+  def nonpremium_max
+    return if User.find(self.submitter_id).premium
+
+    number_of_urls =
+    ShortenedUrl
+    .where(submitter_id: submitter_id)
+    .length
+
+    if number_of_urls >= 5
+      errors[:Only] << "premium members can create more than 5 short urls"
+    end
   end
 
 end
