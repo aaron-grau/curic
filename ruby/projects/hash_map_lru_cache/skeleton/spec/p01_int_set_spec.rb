@@ -86,6 +86,21 @@ describe ResizingIntSet do
       set.insert(50)
       expect(set).to include(50)
     end
+<<<<<<< HEAD
+=======
+
+    it "should not insert the same item twice" do
+      3.times { set.insert(1) }
+      expect(set.count).to eq(1)
+    end
+
+    it "should do nothing when removing an item that hasn't been added" do
+      set.insert(1)
+      expect(set.count).to eq(1)
+      set.remove(2)
+      expect(set.count).to eq(1)
+    end
+>>>>>>> e701b5d6061b4a6e4e8678d6160acf0762543b6e
   end
 
   describe "#remove" do
