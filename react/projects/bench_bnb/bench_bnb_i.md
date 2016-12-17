@@ -117,10 +117,11 @@ Create a new file, `util/session_api_util.js` with the following functions:
   * `login`: should make an AJAX request that creates a new session.
   * `logout`: should make an AJAX request that deletes the current session.
 
-Each function should take `success` and `error` callbacks.
-
 **NB**: Check out `routes.rb` and run `rake routes` to determine the appropriate
 URL for each of these requests.
+
+**NB**: Each API will return a promise.
+We'll add success and error callbacks onto the API calls using `.then`, so you should __not__ write success or error callbacks in your api functions.
 
 **Test each of your api util functions before moving on!** To do this, you can
 import these functions in your entry file and save them to the window (e.g.,
@@ -130,8 +131,8 @@ import these functions in your entry file and save them to the window (e.g.,
 
 We want our app state to hold two pieces of information concerning user auth
 which we'll nest under `session`:
-1. the `current user` and
-2. an array of `errors`.
+1) the `current user` and
+2) an array of `errors`.
 
 If no user is signed in, `session.currentUser` is `null`. If a user is signed in
 `session.currentUser` returns information on the user. App's state might look
@@ -160,7 +161,7 @@ or this:
 }
 ```
 
-By default, there no user is signed in. Thus `session` should return a `null`
+By default, no user is signed in. Thus `session` should return a `null`
 `currentUser`, and an empty array of `errors`.
 
 Hint: Use this default application state as a template for any session

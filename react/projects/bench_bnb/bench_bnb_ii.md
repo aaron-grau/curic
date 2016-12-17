@@ -30,8 +30,9 @@ To start, let's create an API utility for our thunks to use that will request da
 
 + Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`.
 
-This function should accept a single argument: `success`, a callback. It should
-then dispatch an `$.ajax` request and return a promise. You may choose to define an error callback for debugging.
+It should dispatch an `$.ajax` request and return a promise.
+As usual, the success function will be chained onto this promise in the thunk action creator.
+You may choose to define an error callback for debugging.
 
 Your function should look something like this:
 
@@ -481,9 +482,7 @@ benches that are within the boundaries specified by the argument. See the exampl
 
 ### Update `BenchApiUtil`
 
-Update our `fetchBenches` function in `bench_api_util.js` to accept two arguments:
-  * filters
-  * success
+Update our `fetchBenches` function in `bench_api_util.js` to accept an argument called filters.
 
 Eventually, we want to be able to filter our benches by multiple parameters, but
 for now we'll just use the lat/lng `bounds`.
