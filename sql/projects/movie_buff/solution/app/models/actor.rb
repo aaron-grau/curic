@@ -1,8 +1,16 @@
 class Actor < ActiveRecord::Base
-	has_many :castings
-	has_many :movies, through: :castings
-	has_many :directed_movies,
+	has_many :castings,
+    class_name: "Casting",
+    foreign_key: :actor_id,
+    primary_key: :id
+	
+  has_many :movies,
+    through: :castings,
+    source: :movie
+	
+  has_many :directed_movies,
+    class_name: "Movie",
 		foreign_key: :director_id,
-		class_name: "Movie"
+    primary_key: :id
 
 end
