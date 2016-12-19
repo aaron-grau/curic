@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
     case RECEIVE_POKEMON_ERRORS:
       return initialState;
     case REQUEST_ALL_POKEMON:
-    return Object.assign({}, state, { indexLoading: true });
+      return Object.assign({}, state, { indexLoading: true });
     case CREATE_POKEMON:
     case REQUEST_SINGLE_POKEMON:
       return Object.assign({}, state, { detailLoading: true });

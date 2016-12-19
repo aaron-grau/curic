@@ -12,4 +12,7 @@ const mapDispatchToProps = dispatch => ({
   fetchAllPokemon: () => dispatch(fetchAllPokemon())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PokemonIndex);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PokemonIndex);

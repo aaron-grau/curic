@@ -423,9 +423,10 @@ dispatch `receiveAllPokemon`.
 This one's free!
 
 ```js
-export function fetchAllPokemon() {
+export const fetchAllPokemon = () => {
   return (dispatch) => {
-    return APIUtil.fetchAllPokemon().then(pokemon => dispatch(receiveAllPokemon(pokemon)));
+    return APIUtil.fetchAllPokemon()
+      .then(pokemon => dispatch(receiveAllPokemon(pokemon)));
   }
 }
 ```
@@ -634,9 +635,9 @@ Instead of rendering the `PokemonIndexContainer` directly, setup a root
 `Route` that will render the component when `path="/"`. Like so:
 
 ```js
-<Provider store={ store }>
-  <Router history={ hashHistory }>
-    <Route path="/" component={ PokemonIndexContainer } />
+<Provider store={store}>
+  <Router history={hashHistory}>
+    <Route path="/" component={PokemonIndexContainer} />
   </Router>
 </Provider>
 ```

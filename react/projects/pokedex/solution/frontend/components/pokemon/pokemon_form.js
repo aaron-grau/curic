@@ -19,7 +19,7 @@ class PokemonForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPokemon(this.state)
-      .then((data) => this.props.router.push(`/pokemon/${data.id}`));
+      .then(data => this.props.router.push(`/pokemon/${data.id}`));
   }
 
   update(property) {
@@ -38,7 +38,7 @@ class PokemonForm extends React.Component {
   errors() {
     if (this.props.errors) {
       return (
-        this.props.errors.map((error) => {
+        this.props.errors.map(error => {
           return (<li className="error" key={error}>{error}</li>);
         })
       );
@@ -50,49 +50,55 @@ class PokemonForm extends React.Component {
       <section className="pokemon-detail">
         <img src="/assets/pokemon-logo.png" alt="Copyright of Nintendo Pokemon"/>
         <ul>
-          { this.errors() }
+          {this.errors()}
         </ul>
         <form className="pokemon-form" onSubmit={this.handleSubmit}>
             <input
               type="text"
-              value={ this.state.name }
+              value={this.state.name}
               placeholder="Name"
-              onChange={ this.update('name') }/>
+              onChange={this.update('name')}
+            />
             <input
               type="text"
-              value={ this.state.image_url }
+              value={this.state.image_url}
               placeholder="Image Url"
-              onChange={ this.update('image_url') }/>
+              onChange={this.update('image_url')}
+            />
             <select
-              value={ this.state.type }
-              onChange={ this.update('poke_type') }
+              value={this.state.type}
+              onChange={this.update('poke_type')}
               defaultValue="Select Pokemon Type">
-              { POKEMON_TYPES.map((type, i) => {
+              {POKEMON_TYPES.map((type, i) => {
                 return <option value={type} key={i}>{type}</option>;
-              }) }
+              })}
             </select>
             <input
               type="number"
-              value={ this.state.attack }
+              value={this.state.attack}
               placeholder="Attack"
-              onChange={ this.update('attack') }/>
+              onChange={this.update('attack')}
+            />
             <input
               type="number"
-              value={ this.state.defense }
+              value={this.state.defense}
               placeholder="Defense"
-              onChange={ this.update('defense') }/>
+              onChange={this.update('defense')}
+            />
             <input
               type="text"
               id="move_1"
-              value={ this.state.moves.move_1 || '' }
+              value={this.state.moves.move_1 || ''}
               placeholder="Move 1"
-              onChange={ this.updateMoves }/>
+              onChange={this.updateMoves}
+            />
             <input
               type="text"
               id="move_2"
-              value={ this.state.moves.move_2 || '' }
+              value={this.state.moves.move_2 || ''}
               placeholder="Move 2"
-              onChange={ this.updateMoves }/>
+              onChange={this.updateMoves}
+            />
           <button>Create Pokemon</button>
         </form>
       </section>

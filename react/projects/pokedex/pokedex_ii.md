@@ -19,9 +19,10 @@ this:
 
 ```js
 const pokemonItems = pokemon.map(poke => {
-  <PokemonIndexItem key={ poke.id } pokemon={ poke } />
+  <PokemonIndexItem key={poke.id} pokemon={poke} />
 });
 
+// And inside the render:
 <section className="pokedex">
   <ul>
     { pokemonItems }
@@ -137,9 +138,9 @@ slice of the app state.
 Your app's `Router` should look like this:
 
 ```js
-<Router history={ hashHistory }>
-  <Route path="/" component={ PokemonIndexContainer } >
-    <Route path="pokemon/:pokemonId" component={ PokemonDetailContainer } />
+<Router history={hashHistory}>
+  <Route path="/" component={PokemonIndexContainer} >
+    <Route path="pokemon/:pokemonId" component={PokemonDetailContainer} />
     </Route>
   </Route>
 </Router>
@@ -181,10 +182,10 @@ forget to render `this.props.children`.
 Your app's `Router` should look like this:
 
 ```js
-<Router history={ hashHistory }>
-  <Route path="/" component={ PokemonIndexContainer }>
-    <Route path="pokemon/:pokemonId" component={ PokemonDetailContainer }>
-      <Route path="item/:itemId" component={ ItemDetailContainer } />
+<Router history={hashHistory}>
+  <Route path="/" component={PokemonIndexContainer}>
+    <Route path="pokemon/:pokemonId" component={PokemonDetailContainer}>
+      <Route path="item/:itemId" component={ItemDetailContainer} />
     </Route>
   </Route>
 </Router>
@@ -296,7 +297,7 @@ want to do two things with the same input, so we must pass it through.
 Your `createPokemon` should look like this:
 
 ```js
-export function createPokemon(pokemon) {
+export const createPokemon = (pokemon) => {
 	return (dispatch) => {
 		return APIUtil.postPokemon(pokemon).then(pokemon => {
 			dispatch(receiveNewPokemon(pokemon));
@@ -330,15 +331,14 @@ different routes!
 On successful submission of your form, redirect the user to the pokemon show page.
 
 
-
 ```js
 
 class PokemonForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPokemon(this.state).then(newPokemon => {
+    this.props.createPokemon(this.state).then((newPokemon) => {
       this.props.router.push(`pokemon/${newPokemon.id}`);
-    })
+    });
   };
 }
 ```

@@ -5,7 +5,7 @@ import {
   RECEIVE_NEW_POKEMON
  } from '../actions/pokemon_actions';
 
-const _defaultPokemon = {
+const defaultPokemon = {
   image_url: '',
   name: '',
   poke_type: '',
@@ -15,7 +15,7 @@ const _defaultPokemon = {
   items: []
 };
 
-export default (state = _defaultPokemon, action) => {
+export default (state = defaultPokemon, action) => {
   switch(action.type){
     case RECEIVE_SINGLE_POKEMON:
     case RECEIVE_NEW_POKEMON:
