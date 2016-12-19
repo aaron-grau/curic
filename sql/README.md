@@ -196,10 +196,9 @@
 
 ## w3d5
 
-### Readings (55 min)
+### Readings (45 min)
 + [Metaprogramming][metaprogramming] (20 min)
 + [Class Instance Variables][class-instance-variables] (15 min)
-+ [instance_eval and class_eval][instance-eval-and-class-eval] (10 min)
 + [Demo: send][meta-send] (5 min)
 + [Demo: macros][meta-macros] (5 min)
 
@@ -213,7 +212,6 @@
 
 [metaprogramming]: readings/metaprogramming.md
 [class-instance-variables]: readings/class-instance-variables.md
-[instance-eval-and-class-eval]: readings/instance-eval-and-class-eval.md
 [meta-send]: demos/send.rb
 [meta-macros]: demos/macros.rb
 [build-your-own-ar]: projects/active_record_lite
