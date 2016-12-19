@@ -1,4 +1,5 @@
 class Actor < ActiveRecord::Base
+
 	has_many :castings,
 		class_name: "Casting",
 		foreign_key: :actor_id,

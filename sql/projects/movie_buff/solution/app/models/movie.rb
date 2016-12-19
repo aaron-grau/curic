@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+
 	belongs_to :director,
 		class_name: "Actor",
 		foreign_key: :director_id,
