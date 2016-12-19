@@ -109,15 +109,15 @@ Check to make sure this works!
 
 #### API Util
 
-Let's refactor our AJAX calls into an `api_util` file. Your API util should export an object with the methods `APIUtil#followUser(id, success)` and `APIUtil#unfollowUser(id, success)`
+Let's refactor our AJAX calls into an `api_util` file. Your API util should export an object with the methods `APIUtil#followUser(id)` and `APIUtil#unfollowUser(id)`
 
 ```js
 const APIUtil = {
-  followUser: (id, success) => {
+  followUser: id => {
     // ...
   },
 
-  unfollowUser: (id, success) => {
+  unfollowUser: id => {
     // ...
   }
 }
