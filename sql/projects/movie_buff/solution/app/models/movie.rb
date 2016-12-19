@@ -4,8 +4,8 @@ class Movie < ActiveRecord::Base
     class_name: "Actor",
     foreign_key: :director_id,
     primary_key: :id
-
-	has_many :castings,
+  
+  has_many :castings,
     class_name: "Casting",
     foreign_key: :movie_id,
     primary_key: :id
