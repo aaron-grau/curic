@@ -5,9 +5,9 @@ import stepsReducer from './steps_reducer';
 import errorsReducer from './error_reducer';
 
 const rootReducer = combineReducers({
-  todosReducer,
-  stepsReducer,
-  errorsReducer
+  todos: todosReducer,
+  steps: stepsReducer,
+  errors: errorsReducer
  });
 
 export default rootReducer;

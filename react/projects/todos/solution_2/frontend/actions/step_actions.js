@@ -25,11 +25,13 @@ export const removeStep = step => ({
 
 // async actions
 export const requestSteps = todoId => dispatch => (
-  StepAPIUtil.fetchSteps(todoId).then(steps => dispatch(receiveSteps(steps)))
+  StepAPIUtil.fetchSteps(todoId)
+  .then(steps => dispatch(receiveSteps(steps)))
 );
 
 export const createStep = (todoId, step) => dispatch => (
   StepAPIUtil.createStep(todoId, step)
+  .then(steps => dispatch(receiveStep(steps)))
 );
 
 

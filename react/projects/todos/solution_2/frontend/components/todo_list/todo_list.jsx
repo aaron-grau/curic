@@ -20,10 +20,10 @@ class TodoList extends React.Component {
 
     return(
       <div>
+        <TodoForm createTodo={ createTodo } errors={ errors }/>
         <ul className="todo-list">
           { todoItems }
         </ul>
-        <TodoForm createTodo={ createTodo } errors={ errors }/>
       </div>
     );
   }
