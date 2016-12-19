@@ -18,14 +18,12 @@ new component. Your `PokemonIndex` should map each pokemon objects in
 this:
 
 ```js
-const pokemonItems = pokemon.map(poke => {
-  <PokemonIndexItem key={poke.id} pokemon={poke} />
-});
+const pokemonItems = pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />);
 
 // And inside the render:
 <section className="pokedex">
   <ul>
-    { pokemonItems }
+    {pokemonItems}
   </ul>
 </section>
 ```
