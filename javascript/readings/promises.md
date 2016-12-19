@@ -54,9 +54,9 @@ First let's define a couple terms:
 
 Promises can exist in one of three states:
 
+  * _pending_: The promise has been neither fulfilled nor rejected.
   * _fulfilled_: The promise's action has succeeded.
   * _rejected_: The promise's action has failed.
-  * _pending_: The promise has been neither fulfilled nor rejected.
 
 A promise is considered **settled** when it has either been fulfilled or rejected.
 
