@@ -6,7 +6,7 @@
 
 HTML is short for "HyperText Markup Language," which tells us several things about it. First, it is a markup language, which means that each piece of information is annotated with a description of what it is (e.g., a paragraph, a link, and image, &c.). Second, its defining characteristic is "HyperText" - the ability to click on a reference to another text and get access to it (i.e., links).
 
-HTML is the standard markup language for creating web pages and web applications. The original specs for HTML, as well as the browser software, were written by Tim Berners-Lee in 1990. Each new version of HTML undergoes a lengthy review process by its publishing body (recently W3C) before being released - for example, HTML5 was published as a working draft in 2008, but not released as a stable recommendation until 2014.
+HTML is the standard markup language for creating web pages and web applications. The original specs for HTML, as well as the browser software, were written by Tim Berners-Lee in 1990. Each new version of HTML undergoes a lengthy review process by its publishing body, the W3C, before being released - for example, HTML5 was published as a working draft in 2008, but not released as a stable recommendation until 2014.
 
 ### HTML5
 
@@ -25,6 +25,7 @@ Semantic HTML means that the HTML tags describe the meaning of the information (
 ### Web Browser
 
 Modern browsers retrieve information stored at the URL entered and "render" the HTML and CSS stored at that location, allowing users to interact with its display. Browsers also interpret any JavaScript files that it is instructed to run. Browsers first parse the HTML and construct a DOM tree, then combine the styling with the HTML to create the render tree. Once the render tree is complete, the browser gives each node its exact coordinates on the page before "painting" all of them.
+
 The first web browser was invented by Tim Berners-Lee in 1990, while the first mainstream browser was Mosaic, created by Marc Andreessen in 1993. Andreessen later started Netscape, and after they released Netscape Navigator in 1994, Microsoft developed Internet Explorer and eventually took over the market (in part by bundling IE with Windows, which was included on almost every PC sold). Netscape created Mozilla in 1998, which is a nonprofit organization that creates open source web products (most popularly, the browser Firefox). Along with Firefox, Safari (developed by Apple and included with Apple's OS X and iOS), Chrome (developed by Google), and IE / Microsoft Edge are the most popular browsers currently in use.
 
 ### Browser Wars
