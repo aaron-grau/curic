@@ -1,14 +1,11 @@
 import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/error_actions';
-import { RECEIVE_TODO } from '../actions/todo_actions';
 
-const stepsReducer = (state = [], action) => {
-  const nextState = Object.assign({}, state);
+
+const errorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ERRORS:
-    console.log(action.errors);
       return action.errors;
-    case RECEIVE_TODO:
     case CLEAR_ERRORS:
       return [];
     default:
@@ -16,7 +13,7 @@ const stepsReducer = (state = [], action) => {
   }
 };
 
-export default stepsReducer;
+export default errorsReducer;
 
 // Sample State Shape
 // [

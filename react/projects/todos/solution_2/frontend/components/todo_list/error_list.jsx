@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ErrorList({ errors }) {
+export default ErrorList = ({ errors }) => {
   if (errors.length === 0) return null;
   const errorItems = errors.map(error => <li key={ error }>{ error }</li>)
 
@@ -9,4 +9,4 @@ export default function ErrorList({ errors }) {
       { errorItems }
     </ul>
   )
-}
+};
