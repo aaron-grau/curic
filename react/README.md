@@ -151,12 +151,14 @@
 
 ## w7d3
 
-### Readings (25 min)
+### Readings (40 min)
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
+- [Nontechnical Overview of React][react-nontech] (15 min)
 
 [jbuilder-intro]: readings/intro_to_jbuilder.md
 [jbuilder_docs]: https://github.com/rails/jbuilder
+[react-nontech]: readings/react_nontech.md
 
 ### Homeworks (10 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal]
@@ -167,7 +169,6 @@
 ### Projects
 - [Jbuilder][jbuilder_exercise]
 - [Pokedex][pokedex]
-
 
 [jbuilder_exercise]: projects/jbuilder
 [pokedex]: projects/pokedex
@@ -239,12 +240,14 @@
 
 **Project Proposal Review Period for Instructional Staff**
 
-### Readings (35 min)
+### Readings (50 min)
 -	[React Map Demo][react_map_demo] (15 min)
-* [Think in React][think_in_react] (20 min)
+- [Think in React][think_in_react] (20 min)
+- [Nontechnical Overview of Redux][redux-nontech] (15 min)
 
 [react_map_demo]: demos/react_map_demo
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
+[redux-nontech]: readings/redux_nontech.md
 
 ### Homework (5 hrs)
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
