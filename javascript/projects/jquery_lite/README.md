@@ -31,15 +31,15 @@ links, an unordered list, etc) into the body. We will be testing our
 library on this document, so give yourself some elements to experiment
 with.
 
-Add a `<script>` tag at the top of the HTML document that sources the actual
-jQuery library. This will allow you to test the functionality of your jQuery
+Add a `<script>` tag at the top of the HTML document that sources [the actual
+jQuery library][jquery-library]. This will allow you to test the functionality of your jQuery
 lite methods.
 
 ### Webpack
 
 Create a `/lib` folder where we will store all of our files. Create a file in `/lib`
 called, `main.js` and boot up `webpack --watch lib/main.js lib/jquery_lite.js`.
-This output file is what we want to source in another`<script>` tag of our html
+This output file is what we want to source in another`<script>` tag in our html
 file. Go ahead and add that script tag now.
 
 ### The core function
@@ -71,8 +71,8 @@ Open `index.html`.
 
 #### `DOMNodeCollection`
 
-* Create a file in `/lib` called `dom_node_collection.js`. We'll define our
-class here and assign it to `module.exports` in order to use it back in our main file.
+* Create a file in `/lib` called `dom_node_collection.js`. We'll define our class
+here and assign it to `module.exports` in order to use it back in our main file.
 
 * Create a new class, call it `DOMNodeCollection`. It should receive an
 **array** of [`HTMLElements`][htmlelement] as its only argument. Store
@@ -227,6 +227,7 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
   function. [Read about promise usage here][promise_doc].
 
 [jquery]: http://api.jquery.com/
+[jquery-library]: https://developers.google.com/speed/libraries/#jquery
 [document-apis]: https://developer.mozilla.org/en-US/
 [append]: http://api.jquery.com/append/
 [promise-reading]: ../../readings/promises.md
