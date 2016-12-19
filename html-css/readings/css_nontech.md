@@ -43,8 +43,8 @@ display styling much less consistently)
 
 There are three ways a developer may add style to an HTML document. External
 CSS is most often preferred, but you will undoubtedly encounter inline and
-internal styles in the wild. They are discussed in order of specificity: inline
-> internal > external
+internal styles in the wild. They are discussed in order of specificity: 
+inline > internal > external
 
 ### Inline Style Attribute
 
