@@ -405,6 +405,7 @@ interact with the database.
 # app/controller/users_controller.rb
 def create
   user = User.new(params[:user].permit(:user_attributes_here))
+  # replace the `user_attributes_here` with the actual attribute keys
   user.save!
   render json: user
 end
@@ -422,14 +423,8 @@ them under an inner hash to use for mass assignment.
 
 ### Handling Submission Errors
 
-What if the user doesn't upload valid parameters for a new user?
-
-```ruby
-puts RestClient.post(
-  url,
-  { user: { name: "Gizmo" } }
-)
-```
+What if the user doesn't upload valid parameters for a new user? Try making
+the same request as before but with no email param, only a name.
 
 This doesn't upload the required email attribute. The controller will
 create a `user` object, but when it calls `save!` the validation will
@@ -462,10 +457,7 @@ is a bit more semantic. Here is a list of the
 
 [rails-codes]: http://guides.rubyonrails.org/layouts_and_rendering.html#the-status-option
 
-**NB**: Sending back a non-200 status code will cause RestClient to raise an
-exception. To avoid this, add a `begin/rescue/end` block to `my_script.rb`.
-Remember, don't naked rescue! RestClient will raise errors that inherit
-from `RestClient::Exception`.
+Make the request again. You should see the error message displayed in Postman.
 
 Now build some other controller actions:
 
@@ -473,12 +465,13 @@ Now build some other controller actions:
 * update (you'll want to use `ActiveRecord::Base#update`)
 * destroy
 
+Think about what each action's purpose is, what
+data is coming in (params), what your controller needs to do with
+models, and what it ultimately should render. Test each of them out
+in Postman as you go!
+
 While you're at it, try refactoring the `params[...].permit(...)`
 stuff into its own method. If you need an example, check out the
 [controllers reading][strong-params-example].
-
-Play around with them. Think about what each action's purpose is, what
-data is coming in (params), what your controller needs to do with
-models, and what it ultimately should render.
 
 [strong-params-example]: ../../readings/basic-controllers.md#drying-out-strong-parameters
