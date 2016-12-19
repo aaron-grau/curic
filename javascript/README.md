@@ -239,6 +239,9 @@
 
 ## w6d2
 
+### Readings (20 min)
+* [CSS Nontechnical Overview][css-nontech] (20 min)
+
 ### Homeworks (150 min)
 * [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
@@ -250,6 +253,7 @@
 * [AA Times][aa-times]
 * **Bonus**: [Google Homepage][css-bonus-assignment]
 
+[css-nontech]: ../html-css/readings/css_nontech.md
 [css-demos]: ../html-css/demos/css_demos#demos
 [aa-times]: ../html-css/projects/aa_times
 [css-bonus-assignment]: ../html-css/projects/google_homepage
