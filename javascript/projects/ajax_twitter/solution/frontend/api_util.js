@@ -33,6 +33,7 @@ const APIUtil = {
   fetchTweets: data => (
     $.ajax({
       url: "/feed",
+      method: "GET",
       dataType: "json",
       data
     })
