@@ -32,14 +32,14 @@ library on this document, so give yourself some elements to experiment
 with.
 
 Add a `<script>` tag at the top of the HTML document that sources [the actual
-jQuery library][jquery-library]. This will allow you to test the functionality of your jQuery
-lite methods.
+jQuery library][jquery-library]. This will allow you to test the functionality
+of your jQuery lite methods by comparing them against the real thing.
 
 ### Webpack
 
 Create a `/lib` folder where we will store all of our files. Create a file in `/lib`
 called, `main.js` and boot up `webpack --watch lib/main.js lib/jquery_lite.js`.
-This output file is what we want to source in another`<script>` tag in our html
+We will source this output file in another`<script>` tag in our html
 file. Go ahead and add that script tag now.
 
 ### The core function
