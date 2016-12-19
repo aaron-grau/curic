@@ -239,8 +239,8 @@
 
 ## w6d2
 
-### Readings
-* [CSS Nontechnical Overview][css-nontech] (25 min)
+### Readings (20 min)
+* [CSS Nontechnical Overview][css-nontech] (20 min)
 
 ### Homeworks (150 min)
 * [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
