@@ -13,19 +13,17 @@ This function, when called with an argument of `dispatch`, can then dispatch one
 or more actions, immediately, or later. Here's an example.
 
 ```js
-const thunkActionCreator = () => (
-  dispatch => {
-    dispatch({
-      type: "RECEIVE_MESSSAGE",
-      message: "This will be dispatched immediately."
-    });
+const thunkActionCreator = () => dispatch => {
+  dispatch({
+    type: "RECEIVE_MESSSAGE",
+    message: "This will be dispatched immediately."
+  });
 
-    setTimeout(() => dispatch({
-      type: "RECEIVE_MESSSAGE",
-      message: "This will be dispatched 1 second later."
-    }, 1000));
-  }
-);
+  setTimeout(() => dispatch({
+    type: "RECEIVE_MESSSAGE",
+    message: "This will be dispatched 1 second later."
+  }, 1000));
+}
 ```
 
 This is great, but without custom middleware it will break as soon as the function
