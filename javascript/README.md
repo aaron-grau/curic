@@ -272,11 +272,11 @@
 [ajax-demo]: https://vimeo.com/162764008
 [ajax-demo-code]: demos/chat_demo
 
-### Readings (60 min)
+### Readings (65 min)
 * [Basic AJAX][basic-ajax] (10 min)
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
 * [Using Rails as an API][rails-api] (10 min)
-* [Promises][promises] (15 min)
+* [Promises][promises] (20 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
 [basic-ajax]: readings/basic-ajax.md
