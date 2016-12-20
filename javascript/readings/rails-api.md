@@ -75,7 +75,7 @@ Our application needs to be able to respond to client-side requests for JSON.
 Lucky for us, Rails is smart enough to route HTTP requests for different data
 types to the corresponding views for that type. If a request with a header for
 `Content-Type: application/json` comes in, `CatsController#index` will
-automatically try to render  `app/views/cats/index.json.jbuilder` instead of the
+automatically try to render `app/views/cats/index.json.jbuilder` instead of the
 `app/views/cats/index.html.erb` view we wrote earlier. All we have to do is
 write that view:
 
@@ -97,7 +97,7 @@ create HTML. We'll continue learning more about and using it soon!
 ## Using the API
 
 If we now use our client-side rendering scripts to make an AJAX `GET` request
-(which sets a `ContentType: application/json` header) to `localhost:3000/cats`,
+(which sets a `Content-Type: application/json` header) to `localhost:3000/cats`,
 instead of our HTML view, we'll get a string of text that looks something like
 this:
 
@@ -111,43 +111,33 @@ this:
 Our client-side JS can then parse and use the information easily to present our
 information dynamically (i.e. according to our instructions).
 
-**NB:** We can still get our old HTML view by making a `ContentType: text/html`
-request to `localhost:3000/cats`, but at this point, who'd want to? STOP LIVING
-IN THE PAST.
+**NB:** We can still get our old HTML view by making a `Content-Type: text/html`
+request to `localhost:3000/cats`, but at this point, who'd want to?
 
-## Nesting API Resources
+## `respond_to`
 
-Although we can rely on Rails content-type routing to delineate what type of
-HTTP responses our web app generates, a better pattern is to nest our API
-endpoints under a namespace.
+Fortunately, controllers are versatile. A single controller can handle both JSON
+and HTML requests. By looking at the requested `Content-Type`, the controller can
+determine which format our response should be populated in and then act
+accordingly.
 
-A **namespace** is just a subset of controllers that live under a specific URL.
+```ruby
+# app/controllers/cats_controller.rb
 
-We'll start off by creating a new controller: `rails g controller API:cats`,
-which is created in the `app/controllers/api/cats_controller.rb` file. Then we
-need to tell our router about our new controller:
+class CatsController < ApplicationController
+	def index
+		@cats = Cat.all
 
-```rb
-# config/routes.rb
-
-resources :cats, only: [:index]
-
-namespace :api do
-	resources :cats, only: [:index]
+		respond_to do |format|
+			format.html { render :index }
+			format.json { render :index }
+		end
+	end
 end
 ```
 
-Running rake routes, we get:
-
-```
-  Prefix Verb URI Pattern         Controller#Action
-    cats GET  /cats(.:format)     cats#index
-api_cats GET  /api/cats(.:format) api/cats#index
-```
-
-Finally, we have to move our `index.json.jbuilder` view to
-`app/views/api/cats/index.json.jbuilder` so our new `Api:CatsController` can
-find it. Now we can access our api endpoint and our HTML view on
-`localhost:3000/api/cats` and `localhost:3000/cats`, respectively.
+Any request for HTML will hit the `index.html.erb` view and any request for JSON
+will hit the `index.json.jbuilder` view. The controller knows where to go based on
+the format.
 
 [wiki]: https://en.wikipedia.org/wiki/Web_API
