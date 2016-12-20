@@ -425,6 +425,8 @@ adding an `errors` slice to our state.
 * Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
 * Add a `mapStateToProps` function in the `PokemonFormContainer` to provide the `PokemonForm` with a list of errors
 
+To test that the errors properly show up, try adding a pokemon with the same name as a pokemon that currently exists in the database. Pokemon names have a `uniqueness: true` constraint, so it should display an error like "Name is already taken".
+
 ## Phase 8: Style
 
 A signification portion of the time you spend working on your full-stack project
