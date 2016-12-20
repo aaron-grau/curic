@@ -13,6 +13,9 @@ $red: #d43316;
     width: 300px;
     height: calc(100% - 10px);
     overflow: scroll;
+    > li a {
+      display: block;
+    }
   }
 }
 

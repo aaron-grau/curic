@@ -386,9 +386,9 @@ internet are good resources if you get stuck! :art:
 In this phase we'll create a 'loading' spinner that displays while we're fetching information from the backend.
 
 * Google search "css spinners" -- pick one you like!
-* Before calling the `apiUtil`, have your async actions also dispatch an action with `type: REQUEST_POKEMON`
+* Before calling the `apiUtil`, have your async actions also dispatch an action with `type: START_LOADING_ALL_POKEMON` for `fetchAllPokemon` and an action with `type: START_LOADING_SINGLE_POKEMON` for `fetchSinglePokemon`.
 * Create a new reducer, the `LoadingReducer`
-  * Your `LoadingReducer` should care about all `REQUEST_` and `RECEIVE_` action types
+  * Your `LoadingReducer` should care about all `START_LOADING_` and `RECEIVE_` action types
   * When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
 * Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
 
