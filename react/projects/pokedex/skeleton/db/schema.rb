@@ -39,4 +39,6 @@ ActiveRecord::Schema.define(version: 20161010221951) do
     t.datetime "updated_at"
   end
 
+  add_index "pokemons", ["name"], name: "index_pokemons_on_name", unique: true, using: :btree
+
 end

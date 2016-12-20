@@ -283,7 +283,7 @@ ActiveRecord::Base.transaction do
       ],
     },
     "29"=>{
-      "name"=>"Nidoran",
+      "name"=>"Nidorana",
       "attack"=>47,
       "defense"=>52,
       "poke_type"=>"poison",
