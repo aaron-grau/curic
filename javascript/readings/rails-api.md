@@ -117,9 +117,9 @@ request to `localhost:3000/cats`, but at this point, who'd want to?
 ## `respond_to`
 
 Fortunately, controllers are versatile. A single controller can handle both JSON
-and HTML requests. By looking at the requested `Content-Type`, the controller can
-determine which format our response should be populated in and then act
-accordingly.
+and HTML requests. By looking at the requested `Content-Type` or the format of the
+URI (i.e., going to `/cats.html` vs `/cats.json`), the controller can determine
+which format our response should be populated in and then act accordingly.
 
 ```ruby
 # app/controllers/cats_controller.rb
