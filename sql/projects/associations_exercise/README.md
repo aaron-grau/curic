@@ -14,7 +14,7 @@ Be sure and check out the `db/schema.rb` to see what you are dealing with.
 
 ## Learning Goals
 
-* Know how to when to write `has_many` and `belongs_to` assiciations
+* Know when to write `has_many` and `belongs_to` associations
 * Know how to use a `foreign_key` and `primary_key`
 * Know how to use ActiveRecord associations to return associated objects
 

@@ -1,5 +1,9 @@
 # ActiveRecordLite: Associations
 
+## Learning Goals
+
+* Develop a deeper understanding of ActiveRecord Associations
+
 ## Phase III: `Associatable`
 
 It's time to move into defining `belongs_to` and `has_many`. We're

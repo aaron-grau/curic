@@ -5,8 +5,8 @@ today!
 
 ## Learning Goals
 
-* Be comfortable writing migrations with indices and constraints
-* Be comfortable writing associations and validations in the model
+* Practice writing migrations with indices and constraints
+* Practice writing associations and validations in the model
 * Know how to use heredocs in your ruby code to write queries
 
 Make sure to refer to the [ActiveRecord documentation][ar-docs] and this [ActiveRecord query guide][ar-guide] for help with writing your queries.

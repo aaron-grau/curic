@@ -5,11 +5,15 @@ Estimated Time: 4 hrs.
 For this project you will be writing ActiveRecord queries against the the actors,
 movies, and castings tables from the SQL Zoo project. We've written rspec tests
 to check that you both return the correct results and query the database the
-correct number of times. Please run them to check your work. 
+correct number of times. Please run them to check your work.
 
 It may be helpful to refer to the [SQL Zoo solutions][sql-zoo-solutions] for guidance as
 you work through these problems. Also make sure to reference the [readings from last
 night][active-record-readings] as well as the [ActiveRecord docs][active-record-docs].
+
+## Learning Goals
+
+* Practice writing ActiveRecord queries
 
 ## Setup
 
@@ -70,5 +74,3 @@ Have fun and good luck!
 [sql-zoo-solutions]: https://github.com/appacademy/curriculum/tree/master/sql/projects/sqlzoo/solution
 [active-record-readings]: https://github.com/appacademy/curriculum/tree/master/sql#readings-65-min
 [active-record-docs]: http://guides.rubyonrails.org/active_record_querying.html
-
-

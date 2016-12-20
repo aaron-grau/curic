@@ -1,8 +1,10 @@
 # Building ActiveRecordLite
 
-In this project, we build our own lite version of ActiveRecord. The
-purpose of this project is for you to understand how ActiveRecord
-actually works: how your ActiveRecord world is translated into SQL.
+In this project, we build our own lite version of ActiveRecord.
+
+## Learning Goals
+
+* Understand how ActiveRecord is translated into SQL
 
 ## Setup
 
