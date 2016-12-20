@@ -157,6 +157,7 @@ mode] that are enforced in strict mode.
 [strict mode]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 
 ### IIFE
+
 An *Immediately-Invoked Function Expression* is a function that is called immediately after it is defined. For example, the following would run right after it is created:
 
 ```javascript
@@ -165,14 +166,41 @@ An *Immediately-Invoked Function Expression* is a function that is called immedi
 })(); // => 'testing'
 ```
 
-### JQuery
+### jQuery
 
-### Underscore.js
+jQuery is a free, open-source JavaScript library that allows its users to
+manipulate the DOM (Document Object Model). It was originally released in 2006,
+and it is now the most widely used JavaScript library on the Internet, being
+installed on 65% of the ten million most-trafficked websites. jQuery includes
+both a variety of functions that can be called on jQuery objects and utility
+functions such as `$.ajax()`. jQuery allows coders a slightly easier way,
+compared to vanilla JavaScript, to do almost everything - it's almost like
+coding in Ruby.
+
+jQuery's utility functions roughly mirror those provided by lodash.js.
 
 ### MEAN stack
 
-### Functional programming (immutable.js, cycle.js, &c.)
+The MEAN stack is comprised of MongoDB, Express, Angular, and Node - all of
+which have a common base of JavaScript. This allows developers to write all of
+their code, from their database to their frontend, in JavaScript. MongoDB is a
+NoSQL database, Express is a "Sinatra-inspired server," Angular is a frontend
+MVC framework, and Node is the server-side JavaScript environment.
 
-### Gulp vs. Grunt vs. Brunch vs. Make vs. JSPM
+### Functional programming
+
+JavaScript, with its treatment of functions as first-class objects, can be
+treated as a functional programming language without too much effort. One
+library that we will use heavily, Redux, uses several patterns and concepts
+from functional programming such as the currying pattern, pure functions, and
+avoiding the mutation of information. These ideas can be extended to encompass
+the entirety of a JavaScript program through the use of various libraries.
+
+Immutable.js, for example, is a library that makes every object immutable; to
+update an object's information, you are forced to replace it with a new object.
 
 ### POJO
+
+A POJO, or Plain Old JavaScript Object, is an object with attributes, getter methods, and setter methods. Since JavaScript objects allow access to their attributes via dot (`obj.attr`) and / or bracket (`obj["attr"]`) notation, any JavaScript object without additional methods is a POJO.
+
+The term comes from Java, with the "J" in the acronym originally having stood for "Java."
