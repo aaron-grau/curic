@@ -125,6 +125,8 @@
 
 ## w1d4
 
+### Study Hall 9 - 10am
+
 ### Assessment01 Practice
 + [Practice][assessment-prep-1]
 
@@ -143,13 +145,13 @@
 ### Readings (40 min)
 + [Why Git][why-git] (10 min)
 + [Git Workflow][git-workflow] (10 min)
-+ [Serialization (JSON and YAML)][serialization] (10 min)
 + [Gems and rbenv][gems] (10 min)
 
 ### Homeworks (20 min)
 + [Git Workflow Exercises][git-workflow-exercises] (20 min)
 
 ### Additional Resources
++ [Serialization (JSON and YAML)][serialization] (10 min)
 + Using [Git add][git-add]
 + [Git Repository Clean Up][git-cleanup]
 + [Faster Git with aliases][aliases]
