@@ -31,7 +31,7 @@ export const requestSteps = todoId => dispatch => (
 
 export const createStep = (todoId, step) => dispatch => (
   StepAPIUtil.createStep(todoId, step)
-  .then(steps => dispatch(receiveStep(steps)))
+  .then(step => dispatch(receiveStep(step)))
 );
 
 
