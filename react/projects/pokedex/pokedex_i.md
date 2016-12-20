@@ -590,6 +590,7 @@ used for testing from our entry point if you haven't already. **Show a TA that y
 
 ---
 
+<<<<<<< HEAD
 ## Phase 4: React Router
 
 Now let's say we want the ability to click on any of the listed pokemon and see
@@ -646,4 +647,6 @@ Instead of rendering the `PokemonIndexContainer` directly, setup a root
 
 ---
 
+=======
+>>>>>>> 528d505429f55ac4dc1272dbd536d30fb9b3028b
 Continue to [Part 2](./pokedex_ii.md).

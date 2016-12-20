@@ -3,6 +3,63 @@
 Check out the live demo [here][live-demo]!
 
 [live-demo]: http://aa-pokedex.herokuapp.com/
+
+## Phase 4: React Router
+
+Now let's say we want the ability to click on any of the listed pokemon and see
+more details about them. In order to maintain a common user interface used
+around the web, we will have the URL define what components the user sees. This
+is exactly what the powerful `react-router` package is for. To use it, navigate
+to `root.jsx` and import the following:
+
+```js
+import { Router, Route, hashHistory } from 'react-router';
+```
+
+Refer to the [react-router documentation][routes-docs] as a reference.
+
+[routes-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
+
+### Adding the `Router`
+
+The React-Router `<Router />` component is responsible for listening for changes
+to our browser's url. When the url changes, the `Router` determines which
+component to render based on which `Route`'s `path` matches the url.
+
+* Wrap the `Router` in your app's `Root` and `Provider`.
+* Pass the router `hashHistory` as a `history` prop.
+
+Your `Root` should now look like this:
+
+```js
+import { Router, Route, hashHistory } from 'react-router';
+
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      // routes will go here
+    </Router>
+  </Provider>
+);
+```
+
+### Adding a `Route`
+
+Instead of rendering the `PokemonIndexContainer` directly, setup a root
+`Route` that will render the component when `path="/"`. Like so:
+
+```js
+<Provider store={ store }>
+  <Router history={ hashHistory }>
+    <Route path="/" component={ PokemonIndexContainer } />
+  </Router>
+</Provider>
+```
+
+**Test that your `PokemonIndex` component still renders at your app's root url**
+
+---
+
 ### `PokemonIndexItem`
 
 Let's refactor your presentational component so that each pokemon object is
@@ -295,14 +352,12 @@ want to do two things with the same input, so we must pass it through.
 Your `createPokemon` should look like this:
 
 ```js
-export const createPokemon = (pokemon) => {
-	return (dispatch) => {
-		return APIUtil.postPokemon(pokemon).then(pokemon => {
-			dispatch(receiveNewPokemon(pokemon));
-			return pokemon;
-		});
-	}
-}
+export const createPokemon = pokemon => dispatch => (
+	APIUtil.postPokemon(pokemon).then(pokemon => {
+		dispatch(receiveNewPokemon(pokemon));
+		return pokemon;
+	});
+);
 ```
 
 In order to get the router to send us to a new location from within the component,

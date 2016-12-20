@@ -5,6 +5,16 @@ classic [Match 2 memory card game][match-memory].
 
 [match-memory]: http://games.aarp.org/games/metro-match/metro-match.aspx
 
+## Learning Goals
+
+* Understand how classes interact in an object-oriented program
+* Be able to use `require-relative`
+* Be able to write the methods `[]` and `[]=` and explain how they work
+* Develop a workflow that uses pry to test small parts of your code
+* Know how to initialize an Array with a default value
+* Know how to use duck typing to allow different classes to interact with your
+program
+
 Write classes for Card, Board, and Game. Please put each class in its own file
 and use `require_relative` to include other files in your program.
 

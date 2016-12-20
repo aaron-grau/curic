@@ -8,16 +8,24 @@ good resources in general, and useful reading during this first week.
 **Note:** Unlike in the prepwork, there are no specs to compare against.
 You'll have to test your code in `pry`.
 
-Start by opening the terminal and changing your directory to the Desktop using 
-the `cd` command. Create a new directory titled W1D1 using the `mkdir` 
-command and then open a new file in Atom called `enumerables.rb` using the 
+## Learning Goals
+
+* Be able to create directories and files from the command line
+* Know how to extend classes
+* Know how to use pry to test methods
+* Be able to write methods that take a block as an argument
+* Get comfortable reasoning about how enumerable methods work with arrays
+
+Start by opening the terminal and changing your directory to the Desktop using
+the `cd` command. Create a new directory titled W1D1 using the `mkdir`
+command and then open a new file in Atom called `enumerables.rb` using the
 `atom` command.
 
 ## [Enumerable][docs-enumerable]
 
 ### My Each
  Extend the Array class to include a method named `my_each` that takes a
- block, calls the block on every element of the array, and then returns
+ block, calls the block on every element of the array, and returns
  the original array. Do not use Enumerable's `each` method. I want to be
  able to write:
 
@@ -51,7 +59,7 @@ a.my_select { |num| num == 4 } # => []
 ```
 
 ### My Reject
-Write `my_reject` to takes a block and return a new array excluding
+Write `my_reject` to take a block and return a new array excluding
 elements that satisfy the block.
 
 Example:

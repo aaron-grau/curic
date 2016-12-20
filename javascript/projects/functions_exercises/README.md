@@ -71,7 +71,7 @@ done.
 
 First off, use `readline.createInterface` to create a global variable,
 `reader`. Use `process.stdin`/`process.stdout` like I do in my
-examples.
+examples. **Make sure to only use one instance of a reader and only close it once**.
 
 Next, write a function, `addNumbers(sum, numsLeft,
 completionCallback)`:

@@ -139,7 +139,7 @@ understand both forms of grabbing arguments.
 
 ## Spread Parameters (ES6+)
 
-ES6 also allows us to use Spread Parameters, which is the Ruby splat for
+ES6 also allows us to use Spread Parameters, which is like the Ruby splat for
 de-structuring parameters. We can now pass an array into a function with the `...`
 as shown below:
 
