@@ -195,17 +195,43 @@ its object-oriented features were late additions.
 
 The most significant difference between Ruby and Python is their communities.
 For better or worse, Ruby's popularity is tied to Rails. Hence Rails is the
-testing ground for many innovations in web development. Airbnb, Apple, Github, Groupon, Shopify, and Twitter all use Rails.
+testing ground for many innovations in web development. Airbnb, Apple, Github,
+Groupon, Shopify, and Twitter all use Rails.
 
-Python developers tend
-to be more conservative in general. Rubyists enjoy many new linguistic
-features before Python developers catch on.
+Python developers tend to be more conservative in general. Rubyists enjoy many
+new linguistic features before Python developers catch on.
 
-Because of the popularity of Rails, the fact that Python is older, and the early
-porting of statistical libraries in R to Python, Python has a more diverse
-community, including many more proponents in data science and academia. Ruby has
-no equivalent to Python's SciPy, NumPy, Matplob lib, or NLTK (Natural Language
-Toolkit) libraries.
+Because of the popularity of Rails, the fact that Python is older, and the
+early porting of statistical libraries in R to Python, Python has a more
+diverse community, including many more proponents in data science and academia.
+Ruby has no equivalent to Python's SciPy, NumPy, Matplob lib, or NLTK (Natural
+Language Toolkit) libraries.
 
 Here's an excellent infographic from UpGuard comparing the two languages:
 [Python versus Ruby](assets/python_vs_ruby.jpg)
+
+## Other Languages
+
+### PHP
+
+### C# / .NET
+
+### Java / Scala
+
+### Perl
+
+### Compiled Languages (C, C++)
+
+### Assembly / Machine Code
+
+## Vocabulary
+
+### TDD (Test-Driven Development)
+
+### BDD (Behavior-Driven Development)
+
+### Unit Test
+
+### Integration Test
+
+### Test Coverage
