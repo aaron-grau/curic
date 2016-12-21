@@ -309,7 +309,7 @@
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
   * You can ignore the last part, which has Backbone code
 
-### Readings (45 min)
+### Readings (60 min)
 * [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
 * [jQuery VII: Triggering][jquery-07-triggering] (5 min)
 * [Event Propagation][event-propagation] (5 min)
