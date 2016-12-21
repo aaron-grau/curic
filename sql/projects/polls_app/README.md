@@ -3,6 +3,15 @@
 In the spirit of enfranchisement, we're going to build a polling app
 today!
 
+## Learning Goals
+
+* Be able to write migrations with indices and constraints
+  * Know how to fix the effects of incorrect migrations
+* Be able to write associations
+* Know how to seed a project's database
+* Be able to write custom validations in the model
+* Be able to solve the N+1 query problem
+
 Make sure to refer to the [ActiveRecord documentation][ar-docs] and this [ActiveRecord query guide][ar-guide] for help with writing your queries.
 
 Generate a new rails project called `PollApp`. Refer to yesterday's instructions if you need a reminder. Don't forget to include a PostgreSQL flag:  `rails new PollApp --database=postgresql`.

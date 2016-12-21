@@ -18,9 +18,18 @@ we can use the `launchy` gem to pop open the original URL in a browser.
 [goo-gl]: https://goo.gl
 [what-is-cli]: http://www.techopedia.com/definition/3337/command-line-interface-cli
 
+## Learning Goals
+
+* Be able to create a new Rails project
+* Be able to navigate a Rails project using the keyboard
+* Be able to change the database using migrations
+* Be able to write both database constraints and model-level validations
+* Be able to write associations
+* Understand the purpose of adding an index to columns in our database
+
 ## Phase I: `User`
 
-Go ahead and create a new rails project...
+Go ahead and create a new Rails project...
 
 ```
 $ rails new URLShortener --database postgresql
@@ -89,7 +98,7 @@ When writing the ShortenedUrl migration remember that we want to be able to find
 
 Along with adding these database level constraints remember to add uniqueness and presence validations on the model level as well.
 
-Once you have your migration and model written how you would like, make sure to run your migrations and test out ShortenedUrl in the rails console.
+Once you have your migration and model written how you would like, make sure to run your migrations and test out ShortenedUrl in the Rails console.
 
 ### Why no `LongUrl` model?
 
@@ -239,7 +248,7 @@ Also, write a distinct-ified version of `visited_urls`.
 
 ## Phase IV: A simple CLI
 
-Write a very simple command-line interface in `bin/cli` (the convention for rails scripts is to omit the extension `.rb`). You already know how to do this-- you have written programs that had CLIs using functions like `puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.). Add these features:
+Write a very simple command-line interface in `bin/cli` (the convention for Rails scripts is to omit the extension `.rb`). You already know how to do this-- you have written programs that had CLIs using functions like `puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.). Add these features:
 
 * Ask the user for their email; find the `User` with this email. You
   don't have to support users signing up through the CLI.
