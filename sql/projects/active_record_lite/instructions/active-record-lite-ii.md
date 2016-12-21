@@ -2,7 +2,10 @@
 
 ## Learning Goals
 
-* Develop a deeper understanding of ActiveRecord Associations
+* Understand how `belongs_to` and `has_many` work in Rails
+* Be able to metaprogram new methods
+* Be able to write association methods that use joins (i.e. `has_many_through`)
+* Know when to write code in a module versus a new class
 
 ## Phase III: `Associatable`
 
