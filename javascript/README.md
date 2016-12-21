@@ -309,12 +309,13 @@
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
   * You can ignore the last part, which has Backbone code
 
-### Readings (45 min)
+### Readings (60 min)
 * [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
 * [jQuery VII: Triggering][jquery-07-triggering] (5 min)
 * [Event Propagation][event-propagation] (5 min)
 * [History and Location][history-location] (5 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
+* [Nontechnical Overview of JavaScript][js-nontech] (15 min)
 
 ### Homeworks (45 min)
 * [Vanilla DOM Manipulation][vanilla-dom] (45 min)
@@ -331,6 +332,8 @@
 [jquery-07-triggering]: readings/jquery-07-triggering.md
 [event-propagation]: readings/event-propagation.md
 [history-location]: readings/history-location.md
+[js-nontech]: readings/js-nontech.md
+
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 [vanilla-dom]: homeworks/questions/vanilla-dom
 
