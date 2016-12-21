@@ -11,7 +11,7 @@ Enter Version Control Systems. Version Control Systems allow us to:
 * Keep a log of changes made to a project
 * Revert the project back to a previous state if we mess something up
 
-Git also gives us additional snazzy abilities, such as the ability to make changes on a special "feature branch" that does not interfere with the "master branch" of the project. When we have finished building the feature, we can merge it into the master branch.
+Git also provides us an easier workflow to develop as a team, such as the ability to separate our work from others using branches. A branch is like a private copy of the main project that can be changed without modifying the original. These branches, when complete, may be merged back into the main project, bringing with it the accumulation of all the little changes made on it.
 
 ## How Git Stores Things
 
@@ -19,7 +19,7 @@ Two important concepts:
 
 1. Git stores data as a series of snapshots.
 
-  * Every time you make a commit, or store your data, Git takes a snapshot of all the files you've changed and stores a reference to that snapshot. We can easily look through previous commits and see what changes were made in each one. This concept of a "stream of snapshots" is what makes Git different from most other Version Control Systems.
+  * Every time you make a commit, or store your data, Git takes a snapshot of all the changes you've made and stores a reference to that snapshot. We can easily look through previous commits and see what changes were made in each one. This concept of a "stream of snapshots" is what makes Git different from most other Version Control Systems.
 
 2. Git performs most operations locally.
 
@@ -31,7 +31,7 @@ While a "master copy" of each repository (aka project) often lives in a remote l
 
 Only when we want to push our changes up to the remote "master copy" or grab other people's changes do we fetch from or push to Github.
 
-For more details on how Git works and how it's different from other Version Control Systems, check out [this excellent and detailed bonus reading][git-reading].
+For more details on how Git works and how it's different from other Version Control Systems, check out [this excellent and detailed reading][git-reading].
 
 [git-reading]: https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
 
@@ -47,6 +47,6 @@ Files can live in three different states: modified, staged, and committed. A typ
 2. You decide which files you want to add to your next commit and add them to the staging area. Your files are now **staged**. Don't want a change to be committed? Simple - don't stage that file.
 3. You commit all of the files in your staging area and create a snapshot which permanently lives in your local Git directory. Your files are now **committed**.
 
-(Note: all of this happens locally. Pushing files to your remote repository is separate business.)
+(Note: all of this happens locally. Pushing files to your remote repository is a separate business.)
 
-Ok, so how do we actually stage and commit files? To be explained in the following readings! 
+Ok, so how do we actually stage and commit files? To be explained in the following readings!

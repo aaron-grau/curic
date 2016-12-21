@@ -8,21 +8,21 @@ your work.
 
 You should use Git's command line interface. When starting your project, there
 are two essential commands.
-```
-    git init
-    git remote add your_alias https://github.com/your_username/your_repo_name
+```bash
+git init
+git remote add your_alias https://github.com/your_username/your_repo_name
 ```
 
 Let's break this down line by line:
 
-* `git init`
+### `git init`
 
 This creates an empty repo in the current directory. Git looks at the current
 directory and its children: this means that you should create the repo at the
 root level of your project. In particular, in a Rails project, you want to run
 `rails new`, `cd` into the directory you just created, then run `git init`.
 
-* `git remote add your_alias https://github.com/your_username/your_repo_name`
+### `git remote add your_alias https://github.com/your_username/your_repo_name`
 
 This command breaks down into the following components:
 
@@ -41,26 +41,24 @@ repo, which you can reference with `your_alias`; time to start working.
 ## Working
 
 Now you've written some code and are ready to commit. You need three commands:
-```
-  git add -A
-  git commit -m "Some comment"
-  git push
+```bash
+git add -A
+git commit -m "Some comment"
+git push
 ```
 Line by line:
 
-* `git add -A`: `git add` will stage file changes for commitment; `-A` is an
-option that will update all files in the entire working tree.
+* `git add file1 file2 ...fileN`: adds changes to listed files to staging area
 
 So far, all we've done is told git to prepare to commit; nothing is persisted to
 the repository.
 
-* `git commit -m '[Your commit message here]'`: `git commit` takes currently staged
-files and stores them in the repository. `-m` is a flag indicating that we want
+* `git commit -m '[Your commit message here]'`:  takes currently staged changes and stores them in the repository. `-m` is a flag indicating that we want
 to write our commit message on the command line rather than in our default editor.
 A commit message is a brief summary of the changes that we're committing. Your
-commit message should be descriptive, so that someone reading your commit history
+commit message should be descriptive and written in the imperative, so that someone reading your commit history
 (maybe you!) can understand what you changed. Always start your commit messages with
-with a capital letter and an imperative verb and leave off any trailing punctuation.
+with a capital letter, an imperative verb and leave off any trailing punctuation.
 
 At this point, our local repository has a record of the commit, but we haven't
 touched the remote repo.
@@ -68,7 +66,7 @@ touched the remote repo.
 * `git push`: this command pushes our local commits to the remote repository.
 The first time you run this, you need to run the command as
 `git push -u your_alias master`, which will set the master branch in the remote
-repo `your_alias` as the upstream tracking branch for your local branch; once you
+repo `your_alias` as the upstream tracking branch for your local branch. Once you
 have set this up, you will be able to run `git push` and git will direct the push
 to the upstream repo. To push to a particular remote, use
 `git push remote_name branch_name` (for example, `git push origin master`).
