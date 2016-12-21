@@ -172,9 +172,8 @@ const onRejected = err => throw err; // rejected; would trigger error
 
 While promises can be a little tricky to understand, they are extremely easy to
 use. The jQuery `ajax` method allows use of success callbacks and also returns a
-promise, so we can use this to compare and contrast the different techniques. We
-can avoid passing a callback to `ajax` by calling `then` on the return value and
-passing the callback to `then`.
+`jqXHR` object, which can be used like a promise. We can avoid passing a callback
+to `ajax` by calling `then` on the return value and passing the callback to `then`.
 
 ```js
 // Passing a callback
@@ -202,8 +201,14 @@ const fetchError = err => console.log(err);
 const fetchCat = catId => $.ajax({ url: `/cats/${catId}` });
 // Note the implicit return!
 
-fetchCat(1).then(fetchSuccess).catch(fetchError);
+fetchCat(1).then(fetchSuccess).fail(fetchError);
 ```
+
+Note how we use `fail` instead of `catch`! That's because the `jqXHR` object has a
+slightly different set of methods than a standard promise. `then` behaves like
+we'd expect, but we use `fail` to handle errors. We also have access to `done`,
+which only takes a success callback, and `always`, which runs its callback upon
+the promise being settled, no matter what.
 
 Promises really excel at error handling and separating concerns. In the second
 example, the `fetchCat` function no longer needs to be involved with or know
