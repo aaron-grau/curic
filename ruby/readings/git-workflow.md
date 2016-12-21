@@ -42,18 +42,23 @@ repo, which you can reference with `your_alias`; time to start working.
 
 Now you've written some code and are ready to commit. You need three commands:
 ```bash
+# add/update specific files
+git add <files>
+# add/update all files
 git add -A
+
 git commit -m "Some comment"
 git push
 ```
 Line by line:
 
-* `git add file1 file2 ...fileN`: adds changes to listed files to staging area
+* `git add <files>`: adds changes to listed files to staging area
+* `git add -A`: adds changes to all files in the working directory to the staging area
 
 So far, all we've done is told git to prepare to commit; nothing is persisted to
 the repository.
 
-* `git commit -m '[Your commit message here]'`:  takes currently staged changes and stores them in the repository. `-m` is a flag indicating that we want
+* `git commit -m '[Your commit message here]'`: takes currently staged changes and stores them in the repository. `-m` is a flag indicating that we want
 to write our commit message on the command line rather than in our default editor.
 A commit message is a brief summary of the changes that we're committing. Your
 commit message should be descriptive and written in the imperative, so that someone reading your commit history
@@ -63,7 +68,7 @@ with a capital letter, an imperative verb and leave off any trailing punctuation
 At this point, our local repository has a record of the commit, but we haven't
 touched the remote repo.
 
-* `git push`: this command pushes our local commits to the remote repository.
+* `git push`: pushes our local commits to the remote repository.
 The first time you run this, you need to run the command as
 `git push -u your_alias master`, which will set the master branch in the remote
 repo `your_alias` as the upstream tracking branch for your local branch. Once you

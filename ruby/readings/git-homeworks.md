@@ -19,6 +19,8 @@ Starting today, and for the duration of the cohort, you will use git to submit a
 * Make initial git commit
   ```bash
   git add W1D1/hw.rb
+  # OR if you want to add/update all files
+  git add -A
   git commit -m "Add w1d1 homework"
   ```
 
