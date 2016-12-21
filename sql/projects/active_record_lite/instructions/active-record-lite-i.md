@@ -4,7 +4,7 @@ In this project, we build our own lite version of ActiveRecord.
 
 ## Learning Goals
 
-* Understand how ActiveRecord is translated into SQL
+* Be able to metaprogram a simple ORM
 
 ## Setup
 
