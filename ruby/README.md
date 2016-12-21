@@ -125,8 +125,6 @@
 
 ## w1d4
 
-### Study Hall 9 - 10am
-
 ### Assessment01 Practice
 + [Practice][assessment-prep-1]
 
