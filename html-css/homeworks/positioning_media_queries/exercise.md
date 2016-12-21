@@ -9,7 +9,7 @@ Use your latest html recipe page with the latest external stylesheet and update 
     - name the outer ul with a class like "hamburger-dropdown"
     - select the containing list element and give it a background using this [hamburger](../../assets/images/hamburger.png) file.
     - set the width/height and background-size to 50px/50px
-    - set the initial siplay of the hamurger-dropdown to none
+    - set the initial display of the hamburger-dropdown to none
     - use a position property on the unordered list within the hamburger-dropdown so that it does not obstruct the flow of the document and it is directly beneath the list element with the hamburger background
     - use a selector like the following to trigger the hover display effect
     
