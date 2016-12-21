@@ -13,7 +13,9 @@ night][active-record-readings] as well as the [ActiveRecord docs][active-record-
 
 ## Learning Goals
 
-* Practice writing ActiveRecord queries
+* Be able to write complicated ActiveRecord queries
+  * Become familiar with more of ActiveRecord's functionalities
+* Know how to test and debug ActiveRecord queries
 
 ## Setup
 
