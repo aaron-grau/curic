@@ -14,8 +14,10 @@ Be sure and check out the `db/schema.rb` to see what you are dealing with.
 
 ## Learning Goals
 
-* Know when to write `has_many` and `belongs_to` associations
-* Know how to use a `foreign_key` and `primary_key`
+* Understand what an ActiveRecord association represents
+* Know when to use `has_many` vs. `belongs_to`
+* Be able to write `has_many` and `belongs_to` associations
+* Know what variables to use as `primary_key`, `foreign_key`, and `class_name`
 * Know how to use ActiveRecord associations to return associated objects
 
 ## `Enrollment`
