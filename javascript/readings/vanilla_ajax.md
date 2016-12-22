@@ -6,7 +6,7 @@ In the course, we will primarily be using the JQuery library to make all of our 
 2. JQuery will automatically transform JSON (which is a string) into JavaScript objects. If we use XHR (the vanilla-DOM way), we have to handle this ourselves.
 3.  JQuery's API is much more user-friendly than XHR.
 
-Although we will be relying on JQuery, you may be asked about non-JQuery AJAX requests in interviews or end up working with a stack that doesn't rely on JQuery. Therefore it is important to know how to use vanilla DOM.
+Although we will be relying on JQuery, you may be asked about non-JQuery AJAX requests in interviews or if you end up working with a stack that doesn't rely on JQuery. Therefore it is important to know how to use vanilla DOM.
 
 ## XMLHttpRequest
 
