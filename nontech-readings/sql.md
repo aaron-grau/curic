@@ -119,6 +119,12 @@ maintaining security
 
 ### Specific SQL/NoSQL Implementations
 
+NB: Some companies may use multiple implementations of SQL or NoSQL or both.
+The best implementation for the job will depend on the type of tool or
+application they are building and what their priorities for it are. For example,
+a company might use MySQL for an internal messaging tool but use Redis for
+their main customer-facing application.
+
 #### PostgreSQL
 
 Known for: being open-source, most standard-compliant, easy set up.
@@ -160,20 +166,28 @@ Used by: Twitter, Instagram, 9GAG, Vine, Hootsuite, AirBnb, Uber, Medium
 ## Terminology
 
 **SQL** - Structured Query Language
+- E.g. "There are many types of joins in SQL."
 
 **RDBMS** - Relational Database Management System
+- E.g. "Oracle is a popular RDBMS because of its enterprise scale."
 
 **Query** - An operation that retrieves data from one or more tables; describes
 desired data, leaving the database management system to plan, optimize, and
 carry out the operations necessary to produce the results
+- E.g. "Our query should retrieve all of the users and their photos."
 
 **Three-Valued (Ternary) Logic** - A many-valued logic system with three truth
 values: True, False, and Unknown (null)
+- E.g. "SQL's use of ternary logic means that we must explicitly check for NULL."
 
 **Transaction** - A unit of work performed against a database that is treated
 in a coherent and reliable way; all of the work within a transaction must
 succeed, or it is rolled back entirely, i.e. "all or nothing"
+- E.g. "Because these operations are in a transaction, we can trust that
+  our data will be consistent across both tables."
 
 **Normalization** - An approach to database storage that practices storing
-references to information in other locations rather than duplicating it and
-storing it in multiple places; opposite of denormalization
+references to information that lives in a different location rather than duplicating it and
+storing it in multiple places; antonym: denormalization
+- E.g. "SQL implementations are typically normalized and therefore avoid
+  repetition of the same data in multiple tables."
