@@ -239,6 +239,10 @@
 
 ## w6d2
 
+### :clock10: Class will start at 10am! :clock10:
+
+* **Progress Tracker reports are still due at 9am.**
+
 ### Readings (20 min)
 * [CSS Nontechnical Overview][css-nontech] (20 min)
 
