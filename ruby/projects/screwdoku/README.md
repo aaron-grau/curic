@@ -47,7 +47,7 @@ If you get stuck and need ideas, reference our [debugging cheatsheet][debugging 
 2. Run `bundle install`.
 3. Start on the `master` branch, which has a working version of the game.
 
-[zip]:./screwedoku.zip?raw=true
+[zip]:https://github.com/appacademy/screwedoku/blob/master/screwedoku.zip?raw=true
 
 ### Gameplay
 
