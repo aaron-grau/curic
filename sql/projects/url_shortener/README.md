@@ -314,22 +314,25 @@ Loading development environment (Rails 3.2.11)
  => [#<Visit id: 1, user_id: 1, shortened_url_id: 1, created_at: "2013-08-18 19:15:55", updated_at: "2013-08-18 19:15:55">]
 ```
 
-## Phase V: `TagTopic`, `Tagging`s
+## Phase V: TagTopic and Tagging
 
 Users should be able to choose one of a set of predefined `TagTopic`s
-for links (news, sports, music, etc.). You should be able to query for
-the most popular links in each category.
+for links (news, sports, music, etc.). Since the relationship between
+`TagTopic`s and `URL`s is many-to-many, you'll need a join model like
+`Tagging`s. Before starting think over with your pair what columns
+should be indexed. Create these models with the appropriate nullity
+and uniqueness constraints and seed your database with some `TagTopic`s
+ and `Taggings`. Write a method `TagTopic#popular_links`, that returns
+ the 5 most visited links for that `TagTopic` along with the number of times each link has
+ been clicked.
 
-**NB**: the relationship between `TagTopic`s and `URL`s is many-to-many. You'll
-need a join model like `Tagging`s.
 
-## Phase VI: Add more validations
+## Phase VI: A Custom Validation
+Write a custom validation method `ShortenedUrl#no_spamming` that keeps
+users from submitting more than 5 URLs in a single minute.
 
-* Length of URL strings < 1024.
-* A custom validation that no more than 5 urls are submitted in the
-  last minute by one user.
 
-## Phase VII: Premium users
+## Phase VII: A Custom Validation and Premium Users
 
 Let's monetize our URL Shortener app.
 
@@ -337,12 +340,54 @@ Let's monetize our URL Shortener app.
 + Now add code to ensure that non-premium users can only create a maximum of
 5 URLs (premium users get unlimited).
 
+
 ## Phase VIII: Pruning Stale URLs
 
-Write a `ShortenedUrl::prune` method that deletes any shortened urls that have
-not been visited in the last (n) minutes. Write a [rake task][rake-tutorial] to
-automate this process. Once you have the basic functionality, adjust it so that
-URLs submitted by premium users are not pruned.
+Write a `ShortenedUrl::prune` method that deletes any shortened URLs
+that have not been visited in the last (n) minutes. You will also need
+to delete any shortened URLs that are older than (n) minutes and have
+never been visited - make sure `ShortenedUrl::prune` only fires a single
+ query. Use the following code snippet in `rails console` to make sure
+ your `prune` method is working as hoped.
+
+```ruby
+u1 = User.create!(email: "jefferson@cats.com", premium: true)
+u2 = User.create!(email: "muenster@cats.com")
+
+su1 = ShortenedUrl.create_for_user_and_long_url!(u1, "www.boxes.com")
+su2 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.meowmix.com")
+su3 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.smallrodents.com")
+
+v1 = Visit.create!(user_id: u1.id, shortened_url_id: su1.id)
+v2 = Visit.create!(user_id: u1.id, shortened_url_id: su2.id)
+
+
+ShortenedUrl.all # should return su1, su2 and su3
+ShortenedUrl.prune(10)
+ShortenedUrl.all # should return su1, su2 and su3
+
+
+# wait at least one minute
+ShortenedUrl.prune(1)
+ShortenedUrl.all # should return only su1
+
+su2 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.meowmix.com")
+v3 = Visit.create!(user_id: u2.id, shortened_url_id: su2.id)
+# wait at least two minutes
+v4 = Visit.create!(user_id: u1.id, shortened_url_id: su2.id)
+
+ShortenedUrl.prune(1)
+ShortenedUrl.all # should return su1 and su2
+
+```
+
+Once you have `ShortenedUrl::prune` working, check out ActiveRecord's
+[dependent: :destroy][destroy] for associations and use it to destroy
+the visits and taggings that belong to old shortened URLs. Once you
+have tested that your taggings and visits are deleted, are being deleted write a
+[rake task][rake-tutorial] to automate this process. Finally, adjust
+`ShortenedUrl::prune` so that URLs submitted by premium users are not pruned.
+
 
 ## Bonuses
 * Alternative URL shortening strategies
@@ -356,5 +401,7 @@ URLs submitted by premium users are not pruned.
   * `ShortenedUrl::top`, sorted by total vote score
   * `ShortenedUrl::hot`, sorted by vote score in the last (n) minutes
 
+
+[destroy]: http://guides.rubyonrails.org/association_basics.html#has-many-association-reference
 [count-distinct-docs]: http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html#method-i-count
 [rake-tutorial]: http://tutorials.jumpstartlab.com/topics/systems/automation.html

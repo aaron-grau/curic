@@ -1,6 +1,19 @@
+# == Schema Information
+#
+# Table name: shortened_urls
+#
+#  id           :integer          not null, primary key
+#  long_url     :string(255)      not null
+#  short_url    :string(255)      not null
+#  submitter_id :integer          not null
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 class ShortenedUrl < ActiveRecord::Base
   validates :long_url, :short_url, :submitter_id, presence: true
   validates :short_url, uniqueness: true
+  validate :no_spamming, :nonpremium_max
 
   belongs_to(
     :submitter,
@@ -9,7 +22,22 @@ class ShortenedUrl < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_many :visits
+  has_many :taggings,
+  primary_key: :id,
+  foreign_key: :shortened_url_id,
+  class_name: :Tagging,
+  dependent: :destroy
+
+  has_many :tag_topics,
+  through: :taggings,
+  source: :tag_topic
+
+  has_many :visits,
+  primary_key: :id,
+  foreign_key: :shortened_url_id,
+  class_name: :Visit,
+  dependent: :destroy
+
   # TA: Again, the association would return the same user multiple times. You
   # may uncomment the lambda below to eliminate duplicates in the result set.
   has_many(
@@ -34,6 +62,7 @@ class ShortenedUrl < ActiveRecord::Base
     end
   end
 
+
   def num_clicks
     visits.count
   end
@@ -53,4 +82,59 @@ class ShortenedUrl < ActiveRecord::Base
       .distinct
       .count
   end
+
+
+  # run `rake prune:old_urls minutes=n` to see this task in action
+  def self.prune(n)
+    ShortenedUrl
+    .joins(:submitter)
+    .joins('LEFT JOIN visits ON visits.shortened_url_id = shortened_urls.id')
+    .destroy_all("(shortened_urls.id IN (SELECT shortened_urls.id
+                                FROM shortened_urls
+                                JOIN visits
+                                  ON visits.shortened_url_id = shortened_urls.id
+                                GROUP BY visits.shortened_url_id
+                                HAVING MAX(visits.created_at) < '#{n.minute.ago}')
+          OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
+          AND users.premium ='f'")
+
+    # The sql for the query would be:
+    #
+    # SELECT shortened_urls.*
+    # FROM shortened_urls
+    # JOIN users ON users.id = shortened_urls.submitter_id
+    # LEFT JOIN visits ON visits.shortened_url_id = shortened_urls.id
+    # WHERE (shortened_urls.id IN (SELECT shortened_urls.id
+    #                              FROM shortened_urls
+    #                              JOIN visits ON visits.shortened_url_id = shortened_urls.id
+    #                              GROUP BY visits.shortened_url_id
+    #                              HAVING MAX(visits.created_at) < '#{n.minute.ago}')
+    #       OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
+    #       AND users.premium ='f'"
+  end
+
+  private 
+
+  def no_spamming
+    last_minute = ShortenedUrl
+    .where("created_at >= ?", 1.minute.ago)
+    .where(submitter_id: submitter_id)
+    .length
+
+    errors[:maximum] << "of five short urls per minute" if last_minute >= 5
+  end
+
+  def nonpremium_max
+    return if User.find(self.submitter_id).premium
+
+    number_of_urls =
+    ShortenedUrl
+    .where(submitter_id: submitter_id)
+    .length
+
+    if number_of_urls >= 5
+      errors[:Only] << "premium members can create more than 5 short urls"
+    end
+  end
+
 end
