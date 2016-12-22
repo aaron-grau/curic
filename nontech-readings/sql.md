@@ -151,7 +151,7 @@ Used by: LinkedIn, Netflix, Ebay, HealthExpense, iFactor
 
 #### MongoDB
 
-Known for: Document-oriented storage (NoSQL), open source, high performance,
+Known for: Document-oriented storage (NoSQL), being open source, high performance,
 ease of use, flexibility, easy maintenance
 
 Used by: Hootsuite, Uber, Foursquare,
@@ -159,7 +159,7 @@ Used by: Hootsuite, Uber, Foursquare,
 #### Redis
 
 Known for: Performance, advanced key-value cache storage (NoSQL), easy
-deployment, open source, speed
+deployment, being open source, speed
 
 Used by: Twitter, Instagram, 9GAG, Vine, Hootsuite, AirBnb, Uber, Medium
 
