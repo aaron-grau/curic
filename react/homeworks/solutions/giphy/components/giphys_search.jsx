@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import GiphysIndex from './giphys_index';
 
-class GiphysSearchBar extends Component {
+class GiphysSearch extends Component {
 
   constructor() {
     super();
@@ -40,4 +40,4 @@ class GiphysSearchBar extends Component {
   }
 }
 
-export default GiphysSearchBar;
+export default GiphysSearch;
