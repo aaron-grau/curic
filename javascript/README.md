@@ -184,9 +184,8 @@
 
 ## w6d1
 
-### Assessment05 Practice
-+ In-class practice assessment at 9am. Please bring your own machine if possible.
-* [Practice][assessment-prep-5]
+### Assessment05
+* [Practice Assessment][assessment-prep-5]
 
 [assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
 
@@ -304,9 +303,6 @@
 [ajax-twitter]: projects/ajax_twitter
 
 ## w6d4
-
-### Assessment05
-* [Practice Assessment][assessment-prep-5]
 
 ### Video Lectures (30 min)
 :closed_lock_with_key: `go_video_go`
