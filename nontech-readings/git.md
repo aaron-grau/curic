@@ -89,7 +89,7 @@ Currently Used By: Bitbucket, OpenOffice
 usually identified by some number/code, a timestamp, and the person who made
 the change.
 
-Ex: "Version control lets the user compare versions, revert to a
+  Ex: "Version control lets the user compare versions, revert to a
 previous version, or merge versions."
 
 + **Open source software** - Software where the original source code is
