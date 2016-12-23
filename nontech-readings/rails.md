@@ -52,7 +52,9 @@ quickly due to all of this configuration being handled. It also means that any
 Rails developer can look at any project and know how to navigate it with less
 extensive documentation.
 
-### REST REST, or Representational State Transfer, is an architectural style
+### REST 
+
+REST, or Representational State Transfer, is an architectural style
 for web services. A RESTful web service allows for access to web resources
 (e.g., a document, image, web page -- practically anything accessible on the
 internet!) using standard operations, such as HTTP's `GET`, `POST`, `PATCH`, or
