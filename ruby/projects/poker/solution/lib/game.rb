@@ -84,7 +84,7 @@ class Game
     puts "High bet: $#{high_bet}"
 
     players.each_with_index do |player, i|
-      puts "Player #{i} has #{player.bankroll}"
+      puts "Player #{i + 1} has #{player.bankroll}"
     end
 
     puts
@@ -110,6 +110,11 @@ class Game
     puts "#{winner.hand} wins $#{pot} with a #{winner.hand.rank}"
     winner.receive_winnings(pot)
     @pot = 0
+    return_cards
+  end
+
+  def return_cards
+    players.each { |player| @deck.return(player.return_cards) }
   end
 
   def winner
@@ -147,13 +152,10 @@ end
 
 def test
   g = Game.new
-  g.add_players(2, 100)
+  g.add_players(5, 100)
   g.play_round
 end
 
 if __FILE__ == $PROGRAM_NAME
-  game = Game.new
-  game.add_players(2, 100)
-  game.play
+  test
 end
-
