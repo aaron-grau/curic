@@ -95,35 +95,35 @@ previous version, or merge versions."
 + **Open source software** - Software where the original source code is
 available to be redistributed and modified.
 
-Ex: "I believe in open source software, like Linux."
+  Ex: "I believe in open source software, like Linux."
 
 + **Proprietary software** - Software that is owned by an individual or
 company. There are usually restrictions to use and source code is often kept
 secret. Proprietary software that comes free of charge is called freeware. 
 
-Ex: "macOS is proprietary software - that's why building hackintoshes is
+  Ex: "macOS is proprietary software - that's why building hackintoshes is
 illegal."
 
 + **Server-based** - There exists a single central repository that each client
 synchronizes with.
 
-Ex: "Gmail is a server-based application."
+  Ex: "Gmail is a server-based application."
 
 + **Peer-to-peer** - Each client holds a complete repository and synchronizes
 by exchanging patches peer-to-peer. This is an example of a **distributed
 system**.
 
-Ex: "Napster was one of the first major peer-to-peer applications."
+  Ex: "Napster was one of the first major peer-to-peer applications."
 
 + **Atomic operations** - Operations whose changes are rolled back if they are
 somehow interrupted before completion. This helps prevent source corruption.
 
-Ex: "The SQL standard requires database operations to be atomic."
+  Ex: "The SQL standard requires database operations to be atomic."
 
 + **Repository (repo)** - A collection of commits, and branches and tags to
 identify commits.
 
-Ex: "I wanted to be able to access it from home, so I pushed it to my Github
+  Ex: "I wanted to be able to access it from home, so I pushed it to my Github
 repo."
 
 + **Semantic versioning (a.b.c or x.y.z versioning)** - Given a version number
@@ -132,7 +132,7 @@ backwards incompatible changes, the MINOR version when you add backwards
 compatible features, and the PATCH version when you make backwards compatible
 bug fixes.
 
-Ex: "Based on the semantic versioning, I can tell that the new version of Ruby
+  Ex: "Based on the semantic versioning, I can tell that the new version of Ruby
 isn't backwards compatible."
 
 <!-- ### Sources
