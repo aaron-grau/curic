@@ -425,7 +425,7 @@ This one's free!
 ```js
 export const fetchAllPokemon = () => {
   return (dispatch) => {
-    return APIUtil.fetchAllPokemon()
+    return APIUtil.getAllPokemon()
       .then(pokemon => dispatch(receiveAllPokemon(pokemon)));
   }
 }
@@ -588,65 +588,4 @@ Now you should see your list of pokemon whenever you refresh the page. Go ahead
 and remove all other extraneous action creators, constants, and code snippets
 used for testing from our entry point if you haven't already. **Show a TA that your pokemon React components render before moving on!**
 
----
-
-<<<<<<< HEAD
-## Phase 4: React Router
-
-Now let's say we want the ability to click on any of the listed pokemon and see
-more details about them. In order to maintain a common user interface used
-around the web, we will have the URL define what components the user sees. This
-is exactly what the powerful `react-router` package is for. To use it, navigate
-to `root.jsx` and import the following:
-
-```js
-import { Router, Route, hashHistory } from 'react-router';
-```
-
-Refer to the [react-router documentation][routes-docs] as a reference.
-
-[routes-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
-
-### Adding the `Router`
-
-The React-Router `<Router />` component is responsible for listening for changes
-to our browser's url. When the url changes, the `Router` determines which
-component to render based on which `Route`'s `path` matches the url.
-
-* Wrap the `Router` in your app's `Root` and `Provider`.
-* Pass the router `hashHistory` as a `history` prop.
-
-Your `Root` should now look like this:
-
-```js
-import { Router, Route, hashHistory } from 'react-router';
-
-const Root = ({ store }) => (
-  <Provider store={store}>
-    <Router history={hashHistory}>
-      // routes will go here
-    </Router>
-  </Provider>
-);
-```
-
-### Adding a `Route`
-
-Instead of rendering the `PokemonIndexContainer` directly, setup a root
-`Route` that will render the component when `path="/"`. Like so:
-
-```js
-<Provider store={store}>
-  <Router history={hashHistory}>
-    <Route path="/" component={PokemonIndexContainer} />
-  </Router>
-</Provider>
-```
-
-**Test that your `PokemonIndex` component still renders at your app's root url**
-
----
-
-=======
->>>>>>> 528d505429f55ac4dc1272dbd536d30fb9b3028b
 Continue to [Part 2](./pokedex_ii.md).

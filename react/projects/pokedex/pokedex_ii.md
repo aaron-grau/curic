@@ -49,6 +49,60 @@ Instead of rendering the `PokemonIndexContainer` directly, setup a root
 `Route` that will render the component when `path="/"`. Like so:
 
 ```js
+<Provider store={store}>
+  <Router history={hashHistory}>
+    <Route path="/" component={PokemonIndexContainer} />
+  </Router>
+</Provider>
+```
+
+**Test that your `PokemonIndex` component still renders at your app's root url**
+
+## Phase 4: React Router
+
+Now let's say we want the ability to click on any of the listed pokemon and see
+more details about them. In order to maintain a common user interface used
+around the web, we will have the URL define what components the user sees. This
+is exactly what the powerful `react-router` package is for. To use it, navigate
+to `root.jsx` and import the following:
+
+```js
+import { Router, Route, hashHistory } from 'react-router';
+```
+
+Refer to the [react-router documentation][routes-docs] as a reference.
+
+[routes-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
+
+### Adding the `Router`
+
+The React-Router `<Router />` component is responsible for listening for changes
+to our browser's url. When the url changes, the `Router` determines which
+component to render based on which `Route`'s `path` matches the url.
+
+* Wrap the `Router` in your app's `Root` and `Provider`.
+* Pass the router `hashHistory` as a `history` prop.
+
+Your `Root` should now look like this:
+
+```js
+import { Router, Route, hashHistory } from 'react-router';
+
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      // routes will go here
+    </Router>
+  </Provider>
+);
+```
+
+### Adding a `Route`
+
+Instead of rendering the `PokemonIndexContainer` directly, setup a root
+`Route` that will render the component when `path="/"`. Like so:
+
+```js
 <Provider store={ store }>
   <Router history={ hashHistory }>
     <Route path="/" component={ PokemonIndexContainer } />
@@ -57,8 +111,6 @@ Instead of rendering the `PokemonIndexContainer` directly, setup a root
 ```
 
 **Test that your `PokemonIndex` component still renders at your app's root url**
-
----
 
 ### `PokemonIndexItem`
 
@@ -142,7 +194,7 @@ Hint: Your state shape will look something like this:
     name: "Rhydon",
     attack: 130,
     defense: 120,
-    image_url: "/assets/pokemon_snaps/112.png",
+    image_url: "/assets/pokemon_snaps/112.svg",
     moves: [
       "horn attack",
       //...
@@ -155,7 +207,7 @@ Hint: Your state shape will look something like this:
         pokemon_id: 5,
         price: 12,
         happiness: 58,
-        image_url: "/assets/pokeball.png"
+        image_url: "/assets/pokemon_potion.svg"
       },
       //...
     ]
@@ -219,7 +271,6 @@ from a pokemon's `PokemonDetail`, the router should redirect to a path
 information about an `Item` within the `PokemonDetail` component. This should be
 implemented without any changes to the application state because items are loaded
 into the `pokemonDetail` slice of state when a single pokemon is selected.
-
 
 * Create an `ItemDetailContainer` that receives an item's information as `props`.
   * When providing the item to the `ItemDetail` component from the
@@ -294,7 +345,6 @@ class ControlledComponent extends React.Component {
 
     this.exampleMethod = this.exampleMethod.bind(this);
   }
-
   //...
 }
 ```
@@ -383,7 +433,6 @@ different routes!
 
 On successful submission of your form, redirect the user to the pokemon show page.
 
-
 ```js
 
 class PokemonForm extends Component {
@@ -442,8 +491,16 @@ internet are good resources if you get stuck! :art:
 
 In this phase we'll create a 'loading' spinner that displays while we're fetching information from the backend.
 
-* Google search "css spinners" -- pick one you like!
-* Before calling the `apiUtil`, have your async actions also dispatch an action with `type: START_LOADING_ALL_POKEMON` for `fetchAllPokemon` and an action with `type: START_LOADING_SINGLE_POKEMON` for `fetchSinglePokemon`.
+We've supplied the [CSS](./skeleton/app/assets/stylesheets/loading-pokeball.scss) for a pokeball spinner that you can use. The css animation requires the following html to function:
+
+```html
+<div id="loading-pokeball-container">
+  <div id="loading-pokeball"></div>
+</div>
+```
+
+* Feel free to use the pokeball spinner we've provided. However, you can also Google "css spinner" to find another spinner to implement!
+* Before calling the `APIUtil`, have your async actions also dispatch an action with `type: START_LOADING_ALL_POKEMON` for `fetchAllPokemon` and an action with `type: START_LOADING_SINGLE_POKEMON` for `fetchSinglePokemon`.
 * Create a new reducer, the `LoadingReducer`
   * Your `LoadingReducer` should care about all `START_LOADING_` and `RECEIVE_` action types
   * When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
@@ -482,7 +539,6 @@ But you should have to refactor the following pieces:
 
 * `PokemonFormContainer`
 * `PokemonForm`
-
 
 ## Bonus: Update Items
 
