@@ -54,9 +54,10 @@ Currently Used By: Intel, Netflix, Yahoo, GitHub
 CVS has been around since the 80s and is considered one of the most mature
 version control systems. It was released under the GNU license as free open
 source software. However, there has not been a new version released since May
-2008. Several factors account for its fall from popularity. CVS does not
-include a version update for moving or renaming files, or for symbolic links,
-commits are not atomic, and branch operations are expensive.
+2008. Several factors account for its fall from popularity. In CVS, moving or
+renaming a file, or changing a file connected via a symbolic link does not
+register as a change; both of these actions are recognized by Git as a change.
+In addition, commits are not atomic, and branch operations are expensive.
 
 ### Apache Subversion (SVN)
 
