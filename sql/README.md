@@ -201,7 +201,7 @@
 + [Class Instance Variables][class-instance-variables] (15 min)
 + [Demo: send][meta-send] (5 min)
 + [Demo: macros][meta-macros] (5 min)
-+ [Nontechnical Overview of SQL][sql-nontech](15 min)
++ [Nontechnical Overview of SQL][sql-nontech] (15 min)
 
 ### Homework (30 min)
 + [Metacorgis][metacorgi-hw] (30 min)
