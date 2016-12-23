@@ -26,9 +26,7 @@ export const createPokemon = pokemon => dispatch => (
 	APIUtil.postPokemon(pokemon).then(pokemon => {
 		dispatch(receiveNewPokemon(pokemon));
 		return pokemon;
-	}, err => {
-		dispatch(receivePokemonErrors(err.responseJSON));
-	})
+	}).fail(err => dispatch(receivePokemonErrors(err.responseJSON)))
 );
 
 export const startLoadingAllPokemon = () => ({
