@@ -99,9 +99,8 @@ about these differences in greater depth.
 ## Flavors of SQL / NoSQL
 
 There are many different databases available. Many of the popular ones today
-use SQL and are relational. A few (MongoDB, Redis) are not. Let's take a look
-at some of the factors that might go into a company's decision of which to use
-out of the many options.
+use SQL and are relational. A few (MongoDB, Redis) are not. Database
+implementations vary (sometimes widely) in the following attributes:
 
 **Licensing & Pricing**: Open source, free, paid, subscription, etc.
 
