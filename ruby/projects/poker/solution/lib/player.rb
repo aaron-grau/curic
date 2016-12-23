@@ -17,29 +17,22 @@ class Player
   end
 
   def respond_bet
-    begin
-      print "(c)all, (b)et, or (f)old? > "
-      response = gets.chomp.downcase[0]
-      raise 'must be (c)all, (b)et, or (f)old' unless ['c', 'b', 'f'].include?(response)
-      case response
-      when 'c' then :call
-      when 'b' then :bet
-      when 'f' then :fold
-      end
-    rescue
-      retry
+    print "(c)all, (b)et, or (f)old? > "
+    response = gets.chomp.downcase[0]
+    case response
+    when 'c' then :call
+    when 'b' then :bet
+    when 'f' then :fold
+    else
+      puts 'must be (c)all, (b)et, or (f)old'
+      respond_bet
     end
   end
 
   def get_bet
-    begin
-      print "Bet (bankroll: $#{bankroll}) > "
-      bet = gets.chomp.to_i
-      raise 'not enough money' unless bet <= bankroll
-    rescue
-      retry
-    end
-
+    print "Bet (bankroll: $#{bankroll}) > "
+    bet = gets.chomp.to_i
+    raise 'not enough money' unless bet <= bankroll
     bet
   end
 

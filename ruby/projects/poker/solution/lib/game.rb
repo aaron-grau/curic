@@ -50,24 +50,26 @@ class Game
 
         display_status(i, high_bet)
 
-        response = player.respond_bet
-        case response
-        when :call
-          add_to_pot(player.take_bet(high_bet))
-        when :bet
-          no_raises = false
-          most_recent_better = player
-          begin
+        begin
+          response = player.respond_bet
+          case response
+          when :call
+            add_to_pot(player.take_bet(high_bet))
+          when :bet
+            raise "not enough money" unless player.bankroll >= high_bet
+            no_raises = false
+            most_recent_better = player
             bet = player.get_bet
             raise "bet must be at least $#{high_bet}" unless bet >= high_bet
-          rescue
-            retry
+            rs = player.take_bet(bet)
+            high_bet = bet
+            add_to_pot(rs)
+          when :fold
+            player.fold
           end
-          rs = player.take_bet(bet)
-          high_bet = bet
-          add_to_pot(rs)
-        when :fold
-          player.fold
+        rescue => error
+          puts "#{error.message}"
+          retry
         end
 
         puts
