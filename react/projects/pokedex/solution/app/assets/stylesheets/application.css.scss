@@ -13,8 +13,7 @@
  *= require_tree .
  *= require_self
  */
-$black: #161616;
-$grey: #747474;
+@import "variables";
 
 html {
   height: 100%;
@@ -22,40 +21,41 @@ html {
 
 body {
   font-family: sans-serif;
-  background: $black;
+  background: white;
   color: $grey;
   font-size: 12px;
   height: 100%;
-  padding-right: 10px;
 }
 
 header {
   display: flex;
+  justify-content: center;
+  background-color: $red;
+
   img {
-    z-index: 1;
-  }
-  div {
-    background: asset-url("pokedex-header-nav.png");
-    width: 100%;
-    height: 46px;
-    margin-right: -10px;
+    width: 43px;
+    height: auto;
   }
 }
 
 nav {
-  position: absolute;
-  top: 45px;
-  width: 100%;
+  width: 900px;
+  background-color: $red;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   ul {
     display: flex;
-    border-bottom: 1px solid grey;
-    padding-left: 220px;
+    justify-content: flex-end;
 
     li {
-
       a {
+        background-color: white;
+        border-radius: 4px;
         color: $grey;
+        font-weight: 700;
         display: block;
         padding: 15px;
         text-decoration: none;
@@ -63,24 +63,34 @@ nav {
         cursor: pointer;
         z-index: 1;
         position: relative;
+        -webkit-transition: box-shadow 0.1s ease-out, background-color 0.1s ease-in-out;
+        -moz-transition: box-shadow 0.1s ease-out, background-color 0.1s ease-in-out;
+        -ms-transition: box-shadow 0.1s ease-out, background-color 0.1s ease-in-out;
+        -o-transition: box-shadow 0.1s ease-out, background-color 0.1s ease-in-out;
+        transition: box-shadow 0.1s ease-out, background-color 0.1s ease-in-out;
 
         &:hover {
+          color: $light-grey;
+          -webkit-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+          -moz-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+          box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+        }
+
+        &:active {
+          background-color: $light-grey;
           color: white;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
         }
       }
     }
-   }
+  }
 }
 
 #root {
-  margin-top: -31px;
   height: 100%;
-
-  > img {
-    position: fixed;
-    top: 25%;
-    left: 25%;
-  }
+  padding-top: 20px;
 }
 
 h2 {
@@ -91,8 +101,4 @@ h3 {
   font-size: 24px;
   text-align: center;
   color: $black;
-}
-
-.spinner {
-  background: url(pokemon_spinner.gif)
 }

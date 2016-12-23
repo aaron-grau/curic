@@ -16,10 +16,10 @@ def create_random_item!(pokemon)
     price: (1..100).to_a.sample,
     happiness: (1..100).to_a.sample,
     image_url: %w(
-      /assets/lucky_egg.png
-      /assets/pokeball.png
-      /assets/pokemon_berry1.png
-      /assets/pokemon_berry2.png
+      /assets/pokemon_berry.svg
+      /assets/pokemon_egg.svg
+      /assets/pokemon_potion.svg
+      /assets/pokemon_super_potion.svg
     ).sample
   )
 end
@@ -250,6 +250,17 @@ ActiveRecord::Base.transaction do
          "bite",
          "acid"
       ],
+    },
+    "25"=>{
+      "name"=>"Pikachu",
+      "attack"=>55,
+      "defense"=>40,
+      "poke_type"=>"electric",
+      "moves"=>[
+        "growl",
+        "electro ball",
+        "feint"
+      ]
     },
     "26"=>{
       "name"=>"Raichu",
@@ -1369,13 +1380,7 @@ ActiveRecord::Base.transaction do
   }
 
   pokemon = pokemon.map do |num, stats|
-    if num.length == 1
-      num = "00#{num}"
-    elsif num.length == 2
-      num = "0#{num}"
-    end
-
-    stats["image_url"] = "/assets/pokemon_snaps/#{num}.png"
+    stats["image_url"] = "/assets/pokemon_snaps/#{num}.svg"
     stats
   end
 
