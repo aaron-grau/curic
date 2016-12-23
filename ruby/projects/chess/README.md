@@ -11,7 +11,7 @@ and using the diagram only as a reference**. It'll be helpful for clearing up
 any confusion about how  classes inherit from or relate  to one another.
 
 You must split your program into multiple files. Use
-[require-relative][require-relative] to load files. Make separate files for each
+[require_relative][require_relative] to load files. Make separate files for each
 class. Give files `snake_case` titles.
 
 Don't forget to keep using Git. Look back at
@@ -20,7 +20,7 @@ you need a reminder. Committing and branching are important habits for
 any kind of software developer.
 
 [chess-uml]: ../../assets/Chess_Diagram.png
-[require-relative]: http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative
+[require_relative]: http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative
 [minesweeper]: ../minesweeper/
 
 ## Learning Goals

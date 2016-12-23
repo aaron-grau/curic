@@ -239,6 +239,10 @@
 
 ## w6d2
 
+### :clock10: Class will start at 10am! :clock10:
+
+* **Progress Tracker reports are still due at 9am.**
+
 ### Readings (20 min)
 * [CSS Nontechnical Overview][css-nontech] (20 min)
 
@@ -272,11 +276,11 @@
 [ajax-demo]: https://vimeo.com/162764008
 [ajax-demo-code]: demos/chat_demo
 
-### Readings (60 min)
+### Readings (65 min)
 * [Basic AJAX][basic-ajax] (10 min)
 * [AJAX Remote Forms][ajax-remote-forms] (10 min)
 * [Using Rails as an API][rails-api] (10 min)
-* [Promises][promises] (15 min)
+* [Promises][promises] (20 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 
 [basic-ajax]: readings/basic-ajax.md
@@ -309,12 +313,13 @@
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
   * You can ignore the last part, which has Backbone code
 
-### Readings (45 min)
+### Readings (60 min)
 * [jQuery VI: Event Delegation][jquery-06-event-delegation] (15 min)
 * [jQuery VII: Triggering][jquery-07-triggering] (5 min)
 * [Event Propagation][event-propagation] (5 min)
 * [History and Location][history-location] (5 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
+* [Nontechnical Overview of JavaScript][js-nontech] (15 min)
 
 ### Homeworks (45 min)
 * [Vanilla DOM Manipulation][vanilla-dom] (45 min)
@@ -323,14 +328,16 @@
 * [Vanilla AJAX][vanilla-ajax]
 
 ### Projects
-* [jQuery Lite][jquery-lite]
-* [Mail][mail]
+* **Solo:** [jQuery Lite][jquery-lite]
+* **Solo:** [Mail][mail]
 * **Bonus:** [Snake][snake-project] using your jQuery Lite
 
 [jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
 [jquery-07-triggering]: readings/jquery-07-triggering.md
 [event-propagation]: readings/event-propagation.md
 [history-location]: readings/history-location.md
+[js-nontech]: readings/js-nontech.md
+
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 [vanilla-dom]: homeworks/questions/vanilla-dom
 
