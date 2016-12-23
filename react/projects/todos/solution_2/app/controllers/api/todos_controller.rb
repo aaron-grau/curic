@@ -2,7 +2,7 @@ class Api::TodosController < Api::ApiController
   before_action :deny_access_if_not_logged_in
 
   def index
-    render json: Todo.all, include: :tags
+    render json: Todo.all.where(user_id: current_user.id), include: :tags
   end
 
   def show

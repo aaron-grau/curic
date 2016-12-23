@@ -10,11 +10,11 @@ We will also learn to use and implement thunk middleware to handle asynchronous 
 
 ## Phase 0
 
-If you haven't already, finish part one of the project through phase 5 (up to, but not including, steps). You will not need to have steps implemented to work with most of todays project, but you will need a working todo form.
+If you haven't already, finish part one of the project through phase 5 (up to, but not including, steps). You will not need to have steps implemented to work with most of today's project, but you will need a working todo form.
 
 ## Phase 1: Rails API
 
-In this phase you will create a Rails API that stores `Todo`s in a database
+In this phase you will create a Rails API that stores todos in a database
 and serves JSON in response to HTTP requests.
 
 **NB**: We first saw use of a Rails API in AJAX Twitter! Today, we will create
@@ -30,7 +30,7 @@ that either fire AJAX requests or render the newest application state.
 Let's get started!
 
 + Create a new rails project using `--database=postgresql` and `--skip-turbolinks`
-+ Update your Gemfile with `pry-rails`, and `annotate`.
++ Update your Gemfile with `pry-rails`, `binding_of_caller`, `better_errors` and `annotate`.
 
 ### Todos
 + Create a `Todo` migration and model with a `title` string (required), a `body` string (required), and a `done` boolean (required).
@@ -47,7 +47,7 @@ Let's get started!
 **Test your setup** - Try creating a couple of todos in your database using the
 Rails console (`rails c`).
 
-+ Create an `Api::TodosController` to handle our API requests for `Todo`s.
++ Create an `Api::TodosController` to handle our API requests for todos.
   + It should create `app/controller/api/todos_controller.rb`.
 + Define `show`, `index`, `create`, `update`, and `destroy` actions in your controller.
 + Make your controller actions serve JSON-formatted responses.
@@ -115,7 +115,7 @@ $.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
 Your entire todos project from yesterday will function as the frontend folder for your rails app with some slight modifications.
 You will also need your `package.json` and `webpack.config.js` which should be put in the root folder, but you do not need `index.html`.
 
-Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than `build`. Don't forget to require your bundle inside of `application.js`.
+Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than the root directory. Don't forget to require your bundle inside of `application.js`.
 
 **Test your setup** - You should be able to visit `localhost:3000` and confirm
 that you have your entire work from yesterday working on `localhost:3000` before continuing.
@@ -238,7 +238,7 @@ This will be very similar to creating todos, (the resulting action will still be
 but we need a different action because we will hit a different route on the back end.
 Add `APIUtil.updateTodo(todo)` and a new thunk action creator `updateTodo(todo)`
 which dispatches `receiveTodo` upon success and `receiveError` on failure.
-Update `toggleTodo` in `TodoListItem` to use your new action instead of calling `receiveTodo` directly. 
+Update `toggleTodo` in `TodoListItem` to use your new action instead of calling `receiveTodo` directly.
 
 #### Deleting Todos
 
@@ -256,38 +256,8 @@ go through the same process with steps! You will have to write:
 * The API Util
 * The async actions
 
-## Phase 4: Authentication
 
-Right now all users of our todo app share the same todos. Let's authenticate users
-and only show them their own todos. You will not need Redux (or JavaScript at all)
-for authentication today. We are going to authenticate our app the same way
-we have up to this point. Frontend authentication is a topic that will be explored later this week.
-
-* Create a user model with a `username` and all other columns needed for authentication.
-* Create a users and session controller with `new` and `create` actions for both and `destroy` for session.
-* Make Rails views for `users/new` and `sessions/new` (they can probably share a form partial).
-* On successful account creation or log in, redirect users to `static_pages#root`.
-* Use `before_action` callbacks to ensure logged in users get redirected from sign in routes to `static_pages#root`
-and logged out users are redirected from `root` to `sessions/new`.
-* Render a log out button inside of `static_pages#root` outside of your react content.
-* Once you can sign up and sign in and out, associate todos with a user! Make a new migration to
-add a `user_id` column to the `todos` table.
-* In the todos controller, associate created todos with the `current_user` like so.
-
-```ruby
-def create
-  @todo = current_user.todos.new(todo_params)
-  # ... etc
-```
-* Do the same for update and destory actions, searching only the current users todos.
-```ruby
-@todo = current_user.todos.find(params[:id])
-```
-* Lastly, modify the `index` action to only render the current user's todos.
-
-You now have a fully authenticated todo app! Celebrate!
-
-## Phase 5: Tags
+## Phase 4: Tags
 
 Let's add tags to our todos.
 
@@ -311,11 +281,43 @@ When we create/update a todo, Rails will automatically call `tag_names=` for us.
 This is similar to writing a custom `password=` method for auth.
 * We need our todos to be rendered with their associated tags. You can tell Rails to
 render associated items with the syntax `render json: @todos, include: :tags`. This approach can get messy
-when including multiple associations. We will use Jbuilder to solve this problem later.
+when including multiple associations. We will use Jbuilder in future projects to solve this problem.
 * In your todo form, add a `tag_names` array to your component state and display `this.state.tag_names` in a `ul` inside the form.
 You will also need an input to add new tags and a button to submit the new tag. However, we must be careful that this button
 does not accidentally submit the form. To avoid this, make sure to use `<button type="button">`. Explicitly setting a type of
 `button` overrides the default type of `submit`. On click of this button, add the input value to the current list of tags and clear the input.
+
+## Phase 5: Authentication
+
+Right now all users of our todo app share the same todos. Let's authenticate users
+and only show them their own todos. You will not need Redux (or JavaScript at all)
+for authentication today. We are going to authenticate our app the same way
+we have up to this point. Frontend authentication is a topic that will be explored later this week.
+
+* Create a user model with a `username` and all other columns needed for authentication.
+* Create a users and session controller with `new` and `create` actions for both and `destroy` for session.
+* Make Rails views for `users/new` and `sessions/new` (they can probably share a form partial).
+* On successful account creation or log in, redirect users to `static_pages#root`.
+* Use `before_action` callbacks to ensure logged in users get redirected from sign in routes to `static_pages#root`
+and logged out users are redirected from `root` to `sessions/new`.
+* Render a log out button inside of `static_pages#root` outside of your react content.
+* Once you can sign up and sign in and out, associate todos with a user! Make a new migration to
+add a `user_id` column to the `todos` table.
+* In the todos controller, associate created todos with the `current_user` like so.
+
+```ruby
+def create
+  @todo = current_user.todos.new(todo_params)
+  # ... etc
+```
+  * Do the same for update and destory actions, searching only the current users todos.
+
+```ruby
+  @todo = current_user.todos.find(params[:id])
+```
+  * Lastly, modify the `index` action to only render the current user's todos.
+
+  You now have a fully authenticated todo app! Celebrate!
 
 ## Bonus
 
