@@ -28,6 +28,8 @@ Modern browsers retrieve information stored at the URL entered and "render" the 
 
 The first web browser was invented by Tim Berners-Lee in 1990, while the first mainstream browser was Mosaic, created by Marc Andreessen in 1993. Andreessen later started Netscape, and after they released Netscape Navigator in 1994, Microsoft developed Internet Explorer and eventually took over the market (in part by bundling IE with Windows, which was included on almost every PC sold). Netscape created Mozilla in 1998, which is a nonprofit organization that creates open source web products (most popularly, the browser Firefox). Along with Firefox, Safari (developed by Apple and included with Apple's OS X and iOS), Chrome (developed by Google), and IE / Microsoft Edge are the most popular browsers currently in use.
 
+Find more information on how browsers work [here][html5rocks-browsers].
+
 ### Browser Wars
 
 The "Browser Wars," a competition for market share during the 90s between Netscape's Navigator and Microsoft's Internet Explorer, saw those two browsers implement different sets of HTML features as well as to create their own features. While today's popular browsers don't have as wide a set of disparities as Netscape and IE did, some newer standards are still interpreted differently between browsers.
@@ -44,3 +46,5 @@ YAML: YAML, short for "YAML Ain't Markup Language," is a version of JSON that re
 ### JSX
 
 JSX is a JavaScript Extension syntax that allows the use of HTML tags inside JavaScript. JSX can quote HTML and can also render "HTML elements," although all JSX compiles into calls to `React.createElement`.
+
+[html5rocks-browsers]: https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
