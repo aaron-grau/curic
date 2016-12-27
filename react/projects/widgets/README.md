@@ -30,7 +30,7 @@ command to install the package on your machine:
 npm install -g http-server
 ```
 
-We can now load the server by simply running `http-server`. Do this in
+We can now load the server (with caching disabled) by simply running `http-server -c-1`. Do this in
 another terminal tab, then navigate to `http://localhost:8080` and
 ensure you can still see your `Widgets` component.
 
