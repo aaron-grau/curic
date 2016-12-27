@@ -47,6 +47,7 @@ class Player
     print "Cards to trade? (ex. '1, 4, 5') > "
     card_indices = gets.chomp.split(', ').map(&:to_i)
     raise 'cannot trade more than three cards' unless card_indices.count <= 3
+    puts
     card_indices.map { |i| hand.cards[i - 1] }
   end
 
