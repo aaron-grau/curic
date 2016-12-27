@@ -196,11 +196,12 @@
 
 ## w3d5
 
-### Readings (45 min)
+### Readings (60 min)
 + [Metaprogramming][metaprogramming] (20 min)
 + [Class Instance Variables][class-instance-variables] (15 min)
 + [Demo: send][meta-send] (5 min)
 + [Demo: macros][meta-macros] (5 min)
++ [Nontechnical Overview of SQL][sql-nontech] (15 min)
 
 ### Homework (30 min)
 + [Metacorgis][metacorgi-hw] (30 min)
@@ -214,5 +215,6 @@
 [class-instance-variables]: readings/class-instance-variables.md
 [meta-send]: demos/send.rb
 [meta-macros]: demos/macros.rb
+[sql-nontech]: readings/sql_nontech.md
 [build-your-own-ar]: projects/active_record_lite
 [metacorgi-hw]: homeworks/questions/meta_corgis

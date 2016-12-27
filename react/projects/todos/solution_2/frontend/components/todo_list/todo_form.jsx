@@ -31,13 +31,17 @@ class TodoForm extends React.Component {
     e.preventDefault();
     const todo = Object.assign({}, this.state);
     this.props.createTodo({ todo }).then(
-      () => this.setState({ title: "", body: "" })
+      () => this.setState({ 
+        title: "",
+        body: "",
+        tag_names: []
+      })
     );
   }
 
   removeTag(idx) {
     this.setState({
-      tag_names: this.state.tag_names.filter((_, idy) => idy !== idx)
+      tag_names: this.state.tag_names.filter((_, index) => index !== idx)
     });
   }
 
