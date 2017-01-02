@@ -35,9 +35,7 @@ our `package.json`. Set up your `webpack.config.js` as well, which
 other than your `entry` file should look the same as it did for
 Widgets. Lastly, remember to source `bundle.js` into `index.html`.
 
-Once you're set up, run `http-server` and navigate to `localhost:8080`
-in your browser. If you get an error, make sure you used the `-g` flag
-when installing it for the Widgets project.
+Once your files are set up, install the development server. Run `npm install --save webpack-dev-server`. Add the following to the `"scripts"` section of your `package.json`: `"start": "webpack-dev-server --inline"`. Run `npm start` to see your project at `http://localhost:8080`.
 
 ## Phase 1: Game
 
