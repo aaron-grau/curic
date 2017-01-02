@@ -278,11 +278,11 @@ them from the back end.
 
 * Create an `api_util.js` file inside your `frontend/util` folder.
   * Inside this file, we'll define functions that make ajax requests fetching information from our rails api.
-* Export a function called `getAllPokemon` that returns a promise.
+* Export a function called `fetchAllPokemon` that returns a promise.
   * The function should make an AJAX request that will make a http request to our `PokemonController#index` endpoint.
   * Run `rake routes` to determine the appropriate url for this request.
 
-Next, define action creator to be called on success of `APIUtil#getAllPokemon`.
+Next, define action creator to be called on success of `APIUtil#fetchAllPokemon`.
 
 * Create a `pokemon_actions.js` file within your `frontend/actions` folder.
 * Export a constant called `RECEIVE_ALL_POKEMON` with the value `"RECEIVE_ALL_POKEMON"`
@@ -310,7 +310,7 @@ export const receiveAllPokemon = pokemon => ({
 
   ```
   const getSuccess = pokemon => console.log(receiveAllPokemon(pokemon));
-  getAllPokemon().then(getSuccess);
+  fetchAllPokemon().then(getSuccess);
   ```
 
 ### `pokemonReducer`
@@ -389,7 +389,7 @@ snippet in the browser's console:
 store.getState(); // should return initial app state
 
 const getSuccess = pokemon => store.dispatch(receiveAllPokemon(pokemon));
-getAllPokemon().then(getSuccess);
+fetchAllPokemon().then(getSuccess);
 
 store.getState(); // should return the app state populated with pokemon
 ```
@@ -416,18 +416,16 @@ they are functions, or `next(action)` if they are not. Reference yesterdays solu
 
 #### Connecting the Dots
 
-Let's add a new thunk action creator `fetchAllPokemon`, dispatching a `RECEIVE_ALL_POKEMON` action if successful.
+Let's add a new thunk action creator `requestAllPokemon`, dispatching a `RECEIVE_ALL_POKEMON` action if successful.
 It should not receive any arguments and should call the `APIUtil`, and then on resolution of the promise,
 dispatch `receiveAllPokemon`.
 
 This one's free!
 
 ```js
-export const fetchAllPokemon = () => {
-  return (dispatch) => {
-    return APIUtil.getAllPokemon()
-      .then(pokemon => dispatch(receiveAllPokemon(pokemon)));
-  }
+export const requestAllPokemon = () => (dispatch) => {
+  return APIUtil.fetchAllPokemon()
+    .then(pokemon => dispatch(receiveAllPokemon(pokemon)));
 }
 ```
 
@@ -435,7 +433,7 @@ export const fetchAllPokemon = () => {
 
 ```js
 store.getState(); // should return initial app state
-store.dispatch(fetchAllPokemon());
+store.dispatch(requestAllPokemon());
 store.getState(); // should return the app state populated with pokemon
 ```
 
@@ -459,7 +457,7 @@ objects. You can use [lodash's values][lodash-values] method.
 const initialState = store.getState();
 selectAllPokemon(initialState); //=> []
 
-store.dispatch(fetchAllPokemon());
+store.dispatch(requestAllPokemon());
 
 const populatedState = store.getState();
 selectAllPokemon(populatedState); //=> array of pokemon objects!
@@ -549,7 +547,7 @@ presentational component.
 
   ```js
   const mapDispatchToProps = dispatch => ({
-    fetchAllPokemon: // dispatch fetchAllPokemon action.
+    requestAllPokemon: // dispatch requestAllPokemon action.
   });
   ```
 
@@ -577,12 +575,12 @@ an unordered list of pokemon names next to corresponding images.
 * Create a `frontend/components/pokemon/pokemon_index.jsx` file.
 * Define and export a *class*, component that renders a `<li>` for each pokemon object in the `this.props.pokemon` array.
   * Display the pokemon's name and a *small* image.
-* Inside of `componentDidMount`, call `this.props.fetchAllPokemon`
+* Inside of `componentDidMount`, call `this.props.requestAllPokemon`
 * Import the container component to `root.jsx`.
 * Nest and render a `<PokemonIndexContainer />` within your `<Root />` component.
 
 **Test your `PokemonIndex` components**: To start, your app should render an empty `ul`
-reflecting your app's initial state, after the request to `fetchPokemon` succeeds the ul should be populated with pokemon. Look for webpack and console errors when debugging.
+reflecting your app's initial state, after the request to `requestAllPokemon` succeeds the ul should be populated with pokemon. Look for webpack and console errors when debugging.
 
 Now you should see your list of pokemon whenever you refresh the page. Go ahead
 and remove all other extraneous action creators, constants, and code snippets

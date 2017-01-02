@@ -8,22 +8,22 @@ export const RECEIVE_POKEMON_ERRORS = 'RECEIVE_POKEMON_ERRORS';
 
 import * as APIUtil from '../util/api_util';
 
-export const fetchAllPokemon = () => dispatch => {
+export const requestAllPokemon = () => (dispatch) => {
 	dispatch(startLoadingAllPokemon());
-	return APIUtil.getAllPokemon()
+	return APIUtil.fetchAllPokemon()
 		.then(pokemon => dispatch(receiveAllPokemon(pokemon)));
 }
 
-export const fetchSinglePokemon = id => dispatch => {
+export const requestSinglePokemon = (id) => (dispatch) => {
 	dispatch(startLoadingSinglePokemon());
-	return APIUtil.getSinglePokemon(id).then(pokemon => {
+	return APIUtil.fetchSinglePokemon(id).then(pokemon => {
 		dispatch(receiveSinglePokemon(pokemon))
 		return pokemon;
 	});
 }
 
 export const createPokemon = pokemon => dispatch => (
-	APIUtil.postPokemon(pokemon).then(pokemon => {
+	APIUtil.createPokemon(pokemon).then(pokemon => {
 		dispatch(receiveNewPokemon(pokemon));
 		return pokemon;
 	}).fail(err => dispatch(receivePokemonErrors(err.responseJSON)))

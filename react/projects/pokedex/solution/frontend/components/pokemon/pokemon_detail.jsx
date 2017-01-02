@@ -4,12 +4,12 @@ import LoadingIcon from './loading_icon';
 
 class PokemonDetail extends Component {
   componentDidMount() {
-    this.props.fetchSinglePokemon(this.props.params.pokemonId);
+    this.props.requestSinglePokemon(this.props.params.pokemonId);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.pokemonId !== nextProps.params.pokemonId) {
-      this.props.fetchSinglePokemon(nextProps.params.pokemonId);
+      this.props.requestSinglePokemon(nextProps.params.pokemonId);
     }
   }
 

@@ -4,7 +4,7 @@ import LoadingIcon from './loading_icon';
 
 class PokemonIndex extends Component {
   componentDidMount() {
-    this.props.fetchAllPokemon();
+    this.props.requestAllPokemon();
   }
 
   render() {

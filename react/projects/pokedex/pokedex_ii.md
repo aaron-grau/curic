@@ -223,7 +223,7 @@ Make sure to **test at each step!**
 requires defining a new constant and action creator for each action.
 * Create a `PokemonDetailReducer` to respond to the `pokemonDetail`
 slice of the app state.
-* Create a `fetchSinglePokemon` thunk action creator.
+* Create a `requestSinglePokemon` thunk action creator.
 * Create a `PokemonDetailContainer` that maps props to `PokemonDetail`.
 * Create a class `PokemonDetail` component that returns information of the pokemon.
 * Add a `Route` that renders the `PokemonDetailContainer` component when the url matches the path `"pokemon/:pokemonId`".
@@ -239,7 +239,7 @@ slice of the app state.
   * Render `this.props.children` in `PokemonIndex`. This will ensure that
   both parent (`PokemonIndexContainer`) and child
   (`PokemonDetailContainer`) components are rendered when a user visits `"/pokemon/:pokemonId"`.
-  * Inside of `PokemonDetail` on `componentDidMount`, call `this.props.fetchSinglePokemon`.
+  * Inside of `PokemonDetail` on `componentDidMount`, call `this.props.requestSinglePokemon`.
   Pass it the pokemon's id from the `this.props.params.pokemonId`.
 
 Your app's `Router` should look like this:
@@ -255,10 +255,10 @@ Your app's `Router` should look like this:
 
 Once it works, try navigating to the route of a different pokemon. Your detail view won't update.
 This is because although the props (`this.props.params.pokemonId`) have changed, the component didn't remount.
-So we never fetched the new pokemon. We need to trigger a fetch on the props changing. There is a lifecycle method
+So we never requested the new pokemon. We need to trigger a request on the props changing. There is a lifecycle method
 we can tap into to accomplish this `componentWillReceiveProps(newProps)`.
 
-* In your `PokemonDetail` componenent, on `componentWillReceiveProps(newProps)`, call `this.props.fetchSinglePokemon(newProps.params.pokemonId)`, but only if  the `pokemonId` has changed. You can check your current props to find out the previous value.
+* In your `PokemonDetail` component, on `componentWillReceiveProps(newProps)`, call `this.props.requestSinglePokemon(newProps.params.pokemonId)`, but only if  the `pokemonId` has changed. You can check your current props to find out the previous value.
 
 **Test your `PokemonDetail` redux cycle and route!** Does it behave like the
 [live demo][live-demo]? Show a TA before moving on.
@@ -500,7 +500,7 @@ We've supplied the [CSS](./skeleton/app/assets/stylesheets/loading-pokeball.scss
 ```
 
 * Feel free to use the pokeball spinner we've provided. However, you can also Google "css spinner" to find another spinner to implement!
-* Before calling the `APIUtil`, have your async actions also dispatch an action with `type: START_LOADING_ALL_POKEMON` for `fetchAllPokemon` and an action with `type: START_LOADING_SINGLE_POKEMON` for `fetchSinglePokemon`.
+* Before calling the `APIUtil`, have your async actions also dispatch an action with `type: START_LOADING_ALL_POKEMON` for `requestAllPokemon` and an action with `type: START_LOADING_SINGLE_POKEMON` for `requestSinglePokemon`.
 * Create a new reducer, the `LoadingReducer`
   * Your `LoadingReducer` should care about all `START_LOADING_` and `RECEIVE_` action types
   * When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
