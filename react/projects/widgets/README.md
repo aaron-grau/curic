@@ -20,23 +20,25 @@ if needed.
 
 [getting_started]: ../../homeworks/getting_started
 
-## Running a Simple Server
+## Running a Simple Development Server
 
-For this project, we're going to use a lightweight HTTP server that we
-can get using `npm`. In your project directory, run the following
-command to install the package on your machine:
+For this project, we're going to use a lightweight development server, `webpack-dev-server`. The benefits of this development server are threefold:
 
+* It automatically watches the project files, re-bundles the `bundle.js` when any of those files change, and refreshes the browser when the new `bundle.js` is ready. This also means that you *will not* have to keep an extra terminal tab open to `webpack --watch`.
+* It allows us to access the served content at `http://localhost:8080`. Now we won't need to open the `index.html` in the browser.
+* It doesn't cache our files like a production server might do by default. This means that we won't have to hard refresh the browser to see the changes to our `bundle.js`.
+
+To install `webpack-dev-server` in your project, run `npm install --save webpack-dev-server`. With the server installed, you could run `webpack-dev-server --inline` in the command line and it should properly serve the project at `http://localhost:8080`.
+
+However, we can make things a bit easier for ourselves by adding a script to the `package.json`. Let's write a script so that we can just type `npm start` in the command line to start the server. To do this, add the `webpack-dev-server --inline` command to the scripts section of the `package.json` like so:
+
+```json
+"scripts": {
+  "start": "webpack-dev-server --inline"
+}
 ```
-npm install -g http-server
-```
 
-We can now load the server (with caching disabled) by simply running `http-server -c-1`. Do this in
-another terminal tab, then navigate to `http://localhost:8080` and
-ensure you can still see your `Widgets` component.
-
-**Tricky Bug**: If you change your javascript code and the sourcemap doesn't change in the browser, check out [this stackoverflow][sourcemap-cache-fail].
-
-[sourcemap-cache-fail]: http://stackoverflow.com/questions/15505311/how-to-get-chrome-to-reload-source-maps
+With this start script, you should now be able to run `npm start` to see your project served at `http://localhost:8080`.
 
 ## Tabs
 
