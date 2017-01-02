@@ -46,7 +46,7 @@ class Game
       no_raises = true
       players.each_with_index do |player, i|
         next if player.folded?
-        break if most_recent_better == player
+        break if most_recent_better == player || round_over?
 
         display_status(i, high_bet)
 
@@ -72,17 +72,13 @@ class Game
           retry
         end
 
-        puts
-        puts "pot: #{@pot}"
-        puts
-
-        return if round_over?
       end
     end
   end
 
   def display_status(index, high_bet)
     puts
+    puts "Pot: $#{@pot}"
     puts "High bet: $#{high_bet}"
 
     players.each_with_index do |player, i|
@@ -108,6 +104,7 @@ class Game
 
   def end_round
     show_hands
+    puts
     puts "WINNER"
     puts "#{winner.hand} wins $#{pot} with a #{winner.hand.rank}"
     winner.receive_winnings(pot)
@@ -155,7 +152,7 @@ end
 def test
   g = Game.new
   g.add_players(5, 100)
-  g.play_round
+  g.play
 end
 
 if __FILE__ == $PROGRAM_NAME
