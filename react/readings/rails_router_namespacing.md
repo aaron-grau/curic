@@ -6,7 +6,7 @@ endpoints under a namespace.
 
 A **namespace** is just a subset of controllers that live under a specific URL.
 
-We'll start off by creating a new controller: `rails g controller API:cats`,
+We'll start off by creating a new controller: `rails g controller Api:cats`,
 which is created in the `app/controllers/api/cats_controller.rb` file. Then we
 need to tell our router about our new controller:
 
