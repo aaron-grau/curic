@@ -163,7 +163,7 @@
 [react-nontech]: readings/react_nontech.md
 
 ### Homeworks (10 min)
-- [Submit your tentative full-stack project proposal][tentative-proposal]
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
   - **Due by 9AM Thursday w7d4**
 
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
@@ -190,7 +190,8 @@
 [on_enter]: readings/on_enter.md
 [with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 
-### Homeworks (30 min)
+### Homeworks (40 min)
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
 - [Rainbow Routes][rainbow_routes] (30 min)
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 
