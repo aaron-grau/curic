@@ -7,7 +7,7 @@
   + Know what the `constructor` property does
   + Know what `__proto__` is
   + Know what `new` does
-	+ Know what `Object.create` does
+  + Know what `Object.create` does
 + Know how to test an inheritance implementation
 
 ### `inherits`
@@ -23,7 +23,7 @@ There are a number of steps:
 * Set `Subclass.prototype = new Surrogate()`
 * Set `Subclass.prototype.constructor = Subclass`
 
-Write a `Function.prototype.inherits` method that will do this for you. 
+Write a `Function.prototype.inherits` method that will do this for you.
 Do not use `Object.create` right now; you should deeply understand what
 the `new` keyword does and how the `__proto__` chain is constructed. This
 will help you in Asteroids today:

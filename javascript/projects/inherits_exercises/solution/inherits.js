@@ -11,8 +11,8 @@ Function.prototype.inherits1 = function (BaseClass) {
 // `Function.prototype.inherits` using `Object.create`
 
 Function.prototype.inherits2 = function (BaseClass) {
-	this.prototype = Object.create(BaseClass.prototype);
-	this.prototype.constructor = this;
+  this.prototype = Object.create(BaseClass.prototype);
+  this.prototype.constructor = this;
 };
 
 function Dog (name) {
@@ -36,7 +36,3 @@ Corgi.prototype.waddle = function () {
 const blixa = new Corgi("Blixa");
 blixa.bark();
 blixa.waddle();
-
-
-
-

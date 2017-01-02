@@ -24,8 +24,8 @@ const Util = {
     return [vec[0] * m, vec[1] * m];
   },
   inherits (ChildClass, BaseClass) {
-		ChildClass.prototype = Object.create(BaseClass.prototype);
-		ChildClass.prototype.constructor = ChildClass;
+    ChildClass.prototype = Object.create(BaseClass.prototype);
+    ChildClass.prototype.constructor = ChildClass;
   },
 
   wrap (coord, max) {
