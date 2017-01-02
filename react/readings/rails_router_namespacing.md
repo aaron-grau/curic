@@ -25,6 +25,6 @@ Running rake routes, we get:
 api_cats GET  /api/cats(.:format) api/cats#index
 ```
 
-Finally, we have to move our `index.json.jbuilder` view to
+Finally, we have to store our `index.json.jbuilder` view in the location 
 `app/views/api/cats/index.json.jbuilder` so our new `Api:CatsController` can
 find it. Now we can access our api endpoint on `localhost:3000/api/cats`.
