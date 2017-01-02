@@ -19,8 +19,8 @@ look at the prototype's `__proto__` property to continue up the
 It is for this reason that we call `Object` the "top level class" in JavaScript.
 
 Inheritance in JavaScript is all about setting up the prototype chain. Let's
-suppose we have `Animal`s and we'd like to have `Dog`s that inherit from
-`Animal`.
+suppose we have an `Animal` class, and we'd like to have a `Dog` class that 
+inherits from `Animal`.
 
 Well, we know that we'll instantiate each of these constructor style:
 
@@ -68,7 +68,7 @@ Dog.prototype.__proto__ = Animal.prototype;
 Dog objects now have access to methods defined on the Animal prototype because
 `Dog.prototype.__proto__` references the Animal prototype.
 
-Using `__proto__`, however, is bad practice. It's behavior was just standardized
+Using `__proto__`, however, is bad practice. Its behavior was just standardized
 in ES2015 and is not supported across all browsers. Furthermore, because of how
 JavaScript searches for and accesses properties in the prototype chain, anything
 that alters the prototype of an object will lead to very poor performance. For
