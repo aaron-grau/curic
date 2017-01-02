@@ -25,7 +25,7 @@ command and then open a new file in Atom called `enumerables.rb` using the
 
 ### My Each
  Extend the Array class to include a method named `my_each` that takes a
- block, calls the block on every element of the array, and then returns
+ block, calls the block on every element of the array, and returns
  the original array. Do not use Enumerable's `each` method. I want to be
  able to write:
 
@@ -59,7 +59,7 @@ a.my_select { |num| num == 4 } # => []
 ```
 
 ### My Reject
-Write `my_reject` to takes a block and return a new array excluding
+Write `my_reject` to take a block and return a new array excluding
 elements that satisfy the block.
 
 Example:

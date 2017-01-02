@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: visits
+#
+#  id               :integer          not null, primary key
+#  user_id          :integer          not null
+#  shortened_url_id :integer          not null
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
 class Visit < ActiveRecord::Base
   validates :user_id, :shortened_url_id, presence: true
 

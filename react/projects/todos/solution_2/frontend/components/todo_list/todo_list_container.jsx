@@ -6,7 +6,8 @@ import { requestTodos, createTodo, updateTodo, destroyTodo } from '../../actions
 import { allTodos } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  todos: allTodos(state), errors: state.errors
+  todos: allTodos(state),
+  errors: state.errors
 });
 
 const mapDispatchToProps = dispatch => ({

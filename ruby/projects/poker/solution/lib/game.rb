@@ -86,15 +86,16 @@ class Game
     end
 
     puts
-    puts "Current player: #{index + 1} has:"
-    puts "Current bet: #{players[index].current_bet}"
-    puts players[index].hand
+    puts "Current player: #{index + 1}"
+    puts "Player #{index + 1} has bet: $#{players[index].current_bet}"
+    puts "The bet is at $#{high_bet}"
+    puts "Player #{index + 1}'s hand: #{players[index].hand}"
   end
 
   def trade_cards
     players.each_with_index do |player, i|
       next if player.folded?
-      print "Player #{i + 1}, number of cards to trade: "
+      print "Player #{i + 1}, which cards do you want to trade: "
       puts player.hand
       cards = player.get_cards_to_trade
       deck.return(cards)

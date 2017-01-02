@@ -12,6 +12,14 @@ Be sure and check out the `db/schema.rb` to see what you are dealing with.
 
 [skeleton]: skeleton.zip?raw=true
 
+## Learning Goals
+
+* Understand what an ActiveRecord association represents
+* Know when to use `has_many` vs. `belongs_to`
+* Be able to write `has_many` and `belongs_to` associations
+* Know what variables to use as `primary_key`, `foreign_key`, and `class_name`
+* Know how to use ActiveRecord associations to return associated objects
+
 ## `Enrollment`
 
 Open the model, `app/models/enrollment.rb`. Add the associations inside the
