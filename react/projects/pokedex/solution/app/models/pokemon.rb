@@ -21,6 +21,7 @@ class Pokemon < ActiveRecord::Base
   has_many :items
 
   validates :attack, :defense, :image_url, :name, :poke_type, presence: true
+  validates :name, uniqueness: true
   validates :attack, :defense, numericality: true
   validates :poke_type, inclusion: { in: TYPES }
 
