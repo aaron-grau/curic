@@ -108,8 +108,6 @@ $.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
 
 [namespace-docs]: http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing
 
----
-
 ## Phase 2: Putting it all together
 
 Your entire todos project from yesterday will function as the frontend folder for your rails app with some slight modifications.
@@ -245,7 +243,7 @@ Update `toggleTodo` in `TodoListItem` to use your new action instead of calling 
 You know the drill! Make your `APIUtil` function, and thunk action creator `deleteTodo` (it should dispatch
 `removeTodo` on success). Update your components to use the new action.
 
-### Phase 3: Steps
+## Phase 3: Steps
 
 Once your todos have all their original functionality back and persisting to the database,
 go through the same process with steps! You will have to write:
