@@ -126,18 +126,20 @@
 
 ## w7d2
 
-### Readings (65 min)
+### Readings (70 min)
 - [Higher-order Functions][higher_order_functions] (15 min)
 - [Middleware][middleware] (15 min)
 - [Thunks][thunks] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
 - [Object.freeze][obj-freeze] (10 min)
+- [Namespacing][namespacing] (5 min)
 
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
 [thunks]: readings/thunks.md
 [redux_api_interactions]: readings/redux_api_interactions.md
 [obj-freeze]: readings/object_freeze.md
+[namespacing]: readings/rails_router_namespacing.md
 
 ### Homework (45 min)
 - [Middleware Homework][middleware_homework] (45 min)
@@ -161,10 +163,15 @@
 [react-nontech]: readings/react_nontech.md
 
 ### Homeworks (10 min)
-- [Submit your tentative full-stack project proposal][tentative-proposal]
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
   - **Due by 9AM Thursday w7d4**
 
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
+
+### Additional Resources
+- [Redux Developer Tools][redux_dev_tools]
+
+[redux_dev_tools]: readings/redux_dev_tools.md
 
 ### Projects
 - [Jbuilder][jbuilder_exercise]
@@ -188,7 +195,8 @@
 [on_enter]: readings/on_enter.md
 [with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
 
-### Homeworks (30 min)
+### Homeworks (40 min)
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
 - [Rainbow Routes][rainbow_routes] (30 min)
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
 
