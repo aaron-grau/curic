@@ -162,10 +162,12 @@
 [jbuilder_docs]: https://github.com/rails/jbuilder
 [react-nontech]: readings/react_nontech.md
 
-### Homeworks (10 min)
+### Homeworks (100 min)
+- [Giphy Homework][giphy_homework] (90 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
   - **Due by 9AM Thursday w7d4**
 
+[giphy_homework]: homeworks/questions/giphy
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 
 ### Additional Resources
