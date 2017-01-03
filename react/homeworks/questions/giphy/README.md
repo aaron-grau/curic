@@ -269,7 +269,8 @@ export const REQUEST_SEARCH_GIPHYS = 'REQUEST_SEARCH_GIPHYS';
 ```
 
 Refactor your `configureStore` function in `store/store.js` to
-incorporate your thunk action creator. We'll use Redux's `thunk` middleware
+incorporate your thunk action creator. Remember that Redux provides 
+`thunk` middleware from the `redux-thunk` module. We'll import Redux's `thunk` middleware
 and `applyMiddleware` function.
 
 Your `store/store.js` file should now include the following:
