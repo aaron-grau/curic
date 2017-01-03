@@ -113,7 +113,7 @@ $.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
 Your entire todos project from yesterday will function as the frontend folder for your rails app with some slight modifications.
 You will also need your `package.json` and `webpack.config.js` which should be put in the root folder, but you do not need `index.html`.
 
-Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than the root directory. Don't forget to require your bundle inside of `application.js`.
+Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than the root directory. Take a look at `application.js`: because it includes the line `//= require_tree .` and the bundled file is in `app/assets/javascripts`, the bundled file will be required for you.
 
 **Test your setup** - You should be able to visit `localhost:3000` and confirm
 that you have your entire work from yesterday working on `localhost:3000` before continuing.
