@@ -202,7 +202,7 @@ Your app's `Router` should look like this:
 Once it works, try navigating to the route of a different pokemon. Your detail view won't update.
 This is because although the props (`this.props.params.pokemonId`) have changed, the component didn't remount.
 So we never requested the new pokemon. We need to trigger a request on the props changing. There is a lifecycle method
-we can tap into to accomplish this `componentWillReceiveProps(newProps)`.
+we can tap into to accomplish this: `componentWillReceiveProps(newProps)`.
 
 * In your `PokemonDetail` component, on `componentWillReceiveProps(newProps)`, call `this.props.requestSinglePokemon(newProps.params.pokemonId)`, but only if  the `pokemonId` has changed. You can check your current props to find out the previous value.
 
@@ -228,8 +228,9 @@ into the `pokemonDetail` slice of state when a single pokemon is selected.
   * `ItemDetailContainer` connects it to the store.
 * Create a nested route that renders the `PokemonIndexContainer`,
 `PokemonDetailContainer` and `ItemDetailContainer` when the path matches
-`/pokemon/:pokemonId/items/:itemId`. Hint: nest your new `Route` and don't
-forget to render `this.props.children`.
+`/pokemon/:pokemonId/items/:itemId`. 
+
+Hint: nest your new `Route` and don't forget to render `this.props.children`.
 
 Your app's `Router` should look like this:
 
@@ -339,8 +340,8 @@ order to push to that URL. We will only have this id after the response has come
 from the server, so we can tack on another `.then` after our promise resolves and
 redirect from there.
 
-Make sure that your `createPokemon` action creator returns the promise and any
-`.then`s you tack onto the end return the pokemon. The reason for this is that
+Make sure that your `createPokemon` action creator returns the promise and that any
+`.then` calls you tack onto the end return the pokemon. The reason for this is that
 when chaining calls to `then` the return value of the previous is passed as the input
 to the next. This can be handy for gradually building up a value, in our case we
 want to do two things with the same input, so we must pass it through.
