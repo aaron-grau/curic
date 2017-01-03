@@ -7,7 +7,7 @@ appropriate actions.
 
 ## Creating an API Utility
 
-The most basic step to setting up an AJAX framework is to create a API Utility
+The most basic step to setting up an AJAX framework is to create an API Utility
 file that exports methods that make requests to a Rails API. Create
 such files in your project's `frontend/utils` directory.
 

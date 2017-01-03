@@ -2,18 +2,9 @@ import React, { Component } from 'react';
 import PokemonIndexItem from './pokemon_index_item';
 import LoadingIcon from './loading_icon';
 
-const PokemonIndexItems = ({ pokemon }) => {
-  return (
-    <ul>
-      { pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />) }
-    </ul>
-  );
-};
-
 class PokemonIndex extends Component {
-
   componentDidMount() {
-    this.props.fetchAllPokemon();
+    this.props.requestAllPokemon();
   }
 
   render() {
@@ -21,10 +12,12 @@ class PokemonIndex extends Component {
     return loading ?
       <LoadingIcon /> :
       <section className="pokedex">
-        <PokemonIndexItems pokemon={ pokemon } children={ children }/>;
-        { children }
+        <ul>
+          {pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />)}
+        </ul>
+        {children}
       </section>
   };
-
 }
+
 export default PokemonIndex;

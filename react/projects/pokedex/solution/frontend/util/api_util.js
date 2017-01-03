@@ -12,7 +12,7 @@ export const fetchSinglePokemon = (id) => {
   });
 };
 
-export const postPokemon = (pokemon) => {
+export const createPokemon = (pokemon) => {
   pokemon.moves = Object.keys(pokemon.moves).map(k => pokemon.moves[k]);
   return $.ajax({
     method: 'POST',

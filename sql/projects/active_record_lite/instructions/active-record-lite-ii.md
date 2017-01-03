@@ -1,5 +1,12 @@
 # ActiveRecordLite: Associations
 
+## Learning Goals
+
+* Understand how `belongs_to` and `has_many` work in Rails
+* Be able to metaprogram new methods
+* Be able to write association methods that use joins (i.e. `has_many_through`)
+* Know when to write code in a module versus a new class
+
 ## Phase III: `Associatable`
 
 It's time to move into defining `belongs_to` and `has_many`. We're
