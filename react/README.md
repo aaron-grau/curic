@@ -163,8 +163,8 @@
 [react-nontech]: readings/react_nontech.md
 
 ### Homeworks (100 min)
-- [Giphy Homework][giphy_homework]
-- [Submit your tentative full-stack project proposal][tentative-proposal]
+- [Giphy Homework][giphy_homework] (90 min)
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
   - **Due by 9AM Thursday w7d4**
 
 [giphy_homework]: homeworks/questions/giphy
