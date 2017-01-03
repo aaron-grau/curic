@@ -174,7 +174,7 @@ options that are available.
   Ex: "_Redux stores state in a single store._"
 
   The Redux store is a single JavaScript object with a few methods, including
-  `getState`, `dispatch(action)`, and `subscribe(listener`. Any state you want
+  `getState`, `dispatch(action)`, and `subscribe(listener)`. Any state you want
   Redux to handle is held in the store.
 
 * **Action**

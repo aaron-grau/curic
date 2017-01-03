@@ -65,4 +65,4 @@ For example, it would be hard to test card.hide by calling the method below.  Th
 
 There's way too much going on for your brain to easily tell when card.hide *actually* gets called.  And it's hard to tell if anything else is changing `face_up` on the card.  Instead, try to test one card on its own.
 
-Benefits: You saved at least five minutes by testing small instead of hacking through large crap.  You have to test your code many times a day (almost every time you make a change).  Imagine that savings multiplied over and over.  You're saving *hours* of your day by testing small.
+Benefits: You saved at least five minutes by testing small instead of hacking through a huge block of buggy code.  You have to test your code many times a day (almost every time you make a change).  Imagine that savings multiplied over and over.  You're saving *hours* of your day by testing small.

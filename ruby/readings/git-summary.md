@@ -7,8 +7,8 @@
 
 * Use this to see what modified files have not been staged, what
   files are untracked.
-      
-```
+
+```bash
 ~/aa/ruby-curriculum$ git status
 # On branch master
 # Changes not staged for commit:
@@ -29,8 +29,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 * Use this to add files to staging. When you `git add` a file, the
   next time you commit, this version will be saved in the repo.
+* NOTE: `git add` only adds the changes you have made thus far. This means that is you add a file's changes to staging, make more changes to it, then commit without re-`git add`ing it, those recent changes will not be committed.
 
-```
+```bash
 ~/aa/ruby-curriculum$ git status
 # On branch master
 # Changes not staged for commit:
@@ -71,7 +72,7 @@ This will save the work currently staged (from `git add`) into the
 history by creating a new *commit*. A commit is a checkpoint that you
 can return to later if your code gets screwed up.
 
-**Commit very often**. As you add small bits of functionality, write
+**Commit frequently**. As you add small bits of functionality, write
 fine-grained commits. Do not wait until you've written half your
 program to commit.
 
@@ -86,7 +87,7 @@ often if you add quick-to-write features.
 * `git reset`
 
 If you add something you don't want to add, and would like to unstage
-all staged changes (so that the staged files return to "stages not
+all staged changes (so that the staged files return to "Changes not
 staged for commit"), use `git reset`.
 
 ## Later

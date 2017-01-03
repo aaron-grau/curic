@@ -8,7 +8,7 @@ classic [Match 2 memory card game][match-memory].
 ## Learning Goals
 
 * Understand how classes interact in an object-oriented program
-* Be able to use `require-relative`
+* Be able to use `require_relative`
 * Be able to write the methods `[]` and `[]=` and explain how they work
 * Develop a workflow that uses pry to test small parts of your code
 * Know how to initialize an Array with a default value

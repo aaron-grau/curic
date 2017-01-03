@@ -10,5 +10,6 @@ class CreatePokemons < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :pokemons, :name, unique: true
   end
 end

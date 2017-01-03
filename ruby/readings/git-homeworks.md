@@ -5,21 +5,23 @@ Starting today, and for the duration of the cohort, you will use git to submit a
 ## Setup
 
 * Create a new folder in the directory of your choosing
-  ```
+  ```bash
   cd Documents/app_academy/
   mkdir homeworks
   ```
 
-* Initialize an empty git repository in your new directory
-  ```
+* Initialize empty git repository in your new directory
+  ```bash
   cd homeworks
   git init
   ```
-
-* Make an initial git commit
-  ```
+* Complete W1D1 homework
+* Make initial git commit
+  ```bash
+  git add W1D1/hw.rb
+  # OR if you want to add/update all files
   git add -A
-  git commit -m "Create homeworks repo"
+  git commit -m "Add w1d1 homework"
   ```
 
   * **NB: git commit messages should start with capitalized verbs in the present tense that tell what the commit does and should not have any trailing punctuation**
@@ -34,7 +36,7 @@ Starting today, and for the duration of the cohort, you will use git to submit a
   git remote add origin https://github.com/YOUR_USERNAME/homeworks.git
   ```
 * Push to the remote
-  ```
+  ```bash
   git push origin master
   ```
 

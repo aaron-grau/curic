@@ -186,11 +186,12 @@
 * [:movie_camera:  (cc) 15-helpers][15-helpers] (13 min)
 * [:movie_camera: layouts][layout-video] (10 min)
 
-### Readings (60 min)
+### Readings (75 min)
 * [ActionMailer][action-mailer] (20 min)
 * [View helpers][view-helpers] (15 min)
 * [View layouts][view-layouts] (10 min)
 * [View partials][view-partials] (15 min)
+* [Nontechnical Overview of Rails][rails-nontech] (15 min)
 
 ### Homeworks (30 min)
 * [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
@@ -205,6 +206,7 @@
 [view-helpers]: readings/helpers.md
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
+[rails-nontech]: readings/rails_nontech.md
 [helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
