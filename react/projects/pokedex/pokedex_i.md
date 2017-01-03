@@ -474,7 +474,7 @@ store, middleware and selector).
 
 ### The `Root` Component
 
-* Create a `Root` component that will be responsible for rendering all of
+* Create a `Root` component that will be responsible for rendering all of the
 app's React components.
     * `Root` should be a *stateless* component (i.e. a *functional component*).
     * It will be passed the app's  Redux`store` as a prop.
@@ -520,7 +520,7 @@ Remember that there are two types of React components: presentational components
 and container components. **Container components** (i.e. containers) are
 concerned with subscribing to the store, reading from state, and passing down
 necessary props to presentational components. Our **presentational components**
-are concerned with rendering JSX and defining user interface.
+are concerned with rendering JSX and defining the user interface.
 
 #### `PokemonIndexContainer`
 
@@ -539,7 +539,7 @@ presentational component.
 
   ```js
   const mapStateToProps = state => ({
-    // piece of state to container subscribes to
+    // piece of state that container subscribes to
   });
   ```
 
