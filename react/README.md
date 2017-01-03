@@ -169,7 +169,7 @@
 [tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 
 ### Additional Resources
--[Redux Developer Tools][redux_dev_tools]
+- [Redux Developer Tools][redux_dev_tools]
 
 [redux_dev_tools]: readings/redux_dev_tools.md
 
