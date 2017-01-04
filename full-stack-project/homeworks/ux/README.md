@@ -3,6 +3,8 @@
 This exercise will help you practice creating usable, visually pleasing
 layouts around existing content.
 
+Begin by downloading the [skeleton][skeleton].
+
 Apply the UX concepts you know to create CSS layouts for the `index.html` and
 `splash.html` pages of a note-taking app. You will need to reorganize the
 information, apply relevant markup, and add styling.
@@ -35,3 +37,4 @@ background, main, and accent. You can get inspiration from [colourlovers][colors
 [fonts]: https://fonts.google.com/
 
 [screenshots]: ./screenshots
+[skeleton]: ./skeleton.zip
