@@ -1,13 +1,17 @@
 import { connect } from 'react-redux';
 import PokemonDetail from './pokemon_detail';
-import { fetchSinglePokemon } from '../../actions/pokemon_actions';
+import { requestSinglePokemon } from '../../actions/pokemon_actions';
 
-const mapStateToProps = ({ pokemonDetail, loading }) => {
-  return { pokemonDetail, loading: loading.detailLoading };
-};
+const mapStateToProps = ({ pokemonDetail, loading }) => ({
+  pokemonDetail,
+  loading: loading.detailLoading
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return { fetchSinglePokemon: (id) => dispatch(fetchSinglePokemon(id)) };
-}
+const mapDispatchToProps = dispatch => ({
+  requestSinglePokemon: id => dispatch(requestSinglePokemon(id))
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(PokemonDetail);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PokemonDetail);
