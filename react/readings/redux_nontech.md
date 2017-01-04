@@ -27,7 +27,7 @@ quickly becomes repetitive and frustrating. Abramov envisioned dev tools that
 would allow one to undo or replay a series of actions at the click of a button.
 This idea became the Redux dev tools.
 
-The reason this works, as discussed above, is that Redux uses pure reducers, so
+The reason this works is that Redux updates the state using pure functions called reducers (see below for definitions), so
 one can simply replay a series of actions and be guaranteed to arrive at the
 same final state. As Redux was developed it also became more convenient to use
 a single object to store the state, as opposed to traditional Flux which uses
@@ -53,12 +53,12 @@ Beyond this, a guiding meta-philosophy of Redux is the idea that in a software
 library restrictions can be just as important as features. Redux deliberately
 places significant restrictions on the way state can be stored and updated, but
 in return it allows easy implementation of a number of powerful features that
-would extremely difficult to write using a less restrictive framework.
+would be extremely difficult to write using a less restrictive framework.
 
 Since its creation Redux has rapidly grown in popularity, quickly moving beyond
 its initial plan as an experiment. As of early 2016 it had over 3,000,000
 downloads. The redux repository on github has over 25,000 stars, and redux is
-now used by a number of major companies including Exana, Patreon, and
+now used by a number of companies including Exana, Patreon, and
 ClassPass.
 
 
@@ -104,7 +104,7 @@ options that are available.
   are created. Each function expects to receive arguments of a certain type,
   and the code won't compile if that expectation isn't satisfied. All Elm
   functions are pure. This last fact influenced the use of pure reducers in
-  Redux. In fact, much of the overall design pattern form Redux was inspired by
+  Redux. In fact, much of the overall design pattern for Redux was inspired by
   Elm.
 
   Elm is still in its early stages, but it has been adopted by a few companies
@@ -141,7 +141,7 @@ options that are available.
 
   Web development is always a rapidly changing landscape, so it's only fitting
   to conclude this brief review with a technology that's even newer than Redux.
-  MobX was developed a few months after Redux. The inspiration from MobX comes
+  MobX was developed a few months after Redux. The inspiration for MobX comes
   from spreadsheet programs such as Microsoft Excel. In such a program, one can
   simply define the value of one cell in terms of another cell, and when the
   second cell is changed, the first will be updated as well. There is no need
