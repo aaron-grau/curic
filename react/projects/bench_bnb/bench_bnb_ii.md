@@ -831,13 +831,14 @@ Add a text field in the bench form to allow the user to enter a url.
 Display these pictures on both the show page and the index.
 
 2. Each time the user adds an image, we actually want to store our own copy of that image.
-The image url in your database should point to that copy, rather than the original.
-This is easy to do using [Cloudinary][cloudinary-js].
-Remove the url text-field from your form and replace it with an add-image button.
-The button should open the Cloudinary upload_widget which will allow you to drag-and-drop an image or supply a url, and will return the url for your new copy of the image.
-Checkout the Cloudinary video and corresponding code at this [link][lightning-talks] for details on how to create your own Cloudinary account and add the widget to your app.
-If step (1) was working properly, you shouldn't have to change your backend at all.
-**Note:** Since this site isn't going on Heroku, you can just put the `upload_preset` and `cloud_name` straight into your jsx file; no need to use the Figaro gem.
+ The image url in your database should point to that copy, rather than the original.
+ This is easy to do using [Cloudinary][cloudinary-js].
+ Remove the url text-field from your form and replace it with an add-image button.
+ The button should open the Cloudinary upload_widget which will allow you to drag-and-drop an image or supply a url, and will  return the url for your new copy of the image.
+ Checkout the Cloudinary video and corresponding code at this [link][lightning-talks] for details on how to create your own  Cloudinary account and add the widget to your app.
+ If step (1) was working properly, you shouldn't have to change your backend at all.
+
+ **Note:** Since this site isn't going on Heroku, you can just put the `upload_preset` and `cloud_name` straight into your jsx file; no need to use the Figaro gem.
 
 
 ## BONUSES!
