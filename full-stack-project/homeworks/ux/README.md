@@ -1,5 +1,4 @@
 # JotItDown
-<!-- TODO: allow scss  -->
 
 This exercise will help you practice creating usable, visually pleasing
 layouts around existing content.
@@ -7,6 +6,10 @@ layouts around existing content.
 Apply the UX concepts you know to create CSS layouts for the `index.html` and
 `splash.html` pages of a note-taking app. You will need to reorganize the
 information, apply relevant markup, and add styling.
+
+The splash page should clearly introduce the site's purpose to a user and direct them to sign up / sign in / sign out. You will likely want to style a nav bar.
+
+The index page should probably include at least a nav bar, a footer, form styles, and container styles for list and item content.
 
 Tips:
 * Keep visual hierarchy and web layout conventions in mind.
