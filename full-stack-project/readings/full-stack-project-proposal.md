@@ -80,6 +80,9 @@ would be absolutely necessary for the app to be marketable. Your MVP section mus
 
 ### Wireframes
 
+Annotate your wireframes. Which React component corresponds to
+each element? Keep grids in mind while roughly drafting your layout.
+
 - `/wireframes`
 
 Links to wireframes of your application's UI views. Each wireframe should be a
