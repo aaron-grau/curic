@@ -136,7 +136,7 @@ h1, h5 {
 }
 
 .review-button {
-  padding-top: 1px;
+  /* padding-top: 1px; */
 }
 
 .header-name {
@@ -225,4 +225,12 @@ button.new-bench-button {
 .header-link {
   text-decoration: none;
   color: black;
+}
+
+hr {
+  border-bottom: 1px solid grey;
+}
+
+button {
+  font-size: 12px;
 }
