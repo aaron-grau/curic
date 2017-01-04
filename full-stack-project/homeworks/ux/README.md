@@ -1,8 +1,17 @@
 # JotItDown
+<!-- TODO: allow scss  -->
 
-Apply the UX concepts you know to create layouts for the `index.html` and
-`splash.html` pages of a note-taking app. You may need to reorganize the
+This exercise will help you practice creating usable, visually pleasing
+layouts around existing content.
+
+Apply the UX concepts you know to create CSS layouts for the `index.html` and
+`splash.html` pages of a note-taking app. You will need to reorganize the
 information, apply relevant markup, and add styling.
+
+Tips:
+* Keep visual hierarchy and web layout conventions in mind.
+* Don't forget to add signifiers!
+* If you feel stuck, refer to existing note-taking apps for inspiration.
 
 Don't worry about making your site dynamic: focus on just representing one
 "state" for the materials presented. For example, if you decide that clicking a
