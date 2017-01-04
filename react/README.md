@@ -243,10 +243,12 @@
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 
 ### Homework (5 hrs)
+* [UX/UI Layout Practice][uxhw] (30 min)
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
   * **Due by 9am on Monday w8d1**
 
 [full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[uxhw]: ../full-stack-project/homeworks/ux
 
 ### Additional Resources
 * See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
