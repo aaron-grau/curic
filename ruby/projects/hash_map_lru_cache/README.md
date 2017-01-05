@@ -159,6 +159,7 @@ Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentia
 #### Notes:
 
 * **Don't spend more than 30 minutes working on hashing functions**. Great hashing functions are hard to write. Your goal is to write a good-enough hashing function and move forth to the fun stuff ahead! Call over a TA if needed.
+* **Avoid using byebug inside your hash methods**. The functioning of byebug's internal code will cause this to break since it calls Array#hash.
 * **You may want to refer to the resource on
 [XOR][xor-info]** (`^` in Ruby). XOR is a great tool for hashing because
 it's fast, and it provides a good, nearly uniform output of bits.
