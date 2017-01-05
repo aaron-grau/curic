@@ -30,8 +30,9 @@ To start, let's create an API utility for our thunks to use that will request da
 
 + Create a file, `/util/bench_api_util.js`, that exports a function, `fetchBenches`.
 
-This function should accept a single argument: `success`, a callback. It should
-then dispatch an `$.ajax` request and return a promise. You may choose to define an error callback for debugging.
+It should dispatch an `$.ajax` request and return a promise.
+As usual, the success function will be chained onto this promise in the thunk action creator.
+You may choose to define an error callback for debugging.
 
 Your function should look something like this:
 
@@ -481,9 +482,7 @@ benches that are within the boundaries specified by the argument. See the exampl
 
 ### Update `BenchApiUtil`
 
-Update our `fetchBenches` function in `bench_api_util.js` to accept two arguments:
-  * filters
-  * success
+Update our `fetchBenches` function in `bench_api_util.js` to accept an argument called filters.
 
 Eventually, we want to be able to filter our benches by multiple parameters, but
 for now we'll just use the lat/lng `bounds`.
@@ -824,10 +823,25 @@ for a bench and also list the reviews for that bench. Modify and add the
 appropriate API endpoints, actions, utils, and components.
 
 ## Phase 14: Pictures!
-* when you create a new bench, allow a user to also add a photo using
-  [Cloudinary][cloudinary-js]!
-* You will need to create a new column in your benches table.
-* Display these pictures on both the show page and the index.
+When you create a new bench, allow a user to also add a photo.
+We'll do this in two steps.
+
+1. Create a new column in your benches table to store the image url.
+Add a text field in the bench form to allow the user to enter a url.
+Display these pictures on both the show page and the index.
+
+2. Each time the user adds an image, we actually want to store our own copy of that image.
+ The image url in your database should point to that copy, rather than the original.
+ We don't want to store the image in our database; that would take up too much space.
+ Instead will use the web service [Cloudinary][cloudinary-js].
+ Remove the url text-field from your form and replace it with an add-image button.
+ The button should open the Cloudinary upload_widget which will allow you to drag-and-drop an image or supply a url, and will  return the url for your new copy of the image.
+ Checkout the Cloudinary video and corresponding code at this [link][lightning-talks] for details on how to create your own  Cloudinary account and add the widget to your app.
+ If step (1) was working properly, you shouldn't have to change your backend at all.
+ Test that everything works by adding a new bench with an image.
+
+ **Note:** Since this site isn't going on Heroku, you can just put the `upload_preset` and `cloud_name` straight into your jsx file; no need to use the Figaro gem.
+
 
 ## BONUSES!
 * When you hover over an index item it should highlight the marker on the map in
@@ -849,3 +863,4 @@ appropriate API endpoints, actions, utils, and components.
 [on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
 [jquery-ajax]: http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
 [cloudinary-js]: http://cloudinary.com/documentation/upload_widget
+[lightning-talks]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/readings/lightning_talks.md
