@@ -40,6 +40,8 @@ However, we can make things a bit easier for ourselves by adding a script to the
 
 With this start script, you should now be able to run `npm start` to see your project served at `http://localhost:8080`.
 
+For information on the `webpack-dev-server` configuration, refer to the [webpack-dev-server reading][../../readings/webpack_dev_server.md].
+
 ## Tabs
 
 ### Goal

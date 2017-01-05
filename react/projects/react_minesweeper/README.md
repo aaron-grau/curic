@@ -37,6 +37,8 @@ Widgets. Lastly, remember to source `bundle.js` into `index.html`.
 
 Once your files are set up, install the development server. Run `npm install --save webpack-dev-server`. Add the following to the `"scripts"` section of your `package.json`: `"start": "webpack-dev-server --inline"`. Run `npm start` to see your project at `http://localhost:8080`.
 
+For information on the `webpack-dev-server` configuration, refer to the [webpack-dev-server reading][../../readings/webpack_dev_server.md].
+
 ## Phase 1: Game
 
 Start by creating a `Game` component using `extends React.Component`. In
