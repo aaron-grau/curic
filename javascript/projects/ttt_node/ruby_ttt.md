@@ -3,7 +3,7 @@
 Let's write a Tic-Tac-Toe game!
 
 * You should have a `Board` class and a `Game` class. The board should
-  have methods like `#won?`, `winner`, `empty?(pos)`, `place_mark(pos,
+  have methods like `#won?`, `#winner`, `#empty?(pos)`, `#place_mark(pos,
   mark)`, etc.
 * If you want to be a little fancy, [read this][bracket-methods].
 * The `Game` class should have a `play` method that loops, reading in

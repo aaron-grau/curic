@@ -7,6 +7,15 @@ If you get stuck on something, remember to look at the documentation! Learning
 to read documentation on other libraries is an incredibly important skill for
 a developer.
 
+## Learning Goals
+
++ Know how the basics of the HTTP request-response cycle works
++ Know how a server works at a basic level
++ Be able to explain the functionality of the ControllerBase class
++ Know how cookies are used by browsers and servers
++ Be able to write a router that parses a URL and instantiates the appropriate controller
++ Know how params get built out of the HTTP request's information
+
 ## Phase I: Rack (Warmup)
 
 Let's start out by building what happens when you run `rails server`.
@@ -54,8 +63,8 @@ app = Proc.new do |env|
   res.finish
 end
 ```
-This is a creating an app that we could give to Rack that would simply return
-the text hello world. Notice here we are creating `req` and `res` objects to
+This is creating an app that we could give to Rack that would simply return
+the text "Hello world!" Notice here we are creating `req` and `res` objects to
 make our lives easier. Setting the `Content-Type` header tells the browser what
 the server has given to it in response. We will only bother with HTML in this
 project. In order to actually put things into the response body you use

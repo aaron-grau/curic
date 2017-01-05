@@ -4,6 +4,16 @@
 
 Today, we're going to build an application that will help us handle questions from students.  To do this, we will set up the database and then overlay Ruby code to map the data from the database into Ruby objects in memory that we can work with. Our database queries (written in SQL) will live within our Ruby code.
 
+## Learning Goals
+
+* Know how to use a SQL script to construct a database
+    * Be able to debug SQL syntax errors
+* Be able to use queries, written in SQL, in your Ruby code
+* Know how a basic ORM (Object-Relational Mapping) system works
+* Be able to write SQL queries to solve problems without using Ruby code
+    * Be able to use joins instead of Ruby code
+    * Be able to use `GROUP BY` and `ORDER BY` instead of Ruby code
+
 ## SQL
 
 We'll first construct a series of tables. Write the table definitions
@@ -45,8 +55,8 @@ create the db - in terminal, run:
 cat import_db.sql | sqlite3 questions.db
 ```
 
-Now go into your shiny, new sqlite database and try making 
-some basic queries to ensure that seeding proceeded as planned. 
+Now go into your shiny, new sqlite database and try making
+some basic queries to ensure that seeding proceeded as planned.
 Use `sqlite3 questions.db` to open the sqlite3 console with *questions.db* loaded.
 
 ## Gemfile
@@ -74,8 +84,8 @@ Keep a tab open with the sqlite3 gem's [documentation][sqlite3-docs]. Use these
 docs to help you figure out what methods are available and how to use them!
 
 Write a `QuestionsDatabase` class similar to one created in last night's demo:
-[PlaysDatabase][plays.rb]. This class should inherit from `SQLite3::Database`; 
-you will only need one instance. If you use the Singleton module this will be 
+[PlaysDatabase][plays.rb]. This class should inherit from `SQLite3::Database`;
+you will only need one instance. If you use the Singleton module this will be
 available through a `QuestionsDatabase::instance` method.
 
 
@@ -130,8 +140,8 @@ experienced with this pattern as we transition into Rails.*
          that was populated from a row in the `users` database.
 
 Before writing any more code, take some time to make sure what you've
-done so far works by jumping into pry. Load the files you want to test 
-and call your new methods. Check that your queries return the 
+done so far works by jumping into pry. Load the files you want to test
+and call your new methods. Check that your queries return the
 correct results and that those results are Ruby objects.
 
 ## Queries
@@ -280,10 +290,10 @@ Hint: you can use `Object#instance_variables` method to get a list of
 instance variable names that represent columns.
 
 For the purposes of this project it's necessary to interpolate the name
-of the table directly into your SQL queries (ie `#{table}` vs  `?`). 
-The sqlite3 gem does not support the `?` interpolation for table names. 
-In this case, we don't need to worry about SQL injection on table 
-names but still need to sanitize our `WHERE` values. How are these 
+of the table directly into your SQL queries (ie `#{table}` vs  `?`).
+The sqlite3 gem does not support the `?` interpolation for table names.
+In this case, we don't need to worry about SQL injection on table
+names but still need to sanitize our `WHERE` values. How are these
 interpolated values different and why is one safe while the other is not?
 
 ### `where`
@@ -331,9 +341,9 @@ you need a refresher on rspec refer to [the readings for that day][rspec-reading
 
 [rspec-readings]: https://github.com/appacademy/curriculum/blob/master/ruby/README.md#w2d3
 
-Apart from testing that your queries return the correct information, also test that they 
+Apart from testing that your queries return the correct information, also test that they
 hit the database the correct number of times. Also test that methods call queries written
-in other classes. 
+in other classes.
 
 Then write tests for your save and update methods. Think of a way to reset the
 database after specs are run to ensure that your test data doesn't persist to the database.

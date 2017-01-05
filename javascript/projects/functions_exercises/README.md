@@ -1,5 +1,13 @@
 # Intro to Callbacks Exercises
 
+## Learning Goals
+
++ Know how to use `setInterval` to schedule recurring function calls
++ Know how to pass functions into `setInterval`
++ Be able to set the context of a function
++ Know how to use callbacks to enforce the order of asynchronous function calls
++ Know how to write `myBind`
+
 Note: Write user interaction with node's `readline` library.
 
 Useful Readings:
@@ -63,7 +71,7 @@ done.
 
 First off, use `readline.createInterface` to create a global variable,
 `reader`. Use `process.stdin`/`process.stdout` like I do in my
-examples.
+examples. **Make sure to only use one instance of a reader and only close it once**.
 
 Next, write a function, `addNumbers(sum, numsLeft,
 completionCallback)`:

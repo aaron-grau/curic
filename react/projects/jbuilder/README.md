@@ -83,7 +83,7 @@ your show view, render a guest's gifts. Only include the title and description.
 information to break. Nest your data by passing it as an argument to
 `json.gifts`.
 
-Time to do some on your own. Make both a gift show and index view. Get the specs
+Time to do some on your own. Make both a gift show and guest gift index view. Get the specs
 to pass.
 
 Next, make the party show and index views. In the index view, show all parties,

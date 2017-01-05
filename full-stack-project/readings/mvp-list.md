@@ -304,14 +304,6 @@ Make sure outline your MVP features using the following structure when writing y
 * **Bonus**: Upvotes, order questions by popularity
 * **Bonus**: Replies to comments
 
-#### Registry Love
-* Registry
-* Browse Gifts
-* Search Registries
-* Contribute to/select gift.
-* **Bonus**: Add gift from URL
-* **Bonus**: Import other registries
-
 #### Remember the Milk
 * Tasks
 * Lists

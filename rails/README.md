@@ -69,32 +69,38 @@
 
 ## w4d2
 
-### Readings (90 min)
-* [Basic views][basic-views] (15 min)
-* [Partials][partials] (15 min)
-* [ERB][erb] (15 min)
-* [HTML Form Basics][html-forms] (15 min)
-* [Rails Parameter Conventions][rails-params-conventions] (10 min)
-* [Mass Assignment][mass-assignment] (5 min)
-* [PATCH, PUT, and DELETE][patch-put-and-delete] (5 min)
-* [Debugging][debugging-rails] (10 min)
+### Video Lectures (2 hr, 3 min)
+:closed_lock_with_key: `go_video_go`
++ [:movie_camera: Rails Views: Intro][views-intro] (27 min)
++ [:movie_camera: Rails Views: Forms][views-forms] (40 min)
++ [:movie_camera: Rails Views: Partials][views-partials] (36 min)
++ [:movie_camera: Debugging a Rails Project][views-debugging] (20 min)
+  + [:computer: Code from demos][rails-views-code]
 
 ### Homeworks (30 min)
 * [HTML Curriculum 3: Forms][html-3] (30 min)
 
 ### Additional Resources
+* [Partials][partials]
+* [ERB][erb]
+* [HTML Form Basics][html-forms]
+* [Rails Parameter Conventions][rails-params-conventions]
+* [Debugging][debugging-rails]
 * [Easy Forms Demo][easy-forms-demo]
 * [Custom Validations][custom-validations]
 
 ### Projects
 * [99 Cats][99-cats]
 
-[basic-views]: readings/basic-views.md
+[views-intro]: https://vimeo.com/194372657
+[views-forms]: https://vimeo.com/194376967
+[views-partials]: https://vimeo.com/194385069
+[views-debugging]: https://vimeo.com/194394048
+[rails-views-code]: demos/library_demo
+
 [erb]: readings/erb.md
 [html-forms]: readings/html-forms.md
 [rails-params-conventions]: readings/parameter-conventions.md
-[mass-assignment]: readings/mass-assignment.md
-[patch-put-and-delete]: readings/patch-put-and-delete.md
 [debugging-rails]: readings/debugging-rails.md
 [partials]: readings/partials.md
 
@@ -180,11 +186,12 @@
 * [:movie_camera:  (cc) 15-helpers][15-helpers] (13 min)
 * [:movie_camera: layouts][layout-video] (10 min)
 
-### Readings (60 min)
+### Readings (75 min)
 * [ActionMailer][action-mailer] (20 min)
 * [View helpers][view-helpers] (15 min)
 * [View layouts][view-layouts] (10 min)
 * [View partials][view-partials] (15 min)
+* [Nontechnical Overview of Rails][rails-nontech] (15 min)
 
 ### Homeworks (30 min)
 * [Helpers, Layouts, and Partials][helpers-and-layouts-hw] (30 min)
@@ -199,6 +206,7 @@
 [view-helpers]: readings/helpers.md
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
+[rails-nontech]: readings/rails_nontech.md
 [helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885

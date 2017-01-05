@@ -1,13 +1,26 @@
 #jQuery Lite!
 
 ## Overview
+
 Today we will be recreating most of the important functionality of the
 jQuery library. jQuery is widely used for making AJAX requests, handling
 events, manipulating the DOM, and guaranteeing it works across browsers.
 
 We will implement most of this functionality using the native DOM API
-that is built right in to every browser. You will be surprised how
-little you actually need jQuery when you finish this project!
+that is built right in to every browser. For a full list of API methods check
+out the the [MDN site][document-apis]. You will be surprised how little you
+actually need jQuery when you finish this project! Use the [documentation on
+jQuery][jquery] if you need more info on the jQuery methods you are building.
+
+**Remember, the docs are your friends. Refer to them throughout this project**
+
+## Learning Goals
+
++ Know how to traverse and manipulate the DOM using vanilla JavaScript
++ Be able to create a class to serve as a wrapper for DOM nodes / HTML elements
+  + Understand an HTML page as a tree of DOM nodes 
+  + Get familiar with some of the properties that HTML elements have
++ Know how to create event listeners using vanilla JavaScript
 
 ## Phase 0: Getting Started
 
@@ -18,12 +31,16 @@ links, an unordered list, etc) into the body. We will be testing our
 library on this document, so give yourself some elements to experiment
 with.
 
+Add a `<script>` tag at the top of the HTML document that sources [the actual
+jQuery library][jquery-library]. This will allow you to test the functionality
+of your jQuery lite methods by comparing them against the real thing.
+
 ### Webpack
 
 Create a `/lib` folder where we will store all of our files. Create a file in `/lib`
 called, `main.js` and boot up `webpack --watch lib/main.js lib/jquery_lite.js`.
-This output file is what we want to source in the
-`<script>` tag of our html file. Go ahead and add that script tag now.
+We will source this output file in another`<script>` tag in our html
+file. Go ahead and add that script tag now.
 
 ### The core function
 
@@ -54,7 +71,8 @@ Open `index.html`.
 
 #### `DOMNodeCollection`
 
-* Create a file in `/lib` called `dom_node_collection.js`. We'll define our class here and assign it to `module.exports` in order to use it back in our main file.
+* Create a file in `/lib` called `dom_node_collection.js`. We'll define our class
+here and assign it to `module.exports` in order to use it back in our main file.
 
 * Create a new class, call it `DOMNodeCollection`. It should receive an
 **array** of [`HTMLElements`][htmlelement] as its only argument. Store
@@ -91,7 +109,11 @@ this array as an instance variable.
   `html` of all nodes to an empty string.
 
 ##### `append`
-* Take a look [here.][append] This method should accept either a jQuery-lite wrapped collection, an HTML element, or a string. Append the `outerHTML` of each element in the argument to the `innerHTML` of each element in the `DOMNodeCollection`. Don't worry about converting strings into HTML elements; just pass them straight through to the elements' `innerHTML`.
+* Take a look [here.][append] This method should accept either a jQuery-lite
+wrapped collection, an HTML element, or a string. Append the `outerHTML`
+of each element in the argument to the `innerHTML` of each element in the
+`DOMNodeCollection`. Don't worry about converting strings into HTML
+elements; just pass them straight through to the elements' `innerHTML`.
 
 ##### other methods
 * I will leave it up to you to figure out ways to implement `attr`,
@@ -120,13 +142,14 @@ this array as an instance variable.
 * It should also remove all nodes from the array.
 
 ## Phase 2: Event Handling
-Now, we are going to add `on` and `off` methods to the
+* Now, we are going to add `on` and `off` methods to the
 `DOMNodeCollection` prototype. These methods should add and remove event
-handlers, respectively. You should find [this resource
-helpful][addeventlistener]. Note that this event handler should be
-registered for every element in the node array!
+handlers, respectively.
 
-Don't worry about event delegation.  In other words, you don't have to handle cases
+* You should find [this resource helpful][addeventlistener] for your `on` method.
+Note that this event handler should be registered for every element in the node array!
+
+* Don't worry about event delegation.  In other words, you don't have to handle cases
 like:
 ```javascript
   $("ul").on("click", "li", () => {...})
@@ -136,6 +159,12 @@ You only have to handle:
 ```javascript
   $("ul").on("click", () => {...})
 ```
+* [Look here][removeeventlistener] to learn more about removing an event from a node.
+
+* Users should only have to provide the event type and not the callback to the
+`off` method. In order to do this the `on` method will have to store the
+callback as an attribute on the node so it can later be retrieved by the `off`
+method. Hint: a node is just a Javascript object!
 
 ## Phase 3: Document Ready
 ```javascript
@@ -197,6 +226,9 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
 * Use a [`Promise`][promise-reading] to pretty up the usage of your AJAX
   function. [Read about promise usage here][promise_doc].
 
+[jquery]: http://api.jquery.com/
+[jquery-library]: https://developers.google.com/speed/libraries/#jquery
+[document-apis]: https://developer.mozilla.org/en-US/
 [append]: http://api.jquery.com/append/
 [promise-reading]: ../../readings/promises.md
 [promise_doc]: http://www.2ality.com/2014/09/es6-promises-foundations.html
@@ -205,6 +237,7 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
 [elementqueryselectorall]: https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
 [queryselectorall]: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
 [addeventlistener]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+[removeeventlistener]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
 [sample-ajax-request]: ../../readings/simple-ajax-example.md
 [jquery_ajax]: http://api.jquery.com/jquery.ajax/
 [vanilla_ajax]: ../../readings/vanilla_ajax.md

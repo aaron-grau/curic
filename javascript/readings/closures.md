@@ -84,7 +84,7 @@ console.log(counter()); // => 2
 counter.count; // undefined
 ```
 
-By **closing over** (or **capturing**) the `count` variable, the `Counter` functions has private, mutable state that cannot be accessed externally.
+By **closing over** (or **capturing**) the `count` variable, each `Counter` function has private, mutable state that cannot be accessed externally.
 
 Compare that implementation against this one:
 
@@ -125,7 +125,7 @@ function whoDaBest() {
   return realMVP; // 'you'
 }
 
-whoDatBest(); // 'you'
+whoDaBest(); // 'you'
 ```
 
 While useful on occasion, global variables are usually best avoided, as they give too much code access to their values, increasing the likelihood of bugs.

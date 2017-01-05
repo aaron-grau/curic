@@ -1,5 +1,14 @@
 # Reversi: Javascript Style
 
+## Learning Goals
+
++ Be able to reason about object-oriented Javascript
++ Know the different ways that objects can interact with each other in JavaScript
++ Be able to write modular code
+  + Know how to manually test your code as you write it
++ Be able to write a run-loop in JavaScript
++ Know how to use duck typing to allow for both a HumanPlayer and a ComputerPlayer
+
 Download the [skeleton][reversi-skeleton].
 
 [reversi-skeleton]: skeleton.zip?raw=true
@@ -26,14 +35,18 @@ Read the entirety of the project description before starting!
 
 ---
 
-**NB**: This project uses Node's [module pattern][module-pattern] to import and export classes. We'll read more on that tonight. For now all you need to know is that node uses `require` to allow one JS file to load a second JS file. For example,
+**NB**: This project uses Node's [module pattern][module-pattern] to import and
+export classes. We'll read more on that tonight. For now all you need to know
+is that node uses `require` to allow one JS file to load a second JS file. For
+example,
 
 ```js
 // lib/game.js
 let Piece = require("./piece");
 ```
 
-When a file is `require`d, node loads and executes its code. Thus `Piece` in `lib/game.js` refers to the `Piece` class defined in `lib/piece.js`.
+When a file is `require`d, node loads and executes its code. Thus `Piece` in
+`lib/game.js` refers to the `Piece` class defined in `lib/piece.js`.
 
 In the corresponding file with the exported object, we have:
 

@@ -6,6 +6,7 @@ import {
 } from '../actions/pokemon_actions';
 
 const PokemonReducer = (state = {}, action) => {
+  Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
       return merge({}, action.pokemon);

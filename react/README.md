@@ -81,6 +81,7 @@
 - [`<Provider/>`][provider] (15 min)
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
+- [Selectors][selectors] (10 min)
 
 [lodash]: readings/lodash.md
 [store]: readings/store.md
@@ -90,6 +91,7 @@
 [provider]: readings/provider.md
 [connect]: readings/connect.md
 [containers]: readings/containers.md
+[selectors]: readings/selectors.md
 
 ### Fruit Stand App Demo (75 min)
 + Phase I - Redux only (15 min)
@@ -124,20 +126,20 @@
 
 ## w7d2
 
-### Readings (65 min)
+### Readings (70 min)
 - [Higher-order Functions][higher_order_functions] (15 min)
 - [Middleware][middleware] (15 min)
 - [Thunks][thunks] (15 min)
 - [API Interactions in Redux][redux_api_interactions] (15 min)
-- [Selectors][selectors] (10 min)
 - [Object.freeze][obj-freeze] (10 min)
+- [Namespacing][namespacing] (5 min)
 
 [higher_order_functions]: readings/higher_order_functions.md
 [middleware]: readings/middleware.md
 [thunks]: readings/thunks.md
 [redux_api_interactions]: readings/redux_api_interactions.md
-[selectors]: readings/selectors.md
 [obj-freeze]: readings/object_freeze.md
+[namespacing]: readings/rails_router_namespacing.md
 
 ### Homework (45 min)
 - [Middleware Homework][middleware_homework] (45 min)
@@ -151,30 +153,54 @@
 
 ## w7d3
 
-### Readings (80 min)
+### Readings (40 min)
+- [Intro to Jbuilder][jbuilder-intro] (5 min)
+- [Jbuilder][jbuilder_docs] (20 min)
+- [Nontechnical Overview of React][react-nontech] (15 min)
+
+[jbuilder-intro]: readings/intro_to_jbuilder.md
+[jbuilder_docs]: https://github.com/rails/jbuilder
+[react-nontech]: readings/react_nontech.md
+
+### Homeworks (100 min)
+- [Giphy Homework][giphy_homework] (90 min)
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
+  - **Due by 9AM Thursday w7d4**
+
+[giphy_homework]: homeworks/questions/giphy
+[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
+
+### Additional Resources
+- [Redux Developer Tools][redux_dev_tools]
+
+[redux_dev_tools]: readings/redux_dev_tools.md
+
+### Projects
+- [Jbuilder][jbuilder_exercise]
+- [Pokedex][pokedex]
+
+[jbuilder_exercise]: projects/jbuilder
+[pokedex]: projects/pokedex
+
+## w7d4
+
+### Readings (45 min)
 - [Intro to React Router][react_router_intro]  (15 min)
 - [`<Link>`][link] (5 min)
 - [Index Routes][index_routes] (5 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
 - [`withRouter`][with_router] (10 min)
-- [Intro to Jbuilder][jbuilder-intro] (5 min)
-- [Jbuilder][jbuilder_docs] (20 min)
 
 [react_router_intro]: readings/intro_to_react_router.md
 [link]: readings/link.md
 [index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
 [on_enter]: readings/on_enter.md
 [with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
-[jbuilder-intro]: readings/intro_to_jbuilder.md
-[jbuilder_docs]: https://github.com/rails/jbuilder
 
-### Homeworks (30 min)
-- [Rainbow Routes][rainbow_routes]
-- [Submit your tentative full-stack project proposal][tentative-proposal]
-  - **Due by 9AM Thursday w7d4**
-
+### Homeworks (40 min)
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
+- [Rainbow Routes][rainbow_routes] (30 min)
 [rainbow_routes]: homeworks/questions/rainbow_routes.md
-[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
 
 ### Additional Resources
 - [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
@@ -182,21 +208,10 @@
 - [React Router Documentation][react_router_docs]
   - Check the `API` docs for quick reference
 
-[react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
-
-### Projects
-- [Jbuilder][jbuilder_exercise] (45 min)
-- [Pokedex][pokedex]
-
-
-[jbuilder_exercise]: projects/jbuilder
-[pokedex]: projects/pokedex
-
-## w7d4
-
-
 ### Projects
 * Continue [Pokedex][pokedex]
+
+[react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
 
 ## w7d5
 
@@ -235,12 +250,14 @@
 
 **Project Proposal Review Period for Instructional Staff**
 
-### Readings (35 min)
+### Readings (50 min)
 -	[React Map Demo][react_map_demo] (15 min)
-* [Think in React][think_in_react] (20 min)
+- [Think in React][think_in_react] (20 min)
+- [Nontechnical Overview of Redux][redux-nontech] (15 min)
 
 [react_map_demo]: demos/react_map_demo
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
+[redux-nontech]: readings/redux_nontech.md
 
 ### Homework (5 hrs)
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)

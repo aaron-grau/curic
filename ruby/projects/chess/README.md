@@ -11,7 +11,7 @@ and using the diagram only as a reference**. It'll be helpful for clearing up
 any confusion about how  classes inherit from or relate  to one another.
 
 You must split your program into multiple files. Use
-[require-relative][require-relative] to load files. Make separate files for each
+[require_relative][require_relative] to load files. Make separate files for each
 class. Give files `snake_case` titles.
 
 Don't forget to keep using Git. Look back at
@@ -20,8 +20,16 @@ you need a reminder. Committing and branching are important habits for
 any kind of software developer.
 
 [chess-uml]: ../../assets/Chess_Diagram.png
-[require-relative]: http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative
+[require_relative]: http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-require_relative
 [minesweeper]: ../minesweeper/
+
+## Learning Goals
+
+* Know when and why private methods are used
+* Be able to read UML and understand the benefits of UML
+* Be familiar with how to use the Singleton module
+* Know how to use modules
+* Know how class inheritance works
 
 ## Phase I: `Board`
 
@@ -31,7 +39,7 @@ position in the board either holds a moving `Piece` or a `NullPiece`
 
 You'll want to create an empty `Piece` class as a placeholder for now. Write
 code for `initialize` so we setup the board with new instances of `Piece` in locations where a
-`Queen`/`Rook`/`Knight`/ ect. will start and `nil` where the `NullPiece` 
+`Queen`/`Rook`/`Knight`/ ect. will start and `nil` where the `NullPiece`
 will start.
 
 The `Board` class should have a `#move_piece(start_pos, end_pos)` method. This

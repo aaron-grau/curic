@@ -1,12 +1,12 @@
 ## HTML Head Section
 
-The <head></head> section of an HTML document contains important information about the page such as title, description, external style sheets, scripts and more.
+The `<head></head>` section of an HTML document contains important information about the page such as title, description, external style sheets, scripts and more.
 
 This information does not render as content and therefore does not belong in the `<body></body>`.
 
 ### Title
 
-The <title></title> element displays a title for the webpage:
+The `<title></title>` element displays a title for the webpage:
 
 ![Head Section Example](../assets/head-section-app-academy.jpg)
 

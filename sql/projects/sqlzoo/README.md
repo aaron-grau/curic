@@ -1,7 +1,8 @@
 # SQL Zoo
 
-It's time to dive into some SQL! You'll set up a database and start
-running queries against it. We've written some RSpec that will test the results of the queries you write.
+It's time to dive into some SQL! You'll set up a database and start running
+queries against it. We've written some RSpec that will test the results of the
+queries you write.
 
 It's worth noting that these exercises are originally from the [SQLZoo
 website][sqlzoo]. This website has a lot of extra hints that you may
@@ -10,6 +11,15 @@ follow along on their tutorial as you're doing these problems, but be
 warned: we have made some changes, so don't let that trip you up.
 
 [sqlzoo]: http://sqlzoo.net
+
+## Learning Goals
+
+* Be able to write simple SQL queries using the `SELECT`, `FROM`, and `WHERE`
+clauses
+* Be able to write complicated queries using `JOIN` and subqueries
+* Be able to use `GROUP BY` with aggregate functions
+* Be able to use the various types of `JOIN`
+  * Be able to write queries with self-joins
 
 ## Getting Started
 

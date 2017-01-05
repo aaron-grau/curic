@@ -21,13 +21,15 @@ Now that you have Rails installed and ready, start your project
 with the following command:
 
 ```
-rails new MyProjectName --database postgresql
+rails new MyProjectName --database=postgresql
 ```
 
-When using postgresql, you must also change the configs in
-`config/database.yml` by adding `host:localhost`.
+If you have Rails 5 installed, you can start a Rails 4 project 
+using the following command:
 
-See this earlier [reading][setting-up-postgresql] for an example.
+```
+rails _4.2.6_ new MyProjectName --database=postgresql
+```
 
 When using postgresql, you should also run the command `rake
 db:create` in the terminal before trying to run migrations.  This

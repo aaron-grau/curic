@@ -6,6 +6,15 @@ of this document.**
 Everyone remembers [Minesweeper][play-minesweeper]
 ([wiki][minesweeper-wiki]), right? Let's build it!
 
+## Learning Goals
+
+* Be comfortable using `git merge` to merge a feature branch to the master
+branch
+* Know how to create a remote repository and push to it
+* Know how to use recursion to simplify complicated logic
+* Know when to separate logic for different parts of your project into
+different classes
+
 ### _Git_ a good start!
 
 Remember, we're using Git today, so initialize a new repository.
@@ -121,6 +130,8 @@ Add save/load functionality. Use YAML to let users save/load their
 minesweeper game to/from a file. Be sure to use a branch for this
 feature.
 
+Reference [the readings on serialization][serialization].
+
 ### Bonus Features
 
 Start implementing the following features. Before you begin each
@@ -192,6 +203,7 @@ is broken. [This ruby-forum.com post][argv-description] explains how
 [argv-description]: https://www.ruby-forum.com/topic/185266#809660
 [keypress]: https://gist.github.com/acook/4190379
 [awesome-sweeper]: http://blog.appacademy.io/post/88410347996/thejaggedhedgehog-minesweeper-today-we-built
+[serialization]:../../readings/serialization.md
 [overriding-inspect]: ../../readings/overriding_inspect.md
 [github-create-repository]: https://help.github.com/articles/creating-a-new-repository/
 [git-authorship-script]: ../../readings/git-fix-authorship.md

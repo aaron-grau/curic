@@ -1,12 +1,23 @@
 # First Routes & Controllers
 
 In this project we'll start playing with Rails routing.  To start, generate a
-new, blank Rails project.
-
+new, blank Rails project. Remember to use Postgres as the database for this 
+project.
 
 [aa-contactsapi]: http://aa-contactsapi.herokuapp.com
 
+## Learning Goals
+
++ Be able to create routes in `routes.rb`
++ Be able to read and understand Rails server error messages
++ Know the three places that `params` come from
++ Be able to nest query parameters
++ Be able to write controller actions that read from and write to the database
++ Know how and when to render errors
+
 ## First Routes
+
+To start, generate a new, blank Rails project.
 
 Go to `config/routes.rb` and generate your first routes with:
 

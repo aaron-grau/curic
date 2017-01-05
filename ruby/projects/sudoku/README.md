@@ -11,6 +11,13 @@ us solve them!
 [sudoku-wiki]: https://en.wikipedia.org/wiki/Sudoku
 [puzzles-zip]: https://github.com/appacademy/curriculum/tree/master/ruby/projects/sudoku/solution/puzzles
 
+## Learning Goals
+
+* Understand what factory methods are and how to use them
+* Understand how classes interact and how to use `require_relative`
+* Be able to write and explain how bracket methods `[]` and `[]=` work
+* Be able to use pry to test small parts of your code
+
 ### Tile
 
 Let's implement a Tile class to represent each position on the Sudoku

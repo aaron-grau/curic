@@ -3,6 +3,61 @@
 Check out the live demo [here][live-demo]!
 
 [live-demo]: http://aa-pokedex.herokuapp.com/
+
+## Phase 4: React Router
+
+Now let's say we want the ability to click on any of the listed pokemon and see
+more details about them. In order to maintain a common user interface used
+around the web, we will have the URL define what components the user sees. This
+is exactly what the powerful `react-router` package is for. To use it, navigate
+to `root.jsx` and import the following:
+
+```js
+import { Router, Route, hashHistory } from 'react-router';
+```
+
+Refer to the [react-router documentation][routes-docs] as a reference.
+
+[routes-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
+
+### Adding the `Router`
+
+The React-Router `<Router />` component is responsible for listening for changes
+to our browser's url. When the url changes, the `Router` determines which
+component to render based on which `Route`'s `path` matches the url.
+
+* Wrap the `Router` in your app's `Root` and `Provider`.
+* Pass the router `hashHistory` as a `history` prop.
+
+Your `Root` should now look like this:
+
+```js
+import { Router, Route, hashHistory } from 'react-router';
+
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      // routes will go here
+    </Router>
+  </Provider>
+);
+```
+
+### Adding a `Route`
+
+Instead of rendering the `PokemonIndexContainer` directly, setup a root
+`Route` that will render the component when `path="/"`. Like so:
+
+```js
+<Provider store={ store }>
+  <Router history={ hashHistory }>
+    <Route path="/" component={ PokemonIndexContainer } />
+  </Router>
+</Provider>
+```
+
+**Test that your `PokemonIndex` component still renders at your app's root url**
+
 ### `PokemonIndexItem`
 
 Let's refactor your presentational component so that each pokemon object is
@@ -18,13 +73,12 @@ new component. Your `PokemonIndex` should map each pokemon objects in
 this:
 
 ```js
-const pokemonItems = pokemon.map(poke => {
-  <PokemonIndexItem key={ poke.id } pokemon={ poke } />
-});
+const pokemonItems = pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />);
 
+// And inside the render:
 <section className="pokedex">
   <ul>
-    { pokemonItems }
+    {pokemonItems}
   </ul>
 </section>
 ```
@@ -86,7 +140,7 @@ Hint: Your state shape will look something like this:
     name: "Rhydon",
     attack: 130,
     defense: 120,
-    image_url: "/assets/pokemon_snaps/112.png",
+    image_url: "/assets/pokemon_snaps/112.svg",
     moves: [
       "horn attack",
       //...
@@ -99,7 +153,7 @@ Hint: Your state shape will look something like this:
         pokemon_id: 5,
         price: 12,
         happiness: 58,
-        image_url: "/assets/pokeball.png"
+        image_url: "/assets/pokemon_potion.svg"
       },
       //...
     ]
@@ -115,7 +169,7 @@ Make sure to **test at each step!**
 requires defining a new constant and action creator for each action.
 * Create a `PokemonDetailReducer` to respond to the `pokemonDetail`
 slice of the app state.
-* Create a `fetchSinglePokemon` thunk action creator.
+* Create a `requestSinglePokemon` thunk action creator.
 * Create a `PokemonDetailContainer` that maps props to `PokemonDetail`.
 * Create a class `PokemonDetail` component that returns information of the pokemon.
 * Add a `Route` that renders the `PokemonDetailContainer` component when the url matches the path `"pokemon/:pokemonId`".
@@ -131,15 +185,15 @@ slice of the app state.
   * Render `this.props.children` in `PokemonIndex`. This will ensure that
   both parent (`PokemonIndexContainer`) and child
   (`PokemonDetailContainer`) components are rendered when a user visits `"/pokemon/:pokemonId"`.
-  * Inside of `PokemonDetail` on `componentDidMount`, call `this.props.fetchSinglePokemon`.
+  * Inside of `PokemonDetail` on `componentDidMount`, call `this.props.requestSinglePokemon`.
   Pass it the pokemon's id from the `this.props.params.pokemonId`.
 
 Your app's `Router` should look like this:
 
 ```js
-<Router history={ hashHistory }>
-  <Route path="/" component={ PokemonIndexContainer } >
-    <Route path="pokemon/:pokemonId" component={ PokemonDetailContainer } />
+<Router history={hashHistory}>
+  <Route path="/" component={PokemonIndexContainer} >
+    <Route path="pokemon/:pokemonId" component={PokemonDetailContainer} />
     </Route>
   </Route>
 </Router>
@@ -147,10 +201,10 @@ Your app's `Router` should look like this:
 
 Once it works, try navigating to the route of a different pokemon. Your detail view won't update.
 This is because although the props (`this.props.params.pokemonId`) have changed, the component didn't remount.
-So we never fetched the new pokemon. We need to trigger a fetch on the props changing. There is a lifecycle method
-we can tap into to accomplish this `componentWillReceiveProps(newProps)`.
+So we never requested the new pokemon. We need to trigger a request on the props changing. There is a lifecycle method
+we can tap into to accomplish this: `componentWillReceiveProps(newProps)`.
 
-* In your `PokemonDetail` componenent, on `componentWillReceiveProps(newProps)`, call `this.props.fetchSinglePokemon(newProps.params.pokemonId)`, but only if  the `pokemonId` has changed. You can check your current props to find out the previous value.
+* In your `PokemonDetail` component, on `componentWillReceiveProps(newProps)`, call `this.props.requestSinglePokemon(newProps.params.pokemonId)`, but only if  the `pokemonId` has changed. You can check your current props to find out the previous value.
 
 **Test your `PokemonDetail` redux cycle and route!** Does it behave like the
 [live demo][live-demo]? Show a TA before moving on.
@@ -164,7 +218,6 @@ information about an `Item` within the `PokemonDetail` component. This should be
 implemented without any changes to the application state because items are loaded
 into the `pokemonDetail` slice of state when a single pokemon is selected.
 
-
 * Create an `ItemDetailContainer` that receives an item's information as `props`.
   * When providing the item to the `ItemDetail` component from the
   `ItemDetailContainer`, remember that `mapStateToProps` accepts a second parameter
@@ -175,16 +228,17 @@ into the `pokemonDetail` slice of state when a single pokemon is selected.
   * `ItemDetailContainer` connects it to the store.
 * Create a nested route that renders the `PokemonIndexContainer`,
 `PokemonDetailContainer` and `ItemDetailContainer` when the path matches
-`/pokemon/:pokemonId/items/:itemId`. Hint: nest your new `Route` and don't
-forget to render `this.props.children`.
+`/pokemon/:pokemonId/items/:itemId`. 
+
+Hint: nest your new `Route` and don't forget to render `this.props.children`.
 
 Your app's `Router` should look like this:
 
 ```js
-<Router history={ hashHistory }>
-  <Route path="/" component={ PokemonIndexContainer }>
-    <Route path="pokemon/:pokemonId" component={ PokemonDetailContainer }>
-      <Route path="item/:itemId" component={ ItemDetailContainer } />
+<Router history={hashHistory}>
+  <Route path="/" component={PokemonIndexContainer}>
+    <Route path="pokemon/:pokemonId" component={PokemonDetailContainer}>
+      <Route path="item/:itemId" component={ItemDetailContainer} />
     </Route>
   </Route>
 </Router>
@@ -238,7 +292,6 @@ class ControlledComponent extends React.Component {
 
     this.exampleMethod = this.exampleMethod.bind(this);
   }
-
   //...
 }
 ```
@@ -287,8 +340,8 @@ order to push to that URL. We will only have this id after the response has come
 from the server, so we can tack on another `.then` after our promise resolves and
 redirect from there.
 
-Make sure that your `createPokemon` action creator returns the promise and any
-`.then`s you tack onto the end return the pokemon. The reason for this is that
+Make sure that your `createPokemon` action creator returns the promise and that any
+`.then` calls you tack onto the end return the pokemon. The reason for this is that
 when chaining calls to `then` the return value of the previous is passed as the input
 to the next. This can be handy for gradually building up a value, in our case we
 want to do two things with the same input, so we must pass it through.
@@ -296,14 +349,12 @@ want to do two things with the same input, so we must pass it through.
 Your `createPokemon` should look like this:
 
 ```js
-export function createPokemon(pokemon) {
-	return (dispatch) => {
-		return APIUtil.postPokemon(pokemon).then(pokemon => {
-			dispatch(receiveNewPokemon(pokemon));
-			return pokemon;
-		});
-	}
-}
+export const createPokemon = pokemon => dispatch => (
+	APIUtil.postPokemon(pokemon).then(pokemon => {
+		dispatch(receiveNewPokemon(pokemon));
+		return pokemon;
+	});
+);
 ```
 
 In order to get the router to send us to a new location from within the component,
@@ -329,16 +380,14 @@ different routes!
 
 On successful submission of your form, redirect the user to the pokemon show page.
 
-
-
 ```js
 
 class PokemonForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPokemon(this.state).then(newPokemon => {
+    this.props.createPokemon(this.state).then((newPokemon) => {
       this.props.router.push(`pokemon/${newPokemon.id}`);
-    })
+    });
   };
 }
 ```
@@ -372,6 +421,8 @@ adding an `errors` slice to our state.
 * Add an errors function to the `pokemonForm` that returns an unordered list of error messages.
 * Add a `mapStateToProps` function in the `PokemonFormContainer` to provide the `PokemonForm` with a list of errors
 
+To test that the errors properly show up, try adding a pokemon with the same name as a pokemon that currently exists in the database. Pokemon names have a `uniqueness: true` constraint, so it should display an error like "Name is already taken".
+
 ## Phase 8: Style
 
 A signification portion of the time you spend working on your full-stack project
@@ -387,10 +438,18 @@ internet are good resources if you get stuck! :art:
 
 In this phase we'll create a 'loading' spinner that displays while we're fetching information from the backend.
 
-* Google search "css spinners" -- pick one you like!
-* Before calling the `apiUtil`, have your async actions also dispatch an action with `type: REQUEST_POKEMON`
+We've supplied the [CSS](./skeleton/app/assets/stylesheets/loading-pokeball.scss) for a pokeball spinner that you can use. The css animation requires the following html to function:
+
+```html
+<div id="loading-pokeball-container">
+  <div id="loading-pokeball"></div>
+</div>
+```
+
+* Feel free to use the pokeball spinner we've provided. However, you can also Google "css spinner" to find another spinner to implement!
+* Before calling the `APIUtil`, have your async actions also dispatch an action with `type: START_LOADING_ALL_POKEMON` for `requestAllPokemon` and an action with `type: START_LOADING_SINGLE_POKEMON` for `requestSinglePokemon`.
 * Create a new reducer, the `LoadingReducer`
-  * Your `LoadingReducer` should care about all `REQUEST_` and `RECEIVE_` action types
+  * Your `LoadingReducer` should care about all `START_LOADING_` and `RECEIVE_` action types
   * When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
 * Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
 
@@ -427,7 +486,6 @@ But you should have to refactor the following pieces:
 
 * `PokemonFormContainer`
 * `PokemonForm`
-
 
 ## Bonus: Update Items
 

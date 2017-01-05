@@ -1,5 +1,13 @@
 # Towers of Hanoi
 
+## Learning Goals
+
++ Know how to use pseudocode to structure your reasoning
++ Be able to use JavaScript classes and objects in Node
+  + Be able to use principle of object-oriented programming in JavaScript
++ Be comfortable testing methods as you write them
++ Be able to implement I/O using readline
+
 Let's rewrite the towers of Hanoi game we [previously wrote in Ruby][ruby-hanoi].
 
 Before you start, write out `HanoiGame.prototype.run` in pseudocode (using comments).

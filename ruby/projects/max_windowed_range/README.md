@@ -16,6 +16,13 @@ the window is two (`3 - 1 == 2`). In the second case, that difference is
 three (`5 - 2 == 3`). We want to write a function that will return the
 larger of these two differences.
 
+## Learning Goals
+
+* Get practice approaching a difficult problem using algorithms
+* Be able to explain the time complexity of your solution
+* Know the differences between a stack and a queue
+* Be able to use simple data structures to build more complicated ones
+
 ## Naive Solution
 
 One approach to solving this problem would be:

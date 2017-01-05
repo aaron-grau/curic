@@ -6,4 +6,6 @@ const mapStateToProps = (state, { params }) => ({
   item: selectPokemonItem(state, parseInt(params.itemId))
 });
 
-export default connect(mapStateToProps)(ItemDetail);
+export default connect(
+  mapStateToProps
+)(ItemDetail);
