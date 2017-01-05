@@ -4,7 +4,7 @@ Today we're going to get our first experience using the React Router. The goal i
 
 ## Phase 0: Setup
 
-Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. Run `npm install` to get it setup. Then make sure webpack is watching (`webpack --watch`), and start up the `http-server`.  
+Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. Run `npm install` to get it setup. Then run `npm start` to run the `webpack-dev-server`.  
 
 Navigate to `http://localhost:8080` in your browser and verify you can see "Rainbow Router" header.  Currently there's no functionality - we'll fix that asap!
 

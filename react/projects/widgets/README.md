@@ -28,9 +28,9 @@ For this project, we're going to use a lightweight development server, `webpack-
 * It allows us to access the served content at `http://localhost:8080`. Now we won't need to open the `index.html` in the browser.
 * It doesn't cache our files like a production server might do by default. This means that we won't have to hard refresh the browser to see the changes to our `bundle.js`.
 
-To install `webpack-dev-server` in your project, run `npm install --save webpack-dev-server`. With the server installed, you could run `webpack-dev-server --inline` in the command line and it should properly serve the project at `http://localhost:8080`.
+To install `webpack-dev-server` in your project, run `npm install --save webpack-dev-server`. With the server installed globally, you could run `webpack-dev-server --inline` in the command line to serve the project at `http://localhost:8080`.
 
-However, we can make things a bit easier for ourselves by adding a script to the `package.json`. Let's write a script so that we can just type `npm start` in the command line to start the server. To do this, add the `webpack-dev-server --inline` command to the scripts section of the `package.json` like so:
+However, we can make things a bit easier for ourselves by adding a script to the `package.json`. Let's write a script so that we can type `npm start` in the command line to start the server. To do this, add the `webpack-dev-server --inline` command to the scripts section of the `package.json` like so:
 
 ```json
 "scripts": {
