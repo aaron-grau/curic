@@ -1,6 +1,6 @@
 # Webpack Dev Server
 
-As we begin to expand our Javascript and React projects, two problems arise:
+As we begin to expand our frontend-only Javascript and React projects, two problems arise:
 
 * We will likely want to begin using a development server. It would be beneficial to serve our project on the `localhost`, kind of like how `rails s` served our Rails applications at `http://localhost:3000`. This would make it possible to visit, say, `http://localhost:8080` to see our project without having to open a given project's `index.html` in the browser.
 
