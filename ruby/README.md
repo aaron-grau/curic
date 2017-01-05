@@ -140,10 +140,11 @@
 [git-useful-commands-video]: https://vimeo.com/171666453
 [git-wrapup-video]: https://vimeo.com/171666456
 
-### Readings (40 min)
+### Readings (55 min)
 + [Why Git][why-git] (10 min)
 + [Git Workflow][git-workflow] (10 min)
 + [Gems and rbenv][gems] (10 min)
++ [Nontechnical Overview of Git][git-nontech] (15 min)
 
 ### Homeworks (20 min)
 + [Git Workflow Exercises][git-workflow-exercises] (20 min)
@@ -174,6 +175,7 @@
 [assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
 [serialization]: readings/serialization.md
 [gems]: readings/gems-and-rbenv.md
+[git-nontech]: readings/git_nontech.md
 
 [screwedoku]: projects/screwdoku
 [minesweeper]: projects/minesweeper
