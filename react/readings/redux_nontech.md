@@ -153,7 +153,7 @@ options that are available.
   interaction); if the change in data would affect another component, that
   component should automatically re-render without the programer having to
   explicitly tell it to.
-  
+
   MobX is used by companies including Mendix, StackShare, and RepSpark.
 
 
@@ -185,6 +185,8 @@ options that are available.
   Actions contain information that can be used to update the store. They can be
   _dispatched_, i.e. sent to the store, in response to user actions or AJAX
   requests.
+  Typically Redux apps use functions called _action creators_ that return actions.
+  Action creators can take arguments which allow them to customize the data contained in the actions they generate.
 
 * **Pure function**
 
@@ -208,6 +210,18 @@ options that are available.
   the current state. This makes their behavior very predictable and allows
   their effects to potentially be reversed.
 
+* **Middleware**
+
+  Ex: "_You can customize your response to dispatched actions using middleware._"
+
+  Middleware is an optional component of Redux that allows custom responses to dispatched actions.
+  When an actions is dispatched it passes through each middleware that has been added to the state.
+  The middleware can take some action in response and chose whether or not to pass the action on down the chain.
+  Behind the scenes, the middleware actually replaces the dispatch method of the store with a customized version.
+  There is a large ecosystem of existing middleware ready to be plugged into any redux projects.
+  One example is a logger that records each action before passing it on to the reducer.
+  Perhaps the most common use for middleware is to dispatch asynchronous requests to a server.
+
 * **Time traveling dev tools**
 
   Ex: "_Redux has time traveling dev tools._"
@@ -217,9 +231,26 @@ options that are available.
   over time and the actions that had been dispatched, one could retroactively
   cancel an action and recalculate the state as if that action had never been
   dispatched. This is precisely the functionality that the Redux dev tools
-  provide. You can look back through the history of the state and you can
-  toggle past actions on and off and see a live recalculation of the state.
+  provide.
+  The dev tools can be added as middleware to any redux project.
+  They allow you to look back through the history of the state and
+  toggle past actions on and off to see a live recalculation of the state.
   This ability to revert to a previous state is what is meant by time travel.
+
+* **Thunks**
+
+  Ex: "_Thunks are a convenient format for taking asynchronous actions in Redux_"
+
+  The traditional approach to middleware closely parallels the format of reducers.
+  The actions being dispatched are POJOs with types and various middleware files are waiting to receive them.
+  These files check the type of the action using a case statement just like reducers.
+
+  Thunks are an alternative approach.
+  A thunk is a general concept in computer science referring to a function whose primary purpose is simply to call another function.
+  In Redux a thunk action creator returns a function rather than an object.
+  When they are dispatched, thunk actions are intercepted by a piece of middleware that simply checks if each action is a function.
+  If it is, that function is called with the state and dispatch as arguments, otherwise it is passed on down the chain.
+  Thunks are most commonly used to make asynchronous API requests.
 
 
 ## Resources
