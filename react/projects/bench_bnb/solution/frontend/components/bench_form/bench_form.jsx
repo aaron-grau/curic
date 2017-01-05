@@ -12,6 +12,7 @@ class BenchForm extends React.Component{
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToSearch = this.navigateToSearch.bind(this);
+    this.handleCloudinary = this.handleCloudinary.bind(this);
   }
 
   navigateToSearch() {
@@ -21,6 +22,16 @@ class BenchForm extends React.Component{
   update(property) {
     return e => this.setState({
       [property]: e.target.value
+    });
+  }
+
+  handleCloudinary(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, (error, results) => {
+      if(error)
+        console.log(error);
+      else
+        this.setState({ picture_url: results[0].secure_url });
     });
   }
 
@@ -45,10 +56,6 @@ class BenchForm extends React.Component{
               <input type="text" value={description}
                 onChange={this.update("description")} className="bench-field"/>
 
-              <label className="bench-field">Picture URL</label>
-              <input type="text" value={picture_url}
-                onChange={this.update("picture_url")} className="bench-field"/>
-
               <label className="bench-field">Number of Seats</label>
               <input min='0' type="number" value={seating}
                 onChange={this.update("seating")} className="bench-field"/>
@@ -58,6 +65,16 @@ class BenchForm extends React.Component{
 
               <label className="bench-field">Longitude</label>
               <input type="text" disabled value={lng} className="bench-field"/>
+
+              <div className="button-holder">
+                <button
+                  onClick={this.handleCloudinary}
+                  className="new-bench-button" >
+                  Add image
+                </button>
+              </div>
+
+              <hr />
 
               <div className="button-holder">
                 <input type="submit" value="Create Bench" className="new-bench-button"/>
