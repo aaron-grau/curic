@@ -120,9 +120,6 @@ Create a new file, `util/session_api_util.js` with the following functions:
 **NB**: Check out `routes.rb` and run `rake routes` to determine the appropriate
 URL for each of these requests.
 
-**NB**: Each API will return a promise.
-We'll add success and error callbacks onto the API calls using `.then`, so you should __not__ write success or error callbacks in your api functions.
-
 **Test each of your api util functions before moving on!** To do this, you can
 import these functions in your entry file and save them to the window (e.g.,
 `window.login = login;`).
