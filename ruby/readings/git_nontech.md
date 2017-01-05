@@ -16,11 +16,11 @@ source software as of May 9, 2016). Linus Torvalds, creator of Linux, decided
 that none of the current free VCSs met his needs for performance. He wanted to
 design a system where:
 
-1. patching would take no more than three seconds
++ patching would take no more than three seconds
 
-1. workflow would be distributed
++ workflow would be distributed
 
-1. there would be very strong safeguards against corruption. 
++ there would be very strong safeguards against corruption. 
 
 Development began on April 3, the project was announced on April 6th, and it
 became self-hosting on April 7th. The first merge of multiple branches happened
