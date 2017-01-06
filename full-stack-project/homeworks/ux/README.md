@@ -32,7 +32,9 @@ You can look to [Evernote][evernote], [OneNote][onenote],
 
 Organize and wrap the given content in the appropriate html elements, then write
 styles for each element in `styles.css`. You are allowed to rearrange the content
-if you think it would make more sense in a different order.
+if you think it would make more sense in a different order; you can also add 
+content and edit the existing content if you would like more information to be
+displayed.
 
 You should create html elements and styles for:
 * Nav bar
