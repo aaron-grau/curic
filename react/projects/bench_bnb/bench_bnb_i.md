@@ -185,7 +185,7 @@ other action creators accept a user object. On logout success dispatch
 + Create a new reducer in a new file `reducers/session_reducer.js` to keep track of our
 current user and error messages.
 
-The `SessionReducer` should listen for 3 action types and respond to each like so:
+The `SessionReducer` should listen for 2 action types and respond to each like so:
   * `RECEIVE_CURRENT_USER` - sets `currentUser` to the action's user and clears `errors`
   * `RECEIVE_ERRORS` - sets `errors` to the action's errors and clears the `currentUser`
 
