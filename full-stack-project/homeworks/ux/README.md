@@ -9,7 +9,7 @@ information, apply relevant markup, and add styling.
 
 Tips:
 * Keep visual hierarchy and web layout conventions in mind.
-* Don't forget to add signifiers!
+* Don't forget to add signifiers (e.g., the shape and color of elements, cursor effects, hover effects).
 * If you feel stuck, refer to existing note-taking apps for inspiration.
 
 Begin by downloading the [skeleton][skeleton].
@@ -31,7 +31,9 @@ You can look to [Evernote][evernote], [OneNote][onenote],
 [Asana][asana], and other similar applications for inspiration.
 
 Organize and wrap the given content in the appropriate html elements, then write
-styles for each element in `styles.css`.
+styles for each element in `styles.css`. You are allowed to rearrange the content
+if you think it would make more sense in a different order.
+
 You should create html elements and styles for:
 * Nav bar
 * Footer
