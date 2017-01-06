@@ -2,16 +2,16 @@
 
 ## Important Dates
   * **W7D4**: Submit [tentative project proposal][tentative-proposal] by 9am
-    * [Suggested Full-Stack Projects][good-projects]
+    * [Choosing a Full-Stack Project][good-projects]
   * **W8D1**: Submit [full-stack project proposal][readings] by 9am
     * [Sample Proposal][sample-proposal]
     * [MVP Checklist][mvp-checklist]
     * [Trello][trello]
   * **W9D2**: Peer Review
-  * **W9D5**: Turn in Full Stack Project 
+  * **W9D5**: Turn in Full Stack Project
     * [How to Turn in Your Project][turn-in-fullstack]
     * Next Steps: [Check out the Job Search Curriculum][jobsearch]
-    
+
 [turn-in-fullstack]:readings/turn_in_fullstack.md
 [jobsearch]:https://github.com/appacademy/job-search-curriculum/blob/master/SF.md#week10
 [tentative-proposal]: readings/tentative-project-proposal.md
