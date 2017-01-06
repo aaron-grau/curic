@@ -3,25 +3,43 @@
 This exercise will help you practice creating usable, visually pleasing
 layouts around existing content.
 
-Begin by downloading the [skeleton][skeleton].
-
-Apply the UX concepts you know to create CSS layouts for the `index.html` and
+You will apply the UX concepts you know to create CSS layouts for the `index.html` and
 `splash.html` pages of a note-taking app. You will need to reorganize the
 information, apply relevant markup, and add styling.
-
-The splash page should clearly introduce the site's purpose to a user and direct them to sign up / sign in / sign out. You will likely want to style a nav bar.
-
-The index page should probably include at least a nav bar, a footer, form styles, and container styles for list and item content.
 
 Tips:
 * Keep visual hierarchy and web layout conventions in mind.
 * Don't forget to add signifiers!
 * If you feel stuck, refer to existing note-taking apps for inspiration.
 
-Don't worry about making your site dynamic: focus on just representing one
-"state" for the materials presented. For example, if you decide that clicking a
-list item should change the content of the main section, just show how the page
-would look if that one item had already been clicked.
+Begin by downloading the [skeleton][skeleton].
+
+## Splash
+
+Edit the `splash.html` page's html and create styles for its elements
+in `styles.css`. Your goal is to make it look similar to simple splash pages like
+[Evernote's][evernote] or [OneNote's][onenote].
+Create a style a nav bar, style and position the hero image (the large
+image towards the top of the page), and add signifiers for users to sign up
+/ sign in / sign out.
+
+## Index
+
+Edit the html in `index.html` and create styles for its elements. Your
+goal here is to create a conventional index page of a note-taking app.
+You can look to [Evernote][evernote], [OneNote][onenote],
+[Asana][asana], and other similar applications for inspiration.
+
+Organize and wrap the given content in the appropriate html elements, then write
+styles for each element in `styles.css`.
+You should create html elements and styles for:
+* Nav bar
+* Footer
+* List container
+* List Item
+* Search Form
+* New List Form
+* New Item Form
 
 When you're done, compare your work against [some real examples][screenshots].
 
@@ -35,6 +53,9 @@ background, main, and accent. You can get inspiration from [colourlovers][colors
 [standards]: https://www.wuhcag.com/wcag-checklist/
 [colors]: http://www.colourlovers.com/
 [fonts]: https://fonts.google.com/
+[evernote]: https://evernote.com/
+[onenote]: https://www.onenote.com/
+[asana]: https://asana.com/
 
 [screenshots]: ./screenshots
-[skeleton]: ./skeleton.zip
+[skeleton]: ./skeleton.zip?raw=true
