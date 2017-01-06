@@ -60,11 +60,16 @@ link_to 'Delete Me', post_url(@post), method: :delete
 
 Links in HTML are only supposed to issue `GET` requests, but Rails's JS will
 use JavaScript magic to issue a `DELETE` request in this case. Using JS to make
-links do something they weren't designed to do seems hacky. We prefer you use
-`button_to`, which creates a form to properly issue a non-`GET` request:
+links do something they weren't designed to do seems hacky. We prefer you use a
+form, or at least the `button_to` helper method (which creates a form) to
+properly issue a non-`GET` request:
 
 ```ruby
-button_to 'Delete Me', post_url(@post), method: :delete
+<form action="<%= post_url(@post) %>">
+  <input type="hidden" value="delete" name="_method" />
+  <input type="submit" value="Delete me" />
+</form>
+<%= button_to 'Delete Me', post_url(@post), method: :delete %> <!-- equivalent to the above -->
 ```
 
 Removing the default Rails JS for now will help you get used to doing things

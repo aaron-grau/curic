@@ -119,10 +119,11 @@ for a link. Here's a few uses:
 
 ```html+erb
 <%= link_to "Cat Pictures", "http://cashcats.biz" %>
-<a href="http://cashcats.biz">Cat Pictures</a>
+<a href="http://cashcats.biz">Cat Pictures</a> <!-- output -->
 
 <%= link_to "New Comment", new_comment_url %>
-<a href="www.example.com/comments/new">New Comment</a>
+<a href="<%= new_comment_url %>">New Comment</a> <!-- equivalent to the above code -->
+<a href="www.example.com/comments/new">New Comment</a> <!-- output -->
 ```
 
 When a user clicks on an anchor tag, a `GET` request is issued. If you
@@ -131,6 +132,10 @@ button and specify the method:
 
 ```html+erb
 <%= button_to "Delete comment", comment_url(@comment), method: :delete %>
+<form action="<%= comment_url %>"> <!-- equivalent to the above -->
+  <input type="hidden" value="delete" name="_method" />
+  <input type="submit" value="Delete comment" />
+</form>
 ```
 
 Technically you can specify the `:method` attribute for `link_to`, but

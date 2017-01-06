@@ -111,12 +111,20 @@ path, four URLs map to seven actions. Many methods that take a URL
 will also accept a `:method` option to specify the option. For
 instance, to create an HTML button that will destroy a photo, we write
 
-    button_to(photo_url(@photo), method: :delete)
+```rubyonrails
+<form action="<%= photo_url(@photo) %>">
+  <input type="hidden" value="delete" name="_method" />
+  <input type="submit" value="Delete photo" />
+</form>
+<%= button_to "Delete photo", photo_url(@photo), method: :delete %> <!-- equivalent to the above -->
+```
 
 Finally, note that you can embed query-string options into the
 url-helpers easily:
 
+```rubyonrails
     photos_url(recent: true) == http://www.example-site.com/photos?recent=true
+```
 
 On the streets, you will see a `_path` version of these helpers; the
 `_path` version just gives you the path component, not the full URL
