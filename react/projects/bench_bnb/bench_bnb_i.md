@@ -435,11 +435,11 @@ To make our React components modular, we will reuse and render the same form com
 #### `SessionFormContainer`
 
 The `SessionFormContainer` should provide `SessionForm` with the following props:
-+ From `mapStateToProps(state)`:
++ From `mapStateToProps(state, ownProps)`:
   * `loggedIn` (boolean) - representing whether a `currentUser` exists
   * `errors` (array) - list of errors from the state
-+ From `mapDispatchToProps(dispatch, ownProps)`:
   * `formType` (string): `'login'` or `'signup'` given the current `ownProps.location.pathname`
++ From `mapDispatchToProps(dispatch, ownProps)`:
   * `processForm` (function): dispatching action creators `login` or `signup` given `formType`
 
 #### `SessionForm`
