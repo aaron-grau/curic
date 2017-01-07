@@ -260,12 +260,16 @@
 
 ### Study Hall 9 - 10am
 
+### Readings (15 min)
++ [Nontechnical Overview of Ruby][ruby-nontech] (15 min)
+
 ### Homeworks (60 min)
 + [Mancala][mancala-hw] (60 min)
 
 ### Projects
 + Continue Chess
 
+[ruby-nontech]: readings/ruby_nontech.md
 [mancala-hw]:./homeworks/questions/mancala
 
 ## w2d3
