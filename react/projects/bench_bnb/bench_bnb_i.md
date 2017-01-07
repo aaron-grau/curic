@@ -94,7 +94,8 @@ key differences:
   * In `routes.rb`, set `defaults: {format: :json}` on your `namespace :api`
 * Views:
   + You'll want an **`api/users/show.json.jbuilder`**, which you can use for
-  multiple controller actions. + This should delegate to a partial:
+  multiple controller actions. 
+  + This should delegate to a partial:
   **`api/users/_user.json.jbuilder`**, which we'll use later.
 * `Sessions#destroy`:
   + Render an empty `{}` upon successful logout.
