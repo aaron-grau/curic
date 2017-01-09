@@ -57,11 +57,11 @@ the API.
 
 ### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
 
-**objective:** Allow rich text editing of notes.
+**Objective:** Allow rich text editing of notes.
 
 ### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
 
-**objective:** Add infinite scroll to Notes Index
+**Objective:** Add infinite scroll to Notes Index
 
 ### Bonus Features (TBD)
 - [ ] Search notes by content
