@@ -52,21 +52,21 @@ Here are some additional resources for getting your app running and adding commo
   * [Understanding the asset pipeline][asset-pipeline]
 * **Web services**
   * [Figaro gem][figaro] securely store api keys. Necessary for google maps, Cloudinary and AWS.
-    * [video][figaro-video]
-  * [Cloudinary video][cloudinary-video] work with images
+    * [Video demo][figaro-video]
+  * [Cloudinary video demo][cloudinary-video] work with images
     * [Code demo][cloudinary-demo]
-  * [AWS vido part 1][aws1] work with music or other large files
-    * [Part 2][aws2]
+  * [AWS part 1][aws1] work with music or other large files
+    * [AWS part 2][aws2]
     * [Code demo][aws-demo]
   * [Google maps][google-maps-demo]
 * **Other tools**
   * [Redux dev tools][redux-dev-tools] view your react state live and see a list of dispatched actions
-    * [video][redux-dev-tools-video]
+    * [Video demo][redux-dev-tools-video]
 
 Is there something your looking for that's not on the list?
 We have lots of extra readings and videos on other topic in [additional resources][additional-resources].
 
-[additional-resources]
+[additional-resources]: ./additional_resources.md
 [heroku-deployment]: resources/helpful_tools/heroku-deployment.md
 [minification-warnings]: resources/helpful_tools/react-v15-warning.md
 [figaro]: resources/security/figaro.md
