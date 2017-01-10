@@ -39,8 +39,8 @@ Hear are the important deadlines.
   * [How to Turn in Your Project][turn-in-fullstack]
   * Next Steps: [Check out the Job Search Curriculum][jobsearch]
 
-[turn-in-fullstack]:project/turn_in_fullstack.md
-[jobsearch]:https://github.com/appacademy/job-search-curriculum/blob/master/SF.md#week10
+[turn-in-fullstack]: project/turn_in_fullstack.md
+[jobsearch]: project/job-search.md
 
 ### Resources
 
