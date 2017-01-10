@@ -79,7 +79,7 @@ We have lots of extra readings and videos on other topic in [additional resource
 [google-maps-demo]: https://github.com/appacademy/curriculum/tree/master/react/demos/react_map_demo
 [redux-dev-tools]: https://github.com/appacademy/curriculum/blob/c280e51a978c9a67243a2bb2d5f4650d9f53d387/react/readings/redux_dev_tools.md
 [redux-dev-tools-video]: https://vimeo.com/194738174
-[asset-pipeline]: ./helpful_tools/asset-pipeline.md
+[asset-pipeline]: resources/helpful_tools/asset-pipeline.md
 
 ### Bonus
 
