@@ -1,17 +1,4 @@
-# Choosing a Project
-
-You **may not** clone an app that we have already partially cloned in
-class. That would defeat part of the purpose of your full-stack project,
-which is to give you the experience of architecting and building an app
-from the ground up. Projects that we have already cloned include
-**Twitter** and **Reddit**. You
-should think about the following:
-
-* What features of this site am I going to clone? Are these features
-  self-explanatory and easily demonstrated?
-* Will these features show off everything I've learned in the course?
-
-## Approved Sites to Clone
+# Project Ideas
 
 - [500px] (http://www.500px.com)
 - [AirBnB] (http://www.airbnb.com)
@@ -58,3 +45,16 @@ should think about the following:
 - [Yammer] (http://www.yammer.com)
 - [Yelp] (http://www.yelp.com)
 - [Wufoo] (http://www.wufoo.com)
+
+## Choosing a Project
+
+You **may not** clone an app that we have already partially cloned in
+class. That would defeat part of the purpose of your full-stack project,
+which is to give you the experience of architecting and building an app
+from the ground up. Projects that we have already cloned include
+**Twitter**, **Reddit**, and an RSS feed reader app. You
+should think about the following:
+
+* What features of this site am I going to clone? Are these features
+  self-explanatory and easily demonstrated?
+* Will these features show off everything I've learned in the course?

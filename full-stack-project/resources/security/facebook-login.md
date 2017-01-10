@@ -2,7 +2,7 @@
 
 **TODO: INTRO OMNIAUTH AND HOW DEVISE HANDLES IT**
 
-We're going to set up Facebook login as an example. The basic structure will very similar for any OmniAuth provider. 
+We're going to set up Facebook login as an example. The basic structure will very similar for any OmniAuth provider.
 
 You can check out the [OmniAuth docs][omniauth-docs] or Devise's own [OmniAuth overview][devise-omniauth] with Facebook example. Devise's page also has an example with Google and OAuth2 (another authentication strategy).
 
@@ -13,7 +13,7 @@ You can check out the [OmniAuth docs][omniauth-docs] or Devise's own [OmniAuth o
 
 Each provider has their own `omniauth` gem. You'll want to make sure you have the `omniauth` gem installed as well as any gems specific to the providers you want to use.
 
-Add `omniauth` and `omniauth-facebook` to your `Gemfile`. 
+Add `omniauth` and `omniauth-facebook` to your `Gemfile`.
 
 Create and run a migration that adds `provider` and `uid` columns to your `users` table. These columns are necessary to authenticate through OmniAuth with Devise.
 
@@ -55,7 +55,7 @@ By default, you'll get some basic information about the user back from Facebook 
 ---
 **Note on Environment Variables:**
 
-We put the key and secret in plain text in the Devise intializer above. **DO NOT DO THIS.** When you push your code to GitHub, these will be out there for the world to see. Use a tool like [Figaro][figaro] instead to set some `ENV` variables that can be accessed in the app without compromising their security. 
+We put the key and secret in plain text in the Devise intializer above. **DO NOT DO THIS.** When you push your code to GitHub, these will be out there for the world to see. Use a tool like [Figaro][figaro] instead to set some `ENV` variables that can be accessed in the app without compromising their security.
 
 [figaro]: https://github.com/laserlemon/figaro
 
@@ -63,7 +63,7 @@ We put the key and secret in plain text in the Devise intializer above. **DO NOT
 
 ### Make the user omniauthable
 
-You'll have to make some edits in your model now. Devise has modules `omniauthable` and `omniauth_providers` for this purpose. Make sure to white-list the `provider` and `uid` for mass-assignment as well. 
+You'll have to make some edits in your model now. Devise has modules `omniauthable` and `omniauth_providers` for this purpose. Make sure to white-list the `provider` and `uid` for mass-assignment as well.
 
 ```
 --- a/rails/DeviseDemo/app/models/user.rb
@@ -95,7 +95,7 @@ controller to handle this.
 rails g controller OmniAuthCallbacks
 ```
 
-Facebook will send the user to the callback, sending along the necessary data. We can access that data in the `request`. 
+Facebook will send the user to the callback, sending along the necessary data. We can access that data in the `request`.
 
 `request` is a special controller method to get the HTTP request (much
 like `param` or `session`). `request.env` pulls out data from the
@@ -108,10 +108,10 @@ redirect request in `request.env['omniauth.auth']`.
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     facebook_data = request.env["omniauth.auth"]
-    
+
     # You need to implement the method below in your model
     @user = User.find_or_create_by_facebook_oauth(facebook_data)
-    
+
     sign_in_and_redirect @user
   end
 end
@@ -154,7 +154,7 @@ Voila. You've got Facebook login setup.
 
 ---
 
-Let's say you wanted not just login but Facebook API integration. For that, you can use the [`koala`][koala] gem. 
+Let's say you wanted not just login but Facebook API integration. For that, you can use the [`koala`][koala] gem.
 
 [koala]: https://github.com/arsduo/koala
 
@@ -177,7 +177,7 @@ Then, you need to make sure to save it when creating the `User`:
 class User < ActiveRecord::Base
    def self.find_or_create_by_facebook_auth(auth)
      user = User.where(:provider => auth.provider, :uid => auth.uid).first
- 
+
      unless user
        user = User.create!(
          provider: auth.provider,

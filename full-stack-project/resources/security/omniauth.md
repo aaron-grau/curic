@@ -4,7 +4,7 @@
 
 OmniAuth is a library that standardizes authentication via multiple providers or strategies. A common convenience of todays web applications is to login via another provider/strategy.
 
-OmniAuth can be used to authenticate to third party systems to make requests on behalf of the user, or as a method of authenticating users. 
+OmniAuth can be used to authenticate to third party systems to make requests on behalf of the user, or as a method of authenticating users.
 
 **Examples**
 * [Facebook][facebook-provider]
@@ -26,7 +26,7 @@ rails generate devise:install
 rails generate devise user
 ```
 
-OmniAuth uses uid, provider, token, secret (`Authorization`) and name (`User`) attributes. One `User` has_many `Authorization`s. 
+OmniAuth uses uid, provider, token, secret (`Authorization`) and name (`User`) attributes. One `User` has_many `Authorization`s.
 ```sh
 rails g migration add_name_to_users name:string
 rails g model authorization provider:string uid:string user_id:integer token:string secret:string name:string link:string
@@ -64,9 +64,9 @@ config.omniauth :facebook, "key", "secret"
 # user.rb
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
-  
+
   attr_accessible :email, :name, :password, :password_confirmation, :remember_me
-  
+
   has_many :authorizations, :dependent => :destroy
 end
 ```
@@ -87,18 +87,18 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
 ```
 
 ### Controllers
-The User is redirected to the provider and asked to authenticate, the provider will redirect to our "callback url". A `Devise::OmniauthCallbacksController` can be used to handle these requests. 
+The User is redirected to the provider and asked to authenticate, the provider will redirect to our "callback url". A `Devise::OmniauthCallbacksController` can be used to handle these requests.
 
 ```ruby
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   require 'uuidtools'
-  
+
   def facebook
     oauthorize "Facebook"
   end
-  
+
   private
-  
+
   def oauthorize(kind)
     @user = find_for_ouath(kind, env["omniauth.auth"], current_user)
     if @user
@@ -107,18 +107,18 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, :event => :authentication
     end    
   end
- 
+
   def find_for_ouath(provider, access_token, resource=nil)
     user, email, name, uid, auth_attr = nil, nil, nil, {}
     case provider
     when "Facebook"
       uid = access_token['uid']
       email = access_token[:info][:email]
-      auth_attr = { :uid => uid, 
-                    :token => access_token['credentials']['token'], 
-                    :secret => nil, 
-                    :name => access_token[:info][:name], 
-                    :link => access_token[:info][:urls]["Facebook"] 
+      auth_attr = { :uid => uid,
+                    :token => access_token['credentials']['token'],
+                    :secret => nil,
+                    :name => access_token[:info][:name],
+                    :link => access_token[:info][:urls]["Facebook"]
                   }
     else
       raise 'Provider #{provider} not handled'
@@ -135,17 +135,17 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       user = resource
     end
-    
+
     auth = user.authorizations.find_by_provider(provider)
     if auth.nil?
       auth = user.authorizations.build(:provider => provider)
       user.authorizations << auth
     end
     auth.update_attributes auth_attr
-    
+
     return user
   end
- 
+
   def find_for_oauth_by_uid(uid, resource=nil)
     user = nil
     if auth = Authorization.find_by_uid(uid.to_s)
@@ -153,17 +153,17 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
     return user
   end
- 
+
   def find_for_oauth_by_email(email, resource=nil)
     if user = User.find_by_email(email)
       user
     else
-      user = User.new(:email => email, :password => Devise.friendly_token[0,20]) 
+      user = User.new(:email => email, :password => Devise.friendly_token[0,20])
       user.save
     end
     return user
   end
-  
+
   def find_for_oauth_by_name(name, resource=nil)
     if user = User.find_by_name(name)
       user
@@ -182,6 +182,43 @@ Between Devise and OmniAuth we can build really nice Authentication workflows. A
 Read [CanCan][cancan] for doing Authorization.
 
 [cancan]: ./cancan.md
+
+# OmniAuth cont.
+
+Now that we've seen how we can [authenticate using OmniAuth][omniauth] let's take a look at how we might use the credentials provided to make requests of a provider on behalf of a user.
+
+The credentials stored in an `Authorization` can be used to make OAuth requests.
+
+See how I can make a twitter_client attribute of user? This can be used to interact with the [twitter][twitter-client] API.
+
+```ruby
+class User < ActiveRecord::Base
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
+
+  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
+
+  has_many :authorizations, :dependent => :destroy
+
+  has_many :tweets
+
+  def twitter_client
+    twitter_auth = authorizations.where(provider: "Twitter").first
+    return [] unless twitter_auth
+    Twitter::Client.new(
+      :oauth_token => twitter_auth.token,
+      :oauth_token_secret => twitter_auth.secret
+    )
+  end
+end
+```
+
+This allows us access to a variety of twitter resources. lets pull the timeline of the `current_user`.
+```html
+<%= current_user.twitter_client.home_timeline.first.to_json %>
+```
+
+
+
 
 ## Resources
 * [OmniAuth][omniauth.org]
@@ -205,3 +242,4 @@ Read [CanCan][cancan] for doing Authorization.
 [google-provider]: https://github.com/zquestz/omniauth-google-oauth2
 [github-provider]: https://github.com/intridea/omniauth-github
 [provider-list]: https://github.com/intridea/omniauth/wiki/List-of-Strategies
+[twitter-client]: https://github.com/sferik/twitter

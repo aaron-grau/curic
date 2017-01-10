@@ -10,8 +10,7 @@ One of the drawbacks of our program is that we don't have enough time to teach o
   * [30 Selectors You Must Know][30-selectors]
   * [Parallax][parallax-blog]
 * Designing Accessible Web Apps
-  * ["Teach Access" resources][teach-access]
-  * [Web Accessibility Standards][wcag-checklist]
+  * [Teach Access][teach-access]
 * 7 Rules for Creating Gorgeous UI
   * [Part I](https://medium.com/@erikdkennedy/7-rules-for-creating-gorgeous-ui-part-1-559d4e805cda#.sfyqyq3qz)
     1. Light comes from the sky
@@ -58,7 +57,6 @@ One of the drawbacks of our program is that we don't have enough time to teach o
 
 [autoprefixer]: ./autoprefixer.md
 [teach-access]: https://teachaccess.github.io/tutorial/
-[wcag-checklist]: https://www.wuhcag.com/wcag-checklist/
 [css-overview]: ./css.md
 [css-demos]: https://github.com/appacademy/css-demos
 [styling-railscasts]: ./styling-railscasts.md

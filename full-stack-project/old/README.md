@@ -1,28 +1,17 @@
-# Full-Stack Curriculum
-
-## Proposal
-
-Before you can start working on your full-stack project you need to pick an app to build.
-You will start by submitting a list of three possible apps you would be interested in creating.
-This is your _tentative proposal_.
-You will assigned one of them.
-
-Before you start on your full-stack project you will create a detailed proposal in which you carefully plan out the app you are going to build.
-This is your _full-stack project proposal_.
-Here are the important deadlines for this part of the curriculum.
+# Full-Stack Projects
 
 ## Important Dates
   * **W7D4**: Submit [tentative project proposal][tentative-proposal] by 9am
-    * [Choosing a Full-Stack Project][good-projects]
+    * [Suggested Full-Stack Projects][good-projects]
   * **W8D1**: Submit [full-stack project proposal][readings] by 9am
     * [Sample Proposal][sample-proposal]
     * [MVP Checklist][mvp-checklist]
     * [Trello][trello]
   * **W9D2**: Peer Review
-  * **W9D5**: Turn in Full Stack Project
+  * **W9D5**: Turn in Full Stack Project 
     * [How to Turn in Your Project][turn-in-fullstack]
     * Next Steps: [Check out the Job Search Curriculum][jobsearch]
-
+    
 [turn-in-fullstack]:readings/turn_in_fullstack.md
 [jobsearch]:https://github.com/appacademy/job-search-curriculum/blob/master/SF.md#week10
 [tentative-proposal]: readings/tentative-project-proposal.md
