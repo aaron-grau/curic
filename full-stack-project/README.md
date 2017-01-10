@@ -44,26 +44,42 @@ Hear are the important deadlines.
 
 ### Resources
 
-There are many features you might want to add to your app that we haven't covered in class.
-Maybe you want to integrate google maps or allow your users to upload audio.
-Maybe you're just looking for some handy tools to speed up your development process.
-You can find readings and videos on a number of supplementary topics here.
+Here are some additional resources for getting your app running and adding common features.
 
-  * [Basic tools:][tools] a list of common tools and bug-fixes
-  * [Security:][security] beef up your app's security and add user permissions.
-  * [Styling:][styling] tips and tricks for styling your styling your site and adding modals
-  * [CDNs:][cdns] use Cloudinary and AWS to store files
-  * [APIs:][apis] integrate google maps and other web services into your app
-  * [Useful gems:][gems] some utility gems that automate common tasks
-  * [Performance and scaling:][performance] use caching to speed up your app and help it handle heavier loads
+* **Heroku**
+  * [Deploying to heroku][heroku-deployment]
+  * [Removing the react minification warning][minification-warnings]
+  * [Understanding the asset pipeline][asset-pipeline]
+* **Web services**
+  * [Figaro gem][figaro] securely store api keys. Necessary for google maps, Cloudinary and AWS.
+    * [video][figaro-video]
+  * [Cloudinary video][cloudinary-video] work with images
+    * [Code demo][cloudinary-demo]
+  * [AWS vido part 1][aws1] work with music or other large files
+    * [Part 2][aws2]
+    * [Code demo][aws-demo]
+  * [Google maps][google-maps-demo]
+* **Other tools**
+  * [Redux dev tools][redux-dev-tools] view your react state live and see a list of dispatched actions
+    * [video][redux-dev-tools-video]
 
-[tools]: resources/helpful_tools.md
-[security]: resources/security.md
-[styling]: resources/styling.md
-[cdns]: resources/cdns.md
-[apis]: resources/apis.md
-[gems]: resources/useful_gems.md
-[performance]: resources/performance_and_scaling.md
+Is there something your looking for that's not on the list?
+We have lots of extra readings and videos on other topic in [additional resources][additional-resources].
+
+[additional-resources]
+[heroku-deployment]: resources/helpful_tools/heroku-deployment.md
+[minification-warnings]: resources/helpful_tools/react-v15-warning.md
+[figaro]: resources/security/figaro.md
+[figaro-video]: https://vimeo.com/164602277
+[cloudinary-video]: https://vimeo.com/164612621
+[cloudinary-demo]: https://github.com/appacademy/react_cloudinary_demo
+[aws1]: https://vimeo.com/169111348
+[aws2]: https://vimeo.com/169111248
+[aws-demo]: resources/cdns/file_upload_demo
+[google-maps-demo]: https://github.com/appacademy/curriculum/tree/master/react/demos/react_map_demo
+[redux-dev-tools]: https://github.com/appacademy/curriculum/blob/c280e51a978c9a67243a2bb2d5f4650d9f53d387/react/readings/redux_dev_tools.md
+[redux-dev-tools-video]: https://vimeo.com/194738174
+[asset-pipeline]: ./helpful_tools/asset-pipeline.md
 
 ### Bonus
 
