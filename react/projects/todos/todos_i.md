@@ -262,7 +262,7 @@ const todosReducer = (state = initialState, action) => {
       // iterating throgh action.todos setting a key value pair for each one in the new state.
       // return the new state
     case RECEIVE_TODO:
-      // Make a new object setting the a single key value pair for action.todo
+      // Make a new object setting a single key value pair for action.todo
       // Return a new state object by merging your previous state and your new object
     default:
       return state;
