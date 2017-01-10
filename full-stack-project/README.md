@@ -34,11 +34,12 @@ You will spend the next two weeks working on your full-time on your full-stack p
 Hear are the important deadlines.
 
 * **W8D2**: Start work on your full-stack project after you finish A06
-* **W9D2**: Peer Review
+* **W9D2**: [Peer Review]
 * **W9D5**: Turn in Full Stack Project
   * [How to Turn in Your Project][turn-in-fullstack]
   * Next Steps: [Check out the Job Search Curriculum][jobsearch]
 
+[peer-review]: project/peer-review.md
 [turn-in-fullstack]: project/turn_in_fullstack.md
 [jobsearch]: project/job-search.md
 
@@ -88,4 +89,4 @@ Here are a few directions you could take.
 
   * [Performance and scaling]
   * [Testing]
-  * [That other thing I can't remember]
+  * [Accessibility]
