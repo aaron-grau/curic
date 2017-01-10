@@ -34,11 +34,16 @@ Go ahead and create a new Rails project...
 ```
 $ rails new URLShortener --database postgresql
 ```
+Create the database with the following command...
+
+```
+$ bundle exec rake db:create
+```
 
 Now use the Rails scaffolding engine to create a new migration file...
 
 ```
-$ rails generate migration CreateUsers
+$ bundle exec rails generate migration CreateUsers
 ```
 
 This will automatically generate a migration that creates the `users`
@@ -51,7 +56,7 @@ much more quickly. In addition to improving lookup performance we
 can also enforce uniqueness of one or more columns at the database
 level using an index. [These docs][add-index-docs] will give you the syntax needed.
 
-Double check that your migration file syntax is correct and then setup your database by running your migrations with: `rake db:migrate`.
+Double check that your migration file syntax is correct and then setup your database by running your migrations with: `bundle exec rake db:migrate`.
 
 Next, let's create a `User` model. No magic to this, just create a `user.rb`
 file in your `app/models` folder.
