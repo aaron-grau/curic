@@ -20,7 +20,7 @@ Download the [skeleton][skeleton].
 
 There are specs in it which will guide you through the project. Because
 they're using a database, they run a little slow, so it might be helpful
-to run the one file at a time:
+to run them one file at a time:
 
 ```
 $ rspec spec/01_sql_object_spec.rb
