@@ -5,20 +5,19 @@
 We've seen how to use `where` to retrieve an array of AR objects
 matching some conditions. Sometimes, you want to find the single
 object that matches some criteria; you want to dispense with the array
-(which in this case will be either empty, or length 1). We use
-**dynamic finders** for this:
+(which in this case will be either empty, or length 1). We use `::find` and `::find_by` for this:
 
 ```ruby
-Application.find_by_email_address("ned@appacademy.io")
+Application.find_by(email_address: "ned@appacademy.io")
+# returns the record whose email_address matches "ned@appacademy.io"
+
+Application.find(4)
+# returns the record with id 4
 ```
 
-For any column `X` an AR model will respond to a message
-`find_by_X`. To do this, AR overrides `method_missing?`. You can even
-get crazy: `find_by_X_and_Y_and_Z`, passing three arguments.
+`::find` accepts a single argument: the id of the record you're looking for. `::find_by` accepts an options hash, which allows us to specify as many criteria as necessary.
 
-Typically you only use up to two search criteria; if you need more
-than two, just switch to `where` and then call `first` to get the
-first item of the results array.
+An important difference to note is that `::find` will raise an `ActiveRecord::RecordNotFound` exception if you search for a nonexistent record, whereas `::find_by` will simply return `nil`. Don't let that scare you; just be aware of the difference! Prefer `::find` for looking up records by id.
 
 ## `order`, `group`, and `having`
 
