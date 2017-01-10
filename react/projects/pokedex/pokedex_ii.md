@@ -65,7 +65,7 @@ rendered in a `PokemonIndexItem` component. As your app grows, refactor
 components to keep them minimal and modular.
 
 Create a `frontend/components/pokemon/pokemon_index_item.jsx` file and export a
-function `PokemonIndexItem` component. Your `PokemonIndexItem` should return a
+functional `PokemonIndexItem` component. Your `PokemonIndexItem` should return a
 `li` containing information on a pokemon's `name` and `image_url`. This
 information should be served as props. Refactor `PokemonIndex` to utilize this
 new component. Your `PokemonIndex` should map each pokemon objects in
