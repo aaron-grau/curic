@@ -54,7 +54,7 @@ would be extremely difficult to write using a less restrictive framework.
 
 Since its creation Redux has rapidly grown in popularity, quickly moving beyond
 its initial plan as an experiment. As of early 2016 it had over 3,000,000
-downloads. The redux repository on github has over 25,000 stars, and redux is
+downloads. The Redux repository on github has over 25,000 stars, and Redux is
 now used by a number of companies including Exana, Patreon, and ClassPass.
 
 
@@ -174,7 +174,7 @@ options that are available.
 
 * **Action**
 
-  Ex: "_The redux store is updated by dispatching actions._"
+  Ex: "_The Redux store is updated by dispatching actions._"
 
   An action is a POJO (plain old JavaScript object) with a `type` property.
   Actions contain information that can be used to update the store. They can be
@@ -216,7 +216,7 @@ options that are available.
   action in response and chose whether or not to pass the action on down the
   chain.  Behind the scenes, the middleware actually replaces the dispatch
   method of the store with a customized version.  There is a large ecosystem of
-  existing middleware ready to be plugged into any redux projects.  One example
+  existing middleware ready to be plugged into any Redux projects.  One example
   is a logger that records each action before passing it on to the reducer.
   Perhaps the most common use for middleware is to dispatch asynchronous
   requests to a server.
@@ -230,7 +230,7 @@ options that are available.
   time and the actions that had been dispatched, one could retroactively cancel
   an action and recalculate the state as if that action had never been
   dispatched. This is precisely the functionality that the Redux dev tools
-  provide.  The dev tools can be added as middleware to any redux project.  They
+  provide.  The dev tools can be added as middleware to any Redux project.  They
   allow you to look back through the history of the state and toggle past
   actions on and off to see a live recalculation of the state.  This ability to
   revert to a previous state is what is meant by time travel.
