@@ -1,13 +1,17 @@
 # Peer Review
 
+Today you will get feedback from your classmates.
+You will divide into pairs and evaluate one another's apps.
+You do need to do some work ahead of time to prepare for this.
+
+## Ahead of time
+
 During job search portion of the curriculum, you will organize your search materials using Google Drive.
 Create a Drive folder that is shared with App Academy.
 We will work out of this folder to provide comments and feedback.
 
 You will use your folder for the first time at the Full Stack Projects peer review workshop.
 At the workshop, you and your peers will review one another's projects, and provide feedback.
-
-## Ahead of time
 
 Please prepare by working through the following instructions.
 
