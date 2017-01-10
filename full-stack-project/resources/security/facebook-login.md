@@ -1,8 +1,6 @@
 ## OmniAuth and Facebook Login
 
-**TODO: INTRO OMNIAUTH AND HOW DEVISE HANDLES IT**
-
-We're going to set up Facebook login as an example. The basic structure will very similar for any OmniAuth provider.
+We're going to set up Facebook login as an example of Omniauth. The basic structure will very similar for any OmniAuth provider.
 
 You can check out the [OmniAuth docs][omniauth-docs] or Devise's own [OmniAuth overview][devise-omniauth] with Facebook example. Devise's page also has an example with Google and OAuth2 (another authentication strategy).
 

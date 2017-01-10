@@ -3,7 +3,6 @@
   * [CSS Overview reading][css]
   * [CSS demos code][css-demos]
   * [CSS transforms and transitions video][css-transitions]
-  * [CSS transforms video][css-transforms]
   * [SASS and Bootstrap reading][sass-and-bootstrap]
   * [Positioning reading][positioning]
   * [Autoprefixer gem reading][autoprefixer]
@@ -14,7 +13,6 @@
 [css]: ./styling/css.md
 [css-demos]: https://github.com/appacademy/css-demos
 [css-transitions]: https://vimeo.com/164928587
-[positioning]: ./styling/positioning.md
 [sass-and-bootstrap]: ./styling/sass-bootstrap-typography.md
 [autoprefixer]: ./styling/autoprefixer.md
 [react-modal]: ./styling/react-modals.md
