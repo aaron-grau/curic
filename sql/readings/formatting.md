@@ -17,7 +17,9 @@ conventions, you should:
 You must not write SQL all on a single line. It will be impossible to
 read:
 
-    SELECT * FROM table_one LEFT OUTER table_two ON table_one.column_one = table_two.column_x WHERE (table_one.column_three > table_two.column_y ...
+```sql
+SELECT * FROM table_one LEFT OUTER table_two ON table_one.column_one = table_two.column_x WHERE (table_one.column_three > table_two.column_y ...
+```
 
 Here's an example of some well formatted SQL code:
 
@@ -42,7 +44,7 @@ ORDER BY
 Notice that each component of the SQL statement starts with the
 keyword aligned left. The body of each component is indented two
 spaces. Complex `WHERE` clauses are parenthesized and indented two
-spaces on the follow line.
+spaces on the following line.
 
 ## Subqueries
 

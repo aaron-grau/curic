@@ -94,7 +94,8 @@ key differences:
   * In `routes.rb`, set `defaults: {format: :json}` on your `namespace :api`
 * Views:
   + You'll want an **`api/users/show.json.jbuilder`**, which you can use for
-  multiple controller actions. + This should delegate to a partial:
+  multiple controller actions. 
+  + This should delegate to a partial:
   **`api/users/_user.json.jbuilder`**, which we'll use later.
 * `Sessions#destroy`:
   + Render an empty `{}` upon successful logout.
@@ -185,7 +186,7 @@ other action creators accept a user object. On logout success dispatch
 + Create a new reducer in a new file `reducers/session_reducer.js` to keep track of our
 current user and error messages.
 
-The `SessionReducer` should listen for 3 action types and respond to each like so:
+The `SessionReducer` should listen for 2 action types and respond to each like so:
   * `RECEIVE_CURRENT_USER` - sets `currentUser` to the action's user and clears `errors`
   * `RECEIVE_ERRORS` - sets `errors` to the action's errors and clears the `currentUser`
 
@@ -435,11 +436,11 @@ To make our React components modular, we will reuse and render the same form com
 #### `SessionFormContainer`
 
 The `SessionFormContainer` should provide `SessionForm` with the following props:
-+ From `mapStateToProps(state)`:
++ From `mapStateToProps(state, ownProps)`:
   * `loggedIn` (boolean) - representing whether a `currentUser` exists
   * `errors` (array) - list of errors from the state
-+ From `mapDispatchToProps(dispatch, ownProps)`:
   * `formType` (string): `'login'` or `'signup'` given the current `ownProps.location.pathname`
++ From `mapDispatchToProps(dispatch, ownProps)`:
   * `processForm` (function): dispatching action creators `login` or `signup` given `formType`
 
 #### `SessionForm`

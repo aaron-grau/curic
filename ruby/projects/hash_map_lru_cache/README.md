@@ -145,7 +145,7 @@ Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentia
       for numbers is something that's outside the scope of this assignment.
   - Ordering of elements is essential to hashing an `Array` or `String`. This means each
     element in an `Array` or `String` should be associated with its index during hashing.
-    Ex. `[1, 2, 3].hash != [3, 2, 1].hash # => false`
+    Ex. `[1, 2, 3].hash == [3, 2, 1].hash # => false`
   - On the other hand, ordering is **not** to be considered with a `Hash`. Hashes are based
     on sets and have no fixed order. Ex. `{a: 1, b: 2}.hash == {b: 2, a: 1}.hash # => true`
 
