@@ -47,15 +47,15 @@ sufficient CSS styling:
 **Objective:** Notes can be created, read, edited and destroyed through
 the API.
 
-### Phase 3: Notebooks (2 day)
+### Phase 3: Notebooks (2 days)
 
 **Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
 
-### Phase 4: Tags (1 days)
+### Phase 4: Tags (1 day)
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+### Phase 5: Allow Complex Styling in Notes (1 day, W2 Th 6pm)
 
 **objective:** Allow rich text editing of notes.
 
