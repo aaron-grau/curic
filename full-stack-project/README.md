@@ -11,67 +11,65 @@ Before you start on your full-stack project you will create a detailed proposal 
 This is your _full-stack project proposal_.
 Here are the important deadlines for this part of the curriculum.
 
-## Important Dates
-  * **W7D4**: Submit [tentative project proposal][tentative-proposal] by 9am
-    * [Choosing a Full-Stack Project][good-projects]
-  * **W8D1**: Submit [full-stack project proposal][readings] by 9am
-    * [Sample Proposal][sample-proposal]
+  * **W7D4**: Submit your tentative proposal by 9am
+    * [Tentative proposal guidelines][tentative-proposal]
+    * [List of approved apps][good-projects]
+  * **W8D1**: Submit your full-stack proposal by 9am
+    * [Full-stack proposal guidelines][fsp]
     * [MVP Checklist][mvp-checklist]
+    * [Sample Proposal][sample-proposal]
     * [Trello][trello]
-  * **W9D2**: Peer Review
-  * **W9D5**: Turn in Full Stack Project
-    * [How to Turn in Your Project][turn-in-fullstack]
-    * Next Steps: [Check out the Job Search Curriculum][jobsearch]
 
-[turn-in-fullstack]:readings/turn_in_fullstack.md
+[tentative-proposal]: proposal/tentative-project-proposal.md
+[good-projects]: proposal/projects-to-clone.md
+[fsp]: proposal/full-stack-project-proposal.md
+[sample-proposal]: proposal/sample_project_proposal
+[mvp-checklist]: proposal/mvp-list.md
+[trello]: proposal/using-trello.md
+
+
+## Project
+
+You will spend the next two weeks working on your full-time on your full-stack project
+Hear are the important deadlines.
+
+* **W8D2**: Start work on your full-stack project after you finish A06
+* **W9D2**: Peer Review
+* **W9D5**: Turn in Full Stack Project
+  * [How to Turn in Your Project][turn-in-fullstack]
+  * Next Steps: [Check out the Job Search Curriculum][jobsearch]
+
+[turn-in-fullstack]:project/turn_in_fullstack.md
 [jobsearch]:https://github.com/appacademy/job-search-curriculum/blob/master/SF.md#week10
-[tentative-proposal]: readings/tentative-project-proposal.md
-[good-projects]: readings/projects-to-clone.md
-[readings]: readings/full-stack-project-proposal.md
-[sample-proposal]: demos/sample_project_proposal
-[mvp-checklist]: readings/mvp-list.md
-[trello]: readings/using-trello.md
 
-## Resources
-  * [Deploying to Heroku][heroku-deployment]
-    * [The Asset Pipeline][asset-pipeline]
-  * [Lightning talks][lightning-talks]
-  * [Adding Features][adding-features]
-  * [Common Bugs & FAQs][common-bugs]
-  * [Styling][styling]
-  * [Performance][performance]
-  * [Additional Resources][resources]
+### Resources
 
-[heroku-deployment]: readings/heroku-deployment.md
-[asset-pipeline]: readings/asset-pipeline.md
-[lightning-talks]: readings/lightning_talks.md
-[common-bugs]: readings/common_bugs.md
-[adding-features]: readings/adding_features.md
-[polishing-up]: readings/polishing_up.md
-[styling]: readings/styling.md
-[performance]: readings/performance.md
-[resources]: readings/resources.md
+There are many features you might want to add to your app that we haven't covered in class.
+Maybe you want to integrate google maps or allow your users to upload audio.
+Maybe you're just looking for some handy tools to speed up your development process.
+You can find readings and videos on a number of supplementary topics here.
 
-## Additional Resources
-:closed_lock_with_key: `go_video_go`
+  * [Basic tools:][tools] a list of common tools and bug-fixes
+  * [Security:][security] beef up your app's security and add user permissions.
+  * [Styling:][styling] tips and tricks for styling your styling your site and adding modals
+  * [CDNs:][cdns] use Cloudinary and AWS to store files
+  * [APIs:][apis] integrate google maps and other web services into your app
+  * [Useful gems:][gems] some utility gems that automate common tasks
+  * [Performance and scaling:][performance] use caching to speed up your app and help it handle heavier loads
 
-**NB** Creating a project proposal is a dynamic process that involves going back and forth between files as you outline your application. These videos demonstrate some of the thoughts one might have and decisions one might make while creating a proposal but much more may be done to create a fully outlined project. Use these videos as a reference for ideas not as an exact guide.
+[tools]: resources/helpful_tools.md
+[security]: resources/security.md
+[styling]: resources/styling.md
+[cdns]: resources/cdns.md
+[apis]: resources/apis.md
+[gems]: resources/useful_gems.md
+[performance]: resources/performance_and_scaling.md
 
- * [:movie_camera: Sample Project Proposal Demo - Components/Routes][sppds-components-routes]
- * [:movie_camera: Sample Project Proposal Demo - Schema/State][sppds-schema-state]
- * [:movie_camera: Sample Project Proposal Demo - Redux Structure][sppds-redux-structure]
+### Bonus
 
-[sppds-components-routes]: https://vimeo.com/180334471
-[sppds-schema-state]: https://vimeo.com/180342687
-[sppds-redux-structure]: https://vimeo.com/180345105
+If you finish your MVP features early you should consider enhancing your app to add technical depth.
+Here are a few directions you could take.
 
-
-## Bonus
-
-* [Architecture of a web application][web-app-architecture]
-* [Advanced Deployment][adv-deploy]
-* [Where to Learn More][learn-more]
-
-[web-app-architecture]: readings/web_app_architecture.md
-[adv-deploy]: readings/advanced_deployment.md
-[learn-more]: readings/learn_more.md
+  * [Performance and scaling]
+  * [Testing]
+  * [That other thing I can't remember]
