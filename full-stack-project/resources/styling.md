@@ -4,7 +4,6 @@
   * [CSS demos code][css-demos]
   * [CSS transforms and transitions video][css-transitions]
   * [SASS and Bootstrap reading][sass-and-bootstrap]
-  * [Positioning reading][positioning]
   * [Autoprefixer gem reading][autoprefixer]
   * [React modal reading][react-modal]
   * [React modal video][react-modal-video]
