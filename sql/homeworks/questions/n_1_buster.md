@@ -14,7 +14,8 @@ queries displayed in the console to see if you're making an N+1 query.
 
 Refer to the [joins demo][demo] for hints on what you might want to do!
 
-[skeleton]: ../n_1_buster.zip?raw=true
+https://github.com/appacademy/curriculum/blob/master/sql/homeworks/questions/n_1_buster.zip
+[skeleton]: ./n_1_buster.zip?raw=true
 [demo]: ../../demos/joins_demo/lib
 
 ## Artists, Albums, and Tracks
