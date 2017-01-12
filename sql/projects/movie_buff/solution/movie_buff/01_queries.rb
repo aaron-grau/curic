@@ -26,6 +26,13 @@ def harrison_ford
     .joins(:actors)
     .where("actors.name = 'Harrison Ford'")
     .where("castings.ord != 1")
+
+  # or let ActiveRecord do everything:
+  # Movie
+  #   .select(:id, :title)
+  #   .joins(:actors)
+  #   .where(actors: { name: 'Harrison Ford' })
+  #   .where.not(castings: { ord: 1 })
 end
 
 def biggest_cast
@@ -63,6 +70,12 @@ def directed_by_one_of(them)
     .select(:id, :title)
     .joins(:director)
     .where("actors.name IN (?)", them)
+
+  # or let ActiveRecord do everything:
+  # Movie
+  #   .select(:id, :title)
+  #   .joins(:director)
+  #   .where(actors: { name: them })
 end
 
 def movie_names_before_1940
