@@ -15,7 +15,7 @@ def harrison_ford
   #
   # Actor
   #   .joins(:movies)
-  #   .where("movies.title = 'Blade Runner'")
+  #   .where(movies: { title: 'Blade Runner' })
   #
   # It's possible to join based on active record relations defined in models.
   #
@@ -24,15 +24,8 @@ def harrison_ford
   Movie
     .select(:id, :title)
     .joins(:actors)
-    .where("actors.name = 'Harrison Ford'")
-    .where("castings.ord != 1")
-
-  # or let ActiveRecord do everything:
-  # Movie
-  #   .select(:id, :title)
-  #   .joins(:actors)
-  #   .where(actors: { name: 'Harrison Ford' })
-  #   .where.not(castings: { ord: 1 })
+    .where(actors: { name: 'Harrison Ford' })
+    .where.not(castings: { ord: 1 })
 end
 
 def biggest_cast
@@ -64,18 +57,16 @@ def directed_by_one_of(them)
   #
   # We can use IN to test if an element is present in an array.
   #
+  # ActiveRecord gives us an even better way to write this:
+  #
+  # Movie.where(yr: years)
+  #
   # Find the id and title of all the movies directed by one of 'them'.
 
   Movie
     .select(:id, :title)
     .joins(:director)
-    .where("actors.name IN (?)", them)
-
-  # or let ActiveRecord do everything:
-  # Movie
-  #   .select(:id, :title)
-  #   .joins(:director)
-  #   .where(actors: { name: them })
+    .where(actors: { name: them })
 end
 
 def movie_names_before_1940
