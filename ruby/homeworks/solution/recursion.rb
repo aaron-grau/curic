@@ -17,18 +17,6 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 # EXERCISE 2
 
 def add_numbers(arr)
@@ -42,21 +30,6 @@ end
 #   p add_numbers([3]) # => returns 3
 #   p add_numbers([-80,34,7]) # => returns -39
 #   p add_numbers([]) # => returns nil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -75,3 +48,43 @@ end
 #   p gamma_fnc(1)  # => returns 1
 #   p gamma_fnc(4)  # => returns 6
 #   p gamma_fnc(8)  # => returns 5040
+
+
+
+
+# EXERCISE 4
+
+def ice_cream_shop(flavors, favorite)
+  return false if flavors.empty?
+  return true if flavors.pop == favorite
+
+  ice_cream_shop(flavors, favorite)
+end
+
+# Test Cases:
+  # p ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
+  # p ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true
+  # p ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
+  # p ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
+  # p ice_cream_shop([], 'honey lavender')  # => returns false
+
+
+
+
+# EXERCISE 5
+
+def reverse(string)
+  length = string.length
+  return string if length <= 1
+
+  substring = string[1..length - 2]
+  string[length - 1] + reverse(substring) + string[0]
+end
+
+# Test Cases:
+  # p reverse("house") # => "esuoh"
+  # p reverse("dog") # => "god"
+  # p reverse("atom") # => "mota"
+  # p reverse("q") # => "q"
+  # p reverse("id") # => "di"
+  # p reverse("") # => ""
