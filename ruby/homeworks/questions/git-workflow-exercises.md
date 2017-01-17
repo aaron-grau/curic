@@ -78,3 +78,12 @@ Draw out on paper how you would represent unstaged, staged, and committed change
 ## Bonus
 
 `cd` into the `.git` folder and poke around.  Does anything look familiar?
+
+## Learn More
+
+If you'd like to learn more about using Git, check out the
+[Git tutorial on Code Academy][code-academy-git]. In addition to reviewing
+how to set up git, track files, and use branches, it also has useful material
+on utilizing Git to collaborate with team members on the same code base.
+
+[code-academy-git]: https://www.codecademy.com/learn/learn-git
