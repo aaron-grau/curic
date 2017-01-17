@@ -8,7 +8,7 @@ your project and see how a user interacts with your site!
 
 ## Structure
 
-You will be assigned two different fellow students to pair with.  You will meet
+You will be assigned two different fellow students to pair with.  You will meet with
 each for 30 min.  Follow the below framework for each pairing:
   * Share your reviewer on your google doc [grading spreadsheet][peer-review-form]
   * First 15 min: review each other site's and fill out the spreadsheet
