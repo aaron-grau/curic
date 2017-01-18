@@ -131,7 +131,7 @@ class SessionsController < ActionController::Base
   def destroy
     # logout
     session_token = session[:session_token]
-    user = User.find_by_session_token(
+    user = User.find_by_session_token(session_token)
 
     user.session_token = SecureRandom::urlsafe_base64(16)
     user.save!
