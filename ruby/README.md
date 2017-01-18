@@ -189,10 +189,10 @@
 * :movie_camera: [Data Structures][data-structures-video] (40 min)
 * :movie_camera: [DFS][dfs-video] (15 min)
 
-### Readings (25 min)
+### Readings (15 min)
 + [Intro data structures][intro-algorithms-and-data-structures] (15 min)
 
-### Homeworks (45 min)
+### Homeworks (55 min)
 + [Homeworks with Git][git-homeworks] (10 min)
   * **NB:** Do initial setup, then come back after completing **DIY ADTs**
 + [DIY ADTs][diy-adts] (45 min)
