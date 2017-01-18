@@ -13,7 +13,7 @@
     * Next Steps: [Check out the Job Search Curriculum][jobsearch]
 
 [turn-in-fullstack]:readings/turn_in_fullstack.md
-[jobsearch]:https://github.com/appacademy/job-search-curriculum/blob/master/SF.md#week10
+[jobsearch]:https://github.com/appacademy/sf-job-search-curriculum
 [tentative-proposal]: readings/tentative-project-proposal.md
 [good-projects]: readings/projects-to-clone.md
 [readings]: readings/full-stack-project-proposal.md
