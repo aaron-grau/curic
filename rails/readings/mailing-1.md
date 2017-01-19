@@ -3,7 +3,7 @@
 Action Mailer allows you to send emails from your application. There
 are two parts:
 
-* An [`ActionMailer::Base`][action-mailer-base-docs] class. This works
+* A class extending [`ActionMailer::Base`][action-mailer-base-docs] class. This works
   like a controller. Mailers live in `app/mailers`.
 * Views, which live in `app/views/[mailer_name]`.
 
@@ -34,7 +34,8 @@ end
 Let's add a method called `welcome_email`, that will send an email to
 the user's registered email address:
 
-```ruby
+```ruby 
+# app/mailers/user_mailer.rb
 class UserMailer < ActionMailer::Base
   default from: 'notifications@example.com'
 
@@ -71,10 +72,16 @@ though. The caller of `UserMailer#welcome_email` will then call
 `#deliver` on the `Message` object:
 
 ```ruby
-u = User.find(123)
+# app/controllers/users_controller.rb
 
-msg = UserMailer.welcome_email(u)
-msg.deliver
+  def create
+    u = User.create(user_params)
+
+    msg = UserMailer.welcome_email(u)
+    msg.deliver
+    
+    render :root
+  end
 ```
 
 ### Create a mailer view
@@ -84,6 +91,8 @@ Wait. What about the content? Create a file called
 template used for the email, formatted in HTML:
 
 ```html
+<!-- app/views/user_mailer/welcome_email.html.erb -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -115,6 +124,8 @@ To do this, create a file called `welcome_email.text.erb` in
 `app/views/user_mailer/`:
 
 ```erb
+<%# app/views/user_mailer/welcome_email.text.erb %>
+
 Welcome to example.com, <%= @user.name %>
 ===============================================
 
@@ -146,10 +157,15 @@ method, you're going to have trouble responding to requests promptly.
 
 ### Adding attachments
 
-Adding attachments is simple:
+Adding attachments is pretty simple, just add new key/value pairs to the hash-like `attachments` variable. This is provided in each instance of `ActionMailer::Base`.
 
-```ruby
-attachments['filename.jpg'] = File.read('/path/to/filename.jpg')
+```ruby 
+# app/mailers/user_mailer.rb
+
+  def welcome_email
+    attachments['filename.jpg'] = File.read('/path/to/filename.jpg')
+    # ... 
+  end
 ```
 
 ### Generating URLs in Action Mailer Views
@@ -160,13 +176,17 @@ for your controller views. Somewhat oddly, you must set an option in
 `config/environments/development.rb` for development) so that the
 mailer knows the base url of the website:
 
-```ruby
-config.action_mailer.default_url_options = { host: 'example.com' }
+```ruby 
+# app/config/environments/development.rb
+config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+# app/config/environments/production.rb
+config.action_mailer.default_url_options = { host: 'www.production-domain.com' }
 ```
 
 You would think that the Rails app knows the hostname (e.g., it
 doesn't need you to set this for `*_url` methods in controller
-views). Weird, but whatever.
+views). "Unlike controllers, the mailer instance doesn't have any context about the incoming request so you'll need to provide the :host parameter yourself." [Rails Guides - Action Mailer Basics][action-mailer-host-parameter]
 
 Make sure to (continue to) use the `*_url` form of the url helpers,
 since when the user opens their email, the email needs to contain the
@@ -198,5 +218,6 @@ config.action_mailer.delivery_method = :letter_opener
 * [ActionMailer::Base][action-mailer-base-docs]
 
 [action-mailer-base-docs]: http://api.rubyonrails.org/classes/ActionMailer/Base.html
+[action-mailer-host-parameter]: http://guides.rubyonrails.org/action_mailer_basics.html#generating-urls-in-action-mailer-views
 [mail-message-github]: https://github.com/mikel/mail/blob/master/lib/mail/message.rb
 [letter-opener-github]: https://github.com/ryanb/letter_opener
