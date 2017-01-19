@@ -5,7 +5,7 @@ def eighties_b_movies
 end
 
 def bad_years
-  # List the years in which a movie with a rating above 8 was not released.
+  # List the years in which a movie with a rating above 7 was not released.
 
 end
 
