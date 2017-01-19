@@ -51,7 +51,7 @@ Finished? Navigate around your site in localhost. Make sure that the main body o
 
 ## Topic 3: Action Mailer
 
-1. Create a user mailer to welcome new users to your account. The command `bundle install rails generate mailer UserMailer`  will create a new mailer class file with some default code in `app/mailers/user_mailer.rb`.
+1. Create a user mailer to welcome new users to your account. The `bundle install rails generate mailer UserMailer` command will create a new mailer class file with some default code in `app/mailers/user_mailer.rb`.
 
   ```ruby
   class UserMailer < ActionMailer::Base
