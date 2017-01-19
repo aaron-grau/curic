@@ -3,8 +3,8 @@
 Action Mailer allows you to send emails from your application. There
 are two parts:
 
-* A class extending [`ActionMailer::Base`][action-mailer-base-docs] class. This works
-  like a controller. Mailers live in `app/mailers`.
+* A mailer class extending [`ActionMailer::Base`][action-mailer-base-docs]. This works
+  similarly to our `ApplicationController` extending `ActionController::Base`. Mailers live in `app/mailers`.
 * Views, which live in `app/views/[mailer_name]`.
 
 ## Your first mailer
@@ -186,7 +186,7 @@ config.action_mailer.default_url_options = { host: 'www.production-domain.com' }
 
 You would think that the Rails app knows the hostname (e.g., it
 doesn't need you to set this for `*_url` methods in controller
-views). "Unlike controllers, the mailer instance doesn't have any context about the incoming request so you'll need to provide the :host parameter yourself." [Rails Guides - Action Mailer Basics][action-mailer-host-parameter]
+views). "Unlike controllers, the mailer instance doesn't have any context about the incoming request so you'll need to provide the :host parameter yourself." ([Rails Guides - Action Mailer Basics][action-mailer-host-parameter])
 
 Make sure to (continue to) use the `*_url` form of the url helpers,
 since when the user opens their email, the email needs to contain the
