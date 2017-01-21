@@ -44,7 +44,7 @@ class SubsController < ApplicationController
 
   private
   def require_user_owns_sub!
-    return if Sub.find(params[:id]).moderator == current_user
+    return if current_user.subs.find_by(id: params[:id])
     render json: "Forbidden", status: :forbidden
   end
 
