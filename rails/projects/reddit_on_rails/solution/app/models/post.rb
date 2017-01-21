@@ -2,13 +2,14 @@ class Post < ActiveRecord::Base
   include Votable
 
   validates :author, :title, presence: true
+  validates :subs, presence: { message: "must have at least one sub" }
 
   has_many :post_subs, inverse_of: :post, dependent: :destroy
   has_many :subs, through: :post_subs, source: :sub
   has_many :comments, inverse_of: :post
 
   # Using polymorphic assocations without a concern
-  has_many :user_votes, as: :votable, class_name: "UserVote"
+  #has_many :user_votes, as: :votable, class_name: "UserVote"
 
   belongs_to(
     :author,
