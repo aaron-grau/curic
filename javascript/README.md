@@ -254,7 +254,7 @@
 * **Bonus**: [CSS Transform property][css-transform]
 
 ### Projects
-* [AA Times][aa-times]
+* **Solo:** [AA Times][aa-times]
 * **Bonus**: [Google Homepage][css-bonus-assignment]
 
 [css-nontech]: ../html-css/readings/css_nontech.md
@@ -328,8 +328,8 @@
 * [Vanilla AJAX][vanilla-ajax]
 
 ### Projects
-* **Solo:** [jQuery Lite][jquery-lite]
-* **Solo:** [Mail][mail]
+* [jQuery Lite][jquery-lite]
+* [Mail][mail]
 * **Bonus:** [Snake][snake-project] using your jQuery Lite
 
 [jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
