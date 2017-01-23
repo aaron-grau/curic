@@ -189,13 +189,12 @@
 * :movie_camera: [Data Structures][data-structures-video] (40 min)
 * :movie_camera: [DFS][dfs-video] (15 min)
 
-### Readings (25 min)
+### Readings (15 min)
 + [Intro data structures][intro-algorithms-and-data-structures] (15 min)
+
+### Homeworks (55 min)
 + [Homeworks with Git][git-homeworks] (10 min)
-  + **Make sure to read before starting the homework!**
-
-
-### Homeworks (45 min)
+  * **NB:** Do initial setup, then come back after completing **DIY ADTs**
 + [DIY ADTs][diy-adts] (45 min)
 
 ### Projects
@@ -209,7 +208,7 @@
 [dfs-video]: https://vimeo.com/162763740
 
 [intro-algorithms-and-data-structures]: ./readings/intro-algorithms-and-data-structures.md
-[git-homeworks]: ./readings/git-homeworks.md
+[git-homeworks]: ./homeworks/questions/git-homeworks.md
 [diy-adts]: ./homeworks/questions/abstract_data_types.md
 
 [poly-tree-node]: projects/poly_tree_node
