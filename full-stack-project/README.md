@@ -88,5 +88,7 @@ If you finish your MVP features early you should consider enhancing your app to 
 Here are a few directions you could take.
 
   * [Performance and scaling]
-  * [Testing]
+  * [Testing][testing]
   * [Accessibility]
+
+[testing]: bonus/testing/README.md
