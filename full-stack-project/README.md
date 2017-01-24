@@ -45,7 +45,7 @@ Hear are the important deadlines.
 
 ### Resources
 
-Here are some additional resources for getting your app running and adding common features.
+Here are some additional resources to help get your app running and add common features.
 
 * **Heroku**
   * [Deploying to heroku][heroku-deployment]
