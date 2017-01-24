@@ -25,15 +25,15 @@ You shouldn't be using any HTML views on your full-stack project anyway.
   * [The FactoryGirl and Faker gems][factorygirl-and-faker]
   * [Testing controllers][testing-controllers]
 
-[rspec-syntax]: ../../../ruby/readings/rspec-syntax.md
-[subject-and-let]: ../../../ruby/readings/subject-and-let.md
-[order-of-rspec-methods]: ../../../ruby/readings/rspec-order.md
-[mocking-and-doubles]: ../../../ruby/readings/test-doubles.md
-[integration-tests]: ../../../rails/readings/integration-testing.md
-[rspec-and-rails]: ../../../rails/readings/rspec-and-rails-setup.md
-[testing-models]: ../../../rails/readings/rspec-models.md
-[factorygirl-and-faker]: ../../../rails/readings/factorygirl-and-faker.md
-[testing-controllers]: ../../../rails/readings/rspec-controllers.md
+[rspec-syntax]: ../../ruby/readings/rspec-syntax.md
+[subject-and-let]: ../../ruby/readings/subject-and-let.md
+[order-of-rspec-methods]: ../../ruby/readings/rspec-order.md
+[mocking-and-doubles]: ../../ruby/readings/test-doubles.md
+[integration-tests]: ../../rails/readings/integration-testing.md
+[rspec-and-rails]: ../../rails/readings/rspec-and-rails-setup.md
+[testing-models]: ../../rails/readings/rspec-models.md
+[factorygirl-and-faker]: ../../rails/readings/factorygirl-and-faker.md
+[testing-controllers]: ../../rails/readings/rspec-controllers.md
 
 ## Frontend Testing
 
@@ -54,5 +54,5 @@ You can use Jest to test your Redux state, and you can also add a plugin to the 
 [jest]: https://facebook.github.io/jest/
 [enzyme]: http://airbnb.io/enzyme/
 [redux-testing-docs]: http://redux.js.org/docs/recipes/WritingTests.html
-[redux-dev-tools]: ../../../react/readings/redux_dev_tools.md
+[redux-dev-tools]: ../../react/readings/redux_dev_tools.md
 [gentest]: https://github.com/lapanoid/redux-devtools-gentest-plugin
