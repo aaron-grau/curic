@@ -268,6 +268,7 @@
 * [FactoryGirl and Faker Gems][fac-grl-faker] (20 min)
 * [Testing Controllers][rspec-controllers] (5 min)
 * [Testing with Capybara][capybara] (15 min)
+* [Nontechnical Overview of HTML][html-nontech] (10 min)
 
 ### Homeworks (60 min)
 * [Capybara][capybara-hw] (45 min)
@@ -286,6 +287,7 @@
 [fac-grl-faker]: readings/factorygirl-and-faker.md
 [capybara]: readings/capybara.md
 [spring-guard]: readings/guard-spring-setup.md
+[html-nontech]: ../html-css/readings/html_nontech.md
 
 [capybara-hw]: homeworks/questions/capybara.md
 [bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
