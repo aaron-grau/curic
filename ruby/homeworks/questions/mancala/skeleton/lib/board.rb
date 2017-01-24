@@ -15,7 +15,7 @@ class Board
   end
 
   def next_turn(ending_cup_idx)
-    # helper method to determine what #make_move returns
+    # helper method to determine whether #make_move returns :switch, :prompt, or ending_cup_idx
   end
 
   def render

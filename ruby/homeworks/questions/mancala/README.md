@@ -1,6 +1,6 @@
 # Mancala!
 
-If you don't know how the game works, check out the rules below! Even if you already know mancala, skim them. There are many different ways to play mancala, and the specs are written to test one particular version of the game. Read
+If you don't know how the game works, check out the rules below, or check out this video: [How to Play Mancala](https://youtu.be/-A-djjimCcM)! Even if you already know mancala, skim the rules. There are many different ways to play mancala, and the specs are written to test one particular version of the game. Read
 through all of the instructions before starting.
 
 ## Game Rules
@@ -29,17 +29,11 @@ with the code provided in the `Player` and `Mancala` classes.
 The gist:
 * To play, create a new instance of `Mancala` and call `play` to kick things off.
 * `Mancala#play` calls `#take_turn` alternating players until the game is `#won?`
-* `Mancala#take_turn` encapsulates the trickier logic of the game - it relies on
-the **return value** of `Board#make_move` to determine whether the turn is over
-or not. If the turn is *not* over yet, it relies on that return value to know if
-it should prompt the current player for the next starting cup or if the current
-player ended on a cup that already had stones in it (in which case, the game
-automatically plays the next turn, since the rules dictate that a player must
-then pick up the stones in that cup in that scenario).
-  * Our `Board` class houses this logic because the next turn is determined by the board's state after interacting with the player.
-  * This isn't the *only* way to do implement this logic. There are many ways one
-  could implement this game. The specs are here to guide you through our
-  implementation outlined above.
+* `Mancala#take_turn` encapsulates the trickier logic of the game. It relies on the **return value** of `Board#make_move` to determine whether the turn is over or not.
+  - If the player ends in their own cup, the return value should be `:prompt`, the turn is *not* over yet, and `Mancala#take_turn` should prompt the current player for the next starting cup
+  - If the current player ends on a cup that already has stones in it, the return value should be the `ending_cup_idx` and the game automatically plays the next turn, since the rules dictate that a player must then pick up the stones in that cup.
+  - If the current player ends on an empty cup (that now has one stone in it), the return value should be `:switch`. `Mancala#take_turn` will then switch players and repeat the process until someone has won.
+  + Our `Board` class houses this logic because the next turn is determined by the board's state after interacting with the player.
 
 **NB:**
  + Run `bundle install` to make sure you're using the correct version of RSpec!
