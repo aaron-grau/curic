@@ -33,7 +33,7 @@ You shouldn't be using any HTML views on your full-stack project anyway.
 [rspec-and-rails]: ../../../rails/readings/rspec-and-rails-setup.md
 [testing-models]: ../../../rails/readings/rspec-models.md
 [factorygirl-and-faker]: ../../../rails/readings/factorygirl-and-faker.md
-[testing-controllers]: ../../../rails/readings/respec-controllers.md
+[testing-controllers]: ../../../rails/readings/rspec-controllers.md
 
 ## Frontend Testing
 
