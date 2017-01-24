@@ -1,6 +1,7 @@
 # Testing
 
-TDD (Test Driven Development) is a hot buzzword right now, and employers love to see that you know how to write good test, so testing is a great way to add value to your app.
+TDD (Test Driven Development) is a hot buzzword right now, and employers love to see that you know how to write good tests, so adding test coverage to your app is a great way to make it more attractive to recruiters.
+Writing solid tests is also a good programing practice to develop, and if you get in the habit now it will serve you well later in your career.
 
 ## Backend Testing
 
@@ -38,7 +39,7 @@ You shouldn't be using any HTML views on your full-stack project anyway.
 
 Your frontend is written in JavaScript using React and Redux, so you'll need to use a JavaScript testing library.
 We recommend the Jest library, which was created at Facebook.
-To make your UI testing easier, you can use the Enzyme library, which was created by Airbnb specifically for React testing.
+To make your UI testing easier, you can use the Enzyme library, which was created by Airbnb specifically for testing React.
 Finally, the Redux cycle is a very common source of errors.
 You can use Jest to test your Redux state, and you can also add a plugin to the Redux developer tools that allows you to export tests in real-time as you inspect your Redux state.
 
