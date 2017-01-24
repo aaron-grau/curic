@@ -7,7 +7,7 @@ For example:
 ```ruby
 
   def hide
-    face_up = true
+    face_up = false
   end
 
 ```
@@ -16,7 +16,7 @@ Reload your code.  In pry, call `card.hide` and see what happens.  Does it chang
 
 ```ruby
   def hide
-    self.face_up = true
+    self.face_up = false
   end
 ```
 
@@ -24,7 +24,7 @@ Reload your code.  In pry, call `card.hide` and see what happens.  Does it chang
 
 ```ruby
   def hide
-    @face_up = true
+    @face_up = false
   end
 ```
 
