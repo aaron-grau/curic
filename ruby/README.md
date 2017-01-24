@@ -273,11 +273,11 @@
 
 ## w2d3
 
-### Readings (20 min)
-+ [RSpec Syntax][rspec-syntax] (8 min)
-+ [`subject` and `let`][subject-and-let] (5 min)
-+ [Order of RSpec methods][rspec-order] (2 min)
-+ [Test doubles][test-doubles] (5 min)
+### Readings (45 min)
++ [RSpec Syntax][rspec-syntax] (20 min)
++ [`subject` and `let`][subject-and-let] (10 min)
++ [Order of RSpec methods][rspec-order] (5 min)
++ [Test doubles][test-doubles] (10 min)
 
 ### Video Lectures (26 min)
 :closed_lock_with_key: `go_video_go`
