@@ -87,7 +87,7 @@ We have lots of extra readings and videos on other topic in [additional resource
 If you finish your MVP features early you should consider enhancing your app to add technical depth.
 Here are a few directions you could take.
 
-  * Performance and scaling
+  * [Performance and scaling][performance-and-scaling]
   * [Testing][testing]
   * [Accessibility]
 
