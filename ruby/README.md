@@ -154,6 +154,7 @@
 + Using [Git add][git-add]
 + [Git Repository Clean Up][git-cleanup]
 + [Faster Git with aliases][aliases]
++ [Git Tutorial on Code Academy][code-academy-git]
 + [Fixing Git commit authorship][git-fix-authorship]
 + [Git Cheatsheet][git-cheatsheet]
 
@@ -176,6 +177,7 @@
 [serialization]: readings/serialization.md
 [gems]: readings/gems-and-rbenv.md
 [git-nontech]: readings/git_nontech.md
+[code-academy-git]: https://www.codecademy.com/learn/learn-git
 
 [screwedoku]: projects/screwdoku
 [minesweeper]: projects/minesweeper
