@@ -90,8 +90,8 @@ def factorial(n)
 end
 ```
 
-In fact, any recursive method can always be written
-iteratively. However, the iterative form can sometimes be
+While any recursive method can always be written
+iteratively, the iterative form can sometimes be
 significantly more complicated. When choosing whether to solve a
 problem recursively or iteratively, you should think about which
 solution is more natural to your own mind.
