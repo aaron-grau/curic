@@ -117,10 +117,12 @@ reader.question("What is your name?", function (answer) {
 console.log("Last program line");
 ```
 
+**NB:** Do not try to execute this code in the Node REPL. Just copy it into a file and run it with `node readline_demo.js`.
+
 The `question` method takes a prompt (`"What is your name?"`) and a
 callback. It will print the prompt, and then ask node.js to read a
 line from stdin. `question` is asynchronous; it will not wait for the
-input to be read, it returns immediately. When node.js has received
+input to be read, it returns immediately. When Node.js has received
 the input from the user, it will call the callback we passed to
 `reader.question`.
 
@@ -135,8 +137,8 @@ Hello Ned!
 ```
 
 Notice that because `reader.question` returns immediately and does not
-wait, it prints `"Last program line"` before I get a chance to write
-anything. Notice also that I don't try to save or use the return value
+wait, it prints `"Last program line"` before you get a chance to write
+anything. Notice also that the code doesn't try to save or use the return value
 of `reader.question`: that's because this method does not return anything. `reader.question` cannot return the input, because the function returns before I have actually typed in any input. **Asynchronous functions do not return meaningful values: we give them a callback so that the result of the async operation can be communicated back to us**.
 
 One final note: note that our program didn't end when it hits the end
@@ -172,6 +174,7 @@ Let's see a more developed example:
 
 ```javascript
 const readline = require('readline');
+
 const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -209,14 +212,14 @@ Notice the use of closures and callbacks:
    `reader`. `result` is a regular argument.
 
 Note: `callback` is not a Javascript keyword. It is simply the name of
-the parameter we are passing to `addTwoNumbers`.
+the function we are passing to `addTwoNumbers` as a callback.
 
 ## Example #2
 
 Let's write a silly method, called `absurdTimes`:
 
 ```javascript
-function absurdTimes(numTimes, fun) {
+function absurdTimes(numTimes, fn) {
   let i = 0;
 
   function loopStep() {
@@ -225,10 +228,10 @@ function absurdTimes(numTimes, fun) {
       return;
     }
 
-    fun();
+    fn();
 
+    i++;
     // recursively call loopStep
-    i += 1;
     loopStep();
   }
 
@@ -246,31 +249,33 @@ When we need to do a loop in code that is asynchronous, we can modify
 the trick from above:
 
 ```javascript
-function absurdTimes(numTimes, fn, completionFn) {
+const readline = require('readline');
+
+const reader = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+function absurdTimesAsync (numTimes, fnAsync, completionFn) {
   let i = 0;
 
-  function loopStep() {
+  function loopStep () {
     if (i == numTimes) {
       // we're done, stop looping
       completionFn();
       return;
     }
 
-    i += 1;
+    i++;
 
-    fn(loopStep);
+    // fn is an asynchronous function that takes a callback (in this case loopStep)
+    fnAsync(loopStep);
   }
 
   loopStep();
 }
 
-const readline = require('readline');
-const reader = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-function addTwoNumbers(callback) {
+function addTwoNumbersAsync(callback) {
   reader.question("Enter #1: ", function (numString1) {
     reader.question("Enter #2: ", function (numString2) {
       const num1 = parseInt(numString1);
@@ -282,8 +287,9 @@ function addTwoNumbers(callback) {
 }
 
 let totalSum = 0;
-absurdTimes(3, function (callback) {
-  addTwoNumbers(function (result) {
+
+function addTwoNumbersAndIncrementAsync(callback) {
+  addTwoNumbersAsync(function (result) {
     totalSum += result;
 
     console.log(`Sum: ${result}`);
@@ -291,10 +297,34 @@ absurdTimes(3, function (callback) {
 
     callback();
   });
-}, function () {
+}
+
+function outputResultAndCloseReader () {
   console.log(`All done! Total Sum: ${totalSum}`);
   reader.close();
-});
+}
+
+absurdTimesAsync(3, addTwoNumbersAndIncrementAsync, outputResultAndCloseReader);
+
+let totalSum = 0;
+
+function addTwoNumbersAndIncrementAsync(callback) {
+  addTwoNumbersAsync(function (result) {
+    totalSum += result;
+
+    console.log(`Sum: ${result}`);
+    console.log(`Total Sum: ${totalSum}`);
+
+    callback();
+  });
+}
+
+function outputResultAndCloseReader () {
+  console.log(`All done! Total Sum: ${totalSum}`);
+  reader.close();
+}
+
+absurdTimesAsync(3, addTwoNumbersAndIncrement, outputResultAndCloseReader);
 ```
 
 A normal times method like so would not work:
