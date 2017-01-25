@@ -5,11 +5,10 @@ Here's our [reading][oo-js] Object-Oriented Programming in JS. Use it for refere
 Write a set of classes to model `Student`s and `Course`s.
 
 ### Phase 1:
-* `Student`, a constructor function which should take a first and last name.
+* `Student`, a constructor function which should take a first and last name, and set both of those as attributes.
+  It should also set a courses attribute to an empty array.
 * `Student.prototype.name` should return the concatenation of the student's
   first and last name.
-* `Student.prototype.courses` should return a list of the `Course`s in which
-  the student is enrolled.
 * `Student.prototype.enroll` should take a `Course` object, add it to the
   student's list of courses, and update the `Course`'s list of
   enrolled students.
