@@ -62,10 +62,10 @@ Find more information on how browsers work [here][html5rocks-browsers].
 
 The "Browser Wars," a competition for market share during the 90s between
 Netscape's Navigator and Microsoft's Internet Explorer, saw those two browsers
-implement different sets of HTML features as well as to create their own
-features. While today's popular browsers don't have as wide a set of
-disparities as Netscape and IE did, some newer standards are still interpreted
-differently between browsers.
+implement different sets of HTML features as well as create their own features.
+While today's popular browsers don't have as wide a set of disparities as
+Netscape and IE did, some newer standards are still interpreted differently
+between browsers.
 
 ### XML
 
