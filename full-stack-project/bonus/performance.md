@@ -70,7 +70,7 @@ with your app. One particularly popular package for rendering large lists is
 * [Talk on windowing and `react-virtualized`][react-windowing-talk]
 
 [netflix-blog-post]: http://techblog.netflix.com/2015/08/making-netflixcom-faster.html
-[react-virtualized]: https://bvaughn.github.io/react-virtualized/
+[react-virtualized]: https://github.com/bvaughn/react-virtualized
 [react-windowing-talk]: https://bvaughn.github.io/connect-tech-2016/#/0/0
 
 ## Rails
