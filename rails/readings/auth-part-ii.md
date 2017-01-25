@@ -271,6 +271,9 @@ application's layout:
     <li>Logged in as: <%= current_user.username %></li>
     <li>
       <form action="<%= session_url %>">
+        <input type="hidden" 
+               name="authenticity_token" 
+               value="<%= form_authenticity_token %>">
         <input type="hidden" value="delete" name="_method" />
         <input type="submit" value="Logout" />
       </form>
