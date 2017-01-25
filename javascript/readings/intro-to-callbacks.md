@@ -304,26 +304,6 @@ function outputResultAndCloseReader () {
   reader.close();
 }
 
-absurdTimesAsync(3, addTwoNumbersAndIncrementAsync, outputResultAndCloseReader);
-
-let totalSum = 0;
-
-function addTwoNumbersAndIncrementAsync(callback) {
-  addTwoNumbersAsync(function (result) {
-    totalSum += result;
-
-    console.log(`Sum: ${result}`);
-    console.log(`Total Sum: ${totalSum}`);
-
-    callback();
-  });
-}
-
-function outputResultAndCloseReader () {
-  console.log(`All done! Total Sum: ${totalSum}`);
-  reader.close();
-}
-
 absurdTimesAsync(3, addTwoNumbersAndIncrement, outputResultAndCloseReader);
 ```
 
