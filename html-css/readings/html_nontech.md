@@ -47,7 +47,7 @@ complete, the browser gives each node its exact coordinates on the page before
 
 The first web browser was invented by Tim Berners-Lee in 1990, while the first
 mainstream browser was Mosaic, created by Marc Andreessen in 1993. Andreessen
-later started Netscape, and after they released Netscape Navigator in 1994,
+later started Netscape, and which released Netscape Navigator in 1994. In 1995
 Microsoft developed Internet Explorer and eventually took over the market (in
 part by bundling IE with Windows, which was included on almost every PC sold).
 Netscape created Mozilla in 1998, which is a nonprofit organization that
