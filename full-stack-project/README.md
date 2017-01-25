@@ -91,5 +91,6 @@ Here are a few directions you could take.
   * [Testing][testing]
   * [Accessibility]
 
+[performance-and-scaling]: bonus/performance.md
 [testing]: bonus/testing.md
 [accessibility]: bonus/accessibility.md
