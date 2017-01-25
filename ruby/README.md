@@ -95,8 +95,8 @@
 + [Recursion][recursion] (10 min)
 + Review readings from [week 3][prep-w3] of the App Academy Prep course (20 min)
 
-### Homeworks (30 min)
-+ [Recursion][recursion-homework] (30 min)
+### Homeworks (50 min)
++ [Recursion][recursion-homework] (50 min)
 
 ### Projects
 + [Recursion exercises][recursion-project]
