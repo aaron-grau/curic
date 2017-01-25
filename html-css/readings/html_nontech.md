@@ -83,7 +83,7 @@ lower structure-to-data ratio.
 
 ### YAML
 
-YAML: YAML, short for "YAML Ain't Markup Language," is a version of JSON that
+YAML, short for "YAML Ain't Markup Language," is a version of JSON that
 replaces many of the symbols used in JSON (e.g., `{`, `[`) with indents.
 
 ### JSX
