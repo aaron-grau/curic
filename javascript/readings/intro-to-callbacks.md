@@ -268,7 +268,7 @@ function absurdTimesAsync (numTimes, fnAsync, completionFn) {
 
     i++;
 
-    // fn is an asynchronous function that takes a callback (in this case loopStep)
+    // fnAsync is an asynchronous function that takes a callback (in this case loopStep)
     fnAsync(loopStep);
   }
 
