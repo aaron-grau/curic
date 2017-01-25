@@ -81,6 +81,8 @@ boolean values, arrays, objects, and null. It has replaced XML as the most
 common data format for asynchronous browser-server communication because of its
 lower structure-to-data ratio.
 
+### YAML
+
 YAML: YAML, short for "YAML Ain't Markup Language," is a version of JSON that
 replaces many of the symbols used in JSON (e.g., `{`, `[`) with indents.
 
