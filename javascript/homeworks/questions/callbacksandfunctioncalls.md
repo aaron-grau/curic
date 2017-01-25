@@ -58,7 +58,7 @@ function teaAndBiscuits () {
 
   reader.question('Would you like some biscuits?', (res) => {
     second = res;
-    console.log(`You replied ${res2}.`);
+    console.log(`You replied ${res}.`);
   });
 
   const firstRes = (first === 'yes') ? 'do' : 'don\'t';
