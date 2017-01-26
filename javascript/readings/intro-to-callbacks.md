@@ -304,7 +304,7 @@ function outputResultAndCloseReader () {
   reader.close();
 }
 
-absurdTimesAsync(3, addTwoNumbersAndIncrement, outputResultAndCloseReader);
+absurdTimesAsync(3, addTwoNumbersAndIncrementAsync, outputResultAndCloseReader);
 ```
 
 A normal times method like so would not work:
