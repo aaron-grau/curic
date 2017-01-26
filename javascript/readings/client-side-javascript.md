@@ -59,26 +59,26 @@ So, what do we do for browsers that have not yet integrated ES6's new features? 
 1. **Ignore them.** This isn't the most viable option for apps in production, since there are bound to be users who still utilize ES6-incompatible browsers. For the next few days, however, **stick with Chrome** and everything should go according to plan.
 2. **Use a polyfill.** This means that we test for the existence of a certain function or property and provide a hand-spun version if one doesn't exist. For example:
 
-```JavaScript
-if (!String.prototype.includes) {
-  String.prototype.includes = function(search, start) {
-    'use strict';
-    if (typeof start !== 'number') {
-      start = 0;
-    }
+  ```JavaScript
+  if (!String.prototype.includes) {
+    String.prototype.includes = function(search, start) {
+      'use strict';
+      if (typeof start !== 'number') {
+        start = 0;
+      }
 
-    if (start + search.length > this.length) {
-      return false;
-    } else {
-      return this.indexOf(search, start) !== -1;
-    }
-  };
-}
-```
+      if (start + search.length > this.length) {
+        return false;
+      } else {
+        return this.indexOf(search, start) !== -1;
+      }
+    };
+  }
+  ```
 
-Often, MDN provides polyfills for applicable functions. The above is copied from the [MDN documentation][mdn-includes] for `String.prototype.includes`.
+  Often, MDN provides polyfills for applicable functions. The above is copied from the [MDN documentation][mdn-includes] for `String.prototype.includes`.
 
-As one might imagine, including polyfills for every ES6 function you use in every file can be somewhat exhausting, annoying, and ugly. Polyfills provide a quick stopgap, but we can do better. This brings us to solution number three.
+  As one might imagine, including polyfills for every ES6 function you use in every file can be somewhat exhausting, annoying, and ugly. Polyfills provide a quick stopgap, but we can do better. This brings us to solution number three.
 
 3. **Transpile to ES5.** Yup, seems a little counterintuitive - why even bother writing ES6 if we're just going to translate back to ES5 anyways? The answer: ES6 provides us with several elegant and useful features. We like ES6, and hope that it'll one day be compatible with all browser environments. In the meantime, we can use simple tools like [Babel][babel] to transpile our ES6 into ES5 and thereby maintain backwards compatibility. Ultimately, this is the approach that we will use in React. Look for more instructions on how to use `babel` later in the course. 
 
