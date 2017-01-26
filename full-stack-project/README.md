@@ -41,7 +41,7 @@ Hear are the important deadlines.
 
 [peer-review]: project/peer-review.md
 [turn-in-fullstack]: project/turn_in_fullstack.md
-[jobsearch]: project/job-search.md
+[jobsearch]: https://github.com/appacademy/sf-job-search-curriculum
 
 ### Resources
 
@@ -94,3 +94,4 @@ Here are a few directions you could take.
 [performance-and-scaling]: bonus/performance.md
 [testing]: bonus/testing.md
 [accessibility]: bonus/accessibility.md
+

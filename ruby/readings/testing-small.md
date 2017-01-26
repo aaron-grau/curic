@@ -7,7 +7,7 @@ For example:
 ```ruby
 
   def hide
-    face_up = true
+    face_up = false
   end
 
 ```
@@ -16,7 +16,7 @@ Reload your code.  In pry, call `card.hide` and see what happens.  Does it chang
 
 ```ruby
   def hide
-    self.face_up = true
+    self.face_up = false
   end
 ```
 
@@ -24,7 +24,7 @@ Reload your code.  In pry, call `card.hide` and see what happens.  Does it chang
 
 ```ruby
   def hide
-    @face_up = true
+    @face_up = false
   end
 ```
 
@@ -34,9 +34,9 @@ What's the difference between the different ways of writing the method?  You mig
 
 The overall goal here is to **test your code out with simple examples**.
 
-If you can test one card on its own, it's a lot easier than trying to test the card through other code.  In this case, you shouldn't test card.hide by calling a different method that calls card.hide inside.
+If you can test one card on its own, it's a lot easier than trying to test the card through other code.  In this case, you shouldn't test `card.hide` by calling a different method that calls `card.hide` inside.
 
-For example, it would be hard to test card.hide by calling the method below.  There's too much stuff to wade through:
+For example, it would be hard to test `card.hide` by calling the method below.  There's too much stuff to wade through:
 
 ```ruby
   class Board

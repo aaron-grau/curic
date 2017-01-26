@@ -149,7 +149,7 @@ view the form to begin with, so we can set `cat.owner` to the
     * Instead of using `Cat.find`, try searching for the cat among
       only the `current_user`'s cats with the `User#cats` association.
       Remember, `has_many` associations are lazy-loading and behave
-      like scopes when you tac query methods on the end. Doing this
+      like scopes when you tack query methods on the end. Doing this
       gives the added security benefit of not even loading the cat
       if it doesn't belong to the user.
     * Do a `redirect_to` in the filter if the user is not authorized.

@@ -28,7 +28,7 @@ like MongoDB have been relatively popular since the 2000s.
 
 There is quite a debate about whether SQL or NoSQL is better. Speaking
 generally, there is not an answer; each is better suited to different purposes,
-so the choice of database system shoudl depend on the project. At the most
+so the choice of database system should depend on the project. At the most
 basic level, SQL and NoSQL differ in how they store data, and as a result,
 operations like inserting, retrieving, and updating data happen very
 differently.

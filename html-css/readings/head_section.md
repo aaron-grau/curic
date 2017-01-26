@@ -66,7 +66,7 @@ Here is an example of a script we should all have on our websites which loads Go
 </script>
 ```
 
-Don't worry about reading this script and trying to understand what it does. This script is provided by Google when creating a Google Analytics account and we are instructed to palce it at the bottom of our head section.
+Don't worry about reading this script and trying to understand what it does. This script is provided by Google when creating a Google Analytics account and we are instructed to place it at the bottom of our head section.
 
 Here is an example using an external Javascript file with a declared `type` attribute:
 

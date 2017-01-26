@@ -19,7 +19,7 @@ Begin by downloading the [skeleton][skeleton].
 Edit the `splash.html` page's html and create styles for its elements
 in `styles.css`. Your goal is to make it look similar to simple splash pages like
 [Evernote's][evernote] or [OneNote's][onenote].
-Create a style a nav bar, style and position the hero image (the large
+Create and style a nav bar, style and position the hero image (the large
 image towards the top of the page), and add signifiers for users to sign up
 / sign in / sign out.
 

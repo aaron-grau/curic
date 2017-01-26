@@ -298,24 +298,24 @@
 ### Assessment04
 * [Practice][assessment-prep-4]
 
-### Video Lectures (60 min)
+### Video Lectures (70 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera: Rails Lite Intro](https://vimeo.com/161381457) (4 min)
 * [:movie_camera: HTTP](https://vimeo.com/161381484) (12 min)
 * [:movie_camera: HTTP Demo](https://vimeo.com/161381489) (4 min)
 * [:movie_camera: Rails from the Inside Out](https://vimeo.com/161381601) (13 min)
-* [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
-* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
-	* [:computer: demo code][middleware-demo] (22 min)
+* [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
+* [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 
 ### Homeworks (45 min)
 * Complete [RegexOne][regex-link] (45 min)
 
 ### Additional Resources
-* [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
+* [:movie_camera: Rack Middleware](https://vimeo.com/161382367) (4 min)
+* [:movie_camera: Rack Middleware Demo](https://vimeo.com/161386029)  
+	* [:computer: demo code][middleware-demo] (22 min)
 * [:movie_camera: TCP](https://vimeo.com/161382361) (15 min)
 * [:movie_camera: DNS](https://vimeo.com/161381921) (12 min)
-* [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 * [:movie_camera: (cc) 00-webserver][00-webserver] (16 min)
 * [:movie_camera: (cc) 01-protocols][01-protocols] (14 min)
   * old news at this point; recommended speed >= 2x
