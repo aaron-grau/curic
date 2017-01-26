@@ -133,7 +133,8 @@ You should call something like this in the `initialize` method:
 snack_box.methods.grep(/^get_(.*)_info$/) { MetaCorgiSnacks.define_snack $1 }
 ```
 
-This should work as before again!
+This should work as before again, without having to call
+`MetaCorgiSnacks.define_snack("bone")` first!
 
 ```ruby
 pry(main)> load 'meta_corgis.rb'
