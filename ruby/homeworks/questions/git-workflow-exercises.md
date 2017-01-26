@@ -22,9 +22,9 @@ Now initialize git with `git init`.  Run `git status` again and compare.
 
 ### Adding a single file to git
 
-Git add the sample file you just made.  Run `git status` again.  What changed?
-
 Save a new sample file (don't add it yet).  Run `git status` and compare. Play around with saving and adding new sample files to get a feel for it.
+
+Git add the sample file you just made.  Run `git status` again.  What changed?
 
 ### Adding multiple files to git
 
