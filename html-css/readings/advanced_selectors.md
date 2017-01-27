@@ -6,7 +6,7 @@ Learning these selectors gives greater flexibility in selecting aspects of our H
 
 ## Attribute selectors
 
-We can target elements with specified attributes by using `[]` . This is a popular way to style form input elements because of how much they differ based on their type attribute.
+We can target elements with specified attributes by using `[]` . This is a popular way to style form input elements based on their type attribute. This is useful because of how much input elements differ between browsers.
 
 ```css
     input[type="radio"] {
@@ -58,7 +58,7 @@ In the Chrome Developer Tools we can toggle element state in order to view style
 
 ## Structural Selectors
 
-The following pseudo selectors target based on extra information given by the structure of the HTML document.
+The following pseudo selectors target based on the structure of the HTML document.
 
 ```css
 table tr:nth-of-type(2n) {
@@ -66,7 +66,7 @@ table tr:nth-of-type(2n) {
 }
 ```
 
-This example uses `nth-of-type(2n)` to select every other table row element that is a descendent of a table element. It applies a grey background color.
+This example uses `nth-of-type(2n)` to select every other table row element that is a descendent of a table element. It applies a greyish background color.
 
 ```css
 header img:first-child {
@@ -82,7 +82,7 @@ Structural pseudo selectors help target elements without adding extra HTML marku
 
 We have already seen a couple examples of combining selectors with a space to select descendants or with a `>` to select children.
 
-We can also use `ElementA + ElementB` to target all ElementB elements that immediately follow ElementA elements.
+We can also use `SelectorA + SelectorB` to target all SelectorB elements that immediately follow SelectorA elements.
 
 ```css
 div ~ p {
