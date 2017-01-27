@@ -41,10 +41,10 @@ the obvious, why take the time to write tests?
 2. *Increase flexibility & reduce fear (of code)*
 
   You've written a whole bunch of functionality, multiple other
-  developers have worked on the code, you're deep into the project.
+  developers have worked on the code, you're deep into the project...
   And then you realize you have to refactor big chunks of it. Without
   automated tests, you'll be walking on eggshells, frightened of the
-  codebase and the various landmines that are surely laying in wait.
+  codebase and the various landmines that are surely lying in wait.
 
   With tests, you can aggressively refactor with confidence. If
   anything breaks, you'll know. And you'll know exactly what the
