@@ -25,7 +25,7 @@ Game.prototype.add = function (object) {
   } else if (object instanceof Ship) {
     this.ships.push(object);
   } else {
-    throw "wtf?";
+    throw "unknown type of object";
   }
 };
 
@@ -101,7 +101,7 @@ Game.prototype.remove = function (object) {
   } else if (object instanceof Ship) {
     this.ships.splice(this.ships.indexOf(object), 1);
   } else {
-    throw "wtf?";
+    throw "unknown type of object";
   }
 };
 
