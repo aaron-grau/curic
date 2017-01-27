@@ -178,7 +178,7 @@ queen_copy = queen.dup
 
 # shouldn't modify original queen
 queen_copy.position[0] = "CHANGED"
-# wtf?
+# but it does
 queen.position # => ["CHANGED", 1]
 ```
 
