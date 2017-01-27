@@ -32,7 +32,7 @@ Let's check out [Awesome Print][awesome-print], a library that "pretty
 prints" Ruby output (**NB**: pry already prettifies output, so
 awesome_print won't seem as awesome as if we were using plain irb).
 
-[awesome-print]: https://github.com/michaeldv/awesome_print
+[awesome-print]: https://github.com/awesome-print/awesome_print
 
 The Awesome Print GitHub shows us how to install the gem: `gem install
 awesome_print`. That's it!
