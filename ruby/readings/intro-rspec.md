@@ -67,7 +67,7 @@ the obvious, why take the time to write tests?
 
   If the tests are written well, the tests can serve as documentation
   for the codebase. Need to know what such and such module does?
-  Check out the specs. Related to easing collaboration.
+  Check out the specs. This is related to easing collaboration.
 
 
 ## What to Test
