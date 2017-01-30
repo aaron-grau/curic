@@ -96,7 +96,7 @@ a couple more cool features! Read about them [here][sass-features] if you're int
 sometimes the styles will be given and you will need to define the HTML
 structure; and sometimes you will be required to code both.
 - The `docs` folder contains two directories: `screenshots` and `copy`. You'll use the images found in `screenshots` for your mockups as you are styling. `copy` contains the text you'll copy and paste for the app's content.
-- **Pro Tip**: Keep each mockup open and use it for reference as your styling a component.
+- **Pro Tip**: Keep each mockup open and use it for reference as you're styling a component.
 - HTML is rendered using rails partials in the
 `/app/views/static_pages/index.html.erb` file, allowing for the styling of
 each component separately.
