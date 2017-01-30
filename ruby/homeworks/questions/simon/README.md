@@ -13,7 +13,7 @@ The specs should guide you as to what each method does. One important thing to n
 that it is generally impractical to test console user input, so the specs don't test
 `require_sequence`. The goal of `require_sequence` is to prompt the user to repeat back
 the new sequence that was just shown to them, one color at a time. If they give an incorrect
-color, it should immediately set `@game_over` to be false.
+color, it should immediately set `@game_over` to be true.
 
 Now go run those specs!
 
