@@ -1,18 +1,15 @@
 # AJAX Remote Forms
 
-Using AJAX, let's write a form that, when the user clicks the
+Using AJAX, let's write an event handler that, when the user clicks the
 "submit" button, will submit the form data in the background.
 
-The key is the jQuery [`serialize`] [jquery-serialize-doc] method. If
-you have a jQuery wrapped form element, you can call the `serialize`
-method, which will extract the values from the `input` tags contained
-in the `form`, and then serialize these to URL encoding. As you know,
-URL encoding is the format that form data is uploaded in.
+jQuery comes with a `serialize` method which translates a set of form elements as a URL encoded string. In this case the `name`/`value` attributes of each `input` element within our form serve as key/value pairs. Since HTTP request data is just structured text which can be decoded on the server side, this will work quite nicely.
 
 Let's see it go!
 
 ```html
 <!-- notice how we don't set the action/method on the form tag -->
+
 <form id="cat-form">
   <input type="text" name="cat[name]">
   <input type="text" name="cat[color]">
@@ -22,29 +19,28 @@ Let's see it go!
 
 <script>
   $("#cat-form").on("submit", event => {
-      // Lookup `preventDefault`; it stops the browser's default action,
-      // which is to make a synchronous submission of the form.
-      // http://api.jquery.com/category/events/event-object
-      event.preventDefault();
+		// Lookup `preventDefault`; it stops the browser's default action,
+		// which is to make a synchronous submission of the form.
+		// http://api.jquery.com/category/events/event-object
+		event.preventDefault();
 
-      // As a shortcut, when jQuery calls your event handler, it sets
-      // `this == event.currentTarget`.
+		// As a shortcut, when jQuery calls your event handler, it sets
+		// `this == event.currentTarget`.
 
-      var formData = $(event.currentTarget).serialize();
+		var formData = $(event.currentTarget).serialize();
 
-      // If you filled out name "Gizmo" and color "Black", then
-      // `formData == "cat%5Bname%5D=Gizmo&cat%5Bcolor%5D=Black"`.
+		// If you filled out name "Gizmo" and color "Black", then
+		// formData == "cat%5Bname%5D=Gizmo&cat%5Bcolor%5D=Black"
 
-      $.ajax({
-        url: "/cats",
-        type: "POST",
-        data: formData,
-        success() {
-          console.log("Your callback here!");
-        }
-      });
-    }
-  );
+		$.ajax({
+			url: "/cats",
+			type: "POST",
+			data: formData,
+			success() {
+				console.log("Your callback here!");
+			}
+		});
+  });
 </script>
 ```
 
@@ -52,14 +48,27 @@ Let's see it go!
 
 ### Getting input values in JS `Object` format
 
-It's great to get a URL encoded representation of the input values,
+Hmm, our `formData` is a little bit hard to read and if we want to add any additional data we will either need to add `hidden` inputs or append more URL encoded strings to our formData. It's great to get a URL encoded representation of the input values,
 but it's also a little frustrating. URL encoding is difficult for us
 to manipulate on the client side; just about the only thing we can do
 with it is submit it to the server.
 
-One possibility is to use the
-[serializeJSON][serializeJSON] jQuery plug-in. It creates a JavaScript
+Fortunately, `$.ajax` accepts `Object` and `Array` data types for its `data` property. We can use the
+[serializeJSON][serializeJSON] jQuery plug-in to add a `serializeJSON` method to jQuery. It creates a JavaScript
 object following the Rails parameter conventions.
+
+Using the same form as the above example, we can now get `formData` in the following way:
+
+```js 
+var formData = $(event.currentTarget).serializeJSON();
+
+/* formData is now an easy-to-use POJO
+formData == {
+  'cat[name]': 'Gizmo',
+  'cat[color]': 'Black'
+}
+*/
+```
 
 You can get Rails to automatically load the serializeJSON plugin by
 including the [serialize_json-rails][serializeJSON-rails] gem:
