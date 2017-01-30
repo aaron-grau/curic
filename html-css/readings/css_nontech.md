@@ -123,8 +123,7 @@ Cons:
 ## Popular CSS Pre-Processors
 
 A pre-processor is a program that converts data to conform with the input
-requirements of another program. For example, [haml][haml] is processed into
-HTML and SCSS, Sass, Less, and Stylus are processed into CSS.
+requirements of another program. For example, [Haml][haml] is a markup language that describes HTML, but is not supported by browsers. Haml requires use of a pre-processor to translate it into HTML. On the CSS end, SCSS, Sass, Less, and Stylus are languages which describe CSS and require their own pre-processors for translation.
 
 Example:
 
