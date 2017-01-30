@@ -76,9 +76,12 @@ And here's some JavaScript that might make a request to the server:
 $.ajax({
   url: "/widgets/1.json",
   type: "GET",
-  success(widgetData) {
+  success: function(widgetData) {
     console.log("Here are the fetched json parameters of the widget:");
     console.log(widgetData);
+  },
+  error: function(errMsg) {
+    console.log(errMsg);
   }
 });
 
@@ -91,15 +94,20 @@ $.ajax({
       maker: "The Widget King"
     }
   },
-  success(widgetData) {
+  success: function(widgetData) {
     console.log("Widget created!");
     // `create` action should `render json: @widget`
     // this gives the client access to the `id` attribute issued by
     // the server.
     console.log("issued id: " + widgetData.id);
+  },
+  error: function(errMsg) {
+    console.log(errMsg);
   }
 });
 ```
+
+Note that `$.ajax` accepts an options object and will call the functions defined in `success` and `error` as callbacks depending upon whether the request was successful (response has HTTP status 2xx) or not (any other HTTP status).
 
 [ajax-doc]: http://api.jquery.com/jQuery.ajax/
 [get-doc]: http://api.jquery.com/jQuery.get/
