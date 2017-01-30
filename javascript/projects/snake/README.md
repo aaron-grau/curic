@@ -16,9 +16,6 @@ We're going to write a Snake game!
 * Create a `main.js` file in the `js` folder. This will be the file that
 requires your game's classes and begins the game once the DOM is loaded. It
 will also be the entry point for webpack.
-* Create your `webpack.config.js` file. Specify a context, an entry file, and an
-output object. The output object should have a `path` and `filename`. See your
-other games for guidance on constructing this file.
 
 ## Phase I: `Snake` and `Board`
 
