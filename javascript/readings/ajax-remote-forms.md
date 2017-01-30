@@ -64,8 +64,10 @@ var formData = $(event.currentTarget).serializeJSON();
 
 /* formData is now an easy-to-use POJO
 formData == {
-  'cat[name]': 'Gizmo',
-  'cat[color]': 'Black'
+  cat: {
+    name: 'Gizmo',
+    color: 'Black'
+  }
 }
 */
 ```
