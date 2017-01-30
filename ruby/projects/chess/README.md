@@ -223,7 +223,7 @@ move without checking if it is valid.
 Only when done with the basic Chess logic (moving, check, checkmate)
 should you begin writing user interaction code.
 
-Write a `Game` class that constructs a `Board` object, that alternates
+Write a `Game` class that constructs a `Board` object, then alternates
 between players (assume two human players for now) prompting them to
 move. The `Game` should handle exceptions from `Board#move_piece` and report
 them.
