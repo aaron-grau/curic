@@ -30,7 +30,7 @@ p {
 }
 
 p span {
-    font-style: bold;
+    font-weight: bold;
 }
 
 p span.highlight {
