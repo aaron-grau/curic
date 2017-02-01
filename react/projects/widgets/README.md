@@ -162,7 +162,8 @@ the font embed code and paste it into the `<head>` of your HTML page. Your
   API to get the weather based on our current location
 
   - In order to get the API to accept your HTTP requests, you'll need
-    an API key. [Read up on how to use the API key and sign up for one here.][api-key] After signing up, click on the API keys tab to get your key.
+    an API key. [Read up on how to use the API key and sign up for one here.][api-key]
+    After signing up, click on the API keys tab to get your key.
 
     **NB:** In the real world, you should be very careful about placing
     API keys in frontend JavaScript or anywhere else they are publicly
@@ -255,22 +256,40 @@ name.
 
 ### Bonus: React-Transitions
 
-Right now, the matched names instantly appear on the screen and the filtered names instantly disappear. This is abrupt and ugly. We want the names to fade out or in when they are entering or leaving the page. How can we achieve that with React? With the [ReactCSSTransitionGroup][react-transitions]!
+Right now, the matched names instantly appear on the screen and the filtered
+names instantly disappear. This is abrupt and ugly. We want the names to fade
+out or in when they are entering or leaving the page. How can we achieve that
+with React? With the [ReactCSSTransitionGroup][react-transitions]!
 
-* First we need to import the `ReactCSSTransitionGroup` module into our project. In the console, run `npm install --save react-addons-css-transition-group`.
+* First we need to import the `ReactCSSTransitionGroup` module into our project.
+In the console, run `npm install --save react-addons-css-transition-group`.
 
-* Then you need to require the module in the file. At the top of `autocomplete.jsx`, write `const ReactCSSTransitionGroup = require('react-addons-css-transition-group');`.
+* Then you need to require the module in the file. At the top of
+`autocomplete.jsx`, write `const ReactCSSTransitionGroup = require('react-addons-css-transition-group');`.
 
-* In your `render` method, you will need to wrap the group of elements that will be entering and leaving the screen with the `<ReactCSSTransitionGroup>` element. In the case of the autocomplete widget, those are the `<li>`. **You are not wrapping each individual `li`, but rather the entire group.**
+* In your `render` method, you will need to wrap the group of elements that will
+be entering and leaving the screen with the `<ReactCSSTransitionGroup>` element.
+In the case of the autocomplete widget, those are the `<li>`. **You are not
+wrapping each individual `li`, but rather the entire group.**
 
-* `<ReactCSSTransitionGroup>` has three necessary attributes. Read what they are below and make sure to include them:
-  - `transitionName` - This is the name that's used to create all of the transition classes. I set this equal to `"auto"`, but you can pick any name you like.
-  - `transitionEnterTimeout` - Specifies how long (in ms) the transition should last when the element enters the page. This needs to be a number, so you'll have to interpolate the javascript number, otherwise it'll be read as a string. (i.e `{500}` instead of `500`).
-  - `transitionLeaveTimeout` - Same as above, except for when an element is leaving the page.
+* `<ReactCSSTransitionGroup>` has three necessary attributes. Read what they are
+below and make sure to include them:
+  - `transitionName` - This is the name that's used to create all of the
+    transition classes. I set this equal to `"auto"`, but you can pick any name
+    you like.
+  - `transitionEnterTimeout` - Specifies how long (in ms) the transition should
+    last when the element enters the page. This needs to be a number, so you'll
+    have to interpolate the javascript number, otherwise it'll be read as a
+    string. (i.e `{500}` instead of `500`).
+  - `transitionLeaveTimeout` - Same as above, except for when an element is
+    leaving the page.
 
 * Finally the css. Create a new css file and paste in the code below.
-  - Be sure to make a `link` tag in your `index.html` page so the transitions are applied.
-  - The css below assumes you've given the `transitionName` attribute to `auto`. If you gave it a different name, just replace every `auto` with the name you gave.
+  - Be sure to make a `link` tag in your `index.html` page so the transitions
+    are applied.
+  - The css below assumes you've given the `transitionName` attribute to `auto`.
+    If you gave it a different name, just replace every `auto` with the name
+    you gave.
 
 ```css
 /* AutoComplete */
@@ -298,13 +317,28 @@ Right now, the matched names instantly appear on the screen and the filtered nam
  }
 ```
 
-* Go play with the widget. You'll notice that when names appear, they fade in from the bottom. When they leave, they fade out and fall to the bottom. Let's break down the css file:
-  - `.[transitionName]-enter` - Specifies the initial state of an element that is entering the page. Since I want the names to start invisible and at the bottom, I've given it the `opacity` and `transform` properties the appropriate values.
-  - `.[transitionName]-enter.[transitionName]-enter-active` - Specifies the final state of an element that has entered the screen. Looking at the css, we can see that I expect the element to be completely opaque and in it's original y-position when it is done entering. This is where you also specify the `transition` property.
-  - `.[transitionName]-leave` - Specifies the initial state of an element that is leaving the page. In almost all cases, the values of this class with match the values in the `[transitionName]-enter.[transitionName]-enter-active` class.
-  - `.[transitionName]-leave.[transitionName]-leave-active` - Specifies the final state of an element that has left the screen. This is where you also specify the `transition` property.
+* Go play with the widget. You'll notice that when names appear, they fade in
+  from the bottom. When they leave, they fade out and fall to the bottom. Let's
+  break down the css file:
+  - `.[transitionName]-enter` - Specifies the initial state of an element that
+    is entering the page. Since I want the names to start invisible and at the
+    bottom, I've given it the `opacity` and `transform` properties the
+    appropriate values.
+  - `.[transitionName]-enter.[transitionName]-enter-active` - Specifies the
+    final state of an element that has entered the screen. Looking at the css,
+    we can see that I expect the element to be completely opaque and in it's
+    original y-position when it is done entering. This is where you also specify
+    the `transition` property.
+  - `.[transitionName]-leave` - Specifies the initial state of an element that
+    is leaving the page. In almost all cases, the values of this class with
+    match the values in the `[transitionName]-enter.[transitionName]-enter-active`
+    class.
+  - `.[transitionName]-leave.[transitionName]-leave-active` - Specifies the
+    final state of an element that has left the screen. This is where you also
+    specify the `transition` property.
 
-* Now play around with the css file. What kind of interesting transitions can you create?
+* Now play around with the css file. What kind of interesting transitions can
+  you create?
 
 
 [react-transitions]: https://facebook.github.io/react/docs/animation.html
