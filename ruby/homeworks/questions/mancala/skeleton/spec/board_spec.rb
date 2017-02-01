@@ -62,6 +62,7 @@ describe Board do
     it "distributes the stones from the selected cup" do
       expect(board.cups[1..4]).to all( eq(five_stone_cup))
       expect(board.cups[5]).to eq( four_stone_cup )
+      expect(board.cups[7..12]).to all(eq(four_stone_cup))
     end
 
     it "places stones in the current player's cup" do
