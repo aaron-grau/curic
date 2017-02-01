@@ -132,7 +132,7 @@ button and specify the method:
 
 ```html+erb
 <%= button_to "Delete comment", comment_url(@comment), method: :delete %>
-<form action="<%= comment_url %>"> <!-- equivalent to the above -->
+<form action="<%= comment_url %>"  method="POST"> <!-- equivalent to the above -->
   <input type="hidden" value="delete" name="_method" />
   <input type="submit" value="Delete comment" />
 </form>
