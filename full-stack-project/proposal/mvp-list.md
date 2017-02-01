@@ -26,7 +26,7 @@ Make sure outline your MVP features using the following structure when writing y
   * Smooth, bug-free navigation
   * Adequate and appropriate seeds to demonstrate the feature
 
-[production-readme]: ../demos/sample_project_proposal/docs/production_readme.md
+[production-readme]: ./sample_project_proposal/docs/production_readme.md
 
 ## Required Features for Approved Clones
 

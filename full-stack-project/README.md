@@ -1,67 +1,97 @@
-# Full-Stack Projects
+# Full-Stack Curriculum
 
-## Important Dates
-  * **W7D4**: Submit [tentative project proposal][tentative-proposal] by 9am
-    * [Suggested Full-Stack Projects][good-projects]
-  * **W8D1**: Submit [full-stack project proposal][readings] by 9am
-    * [Sample Proposal][sample-proposal]
+## Proposal
+
+Before you can start working on your full-stack project you need to pick an app to build.
+You will start by submitting a list of three possible apps you would be interested in creating.
+This is your _tentative proposal_.
+You will assigned one of them.
+
+Before you start on your full-stack project you will create a detailed proposal in which you carefully plan out the app you are going to build.
+This is your _full-stack project proposal_.
+Here are the important deadlines for this part of the curriculum.
+
+  * **W7D4**: Submit your tentative proposal by 9am
+    * [Tentative proposal guidelines][tentative-proposal]
+    * [List of approved apps][good-projects]
+  * **W8D1**: Submit your full-stack proposal by 9am
+    * [Full-stack proposal guidelines][fsp]
     * [MVP Checklist][mvp-checklist]
-    * [Trello][trello]
-  * **W9D2**: [Peer Reviews][peer-review]
-  * **W9D5**: Turn in Full Stack Project
-    * [How to Turn in Your Project][turn-in-fullstack]
-    * Next Steps: [Check out the Job Search Curriculum][jobsearch]
+    * [Sample Proposal][sample-proposal]
+    * [Trello setup][trello]
 
-[turn-in-fullstack]:readings/turn_in_fullstack.md
-[jobsearch]:https://github.com/appacademy/sf-job-search-curriculum
-[tentative-proposal]: readings/tentative-project-proposal.md
-[good-projects]: readings/projects-to-clone.md
-[readings]: readings/full-stack-project-proposal.md
-[sample-proposal]: demos/sample_project_proposal
-[mvp-checklist]: readings/mvp-list.md
-[trello]: readings/using-trello.md
-[peer-review]: readings/peer-reviews.md
-
-## Resources
-  * [Deploying to Heroku][heroku-deployment]
-    * [The Asset Pipeline][asset-pipeline]
-  * [Lightning talks][lightning-talks]
-  * [Adding Features][adding-features]
-  * [Common Bugs & FAQs][common-bugs]
-  * [Styling][styling]
-  * [Performance][performance]
-  * [Additional Resources][resources]
-
-[heroku-deployment]: readings/heroku-deployment.md
-[asset-pipeline]: readings/asset-pipeline.md
-[lightning-talks]: readings/lightning_talks.md
-[common-bugs]: readings/common_bugs.md
-[adding-features]: readings/adding_features.md
-[polishing-up]: readings/polishing_up.md
-[styling]: readings/styling.md
-[performance]: readings/performance.md
-[resources]: readings/resources.md
-
-## Additional Resources
-:closed_lock_with_key: `go_video_go`
-
-**NB** Creating a project proposal is a dynamic process that involves going back and forth between files as you outline your application. These videos demonstrate some of the thoughts one might have and decisions one might make while creating a proposal but much more may be done to create a fully outlined project. Use these videos as a reference for ideas not as an exact guide.
-
- * [:movie_camera: Sample Project Proposal Demo - Components/Routes][sppds-components-routes]
- * [:movie_camera: Sample Project Proposal Demo - Schema/State][sppds-schema-state]
- * [:movie_camera: Sample Project Proposal Demo - Redux Structure][sppds-redux-structure]
-
-[sppds-components-routes]: https://vimeo.com/180334471
-[sppds-schema-state]: https://vimeo.com/180342687
-[sppds-redux-structure]: https://vimeo.com/180345105
+[tentative-proposal]: proposal/tentative-project-proposal.md
+[good-projects]: proposal/projects-to-clone.md
+[fsp]: proposal/full-stack-project-proposal.md
+[sample-proposal]: proposal/sample_project_proposal
+[mvp-checklist]: proposal/mvp-list.md
+[trello]: proposal/using-trello.md
 
 
-## Bonus
+## Project
 
-* [Architecture of a web application][web-app-architecture]
-* [Advanced Deployment][adv-deploy]
-* [Where to Learn More][learn-more]
+You will spend the next two weeks working on your full-time on your full-stack project
+Hear are the important deadlines.
 
-[web-app-architecture]: readings/web_app_architecture.md
-[adv-deploy]: readings/advanced_deployment.md
-[learn-more]: readings/learn_more.md
+* **W8D2**: Start work on your full-stack project after you finish A06
+* **W9D2**: [Peer Review][peer-review]
+* **W9D5**: Turn in Full Stack Project
+  * [How to Turn in Your Project][turn-in-fullstack]
+  * Next Steps: [Check out the Job Search Curriculum][jobsearch]
+
+[peer-review]: project/peer-review.md
+[turn-in-fullstack]: project/turn_in_fullstack.md
+[jobsearch]: https://github.com/appacademy/sf-job-search-curriculum
+
+### Resources
+
+Here are some additional resources to help get your app running and add common features.
+
+* **Heroku**
+  * [Deploying to heroku][heroku-deployment]
+  * [Removing the react minification warning][minification-warnings]
+  * [Understanding the asset pipeline][asset-pipeline]
+* **Web services**
+  * [Figaro gem][figaro] securely store api keys. Necessary for google maps, Cloudinary and AWS.
+    * [Video demo][figaro-video]
+  * [Cloudinary video demo][cloudinary-video] work with images
+    * [Code demo][cloudinary-demo]
+  * [AWS part 1][aws1] work with music or other large files
+    * [AWS part 2][aws2]
+    * [Code demo][aws-demo]
+  * [Google maps][google-maps-demo]
+* **Other tools**
+  * [Redux dev tools][redux-dev-tools] view your react state live and see a list of dispatched actions
+    * [Video demo][redux-dev-tools-video]
+
+Is there something your looking for that's not on the list?
+We have lots of extra readings and videos on other topic in [additional resources][additional-resources].
+
+[additional-resources]: ./additional_resources.md
+[heroku-deployment]: resources/helpful_tools/heroku-deployment.md
+[minification-warnings]: resources/helpful_tools/react-v15-warning.md
+[figaro]: resources/security/figaro.md
+[figaro-video]: https://vimeo.com/164602277
+[cloudinary-video]: https://vimeo.com/164612621
+[cloudinary-demo]: https://github.com/appacademy/react_cloudinary_demo
+[aws1]: https://vimeo.com/169111348
+[aws2]: https://vimeo.com/169111248
+[aws-demo]: resources/cdns/file_upload_demo
+[google-maps-demo]: https://github.com/appacademy/curriculum/tree/master/react/demos/react_map_demo
+[redux-dev-tools]: https://github.com/appacademy/curriculum/blob/c280e51a978c9a67243a2bb2d5f4650d9f53d387/react/readings/redux_dev_tools.md
+[redux-dev-tools-video]: https://vimeo.com/194738174
+[asset-pipeline]: resources/helpful_tools/asset-pipeline.md
+
+### Bonus
+
+If you finish your MVP features early you should consider enhancing your app to add technical depth.
+Here are a few directions you could take.
+
+  * [Performance and scaling][performance-and-scaling]
+  * [Testing][testing]
+  * [Accessibility]
+
+[performance-and-scaling]: bonus/performance.md
+[testing]: bonus/testing.md
+[accessibility]: bonus/accessibility.md
+

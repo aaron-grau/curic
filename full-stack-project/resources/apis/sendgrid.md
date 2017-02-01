@@ -107,12 +107,12 @@ Good work, you!
 [sendgrid-docs]: https://devcenter.heroku.com/articles/sendgrid.)
 [figaro]: figaro.md
 [wizard-signup]: https://sendgrid.com/account/wizardSignup
-[image-1]: ../assets/sendgrid_1.png
-[image-2]: ../assets/sendgrid_2.png
-[image-3]: ../assets/sendgrid_3.png
-[image-4]: ../assets/sendgrid_4.png
-[image-5]: ../assets/sendgrid_5.png
-[image-6]: ../assets/sendgrid_6.png
+[image-1]: ./assets/sendgrid_1.png
+[image-2]: ./assets/sendgrid_2.png
+[image-3]: ./assets/sendgrid_3.png
+[image-4]: ./assets/sendgrid_4.png
+[image-5]: ./assets/sendgrid_5.png
+[image-6]: ./assets/sendgrid_6.png
 
 ## Additional resources
 
