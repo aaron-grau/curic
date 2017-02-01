@@ -112,7 +112,7 @@ will also accept a `:method` option to specify the option. For
 instance, to create an HTML button that will destroy a photo, we write
 
 ```rubyonrails
-<form action="<%= photo_url(@photo) %>">
+<form action="<%= photo_url(@photo) %>" method="POST">
   <input type="hidden" value="delete" name="_method" />
   <input type="submit" value="Delete photo" />
 </form>
