@@ -10,9 +10,12 @@ portfolio site.
 ## Personal Pages
 
 Every Github account can host a site on Github Pages. To create a new site, all
-you need is a repo named `[your_username].github.io`. Once you push to Github, the site
-should go live within an hour. You probably want a file called `index.html`, which
-will be served when someone visits the root; otherwise, content is up to you.
+you need is a repo named `[your_username].github.io`. Once you push to Github,
+the site should go live within an hour. You probably want a file called
+`index.html`, which will be served when someone visits the root; otherwise,
+content is up to you. For more explicit instructions, follow the step-by-step
+directions from [Github Pages][github-pages] for creating a "User or
+organization site".
 
 ## Adding Projects
 
@@ -28,8 +31,8 @@ available as a directory of your main site (for example, at
 username.github.io/asteroids). This lets you deploy without degrading your repo
 structure, keeping your code contained and maintainable. As with your main site,
 `index.html` will be served when someone visits the directory, while other
-documents can be requested by name.
+documents can be requested by name. Step-by-step instructions can be found
+[here][configuring-github-pages].
 
-## Reference
-
-* [Github's guide](https://pages.github.com/)
+[github-pages]: https://pages.github.com/
+[configuring-github-pages]: https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#enabling-github-pages-to-publish-your-site-from-master-or-gh-pages
