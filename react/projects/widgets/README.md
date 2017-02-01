@@ -2,41 +2,61 @@
 
 [**Live Demo!**](https://appacademy.github.io/curriculum/widgets/)
 
-As an introduction to React, we're going to build some simple
-interactive widgets. Before we get started, however, we need to set up
-our project with `npm`.
+As an introduction to React, we're going to build some simple interactive
+widgets. Before we get started, however, we need to set up our project with
+`npm`.
 
-Build a new React NPM project from scratch like you did in the  
-['Getting Started'][getting_started] homework, but change your
-webpack entry point to be `widgets.jsx`.
+Build a new React NPM project from scratch like you did in the ['Getting
+Started'][getting_started] homework, but change your webpack entry point to be
+`widgets.jsx`.
 
 Your `widgets.jsx` should look have `DOMContentLoaded` listener that calls
 `ReactDOM.render()` with a `Root` component and a `main` DOM element as the
 hook.
 
-Note: we won't be using `jQuery` for this project. If you're not sure
-how to do something without it, use Google as a resource and ask a TA
-if needed.
+Note: we won't be using `jQuery` for this project. If you're not sure how to do
+something without it, use Google as a resource and ask a TA if needed.
 
 [getting_started]: ../../homeworks/getting_started
 
-## Running a Simple Server
+## Running a Simple Development Server
 
-For this project, we're going to use a lightweight HTTP server that we
-can get using `npm`. In your project directory, run the following
-command to install the package on your machine:
+For this project, we're going to use a lightweight development server,
+`webpack-dev-server`. The benefits of this development server are threefold:
 
+* It automatically watches the project files, re-bundles the `bundle.js` when
+any of those files change, and refreshes the browser when the new `bundle.js`
+is ready. This also means that you *will not* have to keep an extra terminal
+tab open to `webpack --watch`.
+
+* It allows us to access the served content at `http://localhost:8080`. Now we
+won't need to open the `index.html` in the browser.
+
+* It doesn't cache our files like a production server might do by default. This
+means that we won't have to hard refresh the browser to see the changes to our
+`bundle.js`.
+
+To install `webpack-dev-server` in your project, run `npm install --save
+webpack-dev-server`. With the server installed globally, you could run
+`webpack-dev-server --inline` in the command line to serve the project at
+`http://localhost:8080`.
+
+However, we can make things a bit easier for ourselves by adding a script to the
+`package.json`. Let's write a script so that we can type `npm start` in the
+command line to start the server. To do this, add the `webpack-dev-server
+--inline` command to the scripts section of the `package.json` like so:
+
+```json
+"scripts": {
+  "start": "webpack-dev-server --inline"
+}
 ```
-npm install -g http-server
-```
 
-We can now load the server (with caching disabled) by simply running `http-server -c-1`. Do this in
-another terminal tab, then navigate to `http://localhost:8080` and
-ensure you can still see your `Widgets` component.
+With this start script, you should now be able to run `npm start` to see your
+project served at `http://localhost:8080`.
 
-**Tricky Bug**: If you change your javascript code and the sourcemap doesn't change in the browser, check out [this stackoverflow][sourcemap-cache-fail].
-
-[sourcemap-cache-fail]: http://stackoverflow.com/questions/15505311/how-to-get-chrome-to-reload-source-maps
+For information on the `webpack-dev-server` configuration, refer to the
+[webpack-dev-server reading](../../readings/webpack_dev_server.md).
 
 ## Tabs
 
@@ -50,50 +70,50 @@ when the user selects different headers.
 
 ### Steps
 
-* Keep track of the selected tab's index in your `Tabs` component's
-  state. Set it initially to zero.
+* Keep track of the selected tab's index in your `Tabs` component's state. Set
+it initially to zero.
 
-* In the render method of `Tabs`, render a collection of `<h1>`s (with titles) in a `<ul>` and the content of the selected tab in an `<article>`.
+* In the render method of `Tabs`, render a collection of `<h1>`s (with titles)
+in a `<ul>` and the content of the selected tab in an `<article>`.
 
 * Consider creating a `Header` subcomponent.
 
-* Add a click handler to each header that updates the selected index in
-  the `Tabs` component.
+* Add a click handler to each header that updates the selected index in the
+`Tabs` component.
 
 * Remember that JSX interpolation is just syntactic sugar for passing an
-  argument to a function, which means that it only supports
-  _expressions_, so you can't use `if`/`else` inside `{ }`. (This is
-  also why you can't end with a semicolon.)
+argument to a function, which means that it only supports _expressions_, so
+you can't use `if`/`else` inside `{ }`. (This is also why you can't end with a
+semicolon.)
 
-* Create an `index.css` file and add it to the head of your `index.html`
-  file. Remember to include your CSS resets.
+* Create an `index.css` file and add it to the head of your `index.html` file.
+Remember to include your CSS resets.
 
-* Add a border around each tab header and the whole section. Use
-  `border-radius` to add nicely curved corners to the top of your tabs.
+* Add a border around each tab header and the whole section. Use `border-radius`
+to add nicely curved corners to the top of your tabs.
 
-* Use a flexbox to ensure that the tabs all take up the same amount of
-  space. Add `display: flex` to your CSS for your tab headers.
+* Use a flexbox to ensure that the tabs all take up the same amount of space.
+Add `display: flex` to your CSS for your tab headers.
 
 * Center the tab content, both horizontally and vertically.
 
-* Add a hover effect to change the background color of the tab that's
-  being moused over. Change the `cursor` to be a `pointer` when you're
-  mousing over the tabs to make it clear that the tabs are interactive.
+* Add a hover effect to change the background color of the tab that's being
+moused over. Change the `cursor` to be a `pointer` when you're mousing over
+the tabs to make it clear that the tabs are interactive.
 
-* Add a background. Use the `background-image` or `background-color`
-  property to change the background. Feel free to do this for every widget.
+* Add a background. Use the `background-image` or `background-color` property to
+change the background. Feel free to do this for every widget.
 
 ## Weather Clock
 
 ### Goal
 
-Make a weather clock. This should have two components. One should
-display the current time, updating every second. The second should
-display the current weather based on the user's location.
+Make a weather clock. This should have two components. One should display the
+current time, updating every second. The second should display the current
+weather based on the user's location.
 
-You'll use the `navigator.geolocation` API to get the user's current
-location,  and the [open weather API][weather] to get the current
-weather.
+You'll use the `navigator.geolocation` API to get the user's current location,
+and the [open weather API][weather] to get the current weather.
 
 ### Steps
 
@@ -101,20 +121,20 @@ weather.
 
 * Set the initial state of your clock using `new Date()`.
 
-* You'll need to `setInterval` to ensure that the clock updates, but you
-  should wait until the component is actually on the page. For this, you
-  can define a [`componentDidMount`][componentDidMount] function.
+* You'll need to `setInterval` to ensure that the clock updates, but you should
+wait until the component is actually on the page. For this, you can define a
+[`componentDidMount`][componentDidMount] function.
 
-* Be sure to [store that interval's id][clearInterval] so you can cancel
-  it in [`componentWillUnmount`][componentWillUnmount], which gets
-  called just before the component is removed. Don't store this in the
-  component's `state` since it doesn't affect the UI. Instead, just
-  store it directly on `this`.
+* Be sure to [store that interval's id][clearInterval] so you can cancel it in
+[`componentWillUnmount`][componentWillUnmount], which gets called just before
+the component is removed. Don't store this in the component's `state` since it
+doesn't affect the UI. Instead, just store it directly on `this`.
 
 * Use the `toDateString()` method on your date object to render your clock.
 
-* Go to [Google Fonts][google-fonts] and select a nice font for your
-  clock. Take the font embed code and paste it into the `<head>` of your HTML page. Your `<head>` should look something like this right now:
+* Go to [Google Fonts][google-fonts] and select a nice font for your clock. Take
+the font embed code and paste it into the `<head>` of your HTML page. Your
+`<head>` should look something like this right now:
 
   ```html
   <head>
@@ -142,7 +162,8 @@ weather.
   API to get the weather based on our current location
 
   - In order to get the API to accept your HTTP requests, you'll need
-    an API key. [Read up on how to use the API key and sign up for one here.][api-key] After signing up, click on the API keys tab to get your key.
+    an API key. [Read up on how to use the API key and sign up for one here.][api-key]
+    After signing up, click on the API keys tab to get your key.
 
     **NB:** In the real world, you should be very careful about placing
     API keys in frontend JavaScript or anywhere else they are publicly
@@ -235,22 +256,40 @@ name.
 
 ### Bonus: React-Transitions
 
-Right now, the matched names instantly appear on the screen and the filtered names instantly disappear. This is abrupt and ugly. We want the names to fade out or in when they are entering or leaving the page. How can we achieve that with React? With the [ReactCSSTransitionGroup][react-transitions]!
+Right now, the matched names instantly appear on the screen and the filtered
+names instantly disappear. This is abrupt and ugly. We want the names to fade
+out or in when they are entering or leaving the page. How can we achieve that
+with React? With the [ReactCSSTransitionGroup][react-transitions]!
 
-* First we need to import the `ReactCSSTransitionGroup` module into our project. In the console, run `npm install --save react-addons-css-transition-group`.
+* First we need to import the `ReactCSSTransitionGroup` module into our project.
+In the console, run `npm install --save react-addons-css-transition-group`.
 
-* Then you need to require the module in the file. At the top of `autocomplete.jsx`, write `const ReactCSSTransitionGroup = require('react-addons-css-transition-group');`.
+* Then you need to require the module in the file. At the top of
+`autocomplete.jsx`, write `const ReactCSSTransitionGroup = require('react-addons-css-transition-group');`.
 
-* In your `render` method, you will need to wrap the group of elements that will be entering and leaving the screen with the `<ReactCSSTransitionGroup>` element. In the case of the autocomplete widget, those are the `<li>`. **You are not wrapping each individual `li`, but rather the entire group.**
+* In your `render` method, you will need to wrap the group of elements that will
+be entering and leaving the screen with the `<ReactCSSTransitionGroup>` element.
+In the case of the autocomplete widget, those are the `<li>`. **You are not
+wrapping each individual `li`, but rather the entire group.**
 
-* `<ReactCSSTransitionGroup>` has three necessary attributes. Read what they are below and make sure to include them:
-  - `transitionName` - This is the name that's used to create all of the transition classes. I set this equal to `"auto"`, but you can pick any name you like.
-  - `transitionEnterTimeout` - Specifies how long (in ms) the transition should last when the element enters the page. This needs to be a number, so you'll have to interpolate the javascript number, otherwise it'll be read as a string. (i.e `{500}` instead of `500`).
-  - `transitionLeaveTimeout` - Same as above, except for when an element is leaving the page.
+* `<ReactCSSTransitionGroup>` has three necessary attributes. Read what they are
+below and make sure to include them:
+  - `transitionName` - This is the name that's used to create all of the
+    transition classes. I set this equal to `"auto"`, but you can pick any name
+    you like.
+  - `transitionEnterTimeout` - Specifies how long (in ms) the transition should
+    last when the element enters the page. This needs to be a number, so you'll
+    have to interpolate the javascript number, otherwise it'll be read as a
+    string. (i.e `{500}` instead of `500`).
+  - `transitionLeaveTimeout` - Same as above, except for when an element is
+    leaving the page.
 
 * Finally the css. Create a new css file and paste in the code below.
-  - Be sure to make a `link` tag in your `index.html` page so the transitions are applied.
-  - The css below assumes you've given the `transitionName` attribute to `auto`. If you gave it a different name, just replace every `auto` with the name you gave.
+  - Be sure to make a `link` tag in your `index.html` page so the transitions
+    are applied.
+  - The css below assumes you've given the `transitionName` attribute to `auto`.
+    If you gave it a different name, just replace every `auto` with the name
+    you gave.
 
 ```css
 /* AutoComplete */
@@ -278,13 +317,28 @@ Right now, the matched names instantly appear on the screen and the filtered nam
  }
 ```
 
-* Go play with the widget. You'll notice that when names appear, they fade in from the bottom. When they leave, they fade out and fall to the bottom. Let's break down the css file:
-  - `.[transitionName]-enter` - Specifies the initial state of an element that is entering the page. Since I want the names to start invisible and at the bottom, I've given it the `opacity` and `transform` properties the appropriate values.
-  - `.[transitionName]-enter.[transitionName]-enter-active` - Specifies the final state of an element that has entered the screen. Looking at the css, we can see that I expect the element to be completely opaque and in it's original y-position when it is done entering. This is where you also specify the `transition` property.
-  - `.[transitionName]-leave` - Specifies the initial state of an element that is leaving the page. In almost all cases, the values of this class with match the values in the `[transitionName]-enter.[transitionName]-enter-active` class.
-  - `.[transitionName]-leave.[transitionName]-leave-active` - Specifies the final state of an element that has left the screen. This is where you also specify the `transition` property.
+* Go play with the widget. You'll notice that when names appear, they fade in
+  from the bottom. When they leave, they fade out and fall to the bottom. Let's
+  break down the css file:
+  - `.[transitionName]-enter` - Specifies the initial state of an element that
+    is entering the page. Since I want the names to start invisible and at the
+    bottom, I've given it the `opacity` and `transform` properties the
+    appropriate values.
+  - `.[transitionName]-enter.[transitionName]-enter-active` - Specifies the
+    final state of an element that has entered the screen. Looking at the css,
+    we can see that I expect the element to be completely opaque and in it's
+    original y-position when it is done entering. This is where you also specify
+    the `transition` property.
+  - `.[transitionName]-leave` - Specifies the initial state of an element that
+    is leaving the page. In almost all cases, the values of this class with
+    match the values in the `[transitionName]-enter.[transitionName]-enter-active`
+    class.
+  - `.[transitionName]-leave.[transitionName]-leave-active` - Specifies the
+    final state of an element that has left the screen. This is where you also
+    specify the `transition` property.
 
-* Now play around with the css file. What kind of interesting transitions can you create?
+* Now play around with the css file. What kind of interesting transitions can
+  you create?
 
 
 [react-transitions]: https://facebook.github.io/react/docs/animation.html

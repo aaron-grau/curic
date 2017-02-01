@@ -4,7 +4,7 @@ Today we're going to get our first experience using the React Router. The goal i
 
 ## Phase 0: Setup
 
-Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. Run `npm install` to get it setup. Then make sure webpack is watching (`webpack --watch`), and start up the `http-server`.  
+Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. Run `npm install` to get it setup. Then run `npm start`. For information on the `webpack-dev-server` configuration, refer to the [webpack-dev-server reading](../../readings/webpack_dev_server.md).
 
 Navigate to `http://localhost:8080` in your browser and verify you can see "Rainbow Router" header.  Currently there's no functionality - we'll fix that asap!
 
@@ -58,8 +58,6 @@ Open up the `red.jsx` and `blue.jsx` files within the components folder.  You'll
 
 Test that your code works by navigating through all the routes.  Time to celebrate! :tada: :rainbow: :tada:
 
+[zip-skeleton]: ./rainbow_routes.zip?raw=true
 [route-config-reading]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
 [with-router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
-[hash-history]: https://github.com/reactjs/react-router/blob/master/upgrade-guides/v2.0.0.md#using-history-with-router
-
-[zip-skeleton]: ./rainbow_routes.zip?raw=true
