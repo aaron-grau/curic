@@ -270,7 +270,7 @@ application's layout:
   <ul>
     <li>Logged in as: <%= current_user.username %></li>
     <li>
-      <form action="<%= session_url %>">
+      <form action="<%= session_url %>" method="POST">
         <input type="hidden" 
                name="authenticity_token" 
                value="<%= form_authenticity_token %>">
