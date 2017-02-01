@@ -65,7 +65,7 @@ form, or at least the `button_to` helper method (which creates a form) to
 properly issue a non-`GET` request:
 
 ```ruby
-<form action="<%= post_url(@post) %>">
+<form action="<%= post_url(@post) %>" method="POST">
   <input type="hidden" value="delete" name="_method" />
   <input type="submit" value="Delete me" />
 </form>
