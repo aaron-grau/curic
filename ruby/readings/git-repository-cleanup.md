@@ -32,8 +32,9 @@ If you still want all your a/A projects in one repo, then...
   0. Add a remote to your `AppAcademyProjects` repository and name it after yourself.
     * `git remote add <your name> <your AppAcademyProjects' address>`
   0. Merge your remote repository into your local repository.
-    * `git pull <your name> master --no-edit`
-    * `--no-edit` tells Git that you don't want to edit the commit message.
+    * `git pull <your name> master --no-edit --allow-unrelated-histories`
+    * `--no-edit` tells Git that you don't want to edit the commit message.  
+    * `--allow-unrelated-histories` tells Git to perform the pull even though the local repo and remote repo don't share commit histories.
   0. Push your merges to your remote repository.
     * `git push <your name> <your name>:master`
     * This pushes the local `<your name>` branch to your `AppAcademyProjects` master branch.
