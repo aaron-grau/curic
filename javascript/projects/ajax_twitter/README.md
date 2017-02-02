@@ -236,12 +236,7 @@ the user.
 
 **Test your code**: Check that you can now interactively search users.
 
-#### Removing the N+1 Query
-
-Let's fix that n+1 query. It's coming from the fact that the data labeled
-`current_user.follows?(user)` gets called each time we want to render
-`search.json.jbuilder`, so we can fix it by chaining a `.includes(:out_follows)`
-call onto our controller's `.where` call.
+#### Adding FollowToggle to Search Results
 
 Last, we want to add follow toggle buttons for each of these results. When
 building the `li` tags for each user, build a `button`, too. You can create a
