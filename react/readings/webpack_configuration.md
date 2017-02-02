@@ -49,8 +49,8 @@ module.exports = {
 };
 ```
 
-**NB**: For Rails projects, make sure to locate the bundle in your
-`app/assets/javascripts` folder so that it's included in the Rails asset
+**NB**: For Rails projects, make sure to locate your `bundle.js` file in
+`app/assets/javascripts` so that it's included in the Rails asset
 pipeline.
 
 ### Dev Tools / Source Map
@@ -74,7 +74,7 @@ module.exports = {
 ### Resolving Extensions
 
 `webpack.config.js` also accepts a `resolve` key, which lets you specify what
-file extensions to process without specifically naming them.
+file extensions to process without explictly naming them.
 
 ```js
 // webpack.config.js
