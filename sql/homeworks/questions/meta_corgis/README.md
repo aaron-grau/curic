@@ -73,7 +73,7 @@ It is repetitive and not modular to have all three methods defined on the
 the new `MetaCorgiSnacks` class to DRY things up!
 + Hint: Within `#method_missing` use `#send` to call methods on your
 `@snack_box`. You can interpolate to get the method name, and then pass
-the method name `#send`
+the method name to `#send`
 + Review the [metaprogramming][meta_reading] reading if you need a
 reminder on how to use `#send`.
 
