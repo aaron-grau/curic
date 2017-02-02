@@ -25,16 +25,14 @@ class UsersController < ApplicationController
     if current_user.nil?
       # let them log in
       redirect_to new_session_url
-      return
+    else
+      @user = User.includes(tweets: :mentioned_users).find(params[:id])
     end
-
-    @user = User.includes(tweets: :mentioned_users).find(params[:id])
-    render :show
   end
 
   def search
     if params[:query].present?
-      @users = User.where("username ~ ?", params[:query]).includes(:out_follows)
+      @users = User.where("username ~ ?", params[:query])
     else
       @users = User.none
     end
