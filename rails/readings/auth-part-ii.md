@@ -269,7 +269,15 @@ application's layout:
 <% if !current_user.nil? %>
   <ul>
     <li>Logged in as: <%= current_user.username %></li>
-    <li><%= button_to "Logout", session_url, method: :delete %></li>
+    <li>
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" 
+               name="authenticity_token" 
+               value="<%= form_authenticity_token %>">
+        <input type="hidden" value="delete" name="_method" />
+        <input type="submit" value="Logout" />
+      </form>
+    </li>
   </ul>
 <% end %>
 
