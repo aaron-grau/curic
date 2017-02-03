@@ -45,7 +45,7 @@ store itself.
 
 Let's start by defining our app's Redux `store`.
 
-+ Create a `store.js` file within the `frontend` folder.
++ Open `frontend/store.js`.
 + We will need to import `createStore` from `redux`.
 * Also import our `reducer` function from `frontend/reducer.js`. This is a dummy function which returns the default state, we'll replace it soon.
 + Then, all we have to do is call `createStore`, passing in the reducer function.
