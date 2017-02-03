@@ -41,7 +41,7 @@ Hear are the important deadlines.
 
 [peer-review]: project/peer-review.md
 [turn-in-fullstack]: project/turn_in_fullstack.md
-[jobsearch]: https://github.com/appacademy/sf-job-search-curriculum
+[jobsearch]: https://github.com/appacademy/job-search-curriculum
 
 ### Resources
 
