@@ -1,5 +1,5 @@
 {
-  "name": "currency_demo_skeleton",
+  "name": "currency_demo_solution",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,6 +17,6 @@
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "redux": "^3.5.2",
-    "webpack": "^1.13.2"
+    "webpack": "^2.2.1"
   }
 }
