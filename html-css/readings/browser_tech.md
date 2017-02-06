@@ -85,7 +85,13 @@ important high priority properties, for normal priority properties, and finally
 for important normal priority properties, with each traversal capable of
 overwriting rules set in the previous traversal.
 
+Browsers also use hash maps to filter out rules that don't apply to a given
+element. If a browser is looking for information about `div.blue#test`, it will
+look in the tag hash map for rules matching `div`, the class hash map for rules
+matching `.blue`, and the id hash map for rules matching `#test`.
 
+Once the rules that apply to a given element have been selected, they are then
+ordered by specificity.
 
 !(https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png)
 
