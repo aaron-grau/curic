@@ -60,6 +60,33 @@ parsing.
 
 Style sheets, however, are always loaded synchronously.
 
+## Render Tree Construction
+
+Each element in the render tree (called either a "frame" or a "renderer,"
+depending on the render engine used) knows how to lay out and paint itself and
+its children. A frame will represent the rectangular area that element will
+take up - it will have a width, a height, and a position - and if the element
+is not visible, then it will not appear in the render tree. Some HTML elements
+will require the creation of multiple frames, like "select": one frame for the
+display area, one frame for the dropdown list box, and one frame for the
+button.
+
+Floating and absolutely positioned elements are handled differently than block
+and inline elements.
+
+Computing the style of a given element can be very costly. To optimize this
+process, some browsers use two extra trees: a style context tree, which holds a
+reference to the end values of various style rules (i.e., a node in the rule
+tree); and a rule tree, which holds matched style rules, with nodes farther
+from the root holding precedence over nodes closer to the root. Browsers that
+don't implement a rule tree end up traversing the list of matching style
+declarations four times: for high priority properties (e.g., display), for
+important high priority properties, for normal priority properties, and finally
+for important normal priority properties, with each traversal capable of
+overwriting rules set in the previous traversal.
+
+
+
 !(https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png)
 
 
