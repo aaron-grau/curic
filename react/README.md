@@ -166,9 +166,11 @@
 - [Giphy Homework][giphy_homework] (90 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
   - **Due by 9AM Thursday w7d4**
+  - You many want to browse our [list of approved apps][approved-apps]
 
 [giphy_homework]: homeworks/questions/giphy
-[tentative-proposal]: ../full-stack-project/readings/tentative-project-proposal.md
+[tentative-proposal]: ../full-stack-project/proposal/tentative-project-proposal.md
+[approved-apps]: ../full-stack-project/proposal/projects-to-clone.md
 
 ### Additional Resources
 - [Redux Developer Tools][redux_dev_tools]
@@ -264,7 +266,7 @@
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
   * **Due by 9am on Monday w8d1**
 
-[full_stack_project_proposal]: ../full-stack-project/readings/full-stack-project-proposal.md
+[full_stack_project_proposal]: ../full-stack-project/proposal/full-stack-project-proposal.md
 [uxhw]: ../full-stack-project/homeworks/ux
 
 ### Additional Resources
