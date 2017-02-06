@@ -122,7 +122,7 @@ function sumOfNPrimes (n) {
 // allOrNothing
 
 function allOrNothing(mod, numbers) {
-  let args = Array.prototype.slice.call(numbers);
+  let args = Array.prototype.slice.call(arguments);
   let numberArgs = args.slice(1);
 
   for (let i = 0; i < numberArgs.length; i++) {
