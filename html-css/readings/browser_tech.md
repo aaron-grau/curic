@@ -26,28 +26,39 @@ rendering engine that browser uses. Different rendering engines sometimes
 perform tasks in slightly different ways or in a slightly different order, but
 in general, they follow the below pattern:
 
-### Parse the HTML document to construct the DOM tree
-
-+ HTML elements get converted to DOM nodes in the "content" tree
-
-### Construct the render tree
-
-+ CSS information (and styling information from the HTML) is used to create the
-"render" tree from the "content" tree
-  + The render tree contains a rectangle for each node
-    + Each rectangle has dimensions and color
-  + The rectangles are ordered the same way they will be ordered on the display
-
-### Add layout information to the render tree
-
-+ Each node receives its exact coordinates on the screen
-
-### Paint the render tree
-
-+ The render tree is traversed and each node is painted
-  + This step uses the UI backend to access the OS's drawing capabilities
++ **Parse the HTML document to construct the DOM tree**
+  + HTML elements get converted to DOM nodes in the "content" tree
++ **Construct the render tree**
+  + CSS information (and styling information from the HTML) is used to create
+  the "render" tree from the "content" tree
+    + The render tree contains a rectangle for each node
+      + Each rectangle has dimensions and color
+    + The rectangles are ordered the same way they will be ordered on the
+    display
++ **Add layout information to the render tree**
+  + Each node receives its exact coordinates on the screen
++ **Paint the render tree**
+  + The render tree is traversed and each node is painted
+    + This step uses the UI backend to access the OS's drawing capabilities
 
 ## HTML Parsing
+
+Two things need to happen for HTML to get parsed: first, the HTML document
+needs to get broken up into HTML elements; and second, the rules of HTML syntax
+need to be applied to those elements.
+
+Because HTML is not a context-free grammar, its parsing is rather complex. The
+parser has to fix any syntax errors that the author has written into their
+document and prevent the author from making stupid mistakes, like ending the
+`body` too early.
+
+JavaScript can either be synchronously loaded, in which it blocks the parsing
+of the HTML while it is executed, deferred, in which case its execution is
+typically deferred until after the HTML has been parsed, or asynchronously
+loaded, in which case its execution happens on a different thread from the HTML
+parsing.
+
+Style sheets, however, are always loaded synchronously.
 
 !(https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png)
 
