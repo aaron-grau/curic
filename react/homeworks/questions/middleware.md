@@ -43,9 +43,11 @@ Now let's refactor the code the we just wrote. The functionality of it is great,
 
 What we're going to do instead is write a generalized `applyMiddlewares` function that will run either a single middleware or a group of middlewares. `applyMiddlewares` will give the middlewares access to the store's `dispatch` function, as well as the `action` that is being dispatched.
 
-In order to do this, we'll have to rewrite our `addLoggingToDispatch` function:
-+ Change this function so that it returns a function that receives the `next` middleware as an argument
-  + This inner function will return the function from the "Logging" step
+In order to do this, we'll have to turn our `addLoggingToDispatch` function into a middleware:
+
+1. `addLoggingToDispatch` should return a function that receives the `next` middleware as an argument.
+1. This inner function will return yet another function that receives the `action`
+1. Inside all of this we will need to do the logging and invoke the `next` middleware with the `action`
 
 This might seem confusing at first glance, but it's not so bad. Your code should now look something like the following:
 
