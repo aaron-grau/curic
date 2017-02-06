@@ -1,8 +1,10 @@
+const path = require('path')
+
 module.exports = {
   context: __dirname,
   entry: "./frontend/widgets.jsx",
   output: {
-    path: "/",
+    path: path.resolve(__dirname), 
     filename: "bundle.js"
   },
   module: {
