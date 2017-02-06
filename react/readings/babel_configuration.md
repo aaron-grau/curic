@@ -26,9 +26,9 @@ ES6 and JSX, respectively.
 module: {
   loaders: [
     {
-      test: [/\.jsx?$/, /\.js?$/], // Specifies file types to transpile
+      test: [/\.jsx?$/], // Specifies file types to transpile
       exclude: /(node_modules)/, // Leaves dependencies alone
-      loader: 'babel', // Sets Babel as the transpiler
+      loader: 'babel-loader', // Sets Babel as the transpiler
       query: {
         presets: ['es2015', 'react'] // Tells Babel what syntaxes to translate
       }

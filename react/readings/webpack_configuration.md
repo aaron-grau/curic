@@ -4,11 +4,11 @@
 
 Before discussing how to configure webpack, be aware that running webpack
 and using npm creates many redundant, large files in your local project
-directory. To avoid this use a `.gitignore` file in your project's root directory to 
+directory. To avoid this use a `.gitignore` file in your project's root directory to
 prevent these files from being pushed to and pulled from your remote Git
-repositories. Create a `.gitignore` file in your project's root directory 
-and list the files or directories you want to ignore, one per line. Use a 
-trailing `/` to indicate a directory to ignore. To re-fetch the the NPM modules, 
+repositories. Create a `.gitignore` file in your project's root directory
+and list the files or directories you want to ignore, one per line. Use a
+trailing `/` to indicate a directory to ignore. To re-fetch the the NPM modules,
 we can run `npm install`, which fetches all the modules specified in `package.json`.
 Then run `webpack` to regenerate the `bundle.js` and `bundle.js.map` files.
 
@@ -38,11 +38,12 @@ location of your output file. See the example below:
 
 ```js
 // webpack.config.js
+var path = require('path');
 
 module.exports = {
-  entry: "frontend/my_app.jsx",
+  entry: "./frontend/my_app.jsx",
   output: {
-      path: "app/assets/javascripts",
+      path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
       filename: "bundle.js"
   }
   ...
@@ -57,8 +58,8 @@ pipeline.
 
 `webpack.config.js` accepts a `devtool` key that can be used to enable useful
 tools, particularly `source-map`. A source map makes it possible for you to see
-the line numbers of your original source code when errors are raised. This is 
-generally not possible because your `bundle.js` does not maintain the line numbers 
+the line numbers of your original source code when errors are raised. This is
+generally not possible because your `bundle.js` does not maintain the line numbers
 from the files it is bundling.
 
 ```js
@@ -66,7 +67,7 @@ from the files it is bundling.
 
 module.exports = {
   ...
-	devtool: 'source-map',
+  devtool: 'source-map',
   ...
 }
 ```
@@ -74,43 +75,41 @@ module.exports = {
 ### Resolving Extensions
 
 `webpack.config.js` also accepts a `resolve` key, which lets you specify what
-file extensions to process without explictly naming them.
+file extensions to process without explicitly naming them.
 
 ```js
 // webpack.config.js
 
 module.exports = {
-	...
-	resolve: {
-		extensions: ['', '.js', '.jsx']
-	},
+  ...
+  resolve: {
+    extensions: ['.js', '.jsx', '*']
+  },
   ...
 };
 ```
 
-By including an empty string as an option, you can write import statements more
-succinctly. For example,
+You must include the star matcher `'*'` to be able to include files with an explicit extension.
+Otherwise `require('file_name.js')` will cause webpack to look for `file_name.js.js`.
 
-```js
-import App from './components/app';
-import { createTodos } from './actions/todos';
-```
+**NB** The star syntax is new to webpack v2. If you are using webpack v1 you will need to include an empty string instead.
 
 # Sample `webpack.config.js`
 
 ```js
 // webpack.config.js
+var path = require('path');
 
 module.exports = {
-  entry: 'path/to/entry.jsx',
+  entry: './frontend/entry.jsx',
   output: {
-    path: 'app/assets/javascripts',
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js',
   },
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/, /\.js?$/],
+        test: [/\.jsx?$/],
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
@@ -121,7 +120,7 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx' ]
+    extensions: ['.js', '.jsx', '*']
   }
 };
 ```
