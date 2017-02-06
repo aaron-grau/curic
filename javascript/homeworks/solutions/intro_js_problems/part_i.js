@@ -121,9 +121,12 @@ function sumOfNPrimes (n) {
 
 // allOrNothing
 
-function allOrNothing(mod, ...numbers) {
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % mod !== 0) {
+function allOrNothing(mod, numbers) {
+  let args = Array.prototype.slice.call(numbers);
+  let numberArgs = args.slice(1);
+
+  for (let i = 0; i < numberArgs.length; i++) {
+    if (numberArgs[i] % mod !== 0) {
       return false;
     }
   }
