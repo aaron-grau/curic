@@ -1,8 +1,10 @@
+const path = require('path')
+
 module.exports = {
   context: __dirname,
-  entry: "./widgets.jsx",
+  entry: "./frontend/widgets.jsx",
   output: {
-    path: "./",
+    path: path.resolve(__dirname), 
     filename: "bundle.js"
   },
   module: {
@@ -10,7 +12,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']
         }
@@ -18,6 +20,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
-  }
+    extensions: [".js", ".jsx", "*" ]
+  },
+  devtool: 'source-map',
 };

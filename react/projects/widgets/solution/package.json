@@ -18,7 +18,7 @@
     "react": "^0.14.2",
     "react-addons-css-transition-group": "^0.14.6",
     "react-dom": "^0.14.2",
-    "webpack": "^1.12.4",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   }
 }
