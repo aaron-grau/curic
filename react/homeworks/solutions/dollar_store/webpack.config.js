@@ -1,10 +1,12 @@
 "use strict";
 
+const path = require('path');
+
 module.exports = {
   context: __dirname,
   entry: "./frontend/entry.jsx",
   output: {
-    path: "./",
+    path: path.resolve(__dirname), 
     filename: "bundle.js"
   },
   module: {
@@ -21,6 +23,6 @@ module.exports = {
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: [".js", '.jsx']
+    extensions: [".js", '.jsx', '*']
   }
 };
