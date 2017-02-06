@@ -168,6 +168,8 @@ which returns another function. The returned function should take dispatch as an
 and when invoked, call the `APIUtil` to fetch all todos. Resolve the promise by dispatching
 your synchronous `receiveTodos()` action.
 
+**NB: Return the resolved promise from the action creator for future flexibility; this allows you to continue chaining calls to `then` in the event that you would like to dispatch further actions from the component.**
+
 Test it out! With your store and thunk action creator attached to the window you
 should be able to populate your Redux store with todos from the database like so.
 
