@@ -36,8 +36,8 @@
 [this-and-that]: readings/this-and-that.md
 [fat-arrows]: readings/fat-arrows.md
 
-### Homeworks (45 min)
-* [Intro JavaScript Problems][intro-pset] (45 min)
+### Homeworks (55 min)
+* [Intro JavaScript Problems][intro-pset] (55 min)
 * Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.

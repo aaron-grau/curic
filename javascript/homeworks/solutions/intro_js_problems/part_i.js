@@ -118,15 +118,3 @@ function sumOfNPrimes (n) {
 
   return sum;
 }
-
-// allOrNothing
-
-function allOrNothing(mod, ...numbers) {
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % mod !== 0) {
-      return false;
-    }
-  }
-
-  return true;
-}
