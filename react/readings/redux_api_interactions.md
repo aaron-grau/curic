@@ -186,7 +186,7 @@ import {
 
 export default ({ getState, dispatch }) => next => action => {
 	const catsSuccess = data => dispatch(receiveCats(data));
-	const catSuccess = data => dispatch(receiveCat(dat));
+	const catSuccess = data => dispatch(receiveCat(data));
 	const catRemoved = data => dispatch(removeCat(data));
 	const error = e => console.log(e.responseJSON);
 
