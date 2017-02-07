@@ -15,6 +15,10 @@ Unfortunately, we don't know how to build things in the browser yet, so
 we'll have to be content with a simple [CLI][what-is-cli] tool, though
 we can use the `launchy` gem to pop open the original URL in a browser.
 
+Throughout this project you're going to be navigating through many files. Using
+the file tree to navigate will take a long time. Make sure to instead press ⌘+T
+and then type the file name to quickly find the files you are looking for.**
+
 [goo-gl]: https://goo.gl
 [what-is-cli]: http://www.techopedia.com/definition/3337/command-line-interface-cli
 
@@ -27,7 +31,7 @@ we can use the `launchy` gem to pop open the original URL in a browser.
 * Be able to write associations
 * Understand the purpose of adding an index to columns in our database
 
-## Phase I: `User`
+## Phase I: Setup
 
 Go ahead and create a new Rails project...
 
@@ -40,7 +44,32 @@ Create the database with the following command...
 $ bundle exec rake db:create
 ```
 
-Now use the Rails scaffolding engine to create a new migration file...
+You now have a working Rails app with database! We can now run migrations to
+add tables to our database.
+
+## Phase II: Users
+
+### Overview
+
+In this initial phase of the project we are going to create a Users table and
+model in our app. We want our users to each have an email associated with their
+account and we want to make sure that when we create a new user, they always
+supply an email. We also want to ensure that email is unique. We don't want the
+same person registering on our app with a duplicate email. That wouldn't make sense!
+
+The naming of your files is going to be essential. When you try to create an
+instance of a model, it looks in the models folder for a file that is the
+`snake_case`ified version of your model's name. Also, it will, by default,
+infer that the name of the table is the pluralized, snake cased, version of your
+model. For example, if I had a `GoodStudent` model, Rails would look in the
+`app/models` folder for a file called `good_student.rb`. Upon finding and
+loading this file, it would create an instance of the class with data from a
+table it assumes to be `good_students`. **If your naming doesn't _EXACTLY_
+follow convention, you're gonna have a bad time.**
+
+### Instructions
+
+Use the Rails scaffolding engine to create a new migration file...
 
 ```
 $ bundle exec rails generate migration CreateUsers
@@ -56,7 +85,8 @@ much more quickly. In addition to improving lookup performance we
 can also enforce uniqueness of one or more columns at the database
 level using an index. [These docs][add-index-docs] will give you the syntax needed.
 
-Double check that your migration file syntax is correct and then setup your database by running your migrations with: `bundle exec rake db:migrate`.
+Double check that your migration file syntax is correct and then setup your database
+by running your migrations with: `bundle exec rake db:migrate`.
 
 Next, let's create a `User` model. No magic to this, just create a `user.rb`
 file in your `app/models` folder.
@@ -65,31 +95,34 @@ Add uniqueness and presence [validations][validations-reading]. Without
 these, people might go about creating user accounts without emails. We
 cannot tolerate such misbehavior.
 
-**NB: At this point in the curriculum, your projects have become large enough
-that clicking on files in the file tree to navigate around will take a long time.  
-Make sure to instead press ⌘+T and then type the file name to quickly find the
-files you are looking for.**
-
-**NB: the naming of your files is essential.** When you try to create an
-instance of a model, it looks in the models folder for a file that is the
-`snake_case`ified version of your model's name. Also, it will, by default,
-infer that the name of the table is the pluralized, snake cased, version of your
-model. For example, if I had a `GoodStudent` model, Rails would look in the
-`app/models` folder for a file called `good_student.rb`. Upon finding and
-loading this file, it would create an instance of the class with data from a
-table it assumes to be `good_students`. **If your naming doesn't _EXACTLY_
-follow convention, you're gonna have a bad time.**
-
 [indexing-reading]: ../../readings/indexing.md
 [validations-reading]: ../../readings/validations.md
 [add-index-docs]: http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
 
+### Recap
+
+You should now have a User table and model. Both your database and model should require
+that a user has provided your app with a unique email. To test that everything is
+working try to create a user without an email in the console. You shouldn't be able
+to persist that user to the database! Now create a user with an email. Does it
+work? It should if there are no other users in the database with that same email.
+
 ## Phase II: `ShortenedUrl`
 
-### Basic structure
+### Overview
 
-Create a `shortened_urls` table and write a `ShortenedUrl` model. Store
-both the `long_url` and `short_url` as string columns. Also store the id
+Now it's time to create the table and model that will handle the long URL the user
+provides our app as well as the shortened urls our app will create.
+When we're done we'll eventually want to be able to find urls for a particular
+user. This means we'll need to define an Active Record association to manage that
+relationship. We'll also want users to be able to type in the short url and get
+back the long version, although our app won't have this functionality right away.
+
+### Instructions
+
+Create a `shortened_urls` table and write a `ShortenedUrl` model. For which columns
+in `ShortenedUrl` should we add indices? Which index should be unique?
+Store both the `long_url` and `short_url` as string columns. Also store the id
 of the user who submitted the url.
 
 **NB:** `ShortenedUrl` is a model, `shortened_urls` is the table it's
@@ -99,13 +132,11 @@ Confusing, I know, but this illustrates why good naming is so important.
 One bad name confuses every poor dev who tries to maintain the code
 after you.
 
-When writing the ShortenedUrl migration remember that we want to be able to find urls owned by a user. We also eventually want users to be able to type in the short url and get back the long version. For which columns in `ShortenedUrl` should we add indices? Which index should be unique?
+Along with adding these database level constraints remember to add uniqueness
+and presence validations on the model level as well.
 
-Along with adding these database level constraints remember to add uniqueness and presence validations on the model level as well.
-
-Once you have your migration and model written how you would like, make sure to run your migrations and test out ShortenedUrl in the Rails console.
-
-### Why no `LongUrl` model?
+Once you have your migration and model written how you would like, make sure to
+run your migrations and test out ShortenedUrl in the Rails console.
 
 We **could** factor out the `long_url` to its own model, `LongUrl`,
 and store in the `ShortenedUrl` a key to the `LongUrl`. If the URLs
@@ -120,8 +151,6 @@ force two steps of lookup to resolve a short URL:
 
 For this reason, we can expect better performance by storing the long
 url in the `shortened_urls` table.
-
-### `ShortenedUrl::random_code`
 
 Now it's time for us to actually shorten a URL for the users. We do this by
 generating a random, easy to remember, 16 character random code and storing
@@ -144,38 +173,46 @@ look it up :-)
 
 [wiki-base64]: http://en.wikipedia.org/wiki/Base64
 
-### `ShortenedUrl::create_for_user_and_long_url!(user, long_url)`
-
 Write a factory method that takes a `User` object and a `long_url`
 string and `create!`s a new `ShortenedUrl`.
-
-### Associations and testing
 
 Write `submitter` and `submitted_urls` associations to `ShortenedUrl`
 and `User`.
 
-Go ahead and in the Rails console create some `User`s and some
-`ShortenedUrl`s. Check that the associations are working.
+### Recap
+
+At this point you should have a `shortened_urls` table and a `ShortenedUrl`
+model. The factory method you wrote that creates a shortened url and persists
+it to the database should use the `SecureRandom::random_code` method to provide
+a unique `short_url`. Make sure that each `ShortenedUrl` has a unique 16
+letter `short_url` code.
+
+Go ahead and use the Rails console to create some more `User`s and some
+`ShortenedUrl`s. Check that the associations you wrote are working. Calling
+`submitter` on a shortened url should return the submitter for that url.
+Calling `submitted_urls` on a user should return the urls submitted by that user.
 
 ## Phase III: Tracking `Visit`s
 
-### Model
+### Overview
 
-We want to track how many times a shortened URL has been visited. We
-also want to be able to fetch all the `ShortenedUrl`s a user has
-visited.
+In this phase of the project we want to code the functionality to track how many
+times a shortened URL has been visited. We also want to be able to fetch all of
+the shortened urls a user has visited.
 
-To accomplish this, write a `Visit` join table model. Add appropriate
-indices and validations. Be sure to include timestamps on your `Visit` model, we'll need them later.
+To accomplish this, we'll need a `Visit` join table model. We'll use this join
+to link user visits to certain urls. We'll also add associations connecting
+`Visit`,`User`, and `ShortenedURL`.
 
-### `Visit::record_visit!(user, shortened_url)`
+### Instructions
 
-Add a convenience factory method that will create a `Visit` object
-recording a visit from a `User` to the given `ShortenedUrl`.
+First write the `Visit` join table model. Add appropriate indices and validations.
+Be sure to include timestamps on your `Visit` model. We'll need them later.
 
-### Associations
+Add a convenience factory method called `Visit::record_visit!(user, shortened_url)`
+that will create a `Visit` object recording a visit from a `User` to the given `ShortenedUrl`.
 
-Write `visitors` and `visited_urls` associations on `ShortenedUrl` and
+Now write `visitors` and `visited_urls` associations on `ShortenedUrl` and
 `User`. These associations will have to traverse associations in
 `Visit`. Define appropriate associations in `Visit`; what kind of
 association can traverse other associations?
@@ -186,11 +223,15 @@ shortened URL. Thus, your `ShortenedUrl#visitors` association may repeat the
 same user several times, and your `User#visited_urls` association may repeat the
 same shortened URL several times. We'll address this soon!
 
-### `ShortenedUrl#num_clicks`, `#num_uniques`, `#num_recent_uniques`
+Add the three following methods to the `ShortenedUrl` class:
 
-Write a method that will count the number of clicks on a `ShortenedUrl`.
+* `#num_clicks`
+* `#num_uniques`
+* `num_recent_uniques`
 
-Next, let's write a method that will determine the number of **distinct** users
+`ShortenedUrl#num_clicks` should count the number of clicks on a `ShortenedUrl`.
+
+`ShortenedUrl#num_uniques` should determine the number of **distinct** users
 who have clicked a link.
 
 How do we do this in ActiveRecord? In addition to our `visits` association, we
@@ -212,11 +253,9 @@ WHERE
   visits.shortened_url_id = ?
 ```
 
-Lastly, count only unique clicks in a recent time period (say,
-`10.minutes.ago`). This involves throwing a [where](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where) clause onto your
-`num_uniques` code.
-
-## Phase IIIb: de-duplicated `visitors` and `visited_urls`
+Lastly, write `ShortenedUrl#num_recent_uniques`, which should only collect unique
+clicks in a recent time period (say, `10.minutes.ago`). This involves throwing a
+[where](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where) clause onto your `num_uniques` code.
 
 You probably wrote a has_many association that looked like this:
 
@@ -251,9 +290,32 @@ a little shorter.
 Use a "distinct-ified" version of `visitors` to rewrite `num_uniques` simply.
 Also, write a distinct-ified version of `visited_urls`.
 
+### Recap
+
+Congrats! You should now have a join table and model for visits, linking users
+to urls. With this join table you should have been able to do the followings things:
+
+* Write `visitors` and `visited_urls` Active Record relations connecting users
+to urls and vice-versa.
+* Retrieve the recent unique visits for a particular url.
+
+Create some entries in your `Visit` join table using `Visit::record_visit!`. After
+making sure that your method is working (make sure a new entry in the `visits`
+table is created with the correct information), test out your Active Record relations.
+Everything should be working before you move on.
+
 ## Phase IV: A simple CLI
 
-Write a very simple command-line interface in `bin/cli` (the convention for Rails scripts is to omit the extension `.rb`). You already know how to do this-- you have written programs that had CLIs using functions like `puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.). Add these features:
+### Overview
+
+Now we're going to write a very simple command-line interface in `bin/cli`
+(the convention for Rails scripts is to omit the extension `.rb`). You already
+know how to do this -- you have written programs that had CLIs using functions like
+`puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.).
+
+### Instructions
+
+Your CLI should have the following features:
 
 * Ask the user for their email; find the `User` with this email. You
   don't have to support users signing up through the CLI.
@@ -275,8 +337,12 @@ Run your script using the `rails runner` command. This will load the
 without requiring them explicitly. Importantly, `rails runner` will also
 connect to the DB so you can query tables.
 
-Here's an example of the CLI script in action. Your script should behave
-something like this:
+### Recap
+
+You should have now have, in addition to a working web app, a CLI script that
+allows users to seamlessly interact with your app.
+
+Your script should behave something like this:
 
 ```
 ~/repos/appacademy/URLShortener$ rails runner bin/cli
@@ -319,41 +385,82 @@ Loading development environment (Rails 3.2.11)
  => [#<Visit id: 1, user_id: 1, shortened_url_id: 1, created_at: "2013-08-18 19:15:55", updated_at: "2013-08-18 19:15:55">]
 ```
 
+Test that your CLI works! You should be able to login, as well as create and visit
+shortened urls.
+
 ## Phase V: TagTopic and Tagging
 
-Users should be able to choose one of a set of predefined `TagTopic`s
-for links (news, sports, music, etc.). Since the relationship between
-`TagTopic`s and `URL`s is many-to-many, you'll need a join model like
-`Tagging`s. Before starting think over with your pair what columns
-should be indexed. Create these models with the appropriate nullity
-and uniqueness constraints and seed your database with some `TagTopic`s
- and `Taggings`. Write a method `TagTopic#popular_links`, that returns
- the 5 most visited links for that `TagTopic` along with the number of times each link has
- been clicked.
 
+### Overview
 
-## Phase VI: A Custom Validation
-Write a custom validation method `ShortenedUrl#no_spamming` that keeps
-users from submitting more than 5 URLs in a single minute.
+In this phase we'll allow users to choose a set of predefined `TagTopic`'s
+for links (news, music, sports, etc.).
 
+### Instructions
 
-## Phase VII: A Custom Validation and Premium Users
+Before starting think over with your pair what columns should be indexed. Create
+these models with the appropriate nullity and uniqueness constraints and seed your
+database with some `TagTopic`s and `Taggings`.
 
-Let's monetize our URL Shortener app.
+Once you have your table and model set up, define a `tag_topics` relation on
+the `ShortenedUrl` model. `tag_topics` should return all of the tag topics for
+a given URL. Since the relationship between `TagTopic`s and `URL`s is many-to-many, you'll
+need a join model like `Tagging`s.
 
-+ Add a "premium" boolean column to your `Users` table; it should default to `false`.
-+ Now add code to ensure that non-premium users can only create a maximum of
-5 URLs (premium users get unlimited).
+Now write a method `TagTopic#popular_links` that returns the 5 most visited links
+for that `TagTopic` along with the number of times each link has been clicked.
 
+Don't worry about updating your CLI so users can add a `TagTopic` to a new URL.
+Just make sure that you can create working `TagTopic` objects and view the most
+popular links for a tag in the console.
+
+### Recap
+
+At this point you should have added a table and model for tag topics, as well as
+a `tag_topics` association. Test that your new associations and `TagTopic#popular_links`
+method are working in the console.
+
+## Phase VI: Custom Validations
+
+### Overview
+
+Now we're going to write a series of custom validations to manage how our users
+submit URLs to our application. First, we're going to prevent users from submitting
+more than 5 URLs in a single minute. Then we're going to monetize our app by
+limiting the number of total URLs non-premium users can submit to 5.
+
+### Instructions
+
+First, write a custom validation method `ShortenedUrl#no_spamming`. Remember to provide
+an informative error message if the validation fails.
+
+Now add a custom validation method `ShortenedUrl#nonpremium_max`. To do this you'll
+first have to add a "premium" boolean column to your `Users` table. This column should
+default to false unless a boolean is given.
+
+### Recap
+
+You've now written two custom validations. To test our anti-spamming validation
+try to create more than 5 URLs in the console for one user in under a minute.
+If your method is working correctly you shouldn't be able to! Now test that non-premium
+users cannot create more than 5 total URLs. Once everything is working move
+on to the next step!
 
 ## Phase VIII: Pruning Stale URLs
+
+### Overview
+
+We don't want our app to store URLs indefinitely, so in this phase we're going
+to remove URLs from our database that haven't been visited for a given period of time.
+
+### Instructions
 
 Write a `ShortenedUrl::prune` method that deletes any shortened URLs
 that have not been visited in the last (n) minutes. You will also need
 to delete any shortened URLs that are older than (n) minutes and have
 never been visited - make sure `ShortenedUrl::prune` only fires a single
- query. Use the following code snippet in `rails console` to make sure
- your `prune` method is working as hoped.
+query. Use the following code snippet in `rails console` to make sure
+your `prune` method is working as hoped.
 
 ```ruby
 u1 = User.create!(email: "jefferson@cats.com", premium: true)
@@ -389,23 +496,33 @@ ShortenedUrl.all # should return su1 and su2
 Once you have `ShortenedUrl::prune` working, check out ActiveRecord's
 [dependent: :destroy][destroy] for associations and use it to destroy
 the visits and taggings that belong to old shortened URLs. Once you
-have tested that your taggings and visits are deleted, are being deleted write a
+have tested that your taggings and visits are being deleted write a
 [rake task][rake-tutorial] to automate this process. Finally, adjust
 `ShortenedUrl::prune` so that URLs submitted by premium users are not pruned.
 
+### Recap
 
-## Bonuses
-* Alternative URL shortening strategies
-  * Custom URLs for premium users
-  * Series of random dictionary words
-* Voting on URLs
-  * Add a Vote model
-  * Users can upvote (+1) or downvote (-1)
-  * No more than one vote per user/url combo
-  * Users cannot vote for their own URLs
+You should now have an automated prune method that removes URLs submitted by
+non-premium users after a given period of time. To test this create a number of
+URLs as a non-premium user. Are these URLs eventually removed from the database?
+They should be!
+
+## Bonus phase 1: Alternative URL shortening strategies
+
+Now its time to implement some alternative URL shortening strategies. First, create
+custom URLs for premium users.
+
+Next, use a series of random dictionary words to generate the short URL.
+
+## Bonus phase 2: Voting on URLs
+
+Let's also add the functionality to vote on URLs. To do this you'll need a vote
+model. Prevent users from voting more than once per user/url combo. Also prevent
+users from voting for their own URLs.
+
+Once you have voting working, you can add the two following methods:
   * `ShortenedUrl::top`, sorted by total vote score
   * `ShortenedUrl::hot`, sorted by vote score in the last (n) minutes
-
 
 [destroy]: http://guides.rubyonrails.org/association_basics.html#has-many-association-reference
 [count-distinct-docs]: http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html#method-i-count
