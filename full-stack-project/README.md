@@ -31,7 +31,7 @@ Here are the important deadlines for this part of the curriculum.
 ## Project
 
 You will spend the next two weeks working on your full-time on your full-stack project
-Hear are the important deadlines.
+Here are the important deadlines.
 
 * **W8D2**: Start work on your full-stack project after you finish A06
 * **W9D2**: [Peer Review][peer-review]
