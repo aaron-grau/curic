@@ -191,7 +191,7 @@ your synchronous `receiveTodo(todo)` action.
 
 * Inside the `todo_list_container.js`, instead of passing in `receiveTodo` in `mapDispatchToProps`,
 pass in `createTodo` and pass it through to `TodoForm`.
-* Inside the `todo_form`, instead of `receiveTodo`, call `createTodo`.
+* Inside the `TodoForm` component, instead of `receiveTodo`, call `createTodo`.
 
 Since we only want to clear the form if the post to the server is successful, clear the form after the promise resolves.
 Since our thunk middleware returns the promise back to the caller, we can take on another `.then` to clear the form like so.
