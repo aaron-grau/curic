@@ -125,15 +125,3 @@ the first `n` prime numbers. Hint: use `isPrime` as a helper method.
 > sumOfNPrimes(4)
 17
 ```
-
-### `allOrNothing`
-
-Write a function `allOrNothing` that takes a number `mod` and an _unspecified_ number of numbers. It should loop through `numbers` and return `true` only if each of them are divisible by `mod`, and `false` otherwise.
-
-```js
-> allOrNothing(3, 9, 12, 6)
-true
-
-> allOrNothing(5, 1, 2, 10)
-false
-```
