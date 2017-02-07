@@ -33,7 +33,7 @@ action hits our reducer. We need middleware to intercept all actions of type
 ```js
 // middleware/thunk_middleware.js
 
-const thunk = { dispatch, getState } => next => action => {
+const thunk = ({ dispatch, getState }) => next => action => {
   if (typeof action === 'function') {
     return action(dispatch, getState);
   }
