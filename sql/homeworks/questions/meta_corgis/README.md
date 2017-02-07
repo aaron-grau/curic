@@ -142,7 +142,7 @@ pry(main)> snack_box = SnackBox.new
 pry(main)> meta_snacks = MetaCorgiSnacks.new(snack_box, 1)
 pry(main)> meta_snacks.bone # => "Bone: Phoenician rawhide: 20 "
 pry(main)> meta_snacks.kibble # => "* Kibble: Delicately braised hamhocks: 33 "
-pry(main)> meta_snacks.treat # => "Treat: Chewy dental sticks: 0 "
+pry(main)> meta_snacks.treat # => "Treat: Chewy dental sticks: 40 "
 ```
 
 Solutions can be found in the [homework solutions folder][solutions].
