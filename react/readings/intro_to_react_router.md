@@ -7,7 +7,7 @@ library that helps you add views to your React application, while keeping the
 URL in sync with what's being displayed on the page.
 
 To use React Router in your projects `npm install --save react-router`. Then
-import `<Router>`, `<hashHistory>`, and `<Route>` from the `react-router` library.
+import `Router`, `hashHistory`, and `Route` from the `react-router` library.
 
 * `<Router>` is the primary component of the router that wraps our route hierarchy
 * `<hashHistory>` listens to the browser's address bar for changes so the router
