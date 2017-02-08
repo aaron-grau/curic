@@ -92,10 +92,13 @@ Like so:
 ```ruby
 @pokemon.each do |poke|
   json.set! poke.id do
-    json.extract! poke, :id, :name, :image_url
+    json.extract! poke, :id, :name
+    json.image_url asset_path(poke.image_url)
   end
 end
 ```
+
+**NB** Notice that we use the `asset_path` helper to find the correct path to the image. Asset locations can be different in production so you should always use `asset_path` rather than a literal path. For more detail [check out the guides.](http://guides.rubyonrails.org/asset_pipeline.html)
 
 We don't need to return any more information than this for our index route!
 Remember, Jbuilder allows us to *curate* our data, retrieving only the
