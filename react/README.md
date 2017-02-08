@@ -189,8 +189,8 @@
 ### Readings (45 min)
 - [Intro to React Router][react_router_intro]  (15 min)
 - [`<Link>`][link] (5 min)
-- [Index Routes][index_routes] (5 min)
 - [Route Hooks (`onEnter`)][on_enter] (10 min)
+- [Index Routes][index_routes] (5 min)
 - [`withRouter`][with_router] (10 min)
 
 [react_router_intro]: readings/intro_to_react_router.md
