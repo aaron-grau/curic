@@ -118,12 +118,12 @@ const Root = () => (
 );
 ```
 
-If the router matches the `/groups` path, `main` renders the `Group` component 
-and `sidebar` renders the `GroupSidebar` component. `Profile` is not defined and 
+If the router matches the `/groups` path, `main` renders the `Groups` component 
+and `sidebar` renders the `GroupsSidebar` component. `Profile` is not defined and 
 won't render. 
 
 When the URL matches a path of `/profile` `children` renders `Profile`.
-`Group` and `GroupSidebar` are not defined and won't render.
+`Groups` and `GroupsSidebar` are not defined and won't render.
 
 ```js
 // app.jsx
