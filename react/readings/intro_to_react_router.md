@@ -9,10 +9,10 @@ URL in sync with what's being displayed on the page.
 To use React Router in your projects `npm install --save react-router`. Then
 import `Router`, `hashHistory`, and `Route` from the `react-router` library.
 
-* `<Router>` is the primary component of the router that wraps our route hierarchy
-* `<hashHistory>` listens to the browser's address bar for changes so the router
+* `Router` is the primary component of the router that wraps our route hierarchy
+* `hashHistory` listens to the browser's address bar for changes so the router
 can match the URL to routes
-* `<Route>` defines a route's `path` and the React `component` rendered
+* `Route` defines a route's `path` and the React `component` rendered
 at that URL
 
 
