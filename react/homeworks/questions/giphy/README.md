@@ -56,15 +56,9 @@ slice of the state that holds a collection of `giphy` objects.
 ```.js
 the state shape will be here
 {
-  giphys: {
-    1: {
-      // giphy data
-    },
-    2: {
-      // giphy data
-    },
-    //....
-  }
+  giphys: [
+    //giphy objects  
+  ]
 }
 
 ```
