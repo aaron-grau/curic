@@ -109,7 +109,7 @@ import App from './app.jsx'
 const Root = () => (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="profile" components={Profile} />
+      <Route path="profile" component={Profile} />
       <Route path="groups" components={{main: Groups, sidebar: GroupsSidebar}} />
         <Route path="users/:userId" component={User} />
       </Route>
