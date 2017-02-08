@@ -32,5 +32,6 @@ module Pokedex
         :request_specs => true
     end
 
+    config.assets.paths << Rails.root.join("app", "assets", "images", "pokemon_snaps")
   end
 end
