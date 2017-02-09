@@ -1,12 +1,6 @@
 json.name @party.name
 
-json.guests do
-  json.array! @party.guests do |guest|
-    json.name guest.name
-
-    json.gifts do
-      json.array! guest.gifts, :title
-    end
-  end
+json.guests @party.guests do |guest|
+  json.name guest.name
+  json.gifts guest.gifts, :title
 end
-
