@@ -1,6 +1,6 @@
 # Intro JavaScript Problems
 
-+ [Part I](./art_i.md)
++ [Part I](./part_i.md)
 + [Part II](./part_ii.md)
 
 Finish both parts!
