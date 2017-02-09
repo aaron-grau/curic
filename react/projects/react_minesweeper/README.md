@@ -35,7 +35,7 @@ same as it did for Widgets. Lastly, remember to source `bundle.js` into
 
 Once your files are set up, install the development server. Run `npm install
 --save webpack-dev-server`. Add the following to the `"scripts"` section of your
-`package.json`: `"start": "webpack-dev-server --inline"`. Run `npm start` to see
+`package.json`: `"start": "node_modules/.bin/webpack-dev-server --inline"`. Run `npm start` to see
 your project at `http://localhost:8080`.
 
 For more information on the `webpack-dev-server` configuration, refer to the
