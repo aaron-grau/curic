@@ -4,7 +4,9 @@
   "description": "To see it run:   0.\t[Download][zip] and open the directory in your terminal. 0.\tRun `./server.sh` and navigate to localhost:8000.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node_modules/.bin/webpack",
+    "webpack": "node_modules/.bin/webpack --watch"
   },
   "keywords": [],
   "author": "",

@@ -22,7 +22,9 @@ something without it, use Google as a resource and ask a TA if needed.
 ## Running a Simple Development Server
 
 For this project, we're going to use a lightweight development server,
-`webpack-dev-server`. The benefits of this development server are threefold:
+[`webpack-dev-server`][dev-server]. The benefits of this development server are threefold:
+
+[dev-server]: ../../readings/webpack_dev_server.md
 
 * It automatically watches the project files, re-bundles the `bundle.js` when
 any of those files change, and refreshes the browser when the new `bundle.js`

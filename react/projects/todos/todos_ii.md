@@ -115,6 +115,22 @@ You will also need your `package.json` and `webpack.config.js` which should be p
 
 Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than the root directory. Take a look at `application.js`: because it includes the line `//= require_tree .` and the bundled file is in `app/assets/javascripts`, the bundled file will be required for you.
 
+You no longer need `webpack-dev-server`, since we are using rails as our server.
+You can remove the `start` script from you `package.json` and replace it with
+the following scripts:
+
+```json
+"scripts": {
+  "postinstall": "node_modules/.bin/webpack",
+  "webpack": "node_modules/.bin/webpack --watch"
+}
+```
+
+The `postinstall` script will run whenever you run `npm install`. This makes it
+easier to setup your project on another machine, since you won't have to remember
+to `webpack`. During development, you can run `npm run webpack` to keep your bundle
+up to date.
+
 **Test your setup** - You should be able to visit `localhost:3000` and confirm
 that you have your entire work from yesterday working on `localhost:3000` before continuing.
 

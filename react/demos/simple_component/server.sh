@@ -1,5 +1,5 @@
 if !([ -d "node_modules" ]); then
-  npm install && webpack
+  npm install
 fi
 
 ruby -run -ehttpd . -p8000

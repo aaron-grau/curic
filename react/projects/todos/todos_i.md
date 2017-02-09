@@ -38,13 +38,13 @@ configuration works.
 + Run `npm init -y` and then `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
   + This command installs the npm packages that we will be using to create our React/Redux app.
 + Set up your `webpack.config.js` file so that your bundle.js is saved in the root directory of your project. If you need to remind yourself how to set up the file look [here][webpack_setup].
-+ Run `webpack -w` to automatically compile your assets into `bundle.js` as you update them.
++ Set up [`webpack-dev-server`][dev-server] and run `npm start`.
 
 **Test your setup** - Set up your entry file `todo_redux.jsx` to render
 `<h1>Todos App</h1>` into your root page's `#content` container. Open `index.html` and confirm that it worked.
 
-
 [webpack_setup]: ../../readings/webpack_configuration.md
+[dev-server]: ../../readings/webpack_dev_server.md
 
 
 ---

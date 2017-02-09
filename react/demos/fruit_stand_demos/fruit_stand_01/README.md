@@ -51,11 +51,12 @@ fruit stored in the app's state - creating our first React/Redux app.
 
 If you want to run the source code yourself, follow these instructions:
   1. Download [zip][zip].
-  2. Unzip and cd to the app's root directory.
-  3. Run `npm install` to install the Redux npm packages.
-  4. Run `webpack` to compile `bundle.js`.
-  4. `open index.html` to see the app in the browser.
-  5. Open Dev Tools to see the app's Redux store in action.
+  1. Unzip and `cd` to the app's root directory.
+  1. Run `npm install` to install the Redux npm packages.
+  1. The `postinstall` script in the `package.json` take care of running `webpack`,
+     but run `npm run webpack` if you plan to make changes to the code
+  1. `open index.html` to see the app in the browser.
+  1. Open Dev Tools to see the app's Redux store in action.
     + Available for testing on the `window` are the app's Redux `store`, and actions `addOrange` and `addApple`.
 
 

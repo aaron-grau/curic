@@ -111,7 +111,7 @@ To create a `webpack` script, add the following attribute to your `package.json`
 
 ```json
   "scripts": {
-    "webpack": "webpack"
+    "webpack": "node_modules/.bin/webpack"
   },
 ```
 
