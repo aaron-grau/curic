@@ -106,7 +106,7 @@ representing their size. Don't worry too much about making the user
 interface pretty.
 
 In a loop, prompt the user (using
-[gets](http://andreacfm.com/2011/06/11/learning-ruby-gets-and-chomp/))
+[gets](http://andreacfm.com/ruby/2011/06/11/learning-ruby-gets-and-chomp.html))
 and ask what pile to select a disc from, and where to put it.
 
 After each move, check to see if they have succeeded in moving all the
