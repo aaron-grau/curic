@@ -202,7 +202,7 @@
 ### Homeworks (40 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
 - [Rainbow Routes][rainbow_routes] (30 min)
-[rainbow_routes]: homeworks/questions/rainbow_routes.md
+[rainbow_routes]: homeworks/questions/rainbow_routes/
 
 ### Additional Resources
 - [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
