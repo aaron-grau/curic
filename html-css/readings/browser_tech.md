@@ -93,6 +93,31 @@ matching `.blue`, and the id hash map for rules matching `#test`.
 Once the rules that apply to a given element have been selected, they are then
 ordered by specificity.
 
+## Layout
+
+Because HTML uses a flow-based layout model, the layout can start at 0,0 (the
+top left corner of the screen) and find the positions of almost all elements in
+a single pass. Layout progresses recursively from the `<html>` element to all
+of its descendants following the below pattern:
+
++ the frame determines its width
++ for each child frame:
+  + the frame places that child frame by setting its x and y positions
+  + calls that child frame's layout
++ the frame uses its children's heights to set its own height
+
+Two different types of events can trigger layout events: global changes, such
+as the window being resized; and incremental changes, such as the addition of
+new content to the page. For incremental changes, the frames that have changed
+are flagged as "dirty"; those are the only frames that are laid out (although
+their new positions can trigger more incremental changes). One optimization
+that browsers use is to cache the sizes of its frames and not recalculate them
+unless it is necessary.
+
+While global layout is done synchronously, incremental layout is asynchronous
+- the reflowing steps get scheduled to be completed at some point in the
+future.
+
 !(https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png)
 
 
