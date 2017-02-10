@@ -109,7 +109,7 @@ of its descendants following the below pattern:
 Two different types of events can trigger layout events: global changes, such
 as the window being resized; and incremental changes, such as the addition of
 new content to the page. For incremental changes, the frames that have changed
-are flagged as "dirty"; those are the only frames that are laid out (although
+are flagged as "dirty"; those are the only frames that are re-laid out (although
 their new positions can trigger more incremental changes). One optimization
 that browsers use is to cache the sizes of its frames and not recalculate them
 unless it is necessary.
@@ -117,6 +117,23 @@ unless it is necessary.
 While global layout is done synchronously, incremental layout is asynchronous
 - the reflowing steps get scheduled to be completed at some point in the
 future.
+
+## Painting
+
+Painting is done in the following order:
+
+1. Background color
+1. Background image
+1. Border
+1. Children
+1. Outline
+
+Similarly to layout, painting can be either global or incremental. Browsers try
+to do as little work as possible to respond to a change, both at a structural
+level (e.g., changing an element's color will only repaint that element and not
+re-lay it out) and at a lower level (e.g., WebKit saves a rectangle as a bitmap
+before repainting and only paints the delta between the new and old
+rectangles).
 
 !(https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png)
 
