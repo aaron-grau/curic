@@ -12,6 +12,8 @@ calls; the UI backend, which draws widgets like dropdown lists and windows; the
 JavaScript interpreter; and data storage, which manages cookies and
 localStorage, among other things. 
 
+!(https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png)
+
 Browsers are large and complicated - modern browsers are made up of millions
 (yes, you read that correctly) of lines of C++ code.
 
@@ -134,12 +136,5 @@ level (e.g., changing an element's color will only repaint that element and not
 re-lay it out) and at a lower level (e.g., WebKit saves a rectangle as a bitmap
 before repainting and only paints the delta between the new and old
 rectangles).
-
-!(https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png)
-
-
-
-Notes:
-URI vs URL?
 
 Source: https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
