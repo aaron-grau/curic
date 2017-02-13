@@ -365,6 +365,9 @@ create a helper class, `MarkerManager`.
 
 ### `MarkerManager`
 
+This `MarkerManager` class will handle syncing the benches we maintain in state with the 
+markers we display on our map. By maintaining references to our markers, we can add/remove them from the map more easily.
+
 * Create a new file `marker_manager.js`; it should live in your `util` folder.
 * In this file, create and export a new class, `MarkerManager`.
 * Define the constructor method to accept a map, and then create `map` and `markers`
@@ -440,9 +443,8 @@ Read the documentation on [map markers][map-markers] before continuing.
 To accomplish the goal of adding and removing markers appropriately, write the
 following helper methods:
 
-* `_benchesToAdd()`: returns an array of benches that are in the state, but
-not already on the map.
-* `_createMarkerFromBench()`: accepts a bench object as an argument; adds a
+* `_benchesToAdd(benches)`: returns filtered array of benches that do not have a corresponding marker in our `markers` array. We want to return those not already on the map.
+* `_createMarkerFromBench(bench)`: accepts a bench object as an argument; adds a
 marker to the `map` and to the `markers` array.
 
 Use your helper methods in `updateMarkers()` to create markers for any new benches that appear in your store. Take care to only add a marker once per bench, as extra markers won't be visible on the map, but will affect your ability to remove benches in the next step.
