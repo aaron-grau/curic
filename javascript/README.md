@@ -320,6 +320,7 @@
 * [History and Location][history-location] (5 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
 * [Nontechnical Overview of JavaScript][js-nontech] (15 min)
+* [Technical overview of Browsers][browser-tech] (15 min)
 
 ### Homeworks (45 min)
 * [Vanilla DOM Manipulation][vanilla-dom] (45 min)
@@ -337,6 +338,7 @@
 [event-propagation]: readings/event-propagation.md
 [history-location]: readings/history-location.md
 [js-nontech]: readings/js-nontech.md
+[browser-tech]: ../html-css/readings/browser_tech.md
 
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 [vanilla-dom]: homeworks/questions/vanilla-dom
