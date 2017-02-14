@@ -180,6 +180,9 @@
 
 ### Study Hall 9 - 10am
 
+### Assessment04 Practice
++ [Practice][assessment-prep-4]
+
 ### Video Lectures (39 min)
 :closed_lock_with_key: `go_video_go`
 * [:movie_camera:  (cc) 14-radio-and-textarea][14-radio-and-textarea] (16 min)
@@ -218,9 +221,6 @@
 ## w4d5
 
 ### Study Hall 9 - 10am
-
-### Assessment04 Practice
-+ [Practice][assessment-prep-4]
 
 ### Video Lectures (54 min)
 :closed_lock_with_key: `go_video_go`
