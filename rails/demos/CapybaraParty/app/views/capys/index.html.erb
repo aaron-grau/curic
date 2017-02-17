@@ -1,0 +1,9 @@
+<h1>Every Capy in Existence</h1>
+
+<ul>
+  <% @capys.each do |capy| %>
+    <li><%= link_to capy.name, capy_url(capy) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a Capy", new_capy_url %>
