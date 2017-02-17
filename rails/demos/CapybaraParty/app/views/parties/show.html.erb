@@ -1,0 +1,9 @@
+<h1><%= @party.occasion %></h1>
+<h4>Hosted cordially by
+  <%= link_to @party.capy.name, capy_url(@party.capy) %></h4>
+
+<ul>
+  <% @party.guests.each do |guest| %>
+    <li><%= link_to guest.name, capy_url(guest) %></li>
+  <% end %>
+</ul>

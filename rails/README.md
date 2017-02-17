@@ -261,19 +261,25 @@
 
 ## w5d1
 
-### Readings (72 min)
-* [Integration Testing][integration-testing] (7 min)
-* [RSpec and Rails Setup][rspec-setup] (15 min)
-* [Testing Models][rspec-models] (15 min)
-* [FactoryGirl and Faker Gems][fac-grl-faker] (20 min)
-* [Testing Controllers][rspec-controllers] (5 min)
-* [Testing with Capybara][capybara] (15 min)
+### Video Lectures (1 hr, 41 min)
+:closed_lock_with_key: `go_video_go`
+* [:movie_camera:][rails-testing-setup] (15 min)
+* [:movie_camera:][rails-testing-models] (32 min)
+* [:movie_camera:][rails-testing-factories] (11 min)
+* [:movie_camera:][rails-testing-controllers] (24 min)
+* [:movie_camera:][rails-testing-capybara] (19 min)
+  * [:computer: demo code][rails-testing-demo]
+
+### Readings (10 min)
 * [Nontechnical Overview of HTML][html-nontech] (10 min)
 
-### Homeworks (60 min)
+### Homeworks (45 min)
 * [Capybara][capybara-hw] (45 min)
 
 ### Additional Resources
+* [RSpec and Rails Setup][rspec-setup]
+* [FactoryGirl and Faker Gems][fac-grl-faker]
+* [Testing with Capybara][capybara]
 * [Spring and Guard Setup][spring-guard]
 
 ### Projects
@@ -294,6 +300,13 @@
 
 [goaling-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
+
+[rails-testing-setup]: https://vimeo.com/204391307
+[rails-testing-models]: https://vimeo.com/204433870
+[rails-testing-factories]: https://vimeo.com/204394298
+[rails-testing-controllers]: https://vimeo.com
+[rails-testing-capybara]: https://vimeo.com/204463650
+[rails-demo-testing]: demos/CapybaraParty
 
 ## w5d2
 
