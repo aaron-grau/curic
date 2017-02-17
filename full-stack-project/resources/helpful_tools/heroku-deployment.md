@@ -74,7 +74,7 @@ Here is a quick guide to git yer app on the interwebs.
 * Can't fetch any data
   * Make sure you created, migrated and seeded you database on Heroku
 * Changing only capitalization when renaming a file.
-  * Git will fail to recognize the change. Use `git mv -f filename FileName` to force the update
+  * Git will fail to recognize the change. Use `git mv -f <old_file_name> <new_file_name>` to force the update
 * Asset pipeline not retrieving an asset, but is looking in the right directory (on `localhost`)
   * Assets are only precompiled when the server is restarted, do this
 * Missing package errors in console when viewing production site, but none on `localhost`
