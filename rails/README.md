@@ -307,7 +307,7 @@
 [rails-testing-setup]: https://vimeo.com/204391307
 [rails-testing-models]: https://vimeo.com/204433870
 [rails-testing-factories]: https://vimeo.com/204394298
-[rails-testing-controllers]: https://vimeo.com
+[rails-testing-controllers]: https://vimeo.com/204477474
 [rails-testing-capybara]: https://vimeo.com/204463650
 [rails-demo-testing]: demos/CapybaraParty
 
