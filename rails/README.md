@@ -268,7 +268,7 @@
 * [:movie_camera:][rails-testing-factories] (11 min)
 * [:movie_camera:][rails-testing-controllers] (24 min)
 * [:movie_camera:][rails-testing-capybara] (19 min)
-  * [:computer: demo code][rails-testing-demo]
+  * [:computer: Code from demo][rails-views-code]
 
 ### Readings (10 min)
 * [Nontechnical Overview of HTML][html-nontech] (10 min)
@@ -277,8 +277,11 @@
 * [Capybara][capybara-hw] (45 min)
 
 ### Additional Resources
+* [Integration Testing][integration-testing]
 * [RSpec and Rails Setup][rspec-setup]
+* [Testing Models][rspec-models]
 * [FactoryGirl and Faker Gems][fac-grl-faker]
+* [Testing Controllers][rspec-controllers]
 * [Testing with Capybara][capybara]
 * [Spring and Guard Setup][spring-guard]
 
