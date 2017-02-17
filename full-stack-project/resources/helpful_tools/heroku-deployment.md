@@ -76,7 +76,7 @@ Here is a quick guide to git yer app on the interwebs.
 * Changing only capitalization when renaming a file.
   * Git will fail to recognize the change. Use `git mv -f <old_file_name> <new_file_name>` to force the update
 * Asset pipeline not retrieving an asset, but is looking in the right directory (on `localhost`)
-  * Assets are only precompiled when the server is restarted, do this
+  * Assets are only precompiled when the server is starts up. Try restarting your server to initiate precompiling
 * Missing package errors in console when viewing production site, but none on `localhost`
   * Likely using a global dependency in your project. This would be installed locally, but not on Heroku. Verify that *all* dependencies are included in your `package.json`
 
