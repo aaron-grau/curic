@@ -233,7 +233,7 @@ instance variable, and use it in your `_comment` partial.
 ## Bonus Phase I: Votes
 
 A major feature of Reddit is the ability to upvote/downvote posts and
-comments. Let's write a `Vote` model which allow us to vote on posts
+comments. Let's write a `Vote` model which allows us to vote on posts
 or comments. Because a `Vote` can be for one of two kinds of things,
 we'll want to use a polymorphic association for this.
 
