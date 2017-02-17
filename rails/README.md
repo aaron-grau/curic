@@ -263,12 +263,12 @@
 
 ### Video Lectures (1 hr, 41 min)
 :closed_lock_with_key: `go_video_go`
-* [:movie_camera:][rails-testing-setup] (15 min)
-* [:movie_camera:][rails-testing-models] (32 min)
-* [:movie_camera:][rails-testing-factories] (11 min)
-* [:movie_camera:][rails-testing-controllers] (24 min)
-* [:movie_camera:][rails-testing-capybara] (19 min)
-  * [:computer: Code from demo][rails-views-code]
+* [:movie_camera: Rails Testing: Setup][rails-testing-setup] (15 min)
+* [:movie_camera: Rails Testing: Models][rails-testing-models] (32 min)
+* [:movie_camera: Rails Testing: Factories][rails-testing-factories] (11 min)
+* [:movie_camera: Rails Testing: Controllers][rails-testing-controllers] (24 min)
+* [:movie_camera: Rails Testing: Capybara][rails-testing-capybara] (19 min)
+  * [:computer: Code from demo][rails-demo-testing]
 
 ### Readings (10 min)
 * [Nontechnical Overview of HTML][html-nontech] (10 min)
