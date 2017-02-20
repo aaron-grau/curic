@@ -62,7 +62,7 @@ To add FK constraints in ActiveRecord, you can use a library like
 some Rails developers consider this to be overkill. Widowed records aren't the
 \#1 worst thing in the world, since they can usually be safely
 ignored. However, it is good for you to know about and understand the
-potential problems, though.
+potential problems.
 
 [foreigner]: https://github.com/matthuhiggins/foreigner
 
