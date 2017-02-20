@@ -68,7 +68,7 @@ function teaAndBiscuits () {
 }
 ```
 
-Why doesn't the above function work? Reorganize it so that it follows the outlined chronology. (Hint: we don't want to ask the user if they want biscuits until we know whether they wan't tea. Where can we situate the second `reader.question`? We should we log their final response and close the reader?)
+Why doesn't the above function work? Reorganize it so that it follows the outlined chronology. (Hint: we don't want to ask the user if they want biscuits until we know whether they wan't tea. Where can we situate the second `reader.question`? Should we log their final response and close the reader?)
 
 Make sure to check out the solutions to review the correct answer.
 
