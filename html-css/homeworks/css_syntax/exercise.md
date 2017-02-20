@@ -11,8 +11,8 @@ Take your HTML Recipe page from the end of the HTML curriculum and add a new ext
 7. Change the width of the logo image to 100px by selecting all img elements that are immediate children of the header element 
   * **Hint:** Use `>`
 8. Select all anchor elements within list elements within unordered list elements and remove their underlines. Also change their color to inherit.
-9. Give your whole recipe page a nice background-color
-10. Set the line-height to 1.5 in your css_reset file
+9. Give your whole recipe page a nice `background-color`
+10. Set the `line-height` to 1.5 in your css_reset file
 
 **Challenge:** Come up with a way to select and style your reviews after they are submitted. For now just some simple font-styling is fine. Make sure you have the latest [javascript file](../../assets/external_javascript_example.js) to implement the review functionality.
 
