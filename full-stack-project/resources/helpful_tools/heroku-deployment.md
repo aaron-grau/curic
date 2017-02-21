@@ -13,7 +13,7 @@ Here is a quick guide to git yer app on the interwebs.
   * Add `engines` and `scripts` to `package.json`
     * Make sure to use the versions installed on your computer. Use `node -v` & `npm -v` in terminal
 
-    ```js
+    ```json
     // package.json
     {
       "engines": {
@@ -25,7 +25,8 @@ Here is a quick guide to git yer app on the interwebs.
       }
     }
     ```
-  * Execute `bundle install` and `webpack --watch`
+  * Execute `bundle install` and `npm install`. The `postinstall` script will
+    take care of webpacking
     * Make sure everything installed correctly/nothing broke
   * Commit changes to master. Remember, we should only push working repos to Heroku.
     * Remember to include `node_modules` and `bundle.js*` in `.gitignore`
@@ -40,6 +41,8 @@ Here is a quick guide to git yer app on the interwebs.
   * Setup buildpacks
     * `Settings` tab in Heroku Dashboard
     * Add `heroku/nodejs`, then `heroku/ruby`
+      * **NB:** Buildpacks run in the order specified, which is why it is important to add `heroku/nodejs` first.
+        If `heroku/ruby` ran first, it would recompile our assets *before* creating a new `bundle.js`. We want `bundle.js` to be up-to-date *before* Rails recompiles our assets.
 0. Install the Heroku CLI and make your initial push
   * Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
   * Login with `heroku login`
@@ -86,7 +89,8 @@ Here is a quick guide to git yer app on the interwebs.
   * `heroku run bundle exec rails console`
   * `heroku run bundle exec rake db:<cmd>`
 * `heroku pg:psql` - connect to Postgres db (in lieu of `rails dbconsole`)
-* `heroku pg:reset name_of_your_db` - used to drop and reset your Heroku Postgres database (we don't have permissions to run `rake db:drop` and `rake db:drop` on Heroku)
+* `heroku pg:reset name_of_your_db` - used to drop and reset your Heroku Postgres database (we don't have permissions to run `rake db:reset` and `rake db:drop` on Heroku)
+  * To find the name of your database, go to your app dashboard on Heroku, click on "Heroku Postgres" under "Add-ons", and use the name after the `::` following your app's name
 * `heroku open` - opens your app in the browser
 
 ## Setting up a Custom Domain
