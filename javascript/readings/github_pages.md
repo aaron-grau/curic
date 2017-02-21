@@ -11,28 +11,23 @@ portfolio site.
 
 Every Github account can host a site on Github Pages. To create a new site, all
 you need is a repo named `[your_username].github.io`. Once you push to Github,
-the site should go live within an hour. You probably want a file called
-`index.html`, which will be served when someone visits the root; otherwise,
-content is up to you. For more explicit instructions, follow the step-by-step
-directions from [Github Pages][github-pages] for creating a "User or
-organization site".
+the site should go live within an hour. Make sure to name that file you want to see
+`index.html`. This will get loaded when you visit `[your_username].github.io`. If you
+name HTML files something else, you can access them at
+`[your_username].github.io/[your_filename].html`. For more explicit instructions,
+follow the step-by-step directions from [Github Pages][github-pages] for creating a
+"User or organization site".
 
-## Adding Projects
+## Making a Project Repo Page
 
-You could add projects directly to the main repo, but you probably don't want
-to: mashing everything together in one place would make for an unwieldy
-file structure and make maintaining your site unnecessarily complex. It would
-also force you either to give up on having self-contained repos for each project
-or to make any changes in two places.
-
-Fortunately, there is a way to deploy directly from a project repo. Create a
-branch named `gh-pages`, push to Github, and the contents of that branch will be
-available as a directory of your main site (for example, at
-username.github.io/asteroids). This lets you deploy without degrading your repo
-structure, keeping your code contained and maintainable. As with your main site,
-`index.html` will be served when someone visits the directory, while other
-documents can be requested by name. Step-by-step instructions can be found
-[here][configuring-github-pages].
+There is also a way to deploy directly from a project repo, if you'd like for a repo to
+have its own page. Create a branch named `gh-pages` in your repo, and the contents of
+that branch will be available as a directory of your main site (for example, at
+`[your_username].github.io/[your_repo_name]`). As with your main site, the `index.html`
+file inside the `gh-pages` branch will be served when someone visits the directory. Note
+that this `index.html` file does not need to exist on your `master` branch! This
+lets you deploy without degrading your repo structure, keeping your code contained and
+maintainable. Step-by-step instructions can be found [here][configuring-github-pages].
 
 [github-pages]: https://pages.github.com/
 [configuring-github-pages]: https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#enabling-github-pages-to-publish-your-site-from-master-or-gh-pages

@@ -3,8 +3,7 @@
 Practice writing HTML and coding popular HTML elements by creating a recipe
 page.
 
-First Create a new file with your first/last name and the name of your recipe,
-e.g. `kevin_mccall_shakshuka.html`.
+First, create a new file called `index.html`.
 
 Start with the standard HTML structure. We will go over this in more detail
 later in the curriculum. For now, write all of today's exercise within the body
@@ -68,9 +67,9 @@ example](intro_example_recipe.html) and view the live version
 [here](http://appacademy.github.io/curriculum/intro_example_recipe.html).
 
 ## Uploading to Github
-Create a `gh-pages` branch on your [`homeworks`][gh-homeworks] repo and push
-your page to Github Pages. Refer to the [reading][gh-pages] to see how to set it
-all up. Make sure you push the newest version of your page every night
+Create a `gh-pages` branch in your [`homeworks`][gh-homeworks] repo and push
+the branch to Github. Refer to the last section in the [reading][gh-pages] to see how
+to set it all up. Make sure you push the newest version of your page every night
 throughout the HTML/CSS curriculum.
 
 [gh-pages]:../../../javascript/readings/github_pages.md
