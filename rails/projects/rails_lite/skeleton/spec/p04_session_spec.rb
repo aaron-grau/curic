@@ -3,7 +3,7 @@ require 'session'
 require 'controller_base'
 
 describe Session do
-  let(:req) { Rack::Request.new({'rack.input' => {}}) }
+  let(:req) { Rack::Request.new({ 'rack.input' => {} }) }
   let(:res) { Rack::Response.new([], '200', {}) }
   let(:cook) { {'_rails_lite_app' => { 'xyz' => 'abc' }.to_json} }
 
@@ -38,7 +38,7 @@ describe Session do
 
     context 'with cookies in request' do
       before(:each) do
-        cook = {'_rails_lite_app' => { 'pho' =>  'soup' }.to_json }
+        cook = {'_rails_lite_app' => { 'pho' => 'soup' }.to_json }
         req.cookies.merge!(cook)
       end
 
