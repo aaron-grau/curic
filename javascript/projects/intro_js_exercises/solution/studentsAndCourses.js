@@ -6,7 +6,9 @@ function Student (fname, lname) {
   this.courses = [];
 }
 
-Student.prototype.name = () => `${this.fname} ${this.lname}`;
+Student.prototype.name = function () {
+  return `${this.fname} ${this.lname}`;
+};
 
 Student.prototype.enroll = function (course) {
   if (this.courses.indexOf(course) === -1) {
