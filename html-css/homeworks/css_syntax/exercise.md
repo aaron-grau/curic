@@ -3,11 +3,11 @@
 Take your HTML Recipe page from the end of the HTML curriculum and add a new external stylesheet. Open up the page in your web browser and use the CSS workflow from Day 1 to begin styling your recipe page with some basic CSS syntax.
 
 1. Select the body element and set the `font-family` property to "Arial, sans-serif"
-2. Set the font-size to 38px for all H1 elements
-3. Set the font-size to 32px for all H2 elements
+2. Set the `font-size` to 38px for all H1 elements
+3. Set the `font-size` to 32px for all H2 elements
 4. Add a class to your unordered list of ingredients called "ingredients-list"
-5. Add a list-style property with a value of "square inside" to all elements with the "ingredients-list" class
-6. Add another list-style of your choosing to all ordered list elements
+5. Add a `list-style` property with a value of "square inside" to all elements with the "ingredients-list" class
+6. Add another `list-style` of your choosing to all ordered list elements
 7. Change the width of the logo image to 100px by selecting all img elements that are immediate children of the header element 
   * **Hint:** Use `>`
 8. Select all anchor elements within list elements within unordered list elements and remove their underlines. Also change their color to inherit.
