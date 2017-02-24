@@ -1,9 +1,21 @@
-# Removing React v15 Minification Warning
+# Removing React/Redux Minification Warnings
 
-<code style="color: red">Warning: It looks like you're using a minified copy of the development build of React. When deploying React apps to production, make sure to use the production build which skips development warnings and is faster. See https://fb.me/react-minification for more details.
-</code>
+```diff
+- Warning: It looks like you're using a minified copy of the development build
+of React. When deploying React apps to production, make sure to use the
+production build which skips development warnings and is faster.See
+https://fb.me/react-minification for more details.
+```
 
-In order to remove this warning about using a minified copy of the development version of React, we need to make a couple changes to our config files.
+```diff
+- You are currently using minified code outside of NODE_ENV === 'production'.
+This means that you are running a slower development build of Redux. You can use
+loose-envify (https://github.com/zertosh/loose-envify) for browserify or
+DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) to ensure
+you have the correct code for your production build.
+```
+
+In order to remove these warning about using a minified copies of React and Redux, we need to make a couple changes to our config files.
 
 Because we only want this process to happen in production, we are going to
 create a special Webpack config file just for production, and then configure our
@@ -81,8 +93,8 @@ See below for an example `package.json` with the updated `scripts`.
     "test": "test"
   },
   "engines": {
-    "node": "5.7.1",
-    "npm": "3.6.0"
+    "node": "6.9.1",
+    "npm": "3.10.8"
   },
   "scripts": {
     "heroku-postbuild": "webpack --config webpack.config.prod.js"
@@ -120,9 +132,9 @@ Commit your changes, push to Heroku, and the warning should be gone.
 
 ## Explanation (you don't need to know this, this is just if you're curious)
 
-React v15 checks `process.env.NODE_ENV` to see if it should used the
-production or development version. We want to remove every trace of the
-development version from bundle to make the bundle smaller and to make the
+React and Redux check `process.env.NODE_ENV` to see if they should use the
+production or development versions. We want to remove every trace of the
+development versions from bundle to make the bundle smaller and make the
 warning go away.
 
 We can't just make sure we have an environment variable of `NODE_ENV=production`
@@ -134,8 +146,8 @@ plugin to do [dependency injection][dependency-injection].
 
 Then when our minifier runs it will perform [static
 analysis][static-analysis] on `bundle.js`
-and see that all of the code in React inside the if statement below can never be
-run and it will remove the dead code making the bundle smaller and making the
+and ensure that all of the code in React and Redux inside the if statement below can never be
+run and will remove the dead code making the bundle smaller and making the
 warning go away.
 
 ```js
