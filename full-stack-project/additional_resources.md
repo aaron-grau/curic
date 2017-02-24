@@ -7,9 +7,9 @@
 * [Performance and scaling:][performance] use caching to speed up your app and help it handle heavier loads
 * [Heroku scheduler reading:][heroku-scheduler] schedule recurring jobs on Heroku
 
-[security]: resources/security.md
-[styling]: resources/styling.md
-[apis]: resources/apis.md
-[gems]: resources/useful_gems.md
-[performance]: resources/performance_and_scaling.md
-[heroku-scheduler]: resources/helpful_tools/heroku-scheduler.md
+[security]: resources/security/
+[styling]: resources/styling/
+[apis]: resources/apis/
+[gems]: resources/useful_gems/
+[performance]: resources/performance_and_scaling/
+[heroku-scheduler]: resources/helpful_tools/heroku-scheduler/
