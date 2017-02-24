@@ -50,7 +50,7 @@ command line to start the server. To do this, add the `webpack-dev-server
 
 ```json
 "scripts": {
-  "start": "node_modules/.bin/webpack-dev-server --inline"
+  "start": "webpack-dev-server --inline"
 }
 ```
 

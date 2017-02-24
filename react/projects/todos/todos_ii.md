@@ -121,8 +121,8 @@ the following scripts:
 
 ```json
 "scripts": {
-  "postinstall": "node_modules/.bin/webpack",
-  "webpack": "node_modules/.bin/webpack --watch"
+  "postinstall": "webpack",
+  "webpack": "webpack --watch"
 }
 ```
 

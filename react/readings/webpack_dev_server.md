@@ -31,11 +31,11 @@ bundle properly included in your `index.html`, `webpack-dev-server` is very easy
 to install.
 
 1. Run `npm install --save webpack-dev-server`.
-2. Add `"start": "node_modules/.bin/webpack-dev-server --inline"` to your `package.json` like so:
+2. Add `"start": "webpack-dev-server --inline"` to your `package.json` like so:
 
 ```json
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline"
   }
 ```
 
