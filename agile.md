@@ -63,7 +63,7 @@ fairly common if multiple developers were working on multiple feature
 branches. Resolving these conflicts can sometimes take longer than writing
 the feature itself.
 
-## Alternates
+## Alternatives
 
 One of the oldest methodologies is the **waterfall** method. In the waterfall
 method, each phase in the development process is fully completed before
