@@ -7,7 +7,7 @@ of software developers who wanted to share what they had learned about
 project management. Agile is the latest popular example of a lightweight
 software development method. The first of these were developed in the 1990s
 as an alternative to the prevailing heavyweight methods, which were heavily
-micro-managed and rigidly planned. Many of agile's lightweight predecessors
+micro-managed and rigidly planned. Many of Agile's lightweight predecessors
 are now considered agile methods.
 
 Agile methodology operates on a number of core principles. Key to these
