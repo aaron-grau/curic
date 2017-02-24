@@ -140,12 +140,12 @@
 [git-useful-commands-video]: https://vimeo.com/171666453
 [git-wrapup-video]: https://vimeo.com/171666456
 
-### Readings (60 min)
+### Readings (50 min)
 + [Why Git][why-git] (10 min)
 + [Git Workflow][git-workflow] (10 min)
 + [Gems and rbenv][gems] (10 min)
 + [Nontechnical Overview of Git][git-nontech] (15 min)
-+ [Agile Development (Nontechnical)][agile-nontech] (5 min)
++ [Nontechnical Overview of Agile Development][agile-nontech] (5 min)
 
 ### Homeworks (20 min)
 + [Git Workflow Exercises][git-workflow-exercises] (20 min)
