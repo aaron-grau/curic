@@ -10,7 +10,7 @@
 
 Let's rewrite the towers of Hanoi game we [previously wrote in Ruby][ruby-hanoi].
 
-Before you start, write out `HanoiGame.prototype.run` in pseudocode (using comments).
+Before you start, write out `Game.prototype.run` in pseudocode (using comments).
 For example, if I were to write the pseudocode for `Chess.prototype.run`, it would
 look something like:
 
