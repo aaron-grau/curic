@@ -89,8 +89,8 @@ Here is a quick guide to git yer app on the interwebs.
   * `heroku run bundle exec rails console`
   * `heroku run bundle exec rake db:<cmd>`
 * `heroku pg:psql` - connect to Postgres db (in lieu of `rails dbconsole`)
-* `heroku pg:reset name_of_your_db` - used to drop and reset your Heroku Postgres database (we don't have permissions to run `rake db:reset` and `rake db:drop` on Heroku)
-  * To find the name of your database, go to your app dashboard on Heroku, click on "Heroku Postgres" under "Add-ons", and use the name after the `::` following your app's name
+* `heroku pg:reset DATABASE_URL` - used to drop and reset your Heroku Postgres database (we don't have permissions to run `rake db:reset` and `rake db:drop` on Heroku)
+  * `DATABASE_URL` is a Heroku config variable we can reference from the command line
 * `heroku open` - opens your app in the browser
 
 ## Setting up a Custom Domain
