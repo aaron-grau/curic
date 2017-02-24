@@ -29,12 +29,12 @@ the `new` keyword does and how the `__proto__` chain is constructed. This
 will help you in Asteroids today:
 
 ```javascript
-function MovingObject () {};
+function MovingObject () {}
 
-function Ship () {};
+function Ship () {}
 Ship.inherits(MovingObject);
 
-function Asteroid () {};
+function Asteroid () {}
 Asteroid.inherits(MovingObject);
 ```
 
