@@ -48,7 +48,7 @@ Here are the important deadlines.
 Here are some additional resources to help get your app running and add common features.
 
 * **Heroku**
-  * [Deploying to heroku][heroku-deployment]
+  * [Deploying to Heroku][heroku-deployment]
   * [Removing the react minification warning][minification-warnings]
   * [Understanding the asset pipeline][asset-pipeline]
 * **Web services**
@@ -94,4 +94,3 @@ Here are a few directions you could take.
 [performance-and-scaling]: bonus/performance.md
 [testing]: bonus/testing.md
 [accessibility]: bonus/accessibility.md
-
