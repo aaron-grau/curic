@@ -7,41 +7,41 @@ describe Route do
   let(:res) { Rack::MockResponse.new('200', {}, []) }
 
   before(:each) do
-    allow(req).to receive(:request_method).and_return("GET")
+    allow(req).to receive(:request_method).and_return('GET')
   end
 
-  describe "#matches?" do
-    it "matches simple regular expression" do
-      index_route = Route.new(Regexp.new("^/users$"), :get, "x", :x)
-      allow(req).to receive(:path) { "/users" }
+  describe '#matches?' do
+    it 'matches simple regular expression' do
+      index_route = Route.new(Regexp.new('^/users$'), :get, 'x', :x)
+      allow(req).to receive(:path) { '/users' }
       allow(req).to receive(:request_method) { 'GET' }
       expect(index_route.matches?(req)).to be_truthy
     end
 
-    it "matches regular expression with capture" do
-      index_route = Route.new(Regexp.new("^/users/(?<id>\\d+)$"), :get, "x", :x)
-      allow(req).to receive(:path) { "/users/1" }
+    it 'matches regular expression with capture' do
+      index_route = Route.new(Regexp.new('^/users/(?<id>\\d+)$'), :get, 'x', :x)
+      allow(req).to receive(:path) { '/users/1' }
       allow(req).to receive(:request_method) { 'GET' }
       expect(index_route.matches?(req)).to be_truthy
     end
 
-    it "correctly doesn't match regular expression with capture" do
-      index_route = Route.new(Regexp.new("^/users/(?<id>\\d+)$"), :get, "UsersController", :index)
-      allow(req).to receive(:path) { "/statuses/1" }
+    it 'correctly doesn\'t match regular expression with capture' do
+      index_route = Route.new(Regexp.new('^/users/(?<id>\\d+)$'), :get, 'UsersController', :index)
+      allow(req).to receive(:path) { '/statuses/1' }
       allow(req).to receive(:request_method) { 'GET' }
       expect(index_route.matches?(req)).to be_falsey
     end
   end
 
-  describe "#run" do
+  describe '#run' do
     before(:all) { class DummyController; end }
-    after(:all) { Object.send(:remove_const, "DummyController") }
+    after(:all) { Object.send(:remove_const, 'DummyController') }
 
-    it "instantiates controller and invokes action" do
+    it 'instantiates controller and invokes action' do
       # reader beware. hairy adventures ahead.
       # this is really checking way too much implementation,
       # but tests the approach recommended in the project
-      allow(req).to receive(:path) { "/users" }
+      allow(req).to receive(:path) { '/users' }
 
       dummy_controller_class = DummyController
       dummy_controller_instance = DummyController.new
@@ -50,7 +50,7 @@ describe Route do
         dummy_controller_instance
       end
       expect(dummy_controller_instance).to receive(:invoke_action)
-      index_route = Route.new(Regexp.new("^/users$"), :get, dummy_controller_class, :index)
+      index_route = Route.new(Regexp.new('^/users$'), :get, dummy_controller_class, :index)
       index_route.run(req, res)
     end
   end
@@ -60,8 +60,8 @@ describe Router do
   let(:req) { Rack::Request.new({'rack-input' => {}}) }
   let(:res) { Rack::MockResponse.new('200', {}, []) }
 
-  describe "#add_route" do
-    it "adds a route" do
+  describe '#add_route' do
+    it 'adds a route' do
       subject.add_route(1, 2, 3, 4)
       expect(subject.routes.count).to eq(1)
       subject.add_route(1, 2, 3, 4)
@@ -70,36 +70,36 @@ describe Router do
     end
   end
 
-  describe "#match" do
-    it "matches a correct route" do
-      subject.add_route(Regexp.new("^/users$"), :get, :x, :x)
-      allow(req).to receive(:path) { "/users" }
+  describe '#match' do
+    it 'matches a correct route' do
+      subject.add_route(Regexp.new('^/users$'), :get, :x, :x)
+      allow(req).to receive(:path) { '/users' }
       allow(req).to receive(:request_method) { 'GET' }
       matched = subject.match(req)
       expect(matched).not_to be_nil
     end
 
-    it "doesn't match an incorrect route" do
-      subject.add_route(Regexp.new("^/users$"), :get, :x, :x)
-      allow(req).to receive(:path) { "/incorrect_path" }
+    it 'doesn\'t match an incorrect route' do
+      subject.add_route(Regexp.new('^/users$'), :get, :x, :x)
+      allow(req).to receive(:path) { '/incorrect_path' }
       allow(req).to receive(:request_method) { 'GET' }
       matched = subject.match(req)
       expect(matched).to be_nil
     end
   end
 
-  describe "#run" do
-    it "sets status to 404 if no route is found" do
-      subject.add_route(Regexp.new("^/users$"), :get, :x, :x)
-      allow(req).to receive(:path).and_return("/incorrect_path")
-      allow(req).to receive(:request_method).and_return("GET")
+  describe '#run' do
+    it 'sets status to 404 if no route is found' do
+      subject.add_route(Regexp.new('^/users$'), :get, :x, :x)
+      allow(req).to receive(:path).and_return('/incorrect_path')
+      allow(req).to receive(:request_method).and_return('GET')
       subject.run(req, res)
       expect(res.status).to eq(404)
     end
   end
 
-  describe "http method (get, put, post, delete)" do
-    it "adds methods get, put, post and delete" do
+  describe 'http method (get, put, post, delete)' do
+    it 'adds methods get, put, post and delete' do
       router = Router.new
       expect((router.methods - Class.new.methods)).to include(:get)
       expect((router.methods - Class.new.methods)).to include(:put)
@@ -107,15 +107,15 @@ describe Router do
       expect((router.methods - Class.new.methods)).to include(:delete)
     end
 
-    it "adds a route when an http method method is called" do
+    it 'adds a route when an http method method is called' do
       router = Router.new
-      router.get Regexp.new("^/users$"), ControllerBase, :index
+      router.get Regexp.new('^/users$'), ControllerBase, :index
       expect(router.routes.count).to eq(1)
     end
   end
 
-  describe "#draw" do
-    it "calls http method methods with the route information to add the route" do
+  describe '#draw' do
+    it 'calls http method methods with the route information to add the route' do
       index_route = double('route')
       post_route = double('route')
 
@@ -138,19 +138,19 @@ describe 'ControllerBase#initialize' do
   before(:all) do
     class CatsController < ControllerBase
       def index
-        @cats = ["Gizmo"]
+        @cats = ['Gizmo']
       end
     end
   end
 
-  after(:all) { Object.send(:remove_const, "CatsController") }
+  after(:all) { Object.send(:remove_const, 'CatsController') }
 
   let(:req) { Rack::Request.new({'rack.input' => {}}) }
   let(:res) { Rack::MockResponse.new('200', {}, []) }
   let(:cats_controller) { CatsController.new(req, res, { 'key' => 'val' } ) }
 
   context '#initialize' do
-    it "includes route params in the params object" do
+    it 'includes route params in the params object' do
       expect(cats_controller.params['key']).to eq('val')
     end
   end
