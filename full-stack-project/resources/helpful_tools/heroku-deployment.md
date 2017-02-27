@@ -36,7 +36,7 @@ Here is a quick guide to git yer app on the interwebs.
     git commit -m "Prepare for initial Heroku push"
     ```
 0. Create a new Heroku app
-  * Create an account on [heroku.com](heroku.com)
+  * Create an account on [heroku.com](http://www.heroku.com)
   * Create a new app
   * Setup buildpacks
     * `Settings` tab in Heroku Dashboard
