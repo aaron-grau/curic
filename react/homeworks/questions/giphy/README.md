@@ -14,12 +14,12 @@ We've created a skeleton with the conventional folders for front-end
 files: actions, components, reducers, store, and util. We also have a CSS
 folder that has a simple stylesheet made for you.
 
-* Download the [skeleton] and familiarize yourself with the file structure
+* Download the [skeleton][skeleton] and familiarize yourself with the file structure
   - Look inside all the front-end folders
   - Check out `webpack.config.js` and `package.json`
   - Find the entry file `giphy_search.jsx`
 * Run `npm install`
-* Run `webpack --watch`
+* Run `npm run webpack` to keep webpack running while you write your code
 
 [skeleton]: ./skeleton.zip?raw=true
 
@@ -263,7 +263,7 @@ export const REQUEST_SEARCH_GIPHYS = 'REQUEST_SEARCH_GIPHYS';
 ```
 
 Refactor your `configureStore` function in `store/store.js` to
-incorporate your thunk action creator. Remember that Redux provides 
+incorporate your thunk action creator. Remember that Redux provides
 `thunk` middleware from the `redux-thunk` module. We'll import Redux's `thunk` middleware
 and `applyMiddleware` function.
 

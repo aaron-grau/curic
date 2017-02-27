@@ -8,10 +8,10 @@ class SimpleComponent extends React.Component {
 			<h2>I am a SimpleComponent!</h2>
 		);
 	}
-};
+}
 
 // Renders a SimpleComponent into #root.
-document.addEventListener("DOMContentLoaded", function() {
-	const root = document.querySelector("#root");
+document.addEventListener('DOMContentLoaded', function() {
+	const root = document.querySelector('#root');
 	ReactDOM.render(<SimpleComponent />, root);
 });

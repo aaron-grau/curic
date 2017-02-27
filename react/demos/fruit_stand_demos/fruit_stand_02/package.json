@@ -17,7 +17,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "./node_modules/.bin/webpack"
+    "postinstall": "webpack",
+    "webpack": "webpack --watch"
   },
   "keywords": [],
   "author": "",

@@ -15,9 +15,8 @@ Test your code at each step using the provided test cases.
 ## Setup
 
 + Install the node packages with `npm install`
-+ Use webpack to bundle your javascript files
-  + The config file is already written; you should be able to run `webpack -w` and have it work
-+ open `index.html` in your browser
++ Run `npm start` to start up `webpack-dev-server`
++ Visit http://localhost:8080
 
 **Test the skeleton**: Does it work?
 

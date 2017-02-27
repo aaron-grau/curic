@@ -43,8 +43,11 @@ In `webpack.config.js`:
 - Add Babel transpilation.
 - Add a source map.
 - Ensure that `.js` and `.jsx` files resolve automatically.
+
+Also
+
 - Add a `webpack` script to your `package.json`.
--	Create a `.gitignore` for your node modules and bundled files.
+- Create a `.gitignore` for your node modules and bundled files.
 
 ## Boot it Up!
 
