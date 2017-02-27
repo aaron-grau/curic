@@ -2,17 +2,17 @@
 
 ```diff
 - Warning: It looks like you're using a minified copy of the development build
-of React. When deploying React apps to production, make sure to use the
-production build which skips development warnings and is faster.See
-https://fb.me/react-minification for more details.
+- of React. When deploying React apps to production, make sure to use the
+- production build which skips development warnings and is faster.See
+- https://fb.me/react-minification for more details.
 ```
 
 ```diff
 - You are currently using minified code outside of NODE_ENV === 'production'.
-This means that you are running a slower development build of Redux. You can use
-loose-envify (https://github.com/zertosh/loose-envify) for browserify or
-DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) to ensure
-you have the correct code for your production build.
+- This means that you are running a slower development build of Redux. You can use
+- loose-envify (https://github.com/zertosh/loose-envify) for browserify or
+- DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) to ensure
+- you have the correct code for your production build.
 ```
 
 In order to remove these warning about using a minified copies of React and Redux, we need to make a couple changes to our config files.
