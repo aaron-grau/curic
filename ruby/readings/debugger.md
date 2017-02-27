@@ -704,13 +704,13 @@ move up a level by using `finish`:
 
 ## Debugging and Testing
 
-We've gone to a lot of work testing that these methods work as they
+We've gone through a lot of work testing that these methods work as they
 should. It would be good if we could record these tests so that they
 can be run in the future, to make sure new bugs do not sneak in as we
 continue to develop the software. We'll talk later about RSpec, a way
 to write tests that can be automatically run by a system called Guard.
 
-When a bug is discovered, good practice is to write a new test that
+When a bug is discovered, it is good practice to write a new test that
 verifies we don't make that mistake again.
 
 ## Resources
