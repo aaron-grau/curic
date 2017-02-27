@@ -151,17 +151,19 @@ Example:
 
 ## Review
 
-Now that we're all warmed up, let's go back to the [iteration
-exercises][prep-iter-exercises] from the prepwork and implement the
+Now that we're all warmed up, let's review the [iteration
+exercises][prep-iter-exercises] from the prepwork. Implement the
 following methods:
 
-- [ ] `factors(num)`
-- [ ] `bubble_sort!(&prc)`
-- [ ] `bubble_sort(&prc)`
-- [ ] `substrings(string)`
-- [ ] `subwords(word, dictionary)`
+- `#factors(num)`
+- `#bubble_sort!(&prc)`
+- `#bubble_sort(&prc)`
+- `#substrings(string)`
+- `#subwords(word, dictionary)`
 
-Remember that these are from the prepwork, so there are [specs for them][prep-iter-specs]. You can use those to test your solutions.
+Although these exercises are from the prepwork and come with specs, use this opportunity to practice your own testing skills. Write out each method, think of a few different example cases, and test out your code in `pry`.
+
+If you are having a tough time thinking of example cases, check out the [specs][prep-iter-specs]. You can use those examples to test your solutions.
 
 [docs-enumerable]: http://ruby-doc.org/core-2.1.2/Enumerable.html
 [docs-array]: http://ruby-doc.org/core-2.1.2/Array.html
