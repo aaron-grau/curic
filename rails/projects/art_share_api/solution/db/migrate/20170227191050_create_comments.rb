@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :user_id, null: false
       t.integer :artwork_id, null: false
 
-      t.timestamps null: false
+      t.timestamps
     end
     
     add_index :comments, :user_id

@@ -199,7 +199,18 @@ the `index` method to return:
 You can access the specified user through `params[:user_id]`
 because it is part of the nested route.
 
-## Bonus
+## Phase IV
+
+Comments
+
+## Phase V 
+
+Search
+
+# Phase VI
+
+Likes
+
 
 <!-- Implement these (thinking about sensible routes for each):
 
