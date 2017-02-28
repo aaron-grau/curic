@@ -10,6 +10,6 @@
 [pusher]: https://vimeo.com/164515140
 [delayed-job]: ./delayed-job.md
 [kaminari]: ./kaminari.md
-[friendly-id]: ./useful_gems/friendly-id.md
+[friendly-id]: ./friendly-id.md
 [code-demo]: https://github.com/appacademy/friendly-kaminari-demo
 [new-relic]: https://github.com/newrelic/rpm
