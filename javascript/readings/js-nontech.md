@@ -82,7 +82,7 @@ has likely led to significantly faster project development and production code
 that is both more stable and more secure.
 
 To handle project dependencies, a package manager has to be used. Two of the
-most commonly used package managers are [npm] (node package manager) and
+most commonly used package managers are [npm][package manager] (node package manager) and
 [Bower]. While npm is intended to handle Node.js dependencies, it is able to
 handle frontend dependencies – those that are sent to the client for use in the
 browser – as well. However, in order to allow for these frontend dependencies
@@ -114,7 +114,7 @@ be found [here][npm reading].
 [angular]: https://www.npmjs.com/package/angular
 [humorous libraries]: http://qz.com/677122/when-programmers-get-weird-the-funniest-code-projects-on-github/
 [David Haney]: http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/
-[npm]: https://www.npmjs.com/
+[package manager]: https://www.npmjs.com/
 [npm reading]: https://github.com/appacademy/curriculum/blob/master/react/readings/npm_configuration.md
 [Bower]: https://bower.io/
 [Browserify]: http://browserify.org/
