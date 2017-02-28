@@ -7,9 +7,9 @@ widgets. We will be building a clock, a weather widget,  interactive tabs, and a
 
 ## Learning Goals
 
-* Know how to set up a new React project with NPM and webpack
-* Know how to set up an entry point for your app
-* Be able to create simple React components and render them to the page
+* Know how to set up a new React project
+* Be able to create simple React components
+* Know how to incorporate an API into your app
 * Be able to add basic styling to React components
 
 ## Phase 1: Setup
