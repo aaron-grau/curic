@@ -43,7 +43,7 @@ display styling much less consistently)
 
 There are three ways a developer may add style to an HTML document. External
 CSS is most often preferred, but you will undoubtedly encounter inline and
-internal styles in the wild. They are discussed in order of specificity: 
+internal styles in the wild. They are discussed in order of specificity:
 inline > internal > external
 
 ### Inline Style Attribute
@@ -326,7 +326,7 @@ a lot of HTML and CSS.
 Ex: "The Windows 10 UI is so confusing! I don't know how to change any
 settings."
 
-- Responsive: A web design is responsive if adjusts to (and looks decent
+- Responsive: A web design is responsive if it adjusts to (and looks decent
 across) different device screen sizes.
 Ex: "My orthodontist's website looks okay on my laptop, but it isn't
 responsive. It displays weirdly on mobile and I can't find her contact
@@ -346,7 +346,7 @@ information."
   styles.
   Ex: "The app's styles include media queries for smartphone and tablet screens."
 
-    - Example: 
+    - Example:
       ```css
       @media only screen
       and (min-device-width: 320px)
