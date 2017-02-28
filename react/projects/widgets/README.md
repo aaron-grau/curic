@@ -2,6 +2,9 @@
 
 [**Live Demo!**](https://appacademy.github.io/curriculum/widgets/)
 
+As an introduction to React, we are going to build four simple
+widgets. We will be building a clock, a weather widget,  interactive tabs, and a simple search component.
+
 ## Learning Goals
 
 * Know how to set up a new React project with NPM and webpack
@@ -9,15 +12,13 @@
 * Be able to create simple React components and render them to the page
 * Be able to add basic styling to React components
 
-As an introduction to React, we're going to build some simple interactive
-widgets. Before we get started, however, we need to set up our project with
-`npm`.
+## Phase 1: Setup
 
 Build a new React NPM project from scratch like you did in the ['Getting
 Started'][getting_started] homework, but change your webpack entry point to be
 `widgets.jsx`.
 
-Your `widgets.jsx` should look have `DOMContentLoaded` listener that calls
+Your `widgets.jsx` should look have a `DOMContentLoaded` listener that calls
 `ReactDOM.render()` with a `Root` component and a `main` DOM element as the
 hook.
 
@@ -26,7 +27,7 @@ something without it, use Google as a resource and ask a TA if needed.
 
 [getting_started]: ../../homeworks/getting_started
 
-## Running a Simple Development Server
+### Running a Simple Development Server
 
 For this project, we're going to use a lightweight development server,
 `webpack-dev-server`. The benefits of this development server are threefold:
@@ -65,20 +66,13 @@ project served at `http://localhost:8080`.
 For information on the `webpack-dev-server` configuration, refer to the
 [webpack-dev-server reading](../../readings/webpack_dev_server.md).
 
-## Weather Clock
+## Phase 2: Clock Widget
 
-### Goal
+### Overview
 
-Make a weather clock. This should have two components. One should display the
-current time, updating every second. The second should display the current
-weather based on the user's location.
+The clock component should display the current time, updating every second.
 
-You'll use the `navigator.geolocation` API to get the user's current location,
-and the [open weather API][weather] to get the current weather.
-
-### Steps
-
-#### Clock Widget
+### Instructions
 
 * Set the initial state of your clock using `new Date()`.
 
@@ -117,7 +111,17 @@ want to use? Try all of them to understand what they do.
 [justify-content]: https://css-tricks.com/almanac/properties/j/justify-content/
 [google-fonts]: https://fonts.google.com/
 
-#### Weather Widget
+### Recap
+
+You should now have a clock that displays the current time date. Congratulations! Lets move on to something a bit more complicated.
+
+## Phase 3: Weather Widget
+
+### Overview
+
+In this phase, we will create a weather widget to display the current weather based on the user's location. We will be using the `navigator.geolocation` API to get the user's current location, and the [open weather API][weather] to get the current weather.
+
+### Instructions
 
 * Review the [open weather API][weather] documentation. We'll use this
 API to get the weather based on our current location
@@ -163,17 +167,23 @@ to figure out how to get your current position. (Make sure you have
   [weather]: http://openweathermap.org/current
   [vanilla-ajax]: http://stackoverflow.com/questions/8567114/how-to-make-an-ajax-call-without-jquery
 
-## Tabs
+### Recap
 
-### Goal
+Great work! Now we have two widgets. One that displays the time, and another that displays the weather.
+
+## Phase 4: Tabs Widget
+
+### Overview
+
+We are going to add a tabs widget that the user can interact with. The tabs
+should each be labeled with their own title. The selected tab should be in
+**bold** font. Below the tabs, display the contents of the selected tab. The
+content pane should update when the user selects different tabs.
+
+### Instructions
 
 Make a `Tabs` component. `Root` should pass `Tabs` an array of Javascript
-objects (the data for the tabs) that have `title` and `content` as keys. Display
-all the titles, but have the selected title in **bold** font. Below, it should
-display only the contents of the selected tab. The content pane should update
-when the user selects different headers.
-
-### Steps
+objects (the data for the tabs) that have `title` and `content` as keys.
 
 * Keep track of the selected tab's index in your `Tabs` component's state. Set
 it initially to zero.
@@ -209,17 +219,23 @@ the tabs to make it clear that the tabs are interactive.
 * Add a background. Use the `background-image` or `background-color` property to
 change the background. Feel free to do this for every widget.
 
+### Recap
 
-## Autocomplete Input
+At this point, you should have a widget that displays the content of a selected
+tab. The selected tab's label should be bold and the content pane should update
+when a different tab is selected. Once the tabs widget is sufficiently styled,
+move on to your last widget.
 
-### Goal
+## Phase 5: Autocomplete Widget
+
+### Overview
 
 Make an `Autocomplete` component that filters a list of names by the
 user's input. Match only names that start with the search input. When
 a user clicks on a name, the input field should autocomplete to that
 name.
 
-### Steps
+### Instructions
 
 * Start by creating a new file `autocomplete.jsx` and defining your
   `Autocomplete` class there. You will require this class from
@@ -262,7 +278,11 @@ name.
 * Center all your widgets using flexboxes. Which `justify-content` property
   would you use for this?
 
-### Bonus: React-Transitions
+### Recap
+
+Congratulations! You've created four simple React widgets. Now, move on to the bonus phase to make them even better!
+
+### Bonus phase 2: React-Transitions
 
 Right now, the matched names instantly appear on the screen and the filtered
 names instantly disappear. This is abrupt and ugly. We want the names to fade
