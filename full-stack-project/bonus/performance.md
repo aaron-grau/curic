@@ -100,7 +100,7 @@ never hit the database, but are instead served by Redis.
 * **Bonus: Front-end Performance Resources**: [jankfree.org][jankfree]
 
 [performance]: http://developer.yahoo.com/performance/rules.html
-[design-patterns]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/readings/design_patterns.md
+[design-patterns]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/old/design_patterns.md
 [yahoo-performance]: https://developer.yahoo.com/performance/rules.html
 [pagespeed]: https://developers.google.com/speed/pagespeed/insights/
 [jankfree]: http://jankfree.org/
