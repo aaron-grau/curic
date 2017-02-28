@@ -2,4 +2,4 @@
 
   * [Sendgrid reading][sendgrid]
 
-[sendgrid]: ./apis/sendgrid.md
+[sendgrid]: ./sendgrid.md
