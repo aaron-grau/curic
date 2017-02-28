@@ -58,6 +58,104 @@ project served at `http://localhost:8080`.
 For information on the `webpack-dev-server` configuration, refer to the
 [webpack-dev-server reading](../../readings/webpack_dev_server.md).
 
+## Weather Clock
+
+### Goal
+
+Make a weather clock. This should have two components. One should display the
+current time, updating every second. The second should display the current
+weather based on the user's location.
+
+You'll use the `navigator.geolocation` API to get the user's current location,
+and the [open weather API][weather] to get the current weather.
+
+### Steps
+
+#### Clock Widget
+
+* Set the initial state of your clock using `new Date()`.
+
+* You'll need to `setInterval` to ensure that the clock updates, but you should
+wait until the component is actually on the page. For this, you can define a
+[`componentDidMount`][componentDidMount] function.
+
+* Be sure to [store that interval's id][clearInterval] so you can cancel it in
+[`componentWillUnmount`][componentWillUnmount], which gets called just before
+the component is removed. Don't store this in the component's `state` since it
+doesn't affect the UI. Instead, just store it directly on `this`.
+
+* Use the `toDateString()` method on your date object to render your clock.
+
+* Go to [Google Fonts][google-fonts] and select a nice font for your clock. Take
+the font embed code and paste it into the `<head>` of your HTML page. Your
+`<head>` should look something like this right now:
+
+```html
+<head>
+  <title>React Widgets</title>
+  <link rel="stylesheet" href="index.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <script src="bundle.js"></script>
+</head>
+```
+
+To use the font, set the `font-family` of your element to the font name.
+
+* Set the time and date headers to be on one side and the actual time
+and date to the other. Refer to the live demo to see what your end
+goal is. You can achieve this easily with a flexbox. Take a look at
+the [`justify-content`][justify-content] property. Which one do you
+want to use? Try all of them to understand what they do.
+
+[justify-content]: https://css-tricks.com/almanac/properties/j/justify-content/
+[google-fonts]: https://fonts.google.com/
+
+#### Weather Widget
+
+* Review the [open weather API][weather] documentation. We'll use this
+API to get the weather based on our current location
+
+- In order to get the API to accept your HTTP requests, you'll need
+an API key. [Read up on how to use the API key and sign up for one here.][api-key]
+After signing up, click on the API keys tab to get your key.
+
+**NB:** In the real world, you should be very careful about placing
+API keys in frontend JavaScript or anywhere else they are publicly
+available and can be scraped (this includes public Git repos).
+Stolen keys can cost you. _You have been warned._
+
+* To get your current location, add a call to `navigator.geolocation`
+when the component mounts. Read through the [documentation][navigator]
+to figure out how to get your current position. (Make sure you have
+  [location services enabled][location-services] in your browser, or
+  this won't work.)
+
+  * When the location is received, query the weather API using a raw
+  `XMLHttpRequest`.
+
+  - See [here][vanilla-ajax] and [here][nojquery] if you need help.
+  For more in-depth details, look [here][xmlhttpdocs]
+
+  - Common pitfall: You need to include `http://` in your request URI
+
+  - Hint: pass a callback to your location query
+
+  * Render the current weather and temperature on the page.
+
+  * Give the weather box a nice border and make sure the elements inside are
+  spaced evenly.
+
+  [api-key]: http://openweathermap.org/appid
+  [clearInterval]: http://stackoverflow.com/questions/5978519/setinterval-and-how-to-use-clearinterval#answer-5978560
+  [componentDidMount]: https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount
+  [componentWillUnmount]: https://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount
+  [nojquery]: http://youmightnotneedjquery.com/#request
+  [xmlhttpdocs]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+  [navigator]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation
+  [location-services]: https://support.google.com/chrome/answer/142065?hl=en
+  [weather]: http://openweathermap.org/current
+  [vanilla-ajax]: http://stackoverflow.com/questions/8567114/how-to-make-an-ajax-call-without-jquery
+
 ## Tabs
 
 ### Goal
@@ -104,103 +202,6 @@ the tabs to make it clear that the tabs are interactive.
 * Add a background. Use the `background-image` or `background-color` property to
 change the background. Feel free to do this for every widget.
 
-## Weather Clock
-
-### Goal
-
-Make a weather clock. This should have two components. One should display the
-current time, updating every second. The second should display the current
-weather based on the user's location.
-
-You'll use the `navigator.geolocation` API to get the user's current location,
-and the [open weather API][weather] to get the current weather.
-
-### Steps
-
-#### Clock Widget
-
-* Set the initial state of your clock using `new Date()`.
-
-* You'll need to `setInterval` to ensure that the clock updates, but you should
-wait until the component is actually on the page. For this, you can define a
-[`componentDidMount`][componentDidMount] function.
-
-* Be sure to [store that interval's id][clearInterval] so you can cancel it in
-[`componentWillUnmount`][componentWillUnmount], which gets called just before
-the component is removed. Don't store this in the component's `state` since it
-doesn't affect the UI. Instead, just store it directly on `this`.
-
-* Use the `toDateString()` method on your date object to render your clock.
-
-* Go to [Google Fonts][google-fonts] and select a nice font for your clock. Take
-the font embed code and paste it into the `<head>` of your HTML page. Your
-`<head>` should look something like this right now:
-
-  ```html
-  <head>
-    <title>React Widgets</title>
-    <link rel="stylesheet" href="index.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <script src="bundle.js"></script>
-  </head>
-  ```
-
-  To use the font, set the `font-family` of your element to the font name.
-
-  * Set the time and date headers to be on one side and the actual time
-    and date to the other. Refer to the live demo to see what your end
-    goal is. You can achieve this easily with a flexbox. Take a look at
-    the [`justify-content`][justify-content] property. Which one do you
-    want to use? Try all of them to understand what they do.
-
-[justify-content]: https://css-tricks.com/almanac/properties/j/justify-content/
-[google-fonts]: https://fonts.google.com/
-
-#### Weather Widget
-
-* Review the [open weather API][weather] documentation. We'll use this
-  API to get the weather based on our current location
-
-  - In order to get the API to accept your HTTP requests, you'll need
-    an API key. [Read up on how to use the API key and sign up for one here.][api-key]
-    After signing up, click on the API keys tab to get your key.
-
-    **NB:** In the real world, you should be very careful about placing
-    API keys in frontend JavaScript or anywhere else they are publicly
-    available and can be scraped (this includes public Git repos).
-    Stolen keys can cost you. _You have been warned._
-
-* To get your current location, add a call to `navigator.geolocation`
-  when the component mounts. Read through the [documentation][navigator]
-  to figure out how to get your current position. (Make sure you have
-  [location services enabled][location-services] in your browser, or
-  this won't work.)
-
-* When the location is received, query the weather API using a raw
-  `XMLHttpRequest`.
-
-  - See [here][vanilla-ajax] and [here][nojquery] if you need help.
-    For more in-depth details, look [here][xmlhttpdocs]
-
-  - Common pitfall: You need to include `http://` in your request URI
-
-  - Hint: pass a callback to your location query
-
-* Render the current weather and temperature on the page.
-
-* Give the weather box a nice border and make sure the elements inside are
-  spaced evenly.
-
-[api-key]: http://openweathermap.org/appid
-[clearInterval]: http://stackoverflow.com/questions/5978519/setinterval-and-how-to-use-clearinterval#answer-5978560
-[componentDidMount]: https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount
-[componentWillUnmount]: https://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount
-[nojquery]: http://youmightnotneedjquery.com/#request
-[xmlhttpdocs]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-[navigator]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation
-[location-services]: https://support.google.com/chrome/answer/142065?hl=en
-[weather]: http://openweathermap.org/current
-[vanilla-ajax]: http://stackoverflow.com/questions/8567114/how-to-make-an-ajax-call-without-jquery
 
 ## Autocomplete Input
 
