@@ -2,6 +2,13 @@
 
 [**Live Demo!**](https://appacademy.github.io/curriculum/widgets/)
 
+## Learning Goals
+
+* Know how to set up a new React project with NPM and webpack
+* Know how to set up an entry point for your app
+* Be able to create simple React components and render them to the page
+* Be able to add basic styling to React components
+
 As an introduction to React, we're going to build some simple interactive
 widgets. Before we get started, however, we need to set up our project with
 `npm`.
