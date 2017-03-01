@@ -435,7 +435,7 @@ Update the message draft whenever the form changes:
     * Test that when you submit the form you are redirected to the `Inbox`.
     * Test that your `Sent` folder contains the message you sent.
 
-[template-literals]: ../readings/template-literals.md
+[template-literals]: ../../readings/template-literals.md
 [separation-of-concerns]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [hash-fragment]: https://en.wikipedia.org/wiki/Fragment_identifier
 [single-page-app]: https://en.wikipedia.org/wiki/Single-page_application
