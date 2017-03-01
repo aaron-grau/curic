@@ -838,7 +838,7 @@ Display these pictures on both the show page and the index.
  Instead will use the web service [Cloudinary][cloudinary-js].
  Remove the url text-field from your form and replace it with an add-image button.
  The button should open the Cloudinary upload_widget which will allow you to drag-and-drop an image or supply a url, and will  return the url for your new copy of the image.
- Checkout the Cloudinary video and corresponding code at this [link][lightning-talks] for details on how to create your own  Cloudinary account and add the widget to your app.
+ Checkout the [Cloudinary video][cloudinary-video] and [corresponding code][cloudinary-demo] for details on how to create your own  Cloudinary account and add the widget to your app.
  If step (1) was working properly, you shouldn't have to change your backend at all.
  Test that everything works by adding a new bench with an image.
 
@@ -865,4 +865,5 @@ Display these pictures on both the show page and the index.
 [on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
 [jquery-ajax]: http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
 [cloudinary-js]: http://cloudinary.com/documentation/upload_widget
-[lightning-talks]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/readings/lightning_talks.md
+[cloudinary-video]: https://vimeo.com/164612621
+[cloudinary-demo]: https://github.com/appacademy/react_cloudinary_demo
