@@ -71,7 +71,6 @@ We have lots of extra readings and videos on other topic in [additional resource
 [production-ready]: ./resources/helpful_tools/production-ready.md
 [additional-resources]: ./additional_resources.md
 [heroku-deployment]: resources/helpful_tools/heroku-deployment.md
-[minification-warnings]: resources/helpful_tools/minification-warnings.md
 [figaro]: resources/security/figaro.md
 [figaro-video]: https://vimeo.com/164602277
 [cloudinary-video]: https://vimeo.com/164612621
