@@ -12,4 +12,4 @@
 [apis]: resources/apis/
 [gems]: resources/useful_gems/
 [performance]: resources/performance_and_scaling/
-[heroku-scheduler]: resources/helpful_tools/heroku-scheduler/
+[heroku-scheduler]: resources/helpful_tools/heroku-scheduler.md
