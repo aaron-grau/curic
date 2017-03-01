@@ -15,7 +15,7 @@ Today we add a users and login to our 99Cats application.
   + Know how cookies and sessions interact in a `current_user` method
   + Know how to access the current user from within a view
 
-**NB**: Download the [skeleton][skeleton] containing solutions from day one. 
+**NB**: Download the [skeleton][skeleton] containing solutions from day one.
 
 [skeleton]: ./skeleton.zip
 
@@ -170,7 +170,7 @@ view the form to begin with, so we can set `cat.owner` to the
 * On the cat show page, don't show the approve/deny buttons unless the
   user owns the cat.
 
-[postman]: https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en
+[postman]: https://www.getpostman.com/
 
 ### CatRentalRequests have a requester
 
