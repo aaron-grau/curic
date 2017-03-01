@@ -28,7 +28,7 @@ methods in the `Enumerable` module.
 ### `Enumerable#each`
 
 You've already seen this before! If you want a refresher, just look at
-the [Hash](hash.md) and [Array](array.md) pages. You'll want to use
+the [Hash](https://github.com/appacademy/appacademy-prep/blob/master/w1/w1d3/readings/hash.md) and [Array](array.md) pages. You'll want to use
 `each` when you want to run some block of code for each element in an
 Array (or Hash).
 
