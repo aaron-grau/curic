@@ -201,7 +201,28 @@ because it is part of the nested route.
 
 ## Phase IV
 
-Comments
+Now it's time to add commenting functionality to our application so our users
+can comment on a piece of artwork. By the time we're done, we want to be able to
+retrieve both a specific user's comments as well as comments left on a specific
+artwork.
+
+First create a comments table that has a foreign key for both user and artwork.
+We'll also want a `body` column that contains the text of the comment. On what
+columns should we add an index?
+
+Our users and artworks will both `have_many` comments. A comment should
+`belong_to` a author (the user who left that comment) and artwork. Write these
+associations now. Remember to include `dependent: :destroy` when necessary.
+For instance, when an artwork or user is removed from the database, we don't want their associated
+comments to persist.
+
+Before moving on test that these associations work. If you haven't already, add
+some users, artworks, and comments into your seed file. This way whenever you
+drop your database you can easily repopulate it.
+
+
+
+
 
 ## Phase V 
 

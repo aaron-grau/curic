@@ -3,6 +3,7 @@ class Artwork < ActiveRecord::Base
   has_many :shared_viewers, through: :contact_shares, source: :user
   belongs_to :artist, foreign_key: :artist_id, class_name: "User"
   has_many :likes, as: :likeable
+  has_many :comments, dependent: :destroy
 
   validates :title, :image_url, :artist, presence: true
   validates :image_url, uniqueness: true
