@@ -9,11 +9,11 @@
   * [React modal video][react-modal-video]
   * [Styling links reading][styling-links]
 
-[css]: ./styling/css.md
+[css]: ./css.md
 [css-demos]: https://github.com/appacademy/css-demos
 [css-transitions]: https://vimeo.com/164928587
-[sass-and-bootstrap]: ./styling/sass-bootstrap-typography.md
-[autoprefixer]: ./styling/autoprefixer.md
-[react-modal]: ./styling/react-modals.md
+[sass-and-bootstrap]: ./sass-bootstrap-typography.md
+[autoprefixer]: ./autoprefixer.md
+[react-modal]: ./react-modals.md
 [react-modal-video]: https://vimeo.com/164336429
-[styling-links]: ./styling/styling.md
+[styling-links]: ./styling.md
