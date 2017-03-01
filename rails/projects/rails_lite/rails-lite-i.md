@@ -253,8 +253,8 @@ template naming convention, which is as follows:
 method to convert the controller's class name to snake case. We'll be
 lazy and not chop off the `_controller` bit at the end.
 
-Run the `bin/p03_template_server.rb` example and visit *[](Make sure it works. Then
-run `spec/p03_template_spec.rb` to check your work :-)
+Run the `bin/p03_template_server.rb` example and visit `http://localhost:3000`. Then
+run `spec/p03_template_spec.rb` to check your work.
 
 ## Phase IV: Adding the Session
 
