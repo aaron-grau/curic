@@ -14,6 +14,7 @@ update our `webpack.config.js` file to include the `UglifyJsPlugin` and use `Def
 By default, Heroku will run Node with `process.env.NODE_ENV == 'production'`. This allows us to include our plugins only under certain conditions.
 
 ```js
+// webpack.config.js
 var path = require("path");
 var webpack = require("webpack");
 
@@ -40,7 +41,7 @@ plugins = plugins.concat(
 // include plugins config
 module.exports = {
   context: __dirname,
-  entry: "./frontend/appName.jsx",
+  entry: "./frontend/<name of entry file>",
   output: {
     path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js"
@@ -125,6 +126,7 @@ Now that we are not installing these packages, we need to remove them from our c
 To exclude `redux-logger` from production we can add the following code to `store.js`:
 
 ```js
+// store.js
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import RootReducer from '../reducers/root_reducer';
@@ -132,12 +134,13 @@ import RootReducer from '../reducers/root_reducer';
 const middlewares = [thunk];
 
 if (process.env.NODE_ENV !== 'production') {
-  import logger from 'redux-logger';
-  middlewares.push(logger);
+  // must use 'require' (import only allowed at top of file)
+  const createLogger = require('redux-logger');
+  middlewares.push(createLogger());
 }
 
-const configureStore = () => (
-  createStore(RootReducer, applyMiddleware(thunk))
+const configureStore = (preloadedState = {}) => (
+  createStore(RootReducer, preloadedState, applyMiddleware(...middlewares))
 );
 
 export default configureStore;
