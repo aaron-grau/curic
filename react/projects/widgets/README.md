@@ -23,7 +23,7 @@ Your `widgets.jsx` should look have a `DOMContentLoaded` listener that calls
 `ReactDOM.render()` with a `Root` component and a `main` DOM element as the
 hook.
 
-The `Root` component, like all React components, should have a `render` function. For now, have your `Root#render` return an empty `<div>`. We will fill this in with our widget components as we create them.
+The `Root` component, like all React components, should have a `render` method. For now, have your `Root#render` return an empty `<div>`. We will fill this in with our widget components as we create them.
 
 Note: we won't be using `jQuery` for this project. If you're not sure how to do
 something without it, use Google as a resource and ask a TA if needed.
@@ -73,24 +73,26 @@ For information on the `webpack-dev-server` configuration, refer to the
 
 ### Overview
 
-The clock component should display the current time, updating every second.
+The clock component should display the current date and time, updating every second.
 
 ### Instructions
 
-Make a `Clock` component, to be rendered inside of your `Root` component.
+* Create a `clock.jsx` file in your `frontend` folder. Render the `Clock` component inside of your `Root` component.
 
-* Set the initial state of your clock using `new Date()`.
+* Don't forget to create a render method. Give your clock a title and check that this renders correctly on the page.
+
+* In the constructor, set the initial state of your clock using `new Date()`.
 
 * You'll need to `setInterval` to ensure that the clock updates, but you should
 wait until the component is actually on the page. For this, you can define a
 [`componentDidMount`][componentDidMount] function.
 
-* Be sure to [store that interval's id][clearInterval] so you can cancel it in
+* You'll also want to [store that interval's id][clearInterval] so you can cancel it in
 [`componentWillUnmount`][componentWillUnmount], which gets called just before
 the component is removed. Don't store this in the component's `state` since it
 doesn't affect the UI. Instead, just store it directly on `this`.
 
-* Use the `toDateString()` method on your date object to render your clock.
+* Check out all of the [methods][date-object] you can use to display the date and time in a human-readable string.
 
 * Go to [Google Fonts][google-fonts] and select a nice font for your clock. Take
 the font embed code and paste it into the `<head>` of your HTML page. Your
@@ -115,6 +117,7 @@ want to use? Try all of them to understand what they do.
 
 [justify-content]: https://css-tricks.com/almanac/properties/j/justify-content/
 [google-fonts]: https://fonts.google.com/
+[date-object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 
 ### Recap
 
