@@ -208,7 +208,8 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
 * Add an `ajax` function to the `$l` function object. It should receive
   one options object argument.  
 * It will help to know what you expect the behavior to be.
-  * Reference a [sample ajax request][sample-ajax-request] to know what your inputs are and when you expect functions to run.  
+  * Reference a [sample ajax request][sample-ajax-request] to know what your inputs are and when you expect functions to run.
+  * Your `ajax` function does not have to return a `Promise`. We'll implement that in the bonus.
   * Test out your `$l.ajax` code using the same endpoint as the sample request.
 * Make a `defaults` object. Check [the jQuery `ajax` API document][jquery_ajax]
   to get a sense of what the defaults should be. Provide defaults for
