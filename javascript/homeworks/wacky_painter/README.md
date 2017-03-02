@@ -43,5 +43,5 @@ Complete the challenges in order.
 
 ### Have fun!
 
-[wacky-zip]: ./wacky_painter_skeleton.zip
+[wacky-zip]: ./skeleton.zip
 [wacky-project-intro-video]: https://vimeo.com/162618262

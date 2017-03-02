@@ -22,7 +22,7 @@ First, we declare a function `toggleLi` that takes in an `event`. Using that eve
 
 This one's a little trickier. We want to make it so that users can input a place, click the submit button, and have the input box clear out & the new item appended to the list. This is, in fact, almost exactly what one of the examples in the [DOM reading][dom-reading] does. Check it out for guidance. Remember to use the class names and IDs already set up in the HTML document!
 
-[dom-reading]: ../../../readings/document-object-model.md
+[dom-reading]: ../../readings/document-object-model.md
 
 ### Phase III: Adding your own photos
 
@@ -30,4 +30,4 @@ Finally, update the last section to allow users to add their own photos of cute 
 
 Once you're done, compare with the [solution][solution].
 
-[solution]: ../../solutions/vanilla-dom.js
+[solution]: ./solution.js
