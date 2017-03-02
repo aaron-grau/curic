@@ -9,9 +9,9 @@ Take out any instances of `console.log`, `debugger` or `byebug` from your projec
 In order to make the warning about using a minified copy of the development version of React go away, we have to make a couple changes to our config files.
 
 Because we only want this process to happen in production, we are going to
-update our `webpack.config.js` file to include the `UglifyJsPlugin` and use `DefinePlugin` to set `process.env.NODE_ENV` to `production` for use in our webpacked files.
+update our `webpack.config.js` file to include the `UglifyJsPlugin` and use `DefinePlugin` to set `process.env.NODE_ENV` to `'production'` for use in our webpacked files.
 
-By default, Heroku will run Node with `process.env.NODE_ENV == production`. This allows us to include our plugins only under certain conditions.
+By default, Heroku will run Node with `process.env.NODE_ENV == 'production'`. This allows us to include our plugins only under certain conditions.
 
 ```js
 var path = require("path");
@@ -131,7 +131,7 @@ import RootReducer from '../reducers/root_reducer';
 
 const middlewares = [thunk];
 
-if (process.env.NODE_ENV !== production) {
+if (process.env.NODE_ENV !== 'production') {
   import logger from 'redux-logger';
   middlewares.push(logger);
 }
