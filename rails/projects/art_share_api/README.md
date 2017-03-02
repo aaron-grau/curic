@@ -11,8 +11,9 @@ the original user.
 
 Although we will maintain this conceptual distinction between a user's own
 artworks vs. the artworks that have been shared with that user, we will
-eventually write an index method that will combine both types of a user's viewable
-artworks together so that we can see any art made by or shared with that user.
+eventually write an index method that will combine both types of a user's
+viewable artworks together so that we can see any art made by or shared with
+that user.
 
 ## Learning Goals
 
@@ -42,9 +43,9 @@ them.
 #### User
 
 For the `user` table you should have `name` and `email` columns from the first
-routes project. Change your User model so that you only have one column: `username`.
-Write new migrations to accomplish this. Enforce presence and uniqueness of `username`
-at both ActiveRecord and DB levels.
+routes project. Change your User model so that you only have one column:
+`username`. Write new migrations to accomplish this. Enforce presence and
+uniqueness of `username` at both ActiveRecord and DB levels.
 
 After you create each table and model, make sure to test that your associations
 and validations are working before moving on to the next step. We want to be
@@ -62,42 +63,44 @@ hand, two different users can have artworks with the same title. In other words,
 two separate artists could both have artworks of their own named "Untitled",
 but a single artist should not be able to have two pieces with that same title.
 
-This means that the `artist_id` and `title` **combination** must be unique. Enforce
-this at the DB and model levels. [Here's some help for the model validation][scoped-uniqueness]
+This means that the `artist_id` and `title` **combination** must be unique.
+Enforce this at the DB and model levels. [Here's some help for the model validation][scoped-uniqueness]
 To add the DB constraint, consider what would happen if we added indexing and a
-uniqueness constraint to not one, but two columns. [Check the Rails API docs for more info][multi-column-indexing]
+uniqueness constraint to not one, but two columns. [Check the Rails API docs 
+for more info][multi-column-indexing]
 
-Add an index on `artist_id` so that we can quickly get all the contacts for a user.
-Also add associations between `User` and `Artwork`. Call the association from `Artwork` to `User` `Artist`.
-Note that our column in the `artworks` table does not have to be `user_id` despite
-being a foreign key to the `users` table. In this case, `artist_id` is much
-more descriptive and therefore preferable.
+Add an index on `artist_id` so that we can quickly get all the contacts for a
+user. Also add associations between `User` and `Artwork`. Call the association
+from `Artwork` to `User` `Artist`. Note that our column in the `artworks` table
+does not have to be `user_id` despite being a foreign key to the `users` table.
+In this case, `artist_id` is much more descriptive and therefore preferable.
 
 [scoped-uniqueness]: http://apidock.com/rails/ActiveModel/Validations/ClassMethods/validates#940-uniqueness
 [multi-column-indexing]: http://apidock.com/rails/v2.3.8/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
 
 #### ArtworkShare
 
-The `artwork_shares` table is a joins table. Its whole purpose is to link a `User`
-(the person viewing the artwork) with an `Artwork`.
+The `artwork_shares` table is a joins table. Its whole purpose is to link a
+`User` (the person viewing the artwork) with an `Artwork`.
 
 You'll need an `artwork_id` and `viewer_id` column. Again, prefer columns names
-that are more semantic (i.e. more descriptive of the relationship) when possible.
+that are more semantic (i.e. more descriptive of the relationship) when
+possible.
 
-Ensure that both are present. Add the two levels of validations/constraints. Ensure
-that a user cannot have a single `Artwork` shared with them more than once.
-Also add indices to `ArtworkShare`'s foreign key columns for fast lookup. NB: we almost
-always want to create indexes for any foreign keys, particularly if those foreign
-keys will be used in a `has_many` or a `has_one` relationship.
+Ensure that both are present. Add the two levels of validations/constraints.
+Ensure that a user cannot have a single `Artwork` shared with them more than
+once. Also add indices to `ArtworkShare`'s foreign key columns for fast lookup.
+NB: we almost always want to create indexes for any foreign keys, particularly
+if those foreign keys will be used in a `has_many` or a `has_one` relationship.
 
-Then a associations connecting an `ArtworkShare` to both an `Artwork` and a `User`
-(name this association `viewer`). Add a through association `shared_viewers` on `Artwork`.
-`Artwork#shared_viewers` will return the set of users with whom an artwork has
-been shared.
+Then a associations connecting an `ArtworkShare` to both an `Artwork` and a
+`User` (name this association `viewer`). Add a through association
+`shared_viewers` on `Artwork`. `Artwork#shared_viewers` will return the set of
+users with whom an artwork has been shared.
 
 Add a through association from `shared_artworks` on `User`. `User#shared_artworks`
-will return the set of artworks that have been shared with that user (*not* the set
-of artworks that a user has shared with others).
+will return the set of artworks that have been shared with that user (*not* the
+set of artworks that a user has shared with others).
 
 ### Recap
 
@@ -138,9 +141,10 @@ status code to indicate error.
 * `destroy` (DELETE `/users:id`)
 
 Find the user (we can lookup the id in `params[:id]`) and destroy the object.
-Best practice is to render the destroyed user after destroying it in the database.
-Use `dependent: :destroy` in the `artworks` and `artwork_shares` associations
-on `User`. This ensures that the associated records are also destroyed.
+Best practice is to render the destroyed user after destroying it in the
+database. Use `dependent: :destroy` in the `artworks` and `artwork_shares`
+associations on `User`. This ensures that the associated records are also
+destroyed.
 
 * `index` (GET `/users`)
 
@@ -175,7 +179,7 @@ For now, let's assume the users of our service aren't malicious
 ### Recap
 
 Congratulations! You should now have tables, models, and controllers for users
-and artworks. Before moving on, first test that your API endpoints are working
+and artworks. Before moving on, test that your API endpoints are working
 with Postman. Then call over a TA and explain your code.
 
 ## Phase III: Sharing `Artworks`
