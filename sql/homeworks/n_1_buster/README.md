@@ -252,8 +252,6 @@ class Route
 end
 ```
 
-Once you're done, check out the [solutions page][solution] or download the
-[full rails project solution][full-solution].
+Once you're done, check out the [solutions][solution].
 
-[solution]: ../solutions/n_1_buster.rb
-[full-solution]: ../solutions/n_1_buster.zip?raw=true
+[solution]: solution
