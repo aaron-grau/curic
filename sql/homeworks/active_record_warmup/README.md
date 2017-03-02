@@ -21,4 +21,4 @@ Note:
 + `find`, `find_by`, `find_by_#{attribute}`, etc. all return the first matching instance from
 the database; `where` returns a collection of instances, regardless of the number. Be careful about whether you are expecting the object itself or a collection-wrapped object/set of objects.
 
-[skeleton]: ./skeleton.zip?raw=true
+[skeleton]: skeleton.zip?raw=true

@@ -27,6 +27,6 @@ For a more detailed look at how to test your ORM, refer to the [ORM Demo][orm-de
 
 Solutions can be found in the [homework solutions folder][plays-solutions].  Please wait until you have completed the exercise to check the solutions.  
 
-[plays-demo]: plays_demo.zip?raw=true
-[plays-solutions]: ../solutions/plays_demo
+[plays-demo]: skeleton.zip?raw=true
+[plays-solutions]: solution
 [orm-demo-video]: https://vimeo.com/167672029#t=18m24s
