@@ -1,17 +1,18 @@
 # ArtworksAPI
 
 We're going to continue building on the API we built in the first
-routes project.
+routes project. Our goal is to build an application to store, share, and 
+omment on artwork, as well as search for users.
 
-Our goal is to build an application to store, share, and comment on artwork.
-Each user has a set of artworks that they own/control. These artworks
-can also be shared with other users. An artwork that has been shared with
-one or more other users will be visible to those users, but the artwork
-still 'belongs to' the original user. Although we will maintain this
-conceptual distinction between a user's own artworks vs. the artworks
-that have been shared with that user, we will eventually write an index
-method that will combine both types of a user's viewable artworks
-together so that we can see any art made by or shared with that user.
+Each user has a set of artworks that they own/control. These artworks can also
+be shared with other users. An artwork that has been shared with one or more
+other users will be visible to those users, but the artwork still 'belongs to'
+the original user.
+
+Although we will maintain this conceptual distinction between a user's own
+artworks vs. the artworks that have been shared with that user, we will
+eventually write an index method that will combine both types of a user's viewable
+artworks together so that we can see any art made by or shared with that user.
 
 ## Learning Goals
 
@@ -27,19 +28,28 @@ together so that we can see any art made by or shared with that user.
 ### Overview
 
 You almost always start with the data layer when you're thinking about
-adding functionality. What pieces of data are necessary to implement
-the functionality you need? What changes need to be made to the
-database schema? What models do you need? What associations and
+adding functionality. Questions to consider are what pieces of data are
+necessary to implement the functionality you need? What changes need to be
+made to the database schema? What models do you need? What associations and
 validations?
+
+In this first phase we're going to add the tables for users, artworks, and
+artwork shares. We are also going to write validations and associations linking
+them.
 
 ### Instructions
 
 #### User
 
-You should have `name` and `email` columns from the first routes project.
-Change your User model so that you only have one column: `username`. Write
-new migrations to accomplish this. Enforce presence and uniqueness of `username`
+For the `user` table you should have `name` and `email` columns from the first
+routes project. Change your User model so that you only have one column: `username`.
+Write new migrations to accomplish this. Enforce presence and uniqueness of `username`
 at both ActiveRecord and DB levels.
+
+After you create each table and model, make sure to test that your associations
+and validations are working before moving on to the next step. We want to be
+***absolutely sure*** our code is working before we move on to the next phase,
+otherwise building our API endpoints will be needlessly complicated.
 
 #### Artwork
 
@@ -86,21 +96,28 @@ Then a associations connecting an `ArtworkShare` to both an `Artwork` and a `Use
 been shared.
 
 Add a through association from `shared_artworks` on `User`. `User#shared_artworks`
-will return the set of artworks that have been shared with a user (*not* the set
+will return the set of artworks that have been shared with that user (*not* the set
 of artworks that a user has shared with others).
 
 ### Recap
 
-Use the Rails console to ensure that you can create `User`,
-`Artwork`, and `ArtworkShare` instances. Test that your validations and
-associations work.
+You should now have tables and models for `User`, `Artwork`, and `ArtworkShare`,
+as well as the relevent validations and associations.
+
+If you haven't already, now might be the time to seed your `seeds.rb` file seed
+data. This is easier than creating seed data in the Rails console and should you
+ever drop your database will provide an easy way to re-populate your tables with
+testable data.
 
 ## Phase II: Users and Artworks API
 
 ### Overview
 
 Next let's move to the API layer. The API describes how you will **expose**
-your data and specifies how the outside world can interact with it.
+your data and specifies how the outside world can interact with it. Today we'll
+be using Chrome's Postman plugin to test our API endpoints. When debugging make
+sure to reference your Rails server log. It will provide you will valuable
+insight as to what's going wrong.
 
 ### Instructions
 
@@ -157,13 +174,24 @@ For now, let's assume the users of our service aren't malicious
 
 ### Recap
 
-Next, use Chrome's Postman plugin to test your API. Test every API endpoint.
+Congratulations! You should now have tables, models, and controllers for users
+and artworks. Before moving on, first test that your API endpoints are working
+with Postman. Then call over a TA and explain your code.
 
 ## Phase III: Sharing `Artworks`
 
 ### Overview
 
-Now we're going to add routes and controllers for our `ArtworkShares`.
+Now we're going to add routes and controllers for our `ArtworkShares`. The
+`artwork_shares` table is a join table, so while RESTful design patterns still apply,
+our `ArtworkShares` controller will look a little different from the controllers
+we just wrote. All we need to be able to do is share and unshare artworks. What
+controller actions do you think we'll need?
+
+Once we have sharing working, we'll refactor `ArtworksController#index` so
+that it returns artworks either belonging to or shared with a particular user.
+In order to make this work we'll need to pass in the `user_id` to our `index`
+action so we can filter for the appropriate works.
 
 ### Instructions
 
@@ -190,10 +218,14 @@ as the response.
 We won't need any of the other routes, so you can use `only:` to
 restrict them.
 
+Use Postman to make sure that your controller's `create` and `destroy` actions
+work properly. Remember, our validations should prevent us from sharing the same
+`artwork` with the same `user` more than once.
+
 #### User's Artworks: nested routes
 
 We want to be able to fetch the `Artwork`s of a particular user. However,
-However, right now a GET to `/artworks` gets all of the artworks in the
+right now a GET to `/artworks` gets all of the artworks in the
 system.
 
 Let's add a new, nested resource, `/users/:user_id/artworks`, so that
@@ -215,14 +247,24 @@ the `index` method to return:
 You can access the specified user through `params[:user_id]` because it is part
 of the nested route.
 
-## Phase IV
+Use Postman to make sure your modified `index` method in the `ArtworksController`
+returns all art owned by and shared with a user. 
+
+### Recap
+
+At this point in the project you should be able to create `ArtworkShares` with 
+Postman. Artworks shared with a particular user should also be included in data
+returned by a `GET` request to `ArtworksController#index`.
+
+## Phase IV: Comments
 
 ### Overview
 
 Now it's time to add commenting functionality to our application so our users
 can comment on a piece of artwork. By the time we're done, we want to be able to
 retrieve both a specific user's comments as well as comments left on a specific
-artwork.
+artwork. To do with we'll have our `CommentsController#index` method return commments based
+on the params provided by our request.
 
 ### Instructions
 
@@ -236,13 +278,10 @@ associations now. Remember to include `dependent: :destroy` when necessary.
 For instance, when an artwork or user is removed from the database, we don't want
 their associated comments to persist.
 
-Before moving on test that these associations work. If you haven't already, add
-some users, artworks, and comments into your seed file. This way whenever you
-drop your database you can easily re-seed it. Now jump into the Rails console
-and make sure your associations return the proper data.
+Before moving on test that these associations work.
 
 Once we know our table and model have been set up correctly, it's time to
-make our controller. The `comments` controller should have `create`, `destroy`,
+make our controller. The `CommentsController` should have `create`, `destroy`,
 and `index` actions. 
 
 In order to retrieve comments for an artwork or a user we want our `index` action
@@ -250,34 +289,55 @@ to handle some additional params. In particular, we want to be able to pass in a
 `user_id` or a `artwork_id`. By checking if either is present we can then retrieve
 the comments just for that user or artwork. Update your `comment_params` accordingly.
 
-## Phase V 
+### Recap
 
-Now let's add search functionality to our application. To do this we can allow
-users to send in search input via a query string in our params. To do this we
-won't need to change any routes. We can just edit the `index` action in our `User`
-controller. 
+It should now be possible to make `GET` requests to `CommentsController#index`
+and depending on the params provided either return comments made by a particular
+user or comments made on a particular piece of artwork.
 
-# Bonus
+## Phase V: Search 
 
-Likes
+### Overview
 
+Now let's add search functionality to our application so users can search for other
+users by name. To do this we won't need to change any routes. We can just edit the
+`index` action in our `User` controller. 
 
-<!-- Implement these (thinking about sensible routes for each):
+In `UsersController#index` check if a `query` is present in the request params.
+If it is, use that query to filter the users returned by the `index` action.
+If there is no query, just return all users as usual.
 
-* Make a `Comment` model that `belongs_to` either a user or a
-  contact. A user should be able to comment on a contact, shared
-  contact, or on another user. Use [polymorphic associations][poly-assoc].
-  * **Note:** The Railscast uses an outdated Rails 2 routing syntax.
-    Just nest your comments resources under users and contacts in the
-    same way that you would nest any other resource.
-* Favorite contacts. This will require adding additional columns to
-  contacts (for favoriting of contacts by their owner) and shared
-  contacts (for favoriting of contacts shared to a user). Use a semantic
-  custom route to accomplish this. [Hint.][more-restful-actions]
-* Contact groups
-    * A user can have many groups
-    * Contacts can belong to more than one group -->
+Discuss with your partner the best way to write your query method. Here's a [good
+place to start][postgres-search]. 
+
+## Bonus Phase I: Likes
+
+In this phase we'll implement likes using polymorphic associations. Users should
+be able to like both comments and artworks. Read these [Rails docs][polymorphic-associations] on
+polymorphic associations to get started.
+
+Then discuss with your partner how you plan to approach this feature. We'd like
+to be able to call associations on a user and return their liked comments and
+artworks. We also want to be able to call an association on comments and artworks
+to get the users who have liked them.
+
+Once you have a plan call over a TA and explain it to them. Then get coding!
+
+## Bonus Phase II: Favorite Contacts
+
+Let's also allow users to favorite contacts. This will require additional columns
+to contacts (for favoriting of contacts by their owner) and shared contacts (for
+favoriting of contacts shared to a user). User a semantic custom route to accomplish
+this. [Hint.][more-restful-actions]
+
+## Bonus Phase III: Contact Groups
+
+And finally, users should be able to add other users to contact groups. Allow each
+user to have many groups. Contacts can also belong to more than one group. What
+sort of table will you need to make this work?
 
 [poly-assoc]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
 [concerns-for-models]: http://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns
+[postgres-search]: https://www.postgresql.org/docs/8.3/static/functions-matching.html
+[polymorphic-associations]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
 [more-restful-actions]: http://guides.rubyonrails.org/v3.2.14/routing.html#adding-more-restful-actions
