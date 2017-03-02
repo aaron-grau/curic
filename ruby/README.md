@@ -117,7 +117,7 @@
 [prep-w3]: https://github.com/appacademy/appacademy-prep/tree/master/w3
 [recursion]: readings/recursion.md
 
-[recursion-homework]: homeworks/recursion/README.md
+[recursion-homework]: homeworks/recursion
 
 [recursion-project]: projects/recursion
 [word-chains]:  projects/word_chains
@@ -213,7 +213,7 @@
 
 [intro-algorithms-and-data-structures]: ./readings/intro-algorithms-and-data-structures.md
 [git-homeworks]: ./homeworks/git-homeworks.md
-[diy-adts]: ./homeworks/abstract_data_types/README.md
+[diy-adts]: ./homeworks/abstract_data_types
 
 [poly-tree-node]: projects/poly_tree_node
 [knights-travails]: projects/knights_travails
@@ -319,7 +319,7 @@
 [rspec-order]: readings/rspec-order.md
 
 [robot-demo]: demos/robot-rspec-demo
-[rspec-homework]: homeworks/rspec/README.md
+[rspec-homework]: homeworks/rspec
 
 [first-tdd-projects]: projects/first_tdd
 [poker-project]: projects/poker
@@ -376,7 +376,7 @@
 [bubble-sort-visual]: http://www.algomation.com/player?algorithm=541a6ea7a7fe980200089c5e
 
 [sorting-demo]: homeworks/sorting_demo
-[octopus-hw]: homeworks/big_octopus/README.md
+[octopus-hw]: homeworks/big_octopus
 [execution-time]: projects/execution_time_differences
 [anagrams]: projects/anagrams
 [two-sum]: projects/two_sum
@@ -415,7 +415,7 @@
 
 [hash-map-reading]: http://www.gotealeaf.com/blog/how-the-hash-works-in-ruby
 [lru-cache-reading]: https://web.archive.org/web/20150710185255/http://mcicpc.cs.atu.edu/archives/2012/mcpc2012/lru/lru.html
-[lru-cache-hw]: homeworks/lru_cache/README.md
+[lru-cache-hw]: homeworks/lru_cache
 [dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
 [hash-map]: projects/hash_map_lru_cache
 [xor]: readings/xor.md
