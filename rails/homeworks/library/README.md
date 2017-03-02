@@ -42,7 +42,7 @@ end
 
 Check those out by navigating to `localhost:3000/books`. Whoops! We get this error:
 
-![image of index error](./index_error.png)
+![image of index error](index_error.png)
 
 Our books' `index` view is expecting there to be a `@books` variable
 that contains all the books from the database, but it's currently `nil`.
@@ -109,5 +109,5 @@ and additional readings!
 Once you've got it working, celebrate by adding some of your favorite books! :books:
 
 [controlla-by-drake]: https://soundcloud.com/octobersveryown/drake-controlla
-[skeleton]: ./library.zip?raw=true
+[skeleton]: skeleton.zip?raw=true
 [restful-controller-demo]: https://vimeo.com/168505535

@@ -4,8 +4,8 @@ This evening, you will be building a User model for a Rails auth system. This pr
 
 Refer to the [first auth reading][auth-1-reading] and the [second auth reading][auth-2-reading] if you get stuck.
 
-[auth-1-reading]:https://github.com/appacademy/curriculum/blob/master/rails/readings/auth-part-i.md
-[auth-2-reading]:https://github.com/appacademy/curriculum/blob/master/rails/readings/auth-part-ii.md
+[auth-1-reading]: ../../readings/auth-part-i.md
+[auth-2-reading]: ../../readings/auth-part-ii.md
 
 ## Phase 0: Creating a new rails project
 
@@ -63,4 +63,4 @@ User.first.password_digest # shows a string of gibberish that you can't hack
 
 + You have written an important part of a Rails auth system!
 
-[hw-solutions]: ../solutions/rails_auth/AppName
+[hw-solutions]: solution 
