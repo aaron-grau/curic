@@ -2,8 +2,9 @@
 
 [**Live Demo!**](https://appacademy.github.io/curriculum/widgets/)
 
-As an introduction to React, we are going to build four simple
-widgets. We will be building a clock, a weather widget,  interactive tabs, and a simple search component.
+As an introduction to React, we are going to build four simple widgets. We will
+be building a clock, a weather widget,  interactive tabs, and a simple search
+component.
 
 ## Learning Goals
 
@@ -21,6 +22,8 @@ Started'][getting_started] homework, but change your webpack entry point to be
 Your `widgets.jsx` should look have a `DOMContentLoaded` listener that calls
 `ReactDOM.render()` with a `Root` component and a `main` DOM element as the
 hook.
+
+The `Root` component, like all React components, should have a `render` function. For now, have your `Root#render` return an empty `<div>`. We will fill this in with our widget components as we create them.
 
 Note: we won't be using `jQuery` for this project. If you're not sure how to do
 something without it, use Google as a resource and ask a TA if needed.
@@ -74,6 +77,8 @@ The clock component should display the current time, updating every second.
 
 ### Instructions
 
+Make a `Clock` component, to be rendered inside of your `Root` component.
+
 * Set the initial state of your clock using `new Date()`.
 
 * You'll need to `setInterval` to ensure that the clock updates, but you should
@@ -113,13 +118,17 @@ want to use? Try all of them to understand what they do.
 
 ### Recap
 
-You should now have a clock that displays the current time date. Congratulations! Lets move on to something a bit more complicated.
+You should now have a clock that displays the current time date.
+Congratulations! Lets move on to something a bit more complicated.
 
 ## Phase 3: Weather Widget
 
 ### Overview
 
-In this phase, we will create a weather widget to display the current weather based on the user's location. We will be using the `navigator.geolocation` API to get the user's current location, and the [open weather API][weather] to get the current weather.
+In this phase, we will create a weather widget to display the current weather
+based on the user's location. We will be using the `navigator.geolocation` API
+to get the user's current location, and the [open weather API][weather] to get
+the current weather.
 
 ### Instructions
 
@@ -169,7 +178,8 @@ to figure out how to get your current position. (Make sure you have
 
 ### Recap
 
-Great work! Now we have two widgets. One that displays the time, and another that displays the weather.
+Great work! Now we have two widgets. One that displays the time, and another
+that displays the weather.
 
 ## Phase 4: Tabs Widget
 
@@ -280,7 +290,8 @@ name.
 
 ### Recap
 
-Congratulations! You've created four simple React widgets. Now, move on to the bonus phase to make them even better!
+Congratulations! You've created four simple React widgets. Now, move on to the
+bonus phase to make them even better!
 
 ### Bonus phase 2: React-Transitions
 
