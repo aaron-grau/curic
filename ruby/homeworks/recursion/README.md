@@ -13,7 +13,7 @@ If you encounter strange bugs or errors, use `byebug`!
 
 After you finish the exercises, or if you get stuck on one of the problems, you can view the solutions [here][recursion-solutions].
 
-[recursion-solutions]: ../solution/recursion.rb
+[recursion-solutions]: solution.rb
 
 
 ## Exercise 1 - `sum_to`

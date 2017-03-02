@@ -65,7 +65,7 @@ the **return value** of `Board#make_move` to determine whether the turn is over 
  + Do not try calling `Mancala#play` until you have written the `Board` class!
  It won't work.
 
-[mancala-skeleton]: ./skeleton.zip?raw=true
+[mancala-skeleton]: skeleton.zip?raw=true
 
 ## Writing the `Board` class
 
@@ -103,4 +103,4 @@ A few :key: things to note:
 When you have all of your specs passing you are finished! Double check
 your [solutions][mancala-solutions] and go play Mancala!
 
-[mancala-solutions]: ../../solution/mancala/
+[mancala-solutions]: solution
