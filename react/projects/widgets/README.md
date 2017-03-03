@@ -138,7 +138,7 @@ the current weather.
 * Review the [open weather API][weather] documentation. We'll use this
 API to get the weather based on our current location
 
-- In order to get the API to accept your HTTP requests, you'll need
+* In order to get the API to accept your HTTP requests, you'll need
 an API key. [Read up on how to use the API key and sign up for one here.][api-key]
 After signing up, click on the API keys tab to get your key.
 
@@ -153,36 +153,37 @@ to figure out how to get your current position. (Make sure you have
   [location services enabled][location-services] in your browser, or
   this won't work.)
 
-  * When the location is received, query the weather API using a raw
-  `XMLHttpRequest`.
+* When the location is received, query the weather API using a raw
+`XMLHttpRequest`.
 
-  - See [here][vanilla-ajax] and [here][nojquery] if you need help.
-  For more in-depth details, look [here][xmlhttpdocs]
+  + See [here][vanilla-ajax] and [here][nojquery] for help with the XMLHttpRequest.
 
-  - Common pitfall: You need to include `http://` in your request URI
+  + For more in-depth details, look at the [XMLHttpRequest Docs][xmlhttpdocs]
 
-  - Hint: pass a callback to your location query
+* Common pitfall: You need to include `http://` in your request URI
 
-  * Render the current weather and temperature on the page.
+* Hint: pass a callback to your location query
 
-  * Give the weather box a nice border and make sure the elements inside are
-  spaced evenly.
+* Render the current city and temperature on the page.
 
-  [api-key]: http://openweathermap.org/appid
-  [clearInterval]: http://stackoverflow.com/questions/5978519/setinterval-and-how-to-use-clearinterval#answer-5978560
-  [componentDidMount]: https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount
-  [componentWillUnmount]: https://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount
-  [nojquery]: http://youmightnotneedjquery.com/#request
-  [xmlhttpdocs]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-  [navigator]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation
-  [location-services]: https://support.google.com/chrome/answer/142065?hl=en
-  [weather]: http://openweathermap.org/current
-  [vanilla-ajax]: http://stackoverflow.com/questions/8567114/how-to-make-an-ajax-call-without-jquery
+* Give the weather box a nice border and make sure the elements inside are
+spaced evenly.
+
+[api-key]: http://openweathermap.org/appid
+[clearInterval]: http://stackoverflow.com/questions/5978519/setinterval-and-how-to-use-clearinterval#answer-5978560
+[componentDidMount]: https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount
+[componentWillUnmount]: https://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount
+[nojquery]: http://youmightnotneedjquery.com/#request
+[xmlhttpdocs]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+[navigator]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation
+[location-services]: https://support.google.com/chrome/answer/142065?hl=en
+[weather]: http://openweathermap.org/current
+[vanilla-ajax]: http://stackoverflow.com/questions/8567114/how-to-make-an-ajax-call-without-jquery
 
 ### Recap
 
 Great work! Now we have two widgets. One that displays the time, and another
-that displays the weather.
+that displays the weather. We used the `navigator.geolocation` API to get our current location, which we then passed to our `XMLHttpRequest` to get the weather from the Open Weather Map API.
 
 ## Phase 4: Tabs Widget
 
@@ -195,8 +196,8 @@ content pane should update when the user selects different tabs.
 
 ### Instructions
 
-Make a `Tabs` component. `Root` should pass `Tabs` an array of Javascript
-objects (the data for the tabs) that have `title` and `content` as keys.
+* Make a `Tabs` component. `Root` should pass the `Tabs` component an array of
+Javascript objects that each have `title` and `content` as keys.
 
 * Keep track of the selected tab's index in your `Tabs` component's state. Set
 it initially to zero.
