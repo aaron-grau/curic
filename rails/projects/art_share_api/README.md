@@ -69,7 +69,7 @@ To add the DB constraint, consider what would happen if we added indexing and a
 uniqueness constraint to not one, but two columns. [Check the Rails API docs 
 for more info][multi-column-indexing]
 
-Add an index on `artist_id` so that we can quickly get all the contacts for a
+Add an index on `artist_id` so that we can quickly get all the artworks for a
 user. Also add associations between `User` and `Artwork`. Call the association
 from `Artwork` to `User` `Artist`. Note that our column in the `artworks` table
 does not have to be `user_id` despite being a foreign key to the `users` table.
@@ -327,17 +327,17 @@ to get the users who have liked them.
 
 Once you have a plan call over a TA and explain it to them. Then get coding!
 
-## Bonus Phase II: Favorite Contacts
+## Bonus Phase II: Favorite Artworks
 
-Let's also allow users to favorite contacts. This will require additional columns
-to contacts (for favoriting of contacts by their owner) and shared contacts (for
-favoriting of contacts shared to a user). User a semantic custom route to accomplish
+Let's also allow users to favorite artworks. This will require additional columns
+to artworks (for favoriting of artworks by their owner) and shared artworks (for
+favoriting of artworks shared to a user). User a semantic custom route to accomplish
 this. [Hint.][more-restful-actions]
 
-## Bonus Phase III: Contact Groups
+## Bonus Phase III: Artwork Collections
 
-And finally, users should be able to add other users to contact groups. Allow each
-user to have many groups. Contacts can also belong to more than one group. What
+And finally, users should be able to add artworks to artwork collections. Allow each
+user to have many collections. Artworks can also belong to more than one collection. What
 sort of table will you need to make this work?
 
 [poly-assoc]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
