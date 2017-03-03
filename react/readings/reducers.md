@@ -121,7 +121,7 @@ const goodReducer = (state = { count: 0 }, action) => {
 };
 ```
 
-Note the use of [`Object.freeze()`][object-freeze], even though `fruitReducer` doesn't mutate the state `Object.freeze()` will insure that state can't be accidentally mutated. Get in the habit of using `Object.freeze` at the top of every reducer you write!  
+Note the use of [`Object.freeze()`][object-freeze].  Even though `fruitReducer` doesn't mutate the state, `Object.freeze()` will ensure that state can't be accidentally mutated. Get in the habit of using `Object.freeze` at the top of every reducer you write!  
 
 [object-freeze]: ./object_freeze.md
 [lodash-reading]:./lodash.md
@@ -159,7 +159,7 @@ Here's a sample state tree of our new app:
 ```
 
 Our store now needs to handle new action types like `"HIRE_FARMER"` and
-`"PAY_FARMER"`by updating the `farmers` slice of our state. We could add more
+`"PAY_FARMER"` by updating the `farmers` slice of our state. We could add more
 cases to our reducer, but eventually this would become unwieldy. The solution is
 to split our `reducer` into separate `fruits` and `farmers` reducers.
 
