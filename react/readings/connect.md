@@ -40,7 +40,7 @@ const MyComponent = ({ name }) => (
 	<div>{name}</div>
 );
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	name: state.name;
 });
 
@@ -74,12 +74,12 @@ functions that can be called to dispatch actions to the store. These action
 dispatchers are then passed as `props` to the your component.
 
 ```js
-const deleteTodo = (id) => ({ type: "DELETE_TODO", id }); // action creators
-const addTodo = (msg) => ({ type: "ADD_TODO", msg });
+const deleteTodo = id => ({ type: "DELETE_TODO", id }); // action creators
+const addTodo = msg => ({ type: "ADD_TODO", msg });
 
-const mapDispatchToProps = (dispatch) => ({
-	handleDelete: (id) => dispatch(deleteTodo(id)),
-	handleAdd: (msg) => dispatch(addTodo(msg))
+const mapDispatchToProps = dispatch => ({
+	handleDelete: id => dispatch(deleteTodo(id)),
+	handleAdd: msg => dispatch(addTodo(msg))
 });
 ```
 
@@ -99,9 +99,9 @@ const mapStateToProps = (state, ownProps) => ({
 	initials: `${state.name[0]}. ${ownProps.lastName[0]}.`
 });
 
-const mapDispatchToProps = (dispatch) => ({
-	handleDelete: (id) => dispatch(deleteTodo(id)),
-	handleAdd: (msg) => dispatch(addTodo(msg))
+const mapDispatchToProps = dispatch => ({
+	handleDelete: id => dispatch(deleteTodo(id)),
+	handleAdd: msg => dispatch(addTodo(msg))
 });
 
 export default connect(
