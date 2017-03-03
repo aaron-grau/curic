@@ -9,7 +9,7 @@ Some of the benefits of a single-page application include:
 * Decoupling of server architecture from user-interface gives flexibility
   and opportunity for scaling.
 
-[**Live Demo!**](https://appacademy.github.io/curriculum/mail/)
+[**Live Demo!**](appacademy.github.io/curriculum/mail/)
 
 
 ## Learning Goals
