@@ -150,11 +150,11 @@ You will sometimes see this line at the top of JavaScript files. It is an
 instance of a special compiler directive called a [pragma]. This specific
 pragma ensures that the code in its scope follows certain rules, and if those
 rules are broken, errors will be thrown at compile time. For instance, strict
-mode prohibits the use of global variables. There are [many other rules][strict
-mode] that are enforced in strict mode.
+mode prohibits the use of global variables. There are [many other rules]
+that are enforced in strict mode.
 
 [pragma]: http://stackoverflow.com/questions/14593350/what-exactly-is-a-javascript-pragma
-[strict mode]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+[many other rules]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 
 ### IIFE
 
