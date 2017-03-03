@@ -82,6 +82,7 @@
 - [`connect()`][connect] (15 min)
 - [Containers][containers] (10 min)
 - [Selectors][selectors] (10 min)
+- [Nontechnical Overview of React][react-nontech] (15 min)
 
 [lodash]: readings/lodash.md
 [store]: readings/store.md
@@ -92,6 +93,7 @@
 [connect]: readings/connect.md
 [containers]: readings/containers.md
 [selectors]: readings/selectors.md
+[react-nontech]: readings/redux_nontech.md
 
 ### Fruit Stand App Demo (75 min)
 + Phase I - Redux only (15 min)
