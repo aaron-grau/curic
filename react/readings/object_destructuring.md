@@ -54,7 +54,7 @@ b; //=> 2
 This works even if we have a variable or function that returns an object.
 
 ```js
-const multiply = n => { one: n, two: n * 2, three: n * 3 };
+const multiply = n => ({ one: n, two: n * 2, three: n * 3 });
 
 const { one, two, three } = multiply(10);
 one; //=> 10
