@@ -322,8 +322,9 @@
 * [Nontechnical Overview of JavaScript][js-nontech] (15 min)
 * [Technical overview of Browsers][browser-tech] (15 min)
 
-### Homeworks (45 min)
+### Homeworks (55 min)
 * [Vanilla DOM Manipulation][vanilla-dom] (45 min)
+* [Peer Mock Interview Prep][pairboarding-setup] (10 min)
 
 ### Additional Resources
 * [Vanilla AJAX][vanilla-ajax]
@@ -342,6 +343,7 @@
 
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 [vanilla-dom]: homeworks/questions/vanilla-dom
+[pairboarding-setup]: ../course/readings/pairboarding_setup.md
 
 [mail]: projects/mail
 [jquery-lite]: projects/jquery_lite
