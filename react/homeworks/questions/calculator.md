@@ -57,7 +57,7 @@ class Calculator extends React.Component {
 export default Calculator;
 ```
 
-Delete `MyComponent` in your entry file. Import the `Calculator` component and
+Delete `Congrats` in your entry file. Import the `Calculator` component and
 set it to render in the DOM. Make sure 'Hello World' still shows up in the
 browser, this time from your `Calculator` component.
 
