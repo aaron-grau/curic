@@ -165,7 +165,7 @@ Write a recursive method `permutations(array)` that calculates all the
 ```ruby
 permutations([1, 2, 3]) # => [[1, 2, 3], [1, 3, 2],
                         #     [2, 1, 3], [2, 3, 1],
-                        #     [3, 2, 1], [3, 1, 2]]
+                        #     [3, 1, 2], [3, 2, 1]]
 
 ```
 You can use Ruby's built in [`Array#permutation`][ruby-permutations] method to get a better understanding of
@@ -174,7 +174,7 @@ what you will be building.
 ``` ruby
 [1, 2, 3].permutation.to_a  # => [[1, 2, 3], [1, 3, 2],
                             #     [2, 1, 3], [2, 3, 1],
-                            #     [3, 2, 1], [3, 1, 2]]
+                            #     [3, 1, 2], [3, 2, 1]]
 ```
 
 [wiki-permutations]: https://en.wikipedia.org/wiki/Permutation
