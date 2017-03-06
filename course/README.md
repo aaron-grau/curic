@@ -6,6 +6,7 @@
 * [HTML/CSS][html-css]
 * [Javascript][js]
 * [React][react]
+* [Non-Technical Readings][nontech]
 
 # Information
 
@@ -22,3 +23,4 @@
 [js]: ../javascript
 [react]: ../react
 [html-css]: ../html-css
+[nontech]: ./non-technical-readings.md
