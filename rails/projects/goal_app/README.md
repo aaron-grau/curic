@@ -185,8 +185,7 @@ same `Comment` model.
 
 This is nothing to be intimidated by, it only requires a few extra
 lines of code and an extra column in the `comments` table.
-Here's the [reading on polymorphic associations][poly-reading] if you
-need a refresher.
+Here's a [reading on polymorphic associations][poly-reading] you can reference.
 
 Think through what you will need to to make all this happen. Think about
 which associations you will need. Each `User` and `Goal` should have
@@ -207,7 +206,7 @@ very _dry_ if we're writing identical code for both `User` comments and
 
 Well funny you should mention that. It just so happens that we have
 these nice things called **Concerns** to factor out our association
-logic and _dry out_ our code. Go ahead and review the [concerns
+logic and _dry out_ our code. Go ahead and take a look at the [concerns
 reading][concerns-reading] and then create your own `Commentable`
 concern.
 
