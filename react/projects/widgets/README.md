@@ -87,7 +87,7 @@ will require this class from `widgets.jsx` and incorporate it into
 * Create a render method. Give your clock a title and check that this renders
 correctly on the page.
 
-* In the constructor, set the initial state of your clock using `new Date()`.
+* In the constructor, set the initial state for the time of your clock using `new Date()`.
 
 * You'll need to `setInterval` to ensure that the clock updates, but you should
 wait until the component is actually on the page. For this, you can define a
@@ -160,9 +160,10 @@ component.
 * Review the [open weather API][weather] documentation. We'll use this
 API to get the weather based on our current location
 
-* In order to get the API to accept your HTTP requests, you'll need
-an API key. [Read up on how to use the API key and sign up for one here.][api-key]
-After signing up, click on the API keys tab to get your key.
+* In order to get the API to accept your HTTP requests, you'll need an API key.
+[Read up on how to use the API key and sign up for one here.][api-key] After
+signing up, click on the API keys tab to get your key. You may need to open
+their welcome email before the API key will work.
 
 **NB:** In the real world, you should be very careful about placing
 API keys in frontend JavaScript or anywhere else they are publicly
@@ -280,9 +281,9 @@ name.
   define its own list of names. Instead create a list of names in
   `widgets.jsx` and pass them into `Autocomplete` as a prop.
 
-* Build your widget in the `render` method.
+* Set your initial state for inputVal as an empty string.
 
-  - Create a [semantic][html5-flowchart] root element.
+* Build your widget in the `render` method.
 
   - It should contain an input field and an unordered list.
 
@@ -295,7 +296,6 @@ name.
     diff the DOM when one doesn't even know which list items match up
     with which!?"
 
-* Set your initial state as an empty string using `getInitialState`.
 
 * When a user types something into the input, use an event handler to
   update the widget's state. Remember, no jQuery!
@@ -303,7 +303,7 @@ name.
 * Add a click handler to the `<li>`s you've created for each name using
   onClick. In the click handler, use `setState` to update the widget's
   search string. You will need to turn your `<input>` into a [controlled
-  compenent][controlled-component-docs] for this to work.
+  component][controlled-component-docs] for this to work.
 
 #### Styling
 
@@ -318,8 +318,8 @@ name.
 
 ### Recap
 
-Congratulations! You've created four simple React widgets. Now, move on to the
-bonus phase to make them even better!
+Great job! The Autocomplete Widget uses an event handler to update the state of
+the component when letters are typed into the input field. Move on to the bonus phase to make your widgets even better!
 
 ### Bonus phase 2: React-Transitions
 
@@ -409,6 +409,5 @@ below and make sure to include them:
 
 
 [react-transitions]: https://facebook.github.io/react/docs/animation.html
-[html5-flowchart]: http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf
 [react-keys]: https://facebook.github.io/react/docs/reconciliation.html#list-wise-diff
 [controlled-component-docs]: https://facebook.github.io/react/docs/forms.html#controlled-components
