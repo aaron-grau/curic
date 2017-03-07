@@ -23,7 +23,9 @@ Your `widgets.jsx` should look have a `DOMContentLoaded` listener that calls
 `ReactDOM.render()` with a `Root` component and a `main` DOM element as the
 hook.
 
-The `Root` component, like all React components, should have a `render` method. For now, have your `Root#render` return an empty `<div>`. We will fill this in with our widget components as we create them.
+The `Root` component, like all React components, should have a `render` method.
+For now, have your `Root#render` return an empty `<div>`. We will fill this in
+with our widget components as we create them.
 
 Note: we won't be using `jQuery` for this project. If you're not sure how to do
 something without it, use Google as a resource and ask a TA if needed.
@@ -77,9 +79,13 @@ The clock component should display the current date and time, updating every sec
 
 ### Instructions
 
-* Create a `clock.jsx` file in your `frontend` folder. Render the `Clock` component inside of your `Root` component.
+* Start by creating a new file `clock.jsx` in your `frontend` folder and
+defining your `Clock` class there. Remember to export. You
+will require this class from `widgets.jsx` and incorporate it into
+`Root#render`. This is the pattern you will follow for all the widgets.
 
-* Don't forget to create a render method. Give your clock a title and check that this renders correctly on the page.
+* Create a render method. Give your clock a title and check that this renders
+correctly on the page.
 
 * In the constructor, set the initial state of your clock using `new Date()`.
 
@@ -87,12 +93,19 @@ The clock component should display the current date and time, updating every sec
 wait until the component is actually on the page. For this, you can define a
 [`componentDidMount`][componentDidMount] function.
 
-* You'll also want to [store that interval's id][clearInterval] so you can cancel it in
-[`componentWillUnmount`][componentWillUnmount], which gets called just before
-the component is removed. Don't store this in the component's `state` since it
-doesn't affect the UI. Instead, just store it directly on `this`.
+* You'll also want to [store that interval's id][clearInterval] so you can
+cancel it in [`componentWillUnmount`][componentWillUnmount], which gets called
+just before the component is removed. Don't store this in the component's
+`state` since it doesn't affect the UI. Instead, just store it directly on
+`this`.
 
-* Check out all of the [methods][date-object] you can use to display the date and time in a human-readable string.
+* Check out all of the [methods][date-object] you can use to display the date
+and time in a human-readable string.
+
+#### Styling
+
+* Create an `index.css` file and add it to the head of your `index.html` file.
+Remember to include your CSS resets.
 
 * Go to [Google Fonts][google-fonts] and select a nice font for your clock. Take
 the font embed code and paste it into the `<head>` of your HTML page. Your
@@ -107,7 +120,8 @@ the font embed code and paste it into the `<head>` of your HTML page. Your
 </head>
 ```
 
-To use the font, set the `font-family` of your element to the font name.
+* To use the font, set the `font-family` of your element to the font name in
+your `index.css` file.
 
 * Set the time and date headers to be on one side and the actual time
 and date to the other. Refer to the live demo to see what your end
@@ -115,14 +129,19 @@ goal is. You can achieve this easily with a flexbox. Take a look at
 the [`justify-content`][justify-content] property. Which one do you
 want to use? Try all of them to understand what they do.
 
+* Add a background. Use the `background-image` or `background-color` property to
+change the background. Feel free to do this for every widget.
+
 [justify-content]: https://css-tricks.com/almanac/properties/j/justify-content/
 [google-fonts]: https://fonts.google.com/
 [date-object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 
 ### Recap
 
-You should now have a clock that displays the current time date.
-Congratulations! Lets move on to something a bit more complicated.
+You should now have a clock that displays the current time date. We used
+`setInterval` to make sure that the clock updates every second, and
+`clearInterval` to clear the timer that `setInterval` set. Once you have
+sufficiently styled your clock, move on to the next widget.
 
 ## Phase 3: Weather Widget
 
@@ -134,6 +153,9 @@ to get the user's current location, and the [open weather API][weather] to get
 the current weather.
 
 ### Instructions
+
+* Make a `Weather` component, which again, will be incorporated into your `Root`
+component.
 
 * Review the [open weather API][weather] documentation. We'll use this
 API to get the weather based on our current location
@@ -147,11 +169,10 @@ API keys in frontend JavaScript or anywhere else they are publicly
 available and can be scraped (this includes public Git repos).
 Stolen keys can cost you. _You have been warned._
 
-* To get your current location, add a call to `navigator.geolocation`
-when the component mounts. Read through the [documentation][navigator]
-to figure out how to get your current position. (Make sure you have
-  [location services enabled][location-services] in your browser, or
-  this won't work.)
+* To get your current location, add a call to `navigator.geolocation` when the
+component mounts. Read through the [documentation][navigator] to figure out
+how to get your current position. (Make sure you have [location services
+enabled][location-services] in your browser, or this won't work.)
 
 * When the location is received, query the weather API using a raw
 `XMLHttpRequest`.
@@ -183,7 +204,9 @@ spaced evenly.
 ### Recap
 
 Great work! Now we have two widgets. One that displays the time, and another
-that displays the weather. We used the `navigator.geolocation` API to get our current location, which we then passed to our `XMLHttpRequest` to get the weather from the Open Weather Map API.
+that displays the weather. We used the `navigator.geolocation` API to get our
+current location, which we then passed to our `XMLHttpRequest` to get the
+weather from the Open Weather Map API.
 
 ## Phase 4: Tabs Widget
 
@@ -205,7 +228,8 @@ it initially to zero.
 * In the render method of `Tabs`, render a collection of `<h1>`s (with titles)
 in a `<ul>` and the content of the selected tab in an `<article>`.
 
-* Consider creating a `Header` subcomponent.
+  + Consider creating a `Header` subcomponent for the tabs.
+
 
 * Add a click handler to each header that updates the selected index in the
 `Tabs` component.
@@ -215,8 +239,7 @@ argument to a function, which means that it only supports _expressions_, so
 you can't use `if`/`else` inside `{ }`. (This is also why you can't end with a
 semicolon.)
 
-* Create an `index.css` file and add it to the head of your `index.html` file.
-Remember to include your CSS resets.
+#### Styling
 
 * Add a border around each tab header and the whole section. Use `border-radius`
 to add nicely curved corners to the top of your tabs.
@@ -227,18 +250,17 @@ Add `display: flex` to your CSS for your tab headers.
 * Center the tab content, both horizontally and vertically.
 
 * Add a hover effect to change the background color of the tab that's being
-moused over. Change the `cursor` to be a `pointer` when you're mousing over
-the tabs to make it clear that the tabs are interactive.
+moused over.
 
-* Add a background. Use the `background-image` or `background-color` property to
-change the background. Feel free to do this for every widget.
+* Change the `cursor` to be a `pointer` when you're mousing over the tabs to
+make it clear that the tabs are interactive.
 
 ### Recap
 
 At this point, you should have a widget that displays the content of a selected
 tab. The selected tab's label should be bold and the content pane should update
 when a different tab is selected. Once the tabs widget is sufficiently styled,
-move on to your last widget.
+move on to your fourth and final widget.
 
 ## Phase 5: Autocomplete Widget
 
@@ -251,10 +273,8 @@ name.
 
 ### Instructions
 
-* Start by creating a new file `autocomplete.jsx` and defining your
-  `Autocomplete` class there. You will require this class from
-  `widgets.jsx` and incorporate it into `Root#render`. This is the
-  pattern you will follow for all the widgets.
+* Create a new file `autocomplete.jsx` and define your
+  `Autocomplete` class there. Incorporate it into `Root#render`.
 
 * Because your `Autocomplete` widget should be reusable, it mustn't
   define its own list of names. Instead create a list of names in
@@ -285,9 +305,13 @@ name.
   search string. You will need to turn your `<input>` into a [controlled
   compenent][controlled-component-docs] for this to work.
 
+#### Styling
+
 * Give your component a border and make sure all the `<li>`s are nicely
-  padded inside the box. Change the `cursor` property to display a
-  pointer when hovering over one of the `<li>`s.
+  padded inside the box.
+
+* Change the `cursor` property to display a pointer when hovering over one of
+  the `<li>`s.
 
 * Center all your widgets using flexboxes. Which `justify-content` property
   would you use for this?
