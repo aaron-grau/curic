@@ -1,13 +1,10 @@
 import React from 'react';
-import SynthContainer from './synth/synth_container';
-import RecorderContainer from './recorder/recorder_container';
-import JukeboxContainer from './jukebox/jukebox_container';
+import TodoListContainer from './todo_list/todo_list_container';
 
 const App = () => (
-  <div className='app'>
-    <SynthContainer />
-    <RecorderContainer />
-    <JukeboxContainer />
+  <div className="app">
+    <h1>Super Awesome Todo List</h1>
+    <TodoListContainer />
   </div>
 );
 
