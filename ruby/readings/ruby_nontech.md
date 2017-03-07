@@ -204,7 +204,7 @@ new linguistic features before Python developers catch on.
 Because of the popularity of Rails, the fact that Python is older, and the
 early porting of statistical libraries in R to Python, Python has a more
 diverse community, including many more proponents in data science and academia.
-Ruby has no equivalent to Python's SciPy, NumPy, Matplob lib, or NLTK (Natural
+Ruby has no equivalent to Python's SciPy, NumPy, Matplot lib, or NLTK (Natural
 Language Toolkit) libraries.
 
 Here's an excellent infographic from UpGuard comparing the two languages:
