@@ -1,16 +1,15 @@
 module.exports = {
   context: __dirname,
-  entry: "./entry.jsx",
+  entry: './entry.jsx',
   output: {
-    path: "./",
-    filename: "bundle.js"
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']
         }
@@ -18,7 +17,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: ['.js', '.jsx', '*']
   },
   devtool: 'source-map'
 };
