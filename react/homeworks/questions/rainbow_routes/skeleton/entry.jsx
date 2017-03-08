@@ -16,7 +16,6 @@ import Blue from './components/blue';
 import Indigo from './components/indigo';
 import Violet from './components/violet';
 
-
 class Rainbow extends React.Component {
   constructor() {
     super();
