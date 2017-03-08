@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory, withRouter } from 'react-router';
+import {
+  Router,
+  Route,
+  IndexRoute,
+  hashHistory,
+  withRouter
+} from 'react-router';
 
-import Red from './components/red.jsx';
-import Orange from './components/orange.jsx';
-import Yellow from './components/yellow.jsx';
-import Green from './components/green.jsx';
-import Blue from './components/blue.jsx';
-import Indigo from './components/indigo.jsx';
-import Violet from './components/violet.jsx';
+import Red from './components/red';
+import Orange from './components/orange';
+import Yellow from './components/yellow';
+import Green from './components/green';
+import Blue from './components/blue';
+import Indigo from './components/indigo';
+import Violet from './components/violet';
 
 
 class Rainbow extends React.Component {
@@ -21,7 +27,7 @@ class Rainbow extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <h1>Rainbow Router!</h1>
 

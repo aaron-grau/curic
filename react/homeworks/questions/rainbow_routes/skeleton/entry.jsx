@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory, withRouter } from 'react-router';
+import {
+  Router,
+  Route,
+  IndexRoute,
+  hashHistory,
+  withRouter
+} from 'react-router';
 
-import Red from './components/red.jsx';
-import Orange from './components/orange.jsx';
-import Yellow from './components/yellow.jsx';
-import Green from './components/green.jsx';
-import Blue from './components/blue.jsx';
-import Indigo from './components/indigo.jsx';
-import Violet from './components/violet.jsx';
+import Red from './components/red';
+import Orange from './components/orange';
+import Yellow from './components/yellow';
+import Green from './components/green';
+import Blue from './components/blue';
+import Indigo from './components/indigo';
+import Violet from './components/violet';
 
 
 class Rainbow extends React.Component {
@@ -18,6 +24,22 @@ class Rainbow extends React.Component {
     this.addGreen = this.addGreen.bind(this);
     this.addBlue = this.addBlue.bind(this);
     this.addViolet = this.addViolet.bind(this);
+  }
+
+  addRed() {
+    // your code here
+  }
+
+  addGreen() {
+    // your code here
+  }
+
+  addBlue() {
+    // your code here
+  }
+
+  addViolet() {
+    // your code here
   }
 
   render() {
@@ -36,22 +58,6 @@ class Rainbow extends React.Component {
       </div>
     );
   }
-
-  addRed() {
-    // your code here
-  }
-
-  addGreen() {
-    // your code here
-  }
-
-  addBlue() {
-    // your code here
-  }
-
-  addViolet() {
-    // your code here
-  }
 };
 
 Rainbow = withRouter(Rainbow);
@@ -62,9 +68,10 @@ const routes = (
   </Route>
 );
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
+  const main = document.getElementById('main');
   ReactDOM.render(
     <Router history={hashHistory}>{routes}</Router>,
-    document.getElementById('main')
+    main
   );
 });
