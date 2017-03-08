@@ -8,6 +8,14 @@ class Blue extends React.Component {
     this.addIndigo = this.addIndigo.bind(this);
   }
 
+  resetBlue() {
+    // your code here
+  }
+
+  addIndigo() {
+    // your code here
+  }
+
   render() {
     return(
       <div>
@@ -18,14 +26,6 @@ class Blue extends React.Component {
         {this.props.children}
       </div>
     );
-  }
-
-  resetBlue() {
-    // your code here
-  }
-
-  addIndigo() {
-    // your code here
   }
 };
 

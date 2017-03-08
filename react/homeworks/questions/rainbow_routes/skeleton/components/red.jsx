@@ -9,6 +9,18 @@ class Red extends React.Component {
     this.addYellow = this.addYellow.bind(this);
   }
 
+  resetRed() {
+    // your code here
+  }
+
+  addOrange() {
+    // your code here
+  }
+
+  addYellow() {
+    // your code here
+  }
+
   render() {
     return(
       <div>
@@ -20,18 +32,6 @@ class Red extends React.Component {
         {this.props.children}
       </div>
     );
-  }
-
-  resetRed() {
-    // your code here
-  }
-
-  addOrange() {
-    // your code here
-  }
-
-  addYellow() {
-    // your code here
   }
 };
 
