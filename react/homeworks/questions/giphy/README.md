@@ -19,7 +19,7 @@ folder that has a simple stylesheet made for you.
   - Check out `webpack.config.js` and `package.json`
   - Find the entry file `giphy_search.jsx`
 * Run `npm install`
-* Run `npm run webpack` to keep webpack running while you write your code
+* Run `npm start` to start `webpack-dev-server`
 
 [skeleton]: ./skeleton.zip?raw=true
 
