@@ -19,7 +19,7 @@ Build a new React NPM project from scratch like you did in the ['Getting
 Started'][getting_started] homework, but change your webpack entry point to be
 `widgets.jsx`.
 
-Your `widgets.jsx` should look have a `DOMContentLoaded` listener that calls
+Your `widgets.jsx` should have a `DOMContentLoaded` listener that calls
 `ReactDOM.render()` with a `Root` component and a `main` DOM element as the
 hook.
 
