@@ -1,12 +1,19 @@
 class ArtworkSharesController < ApplicationController
   def create
-    @share = ArtworkShare.create(artwork_share_params)
-    render :json => @share
+    @share = ArtworkShare.new(artwork_share_params)
+
+    if @share.save
+      render :json => @share, :status => :created
+    else
+      render(
+        :json => @share.errors.full_messages,
+        :status => :unprocessable_entity
+      )
+    end
   end
 
   def destroy
-    @share = ArtworkShare.find(params[:id])
-    @share.destroy
+    @share = ArtworkShare.find(params[:id]).destroy
     render :json => @share
   end
 

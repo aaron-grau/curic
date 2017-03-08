@@ -13,8 +13,8 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
-    @artwork = Artwork.find(params[:id])
-    render :json => @artwork.destroy
+    @artwork = Artwork.find(params[:id]).destroy
+    render :json => @artwork
   end
 
   def index

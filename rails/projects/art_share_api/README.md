@@ -211,7 +211,7 @@ method that will whitelist the `ArtworkShare` attributes.
 
 * `destroy` (DELETE `/artwork_share/:id`)
 
-Un-shares an `Artwork` with a `User`. To delete a share, the user should issue
+This un-shares an `Artwork` with a `User`. To delete a share, the user should issue
 a DELETE to `/artwork_shares/123`, where `123` is the id of the `ArtworkShare`
 to destroy.
 
