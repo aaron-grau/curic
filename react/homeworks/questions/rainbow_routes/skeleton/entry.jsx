@@ -67,7 +67,7 @@ const routes = (
   </Route>
 );
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const main = document.getElementById('main');
   ReactDOM.render(
     <Router history={hashHistory}>{routes}</Router>,

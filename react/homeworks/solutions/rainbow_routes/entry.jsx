@@ -26,6 +26,22 @@ class Rainbow extends React.Component {
     this.addViolet = this.addViolet.bind(this);
   }
 
+  addRed() {
+    this.props.router.push('/red');
+  }
+
+  addGreen() {
+    this.props.router.push('/green');
+  }
+
+  addBlue() {
+    this.props.router.push('/blue');
+  }
+
+  addViolet() {
+    this.props.router.push('/violet');
+  }
+
   render() {
     return (
       <div>
@@ -41,22 +57,6 @@ class Rainbow extends React.Component {
         </div>
       </div>
     );
-  }
-
-  addRed() {
-    this.props.router.push('/red');
-  }
-
-  addGreen() {
-    this.props.router.push('/green');
-  }
-
-  addBlue() {
-    this.props.router.push('/blue');
-  }
-
-  addViolet() {
-    this.props.router.push('/violet');
   }
 };
 
@@ -76,9 +76,10 @@ const routes = (
   </Route>
 );
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', () => {
+  const main = document.getElementById('main');
   ReactDOM.render(
     <Router history={hashHistory}>{routes}</Router>,
-    document.getElementById('main')
+    main
   );
 });
