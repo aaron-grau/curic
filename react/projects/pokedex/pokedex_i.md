@@ -36,8 +36,7 @@ end
 ```
 
 The `defaults: {format: :json}` option tells the controller to first look for a
-`.json.jbuilder` view rather than an `html.erb` view. Edit `routes.rb` to add
-the following routes to our app.
+`.json.jbuilder` view rather than an `html.erb` view.
 
 Edit your `routes.rb`. Your routes table should look like the following:
 
