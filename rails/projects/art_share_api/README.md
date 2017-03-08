@@ -70,10 +70,10 @@ uniqueness constraint to not one, but two columns. [Check the Rails API docs
 for more info][multi-column-indexing]
 
 Add an index on `artist_id` so that we can quickly get all the artworks for a
-user. Also add associations between `User` and `Artwork`. Call the association
-from `Artwork` to `User` `Artist`. Note that our column in the `artworks` table
-does not have to be `user_id` despite being a foreign key to the `users` table.
-In this case, `artist_id` is much more descriptive and therefore preferable.
+user. Also add associations between `User` and `Artwork`. The association from
+`Artwork` to `User` should be called `artist`. Note that our column in the `artworks`
+table does not have to be `user_id` despite being a foreign key to the `users`
+table. In this case, `artist_id` is much more descriptive and therefore preferable.
 
 [scoped-uniqueness]: http://apidock.com/rails/ActiveModel/Validations/ClassMethods/validates#940-uniqueness
 [multi-column-indexing]: http://apidock.com/rails/v2.3.8/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
@@ -124,7 +124,8 @@ insight as to what's going wrong.
 
 ### Instructions
 
-First, build out your `User` controller actions. You'll want:
+First, make sure the `User` controller actions you created in the previous project
+are all working. They should do the following:
 
 * `user_params` helper method
 
@@ -133,14 +134,13 @@ permits each of the user attributes as keys in the nested hash.
 
 * `create` (POST `/users`)
 
-Using request parameters (use `user_params`), build a new `User` object and try
-to save it. Remember to use `if @user.save` to check if validations passed. On
-error, render validation errors using `@user.errors.full_messages`. Set the
-status code to indicate error.
+Remember to use `if @user.save` to check if validations passed. On error,
+this action should render validation errors using `@user.errors.full_messages`.
+Set the status code to indicate error.
 
 * `destroy` (DELETE `/users:id`)
 
-Find the user (we can lookup the id in `params[:id]`) and destroy the object.
+Finds the user (we can lookup the id in `params[:id]`) and destroys the object.
 Best practice is to render the destroyed user after destroying it in the
 database. Use `dependent: :destroy` in the `artworks` and `artwork_shares`
 associations on `User`. This ensures that the associated records are also
@@ -148,19 +148,20 @@ destroyed.
 
 * `index` (GET `/users`)
 
-Render all the users in the database.
+Renders all the users in the database.
 
 * `show` (GET `/users/:id`)
 
-Render a single user, using the `:id` in `params[:id]`.
+Renders a single user, using the `:id` in `params[:id]`.
 
 * `update` (PATCH `/users/:id`)
 
-Find the requested user. Use `update` with `user_params` to do a mass-assignment
+Finds the requested user. Use `update` with `user_params` to do a mass-assignment
 update and save. Render validation errors using `@user.errors.full_messages`. 
 *Don't forget the status code!*
 
-Now let's move to the `routes.rb` file. Use the `only:` option for `resources` to
+Now let's move to the `routes.rb` file. You should already have routes for the `users`
+controller from the previous project. Use the `only:` option for `resources` to
 restrict to just the five actions above for the `users` controller. There should
 be six routes in total; remember that Rails will generate both `patch` and `put`
 routes for the `update` action.
