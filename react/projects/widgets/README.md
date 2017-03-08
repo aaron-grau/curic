@@ -84,12 +84,14 @@ defining your `Clock` class there. Remember to export. You
 will require this class from `widgets.jsx` and incorporate it into
 `Root#render`. This is the pattern you will follow for all the widgets.
 
-* Create a render method. Give your clock a title and check that this renders
-correctly on the page.
+* Create a render method. Give your clock a title in an `<h1>` and check that
+this renders correctly on the page.
 
 * In the constructor, set the initial state for the time of your clock using `new Date()`.
 
-* You'll need to `setInterval` to ensure that the clock updates, but you should
+* Write a method, `tick` that uses `setState` to set the time to a `new Date()`
+
+* You'll use to `setInterval` to call `tick` every second, but you should
 wait until the component is actually on the page. For this, you can define a
 [`componentDidMount`][componentDidMount] function.
 
@@ -99,8 +101,9 @@ just before the component is removed. Don't store this in the component's
 `state` since it doesn't affect the UI. Instead, just store it directly on
 `this`.
 
-* Check out all of the [methods][date-object] you can use to display the date
-and time in a human-readable string.
+* In your render method, display the current hours, minutes, and seconds. Check
+out all of the [methods][date-object] you can use to display the date and time
+in a human-readable string.
 
 #### Styling
 
@@ -175,8 +178,8 @@ component mounts. Read through the [documentation][navigator] to figure out
 how to get your current position. (Make sure you have [location services
 enabled][location-services] in your browser, or this won't work.)
 
-* When the location is received, query the weather API using a raw
-`XMLHttpRequest`.
+* When the location is received, use a callback to query the weather
+API using a raw `XMLHttpRequest`.
 
   + See [here][vanilla-ajax] and [here][nojquery] for help with the XMLHttpRequest.
 
@@ -197,7 +200,7 @@ spaced evenly.
 [componentWillUnmount]: https://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount
 [nojquery]: http://youmightnotneedjquery.com/#request
 [xmlhttpdocs]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-[navigator]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation
+[navigator]: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
 [location-services]: https://support.google.com/chrome/answer/142065?hl=en
 [weather]: http://openweathermap.org/current
 [vanilla-ajax]: http://stackoverflow.com/questions/8567114/how-to-make-an-ajax-call-without-jquery
@@ -209,61 +212,7 @@ that displays the weather. We used the `navigator.geolocation` API to get our
 current location, which we then passed to our `XMLHttpRequest` to get the
 weather from the Open Weather Map API.
 
-## Phase 4: Tabs Widget
-
-### Overview
-
-We are going to add a tabs widget that the user can interact with. The tabs
-should each be labeled with their own title. The selected tab should be in
-**bold** font. Below the tabs, display the contents of the selected tab. The
-content pane should update when the user selects different tabs.
-
-### Instructions
-
-* Make a `Tabs` component. `Root` should pass the `Tabs` component an array of
-Javascript objects that each have `title` and `content` as keys.
-
-* Keep track of the selected tab's index in your `Tabs` component's state. Set
-it initially to zero.
-
-* In the render method of `Tabs`, render a collection of `<h1>`s (with titles)
-in a `<ul>` and the content of the selected tab in an `<article>`.
-
-  + Consider creating a `Header` subcomponent for the tabs.
-
-
-* Add a click handler to each header that updates the selected index in the
-`Tabs` component.
-
-* Remember that JSX interpolation is just syntactic sugar for passing an
-argument to a function, which means that it only supports _expressions_, so
-you can't use `if`/`else` inside `{ }`. (This is also why you can't end with a
-semicolon.)
-
-#### Styling
-
-* Add a border around each tab header and the whole section. Use `border-radius`
-to add nicely curved corners to the top of your tabs.
-
-* Use a flexbox to ensure that the tabs all take up the same amount of space.
-Add `display: flex` to your CSS for your tab headers.
-
-* Center the tab content, both horizontally and vertically.
-
-* Add a hover effect to change the background color of the tab that's being
-moused over.
-
-* Change the `cursor` to be a `pointer` when you're mousing over the tabs to
-make it clear that the tabs are interactive.
-
-### Recap
-
-At this point, you should have a widget that displays the content of a selected
-tab. The selected tab's label should be bold and the content pane should update
-when a different tab is selected. Once the tabs widget is sufficiently styled,
-move on to your fourth and final widget.
-
-## Phase 5: Autocomplete Widget
+## Phase 4: Autocomplete Widget
 
 ### Overview
 
@@ -319,9 +268,64 @@ name.
 ### Recap
 
 Great job! The Autocomplete Widget uses an event handler to update the state of
-the component when letters are typed into the input field. Move on to the bonus phase to make your widgets even better!
+the component when letters are typed into the input field. Once the autocomplete
+widget is sufficiently styled, move on to your fourth and final widget.
 
-### Bonus phase 2: React-Transitions
+## Phase 5: Tabs Widget
+
+### Overview
+
+We are going to add a tabs widget that the user can interact with. The tabs
+should each be labeled with their own title. The selected tab should be in
+**bold** font. Below the tabs, display the contents of the selected tab. The
+content pane should update when the user selects different tabs.
+
+### Instructions
+
+* Make a `Tabs` component. `Root` should pass the `Tabs` component an array of
+Javascript objects that each have `title` and `content` as keys.
+
+* Keep track of the selected tab's index in your `Tabs` component's state. Set
+it initially to zero.
+
+* In the render method of `Tabs`, render a collection of `<h1>`s (with titles)
+in a `<ul>` and the content of the selected tab in an `<article>`.
+
+  + Consider creating a `Header` subcomponent for the tabs.
+
+
+* Add a click handler to each header that updates the selected index in the
+`Tabs` component.
+
+* Remember that JSX interpolation is just syntactic sugar for passing an
+argument to a function, which means that it only supports _expressions_, so
+you can't use `if`/`else` inside `{ }`. (This is also why you can't end with a
+semicolon.)
+
+#### Styling
+
+* Add a border around each tab header and the whole section. Use `border-radius`
+to add nicely curved corners to the top of your tabs.
+
+* Use a flexbox to ensure that the tabs all take up the same amount of space.
+Add `display: flex` to your CSS for your tab headers.
+
+* Center the tab content, both horizontally and vertically.
+
+* Add a hover effect to change the background color of the tab that's being
+moused over.
+
+* Change the `cursor` to be a `pointer` when you're mousing over the tabs to
+make it clear that the tabs are interactive.
+
+### Recap
+
+At this point, you should have a widget that displays the content of a selected
+tab. The selected tab's label should be bold and the content pane should update
+when a different tab is selected. Finally, move on to the bonus phase to make
+your widgets even better.
+
+### Bonus phase 1: React-Transitions
 
 Right now, the matched names instantly appear on the screen and the filtered
 names instantly disappear. This is abrupt and ugly. We want the names to fade
