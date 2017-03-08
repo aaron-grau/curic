@@ -1,16 +1,18 @@
+const path = require('path');
+
 module.exports = {
   context: __dirname,
-  entry: "./giphy_search.jsx",
+  entry: './giphy_search.jsx',
   output: {
-    path: "./",
-    filename: "bundle.js"
+    path: path.resolve(__dirname),
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']
         }
@@ -18,7 +20,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: ['.js', '.jsx', '*']
   },
   devtool: 'source-map'
 };

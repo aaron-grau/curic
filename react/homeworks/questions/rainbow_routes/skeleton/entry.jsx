@@ -16,7 +16,6 @@ import Blue from './components/blue';
 import Indigo from './components/indigo';
 import Violet from './components/violet';
 
-
 class Rainbow extends React.Component {
   constructor() {
     super();
@@ -68,7 +67,7 @@ const routes = (
   </Route>
 );
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const main = document.getElementById('main');
   ReactDOM.render(
     <Router history={hashHistory}>{routes}</Router>,

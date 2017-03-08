@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const giphyIndexItems = (giphys) => {
   if (giphys) {
-    return giphys.map( (giphy, idx) => (
-        <li key={idx} className='giphy-li'>
-          <img src={giphy.images.fixed_height.url}/>
+    return giphys.map((giphy, idx) => (
+        <li key={idx} className="giphy-li">
+          <img src={giphy.images.fixed_height.url} />
         </li>
       )
     );
@@ -15,14 +15,13 @@ const giphyIndexItems = (giphys) => {
   }
 };
 
-class GiphysIndex extends Component {
-
+class GiphysIndex extends React.Component {
   render() {
     const { giphys } = this.props;
     return (
       <div>
         <ul>
-          { giphyIndexItems(giphys) }
+          {giphyIndexItems(giphys)}
         </ul>
       </div>
     );

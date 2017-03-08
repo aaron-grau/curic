@@ -8,6 +8,18 @@ class Red extends React.Component {
     this.addOrange = this.addOrange.bind(this);
     this.addYellow = this.addYellow.bind(this);
   }
+  
+  resetRed() {
+    this.props.router.push('/red');
+  }
+
+  addOrange() {
+    this.props.router.push('/red/orange');
+  }
+
+  addYellow() {
+    this.props.router.push('/red/yellow');
+  }
 
   render() {
     return(
@@ -20,18 +32,6 @@ class Red extends React.Component {
         {this.props.children}
       </div>
     );
-  }
-
-  resetRed() {
-    this.props.router.push('/red');
-  }
-
-  addOrange() {
-    this.props.router.push('/red/orange');
-  }
-
-  addYellow() {
-    this.props.router.push('/red/yellow');
   }
 };
 

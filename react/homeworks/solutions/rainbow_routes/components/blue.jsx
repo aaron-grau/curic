@@ -7,6 +7,14 @@ class Blue extends React.Component {
     this.resetBlue = this.resetBlue.bind(this);
     this.addIndigo = this.addIndigo.bind(this);
   }
+  
+  resetBlue() {
+    this.props.router.push('/blue');
+  }
+
+  addIndigo() {
+    this.props.router.push('/blue/indigo');
+  }
 
   render() {
     return(
@@ -18,14 +26,6 @@ class Blue extends React.Component {
         {this.props.children}
       </div>
     );
-  }
-
-  resetBlue() {
-    this.props.router.push('/blue');
-  }
-
-  addIndigo() {
-    this.props.router.push('/blue/indigo');
   }
 };
 
