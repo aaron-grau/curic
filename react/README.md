@@ -241,10 +241,11 @@
 [preloaded_state]: readings/preloaded_state.md
 [user_authentication]: readings/front_end_auth.md
 
-### Homeworks (60 min)
+### Homeworks (75 min)
 * Do the auth part of [A04 Prep][a04_prep] (60 min)
   * Front-end auth (the main concept in BenchBnB Day 1) builds on top of regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's normal.
+* Add your questions and answers from pairboarding to your Study Notes repo! (15 min)
 
 [a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4
 
