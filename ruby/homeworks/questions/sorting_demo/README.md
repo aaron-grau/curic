@@ -8,7 +8,7 @@ in `O(n^2)`.
 
 While one of the goals of algorithm analysis is to stay agnostic of implementation details, let's briefly take a look at what this means in practice. In this demo we'll look at a timed comparison of Merge Sort and Bubble Sort for randomized array inputs of varying sizes.
 
-We have provided a `sorting_demo.rb` script that you may run in your terminal to follow along with this reading. The demo will run 3 trials for each sorting algorithm with a randomized input of increasing size, and compute the total and average time taken to sort the arrays. Note that your running times may vary significantly from those listed here depending on your machine and the result of the array randomizer, but should they grow at roughly the same rate.
+We have provided a `sorting_demo.rb` script that you may run in your terminal to follow along with this reading. The demo will run 3 trials for each sorting algorithm with a randomized input of increasing size, and compute the total and average time taken to sort the arrays. Note that your running times may vary significantly from those listed here depending on your machine and the result of the array randomizer, but they should grow at roughly the same rate.
 
 Let's start with something small: press any key to run Merge Sort and Bubble Sort for 5 elements. The results here are fairly uninteresting: the running time for both is so small that any differences are negligible.
 
