@@ -128,36 +128,17 @@ p.then(onFulfilled, onRejected) // either onFulfilled or onRejected *will* run
 
 ## `catch`
 
-`catch` only accepts an `onRejected` parameter. This function is invoked if any
-promise in the chain is rejected. Besides this key difference, `catch` otherwise acts exactly like calling `then(null, onRejected)` on a promise.
+`catch` only accepts an `onRejected` parameter. `catch` acts exactly like calling 
+`then(null, onRejected)` on a promise.
 
-In the example below, the function `onRejected` will run if `p`,
-`firstFulfilled`, or `secondFulfilled` throw an error.
-
-```javascript
-p.then(firstFulfilled).then(secondFulfilled).catch(onRejected)
-```
-
-Consider this similar example:
-
-```js
-p.then(firstFulfilled, onRejected).then(secondFulfilled)
-```
-
-The difference here is that `onRejected` will only be invoked if `p` is rejected.
-It doesn't handle the errors for `firstFulfilled` or `secondFulfilled`, because
-it's not chained onto either of them.
-
-Here's another case:
+Consider this:
 
 ```javascript
 p.then(onFulfilled, onRejected).catch(error)
 ```
 
 If `p` is rejected, `onRejected` will run. `error` will run if either
-`p`, `onFulfilled`, or `onRejected` are rejected. We would choose to use
-`onRejected` in this manner if we only wanted to handle an error that comes from
-`p`.
+`onFulfilled` or `onRejected` are rejected.
 
 Note: `onRejected` simply logging an error message would not trigger `error`, but
 it would if it explicitly threw an error. In other words:
