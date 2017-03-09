@@ -221,6 +221,19 @@
 ### Assessment06 Practice
 * [Practice][assessment-prep-6]
 
+### Video Lectures (25 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [Intro to UI/UX][uiux-intro] (4 min)
+* :movie_camera: [Intro to UX for Web][uiux-web] (6 min)
+* :movie_camera: [UI Affordances and Signifiers][uiux-affordances] (4 min)
+* :movie_camera: [Designing to Look Good][uiux-look-good] (11 min)
+
+[uiux-intro]: https://vimeo.com/album/4453315/video/206661754
+[uiux-web]: https://vimeo.com/album/4453315/video/206661769
+[uiux-affordances]: https://vimeo.com/album/4453315/video/206661839
+[uiux-look-good]: https://vimeo.com/album/4453315/video/206661864 
+
+
 ### Readings (20 min)
 - [`preloadedState`][preloaded_state] (5 min)
 - [Front End Authentication][user_authentication] (15 min)
