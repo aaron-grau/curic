@@ -165,8 +165,8 @@ Implement the `PokemonDetail` component just like we did the `PokemonIndex`.
 Make sure to **test at each step!**
 
 * Create an API utility function that fetches a single pokemon.
-* Create actions for both requesting and receiving a single Pokemon. This
-requires defining a new constant and action creator for each action.
+* Create actions for receiving a single Pokemon. This
+requires defining a new constant and action creator.
 * Create a `PokemonDetailReducer` to respond to the `pokemonDetail`
 slice of the app state.
 * Create a `requestSinglePokemon` thunk action creator.
