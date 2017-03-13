@@ -17,7 +17,7 @@ run `npm install` to get all the required node modules. Set up
 [`webpack-dev-server`][dev-server] and run `npm start`. Note, there will
  be webpack errors but we'll work on fixing those right now.
 
-[dev-server]: ../../../readings/webpack_dev_server.md
+[dev-server]: ../../readings/webpack_dev_server.md
 [currency-skeleton]: ./skeleton.zip?raw=true
 
 Poke around the components in the `frontend/components` folder and get
@@ -80,7 +80,7 @@ make sure it's working properly in the console before moving on.
 
 Open `frontend/reducer.js`. As you know from the [reducers reading][reducers-reading], a reducer is a function that takes in the current `state` and an `action`, and returns an updated state based on the action type.
 
-[reducers-reading]: ../../../readings/reducers.md
+[reducers-reading]: ../../readings/reducers.md
 
 For our currency widget, our state needs to keep track of two things: a base currency and a collection of corresponding rates. We need to pass some initial/default values in the case that state is not passed in.
 

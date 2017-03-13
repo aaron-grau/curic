@@ -27,7 +27,7 @@ If you were having trouble getting your configuration set up, use
 the [skeleton here][skeleton]. Remember to run `npm install` after
 downloading the skeleton.
 
-[skeleton]: ./calculator_skeleton.zip?raw=true
+[skeleton]: ./skeleton.zip?raw=true
 
 
 ## The `Calculator` Component
