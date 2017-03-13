@@ -13,7 +13,7 @@ Here's what you need to do:
   isolate and test the behavior of the `Dessert` class on its own. If you get stuck, revisit the reading on [creating mocks/doubles][mocks]. The `chef` double has already been created for you, but you will need to add to it!
 
 [rspec-homework]: skeleton.zip?raw=true
-[mocks]: https://github.com/appacademy/curriculum/blob/master/ruby/homeworks/questions/rspec.md
+[mocks]: ../../readings/test-doubles.md
 
 **Note:** Technically, this is not Test Driven Development since we've provided the Dessert class for you. That's okay! The idea for tonight's homework is to familiarize you with RSpec syntax and methods. Enjoy your dessert!
 
