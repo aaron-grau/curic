@@ -95,7 +95,7 @@ application state to represent the bench data in our `action`.
 produce an `action` with type `"RECEIVE_BENCHES"` and a `benches` property that
 represents all of our bench data.
 + Write `fetchBenches`. It doesn't need to accept any arguments. It should just
-return a thunk which calls the `APIUtil` and `then` dispatches `receiveBenches`
+return a thunk which calls the `APIUtil` and `then` dispatches `receiveBenches`.
 + Don't forget to defined the corresponding action types.
 + Export `fetchBenches` and your constants.
 
@@ -109,7 +109,7 @@ window.fetchBenches = fetchBenches;
 store.dispatch(fetchBenches()).then(console.log); //=> { "1": { id: 1, description: ... } }
 ```
 
-Remember to require `fetchBenches` for testing
+Remember to require `fetchBenches` for testing.
 
 ### Bench Reducer
 In this step, we're going to create a reducer that manages the `benches` section
