@@ -94,8 +94,8 @@ For App Academy use, Heroku is preferred.
 - [Elastic Beanstalk Product Page][elastic-beanstalk]
 - [EC2 Product Page][ec2]
 
-[comparison-table]: (https://dzone.com/articles/heroku-or-amazon-web-services-which-is-best-for-your-startup)
+[comparison-table]: https://dzone.com/articles/heroku-or-amazon-web-services-which-is-best-for-your-startup
 
-[elastic-beanstalk]: (https://aws.amazon.com/elasticbeanstalk/)
-[heroku]: (https://www.heroku.com/platform)
-[ec2]: (https://aws.amazon.com/ec2/)
+[elastic-beanstalk]: https://aws.amazon.com/elasticbeanstalk/
+[heroku]: https://www.heroku.com/platform
+[ec2]: https://aws.amazon.com/ec2/
