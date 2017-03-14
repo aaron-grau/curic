@@ -196,9 +196,9 @@
 
 [react_router_intro]: readings/intro_to_react_router.md
 [link]: readings/link.md
-[index_routes]: https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+[index_routes]: https://github.com/reactjs/react-router/blob/v3/docs/guides/IndexRoutes.md
 [on_enter]: readings/on_enter.md
-[with_router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
+[with_router]: https://github.com/reactjs/react-router/blob/v3/docs/API.md#withroutercomponent-options
 
 ### Homeworks (40 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
@@ -206,15 +206,15 @@
 [rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
-- [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)
-- [Route Matching](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md)
-- [React Router Documentation][react_router_docs]
+- [Route Configuration](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteConfiguration.md)
+- [Route Matching](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteMatching.md)
+- [React Router 3.0 Documentation][react_router_docs]
   - Check the `API` docs for quick reference
 
 ### Projects
 * Continue [Pokedex][pokedex]
 
-[react_router_docs]: https://github.com/reactjs/react-router/blob/master/docs/
+[react_router_docs]: https://github.com/reactjs/react-router/blob/v3/docs/
 
 ## w7d5
 
