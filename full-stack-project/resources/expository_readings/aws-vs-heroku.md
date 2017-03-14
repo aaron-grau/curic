@@ -52,13 +52,13 @@ suddenly goes viral and gets a ton of visitors.
   (CPU, RAM, etc.)
   - Developers need to know basic Unix Admin and AWS DevOps
   
-  #### Why would you use EC2 ?
-  - For the infrastructure flexibility
-  - If you know and love DevOps
-  - It's relatively inexpensive to scale
-  - If you need a lot of computational resources
-  - If you want to use other AWS services: S3 is often used to store
-  assets permanently in the cloud
+    #### Why would you use EC2 ?
+    - For the infrastructure flexibility
+    - If you know and love DevOps
+    - It's relatively inexpensive to scale
+    - If you need a lot of computational resources
+    - If you want to use other AWS services: S3 is often used to store
+    assets permanently in the cloud
 
 #### Elastic Beanstalk is a PaaS similar to Heroku
   - Developers can deploy apps via AWS's Management Console, a Git repo,
