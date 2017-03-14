@@ -42,7 +42,7 @@
     * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
 
-[intro-pset]: homeworks/questions/intro_js_problems
+[intro-pset]: homeworks/intro_js_problems
 [effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 ### Additional Resources
@@ -102,7 +102,7 @@
 * [CSS Curriculum 2: Syntax][css-2] (50 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
-[cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
+[cb-function-hw]: homeworks/callbacks_and_functions
 
 ### Additional Resources
 * Style
@@ -212,7 +212,7 @@
 * [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
 * [Wacky jQuery][wacky-project] (45 min)
 
-[wacky-project]: homeworks/questions/jquery-wacky-homework.md
+[wacky-project]: homeworks/wacky_painter
 
 ### Additional Resources
 * [ES6 Prototypal Inheritance][es6-inherits]
@@ -291,7 +291,7 @@
 ### Homeworks (30 min)
 * [Your First Ajax Request][first-ajax] (30 min)
 
-[first-ajax]: homeworks/questions/first_ajax.md
+[first-ajax]: homeworks/first_ajax
 
 ### Additional Resources
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
@@ -342,7 +342,7 @@
 [browser-tech]: ../html-css/readings/browser_tech.md
 
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
-[vanilla-dom]: homeworks/questions/vanilla-dom
+[vanilla-dom]: homeworks/vanilla-dom
 [pairboarding-setup]: ../course/readings/pairboarding_setup.md
 
 [mail]: projects/mail

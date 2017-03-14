@@ -36,7 +36,7 @@
 - Add your questions and answers from pairboarding today to your Study Notes repo! (15 min)
 
 [getting_started]: homeworks/getting_started
-[react_calculator]: homeworks/questions/calculator.md
+[react_calculator]: homeworks/calculator
 
 ### Additional Resources
 - [Babel][babel_configuration]
@@ -114,7 +114,7 @@
 ### Homeworks (45 min)
 - [Dollar Store][dollar_store_hw] (45 min)
 
-[dollar_store_hw]: homeworks/questions/dollar_store
+[dollar_store_hw]: homeworks/dollar_store
 
 ### Additional Resources
 - [Official `redux` Documentation][redux_docs]
@@ -145,7 +145,7 @@
 ### Homework (45 min)
 - [Middleware Homework][middleware_homework] (45 min)
 
-[middleware_homework]: homeworks/questions/middleware.md
+[middleware_homework]: homeworks/middleware
 
 ### Projects
 - Continue [Todos][todos]
@@ -169,7 +169,7 @@
   - **Due by 9AM Thursday w7d4**
   - You many want to browse our [list of approved apps][approved-apps]
 
-[giphy_homework]: homeworks/questions/giphy
+[giphy_homework]: homeworks/giphy
 [tentative-proposal]: ../full-stack-project/proposal/tentative-project-proposal.md
 [approved-apps]: ../full-stack-project/proposal/projects-to-clone.md
 
@@ -203,7 +203,7 @@
 ### Homeworks (40 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
 - [Rainbow Routes][rainbow_routes] (30 min)
-[rainbow_routes]: homeworks/questions/rainbow_routes/
+[rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
 - [Route Configuration](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md)

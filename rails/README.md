@@ -57,7 +57,7 @@
 [rails-screencasts]: https://vimeo.com/album/2953690/sort:alphabetical
 [rails-videos-code]: demos/intro_rails_video_demo
 
-[library-hw]: ./homeworks/questions/library
+[library-hw]: homeworks/library
 
 [routing-i]: readings/routing-part-i.md
 [basic-controllers]: readings/basic-controllers.md
@@ -174,7 +174,7 @@
 
 [99-cats-part-ii]: projects/ninety_nine_cats_ii
 
-[rails-auth-homework]: homeworks/questions/rails_auth.md
+[rails-auth-homework]: homeworks/rails_auth
 
 ## w4d4
 
@@ -210,7 +210,7 @@
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
 [rails-nontech]: readings/rails_nontech.md
-[helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
+[helpers-and-layouts-hw]: homeworks/helpers-layouts-mailer
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
 [layout-video]: https://vimeo.com/168822741
@@ -257,7 +257,7 @@
 [spring-guard]: readings/guard-spring-setup.md
 [html-nontech]: ../html-css/readings/html_nontech.md
 
-[capybara-hw]: homeworks/questions/capybara.md
+[capybara-hw]: homeworks/capybara
 [bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [goaling-app]: projects/goal_app
@@ -307,7 +307,7 @@
 [20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
 [decorators]: readings/decorators.md
 [checkboxes-id-setters]: readings/checkboxes.md
-[polymorphism-and-concerns-hw]: homeworks/questions/polymorphism-concerns/polymorphism-concerns.md
+[polymorphism-and-concerns-hw]: homeworks/polymorphism-concerns
 
 [reddit-clone]: projects/reddit_on_rails
 
