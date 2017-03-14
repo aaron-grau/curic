@@ -174,7 +174,7 @@
 
 [99-cats-part-ii]: projects/ninety_nine_cats_ii
 
-[rails-auth-homework]: homeworksrails_auth
+[rails-auth-homework]: homeworks/rails_auth
 
 ## w4d4
 
