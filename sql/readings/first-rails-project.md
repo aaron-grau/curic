@@ -6,9 +6,9 @@ database. ActiveRecord is a key component of Rails;
 after you master it, you will probably find the rest of Rails pretty
 straightforward.
 
-- Make sure that rails is installed:
+- Make sure that Rails is installed:
   ```sh
-  gem install rails -v '~> 4.2.0'
+  gem install rails -v '4.2.8'
   ```
 - Generate a new Rails *project*:
   ```sh
@@ -48,7 +48,7 @@ rails new DemoProject --database=postgresql
   end
   ```
   - This will allow us to do things like interact with our Rails project
-  using the `pry`. 
+  using the `pry`.
 - Make sure you are in the DemoProject
   directory and run `bundle install`.
   - This will look for `Gemfile` and then install gems listed in it.
@@ -57,8 +57,8 @@ rails new DemoProject --database=postgresql
 
 As noted above, you can initialize a new Rails app with a Postgres
 database by using the `--database=postgresql` option. You can also
-**switch** an existing Rails app from SQLite to Postgres. This is 
-convenient because differences between your development and 
+**switch** an existing Rails app from SQLite to Postgres. This is
+convenient because differences between your development and
 production databases can be frustrating.
 
 * If you have already created your SQLite database (ran `db:create`), then delete the `.sqlite3` files in `db/`.
@@ -77,7 +77,7 @@ production databases can be frustrating.
   * Create a database with the given name. Name your development, test, and production databases as shown below:
   ```yaml
   development:
-    <<: *default 
+    <<: *default
     database: ProjectName_development
   ```
 
