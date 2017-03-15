@@ -112,7 +112,7 @@
 + [Intro to Rails][intro-rails-homework] (45 min)
 
 ### Additional Resources
-* [Creating a new rails project][first-rails-project]
++ [Creating a new Rails project][first-rails-project]
 + [Migrations][ar-migrations]
 + [ORM Review and Intro to Active Record][ar-orm]
 + Associations:  
