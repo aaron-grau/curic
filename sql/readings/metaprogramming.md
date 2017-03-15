@@ -192,7 +192,7 @@ class ActiveRecord::Base
 end
 ```
 
-**NB:** Dynamic finders were actually a feature of Rails until just recently. Rails 4.2 deprecated (supports, but doesn't recommend) dynamic finders, and as of Rails 5, they are no longer supported. Although, they are quite handy, they tend to lead to overly verbose code and are not very performant. Check out [this][defense-of-dynamic-finders] blog post if you'd like to learn more.
+**NB:** Dynamic finders were actually a feature of Rails until just recently. Rails 4.2 deprecated (supported, but didn't recommend) dynamic finders, and as of Rails 5, they are no longer supported. Although, they are quite handy, they tend to lead to overly verbose code and are not very performant. For these reasons we also recommend against using them. Check out [this][defense-of-dynamic-finders] blog post if you'd like to learn more.
 
 ## Type Introspection
 
