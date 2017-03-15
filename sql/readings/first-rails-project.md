@@ -6,11 +6,11 @@ database. ActiveRecord is a key component of Rails;
 after you master it, you will probably find the rest of Rails pretty
 straightforward.
 
-- Make sure that rails is installed: `gem install rails -v '~> 4.2.0'`
+- Make sure that rails is installed:
   ```sh
   gem install rails -v '~> 4.2.0'
   ```
-- Generate a new Rails *project* with `rails new DemoProject`
+- Generate a new Rails *project*:
   ```sh
   rails new DemoProject
   ```
