@@ -4,7 +4,7 @@
 
 *	[Part I](rails-lite-i.md)
 *	[Part II](rails-lite-ii.md)
-* [Skeleton](skeleton.zip)
+* [Skeleton](skeleton.zip?raw=true)
 
 ## Using The Specs
 
