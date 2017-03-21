@@ -15,12 +15,12 @@ or more actions, immediately, or later. Here's an example.
 ```js
 const thunkActionCreator = () => dispatch => {
   dispatch({
-    type: "RECEIVE_MESSSAGE",
+    type: "RECEIVE_MESSAGE",
     message: "This will be dispatched immediately."
   });
 
   setTimeout(() => dispatch({
-    type: "RECEIVE_MESSSAGE",
+    type: "RECEIVE_MESSAGE",
     message: "This will be dispatched 1 second later."
   }, 1000));
 }
@@ -80,5 +80,6 @@ the `redux-thunk` library. The middleware we just wrote is almost the entire
 original library! ([Check out the source code][thunk-source]). For more on thunks
 and handling asynchronicity in Redux, you can take a look at [this interesting SO
 post from the creator][thunks-so].
+
 [thunk-source]: https://github.com/gaearon/redux-thunk/blob/master/src/index.js
 [thunks-so]: http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559#35415559
