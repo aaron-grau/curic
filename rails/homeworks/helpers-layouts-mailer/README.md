@@ -79,11 +79,11 @@ Finished? Navigate around your site in localhost. Make sure that the main body o
 
 4. When a user signs up for your app, send them the welcome e-mail. Where should that code live within our existing `UsersController`? Implement the code.
 
-  Remember - we need a few things. We must call our new `welcome_email` method, which returns a message, and call `deliver` on that message to actually send it:
+  Remember - we need a few things. We must call our new `welcome_email` method, which returns a message, and call `deliver_now` on that message to actually send it:
 
   ```ruby
   msg = UserMailer.welcome_email(@user)
-  msg.deliver
+  msg.deliver_now
   ```
 
 5. Test it out! Set up the `letter_opener` gem so that you can try out your code on `localhost:3000`. The sent message should pop up in the browser if all went according to plan. Congrats! You've ActionMailed!

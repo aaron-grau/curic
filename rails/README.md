@@ -201,6 +201,7 @@
 
 ### Additional Resources
 * [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
+  * *NB:* `#deliver` has been deprecated in newer versions of Rails, please use `#deliver_now` instead
 
 ### Projects
 * [Music App][music-app-project]

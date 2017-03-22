@@ -99,7 +99,7 @@ Where appropriate (often a controller), you can now send emails by
 writing:
 
 ```ruby
-AuthMailer.signup_email(@user).deliver
+AuthMailer.signup_email(@user).deliver_now
 ```
 
 Good work, you!

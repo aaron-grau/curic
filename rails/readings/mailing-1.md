@@ -34,7 +34,7 @@ end
 Let's add a method called `welcome_email`, that will send an email to
 the user's registered email address:
 
-```ruby 
+```ruby
 # app/mailers/user_mailer.rb
 class UserMailer < ActionMailer::Base
   default from: 'notifications@example.com'
@@ -69,7 +69,7 @@ personalizing your email. Likewise you should personalize the sender:
 The `mail` method returns an email object (of type
 [`Mail::Message`][mail-message-github]); it doesn't mail it
 though. The caller of `UserMailer#welcome_email` will then call
-`#deliver` on the `Message` object:
+`#deliver_now` on the `Message` object:
 
 ```ruby
 # app/controllers/users_controller.rb
@@ -78,8 +78,8 @@ though. The caller of `UserMailer#welcome_email` will then call
     u = User.create(user_params)
 
     msg = UserMailer.welcome_email(u)
-    msg.deliver
-    
+    msg.deliver_now
+
     render :root
   end
 ```
@@ -159,12 +159,12 @@ method, you're going to have trouble responding to requests promptly.
 
 Adding attachments is pretty simple, just add new key/value pairs to the hash-like `attachments` variable. This is provided in each instance of `ActionMailer::Base`.
 
-```ruby 
+```ruby
 # app/mailers/user_mailer.rb
 
   def welcome_email
     attachments['filename.jpg'] = File.read('/path/to/filename.jpg')
-    # ... 
+    # ...
   end
 ```
 
@@ -176,7 +176,7 @@ for your controller views. Somewhat oddly, you must set an option in
 `config/environments/development.rb` for development) so that the
 mailer knows the base url of the website:
 
-```ruby 
+```ruby
 # app/config/environments/development.rb
 config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
