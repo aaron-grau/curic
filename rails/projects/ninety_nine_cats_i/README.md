@@ -28,7 +28,7 @@ what that is yet!). Take a walk on the wild side by commenting out
 
 ### Model
 
-Build a `Cat` model and its associated migration. Attributes should
+Build a `Cat` migration and model. Attributes should
 include:
 
 * `birth_date`
@@ -42,8 +42,8 @@ include:
       ```
 
     * Write an `#age` method that uses `birth_date` to calculate age.
-      You might find some useful methods for this in the [`Date`
-      docs][date-docs].
+      You will find some useful methods for this in the [Ruby `Date`
+      docs][date-docs]. Also be sure to check out the [Rails docs][time-ago].
 * `color`
     * We'll require the user to choose from a standard set of colors, so
       add an `:inclusion` validation to the model. We'll need to access
@@ -58,14 +58,16 @@ include:
 * `description`
     * Use a `text` column to store arbitrarily long text describing
       fond memories the user has of their time with the `Cat`.
-* Add any necessary `presence` validations.
+* Timestamps
+* Add database-level NOT NULL constraints and model-level presence validations.
 
 [date-docs]: http://ruby-doc.org/stdlib-2.1.2/libdoc/date/rdoc/Date.html
+[time-ago]: http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-time_ago_in_words
 [limit-docs]: http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/TableDefinition.html#method-i-column
 
 ### Index/show pages
 
-* Add a cats resource to your routes; generate a cats controller
+* Add a cats resource to your routes and create a `CatsController`
 * Build an `index` page of all `Cat`s.
   * Keep it simple; list the cats and link to the show pages.
 * Build a `show` page for a single cat.
@@ -81,7 +83,8 @@ Build a `new` form page to create a new `Cat`:
 
 * Use text for name.
 * Use radio buttons for sex.
-* Use a drop down for color.
+* Use a drop down for color (hint: keep your code DRY by using the 
+  constant you defined on the `Cat` class.
 * Use a blank `<option>` as the default color; this will force the
   user to consciously pick one.
 * You can use the `date` input type to prompt the user to pick a birth
@@ -130,29 +133,51 @@ Build a `new` form page to create a new `Cat`:
 
 ### Build out the model
 
-* Make a `CatRentalRequest` model and associated migration.
-* Tracks `cat_id`, `start_date`, `end_date`.
-* Add a string column called `status` that will starts out as
-  `"PENDING"`, but can be switched to `"APPROVED"` or `"DENIED"`.
-* Set the default for `status` to `"PENDING"`. This will create a
-  default in the database, and as an added bonus, all new
-  `CatRentalRequest`s will automatically start out as `"PENDING"`,
-  even before they've been saved to the DB.
-* Add NOT NULL constraints and presence validations. Add an index on
-  `cat_id`.
-* Add an inclusion validation on `status`.
-* Add a validation that no two **APPROVED** cat requests for the same
-  cat can overlap in time.
-    * To help, write a method `#overlapping_requests`, and a second,
-      `#overlapping_approved_requests`, that builds on top of the
-      first.
-    * Make sure not to state that a request conflicts with itself.
-    * You did something similar in the polls app to prevent a user
-      from answering a question twice.
-* Add associations between `CatRentalRequest` and `Cat`.
-* Make sure that when a `Cat` is deleted, all of its requests should
-  also be deleted. Use `:dependent => :destroy`.
+  * Make a `CatRentalRequest` migration and model. Attributes should include:
+    * `cat_id` (integer)
+    * `start_date` (date)
+    * `end_date` (date)
+    * `status` (string) will start out as `"PENDING"`, but can be switched
+      to `"APPROVED"` or `"DENIED"`. In your migration, set the default to 
+      `"PENDING"`.
+  * Add an inclusion validation on `status`.
+  * Add NOT NULL constraints and presence validations.
+  * Add an index on `cat_id`, since it is a foreign key.
+  * Add associations between `CatRentalRequest` and `Cat`.
+  * Make sure that when a `Cat` is deleted, all of its requests are
+    also deleted. Use `:dependent => :destroy`.
 
+### Custom validation
+
+`CatRentalRequest`s should not be valid if they overlap with an approved
+`CatRentalRequest` for the same cat. A single cat can't be rented out to
+two people at once! We will write a custom validation for this.
+
+  * First, write a method `#overlapping_requests` to get all the 
+    `CatRentalRequest`s that overlap with the one we are trying to validate.
+    * Be sure to use ActiveRecord to do this. It may be tempting to just get
+      `CatRentalRequests.all` and then do all the filtering in Ruby, but this
+      would be wasteful. We don't want to create objects we don't need. Our
+      database is really good at solving this kind of problem, so let's use it!
+    * The method should return an ActiveRecord::Relation so we can continue
+      chaining more methods onto it later.
+    * The `CatRentalRequest` we are trying to validate should not appear
+      in the list of `#overlapping_requests`
+    * The method should work for both saved and unsaved `CatRentalRequests`
+    * Beware of [SQL ternary logic][sql-ternary-logic])
+
+[sql-ternary-logic]: ../../../sql/readings/sql-ternary-logic.md
+
+  * Next, write a method `#overlapping_approved_requests`. You should
+    be able to use your `#overlapping_requests` method.
+
+  * Now we can write our custom validation, `#does_not_overlap_approved_request`.
+   All we need to do is call `#overlapping_approved_requests` and check whether 
+   any [`#exists?`][exists].
+
+[exists]: http://apidock.com/rails/ActiveRecord/FinderMethods/exists%3F
+    
+    
 ### Build the controller & new view
 
 * Create a controller; setup a resource in your routes file.
