@@ -23,11 +23,11 @@ feature "the signup process" do
   feature "with an invalid user" do
     before(:each) do
       visit new_user_url
-      fill_in 'Email', :with => "testing2@email.com"
+      fill_in 'Email', :with => "testing@email.com"
       click_on "create user"
     end
 
-    scenario "renders the new user page after failed signup" do
+    scenario "re-renders the new user page after failed signup" do
       expect(page).to have_content "Password is too short (minimum is 6 characters)"
     end
   end
