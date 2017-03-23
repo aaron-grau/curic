@@ -1,10 +1,43 @@
 # Testing Rails With RSpec and Capybara
 
-Today we'll be testing the Reddit Clone you created yesterday. Use your code from yesterday's assignment.
+Today we'll be testing the Music App you created. Use your code from that assignment.
 
 ## Setup
 
 Follow the instructions for setting up [RSpec-Rails][rspec-rails], [Shoulda Matchers][shoulda-matchers-docs], and [Capybara][capybara]. (Note: no need to use Factory Girl or Faker for this assignment - we'll save that for tomorrow.)
+
+You'll also need to prepare your app for testing by adding the following lines to the files noted at the top of the snippets.
+NB: use Atom's ⌘-t shortcut to quickly navigate around your rails project
+
+```ruby
+  # Gemfile
+
+  group :test do
+    gem 'factory_girl_rails', :require => false
+    gem 'faker'
+    gem 'capybara'
+    gem 'launchy'
+    gem 'shoulda-matchers'
+    gem 'rspec-rails'
+  end
+```
+
+```ruby
+  # database.yml
+
+  test:
+    adapter: postgresql
+    database: music_db_test
+    pool: 5
+    timeout: 5000
+```
+
+```ruby
+  # test.rb
+
+  # Configure default mail server
+  Rails.application.routes.default_url_options[:host] = 'domain.com'
+```
 
 Note: if you're having difficulty getting your config to work, don't hesitate to check out the `spec_helper.rb`, `Gemfile`, and specs from the solutions.
 
@@ -13,25 +46,17 @@ Note: if you're having difficulty getting your config to work, don't hesitate to
 
 Run `rails generate rspec:model User` to generate a spec file for the `User` model.
 
-Let's write some simple tests for the `User` model. Your test files should live in `spec/models/user_spec.rb`. Use shoulda-matchers to test all of the user's validations and associations, using the following as a blueprint:
+Let's write some simple tests for the `User` model. Your test files should live in `spec/models/user_spec.rb`. Use shoulda-matchers to test all of the user's validations using the following as a blueprint:
 
 ```ruby
   # validations
-  it { should validate_presence_of(:name) }
-
-  # associations
-  it { should have_many(:subs) }
+  it { should validate_presence_of(:email) }
 ```
 
 You should validate:
-* Presence of `name`
+* Presence of `email`
 * Presence of `password_digest`
 * Length of `password` > 6
-
-You should test the following associations:
-* `has_many :subs`
-* `has_many :user_votes`
-* `has_many :comments`
 
 Refer to [the docs][shoulda-matchers-docs] as needed.
 
@@ -57,13 +82,13 @@ RSpec.describe UsersController, :type => :controller do
 
   describe "POST #create" do
     context "with invalid params" do
-      it "validates the presence of the user's username and password"
+      it "validates the presence of the user's email and password"
 
       it "validates that the password is at least 6 characters long"
     end
 
     context "with valid params" do
-      it "redirects user to links index on success"
+      it "redirects user to bands index on success"
     end
   end
 end
@@ -91,24 +116,22 @@ feature "the signup process" do
   feature "signing up a user" do
     before(:each) do
       visit new_user_url
-      fill_in 'username', :with => "testing_username"
+      fill_in 'Email', :with => "testing@email.com"
       fill_in 'password', :with => "biscuits"
       click_on "Create User"
     end
 
-    scenario "redirects to subs index page after signup"
-
-    scenario "shows username on the homepage after signup"
+    scenario "redirects to bands index page after signup"
   end
 
   feature "with an invalid user" do
     before(:each) do
       visit new_user_url
-      fill_in 'Username', :with => "testing_username"
+      fill_in 'Email', :with => "testing@email.com"
       click_on "create user"
     end
 
-    scenario "re-renders the signup page if an invalid user is given"
+    scenario "re-renders the signup page after failed signup"
   end
 
 end
@@ -120,4 +143,4 @@ Congrats! You are on your way to becoming a master of Capybara! Make sure to rev
 [shoulda-matchers]: ../../readings/shoulda-matchers.md
 [shoulda-matchers-docs]: https://github.com/thoughtbot/shoulda-matchers
 [capybara]: ../../readings/capybara.md
-[users-solutions]: ../../projects/reddit_on_rails/solution/spec/models/user_spec.rb
+[users-solutions]: ../../projects/music_app/solution/spec/models/user_spec.rb

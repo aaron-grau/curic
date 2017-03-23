@@ -18,9 +18,15 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'byebug'
 end
 
-group :development, :test do
+group :test do
+  gem 'factory_girl_rails', :require => false
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers'
   gem 'rspec-rails'
 end
 
