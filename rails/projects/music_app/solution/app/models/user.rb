@@ -2,20 +2,23 @@
 class ActiveRecord::Base
   def generate_unique_token_for_field(field)
     token = SecureRandom.base64(16)
-    
+
     while self.class.exists?(field => token)
       token = SecureRandom.base64(16)
     end
-    
+
     token
   end
 end
 
 class User < ActiveRecord::Base
+  attr_reader :password
+
   after_initialize :ensure_session_token
   after_initialize :set_activation_token
 
   validates :activation_token, :email, :session_token, uniqueness: true
+  validates :password, length: { minimum: 6, allow_nil: true }
   validates(
     :activation_token,
     :email,
