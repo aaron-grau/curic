@@ -142,4 +142,4 @@ Congrats! You are on your way to becoming a master of Capybara! Make sure to rev
 [shoulda-matchers]: ../../readings/shoulda-matchers.md
 [shoulda-matchers-docs]: https://github.com/thoughtbot/shoulda-matchers
 [capybara]: ../../readings/capybara.md
-[users-solutions]: ../../projects/reddit_on_rails/solution/spec/models/user_spec.rb
+[users-solutions]: ../../projects/music_app/solution/spec/models/user_spec.rb
