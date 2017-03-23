@@ -6,7 +6,7 @@ Today we'll be testing the Music App you created. Use your code from that assign
 
 Follow the instructions for setting up [RSpec-Rails][rspec-rails], [Shoulda Matchers][shoulda-matchers-docs], and [Capybara][capybara]. (Note: no need to use Factory Girl or Faker for this assignment - we'll save that for tomorrow.)
 
-You'll also need to prepare your app for testing by adding the following lines to the files noted at the top of the snippets.
+You'll also need to prepare your app for testing by adding the following lines to the files noted at the top of the snippets. ProTip: Use the cmd-T fuzzy finder to quickly navigate to these files.
 
 ```ruby
   # Gemfile
