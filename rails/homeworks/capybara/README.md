@@ -115,7 +115,7 @@ feature "the signup process" do
   feature "signing up a user" do
     before(:each) do
       visit new_user_url
-      fill_in 'username', :with => "testing@email.com"
+      fill_in 'Email', :with => "testing@email.com"
       fill_in 'password', :with => "biscuits"
       click_on "Create User"
     end
@@ -126,7 +126,7 @@ feature "the signup process" do
   feature "with an invalid user" do
     before(:each) do
       visit new_user_url
-      fill_in 'Username', :with => "testing_username"
+      fill_in 'Email', :with => "testing@email.com"
       click_on "create user"
     end
 
