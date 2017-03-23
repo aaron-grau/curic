@@ -82,7 +82,7 @@ RSpec.describe UsersController, :type => :controller do
 
   describe "POST #create" do
     context "with invalid params" do
-      it "validates the presence of the user's username and password"
+      it "validates the presence of the user's email and password"
 
       it "validates that the password is at least 6 characters long"
     end
