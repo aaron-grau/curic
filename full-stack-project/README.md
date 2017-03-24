@@ -31,7 +31,7 @@ deadlines for this part of the curriculum.
 
 ## Project
 
-You will spend the next two weeks working on your full-time on your
+You will spend the next two weeks working full-time on your
 full-stack project Here are the important deadlines.
 
 * **W8D2**: Start work on your full-stack project after you finish A06
@@ -71,7 +71,7 @@ see a list of dispatched actions
     * [Video demo][redux-dev-tools-video]
 
 Is there something your looking for that's not on the list?
-We have lots of extra readings and videos on other topic in [additional
+We have lots of extra readings and videos on other topics in [additional
 resources][additional-resources].
 
 [additional-resources]: ./additional_resources.md
