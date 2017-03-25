@@ -314,7 +314,7 @@ to check only database columns; you can apply a validation to any
 attribute.
 
 I also added `allow_nil: true`. This means the validation will
-not run if the password attribute is blank. This is desirable, because
+pass if `@password` is `nil`. This is desirable, because
 the `@password` attribute is only set **if we change the password with
 `#password=`.**
 
