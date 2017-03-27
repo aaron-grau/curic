@@ -15,7 +15,7 @@ feature "the signup process" do
       click_on "create user"
     end
 
-    scenario "redirects to bands index page after signup" do
+    scenario "redirects to sign-in page after signup" do
       expect(page).to have_content "Successfully created your account! Check your inbox for an activation email."
     end
   end

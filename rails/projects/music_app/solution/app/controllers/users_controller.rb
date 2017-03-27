@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       UserMailer.activation_email(@user).deliver_now!
       flash[:notice] =
         "Successfully created your account! Check your inbox for an activation email."
-      render "sessions/new"
+      redirect_to new_session_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
