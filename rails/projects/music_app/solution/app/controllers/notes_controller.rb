@@ -11,6 +11,7 @@ class NotesController < ApplicationController
 
   def destroy
     note = current_user.notes.find(params[:id])
+    note.destroy
     redirect_to track_url(note.track_id)
   end
 
