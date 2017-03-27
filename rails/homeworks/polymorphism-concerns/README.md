@@ -35,7 +35,7 @@ t.references :toyable, polymorphic: true, index: true
 Also, we will want to ensure that all toys are unique by their
 `name`, `toyable_id`, and `toyable_type` properties. If one cat
 has a toy with a name of "ball", then another cat should also be
-able to have a toy with a name of "ball". However, once cat
+able to have a toy with a name of "ball". However, one cat
 should not be able to have multiple toys by the name of "ball".
 
 To ensure this is the case, add the following index to the
