@@ -341,7 +341,7 @@ Make sure outline your MVP features using the following structure when writing y
 * Song/Playlist CRUD
 * Search
 * Continuous play while navigating site
-* Following/Friending
+* Following playlists/Friending users
 * **Bonus**: Radio (shuffle play)
 * **Bonus**: Explore Page
 
