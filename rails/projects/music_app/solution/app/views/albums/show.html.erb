@@ -2,14 +2,20 @@
 
 <ul>
   <% @album.tracks.each do |track| %>
-    <li><%= link_to track.name, track_url(track) %></li>
+    <li><a href=<%= track_url(track) %> ><%= track.name %></a></li>
   <% end %>
 </ul>
 
 <h4>Links</h4>
 <ul>
-  <li><%= link_to "New track", new_album_track_url(@album) %></li>
-  <li><%= link_to "Edit Album", edit_album_url(@album) %></li>
-  <li><%= link_to "Destroy Album", album_url(@album), method: :delete %></li>
-  <li><%= link_to @album.band.name, band_url(@album.band) %></li>
+  <li><a href=<%= new_album_track_url(@album) %>>New track</a></li>
+  <li><a href=<%= edit_album_url(@album) %>>Edit album</a></li>
+  <li>
+    <form action=<%= album_url(@album) %> method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+      <input type="submit" value="Destroy Album">
+    </form>
+  </li>
+  <li><a href=<%= band_url(@album.band) %>><%= @album.band.name %></a></li>
 </ul>
