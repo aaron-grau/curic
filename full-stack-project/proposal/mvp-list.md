@@ -339,7 +339,7 @@ Make sure outline your MVP features using the following structure when writing y
 
 #### Spotify
 * Song/Playlist CRUD
-* Playlist sharing
+* Search
 * Continuous play while navigating site
 * Following/Friending
 * **Bonus**: Radio (shuffle play)
