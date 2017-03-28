@@ -74,11 +74,8 @@ end
 # EXERCISE 5
 
 def reverse(string)
-  length = string.length
-  return string if length <= 1
-
-  substring = string[1..length - 2]
-  string[length - 1] + reverse(substring) + string[0]
+  return "" if string.empty?
+  reverse(string[1..-1]) + string[0]
 end
 
 # Test Cases:
