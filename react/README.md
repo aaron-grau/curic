@@ -274,7 +274,7 @@
 
 [react_map_demo]: demos/react_map_demo
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
-[redux-nontech]: readings/redux_nontech.md
+[react-nontech]: readings/react_nontech.md
 
 ### Homework (5.5 hrs)
 * [UX/UI Layout Practice][uxhw] (30 min)
