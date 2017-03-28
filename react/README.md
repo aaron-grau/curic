@@ -94,7 +94,7 @@
 [connect]: readings/connect.md
 [containers]: readings/containers.md
 [selectors]: readings/selectors.md
-[react-nontech]: readings/redux_nontech.md
+[react-nontech]: readings/react_nontech.md
 
 ### Fruit Stand App Demo (75 min)
 + Phase I - Redux only (15 min)
@@ -274,7 +274,6 @@
 
 [react_map_demo]: demos/react_map_demo
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
-[react-nontech]: readings/react_nontech.md
 
 ### Homework (5.5 hrs)
 * [UX/UI Layout Practice][uxhw] (30 min)
