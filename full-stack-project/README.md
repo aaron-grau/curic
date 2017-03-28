@@ -51,9 +51,10 @@ full-stack project Here are the important deadlines.
 Here are some additional resources to help get your app running and add
 common features.
 
+* **[Getting Your App Production Ready][production-ready]**
+  * Do this before submitting your app on Jobberwocky (not necessary before W9D5)
 * **Heroku**
   * [Deploying to Heroku][heroku-deployment]
-  * [Removing the react minification warning][minification-warnings]
   * [Understanding the asset pipeline][asset-pipeline]
 * **Web services**
   * [Figaro gem][figaro] securely store api keys. Necessary for google
@@ -74,9 +75,9 @@ Is there something your looking for that's not on the list?
 We have lots of extra readings and videos on other topics in [additional
 resources][additional-resources].
 
+[production-ready]: ./resources/helpful_tools/production-ready.md
 [additional-resources]: ./additional_resources.md
 [heroku-deployment]: resources/helpful_tools/heroku-deployment.md
-[minification-warnings]: resources/helpful_tools/minification-warnings.md
 [figaro]: resources/security/figaro.md
 [figaro-video]: https://vimeo.com/164602277
 [cloudinary-video]: https://vimeo.com/164612621
