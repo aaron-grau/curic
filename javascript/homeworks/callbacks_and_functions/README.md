@@ -77,23 +77,22 @@ Make sure to check out the solutions to review the correct answer.
 Create a new file and paste in the following code, which creates `Dog` and `Cat` classes.
 
 ```javascript
+function Cat () {
+  this.name = 'Markov';
+  this.age = 3;
+}
 
-  function Cat () {
-    this.name = 'Markov';
-    this.age = 3;
-  }
+function Dog () {
+  this.name = 'Noodles';
+  this.age = 4;
+}
 
-  function Dog () {
-    this.name = 'Noodles';
-    this.age = 4;
-  }
+Dog.prototype.chase = function (cat) {
+  console.log(`My name is ${this.name} and I'm chasing ${cat.name}! Woof!`)
+};
 
-  Dog.prototype.chase = function (cat) {
-    console.log(`My name is ${this.name} and I'm chasing ${cat.name}! Woof!`)
-  };
-
-  const Markov = new Cat ();
-  const Noodles = new Dog ();
+const Markov = new Cat ();
+const Noodles = new Dog ();
 ```
 
 Let's test out various ways to call `Dog.prototype.chase`.
