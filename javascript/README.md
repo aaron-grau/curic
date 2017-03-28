@@ -39,7 +39,10 @@
 ### Homeworks (55 min)
 * [Intro JavaScript Problems][intro-pset] (55 min)
 * Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
-    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
+    * This is a great resource. Over the next couple of weeks, we will
+assign specific items for you to read (the book is divided into
+'items'). You **must** read the assigned items by the due date; however,
+we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
 
 [intro-pset]: homeworks/intro_js_problems
@@ -51,12 +54,14 @@
 * Guides and Documentation
   * [Codecademy JS Curriculum][codecademy-js]
     + Good for a slower, interactive intro.
-  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] (ch1 only)
+  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics]
+(ch1 only)
     + Another great intro reading.
   * [MDN Guide][mdn-guide]
     + Great guide from MDN.
   * [MDN Documentation][mdn-js-doc]
-    + JS Documentation. Bookmark and consult frequently for all of your JavaScript needs.
+    + JS Documentation. Bookmark and consult frequently for all of your
+JavaScript needs.
 
 [oo-js]: readings/object-oriented-js.md
 [function-invocation-briefly]: readings/function-invocation-briefly.md
@@ -131,10 +136,12 @@
 
 ### Video Lectures (65 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Prototype Chain and Inheritance][proto-inherit-vid] (20 min)
+* :movie_camera: [Prototype Chain and Inheritance][proto-inherit-vid]
+(20 min)
 * :movie_camera: [Inheritance Demo][inherit-demo-vid]  (20 min)
 * :movie_camera: [JS in Browser][js-browser-vid] (10 min)
-* :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
+* :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid]
+(15 min)
 
 [proto-inherit-vid]: https://vimeo.com/162131042
 [inherit-demo-vid]: https://vimeo.com/162115223
@@ -185,7 +192,8 @@
 ## w6d1
 
 ### Assessment05 Practice
-+ In-class practice assessment at 9am. Please bring your own machine if possible.
++ In-class practice assessment at 9am. Please bring your own machine if
+possible.
 * [Practice][assessment-prep-5]
 
 [assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
@@ -208,7 +216,8 @@
 
 ### Homeworks (225 min)
 * [CSS Curriculum 3: Reset & Advanced Selectors][css-3] (40 min)
-* [CSS Curriculum 4: The Display Property & The Box Model][css-4] (55 min)
+* [CSS Curriculum 4: The Display Property & The Box Model][css-4] (55
+min)
 * [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
 * [Wacky jQuery][wacky-project] (45 min)
 
@@ -310,7 +319,8 @@
 
 ### Video Lectures (30 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
+* :movie_camera:[backbone-14: jQuery event delegation
+(cc)][backbone-14-vid] (30 min)
   * You can ignore the last part, which has Backbone code
 
 ### Readings (60 min)
@@ -324,7 +334,6 @@
 
 ### Homeworks (55 min)
 * [Vanilla DOM Manipulation][vanilla-dom] (45 min)
-* [Peer Mock Interview Prep][pairboarding-setup] (10 min)
 
 ### Additional Resources
 * [Vanilla AJAX][vanilla-ajax]
@@ -343,7 +352,6 @@
 
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 [vanilla-dom]: homeworks/vanilla-dom
-[pairboarding-setup]: ../course/readings/pairboarding_setup.md
 
 [mail]: projects/mail
 [jquery-lite]: projects/jquery_lite
