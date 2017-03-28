@@ -106,7 +106,6 @@ Good work, you!
 
 [sendgrid-docs]: https://devcenter.heroku.com/articles/sendgrid
 [figaro]: figaro.md
-[wizard-signup]: https://sendgrid.com/account/wizardSignup
 [image-1]: ./assets/sendgrid_1.png
 [image-2]: ./assets/sendgrid_2.png
 [image-3]: ./assets/sendgrid_3.png
