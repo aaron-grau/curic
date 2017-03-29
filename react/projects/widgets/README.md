@@ -91,7 +91,7 @@ this renders correctly on the page.
 
 * Write a method, `tick` that uses `setState` to set the time to a `new Date()`
 
-* You'll use to `setInterval` to call `tick` every second, but you should
+* You'll use `setInterval` to call `tick` every second, but you should
 wait until the component is actually on the page. For this, you can define a
 [`componentDidMount`][componentDidMount] function.
 
