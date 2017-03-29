@@ -158,7 +158,7 @@ JavaScript needs.
 
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [browser-modules]: readings/browser-modules.md
-[basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
+[basic-canvas-drawing]: https://web-beta.archive.org/web/20170201183210/joshondesign.com/p/books/canvasdeepdive/chapter01.html
 [canvas-demo]: demos/drunken_circles
 
 ### Homeworks (20 min)
