@@ -7,7 +7,7 @@ RailsLite, we will build up some of this functionality for ourselves,
 but we won't have to start from scratch.
 
 There are many different Web application frameworks for each language (Ruby has
-Rails, Sinatra, Hanami and others). Everyone is has different opinions about
+Rails, Sinatra, Hanami and others). Everyone has different opinions about
 what is important and how things should be done. There are also many different
 web servers. This is great because it
 gives application developers a ton of freedom to choose servers and frameworks
