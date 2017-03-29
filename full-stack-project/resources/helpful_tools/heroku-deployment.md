@@ -4,7 +4,7 @@ Here is a quick guide to git yer app on the interwebs.
 
 ## Setup instructions
 
-0. Prepare your project for production
+1. **Prepare your project for production**
   * Remove debuggers and console output
     * `cmd+shift+F` to search your project for debugger or console statements
   * Add the `rails_12factor` gem to production group of `Gemfile`
@@ -35,7 +35,8 @@ Here is a quick guide to git yer app on the interwebs.
     git add Gemfile package.json other_files...
     git commit -m "Prepare for initial Heroku push"
     ```
-0. Create a new Heroku app
+    
+2. **Create a new Heroku app**
   * Create an account on [heroku.com](http://www.heroku.com)
   * Create a new app
   * Setup buildpacks
@@ -43,7 +44,8 @@ Here is a quick guide to git yer app on the interwebs.
     * Add `heroku/nodejs`, then `heroku/ruby`
       * **NB:** Buildpacks run in the order specified, which is why it is important to add `heroku/nodejs` first.
         If `heroku/ruby` ran first, it would recompile our assets *before* creating a new `bundle.js`. We want `bundle.js` to be up-to-date *before* Rails recompiles our assets.
-0. Install the Heroku CLI and make your initial push
+        
+3. **Install the Heroku CLI and make your initial push**
   * Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
   * Login with `heroku login`
   * **NOTE:** if you are switching computers for development you will need to login on each switch, otherwise this should be a one-time action
@@ -54,7 +56,7 @@ Here is a quick guide to git yer app on the interwebs.
   * Setup production database with: `heroku run bundle exec rake db:migrate`
   * Optionally, include seed data with: `heroku run bundle exec rake db:seed`
 
-0. (Optional) Migrate static assets to the Asset Pipeline
+4. **(Optional) Migrate static assets to the Asset Pipeline**
   * Move assets to `app/assets/`
   * Images should be in `app/assets/images`
   * Attach assets to the window in `application.html.erb` or `root.html.erb`
