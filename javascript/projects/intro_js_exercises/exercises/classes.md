@@ -16,8 +16,7 @@ Write a set of classes to model `Student`s and `Course`s.
 * `Student.prototype.courseLoad` should return a hash of departments to # of
   credits the student is taking in that department.
 * `Course`, a constructor function which should take the course name, department, and
-  number of credits.
-* `Course.prototype.students` should return a list of the enrolled students.
+  number of credits. It should also set a `students` attribute to an empty array.
 * `Course.prototype.addStudent` should add a student to the class.
   * Probably can rely upon `Student.prototype.enroll`.
 
