@@ -88,7 +88,7 @@ Carry on! Know your loops!
 ### `fizzBuzz`
 3 and 5 are magic numbers.
 
-Define a function `fizzBuzz(array)` that takes an array returns a new array of
+Define a function `fizzBuzz(array)` that takes an array and returns a new array of
 every number in the array that is divisible by either 3 or 5, but not both.
 
 ### `isPrime`
