@@ -235,9 +235,9 @@
 [uiux-web]: https://vimeo.com/album/4453315/video/206661769
 [uiux-affordances]: https://vimeo.com/album/4453315/video/206661839
 [uiux-look-good]: https://vimeo.com/album/4453315/video/206661864
-[frontend_auth_1]: https://vimeo.com/album/4453315/video/206661864
-[frontend_auth_1]: https://vimeo.com/album/4453315/video/206661864
-[frontend_auth_1]: https://vimeo.com/album/4453315/video/206661864
+[frontend_auth_1]: https://vimeo.com/210683007
+[frontend_auth_2]: https://vimeo.com/210683951
+[frontend_auth_3]: https://vimeo.com/210684312
 
 
 ### Readings (20 min)
