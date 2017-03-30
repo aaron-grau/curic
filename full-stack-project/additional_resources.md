@@ -34,10 +34,10 @@
 
 [web-app-architecture]: resources/expository_readings/web_app_architecture.md
 
-[gon]: resources/https://vimeo.com/168132088
+[gon]: https://vimeo.com/168132088
 [omniauth]: resources/security/omniauth.md
 [omniauth-and-facebook]: resources/security/facebook-login.md
-[omniauth-demo]: resources/https://github.com/appacademy/OmniAuthDevise
+[omniauth-demo]: https://github.com/appacademy/OmniAuthDevise
 [cancan]: resources/security/cancan.md
 
 [css]: resources/styling/css.md
