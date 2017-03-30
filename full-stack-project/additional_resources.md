@@ -34,31 +34,31 @@
 
 [web-app-architecture]: expository_readings/web_app_architecture.md
 
-[gon]: ./https://vimeo.com/168132088
-[omniauth]: security/omniauth.md
-[omniauth-and-facebook]: security/facebook-login.md
-[omniauth-demo]: https://github.com/appacademy/OmniAuthDevise
-[cancan]: security/cancan.md
+[gon]: resources/https://vimeo.com/168132088
+[omniauth]: resources/security/omniauth.md
+[omniauth-and-facebook]: resources/security/facebook-login.md
+[omniauth-demo]: resources/https://github.com/appacademy/OmniAuthDevise
+[cancan]: resources/security/cancan.md
 
-[css]: styling/css.md
+[css]: resources/styling/css.md
 [css-demos]: https://github.com/appacademy/css-demos
 [css-transitions]: https://vimeo.com/164928587
-[sass-and-bootstrap]: ./sass-bootstrap-typography.md
-[autoprefixer]: styling/autoprefixer.md
-[react-modal]: styling/react-modals.md
+[sass-and-bootstrap]: resources/styling/sass-bootstrap-typography.md
+[autoprefixer]: resources/styling/autoprefixer.md
+[react-modal]: resources/styling/react-modals.md
 [react-modal-video]: https://vimeo.com/164336429
-[styling-links]: styling/styling.md
+[styling-links]: resources/styling/styling.md
 
-[sendgrid]: apis/sendgrid.md
+[sendgrid]: resources/apis/sendgrid.md
 
 [pusher]: https://vimeo.com/164515140
-[delayed-job]: gems/delayed-job.md
-[kaminari]: gems/kaminari.md
-[friendly-id]: gems/friendly-id.md
+[delayed-job]: resources/gems/delayed-job.md
+[kaminari]: resources/gems/kaminari.md
+[friendly-id]: resources/gems/friendly-id.md
 [code-demo]: https://github.com/appacademy/friendly-kaminari-demo
 [new-relic]: https://github.com/newrelic/rpm
 
-[caching]: caching/caching.md
-[redis]: caching/redis.md
+[caching]: resources/caching/caching.md
+[redis]: resources/caching/redis.md
 
-[heroku-scheduler]: helpful_tools/heroku-scheduler.md
+[heroku-scheduler]: resources/helpful_tools/heroku-scheduler.md
