@@ -32,7 +32,7 @@
 * Schedule recurring jobs on Heroku
   * [Heroku scheduler][heroku-scheduler]
 
-[web-app-architecture]: expository_readings/web_app_architecture.md
+[web-app-architecture]: resources/expository_readings/web_app_architecture.md
 
 [gon]: resources/https://vimeo.com/168132088
 [omniauth]: resources/security/omniauth.md
