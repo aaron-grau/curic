@@ -34,7 +34,7 @@
 
 [web-app-architecture]: expository_readings/web_app_architecture.md
 
-[gon]: https://vimeo.com/168132088
+[gon]: ./https://vimeo.com/168132088
 [omniauth]: security/omniauth.md
 [omniauth-and-facebook]: security/facebook-login.md
 [omniauth-demo]: https://github.com/appacademy/OmniAuthDevise
