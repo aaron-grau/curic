@@ -25,6 +25,7 @@
 ### Readings
 + [Callbacks][callbacks]
 + [Delegation][delegation]
++ [Contextual Overview of DNS][dns_reading]
 
 ### Homeworks (125 min)
 * [Library Controller][library-hw] (45 min)
@@ -53,6 +54,7 @@
 
 [callbacks]: readings/callbacks.md
 [delegation]: readings/delegation.md
+[dns_reading]: readings/dns.md
 
 [rails-screencasts]: https://vimeo.com/album/2953690/sort:alphabetical
 [rails-videos-code]: demos/intro_rails_video_demo
