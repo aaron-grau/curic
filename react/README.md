@@ -1,4 +1,5 @@
-# React / Redux Curriculum
+# React / Redux
+*[w6d5](#w6d5) :: [w7d1](#w7d1) :: [w7d2](#w7d2) :: [w7d3](#w7d3) :: [w7d4](#w7d4) :: [w7d5](#w7d5)*
 
 ## w6d5
 
