@@ -3,7 +3,7 @@
 Heroku and AWS are cloud services that enable developers to deploy
 web and mobile apps. The main differences between the products are 
 that AWS's Elastic Computer Cloud (EC2) is an Infrastructure as a 
-Services (IaaS), while Heroku and AWS Elastic Beanstalk are examples
+Service (IaaS), while Heroku and AWS Elastic Beanstalk are examples
 of Platform as a Service (Paas). 
 
 
@@ -29,7 +29,7 @@ release new apps.
 - No bandwidth limitations: your app will continue to work if it
 suddenly goes viral and gets a ton of visitors.
 - Has many add-ons
-  - Redis is easier to start using with Heroku than AWS because less
+  - For example, Redis is easier to start using with Heroku than AWS because less
   setup is required
 
 #### Why would you use Heroku?
