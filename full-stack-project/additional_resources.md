@@ -1,15 +1,57 @@
 # Additional resources
 
-* [Security:][security] beef up your app's security and add user permissions.
-* [Styling:][styling] tips and tricks for styling your styling your site and adding modals
-* [APIs:][apis] useful web services
-* [Useful gems:][gems] some utility gems that automate common tasks
-* [Performance and scaling:][performance] use caching to speed up your app and help it handle heavier loads
-* [Heroku scheduler reading:][heroku-scheduler] schedule recurring jobs on Heroku
-
-[security]: resources/security/
-[styling]: resources/styling/
-[apis]: resources/apis/
-[gems]: resources/useful_gems/
-[performance]: resources/performance_and_scaling/
-[heroku-scheduler]: resources/helpful_tools/heroku-scheduler.md
+* Contextual readings
+  * [Web app architecture][web-app-architecture]
+  [web-app-architecture]: expository_readings/web_app_architecture.md
+* Beef up your app's security and add user permissions.
+  * [Gon gem video][gon]
+  * [OmniAuth reading][omniauth]
+    * [OmniAuth and Facebook reading][omniauth-and-facebook]
+    * [OmniAuth code demo][omniauth-demo]
+  * [CanCan reading][cancan]
+  [gon]: https://vimeo.com/168132088
+  [omniauth]: security/omniauth.md
+  [omniauth-and-facebook]: security/facebook-login.md
+  [omniauth-demo]: https://github.com/appacademy/OmniAuthDevise
+  [cancan]: security/cancan.md
+* Tips and tricks for styling your styling your site and adding modals
+  * [CSS Overview reading][css]
+  * [CSS demos code][css-demos]
+  * [CSS transforms and transitions video][css-transitions]
+  * [SASS and Bootstrap reading][sass-and-bootstrap]
+  * [Autoprefixer gem reading][autoprefixer]
+  * [React modal reading][react-modal]
+    * [React modal video][react-modal-video]
+  * [Styling links reading][styling-links]
+  [css]: styling/css.md
+  [css-demos]: https://github.com/appacademy/css-demos
+  [css-transitions]: https://vimeo.com/164928587
+  [sass-and-bootstrap]: ./sass-bootstrap-typography.md
+  [autoprefixer]: styling/autoprefixer.md
+  [react-modal]: styling/react-modals.md
+  [react-modal-video]: https://vimeo.com/164336429
+  [styling-links]: styling/styling.md
+* Useful web services
+  * [Sendgrid reading][sendgrid]
+  [sendgrid]: apis/sendgrid.md
+* Some useful gems that can help you automate common tasks
+  * [Pusher video][pusher]
+  * [Delayed job reading][delayed-job]
+  * [Kaminari gem reading][kaminari]
+  * [FriendlyId gem reading][friendly-id]
+    * [FriendlyId and Kaminari demo code][code-demo]
+  * [New Relic][new-relic] - performance monitoring
+  [pusher]: https://vimeo.com/164515140
+  [delayed-job]: gems/delayed-job.md
+  [kaminari]: gems/kaminari.md
+  [friendly-id]: gems/friendly-id.md
+  [code-demo]: https://github.com/appacademy/friendly-kaminari-demo
+  [new-relic]: https://github.com/newrelic/rpm
+* Use caching to speed up your app and help it handle heavier loads
+  * [Caching with the redis gem reading][redis]
+  * [Caching reading][caching]
+  [caching]: caching/caching.md
+  [redis]: caching/redis.md
+* Schedule recurring jobs on Heroku
+  * [Heroku scheduler][heroku-scheduler]
+  [heroku-scheduler]: helpful_tools/heroku-scheduler.md
