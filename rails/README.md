@@ -1,5 +1,7 @@
 # Rails
 
+:link: *[w4d1](#w4d1) :: [w4d2](#w4d2) :: [w4d3](#w4d3) :: [w4d4](#w4d4) :: [w4d5](#w4d5) :: [w5d1](#w5d1) :: [w5d2](#w5d2)* :link:
+
 * [Setup][rails-setup]
 * Rails Api [api.rubyonrails.org][rails-api]
 * Rails Guides [guides.rubyonrails.org][rails-guides]

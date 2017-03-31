@@ -1,4 +1,5 @@
-# React / Redux Curriculum
+# React / Redux
+:link: *[w6d5](#w6d5) :: [w7d1](#w7d1) :: [w7d2](#w7d2) :: [w7d3](#w7d3) :: [w7d4](#w7d4) :: [w7d5](#w7d5) :: [w8d1](#w8d1) :: [w8d2](#w8d2)* :link:
 
 ## w6d5
 
@@ -227,11 +228,17 @@
 * :movie_camera: [Intro to UX for Web][uiux-web] (6 min)
 * :movie_camera: [UI Affordances and Signifiers][uiux-affordances] (4 min)
 * :movie_camera: [Designing to Look Good][uiux-look-good] (11 min)
+* :movie_camera: [Frontend Auth: Intro][frontend_auth_1] (2 min)
+* :movie_camera: [Frontend Auth: API Authentication][frontend_auth_2] (3 min)
+* :movie_camera: [Frontend Auth: Frontend Auth Pattern][frontend_auth_3] (14 min)
 
 [uiux-intro]: https://vimeo.com/album/4453315/video/206661754
 [uiux-web]: https://vimeo.com/album/4453315/video/206661769
 [uiux-affordances]: https://vimeo.com/album/4453315/video/206661839
-[uiux-look-good]: https://vimeo.com/album/4453315/video/206661864 
+[uiux-look-good]: https://vimeo.com/album/4453315/video/206661864
+[frontend_auth_1]: https://vimeo.com/210683007
+[frontend_auth_2]: https://vimeo.com/210683951
+[frontend_auth_3]: https://vimeo.com/210684312
 
 
 ### Readings (20 min)

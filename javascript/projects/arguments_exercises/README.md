@@ -78,9 +78,9 @@ That makes sense, because there are two arrays of `arguments` you care
 about: the extra `arguments` passed to `myBind`, and the `arguments`
 passed when the bound function is called.
 
-Once you've done that, **write a second version using the `...` [rest operator][rest-op].**
+Once you've done that, write a second version using the `...` [rest operator][rest-op].
 
-[rest-op]: ../../readings/arguments.md#rest-parameters
+[rest-op]: ../../readings/arguments.md#rest-parameters-es6
 
 ## `curriedSum`
 
@@ -154,4 +154,4 @@ Write a method `Function.prototype.curry(numArgs)`. This should return a functio
 
 ** Make sure to call a TA to check over your work if you haven't already! **
 
-[spread-op]:../../readings/arguments.md#spread-parameters
+[spread-op]:../../readings/arguments.md#spread-syntax-es6

@@ -1,5 +1,7 @@
 # JavaScript
 
+:link: *[w5d3](#w5d3) :: [w5d4](#w5d4) :: [w5d5](#w5d5) :: [w6d1](#w6d1) :: [w6d2](#w6d2) :: [w6d3](#w6d3) :: [w6d4](#w6d4)* :link:
+
 ## w5d3
 
 ### Breakfast
@@ -163,9 +165,8 @@ JavaScript needs.
 
 ### Homeworks (20 min)
 * [Webpack Tutorial][webpack] (20 min)
-  * Complete up to 'The First Loader'
 
-[webpack]: https://webpack.github.io/docs/tutorials/getting-started
+[webpack]: https://webpack.js.org/guides/get-started/
 
 ### Additional Resources
 * [Github Pages][github-pages]
