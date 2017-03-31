@@ -163,9 +163,8 @@ JavaScript needs.
 
 ### Homeworks (20 min)
 * [Webpack Tutorial][webpack] (20 min)
-  * Complete up to 'The First Loader'
 
-[webpack]: https://webpack.github.io/docs/tutorials/getting-started
+[webpack]: https://webpack.js.org/guides/get-started/
 
 ### Additional Resources
 * [Github Pages][github-pages]
