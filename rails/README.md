@@ -326,6 +326,9 @@
 * [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
 * [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 
+### Readings (15 min)
+* [Contextual Overview of TCP/IP][tpi_ip_reading]
+
 ### Homeworks (45 min)
 * Complete [RegexOne][regex-link] (45 min)
 
@@ -346,6 +349,7 @@
 ### Solo Project
 * [Rails Lite][rails-lite]
 
+[tcp_ip_reading]: readings/tcp_ip.md
 [middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [http]: readings/http.md
 [rack]: readings/rack.md
