@@ -137,11 +137,9 @@ are stylistically preferred by companies that have adopted ES6. However, for
 the sake of interviews and for understanding JavaScript, it is important to
 understand both forms of grabbing arguments.
 
-## Spread Parameters (ES6+)
+## Spread Syntax (ES6+)
 
-ES6 also allows us to use Spread Parameters, which is like the Ruby splat for
-de-structuring parameters. We can now pass an array into a function with the `...`
-as shown below:
+ES6 also allows us to use Spread Syntax, which is like the Ruby splat for destructuring elements. We can now pass a "spread" array to a function with the `...` as shown below:
 
 ```javascript
 function madLib(verb, pluralNoun1, pluralNoun2, place) {
@@ -150,10 +148,11 @@ function madLib(verb, pluralNoun1, pluralNoun2, place) {
 
 const words = ["eat", "socks", "rabbits", "sea"];
 
-console.log(madLib(...words));
+madLib(...words); // equivalent to 'madLib(words[0], words[1], words[2], words[3])'
+//=> "I like to eat socks with rabbits by the sea."
 ```
 
-We can de-structure arguments multiple times in a function call.
+We can even destructure multiple arguments in a function call.
 
 ```javascript
 const myFunction = (v, w, x, y, z) => { }
