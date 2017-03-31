@@ -31,10 +31,10 @@
 [react-func-comps]: https://vimeo.com/188090786
 [react-lifecycle]: https://vimeo.com/188093789
 
-### Homeworks (90 min)
+### Homeworks (75/90 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (45 min)
-- Add your questions and answers from pairboarding today to your Study Notes repo! (15 min)
+- **SF Only:** Add your questions and answers from pairboarding today to your Study Notes repo! (15 min)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/calculator
