@@ -1,4 +1,5 @@
-# React / Redux Curriculum
+# React / Redux
+:link: *[w6d5](#w6d5) :: [w7d1](#w7d1) :: [w7d2](#w7d2) :: [w7d3](#w7d3) :: [w7d4](#w7d4) :: [w7d5](#w7d5) :: [w8d1](#w8d1) :: [w8d2](#w8d2)* :link:
 
 ## w6d5
 
