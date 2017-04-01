@@ -100,8 +100,6 @@ has all sorts of useful methods:
   // each time it sets `this` to the next `HTMLElement` in the set.
     console.log([index, this.textContent].join(" "));
   });
-    // The function is called for each `HTMLElement` in `$listItems`;
-    // each time it sets `this` to the next `HTMLElement` in the set.
 
 
   // after one second, make the list green
