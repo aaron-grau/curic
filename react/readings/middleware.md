@@ -31,7 +31,7 @@ Consider the following example, where we import a third-party `logger`
 middleware:
 
 ```js
-  // store/store.js
+// store/store.js
 
 import { createStore, applyMiddleware } from 'redux';
 import RootReducer from 'reducers';
@@ -126,5 +126,41 @@ Now, whenever we dispatch an action, we'll see its effect on the Store.
 I know that those last few paragraphs probably seemed crazy, and they are.
 Understanding middleware takes practice, so don't worry if every detail hasn't
 clicked. Just memorize the middleware signature and you will be OK.
+
+## `redux-logger`
+
+As we move forward with Redux, we will want to have access to our store's state for debugging purposes. Including the `redux-logger` npm package and adding it as a middleware gives us access (through the console) to the previous state, action, and next state with each dispatch. This is incredibly convenient for debugging purposes and avoids such unpleasantness as attaching the `store` to the `window`. 
+
+![Redux Logger Image](https://camo.githubusercontent.com/73b5dc54ec615f18746e8472e02d130f79a3cf9f/687474703a2f2f692e696d6775722e636f6d2f43674175486c452e706e67)
+
+Follow the example below to include it in your projects:
+
+* Include the `redux-logger` package:
+	```sh
+	npm install redux-logger --save
+	```
+* Pass a instance of `redux-logger` to `applyMiddleware` when creating your store:
+	
+	**NB: `logger` must be the last middleware passed into `applyMiddleware`**, otherwise it will log the thunk and any involved promises
+	```js
+	// store/store.js
+
+	import { createStore, applyMiddleware } from 'redux';
+	import RootReducer from 'reducers';
+	import thunk from 'redux-thunk';
+	import createLogger from 'redux-logger';
+
+	const logger = createLogger();
+
+	let configureStore = (preloadedState = {}) => (
+		createStore(
+			RootReducer,
+			preloadedState,
+			applyMiddleware(thunk, logger)
+		)
+	);
+
+	export default configureStore;
+	```
 
 [signature]: https://developer.mozilla.org/en-US/docs/Glossary/Signature/Function
