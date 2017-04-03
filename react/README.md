@@ -6,17 +6,19 @@
 ### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
 
-### Readings (45 min)
+### Readings (48 min)
 **Tonight only, please do the readings before watching the video lectures**
 - [NPM][npm_configuration] (15 min)
 - [Webpack][webpack_configuration] (10 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
+- [React Developer Tools][react-dev-tools] (3 min)
 
 [npm_configuration]: readings/npm_configuration.md
 [webpack_configuration]: readings/webpack_configuration.md
 [import_export]: readings/import_export.md
 [object_destructuring]: readings/object_destructuring.md
+[react-devtools]: readings/react_dev_tools.md
 
 ### Video Lectures (68 min)
 :closed_lock_with_key: `go_video_go`
