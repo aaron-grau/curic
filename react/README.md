@@ -12,13 +12,13 @@
 - [Webpack][webpack_configuration] (10 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
-- [React Developer Tools][react-dev-tools] (3 min)
+- [React Developer Tools][react_dev_tools] (3 min)
 
 [npm_configuration]: readings/npm_configuration.md
 [webpack_configuration]: readings/webpack_configuration.md
 [import_export]: readings/import_export.md
 [object_destructuring]: readings/object_destructuring.md
-[react-devtools]: readings/react_dev_tools.md
+[react_dev_tools]: readings/react_dev_tools.md
 
 ### Video Lectures (68 min)
 :closed_lock_with_key: `go_video_go`
