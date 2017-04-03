@@ -243,8 +243,8 @@
 + [Simon][simon] (45 min)
 
 ### Projects
-+ [Class inheritance][inheritance-exercises]
 + [Exceptions, error handling][errors-exercises]
++ [Class inheritance][inheritance-exercises]
 + [Chess][chess]
     + Please read the project description the night before.
 
