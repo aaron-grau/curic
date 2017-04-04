@@ -1,5 +1,7 @@
 # React / Redux
-:link: *[w6d5](#w6d5) :: [w7d1](#w7d1) :: [w7d2](#w7d2) :: [w7d3](#w7d3) :: [w7d4](#w7d4) :: [w7d5](#w7d5) :: [w8d1](#w8d1) :: [w8d2](#w8d2)* :link:
+:link: *[w6d5](#w6d5) :: [w7d1](#w7d1) :: [w7d2](#w7d2) :: [w7d3](#w7d3)
+:: [w7d4](#w7d4) :: [w7d5](#w7d5) :: [w8d1](#w8d1) :: [w8d2](#w8d2)*
+:link:
 
 ## w6d5
 
@@ -7,7 +9,8 @@
 - **Progress Tracker reports are still due at 9am.**
 
 ### Readings (45 min)
-**Tonight only, please do the readings before watching the video lectures**
+**Tonight only, please do the readings before watching the video
+lectures**
 - [NPM][npm_configuration] (15 min)
 - [Webpack][webpack_configuration] (10 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
@@ -22,7 +25,8 @@
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [React: Intro][react-intro] (27 min)
 * :movie_camera: [React: Transpilation][react-transpilation] (8 min)
-* :movie_camera: [React: Functional Components][react-func-comps] (22 min)
+* :movie_camera: [React: Functional Components][react-func-comps] (22
+min)
 * :movie_camera: [React: Lifecycle Methods][react-lifecycle] (11 min)
   * :computer: [code from click counter demo][click-demo]
 
@@ -34,7 +38,8 @@
 ### Homeworks (90 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (45 min)
-- Add your questions and answers from pairboarding today to your Study Notes repo! (15 min)
+- Add your questions and answers from pairboarding today to your Study
+Notes repo! (15 min)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/calculator
@@ -102,7 +107,8 @@
   + [Live demo][fruit-stand-01-live]
   + :computer: [Source code][fruit-stand-01-source]
 + Phase II - React/Redux (1 hr)
-  + :movie_camera: [Video demo][fruit-stand-02-video] :closed_lock_with_key: `go_video_go` (45 min)
+  + :movie_camera: [Video demo][fruit-stand-02-video]
+:closed_lock_with_key: `go_video_go` (45 min)
   + [Live demo][fruit-stand-02-live]
   + :computer: [Source code][fruit-stand-02-source]
 
@@ -166,7 +172,8 @@
 
 ### Homeworks (100 min)
 - [Giphy Homework][giphy_homework] (90 min)
-- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
+- [Submit your tentative full-stack project
+proposal][tentative-proposal] (10 min)
   - **Due by 9AM Thursday w7d4**
   - You many want to browse our [list of approved apps][approved-apps]
 
@@ -191,24 +198,25 @@
 ### Readings (45 min)
 - [Intro to React Router][react_router_intro]  (15 min)
 - [`<Link>`][link] (5 min)
-- [Route Hooks (`onEnter`)][on_enter] (10 min)
-- [Index Routes][index_routes] (5 min)
+- [`<Switch>`][switch] (5 min)
 - [`withRouter`][with_router] (10 min)
 
 [react_router_intro]: readings/intro_to_react_router.md
 [link]: readings/link.md
-[index_routes]: https://github.com/reactjs/react-router/blob/v3/docs/guides/IndexRoutes.md
-[on_enter]: readings/on_enter.md
-[with_router]: https://github.com/reactjs/react-router/blob/v3/docs/API.md#withroutercomponent-options
+[switch]: readings/switch.md
+[with_router]: readings/with_router.md
 
 ### Homeworks (40 min)
-- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
+- [Submit your tentative full-stack project
+proposal][tentative-proposal] (10 min)
 - [Rainbow Routes][rainbow_routes] (30 min)
 [rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
-- [Route Configuration](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteConfiguration.md)
-- [Route Matching](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteMatching.md)
+- [Route
+Configuration](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteConfiguration.md)
+- [Route
+Matching](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteMatching.md)
 - [React Router 3.0 Documentation][react_router_docs]
   - Check the `API` docs for quick reference
 
@@ -226,11 +234,14 @@
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Intro to UI/UX][uiux-intro] (4 min)
 * :movie_camera: [Intro to UX for Web][uiux-web] (6 min)
-* :movie_camera: [UI Affordances and Signifiers][uiux-affordances] (4 min)
+* :movie_camera: [UI Affordances and Signifiers][uiux-affordances] (4
+min)
 * :movie_camera: [Designing to Look Good][uiux-look-good] (11 min)
 * :movie_camera: [Frontend Auth: Intro][frontend_auth_1] (2 min)
-* :movie_camera: [Frontend Auth: API Authentication][frontend_auth_2] (3 min)
-* :movie_camera: [Frontend Auth: Frontend Auth Pattern][frontend_auth_3] (14 min)
+* :movie_camera: [Frontend Auth: API Authentication][frontend_auth_2] (3
+min)
+* :movie_camera: [Frontend Auth: Frontend Auth Pattern][frontend_auth_3]
+(14 min)
 
 [uiux-intro]: https://vimeo.com/album/4453315/video/206661754
 [uiux-web]: https://vimeo.com/album/4453315/video/206661769
@@ -250,9 +261,12 @@
 
 ### Homeworks (75 min)
 * Do the auth part of [A04 Prep][a04_prep] (60 min)
-  * Front-end auth (the main concept in BenchBnB Day 1) builds on top of regular Rails backend auth, so make sure you build on a solid base.
-  * You'll be surprised how much of it you've forgotten by now. It's normal.
-* Add your questions and answers from pairboarding to your Study Notes repo! (15 min)
+  * Front-end auth (the main concept in BenchBnB Day 1) builds on top of
+regular Rails backend auth, so make sure you build on a solid base.
+  * You'll be surprised how much of it you've forgotten by now. It's
+normal.
+* Add your questions and answers from pairboarding to your Study Notes
+repo! (15 min)
 
 [a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4
 
@@ -284,14 +298,16 @@
 
 ### Homework (5.5 hrs)
 * [UX/UI Layout Practice][uxhw] (30 min)
-* Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
+* Submit your [full-stack project proposal][full_stack_project_proposal]
+(5 hrs)
   * **Due by 9am on Monday w8d1**
 
 [full_stack_project_proposal]: ../full-stack-project/proposal/full-stack-project-proposal.md
 [uxhw]: ../full-stack-project/homeworks/ux
 
 ### Additional Resources
-* See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
+* See [full-stack project curriculum][full_stack_project_curriculum] for
+additional information and readings related to full-stack projects.
 
 [full_stack_project_curriculum]: ../full-stack-project
 
