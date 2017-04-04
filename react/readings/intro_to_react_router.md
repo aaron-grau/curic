@@ -160,8 +160,7 @@ class Profile extends React.Component {
 * [React Router
 docs](https://reacttraining.com/react-router/web/guides/quick-start)
 * [Route](https://reacttraining.com/react-router/web/api/Route)
-* 
-[HashRouter](https://reacttraining.com/react-router/web/api/HashRouter)
+* [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter) 
 * [location](https://reacttraining.com/react-router/web/api/location)
 * [match](https://reacttraining.com/react-router/web/api/match)
 * [history](https://reacttraining.com/react-router/web/api/history)
