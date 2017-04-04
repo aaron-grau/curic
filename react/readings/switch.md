@@ -21,5 +21,4 @@ following example.
 
 ## Resources
 
-* [React router
-docs](https://reacttraining.com/react-router/web/guides/quick-start)
+* [Switch](https://reacttraining.com/react-router/web/api/Switch)

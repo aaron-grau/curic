@@ -20,4 +20,10 @@ const Header = ({ match }) => (
 export default withRouter(Header)
 ```
 
+
+## Resources
+
+* 
+[withRouter](https://reacttraining.com/react-router/web/api/withRouter)
+
 [react-router-intro]: ./intro_to_react_router.md
