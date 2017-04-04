@@ -195,11 +195,11 @@ proposal][tentative-proposal] (10 min)
 
 ## w7d4
 
-### Readings (45 min)
-- [Intro to React Router][react_router_intro]  (15 min)
+### Readings (29 min)
+- [Intro to React Router][react_router_intro]  (20 min)
 - [`<Link>`][link] (5 min)
-- [`<Switch>`][switch] (5 min)
-- [`withRouter`][with_router] (10 min)
+- [`<Switch>`][switch] (2 min)
+- [`withRouter`][with_router] (2 min)
 
 [react_router_intro]: readings/intro_to_react_router.md
 [link]: readings/link.md
