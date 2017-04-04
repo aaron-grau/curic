@@ -179,7 +179,7 @@ In `/views/shared/_main_nav.html.erb`:
 the `"main-nav"` element.
 - Add a `ul` element to your new `nav`. Make the buttons and gear icon list
 items of this unordered list.
-- Add "Subscribe Now" and "Log In" buttons.
+- Add "Subscribe Now" and "Log In" buttons. (Note: use HTML button tags for these elements)
 - Add the gear icon.
   - Use [this list of Font Awesome icon classes][font-awesome] to find the right
   gear image.
