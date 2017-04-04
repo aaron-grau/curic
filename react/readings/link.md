@@ -75,7 +75,8 @@ example
   // whereas this one will not
   <Link exact={true} to="/users">Users</Link>
   ```
-
+  
 
 See the [React
-docs](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link) for more information on using `<Link>`.
+docs](https://reacttraining.com/react-router/web/api/Link) for more
+information on using `<Link>`.
