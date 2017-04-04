@@ -53,6 +53,7 @@ Here is a quick guide to git yer app on the interwebs.
   * Follow instructions in `Deploy` tab in Heroku Dashboard
     * You should already have a repo, so use `heroku git:remote -a appname` or `git remote add heroku https://git.heroku.com/appname.git`
   * Push to Heroku remote: `git push heroku master`
+  * Check the status of your migrations with `heroku run rake db:migrate:status`
   * Setup production database with: `heroku run bundle exec rake db:migrate`
   * Optionally, include seed data with: `heroku run bundle exec rake db:seed`
 
@@ -77,7 +78,8 @@ Here is a quick guide to git yer app on the interwebs.
 * "We're sorry, but something went wrong" error message appears on page load
   * Something is failing silently server-side. Use `heroku logs -t` to see your server logs and debug the issue
 * Can't fetch any data
-  * Make sure you created, migrated and seeded you database on Heroku
+  * Make sure you created, migrated and seeded your database on Heroku
+  * Run `heroku run rake db:migrate:status` to see which migrations you have and haven't run yet on Heroku
 * Changing only capitalization when renaming a file.
   * Git will fail to recognize the change. Use `git mv -f <old_file_name> <new_file_name>` to force the update
 * Asset pipeline not retrieving an asset, but is looking in the right directory (on `localhost`)
