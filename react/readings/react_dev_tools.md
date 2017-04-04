@@ -15,7 +15,7 @@ Check out the [docs][docs] for a brief overview. You can even use React Develope
 
 Take a few minutes to install the extension and play around with it while completing tonights homework. If nothing else, it will expand your visual model of React and your component hierarchy.
 
-[chrome_extension]: https://chrome.google.com/webstore/detail/react-developer-tools/
+[chrome_extension]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US
 [docs]: https://github.com/facebook/react-devtools
 [react_home]: https://facebook.github.io/react/
 [img]: https://lh4.googleusercontent.com/RO9s2sb_dmJ3NZqSFIFwYzix16uJbk3WS91GRSIWkj_jjvXqpuOBZjnP8k5EFUIoT46ccSA39A=s640-h400-e365-rw
