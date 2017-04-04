@@ -264,7 +264,7 @@ min)
 * **Bonus**: [CSS Transform property][css-transform]
 
 ### Projects
-* **Solo:** [AA Times][aa-times]
+* **Solo (SF Only):** [AA Times][aa-times]
 * **Bonus**: [Google Homepage][css-bonus-assignment]
 
 [css-nontech]: ../html-css/readings/css_nontech.md
