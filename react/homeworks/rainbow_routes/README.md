@@ -1,16 +1,18 @@
 # Rainbow Routes
 
-Today we're going to get our first experience using the React Router. The goal is to create a basic app that displays the colors of the rainbow. This rainbow, however, has something special about it - some of the colors are nested within others.
+Today we're going to get our first experience using React Router. The goal is to create a basic app that displays the colors of the rainbow. This rainbow, however, has something special about it - some of the colors are nested within others.
 
 ## Phase 0: Setup
 
 Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. Run `npm install` to get it setup. Then run `npm start`. For information on the `webpack-dev-server` configuration, refer to the [webpack-dev-server reading](../../readings/webpack_dev_server.md).
 
-Navigate to `http://localhost:8080` in your browser and verify you can see "Rainbow Router" header.  Currently there's no functionality - we'll fix that asap!
+Navigate to `http://localhost:8080` in your browser and verify you can see "Rainbow Router" header.  Currently there's no functionality. If you click the links, you'll just alerts. We'll make them active soon.
 
-## Phase 1: Basic Routing Structure
+## Phase 1: Routes
 
-Our first step is to build up the router structure we want.  Ultimately, we want our router to look like this:
+First take a look at the entry file `entry.jsx`. Note that in the `Root` component we have wrapped the `Rainbow` component in `<HashRouter>` tags. This will make the router available to all its descendent components. Don't change the entry file - everything is already set up for you.
+
+Now open the file `components/rainbow.jsx`. We're going to render some of our color components from here. Ultimately we want our routes to look like this.
 
 URL                     | Components
 ------------------------|-----------
@@ -23,41 +25,36 @@ URL                     | Components
 `/blue/indigo`          | `Rainbow -> Blue -> Indigo`
 `/violet`               | `Rainbow -> Violet`
 
+This means that the `Red`, `Green`, `Blue`, and `Violet` components need to render in the `Rainbow` component, but only when we are at the corresponding URL. We'll do this with `Route` components. (Refer back to the [reading][intro] for details.) Add the necessary `Route` components inside the `div` with `id="rainbow"` in the `Rainbow#render` method. For example, to render the `Red` component you will want
 
-To start, let's add our first level of routes (i.e. red, green, blue, & violet).  Scroll to the bottom of `entry.jsx` and you'll see the basic framework of a router has already been set up.  
+```js
+  <Route path="/red" component={Red} />
+```
 
-Now it's our job to add more routes.  For each desired route (red, green, blue, & violet), set the path attribute equal to the color name and assign the corresponding component.  Refer to tonight's readings on [Route Configuration][route-config-reading] for guidance on how to build routes.
+Test that your code works!  Manually type in each URL we just created, and you should see the color component pop up.  Remember, these are React Routes, so the paths we created will come after the `#`.  For example, our red route will look like `localhost:8080/#/red`.
 
-**N.B.** All the color components have already been imported at the top of the page.  
+We want to nest the `Orange` and `Yellow` components inside the `Red` component, and the `Indigo` component inside the `Blue` component. You'll have to go add the corresponding `Route` tags to the `red.jsx` and `blue.jsx` files. Make sure to use the correct nested paths, such as `"/red/orange"` for the orange `Route`.
 
-Test that your code works!  Manually type in all the URLs we just created, and you should see the color component pop up on the right-hand side.  Remember, these are React Routes, so the paths we created will come after the `#`.  For example, our red route will look like `localhost:8080/#/red`.
+## Phase 2: HashRouter `history.push`
 
-## Phase 2: Hash History / `router.push`
+Manually navigating to our newly created routes is tiresome, so let's add functionality to take care of this process for us. We'll use the `history` object. We can use `withRouter` to make `history` available as a prop in any components that need it. In this case it will only be `Rainbow`. Go ahead and wrap `Rainbow` in `withRouter` when you export it. See the [withRouter][with-router] reading to see what this should look like.
 
-Manually navigating to our newly created routes is tiresome, so let's add functionality to take care of this process for us. Notice that our router in `entry.jsx` was declared with its history property set to `hashHistory`. Now, we can use [withRouter][with-router] to make our router and its history available in any components that need it (i.e. the ones that are responsible for changing the route).
-
-Take a look at the `rainbow` component in `entry.jsx` - you'll see that each `<h4>` has a click listener and corresponding method already created. To make each of these click handlers change the path for us, we're going to call `push` on the router, which should be available as `this.props.router` in each component, as long as we export each component `withRouter`. Using this `push` method allows us to dynamically change the hash portion of our url. Our router will then match that hash portion and render the corresponding component(s).
+Now let's look at the `<h4>` tags in the `Rainbow` component - you'll see that each `<h4>` has a click listener and corresponding method already created. Right now each of these methods just opens an alert. To make each of these click handlers change the path for us, we're going to call the `push` method on `history`, which should be available as `this.props.history`. Using the `push` method allows us to dynamically change the hash portion of our URL. Our router will then match that hash portion and render the corresponding component(s).
 
 For example, our `addRed` method might look as follows:
 
 ```js
   addRed() {
-    this.props.router.push('/red');
+    this.props.history.push('/red');
   }
 ```
 
-Fill out the remaining `addColor` methods.  Test that your code works by clicking on the color names in your browser and seeing that you are rendering components correctly.  
+Fill out the remaining `addColor` and `resetColor` methods.  Test that your code works by clicking on the color names in your browser and seeing that you are rendering components correctly. Make sure to also fill in these methods in the `red.jsx` and `blue.jsx` files.
 
-## Phase 3: Nested Routes
-
-Now let's add those nested routes (i.e. orange, yellow, & indigo).  No step-by-step instructions here - you got this!  
-
-Once you've added the nested routes, the next step is set up the click handlers to so we can actually get to these routes. You probably noticed text below the red and blue square, prompting you to add another color.  Our job now is to make those links work!
-
-Open up the `red.jsx` and `blue.jsx` files within the components folder.  You'll again see that click handlers and callbacks have already been set up.  Go ahead and add code to all the click handler callbacks.  When you push the new route into our hash fragment, make sure it's appropriately nested!  The nested colors should show up on top of the base color (i.e. we'll see a small orange square overlapping a larger red one).
+*Note:* you don't need `withRouter` for `Red` or `Blue`. They already get `history` because they are rendered inside `Route` components.
 
 Test that your code works by navigating through all the routes.  Time to celebrate! :tada: :rainbow: :tada:
 
 [zip-skeleton]: ./skeleton.zip?raw=true
-[route-config-reading]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
-[with-router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
+[with-router]: ../../readings/with_router.md
+[intro]: ../../readings/intro_to_react_router.md

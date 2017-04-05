@@ -1,5 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Route } from 'react-router';
+import Orange from './orange';
+import Yellow from './yellow';
 
 class Red extends React.Component {
   constructor() {
@@ -10,15 +12,15 @@ class Red extends React.Component {
   }
 
   resetRed() {
-    // your code here
+    alert("Clicking here doesn't do anything yet. Maybe you can change that!")
   }
 
   addOrange() {
-    // your code here
+    alert("Clicking here doesn't do anything yet. Maybe you can change that!")
   }
 
   addYellow() {
-    // your code here
+    alert("Clicking here doesn't do anything yet. Maybe you can change that!")
   }
 
   render() {
@@ -29,10 +31,11 @@ class Red extends React.Component {
         <h4 onClick={this.addOrange}>Add orange</h4>
         <h4 onClick={this.addYellow}>Add yellow</h4>
 
-        {this.props.children}
+        {/* add <Route> tags here */}
+
       </div>
     );
   }
 };
 
-export default withRouter(Red);
+export default Red;

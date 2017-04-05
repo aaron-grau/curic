@@ -1,5 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Route } from 'react-router';
+import Indigo from './indigo';
+
 
 class Blue extends React.Component {
   constructor() {
@@ -9,11 +11,11 @@ class Blue extends React.Component {
   }
 
   resetBlue() {
-    // your code here
+    alert("Clicking here doesn't do anything yet. Maybe you can change that!")
   }
 
   addIndigo() {
-    // your code here
+    alert("Clicking here doesn't do anything yet. Maybe you can change that!")
   }
 
   render() {
@@ -23,10 +25,11 @@ class Blue extends React.Component {
         <h4 onClick={this.resetBlue}>Blue only</h4>
         <h4 onClick={this.addIndigo}>Add indigo</h4>
 
-        {this.props.children}
+        {/* add <Route> tags here */}
+
       </div>
     );
   }
 };
 
-export default withRouter(Blue);
+export default Blue;
