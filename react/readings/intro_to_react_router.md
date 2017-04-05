@@ -128,9 +128,22 @@ in)
   * `params` the matches for the individual wildcard segments, nested
 under their names
 
-* `history` This gives you advanced access to the router history. You
-shouldn't need to use it, and it's generally a better idea to use the
-first two props.
+* `history` This prop lets you update the URL programatically. For example,
+  suppose we want to push a new URL when the user clicks a button.
+  It has two useful methods:
+
+  * `push` This adds a new URL to the end of the history stack. That
+    means that clicking the back button will take the browser to the
+    previous URL.
+
+  * `replace` This replaces the current URL on the history stack,
+    so the back button won't take you to it. For example
+
+    ```js
+      const handleClick = () => this.props.history.push('/some/url');
+
+      const redirect = () => this.props.history.replace('/some/other/url');
+    ```
 
 Let's use the `match` prop to fetch the correct user from the database
 in the Profile component. Recall that our profile component was rendered
@@ -160,7 +173,7 @@ class Profile extends React.Component {
 * [React Router
 docs](https://reacttraining.com/react-router/web/guides/quick-start)
 * [Route](https://reacttraining.com/react-router/web/api/Route)
-* [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter) 
+* [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter)
 * [location](https://reacttraining.com/react-router/web/api/location)
 * [match](https://reacttraining.com/react-router/web/api/match)
 * [history](https://reacttraining.com/react-router/web/api/history)
