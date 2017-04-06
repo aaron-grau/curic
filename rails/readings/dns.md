@@ -75,4 +75,6 @@ IP address www.google.com should point to.
 + The most expensive domain name ever sold was Insurance.com, for
 $35.6M in 2010.
 
++ The oldest registered domain name is symbolics.com.
+
 [tcp_ip_reading]: tcp_ip.md
