@@ -3,12 +3,12 @@
 ## History
 
 The "Domain Name System," or DNS, is a naming system that translates
-domain names to IP addresses (e.g., "www.example.com" translates to
-"93.184.216.119" and "2606:2800:220:6d:26bf:1447:1097:aa7"). The DNS
-replaced an earlier system, called "HOSTS.TXT" that performed the same
-function, albeit on a much smaller, more analog scale (to add an
-address to the master file, one would have to call the holder of the
-text file by telephone).
+domain names to [IP addresses][tcp_ip_reading] (e.g., "www.example.com"
+translates to "93.184.216.119" and
+"2606:2800:220:6d:26bf:1447:1097:aa7"). The DNS replaced an earlier
+system, called "HOSTS.TXT" that performed the same function, albeit on
+a much smaller, more analog scale (to add an address to the master
+file, one would have to call the holder of the text file by telephone).
 
 ## Domain Names
 
@@ -74,3 +74,5 @@ IP address www.google.com should point to.
 
 + The most expensive domain name ever sold was Insurance.com, for
 $35.6M in 2010.
+
+[tcp_ip_reading]: tcp_ip.md
