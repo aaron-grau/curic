@@ -209,9 +209,9 @@ proposal][tentative-proposal] (10 min)
 [redirect]: readings/redirect.md
 
 ### Homeworks (40 min)
-- [Submit your tentative full-stack project
-proposal][tentative-proposal] (10 min)
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
 - [Rainbow Routes][rainbow_routes] (30 min)
+
 [rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
