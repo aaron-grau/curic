@@ -55,7 +55,7 @@ convenient methods for traversal and manipulation. We will implement
 `children`, and `parent`.
 
 #### `$l(selector)`
-* The core function, as we know, recieves one argument. If that argument
+* The core function, as we know, receives one argument. If that argument
   is a string, it is expected to be a `CSS` selector that we can use to
   identify nodes in the page.
 * Use [this method][querySelectorAll] to get an *array like* object
