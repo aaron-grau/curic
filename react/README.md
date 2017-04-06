@@ -37,7 +37,7 @@ min)
 [react-func-comps]: https://vimeo.com/188090786
 [react-lifecycle]: https://vimeo.com/188093789
 
-### Homeworks (75/90 min)
+### Homeworks (75 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (45 min)
 
