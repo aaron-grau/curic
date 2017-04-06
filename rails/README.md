@@ -327,7 +327,7 @@
 * [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 
 ### Readings (15 min)
-* [Contextual Overview of TCP/IP][tpi_ip_reading]
+* [Contextual Overview of TCP/IP][tcp_ip_reading]
 
 ### Homeworks (45 min)
 * Complete [RegexOne][regex-link] (45 min)
