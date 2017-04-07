@@ -209,9 +209,9 @@ proposal][tentative-proposal] (10 min)
 [with_router]: https://github.com/reactjs/react-router/blob/v3/docs/API.md#withroutercomponent-options
 
 ### Homeworks (40 min)
-- [Submit your tentative full-stack project
-proposal][tentative-proposal] (10 min)
+- [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
 - [Rainbow Routes][rainbow_routes] (30 min)
+
 [rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
