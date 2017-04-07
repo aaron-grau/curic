@@ -16,7 +16,7 @@ class BenchForm extends React.Component{
   }
 
   navigateToSearch() {
-    this.props.router.push("/");
+    this.props.history.push("/");
   }
 
   update(property) {
@@ -43,6 +43,7 @@ class BenchForm extends React.Component{
   }
 
   render() {
+    debugger;
     const { description, picture_url, seating } = this.state;
     const { lat, lng } = this.coords;
 

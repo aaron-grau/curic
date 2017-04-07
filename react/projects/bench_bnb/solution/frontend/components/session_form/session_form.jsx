@@ -1,22 +1,18 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Redirect, Link, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { username: "", password: "" };
+		this.state = { username: "", password: ""};
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentDidUpdate() {
-		this.redirectIfLoggedIn();
-	}
-
-	redirectIfLoggedIn() {
-		if (this.props.loggedIn) {
-			this.props.router.push("/");
-		}
-	}
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
+      this.props.history.push("/");
+    }
+  }
 
 	update(field) {
 		return e => this.setState({
@@ -51,6 +47,7 @@ class SessionForm extends React.Component {
 	}
 
 	render() {
+
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
