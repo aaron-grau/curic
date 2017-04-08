@@ -49,5 +49,6 @@ declarative programming.
 
 * [LMU overview of programming paradigms][reading]
 * [First part of Stanford lecture series][video]
+
 [reading]: http://cs.lmu.edu/~ray/notes/paradigms/
 [video]: https://www.youtube.com/watch?v=Ps8jOj7diA0
