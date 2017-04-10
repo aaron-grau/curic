@@ -90,7 +90,7 @@ something like this:
 
 Let's make the input fields. We want the state to receive the new value of the
 input field every time something is typed in. We can do this by passing an
-`onChange` event handler prop to on the input field. Whenever the input field's
+`onChange` event handler prop to the input field. Whenever the input field's
 value changes (via the user), the input will run its `onChange` prop, which
 should be a callback function. Let's write that callback inside our component.
 The callback should retrieve the value from the input field and set the state of
