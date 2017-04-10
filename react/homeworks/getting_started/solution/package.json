@@ -2,10 +2,10 @@
   "name": "solution",
   "version": "1.0.0",
   "description": "This homework covers configuration of a new React project. Download the skeleton [here][skeleton].",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack"
+    "webpack": "webpack --watch"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,6 @@
     "babel-preset-react": "^6.11.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "webpack": "^1.13.1"
+    "webpack": "^2.3.3"
   }
 }
