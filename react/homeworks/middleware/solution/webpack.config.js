@@ -6,6 +6,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname),
     filename: "bundle.js",
+    devtoolModuleFilenameTemplate: '[resourcePath]',
+    devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
   },
   module: {
     loaders: [
