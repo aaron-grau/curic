@@ -8,7 +8,7 @@ watches and TVs, etc. Front-end developers first handled this vast new range of
 screen sizes with *fluid layouts*, using percentage-based width values so site
 layouts could expand and contract depending on the size of the device's
 screen. This quickly proved insufficient, as layouts needed to do more than
-change size. Elements neeeded to be rearranged depending on the space available,
+change size. Elements needed to be rearranged depending on the space available,
 stacking vertically on a thin phone screen while sitting in line on a wide
 monitor.
 

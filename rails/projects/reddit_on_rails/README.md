@@ -86,11 +86,8 @@ Start by focusing on top-level comments. Write a `Comment` model with:
 * An `author` association,
 * A `post` association.
 
-Write a `CommentsController` and add a route to `create`
-`Comment`. The `new` route could have a url like
-`/posts/123/comments/new`. I recommend that your form post to a
-top-level `/comments` URL, though. These are the only two comments
-routes you need so far.
+Create `CommentsController` and a top-level `create` route. Also create a `new` route nested under `posts`
+(should look like: `/posts/:post_id/comments/new`). These are the only two comments routes you need so far.
 
 Edit your `PostsController#show` view to provide a link to a comment
 form and to display top-level comments.

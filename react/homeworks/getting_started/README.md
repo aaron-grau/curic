@@ -31,6 +31,8 @@ You'll need the following packages:
 You might also need (in other projects):
 
 - `redux`
+- `redux-thunk`
+- `redux-logger`
 - `react-redux`
 - `react-router`
 - `lodash`

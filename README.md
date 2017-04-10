@@ -6,7 +6,7 @@ This repository contains App Academy's complete coding curriculum.  Material is 
 * [SQL][sql]
 * [Rails][rails]
 * [HTML/CSS][html-css]
-* [Javascript][js]
+* [JavaScript][js]
 * [React][react]
 * [Full-Stack Project][full-stack-project]
 

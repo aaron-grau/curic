@@ -153,8 +153,10 @@ to stand on it's on. We call this building in 'slices' instead of 'layers'.
 
 ## Submission
 
-When you've finished setting up your full-stack project repo, create your Trello board, add your project to Progress
+When you've finished setting up your full-stack project repo, create your [Trello board][trello-setup], add your project to Progress
 Tracker and email your Project Manager (instructors-sf@appacademy.io or
 instructors-ny@appacademy.io).  A TA will review each proposal and leave their
 comments in issues on the project repo. Be prepared to respond to feedback, and
 keep your README up to date as you make progress. Happy hunting!
+
+[trello-setup]: using-trello.md

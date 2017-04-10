@@ -1,4 +1,4 @@
-#jQuery Lite!
+# jQuery Lite!
 
 ## Overview
 
@@ -55,7 +55,7 @@ convenient methods for traversal and manipulation. We will implement
 `children`, and `parent`.
 
 #### `$l(selector)`
-* The core function, as we know, recieves one argument. If that argument
+* The core function, as we know, receives one argument. If that argument
   is a string, it is expected to be a `CSS` selector that we can use to
   identify nodes in the page.
 * Use [this method][querySelectorAll] to get an *array like* object
@@ -223,9 +223,8 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
   should be an object (use JSON.parse) and not a string.
 
 ## SUPER Bonus Phase (do this after the rest of the day's exercises)
-* Have your `ajax` function return a `Promise`
-* Use a [`Promise`][promise-reading] to pretty up the usage of your AJAX
-  function. [Read about promise usage here][promise_doc].
+* Have your `ajax` function return a [`Promise`][promise-reading]
+  * [Read about Promise usage here][promise_doc]
 
 [jquery]: http://api.jquery.com/
 [jquery-library]: https://developers.google.com/speed/libraries/#jquery

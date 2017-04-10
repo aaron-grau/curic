@@ -11,30 +11,30 @@ state and define lifecycle methods.
 
 ```js
 class List extends React.Component {
-	constructor() {
-		super();
-		this.state = { items: [] };
-	}
+  constructor() {
+    super();
+    this.state = { items: [] };
+  }
 
-	componentDidMount() {
-		// this method is called after the component is rendered onto the DOM
-		// and fetches items from the API to be rendered as a list
-		$.ajax({
-			url: '/items',
-			success: items => this.setState(items: items);
-		});
-	}
+  componentDidMount() {
+  // this method is called after the component is rendered onto the DOM
+  // and fetches items from the API to be rendered as a list
+    $.ajax({
+      url: '/items',
+      success: items => this.setState(items: items);
+    });
+  }
 
-	render() {
-		return (
-			<h1>{this.props.title}</h1>
-			<ul>
-			{
-				this.state.items.map(item =>(<li>{item}</li>))
-			}
-			</ul>
-		);
-	}
+  render() {
+    return (
+      <h1>{this.props.title}</h1>
+      <ul>
+      {
+        this.state.items.map(item =>(<li>{item}</li>))
+      }
+      </ul>
+    );
+  }
 }
 ```
 
@@ -50,27 +50,27 @@ inheriting from `React.Component`.
 ```js
 const List = React.createClass({
 
-	getInitialState() {
-		return { items: [] };
-	},
+  getInitialState() {
+    return { items: [] };
+  },
 
-	componentDidMount() {
-		$.ajax({
-			url: '/items',
-			success: items => this.setState(items: items);
-		});
-	},
+  componentDidMount() {
+    $.ajax({
+      url: '/items',
+      success: items => this.setState(items: items);
+    });
+  },
 
-	render() {
-		return (
-			<h1>{this.props.title}</h1>
-			<ul>
-			{
-				this.state.items.map(item =>	<li>{item}</li>)
-			}
-			</ul>
-		);
-	}
+  render() {
+    return (
+      <h1>{this.props.title}</h1>
+      <ul>
+      {
+        this.state.items.map(item => <li>{item}</li>)
+      }
+      </ul>
+    );
+  }
 });
 ```
 
@@ -91,34 +91,48 @@ input and has no side effects.
 Here is an example written as a functional component:
 
 ```js
-const Message = (props) => {
-	return <div>{props.text}</div>
+function Message(props) => {
+  return <div>{props.text}</div>
 };
 ```
 
 which is equivalent to writing it as:
 ```js
 class Message extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
-	render() {
-		return (
-			<div>{this.props.text}</div>
-		);
-	}
+  render() {
+    return (
+      <div>{this.props.text}</div>
+    );
+  }
 };
 ```
 
-We can further simplify `Message` by using object de-structuring and
-arrow-function implicit returns from ES6.  Prefer this syntax:
+Do not use the expression-style function declaration [(from AirBnB React style guide)][airbnb-style-guide].
+
+```javascript
+// Bad
+const Message = (props) => {
+  return <div>{props.text}</div>
+};
+```
+
+Function name inference is discouraged due to hoisting.  You can learn more about the unexpected behavior [here][function-name-inference].
+
+We can further simplify `Message` by using object de-structuring.  Prefer this syntax:
 
 ```js
-const Message = ({ text }) => (
-	<div>{text}</div>
-);
+function Message({ text }) {
+  return <div>{text}</div>
+};
 ```
 Functional components are the most common type of component that you will see in Redux applications, which you will learn more about later this week.
 
 [functional-components]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
+
+[airbnb-style-guide]: https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless
+
+[function-name-inference]: http://stackoverflow.com/questions/37288950/why-does-the-airbnb-style-guide-say-that-relying-on-function-name-inference-is-d

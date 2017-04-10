@@ -1,5 +1,7 @@
 # JavaScript
 
+:link: *[w5d3](#w5d3) :: [w5d4](#w5d4) :: [w5d5](#w5d5) :: [w6d1](#w6d1) :: [w6d2](#w6d2) :: [w6d3](#w6d3) :: [w6d4](#w6d4)* :link:
+
 ## w5d3
 
 ### Breakfast
@@ -39,10 +41,13 @@
 ### Homeworks (55 min)
 * [Intro JavaScript Problems][intro-pset] (55 min)
 * Acquire [Effective JavaScript][effective-js] (readings begin tomorrow)
-    * This is a great resource. Over the next couple of weeks, we will assign specific items for you to read (the book is divided into 'items'). You **must** read the assigned items by the due date; however, we highly encourage you to read the whole book.
+    * This is a great resource. Over the next couple of weeks, we will
+assign specific items for you to read (the book is divided into
+'items'). You **must** read the assigned items by the due date; however,
+we highly encourage you to read the whole book.
     * A **lot** of JS interview questions come from this book.
 
-[intro-pset]: homeworks/questions/intro_js_problems
+[intro-pset]: homeworks/intro_js_problems
 [effective-js]: https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182
 
 ### Additional Resources
@@ -51,12 +56,14 @@
 * Guides and Documentation
   * [Codecademy JS Curriculum][codecademy-js]
     + Good for a slower, interactive intro.
-  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics] (ch1 only)
+  * [jQuery Fundamentals: JavaScript Basics][jq-fundamentals-js-basics]
+(ch1 only)
     + Another great intro reading.
   * [MDN Guide][mdn-guide]
     + Great guide from MDN.
   * [MDN Documentation][mdn-js-doc]
-    + JS Documentation. Bookmark and consult frequently for all of your JavaScript needs.
+    + JS Documentation. Bookmark and consult frequently for all of your
+JavaScript needs.
 
 [oo-js]: readings/object-oriented-js.md
 [function-invocation-briefly]: readings/function-invocation-briefly.md
@@ -102,7 +109,7 @@
 * [CSS Curriculum 2: Syntax][css-2] (50 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
 
-[cb-function-hw]: homeworks/questions/callbacksandfunctioncalls.md
+[cb-function-hw]: homeworks/callbacks_and_functions
 
 ### Additional Resources
 * Style
@@ -131,10 +138,12 @@
 
 ### Video Lectures (65 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Prototype Chain and Inheritance][proto-inherit-vid] (20 min)
+* :movie_camera: [Prototype Chain and Inheritance][proto-inherit-vid]
+(20 min)
 * :movie_camera: [Inheritance Demo][inherit-demo-vid]  (20 min)
 * :movie_camera: [JS in Browser][js-browser-vid] (10 min)
-* :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid] (15 min)
+* :movie_camera: [Debugging JS in Dev Tools (cc)][chrome-debugging-vid]
+(15 min)
 
 [proto-inherit-vid]: https://vimeo.com/162131042
 [inherit-demo-vid]: https://vimeo.com/162115223
@@ -151,14 +160,13 @@
 
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [browser-modules]: readings/browser-modules.md
-[basic-canvas-drawing]: http://joshondesign.com/p/books/canvasdeepdive/chapter01.html
+[basic-canvas-drawing]: https://web-beta.archive.org/web/20170201183210/joshondesign.com/p/books/canvasdeepdive/chapter01.html
 [canvas-demo]: demos/drunken_circles
 
 ### Homeworks (20 min)
 * [Webpack Tutorial][webpack] (20 min)
-  * Complete up to 'The First Loader'
 
-[webpack]: https://webpack.github.io/docs/tutorials/getting-started
+[webpack]: https://webpack.js.org/guides/get-started/
 
 ### Additional Resources
 * [Github Pages][github-pages]
@@ -185,7 +193,8 @@
 ## w6d1
 
 ### Assessment05 Practice
-+ In-class practice assessment at 9am. Please bring your own machine if possible.
++ In-class practice assessment at 9am. Please bring your own machine if
+possible.
 * [Practice][assessment-prep-5]
 
 [assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
@@ -208,11 +217,12 @@
 
 ### Homeworks (225 min)
 * [CSS Curriculum 3: Reset & Advanced Selectors][css-3] (40 min)
-* [CSS Curriculum 4: The Display Property & The Box Model][css-4] (55 min)
+* [CSS Curriculum 4: The Display Property & The Box Model][css-4] (55
+min)
 * [CSS Curriculum 5: Float, Fluid Layouts & Flexbox][css-5] (85 min)
 * [Wacky jQuery][wacky-project] (45 min)
 
-[wacky-project]: homeworks/questions/jquery-wacky-homework.md
+[wacky-project]: homeworks/wacky_painter
 
 ### Additional Resources
 * [ES6 Prototypal Inheritance][es6-inherits]
@@ -254,7 +264,7 @@
 * **Bonus**: [CSS Transform property][css-transform]
 
 ### Projects
-* **Solo:** [AA Times][aa-times]
+* **Solo (SF Only):** [AA Times][aa-times]
 * **Bonus**: [Google Homepage][css-bonus-assignment]
 
 [css-nontech]: ../html-css/readings/css_nontech.md
@@ -291,7 +301,7 @@
 ### Homeworks (30 min)
 * [Your First Ajax Request][first-ajax] (30 min)
 
-[first-ajax]: homeworks/questions/first_ajax.md
+[first-ajax]: homeworks/first_ajax
 
 ### Additional Resources
 * [jQuery Fundamentals: AJAX][jquery-fundamentals-ajax]
@@ -310,7 +320,8 @@
 
 ### Video Lectures (30 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
+* :movie_camera:[backbone-14: jQuery event delegation
+(cc)][backbone-14-vid] (30 min)
   * You can ignore the last part, which has Backbone code
 
 ### Readings (60 min)
@@ -324,7 +335,6 @@
 
 ### Homeworks (55 min)
 * [Vanilla DOM Manipulation][vanilla-dom] (45 min)
-* [Peer Mock Interview Prep][pairboarding-setup] (10 min)
 
 ### Additional Resources
 * [Vanilla AJAX][vanilla-ajax]
@@ -342,8 +352,7 @@
 [browser-tech]: ../html-css/readings/browser_tech.md
 
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
-[vanilla-dom]: homeworks/questions/vanilla-dom
-[pairboarding-setup]: ../course/readings/pairboarding_setup.md
+[vanilla-dom]: homeworks/vanilla-dom
 
 [mail]: projects/mail
 [jquery-lite]: projects/jquery_lite

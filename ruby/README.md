@@ -1,4 +1,5 @@
 # Ruby
+:link: *[w1d1](#w1d1) :: [w1d2](#w1d2) :: [w1d3](#w1d3) :: [w1d4](#w1d4) :: [w1d5](#w1d5) :: [w2d1](#w2d1) :: [w2d2](#w2d2) :: [w2d3](#w2d3) :: [w2d4](#w2d4) :: [w2d5](#w2d5)* :link: 
 
 ## w1d1
 + [First Day! **Read me!**][day1-instructions]
@@ -117,7 +118,7 @@
 [prep-w3]: https://github.com/appacademy/appacademy-prep/tree/master/w3
 [recursion]: readings/recursion.md
 
-[recursion-homework]: homeworks/questions/recursion.md
+[recursion-homework]: homeworks/recursion
 
 [recursion-project]: projects/recursion
 [word-chains]:  projects/word_chains
@@ -170,7 +171,7 @@
 [atom-cheatsheet]: ../course/readings/atom_cheatsheet.md
 [git-fix-authorship]: readings/git-fix-authorship.md
 [git-workflow]: readings/git-workflow.md
-[git-workflow-exercises]: homeworks/questions/git-workflow-exercises.md
+[git-workflow-exercises]: homeworks/git-workflow-exercises.md
 [git-cleanup]: readings/git-repository-cleanup.md
 [aliases]: readings/alias.md
 [interactive-git]: http://pcottle.github.io/learnGitBranching/
@@ -212,8 +213,8 @@
 [dfs-video]: https://vimeo.com/162763740
 
 [intro-algorithms-and-data-structures]: ./readings/intro-algorithms-and-data-structures.md
-[git-homeworks]: ./homeworks/questions/git-homeworks.md
-[diy-adts]: ./homeworks/questions/abstract_data_types.md
+[git-homeworks]: ./homeworks/git-homeworks.md
+[diy-adts]: ./homeworks/abstract_data_types
 
 [poly-tree-node]: projects/poly_tree_node
 [knights-travails]: projects/knights_travails
@@ -242,8 +243,8 @@
 + [Simon][simon] (45 min)
 
 ### Projects
-+ [Class inheritance][inheritance-exercises]
 + [Exceptions, error handling][errors-exercises]
++ [Class inheritance][inheritance-exercises]
 + [Chess][chess]
     + Please read the project description the night before.
 
@@ -257,7 +258,7 @@
 [inheritance-design]: readings/inheritance-design.md
 [hiding]: readings/hiding.md
 [chess]: projects/chess
-[simon]: homeworks/questions/simon
+[simon]: homeworks/simon
 
 ## w2d2
 
@@ -273,7 +274,7 @@
 + Continue Chess
 
 [ruby-nontech]: readings/ruby_nontech.md
-[mancala-hw]:./homeworks/questions/mancala
+[mancala-hw]: homeworks/mancala
 
 ## w2d3
 
@@ -319,7 +320,7 @@
 [rspec-order]: readings/rspec-order.md
 
 [robot-demo]: demos/robot-rspec-demo
-[rspec-homework]: homeworks/questions/rspec.md
+[rspec-homework]: homeworks/rspec
 
 [first-tdd-projects]: projects/first_tdd
 [poker-project]: projects/poker
@@ -375,8 +376,8 @@
 [merge-sort-visual]: http://www.algomation.com/player?algorithm=551321f6e1b6fa0300aae4d0
 [bubble-sort-visual]: http://www.algomation.com/player?algorithm=541a6ea7a7fe980200089c5e
 
-[sorting-demo]: homeworks/questions/sorting_demo
-[octopus-hw]: homeworks/questions/big_octopus.md
+[sorting-demo]: homeworks/sorting_demo
+[octopus-hw]: homeworks/big_octopus
 [execution-time]: projects/execution_time_differences
 [anagrams]: projects/anagrams
 [two-sum]: projects/two_sum
@@ -415,7 +416,7 @@
 
 [hash-map-reading]: http://www.gotealeaf.com/blog/how-the-hash-works-in-ruby
 [lru-cache-reading]: https://web.archive.org/web/20150710185255/http://mcicpc.cs.atu.edu/archives/2012/mcpc2012/lru/lru.html
-[lru-cache-hw]: homeworks/questions/lru_cache.md
+[lru-cache-hw]: homeworks/lru_cache
 [dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
 [hash-map]: projects/hash_map_lru_cache
 [xor]: readings/xor.md

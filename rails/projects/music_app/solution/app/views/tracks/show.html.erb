@@ -12,7 +12,13 @@
 
 <h4>Links</h4>
 <ul>
-  <li><%= link_to "Edit Track", edit_track_url(@track) %></li>
-  <li><%= link_to "Delete Track", track_url(@track), method: :delete %></li>
+  <li><a href="<%= edit_track_url(@track) %>">Edit Track</a></li>
+  <li>
+    <form action="<%= track_url(@track) %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+      <input type="submit" value="Destroy Track">
+    </form>
+  </li>
   <li><%= link_to @track.album.name, album_url(@track.album) %></li>
 </ul>

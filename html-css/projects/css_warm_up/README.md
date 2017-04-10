@@ -92,7 +92,7 @@ Since we added a general rule to make all `a` tags inside of the `.header` to be
 
 The big challenge of this phase will be to get a bunch of `block` elements next to each other horizontally. As you might recall, block elements do not tolerate any neighbors by default. However, we'd like the `h1` to be on the left, and the `ul` on the right. Inside the `ul`, we'd like all `li`'s to be next to each other too.
 
-We can accomplish this using a property called `float`. There's a lot to say about floating, and we'll go more in depth on it soon in class. For now it's enough to know that you can set the `float` property to either `left`, `right`, or `none`. In short it will cause an element to float on the righ or left, causing any content below it to move up and wrap around it.
+We can accomplish this using a property called `float`. There's a lot to say about floating, and we'll go more in depth on it soon in class. For now it's enough to know that you can set the `float` property to either `left`, `right`, or `none`. In short it will cause an element to float on the right or left, causing any content below it to move up and wrap around it.
 
 Let's see it in action. Set `float: left;` on `.header-logo` and `float: right;` on `.header-list`. Refresh the page and observe. Note that the red header completely disappeared, but `.header-logo` and `.header-list` are still there on the left and the right in faint white. This is sort of what we want, but it's also broken. We'll talk more about this crazy behavior in class.
 

@@ -11,18 +11,18 @@ class Headers extends React.Component {
       }
 
       return (
-        <span
+        <li
           key={index}
           className={klass}
           onClick={this.props.onTabChosen.bind(null, index)}>
           {title}{' '}
-        </span>
+        </li>
       );
     });
     return (
-      <div className='tab-header'>
+      <ul className='tab-header'>
         {headers}
-      </div>
+      </ul>
 
     );
  }
@@ -54,12 +54,12 @@ export default class Tabs extends React.Component {
             panes={this.props.panes}>
           </Headers>
           <div className='tab-content'>
-            <p>
+            <article>
               {pane.content}
-            </p>
+            </article>
           </div>
         </div>
       </div>
     );
   }
-};
+}

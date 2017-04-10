@@ -2,14 +2,15 @@
 
 ## Proposal
 
-Before you can start working on your full-stack project you need to pick an app to build.
-You will start by submitting a list of three possible apps you would be interested in creating.
-This is your _tentative proposal_.
-You will assigned one of them.
+Before you can start working on your full-stack project you need to pick
+an app to build. You will start by submitting a list of three possible
+apps you would be interested in creating. This is your _tentative
+proposal_. You will assigned one of them.
 
-Before you start on your full-stack project you will create a detailed proposal in which you carefully plan out the app you are going to build.
-This is your _full-stack project proposal_.
-Here are the important deadlines for this part of the curriculum.
+Before you start on your full-stack project you will create a detailed
+proposal in which you carefully plan out the app you are going to build.
+This is your _full-stack project proposal_. Here are the important
+deadlines for this part of the curriculum.
 
   * **W7D4**: Submit your tentative proposal by 9am
     * [Tentative proposal guidelines][tentative-proposal]
@@ -30,29 +31,35 @@ Here are the important deadlines for this part of the curriculum.
 
 ## Project
 
-You will spend the next two weeks working on your full-time on your full-stack project
-Here are the important deadlines.
+You will spend the next two weeks working full-time on your
+full-stack project Here are the important deadlines.
 
 * **W8D2**: Start work on your full-stack project after you finish A06
 * **W9D2**: [Peer Review][peer-review]
 * **W9D5**: Turn in Full Stack Project
+  * [Production readme instructions][production-readme]
   * [How to Turn in Your Project][turn-in-fullstack]
   * Next Steps: [Check out the Job Search Curriculum][jobsearch]
 
 [peer-review]: project/peer-review.md
+[production-readme]: project/production-readme.md
 [turn-in-fullstack]: project/turn_in_fullstack.md
 [jobsearch]: https://github.com/appacademy/job-search-curriculum
 
 ### Resources
 
-Here are some additional resources to help get your app running and add common features.
+Here are some additional resources to help get your app running and add
+common features.
 
+* **[Getting Your App Production Ready][production-ready]**
+  * Do this before submitting your app on Jobberwocky (not necessary
+before W9D5)
 * **Heroku**
   * [Deploying to Heroku][heroku-deployment]
-  * [Removing the react minification warning][minification-warnings]
   * [Understanding the asset pipeline][asset-pipeline]
 * **Web services**
-  * [Figaro gem][figaro] securely store api keys. Necessary for google maps, Cloudinary and AWS.
+  * [Figaro gem][figaro] securely store api keys. Necessary for google
+maps, Cloudinary and AWS.
     * [Video demo][figaro-video]
   * [Cloudinary video demo][cloudinary-video] work with images
     * [Code demo][cloudinary-demo]
@@ -61,15 +68,17 @@ Here are some additional resources to help get your app running and add common f
     * [Code demo][aws-demo]
   * [Google maps][google-maps-demo]
 * **Other tools**
-  * [Redux dev tools][redux-dev-tools] view your react state live and see a list of dispatched actions
+  * [Redux dev tools][redux-dev-tools] view your react state live and
+see a list of dispatched actions
     * [Video demo][redux-dev-tools-video]
 
 Is there something your looking for that's not on the list?
-We have lots of extra readings and videos on other topic in [additional resources][additional-resources].
+We have lots of extra readings and videos on other topics in [additional
+resources][additional-resources].
 
+[production-ready]: ./resources/helpful_tools/production-ready.md
 [additional-resources]: ./additional_resources.md
 [heroku-deployment]: resources/helpful_tools/heroku-deployment.md
-[minification-warnings]: resources/helpful_tools/minification-warnings.md
 [figaro]: resources/security/figaro.md
 [figaro-video]: https://vimeo.com/164602277
 [cloudinary-video]: https://vimeo.com/164612621
@@ -84,8 +93,8 @@ We have lots of extra readings and videos on other topic in [additional resource
 
 ### Bonus
 
-If you finish your MVP features early you should consider enhancing your app to add technical depth.
-Here are a few directions you could take.
+If you finish your MVP features early you should consider enhancing your
+app to add technical depth. Here are a few directions you could take.
 
   * [Performance and scaling][performance-and-scaling]
   * [Testing][testing]

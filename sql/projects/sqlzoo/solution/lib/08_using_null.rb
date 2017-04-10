@@ -131,7 +131,7 @@ end
 
 def teachers_and_divisions_two
   # Use CASE to show the name of each teacher followed by 'Sci' if
-  # the the teacher is in dept 1 or 2, 'Art' if the dept is 3, and
+  # the teacher is in dept 1 or 2, 'Art' if the dept is 3, and
   # 'None' otherwise.
   execute(<<-SQL)
     SELECT

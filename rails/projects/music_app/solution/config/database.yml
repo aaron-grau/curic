@@ -1,6 +1,12 @@
 development:
   adapter: postgresql
-  database: music_db
+  database: music_db_dev
   pool: 5
   host: localhost
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: music_db_test
+  pool: 5
   timeout: 5000

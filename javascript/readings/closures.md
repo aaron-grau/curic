@@ -4,9 +4,9 @@
 
 The **scope** of a method is the set of variables that are available
 for use within the method. The scope of a function includes:
-  0. the function's arguments;
-  0. any local variables declared inside the function;
-  0. **any variables that were already declared when the function was defined**.
+  1. the function's arguments;
+  2. any local variables declared inside the function;
+  3. **any variables that were already declared when the function was defined**.
 
 Consider this example:
 

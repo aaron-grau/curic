@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140713002600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "albums", force: true do |t|
+  create_table "albums", force: :cascade do |t|
     t.string   "name",                       null: false
     t.integer  "band_id",                    null: false
     t.integer  "year",                       null: false
@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 20140713002600) do
 
   add_index "albums", ["band_id", "name"], name: "index_albums_on_band_id_and_name", unique: true, using: :btree
 
-  create_table "bands", force: true do |t|
+  create_table "bands", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "notes", force: true do |t|
+  create_table "notes", force: :cascade do |t|
     t.integer  "track_id",   null: false
     t.integer  "user_id",    null: false
     t.text     "content"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140713002600) do
     t.datetime "updated_at"
   end
 
-  create_table "tracks", force: true do |t|
+  create_table "tracks", force: :cascade do |t|
     t.string   "name",                       null: false
     t.integer  "album_id",                   null: false
     t.integer  "ord",                        null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140713002600) do
 
   add_index "tracks", ["album_id", "ord"], name: "index_tracks_on_album_id_and_ord", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                            null: false
     t.string   "password_digest",                  null: false
     t.string   "session_token",                    null: false
