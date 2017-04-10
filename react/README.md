@@ -164,11 +164,11 @@ min)
 ### Readings (40 min)
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
-- [Nontechnical Overview of Redux][react-nontech] (15 min)
+- [Nontechnical Overview of Redux][redux-nontech] (15 min)
 
 [jbuilder-intro]: readings/intro_to_jbuilder.md
 [jbuilder_docs]: https://github.com/rails/jbuilder
-[react-nontech]: readings/react_nontech.md
+[redux-nontech]: readings/redux_nontech.md
 
 ### Homeworks (100 min)
 - [Giphy Homework][giphy_homework] (90 min)
