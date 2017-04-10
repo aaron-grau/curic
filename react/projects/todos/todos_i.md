@@ -55,7 +55,7 @@ In this phase you will create a Redux loop, including a store with reducers, act
 ### State Shape
 
 We want to build a state that allows us to easily add, remove, and update todos.
-If we stored our list of todos in an array querying, updating and deleting any
+If we stored our list of todos in an array, then querying, updating and deleting any
 todo would be O(n). Using a hash to store our todos yields O(1) for the same
 operations given the id of any todo.
 
