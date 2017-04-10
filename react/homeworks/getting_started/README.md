@@ -28,33 +28,25 @@ You'll need the following packages:
 - `babel-preset-es2015`
 - `babel-preset-react`
 
-You might also need (in other projects):
-
-- `redux`
-- `redux-thunk`
-- `redux-logger`
-- `react-redux`
-- `react-router`
-- `lodash`
-
 ## Configure Webpack
 
-In `webpack.config.js`:
+Create `webpack.config.js` and assign `module.exports` to the Webpack configuration object.
+Make sure to do the following:
 
 - Set your entry and output files.
-- Add Babel transpilation.
-- Add a source map.
-- Ensure that `.js` and `.jsx` files resolve automatically.
+- Configure Babel transpilation of React and ES6 syntax
+- Add a `devtool` 
+- Ensure that `.js` and `.jsx` files resolve automatically
 
-Also
+In the generated `package.json`:
 
-- Add a `webpack` script to your `package.json`.
-- Create a `.gitignore` for your node modules and bundled files.
+- Add a `webpack` script to your `package.json`
+- Create a `.gitignore` for your node modules and bundled files
 
 ## Boot it Up!
 
 Run `npm run webpack` in your terminal, then open `index.html`. Congratulations:
 you're up and running!
 
-[readings-list]: ../../README.md#configuration-30-min
+[readings-list]: ../../README.md#readings-48-min
 [skeleton]: skeleton.zip?raw=true
