@@ -30,4 +30,17 @@ projects, to help get the attention of employers.
 the workshop, and they will each need a copy. You will share these
 scoresheets with them to get feedback.
 
+## Day of
+
+You will be assigned two different fellow students to pair with. You
+will meet with each other for 30 min. Use the following framework for
+each pairing:
+  * Share the spreadsheet you copied in the previous section with your
+reviewer.
+  * First 15 min: review each other site's and fill out the spreadsheet.
+  * Second 15 min: discuss with each other the experience using each
+site and provide constructive feedback. Provide explanations for the
+scores you gave.   
+
+
 [peer-review-spreadsheet]: https://docs.google.com/spreadsheets/d/1_7pJt6YR4BKgsJLIxJjO2AapZheXFgtrICX2m6p_Gx8/edit#gid=0

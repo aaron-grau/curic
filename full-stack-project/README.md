@@ -52,7 +52,8 @@ Here are some additional resources to help get your app running and add
 common features.
 
 * **[Getting Your App Production Ready][production-ready]**
-  * Do this before submitting your app on Jobberwocky (not necessary before W9D5)
+  * Do this before submitting your app on Jobberwocky (not necessary
+before W9D5)
 * **Heroku**
   * [Deploying to Heroku][heroku-deployment]
   * [Understanding the asset pipeline][asset-pipeline]
