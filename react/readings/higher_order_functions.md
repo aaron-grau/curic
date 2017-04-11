@@ -100,7 +100,7 @@ same thing inside an arrow function that it does outside of it.
 
 ## Summary of Higher-Order Functions
 
-+ High-order functions are functions that:
++ Higher-order functions are functions that:
   + Define and return functions;
   + Accept callbacks as arguments;
   + Or do both.
