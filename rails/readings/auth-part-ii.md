@@ -172,7 +172,7 @@ class User < ActiveRecord::Base
 
   private
   def ensure_session_token
-    # we must be sure to use the ||= operator instead of =, otherwise
+    # we must be sure to use the ||= operator instead of = or ||, otherwise
     # we will end up with a new session token every time we create
     # a new instance of the User class. This includes finding it in the DB!
     self.session_token ||= self.class.generate_session_token
