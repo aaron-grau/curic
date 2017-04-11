@@ -290,10 +290,9 @@ repo! (15 min)
 
 **Project Proposal Review Period for Instructional Staff**
 
-### Readings (50 min)
+### Readings (35 min)
 -	[React Map Demo][react_map_demo] (15 min)
 - [Think in React][think_in_react] (20 min)
-- [Nontechnical Overview of React][react-nontech] (15 min)
 
 [react_map_demo]: demos/react_map_demo
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
