@@ -440,7 +440,7 @@ Read the documentation on [map markers][map-markers] before continuing.
 To accomplish the goal of adding markers appropriately, we will want to expand upon our `updateMarkers` method. We will need to do the following:
 * For each `bench`, if the `id` is not a key in `this.markers`, create a new marker from it and add it to the map and this.markers
 
-Add the following helper helper methods:
+Add the following helper methods:
 * `createMarkerFromBench(bench)`: accepts a bench object as an argument; adds a marker to the map and to the markers object
 
 
