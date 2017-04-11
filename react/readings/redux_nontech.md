@@ -69,7 +69,7 @@ options that are available.
   Flux is a coding pattern rather than a library. It is an approach to
   structuring the storage of frontend data. Flux was developed by Facebook in
   2014 to complement React, and it is now used by many companies that also use
-  React including Expedia, Yahoo, Trapit, and Kahn Academy. One key to the
+  React including Expedia, Yahoo, Trapit, and Khan Academy. One key to the
   design of Flux is the unidirectional flow of information. Actions are
   dispatched, they modify the state, and that state is passed on to 'views',
   which make it available to the React components. This is the inspiration for
