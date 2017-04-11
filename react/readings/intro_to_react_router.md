@@ -134,7 +134,11 @@ under their names
 
   * `push` This adds a new URL to the end of the history stack. That
     means that clicking the back button will take the browser to the
-    previous URL.
+    previous URL. Note that pushing the same URL multiple times in a 
+    row will have no effect; the URL will still only show up on the
+    stack once. In development mode, pushing the same URL twice in a
+    row will generate a console warning. This warning is disabled in
+    production mode.
 
   * `replace` This replaces the current URL on the history stack,
     so the back button won't take you to it. For example
