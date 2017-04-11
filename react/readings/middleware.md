@@ -139,7 +139,7 @@ Follow the example below to include it in your projects:
 	```sh
 	npm install redux-logger --save
 	```
-* Pass a instance of `redux-logger` to `applyMiddleware` when creating your store:
+* Pass an instance of `redux-logger` to `applyMiddleware` when creating your store:
 	
 	**NB: `logger` must be the last middleware passed into `applyMiddleware`**, otherwise it will log the thunk and any involved promises
 	```js
