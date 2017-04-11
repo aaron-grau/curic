@@ -43,7 +43,6 @@ class BenchForm extends React.Component{
   }
 
   render() {
-    debugger;
     const { description, picture_url, seating } = this.state;
     const { lat, lng } = this.coords;
 

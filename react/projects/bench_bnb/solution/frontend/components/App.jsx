@@ -22,16 +22,32 @@ const App = ({ store }) => {
             </header>
 
             <Switch>
-              <Route path="/login" render={() => (
+              <Route path="/login" render={(props) => (
                 !store.getState().session.currentUser ? (
-                    <SessionFormContainer location={"login"}/>
+                    <SessionFormContainer {...props}/>
                   ) : (
                     <Redirect to="/"/>
                   )
               )}/>
-              <Route path="/signup" component={SessionFormContainer}/>
-              <Route path="/benches/new" component={BenchFormContainer}/>
-              <Route path="/benches/:benchId" component={BenchShowContainer} />
+
+              <Route path="/signup" render={(props) => (
+                !store.getState().session.currentUser ? (
+                  <SessionFormContainer {...props}/>
+                ) : (
+                  <Redirect to="/"/>
+                )
+              )}/>
+
+              <Route path="/benches/new" render={(props) => (
+                store.getState().session.currentUser ? (
+                  <BenchFormContainer {...props}/>
+                ) : (
+                  <Redirect to="/login"/>
+                )
+              )}/>
+
+              <Route path="/benches/:benchId" component={BenchShowContainer}/>
+
               <Route exact={true} path="/" component={SearchContainer}/>
             </Switch>
 
