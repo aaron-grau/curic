@@ -41,11 +41,13 @@ const App = ({ store }) => {
               </Link>
               <GreetingContainer />
             </header>
-              <AuthRoute path="/login" Component={SessionFormContainer}/>
-              <AuthRoute path="/signup" Component={SessionFormContainer}/>
-              <ProtectedRoute path="/benches/new" Component={BenchFormContainer}/>
-              <Route path="/benches/:benchId"component={BenchShowContainer}/>
-              <Route exact={true} path="/" component={SearchContainer}/>
+              <Switch>
+                <AuthRoute path="/login" Component={SessionFormContainer}/>
+                <AuthRoute path="/signup" Component={SessionFormContainer}/>
+                <ProtectedRoute path="/benches/new" Component={BenchFormContainer}/>
+                <Route path="/benches/:benchId"component={BenchShowContainer}/>
+                <Route exact={true} path="/" component={SearchContainer}/>
+              </Switch>  
           </div>
         </HashRouter>
       </Provider>

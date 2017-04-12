@@ -34,7 +34,6 @@ const BenchShow = ({ bench, benchId, fetchBench, match, loggedIn }) => {
       <div className="right-half bench-details">
         <BenchDetail bench={bench} />
         <ReviewLink to={`/benches/${benchId}/review`} label="Leave a Review" />
-        
         <Route path="/benches/:benchId/review" render={() => (
           loggedIn ? (
             <ReviewFormContainer/>
@@ -42,7 +41,6 @@ const BenchShow = ({ bench, benchId, fetchBench, match, loggedIn }) => {
             <Redirect to="/login"/>
           )
         )}/>
-        
       </div>
     </div>
   );
