@@ -589,4 +589,9 @@ Now you should see your list of pokemon whenever you refresh the page. Go ahead
 and remove all other extraneous action creators, constants, and code snippets
 used for testing from our entry point if you haven't already. **Show a TA that your pokemon React components render before moving on!**
 
-Continue to [Part 2](./pokedex_ii.md).
+### Continuing to [Part 2](./pokedex_ii.md)
+Before continuing with second part of Pokedex, complete the steps:
+* Return to and complete the [Jbuilder Bonus](../jbuilder/README.md#bonus)
+* Read tonight's material on [React Router](../../README.md#w7d4)
+
+Now, proceed to [Part 2](./pokedex_ii.md).
