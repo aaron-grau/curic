@@ -175,7 +175,7 @@ min)
 - [Submit your tentative full-stack project
 proposal][tentative-proposal] (10 min)
   - **Due by 9AM Thursday w7d4**
-  - You many want to browse our [list of approved apps][approved-apps]
+  - You may want to browse our [list of approved apps][approved-apps]
 
 [giphy_homework]: homeworks/giphy
 [tentative-proposal]: ../full-stack-project/proposal/tentative-project-proposal.md
