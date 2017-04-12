@@ -1,5 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Route } from 'react-router';
+import Indigo from './indigo';
+
 
 class Blue extends React.Component {
   constructor() {
@@ -7,13 +9,13 @@ class Blue extends React.Component {
     this.resetBlue = this.resetBlue.bind(this);
     this.addIndigo = this.addIndigo.bind(this);
   }
-  
+
   resetBlue() {
-    this.props.router.push('/blue');
+    this.props.history.push('/blue');
   }
 
   addIndigo() {
-    this.props.router.push('/blue/indigo');
+    this.props.history.push('/blue/indigo');
   }
 
   render() {
@@ -23,10 +25,10 @@ class Blue extends React.Component {
         <h4 onClick={this.resetBlue}>Blue only</h4>
         <h4 onClick={this.addIndigo}>Add indigo</h4>
 
-        {this.props.children}
+        <Route path="/blue/indigo" component={Indigo} />
       </div>
     );
   }
 };
 
-export default withRouter(Blue);
+export default Blue;

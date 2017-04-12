@@ -2,7 +2,7 @@
 
 The `<Redirect>` component from React Router takes only one prop: `to`.
 When it renders, it replaces the current URL with the the value of its `to` prop.
-Typically we would conditionally render it to redirect the user away from
+Typically we conditionally render `<Redirect>` to redirect the user away from
 some page we don't want them to visit. For example, we might want to redirect
 the user to a login page if they aren't currently logged in.
 

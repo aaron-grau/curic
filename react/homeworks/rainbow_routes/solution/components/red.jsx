@@ -1,5 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Route } from 'react-router';
+import Orange from './orange';
+import Yellow from './yellow';
 
 class Red extends React.Component {
   constructor() {
@@ -8,17 +10,17 @@ class Red extends React.Component {
     this.addOrange = this.addOrange.bind(this);
     this.addYellow = this.addYellow.bind(this);
   }
-  
+
   resetRed() {
-    this.props.router.push('/red');
+    this.props.history.push('/red');
   }
 
   addOrange() {
-    this.props.router.push('/red/orange');
+    this.props.history.push('/red/orange');
   }
 
   addYellow() {
-    this.props.router.push('/red/yellow');
+    this.props.history.push('/red/yellow');
   }
 
   render() {
@@ -29,10 +31,11 @@ class Red extends React.Component {
         <h4 onClick={this.addOrange}>Add orange</h4>
         <h4 onClick={this.addYellow}>Add yellow</h4>
 
-        {this.props.children}
+        <Route path="/red/orange" component={Orange} />
+        <Route path="/red/yellow" component={Yellow} />
       </div>
     );
   }
 };
 
-export default withRouter(Red);
+export default Red;
