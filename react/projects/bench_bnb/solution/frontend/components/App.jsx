@@ -9,6 +9,27 @@ import BenchFormContainer from './bench_form/bench_form_container';
 
 const App = ({ store }) => {
 
+
+  const AuthRoute = ({Component, path, loggedIn}) => {
+    return <Route path={path} render={(props) => (
+      !store.getState().session.currentUser ? (
+        <Component {...props}/>
+      ) : (
+        <Redirect to="/" />
+      )
+    )}/>
+  }
+
+  const ProtectedRoute = ({Component, path, loggedIn}) => {
+    return <Route path={path} render={(props) => (
+       store.getState().session.currentUser ? (
+        <Component {...props}/>
+      ) : (
+        <Redirect to="/login"/>
+      )
+    )}/>
+  }
+
   return (
     <div>
       <Provider store={store}>
@@ -20,37 +41,11 @@ const App = ({ store }) => {
               </Link>
               <GreetingContainer />
             </header>
-
-            <Switch>
-              <Route path="/login" render={(props) => (
-                !store.getState().session.currentUser ? (
-                    <SessionFormContainer {...props}/>
-                  ) : (
-                    <Redirect to="/"/>
-                  )
-              )}/>
-
-              <Route path="/signup" render={(props) => (
-                !store.getState().session.currentUser ? (
-                  <SessionFormContainer {...props}/>
-                ) : (
-                  <Redirect to="/"/>
-                )
-              )}/>
-
-              <Route path="/benches/new" render={(props) => (
-                store.getState().session.currentUser ? (
-                  <BenchFormContainer {...props}/>
-                ) : (
-                  <Redirect to="/login"/>
-                )
-              )}/>
-
-              <Route path="/benches/:benchId" component={BenchShowContainer}/>
-
+              <AuthRoute path="/login" Component={SessionFormContainer}/>
+              <AuthRoute path="/signup" Component={SessionFormContainer}/>
+              <ProtectedRoute path="/benches/new" Component={BenchFormContainer}/>
+              <Route path="/benches/:benchId"component={BenchShowContainer}/>
               <Route exact={true} path="/" component={SearchContainer}/>
-            </Switch>
-
           </div>
         </HashRouter>
       </Provider>
