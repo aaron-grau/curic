@@ -59,5 +59,5 @@ Open up the `red.jsx` and `blue.jsx` files within the components folder.  You'll
 Test that your code works by navigating through all the routes.  Time to celebrate! :tada: :rainbow: :tada:
 
 [zip-skeleton]: ./skeleton.zip?raw=true
-[route-config-reading]: https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
+[route-config-reading]: https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteConfiguration.md
 [with-router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
