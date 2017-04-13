@@ -1,4 +1,4 @@
-# ArtworksAPI
+# Art Share Api
 
 We're going to continue building on the API we built in the first
 routes project. Our goal is to build an application to store, share, and
