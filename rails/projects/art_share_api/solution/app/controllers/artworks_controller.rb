@@ -13,7 +13,8 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
-    @artwork = Artwork.find(params[:id]).destroy
+    @artwork = Artwork.find(params[:id])
+    @artwork.destroy
     render :json => @artwork
   end
 
@@ -28,7 +29,7 @@ class ArtworksController < ApplicationController
   def update
     @artwork = Artwork.find(params[:id])
 
-    if @artwork.update_attributes(artwork_params)
+    if @artwork.update(artwork_params)
       render :json => @artwork
     else
       render(

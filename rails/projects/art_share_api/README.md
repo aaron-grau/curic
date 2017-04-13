@@ -2,7 +2,7 @@
 
 We're going to continue building on the API we built in the first
 routes project. Our goal is to build an application to store, share, and 
-omment on artwork, as well as search for users.
+comment on artwork, as well as search for users.
 
 Each user has a set of artworks that they own/control. These artworks can also
 be shared with other users. An artwork that has been shared with one or more
@@ -29,7 +29,7 @@ that user.
 ### Overview
 
 You almost always start with the data layer when you're thinking about
-adding functionality. Questions to consider are what pieces of data are
+adding functionality. Questions to consider include the following: What pieces of data are
 necessary to implement the functionality you need? What changes need to be
 made to the database schema? What models do you need? What associations and
 validations?
@@ -80,7 +80,7 @@ table. In this case, `artist_id` is much more descriptive and therefore preferab
 
 #### ArtworkShare
 
-The `artwork_shares` table is a joins table. Its whole purpose is to link a
+The `artwork_shares` table is a join table. Its whole purpose is to link a
 `User` (the person viewing the artwork) with an `Artwork`.
 
 You'll need an `artwork_id` and `viewer_id` column. Again, prefer columns names
@@ -98,7 +98,7 @@ Then a associations connecting an `ArtworkShare` to both an `Artwork` and a
 `shared_viewers` on `Artwork`. `Artwork#shared_viewers` will return the set of
 users with whom an artwork has been shared.
 
-Add a through association from `shared_artworks` on `User`. `User#shared_artworks`
+Add a `through` association from `shared_artworks` on `User`. `User#shared_artworks`
 will return the set of artworks that have been shared with that user (*not* the
 set of artworks that a user has shared with others).
 
@@ -215,9 +215,9 @@ This un-shares an `Artwork` with a `User`. To delete a share, the user should is
 a DELETE to `/artwork_shares/123`, where `123` is the id of the `ArtworkShare`
 to destroy.
 
-Again, it is conventional for an API to render back an object that is
-created or destroyed after creating or destroying it. Both of these
-routes should conventionally render the created/destroyed `ArtworkShare`
+After we create ArtworkShare records, we will want to return the record to
+the client. We will want to do the same thing upon deletion of ArtworkShare records.
+Both of these routes should conventionally render the created/destroyed `ArtworkShare`
 as the response.
 
 We won't need any of the other routes, so you can use `only:` to
@@ -332,7 +332,7 @@ Once you have a plan call over a TA and explain it to them. Then get coding!
 
 Let's also allow users to favorite artworks. This will require additional columns
 to artworks (for favoriting of artworks by their owner) and shared artworks (for
-favoriting of artworks shared to a user). User a semantic custom route to accomplish
+favoriting of artworks shared to a user). Use a semantic custom route to accomplish
 this. [Hint.][more-restful-actions]
 
 ## Bonus Phase III: Artwork Collections

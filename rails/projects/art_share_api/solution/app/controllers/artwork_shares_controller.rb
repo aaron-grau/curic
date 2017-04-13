@@ -13,7 +13,8 @@ class ArtworkSharesController < ApplicationController
   end
 
   def destroy
-    @share = ArtworkShare.find(params[:id]).destroy
+    @share = ArtworkShare.find(params[:id])
+    @share.destroy
     render :json => @share
   end
 
