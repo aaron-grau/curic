@@ -227,7 +227,7 @@ Add the three following methods to the `ShortenedUrl` class:
 
 * `#num_clicks`
 * `#num_uniques`
-* `num_recent_uniques`
+* `#num_recent_uniques`
 
 `ShortenedUrl#num_clicks` should count the number of clicks on a `ShortenedUrl`.
 
@@ -446,7 +446,7 @@ If your method is working correctly you shouldn't be able to! Now test that non-
 users cannot create more than 5 total URLs. Once everything is working move
 on to the next step!
 
-## Phase VIII: Pruning Stale URLs
+## Phase VII: Pruning Stale URLs
 
 ### Overview
 
