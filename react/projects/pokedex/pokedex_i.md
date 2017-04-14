@@ -576,7 +576,7 @@ Now let's write the `PokemonIndex` presentational component, which should render
 an unordered list of pokemon names next to corresponding images.
 
 * Create a `frontend/components/pokemon/pokemon_index.jsx` file.
-* Define and export a *class*, component that renders a `<li>` for each pokemon object in the `this.props.pokemon` array.
+* Define and export a *class* component that renders a `<li>` for each pokemon object in the `this.props.pokemon` array.
   * Display the pokemon's name and a *small* image.
 * Inside of `componentDidMount`, call `this.props.requestAllPokemon`
 * Import the container component to `root.jsx`.
