@@ -44,7 +44,7 @@
 
 ### Projects
 + [First Routes and Controllers][first-routes]
-+ [Contacts API][contacts-api]
++ [Art Share API][artshare-api]
 
 [assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
 [api-video]: https://vimeo.com/168498417
@@ -69,7 +69,7 @@
 [routing-ii]: readings/routing-part-ii.md
 
 [first-routes]: projects/first_routes
-[contacts-api]: projects/contacts_api
+[artshare-api]: projects/art_share_api
 
 ## w4d2
 
