@@ -81,8 +81,8 @@ that our column in the `artworks` table does not have to be `user_id`
 despite being a foreign key to the `users` table. In this case,
 `artist_id` is much more descriptive and therefore preferable.
 
-[scoped-uniqueness]: http://apidock.com/rails/ActiveModel/Validations/ClassMethods/validates#940-uniqueness
-[multi-column-indexing]: http://apidock.com/rails/v2.3.8/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
+[scoped-uniqueness]: http://guides.rubyonrails.org/active_record_validations.html#uniqueness
+[multi-column-indexing]: http://stackoverflow.com/questions/6169996/index-on-multiple-columns-in-ror
 
 #### ArtworkShare
 
