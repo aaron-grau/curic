@@ -2,23 +2,26 @@ import React, { Component } from 'react';
 import Item from '../items/item';
 import LoadingIcon from './loading_icon';
 
+import { Route } from 'react-router-dom';
+import ItemDetailContainer from '../items/item_detail_container';
+
 class PokemonDetail extends Component {
   componentDidMount() {
-    this.props.requestSinglePokemon(this.props.params.pokemonId);
+    this.props.requestSinglePokemon(this.props.match.params.pokemonId);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.params.pokemonId !== nextProps.params.pokemonId) {
-      this.props.requestSinglePokemon(nextProps.params.pokemonId);
+    if (this.props.match.params.pokemonId !== nextProps.match.params.pokemonId) {
+      this.props.requestSinglePokemon(nextProps.match.params.pokemonId);
     }
   }
 
   routeIsCorrect() {
-    return parseInt(this.props.params.pokemonId) === this.props.pokemonDetail.id;
+    return parseInt(this.props.match.params.pokemonId) === this.props.pokemonDetail.id;
   }
 
   render() {
-    const { pokemonDetail, loading, children } = this.props;
+    const { pokemonDetail, loading } = this.props;
     if (loading) {
       return <section className="pokemon-detail"><LoadingIcon /></section>;
     }
@@ -41,8 +44,9 @@ class PokemonDetail extends Component {
           <ul className="toy-list">
             {pokemonDetail.items.map(item => <Item key={item.name} item={item} />)}
           </ul>
-          {children}
         </section>
+
+        <Route path="/pokemon/:pokemonId/item/:itemId" component={ItemDetailContainer} />
       </section>
     );
   }
