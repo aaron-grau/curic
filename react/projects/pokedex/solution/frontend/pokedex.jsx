@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
-import Root from './components/root';
 
 import { Provider } from 'react-redux';
 import { HashRouter, Route } from 'react-router-dom';
@@ -20,6 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			</Provider>
 		);
 	};
-	
+
 	ReactDOM.render(<Root store={store} />, root);
 });
