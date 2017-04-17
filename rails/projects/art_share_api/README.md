@@ -71,7 +71,7 @@ This means that the `artist_id` and `title` **combination** must be
 unique. Enforce this at the DB and model levels. [Here's some help for
 the model validation][scoped-uniqueness] To add the DB constraint,
 consider what would happen if we added indexing and a uniqueness
-constraint to not one, but two columns. [Check the Rails API docs  for
+constraint to not one, but two columns. [Check this Stack Overflow answer for
 more info][multi-column-indexing]
 
 Add an index on `artist_id` so that we can quickly get all the artworks
