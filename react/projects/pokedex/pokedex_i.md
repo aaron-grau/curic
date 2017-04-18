@@ -481,7 +481,7 @@ store, middleware and selector).
 app's React components.
     * `Root` should be a *stateless* component (i.e. a *functional component*).
     * It will be passed the app's  Redux`store` as a prop.
-    * It should wrap our all of our app's components with the `Provider` from
+    * It should wrap all of our app's components with the `Provider` from
     `react-redux`.
 
 Your `Root` component should look like this:
