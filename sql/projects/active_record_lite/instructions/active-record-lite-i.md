@@ -369,7 +369,7 @@ Instead, write a new SQL query that will fetch at most one record.
 Yo dawg, I heard you like specs, so I spent a lot of time writing
 them. Please run them again. :-)
 
-## Phase Ih: `#insert`
+## Phase Ig: `#insert`
 
 Write a `SQLObject#insert` instance method. It should build and
 execute a SQL query like this:
@@ -405,7 +405,7 @@ helpful method.
 
 Again with the specs please.
 
-## Phase Ii: `#update`
+## Phase Ih: `#update`
 
 Next we'll write a `SQLObject#update` method to update a record's
 attributes. Here's a reminder of what the resulting SQL should look
@@ -429,7 +429,7 @@ the `id` of the object (for the last `?` in the `WHERE` clause).
 
 Every day I'm testing.
 
-## Phase Ij: `#save`
+## Phase Ii: `#save`
 
 Finally, write an instance method `SQLObject#save`. This should call
 `#insert` or `#update` depending on whether `id.nil?`. It is not
