@@ -6,12 +6,12 @@ import { selectAllPokemon } from '../../reducers/selectors';
 // import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => ({
-  pokemon: selectAllPokemon(state),
-  loading: state.loading.indexLoading
+    pokemon: selectAllPokemon(state),
+    loading: state.loading.indexLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestAllPokemon: () => dispatch(requestAllPokemon())
+    requestAllPokemon: () => dispatch(requestAllPokemon())
 });
 
 // export default withRouter(connect(
@@ -20,6 +20,6 @@ const mapDispatchToProps = dispatch => ({
 // )(PokemonIndex));
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(PokemonIndex);

@@ -184,36 +184,16 @@ the pokemon.
 * Add a `Route` that renders the `PokemonDetailContainer` component when
 the url matches the path `"pokemon/:pokemonId`".
   * Nest the `PokemonDetailContainer` route under the route for the
-  `PokemonIndexContainer`. Like so:
-
-  ```js
-  <Route path='PARENT_PATH' component='PARENT_COMPONENT'>
-    <Route path='CHILD_PATH' component='CHILD_COMPONENT'/>
-  </Route>
-  ```
-
-  * Render `this.props.children` in `PokemonIndex`. This will ensure
-that   both parent (`PokemonIndexContainer`) and child
-  (`PokemonDetailContainer`) components are rendered when a user visits
-`"/pokemon/:pokemonId"`.
+  `PokemonIndexContainer`.
+  * To nest this new route under our `PokemonIndexContainer`, we'll add the `Route` to the end of our `PokemonIndex` render function. This will ensure that both parent (`PokemonIndexContainer`) and child
+  (`PokemonDetailContainer`) components are rendered when a user visits `"/pokemon/:pokemonId"`.
   * Inside of `PokemonDetail` on `componentDidMount`, call
 `this.props.requestSinglePokemon`.   Pass it the pokemon's id from the
-`this.props.params.pokemonId`.
-
-Your app's `Router` should look like this:
-
-```js
-<HashRouter>
-  <Route path="/" component={PokemonIndexContainer} >
-    <Route path="pokemon/:pokemonId" component={PokemonDetailContainer} />
-    </Route>
-  </Route>
-</HashRouter>
-```
+`this.props.match.params.pokemonId`.
 
 Once it works, try navigating to the route of a different pokemon. Your
 detail view won't update. This is because although the props
-(`this.props.params.pokemonId`) have changed, the component didn't
+(`this.props.match.params.pokemonId`) have changed, the component didn't
 remount. So we never requested the new pokemon. We need to trigger a
 request on the props changing. There is a lifecycle method we can tap
 into to accomplish this: `componentWillReceiveProps(newProps)`.
@@ -241,32 +221,34 @@ slice of state when a single pokemon is selected.
 `props`.
   * When providing the item to the `ItemDetail` component from the
   `ItemDetailContainer`, remember that `mapStateToProps` accepts a
-second parameter   `ownProps`. `ownProps.params` returns the params
+second parameter `ownProps`. `ownProps.match.params` returns the params
 object.
-  * Use `ownProps.params.itemId` to select the correct item from the
+  * Use `ownProps.match.params.itemId` to select the correct item from the
 `state`.
   * Define a new `selectPokemonItem(state, itemId)` selector and call it
 in `mapStateToProps`.
 * Create a functional `ItemDetail` component that displays its `item`
 prop.
   * `ItemDetailContainer` connects it to the store.
-* Create a nested route that renders the `PokemonIndexContainer`,
+* Create a new route that renders the `PokemonIndexContainer`,
 `PokemonDetailContainer` and `ItemDetailContainer` when the path matches
-`/pokemon/:pokemonId/items/:itemId`.
+`/pokemon/:pokemonId/items/:itemId`. Add this to the render function of `PokemonDetail`.
 
-Hint: nest your new `Route` and don't forget to render
-`this.props.children`.
+Hint: nest your new `Route` under the render function of `PokemonDetail`.
 
-Your app's `Router` should look like this:
+Your app's `HashRouter` should contain the following routes:
 
 ```js
+// pokemon.jsx
 <HashRouter>
-  <Route path="/" component={PokemonIndexContainer}>
-    <Route path="pokemon/:pokemonId" component={PokemonDetailContainer}>
-      <Route path="item/:itemId" component={ItemDetailContainer} />
-    </Route>
-  </Route>
+  <Route path="/" component={PokemonIndexContainer} />
 </HashRouter>
+
+// pokemon_index.jsx
+<Route path="/pokemon/:pokemonId" component={PokemonDetailContainer} />
+
+// pokemon_detail.jsx
+<Route path="/pokemon/:pokemonId/item/:itemId" component={ItemDetailContainer} />
 ```
 
 **Test your `ItemDetail` components and route!** Does it behave like the

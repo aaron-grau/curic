@@ -18,7 +18,9 @@ class PokemonIndex extends Component {
       <LoadingIcon /> :
       <section className="pokedex">
         <ul>
-          {pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />)}
+          {pokemon.map(poke => (
+						<PokemonIndexItem key={poke.id} pokemon={poke} />
+						))}
         </ul>
 
         <Route exact path="/" component={PokemonFormContainer} />
