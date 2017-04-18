@@ -96,7 +96,7 @@ produce an `action` with type `"RECEIVE_BENCHES"` and a `benches` property that
 represents all of our bench data.
 + Write `fetchBenches`. It doesn't need to accept any arguments. It should just
 return a thunk which calls the `APIUtil` and `then` dispatches `receiveBenches`.
-+ Don't forget to defined the corresponding action types.
++ Don't forget to define the corresponding action types.
 + Export `fetchBenches` and your constants.
 
 Before continuing, *test that they return the correct objects*. For example,
