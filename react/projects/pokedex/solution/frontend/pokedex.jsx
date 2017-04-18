@@ -10,15 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	const store = configureStore();
 	const root = document.getElementById('root');
 
-	const Root = ({ store }) => {
-		return (
-			<Provider store={store}>
-				<HashRouter>
-					<Route path="/" component={PokemonIndexContainer} />
-				</HashRouter>
-			</Provider>
-		);
-	};
-
+	const Root = () => (
+		<Provider store={store}>
+			<HashRouter>
+				<Route path="/" component={PokemonIndexContainer} />
+			</HashRouter>
+		</Provider>
+	);
+	
 	ReactDOM.render(<Root store={store} />, root);
 });

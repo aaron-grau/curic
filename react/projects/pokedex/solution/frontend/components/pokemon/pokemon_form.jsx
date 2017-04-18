@@ -48,7 +48,8 @@ class PokemonForm extends React.Component {
 	render() {
     return (
       <section className="pokemon-detail">
-        <img src="/assets/pokemon-logo.svg" alt="Copyright of Nintendo Pokemon"/>
+        <img src="/assets/pokemon-logo.svg" 
+        alt="Copyright of Nintendo Pokemon"/>
         <ul>
           {this.errors()}
         </ul>

@@ -10,11 +10,11 @@ Now let's say we want the ability to click on any of the listed pokemon
 and see more details about them. In order to maintain a common user
 interface used around the web, we will have the URL define what
 components the user sees. This is exactly what the powerful
-`react-router-dom` package is for. To use it, navigate to `root.jsx` and
+`react-router-dom` package is for. To use it, navigate to your entry file `pokemon.jsx` and
 import the following:
 
 ```js
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 ```
 <!-- #TODO: double check for necessary config docs -->
 Refer to the [react-router-dom documentation][routes-docs] as a
@@ -30,17 +30,17 @@ changes to our browser's url. When the url changes, the `HashRouter`
 determines which component to render based on which `Route`'s `path`
 matches the url.
 
-* Wrap the `HashRouter` in your app's `Root` and `Provider`.
+* Wrap the `HashRouter` in your app's `Root` and `Provider`. Define your `Root` after you've defined `store` (within your `addEventListener` callback).
 
 Your `Root` should now look like this:
 
 ```js
 import { HashRouter, Route } from 'react-router-dom';
 
-const Root = ({ store }) => (
+const Root = () => (
   <Provider store={store}>
     <HashRouter>
-      // routes will go here
+      // primary route will go here
     </HashRouter>
   </Provider>
 );
