@@ -23,7 +23,7 @@ it.
 	-	`--skip-turbolinks=true`
 	- `--database=postgresql`
 0. `git init` a repository for your project.
-0. Add the following to your `.gitignore`:
+0. The rails skeleton includes a .gitignore file. In addition to what is already there, add the following:
 
 	```
 	node_modules/
