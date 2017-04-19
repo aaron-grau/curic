@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -11,12 +11,12 @@ class ReviewForm extends React.Component {
   }
 
   navigateToBenchShow() {
-    this.props.router.push(`/benches/${this.props.params.benchId}`);
+    this.props.history.push(`/benches/${this.props.match.params.benchId}`);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const benchId = parseInt(this.props.params.benchId);
+    const benchId = parseInt(this.props.match.params.benchId);
     const review = Object.assign({}, this.state, {
       bench_id: benchId
     });

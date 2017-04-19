@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import MarkerManager from '../../util/marker_manager';
 
 const _getCoordsObj = latLng => ({
@@ -50,13 +50,13 @@ class BenchMap extends Component {
   }
 
   _handleMarkerClick(bench) {
-    this.props.router.push(`benches/${bench.id}`);
+    this.props.history.push(`benches/${bench.id}`);
   }
 
   _handleClick(coords) {
-    this.props.router.push({
+    this.props.history.push({
       pathname: "benches/new",
-      query: coords
+      search: `lat=${coords.lat}&lng=${coords.lng}`
     });
   }
 

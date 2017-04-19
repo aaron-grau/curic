@@ -5,12 +5,13 @@ import { selectBench } from '../../reducers/selectors';
 
 import BenchShow from './bench_show';
 
-const mapStateToProps = (state, { params }) => {
-  const benchId = parseInt(params.benchId);
-  const bench = selectBench(state, benchId);
+const mapStateToProps = (state, {match}) => {
+  const benchId = parseInt(match.params.benchId);
+  const bench = selectBench(state, match.params.benchId);
   return {
     benchId,
-    bench
+    bench,
+    loggedIn: Boolean(state.session.currentUser)
   };
 };
 
