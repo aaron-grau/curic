@@ -10,8 +10,8 @@ Now let's say we want the ability to click on any of the listed pokemon
 and see more details about them. In order to maintain a common user
 interface used around the web, we will have the URL define what
 components the user sees. This is exactly what the powerful
-`react-router-dom` package is for. To use it, navigate to your entry file `pokemon.jsx` and
-import the following:
+`react-router-dom` package is for. To use it, navigate to your entry 
+file `pokemon.jsx` and import the following:
 
 ```js
 import { HashRouter, Route } from 'react-router-dom';
@@ -20,7 +20,7 @@ import { HashRouter, Route } from 'react-router-dom';
 Refer to the [react-router-dom documentation][routes-docs] as a
 reference.
 
-[routes-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
+[routes-docs]: https://reacttraining.com/react-router/web/guides/quick-start
 
 ### Adding the `Router`
 
