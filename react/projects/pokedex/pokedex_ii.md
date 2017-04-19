@@ -332,9 +332,9 @@ sure to pass this function to the `onSubmit` listener of the form.
 
 We want this form to appear when at the same root path as the
 `PokemonIndex`, but not at any further nested routes like the
-`PokemonDetail`. This is exactly what `IndexRoute` is for. Import it
-along with the rest of the React Router tools and pass it the
-`PokemonFormContainer`.
+`PokemonDetail`. To do so, we'll add a new `Route` to our 
+`PokemonIndex` and use `exact` prop to only render `PokemonFormContainer` 
+when the path exactly matches the root path.
 
 **NB**: There are a couple of tricky aspects to getting the form to work
 properly which will be great debugging practice. Use a `debugger` in
@@ -371,15 +371,15 @@ export const createPokemon = pokemon => dispatch => (
 ```
 
 In order to get the router to send us to a new location from within the
-component, we can use `react-router`'s `withRouter` function.
+component, we can use `react-router-dom`'s `withRouter` function.
 `withRouter` is referred to as a **Higher Order Component** (HOC). Much
 like our container components, it serves to pass down information
-(namely the `router`) through props.
+(namely the `history`) through props.
 
 * Import `withRouter` to your `PokemonForm` like so:
 
   ```js
-  import { withRouter } from 'react-router';
+  import { withRouter } from 'react-router-dom';
   ```
 
 * Call this function on `PokemonForm` before exporting it like so:
@@ -389,8 +389,8 @@ like our container components, it serves to pass down information
   ```
 
 Your `PokemonForm` will now have access to your app's router via
-`props.router`! We can now use `router.push(path)` to redirect our user
-to different routes!
+`props.history`! We can now use `history.push(path)` to redirect our 
+user to different routes!
 
 On successful submission of your form, redirect the user to the pokemon
 show page.
@@ -401,7 +401,7 @@ class PokemonForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPokemon(this.state).then((newPokemon) => {
-      this.props.router.push(`pokemon/${newPokemon.id}`);
+      this.props.history.push(`pokemon/${newPokemon.id}`);
     });
   };
 }
