@@ -24,8 +24,12 @@ it.
 	- `--database=postgresql`
 0. `git init` a repository for your project.
 0. The rails skeleton includes a .gitignore file. In addition to what is already there, add the following:
-
 	```
+	// .gitignore
+
+	// ... a bunch of preloaded ignores
+
+	// To add:	
 	node_modules/
 	bundle.js
 	bundle.js.map
