@@ -18,22 +18,28 @@ end
 class NotAFruitError < StandardError
 end
 
+def fruitiness(maybe_fruit)
+  if FRUITS.include? maybe_fruit
+    puts "OMG, thanks so much for the #{maybe_fruit}!"
+  elsif maybe_fruit == 'coffee'
+    raise CoffeeError 
+  else 
+    raise NotAFruitError 
+  end
+end
+
 def feed_me_a_fruit
   puts "Hello, I am a friendly monster. :)"
 
   begin
     puts "Feed me a fruit! (Enter the name of a fruit:)"
     maybe_fruit = gets
-
-    if FRUITS.include? maybe_fruit
-      puts "OMG, thanks so much for the #{maybe_fruit}!"
-    elsif maybe_fruit == 'coffee'
-      raise CoffeeError 
-    else 
-      raise Exception 
-    end 
-  rescue 
+    reaction(maybe_fruit) 
+  rescue CoffeeError
+    puts "I can't have any more caffeine. My poor heart couldn't take it. You can try again." 
     retry
+  rescue NotAFruitError
+    puts "That doesn't look like a fruit. You tricked me. * runs away *" 
   end
 end  
 
