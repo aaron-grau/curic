@@ -9,7 +9,11 @@ import BenchFormContainer from './bench_form/bench_form_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-const App = ({ loggedIn }) => {
+const App = ({store}) => {
+
+  const getLoggedIn = () => (
+    Boolean(store.getState().session.currentUser)
+  );
 
   return (
     <div>
@@ -20,15 +24,15 @@ const App = ({ loggedIn }) => {
         <GreetingContainer />
       </header>
         <Switch>
-          <AuthRoute path="/login" Component={SessionFormContainer}
-            loggedIn={loggedIn}/>
-          <AuthRoute path="/signup" Component={SessionFormContainer}
-            loggedIn={loggedIn}/>
-          <ProtectedRoute path="/benches/new" Component={BenchFormContainer}
-            loggedIn={loggedIn}/>
+          <AuthRoute path="/login" component={SessionFormContainer}
+            loggedIn={getLoggedIn()}/>
+          <AuthRoute path="/signup" component={SessionFormContainer}
+            loggedIn={getLoggedIn()}/>
+          <ProtectedRoute path="/benches/new" component={BenchFormContainer}
+            loggedIn={getLoggedIn()}/>
           <Route path="/benches/:benchId"component={BenchShowContainer}/>
           <Route exact={true} path="/" component={SearchContainer}/>
-        </Switch>  
+        </Switch>
     </div>
   );
 };
