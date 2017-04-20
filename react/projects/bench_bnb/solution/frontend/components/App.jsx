@@ -1,56 +1,34 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Route, Redirect, Switch, HashRouter, Link, hashHistory } from 'react-router-dom';
+import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import SearchContainer from './search/search_container';
 import BenchShowContainer from './bench_show/bench_show_container';
 import BenchFormContainer from './bench_form/bench_form_container';
 
-const App = ({ store }) => {
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-
-  const AuthRoute = ({Component, path, loggedIn}) => {
-    return <Route path={path} render={(props) => (
-      !store.getState().session.currentUser ? (
-        <Component {...props}/>
-      ) : (
-        <Redirect to="/" />
-      )
-    )}/>
-  }
-
-  const ProtectedRoute = ({Component, path, loggedIn}) => {
-    return <Route path={path} render={(props) => (
-       store.getState().session.currentUser ? (
-        <Component {...props}/>
-      ) : (
-        <Redirect to="/login"/>
-      )
-    )}/>
-  }
+const App = ({ loggedIn }) => {
 
   return (
     <div>
-      <Provider store={store}>
-        <HashRouter>
-          <div>
-            <header>
-              <Link to="/" className="header-link">
-                <h1>Bench BnB</h1>
-              </Link>
-              <GreetingContainer />
-            </header>
-              <Switch>
-                <AuthRoute path="/login" Component={SessionFormContainer}/>
-                <AuthRoute path="/signup" Component={SessionFormContainer}/>
-                <ProtectedRoute path="/benches/new" Component={BenchFormContainer}/>
-                <Route path="/benches/:benchId"component={BenchShowContainer}/>
-                <Route exact={true} path="/" component={SearchContainer}/>
-              </Switch>  
-          </div>
-        </HashRouter>
-      </Provider>
+      <header>
+        <Link to="/" className="header-link">
+          <h1>Bench BnB</h1>
+        </Link>
+        <GreetingContainer />
+      </header>
+        <Switch>
+          <AuthRoute path="/login" Component={SessionFormContainer}
+            loggedIn={loggedIn}/>
+          <AuthRoute path="/signup" Component={SessionFormContainer}
+            loggedIn={loggedIn}/>
+          <ProtectedRoute path="/benches/new" Component={BenchFormContainer}
+            loggedIn={loggedIn}/>
+          <Route path="/benches/:benchId"component={BenchShowContainer}/>
+          <Route exact={true} path="/" component={SearchContainer}/>
+        </Switch>  
     </div>
   );
 };
