@@ -1,5 +1,5 @@
-def convert_to_num(str)
-  str.to_i
+def convert_to_int(str)
+  Integer(str)
 end
 
 FRUITS = ["apple", "banana", "orange"]
@@ -12,7 +12,9 @@ def feed_me_a_fruit
   
   if FRUITS.include? maybe_fruit
     puts "OMG, thanks so much for the #{maybe_fruit}!"
-  else
+  elsif maybe_fruit == 'coffee'
+    raise Exception
+  else 
     raise Exception 
   end 
 end  
