@@ -21,7 +21,7 @@ Sometimes we want to return something from our function, even if the desired ope
 ### Instructions
 We want our dear user to be able to call `convert_to_int` with no error being raised on invalid input. Update `convert_to_int` to `rescue` any errors and return `nil` if our argument cannot be converted.
 
-If we are handling the error thrown by `Integer(arg)`, what [type][exception_types] of exception should we be catching. Update `convert_to_int` to only rescue the correct exception type.
+If we are handling the error thrown by `Integer(arg)`, which [`Exception` subclass][exception-types] should we be catching. Update `convert_to_int` to only rescue the correct exception type.
 
 ### Recap
 Many times we will want to 'protect' the user from potential errors our code might throw. In this case we are protecting our user from *only* from errors we expect. It is always wise to raise and rescue more specific errors as the errors they raise are more descriptive (helpful with debugging) and it prevents the catching of errors that should 'escape' up to the calling function (catching `Exception` will even ignore system errors).
@@ -59,3 +59,15 @@ Test your code, then again assume the role of our dear user and update our call 
 
 ### Recap
 Raising errors for invalid arguments can ensure that our code is used the way we want intend. However, be aware that the types of inputs we can receive are numerous. We don't want or need to be checking against every possible type for each argument we receive.
+
+## Resources
+
+* [Exceptions/Error Handling reading][error-reading] from last night
+* [Skorks on exceptions][skorks-exceptions]
+* [Ruby Patterns][Ruby-Patterns]
+
+[skeleton]:./skeleton.zip
+[exception-types]:https://ruby-doc.org/core-2.2.0/Exception.html
+[error-reading]:../../readings/errors.md
+[skorks-exceptions]:http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/
+[Ruby-Patterns]:https://github.com/adomokos/DesignPatterns-Ruby/
