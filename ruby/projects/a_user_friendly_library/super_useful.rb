@@ -1,7 +1,9 @@
+# PHASE 2
 def convert_to_int(str)
   Integer(str)
 end
 
+# PHASE 3
 FRUITS = ["apple", "banana", "orange"]
 
 def reaction(maybe_fruit)
@@ -20,6 +22,7 @@ def feed_me_a_fruit
   reaction(maybe_fruit) 
 end  
 
+# PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
     @name = name

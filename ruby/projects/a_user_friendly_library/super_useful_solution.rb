@@ -1,3 +1,4 @@
+# PHASE 2
 def convert_to_int(str)
   begin
     num = Integer(str)
@@ -10,6 +11,7 @@ def convert_to_int(str)
   num
 end
 
+# PHASE 3
 FRUITS = ["apple", "banana", "orange"]
 
 class CoffeeError < StandardError
@@ -18,7 +20,7 @@ end
 class NotAFruitError < StandardError
 end
 
-def fruitiness(maybe_fruit)
+def reaction(maybe_fruit)
   if FRUITS.include? maybe_fruit
     puts "OMG, thanks so much for the #{maybe_fruit}!"
   elsif maybe_fruit == 'coffee'
@@ -43,6 +45,7 @@ def feed_me_a_fruit
   end
 end  
 
+# PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
     raise ArgumentError.new("'name' cannot be blank") if name.empty?
