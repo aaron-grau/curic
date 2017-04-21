@@ -35,7 +35,7 @@ class BestFriend
   end
 
   def do_friendstuff
-    puts "Hey bestie, let's go #{@fav_pastime}ing. Wait, why don't you choose. 😄"
+    puts "Hey bestie, let's go #{@fav_pastime}. Wait, why don't you choose. 😄"
   end
 
   def give_friendship_bracelet

@@ -4,7 +4,7 @@ puts "'five' == #{convert_to_num('five')}"
 
 feed_me_a_fruit
 
-sam = BestFriend.new(nil, 'five', nil)
+sam = BestFriend.new('Samwise', 50, 'gardening')
 
 sam.talk_about_friendship
 sam.do_friendstuff
