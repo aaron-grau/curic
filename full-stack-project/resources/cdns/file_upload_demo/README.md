@@ -174,4 +174,4 @@ createPost: function(formData) {
 ```
 $ figaro heroku:set -e production
 ```
-- Congrats! You can did it!
+- Congrats! You did it!
