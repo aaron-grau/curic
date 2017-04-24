@@ -14,10 +14,10 @@ This demo shows how to upload images using React, Paperclip, and AWS S3.
 
 ## Useful Docs
 - [Paperclip](https://github.com/thoughtbot/paperclip#paperclip)
-- [Figaro] (https://github.com/laserlemon/figaro#why-does-figaro-exist)
-- [AWS] (http://aws.amazon.com/)
-- [FileReader] (https://developer.mozilla.org/en-US/docs/Web/API/FileReader)
-- [FormData] (https://developer.mozilla.org/en-US/docs/Web/API/FormData)
+- [Figaro](https://github.com/laserlemon/figaro#why-does-figaro-exist)
+- [AWS](http://aws.amazon.com/)
+- [FileReader](https://developer.mozilla.org/en-US/docs/Web/API/FileReader)
+- [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 
 ### Setting up AWS
 
@@ -109,10 +109,8 @@ post.image.url #=> "http://s3.amazonaws.com/YOUR-BUCKET-NAME/something/images/00
 
 ### Image Preview
 - Okay so what if we don't want our users to upload files via rails console? We need to be able to attach files from a form. Lets add something to our post form.
-- To preview the file, we need to extract a url for it. On change of the file input component we instantiate a new [FileReader]
-(https://developer.mozilla.org/en-US/docs/Web/API/FileReader) object. set a success function for when it loads
-Then we ask it to read the file `reader.readAsDataURL(file);`
-(https://developer.mozilla.org/en-US/docs/Web/API/FileReader.readAsDataURL)
+- To preview the file, we need to extract a url for it. On change of the file input component we instantiate a new [FileReader](https://developer.mozilla.org/en-US/docs/Web/API/FileReader) object. set a success function for when it loads
+Then we ask it to read the file with [`FileReader#readAsDataURL(file)`](https://developer.mozilla.org/en-US/docs/Web/API/FileReader.readAsDataURL)
 ```javascript
 var reader = new FileReader();
 var file = e.currentTarget.files[0];
@@ -130,7 +128,7 @@ if (file) {
 
 ### Image Uploading
 - We still haven't sent the file to the server to be saved. To upload the file we will instantiate a new
-[FormData] (https://developer.mozilla.org/en-US/docs/Web/API/FormData) object.
+[FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object.
 We then use the [append](https://developer.mozilla.org/en-US/docs/Web/API/FormData/append)
 method to add key/values to send to the server. One of the key/value pairs will be the binary
 file we grab from `this.state.file`. Be mindful to have your keys match whatever your Rails
@@ -176,4 +174,4 @@ createPost: function(formData) {
 ```
 $ figaro heroku:set -e production
 ```
-- Congrats! You can did it!
+- Congrats! You did it!

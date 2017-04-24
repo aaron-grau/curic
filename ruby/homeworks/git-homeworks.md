@@ -19,7 +19,7 @@ Let's initialize our repo and setup a GitHub remote before moving on to adding h
 * Create a basic README file and initial commit
   ```bash
   touch README.md # makes file in current directory
-  cat > README.md << "# App Academy Homeworks" # "creates 'App Academy Homeworks' header in README"
+  echo "# App Academy Homeworks" >> README.md # "creates 'App Academy Homeworks' header in README"
   git add README.md
   git status # let's get in the habit of making sure we commit the intended files
   git commit -m "Initial commit"
@@ -53,7 +53,7 @@ homeworks/
 Before beginning the day's homework, ensure your local repo is up-to-date with the remote.
   * If we have a local copy, check if it is up-to-date. Type command `git status` in terminal. If local is up-to-date, we should see `Your branch is up-to-date with 'origin/master'`. Otherwise type command `git pull` in terminal to update your local version.
   * If we do not have a local copy, use `git clone`. This will create a new copy of your repo in the current directory.
-  
+
   ```
   git clone https://www.github.com/<username>/<repo-name>.git
   ```

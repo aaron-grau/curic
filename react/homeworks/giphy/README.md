@@ -33,6 +33,7 @@ Root
   GiphysSearchContainer
     GiphysSearch
       GiphysIndex
+       GiphysIndexItem
 ```
 
 - `Root`: As usual, it is responsible for connecting our component tree
@@ -41,7 +42,7 @@ Root
 - `GiphysSearch`: renders the search bar and handles all of the search
   logic (keeping track of the query and trigger the AJAX request on submit);
   renders the `GiphysIndex`.
-- `GiphysIndex`: iterates over the `giphys` in `props`, rendering each one.
+- `GiphysIndex`: iterates over the `giphys` in `props`, rendering a `GiphysIndexItem` for each one.
 
 
 ## Phase 1: Redux Cycle
@@ -119,10 +120,12 @@ Your function should look like the following:
 
 ```js
 
-export const receiveSearchGiphys = giphys => ({
-	type: RECEIVE_SEARCH_GIPHYS,
-	giphys
-});
+export const receiveSearchGiphys = giphys => {
+  return {
+    type: RECEIVE_SEARCH_GIPHYS,
+    giphys
+  }
+};
 
 ```
 
@@ -200,7 +203,7 @@ const configureStore = () => {
 ```
 
 Import `configureStore` in your entry file, then declare
-```
+```js
 const store = configureStore()
 ```
 inside the `DOMContentLoaded` callback. Now we can test the reducer
@@ -249,12 +252,12 @@ the Giphy API call is successful.
 Your thunk action creator should look like the following:
 
 ```js
-export const fetchSearchGiphys = (searchTerm) => (
-	(dispatch) => {
+export const fetchSearchGiphys = (searchTerm) => {
+	return (dispatch) => {
 		APIUtil.fetchSearchGiphys(searchTerm)
 			.then(giphys => dispatch(receiveSearchGiphys(giphys.data)));
 	}
-);
+};
 ```
 As always, let's export a constant for the action type.
 
@@ -392,7 +395,7 @@ when a user types in the input field
 * Create a`handleSubmit` function that fetches giphys when the submit
 button is clicked.
 
-Create `GiphysIndex` and `giphysIndexItems` functional components to
+Create `GiphysIndex` and `GiphysIndexItem` functional components to
 render the results from your `GiphysSearch`
 
 You can do it!

@@ -2,6 +2,7 @@
 
 * Contextual readings
   * [Web app architecture][web-app-architecture]
+  * [Heroku vs. AWS][heroku-vs-aws]
 * Beef up your app's security and add user permissions.
   * [Gon gem video][gon]
   * [OmniAuth reading][omniauth]
@@ -33,6 +34,7 @@
   * [Heroku scheduler][heroku-scheduler]
 
 [web-app-architecture]: resources/expository_readings/web_app_architecture.md
+[heroku-vs-aws]: resources/expository_readings/aws-vs-heroku.md
 
 [gon]: https://vimeo.com/168132088
 [omniauth]: resources/security/omniauth.md

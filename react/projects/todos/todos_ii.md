@@ -103,7 +103,10 @@ responses in the console.
 For example, try:
 
 ```
-$.ajax({ method: 'GET', url: 'api/todos' }).then(console.log, console.log);
+$.ajax({ method: 'GET', url: '/api/todos' }).then(
+  todos => console.log(todos), 
+  error => console.log(error)
+ );
 ```
 
 [namespace-docs]: http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing

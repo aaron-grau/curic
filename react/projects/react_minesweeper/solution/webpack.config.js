@@ -1,10 +1,10 @@
-"use strict";
+var path = require('path');
 
 module.exports = {
   context: __dirname,
   entry: "./react_minesweeper.jsx",
   output: {
-    path: "./",
+    path: path.resolve(__dirname), 
     filename: "bundle.js"
   },
   module: {
@@ -12,7 +12,7 @@ module.exports = {
       {
         test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']
         }
@@ -20,6 +20,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx', '*']
   }
 };

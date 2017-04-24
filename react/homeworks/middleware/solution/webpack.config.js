@@ -1,26 +1,28 @@
-const path = require("path");
+var path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/synthesizer.jsx",
+  entry: "./frontend/todo_redux.jsx",
   output: {
-    path: path.join(__dirname),
-    filename: "bundle.js"
+    path: path.resolve(__dirname),
+    filename: "bundle.js",
+    devtoolModuleFilenameTemplate: '[resourcePath]',
+    devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
   },
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/, /\.js?$/],
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        test: [/\.jsx?$/],
+        exclude: /node_modules/,
+        loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ["es2015","react"]
         }
       }
     ]
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: [".js", ".jsx", "*"]
   }
-};
+}
