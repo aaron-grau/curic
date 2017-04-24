@@ -16,7 +16,7 @@ class BenchForm extends React.Component{
   }
 
   navigateToSearch() {
-    this.props.router.push("/");
+    this.props.history.push("/");
   }
 
   update(property) {

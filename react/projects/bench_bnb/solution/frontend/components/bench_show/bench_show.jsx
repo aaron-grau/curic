@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Route, Link, Redirect } from 'react-router-dom';
 
 import BenchDetail from './bench_detail';
 import BenchMap from '../bench_map/bench_map';
+import ReviewFormContainer from './review_form_container';
 import ReviewButton from './review_button';
+import { ProtectedRoute, ReviewLink } from '../../util/route_util';
 
-const BenchShow = ({ bench, benchId, fetchBench, children }) => {
+const BenchShow = ({ bench, benchId, fetchBench, match, loggedIn }) => {
   const benches = {
     [benchId]: bench
   };
@@ -23,7 +25,9 @@ const BenchShow = ({ bench, benchId, fetchBench, children }) => {
       </div>
       <div className="right-half bench-details">
         <BenchDetail bench={bench} />
-        {children || <ReviewButton benchId={benchId} />}
+        <ReviewLink to={`/benches/${benchId}/review`} label="Leave a Review" />
+        <ProtectedRoute path="/benches/:benchId/review" component={ReviewFormContainer}
+          loggedIn={loggedIn} />
       </div>
     </div>
   );

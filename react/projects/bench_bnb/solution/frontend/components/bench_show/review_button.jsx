@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 class ReviewButton extends React.Component{
   constructor(props) {
@@ -10,7 +10,7 @@ class ReviewButton extends React.Component{
   handleClick() {
     const benchId = this.props.benchId;
     const url = `/benches/${benchId}/review`;
-    this.props.router.push(url);
+    this.props.history.push(url);
   }
 
   render() {

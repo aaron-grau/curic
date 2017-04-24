@@ -1,5 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import {withRouter, Route} from 'react-router-dom';
+
+import {BenchShowContainer} from '../bench_show/bench_show_container';
 
 class IndexItem extends React.Component {
   constructor(props) {
@@ -9,12 +11,11 @@ class IndexItem extends React.Component {
 
   handleClick() {
     const benchId = this.props.bench.id;
-    this.props.router.push(`benches/${benchId}`);
+    this.props.history.push(`/benches/${benchId}`);
   }
 
   render() {
     const { average_rating, description, picture_url } = this.props.bench;
-
     return (
       <div className="bench-index-item"
            onClick={this.handleClick}>
@@ -27,6 +28,7 @@ class IndexItem extends React.Component {
           <span className="index-item-copy">{description}</span>
         </div>
         <img src={picture_url}/>
+        
       </div>
     );
   }
