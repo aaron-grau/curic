@@ -93,6 +93,7 @@ JavaScript needs.
 * [Node Module Pattern][module-pattern] (10 min)
 * [Chrome Dev Tools][chrome-dev-tools] (15 min)
 * [Linting for JavaScript][linting-js] (10 min)
+* [Ruby, ES5 & ES6 Comparison Chart][comparison-chart]
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
 [arguments]: readings/arguments.md
@@ -102,6 +103,7 @@ JavaScript needs.
 [es6-classes]: readings/es6-classes.md
 [module-pattern]: readings/module-pattern.md
 [chrome-dev-tools]: readings/chrome_dev_tools.md
+[comparison-chart]: https://appacademy.github.io/curriculum/language_comparison/index.html
 [linting-js]: readings/linting-js.md
 
 ### Homeworks (110 min)
