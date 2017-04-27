@@ -154,19 +154,18 @@ JavaScript needs.
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
 * [Modules in the Browser][browser-modules] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
-* **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
-    * **Be sure to run and understand this the night before.**
 * Effective JavaScript: Items 18-23, 30 (15 min)
 
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [browser-modules]: readings/browser-modules.md
 [basic-canvas-drawing]: https://web-beta.archive.org/web/20170201183210/joshondesign.com/p/books/canvasdeepdive/chapter01.html
-[canvas-demo]: demos/drunken_circles
 
 ### Homeworks (20 min)
 * [Webpack Tutorial][webpack] (20 min)
+* [Canvas][canvas-hw] (30 min)
 
 [webpack]: https://webpack.js.org/guides/get-started/
+[canvas-hw]: homeworks/canvas_practice
 
 ### Additional Resources
 * [Github Pages][github-pages]
