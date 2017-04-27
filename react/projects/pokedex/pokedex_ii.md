@@ -18,7 +18,7 @@ import { Router, Route, hashHistory } from 'react-router';
 
 Refer to the [react-router documentation][routes-docs] as a reference.
 
-[routes-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
+[routes-docs]: https://github.com/ReactTraining/react-router/tree/v3/docs
 
 ### Adding the `Router`
 
