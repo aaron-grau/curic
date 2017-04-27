@@ -50,7 +50,7 @@ way javascript files are only loaded upon navigation to certain URLs.
 * [React Router docs on code splitting][react-router-webpack]
 
 [webpack-docs]: https://webpack.github.io/docs/code-splitting.html
-[react-router-webpack]: https://github.com/ReactTraining/react-router/blob/master/docs/guides/DynamicRouting.md
+[react-router-webpack]: https://reacttraining.com/react-router/web/guides/code-splitting
 
 ### Rendering separation (or windowing)
 
