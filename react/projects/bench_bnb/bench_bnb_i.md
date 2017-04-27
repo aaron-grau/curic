@@ -508,7 +508,7 @@ const Root = ({ store }) => (
 
 **Call a TA over and show them your `SessionForm` renders for logging and signing up before moving on!**
 
-[link-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/Introduction.md#with-react-router
+[link-docs]: https://github.com/ReactTraining/react-router/blob/v3/docs/Introduction.md
 
 ## Phase 3: Bootstrapping the Current User
 
