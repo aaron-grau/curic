@@ -87,7 +87,7 @@ never hit the database, but are instead served by Redis.
 * [Caching railscasts][railscasts-caching]
 
 [rails-caching]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/resources/caching/caching.md
-[redis-caching]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/resources/performance_and_scaling/redis.md
+[redis-caching]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/resources/caching/redis.md
 [railscasts-caching]: http://railscasts.com/?tag_id=18
 
 ## More resources
