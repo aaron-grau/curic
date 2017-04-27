@@ -162,20 +162,13 @@ JavaScript needs.
 
 ### Homeworks (20 min)
 * [Webpack Tutorial][webpack] (20 min)
-<<<<<<< HEAD
 * [Intro to Canvas][canvas-intro]
-* **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
-    * **Run this and look through it after going through the Canvas Intro.**
+* [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
+  * **Run this and look through it after going through the Canvas Intro.**
 
 [webpack]: https://webpack.js.org/guides/get-started/
 [canvas-intro]: homeworks/canvas_practice
 [canvas-demo]: demos/drunken_circles
-=======
-* [Canvas][canvas-hw] (30 min)
-
-[webpack]: https://webpack.js.org/guides/get-started/
-[canvas-hw]: homeworks/canvas_practice
->>>>>>> 29bd1c9fcbba18e793a61e26e0a4ecc7858b1c5c
 
 ### Additional Resources
 * [Github Pages][github-pages]
