@@ -174,6 +174,6 @@ strings, we can also use symbols to [dynamically match routes to different URLs]
 
 ## Resources
 
-* [React docs](https://github.com/ReactTraining/react-router/)
-* [Route matching](https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteMatching.md)
-* [More on histories](https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#hashhistory)
+* [React docs](https://github.com/ReactTraining/react-router/tree/v3/docs)
+* [Route matching](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteMatching.md)
+* [More on histories](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/Histories.md#hashhistory)
