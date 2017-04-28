@@ -152,7 +152,7 @@ JavaScript needs.
 [js-browser-vid]: https://vimeo.com/162115224
 [chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
 
-### Readings (75 min)
+### Readings (60 min)
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
 * [Modules in the Browser][browser-modules] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
@@ -162,9 +162,9 @@ JavaScript needs.
 [browser-modules]: readings/browser-modules.md
 [basic-canvas-drawing]: https://web-beta.archive.org/web/20170201183210/joshondesign.com/p/books/canvasdeepdive/chapter01.html
 
-### Homeworks (20 min)
+### Homeworks (55 min)
 * [Webpack Tutorial][webpack] (20 min)
-* [Intro to Canvas][canvas-intro]
+* [Intro to Canvas][canvas-intro] (20 min)
 * [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
   * **Run this and look through it after going through the Canvas Intro.**
 
