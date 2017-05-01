@@ -60,4 +60,4 @@ Test that your code works by navigating through all the routes.  Time to celebra
 
 [zip-skeleton]: ./skeleton.zip?raw=true
 [route-config-reading]: https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteConfiguration.md
-[with-router]: https://github.com/reactjs/react-router/blob/master/docs/API.md#withroutercomponent-options
+[with-router]: https://github.com/ReactTraining/react-router/blob/v3/docs/API.md#withroutercomponent-options
