@@ -2,10 +2,10 @@
 def convert_to_int(str)
   begin
     num = Integer(str)
-  rescue
+  rescue ArgumentError
     puts "Cannot convert to Integer. Please ensure you pass a valid numeric string"
   ensure
-    num = nil
+    num ||= nil
   end
 
   num
