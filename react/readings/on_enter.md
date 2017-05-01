@@ -1,7 +1,7 @@
 # Using `onEnter` Hooks
 
 The React Router API provides route hooks that we can use to trigger callbacks 
-whenever our routes change. Read the official documentation [here](https://github.com/ReactTraining/react-router/blob/v3/docs/API.md#onenternextstate-replace-callback). 
+whenever our routes change. Read the official documentation [here][documentation]. 
 As the docs indicate, there are several of these route hooks, but we will concern ourselves with **`onEnter`** today.
 
 We can use `onEnter` hooks to accomplish things like:
@@ -74,6 +74,6 @@ Check out React's official [auth-flow][auth-flow] example.
 
 [auth-flow]: https://github.com/reactjs/react-router/tree/efac1a8ff4c26d6b7379adf2ab903f1892276362/examples/auth-flow
 
-[documentation]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
+[documentation]: https://github.com/reactjs/react-router/blob/v3/docs/API.md#onenternextstate-replace-callback
 
-[router-state]: https://github.com/reactjs/react-router/blob/master/docs/Glossary.md#routerstate
+[router-state]: https://github.com/ReactTraining/react-router/blob/v3/docs/Glossary.md#routerstate
