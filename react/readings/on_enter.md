@@ -1,7 +1,7 @@
 # Using `onEnter` Hooks
 
 The React Router API provides route hooks that we can use to trigger callbacks 
-whenever our routes change. Read the official documentation [here][documentation]. 
+whenever our routes change. Read the official documentation [here](https://github.com/ReactTraining/react-router/blob/v3/docs/API.md#onenternextstate-replace-callback). 
 As the docs indicate, there are several of these route hooks, but we will concern ourselves with **`onEnter`** today.
 
 We can use `onEnter` hooks to accomplish things like:
