@@ -30,7 +30,7 @@ const App = ({store}) => {
             loggedIn={getLoggedIn()}/>
           <ProtectedRoute path="/benches/new" component={BenchFormContainer}
             loggedIn={getLoggedIn()}/>
-          <Route path="/benches/:benchId"component={BenchShowContainer}/>
+          <Route path="/benches/:benchId" component={BenchShowContainer}/>
           <Route exact path="/" component={SearchContainer}/>
         </Switch>
     </div>
