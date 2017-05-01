@@ -13,6 +13,9 @@ We have four main components of Postman we will be using:
   - We recommend using the key-value pairs in the `form-data` sub-tab
 4. `Response` - see the response body and HTTP status
 
+Optionally, you can build a query string (the bit after the `?`) by clicking `Params` to the right of the Request URL and adding key-value pairs. These are received as top-level params by the controller.
+For example, a request made to `localhost:3000/users?username=jack_bauer` has `params[:username] # => 'jack_bauer'`.
+
 ![Image of Postman App][overview_img]
 
 ## Demo
