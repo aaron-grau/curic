@@ -15,9 +15,15 @@ end
 FRUITS = ["apple", "banana", "orange"]
 
 class CoffeeError < StandardError
+  def message
+    "I can't have any more caffeine. My poor heart couldn't take it. You can try again."
+  end
 end
 
 class NotAFruitError < StandardError
+  def message
+    "That doesn't look like a fruit. You tricked me. * runs away *"
+  end
 end
 
 def reaction(maybe_fruit)
@@ -35,13 +41,13 @@ def feed_me_a_fruit
 
   begin
     puts "Feed me a fruit! (Enter the name of a fruit:)"
-    maybe_fruit = gets
+    maybe_fruit = gets.chomp
     reaction(maybe_fruit) 
-  rescue CoffeeError
-    puts "I can't have any more caffeine. My poor heart couldn't take it. You can try again." 
+  rescue CoffeeError => e
+    puts e.message
     retry
   rescue NotAFruitError
-    puts "That doesn't look like a fruit. You tricked me. * runs away *" 
+    puts e.message
   end
 end  
 

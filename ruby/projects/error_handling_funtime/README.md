@@ -49,7 +49,7 @@ Being able to rescue and retry failing code gives us even more control over the 
 Another use case for raising errors is to enforce correct usage of code. For example, if a function requires its arguments to be of certain types in order to execute properly, it might be best to check their type before executing any logic. This is useful because it allows us to inform the user that they are not using our function properly, rather than a runtime error being raised which may seem like a bug in our code or be more difficult to debug.
 
 ### Instructions
-If we look at the code from `# Phase 4` of `user_script.rb`, we see that our dear user thinks you can be besties if you've known eachother less than a year. We as do not agree. Friendships, like a fine wine, need as least five years to mature. Update `initialize` to raise an descriptive error when `yrs_known` is less than `5`.
+If we look at the code from `# Phase 4` of `user_script.rb`, we see that our dear user thinks you can be besties if you've known each other less than a year. We as do not agree. Friendships, like a fine wine, need as least five years to mature. Update `initialize` to raise an descriptive error when `yrs_known` is less than `5`.
 
 Test your code, then assume the role of our dear user and update our call to `BestFriend#new`.
 
