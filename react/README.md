@@ -9,7 +9,6 @@
 - **Progress Tracker reports are still due at 9am.**
 
 ### Readings (48 min)
->>>>>>> f18123f0ec6eea172ce24840f59750c1f4d086f6
 **Tonight only, please do the readings before watching the video
 lectures**
 - [NPM][npm_configuration] (15 min)
@@ -42,7 +41,7 @@ min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (45 min)
 - Add your questions and answers from pairboarding today to your Study
-Notes repo! (15 min)
+Notes repo! (15 min, SF only)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/calculator
