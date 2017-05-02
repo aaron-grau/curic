@@ -6,11 +6,11 @@ Today we're going to get our first experience using React Router. The goal is to
 
 Download the [zip file][zip-skeleton] of the skeleton. Poke around to get familiar with the setup; it should look pretty familiar. Run `npm install` to get it setup. Then run `npm start`. For information on the `webpack-dev-server` configuration, refer to the [webpack-dev-server reading](../../readings/webpack_dev_server.md).
 
-Navigate to `http://localhost:8080` in your browser and verify you can see "Rainbow Router" header.  Currently there's no functionality. If you click the links, you'll just alerts. We'll make them active soon.
+Navigate to `http://localhost:8080` in your browser and verify you can see "Rainbow Router" header.  Currently there is no functionality. If you click the links, you will just see alerts. We'll make them active soon.
 
 ## Phase 1: Routes
 
-First take a look at the entry file `entry.jsx`. Note that in the `Root` component we have wrapped the `Rainbow` component in `<HashRouter>` tags. This will make the router available to all its descendent components. Don't change the entry file - everything is already set up for you.
+First take a look at the entry file `entry.jsx`. Note that in the `Root` component we have wrapped the `Rainbow` component in `<HashRouter>` tags. This will make the router available to all any descendent React Router components such as `<Route />` and `<Link />`. Don't change the entry file - everything is already set up for you.
 
 Now open the file `components/rainbow.jsx`. We're going to render some of our color components from here. Ultimately we want our routes to look like this.
 
@@ -27,7 +27,7 @@ URL                     | Components
 
 This means that the `Red`, `Green`, `Blue`, and `Violet` components need to render in the `Rainbow` component, but only when we are at the corresponding URL. We'll do this with `Route` components. (Refer back to the [reading][intro] for details.) Add the necessary `Route` components inside the `div` with `id="rainbow"` in the `Rainbow#render` method. For example, to render the `Red` component you will want
 
-```js
+```jsx
   <Route path="/red" component={Red} />
 ```
 
