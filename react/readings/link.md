@@ -11,13 +11,13 @@ To use it `import { Link } from 'react-router'`.
 * `to`: A route location description that can point to an absolute path,
 e.g. `/about`
 
-  ```js
+  ```jsx
   <Link to="/about">About</Link>
   ```
 * `onClick(e)`: A custom click event handler. Can call
 `e.preventDefault` and `e.stopPropogation` like any other click handler.
 
-  ```js
+  ```jsx
   <Link to="/about" onClick={e => this.handleClick(e)}>Link</Link>
   ```
 
@@ -34,7 +34,7 @@ This styling can be controlled by three extra props.
 route is active.  A `<Link>` will be active if its `to` prop path
 matches the current URL.
 
-  ```js
+  ```jsx
   // app.jsx
   <Link to={`users/${user.id}`} activeClassName="active">{user.name}</Link>
 
@@ -49,7 +49,7 @@ matches the current URL.
 * `activeStyle`: A react style object that will be applied inline to the
 `<Link>` when its `to` prop matches the current URL.
 
-  ```js
+  ```jsxx
   // app.jsx
   <Link to={`users/${user.id}`} activeStyle={{ fontWeight: 'bold' }}>{user.name}</Link>
 
@@ -65,7 +65,7 @@ If set to true the `activeStyle` and `activeClassName` props will only
 be applied when the current URL exactly matches the `to` prop. For
 example
 
-  ```js
+  ```jsxx
   // this link will match the URL `/users/123`
   <Link to="/users">Users</Link>
 

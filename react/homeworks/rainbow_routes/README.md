@@ -43,7 +43,7 @@ Now let's look at the `<h4>` tags in the `Rainbow` component - you'll see that e
 
 For example, our `addRed` method might look as follows:
 
-```js
+```jsx
   addRed() {
     this.props.history.push('/red');
   }

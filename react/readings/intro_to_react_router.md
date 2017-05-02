@@ -58,7 +58,7 @@ controlled by the following props
 
 Let's look at an example.
 
-```js
+```jsx
 // root.jsx
 
 import { Route, HashRouter } from 'react-router-dom';
@@ -143,7 +143,7 @@ under their names
   * `replace` This replaces the current URL on the history stack,
     so the back button won't take you to it. For example
 
-    ```js
+    ```jsx
       const handleClick = () => this.props.history.push('/some/url');
 
       const redirect = () => this.props.history.replace('/some/other/url');
@@ -154,7 +154,7 @@ in the Profile component. Recall that our profile component was rendered
 at the path `/users/:userId`. Thus we should have a `userId` param
 available.
 
-```js
+```jsx
 class Profile extends React.Component {
   constructor(props) {
     super(props);
