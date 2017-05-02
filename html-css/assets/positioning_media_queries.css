@@ -41,7 +41,7 @@ input[type="radio"] {
   -webkit-appearance: none;
   width: 27px;
   height: 27px;
-  background-image: url(../assets/stars.png);
+  background-image: url(stars.png);
   vertical-align: bottom;
 }
 
@@ -122,7 +122,7 @@ label {
     display: block;
   }
   .hamburger-dropdown > li {
-    background: url(../../assets/images/hamburger.png);
+    background: url(images/hamburger.png);
     background-repeat: no-repeat;
     background-size: 50px 50px;
     width: 50px;
