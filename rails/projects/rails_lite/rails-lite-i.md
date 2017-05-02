@@ -165,7 +165,7 @@ docs for how to set response header fields and statuses. Again, set
 `@already_built_response` to avoid a double render.
 
 Run `bundle exec ruby bin/p02_controller_server.rb`. Now look at the code to see
-what it does. By extending `BaseController`, `MyController` can test our `#render_content` and `#redirect_to` methods. Go to localhost:3000 and make sure
+what it does. By extending `ControllerBase`, `MyController` can test our `#render_content` and `#redirect_to` methods. Go to localhost:3000 and make sure
 it works correctly.
 
 Lastly, run the spec: `bundle exec rspec spec/p02_controller_spec.rb`.
