@@ -66,7 +66,7 @@ import { Route, HashRouter } from 'react-router-dom';
 const Root = () => (
   <HashRouter>
     <Header />
-    <Route exact={true} path="/" component={Feed} />
+    <Route exact path="/" component={Feed} />
     <Route path="/users" component={Users} />
   </HashRouter>
 );
@@ -92,7 +92,7 @@ We could do something like this
 ```js
 const Users = () => (
   // render the index of no id is included
-  <Route exact={true} path="/users" component={UsersIndex} />
+  <Route exact path="/users" component={UsersIndex} />
   // otherwise render the profile page for that user
   <Route path="/users/:userId" component={Profile} />
 );
@@ -134,7 +134,7 @@ under their names
 
   * `push` This adds a new URL to the end of the history stack. That
     means that clicking the back button will take the browser to the
-    previous URL. Note that pushing the same URL multiple times in a 
+    previous URL. Note that pushing the same URL multiple times in a
     row will have no effect; the URL will still only show up on the
     stack once. In development mode, pushing the same URL twice in a
     row will generate a console warning. This warning is disabled in
