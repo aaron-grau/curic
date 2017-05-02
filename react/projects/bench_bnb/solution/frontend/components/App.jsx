@@ -11,10 +11,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = ({store}) => {
 
-  const getLoggedIn = () => (
-    Boolean(store.getState().session.currentUser)
-  );
-
   return (
     <div>
       <header>
@@ -24,12 +20,9 @@ const App = ({store}) => {
         <GreetingContainer />
       </header>
         <Switch>
-          <AuthRoute path="/login" component={SessionFormContainer}
-            loggedIn={getLoggedIn()}/>
-          <AuthRoute path="/signup" component={SessionFormContainer}
-            loggedIn={getLoggedIn()}/>
-          <ProtectedRoute path="/benches/new" component={BenchFormContainer}
-            loggedIn={getLoggedIn()}/>
+          <AuthRoute path="/login" component={SessionFormContainer}/>
+          <AuthRoute path="/signup" component={SessionFormContainer}/>
+          <ProtectedRoute path="/benches/new" component={BenchFormContainer}/>
           <Route path="/benches/:benchId" component={BenchShowContainer}/>
           <Route exact path="/" component={SearchContainer}/>
         </Switch>

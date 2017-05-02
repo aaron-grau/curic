@@ -28,7 +28,7 @@ class IndexItem extends React.Component {
           <span className="index-item-copy">{description}</span>
         </div>
         <img src={picture_url}/>
-        
+
       </div>
     );
   }
