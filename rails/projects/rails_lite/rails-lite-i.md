@@ -133,7 +133,7 @@ inherits from `ActionController::Base`). Let's get started!
 We'll write our version of `ActionController::Base` in phases in the `lib`
 directory of the project. `ControllerBase#initialize` should take a
 `Rack::Request` and `Rack::Response` object as inputs and save them as instance variables (ivars) for later use. The stored
-request (will be used to help fill out the response in one of the actions (`:new`, `:edit`, etc.) defined within controllers that inherit from it.
+request will be used to help fill out the response in one of the actions (`:new`, `:edit`, etc.) defined within controllers that inherit from it.
 
 Consider this code from 99cats:
 
