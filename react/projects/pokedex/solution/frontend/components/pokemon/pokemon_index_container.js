@@ -14,11 +14,6 @@ const mapDispatchToProps = dispatch => ({
     requestAllPokemon: () => dispatch(requestAllPokemon())
 });
 
-// export default withRouter(connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(PokemonIndex));
-
 export default connect(
     mapStateToProps,
     mapDispatchToProps
