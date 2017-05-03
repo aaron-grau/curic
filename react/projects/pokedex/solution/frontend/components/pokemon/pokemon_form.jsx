@@ -45,7 +45,7 @@ class PokemonForm extends React.Component {
     }
   }
 
-	render() {
+  render() {
     return (
       <section className="pokemon-detail">
         <img src="/assets/pokemon-logo.svg" alt="Copyright of Nintendo Pokemon"/>
@@ -103,7 +103,7 @@ class PokemonForm extends React.Component {
         </form>
       </section>
     );
-	}
+  }
 }
 
 export default withRouter(PokemonForm);

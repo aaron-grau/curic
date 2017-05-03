@@ -4,7 +4,6 @@ import Item from '../items/item';
 import LoadingIcon from './loading_icon';
 import ItemDetailContainer from '../items/item_detail_container';
 
-
 class PokemonDetail extends Component {
   componentDidMount() {
     this.props.requestSinglePokemon(this.props.match.params.pokemonId);
@@ -14,10 +13,6 @@ class PokemonDetail extends Component {
     if (this.props.match.params.pokemonId !== nextProps.match.params.pokemonId) {
       this.props.requestSinglePokemon(nextProps.match.params.pokemonId);
     }
-  }
-
-  routeIsCorrect() {
-    return parseInt(this.props.match.params.pokemonId) === this.props.pokemonDetail.id;
   }
 
   render() {
@@ -51,4 +46,5 @@ class PokemonDetail extends Component {
     );
   }
 }
+
 export default PokemonDetail;

@@ -7,7 +7,7 @@ const mapStateToProps = ({ errors }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	createPokemon: pokemon => dispatch(createPokemon(pokemon))
+  createPokemon: pokemon => dispatch(createPokemon(pokemon))
 });
 
 export default connect(
