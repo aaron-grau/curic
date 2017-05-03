@@ -5,10 +5,12 @@
 * [Setup][rails-setup]
 * Rails Api [api.rubyonrails.org][rails-api]
 * Rails Guides [guides.rubyonrails.org][rails-guides]
+* [Diagram of Rails][rails-diagram]
 
 [rails-setup]: readings/rails-setup.md
 [rails-api]: http://api.rubyonrails.org/v4.0.2/
 [rails-guides]: http://guides.rubyonrails.org/v4.0.2/
+[rails-diagram]: assets/rails_diagram.png
 
 ## w4d1
 

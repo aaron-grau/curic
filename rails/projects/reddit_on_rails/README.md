@@ -11,6 +11,14 @@
 + Know when to use regular associations and when to use join tables
 + Know how to avoid N+1 queries
 
+## Quick Review
+
+This is the last Rails project before build Rails Lite yourself tomorrow.
+Take a few minutes to talk through the whole request/response cycle with your
+partner before getting started. Feel free to reference this diagram as needed.
+
+![rails diagram](../../assets/rails_diagram.png)
+
 ## Phase I: Auth
 
 Write a basic Auth implementation
