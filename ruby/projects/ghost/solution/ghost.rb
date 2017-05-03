@@ -2,16 +2,14 @@ require "set"
 require_relative "player"
 
 class GhostGame
-  ALPHABET = Set.new(("a".."z").to_a)
+  ALPHABET = Set.new("a".."z")
   MAX_LOSS_COUNT = 5
 
   def initialize(*players)
     words = File.readlines("dictionary.txt").map(&:chomp)
     @dictionary = Set.new(words)
     @players = players
-    @losses = {}
-
-    players.each { |player| losses[player] = 0 }
+    @losses = Hash.new { |losses, player| losses[player] = 0 } 
   end
 
   def run
@@ -22,33 +20,48 @@ class GhostGame
   private
   attr_reader :fragment, :dictionary, :losses, :players
 
-  def add_letter(letter)
-    fragment << letter
-    puts "#{current_player} added the letter '#{letter}' to the fragment."
-  end
-
-  def current_player
-    players.first
-  end
-
-  def display_standings
-    return if losses.all? { |_, v| v == 0 }
-
-    puts "Current standings:"
-    players.each do |player|
-      next if losses[player] == 0
-      puts "#{player}: #{record(player)}"
-    end
-
-    sleep(2)
-  end
-
   def game_over?
     remaining_players == 1
   end
 
+  def play_round
+    @fragment = ""
+    welcome
+
+    until round_over?
+      take_turn
+      next_player!
+    end
+
+    update_standings
+  end
+
+  # helper methods 
+  def add_letter(letter)
+    fragment << letter
+  end
+
+  def valid_play?(letter)
+    return false unless ALPHABET.include?(letter)
+
+    potential_fragment = fragment + letter
+    dictionary.any? { |word| word.start_with?(potential_fragment) }
+  end
+
   def is_word?(fragment)
     dictionary.include?(fragment)
+  end
+
+  def round_over?
+    is_word?(fragment)
+  end
+  
+  def current_player
+    players.first
+  end
+
+  def previous_player
+    players.last
   end
 
   def next_player!
@@ -57,20 +70,13 @@ class GhostGame
     players.rotate! until losses[current_player] < MAX_LOSS_COUNT
   end
 
-  def play_round
-    @fragment = ""
-    welcome
-
-    until round_over?
-      take_turn(current_player)
-      next_player!
-    end
-
-    update_standings
+  def remaining_players
+    losses.count { |_, v| v < MAX_LOSS_COUNT }
   end
 
-  def previous_player
-    players.last
+  def winner
+    (player, _) = losses.find { |_, losses| losses < MAX_LOSS_COUNT }
+    player
   end
 
   def record(player)
@@ -78,28 +84,44 @@ class GhostGame
     "GHOST".slice(0, count)
   end
 
-  def remaining_players
-    losses.count { |_, v| v < MAX_LOSS_COUNT }
-  end
-
-  def round_over?
-    is_word?(fragment)
-  end
-
-  def take_turn(player)
+  # UI methods (display game status and prompts to players) 
+  def welcome
     system("clear")
-    puts "It's #{player}'s turn!"
+    puts "Let's play a round of Ghost!"
+    display_standings
+  end
+
+  def take_turn
+    system("clear")
+    puts "It's #{current_player}'s turn!"
     letter = nil
 
-    until letter && valid_play?(letter)
-      letter = player.guess(fragment)
-      player.alert_invalid_move(letter) unless valid_play?(letter)
+    until letter
+      letter = current_player.guess(fragment)
+      
+      unless valid_play?(letter)
+        current_player.alert_invalid_move(letter)
+        letter = nil
+      end
     end
 
     add_letter(letter)
+    puts "#{current_player} added the letter '#{letter}' to the fragment."
+  end
+
+  def display_standings
+    system("clear")
+    puts "Current standings:"
+
+    players.each do |player|
+      puts "#{player}: #{record(player)}"
+    end
+
+    sleep(2)
   end
 
   def update_standings
+    system("clear")
     puts "#{previous_player} spelled #{fragment}."
     puts "#{previous_player} gets a letter!"
 
@@ -109,25 +131,9 @@ class GhostGame
       puts "#{previous_player} has been eliminated!"
     end
 
-    sleep(2)
-  end
-
-  def valid_play?(letter)
-    return false unless ALPHABET.include?(letter)
-
-    new_fragment = fragment + letter
-    dictionary.any? { |word| word.start_with?(new_fragment) }
-  end
-
-  def welcome
-    system("clear")
-    puts "Let's play a round of Ghost!"
     display_standings
-  end
 
-  def winner
-    (player, _) = losses.find { |_, losses| losses < MAX_LOSS_COUNT }
-    player
+    sleep(2)
   end
 end
 
