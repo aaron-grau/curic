@@ -16,7 +16,7 @@ If you haven't installed git, install it [here](https://git-scm.com/book/en/v2/G
 
 GitHub uses the email you set in your Git configuration to associate commits to your GitHub account. (This is how you get green squares!)
 
-Test if you have your email set by running `git config --global user.email` in your terminal. If it's blank, type `git config --global user.email "example@email.com"` to set it.
+Test if you have your email set by running `git config --global user.email` in your terminal. If it's blank, type `git config --global user.email "example@email.com"` to set it. You will only ever need to run this once. Git will always use this information for anything you do on your computer.
 
 ### Initialize git
 
