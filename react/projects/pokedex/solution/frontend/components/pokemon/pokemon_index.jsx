@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import PokemonIndexItem from './pokemon_index_item';
 import LoadingIcon from './loading_icon';
 import PokemonFormContainer from './pokemon_form_container';
 import PokemonDetailContainer from './pokemon_detail_container';
-import { Route } from 'react-router-dom';
 
 class PokemonIndex extends Component {
   componentDidMount() {
