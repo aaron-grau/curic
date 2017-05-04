@@ -13,7 +13,7 @@
 
 ## Quick Review
 
-This is the last Rails project before build Rails Lite yourself tomorrow.
+This is the last Rails project before building Rails Lite yourself tomorrow.
 Take a few minutes to talk through the whole request/response cycle with your
 partner before getting started. Feel free to reference this diagram as needed.
 
