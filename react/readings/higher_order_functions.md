@@ -2,7 +2,7 @@
 
 Functions that operate on other functions, either by receiving them as arguments
 or returning them, are called **higher-order functions**. Functions that are
-passed as parameters to and invoked in a *high-order function* are known as
+passed as parameters to and invoked in a *higher-order function* are known as
 **callbacks**. This perspective makes it especially easy to abstract over the
 actions they represent.
 
@@ -100,7 +100,7 @@ same thing inside an arrow function that it does outside of it.
 
 ## Summary of Higher-Order Functions
 
-+ High-order functions are functions that:
++ Higher-order functions are functions that:
   + Define and return functions;
   + Accept callbacks as arguments;
   + Or do both.

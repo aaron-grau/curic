@@ -103,7 +103,7 @@ export default reducer;
 
 Don't forget the export statement!
 
-Right now, we're return the same state that is passed in. What we want to do is see if the `action.type` matches something we expect (e.g. `"SWITCH_CURRENCY"`) and return an updated version of the state accordingly. Add a `case` statement to check for this action type. It should return a new object with the correct properties. We can grab those off the action (i.e. `action.rates` and `action.baseCurrency`).
+Right now, we're returning the same state that is passed in. What we want to do is see if the `action.type` matches something we expect (e.g. `"SWITCH_CURRENCY"`) and return an updated version of the state accordingly. Add a `case` statement to check for this action type. It should return a new object with the correct properties. We can grab those off the action (i.e. `action.rates` and `action.baseCurrency`).
 
 At this point, we have created a Redux store that dispatches actions and responds to dispatched actions. Let's put the reducer on the window (`window.reducer = reducer`) and then test it out in the browser console. Pass a test case to the reducer and make sure it returns what we're expecting. For example,
 

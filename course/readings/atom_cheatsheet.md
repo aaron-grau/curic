@@ -32,9 +32,9 @@
 
 `cmd` + `g` : Find next
 
-`Cmd + ]` : Indent selection
+`cmd + ]` : Indent selection
 
-`Cmd + [` : Un-indent selection
+`cmd + [` : Un-indent selection
 
 `cmd` + `{` : move one tab left
 
@@ -60,9 +60,9 @@
   
 ### bash
 
-  `ctr` + `a` : Beginning of Line
+  `ctrl` + `a` : Beginning of Line
   
-  `ctr` + `e` : End of Line
+  `ctrl` + `e` : End of Line
   
-  `ctr` + `k` : Kill (delete) to end of line
+  `ctrl` + `k` : Kill (delete) to end of line
 

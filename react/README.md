@@ -8,18 +8,20 @@
 ### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
 
-### Readings (45 min)
+### Readings (48 min)
 **Tonight only, please do the readings before watching the video
 lectures**
 - [NPM][npm_configuration] (15 min)
 - [Webpack][webpack_configuration] (10 min)
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
+- [React Developer Tools][react_dev_tools] (3 min)
 
 [npm_configuration]: readings/npm_configuration.md
 [webpack_configuration]: readings/webpack_configuration.md
 [import_export]: readings/import_export.md
 [object_destructuring]: readings/object_destructuring.md
+[react_dev_tools]: readings/react_dev_tools.md
 
 ### Video Lectures (68 min)
 :closed_lock_with_key: `go_video_go`
@@ -35,11 +37,11 @@ min)
 [react-func-comps]: https://vimeo.com/188090786
 [react-lifecycle]: https://vimeo.com/188093789
 
-### Homeworks (90 min)
+### Homeworks (75 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (45 min)
 - Add your questions and answers from pairboarding today to your Study
-Notes repo! (15 min)
+Notes repo! (15 min, SF only)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/calculator
@@ -164,18 +166,18 @@ Notes repo! (15 min)
 ### Readings (40 min)
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
-- [Nontechnical Overview of Redux][react-nontech] (15 min)
+- [Nontechnical Overview of Redux][redux-nontech] (15 min)
 
 [jbuilder-intro]: readings/intro_to_jbuilder.md
 [jbuilder_docs]: https://github.com/rails/jbuilder
-[react-nontech]: readings/react_nontech.md
+[redux-nontech]: readings/redux_nontech.md
 
 ### Homeworks (100 min)
 - [Giphy Homework][giphy_homework] (90 min)
 - [Submit your tentative full-stack project
 proposal][tentative-proposal] (10 min)
   - **Due by 9AM Thursday w7d4**
-  - You many want to browse our [list of approved apps][approved-apps]
+  - You may want to browse our [list of approved apps][approved-apps]
 
 [giphy_homework]: homeworks/giphy
 [tentative-proposal]: ../full-stack-project/proposal/tentative-project-proposal.md
@@ -261,13 +263,13 @@ min)
 [preloaded_state]: readings/preloaded_state.md
 [user_authentication]: readings/front_end_auth.md
 
-### Homeworks (75 min)
+### Homeworks (60/75 min)
 * Do the auth part of [A04 Prep][a04_prep] (60 min)
   * Front-end auth (the main concept in BenchBnB Day 1) builds on top of
 regular Rails backend auth, so make sure you build on a solid base.
   * You'll be surprised how much of it you've forgotten by now. It's
 normal.
-* Add your questions and answers from pairboarding to your Study Notes
+* **SF Only** Add your questions and answers from pairboarding to your Study Notes
 repo! (15 min)
 
 [a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4
@@ -290,10 +292,9 @@ repo! (15 min)
 
 **Project Proposal Review Period for Instructional Staff**
 
-### Readings (50 min)
+### Readings (35 min)
 -	[React Map Demo][react_map_demo] (15 min)
 - [Think in React][think_in_react] (20 min)
-- [Nontechnical Overview of React][react-nontech] (15 min)
 
 [react_map_demo]: demos/react_map_demo
 [think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html

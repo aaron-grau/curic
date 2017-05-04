@@ -29,7 +29,7 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    return (
+     return (
       <div className="review-form">
         <form onSubmit={ this.handleSubmit }>
           <label>Rating</label>

@@ -20,6 +20,6 @@
   "dependencies": {
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "webpack": "^1.13.1"
+    "webpack": "^2.3.3"
   }
 }

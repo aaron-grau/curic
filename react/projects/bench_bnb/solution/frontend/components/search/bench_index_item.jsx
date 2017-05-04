@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter, Route} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import {BenchShowContainer} from '../bench_show/bench_show_container';
 
@@ -28,7 +28,7 @@ class IndexItem extends React.Component {
           <span className="index-item-copy">{description}</span>
         </div>
         <img src={picture_url}/>
-        
+
       </div>
     );
   }

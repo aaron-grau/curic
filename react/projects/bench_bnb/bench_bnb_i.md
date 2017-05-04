@@ -294,7 +294,7 @@ Define 2 new files at the root of your `frontend/components` folder:
 ### The `App` component
 
 Create and export a new **functional component** that renders an `<h1>` tag with
-"Bench BnB" text and underneath renders `props.children`. It should look something like.
+"Bench BnB" text and underneath renders `props.children`. It should look something like this:
 
 ```javascript
 // frontend/components/App.jsx

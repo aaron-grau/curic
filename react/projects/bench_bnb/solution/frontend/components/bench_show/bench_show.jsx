@@ -1,24 +1,16 @@
 import React from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import BenchDetail from './bench_detail';
 import BenchMap from '../bench_map/bench_map';
 import ReviewFormContainer from './review_form_container';
-import ReviewButton from './review_button';
+import { ProtectedRoute } from '../../util/route_util';
+import { ReviewLink } from '../../util/link_util';
 
-const BenchShow = ({ bench, benchId, fetchBench, match, loggedIn }) => {
+const BenchShow = ({ bench, benchId, fetchBench, loggedIn }) => {
   const benches = {
     [benchId]: bench
-  };  
-  
-  
-  const ReviewLink = ({ label, to}) => (
-    <Route path={to} children={({ match }) => (
-      <div>
-        {match ? '' : <Link to={to}>{label}</Link>}
-      </div>
-    )}/>
-  )
+  };
 
   return(
     <div className="single-bench-show">
@@ -33,17 +25,16 @@ const BenchShow = ({ bench, benchId, fetchBench, match, loggedIn }) => {
       </div>
       <div className="right-half bench-details">
         <BenchDetail bench={bench} />
-        <ReviewLink to={`/benches/${benchId}/review`} label="Leave a Review" />
-        <Route path="/benches/:benchId/review" render={() => (
-          loggedIn ? (
-            <ReviewFormContainer/>
-          ) : (
-            <Redirect to="/login"/>
-          )
-        )}/>
+        <ReviewLink component={ReviewFormContainer} to={`/benches/${benchId}/review`} label="Leave a Review"/>
+        <ProtectedRoute path="/benches/:benchId/review" component={ReviewFormContainer}/>
       </div>
     </div>
   );
 };
 
 export default BenchShow;
+
+
+
+
+

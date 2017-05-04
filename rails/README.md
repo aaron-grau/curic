@@ -27,6 +27,7 @@
 ### Readings
 + [Callbacks][callbacks]
 + [Delegation][delegation]
++ [Contextual Overview of DNS][dns_reading]
 
 ### Homeworks (125 min)
 * [Library Controller][library-hw] (45 min)
@@ -43,7 +44,7 @@
 
 ### Projects
 + [First Routes and Controllers][first-routes]
-+ [Contacts API][contacts-api]
++ [Art Share API][artshare-api]
 
 [assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
 [api-video]: https://vimeo.com/168498417
@@ -55,6 +56,7 @@
 
 [callbacks]: readings/callbacks.md
 [delegation]: readings/delegation.md
+[dns_reading]: readings/dns.md
 
 [rails-screencasts]: https://vimeo.com/album/2953690/sort:alphabetical
 [rails-videos-code]: demos/intro_rails_video_demo
@@ -67,7 +69,7 @@
 [routing-ii]: readings/routing-part-ii.md
 
 [first-routes]: projects/first_routes
-[contacts-api]: projects/contacts_api
+[artshare-api]: projects/art_share_api
 
 ## w4d2
 
@@ -206,7 +208,7 @@
   * *NB:* `#deliver` has been deprecated in newer versions of Rails, please use `#deliver_now` instead
 
 ### Projects
-* **Solo**: [Music App][music-app-project]
+* [Music App][music-app-project]
 
 [action-mailer]: readings/mailing-1.md
 [view-helpers]: readings/helpers.md
@@ -298,7 +300,7 @@
 * [Checkboxes and Id Setters Reference][checkboxes-id-setters]
 
 ### Projects
-* [RedditClone][reddit-clone]
+* **Solo**: [RedditClone][reddit-clone]
 
 [assessment-prep-4]: https://github.com/appacademy/assessment-prep#assessment-4
 [polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
@@ -328,6 +330,9 @@
 * [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
 * [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
 
+### Readings (15 min)
+* [Contextual Overview of TCP/IP][tcp_ip_reading]
+
 ### Homeworks (45 min)
 * Complete [RegexOne][regex-link] (45 min)
 
@@ -348,6 +353,7 @@
 ### Solo Project
 * [Rails Lite][rails-lite]
 
+[tcp_ip_reading]: readings/tcp_ip.md
 [middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [http]: readings/http.md
 [rack]: readings/rack.md

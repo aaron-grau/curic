@@ -35,10 +35,9 @@
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-redux": "^4.4.5",
-    "react-router": "^4.0.0",
-    "react-router-dom": "^4.0.0",
+    "react-router-dom": "^4.1.1",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
-    "webpack": "^1.12.2"
+    "webpack": "^2.3.3"
   }
 }
