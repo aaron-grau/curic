@@ -12,6 +12,12 @@ Test if you've installed git by running `which git`.  If you've installed git, s
 
 If you haven't installed git, install it [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
+### Set Your Identity
+
+GitHub uses the email you set in your Git configuration to associate commits to your GitHub account. (This is how you get green squares!)
+
+Test if you have your email set by running `git config --global user.email` in your terminal. If it's blank, type `git config --global user.email "example@email.com"` to set it.
+
 ### Initialize git
 
 Make a new folder on your computer.  `cd` into it and save a sample file (you can put whatever you want in the file).  
