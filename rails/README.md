@@ -210,7 +210,7 @@
   * *NB:* `#deliver` has been deprecated in newer versions of Rails, please use `#deliver_now` instead
 
 ### Projects
-* [Music App][music-app-project]
+* **Solo**: [Music App][music-app-project]
 
 [action-mailer]: readings/mailing-1.md
 [view-helpers]: readings/helpers.md
@@ -302,7 +302,7 @@
 * [Checkboxes and Id Setters Reference][checkboxes-id-setters]
 
 ### Projects
-* **Solo**: [RedditClone][reddit-clone]
+* [RedditClone][reddit-clone]
 
 [assessment-prep-4]: https://github.com/appacademy/assessment-prep#assessment-4
 [polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
