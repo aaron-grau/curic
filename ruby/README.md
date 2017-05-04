@@ -243,7 +243,7 @@
 + [Simon][simon] (45 min)
 
 ### Projects
-+ [Exceptions, error handling][errors-exercises]
++ [Error Handling Funtime][errors-exercises]
 + [Class inheritance][inheritance-exercises]
 + [Chess][chess]
     + Please read the project description the night before.
@@ -253,7 +253,7 @@
 [inheritance]: readings/inheritance.md
 [inheritance-exercises]: projects/class_inheritance
 [errors]: readings/errors.md
-[errors-exercises]: projects/error_handling
+[errors-exercises]: projects/error_handling_funtime
 [object-decomposition]: readings/object-decomposition.md
 [inheritance-design]: readings/inheritance-design.md
 [hiding]: readings/hiding.md
