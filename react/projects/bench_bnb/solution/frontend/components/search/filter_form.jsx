@@ -1,4 +1,4 @@
-const React = require('react');
+import React from 'react';
 
 const handleChange = (filter, updateFilter) => (
   e => updateFilter(filter, e.currentTarget.value)
