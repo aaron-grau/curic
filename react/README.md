@@ -282,7 +282,7 @@ repo! (15 min)
 [local_storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 
 ### Projects
-- **Solo:** [BenchBnB][bench_bnb]
+- [BenchBnB][bench_bnb]
 
 [bench_bnb]: projects/bench_bnb
 
