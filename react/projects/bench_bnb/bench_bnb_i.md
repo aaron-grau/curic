@@ -641,12 +641,15 @@ stay logged in.
 Let's make sure users can't visit our `"/#/login"` or `"/#/signup"`
 routes if they are already logged in on the front-end.
 
-* Let's write our `route_util.jsx`. On our login and signup routes,
-let's conditionally render either the component or a `<Redirect>` based
-on whether a user is logged in. It should:
+* Let's write our `frontend/util/route_util.jsx`. On our login and
+signup routes, let's conditionally render either the component or a
+[`<Redirect>`][redirect-docs] based on whether a user is logged in. It
+should:
   * Check to see if the application state has a `currentUser` property.
   * If true, redirect to `"/"`.
   * Otherwise, render the specified component.
+
+[redirect-docs]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/Redirect.md
 
 Your `<AuthRoute>` should look something like this:
 
@@ -669,7 +672,6 @@ const Auth = ({component: Component, path, loggedIn}) => (
 );
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
-//...
 ```
 
 Import your `AuthRoute` into `App.jsx` and update the login and signup

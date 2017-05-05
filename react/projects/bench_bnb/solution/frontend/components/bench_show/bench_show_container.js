@@ -10,8 +10,7 @@ const mapStateToProps = (state, {match}) => {
   const bench = selectBench(state, match.params.benchId);
   return {
     benchId,
-    bench,
-    loggedIn: Boolean(state.session.currentUser)
+    bench
   };
 };
 

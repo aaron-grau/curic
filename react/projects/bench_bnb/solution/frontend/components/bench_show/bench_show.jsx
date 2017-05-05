@@ -7,7 +7,7 @@ import ReviewFormContainer from './review_form_container';
 import { ProtectedRoute } from '../../util/route_util';
 import { ReviewLink } from '../../util/link_util';
 
-const BenchShow = ({ bench, benchId, fetchBench, loggedIn }) => {
+const BenchShow = ({ bench, benchId, fetchBench }) => {
   const benches = {
     [benchId]: bench
   };
@@ -33,8 +33,3 @@ const BenchShow = ({ bench, benchId, fetchBench, loggedIn }) => {
 };
 
 export default BenchShow;
-
-
-
-
-
