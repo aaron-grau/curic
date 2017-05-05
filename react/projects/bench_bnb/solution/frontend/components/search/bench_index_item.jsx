@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
-import {BenchShowContainer} from '../bench_show/bench_show_container';
+import BenchShowContainer from '../bench_show/bench_show_container';
 
 class IndexItem extends React.Component {
   constructor(props) {

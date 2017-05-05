@@ -19,13 +19,13 @@ const App = ({store}) => {
         </Link>
         <GreetingContainer />
       </header>
-        <Switch>
-          <AuthRoute path="/login" component={SessionFormContainer}/>
-          <AuthRoute path="/signup" component={SessionFormContainer}/>
-          <ProtectedRoute path="/benches/new" component={BenchFormContainer}/>
-          <Route path="/benches/:benchId" component={BenchShowContainer}/>
-          <Route exact path="/" component={SearchContainer}/>
-        </Switch>
+      <Switch>
+        <AuthRoute path="/login" component={SessionFormContainer}/>
+        <AuthRoute path="/signup" component={SessionFormContainer}/>
+        <ProtectedRoute path="/benches/new" component={BenchFormContainer}/>
+        <Route path="/benches/:benchId" component={BenchShowContainer}/>
+        <Route exact path="/" component={SearchContainer}/>
+      </Switch>
     </div>
   );
 };
