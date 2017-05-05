@@ -13,6 +13,14 @@ In this project we'll start playing with Rails routing.
 + Be able to write controller actions that read from and write to the database
 + Know how and when to render errors
 
+## Rails Diagram
+
+As you work through the project, revisit this diagram at each phase and
+discuss with your pair how the code you've written so far fits into the
+relationships displayed here.
+
+![rails diagram](../../assets/rails_diagram.png)
+
 ## First Routes
 
 To start, generate a new, blank Rails project. **Make sure to use Postgres as your
