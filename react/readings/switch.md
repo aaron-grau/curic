@@ -9,7 +9,7 @@ This is particularly useful if we want a default component that will
 only render if none of our other routes match. We can see this in the
 following example.
 
-```js
+```jsx
 <Switch>
   <Route path="some/url" component={SomeComponent} />
   <Route path="some/other/url" component={OtherComponent} />
