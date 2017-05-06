@@ -59,3 +59,12 @@ h3 {
   width: 100px;
   height: 100px;
 }
+
+.active {
+  font-weight: 700;
+}
+
+a {
+  display: block;
+  margin-bottom: 10px;
+}
