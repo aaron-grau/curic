@@ -82,27 +82,6 @@ login ------>  Thunk -----> login ------> receiveCurrentUser(currentUser)
 logout ----->  Thunk -----> logout -----> receiveCurrentUser(null)
 ```
 
-## Front End Routes
-
-It is common to restrict certain front end routes from being accessed by
-users who are not logged in or who do not have proper credentials. Check
-out this `Router`:
-
-```jsx
-<Router history={ hashHistory }>
-  <Route path="/" component={ App }>
-    <Route path="/login" component={ Login } onEnter={ _redirectIfLoggedIn }/>
-    <Route path="/signup" component={ Signup } onEnter={ _redirectIfLoggedIn }/>
-    <Route path="/profile" component={ Profile } onEnter={ _ensureLoggedIn }/>
-  </Route>
-</Router>
-```
-
-Here we have 3 routes that are all protected by React Router [onEnter
-hooks][onenter].
-
-[onenter]: on_enter.md
-
 ## Protected and Auth Routes
 
 When we were creating apps with Rails views we had certain routes the
