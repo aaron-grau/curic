@@ -8,9 +8,9 @@ class Red extends React.Component {
     return(
       <div>
         <h2 className="red"></h2>
-        // Links here
+        {/* Links here */}
 
-        // Routes here
+        {/* Routes here */}
       </div>
     );
   }
