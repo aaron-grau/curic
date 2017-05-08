@@ -21,7 +21,9 @@ Sometimes we want to return something from our function, even if the desired ope
 ### Instructions
 We want our dear user to be able to call `convert_to_int` with no error being raised on invalid input. Update `convert_to_int` to `rescue` any errors and return `nil` if our argument cannot be converted.
 
-If we are handling the error thrown by `Integer(arg)`, which [`Exception` subclass][exception-types] should we be catching? Next, update `convert_to_int` again to only rescue the correct exception type.
+If we are handling the error thrown by `Integer(arg)`, which [`StandardError` subclass][exception-types] should we be catching? Next, update `convert_to_int` again to only rescue the correct exception type. 
+
+**NB:** `rescue` only *rescues* `StandardError` and its subclasses. Any other `Exception` subclass is a system error and implies that something rather serious has gone wrong and our code should stop executing.
 
 ### Recap
 Many times we will want to 'protect' the user from potential errors our code might throw. In this case we are protecting our user from *only* from errors we expect. It is always wise to raise and rescue more specific errors as the errors they raise are more descriptive (helpful with debugging) and it prevents the catching of errors that should 'escape' up to the calling function (catching `Exception` will even ignore system errors).
