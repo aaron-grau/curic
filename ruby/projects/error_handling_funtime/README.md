@@ -53,7 +53,7 @@ Another use case for raising errors is to enforce correct usage of code. For exa
 ### Instructions
 If we look at `user_script.rb`, we see that our dear user thinks you can be besties if you've known each other less than a year. We do not agree. Friendships, like a fine wine, need as least five years to mature. Update `BestFriend#initialize`, in `super_useful.rb`, to raise an descriptive error when `yrs_known` is less than `5`.
 
-Test your code, then assume the role of our dear user and update our call to `BestFriend#new`.
+Test your code, then assume the role of our dear user and update our call to `BestFriend#new` to create a *real* friendship (`yrs_known>= 5`).
 
 Our dear user also thinks it's okay to leave `name` and `fav_pastime` empty when creating a new instance of `BestFriend`. But it's not okay. It leaves `#do_friendstuff` and `#give_friendship_bracelet` sorely lacking. Poorly formatted text just makes us seethe with displeasure. Update the `initialize` method to raise descriptive errors when given strings of `length <= 0`.
 
