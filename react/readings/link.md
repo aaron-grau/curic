@@ -2,7 +2,10 @@
 
 React Router's `<Link>` is one way to simplify navigation around your
 app. It issues an on-click navigation event to a route defined in your
-app's router.
+app's router. We prefer `Link` to using `history.push` inside the
+`onclick` callback of an element because link will still render an
+anchor tag with a correctly set `href` attribute. The leads to more
+semantic html and makes things easier for screen-readers. 
 
 To use it `import { Link } from 'react-router'`.
 
@@ -36,7 +39,8 @@ matches the current URL.
 
   ```jsx
   // app.jsx
-  <Link to={`users/${user.id}`} activeClassName="active">{user.name}</Link>
+  <Link to={`users/${user.id}`}
+activeClassName="active">{user.name}</Link> 
 
   // when at path `users/123` the following html is rendered
   <a href="#/users/123" class="active">Michael</a>
@@ -51,10 +55,12 @@ matches the current URL.
 
   ```jsxx
   // app.jsx
-  <Link to={`users/${user.id}`} activeStyle={{ fontWeight: 'bold' }}>{user.name}</Link>
+  <Link to={`users/${user.id}`} activeStyle={{ fontWeight: 'bold'
+}}>{user.name}</Link> 
 
   // when at path `users/123` the following html is rendered
-  <a href="#/users/123" style="font-weight:bold;" class="active">Michael</a>
+  <a href="#/users/123" style="font-weight:bold;"
+class="active">Michael</a> 
 
   // when not at path `users/123` the following is html rendered
   <a href="#/users/123">Michael</a>
