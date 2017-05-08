@@ -572,14 +572,14 @@ prop to the `BenchMap` component
 #### `BenchMap`
 
   * In the `BenchMap` component, add a listener to the map's idle event
-when   `componentDidMount` is called.
+when `componentDidMount` is called.
   * [Read this documentation][event-doc] to learn about Google Map
 events.
   * Call `getBounds` on the map instance to get a `LatLngBounds`
-instance. Call     `getNorthEast` and `getSouthWest` to get these
-coordinate pairs. Get their     latitude and longitude and format these
-coordinates into exactly the format     your API is expecting. Check
-[this documentation][lat-lng-docs] for more     info.
+instance. Call `getNorthEast` and `getSouthWest` to get these
+coordinate pairs. Get their latitude and longitude and format these
+coordinates into exactly the format your API is expecting. Check
+[this documentation][lat-lng-docs] for more info.
   * Package these coordinates into a `bounds` object.
   * Invoke `this.props.updateBounds()`, and pass your newly constructed
 bounds object
@@ -592,7 +592,7 @@ We need to build out our application state to reflect the map's
 * Create a new file, `reducers/filter_reducer.js`
 * Build and export a `FilterReducer`
   * You're reducer should update the application state when an
-`UPDATE_BOUNDS`   action is dispatched
+`UPDATE_BOUNDS` action is dispatched
 * Update your `RootReducer`
 
 **Test** that the application is being successfully updated by moving
@@ -673,7 +673,7 @@ component.
   *  Test the route by navigating to `/#/benches/new`; the map should
 disappear.
 * Write a `create` method on your `BenchesController` and give it a
-corresponding   route in `routes.rb`.
+corresponding route in `routes.rb`.
 
 ### Navigating to the `BenchForm`
 
@@ -690,25 +690,26 @@ client-side query string.
 #### `withRouter`
 
 Since our `BenchMap` will need access to the `Router`, import the
-`withRouter` function from `react-router`. Change the export statement
-in `bench_map.jsx` so that we are exporting a wrapped component.
+`withRouter` function from `react-router-dom`. Change the export
+statement in `bench_map.jsx` so that we are exporting a wrapped
+component.
 
 ```javascript
 export default withRouter(BenchMap);
 ```
 
-Our `BenchMap` component will now have a `router` prop.
+Our `BenchMap` component will now have a `history` (router) prop.
 
 #### Redirecting with coordinates
 
 Add a `"click"` handler to the map. It should:
   * Grab the coordinates from the click event.
   * Use the router to redirect to the `BenchForm` URL, providing the
-`lat` and   `lng` as query params.
+`lat` and `lng` as query params.
 
 To pass `lat` and `lng` as query params:
 
-  0.  Use `this.props.router.push` to send data along with the new
+  0.  Use `this.props.history.push` to send data along with the new
 `pathname`.
 
 ```javascript
@@ -716,9 +717,9 @@ To pass `lat` and `lng` as query params:
 
 //...
  _handleClick(coords){
-    this.props.router.push({
+    this.props.history.push({
       pathname: "benches/new",
-      query: coords
+      search: coords
     });
   }
 //...
@@ -735,15 +736,17 @@ Inside of the `BenchFormContainer`...
   * Define a `mapStateToProps` function that accepts `state` and
 `ownProps` as arguments
   * pass `lat` and `lng` props to the `BenchForm` component by
-deconstructing   `ownProps.location.query`
+deconstructing `ownProps.location.search`
+  * use the [`URLSearchParams`][URLSearchParams-docs] to pull the `lat`
+and `lng` from the query string
 
 ```javascript
 // frontend/components/bench_form/bench_form_container.jsx
 
 //...
-  const mapStateToProps = (state, ownProps) => ({
-    lat: ownProps.location.query.lat,
-    lng: ownProps.location.query.lng
+  const mapStateToProps = (state, { location }) => ({
+    lat: new URLSearchParams(location.search).get("lat"),
+    lng: new URLSearchParams(location.search).get("lng")
   });
 //...
 ```
@@ -757,13 +760,13 @@ input tags disabled so that our users don't try to edit them!
 ### Api Util and Action Creators
 
   * Add a `createBench` function to `bench_api_util.js`. It should make
-a `POST`     request to your API.
-  * Create a * `RECEIVE_BENCH` action type.
+a `POST` request to your API.
+  * Create a `RECEIVE_BENCH` action type.
   * Add the following action creators to `bench_actions.js`:
     * `receiveBench` (regular action creator)
     * `createBench` (thunk action creator)
   * Add a `mapDispatchToProps` function to your `BenchFormContainer`;
-this should   pass a `createBench` prop to `BenchForm`
+this should pass a `createBench` prop to `BenchForm`
 
 ### `BenchReducer`
 
@@ -782,19 +785,17 @@ Create a few benches!
 Let's make sure users can't get to our `"/#/benches/new"` route on the
 front-end unless they're logged in.
 
-Refer to the `onEnter` [reading][onEnter] for this part.
-
-* Define an `_ensureLoggedIn` helper method in your `Root` component. It
+* Define a `<ProtectedRoute>` helper method in your `route_util.js`. It
 should:
   * Check to see if the application state has a `currentUser` property.
-  * If true, do nothing.
-  * Otherwise, `replace` the path with `"/login"`.
-* Add an `onEnter` prop to the bench `Routes` we want to protect. For
-example,
+You can reuse the `loggedIn` boolean we defined for our `<AuthRoute>`.
+  * If true, render the component.
+  * Otherwise, `Redirect` to `"/login"`.
+* Add the route to our `App` component like so:
 
  ```html
- <Route path="benches/new" component = { BenchForm } onEnter={
-_ensureLoggedIn } />  ```
+ <ProtectedRoute path="benches/new" component={BenchFormContainer} />
+```
 
  **Test that your routes are protected before moving on!**. You should
 be re-directed from logging in and signing up to the root if you are
@@ -924,8 +925,11 @@ use the Figaro gem.
 
 ## BONUSES!
 * When you hover over an index item it should highlight the marker on
-the map in   a different color. This should require creating a new
+the map in a different color. This should require creating a new
 reducer.
+* Add a custom 404 component that renders when a user tries to go to a
+page that doesn't exist. Wrap your routes in a `Switch` so the component
+only renders if it doesn't match any other route.
 * Every bench can have multiple photos!
 * Show page should have a carousel!
 * Display the score as a list of star images!
@@ -938,9 +942,8 @@ reducer.
 [event-doc]: https://developers.google.com/maps/documentation/javascript/events#MarkerEvents
 [map-markers]: https://developers.google.com/maps/documentation/javascript/markers
 [lat-lng-docs]: https://developers.google.com/maps/documentation/javascript/reference#LatLngBounds
-[react-router-source]: https://cdnjs.cloudflare.com/ajax/libs/react-router/1.0.0-rc1/ReactRouter.min.js
-[react-history]: https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md
-[on-enter]: https://github.com/reactjs/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
+[react-history]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/history.md
+[URLSearchParams-docs]: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
 [jquery-ajax]: http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
 [cloudinary-js]: http://cloudinary.com/documentation/upload_widget
 [cloudinary-video]: https://vimeo.com/164612621
