@@ -133,7 +133,7 @@ inherits from `ActionController::Base`). Let's get started!
 We'll write our version of `ActionController::Base` in phases in the `lib`
 directory of the project. `ControllerBase#initialize` should take a
 `Rack::Request` and `Rack::Response` object as inputs and save them as instance variables (ivars) for later use. The stored
-request (will be used to help fill out the response in one of the actions (`:new`, `:edit`, etc.) defined within controllers that inherit from it.
+request will be used to help fill out the response in one of the actions (`:new`, `:edit`, etc.) defined within controllers that inherit from it.
 
 Consider this code from 99cats:
 
@@ -165,7 +165,7 @@ docs for how to set response header fields and statuses. Again, set
 `@already_built_response` to avoid a double render.
 
 Run `bundle exec ruby bin/p02_controller_server.rb`. Now look at the code to see
-what it does. By extending `BaseController`, `MyController` can test our `#render_content` and `#redirect_to` methods. Go to localhost:3000 and make sure
+what it does. By extending `ControllerBase`, `MyController` can test our `#render_content` and `#redirect_to` methods. Go to localhost:3000 and make sure
 it works correctly.
 
 Lastly, run the spec: `bundle exec rspec spec/p02_controller_spec.rb`.
@@ -417,7 +417,7 @@ So when we hit the corresponding route (i.e., when we go to `localhost:3000/post
 * Add a method `Route#run(req, res)` that (1) instantiates an instance
   of the controller class, (2) calls `invoke_action`. For now, pass an empty
   hash as the third argument to `ControllerBase#initialize`.
-  This will serve as a stub for the route params which we will replace that with the real route params soon.
+  This will serve as a stub for the route params, which we will replace with the real route params soon.
 * Add a method `Router#run(req, res)` that calls `#run` on the first
   matching route. If none is found, return a `404` error by setting the
   response status. It's also nice to add a message body so the user

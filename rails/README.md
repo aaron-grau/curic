@@ -1,12 +1,16 @@
 # Rails
 
+:link: *[w4d1](#w4d1) :: [w4d2](#w4d2) :: [w4d3](#w4d3) :: [w4d4](#w4d4) :: [w4d5](#w4d5) :: [w5d1](#w5d1) :: [w5d2](#w5d2)* :link:
+
 * [Setup][rails-setup]
 * Rails Api [api.rubyonrails.org][rails-api]
 * Rails Guides [guides.rubyonrails.org][rails-guides]
+* [Diagram of Rails][rails-diagram]
 
 [rails-setup]: readings/rails-setup.md
 [rails-api]: http://api.rubyonrails.org/v4.0.2/
 [rails-guides]: http://guides.rubyonrails.org/v4.0.2/
+[rails-diagram]: assets/rails_diagram.png
 
 ## w4d1
 
@@ -25,6 +29,8 @@
 ### Readings
 + [Callbacks][callbacks]
 + [Delegation][delegation]
++ [Contextual Overview of DNS][dns_reading]
++ [Testing Routes with Postman][postman]
 
 ### Homeworks (125 min)
 * [Library Controller][library-hw] (45 min)
@@ -41,7 +47,7 @@
 
 ### Projects
 + [First Routes and Controllers][first-routes]
-+ [Contacts API][contacts-api]
++ [Art Share API][artshare-api]
 
 [assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
 [api-video]: https://vimeo.com/168498417
@@ -53,11 +59,13 @@
 
 [callbacks]: readings/callbacks.md
 [delegation]: readings/delegation.md
+[dns_reading]: readings/dns.md
+[postman]: readings/postman.md
 
 [rails-screencasts]: https://vimeo.com/album/2953690/sort:alphabetical
 [rails-videos-code]: demos/intro_rails_video_demo
 
-[library-hw]: ./homeworks/questions/library
+[library-hw]: homeworks/library
 
 [routing-i]: readings/routing-part-i.md
 [basic-controllers]: readings/basic-controllers.md
@@ -65,7 +73,7 @@
 [routing-ii]: readings/routing-part-ii.md
 
 [first-routes]: projects/first_routes
-[contacts-api]: projects/contacts_api
+[artshare-api]: projects/art_share_api
 
 ## w4d2
 
@@ -174,7 +182,7 @@
 
 [99-cats-part-ii]: projects/ninety_nine_cats_ii
 
-[rails-auth-homework]: homeworks/questions/rails_auth.md
+[rails-auth-homework]: homeworks/rails-auth
 
 ## w4d4
 
@@ -201,16 +209,17 @@
 
 ### Additional Resources
 * [:movie_camera: Action Mailer Demo][action-mailer-video] (11 min)
+  * *NB:* `#deliver` has been deprecated in newer versions of Rails, please use `#deliver_now` instead
 
 ### Projects
-* **Solo**: [Music App][music-app-project]
+* [Music App][music-app-project]
 
 [action-mailer]: readings/mailing-1.md
 [view-helpers]: readings/helpers.md
 [view-layouts]: readings/layouts.md
 [view-partials]: readings/partials.md
 [rails-nontech]: readings/rails_nontech.md
-[helpers-and-layouts-hw]: homeworks/questions/helpers-layouts-mailer.md
+[helpers-and-layouts-hw]: homeworks/helpers-layouts-mailer
 [14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
 [15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
 [layout-video]: https://vimeo.com/168822741
@@ -219,47 +228,6 @@
 [music-app-project]: projects/music_app
 
 ## w4d5
-
-### Study Hall 9 - 10am
-
-### Video Lectures (54 min)
-:closed_lock_with_key: `go_video_go`
-* [:movie_camera:  (cc) 16-tag-ids-setter][16-tag-ids-setter] (22 min)
-* [:movie_camera:  (cc) 17-checkboxes-1][17-checkboxes-1] (12 min)
-* [:movie_camera:  (cc) 18-checkboxes-2][18-checkboxes-2] (11 min)
-* [:movie_camera:  (cc) 19-checkboxes-3][19-checkboxes-3] (6 min)
-* [:movie_camera:  (cc) 20-query-string][20-query-string] (3 min)
-
-### Readings (20 min)
-* [Polymorphic Associations][polym-assoc-blurb] (10 min)
-  * **Just section 2.9**
-* [Concerns][concerns-reading] (10 min)
-
-### Homeworks (30 min)
-* [Polymorphism and Concerns][polymorphism-and-concerns-hw] (30 min)
-
-### Additional Resources
-* **Bonus Topic:** [Decorators][decorators]
-* [Checkboxes and Id Setters Reference][checkboxes-id-setters]
-
-### Projects
-* [RedditClone][reddit-clone]
-
-[assessment-prep-4]: https://github.com/appacademy/assessment-prep#assessment-4
-[polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-[concerns-reading]: readings/concerns.md
-[16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
-[17-checkboxes-1]: http://vimeo.com/groups/appacademy/videos/100780887
-[18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
-[19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
-[20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
-[decorators]: readings/decorators.md
-[checkboxes-id-setters]: readings/checkboxes.md
-[polymorphism-and-concerns-hw]: homeworks/questions/polymorphism-concerns/polymorphism-concerns.md
-
-[reddit-clone]: projects/reddit_on_rails
-
-## w5d1
 
 ### Video Lectures (1 hr, 41 min)
 :closed_lock_with_key: `go_video_go`
@@ -298,7 +266,7 @@
 [spring-guard]: readings/guard-spring-setup.md
 [html-nontech]: ../html-css/readings/html_nontech.md
 
-[capybara-hw]: homeworks/questions/capybara.md
+[capybara-hw]: homeworks/capybara
 [bias-quiz]: https://implicit.harvard.edu/implicit/takeatest.html
 
 [goaling-app]: projects/goal_app
@@ -310,6 +278,47 @@
 [rails-testing-controllers]: https://vimeo.com/204477474
 [rails-testing-capybara]: https://vimeo.com/204463650
 [rails-demo-testing]: demos/CapybaraParty
+
+## w5d1
+
+### Study Hall 9 - 10am
+
+### Video Lectures (54 min)
+:closed_lock_with_key: `go_video_go`
+* [:movie_camera:  (cc) 16-tag-ids-setter][16-tag-ids-setter] (22 min)
+* [:movie_camera:  (cc) 17-checkboxes-1][17-checkboxes-1] (12 min)
+* [:movie_camera:  (cc) 18-checkboxes-2][18-checkboxes-2] (11 min)
+* [:movie_camera:  (cc) 19-checkboxes-3][19-checkboxes-3] (6 min)
+* [:movie_camera:  (cc) 20-query-string][20-query-string] (3 min)
+
+### Readings (20 min)
+* [Polymorphic Associations][polym-assoc-blurb] (10 min)
+  * **Just section 2.9**
+* [Concerns][concerns-reading] (10 min)
+
+### Homeworks (30 min)
+* [Polymorphism and Concerns][polymorphism-and-concerns-hw] (30 min)
+
+### Additional Resources
+* **Bonus Topic:** [Decorators][decorators]
+* [Checkboxes and Id Setters Reference][checkboxes-id-setters]
+
+### Projects
+* **Solo**: [RedditClone][reddit-clone]
+
+[assessment-prep-4]: https://github.com/appacademy/assessment-prep#assessment-4
+[polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
+[concerns-reading]: readings/concerns.md
+[16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
+[17-checkboxes-1]: http://vimeo.com/groups/appacademy/videos/100780887
+[18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
+[19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
+[20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
+[decorators]: readings/decorators.md
+[checkboxes-id-setters]: readings/checkboxes.md
+[polymorphism-and-concerns-hw]: homeworks/polymorphism-concerns
+
+[reddit-clone]: projects/reddit_on_rails
 
 ## w5d2
 
@@ -324,6 +333,9 @@
 * [:movie_camera: Rails from the Inside Out](https://vimeo.com/161381601) (13 min)
 * [:movie_camera: Rack](https://vimeo.com/161384649) (9 min)
 * [:movie_camera: Rack Demo](https://vimeo.com/161381828) (25 min)
+
+### Readings (15 min)
+* [Contextual Overview of TCP/IP][tcp_ip_reading]
 
 ### Homeworks (45 min)
 * Complete [RegexOne][regex-link] (45 min)
@@ -345,6 +357,7 @@
 ### Solo Project
 * [Rails Lite][rails-lite]
 
+[tcp_ip_reading]: readings/tcp_ip.md
 [middleware-demo]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [http]: readings/http.md
 [rack]: readings/rack.md

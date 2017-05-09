@@ -24,7 +24,7 @@ Facebook. The non-competition portion of the clause was recently revised and is
 no longer in effect. However, a party's right to use React can still be revoked
 if they file a patent claim against Facebook.
 
-React has continued to grow in popularity since it's release. It is now, along
+React has continued to grow in popularity since its release. It is now, along
 with Angular, one of the most popular libraries for front-end development. In
 addition to Facebook, React is used by Uber, Airbnb, Netflix, Yahoo, Pinterest,
 Feedly, Coursera, Product Hunt, and OpenTable.

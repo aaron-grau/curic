@@ -69,21 +69,21 @@ options that are available.
   Flux is a coding pattern rather than a library. It is an approach to
   structuring the storage of frontend data. Flux was developed by Facebook in
   2014 to complement React, and it is now used by many companies that also use
-  React including Expedia, Yahoo, Trapit, and Kahn Academy. One key to the
+  React including Expedia, Yahoo, Trapit, and Khan Academy. One key to the
   design of Flux is the unidirectional flow of information. Actions are
-  dispatched, they modifiy the state, and that state is passed on to 'views',
+  dispatched, they modify the state, and that state is passed on to 'views',
   which make it available to the React components. This is the inspiration for
   the unidirectional flow in Redux: action -> reducer -> store -> view. Flux
   applications also maintain a central data store which is modified by
   dispatching actions.
 
   Unlike Redux apps, Flux apps can have multiple stores. Often actions must be
-  dispatched to these stores in a particular order. To manages this, Flux apps
+  dispatched to these stores in a particular order. To manage this, Flux apps
   have an additional component not found in Redux apps called a _dispatcher_.
   The dispatcher's job is to route each action to the correct store and keep the
   stores in sync. Stores register functions with the dispatcher that are used to
   modify the store based on actions. These functions play a role similar to
-  Redux reducers, however they need not be pure functions. This can make the
+  Redux reducers; however, they need not be pure functions. This can make the
   result of dispatching an action on the state hard to predict and even harder
   to reverse. Redux solves this problem by requiring reducers to be pure
   functions.
@@ -104,7 +104,7 @@ options that are available.
 
   Elm is still in its early stages, but it has been adopted by a few companies
   including Permutive and RideCell, and more companies are in the process of
-  transitioning from javascript to Elm.
+  transitioning from JavaScript to Elm.
 
 * **GraphQL**
 

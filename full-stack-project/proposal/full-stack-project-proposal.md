@@ -23,9 +23,13 @@ it.
 	-	`--skip-turbolinks=true`
 	- `--database=postgresql`
 0. `git init` a repository for your project.
-0. Add the following to your `.gitignore`:
-
+0. The rails skeleton includes a .gitignore file. In addition to what is already there, add the following:
 	```
+	// .gitignore
+
+	// ... a bunch of preloaded ignores
+
+	// To add:	
 	node_modules/
 	bundle.js
 	bundle.js.map
@@ -153,8 +157,10 @@ to stand on it's on. We call this building in 'slices' instead of 'layers'.
 
 ## Submission
 
-When you've finished setting up your full-stack project repo, create your Trello board, add your project to Progress
+When you've finished setting up your full-stack project repo, create your [Trello board][trello-setup], add your project to Progress
 Tracker and email your Project Manager (instructors-sf@appacademy.io or
 instructors-ny@appacademy.io).  A TA will review each proposal and leave their
 comments in issues on the project repo. Be prepared to respond to feedback, and
 keep your README up to date as you make progress. Happy hunting!
+
+[trello-setup]: using-trello.md

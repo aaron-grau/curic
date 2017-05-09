@@ -19,7 +19,7 @@ like any other click handler.
   <Link to="/about" onClick={e => this.handleClick(e)}>Link</Link>
   ```
 * `activeClassName`: A CSS class name for styling a `<Link>` when its route is active.
- A `<Link>` will be active if its `to` prop path matches the the current URL.
+ A `<Link>` will be active if its `to` prop path matches the current URL.
 
   ```js
   // app.jsx

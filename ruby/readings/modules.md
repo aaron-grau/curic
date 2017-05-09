@@ -1,7 +1,7 @@
 # Modules
 
 A Ruby **module** is like a class, except you don't instantiate a
-module. Modules consist of methods that can *mixed in* to a Ruby
+module. Modules consist of methods that can be *mixed in* to a Ruby
 class. In Ruby, we use a module to collect methods that may be
 mixed in and shared by many classes to keep our code DRY.
 

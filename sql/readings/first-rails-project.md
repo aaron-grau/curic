@@ -2,21 +2,18 @@
 
 This unit begins our foray into ActiveRecord; a component of Rails
 that is a way for your Ruby code to interact with a SQL
-database. ActiveRecord is maybe the most important part of Rails;
+database. ActiveRecord is a key component of Rails;
 after you master it, you will probably find the rest of Rails pretty
 straightforward.
 
-First, make sure that rails is installed:
-
-```sh
-  gem install rails -v '~> 4.2.0'
-```
-
-Next, generate a new Rails *project*:
-
-```sh
+- Make sure that Rails is installed:
+  ```sh
+  gem install rails -v '4.2.8'
+  ```
+- Generate a new Rails *project*:
+  ```sh
   rails new DemoProject
-```
+  ```
 
 This will create a folder `DemoProject`, with a bunch of Rails
 directories in them.
@@ -27,68 +24,64 @@ This will add the correct gem and have sensible defaults in
 `config/database.yml`.
 
 ```sh
-  rails new DemoProject --database postgresql
+rails new DemoProject --database=postgresql
 ```
 
-Open up the `Gemfile` file (located in your new `DemoProject` folder).
-Rails sets you up with a bunch of gems by default, but there are a few
-other gems we recommend that will make your life **much** easier. You
-should get in the habit of including the the following gems to your 
-`development` group:
+- Add helpful gems for development.
+  - Open up the `Gemfile` file (located in your new `DemoProject` folder). Rails sets you up with a bunch of gems by default, but there are a few other gems we recommend that will make your life **much** easier. You should get in the habit of including the the following gems to your  `development` group:
 
-```ruby
-    group :development do
-      # Run 'annotate' in Terminal to add helpful comments to models.
-      gem 'annotate'
+  ```ruby
+  group :development do
+    # Run 'bundle exec annotate' in Terminal to add helpful comments to models.
+    gem 'annotate'
 
-      # These two give you a great error handling page.
-      # But make sure to never use them in production!
-      gem 'better_errors'
-      gem 'binding_of_caller'
+    # These two give you a great error handling page.
+    # But make sure to never use them in production!
+    gem 'better_errors'
+    gem 'binding_of_caller'
 
-      # Gotta have byebug...
-      gem 'byebug'
+    # Gotta have byebug...
+    gem 'byebug'
 
-      # pry > irb
-      gem 'pry-rails'
-    end
-```
-
-This will allow us to do things like interact with our Rails project
-using the pry console. Next, make sure you are in the DemoProject
-directory and run:
-
-    bundle install
-
-This will look for the Gemfile and then install the *dependencies*
-listed in it.
+    # pry > irb
+    gem 'pry-rails'
+  end
+  ```
+  - This will allow us to do things like interact with our Rails project
+  using the `pry`.
+- Make sure you are in the DemoProject
+  directory and run `bundle install`.
+  - This will look for `Gemfile` and then install gems listed in it.
 
 ## Postgres
 
 As noted above, you can initialize a new Rails app with a Postgres
 database by using the `--database=postgresql` option. You can also
-**switch** an existing Rails app from SQLite to Postgres. This is 
-convenient because differences between your development and 
+**switch** an existing Rails app from SQLite to Postgres. This is
+convenient because differences between your development and
 production databases can be frustrating.
 
-First, replace the `gem 'sqlite3'` line in the `Gemfile` with `gem
-'pg'`.
+* If you have already created your SQLite database (ran `db:create`), then delete the `.sqlite3` files in `db/`.
 
-Next, edit `config/database.yml`. Change the `default` environment:
+* Replace the `gem 'sqlite3'` line in the `Gemfile` with `gem
+'pg'`. Don't forget to `bundle install` after.
 
-```yaml
-default: &default
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
-```
+* Edit `config/database.yml` to use Postrgres.
+  * Change the `default` environment:
+  ```yaml
+  default: &default
+    adapter: postgresql
+    pool: 5
+    timeout: 5000
+  ```
+  * Create a database with the given name. Name your development, test, and production databases as shown below:
+  ```yaml
+  development:
+    <<: *default
+    database: ProjectName_development
+  ```
 
-You will have to create a database with the given name. Name your development, test, and production databases as shown below:
-
-```rb
-development:
-  <<: *default 
-  database: ProjectName_development
-```
-
-Then run `rake db:create`.
+* Create your new Postgres database
+  * Run `bundle exec rake db:create`
+  * If you have migrations, run `bundle exec rake db:migrate`
+  * If you have seeds, run `bundle exec rake db:seed`

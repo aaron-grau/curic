@@ -2,7 +2,7 @@
 
 <%= link_to "Sign in!", new_session_url %>
 
-<form action="<%= users_url %>" method="post">
+<form action="<%= user_url %>" method="post">
     <input
       type="hidden"
       name="authenticity_token"
@@ -20,5 +20,5 @@
       </label>
     </p>
 
-    <input type="submit">
+    <input type="submit" value="create user">
 </form>

@@ -16,6 +16,9 @@ Musicapp::Application.configure do
   config.serve_static_assets  = true
   config.static_cache_control = "public, max-age=3600"
 
+  # Configure default mail server
+  Rails.application.routes.default_url_options[:host] = 'domain.com'
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false

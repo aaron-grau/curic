@@ -82,5 +82,6 @@ game logic to user input. Create a `playScript.js` file.
 Instantiate the `Game` class and play a game. In the completion
 callback, close your `reader` so that Node knows it can exit when the
 game is over.
-[ruby-hanoi]: ruby_hanoi.md
+
+[ruby-hanoi]: ./ruby_hanoi.md
 [node-io]: ../../readings/intro-to-callbacks.md

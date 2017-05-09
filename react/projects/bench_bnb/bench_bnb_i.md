@@ -94,7 +94,7 @@ key differences:
   * In `routes.rb`, set `defaults: {format: :json}` on your `namespace :api`
 * Views:
   + You'll want an **`api/users/show.json.jbuilder`**, which you can use for
-  multiple controller actions. 
+  multiple controller actions.
   + This should delegate to a partial:
   **`api/users/_user.json.jbuilder`**, which we'll use later.
 * `Sessions#destroy`:
@@ -294,7 +294,7 @@ Define 2 new files at the root of your `frontend/components` folder:
 ### The `App` component
 
 Create and export a new **functional component** that renders an `<h1>` tag with
-"Bench BnB" text and underneath renders `props.children`. It should look something like.
+"Bench BnB" text and underneath renders `props.children`. It should look something like this:
 
 ```javascript
 // frontend/components/App.jsx
@@ -508,7 +508,7 @@ const Root = ({ store }) => (
 
 **Call a TA over and show them your `SessionForm` renders for logging and signing up before moving on!**
 
-[link-docs]: https://github.com/ReactTraining/react-router/blob/master/docs/Introduction.md#with-react-router
+[link-docs]: https://github.com/ReactTraining/react-router/blob/v3/docs/Introduction.md
 
 ## Phase 3: Bootstrapping the Current User
 
@@ -589,6 +589,7 @@ Finally, inside the `DOMContentLoaded` callback in your entry file...
 * check to see if there is a `window.currentUser`
 * If there is, create a `preloadedState` like below:
 * Pass this `preloadedState` to `configureStore`.
+* Remove `currentUser` from the `window`
 * If there is no `window.currentUser`, then `configureStore`
 without any arguments.
 
@@ -602,6 +603,7 @@ let store;
 if (window.currentUser) {
   const preloadedState = { session: { currentUser: window.currentUser } };
   store = configureStore(preloadedState);
+  delete window.currentUser;
 } else {
   store = configureStore();
 }

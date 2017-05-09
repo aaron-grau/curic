@@ -2,9 +2,9 @@
 
 **Goals**:
 
-* Learn how to use `send`.
-* Learn how to use `define_method`.
-* Learn how to use `method_missing`.
+* Learn how to use `send`
+* Learn how to use `define_method`
+* Learn how to use `method_missing`
 
 ## `send` and `define_method`
 
@@ -13,9 +13,9 @@ One of the powers of Ruby is **reflection** (also called
 
 For starters, we can ask an object what methods it will respond to:
 
-```
-1.9.3p194 :001 > obj = Object.new
-1.9.3p194 :002 > obj.methods
+```ruby
+obj = Object.new
+obj.methods
  => [:nil?, :===, :=~, :!~, :eql?, :hash, :<=>, :class, ...]
 ```
 
@@ -25,9 +25,8 @@ but not super useful in production code.
 
 More significantly, we can call a method by name:
 
-```
-1.9.3p194 :003 > [].send(:count)
- => 0
+```ruby
+[].send(:count) # => 0
 ```
 
 When is something like send useful? Why not just call the method the
@@ -70,7 +69,7 @@ dog.bark
 dog.grr
 ```
 
-A couple notes:
+**A couple notes:**
 
 * The code inside `Dog` class is executed at the time Ruby defines the
   `Dog` class. `makes_sound` is called at class definition time,
@@ -88,10 +87,8 @@ A couple notes:
 We don't write macros every single day, but they are frequently quite
 useful. Some of the most famous macro methods are:
 
-* `attr_accessor`: defines getter/setter methods given an instance
-  variable name.
-* `belongs_to`/`has_many`: defines a method to perform a SQL query to
-  fetch associated objects.
+* `attr_accessor`: defines getter/setter methods given an instance variable name.
+* `belongs_to`/`has_many`: defines a method to perform a SQL query to fetch associated objects.
 
 ## `method_missing`
 
@@ -112,8 +109,7 @@ end
 ```
 
 ```ruby
-1.9.3p194 :007 > T.new.adfasdfa(:a, :b, :c)
-[:adfasdfa, :a, :b, :c]
+T.new.adfasdfa(:a, :b, :c) # => [:adfasdfa, :a, :b, :c]
 ```
 
 Here's a simple example:
@@ -154,28 +150,19 @@ attempting metaprogramming. Only if you want this infinite
 expressability should you use `method_missing`; prefer a macro if the
 user just wants to define a small set of methods.
 
-`method_missing` is a cool trick, but I don't know that I've used it
-in any of my professional projects. I do know that understanding it
-helped me understand how Rails dynamic finders work.
+### An Advanced Example: Dynamic Finders
 
-### An advanced example: dynamic finders
-
-Rails, for instance, has a way of finding objects through
-`method_missing`:
+What if we overrode `#method_missing` in `ActiveRecord::Base` to work for `#find_by_*` methods, so we could do the following:
 
 ```ruby
 User.find_by_first_name_and_last_name("Ned", "Ruggeri")
 User.find_by_username_and_state("ruggeri", "California")
 ```
 
-Rather than create a method for every single possible way to search
-(which is almost infinite), Rails overrides the `#method_missing`
-method, and for `find_by_*` methods, it then parses the method name
-and figures out how it should perform the search. Here's how it might
-do this:
+We could do this by parsing the "missing" method name and combining the column names (separated by `and`s) with the given arguments. It might look something like this:
 
 ```ruby
-class User
+class ActiveRecord::Base
   def method_missing(method_name, *args)
     method_name = method_name.to_s
     if method_name.start_with?("find_by_")
@@ -205,16 +192,16 @@ class User
 end
 ```
 
-## Type introspection
+**NB:** Dynamic finders were actually a feature of Rails until just recently. Rails 4.2 deprecated (supported, but didn't recommend) dynamic finders, and as of Rails 5, they are no longer supported. Although, they are quite handy, they tend to lead to overly verbose code and are not very performant. For these reasons we also recommend against using them. Check out [this][defense-of-dynamic-finders] blog post if you'd like to learn more.
+
+## Type Introspection
 
 So far we focused on finding, defining, and calling methods at
 runtime. We can also find class information:
 
 ```ruby
-1.9.3p194 :021 > "who am i".class
-=> String
-1.9.3p194 :022 > "who am i".is_a?(String)
-=> true
+"who am i".class # => String
+"who am i".is_a?(String) # => true
 ```
 
 I commonly use `Object#class` when debugging or using pry to see what
@@ -224,24 +211,21 @@ look up the documentation for.
 Here we can see that even classes are objects in Ruby:
 
 ```ruby
-1.9.3p194 :038 > Object.is_a?(Object) # whoa: meta
-=> true
+Object.is_a?(Object) # => true
+# such meta, wow
 ```
 
 Deep. Let's dig deeper:
 
 ```ruby
-1.9.3p194 :008 > Object.class
-=> Class
+Object.class # => Class
 ```
 
 Okay, all classes are instances of a `Class` class.
 
 ```ruby
-1.9.3p194 :009 > Class.superclass
-=> Module
-1.9.3p194 :010 > Class.superclass.superclass
-=> Object
+Class.superclass # => Module
+Class.superclass.superclass # => Object
 ```
 
 Classes are types of `Module`s (not important), which are
@@ -250,7 +234,7 @@ Classes are types of `Module`s (not important), which are
 To summarize: `Object` is of type `Class`, which is a subclass of
 `Object` itself. Whoa!
 
-## Methods with varying argument type
+## Methods with Varying Argument Types
 
 Say we have written a method `perform_get` that fetches a resource
 over the internet. As a convenience to the user, we'd like
@@ -286,3 +270,5 @@ This is a quite common trick used by library writers to make their
 methods much more flexible. You may not write a method like this
 often, but as you grow more experienced, this kind of trick will come
 in handy from time to time.
+
+[defense-of-dynamic-finders]:http://chrisholtz.com/blog/in-defense-of-dynamic-finders

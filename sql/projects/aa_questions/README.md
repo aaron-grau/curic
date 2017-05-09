@@ -91,7 +91,7 @@ available through a `QuestionsDatabase::instance` method.
 
 [sqlite3-docs]: http://www.rubydoc.info/github/luislavena/sqlite3-ruby/SQLite3/Database
 
-[plays.rb]: https://github.com/appacademy/curriculum/blob/master/sql/homeworks/solutions/plays_demo/plays.rb
+[plays.rb]: https://github.com/appacademy/curriculum/blob/master/sql/homeworks/plays/solution/plays.rb
 
 *NB: Remember that a singleton is a general programming pattern that describes a
 scenario in which you will only have a single instance of a particular

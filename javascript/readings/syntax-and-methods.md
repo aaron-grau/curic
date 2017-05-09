@@ -198,4 +198,5 @@ it in *Effective Javascript*.
   + Identical to `Array#include?` in Ruby
 * `Array.isArray`(ES6+):
   + Class method that accepts one argument and returns a boolean representing whether it is an `Array`.
+  
 [good-habits]: ./indentation.md

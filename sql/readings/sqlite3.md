@@ -151,8 +151,9 @@ production data.
 
 ## Note to Ubuntu/Linux Users
 
-Some students have had issues with the version of sqlite3 available from apt-get.
-So you may want to download the sqlite3 binary from [sqlite.org][sqlite-download].
+Some students have had issues with the version of sqlite3 available from running 
+`sudo apt-get install sqlite3`.
+If you experience issues, you may want to download the sqlite3 binary from [sqlite.org][sqlite-download].
 Be sure to click the "sqlite-shell-linux" link under **Precompiled Binaries for Linux**.
 If you already installed SQLite via apt-get, run `sudo apt-get remove sqlite3`.
 

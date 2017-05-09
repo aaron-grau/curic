@@ -2,7 +2,7 @@
 
 For sundry reasons, data saved to the database need to be
 validated. Model level validations are the most common, but
-validations can be created on the client side in javascript, or
+validations can be created on the client side in JavaScript, or
 controller level validations. Database constraints can also be added
 to the database to prevent bad input.
 
@@ -11,6 +11,7 @@ Performing the validations at the model level has these benefits:
 * Database agnostic
 * Convenient to test and maintain
 * Nice, specific, per-field error messages
+* Avoids reliance on database constraints (which throw nasty errors)
 
 ActiveRecord::Base instance methods that run validations:
 * `#create`
@@ -64,7 +65,7 @@ currently being rendered by the `render` method.
 
 One common way to render errors is to store them in `flash[:errors]`
 after running validation, then displaying them on the page by
-iterating through each of the errors displaying each of them.
+iterating through each of the errors displaying each of them. Note that `flash` can be used as a hash and `:errors` is just an arbitrary, though semantically meaningful, key we have chosen.
 
 By following the construct of always storing
 `obj.errors.full_messages` in `flash[:errors]` a partial can be

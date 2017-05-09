@@ -13,18 +13,19 @@
 
 ## Array exercises
 
-Do the [Array exercises][array-exercises] in JS.
+Write the following functions in JS.
 
 * `uniq`
 * `twoSum`
 * `transpose`
 
+Refer to [Array exercises][array-exercises] for problem descriptions.
+
 [array-exercises]: exercises/array.md
 
 ## Enumerable exercises
 
-Do the [Enumerable][enumerable-exercises] and
-[Blocks][blocks-exercises] in JS.
+Write the following functions in JS.
 
 * `myEach`
 * `myMap`
@@ -35,23 +36,27 @@ Do the [Enumerable][enumerable-exercises] and
     * As the exercise describes, start the accumulator variable with
       the first value. Iterate through the rest.
     * **It must also use your `myEach` function**.
+    
+ Refer to [Enumerable][enumerable-exercises] and [Blocks][blocks-exercises].
 
 [enumerable-exercises]: exercises/enumerable.md
 [blocks-exercises]: exercises/blocks.md
 
 ## Iteration exercises
 
-Do the [iteration exercises][iteration-exercises] in JS.
+Write the following functions in JS.
 
 * `bubbleSort`
     * Your version can modify the original array.
 * `substrings`
 
+Refer to [iteration exercises][iteration-exercises].
+
 [iteration-exercises]: exercises/iteration.md
 
 ## Recursion exercises
 
-Do the [recursion exercises][recursion-exercises] in JS.
+Do all of these [recursion exercises][recursion-exercises] in JS.
 
 [recursion-exercises]: exercises/recursion.md
 

@@ -64,7 +64,7 @@ Recall the properties of a hashing function:
 + **Determinism**: Its output is directly determined by the input data.
 + **Comprehensiveness**: It uses all the input data.
 + **Uniformity**: Its possible return values are evenly distributed.
-+ **Continuity**: It returns similar values for similar inputs.
++ **Continuity**: It does not return similar values for similar inputs.
 
 Bit-wise XOR is often used in hashing functions because it promotes high
 determinism, comprehensiveness, and uniformity. It also has high continuity,

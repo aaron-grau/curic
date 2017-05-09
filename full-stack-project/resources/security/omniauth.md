@@ -228,7 +228,7 @@ This allows us access to a variety of twitter resources. lets pull the timeline 
 * [OmniAuth part1 Railscast][omniauth-part1-railscast]
 * [OmniAuth part2 Railscast][omniauth-part2-railscast]
 
-[omniauth.org]: http://www.omniauth.org/
+[omniauth.org]: https://github.com/omniauth/omniauth
 [setup-gist]: https://gist.github.com/schleg/993566
 [omniauth-simple-railscast]: http://railscasts.com/episodes/241-simple-omniauth-revised
 [omniauth-devise-railscast]: http://railscasts.com/episodes/235-devise-and-omniauth-revised

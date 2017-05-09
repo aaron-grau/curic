@@ -11,6 +11,14 @@
 + Know when to use regular associations and when to use join tables
 + Know how to avoid N+1 queries
 
+## Quick Review
+
+This is the last Rails project before building Rails Lite yourself tomorrow.
+Take a few minutes to talk through the whole request/response cycle with your
+partner before getting started. Feel free to reference this diagram as needed.
+
+![rails diagram](../../assets/rails_diagram.png)
+
 ## Phase I: Auth
 
 Write a basic Auth implementation
@@ -86,11 +94,8 @@ Start by focusing on top-level comments. Write a `Comment` model with:
 * An `author` association,
 * A `post` association.
 
-Write a `CommentsController` and add a route to `create`
-`Comment`. The `new` route could have a url like
-`/posts/123/comments/new`. I recommend that your form post to a
-top-level `/comments` URL, though. These are the only two comments
-routes you need so far.
+Create `CommentsController` and a top-level `create` route. Also create a `new` route nested under `posts`
+(should look like: `/posts/:post_id/comments/new`). These are the only two comments routes you need so far.
 
 Edit your `PostsController#show` view to provide a link to a comment
 form and to display top-level comments.

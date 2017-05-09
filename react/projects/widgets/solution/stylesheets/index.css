@@ -1,5 +1,24 @@
 /* AutoComplete */
 
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: sans-serif;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  list-style: none;
+}
+
 .auto{
   color: white;
   font-weight: bold;
@@ -9,6 +28,7 @@
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
+  background-color: violet;
   background-image: url(https://hd.unsplash.com/6/blurred_lines.jpeg);
   background-size: cover;
   background-position: center;
@@ -61,6 +81,7 @@
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
+  background-color: orange;
   background-image: url(https://hd.unsplash.com/photo-1445109673451-c511bb51bd17);
   background-size: cover;
   background-position-y: 20%;
@@ -82,6 +103,7 @@
   margin: 0 20px 20px 20px;
   padding: 10px;
   text-align: center;
+  background-color: lightgreen;
   background-image: url(https://hd.unsplash.com/photo-1429479196389-7d1afeaa2d21);
   background-size: cover;
   background-position-y: 20%;
@@ -105,7 +127,7 @@
   justify-content: space-between;
 }
 
-.tab-header > span{
+.tab-header > li{
   width: 65px;
   border-top: 2px solid black;
   border-left: 1px solid black;
@@ -116,18 +138,18 @@
   padding-top: 4px;
   text-align: center;
   cursor: pointer;
-  background-color: lightblue;
+  background-color: lightpink;
 }
 
-.tab-header > span:first-child{
+.tab-header > li:first-child{
   border-left: 2px solid black;
 }
 
-.tab-header > span:last-child{
+.tab-header > li:last-child{
   border-right: 2px solid black;
 }
 
-.tab-header > span:hover{
+.tab-header > li:hover{
   background-color: black;
   color: white;
 }
@@ -152,11 +174,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: lightblue;
   background-image: url(https://hd.unsplash.com/photo-1445112098124-3e76dd67983c);
   background-size: cover;
 }
 
-.tab-content p{
+.tab-content article{
   text-align: center;
 }
 

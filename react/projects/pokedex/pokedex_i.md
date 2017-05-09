@@ -36,8 +36,7 @@ end
 ```
 
 The `defaults: {format: :json}` option tells the controller to first look for a
-`.json.jbuilder` view rather than an `html.erb` view. Edit `routes.rb` to add
-the following routes to our app.
+`.json.jbuilder` view rather than an `html.erb` view.
 
 Edit your `routes.rb`. Your routes table should look like the following:
 
@@ -482,7 +481,7 @@ store, middleware and selector).
 app's React components.
     * `Root` should be a *stateless* component (i.e. a *functional component*).
     * It will be passed the app's  Redux`store` as a prop.
-    * It should wrap our all of our app's components with the `Provider` from
+    * It should wrap all of our app's components with the `Provider` from
     `react-redux`.
 
 Your `Root` component should look like this:
@@ -577,7 +576,7 @@ Now let's write the `PokemonIndex` presentational component, which should render
 an unordered list of pokemon names next to corresponding images.
 
 * Create a `frontend/components/pokemon/pokemon_index.jsx` file.
-* Define and export a *class*, component that renders a `<li>` for each pokemon object in the `this.props.pokemon` array.
+* Define and export a *class* component that renders a `<li>` for each pokemon object in the `this.props.pokemon` array.
   * Display the pokemon's name and a *small* image.
 * Inside of `componentDidMount`, call `this.props.requestAllPokemon`
 * Import the container component to `root.jsx`.
@@ -590,4 +589,9 @@ Now you should see your list of pokemon whenever you refresh the page. Go ahead
 and remove all other extraneous action creators, constants, and code snippets
 used for testing from our entry point if you haven't already. **Show a TA that your pokemon React components render before moving on!**
 
-Continue to [Part 2](./pokedex_ii.md).
+### Continuing to [Part 2](./pokedex_ii.md)
+Before continuing with second part of Pokedex, complete the steps:
+* Return to and complete the [Jbuilder Bonus](../jbuilder/README.md#bonus)
+* Read tonight's material on [React Router](../../README.md#w7d4)
+
+Now, proceed to [Part 2](./pokedex_ii.md).

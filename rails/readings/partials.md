@@ -138,9 +138,7 @@ setting the `cat` local variable as before.
 
 ### Pass locals, don't use instance variables
 
-Technically, instead of passing local variables into the partial as we
-have seen, you can just use instance variables. For
-instance:
+Partials, like regular views, have access to controller instance variables. You could do the following:
 
 ```html+erb
 <!-- app/views/user/new.html.erb -->
@@ -159,8 +157,4 @@ instance:
 </form>
 ```
 
-I don't recommend this, because it is common to call a partial and to
-have forgotten to set the appropriate instance variables in the
-controller. In that case, the instance variable will be `nil`. This
-can result in a confusing error, instead of an unambiguous "no local
-variable defined" error.
+However convenient it may seem to just use instance variables when creating partials, remember that we want to make partials flexible and non-reliant on sources of data defined outside of their scope. This also simplifies our debugging process. Failing to provide a required instance variable can produce confusing errors, rather than the unambiguous `"no local variable defined"` error raised when a local variable is undefined.

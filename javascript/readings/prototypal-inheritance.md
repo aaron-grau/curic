@@ -123,6 +123,8 @@ function Dog () {};
 
 Dog.prototype = Object.create(Animal.prototype); // Dog now inherits from Animal
 
+Dog.prototype.constructor = Dog // otherwise instances of Dog will have 'instance.prototype.constructor === Animal'
+
 Dog.prototype.bark = function () {
   console.log("Bark!");
 };

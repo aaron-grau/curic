@@ -2,7 +2,8 @@ Musicapp::Application.routes.draw do
   root to: redirect("/bands")
 
   resource :session, only: [:create, :destroy, :new]
-  resources :users, only: [:create, :new, :show] do
+
+  resource :user, only: [:create, :new, :show] do
     get :activate, on: :collection
   end
 

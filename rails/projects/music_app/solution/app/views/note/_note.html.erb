@@ -2,5 +2,9 @@
 <p>Authored by: <%= note.user.email %></p>
 
 <% if note.user_id == current_user_id %>
-  <%= button_to "Destroy note!", note_url(note), method: :delete %>
+  <form action="<%= note_url(note) %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+    <input type="submit" value="Destroy Note">
+  </form>
 <% end %>

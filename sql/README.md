@@ -1,5 +1,5 @@
 # SQL and ActiveRecord
-
+:link: *[w3d1](#w3d1) :: [w3d2](#w3d2) :: [w3d3](#w3d3) :: [w3d4](#w3d4) :: [w3d5](#w3d5)* :link:
 ## w3d1
 
 ### Assessment02
@@ -85,7 +85,7 @@
 [heredocs]: readings/heredocs.md
 [xkcd-bobby-tables]: http://xkcd.com/327/
 
-[plays-orm]: homeworks/questions/plays_orm.md
+[plays-orm]: homeworks/plays
 
 [rdbms-intro-video]: https://vimeo.com/167596295
 [build-db-video]: https://vimeo.com/167593816
@@ -112,7 +112,7 @@
 + [Intro to Rails][intro-rails-homework] (45 min)
 
 ### Additional Resources
-* [Creating a new rails project][first-rails-project]
++ [Creating a new Rails project][first-rails-project]
 + [Migrations][ar-migrations]
 + [ORM Review and Intro to Active Record][ar-orm]
 + Associations:  
@@ -153,7 +153,7 @@
 
 [ar-indexing]: readings/indexing.md
 
-[intro-rails-homework]: homeworks/questions/intro_rails.md
+[intro-rails-homework]: homeworks/intro_rails
 
 [associations-exercise]: projects/associations_exercise
 [url-shortener]: projects/url_shortener
@@ -189,8 +189,8 @@
 [querying-ii]: readings/querying-ii.md
 [sql-ternary-logic]: readings/sql-ternary-logic.md
 
-[n1-buster]: homeworks/questions/n_1_buster.md
-[movie-buff-hw]: homeworks/questions/active_record_warmup/README.md
+[n1-buster]: homeworks/n_1_buster
+[movie-buff-hw]: homeworks/active_record_warmup
 [movie-buff]: projects/movie_buff
 [polls-app]: projects/polls_app
 
@@ -217,4 +217,4 @@
 [meta-macros]: demos/macros.rb
 [sql-nontech]: readings/sql_nontech.md
 [build-your-own-ar]: projects/active_record_lite
-[metacorgi-hw]: homeworks/questions/meta_corgis
+[metacorgi-hw]: homeworks/meta_corgis

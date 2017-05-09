@@ -53,7 +53,7 @@ before moving on!
 
 ### Bench State Shape
 
-We want to build a bench state that has the following shape.
+We want to build a bench state that has the following shape:
 
 ```js
 benches: {
@@ -95,8 +95,8 @@ application state to represent the bench data in our `action`.
 produce an `action` with type `"RECEIVE_BENCHES"` and a `benches` property that
 represents all of our bench data.
 + Write `fetchBenches`. It doesn't need to accept any arguments. It should just
-return a thunk which calls the `APIUtil` and `then` dispatches `receiveBenches`
-+ Don't forget to defined the corresponding action types.
+return a thunk which calls the `APIUtil` and `then` dispatches `receiveBenches`.
++ Don't forget to define the corresponding action types.
 + Export `fetchBenches` and your constants.
 
 Before continuing, *test that they return the correct objects*. For example,
@@ -109,7 +109,7 @@ window.fetchBenches = fetchBenches;
 store.dispatch(fetchBenches()).then(console.log); //=> { "1": { id: 1, description: ... } }
 ```
 
-Remember to require `fetchBenches` for testing
+Remember to require `fetchBenches` for testing.
 
 ### Bench Reducer
 In this step, we're going to create a reducer that manages the `benches` section
@@ -365,8 +365,7 @@ create a helper class, `MarkerManager`.
 
 ### `MarkerManager`
 
-This `MarkerManager` class will handle syncing the benches we maintain in state with the 
-markers we display on our map. By maintaining references to our markers, we can add/remove them from the map more easily.
+This `MarkerManager` class will handle syncing the benches we maintain in state with the markers we display on our map. By maintaining references to our markers, we can add/remove them from the map more easily.
 
 * Create a new file `marker_manager.js`; it should live in your `util` folder.
 * In this file, create and export a new class, `MarkerManager`.
@@ -379,7 +378,7 @@ instance variables.
 export default class MarkerManager {
   constructor(map) {
     this.map = map;
-    this.markers = [];
+    this.markers = {};
   }
   //...
 }
@@ -420,13 +419,11 @@ componentDidMount() {
 //...
 ```
 
-We need to invoke `updateMarkers()` both when the `BenchMap` component
-first mounts **and** whenever the benches in the application state change.
+We need to invoke `updateMarkers()` both when the `BenchMap` component first mounts **and** whenever the benches in the application state change.
 
 Use the appropriate `React` [lifecycle methods][lifecycle-methods].
 
-Confirm that the `MarkerManager` utility works by checking the console for our
-`console.log` **both before and after** running the following code.
+Confirm that the `MarkerManager` utility works by checking the console for our `console.log` **both before and after** running the following code.
 
 ```javascript
 store.dispatch(fetchBenches());
@@ -440,16 +437,12 @@ Make sure this works before moving on!
 
 Read the documentation on [map markers][map-markers] before continuing.
 
-To accomplish the goal of adding and removing markers appropriately, write the
-following helper methods:
+To accomplish the goal of adding markers appropriately, we will want to expand upon our `updateMarkers` method. We will need to do the following:
+* For each `bench`, if the `id` is not a key in `this.markers`, create a new marker from it and add it to the map and this.markers
 
-* `_benchesToAdd(benches)`: returns filtered array of benches that do not have a corresponding marker in our `markers` array. We want to return those not already on the map.
-* `_createMarkerFromBench(bench)`: accepts a bench object as an argument; adds a
-marker to the `map` and to the `markers` array.
+Add the following helper methods:
+* `createMarkerFromBench(bench)`: accepts a bench object as an argument; adds a marker to the map and to the markers object
 
-Use your helper methods in `updateMarkers()` to create markers for any new benches that appear in your store. Take care to only add a marker once per bench, as extra markers won't be visible on the map, but will affect your ability to remove benches in the next step.
-
-Make sure you can see markers before moving on!
 
 ## Phase 9: Filtering by Map Location
 
@@ -528,13 +521,11 @@ benches and session, we'll also add a new slice of state to keep track of our fi
 
 #### `SearchContainer`
 
-Update your `SearchContainer`'s `mapDispatchToProps` function to use the newly
-constructed `updateBounds` action creator.
+Update your `SearchContainer`'s `mapDispatchToProps` function to use the newly constructed `updateBounds` action creator.
 
 #### `Search`
 
-Update your `Search` presentational component to pass the `updateBounds` prop to
-the `BenchMap` component
+Update your `Search` presentational component to pass the `updateBounds` prop to the `BenchMap` component
 
 #### `BenchMap`
 
@@ -566,12 +557,13 @@ and then calling `store.getState()` in the console.
 
 Now that we've handled our state, we need to beef up `MarkerManager/updateMarkers()` to handle removing markers for benches that have been moved outside our bounds.
 
+* Convert the `benches` array that was received as an argument into an object (we want constant time lookup by `id`)
+* For each `marker` in `this.markers`, if the marker does not have a corresponding `bench` in our constant time `bench` lookup object, then remove the marker from the map and `this.markers`
+
 Add the following helper methods to your class:
 
-* `_markersToRemove()`: returns an array of markers that are on the map, but
-the benches they represent are not in the state.
-* `_removeMarker()`: accepts a marker as an argument; removes marker from map
-and from `markers`.
+* `removeMarker()`: accepts a marker as an argument; removes marker from map
+and from `markers`
 
 Call these methods in `updateMarkers()` to ensure that benches that leave our store have their markers removed from the map. RIP, benches.
 
