@@ -161,13 +161,18 @@ min)
 
 ## w7d3
 
-### Readings (40 min)
+### Readings (50 min)
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
+- Normalizing Redux State Shape (from Redux docs)
+  - [Normalizing State Shape][normalizing] (5 min)
+  - [Updating Normalized Data][updating-normalized] (5 min)
 - [Nontechnical Overview of Redux][redux-nontech] (15 min)
 
 [jbuilder-intro]: readings/intro_to_jbuilder.md
 [jbuilder_docs]: https://github.com/rails/jbuilder
+[normalizing]: http://redux.js.org/docs/recipes/reducers/NormalizingStateShape.html
+[updating-normalized]: http://redux.js.org/docs/recipes/reducers/UpdatingNormalizedData.html
 [redux-nontech]: readings/redux_nontech.md
 
 ### Homeworks (100 min)
