@@ -23,8 +23,8 @@ straight to a given post is as simple as entering its particular URL.
 
 Since we are writing single page apps, we don't want to refresh the page
 each time we change the browser location. Instead we want to update the
-location and update the app in response using javascript. Since we are
-using React we will use React Router to do this. To install React Router
+location and update the app in response using javascript. We are
+using React, so we will use React Router to do this. To install React Router
 in your projects run `npm install --save react-router-dom`. Then import
 `HashRouter` from `react-router-dom` in your entry file.  
 
@@ -61,10 +61,12 @@ controlled by the following props:
   path matches. The return value of the function is rendered. Of course,
   one could also simply define a functional component inside the
   `component` prop, but this results in extra, unnecessary work for
-  React, so the `render` prop is preferred for very simple functional
-  components. You should only use either the `component` prop, or the
-  `render` prop. If both are supplied, only the `component` prop
-  will be used.
+  React, so the `render` prop is preferred for simple functional
+  components: the difference is that `component` causes a new React
+  component to be rendered, while render simply returns jsx directly
+  into the surrounding component. You should only use either the
+  `component` prop, or the `render` prop. If both are supplied,
+  only the `component` prop will be used.
 
   ```jsx
     // will work, but unnecessarily slow
