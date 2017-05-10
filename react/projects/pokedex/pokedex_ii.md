@@ -10,13 +10,12 @@ Now let's say we want the ability to click on any of the listed pokemon
 and see more details about them. In order to maintain a common user
 interface used around the web, we will have the URL define what
 components the user sees. This is exactly what the powerful
-`react-router-dom` package is for. To use it, navigate to your entry
-file `pokemon.jsx` and import the following:
+`react-router-dom` package is for. To use it, navigate to your
+`pokedex.jsx` file and import the following:
 
 ```js
 import { HashRouter, Route } from 'react-router-dom';
 ```
-<!-- #TODO: double check for necessary config docs -->
 Refer to the [react-router-dom documentation][routes-docs] as a
 reference.
 
@@ -184,14 +183,8 @@ slice of the app state.
 * Create a class `PokemonDetail` component that returns information of
 the pokemon.
 * Add a `Route` that renders the `PokemonDetailContainer` component when
-the url matches the path `"pokemon/:pokemonId`".
-  * Nest the `PokemonDetailContainer` route under the route for the
-  `PokemonIndexContainer`.
-  * To nest this new route under our `PokemonIndexContainer`, we'll add
-the `Route` to the end of our `PokemonIndex` render function. This will
-ensure that both parent (`PokemonIndexContainer`) and child  
-(`PokemonDetailContainer`) components are rendered when a user visits
-`"/pokemon/:pokemonId"`.
+the url matches the path `"/pokemon/:pokemonId`".
+  * We'll add the `Route` to the end of our `PokemonIndex` render function. 
   * Inside of `PokemonDetail` on `componentDidMount`, call
 `this.props.requestSinglePokemon`.   Pass it the pokemon's id from the
 `this.props.match.params.pokemonId`.
