@@ -224,12 +224,7 @@ proposal][tentative-proposal] (10 min)
 [rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
-- [Route
-Configuration](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteConfiguration.md)
-- [Route
-Matching](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteMatching.md)
-- [React Router 3.0 Documentation][react_router_docs]
-  - Check the `API` docs for quick reference
+- [React Router docs]: https://reacttraining.com/react-router/web/guides/quick-start
 
 ### Projects
 * Continue [Pokedex][pokedex]
