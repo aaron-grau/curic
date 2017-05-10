@@ -50,7 +50,7 @@ way javascript files are only loaded upon navigation to certain URLs.
 * [React Router docs on code splitting][react-router-webpack]
 
 [webpack-docs]: https://webpack.github.io/docs/code-splitting.html
-[react-router-webpack]: https://github.com/ReactTraining/react-router/blob/master/docs/guides/DynamicRouting.md
+[react-router-webpack]: https://reacttraining.com/react-router/web/guides/code-splitting
 
 ### Rendering separation (or windowing)
 
@@ -86,8 +86,8 @@ never hit the database, but are instead served by Redis.
 * [Caching with Redis in Rails][redis-caching]
 * [Caching railscasts][railscasts-caching]
 
-[rails-caching]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/resources/performance_and_scaling/caching.md
-[redis-caching]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/resources/performance_and_scaling/redis.md
+[rails-caching]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/resources/caching/caching.md
+[redis-caching]: https://github.com/appacademy/curriculum/blob/master/full-stack-project/resources/caching/redis.md
 [railscasts-caching]: http://railscasts.com/?tag_id=18
 
 ## More resources

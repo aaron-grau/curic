@@ -208,7 +208,7 @@ The `form_authenticity_token` generates a valid authentication
 token. That's useful in places where Rails does not add it
 automatically, like in custom Ajax calls.
 
-The [Security Guide](security.html) has more about this and a lot of
+The [Rails Security Guide](http://guides.rubyonrails.org/security.html) has more about this and a lot of
 other security-related issues that you should be aware of when
 developing a web application.
 

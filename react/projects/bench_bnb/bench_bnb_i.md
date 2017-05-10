@@ -101,8 +101,13 @@ with some key differences:
   * In `routes.rb`, set `defaults: {format: :json}` on your `namespace
 :api`
 * Views:
+<<<<<<< HEAD
   + You'll want an **`api/users/show.json.jbuilder`**, which you can use
 for multiple controller actions.
+=======
+  + You'll want an **`api/users/show.json.jbuilder`**, which you can use
+for   multiple controller actions.
+>>>>>>> 7ac21f93036c382433a9e43940eebd1d752d5d28
   + This should delegate to a partial:
   **`api/users/_user.json.jbuilder`**, which we'll use later.
 * `Sessions#destroy`:
@@ -529,8 +534,12 @@ const App = ({ store }) => (
 **Call a TA over and show them your `SessionForm` renders for logging
 and signing up before moving on!**
 
+<<<<<<< HEAD
 [link-docs]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md
 [withRouter-docs]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/withRouter.md
+=======
+[link-docs]: https://github.com/ReactTraining/react-router/blob/v3/docs/Introduction.md
+>>>>>>> 7ac21f93036c382433a9e43940eebd1d752d5d28
 
 ## Phase 3: Bootstrapping the Current User
 
@@ -614,6 +623,7 @@ Finally, inside the `DOMContentLoaded` callback in your entry file...
 * check to see if there is a `window.currentUser`
 * If there is, create a `preloadedState` like below:
 * Pass this `preloadedState` to `configureStore`.
+* Remove `currentUser` from the `window`
 * If there is no `window.currentUser`, then `configureStore`
 without any arguments.
 
@@ -627,6 +637,7 @@ let store;
 if (window.currentUser) {
   const preloadedState = { session: { currentUser: window.currentUser } };
   store = configureStore(preloadedState);
+  delete window.currentUser;
 } else {
   store = configureStore();
 }
@@ -685,4 +696,4 @@ Now let's add benches!
 Continue to [Part 2](./bench_bnb_ii.md).
 
 [rails]: ../../../rails#readings-after-you-finish-all-videos
-[authRoutes]: https://github.com/appacademy/curriculum/blob/react-router4/react/readings/front_end_auth.md#protected-and-auth-routes
+[authRoutes]: ../../readings/front_end_auth.md#protected-and-auth-routes

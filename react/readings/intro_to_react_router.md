@@ -24,9 +24,9 @@ straight to a given post is as simple as entering its particular URL.
 Since we are writing single page apps, we don't want to refresh the page
 each time we change the browser location. Instead we want to update the
 location and update the app in response using javascript. We are
-using React, so we will use React Router to do this. To install React Router
-in your projects run `npm install --save react-router-dom`. Then import
-`HashRouter` from `react-router-dom` in your entry file.  
+using React, so we will use React Router to do this. To install React
+Router in your projects run `npm install --save react-router-dom`. Then
+import `HashRouter` from `react-router-dom` in your entry file.  
 
 `HashRouter` is the primary component of the router that wraps our route
 hierarchy. It works similarly to `Provider` - creating a React context

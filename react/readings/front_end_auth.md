@@ -197,6 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const preloadedState = { session: { currentUser: window.currentUser } };
     store = configureStore(preloadedState);
+
+    // Clean up after ourselves so we don't accidentally use the
+    // global currentUser instead of the one in the store
+    delete window.currentUser;
+
   } else {
     store = configureStore();
   }

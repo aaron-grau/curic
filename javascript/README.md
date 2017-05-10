@@ -93,6 +93,7 @@ JavaScript needs.
 * [Node Module Pattern][module-pattern] (10 min)
 * [Chrome Dev Tools][chrome-dev-tools] (15 min)
 * [Linting for JavaScript][linting-js] (10 min)
+* [Ruby, ES5 & ES6 Comparison Chart][comparison-chart]
 * Effective JavaScript: Items 11, 12, 61, 65 (15 min)
 
 [arguments]: readings/arguments.md
@@ -102,6 +103,7 @@ JavaScript needs.
 [es6-classes]: readings/es6-classes.md
 [module-pattern]: readings/module-pattern.md
 [chrome-dev-tools]: readings/chrome_dev_tools.md
+[comparison-chart]: https://appacademy.github.io/curriculum/language_comparison/index.html
 [linting-js]: readings/linting-js.md
 
 ### Homeworks (110 min)
@@ -150,23 +152,25 @@ JavaScript needs.
 [js-browser-vid]: https://vimeo.com/162115224
 [chrome-debugging-vid]: http://vimeo.com/groups/appacademy/videos/95551777
 
-### Readings (75 min)
+### Readings (60 min)
 * [Prototypal Inheritance][prototypal-inheritance] (15 min)
 * [Modules in the Browser][browser-modules] (15 min)
 * [Basic Canvas Drawing][basic-canvas-drawing] (15 min)
-* **Demo**: [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
-    * **Be sure to run and understand this the night before.**
 * Effective JavaScript: Items 18-23, 30 (15 min)
 
 [prototypal-inheritance]: readings/prototypal-inheritance.md
 [browser-modules]: readings/browser-modules.md
 [basic-canvas-drawing]: https://web-beta.archive.org/web/20170201183210/joshondesign.com/p/books/canvasdeepdive/chapter01.html
-[canvas-demo]: demos/drunken_circles
 
-### Homeworks (20 min)
+### Homeworks (55 min)
 * [Webpack Tutorial][webpack] (20 min)
+* [Intro to Canvas][canvas-intro] (20 min)
+* [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
+  * **Run this and look through it after going through the Canvas Intro.**
 
 [webpack]: https://webpack.js.org/guides/get-started/
+[canvas-intro]: homeworks/canvas_practice
+[canvas-demo]: demos/drunken_circles
 
 ### Additional Resources
 * [Github Pages][github-pages]

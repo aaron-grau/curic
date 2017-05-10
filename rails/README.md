@@ -5,10 +5,12 @@
 * [Setup][rails-setup]
 * Rails Api [api.rubyonrails.org][rails-api]
 * Rails Guides [guides.rubyonrails.org][rails-guides]
+* [Diagram of Rails][rails-diagram]
 
 [rails-setup]: readings/rails-setup.md
 [rails-api]: http://api.rubyonrails.org/v4.0.2/
 [rails-guides]: http://guides.rubyonrails.org/v4.0.2/
+[rails-diagram]: assets/rails_diagram.png
 
 ## w4d1
 
@@ -28,6 +30,7 @@
 + [Callbacks][callbacks]
 + [Delegation][delegation]
 + [Contextual Overview of DNS][dns_reading]
++ [Testing Routes with Postman][postman]
 
 ### Homeworks (125 min)
 * [Library Controller][library-hw] (45 min)
@@ -57,6 +60,7 @@
 [callbacks]: readings/callbacks.md
 [delegation]: readings/delegation.md
 [dns_reading]: readings/dns.md
+[postman]: readings/postman.md
 
 [rails-screencasts]: https://vimeo.com/album/2953690/sort:alphabetical
 [rails-videos-code]: demos/intro_rails_video_demo

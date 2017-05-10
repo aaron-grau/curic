@@ -7,17 +7,13 @@ Estimated time: 5hrs
 * Know how to reason about recursive programs
   * Be able to write a base case for a recursive method
   * Be able to write the inductive step for a recursive method
-* Be able to explain the benefits of writing a method recursively vs.
-iteratively
-* Be able to trace a recursive method and figure out how many recursive steps
-it will take
+* Be able to explain the benefits of writing a method recursively vs. iteratively
+* Be able to trace a recursive method and figure out how many recursive steps it will take
 * Know how to write recursive sorting and searching algorithms
 
 ### Warmup
 
-* Write a recursive method, `range`, that takes a start and an end and
-  returns an array of all numbers between. If `end < start`, you can
-  return the empty array.
+* Write a recursive method, `range`, that takes a start and an end and returns an array of all numbers between. If `end < start`, you can return the empty array.
 * Write both a recursive and iterative version of sum of an array.
 
 ### Exponentiation
@@ -38,27 +34,18 @@ exp(b, n) = exp(b, n / 2) ** 2             [for even n]
 exp(b, n) = b * (exp(b, (n - 1) / 2) ** 2) [for odd n]
 ```
 
-Note that for recursion 2, you will need to square the results of
-`exp(b, n / 2)` and `(exp(b, (n - 1) / 2)`. Remember that you don't
-need to do anything special to square a number, just calculate the
-value and multiply it by itself. **So don't cheat and use
-exponentiation in your solution**.
+Note that for recursion 2, you will need to square the results of `exp(b, n / 2)` and `(exp(b, (n - 1) / 2)`. Remember that you don't need to do anything special to square a number, just calculate the value and multiply it by itself. **So don't cheat and use exponentiation in your solution**.
 
 
 **Suggestion**: [Break the methods down into parts.][Breaking into parts]
 
-**Suggestion 2**: Try walking through your code with
-[Simple Examples][Simple Examples].
+**Suggestion 2**: Try walking through your code with [Simple Examples][Simple Examples].
 
-If the `n == 256`, about how many nested recursive steps will we run
-in the first case?
+If the `n == 256`, about how many nested recursive steps will we run in the first case?
 
-How deep will we need to recurse for the second? Keep in mind that the
-first reduces the exponent by one for each recursion, while the second
-reduces it by half.
+How deep will we need to recurse for the second? Keep in mind that the first reduces the exponent by one for each recursion, while the second reduces it by half.
 
-In addition to testing your methods by running the code, try the following
-exercise:
+In addition to testing your methods by running the code, try the following exercise:
 
 On paper, write out the value of each variable for every line in the code:
 
@@ -73,8 +60,7 @@ On paper, write out the value of each variable for every line in the code:
 7.  Write out what happens for base 2 and power 1.
 8.  Write out what happens for base 2 and power 2.
 
-Make sure you can trace from the very beginning to the very end in these
-examples.
+Make sure you can trace from the very beginning to the very end in these examples.
 
 How many examples do you need to walk through to be confident that it works?
 
@@ -99,40 +85,23 @@ robot_parts_copy[1] << "LEDs"
 robot_parts[1] # => ["capacitors", "resistors", "inductors", "LEDs"]
 ```
 
-When we `dup` an `Array`, it creates a new array to hold the elements,
-but doesn't recursively `dup` any arrays contained therein. So the
-`dup` method creates one new array, but just copies over references to
-the original interior arrays.
+When we `dup` an `Array`, it creates a new array to hold the elements, but doesn't recursively `dup` any arrays contained therein. So the `dup` method creates one new array, but just copies over references to the original interior arrays.
 
-Sometimes you want a shallow dup and sometimes you want a deep
-dup. Ruby keeps things simple by giving you shallow dup, and letting you
-write deep dup yourself.
+Sometimes you want a shallow dup and sometimes you want a deep dup. Ruby keeps things simple by giving you shallow dup, and letting you write deep dup yourself.
 
-**Using recursion and the `is_a?` method, write an `Array#deep_dup`
-method that will perform a "deep" duplication of the interior
-arrays.**
+**Using recursion and the `is_a?` method, write an `Array#deep_dup` method that will perform a "deep" duplication of the interior arrays.**
 
-**Note:** For simplicity's sake, we are only going to ensure the deep
-duplication of arrays. Don't worry about deep-duping (or regular-duping)
-other types of mutable objects (like strings, hashes, instances of
-custom classes, etc.), since this would require that we implement a deep
-dup method for each of those classes, as well.
+**Note:** For simplicity's sake, we are only going to ensure the deep duplication of arrays. Don't worry about deep-duping (or regular-duping) other types of mutable objects (like strings, hashes, instances of custom classes, etc.), since this would require that we implement a deep dup method for each of those classes, as well.
 
-It's okay to iterate over array elements using the normal `each` for
-this one :-)
+It's okay to iterate over array elements using the normal `each` for this one :-)
 
-**You should be able to handle "mixed" arrays**. For instance:
-`[1, [2], [3, [4]]]`.
+**You should be able to handle "mixed" arrays**. For instance: `[1, [2], [3, [4]]]`.
 
 ### Fibonacci
 
-Write a recursive and an iterative Fibonacci method. The method should
-take in an integer `n` and return the first `n` Fibonacci numbers **in
-an array**.
+Write a recursive and an iterative Fibonacci method. The method should take in an integer `n` and return the first `n` Fibonacci numbers **in an array**.
 
-You shouldn't have to pass any arrays between methods; you should be
-able to do this just passing a single argument for the number of
-Fibonacci numbers requested.
+You shouldn't have to pass any arrays between methods; you should be able to do this just passing a single argument for the number of Fibonacci numbers requested.
 
 ### Array Subsets
 
@@ -150,17 +119,12 @@ You can implement this as an Array method if you prefer.
 
 **Hint**: For `subsets([1, 2, 3])`, there are two kinds of subsets:
 
-* Those that do not contain `3` (all of these are subsets of
-  `[1, 2]`).
-* For every subset that does not contain `3`, there is also a
-  corresponding subset that is the same, except it also **does**
-  contain `3`.
+* Those that do not contain `3` (all of these are subsets of `[1, 2]`).
+* For every subset that does not contain `3`, there is also a corresponding subset that is the same, except it also **does** contain `3`.
 
 ### Permutations
 
-Write a recursive method `permutations(array)` that calculates all the
-[permutations][wiki-permutations] of the given array. For an array of length
-`n` there are `n!` different permutations. So for an array with three elements we will have `3 * 2 * 1 = 6` different permutations.
+Write a recursive method `permutations(array)` that calculates all the [permutations][wiki-permutations] of the given array. For an array of length `n` there are `n!` different permutations. So for an array with three elements we will have `3 * 2 * 1 = 6` different permutations.
 
 ```ruby
 permutations([1, 2, 3]) # => [[1, 2, 3], [1, 3, 2],
@@ -168,8 +132,7 @@ permutations([1, 2, 3]) # => [[1, 2, 3], [1, 3, 2],
                         #     [3, 1, 2], [3, 2, 1]]
 
 ```
-You can use Ruby's built in [`Array#permutation`][ruby-permutations] method to get a better understanding of
-what you will be building.
+You can use Ruby's built in [`Array#permutation`][ruby-permutations] method to get a better understanding of what you will be building.
 
 ``` ruby
 [1, 2, 3].permutation.to_a  # => [[1, 2, 3], [1, 3, 2],
@@ -182,22 +145,9 @@ what you will be building.
 
 ### Binary Search
 
-The binary search algorithm begins by comparing the target value to the value of
-the middle element of the sorted array. If the target value is equal to the
-middle element's value, then the position is returned and the search is
-finished. If the target value is less than the middle element's value, then the
-search continues on the lower half of the array; or if the target value is
-greater than the middle element's value, then the search continues on the upper
-half of the array. This process continues, eliminating half of the elements, and
-comparing the target value to the value of the middle element of the remaining
-elements - until the target value is either found (and its associated element
-position is returned), or until the entire array has been searched (and "not
-found" is returned).
+The binary search algorithm begins by comparing the target value to the value of the middle element of the sorted array. If the target value is equal to the middle element's value, then the position is returned and the search is finished. If the target value is less than the middle element's value, then the search continues on the lower half of the array; or if the target value is greater than the middle element's value, then the search continues on the upper half of the array. This process continues, eliminating half of the elements, and comparing the target value to the value of the middle element of the remaining elements - until the target value is either found (and its associated element position is returned), or until the entire array has been searched (and "not found" is returned).
 
-Write a recursive [binary search][wiki-binary-search]: `bsearch(array,
-target)`. **Note that binary search only works on sorted
-arrays**. Make sure to return the location of the found object (or
-`nil` if not found!). Hint: you will probably want to use subarrays.
+Write a recursive [binary search][wiki-binary-search]: `bsearch(array, target)`. **Note that binary search only works on sorted arrays**. Make sure to return the location of the found object (or `nil` if not found!). Hint: you will probably want to use subarrays.
 
 This your first problem which is half a PITA to solve iteratively.
 
@@ -216,8 +166,7 @@ bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
 ### Merge Sort
 
 Implement a method [`merge_sort`][wiki-merge-sort] that sorts an `Array`:
-* The base cases are for arrays of length zero or one. Do not use
-  a length-two array as a base case. This is unnecessary.
+* The base cases are for arrays of length zero or one. Do not use a length-two array as a base case. This is unnecessary.
 * You'll want to write a `merge` helper method to merge the sorted halves.
 * To get a visual idea of how merge sort works, watch [this gif][wiki-merge-gif] and check out [this diagram][merge-diagram].
 
@@ -246,10 +195,8 @@ Discuss the following game plan and then work together to implement your new met
 
   - Iterate over each coin.
   - **Grab only one** of that one coin and recursively call `make_better_change` on the remainder using coins less than or equal to the current coin.
-  - Add the change for the remainder to the single coin you originally grabbed to obtain a possible solution.
+  - Add the the single coin to the change returned by the recursive call. This will be a possible solution, but maybe not the best one.
   - Keep track of the best solution and return it at the end.
-
-
 
 **N.B.** Don't generate every possible permutation of coins and then compare them. Remember that a permutation is not the same thing as a combination - we *will* need to check every combination of coins that add up to our `target`, we just don't want to check the same combination in different orders. If you get stuck you can start by writing a solution that calculates and compares all of the permutations without storing them in an array. Then go back and refactor your solution so that it only calculates and compares all of the different combinations.
 

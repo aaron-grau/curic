@@ -105,7 +105,7 @@ AuthMailer.signup_email(@user).deliver_now
 Good work, you!
 
 [sendgrid-docs]: https://devcenter.heroku.com/articles/sendgrid
-[figaro]: figaro.md
+[figaro]: ../security/figaro.md
 [image-1]: ./assets/sendgrid_1.png
 [image-2]: ./assets/sendgrid_2.png
 [image-3]: ./assets/sendgrid_3.png

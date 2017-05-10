@@ -10,7 +10,7 @@ Now let's say we want the ability to click on any of the listed pokemon
 and see more details about them. In order to maintain a common user
 interface used around the web, we will have the URL define what
 components the user sees. This is exactly what the powerful
-`react-router-dom` package is for. To use it, navigate to your entry 
+`react-router-dom` package is for. To use it, navigate to your entry
 file `pokemon.jsx` and import the following:
 
 ```js
@@ -30,7 +30,9 @@ changes to our browser's url. When the url changes, the `HashRouter`
 determines which component to render based on which `Route`'s `path`
 matches the url.
 
-* Wrap the `HashRouter` in your app's `Root` and `Provider`. Define your `Root` after you've defined `store` (within your `addEventListener` callback).
+* Wrap the `HashRouter` in your app's `Root` and `Provider`. Define your
+`Root` after you've defined `store` (within your `addEventListener`
+callback).
 
 Your `Root` should now look like this:
 
@@ -185,8 +187,11 @@ the pokemon.
 the url matches the path `"pokemon/:pokemonId`".
   * Nest the `PokemonDetailContainer` route under the route for the
   `PokemonIndexContainer`.
-  * To nest this new route under our `PokemonIndexContainer`, we'll add the `Route` to the end of our `PokemonIndex` render function. This will ensure that both parent (`PokemonIndexContainer`) and child
-  (`PokemonDetailContainer`) components are rendered when a user visits `"/pokemon/:pokemonId"`.
+  * To nest this new route under our `PokemonIndexContainer`, we'll add
+the `Route` to the end of our `PokemonIndex` render function. This will
+ensure that both parent (`PokemonIndexContainer`) and child  
+(`PokemonDetailContainer`) components are rendered when a user visits
+`"/pokemon/:pokemonId"`.
   * Inside of `PokemonDetail` on `componentDidMount`, call
 `this.props.requestSinglePokemon`.   Pass it the pokemon's id from the
 `this.props.match.params.pokemonId`.
@@ -223,8 +228,8 @@ slice of state when a single pokemon is selected.
   `ItemDetailContainer`, remember that `mapStateToProps` accepts a
 second parameter `ownProps`. `ownProps.match.params` returns the params
 object.
-  * Use `ownProps.match.params.itemId` to select the correct item from the
-`state`.
+  * Use `ownProps.match.params.itemId` to select the correct item from
+the `state`.
   * Define a new `selectPokemonItem(state, itemId)` selector and call it
 in `mapStateToProps`.
 * Create a functional `ItemDetail` component that displays its `item`
@@ -232,9 +237,11 @@ prop.
   * `ItemDetailContainer` connects it to the store.
 * Create a new route that renders the `PokemonIndexContainer`,
 `PokemonDetailContainer` and `ItemDetailContainer` when the path matches
-`/pokemon/:pokemonId/items/:itemId`. Add this to the render function of `PokemonDetail`.
+`/pokemon/:pokemonId/items/:itemId`. Add this to the render function of
+`PokemonDetail`.
 
-Hint: nest your new `Route` under the render function of `PokemonDetail`.
+Hint: nest your new `Route` under the render function of
+`PokemonDetail`.
 
 Your app's `HashRouter` should contain the following routes:
 
@@ -332,9 +339,9 @@ sure to pass this function to the `onSubmit` listener of the form.
 
 We want this form to appear when at the same root path as the
 `PokemonIndex`, but not at any further nested routes like the
-`PokemonDetail`. To do so, we'll add a new `Route` to our 
-`PokemonIndex` and use `exact` prop to only render `PokemonFormContainer` 
-when the path exactly matches the root path.
+`PokemonDetail`. To do so, we'll add a new `Route` to our
+`PokemonIndex` and use `exact` prop to only render
+`PokemonFormContainer`  when the path exactly matches the root path.
 
 **NB**: There are a couple of tricky aspects to getting the form to work
 properly which will be great debugging practice. Use a `debugger` in
@@ -389,7 +396,7 @@ like our container components, it serves to pass down information
   ```
 
 Your `PokemonForm` will now have access to your app's router via
-`props.history`! We can now use `history.push(path)` to redirect our 
+`props.history`! We can now use `history.push(path)` to redirect our
 user to different routes!
 
 On successful submission of your form, redirect the user to the pokemon
