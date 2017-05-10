@@ -40,7 +40,7 @@ matches the current URL.
   ```jsx
   // app.jsx
   <Link to={`users/${user.id}`}
-  activeClassName="active">{user.name}</Link> 
+    activeClassName="active">{user.name}</Link> 
 
   // when at path `users/123` the following html is rendered
   <a href="#/users/123" class="active">Michael</a>
@@ -55,12 +55,12 @@ matches the current URL.
 
   ```jsxx
   // app.jsx
-  <Link to={`users/${user.id}`} activeStyle={{ fontWeight: 'bold'
-}}>{user.name}</Link> 
+  <Link to={`users/${user.id}`}
+    activeStyle={{ fontWeight: 'bold' }}>{user.name}</Link> 
 
   // when at path `users/123` the following html is rendered
   <a href="#/users/123" style="font-weight:bold;"
-class="active">Michael</a> 
+    class="active">Michael</a> 
 
   // when not at path `users/123` the following is html rendered
   <a href="#/users/123">Michael</a>
