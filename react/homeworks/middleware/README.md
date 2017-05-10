@@ -91,7 +91,8 @@ list of middlewares as arguments:
 + Create a variable `dispatch`, setting it equal to `store.dispatch`
 + `forEach` middleware in the list of middlewares,
   + Reassign `dispatch` to the result of `middleware(store)(dispatch)`
-    + If the current middleware is `addLoggingToDispatch`, what is the result of `addLoggingToDispatch(store)(dispatch)`?
+    + If the current middleware is `addLoggingToDispatch`, what is the result of
+    `addLoggingToDispatch(store)(dispatch)`?
     + What is `next` inside the logging function?
 + Return `Object.assign({}, store, { dispatch })`
 
