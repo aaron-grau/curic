@@ -534,12 +534,8 @@ const App = ({ store }) => (
 **Call a TA over and show them your `SessionForm` renders for logging
 and signing up before moving on!**
 
-<<<<<<< HEAD
 [link-docs]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md
 [withRouter-docs]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/withRouter.md
-=======
-[link-docs]: https://github.com/ReactTraining/react-router/blob/v3/docs/Introduction.md
->>>>>>> 7ac21f93036c382433a9e43940eebd1d752d5d28
 
 ## Phase 3: Bootstrapping the Current User
 
