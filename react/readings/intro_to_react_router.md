@@ -53,7 +53,7 @@ controlled by the following props:
   of the following URLs: `/users` and `/users/123`. If this prop is left
   out, the component will always render.
 
-* `exact` This is flag. If it is set, the path will only match when it
+* `exact` This is a flag. If it is set, the path will only match when it
   exactly matches the URL. For example, if we set `exact`, then `/users`
   will not match   `/users/123` any more.
 
