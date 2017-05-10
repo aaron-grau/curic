@@ -53,7 +53,7 @@ matches the current URL.
 * `activeStyle`: A react style object that will be applied inline to the
 `<Link>` when its `to` prop matches the current URL.
 
-  ```jsxx
+  ```jsx
   // app.jsx
   <Link to={`users/${user.id}`}
     activeStyle={{ fontWeight: 'bold' }}>{user.name}</Link> 
@@ -71,7 +71,7 @@ If set to true the `activeStyle` and `activeClassName` props will only
 be applied when the current URL exactly matches the `to` prop. For
 example
 
-  ```jsxx
+  ```jsx
   // this link will match the URL `/users/123`
   <Link to="/users">Users</Link>
 
