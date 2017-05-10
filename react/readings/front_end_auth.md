@@ -94,7 +94,7 @@ Here is the code. Take a minute look it over and make sure you
 understand it.  
 
 ```jsx
-// /fronend/util/route_util.jsx
+// /frontend/util/route_util.jsx
 
 // renders component if logged out, otherwise redirects to the root url
 const Auth = ({component: Component, path, loggedIn}) => (
@@ -131,7 +131,7 @@ export const ProtectedRoute = withRouter(connect(mapStateToProps, null)(Protecte
 ```
 
 In all your projects that use frontend auth you will want this code in a
-file `/fronend/util/route_util.jsx`. Then you can simply import these
+file `/frontend/util/route_util.jsx`. Then you can simply import these
 components and use them anywhere you want to need a protected route. For
 example, suppose we only want users to be able to write reviews if they
 are logged in.
