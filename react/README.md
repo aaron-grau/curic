@@ -224,7 +224,7 @@ proposal][tentative-proposal] (10 min)
 [rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
-- [React Router docs]: https://reacttraining.com/react-router/web/guides/quick-start
+- [React Router docs](https://reacttraining.com/react-router/web/guides/quick-start)
 
 ### Projects
 * Continue [Pokedex][pokedex]
