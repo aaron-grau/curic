@@ -40,6 +40,8 @@ min)
 ### Homeworks (75 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (45 min)
+- Add your questions and answers from pairboarding today to your Study
+Notes repo! (15 min, SF only)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/calculator
@@ -202,18 +204,18 @@ proposal][tentative-proposal] (10 min)
 
 ## w7d4
 
-### Readings (45 min)
+### Readings (26 min)
 - [Intro to React Router][react_router_intro]  (15 min)
 - [`<Link>`][link] (5 min)
-- [Route Hooks (`onEnter`)][on_enter] (10 min)
-- [Index Routes][index_routes] (5 min)
-- [`withRouter`][with_router] (10 min)
+- [`<Switch>`][switch] (2 min)
+- [`withRouter`][with_router] (2 min)
+- [`<Redirect>`][redirect] (2 min)
 
 [react_router_intro]: readings/intro_to_react_router.md
 [link]: readings/link.md
-[index_routes]: https://github.com/reactjs/react-router/blob/v3/docs/guides/IndexRoutes.md
-[on_enter]: readings/on_enter.md
-[with_router]: https://github.com/reactjs/react-router/blob/v3/docs/API.md#withroutercomponent-options
+[switch]: readings/switch.md
+[with_router]: readings/with_router.md
+[redirect]: readings/redirect.md
 
 ### Homeworks (40 min)
 - [Submit your tentative full-stack project proposal][tentative-proposal] (10 min)
