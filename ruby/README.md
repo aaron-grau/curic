@@ -61,7 +61,7 @@
 + [Scope][scope] (5 min)
 + [Refactoring and Code Smells][code-smells] (5 min)
 + [Overview of HTML/CSS Curriculum][html-css-overview]
-+ [Intro to HTML][html-css-intro]
++ [Intro to HTML][html-intro]
 + Review readings from [week 2][prep-w2] of the App Academy Prep course (15 min)
 
 [references]: readings/references.md
@@ -78,7 +78,7 @@
 [atom-cheatsheet]: ../course/readings/atom_cheatsheet.md
 
 ### Projects
-+ [Intro to HTML Exercise][html-css-intro-exercise]
++ [Intro to HTML Exercise][html-intro-exercise]
 + [Match 2 Memory Puzzle][memory-project]
 + [Sudoku][sudoku-project]
 + **Bonus**: [Maze solver][maze-project]
