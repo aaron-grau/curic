@@ -72,7 +72,7 @@ Add links to the paths `/red`, `/green`, `/blue`, and `/violet` in the
 `Rainbow` component. For example, your red link should look like
 
 ```jsx
-<Link to='/red' >Blue</Link>
+<Link to='/red' >Red</Link>
 ```
 
 When we are at `blue` we want to be able to get to `/blue/indigo`, and
