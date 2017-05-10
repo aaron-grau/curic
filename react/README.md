@@ -161,6 +161,8 @@ min)
 
 ## w7d3
 
+### Study Hall 9 - 10am
+
 ### Readings (50 min)
 - [Intro to Jbuilder][jbuilder-intro] (5 min)
 - [Jbuilder][jbuilder_docs] (20 min)
