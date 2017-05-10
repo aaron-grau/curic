@@ -6,21 +6,23 @@ In this homework, you will modify the Todo project's `dispatch` function
 so that it does more than just dispatch actions to the store. You will use this
 pattern again tomorrow in a more sophisticated way.
 
-Download the provided [skeleton](../../projects/todos/solution_1.zip?raw=true).
-
 **You will be updating `todo_redux.jsx` and `store/store.js`**
 
-Test your code at each step using the provided test cases.
+## Learning Goals
 
-## Setup
++ Understand how `applyMiddleware` works.
++ Be able to describe how middleware fits in to the Redux cycle.
 
+## Phase 0: Setup
+
++ Download the provided [skeleton](../../projects/todos/solution_1.zip?raw=true).
 + Install the node packages with `npm install`
 + Run `npm start` to start up `webpack-dev-server`
 + Visit http://localhost:8080
 
 **Test the skeleton**: Does it work?
 
-## Logging
+## Phase 1: Logging
 
 In this section, we'll be adding a simple logger to our store's `dispatch` function. It will log the old state, the action, and the new state.
 
@@ -36,7 +38,7 @@ In `todo_redux.jsx`, do the following steps:
 
 **Test your code**: If you interact with the app, can you see the old state, action, and new state in the console?
 
-## Refactoring
+## Phase 2: Refactoring
 
 Now let's refactor the code the we just wrote. The functionality of it is great, but overwriting `store.dispatch` is an [anti-pattern][anti-pattern] that we'd really like to avoid.
 
@@ -72,15 +74,17 @@ Now let's write an `applyMiddlewares` function that receives the store and the l
 + Create a variable `dispatch`, setting it equal to `store.dispatch`
 + `forEach` middleware in the list of middlewares,
   + Reassign `dispatch` to the result of `middleware(store)(dispatch)`
+    + If the current middleware is `addLoggingToDispatch`, what is the result of `addLoggingToDispatch(store)(dispatch)`?
+    + What is `next` inside the logging function?
 + Return `Object.assign({}, store, { dispatch })`
 
 To use this function, let's replace our reassignment of `store.dispatch` inside the `DOMContentLoaded` callback with:
 + A reassignment of `store` to the result of calling `applyMiddlewares`
-  + We need to pass in the `store` and each middleware that we want to apply
+  + We need to pass in the `store` and each middleware that we want to apply. In this case, `addLoggingToDispatch` is the only middleware.
 
 **Test your code**: If you interact with the app, your logging middleware should still send information about the state and actions to the console.
 
-## Redux `applyMiddleware`
+## Phase 3: Redux `applyMiddleware`
 
 I know what you're thinking - didn't somebody else write code for this? It turns
 out that there is! It's called `applyMiddleware`, and it's part of the `redux`
@@ -95,5 +99,9 @@ To implement it, in `store/store.js`:
 Then, restore `todo_redux.jsx` to its original state.
 
 **Test your code**: Everything that worked before should still work!
+
+## Bonus Phase: More Middleware!
+
+Writing a second middleware and pass it to `applyMiddleware` in `store.js`. Try logging what `next` is in each of your middlewares. Also, notice when the state is getting updated. How do these middlewares fit in to the Redux cycle?
 
 [anti-pattern]: https://en.wikipedia.org/wiki/Anti-pattern

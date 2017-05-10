@@ -5,7 +5,9 @@ const configureStore = (preloadedState = {}) => {
   const store = createStore(
     RootReducer,
     preloadedState,
-    applyMiddleware(addLoggingToDispatch)
+
+    // Phase 3: Using Redux applyMiddleware
+    applyMiddleware(addLoggingToDispatch, sillyMiddleware)
   );
   store.subscribe(() => {
     localStorage.state = JSON.stringify(store.getState());
@@ -13,11 +15,17 @@ const configureStore = (preloadedState = {}) => {
   return store;
 };
 
+// Phase 3: Using Redux applyMiddleware
 const addLoggingToDispatch = store => next => action => {
   console.log(store.getState());
   console.log(action);
+  next(action);
   console.log(store.getState());
-  return next(action);
+};
+
+// Bonus Phase: Add an extra middleware!
+const sillyMiddleware = store => next => action => {
+  console.log("Silly");
 };
 
 export default configureStore;
