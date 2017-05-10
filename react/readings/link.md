@@ -39,8 +39,8 @@ matches the current URL.
 
   ```jsx
   // app.jsx
-  <Link to={`users/${user.id}`}
-    activeClassName="active">{user.name}</Link> 
+  <NavLink to={`users/${user.id}`}
+    activeClassName="active">{user.name}</NavLink> 
 
   // when at path `users/123` the following html is rendered
   <a href="#/users/123" class="active">Michael</a>
@@ -55,8 +55,8 @@ matches the current URL.
 
   ```jsx
   // app.jsx
-  <Link to={`users/${user.id}`}
-    activeStyle={{ fontWeight: 'bold' }}>{user.name}</Link> 
+  <NavLink to={`users/${user.id}`}
+    activeStyle={{ fontWeight: 'bold' }}>{user.name}</NavLink> 
 
   // when at path `users/123` the following html is rendered
   <a href="#/users/123" style="font-weight:bold;"
@@ -73,10 +73,10 @@ example
 
   ```jsx
   // this link will match the URL `/users/123`
-  <Link to="/users">Users</Link>
+  <NavLink to="/users">Users</NavLink>
 
   // whereas this one will not
-  <Link exact={true} to="/users">Users</Link>
+  <NavLink exact={true} to="/users">Users</NavLink>
   ```
 
 
