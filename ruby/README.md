@@ -1,5 +1,5 @@
 # Ruby
-:link: *[w1d1](#w1d1) :: [w1d2](#w1d2) :: [w1d3](#w1d3) :: [w1d4](#w1d4) :: [w1d5](#w1d5) :: [w2d1](#w2d1) :: [w2d2](#w2d2) :: [w2d3](#w2d3) :: [w2d4](#w2d4) :: [w2d5](#w2d5)* :link: 
+:link: *[w1d1](#w1d1) :: [w1d2](#w1d2) :: [w1d3](#w1d3) :: [w1d4](#w1d4) :: [w1d5](#w1d5) :: [w2d1](#w2d1) :: [w2d2](#w2d2) :: [w2d3](#w2d3) :: [w2d4](#w2d4) :: [w2d5](#w2d5)* :link:
 
 ## w1d1
 + [First Day! **Read me!**][day1-instructions]
@@ -52,30 +52,39 @@
 + :movie_camera: [References][references-video]  (20 min)
   + Pro Tip: Watch these videos at 1.5x speed with [this video speed controller][speed-control] to save time!
 
+[speed-control]: https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en
+[references-video]: https://vimeo.com/165965713
+
 ### Readings (35 min)
 + [References][references] (5 min)
 + [Array/Hash Defaults][array-hash-defaults] (5 min)
 + [Scope][scope] (5 min)
 + [Refactoring and Code Smells][code-smells] (5 min)
++ [Overview of HTML/CSS Curriculum][html-css-overview]
++ [Intro to HTML][html-css-intro]
 + Review readings from [week 2][prep-w2] of the App Academy Prep course (15 min)
+
+[references]: readings/references.md
+[array-hash-defaults]: readings/array-hash-defaults.md
+[scope]: readings/scope.md
+[code-smells]: readings/refactoring.md
+[html-css-overview]: #
+[html-intro]: #
+[prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
 
 ### Additional Resources
 + [Atom Cheatsheet][atom-cheatsheet]
 
+[atom-cheatsheet]: ../course/readings/atom_cheatsheet.md
+
 ### Projects
++ [Intro to HTML Exercise][html-css-intro-exercise]
 + [Match 2 Memory Puzzle][memory-project]
 + [Sudoku][sudoku-project]
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[speed-control]: https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en
-[references-video]: https://vimeo.com/165965713
-[prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
-[references]: readings/references.md
-[scope]: readings/scope.md
-[code-smells]: readings/refactoring.md
-[array-hash-defaults]: readings/array-hash-defaults.md
-
+[html-intro-exercise]: #
 [memory-project]: projects/memory
 [sudoku-project]: projects/sudoku
 
@@ -92,20 +101,6 @@
 * :movie_camera: [Stack Overflow Demo][stack-overflow-demo-video] (5 min)
 * :movie_camera: [The Stack][the-stack-video] (10 min)
 
-### Readings (30 min)
-+ [Recursion][recursion] (10 min)
-+ Review readings from [week 3][prep-w3] of the App Academy Prep course (20 min)
-
-### Homeworks (50 min)
-+ [Recursion][recursion-homework] (50 min)
-
-### Projects
-+ [Recursion exercises][recursion-project]
-+ [Word chains][word-chains]
-* **Bonus**: [More Recursion questions][bonus-recursion-practice]
-+ **Bonus**: [Maze solver][maze-project]
-+ **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
-
 [recursion-intro-video]: https://vimeo.com/162569408
 [recursion-vs-iteration-video]: https://vimeo.com/162569439
 [upcase-reverse-video]: https://vimeo.com/162569447
@@ -115,11 +110,29 @@
 [stack-overflow-demo-video]: https://vimeo.com/162569490
 [the-stack-video]: https://vimeo.com/162571286
 
-[prep-w3]: https://github.com/appacademy/appacademy-prep/tree/master/w3
+### Readings (30 min)
++ [Recursion][recursion] (10 min)
++ [Semantic HTML Containers][html-containers]
++ Review readings from [week 3][prep-w3] of the App Academy Prep course (20 min)
+
 [recursion]: readings/recursion.md
+[html-containers]: #
+[prep-w3]: https://github.com/appacademy/appacademy-prep/tree/master/w3
+
+### Homeworks (50 min)
++ [Recursion][recursion-homework] (50 min)
 
 [recursion-homework]: homeworks/recursion
 
+### Projects
++ [Containers HTML Exercise][html-containers-exercise]
++ [Recursion exercises][recursion-project]
++ [Word chains][word-chains]
+* **Bonus**: [More Recursion questions][bonus-recursion-practice]
++ **Bonus**: [Maze solver][maze-project]
++ **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
+
+[html-containers-exercise]: #
 [recursion-project]: projects/recursion
 [word-chains]:  projects/word_chains
 [bonus-recursion-practice]: https://github.com/appacademy/recursion_exercises
@@ -128,6 +141,8 @@
 
 ### Assessment01 Practice
 + [Practice][assessment-prep-1]
+
+[assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
 
 ### Video Lectures (29 min)
 :closed_lock_with_key: `go_video_go`
@@ -147,9 +162,19 @@
 + [Gems and rbenv][gems] (10 min)
 + [Nontechnical Overview of Git][git-nontech] (15 min)
 + [Nontechnical Overview of Agile Development][agile-nontech] (5 min)
++ [HTML Forms][html-forms]
+
+[why-git]: readings/why-git.md
+[git-workflow]: readings/git-workflow.md
+[gems]: readings/gems-and-rbenv.md
+[git-nontech]: readings/git_nontech.md
+[agile-nontech]: readings/agile_nontech.md
+[html-forms]: #
 
 ### Homeworks (20 min)
 + [Git Workflow Exercises][git-workflow-exercises] (20 min)
+
+[git-workflow-exercises]: homeworks/git-workflow-exercises.md
 
 ### Additional Resources
 + [Serialization (JSON and YAML)][serialization] (10 min)
@@ -160,28 +185,20 @@
 + [Fixing Git commit authorship][git-fix-authorship]
 + [Git Cheatsheet][git-cheatsheet]
 
+[serialization]: readings/serialization.md
+[git-add]: readings/git-add.md
+[git-cleanup]: readings/git-repository-cleanup.md
+[aliases]: readings/alias.md
+[code-academy-git]: https://www.codecademy.com/learn/learn-git
+[git-fix-authorship]: readings/git-fix-authorship.md
+[git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
+
 ### Projects
++ [HTML Forms Exercise][html-forms-exercise]
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
-[assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
-[git-add]: readings/git-add.md
-[why-git]: readings/why-git.md
-[git-cheatsheet]: http://www.ndpsoftware.com/git-cheatsheet.html
-[atom-cheatsheet]: ../course/readings/atom_cheatsheet.md
-[git-fix-authorship]: readings/git-fix-authorship.md
-[git-workflow]: readings/git-workflow.md
-[git-workflow-exercises]: homeworks/git-workflow-exercises.md
-[git-cleanup]: readings/git-repository-cleanup.md
-[aliases]: readings/alias.md
-[interactive-git]: http://pcottle.github.io/learnGitBranching/
-[assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
-[serialization]: readings/serialization.md
-[gems]: readings/gems-and-rbenv.md
-[git-nontech]: readings/git_nontech.md
-[agile-nontech]: readings/agile_nontech.md
-[code-academy-git]: https://www.codecademy.com/learn/learn-git
-
+[html-forms-exercise]: #
 [screwedoku]: projects/screwdoku
 [minesweeper]: projects/minesweeper
 
@@ -190,35 +207,39 @@
 ### Video Lectures (55 min)
 
 :closed_lock_with_key: `go_video_go`
-
 * :movie_camera: [Data Structures][data-structures-video] (40 min)
 * :movie_camera: [DFS][dfs-video] (15 min)
 
+[data-structures-video]: https://vimeo.com/162763729
+[dfs-video]: https://vimeo.com/162763740
+
 ### Readings (15 min)
 + [Intro data structures][intro-algorithms-and-data-structures] (15 min)
++ [HTML `<head>`][html-head]
+
+[intro-algorithms-and-data-structures]: ./readings/intro-algorithms-and-data-structures.md
+[html-head]: #
 
 ### Homeworks (55 min)
 + [Homeworks with Git][git-homeworks] (10 min)
   * **NB:** Do initial setup, then come back after completing **DIY ADTs**
 + [DIY ADTs][diy-adts] (45 min)
 
+[git-homeworks]: ./homeworks/git-homeworks.md
+[diy-adts]: ./homeworks/abstract_data_types
+
 ### Projects
++ [HTML `<head>` Exercise][html-head-exercise]
 + [Intro data structures: PolyTreeNode][poly-tree-node]
 + [Knight's Travails][knights-travails]
 + [Tic-Tac-Toe AI][tic-tac-toe-ai]
 
-### :joy_cat: **Happy Hour at App Academy** :joy_cat:
-
-[data-structures-video]: https://vimeo.com/162763729
-[dfs-video]: https://vimeo.com/162763740
-
-[intro-algorithms-and-data-structures]: ./readings/intro-algorithms-and-data-structures.md
-[git-homeworks]: ./homeworks/git-homeworks.md
-[diy-adts]: ./homeworks/abstract_data_types
-
+[html-head-exercise]: #
 [poly-tree-node]: projects/poly_tree_node
 [knights-travails]: projects/knights_travails
 [tic-tac-toe-ai]: projects/tic_tac_toe_ai
+
+### :joy_cat: **Happy Hour at App Academy** :joy_cat:
 
 ## w2d1
 
