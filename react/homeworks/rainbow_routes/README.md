@@ -107,7 +107,7 @@ the `exact` flag to that link so it will only be active when its `to`
 exactly matches the current path. Now it should look like:
 
 ```jsx
-<Link exact to='/blue' >Blue only</Link>
+<NavLink exact to='/blue' >Blue only</NavLink>
 ```
 
 Do the same for the `Red only` link. Everything should be working now.
