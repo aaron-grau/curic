@@ -26,6 +26,7 @@ const addLoggingToDispatch = store => next => action => {
 // Bonus Phase: Add an extra middleware!
 const sillyMiddleware = store => next => action => {
   console.log("Silly");
+  next(action);
 };
 
 export default configureStore;
