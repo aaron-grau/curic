@@ -101,13 +101,8 @@ with some key differences:
   * In `routes.rb`, set `defaults: {format: :json}` on your `namespace
 :api`
 * Views:
-<<<<<<< HEAD
-  + You'll want an **`api/users/show.json.jbuilder`**, which you can use
-for multiple controller actions.
-=======
   + You'll want an **`api/users/show.json.jbuilder`**, which you can use
 for   multiple controller actions.
->>>>>>> 7ac21f93036c382433a9e43940eebd1d752d5d28
   + This should delegate to a partial:
   **`api/users/_user.json.jbuilder`**, which we'll use later.
 * `Sessions#destroy`:
