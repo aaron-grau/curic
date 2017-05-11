@@ -7,7 +7,7 @@ app's router. We prefer `Link` to using `history.push` inside the
 anchor tag with a correctly set `href` attribute. The leads to more
 semantic html and makes things easier for screen-readers. 
 
-To use it `import { Link } from 'react-router'`.
+To use it `import { Link } from 'react-router-dom'`.
 
 `<Link>` can take a number of different props.
 
