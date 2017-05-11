@@ -230,8 +230,7 @@ prop.
   * `ItemDetailContainer` connects it to the store.
 * Create a new route that renders the `PokemonIndexContainer`,
 `PokemonDetailContainer` and `ItemDetailContainer` when the path matches
-`/pokemon/:pokemonId/items/:itemId`. Add this to the render function of
-`PokemonDetail`.
+`/pokemon/:pokemonId/items/:itemId`.
 
 Hint: nest your new `Route` under the render function of
 `PokemonDetail`.
@@ -239,7 +238,7 @@ Hint: nest your new `Route` under the render function of
 Your app's `HashRouter` should contain the following routes:
 
 ```js
-// pokemon.jsx
+// pokedex.jsx
 <HashRouter>
   <Route path="/" component={PokemonIndexContainer} />
 </HashRouter>
