@@ -283,19 +283,31 @@
 
 ## w2d2
 
-### Study Hall 9 - 10am
+### Videos (20 min)
++ [CSS Intro][css-intro]
++ [CSS Workflow][css-workflow]
+
+[css-intro]: #
+[css-workflow]: #
 
 ### Readings (15 min)
 + [Nontechnical Overview of Ruby][ruby-nontech] (15 min)
 
+[ruby-nontech]: readings/ruby_nontech.md
+
 ### Homeworks (60 min)
 + [Mancala][mancala-hw] (60 min)
 
-### Projects
-+ Continue Chess
-
-[ruby-nontech]: readings/ruby_nontech.md
 [mancala-hw]: homeworks/mancala
+
+### Study Hall 9 - 10am
++ Ask questions or feel our wroth!
+
+### Projects
++ [Hack Academy][css-hack-academy]
++ Continue [Chess][chess]
+
+[css-hack-academy]: #
 
 ## w2d3
 
@@ -304,6 +316,13 @@
 + [`subject` and `let`][subject-and-let] (10 min)
 + [Order of RSpec methods][rspec-order] (5 min)
 + [Test doubles][test-doubles] (10 min)
++ [CSS Selectors & Precendence][css-selectors-precedence]
+
+[rspec-syntax]: readings/rspec-syntax.md
+[subject-and-let]: readings/subject-and-let.md
+[rspec-order]: readings/rspec-order.md
+[test-doubles]: readings/test-doubles.md
+[css-selectors-precedence]: #
 
 ### Video Lectures (26 min)
 :closed_lock_with_key: `go_video_go`
@@ -311,9 +330,18 @@
 + :movie_camera: [Setup and Basic Syntax][rspec-setup-syntax] (7 min)
 + :movie_camera: [Errors, Equality Matchers, Subject/Let, and Doubles][rspec-more-syntax] (8 min)
 + :movie_camera: [Code Demo][rspec-demo] (8 min)
++ :movie_camera: [CSS Syntax][css-syntax]
+
+[intro-rspec-video]: https://vimeo.com/192497364
+[rspec-setup-syntax]: https://vimeo.com/192665133
+[rspec-more-syntax]: https://vimeo.com/192662950
+[rspec-demo]: https://vimeo.com/192666370
+[css-syntax]: #
 
 ### Homeworks (40 min)
 + [RSpec][rspec-homework] (40 min)
+
+[rspec-homework]: homeworks/rspec
 
 ### Additional Resources
 + [Introduction to RSpec][intro-rspec]
@@ -322,35 +350,28 @@
 + review spec files for A00 and A01 [assessment-prep][assessment-prep]
 + review spec files for [OO Robot RSpec Example][robot-demo]
 
+[intro-rspec]: readings/intro-rspec.md
+[intro-tdd]: readings/intro-tdd.md
+[guard-rspec]: readings/guard-rspec.md
+[assessment-prep]: https://github.com/appacademy/assessment-prep
+[robot-demo]: demos/robot-rspec-demo
+
 ### Projects
++ [CSS Syntax Exercise][css-syntax-exercise]
 + [First TDD Projects][first-tdd-projects]
 + [Poker][poker-project]
 
-[assessment-prep]: https://github.com/appacademy/assessment-prep
-
-[intro-rspec-video]: https://vimeo.com/192497364
-[rspec-setup-syntax]: https://vimeo.com/192665133
-[rspec-more-syntax]: https://vimeo.com/192662950
-[rspec-demo]: https://vimeo.com/192666370
-[intro-rspec]: readings/intro-rspec.md
-[rspec-syntax]: readings/rspec-syntax.md
-[intro-tdd]: readings/intro-tdd.md
-[test-doubles]: readings/test-doubles.md
-[subject-and-let]: readings/subject-and-let.md
-[guard-rspec]: readings/guard-rspec.md
-[rspec-order]: readings/rspec-order.md
-
-[robot-demo]: demos/robot-rspec-demo
-[rspec-homework]: homeworks/rspec
-
 [first-tdd-projects]: projects/first_tdd
 [poker-project]: projects/poker
+[css-syntax-exercise]: #
 
 ## w2d4
 
 ### Assessment02 Practice
 + In-class practice assessment at 9am.  Please bring your own machine if possible.  
 + [Practice][assessment-prep-2]
+
+[assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
 ### Video lectures (71 min)
 :closed_lock_with_key: `go_video_go`
@@ -362,9 +383,25 @@
 + :movie_camera: [Set Definition][big-O-set] (8 min)
 + :movie_camera: [Space Complexity][big-O-space] (12 min)
 
+[big-O-motivations]: https://vimeo.com/175565088
+[big-O-ram]: https://vimeo.com/175565090
+[big-O-asymptotic]: https://vimeo.com/175565086
+[big-O-worst]: https://vimeo.com/175565094
+[big-O-classifications]: https://vimeo.com/175568501
+[big-O-set]: https://vimeo.com/175568481
+[big-O-space]: https://vimeo.com/175565092
+
+### Readings
++ [CSS Advanced Selectors][css-advanced-selectors]
+
+[css-advanced-selectors]: #
+
 ### Homeworks (40 min)
 + [Sorting Complexity][sorting-demo] (15 min)
 + [Octopus Problems][octopus-hw] (25 min)
+
+[sorting-demo]: homeworks/sorting_demo
+[octopus-hw]: homeworks/big_octopus
 
 ### Additional Resources
 + [Plain English explanation of Big O][stack-overflow-big-o]
@@ -374,31 +411,21 @@
 + [Merge Sort][merge-sort-visual] and [Bubble Sort][bubble-sort-visual] visualization
 + [Big O Cheatsheet][big-o-cheatsheet]
 
+[stack-overflow-big-o]: http://stackoverflow.com/questions/487258/plain-english-explanation-of-big-o
+[interview-cake-big-o]: https://www.interviewcake.com/article/ruby/big-o-notation-time-and-space-complexity
+[merge-sort-visual]: http://www.algomation.com/player?algorithm=551321f6e1b6fa0300aae4d0
+[bubble-sort-visual]: http://www.algomation.com/player?algorithm=541a6ea7a7fe980200089c5e
+[big-o-cheatsheet]: http://bigocheatsheet.com/
+
 ### Projects
++ [CSS Advanced Selectors Exercise][css-advanced-selectors-exercise]
 + [Execution Time Differences/Algorithms][execution-time]
 + [Anagrams][anagrams]
 + [Two sum problem][two-sum]
 + [Windowed max range][max-windowed-range]
 + **Bonus**: [Benchmarking][benchmarking]
 
-[assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
-[big-O-motivations]: https://vimeo.com/175565088
-[big-O-ram]: https://vimeo.com/175565090
-[big-O-asymptotic]: https://vimeo.com/175565086
-[big-O-worst]: https://vimeo.com/175565094
-[big-O-classifications]: https://vimeo.com/175568501
-[big-O-set]: https://vimeo.com/175568481
-[big-O-space]: https://vimeo.com/175565092
-
-[interview-cake-big-o]: https://www.interviewcake.com/article/ruby/big-o-notation-time-and-space-complexity
-[stack-overflow-big-o]: http://stackoverflow.com/questions/487258/plain-english-explanation-of-big-o
-[big-o-cheatsheet]: http://bigocheatsheet.com/
-[algorithm-visual]: http://www.algomation.com/
-[merge-sort-visual]: http://www.algomation.com/player?algorithm=551321f6e1b6fa0300aae4d0
-[bubble-sort-visual]: http://www.algomation.com/player?algorithm=541a6ea7a7fe980200089c5e
-
-[sorting-demo]: homeworks/sorting_demo
-[octopus-hw]: homeworks/big_octopus
+[css-advanced-selectors-exercise]: #
 [execution-time]: projects/execution_time_differences
 [anagrams]: projects/anagrams
 [two-sum]: projects/two_sum
@@ -407,12 +434,8 @@
 
 ## w2d5
 
-### Study Hall 9 - 10am
-
-### Video lectures (2 hours, 15 min)
-
+### Videos (2 hours, 15 min)
 :closed_lock_with_key: `go_video_go`
-
 * :movie_camera: [Set and Int Set](https://vimeo.com/159431377) (20 min)
 * :movie_camera: [Resizing Int Set Part 1](https://vimeo.com/159433039) (10 min)
 * :movie_camera: [Resizing Int Set Part 2](https://vimeo.com/159437719) (30 min)
@@ -421,6 +444,9 @@
 * :movie_camera: [Linked Lists and Hashmaps](https://vimeo.com/159440267) (20 min)
 * :movie_camera: [Caches](https://vimeo.com/159441490) (20 min)
 * :movie_camera: [LRU Cache](https://vimeo.com/159435146) (10 min)
+* :movie_camera: [CSS Box Model][css-box-model-video]
+
+[css-box-model-video]: #
 
 ### Readings (60 min)
 + [How Hashes Work][hash-map-reading] (20 min)
@@ -428,21 +454,29 @@
 + [Dynamic Array (Wikipedia)][dynamic-array-reading]  (30 min)
   + this is fairly involved, so go over it more than once
 + [XOR][xor]
++ [CSS Box Model][css-box-model]
+
+[hash-map-reading]: http://www.gotealeaf.com/blog/how-the-hash-works-in-ruby
+[lru-cache-reading]: https://web.archive.org/web/20150710185255/http://mcicpc.cs.atu.edu/archives/2012/mcpc2012/lru/lru.html
+[dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
+[xor]: readings/xor.md
+[css-box-model]: #
 
 ### Homeworks (30 min)
 + [LRU Cache][lru-cache-hw] (30 min)
 
+[lru-cache-hw]: homeworks/lru_cache
+
+### Study Hall 9 - 10am
+
 ### Projects
++ [CSS Box Model Exercise][css-box-model-exercise]
 + [Hash Map & LRU Cache][hash-map]
 
-[hash-map-reading]: http://www.gotealeaf.com/blog/how-the-hash-works-in-ruby
-[lru-cache-reading]: https://web.archive.org/web/20150710185255/http://mcicpc.cs.atu.edu/archives/2012/mcpc2012/lru/lru.html
-[lru-cache-hw]: homeworks/lru_cache
-[dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
 [hash-map]: projects/hash_map_lru_cache
-[xor]: readings/xor.md
-## Additional Bonus Topics
+[css-box-model-exercise]: #
 
+### Additional Bonus Topics
 + [Basic cursor input][cursor-demo]
 + [Modules][modules]
 + [load/require/require_relative][require]
@@ -451,7 +485,6 @@
 + [Hash and Equals][hash-and-equals]
 + [Swap][swap]
 
-[assessment-prep]: http://github.com/appacademy/assessment-prep
 [cursor-demo]: https://github.com/rglassett/ruby-cursor-game
 [modules]: readings/modules.md
 [require]: readings/require.md
