@@ -7,9 +7,9 @@
 [day1-instructions]: https://github.com/appacademy/meta/blob/master/first-day-instructions/README.md
 
 ### Materials (65 min)
-+ (**Review**) Readings from [week 0][prep-w0] and [week 1][prep-w1] of the App Academy Prep course (30 min)
++ :book: (**Review**) Readings from [week 0][prep-w0] and [week 1][prep-w1] of the App Academy Prep course (30 min)
   + **Pay special attention to code style readings from week 1!**
-+ Debugging
++ :book: Debugging
   + [the pry REPL and the byebug debugger][pry-and-byebug] (20 min)
   + [common error messages][common-error-messages] (15 min)
 
@@ -233,53 +233,51 @@
 + [Practice][assessment-prep-1]
 + SF Only:
   + Please setup Ruby + RSpec on your own machine and bring it.
-  + If you need to use one of our machines, please just use a single
-    monitor.
+  + If you need to use one of our machines, please just use a single monitor.
 
-### Readings (67 min)
-+ [Class inheritance][inheritance] (15 min)
-+ [Exceptions, error handling][errors] (15 min)
-+ [Decomposition into objects][object-decomposition] (10 min)
-+ [Inheritance, Polymorphism and DRY][inheritance-design] (10 min)
-+ [Information hiding/encapsulation][hiding] (5 min)
-+ [UML][uml] (10 min)
-+ [Singleton][singleton] (2 min)
-    + Just the section on usage
+### Materials (67 min)
++ :book: [Class inheritance][inheritance] (15 min)
++ :book: [Exceptions, error handling][errors] (15 min)
++ :book: [Decomposition into objects][object-decomposition] (10 min)
++ :book: [Inheritance, Polymorphism and DRY][inheritance-design] (10 min)
++ :book: [Information hiding/encapsulation][hiding] (5 min)
++ :book: [UML][uml] (10 min)
++ :book: [Singleton][singleton] (2 min)
+  + Just the section on usage
+
+[inheritance]: readings/inheritance.md
+[errors]: readings/errors.md
+[object-decomposition]: readings/object-decomposition.md
+[inheritance-design]: readings/inheritance-design.md
+[hiding]: readings/hiding.md
+[uml]: readings/uml.md
+[singleton]: http://ruby-doc.org/stdlib-1.9.3/libdoc/singleton/rdoc/Singleton.html#module-Singleton-label-Usage
 
 ### Homeworks (45 min)
 + [Simon][simon] (45 min)
+
+[simon]: homeworks/simon
 
 ### Projects
 + [Error Handling Funtime][errors-exercises]
 + [Class inheritance][inheritance-exercises]
 + [Chess][chess]
-    + Please read the project description the night before.
+  + Please read the project description the night before.
 
-[singleton]: http://ruby-doc.org/stdlib-1.9.3/libdoc/singleton/rdoc/Singleton.html#module-Singleton-label-Usage
-[uml]: readings/uml.md
-[inheritance]: readings/inheritance.md
-[inheritance-exercises]: projects/class_inheritance
-[errors]: readings/errors.md
 [errors-exercises]: projects/error_handling_funtime
-[object-decomposition]: readings/object-decomposition.md
-[inheritance-design]: readings/inheritance-design.md
-[hiding]: readings/hiding.md
+[inheritance-exercises]: projects/class_inheritance
 [chess]: projects/chess
-[simon]: homeworks/simon
 
 ## w2d2
 
-### Videos (20 min)
-+ [CSS Intro][css-intro]
-+ [CSS Workflow][css-workflow]
-
-[css-intro]: #
-[css-workflow]: #
-
-### Readings (15 min)
-+ [Nontechnical Overview of Ruby][ruby-nontech] (15 min)
+### Materials (35 min)
++ :book: [Nontechnical Overview of Ruby][ruby-nontech] (15 min)
++ :book: [CSS Intro][css-intro]
++ :book: [CSS Workflow][css-workflow]
 
 [ruby-nontech]: readings/ruby_nontech.md
+[css-intro]: https://vimeo.com/album/3732382/video/151188850
+[css-workflow]: https://vimeo.com/168826664
 
 ### Homeworks (60 min)
 + [Mancala][mancala-hw] (60 min)
@@ -293,36 +291,33 @@
 + [Hack Academy][css-hack-academy]
 + Continue [Chess][chess]
 
-[css-hack-academy]: #
+[css-hack-academy]: ../html-css/micro-projects/css_intro/
 
 ## w2d3
 
-### Readings (45 min)
-+ [RSpec Syntax][rspec-syntax] (20 min)
-+ [`subject` and `let`][subject-and-let] (10 min)
-+ [Order of RSpec methods][rspec-order] (5 min)
-+ [Test doubles][test-doubles] (10 min)
-+ [CSS Selectors & Precendence][css-selectors-precedence]
+### Materials (71 min)
+:closed_lock_with_key: `go_video_go`
++ :book: [RSpec Syntax][rspec-syntax] (20 min)
++ :book: [`subject` and `let`][subject-and-let] (10 min)
++ :book: [Order of RSpec methods][rspec-order] (5 min)
++ :book: [Test doubles][test-doubles] (10 min)
++ :movie_camera: [Intro to RSpec][intro-rspec-video] (3 min)
++ :movie_camera: [Setup and Basic Syntax][rspec-setup-syntax] (7 min)
++ :movie_camera: [Errors, Equality Matchers, Subject/Let, and Doubles][rspec-more-syntax] (8 min)
++ :movie_camera: [Code Demo][rspec-demo] (8 min)
++ :book: [CSS Selectors & Precendence][css-selectors-precedence]
++ :movie_camera: [CSS Syntax][css-syntax]
 
 [rspec-syntax]: readings/rspec-syntax.md
 [subject-and-let]: readings/subject-and-let.md
 [rspec-order]: readings/rspec-order.md
 [test-doubles]: readings/test-doubles.md
-[css-selectors-precedence]: #
-
-### Video Lectures (26 min)
-:closed_lock_with_key: `go_video_go`
-+ :movie_camera: [Intro to RSpec][intro-rspec-video] (3 min)
-+ :movie_camera: [Setup and Basic Syntax][rspec-setup-syntax] (7 min)
-+ :movie_camera: [Errors, Equality Matchers, Subject/Let, and Doubles][rspec-more-syntax] (8 min)
-+ :movie_camera: [Code Demo][rspec-demo] (8 min)
-+ :movie_camera: [CSS Syntax][css-syntax]
-
 [intro-rspec-video]: https://vimeo.com/192497364
 [rspec-setup-syntax]: https://vimeo.com/192665133
 [rspec-more-syntax]: https://vimeo.com/192662950
 [rspec-demo]: https://vimeo.com/192666370
-[css-syntax]: #
+[css-selectors-precedence]: ../html-css/readings/css_selectors_precedence.md
+[css-syntax]: https://vimeo.com/album/3732382/video/151185331
 
 ### Homeworks (40 min)
 + [RSpec][rspec-homework] (40 min)
@@ -349,7 +344,7 @@
 
 [first-tdd-projects]: projects/first_tdd
 [poker-project]: projects/poker
-[css-syntax-exercise]: #
+[css-syntax-exercise]: ../html-css/micro-projects/css_syntax/
 
 ## w2d4
 
@@ -360,6 +355,7 @@
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
 ### Video lectures (71 min)
+### Materials ( min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Motivations for Big-O][big-O-motivations] (7 min)
 + :movie_camera: [RAM Model of Computation][big-O-ram] (5 min)
@@ -368,6 +364,7 @@
 + :movie_camera: [Common Classifications][big-O-classifications] (11 min)
 + :movie_camera: [Set Definition][big-O-set] (8 min)
 + :movie_camera: [Space Complexity][big-O-space] (12 min)
++ :book: [CSS Advanced Selectors][css-advanced-selectors]
 
 [big-O-motivations]: https://vimeo.com/175565088
 [big-O-ram]: https://vimeo.com/175565090
@@ -376,11 +373,7 @@
 [big-O-classifications]: https://vimeo.com/175568501
 [big-O-set]: https://vimeo.com/175568481
 [big-O-space]: https://vimeo.com/175565092
-
-### Readings
-+ [CSS Advanced Selectors][css-advanced-selectors]
-
-[css-advanced-selectors]: #
+[css-advanced-selectors]: ../html-css/readings/advanced_selectors.md
 
 ### Homeworks (40 min)
 + [Sorting Complexity][sorting-demo] (15 min)
@@ -411,7 +404,7 @@
 + [Windowed max range][max-windowed-range]
 + **Bonus**: [Benchmarking][benchmarking]
 
-[css-advanced-selectors-exercise]: #
+[css-advanced-selectors-exercise]: ../html-css/micro-projects/advanced_selectors/
 [execution-time]: projects/execution_time_differences
 [anagrams]: projects/anagrams
 [two-sum]: projects/two_sum
@@ -420,33 +413,31 @@
 
 ## w2d5
 
-### Videos (2 hours, 15 min)
+### Materials (3 hours, 15 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Set and Int Set](https://vimeo.com/159431377) (20 min)
-* :movie_camera: [Resizing Int Set Part 1](https://vimeo.com/159433039) (10 min)
-* :movie_camera: [Resizing Int Set Part 2](https://vimeo.com/159437719) (30 min)
-* :movie_camera: [Hashing](https://vimeo.com/159435811) (10 min)
-* :movie_camera: [Hash Set](https://vimeo.com/159438691) (15 min)
-* :movie_camera: [Linked Lists and Hashmaps](https://vimeo.com/159440267) (20 min)
-* :movie_camera: [Caches](https://vimeo.com/159441490) (20 min)
-* :movie_camera: [LRU Cache](https://vimeo.com/159435146) (10 min)
-* :movie_camera: [CSS Box Model][css-box-model-video]
-
-[css-box-model-video]: #
-
-### Readings (60 min)
-+ [How Hashes Work][hash-map-reading] (20 min)
-+ [LRU Cache][lru-cache-reading] (10 min)
-+ [Dynamic Array (Wikipedia)][dynamic-array-reading]  (30 min)
++ :movie_camera: [Set and Int Set](https://vimeo.com/159431377) (20 min)
++ :movie_camera: [Resizing Int Set Part 1](https://vimeo.com/159433039) (10 min)
++ :movie_camera: [Resizing Int Set Part 2](https://vimeo.com/159437719) (30 min)
++ :movie_camera: [Hashing](https://vimeo.com/159435811) (10 min)
++ :movie_camera: [Hash Set](https://vimeo.com/159438691) (15 min)
++ :movie_camera: [Linked Lists and Hashmaps](https://vimeo.com/159440267) (20 min)
++ :movie_camera: [Caches](https://vimeo.com/159441490) (20 min)
++ :movie_camera: [LRU Cache](https://vimeo.com/159435146) (10 min)
++ :book: [How Hashes Work][hash-map-reading] (20 min)
++ :book: [LRU Cache][lru-cache-reading] (10 min)
++ :book: [Dynamic Array (Wikipedia)][dynamic-array-reading]  (30 min)
   + this is fairly involved, so go over it more than once
-+ [XOR][xor]
-+ [CSS Box Model][css-box-model]
++ :book: [XOR][xor]
++ :movie_camera: [CSS Box Model][css-box-model-video]
++ :book: [CSS Box Model][css-box-model]
+
 
 [hash-map-reading]: http://www.gotealeaf.com/blog/how-the-hash-works-in-ruby
 [lru-cache-reading]: https://web.archive.org/web/20150710185255/http://mcicpc.cs.atu.edu/archives/2012/mcpc2012/lru/lru.html
 [dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
 [xor]: readings/xor.md
-[css-box-model]: #
+[css-box-model-video]: https://vimeo.com/album/3732382/video/151190177
+[css-box-model]: ../html-css/readings/box_model.md
 
 ### Homeworks (30 min)
 + [LRU Cache][lru-cache-hw] (30 min)
@@ -460,7 +451,7 @@
 + [Hash Map & LRU Cache][hash-map]
 
 [hash-map]: projects/hash_map_lru_cache
-[css-box-model-exercise]: #
+[css-box-model-exercise]: ../html-css/micro-projects/display_box_model/
 
 ### Additional Bonus Topics
 + [Basic cursor input][cursor-demo]
