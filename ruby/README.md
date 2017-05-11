@@ -80,7 +80,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-intro-exercise]: ../html-css/micro-projects/introduction
+[html-intro-exercise]: ../html-css/micro-projects/introduction/
 [memory-project]: projects/memory
 [sudoku-project]: projects/sudoku
 
@@ -125,7 +125,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-containers-exercise]: ../html-css/micro-projects/containers
+[html-containers-exercise]: ../html-css/micro-projects/containers/
 [recursion-project]: projects/recursion
 [word-chains]:  projects/word_chains
 [bonus-recursion-practice]: https://github.com/appacademy/recursion_exercises
@@ -188,27 +188,23 @@
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
-[html-forms-exercise]: ../html-css/micro-projects/forms 
+[html-forms-exercise]: ../html-css/micro-projects/forms/
 [screwedoku]: projects/screwdoku
 [minesweeper]: projects/minesweeper
 
 ## w1d5
 
-### Video Lectures (55 min)
-
+### Materials (70 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Data Structures][data-structures-video] (40 min)
-* :movie_camera: [DFS][dfs-video] (15 min)
++ :movie_camera: [Data Structures][data-structures-video] (40 min)
++ :movie_camera: [DFS][dfs-video] (15 min)
++ :book: [Intro data structures][intro-algorithms-and-data-structures] (15 min)
++ :book: [HTML `<head>`][html-head]
 
 [data-structures-video]: https://vimeo.com/162763729
 [dfs-video]: https://vimeo.com/162763740
-
-### Readings (15 min)
-+ [Intro data structures][intro-algorithms-and-data-structures] (15 min)
-+ [HTML `<head>`][html-head]
-
 [intro-algorithms-and-data-structures]: ./readings/intro-algorithms-and-data-structures.md
-[html-head]: #
+[html-head]: ../html-css/readings/head_section.md
 
 ### Homeworks (55 min)
 + [Homeworks with Git][git-homeworks] (10 min)
@@ -224,7 +220,7 @@
 + [Knight's Travails][knights-travails]
 + [Tic-Tac-Toe AI][tic-tac-toe-ai]
 
-[html-head-exercise]: #
+[html-head-exercise]: ../html-css/micro-projects/head_section/
 [poly-tree-node]: projects/poly_tree_node
 [knights-travails]: projects/knights_travails
 [tic-tac-toe-ai]: projects/tic_tac_toe_ai
