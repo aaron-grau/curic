@@ -4,33 +4,31 @@
 ## w1d1
 + [First Day! **Read me!**][day1-instructions]
 
-### Readings (65 min)
-+ Review readings from [week 0][prep-w0] and [week 1][prep-w1] of the
-  App Academy Prep course (30 min)
-  + **Pay special attention to the readings on code style from week 1!**
+[day1-instructions]: https://github.com/appacademy/meta/blob/master/first-day-instructions/README.md
+
+### Materials (65 min)
++ (**Review**) Readings from [week 0][prep-w0] and [week 1][prep-w1] of the App Academy Prep course (30 min)
+  + **Pay special attention to code style readings from week 1!**
 + Debugging
-    + [the pry REPL and the byebug debugger][pry-and-byebug] (20 min)
-    + [common error messages][common-error-messages] (15 min)
+  + [the pry REPL and the byebug debugger][pry-and-byebug] (20 min)
+  + [common error messages][common-error-messages] (15 min)
+
+[prep-w0]: https://github.com/appacademy/appacademy-prep/tree/master/w0
+[prep-w1]: https://github.com/appacademy/appacademy-prep/tree/master/w1
+[pry-and-byebug]: readings/debugger.md
+[common-error-messages]: readings/common-exceptions.md
 
 ### Additional Resources
 + More byebug commands: [`display` and `where`][bonus-byebug]
+
+[bonus-byebug]: readings/bonus-debugger.md
 
 ### Projects
 + [Enumerables][enumerables-project]
 + [Ghost][ghost-project]
 + **Bonus**: [Maze Solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
-+ **Bonus**: Work through as many [Project Euler][project-euler]
-  problems as you can
-
-### :joy_cat: Pizza Lunch at App Academy :joy_cat:
-
-[day1-instructions]: https://github.com/appacademy/meta/blob/master/first-day-instructions/README.md
-[prep-w0]: https://github.com/appacademy/appacademy-prep/tree/master/w0
-[prep-w1]: https://github.com/appacademy/appacademy-prep/tree/master/w1
-[pry-and-byebug]: readings/debugger.md
-[common-error-messages]: readings/common-exceptions.md
-[bonus-byebug]: readings/bonus-debugger.md
++ **Bonus**: Work through as many [Project Euler][project-euler] problems as you can
 
 [enumerables-project]: projects/enumerables
 [ghost-project]: projects/ghost
@@ -38,38 +36,36 @@
 [eight-queens]: http://en.wikipedia.org/wiki/Eight_queens_puzzle
 [project-euler]: https://projecteuler.net/problems
 
+### :joy_cat: Pizza Lunch at App Academy :joy_cat:
+
 ## w1d2
+
 ### Yesterday's Solutions
 + Read yesterday's solutions:
   + [Enumerables][enumerables-project]
   + [Ghost][ghost-project]
   + [Maze-Solver][maze-project]
 
-### Video Lectures (20 min)
-
+### Materials ( min)
 :closed_lock_with_key: `go_video_go`
-
 + :movie_camera: [References][references-video]  (20 min)
   + Pro Tip: Watch these videos at 1.5x speed with [this video speed controller][speed-control] to save time!
++ :book: [References][references] (5 min)
++ :book: [Array/Hash Defaults][array-hash-defaults] (5 min)
++ :book: [Scope][scope] (5 min)
++ :book: [Refactoring and Code Smells][code-smells] (5 min)
++ :book: [Overview of HTML/CSS Curriculum][html-css-overview] (2 min)
++ :book: [Intro to HTML][html-intro]
++ :book: (Review) Readings from [week 2][prep-w2] of the App Academy Prep course (15 min)
 
-[speed-control]: https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en
 [references-video]: https://vimeo.com/165965713
-
-### Readings (35 min)
-+ [References][references] (5 min)
-+ [Array/Hash Defaults][array-hash-defaults] (5 min)
-+ [Scope][scope] (5 min)
-+ [Refactoring and Code Smells][code-smells] (5 min)
-+ [Overview of HTML/CSS Curriculum][html-css-overview]
-+ [Intro to HTML][html-intro]
-+ Review readings from [week 2][prep-w2] of the App Academy Prep course (15 min)
-
+[speed-control]: https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en
 [references]: readings/references.md
 [array-hash-defaults]: readings/array-hash-defaults.md
 [scope]: readings/scope.md
 [code-smells]: readings/refactoring.md
 [html-css-overview]: #
-[html-intro]: #
+[html-intro]: ../html-css/readings/introduction.md
 [prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
 
 ### Additional Resources
@@ -84,7 +80,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-intro-exercise]: #
+[html-intro-exercise]: ../html-css/micro-projects/introduction
 [memory-project]: projects/memory
 [sudoku-project]: projects/sudoku
 
