@@ -101,10 +101,6 @@ const Message = (props) => {
 This is equivalent to
 ```jsx
 class Message extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>{this.props.text}</div>
@@ -117,9 +113,9 @@ We can further simplify `Message` by using object de-structuring. Prefer
 this syntax:
 
 ```jsx
-function Message({ text }) {
-  return <div>{text}</div>
-};
+const Message = ({ text }) => (
+  <div>{text}</div>
+);
 ```
 
 Functional components are the most common type of component that you
