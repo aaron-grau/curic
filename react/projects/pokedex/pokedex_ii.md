@@ -427,8 +427,9 @@ unsuccessful POST request by adding an `errors` slice to our state.
 }
 ```
 
-* Add a failure callback to the `postPokemon` api util function.
 * Add a `receivePokemonErrors` action and corresponding constant.
+* Add a second argument to the `then` method in your `createPokemon`
+thunk that dispatches `receivePokemonErrors` passing in `errors.responseJSON`.
 * Add a new reducer, `ErrorsReducer`, to handle the `errors` slice to
 your app state.
 * Update the `createPokemon` thunk action creator to use this new action
