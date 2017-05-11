@@ -46,7 +46,7 @@
   + [Ghost][ghost-project]
   + [Maze-Solver][maze-project]
 
-### Materials ( min)
+### Materials (67 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [References][references-video]  (20 min)
   + Pro Tip: Watch these videos at 1.5x speed with [this video speed controller][speed-control] to save time!
@@ -55,7 +55,7 @@
 + :book: [Scope][scope] (5 min)
 + :book: [Refactoring and Code Smells][code-smells] (5 min)
 + :book: [Overview of HTML/CSS Curriculum][html-css-overview] (2 min)
-+ :book: [Intro to HTML][html-intro]
++ :book: [Intro to HTML][html-intro] (10 min)
 + :book: (Review) Readings from [week 2][prep-w2] of the App Academy Prep course (15 min)
 
 [references-video]: https://vimeo.com/165965713
