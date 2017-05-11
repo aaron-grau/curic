@@ -18,7 +18,7 @@ e.g. `/about`
   <Link to="/about">About</Link>
   ```
 * `onClick(e)`: A custom click event handler. Can call
-`e.preventDefault` and `e.stopPropogation` like any other click handler.
+`e.preventDefault` and `e.stopPropagation` like any other click handler.
 
   ```jsx
   <Link to="/about" onClick={e => this.handleClick(e)}>Link</Link>
