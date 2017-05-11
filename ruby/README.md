@@ -354,8 +354,7 @@
 
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
-### Video lectures (71 min)
-### Materials ( min)
+### Materials (71 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Motivations for Big-O][big-O-motivations] (7 min)
 + :movie_camera: [RAM Model of Computation][big-O-ram] (5 min)
