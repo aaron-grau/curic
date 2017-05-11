@@ -1,9 +1,7 @@
 require_relative './tie_breaker'
 
 module PokerHands
-  def self.included(klass)
-    klass.class_eval { include TieBreaker }
-  end
+  include TieBreaker
 
   RANKS = [
     :royal_flush,
