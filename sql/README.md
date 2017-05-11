@@ -10,18 +10,18 @@
 
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
-### Readings (67 min)
-+ [Programming Paradigms][paradigms] (5 min)
-+ SQL Fundamentals
-    + [SQL For The Impatient][sql-intro] (20 min)
-    + [A Visual Explanation of Joins][visual-joins] (5 min)
-    + [Self-Joins][self] (5 min)
-    + [Formatting SQL Code][sql-formatting] (5 min)
-    + [Subqueries][subquery] (5 min)
-    + [NULL][null] (2 min)
-    + [CASE][case] (5 min)
-    + [COALESCE][coalesce] (5 min)
-+ [PostgreSQL Setup][postgres-setup] (10 min)
+### Materials (67 min)
++ :book: [Programming Paradigms][paradigms] (5 min)
++ :book: SQL Fundamentals
+  + [SQL For The Impatient][sql-intro] (20 min)
+  + [A Visual Explanation of Joins][visual-joins] (5 min)
+  + [Self-Joins][self] (5 min)
+  + [Formatting SQL Code][sql-formatting] (5 min)
+  + [Subqueries][subquery] (5 min)
+  + [NULL][null] (2 min)
+  + [CASE][case] (5 min)
+  + [COALESCE][coalesce] (5 min)
++ :book: [PostgreSQL Setup][postgres-setup] (10 min)
 
 [paradigms]: readings/paradigms.md
 [sql-intro]: readings/sql-intro.md
@@ -53,30 +53,27 @@
 
 ## w3d2
 
-### Video Lectures (65 min)
+### Materials (82 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [RDBMS Intro][rdbms-intro-video] (10 min)
 + :movie_camera: [Building a Database][build-db-video] (25 min)
 + :movie_camera: [ORM Intro][orm-intro-video] (5 min)
 + :movie_camera: [ORM Demo][orm-demo-video] (25 min)
++ :book: [SQLite3][sqlite3] (15 min)
++ :book: [Heredocs][heredocs] (5 min)
++ :book: [Little Bobby Tables][xkcd-bobby-tables] (2 min)
 + :movie_camera: [CSS Display Property][css-display-video]
++ :book: [CSS Display Property][css-display]
 
 [rdbms-intro-video]: https://vimeo.com/167596295
 [build-db-video]: https://vimeo.com/167593816
 [orm-intro-video]: https://vimeo.com/167805228
 [orm-demo-video]: https://vimeo.com/167672029
-[css-dispay-video]: #
-
-### Readings (17 min)
-+ [SQLite3][sqlite3] (15 min)
-+ [Heredocs][heredocs] (5 min)
-+ [Little Bobby Tables][xkcd-bobby-tables] (2 min)
-+ [CSS Display Property][css-display]
-
 [sqlite3]: readings/sqlite3.md
 [heredocs]: readings/heredocs.md
 [xkcd-bobby-tables]: http://xkcd.com/327/
-[css-display]: #
+[css-display-video]: https://vimeo.com/album/3732382/video/151190176
+[css-display]: ../html-css/readings/display.md
 
 ### Homeworks (35 min)
 + [Plays-Playwrights ORM][plays-orm] (35 min)
@@ -101,7 +98,7 @@
 
 ## w3d3
 
-### Videos (73 min)
+### Materials (73 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Starting a new Rails Project][rails-intro-video] (7 min)
 + :movie_camera: [Migrations][migrations-video] (14 min)
@@ -120,8 +117,8 @@
 [associations-2-video]: https://vimeo.com/167799430
 [validations-video]: https://vimeo.com/167799437
 [indices-video]: https://vimeo.com/167799431
-[css-inherits]: #
-[css-reset]: #
+[css-inherits]: https://vimeo.com/album/3732382/video/151190179
+[css-reset]: https://vimeo.com/album/3732382/video/151190181
 
 ### Homeworks (45 min)
 + [Intro to Rails][intro-rails-homework] (45 min)
@@ -170,23 +167,20 @@
 
 [assessment-prep-3]: https://github.com/appacademy/assessment-prep#assessment-3
 
-### Videos
-+ [CSS Float & Clearfix][css-float-video]
-
-[css-float-video]: #
-
-### Readings (65 min)
-+ [ActiveRecord::Relation][relation] (15 min)
-+ [ActiveRecord and Joins][ar-joins] (25 min)
-+ [Scopes][scopes] (10 min)
-+ [More on Querying][querying-ii] (15 min)
-+ [CSS Float & Clearfix][css-float]
+### Materials (65 min)
++ :book: [ActiveRecord::Relation][relation] (15 min)
++ :book: [ActiveRecord and Joins][ar-joins] (25 min)
++ :book: [Scopes][scopes] (10 min)
++ :book: [More on Querying][querying-ii] (15 min)
++ :movie_camera: [CSS Float & Clearfix][css-float-video]
++ :book: [CSS Float & Clearfix][css-float]
 
 [relation]: readings/relation.md
 [ar-joins]: readings/joins.md
 [scopes]: readings/scopes.md
 [querying-ii]: readings/querying-ii.md
-[css-float]: #
+[css-float-video]: https://vimeo.com/album/3732382/video/151190182
+[css-float]: ../html-css/readings/floats_clear_fix.md
 
 ### Homeworks (60 min)
 + [Movie Buff in Training][movie-buff-hw] (30 min)
@@ -207,31 +201,28 @@
 + [Movie Buff][movie-buff]
 + [Polls][polls-app]
 
-[css-float-exercise]: #
+[css-float-exercise]: #use-old-flex-project
 [movie-buff]: projects/movie_buff
 [polls-app]: projects/polls_app
 
 ## w3d5
 
-### Videos
+### Materials
++ :book: [ Metaprogramming][metaprogramming] (20 min)
++ :book: [ Class Instance Variables][class-instance-variables] (15 min)
++ :book: [ Demo: send][meta-send] (5 min)
++ :book: [ Demo: macros][meta-macros] (5 min)
++ :book: [ Nontechnical Overview of SQL][sql-nontech] (15 min)
 + :movie_camera: [CSS Flexbox][css-flex-video]
-
-[css-flex-video]: #
-
-### Readings (60 min)
-+ [Metaprogramming][metaprogramming] (20 min)
-+ [Class Instance Variables][class-instance-variables] (15 min)
-+ [Demo: send][meta-send] (5 min)
-+ [Demo: macros][meta-macros] (5 min)
-+ [Nontechnical Overview of SQL][sql-nontech] (15 min)
-+ [CSS Flexbox][css-flex]
++ :book: [ CSS Flexbox][css-flex]
 
 [metaprogramming]: readings/metaprogramming.md
 [class-instance-variables]: readings/class-instance-variables.md
 [meta-send]: demos/send.rb
 [meta-macros]: demos/macros.rb
 [sql-nontech]: readings/sql_nontech.md
-[css-flex]: #
+[css-flex-video]: https://vimeo.com/170512344
+[css-flex]: ../html-css/readings/display.md
 
 ### Homework (30 min)
 + [Metacorgis][metacorgi-hw] (30 min)
@@ -242,7 +233,7 @@
 + [CSS Flex Exercise][css-flex-exercise]
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
 
-[css-flex-exercise]: #
+[css-flex-exercise]: ../html-css/micro-projects/float_fluid_flex/  
 [build-your-own-ar]: projects/active_record_lite
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
