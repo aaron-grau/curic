@@ -198,7 +198,7 @@ into to accomplish this: `componentWillReceiveProps(newProps)`.
 
 * In your `PokemonDetail` component, on
 `componentWillReceiveProps(newProps)`, call
-`this.props.requestSinglePokemon(newProps.params.pokemonId)`, but only
+`this.props.requestSinglePokemon(newProps.match.params.pokemonId)`, but only
 if  the `pokemonId` has changed. You can check your current props to
 find out the previous value.
 
