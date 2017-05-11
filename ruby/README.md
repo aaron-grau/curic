@@ -86,16 +86,19 @@
 
 ## w1d3
 
-### Video Lectures (62 min)
+### Materials (92 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Recursion Intro][recursion-intro-video] (20 min)
-* :movie_camera: [Recursion vs Iteration][recursion-vs-iteration-video] (2 min)
-* :movie_camera: [Upcase and Reverse Demo][upcase-reverse-video] (10 min)
-* :movie_camera: [Quicksort Intro][quicksort-intro-video] (5 min)
-* :movie_camera: [Quicksort Demo][quicksort-demo-video] (5 min)
-* :movie_camera: [Stack Overflow][stack-overflow-video] (5 min)
-* :movie_camera: [Stack Overflow Demo][stack-overflow-demo-video] (5 min)
-* :movie_camera: [The Stack][the-stack-video] (10 min)
++ :movie_camera: [Recursion Intro][recursion-intro-video] (20 min)
++ :movie_camera: [Recursion vs Iteration][recursion-vs-iteration-video] (2 min)
++ :movie_camera: [Upcase and Reverse Demo][upcase-reverse-video] (10 min)
++ :movie_camera: [Quicksort Intro][quicksort-intro-video] (5 min)
++ :movie_camera: [Quicksort Demo][quicksort-demo-video] (5 min)
++ :movie_camera: [Stack Overflow][stack-overflow-video] (5 min)
++ :movie_camera: [Stack Overflow Demo][stack-overflow-demo-video] (5 min)
++ :movie_camera: [The Stack][the-stack-video] (10 min)
++ :book: [Recursion][recursion] (10 min)
++ :book: [Semantic HTML Containers][html-containers] (5 min)
++ :book: (Review) Readings from [week 3][prep-w3] of the App Academy Prep course (15 min)
 
 [recursion-intro-video]: https://vimeo.com/162569408
 [recursion-vs-iteration-video]: https://vimeo.com/162569439
@@ -105,14 +108,8 @@
 [stack-overflow-video]: https://vimeo.com/162569479
 [stack-overflow-demo-video]: https://vimeo.com/162569490
 [the-stack-video]: https://vimeo.com/162571286
-
-### Readings (30 min)
-+ [Recursion][recursion] (10 min)
-+ [Semantic HTML Containers][html-containers]
-+ Review readings from [week 3][prep-w3] of the App Academy Prep course (20 min)
-
 [recursion]: readings/recursion.md
-[html-containers]: #
+[html-containers]: ../html-css/readings/containers.md
 [prep-w3]: https://github.com/appacademy/appacademy-prep/tree/master/w3
 
 ### Homeworks (50 min)
@@ -128,7 +125,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-containers-exercise]: #
+[html-containers-exercise]: ../html-css/micro-projects/containers
 [recursion-project]: projects/recursion
 [word-chains]:  projects/word_chains
 [bonus-recursion-practice]: https://github.com/appacademy/recursion_exercises
@@ -140,32 +137,29 @@
 
 [assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
 
-### Video Lectures (29 min)
+### Materials (79 min)
 :closed_lock_with_key: `go_video_go`
-* :movie_camera: [Git: Overview and Why We Use Git][git-overview-video] (5 min)
-* :movie_camera: [Git: Mental Models][git-mental-models-video] (18 min)
-* :movie_camera: [Git: Useful Commands][git-useful-commands-video] (4 min)
-* :movie_camera: [Git: Wrapup][git-wrapup-video] (2 min)
++ :movie_camera: [Git: Overview and Why We Use Git][git-overview-video] (5 min)
++ :movie_camera: [Git: Mental Models][git-mental-models-video] (18 min)
++ :movie_camera: [Git: Useful Commands][git-useful-commands-video] (4 min)
++ :movie_camera: [Git: Wrapup][git-wrapup-video] (2 min)
++ :book: [Why Git][why-git] (10 min)
++ :book: [Git Workflow][git-workflow] (10 min)
++ :book: [Gems and rbenv][gems] (10 min)
++ :book: [Nontechnical Overview of Git][git-nontech] (15 min)
++ :book: [Nontechnical Overview of Agile Development][agile-nontech] (5 min)
++ :book: [HTML Forms][html-forms]
 
 [git-overview-video]: https://vimeo.com/171666454
 [git-mental-models-video]: https://vimeo.com/171666455
 [git-useful-commands-video]: https://vimeo.com/171666453
 [git-wrapup-video]: https://vimeo.com/171666456
-
-### Readings (50 min)
-+ [Why Git][why-git] (10 min)
-+ [Git Workflow][git-workflow] (10 min)
-+ [Gems and rbenv][gems] (10 min)
-+ [Nontechnical Overview of Git][git-nontech] (15 min)
-+ [Nontechnical Overview of Agile Development][agile-nontech] (5 min)
-+ [HTML Forms][html-forms]
-
 [why-git]: readings/why-git.md
 [git-workflow]: readings/git-workflow.md
 [gems]: readings/gems-and-rbenv.md
 [git-nontech]: readings/git_nontech.md
 [agile-nontech]: readings/agile_nontech.md
-[html-forms]: #
+[html-forms]: ../html-css/readings/forms.md
 
 ### Homeworks (20 min)
 + [Git Workflow Exercises][git-workflow-exercises] (20 min)
@@ -194,7 +188,7 @@
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
-[html-forms-exercise]: #
+[html-forms-exercise]: ../html-css/micro-projects/forms 
 [screwedoku]: projects/screwdoku
 [minesweeper]: projects/minesweeper
 
