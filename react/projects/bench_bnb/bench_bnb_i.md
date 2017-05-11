@@ -508,7 +508,7 @@ Now it's time to create routes for logging in and signing up.
 
 * Create two new routes in your `App` component for `/#/login` and
 `/#/signup`.
-  * The `<Route>`s' paths should be `"login"` and `"signup"`.
+  * The `<Route>`s' paths should be `"/login"` and `"/signup"`.
   + They should both render the `SessionFormContainer`.
 
 Your `App` should now look a lot like this:
@@ -538,7 +538,7 @@ When our static `root` page loads, our app mounts without being aware of
 who the current user is.
 
 One solution to this problem is to create another API hook that returns
-the current user and then fetch that information when the app mounts.
+the current user and then fetches that information when the app mounts.
 However, since the request would be asynchronous, our app would
 momentarily have no current user. This would cause it to briefly render
 in a 'not-logged-in' state and then re-render when the current user was
@@ -643,10 +643,10 @@ stay logged in.
 Let's make sure users can't visit our `"/#/login"` or `"/#/signup"`
 routes if they are already logged in on the front-end.
 
-* Let's write our `frontend/util/route_util.jsx`. On our login and
-signup routes, let's conditionally render either the component or a
-[`<Redirect>`][redirect-docs] based on whether a user is logged in. It
-should:
+* Let's create a `frontend/util/route_util.jsx` file. In it we will define
+some custom routes. Our goal is to conditionally render either the component or a
+[`<Redirect>`][redirect-docs] based on whether a user is logged in. To do this
+we'll need to:
   * Check to see if the application state has a `currentUser` property.
   * If true, redirect to `"/"`.
   * Otherwise, render the specified component.
@@ -659,9 +659,6 @@ Your `<AuthRoute>` should look something like this:
 // frontend/util/route_util.jsx
 
 //...
-const mapStateToProps = state => {
-  return {loggedIn: Boolean(state.session.currentUser)};
-};
 
 const Auth = ({component: Component, path, loggedIn}) => (
   <Route path={path} render={(props) => (
@@ -672,6 +669,10 @@ const Auth = ({component: Component, path, loggedIn}) => (
     )
   )}/>
 );
+
+const mapStateToProps = state => {
+  return {loggedIn: Boolean(state.session.currentUser)};
+};
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 ```

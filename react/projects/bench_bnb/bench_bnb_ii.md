@@ -668,7 +668,7 @@ prove this! **Show your TA!**
 * Add a new `seating` column to the `benches` table.
   * This new column will store how many people can sit together on the
     bench at the same time.
-* Create a new `<Route>`, `/benches/new`, for your `BenchForm`
+* Create a new `<Route>`, `/benches/new`, for your `BenchFormContainer`
 component.
   *  Test the route by navigating to `/#/benches/new`; the map should
 disappear.
@@ -719,7 +719,7 @@ To pass `lat` and `lng` as query params:
  _handleClick(coords){
     this.props.history.push({
       pathname: "benches/new",
-      search: coords
+      search: `lat=${coords.lat}&lng=${coords.lng}`
     });
   }
 //...
@@ -737,7 +737,7 @@ Inside of the `BenchFormContainer`...
 `ownProps` as arguments
   * pass `lat` and `lng` props to the `BenchForm` component by
 deconstructing `ownProps.location.search`
-  * use the [`URLSearchParams`][URLSearchParams-docs] to pull the `lat`
+  * use [`URLSearchParams`][URLSearchParams-docs] to pull the `lat`
 and `lng` from the query string
 
 ```javascript
@@ -788,7 +788,7 @@ front-end unless they're logged in.
 * Define a `<ProtectedRoute>` helper method in your `route_util.js`. It
 should:
   * Check to see if the application state has a `currentUser` property.
-You can reuse the `loggedIn` boolean we defined for our `<AuthRoute>`.
+You can use the `loggedIn` boolean like we did in our `AuthRoute` component.
   * If true, render the component.
   * Otherwise, `Redirect` to `"/login"`.
 * Add the route to our `App` component like so:
@@ -800,7 +800,7 @@ You can reuse the `loggedIn` boolean we defined for our `<AuthRoute>`.
  **Test that your routes are protected before moving on!**. You should
 be re-directed from logging in and signing up to the root if you are
 already logged in. In addition, you should be re-directed to logging in
-if you  try to create a bench and aren't logged in.
+if you try to create a bench and aren't logged in.
 
 ## Phase 11: Filtering By Seating
 
@@ -878,7 +878,7 @@ displaying a single bench's information and a map showing the bench.
 Your `BenchShow` page should mount whenever someone clicks on an item in
 your `BenchIndex` or a marker in your `BenchMap`.
 
-* Create a new `Route` for your `BenchShow` that takes a `benchId`
+* Create a new `Route` for your `BenchShowContainer` that takes a `benchId`
 param.
 * Nest a `BenchMap` in your `BenchShow`, passing the bench as a prop.
 * Center the map on the single bench and prevent the map from being
