@@ -508,7 +508,7 @@ Now it's time to create routes for logging in and signing up.
 
 * Create two new routes in your `App` component for `/#/login` and
 `/#/signup`.
-  * The `<Route>`s' paths should be `"/login"` and `"/signup"`.
+  * Their paths should be `"/login"` and `"/signup"`.
   + They should both render the `SessionFormContainer`.
 
 Your `App` should now look a lot like this:
