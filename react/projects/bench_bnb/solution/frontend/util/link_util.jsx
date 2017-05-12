@@ -6,5 +6,5 @@ export const ReviewLink = ({ label, to }) => (
     <div>
       {match ? "" : <Link to={to}>{label}</Link>}
     </div>
-  )}/>
+  )} />
 );

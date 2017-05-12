@@ -1,7 +1,6 @@
 /* global google:false */
 
-export default class MarkerManager {
-
+class MarkerManager {
   constructor(map, handleClick){
     this.map = map;
     this.handleClick = handleClick;
@@ -9,7 +8,6 @@ export default class MarkerManager {
   }
 
   updateMarkers(benches){
-  
     const benchesObj = {};
     benches.forEach(bench => benchesObj[bench.id] = bench);
 
@@ -39,3 +37,5 @@ export default class MarkerManager {
     delete this.markers[marker.benchId];
   }
 }
+
+export default MarkerManager;

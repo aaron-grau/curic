@@ -21,12 +21,19 @@ const BenchShow = ({ bench, benchId, fetchBench }) => {
           benchId={benchId}
           singleBench={true}
           fetchBench={fetchBench}
-          />
+        />
       </div>
       <div className="right-half bench-details">
         <BenchDetail bench={bench} />
-        <ReviewLink component={ReviewFormContainer} to={`/benches/${benchId}/review`} label="Leave a Review"/>
-        <ProtectedRoute path="/benches/:benchId/review" component={ReviewFormContainer}/>
+        <ReviewLink
+          component={ReviewFormContainer}
+          to={`/benches/${benchId}/review`}
+          label="Leave a Review"
+        />
+        <ProtectedRoute
+          path="/benches/:benchId/review"
+          component={ReviewFormContainer}
+        />
       </div>
     </div>
   );

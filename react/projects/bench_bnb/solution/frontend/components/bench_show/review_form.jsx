@@ -4,14 +4,17 @@ import { withRouter } from 'react-router-dom';
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rating: 5, body: "" };
-
+    this.state = {
+      rating: 5,
+      body: ''
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToBenchShow = this.navigateToBenchShow.bind(this);
   }
 
   navigateToBenchShow() {
-    this.props.history.push(`/benches/${this.props.match.params.benchId}`);
+    const url = `/benches/${this.props.match.params.benchId}`
+    this.props.history.push(url);
   }
 
   handleSubmit(e) {
@@ -29,27 +32,31 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-     return (
+    return (
       <div className="review-form">
-        <form onSubmit={ this.handleSubmit }>
+        <form onSubmit={this.handleSubmit}>
           <label>Rating</label>
           <br/>
-          <input type="number"
-            value={ this.state.rating }
-            onChange={ this.update("rating") }/>
+          <input
+            type="number"
+            value={this.state.rating}
+            onChange={this.update("rating")}
+          />
           <br/>
 
           <label>Comment</label>
           <br/>
+
           <textarea
-            cols='30'
-            rows='10'
-            value={ this.state.body }
-            onChange={ this.update("body") }></textarea>
+            cols="30"
+            rows="10"
+            value={this.state.body}
+            onChange={this.update("body")}
+          />
           <br/>
-          <input type="submit"/>
+          <input type="submit" />
         </form>
-        <button onClick={ this.navigateToBenchShow }>Cancel</button>
+        <button onClick={this.navigateToBenchShow}>Cancel</button>
       </div>
     );
  }
