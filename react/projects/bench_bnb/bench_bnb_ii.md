@@ -256,7 +256,7 @@ path `"/"`. To do so, we'll use the [`exact`][exact-docs] prop.
 [exact-docs]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/Route.md#exact-bool
 
 ```javascript
-const App = ({ store }) => (
+const App = () => (
   <div>
     <header>
       <h1>Bench BnB</h1>

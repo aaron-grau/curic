@@ -362,7 +362,7 @@ import App from './App';
 const Root = ({ store }) => (
   <Provider store={ store }>
     <HashRouter>
-      <App store={store}/>
+      <App/>
     </HashRouter>
   </Provider>
 );
@@ -513,7 +513,7 @@ Now it's time to create routes for logging in and signing up.
 
 Your `App` should now look a lot like this:
 ```js
-const App = ({ store }) => (    
+const App = () => (    
   <div>
     <header>
       <h1>Bench BnB</h1>
