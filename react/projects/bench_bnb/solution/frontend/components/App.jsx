@@ -9,7 +9,7 @@ import BenchFormContainer from './bench_form/bench_form_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-const App = ({store}) => {
+const App = () => {
 
   return (
     <div>
