@@ -81,7 +81,7 @@ Notes repo! (15 min, SF only)
 
 ## w7d1
 
-### Readings (105 min)
+### Readings (140 min)
 - [Lodash][lodash] (5 min)
 - [Flux and Redux Intro][flux_redux] (10 min)
 - [Store][store] (20 min)
@@ -104,7 +104,7 @@ Notes repo! (15 min, SF only)
 [selectors]: readings/selectors.md
 [react-nontech]: readings/react_nontech.md
 
-### Fruit Stand App Demo (75 min)
+### Fruit Stand App Demo (120 min)
 + Phase I - Redux only (15 min)
   + [Live demo][fruit-stand-01-live]
   + :computer: [Source code][fruit-stand-01-source]
@@ -138,7 +138,7 @@ Notes repo! (15 min, SF only)
 
 ## w7d2
 
-### Readings (55 min)
+### Readings (60 min)
 - [Higher-order Functions][higher_order_functions] (15 min)
 - [Middleware][middleware] (15 min)
 - [Thunks][thunks] (15 min)
@@ -236,7 +236,7 @@ proposal][tentative-proposal] (10 min)
 ### Assessment06 Practice
 * [Practice][assessment-prep-6]
 
-### Video Lectures (25 min)
+### Video Lectures (44 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Intro to UI/UX][uiux-intro] (4 min)
 * :movie_camera: [Intro to UX for Web][uiux-web] (6 min)
