@@ -1,24 +1,27 @@
-import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+import {
+  receiveCurrentUser,
+  receiveErrors
+} from '../actions/session_actions';
 
-export const login = (user) => {
-  return $.ajax({
+export const login = user => (
+  $.ajax({
     method: 'POST',
     url: '/api/session',
     data: user
-  });
-};
+  })
+);
 
-export const signup = (user) => {
-  return $.ajax({
+export const signup = user => (
+  $.ajax({
     method: 'POST',
     url: '/api/user',
     data: user
-  });
-};
+  })
+);
 
-export const logout = () => {
-  return $.ajax({
-    method: 'delete',
+export const logout = () => (
+  $.ajax({
+    method: 'DELETE',
     url: '/api/session'
-  });
-};
+  })
+);
