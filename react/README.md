@@ -233,9 +233,6 @@ proposal][tentative-proposal] (10 min)
 
 ## w7d5
 
-### Assessment06 Practice
-* [Practice][assessment-prep-6]
-
 ### Video Lectures (44 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Intro to UI/UX][uiux-intro] (4 min)
@@ -322,5 +319,5 @@ additional information and readings related to full-stack projects.
 ## w8d2
 
 ### Homework
-* Begin work on FSPs
+* Begin work on projects
 
