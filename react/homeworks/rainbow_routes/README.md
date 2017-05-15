@@ -9,11 +9,9 @@ colors are nested within others.
 
 Download the [zip file][zip-skeleton] of the skeleton. Poke around to
 get familiar with the setup; it should look pretty familiar. Run `npm
-install` to get it setup. Then run `npm start`. For information on the
-`webpack-dev-server` configuration, refer to the [webpack-dev-server
-reading](../../readings/webpack_dev_server.md).
+install` to get it setup. Then run `npm start` to start `webpack --watch`.
 
-Navigate to `http://localhost:8080` in your browser and verify you can
+Open `index.html` in your browser and verify you can
 see the "Rainbow Router" header.  Currently there is no functionality.
 Let's fix that!
 
@@ -54,7 +52,7 @@ example, to render the `Red` component you will want
 Test that your code works!  Manually type in each URL we just created,
 and you should see the color component pop up.  Remember, these are
 React Routes, so the paths we created will come after the `#`.  For
-example, our red route will look like `localhost:8080/#/red`.
+example, our red route will look like `<some-local-path>/skeleton/index.html/#/red`.
 
 We want to nest the `Orange` and `Yellow` components inside the `Red`
 component, and the `Indigo` component inside the `Blue` component.
