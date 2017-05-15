@@ -17,8 +17,8 @@ pattern again tomorrow in a more sophisticated way.
 
 + Download the provided [skeleton](../../projects/todos/solution_1.zip?raw=true).
 + Install the node packages with `npm install`
-+ Run `npm start` to start up `webpack-dev-server`
-+ Visit http://localhost:8080
++ Run `npm start` to start up `webpack --watch`
++ Open `index.html` in your browser
 
 **Test the skeleton**: Does it work?
 

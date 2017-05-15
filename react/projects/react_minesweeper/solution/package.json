@@ -5,7 +5,7 @@
   "main": "application.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline"
+    "start": "webpack --watch"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,6 @@
     "babel-preset-react": "^6.5.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
-    "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2"
+    "webpack": "^2.3.3"
   }
 }
