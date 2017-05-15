@@ -27,7 +27,7 @@
 
 ### Projects
 
-+ **Solo** [SQL Zoo][sqlzoo-readme]
++ [SQL Zoo][sqlzoo-readme] (**SF Only - Solo**) 
 
 ### Project Solutions
 
