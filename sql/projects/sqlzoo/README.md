@@ -54,6 +54,8 @@ bundle exec rspec spec/01_select_basics_spec.rb:42
 If you need to run sample queries, you can do so in pry or by adding method
 calls to the bottom of your `lib/` files and then running them.
 
+Please note: Do NOT attempt any of the problems in the bonus files until you have completed the problems in ALL of the regular files.
+
 ## Notes on Tables
 
 Some of the exercises involve joining tables together, and the purpose of some
