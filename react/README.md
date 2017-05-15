@@ -321,7 +321,6 @@ additional information and readings related to full-stack projects.
 
 ## w8d2
 
-### Assessment06
-+ [Practice][assessment-prep-6]
+### Homework
+* Begin work on FSPs
 
-[assessment-prep-6]:https://github.com/appacademy/assessment-prep#assessment-6
