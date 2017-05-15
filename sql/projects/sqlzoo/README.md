@@ -14,8 +14,7 @@ warned: we have made some changes, so don't let that trip you up.
 
 ## Learning Goals
 
-* Be able to write simple SQL queries using the `SELECT`, `FROM`, and `WHERE`
-clauses
+* Be able to write simple SQL queries using the `SELECT`, `FROM`, and `WHERE` clauses
 * Be able to write complicated queries using `JOIN` and subqueries
 * Be able to use `GROUP BY` with aggregate functions
 * Be able to use the various types of `JOIN`
@@ -23,8 +22,9 @@ clauses
 
 ## Getting Started
 
-[Download the skeleton.zip](skeleton.zip?raw=true). To set up the
-database, navigate to the skeleton directory and run the following code:
+Download [skeleton.zip](skeleton.zip?raw=true). To set up the database:
++ Ensure the PostgreSQL app is running on your machine (you should see an :elephant: in the menu bar)
++ Navigate to the skeleton directory and run the following:
 
 ```sh
 bundle install
