@@ -33,13 +33,8 @@ registered as dependencies in our `package.json`. Set up your
 same as it did for Widgets. Lastly, remember to source `bundle.js` into
 `index.html`.
 
-Once your files are set up, install the development server. Run `npm install
---save webpack-dev-server`. Add the following to the `"scripts"` section of your
-`package.json`: `"start": "webpack-dev-server --inline"`. Run `npm start` to see
-your project at `http://localhost:8080`.
-
-For more information on the `webpack-dev-server` configuration, refer to the
-[webpack-dev-server reading](../../readings/webpack_dev_server.md).
+Once your files are set up, add the following to the `"scripts"` section of your
+`package.json`: `"start": "webpack --watch"`. Run `npm start` and open `index.html` to see your app.
 
 ## Phase 1: Game
 
