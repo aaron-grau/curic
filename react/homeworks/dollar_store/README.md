@@ -13,11 +13,9 @@ clicking on a currency to see its conversion rates.
 ## Phase 0: Setup
 
 To get started, download the [project skeleton][currency-skeleton].  Make sure to
-run `npm install` to get all the required node modules. Set up
-[`webpack-dev-server`][dev-server] and run `npm start`. Note, there will
+run `npm install` to get all the required node modules. Run `npm start` (a handy npm script we've set up) to start `webpack --watch`. Note, there will
  be webpack errors but we'll work on fixing those right now.
 
-[dev-server]: ../../readings/webpack_dev_server.md
 [currency-skeleton]: ./skeleton.zip?raw=true
 
 Poke around the components in the `frontend/components` folder and get
