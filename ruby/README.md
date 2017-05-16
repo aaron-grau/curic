@@ -80,7 +80,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-intro-exercise]: ../html-css/micro-projects/introduction/
+[html-intro-exercise]: ../html-css/micro-projects/html-introduction/
 [memory-project]: projects/memory
 [sudoku-project]: projects/sudoku
 
