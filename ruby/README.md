@@ -220,7 +220,7 @@
 + [Knight's Travails][knights-travails]
 + [Tic-Tac-Toe AI][tic-tac-toe-ai]
 
-[html-head-exercise]: ../html-css/micro-projects/head_section/
+[html-head-exercise]: ../html-css/micro-projects/html-head_section/
 [poly-tree-node]: projects/poly_tree_node
 [knights-travails]: projects/knights_travails
 [tic-tac-toe-ai]: projects/tic_tac_toe_ai
