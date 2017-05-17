@@ -125,7 +125,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-containers-exercise]: ../html-css/micro-projects/containers/
+[html-containers-exercise]: ../html-css/micro-projects/html-containers/
 [recursion-project]: projects/recursion
 [word-chains]:  projects/word_chains
 [bonus-recursion-practice]: https://github.com/appacademy/recursion_exercises
