@@ -1,6 +1,6 @@
 ### HTML Head Section Exercise
 
-Take the [yesterday's solution][prev-solution] from HTML Forms Exercise and add elements to the `head` section:
+Take [yesterday's solution][prev-solution] from HTML Forms Exercise and add elements to the `head` section:
 
 1. Add a `title` tag to the head section of your recipe
 2. Add a `meta` description to your page. Keep in mind user search keywords.
@@ -10,7 +10,7 @@ Take the [yesterday's solution][prev-solution] from HTML Forms Exercise and add 
 6. Download the [following script][external-javascript-example] and add it as an external JavaScript file to your page
 7. Download the [following stylesheet][reset] and add it to your page with a `link` tag.
 
-The stylesheet file that we added is called a CSS reset. It is used to start us off with a clean slate in regards to the look and layout of our page. We will go over this in more detail during the next part of the curriculum.
+The stylesheet file that we added is called a CSS reset. It is used to start us off with a clean slate in regards to the look and layout of our page. We will go over this in more detail in the CSS curriculum.
 
 The JavaScript file that we added uses some fun document manipulation to provide functionality to our form. Go ahead and test it out by making a review of your recipe.
 

@@ -2,7 +2,7 @@
 
 **N.B.** Remember that forms make a request upon submission to the provided action URI. Since we don't have a server to handle the request, our form won't really do anything on submission. Still, this exercise will help practice coding the structure of our form element.
 
-Take the [yesterday's solution][prev-solution] from HTML Containers Exercise and add create a review form:
+Take [yesterday's solution][prev-solution] from HTML Containers Exercise and add a review form:
 
 1. Make a `section` element before your footer and after the directions section
 2. Create a `form` element in the section that makes a post request to "/reviews"
