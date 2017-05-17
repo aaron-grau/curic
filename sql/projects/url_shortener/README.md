@@ -31,7 +31,7 @@ and then type the file name to quickly find the files you are looking for.**
 * Be able to write associations
 * Understand the purpose of adding an index to columns in our database
 
-## Phase I: Setup
+## Phase 0: Setup
 
 Go ahead and create a new Rails project...
 
@@ -47,7 +47,7 @@ $ bundle exec rake db:create
 You now have a working Rails app with database! We can now run migrations to
 add tables to our database.
 
-## Phase II: Users
+## Phase I: Users
 
 ### Overview
 
@@ -158,13 +158,10 @@ this code as the `short_url` in our table. Now, we can search for this record
 by the `short_url` and we get the `long_url`.
 
 We will be generating a random string with
-`SecureRandom::urlsafe_base64`. In [Base64 encoding][wiki-base64],
-each character of the string is chosen from one of 64 possible
-letters. That means there are `64**16` possible base64 strings of
-length 16.
+`SecureRandom::urlsafe_base64`. In [Base64 encoding][wiki-base64], a random number with a given byte-length is generated and returned as a string.
 
 Write a method, `ShortenedUrl::random_code` that uses
-`SecureRandom::urlsafe_base64` to generate a 16 letter random code.
+`SecureRandom::urlsafe_base64` to generate a random 16-byte string (**NOTE: 16-bytes != 16 characters**).
 Handle the vanishingly small possibility that a code has already been
 taken: keep generating codes until we find one that isn't the same as one
 already stored as the `short_url` of any record in our table. Return the
@@ -183,7 +180,7 @@ and `User`.
 
 At this point you should have a `shortened_urls` table and a `ShortenedUrl`
 model. The factory method you wrote that creates a shortened url and persists
-it to the database should use the `SecureRandom::random_code` method to provide
+it to the database should use the `ShortenedUrl::random_code` method to provide
 a unique `short_url`. Make sure that each `ShortenedUrl` has a unique 16
 letter `short_url` code.
 
