@@ -138,21 +138,21 @@ and presence validations on the model level as well.
 Once you have your migration and model written how you would like, make sure to
 run your migrations and test out ShortenedUrl in the Rails console.
 
-#### But Why No `LongUrl` Model?
-We **could** factor out the `long_url` to its own model, `LongUrl`,
-and store in `ShortenedUrl` a foreign key to a `LongUrl`. If the URLs
-are super long this would reduce data usage by allowing multiple `ShortUrl` records to reference a single `LongUrl`, removing duplication of the long url string.
+>#### :bulb: Aside: But Why No `LongUrl` Model?
+>We **could** factor out the `long_url` to its own model, `LongUrl`,
+>and store in `ShortenedUrl` a foreign key to a `LongUrl`. If the URLs
+>are super long this would reduce data usage by allowing multiple `ShortUrl` records to reference a single `LongUrl`, removing duplication of the long url string.
+>
+>On the other hand, factoring it out into its own table 
+>forces two steps of lookup to resolve a short URL:
+>
+>1. Find the `ShortenedUrl` record by matching `short_url`
+>2. Find the associated `LongUrl` record by matching to `long_url_id` to a `LongUrl` primary key, `id`
+>
+>**NB: ActiveRecord will still execute a single query, but SQL will be doing a bit more work under the hood**
 
-On the other hand, factoring it out into its own table 
-forces two steps of lookup to resolve a short URL:
-
-1. Find the `ShortenedUrl` record by matching `short_url`
-2. Find the associated `LongUrl` record by matching to `long_url_id` to a `LongUrl` primary key, `id`
-
-**NB: ActiveRecord will still execute a single query, but SQL will be doing a bit more work under the hood**
-
-For this reason, we can expect better _performance_ by storing the long
-url in the `shortened_urls` table. Ultimately, for our implementation we have chosen to prefer performance over reducing our database size.
+>For this reason, we can expect better _performance_ by storing the long
+>url in the `shortened_urls` table. Ultimately, for our implementation we have chosen to prefer performance over reducing our database size.
 
 Now it's time for us to actually shorten a URL for the users. We do this by
 generating a random, easy to remember, 16 character random code and storing
