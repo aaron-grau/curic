@@ -1,6 +1,6 @@
 ## HTML Semantic Containers Exercise
 
-Take the [prev-solution][html-introduction] from HTML Introduction Exercise and add some more semantic structure:
+Take the [yesterday's solution][prev-solution] from HTML Introduction Exercise and add some more semantic structure:
 
 1. Create a `header` section at the top
 2. Add an `img` of the app-academy logo within the header section
@@ -15,8 +15,7 @@ Take the [prev-solution][html-introduction] from HTML Introduction Exercise and 
 11. Add a `footer` element at the bottom
 12. Add a `p` element in the footer with some text/link about where the recipe originated from
 
-After coding your recipe page, compare your html to [this
-example][solution].
+After coding your recipe page, compare your html to [this example][solution].
 
 [solution]: ./solution.html
 [prev-solution]: ../html-introduction/solution.html?raw=true

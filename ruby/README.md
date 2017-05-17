@@ -188,7 +188,7 @@
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
-[html-forms-exercise]: ../html-css/micro-projects/forms/
+[html-forms-exercise]: ../html-css/micro-projects/html-forms/
 [screwedoku]: projects/screwdoku
 [minesweeper]: projects/minesweeper
 
