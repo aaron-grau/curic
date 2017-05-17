@@ -125,8 +125,8 @@ in `ShortenedUrl` should we add indices? Which index should be unique?
 Store both the `long_url` and `short_url` as string columns. Also store the id
 of the user who submitted the url.
 
-**NB:** `ShortenedUrl` is a model, `shortened_urls` is the table it's
-connected to, and `short_url` is the string column in the
+**NB:** `ShortenedUrl` is a model, `shortened_urls` is the table it
+_models_ to, and `short_url` is the string column in the
 `shortened_urls` table that contains the actual shortened url string.
 Confusing, I know, but this illustrates why good naming is so important.
 One bad name confuses every poor dev who tries to maintain the code
@@ -138,19 +138,21 @@ and presence validations on the model level as well.
 Once you have your migration and model written how you would like, make sure to
 run your migrations and test out ShortenedUrl in the Rails console.
 
+#### But Why No `LongUrl` Model?
 We **could** factor out the `long_url` to its own model, `LongUrl`,
-and store in the `ShortenedUrl` a key to the `LongUrl`. If the URLs
-are super long this would reduce memory usage by not repeating the
-long url in every shortened url. On the other hand, the long url is
-already an ID (in the sense that all URLs are identifiers for web pages), so
-it's not improper to duplicate, plus factoring it out into its own table will
-force two steps of lookup to resolve a short URL:
+and store in `ShortenedUrl` a foreign key to a `LongUrl`. If the URLs
+are super long this would reduce data usage by allowing multiple `ShortUrl` records to reference a single `LongUrl`, removing duplication of the long url string.
 
-0. Find the `ShortenedUrl` model
-0. Find the associated `LongUrl`.
+On the other hand, factoring it out into its own table 
+forces two steps of lookup to resolve a short URL:
 
-For this reason, we can expect better performance by storing the long
-url in the `shortened_urls` table.
+1. Find the `ShortenedUrl` record by matching `short_url`
+2. Find the associated `LongUrl` record by matching to `long_url_id` to a `LongUrl` primary key, `id`
+
+**NB: ActiveRecord will still execute a single query, but SQL will be doing a bit more work under the hood**
+
+For this reason, we can expect better _performance_ by storing the long
+url in the `shortened_urls` table. Ultimately, for our implementation we have chosen to prefer performance over reducing our database size.
 
 Now it's time for us to actually shorten a URL for the users. We do this by
 generating a random, easy to remember, 16 character random code and storing
