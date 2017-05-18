@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
 	belongs_to :director,
-	# class_name: "Actor"
+		class_name: "Actor"
 	# shorthand for:
 	# belongs_to :director,
 	# class_name: 'Actor',
