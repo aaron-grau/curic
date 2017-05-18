@@ -26,7 +26,8 @@ Don't forget to add appropriate indices and constraints!
 * `User`
     * Record a `user_name`; make sure it is unique.
 * `Poll`
-    * Record a `title` and the poll `author`.
+    * A `Poll` belongs to an author (`User`)
+    * Record a `title`.
 * `Question`
     * A `Poll` has many `Question`s. Record the `text`.
 * `AnswerChoice`
