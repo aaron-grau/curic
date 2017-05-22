@@ -93,7 +93,7 @@
 + [CSS Display Exercise][css-display-exercise]
 + [AA Questions][aa-questions]
 
-[css-display-exercise]: ../html-css/micro-projects/display-box-model
+[css-display-exercise]: ../html-css/micro-projects/display_box_model
 [aa-questions]: projects/aa_questions
 
 ## w3d3
@@ -156,7 +156,7 @@
 + [Associations Exercise][associations-exercise]
 + [URL Shortener][url-shortener]
 
-[css-reset-exercise]: ../html-css/micro-projects/advanced-selectors/
+[css-reset-exercise]: ../html-css/micro-projects/advanced_selectors/
 [associations-exercise]: projects/associations_exercise
 [url-shortener]: projects/url_shortener
 
@@ -201,7 +201,7 @@
 + [Movie Buff][movie-buff]
 + [Polls][polls-app]
 
-[css-float-exercise]: ../html-css/micro-projects/float-fluid-flex
+[css-float-exercise]: ../html-css/micro-projects/float_fluid_flex
 [movie-buff]: projects/movie_buff
 [polls-app]: projects/polls_app
 
