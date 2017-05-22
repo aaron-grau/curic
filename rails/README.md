@@ -19,6 +19,32 @@
 
 [assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
 
+### Materials (20 min)
+* :book: [CSS Nontechnical Overview][css-nontech] (20 min)
+
+[css-nontech]: ../html-css/readings/css_nontech.md
+
+### Homeworks (150 min)
+* [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
+* [CSS Warm Up][css-warmup] (60 min)
+
+[css-6]: ../html-css/README.md#lesson-6-positioning--media-queries
+[css-warmup]: ../html-css/projects/css_warm_up
+
+### Additional Resources
+* :book: **(BONUS)** [CSS Transform property][css-transform]
+
+[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
+
+### Projects (Solo in SF)
+* [AA Times][aa-times]
+* **(BONUS)** [Google Homepage][google-homepage]
+
+[aa-times]: ../html-css/projects/aa_times
+[google-homepage]: ../html-css/projects/google_homepage
+
+## w4d2
+
 ### Materials (80 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [What is an API?][api-video] (10 min)
@@ -70,7 +96,7 @@
 [first-routes]: projects/first_routes
 [artshare-api]: projects/art_share_api
 
-## w4d2
+## w4d3
 
 ### Materials (2 hr, 3 min)
 :closed_lock_with_key: `go_video_go`
@@ -107,7 +133,7 @@
 
 [99-cats]: projects/ninety_nine_cats_i
 
-## w4d3
+## w4d4
 
 ### :clock10: Class will start at 10am! :clock10:
 * **Progress Tracker reports are still due at 9am.**
@@ -165,12 +191,12 @@
 
 [99-cats-part-ii]: projects/ninety_nine_cats_ii
 
-## w4d4
+## w4d5
 
 ### Study Hall 9 - 10am
 
 ### Assessment04 Practice
-+ [Practice][assessment-prep-4]
+* [Practice][assessment-prep-4]
 
 ### Materials (114 min)
 :closed_lock_with_key: `go_video_go`
@@ -208,7 +234,7 @@
 
 [music-app-project]: projects/music_app
 
-## w4d5
+## w5d1
 
 ### Materials (1 hr, 41 min)
 :closed_lock_with_key: `go_video_go`
@@ -255,7 +281,7 @@
 [goal-app]: projects/goal_app
 [appacademyio-tests]: projects/appacademy.io_tests
 
-## w5d1
+## w5d2
 
 ### Study Hall 9 - 10am
 
@@ -295,7 +321,7 @@
 
 [reddit-clone]: projects/reddit_on_rails
 
-## w5d2
+## w5d3
 
 ### Assessment04
 * [Practice][assessment-prep-4]

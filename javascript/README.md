@@ -2,7 +2,7 @@
 
 :link: *[w5d3](#w5d3) :: [w5d4](#w5d4) :: [w5d5](#w5d5) :: [w6d1](#w6d1) :: [w6d2](#w6d2) :: [w6d3](#w6d3) :: [w6d4](#w6d4)* :link:
 
-## w5d3
+## w5d4
 
 ### Breakfast
 * :coffee: **Bagels @ 8:30am** :coffee:
@@ -75,7 +75,7 @@ we highly encourage you to read the whole book.
 [intro-javascript-problems]: projects/intro_js_exercises
 [reversi]: projects/js_reversi
 
-## w5d4
+## w5d5
 
 ### :clock10: Class will start at 10am! :clock10:
 * **Progress Tracker reports are still due at 9am.**
@@ -130,7 +130,7 @@ we highly encourage you to read the whole book.
 [hanoi_node]: projects/hanoi_node
 [ttt_node]: projects/ttt_node
 
-## w5d5
+## w6d1
 
 ### Materials (125 min)
 :closed_lock_with_key: `go_video_go`
@@ -177,7 +177,7 @@ we highly encourage you to read the whole book.
 [inheritance-exercises]: projects/inherits_exercises
 [asteroids-project]: projects/asteroids
 
-## w6d1
+## w6d2
 
 ### Assessment05 Practice
 + In-class practice assessment at 9am. Please bring your own machine if
@@ -229,35 +229,6 @@ possible.
 [ttt-jquery]: projects/ttt_jquery
 [hanoi-jquery]: projects/hanoi_jquery
 [snake-project]: projects/snake
-
-## w6d2
-
-### :clock10: Class starts at 10am! :clock10:
-* **Progress Tracker reports are still due at 9am.**
-
-### Materials (20 min)
-* :book: [CSS Nontechnical Overview][css-nontech] (20 min)
-
-[css-nontech]: ../html-css/readings/css_nontech.md
-
-### Homeworks (150 min)
-* [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
-* [CSS Warm Up][css-warmup] (60 min)
-
-[css-6]: ../html-css/README.md#lesson-6-positioning--media-queries
-[css-warmup]: ../html-css/projects/css_warm_up
-
-### Additional Resources
-* :book: **(BONUS)** [CSS Transform property][css-transform]
-
-[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
-
-### Projects (Solo in SF)
-* [AA Times][aa-times]
-* **(BONUS)** [Google Homepage][google-homepage]
-
-[aa-times]: ../html-css/projects/aa_times
-[google-homepage]: ../html-css/projects/google_homepage
 
 ## w6d3
 
