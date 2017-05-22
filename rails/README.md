@@ -26,11 +26,11 @@
 + [:movie_camera: Basic Controller Demo][basic-controller-demo-video] (15 min)
 + [:movie_camera: RESTful Controller Demo][restful-controller-demo-video] (15 min)
 
-### Readings
-+ [Callbacks][callbacks]
-+ [Delegation][delegation]
-+ [Contextual Overview of DNS][dns_reading]
-+ [Testing Routes with Postman][postman]
+### Readings (20 min)
++ [Callbacks][callbacks] (5 min)
++ [Delegation][delegation] (5 min)
++ [Contextual Overview of DNS][dns_reading] (5 min)
++ [Testing Routes with Postman][postman] (5 min)
 
 ### Homeworks (125 min)
 * [Library Controller][library-hw] (45 min)
