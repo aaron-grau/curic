@@ -8,7 +8,7 @@
 ### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
 
-### Readings (48 min)
+### Readings (63 min)
 **Tonight only, please do the readings before watching the video
 lectures**
 - [NPM][npm_configuration] (15 min)
@@ -16,19 +16,20 @@ lectures**
 - [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 - [ES6 Syntax: Import / Export][import_export] (10 min)
 - [React Developer Tools][react_dev_tools] (3 min)
+- [Thinking in React][thinking_in_react] (15 min)
 
 [npm_configuration]: readings/npm_configuration.md
 [webpack_configuration]: readings/webpack_configuration.md
 [import_export]: readings/import_export.md
 [object_destructuring]: readings/object_destructuring.md
 [react_dev_tools]: readings/react_dev_tools.md
+[thinking_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 
 ### Video Lectures (68 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [React: Intro][react-intro] (27 min)
 * :movie_camera: [React: Transpilation][react-transpilation] (8 min)
-* :movie_camera: [React: Functional Components][react-func-comps] (22
-min)
+* :movie_camera: [React: Functional Components][react-func-comps] (22 min)
 * :movie_camera: [React: Lifecycle Methods][react-lifecycle] (11 min)
   * :computer: [code from click counter demo][click-demo]
 
@@ -40,8 +41,7 @@ min)
 ### Homeworks (75 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (45 min)
-- Add your questions and answers from pairboarding today to your Study
-Notes repo! (15 min, SF only)
+- Add your questions and answers from pairboarding today to your Study Notes repo! (15 min, SF only)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/calculator
@@ -237,14 +237,11 @@ proposal][tentative-proposal] (10 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera: [Intro to UI/UX][uiux-intro] (4 min)
 * :movie_camera: [Intro to UX for Web][uiux-web] (6 min)
-* :movie_camera: [UI Affordances and Signifiers][uiux-affordances] (4
-min)
+* :movie_camera: [UI Affordances and Signifiers][uiux-affordances] (4 min)
 * :movie_camera: [Designing to Look Good][uiux-look-good] (11 min)
 * :movie_camera: [Frontend Auth: Intro][frontend_auth_1] (2 min)
-* :movie_camera: [Frontend Auth: API Authentication][frontend_auth_2] (3
-min)
-* :movie_camera: [Frontend Auth: Frontend Auth Pattern][frontend_auth_3]
-(14 min)
+* :movie_camera: [Frontend Auth: API Authentication][frontend_auth_2] (3 min)
+* :movie_camera: [Frontend Auth: Frontend Auth Pattern][frontend_auth_3] (14 min)
 
 [uiux-intro]: https://vimeo.com/album/4453315/video/206661754
 [uiux-web]: https://vimeo.com/album/4453315/video/206661769
@@ -264,10 +261,8 @@ min)
 
 ### Homeworks (60/75 min)
 * Do the auth part of [A04 Prep][a04_prep] (60 min)
-  * Front-end auth (the main concept in BenchBnB Day 1) builds on top of
-regular Rails backend auth, so make sure you build on a solid base.
-  * You'll be surprised how much of it you've forgotten by now. It's
-normal.
+  * Front-end auth (the main concept in BenchBnB Day 1) builds on top of regular Rails backend auth, so make sure you build on a solid base.
+  * You'll be surprised how much of it you've forgotten by now. It's normal.
 * **SF Only** Add your questions and answers from pairboarding to your Study Notes
 repo! (15 min)
 
@@ -291,25 +286,23 @@ repo! (15 min)
 
 **Project Proposal Review Period for Instructional Staff**
 
-### Readings (35 min)
+### Readings (25 min)
 -	[React Map Demo][react_map_demo] (15 min)
-- [Think in React][think_in_react] (20 min)
+- **(Review)** [Thinking in React][thinking_in_react] (10 min)
 
 [react_map_demo]: demos/react_map_demo
-[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
+
 
 ### Homework (5.5 hrs)
 * [UX/UI Layout Practice][uxhw] (30 min)
-* Submit your [full-stack project proposal][full_stack_project_proposal]
-(5 hrs)
+* Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
   * **Due by 9am on Monday w8d1**
 
 [full_stack_project_proposal]: ../full-stack-project/proposal/full-stack-project-proposal.md
 [uxhw]: ../full-stack-project/homeworks/ux
 
 ### Additional Resources
-* See [full-stack project curriculum][full_stack_project_curriculum] for
-additional information and readings related to full-stack projects.
+* See [full-stack project curriculum][full_stack_project_curriculum] for additional information and readings related to full-stack projects.
 
 [full_stack_project_curriculum]: ../full-stack-project
 
@@ -320,4 +313,3 @@ additional information and readings related to full-stack projects.
 
 ### Homework
 * Begin work on projects
-
