@@ -2,15 +2,15 @@ import { merge } from 'lodash';
 
 import {
   RECEIVE_ALL_POKEMON,
-  RECEIVE_NEW_POKEMON
+  RECEIVE_SINGLE_POKEMON
 } from '../actions/pokemon_actions';
 
 const PokemonReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
-      return merge({}, action.pokemon);
-    case RECEIVE_NEW_POKEMON:
+      return merge({}, state, action.pokemon);
+    case RECEIVE_SINGLE_POKEMON:
       return merge({}, state, {
         [action.pokemon.id]: action.pokemon
       });
