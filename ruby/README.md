@@ -80,7 +80,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-intro-exercise]: ../html-css/micro-projects/introduction/
+[html-intro-exercise]: ../html-css/micro-projects/html-introduction/
 [memory-project]: projects/memory
 [sudoku-project]: projects/sudoku
 
@@ -125,7 +125,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-containers-exercise]: ../html-css/micro-projects/containers/
+[html-containers-exercise]: ../html-css/micro-projects/html-containers/
 [recursion-project]: projects/recursion
 [word-chains]:  projects/word_chains
 [bonus-recursion-practice]: https://github.com/appacademy/recursion_exercises
@@ -188,7 +188,7 @@
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
-[html-forms-exercise]: ../html-css/micro-projects/forms/
+[html-forms-exercise]: ../html-css/micro-projects/html-forms/
 [screwedoku]: projects/screwdoku
 [minesweeper]: projects/minesweeper
 
@@ -220,7 +220,7 @@
 + [Knight's Travails][knights-travails]
 + [Tic-Tac-Toe AI][tic-tac-toe-ai]
 
-[html-head-exercise]: ../html-css/micro-projects/head_section/
+[html-head-exercise]: ../html-css/micro-projects/html-head_section/
 [poly-tree-node]: projects/poly_tree_node
 [knights-travails]: projects/knights_travails
 [tic-tac-toe-ai]: projects/tic_tac_toe_ai
