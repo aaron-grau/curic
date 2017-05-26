@@ -16,6 +16,6 @@ Download this [skeleton][skeleton]. Add a new external stylesheet to the assets 
 9. Give your whole recipe page a nice `background-color`
 10. Set the `line-height` to 1.5 in your css_reset file
 
-**Challenge:** Come up with a way to select and style your reviews after they are submitted. For now just some simple font-styling is fine. Make sure you have the latest [javascript file](../../assets/external_javascript_example.js) to implement the review functionality.
+**Challenge:** Come up with a way to select and style your reviews after they are submitted. For now just some simple font-styling is fine.
 
-Compare your recipe page to [this example](./example.html) and [this stylesheet](../../assets/css_syntax.css). [Live version here](http://appacademy.github.io/curriculum/css_syntax.html).
+Compare your recipe page to [this example](.solution/example.html) and [this stylesheet](./solution/assets/css_syntax.css).
