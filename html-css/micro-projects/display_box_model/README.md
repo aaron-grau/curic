@@ -1,10 +1,12 @@
 ## CSS Display & Box Model Exercise
 
-Download this [skeleton][skeleton]. Update box_model.css as follows to practice styling with different display and spacing properties.
+Download this [skeleton][skeleton]. 
 
 [skeleton]: ./skeleton.zip
 
 The purpose of this exercise is to learn the box model and the differences between the three primary display properties (block, inline, inline-block). The anchor tags from step 2 are naturally inline elements, which is why act oddly when provided padding. Spacing with margin and padding is vital to mastering CSS design. We also used the `inline-block` property to get practice positioning elements to create a desired layout.
+
+Update box_model.css as follows to practice styling with different display and spacing properties.
 
 1. Make our list elements in the nav menu into `inline-block` elements.
 2. Give the links in those list elements a padding on all sides of 20px and change their display property to correct their inherent behavior.
