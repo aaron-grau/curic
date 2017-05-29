@@ -99,5 +99,4 @@ class Array
 
     reversed
   end
-
 end
