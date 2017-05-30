@@ -17,10 +17,14 @@ class PokemonDetail extends Component {
   }
 
   render() {
-    const { pokemon, loading } = this.props;
+    const { pokemon, items, loading } = this.props;
+
     if (loading) {
       return <section className="pokemon-detail"><LoadingIcon /></section>;
     }
+
+    if (!pokemon) return null;
+
     return (
       <section className="pokemon-detail">
         <figure>
@@ -38,7 +42,7 @@ class PokemonDetail extends Component {
         <section className="toys">
           <h3>Items</h3>
           <ul className="toy-list">
-            {pokemon.items.map(item => <Item key={item.name} item={item} />)}
+            {items.map(item => <Item key={item.name} item={item} />)}
           </ul>
         </section>
 

@@ -5,14 +5,21 @@ import {
   RECEIVE_SINGLE_POKEMON
 } from '../actions/pokemon_actions';
 
-const PokemonReducer = (state = {}, action) => {
+const defaultState = () => ({
+  entities: {},
+  currentPoke: null,
+})
+
+const PokemonReducer = (state = defaultState(), action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
-      return merge({}, state, action.pokemon);
+      return merge({}, state, { entities: action.pokemon });
     case RECEIVE_SINGLE_POKEMON:
+      const poke = action.payload.pokemon;
       return merge({}, state, {
-        [action.pokemon.id]: action.pokemon
+        entities: { [poke.id]: poke },
+        currentPoke: poke.id
       });
     default:
       return state;

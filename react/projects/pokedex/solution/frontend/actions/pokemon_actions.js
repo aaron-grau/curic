@@ -41,9 +41,9 @@ export const receiveAllPokemon = pokemon => ({
   pokemon
 });
 
-export const receiveSinglePokemon = pokemon => ({
+export const receiveSinglePokemon = payload => ({
   type: RECEIVE_SINGLE_POKEMON,
-  pokemon
+  payload, 
 });
 
 export const receivePokemonErrors = errors => ({
