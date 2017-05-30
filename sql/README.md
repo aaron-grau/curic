@@ -53,7 +53,7 @@
 
 ## w3d2
 
-### Materials (82 min)
+### Materials (105 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [RDBMS Intro][rdbms-intro-video] (10 min)
 + :movie_camera: [Building a Database][build-db-video] (25 min)
@@ -62,8 +62,8 @@
 + :book: [SQLite3][sqlite3] (15 min)
 + :book: [Heredocs][heredocs] (5 min)
 + :book: [Little Bobby Tables][xkcd-bobby-tables] (2 min)
-+ :movie_camera: [CSS Display Property][css-display-video]
-+ :book: [CSS Display Property][css-display]
++ :movie_camera: [CSS Display Property][css-display-video] (8 min)
++ :book: [CSS Display Property][css-display] (15 min)
 
 [rdbms-intro-video]: https://vimeo.com/167596295
 [build-db-video]: https://vimeo.com/167593816
@@ -98,7 +98,7 @@
 
 ## w3d3
 
-### Materials (73 min)
+### Materials (93 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Starting a new Rails Project][rails-intro-video] (7 min)
 + :movie_camera: [Migrations][migrations-video] (14 min)
@@ -107,8 +107,8 @@
 + :movie_camera: [More Associations (has_many through:...)][associations-2-video] (12 min)
 + :movie_camera: [Validations][validations-video] (13 min)
 + :movie_camera: [Indices][indices-video] (7 min)
-+ :movie_camera: [CSS Inherits][css-inherits]
-+ :movie_camera: [CSS Reset][css-reset]
++ :movie_camera: [CSS Inherits][css-inherits] (4 min)
++ :movie_camera: [CSS Reset][css-reset] (16 min)
 
 [rails-intro-video]: https://vimeo.com/167799435
 [migrations-video]: https://vimeo.com/167799434
@@ -167,13 +167,13 @@
 
 [assessment-prep-3]: https://github.com/appacademy/assessment-prep#assessment-3
 
-### Materials (65 min)
+### Materials (88 min)
 + :book: [ActiveRecord::Relation][relation] (15 min)
 + :book: [ActiveRecord and Joins][ar-joins] (25 min)
 + :book: [Scopes][scopes] (10 min)
 + :book: [More on Querying][querying-ii] (15 min)
-+ :movie_camera: [CSS Float & Clearfix][css-float-video]
-+ :book: [CSS Float & Clearfix][css-float]
++ :movie_camera: [CSS Float & Clearfix][css-float-video] (18 min)
++ :book: [CSS Float & Clearfix][css-float] (5 min)
 
 [relation]: readings/relation.md
 [ar-joins]: readings/joins.md
@@ -207,14 +207,14 @@
 
 ## w3d5
 
-### Materials
-+ :book: [ Metaprogramming][metaprogramming] (20 min)
-+ :book: [ Class Instance Variables][class-instance-variables] (15 min)
-+ :book: [ Demo: send][meta-send] (5 min)
-+ :book: [ Demo: macros][meta-macros] (5 min)
-+ :book: [ Nontechnical Overview of SQL][sql-nontech] (15 min)
-+ :movie_camera: [CSS Flexbox][css-flex-video]
-+ :book: [ CSS Flexbox][css-flex]
+### Materials (88 min)
++ :book: [Metaprogramming][metaprogramming] (20 min)
++ :book: [Class Instance Variables][class-instance-variables] (15 min)
++ :book: [Demo: send][meta-send] (5 min)
++ :book: [Demo: macros][meta-macros] (5 min)
++ :book: [Nontechnical Overview of SQL][sql-nontech] (15 min)
++ :movie_camera: [CSS Flexbox][css-flex-video] (19 min)
++ :book: [CSS Display Types][css-display-types] (10 min)
 
 [metaprogramming]: readings/metaprogramming.md
 [class-instance-variables]: readings/class-instance-variables.md
@@ -222,7 +222,7 @@
 [meta-macros]: demos/macros.rb
 [sql-nontech]: readings/sql_nontech.md
 [css-flex-video]: https://vimeo.com/170512344
-[css-flex]: ../html-css/readings/display.md
+[css-display-types]: ../html-css/readings/display.md
 
 ### Homework (30 min)
 + [Metacorgis][metacorgi-hw] (30 min)

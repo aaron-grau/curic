@@ -137,7 +137,7 @@
 
 [assessment-prep-1]: https://github.com/appacademy/assessment-prep#assessment-1
 
-### Materials (79 min)
+### Materials (84 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Git: Overview and Why We Use Git][git-overview-video] (5 min)
 + :movie_camera: [Git: Mental Models][git-mental-models-video] (18 min)
@@ -148,7 +148,7 @@
 + :book: [Gems and rbenv][gems] (10 min)
 + :book: [Nontechnical Overview of Git][git-nontech] (15 min)
 + :book: [Nontechnical Overview of Agile Development][agile-nontech] (5 min)
-+ :book: [HTML Forms][html-forms]
++ :book: [HTML Forms][html-forms] (5 min)
 
 [git-overview-video]: https://vimeo.com/171666454
 [git-mental-models-video]: https://vimeo.com/171666455
@@ -194,12 +194,12 @@
 
 ## w1d5
 
-### Materials (70 min)
+### Materials (75 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Data Structures][data-structures-video] (40 min)
 + :movie_camera: [DFS][dfs-video] (15 min)
 + :book: [Intro data structures][intro-algorithms-and-data-structures] (15 min)
-+ :book: [HTML `<head>`][html-head]
++ :book: [HTML `<head>`][html-head] (5 min)
 
 [data-structures-video]: https://vimeo.com/162763729
 [dfs-video]: https://vimeo.com/162763740
@@ -272,8 +272,8 @@
 
 ### Materials (35 min)
 + :book: [Nontechnical Overview of Ruby][ruby-nontech] (15 min)
-+ :book: [CSS Intro][css-intro]
-+ :book: [CSS Workflow][css-workflow]
++ :movie_camera: [CSS Intro][css-intro] (8 min)
++ :movie_camera: [CSS Workflow][css-workflow] (12 min)
 
 [ruby-nontech]: readings/ruby_nontech.md
 [css-intro]: https://vimeo.com/album/3732382/video/151188850
@@ -295,7 +295,7 @@
 
 ## w2d3
 
-### Materials (71 min)
+### Materials (91 min)
 :closed_lock_with_key: `go_video_go`
 + :book: [RSpec Syntax][rspec-syntax] (20 min)
 + :book: [`subject` and `let`][subject-and-let] (10 min)
@@ -305,8 +305,8 @@
 + :movie_camera: [Setup and Basic Syntax][rspec-setup-syntax] (7 min)
 + :movie_camera: [Errors, Equality Matchers, Subject/Let, and Doubles][rspec-more-syntax] (8 min)
 + :movie_camera: [Code Demo][rspec-demo] (8 min)
-+ :book: [CSS Selectors & Precendence][css-selectors-precedence]
-+ :movie_camera: [CSS Syntax][css-syntax]
++ :book: [CSS Selectors & Precendence][css-selectors-precedence] (7 min)
++ :movie_camera: [CSS Syntax][css-syntax] (13 min)
 
 [rspec-syntax]: readings/rspec-syntax.md
 [subject-and-let]: readings/subject-and-let.md
@@ -354,7 +354,7 @@
 
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
-### Materials (71 min)
+### Materials (76 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Motivations for Big-O][big-O-motivations] (7 min)
 + :movie_camera: [RAM Model of Computation][big-O-ram] (5 min)
@@ -363,7 +363,7 @@
 + :movie_camera: [Common Classifications][big-O-classifications] (11 min)
 + :movie_camera: [Set Definition][big-O-set] (8 min)
 + :movie_camera: [Space Complexity][big-O-space] (12 min)
-+ :book: [CSS Advanced Selectors][css-advanced-selectors]
++ :book: [CSS Advanced Selectors][css-advanced-selectors] (5 min)
 
 [big-O-motivations]: https://vimeo.com/175565088
 [big-O-ram]: https://vimeo.com/175565090
@@ -412,7 +412,7 @@
 
 ## w2d5
 
-### Materials (3 hours, 15 min)
+### Materials (3 hours, 40 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [Set and Int Set](https://vimeo.com/159431377) (20 min)
 + :movie_camera: [Resizing Int Set Part 1](https://vimeo.com/159433039) (10 min)
@@ -426,9 +426,9 @@
 + :book: [LRU Cache][lru-cache-reading] (10 min)
 + :book: [Dynamic Array (Wikipedia)][dynamic-array-reading]  (30 min)
   + this is fairly involved, so go over it more than once
-+ :book: [XOR][xor]
-+ :movie_camera: [CSS Box Model][css-box-model-video]
-+ :book: [CSS Box Model][css-box-model]
++ :book: [XOR][xor] (3 min)
++ :movie_camera: [CSS Box Model][css-box-model-video] (17 min)
++ :book: [CSS Box Model][css-box-model] (5 min)
 
 
 [hash-map-reading]: http://www.gotealeaf.com/blog/how-the-hash-works-in-ruby
