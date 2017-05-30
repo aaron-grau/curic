@@ -249,7 +249,7 @@ Let's write a `#render(template_name)` method that will:
 We'll assume that any developers who use our framework are aware of our
 template naming convention, which is as follows:
 `"views/#{controller_name}/#{template_name}.html.erb"`. Use
-`ActiveSupport`'s `[#underscore][underscore]` (`require 'active_support/inflector'`)
+`ActiveSupport`'s [`#underscore`][underscore] (`require 'active_support/inflector'`)
 method to convert the controller's class name to snake case. We'll be
 lazy and not chop off the `_controller` bit at the end.
 
