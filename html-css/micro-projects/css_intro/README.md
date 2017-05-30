@@ -11,6 +11,6 @@ Have some fun practicing with the Chrome Developer Tools!
 7. Turn off some styles
 8. Copy and paste some styles
 9. Try to change some style property values
-10. Take a screenshot of your most creative rendition of the App Academy homepage and send it to `instructors-sf@appacademy.io`
+10. Take a screenshot of your most creative rendition of the App Academy homepage and send it to `instructors-sf@appacademy.io` for sf students, or `instructors-ny@appacademy.io` for ny students.
 
 This exercise should stress the power of the developer tools and demonstrate how we can manipulate pages within the browser to make front-end development more efficient. Have fun exploring different CSS properties before we begin formally learning CSS syntax.

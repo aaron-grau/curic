@@ -1,6 +1,8 @@
 ## CSS Advanced Selectors Exercise
 
-Using your latest HTML recipe page, update your most recent external stylesheet to practice styling more elements with advanced selectors.
+Download this [skeleton][skeleton]. Update advanced_selectors.css to practice styling more elements with advanced selectors.
+
+[skeleton]: ./skeleton.zip
 
 1. Remove the css_reset.css link and make your own css_custom_reset.css.
 2. Reset only the elements that you have on the page.
@@ -10,4 +12,4 @@ Using your latest HTML recipe page, update your most recent external stylesheet 
 6. Use the `+` operator to select the first review preceding the Reviews header element and give it a 1px, solid, black, top border.
 7. Style the radio buttons with stars! Use the `stars.png` file in the assets folder.
 
-Compare your recipe page to [this example](./example.html) and [this stylesheet](../../assets/advanced_selectors.css). [Live version here](http://appacademy.github.io/curriculum/advanced_selectors.html).
+Compare your recipe page to [this example](./solution/example.html) and [this stylesheet](./solution/assets/advanced_selectors.css).
