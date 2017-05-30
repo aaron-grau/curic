@@ -18,4 +18,4 @@ Download this [skeleton][skeleton]. Add a new external stylesheet to the assets 
 
 **Challenge:** Come up with a way to select and style your reviews after they are submitted. For now just some simple font-styling is fine.
 
-Compare your recipe page to [this example](.solution/example.html) and [this stylesheet](./solution/assets/css_syntax.css).
+Compare your recipe page to [this example](./solution/example.html) and [this stylesheet](./solution/assets/css_syntax.css).
