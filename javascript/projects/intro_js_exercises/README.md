@@ -1,67 +1,146 @@
-# Intro JS Exercises
+# Intro JavaScript exercises
 
 ## Learning Goals
 
-+ Be able to write the same types of functions you were able to write in Ruby
-+ Know how to pass functions as arguments to other functions and call them as callbacks
-+ Know how closures work
-+ Know how JavaScript's prototypical inheritance works
-  + Know how to monkeypatch new methods onto a class in JavaScript
+* Be able to write the same types of functions you were able to write in Ruby
+* Know how to pass functions as arguments to other functions and call them as callbacks
+* Know how closures work
+* Know how JavaScript's prototypical inheritance works
+  * Know how to monkey-patch new methods onto a class in JavaScript
 
+**NB**: Remember that in JavaScript we use `camelCase` for variable names. And don't forget your semicolons!
 
-**NB**: Remember that in JavaScript we'll use camelCase. And don't forget your semicolons!
+## Phase 0: Setup
 
-## Array exercises
+Download the [`skeleton`][skeleton] and fill in the corresponding file with each phase.
+The `index.html` file already has each of the `.js` script files included, so you need not worry about editing it.
+Simply `open index.html` and your code should be available from the Chrome Console (`CMD-ALT-i` to open).
 
-Write the following functions in JS.
+[skeleton]: ./skeleton.zip
 
-* `uniq`
-* `twoSum`
-* `transpose`
+## Phase 1: Arrays
 
-Refer to [Array exercises][array-exercises] for problem descriptions.
+### Overview
 
-[array-exercises]: exercises/array.md
+Let's take a little while to create a few (hopefully familiar) functions.
+These should give you some experience iterating over and mutating arrays.
 
-## Enumerable exercises
+### Instructions
 
-Write the following functions in JS.
+Monkey-patch the following methods to the `Array` class. Remember, we want to use `prototype` here.
 
-* `myEach`
-    * JavaScript differs from Ruby here; instead of returning the original array, `forEach` has no meaningful return value (i.e. it returns `undefined`). Like Ruby `#each`, however, `forEach` does not modify the original array in any way. Make sure your JS `myEach` mimics this behavior!
-* `myMap`
-    * It must use your `myEach` function.
-    * Use a closure.
-* `myInject`
-    * Your inject should take a function.
-    * As the exercise describes, start the accumulator variable with
-      the first value. Iterate through the rest.
-    * **It must also use your `myEach` function**.
+* `uniq` - receives an array and returns a new array containing only the unique elements of the original array
+  * the unique elements should be in the order in which they first appear
+  * should not mutate the original array
+* `twoSum` - receives an array and returns an array of position pairs where the elements sum to zero
+* `transpose` - receives a two-dimensional array representing a matrix and returns it's [transpose][transpose]
+  * should not mutate the original array
 
- Refer to [Enumerable][enumerable-exercises] and [Blocks][blocks-exercises].
+### Recap
 
-[enumerable-exercises]: exercises/enumerable.md
-[blocks-exercises]: exercises/blocks.md
+That was super fun, right?
 
-## Iteration exercises
+[transpose]: https://en.wikipedia.org/wiki/Transpose
 
-Write the following functions in JS.
+## Phase 2: Enumerable
 
-* `bubbleSort`
-    * Your version can modify the original array.
-* `substrings`
+### Overview
 
-Refer to [iteration exercises][iteration-exercises].
+JavaScript enumerates over arrays differently than Ruby; rather than taking a block, they take a _callback_ function, which is invoked for each element of the array. Take a look at the [MDN Array Documentation] if it is unclear how
 
-[iteration-exercises]: exercises/iteration.md
+### Instructions
 
-## Recursion exercises
+Write the following functions in that swell new language we've been learning. We will hold off on monkey-patching for now, so make sure to pass the array as the first argument.
 
-Do all of these [recursion exercises][recursion-exercises] in JS.
+* `myForEach(arr, callback)` - receives an array and callback function and executes the callback for each element in the array
+* `myMap(arr, callback)` - receives an array and callback function, returns a new array of the results of calling the callback function on each element of the array
+  * should use `myForEach` and a closure
+* `myReduce(arr, callback, [initialValue])` - (like Ruby's `Array#inject`) receives an array, callback function, and optional initial value, returns an accumulator by applying the callback function to each element and the result of the last invocation of the callback (or initial value if supplied)
+  * `initialValue` is optional and should default to the first element of the array if not provided
+  * examples:
+    ```js
+    // without initialValue
+    myReduce([1, 2, 3], function(acc, el) {
+      return acc + el;
+    }); // => 6
 
-[recursion-exercises]: exercises/recursion.md
+    // with initialValue
+    myReduce([1, 2, 3], function(acc, el) {
+      return acc + el;
+    }, 25); // => 31
+    ```
+  * should also use `myForEach`
 
-## Constructors and Prototypes
+### Recap
+
+Closures and callbacks are part of the foundation of JavaScript and provide us with a lot of flexibility and modularity in our code.
+Thanks to closures we can create higher order functions and "hide" private variables.
+
+## Phase 3: Iteration
+
+### Overview
+
+Let's do a few slightly more involved problems with arrays.
+These should be pretty familiar.
+
+### Instructions
+
+Write the following functions:
+
+* `bubbleSort(arr)` - receives an array, returns a sorted array by implementing [`bubble sort`][bubble sort] sorting algorithm
+* `substrings(str)` - receives a string, returns an array of all substrings
+
+### Recap
+
+These implementations should be almost identical to those we created in Ruby.
+Sadly, there is no parallel assignment in JavaScript, _but_ we do get that really cool `++` operator.
+
+[bubblesort]: https://en.wikipedia.org/wiki/Bubble_sort
+
+## Phase 4: Recursion
+
+### Overview
+
+Thought you were done with recursion, eh?
+Recursion is not only an important method of destructuring problems, but also form the basis of many of the interview questions you may be asked while job hunting.
+Let's get some more practice with recursion in JavaScript!
+
+### Instructions
+
+Write the following functions:
+
+* `range(start, end)` - receives a start and end value, returns an array from start up to end
+* `sumRec(arr)` - receives an array of numbers and recursively sums them
+* `exponent(base, exp)` - receives a base and exponent, returns the base raise to the power of the exponent (`base ^ exp`)
+  * write two versions:
+
+  ```
+  # this is math, not Ruby methods.
+
+  # version 1
+  exp(b, 0) = 1
+  exp(b, n) = b * exp(b, n - 1)
+
+  # recursion 2
+  exp(b, 0) = 1
+  exp(b, 1) = b
+  exp(b, n) = exp(b, n / 2) ** 2             [for even n]
+  exp(b, n) = b * (exp(b, (n - 1) / 2) ** 2) [for odd n]
+  ```
+
+* `fibonacci(n)` - receives an integer, `n`, and returns the first `n` Fibonacci numbers
+* `bsearch(arr, target)` - receives a sorted array, returns the index of the target or `-1` if not found
+
+>#### :bulb: Aside: Why `-1`?
+>
+>In case you are wondering, returning `-1` is a common practice when returning the index of an element that does not exist.
+>The reasoning behind this is to return the same type (`-1` is also a number) as if the element was found; that way we can still bracket into the array, but will get `undefined` back.
+>Though this was not the case with Ruby, you will likely see this in other programming languages.
+>Try this on your own if you are curious.
+
+*
+
+## Phase 5: Create a `Cat` Class
 
 * Define a `Cat` class
     * The constructor method should take a name and owner.
@@ -87,14 +166,14 @@ Do all of these [recursion exercises][recursion-exercises] in JS.
     * This exercise is more to help you understand the idea of the
       **prototype-chain** and how JS recursively searches for methods.
 
-## Prototype exercises
-
-If you haven't already, go back and redo the relevant exercises by
-defining a method on the object's prototype (i.e. define `myEach` on
-the `Array` prototype, `substrings` on the `String` prototype, etc.).
-
-## Class exercises
+## Phase 6: Students and Courses
 
 Do [Students and Courses][students-courses].
 
 [students-courses]: exercises/classes.md
+
+## Phase 7: Prototypical Monkey-patching
+
+If you haven't already, go back and redo the relevant exercises by
+defining a method on the object's prototype (i.e. define `myEach` on
+the `Array` prototype, `substrings` on the `String` prototype, etc.).
