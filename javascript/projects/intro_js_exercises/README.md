@@ -28,6 +28,7 @@ Refer to [Array exercises][array-exercises] for problem descriptions.
 Write the following functions in JS.
 
 * `myEach`
+    * JavaScript differs from Ruby here; instead of returning the original array, `forEach` has no meaningful return value (i.e. it returns `undefined`). Like Ruby `#each`, however, `forEach` does not modify the original array in any way. Make sure your JS `myEach` mimics this behavior!
 * `myMap`
     * It must use your `myEach` function.
     * Use a closure.
@@ -36,7 +37,7 @@ Write the following functions in JS.
     * As the exercise describes, start the accumulator variable with
       the first value. Iterate through the rest.
     * **It must also use your `myEach` function**.
-    
+
  Refer to [Enumerable][enumerable-exercises] and [Blocks][blocks-exercises].
 
 [enumerable-exercises]: exercises/enumerable.md
