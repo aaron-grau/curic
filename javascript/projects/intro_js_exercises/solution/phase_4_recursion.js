@@ -1,10 +1,6 @@
-"use strict";
-
 // range
 function range(start, end) {
-  // I prefer range to include the start and exclude the end. That's how
-  // computer scientists do it.
-  if (start == end) {
+  if (start === end) {
     return [];
   }
 
@@ -15,7 +11,7 @@ function range(start, end) {
 
 console.log(`range(3, 10) = ${range(3, 10)}`);
 
-// sumRec, sumIter
+// sumRec
 function sumRec(numbers) {
   if (numbers.length === 0) {
     return 0;
@@ -27,6 +23,7 @@ function sumRec(numbers) {
 
 console.log(`sumRec([1, 3, 5]) = ${sumRec([1, 3, 5])}`);
 
+// sumIter
 function sumIter(numbers) {
   let sum = 0;
 
@@ -34,63 +31,59 @@ function sumIter(numbers) {
     sum += number;
   });
 
+  // or use reduce
+  const reducedSum = numbers.reduce((acc, el) => acc + el);
+
   return sum;
+  // return reducedSum;
 }
 
 console.log(`sumIter([1, 3, 5]) = ${sumIter([1, 3, 5])}`);
 
-// expRec1, expRec2
-function expRec1(base, exponent) {
-  return exponent === 0 ? 1 : (base * expRec1(base, exponent - 1));
+// exp1, exp2
+function exp1(base, exponent) {
+  return exponent === 0 ? 1 : (base * exp1(base, exponent - 1));
 }
 
-console.log(`expRec1(2, 4) = ${expRec1(2, 4)}`);
+console.log(`exp1(2, 4) = ${exp1(2, 4)}`);
 
-function expRec2(base, exponent) {
+function exp2(base, exponent) {
   if (exponent === 0) {
     return 1;
   }
 
   if (exponent % 2 === 0) {
-    let subAnswer = expRec2(base, exponent / 2);
+    let subAnswer = exp2(base, exponent / 2);
     return subAnswer * subAnswer;
   } else {
-    let subAnswer = expRec2(base, ((exponent - 1) / 2));
+    let subAnswer = exp2(base, ((exponent - 1) / 2));
     return subAnswer * subAnswer * base;
   }
 }
 
-console.log(`expRec2(2, 4) =  ${expRec2(2, 4)}`);
-console.log(`expRec2(2, 5) =  ${expRec2(2, 5)}`);
+console.log(`exp2(2, 4) =  ${exp2(2, 4)}`);
+console.log(`exp2(2, 5) =  ${exp2(2, 5)}`);
 
 // fibsRec, fibsIter
 function fibsRec(n) {
-  if (n === 0) {
-    return [];
-  } else if (n === 1) {
-    return [0];
-  } else if (n === 2) {
-    return [0, 1];
-  } else {
-    let fibs = fibsRec(n - 1);
-    fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
-
-    return fibs;
+  if (n < 3) {
+    return [0, 1].slice(0, n);
   }
+  
+  let fibs = fibsRec(n - 1);
+  fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
+
+  return fibs;
 }
 
 console.log(`fibsRec(5) = ${fibsRec(5)}`);
 
 function fibsIter(n) {
-  if (n === 0) {
-    return [];
-  } else if (n === 1) {
-    return [0];
-  } else if (n === 2) {
-    return [0, 1];
+  let fibs = [0, 1];
+  if (n < 3) {
+    return fibs.slice(0, n);
   }
 
-  let fibs = [0, 1];
   while (fibs.length < n) {
     fibs.push(fibs[fibs.length - 2] + fibs[fibs.length - 1]);
   }
@@ -108,6 +101,7 @@ function bsearch(numbers, target) {
 
   const probeIdx = Math.floor(numbers.length / 2);
   const probe = numbers[probeIdx];
+
   if (target === probe) {
     return probeIdx;
   } else if (target < probe) {
@@ -115,59 +109,14 @@ function bsearch(numbers, target) {
     return bsearch(left, target);
   } else {
     const right = numbers.slice(probeIdx + 1);
-    const subproblem = bsearch(right, target);
+    const subProblem = bsearch(right, target);
 
-    return subproblem === -1 ? -1 : subproblem + (probeIdx + 1);
+    return subProblem === -1 ? -1 : subProblem + (probeIdx + 1);
   }
 }
 
 console.log(`bsearch([1, 2, 3], 3) = ${bsearch([1, 2, 3], 3)}`);
 console.log(`bsearch([1, 2, 3], 2.5) = ${bsearch([1, 2, 3], 2.5)}`);
-
-// makeChange
-function makeChange(target, coins) {
-  if (target === 0) {
-    return [];
-  }
-
-  if (coins.every(el => el > target)) {
-    return null;
-  }
-
-  let bestChange = null;
-
-  function reverseSorter(a, b) {
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    } else {
-      return 0;
-    }
-  }
-
-  coins.sort(reverseSorter).forEach((coin, index) => {
-    if (coin > target) {
-      return;
-    }
-
-    let remainder = target - coin;
-    // remember the optimization where we don't try to use high coins
-    // if we're already using a low one?
-    let restChange = makeChange(remainder, coins.slice(index));
-
-    if (!restChange) {
-      return;
-    }
-
-    let change = [coin].concat(restChange);
-    if (!bestChange || (change.length < bestChange.length)) {
-      bestChange = change;
-    }
-  });
-
-  return bestChange;
-}
 
 // merge, mergeSort
 function merge(left, right) {
@@ -202,12 +151,13 @@ function subsets(array) {
     return [[]];
   }
 
-  const firstElement = array[0];
-  const subSubsets = subsets(array.slice(1));
+  const first = array[0];
+  const withoutFirst = subsets(array.slice(1));
+  // remember, we don't want to mutate the subsets without the first element
+  // hence, the 'concat'
+  const withFirst = withoutFirst.map(sub => [first].concat(sub) );
 
-  const newSubsets = subSubsets.map(subSubset => [firstElement].concat(subSubset) );
-
-  return subSubsets.concat(newSubsets);
+  return withoutFirst.concat(withFirst);
 }
 
 console.log(`subsets([1, 3, 5]) = ${JSON.stringify(subsets([1, 3, 5]))}`);
