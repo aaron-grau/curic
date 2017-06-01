@@ -39,7 +39,7 @@ Array.prototype.myMap = function (func) {
 console.log(NUMS.myMap( num => num * num ));
 
 // myInject
-function myInject(arr, func, initialValue) {
+function myReduce(arr, func, initialValue) {
    
   if (!initialValue) {
     initialValue = arr[0];
@@ -54,7 +54,7 @@ function myInject(arr, func, initialValue) {
 }
 
 // Array.prototype.myInject
-Array.prototype.myInject = function (func, initialValue) {
+Array.prototype.myReduce = function (func, initialValue) {
 
   let arr = this;
 
@@ -70,4 +70,4 @@ Array.prototype.myInject = function (func, initialValue) {
   return result;
 };
 
-console.log(NUMS.myInject( (total, item) => total + item ));
+console.log(NUMS.myReduce( (total, item) => total + item ));
