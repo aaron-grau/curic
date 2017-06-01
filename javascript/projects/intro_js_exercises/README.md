@@ -102,6 +102,7 @@ Sadly, there is no parallel assignment in JavaScript, _but_ we do get that reall
 ### Overview
 
 Thought you were done with recursion, eh?
+Never!
 Recursion is not only an important method of destructuring problems, but also form the basis of many of the interview questions you may be asked while job hunting.
 Let's get some more practice with recursion in JavaScript!
 
@@ -138,42 +139,80 @@ Write the following functions:
 >Though this was not the case with Ruby, you will likely see this in other programming languages.
 >Try this on your own if you are curious.
 
-*
+* `mergesort(arr)` - recieves an array, returns a sorted copy of the array by implementing [`merge sort`][merge sort] sorting algorithm
+* `subsets(arr)` - receives an array, returns an array containing all the subsets of the original array
+
+### Recap
+
+As you may have noticed, recursion works much the same in JavaScript as in Ruby. Yay!
 
 ## Phase 5: Create a `Cat` Class
 
+### Overview
+
+ES5 class syntax is very different from Ruby. Here we will be creating a `Cat` class via a constructor function and adding instance variables by building out `Cat.prototype`. This syntax may seem very strange, but it fit quite nicely into the "Everything is an object" model.
+
+### Instructions
+
 * Define a `Cat` class
-    * The constructor method should take a name and owner.
-    * It should save these in attributes of the object.
-    * Write a `Cat.prototype.cuteStatement` method that returns "[owner] loves
-      [name]".
-    * `cuteStatement` method should be defined on the prototype.
+  * The constructor function should take a name and owner and store them in the instance
+* Write `Cat.prototype.cuteStatement` method that returns `"[owner] loves [name]"`
+  * `cuteStatement` should be defined on the prototype
 * Prototypes example:
-    * Create several `Cat`s, test out their `cuteStatement` method.
-    * Reassign the `Cat.prototype.cuteStatement` method with a function
-      that returns "Everyone loves [name]!"
-    * Run the `cuteStatement` method on your old cats; the new method should
-      be invoked.
-* Add a `meow` method to the `Cat` prototype. You can now call
-  `meow` on your previously constructed `Cat`s.
+  * Create several `Cat` instances, test out their `cuteStatement` method
+  * Reassign the `Cat.prototype.cuteStatement` method with a function that returns `"Everyone loves [name]!"`
+  * Invoke the `cuteStatement` method on your old cats; the new method should be invoked
+* Add a `meow` method to the `Cat` class
+You can now call `meow` on your previously constructed `Cat` instances
 * Take one of your cats and set the `meow` property **on the instance**
-  (`cat1.meow = function () { ... }`. Call `meow` on this `Cat`
-  instance; call `meow` on any other cat. The other cats should
-  continue to use the original method.
-    * Note that it is pretty unusual to add a method directly to an
-      instance like this; normally we would add methods to the
-      prototype.
-    * This exercise is more to help you understand the idea of the
-      **prototype-chain** and how JS recursively searches for methods.
+  (`cat1.meow = function () { ... }`. Call `meow` on this `Cat` instance; call `meow` on any other cat.
+  The other cats should continue to use the `prototype` method.
+
+### Recap
+
+We have used the `new` keyword and added methods to the prototype.
+We have explored how classes instances are really just objects that are able to behave like a class by maintaining a reference to their prototype.
+Note that it is unusual to add a method directly to an instance, but is important to note that methods defined on the instance override those defined on the prototype.
 
 ## Phase 6: Students and Courses
 
-Do [Students and Courses][students-courses].
+### Overview
+Here's our [reading][oo-js] Object-Oriented Programming in JS. Use it for reference as you work on this exercise!
 
-[students-courses]: exercises/classes.md
+### Instructions
+
+Write classes to model `Student` and `Course`:
+
+#### `Student` class
+
+* `Student` - a constructor function which should take a first and last name, and set both of those as attributes.
+It should also set a courses attribute to an empty array.
+* `Student.prototype.name` - returns the concatenation of the student's
+  first and last name
+* `Student.prototype.enroll` - receives `Course` object, adds it to the
+  student's list of courses, and updates the `Course`'s list of
+  enrolled students
+    * `enroll` should ignore attempts to re-enroll a student
+* `Student.prototype.courseLoad` - returns a hash of departments to number of credits the student is taking in that department
+
+#### `Course` class
+
+* `Course`, a constructor function which should take the course name, department, and number of credits.
+It should also set a `students` attribute to an empty array.
+* `Course.prototype.addStudent` should add a student to the class
+  * Probably can rely upon `Student.prototype.enroll`
+
+### Overlapping Courses
+
+* Each course should also take a set of days of the week (`'mon'`, `'tue'`, ...), plus a time block (assume each day is broken into 8 consecutive time blocks).
+So a course could meet `['mon', 'wed', 'fri']` during block #1.
+  * Update your constructor function to also take a time block and days of the week
+* Write a method `Course.prototype.conflictsWith` which takes a second `Course` and returns true if they conflict
+* Update `Student.prototype.enroll` so that you raise an error if a `Student` enrolls in a new course that conflicts with an existing course time
+  * May want to write a `Student.prototype.hasConflict` method to help.
+
+[oo-js]: ../../readings/object-oriented-js.md
 
 ## Phase 7: Prototypical Monkey-patching
 
-If you haven't already, go back and redo the relevant exercises by
-defining a method on the object's prototype (i.e. define `myEach` on
-the `Array` prototype, `substrings` on the `String` prototype, etc.).
+Go back and redo the relevant exercises by defining a method on the object's prototype (i.e. define `myEach` on the `Array` prototype, `substrings` on the `String` prototype, etc.).
