@@ -5,7 +5,7 @@ Download this [skeleton][skeleton]. Update advanced_selectors.css to practice st
 [skeleton]: ./skeleton.zip
 
 1. Remove the css_reset.css link and make your own css_custom_reset.css.
-2. Reset only the elements that you have on the page.
+2. Reset only the elements that we have on the page.
 3. Set the `cursor:pointer` and `outline:none` properties for all radio buttons, select elements, and submit buttons.
 4. Style the `background-color` of the submit button gold using the `last-child` selector and give it a darkening hover effect.
 5. Color every other list element in the directions list with a light-grey background.
