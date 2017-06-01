@@ -1,4 +1,4 @@
-# Intro JavaScript exercises
+# Intro JavaScript Exercises
 
 ## Learning Goals
 
@@ -146,7 +146,11 @@ Write the following functions:
 
 As you may have noticed, recursion works much the same in JavaScript as in Ruby. Yay!
 
-## Phase 5: Create a `Cat` Class
+## Phase 5: Prototypical Monkey-patching
+
+Go back and redo the relevant exercises by defining a method on the object's prototype (i.e. define `myEach` on the `Array` prototype, `substrings` on the `String` prototype, etc.).
+
+## Phase 6: Create a `Cat` Class
 
 ### Overview
 
@@ -174,14 +178,15 @@ We have used the `new` keyword and added methods to the prototype.
 We have explored how classes instances are really just objects that are able to behave like a class by maintaining a reference to their prototype.
 Note that it is unusual to add a method directly to an instance, but is important to note that methods defined on the instance override those defined on the prototype.
 
-## Phase 6: Students and Courses
+## Phase 7: Students and Courses
 
 ### Overview
+
 Here's our [reading][oo-js] Object-Oriented Programming in JS. Use it for reference as you work on this exercise!
 
 ### Instructions
 
-Write classes to model `Student` and `Course`:
+Write classes to model students and the courses they can enroll in.
 
 #### `Student` class
 
@@ -198,7 +203,7 @@ It should also set a courses attribute to an empty array.
 #### `Course` class
 
 * `Course`, a constructor function which should take the course name, department, and number of credits.
-It should also set a `students` attribute to an empty array.
+It should also initialize `students` attribute to an empty array.
 * `Course.prototype.addStudent` should add a student to the class
   * Probably can rely upon `Student.prototype.enroll`
 
@@ -208,11 +213,13 @@ It should also set a `students` attribute to an empty array.
 So a course could meet `['mon', 'wed', 'fri']` during block #1.
   * Update your constructor function to also take a time block and days of the week
 * Write a method `Course.prototype.conflictsWith` which takes a second `Course` and returns true if they conflict
-* Update `Student.prototype.enroll` so that you raise an error if a `Student` enrolls in a new course that conflicts with an existing course time
-  * May want to write a `Student.prototype.hasConflict` method to help.
+* Update `Student.prototype.enroll` so that an error is raised if a `Student` enrolls in a course that conflicts with an existing course time
+  * Write a `Student.prototype.hasConflict` helper method
+
+### Recap
+
+Though we will be relying on Rails for most of our data modeling going forward, there are times when model logic is best handled on the frontend. In this case we may find it beneficial to use OOP to aid us in that abstraction.
 
 [oo-js]: ../../readings/object-oriented-js.md
 
-## Phase 7: Prototypical Monkey-patching
-
-Go back and redo the relevant exercises by defining a method on the object's prototype (i.e. define `myEach` on the `Array` prototype, `substrings` on the `String` prototype, etc.).
+## You are the hero of your own story! Move on to the next exercise. :smiley_cat:
