@@ -84,11 +84,10 @@ JavaScript needs.
 ### :clock10: Class will start at 10am! :clock10:
 - **Progress Tracker reports are still due at 9am.**
 
-### Readings (105 min)
+### Readings (95 min)
 * [Arguments][arguments] (15 min)
 * [Function Invocation, in-depth][function-invocation-in-depth] (10 min)
 * [Intro to Callbacks: File I/O][intro-to-callbacks] (15 min)
-* [Event Loop Visualization][loupe] (10 min)
 * [ES6 Class Syntax][es6-classes] (5 min)
 * [Node Module Pattern][module-pattern] (10 min)
 * [Chrome Dev Tools][chrome-dev-tools] (15 min)
@@ -99,12 +98,18 @@ JavaScript needs.
 [arguments]: readings/arguments.md
 [function-invocation-in-depth]: readings/function-invocation-in-depth.md
 [intro-to-callbacks]: readings/intro-to-callbacks.md
-[loupe]: http://latentflip.com/loupe
+
 [es6-classes]: readings/es6-classes.md
 [module-pattern]: readings/module-pattern.md
 [chrome-dev-tools]: readings/chrome_dev_tools.md
 [comparison-chart]: https://appacademy.github.io/curriculum/language_comparison/index.html
 [linting-js]: readings/linting-js.md
+
+### Videos (26 min)
+:closed_lock_with_key: `go_video_go`
+* :movie_camera: [Event Loop Demo & Visualization][loupe] (26 min)
+
+[loupe]: http://latentflip.com/loupe
 
 ### Homeworks (110 min)
 * [CSS Curriculum 1: Intro Workflow][css-1] (30 min)
