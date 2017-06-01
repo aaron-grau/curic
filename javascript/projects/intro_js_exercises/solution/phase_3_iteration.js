@@ -1,17 +1,35 @@
-"use strict";
+// bubbleSort
+function bubbleSort(arr) {
+  let isSorted = false;
 
-//bubbleSort
+  while (!isSorted) {
+    isSorted = true;
+
+    for (let i = 0; i < (this.length - 1); i++) {
+      if (arr[i] > arr[i + 1]) {
+        let tmp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = tmp;
+
+        isSorted = false;
+      }
+    }
+  }
+
+  return arr;
+}
+
+// Array.prototype.bubbleSort
 Array.prototype.bubbleSort = function () {
   let isSorted = false;
 
   while (!isSorted) {
     isSorted = true;
+
     for (let i = 0; i < (this.length - 1); i++) {
       if (this[i] > this[i + 1]) {
-        let tmp = this[i];
-        this[i] = this[i + 1];
-        this[i + 1] = tmp;
-
+        // a crafty bit of array destructuring to avoid a temp variable
+        [this[i], this[i + 1]] = [this[i + 1], this[i]];
         isSorted = false;
       }
     }
@@ -28,7 +46,7 @@ String.prototype.substrings = function () {
 
   for (let start = 0; start < this.length; start++) {
     for (let len = 1; (start + len) <= this.length; len++) {
-      substrings.push(this.slice(start, start + len));
+      substrings.push(this.substring(start, start + len));
     }
   }
 
