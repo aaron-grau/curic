@@ -8,4 +8,9 @@ Use our latest HTML recipe page with the latest external stylesheet and update t
 4. Our logo and nav links should be side-by-side now since they're both children of our header. Now figure out which element needs `display: flex` for our individual nav links to appear side-by-side.
 5. The last thing we need is more space between our logo and our nav links. Give our header `justify-content: space-between` so that it arranges its children just the way we want.
 
-Compare your results to [this example](./example.html), [this stylesheet](../../assets/flex.css) and [this grid stylesheet](../../assets/custom_grid.css). [Live version here](http://appacademy.github.io/curriculum/flex.html).
+Compare your results to [this example][example-html], [this stylesheet][example-css] and [this grid stylesheet][grid-css]. [Live version here][live-version].
+
+[example-html]: ./example.html
+[example-css]: ../../assets/flex.css
+[grid-css]: ../../assets/custom_grid.css
+[live-version]: http://appacademy.github.io/curriculum/flex.html
