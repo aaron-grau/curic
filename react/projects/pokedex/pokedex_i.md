@@ -1,8 +1,7 @@
 # Pokedex: An Introduction to the React Router - Part 1
 
-In this project, we'll write an React/Redux/Rails app to manage
-`Pokemon` and their `Items`! Check out the live demo
-[here](http://aa-pokedex.herokuapp.com/)!
+In this project, we'll write an React/Redux/Rails app to manage `Pokemon` and their `Items`!
+Check out the live demo [here](http://aa-pokedex.herokuapp.com/)!
 
 Note: The singular and plural forms of the word "pokemon" do not
 differ.
@@ -13,8 +12,7 @@ We've already set up a Rails backend with migrations and models in the
 
 * Download the [skeleton][skeleton-zip].
 * Run `bundle install`.
-* Make sure Postgres is running, then run `rake db:setup` (short for
-`rake db:create db:schema:load db:seed`).
+* Make sure Postgres is running, then run `rake db:setup` (short for `rake db:create db:schema:load db:seed`).
 
 Get yourself oriented.
 
@@ -27,8 +25,8 @@ Get yourself oriented.
 
 ### API Namespace
 
-Let's build routes for our pokemon! We want these routes to be nested
-under an api namespace. Like so:
+Let's build routes for our pokemon! We want these routes to be nested under an api namespace.
+Like so:
 
 ```ruby
 namespace :api, defaults: {format: :json} do
@@ -36,8 +34,7 @@ namespace :api, defaults: {format: :json} do
 end
 ```
 
-The `defaults: {format: :json}` option tells the controller to first
-look for a `.json.jbuilder` view rather than an `html.erb` view.
+The `defaults: {format: :json}` option tells the controller to first look for a `.json.jbuilder` view rather than an `html.erb` view.
 
 Edit your `routes.rb`. Your routes table should look like the following:
 
@@ -59,9 +56,8 @@ Build a controller to handle our pokemon `resources`.
 * Generate an `Api::PokemonController`.
 * Define `#index` and `#show` actions.
 
-Remember, we want these actions to **render json responses**. To make
-the job easier for our frontend, you should format your index action to
-serve up json responses that look something like this:
+Remember, we want these actions to **render json responses**.
+To make the job easier for our frontend, you should format your index action to serve up json responses that look something like this:
 
 ```js
 {
@@ -79,9 +75,9 @@ serve up json responses that look something like this:
 }
 ```
 
-Here, the keys in your json response are the primary keys of the
-pokemon. The values are the pokemon objects themselves. Let's use
-Jbuilder here!
+Here, the keys in your json response are the primary keys of the pokemon.
+The values are the pokemon objects themselves.
+Let's use Jbuilder here!
 
 * Create a `views/api/pokemon/index.json.jbuilder` file.
 * Iterate over each pokemon.
@@ -101,22 +97,19 @@ end
 ```
 
 **NB** Notice that we use the `asset_path` helper to find the correct
-path to the image. Asset locations can be different in production so you
-should always use `asset_path` rather than a literal path. For more
-detail [check out the
-guides.](http://guides.rubyonrails.org/asset_pipeline.html)
+path to the image.
+Asset locations can be different in production so you should always use `asset_path` rather than a literal path.
+For more detail [check out the guides](http://guides.rubyonrails.org/asset_pipeline.html).
 
-We don't need to return any more information than this for our index
-route! Remember, Jbuilder allows us to *curate* our data, retrieving
-only the attributes we are interested in.
+We don't need to return any more information than this for our index route!
+Remember, Jbuilder allows us to *curate* our data, retrieving only the attributes we are interested in.
 
-* Next create a Jbuilder view for `PokemonController#show`. We want the
-action to render all the information about a single pokemon, including
-its items.
+* Next create a Jbuilder view for `PokemonController#show`.
+We want the action to render all the information about a single pokemon, including its items.
 
 A GET request to `localhost:3000/api/pokemon/5` should render this:
 
-```js
+```json
 {
   id: 5,
   name: "Rhydon",
@@ -142,21 +135,17 @@ A GET request to `localhost:3000/api/pokemon/5` should render this:
 }
 ```
 
-**Test your routes, controller actions and Jbuilder view**: Make GET
-requests to (i.e. visit) `localhost:3000/api/pokemon` and
-`localhost:3000/api/pokemon/:id`. Show a TA before moving on.
+**Test your routes, controller actions and Jbuilder view**: Make GET requests to (i.e. visit) `localhost:3000/api/pokemon` and `localhost:3000/api/pokemon/:id`.
+Show a TA before moving on.
 
 
 ## Phase 1: Frontend Setup
 
 ### Node Package Manager
 
-As with previous projects, you will need to set up a `package.json` and
-a `webpack.config.js` file to configure your application to use NPM and
-Webpack.
+As with previous projects, you will need to set up a `package.json` and a `webpack.config.js` file to configure your application to use NPM and Webpack.
 
-* Run `npm init -y` to initialize your app's `package.json` with the
-default boilerplate settings.
+* Run `npm init -y` to initialize your app's `package.json` with the default boilerplate settings.
 * `npm install --save` the following packages:
   * webpack
   * react
@@ -164,6 +153,7 @@ default boilerplate settings.
   * react-router-dom
   * redux
   * react-redux
+  * redux-logger
   * babel-loader
   * babel-core
   * babel-preset-es2015
@@ -174,8 +164,7 @@ default boilerplate settings.
 
 Next we need to configure Webpack to compile our `bundle.js` file.
 
-* Create a new file called `webpack.config.js` in the root of your
-project.
+* Create a new file called `webpack.config.js` in the root of your project.
 * Copy and paste the following configuration:
 
   ```js
@@ -195,7 +184,7 @@ project.
       loaders: [
         {
           test: /\.jsx?$/,
-          exclude: /(node_modules|bower_components)/,
+          exclude: /(node_modules)/,
           loader: 'babel-loader',
           query: {
             presets: ['react', 'es2015']
@@ -205,7 +194,6 @@ project.
     },
     devtool: 'source-maps'
   };
-
   ```
 
 * Now that Webpack knows to create `bundle.js`, require it in our
@@ -230,7 +218,7 @@ React component to test everything we've written so far.
 Your entry file might look like the following:
 
 ```js
-// frontend/pokedex.js
+// frontend/pokedex.jsx
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -330,7 +318,7 @@ before moving on!**
 * Assign them to the `window` to test that in the browser's console.
 * You should be able to run:
 
-  ```
+  ```js
   const getSuccess = pokemon => console.log(receiveAllPokemon(pokemon));
   fetchAllPokemon().then(getSuccess);
   ```
@@ -383,45 +371,46 @@ from. Let's create our app's store.
 
 * Create a `store.js` file within the `frontend/store` folder.
 * Import `createStore` from the `redux` package.
-* Import our `rootReducer`.
+* Import our `rootReducer`
+* Import `logger` the default export of `redux-logger` middleware
 
 Redux's `createStore` function accepts the following parameters: the
 reducer, an optional `preloadedState`, and any enhancers like as
 middleware.
 
-* For now, call `createStore` and pass it our imported `rootReducer`. We
-will come back to the other arguments later.
+* For now, call `createStore` and pass it our imported `rootReducer` and `logger` as our only middleware.
+Remember, middlewares need to be wrapped in a call to `applyMiddleware` when passed to `createStore`.
+We will come back to the other arguments later.
 * Wrap the creation of the store in a `configureStore` function. Like
 so:
 
   ```js
   // frontend/store/store.js
 
-  const configureStore = () => createStore(rootReducer);
+  const configureStore = () => createStore(rootReducer, applyMiddleware(logger));
   ```
-  **NB**: This is a great pattern to continue using - instead of just
-exporting the   store, we are exporting a function that creates and
-returns a `store`. This can   be used in the future to swap out
-reducers, `preloadedState`, or enhancers   depending on different
-conditions (e.g. development vs production environments).
+
+  > :bulb: Aside: `configureStore` Pattern
+  > This is a great pattern to continue using - instead of just exporting the store, we are exporting a function that creates and returns a `store`.
+  > This can be used in the future to swap out reducers, `preloadedState`, or enhancers depending on different conditions (e.g. development vs production environments).
 
 * In your `pokedex.jsx` entry file, import your `configureStore`
 function.
 * Inside the `DOMContentLoaded` callback, declare a `store`.
 * Call `configureStore` and assign its return value to `store`.
-* For **testing purposes only**, make `store` available on the `window`
-(i.e.   `window.store = store;`).
+* For **testing purposes only**, make `getState` and `dispatch` available on the `window` (i.e. `window.getState = store.getState; window.dispatch = store.dispatch`).
+  * We want to avoid placing our entire `store` on the window as it can create scoping issues and create some nasty bugs
 
 **Test your store and reducer.** You should be able to run the following
 code snippet in the browser's console:
 
 ```js
-store.getState(); // should return initial app state
+getState(); // should return initial app state
 
-const getSuccess = pokemon => store.dispatch(receiveAllPokemon(pokemon));
+const getSuccess = pokemon => dispatch(receiveAllPokemon(pokemon));
 fetchAllPokemon().then(getSuccess);
 
-store.getState(); // should return the app state populated with pokemon
+getState(); // should return the app state populated with pokemon
 ```
 
 ### Thunk Middleware
