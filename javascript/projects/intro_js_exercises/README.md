@@ -27,13 +27,14 @@ These should give you some experience iterating over and mutating arrays.
 
 ### Instructions
 
-Monkey-patch the following methods to the `Array` class. Remember, we want to use `prototype` here.
+Monkey-patch the following methods to the `Array` class.
+Remember, we want to use `prototype` here.
 
-* `uniq` - receives an array and returns a new array containing only the unique elements of the original array
+* `Array#uniq` - returns a new array containing only the unique elements of the original array
   * the unique elements should be in the order in which they first appear
   * should not mutate the original array
-* `twoSum` - receives an array and returns an array of position pairs where the elements sum to zero
-* `transpose` - receives a two-dimensional array representing a matrix and returns it's [transpose][transpose]
+* `Array#twoSum` - returns an array of position pairs where the elements sum to zero
+* `Array#transpose` - where we have a two-dimensional array representing a matrix. returns the [transpose][transpose]
   * should not mutate the original array
 
 ### Recap
@@ -46,35 +47,37 @@ That was super fun, right?
 
 ### Overview
 
-JavaScript enumerates over arrays differently than Ruby; rather than taking a block, they take a _callback_ function, which is invoked for each element of the array. Take a look at the [MDN Array Documentation] if it is unclear how
+JavaScript enumerates over arrays differently than Ruby; rather than taking a block, they take a _callback_ function, which is invoked for each element of the array. Take a look at the [MDN Array Documentation][mdn-array] if it is unclear how these methods are supposed to work.
 
 ### Instructions
 
-Write the following functions in that swell new language we've been learning. We will hold off on monkey-patching for now, so make sure to pass the array as the first argument.
+Again, monkey-patch the following methods to the `Array` class using swell new language we've been learning.
 
-* `myForEach(arr, callback)` - receives an array and callback function and executes the callback for each element in the array
-* `myMap(arr, callback)` - receives an array and callback function, returns a new array of the results of calling the callback function on each element of the array
-  * should use `myForEach` and a closure
-* `myReduce(arr, callback, [initialValue])` - (like Ruby's `Array#inject`) receives an array, callback function, and optional initial value, returns an accumulator by applying the callback function to each element and the result of the last invocation of the callback (or initial value if supplied)
+* `#myEach(callback)` - receives a callback function and executes the callback for each element in the array
+* `#myMap(callback)` - receives a callback function, returns a new array of the results of calling the callback function on each element of the array
+  * should use `myEach` and a closure
+* `#myReduce(callback, [initialValue])` - (like Ruby's `Array#inject`) receives a callback function, and optional initial value, returns an accumulator by applying the callback function to each element and the result of the last invocation of the callback (or initial value if supplied)
   * `initialValue` is optional and should default to the first element of the array if not provided
   * examples:
     ```js
     // without initialValue
-    myReduce([1, 2, 3], function(acc, el) {
+    [1, 2, 3].myReduce(function(acc, el) {
       return acc + el;
     }); // => 6
 
     // with initialValue
-    myReduce([1, 2, 3], function(acc, el) {
+    [1, 2, 3].myReduce(function(acc, el) {
       return acc + el;
     }, 25); // => 31
     ```
-  * should also use `myForEach`
+  * should also use `myEach`
 
 ### Recap
 
 Closures and callbacks are part of the foundation of JavaScript and provide us with a lot of flexibility and modularity in our code.
 Thanks to closures we can create higher order functions and "hide" private variables.
+
+[mdn-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ## Phase 3: Iteration
 
@@ -87,8 +90,8 @@ These should be pretty familiar.
 
 Write the following functions:
 
-* `bubbleSort(arr)` - receives an array, returns a sorted array by implementing [`bubble sort`][bubble sort] sorting algorithm
-* `substrings(str)` - receives a string, returns an array of all substrings
+* `Array#bubbleSort` - receives an array, returns a sorted array by implementing [`bubble sort`][bubble sort] sorting algorithm
+* `String#substrings` - receives a string, returns an array of all substrings
 
 ### Recap
 
@@ -139,18 +142,16 @@ Write the following functions:
 >Though this was not the case with Ruby, you will likely see this in other programming languages.
 >Try this on your own if you are curious.
 
-* `mergesort(arr)` - recieves an array, returns a sorted copy of the array by implementing [`merge sort`][merge sort] sorting algorithm
+* `mergesort(arr)` - recieves an array, returns a sorted copy of the array by implementing [`merge sort`][merge-sort] sorting algorithm
 * `subsets(arr)` - receives an array, returns an array containing all the subsets of the original array
 
 ### Recap
 
 As you may have noticed, recursion works much the same in JavaScript as in Ruby. Yay!
 
-## Phase 5: Prototypical Monkey-patching
+[merge-sort]: https://en.wikipedia.org/wiki/Merge_sort
 
-Go back and redo the relevant exercises by defining a method on the object's prototype (i.e. define `myEach` on the `Array` prototype, `substrings` on the `String` prototype, etc.).
-
-## Phase 6: Create a `Cat` Class
+## Phase 5: Create a `Cat` Class
 
 ### Overview
 
@@ -178,7 +179,7 @@ We have used the `new` keyword and added methods to the prototype.
 We have explored how classes instances are really just objects that are able to behave like a class by maintaining a reference to their prototype.
 Note that it is unusual to add a method directly to an instance, but is important to note that methods defined on the instance override those defined on the prototype.
 
-## Phase 7: Students and Courses
+## Phase 6: Students and Courses
 
 ### Overview
 
