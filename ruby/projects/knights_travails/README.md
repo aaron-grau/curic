@@ -29,7 +29,7 @@ kpf.find_path([3, 3]) # => [[0, 0], [2, 1], [3, 3]]
 
 To help us find paths, we will build a **move tree**. The values in the tree will be positions. A node is a child of another node if you can move from the parent position directly to the child position. The root of the tree should be the knight's starting position. **You will want to build on your `PolyTreeNode` work, using `PolyTreeNode` instances to represent each position.**
 
-Write an instance method `KnightPathFinder#build_move_tree` to build the move tree and store it as an instance variable. Call this method in `initialize`; you will traverse the move tree whenever `#find_path` is called. **Don't write this yet though**.
+You will be writing an instance method `KnightPathFinder#build_move_tree` to build the move tree and store it as an instance variable. Call this method in `initialize`; you will traverse the move tree whenever `#find_path` is called. **Don't write this yet though**.
 
 ## Phase I: `#new_move_positions`
 
