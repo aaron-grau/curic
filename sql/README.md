@@ -201,7 +201,7 @@
 + [Movie Buff][movie-buff]
 + [Polls][polls-app]
 
-[css-float-exercise]: ../html-css/micro-projects/float_fluid_flex
+[css-float-exercise]: ../html-css/micro-projects/float
 [movie-buff]: projects/movie_buff
 [polls-app]: projects/polls_app
 
@@ -233,7 +233,7 @@
 + [CSS Flex Exercise][css-flex-exercise]
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
 
-[css-flex-exercise]: ../html-css/micro-projects/float_fluid_flex/  
+[css-flex-exercise]: ../html-css/micro-projects/flex  
 [build-your-own-ar]: projects/active_record_lite
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
