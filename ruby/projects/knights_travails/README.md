@@ -60,7 +60,7 @@ Use `#trace_path_back` to finish up `#find_path`.
 Here are some example paths that you can use for testing purposes (yours might not be exactly the same, but should be the same number of steps);
 
 ```ruby
-kpf = new KnightPathFinder([0, 0])
+kpf = KnightPathFinder.new([0, 0])
 kpf.find_path([7, 6]) # => [[0, 0], [1, 2], [2, 4], [3, 6], [5, 5], [7, 6]]
 kpf.find_path([6, 2]) # => [[0, 0], [1, 2], [2, 0], [4, 1], [6, 2]]
 ```
