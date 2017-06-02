@@ -1,4 +1,8 @@
-## CSS Fluid Grid & Flex Layouts Exercise
+## CSS Float Exercise
+
+Download this [skeleton][skeleton].
+
+[skeleton]: ./skeleton.zip
 
 Use our latest HTML recipe page with the latest external stylesheet and update the stylesheet accordingly to practice styling more elements with floats and different layout techniques.
 
@@ -9,7 +13,7 @@ Use our latest HTML recipe page with the latest external stylesheet and update t
 
 Compare your results to [this example][example-html], [this stylesheet][example-css] and [this grid stylesheet][grid-css]. [Live version here][live-version].
 
-[example-html]: ./example.html
-[example-css]: ../../assets/float.css
-[grid-css]: ../../assets/custom_grid.css
+[example-html]: ./solution/example.html
+[example-css]: ./solution/assets/float.css
+[grid-css]: ./solution/assets/custom_grid.css
 [live-version]: http://appacademy.github.io/curriculum/float.html
