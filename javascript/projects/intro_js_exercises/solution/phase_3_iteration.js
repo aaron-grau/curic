@@ -1,25 +1,4 @@
-// bubbleSort
-function bubbleSort(arr) {
-  let isSorted = false;
-
-  while (!isSorted) {
-    isSorted = true;
-
-    for (let i = 0; i < (this.length - 1); i++) {
-      if (arr[i] > arr[i + 1]) {
-        let tmp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = tmp;
-
-        isSorted = false;
-      }
-    }
-  }
-
-  return arr;
-}
-
-// Array.prototype.bubbleSort
+// Array#bubbleSort
 Array.prototype.bubbleSort = function () {
   let isSorted = false;
 
@@ -40,7 +19,7 @@ Array.prototype.bubbleSort = function () {
 
 console.log([5, 3, 4, 2, 1].bubbleSort());
 
-// substrings
+// String#substrings
 String.prototype.substrings = function () {
   let substrings = [];
 
