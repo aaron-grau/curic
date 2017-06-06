@@ -229,7 +229,7 @@ Set up a `configureStore` method for initializing our Store:
 
 * Create a new file, `/store/store.js`.
 * Import `createStore` and `applyMiddleware` from the redux library.
-* Import our `rootReducer` and thunk middleware.
+* Import our `rootReducer`, `redux-logger`, and thunk middleware.
 Write it yourself, or import the library.
 If you use the library don't forget to install it!
 * Define a new function, `configureStore`, that accepts a single argument, `preloadedState`.
@@ -239,6 +239,7 @@ If you use the library don't forget to install it!
 // frontend/store/store.js
 
 import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/root_reducer';
 
@@ -246,7 +247,7 @@ const configureStore = (preloadedState = {}) => (
   createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, logger)
   )
 );
 
@@ -256,10 +257,15 @@ export default configureStore;
 Before moving on, inside the `DOMContentLoaded` callback in `frontend/bench_bnb.jsx` call `configureStore()` and assign the result to the window.
 
 ```js
-window.store = configureStore(); //just for testing!
+const store = configureStore();
+// we don't put the store directly on the window because
+// it can be confusing when debugging, sometimes giving you access to state
+// when you shouldn't
+window.getState = store.getState;
+window.dispatch = store.dispatch; // just for testing!
 ```
 
-Run `store.getState()` in the console and inspect the results.
+Run `window.getState()` in the console and inspect the results.
 Your state should look like the default state mentioned above!
 
 ## Phase 2: React Router and Session Components
@@ -282,7 +288,7 @@ Define 2 new files at the root of your `frontend/components` folder:
 Create and export a new **functional component** that renders an `<h1>` tag with "Bench BnB" text.
 It should look something like this:
 
-```js
+```jsx
 // frontend/components/App.jsx
 
 import React from 'react';
@@ -301,7 +307,7 @@ export default App;
 Create and export a **functional component** called `Root`.
 It will accept the `store` as a prop, and render routes wrapped by the `Provider`.
 
-```js
+```jsx
 // frontend/components/root.jsx
 
 import React from 'react';
@@ -352,6 +358,12 @@ import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
+
+  // TESTING START
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  // TESTING END
+
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
 });
@@ -376,7 +388,7 @@ If the user **is not logged in**, then the `Greeting` should contain:
 
 Update your `App` component so that it renders the `GreetingContainer` and `<h1>` within a `<header>` tag. It should look like this:
 
-```js
+```jsx
 import GreetingContainer from './greeting/greeting_container';
 
 const App = () => (
@@ -391,7 +403,7 @@ const App = () => (
 
 **Test that you can logout from `App.jsx`.**
 Navigate to the root url.
-From the console, log in a user (`window.store.dispatch(login(user))`).
+From the console, log in a user (`window.dispatch(login(user))`).
 Check that clicking the logout button logs out the current user before moving on.
 
 ### `SessionForm` Components
@@ -590,7 +602,7 @@ To do this we'll need to:
 
 Your `<AuthRoute>` should look something like this:
 
-```js
+```jsx
 // frontend/util/route_util.jsx
 
 //...

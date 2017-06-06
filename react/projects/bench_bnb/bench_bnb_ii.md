@@ -93,9 +93,12 @@ For example, add `fetchBenches` to the `window` for testing later!
 
 ```js
 // frontend/bench_bnb.jsx
-window.store = store
+window.dispatch = store.dispatch;
+window.getState = store.dispatch;
 window.fetchBenches = fetchBenches;
-store.dispatch(fetchBenches()).then(console.log); //=> { "1": { id: 1, description: ... } }
+
+// now we can test our code from the console
+dispatch(fetchBenches()).then(console.log); //=> { "1": { id: 1, description: ... } }
 ```
 
 Remember to require `fetchBenches` for testing.
@@ -408,7 +411,7 @@ Use the appropriate `React` [lifecycle methods][lifecycle-methods].
 Confirm that the `MarkerManager` utility works by checking the console for our `console.log` **both before and after** running the following code.
 
 ```javascript
-store.dispatch(fetchBenches());
+window.dispatch(fetchBenches());
 ```
 
 Make sure this works before moving on!
@@ -525,7 +528,7 @@ We need to build out our application state to reflect the map's `bounds`.
 `UPDATE_BOUNDS` action is dispatched
 * Update your `RootReducer`
 
-**Test** that the application is being successfully updated by moving the map around and then calling `store.getState()` in the console.
+**Test** that the application is being successfully updated by moving the map around and then calling `window.getState()` in the console.
 
 ### `MarkerManager`
 
