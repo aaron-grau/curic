@@ -8,8 +8,7 @@ Check out the live demo [here][live-demo]!
 
 ### Setup Checklist
 
-Refer to [the master checklist][checklist] during Bench BnB and your
-final project.
+Refer to [the master checklist][checklist] during Bench BnB and your final project.
 
 [checklist]: ../../readings/checklist.md
 
@@ -23,8 +22,7 @@ final project.
 
 ### Frontend Structure
 
-* Create a `/frontend` folder at the root directory of your project to
-hold your frontend:
+* Create a `/frontend` folder at the root directory of your project to hold your JavaScript files:
 
   ```
   frontend
@@ -41,15 +39,15 @@ hold your frontend:
   * `webpack`
   * `react`
   * `react-dom`
-  * `redux`
   * `react-redux`
+  * `redux`
+  * `redux-logger`
   * `babel-core`
   * `babel-loader`
   * `babel-preset-react`
   * `babel-preset-es2015`
 * Create a `webpack.config.js` file.
-* Set up your entry file (`bench_bnb.jsx`) to render your app into the
-`#root` container.
+* Set up your entry file (`bench_bnb.jsx`) to render your app into the `#root` container.
 
 Your entry file might start off looking like the code below:
 ```js
@@ -59,8 +57,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('root');
-    ReactDOM.render(<h1>Welcome to BenchBnB</h1>, root);
+  const root = document.getElementById('root');
+  ReactDOM.render(<h1>Welcome to BenchBnB</h1>, root);
 });
 ```
 
@@ -68,84 +66,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## Phase 1: Front-End User Authentication
 
-In this phase, we are going to implement front-end user sign-up and
-login. Goodbye Rails views; hello, single-page app! **Read through the
-instructions for all of phase 1 before implementing anything.** This
-will give you the context to understand each individual step.
+In this phase, we are going to implement front-end user sign-up and login.
+Goodbye Rails views; hello, single-page app!
+**Read through the instructions for all of phase 1 before implementing anything.**
+This will give you the context to understand each individual step.
 
 **Our authentication pattern must:**
   * sign up new users
   * know who's logged in
   * log users in
   * log them out
-  * restrict access to certain routes based on whether someone is logged
-in
+  * restrict access to certain routes based on whether someone is logged in
 
 ### Auth Backend
 
-+ We want to create a `User` model, `API::UsersController`, and
-`Api::SessionsController` with the following endpoints:
++ We want to create a `User` model, `Api::UsersController`, and `Api::SessionsController` with the following endpoints:
   * `[POST] api/users: "users#create" (signup)`,
   * `[POST] api/session: "sessions#create" (login)`,
   * `[DELETE] api/session: "sessions#destroy" (logout)`
 
-Follow the basic pattern you used during the [Rails curriculum][rails],
-with some key differences:
+Follow the basic pattern you used during the [Rails curriculum][rails], with some key differences:
 
 * Namespace:
   + Your controllers should live under an `Api` namespace.
-  * Running `rails g controller api/users` will generate an
-`Api::UsersController`
+  * Running `rails g controller api/users` will generate an `Api::UsersController`
 * Response Format:
   + Render JSON formatted responses by default.
-  * In `routes.rb`, set `defaults: {format: :json}` on your `namespace
-:api`
+  * In `routes.rb`, set `defaults: {format: :json}` on your `namespace :api`
 * Views:
-  + You'll want an **`api/users/show.json.jbuilder`**, which you can use
-for   multiple controller actions.
-  + This should delegate to a partial:
-  **`api/users/_user.json.jbuilder`**, which we'll use later.
+  + You'll want an **`api/users/show.json.jbuilder`**, which you can use for multiple controller actions.
+  + This should delegate to a partial: **`api/users/_user.json.jbuilder`**, which we'll use later.
 * `Sessions#destroy`:
   + Render an empty `{}` upon successful logout.
   * Render a `404` message if there is no `current_user` to logout.
 * Auth Errors:
-  + Render auth errors (e.g. `'invalid credentials'` or `'username
-already exists'`) in your response with a corresponding error status
-(usually either `422`, `401`, or `404`).
+  + Render auth errors (e.g. `'invalid credentials'` or `'username already exists'`) in your response with a corresponding error status (usually either `422`, `401`, or `404`).
   * Use `@user.errors` when applicable.
-  * **Caution**: Rails will format error responses differently than
-normal responses.
+  * **Caution**: Rails will format error responses differently than normal responses.
 
-**Test your routes** using `$.ajax` methods in the console or with
-Postman before moving on. You should be able to create a user, log out,
-and log in.
+**Test your routes** using `$.ajax` methods in the console or with Postman before moving on.
+You should be able to create a user, log out, and log in.
 
 ### `SessionApiUtil`
 
-Create a new file, `util/session_api_util.js` with the following
-functions:
+Create a new file, `util/session_api_util.js` with the following functions:
   * `signup`: should make an AJAX request that creates a new user.
   * `login`: should make an AJAX request that creates a new session.
-  * `logout`: should make an AJAX request that deletes the current
-session.
+  * `logout`: should make an AJAX request that deletes the current session.
 
-**NB**: Check out `routes.rb` and run `rake routes` to determine the
-appropriate URL for each of these requests.
+**NB**: Check out `routes.rb` and run `rake routes` to determine the appropriate URL for each of these requests.
 
-**Test each of your api util functions before moving on!** To do this,
-you can import these functions in your entry file and save them to the
-window (e.g., `window.login = login;`).
+**Test each of your api util functions before moving on!**
+To do this, you can import these functions in your entry file and save them to the window (e.g., `window.login = login;`).
 
 ### State Shape
 
-We want our app state to hold two pieces of information concerning user
-auth which we'll nest under `session`:
+We want our app state to hold two pieces of information concerning user auth which we'll nest under `session`:
 1) the `current user` and
 2) an array of `errors`.
 
-If no user is signed in, `session.currentUser` is `null`. If a user is
-signed in `session.currentUser` returns information on the user. App's
-state might look something like this:
+If no user is signed in, `session.currentUser` is `null`.
+If a user is signed in `session.currentUser` returns information on the user.
+App's state might look something like this:
 
 ```js
 {
@@ -170,61 +152,48 @@ or this:
 }
 ```
 
-By default, no user is signed in. Thus `session` should return a `null`
-`currentUser`, and an empty array of `errors`.
+By default, no user is signed in.
+Thus `session` should return a `null` `currentUser`, and an empty array of `errors`.
 
-Hint: Use this default application state as a template for any session
-information we might receive.
+Hint: Use this default application state as a template for any session information we might receive.
 
 ### Session Actions
 
-+ Before we get to the reducer, let's write and export the following
-action creators in a new file `actions/session_actions.js`:
++ Before we get to the reducer, let's write and export the following action creators in a new file `actions/session_actions.js`:
   * `login(user)` (thunk action creator)
   * `logout()` (thunk action creator)
   * `signup(user)` (thunk action creator)
   * `receiveCurrentUser(currentUser)` (regular action creator)
   * `receiveErrors(errors)` (regular action creator)
 
-+ Don't forget to define and export the corresponding action types as
-well (e.g., `export const RECEIVE_CURRENT_USER =
-'RECEIVE_CURRENT_USER'`).   
-+ `logout` won't accept an argument. `receiveErrors` will take an array.
-All other action creators accept a user object. On logout success
-dispatch `receiveCurrentUser(null)` to remove the current user.
++ Don't forget to define and export the corresponding action types as well (e.g., `export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'`).
++ `logout` won't accept an argument.
+`receiveErrors` will take an array.
+All other action creators accept a user object. On logout success dispatch `receiveCurrentUser(null)` to remove the current user.
 
 ### `SessionReducer`
 
-+ Create a new reducer in a new file `reducers/session_reducer.js` to
-keep track of our current user and error messages.
++ Create a new reducer in a new file `reducers/session_reducer.js` to keep track of our current user and error messages.
 
-The `SessionReducer` should listen for 2 action types and respond to
-each like so:
-  * `RECEIVE_CURRENT_USER` - sets `currentUser` to the action's user and
-clears `errors`
-  * `RECEIVE_ERRORS` - sets `errors` to the action's errors and clears
-the `currentUser`
+The `SessionReducer` should listen for 2 action types and respond to each like so:
+  * `RECEIVE_CURRENT_USER` - sets `currentUser` to the action's user and clears `errors`
+  * `RECEIVE_ERRORS` - sets `errors` to the action's errors and clears the `currentUser`
 
-Your `SessionReducer` should maintain its own default state. To do that
-pass in an object as a default argument to SessionReducer with
-`currentUser` set to `null` and `errors` set to an empty array.
+Your `SessionReducer` should maintain its own default state.
+To do that pass in an object as a default argument to SessionReducer with `currentUser` set to `null` and `errors` set to an empty array.
 
-Remember to use both `Object.freeze()` and `Object.assign` or
-`lodash/merge` to prevent the state from being accidentally mutated.
+Remember to use both `Object.freeze()` and `Object.assign` or `lodash/merge` to prevent the state from being accidentally mutated.
 
 ### `rootReducer`
 
-Create a new file, `reducers/root_reducer.js`. This file will be
-responsible for combining our multiple, domain-specific reducers. It
-will export a single `rootReducer`.
+Create a new file, `reducers/root_reducer.js`.
+This file will be responsible for combining our multiple, domain-specific reducers.
+It will export a single `rootReducer`.
 
   * Import `combineReducers` from the `redux` library.
   * Also import the `SessionReducer` function we just created!
   * Create a `rootReducer` using the `combineReducers` function.
-    * Remember, the `combineReducers` function accepts a single
-argument: an object whose properties will represent properties of
-our application state, and values that correspond to domain-specific
-reducing functions.
+    * Remember, the `combineReducers` function accepts a single argument: an object whose properties will represent properties of our application state, and values that correspond to domain-specific reducing functions.
   * `export default rootReducer`.
 
 Your `rootReducer` should look like this:
@@ -260,12 +229,11 @@ Set up a `configureStore` method for initializing our Store:
 
 * Create a new file, `/store/store.js`.
 * Import `createStore` and `applyMiddleware` from the redux library.
-* Import our `rootReducer` and thunk middleware. Write it yourself, or
-import the library. If you use the library don't forget to install it!
-* Define a new function, `configureStore`, that accepts a single
-argument, `preloadedState`.
-* `configureStore` should return a new `store` with the `rootReducer`
-and `preloadedState` passed in.
+* Import our `rootReducer` and thunk middleware.
+Write it yourself, or import the library.
+If you use the library don't forget to install it!
+* Define a new function, `configureStore`, that accepts a single argument, `preloadedState`.
+* `configureStore` should return a new `store` with the `rootReducer` and `preloadedState` passed in.
 
 ```javascript
 // frontend/store/store.js
@@ -285,16 +253,14 @@ const configureStore = (preloadedState = {}) => (
 export default configureStore;
 ```
 
-Before moving on, inside the `DOMContentLoaded` callback in
-`frontend/bench_bnb.jsx` call `configureStore()` and assign the result
-to the window.
+Before moving on, inside the `DOMContentLoaded` callback in `frontend/bench_bnb.jsx` call `configureStore()` and assign the result to the window.
 
-```javascript
+```js
 window.store = configureStore(); //just for testing!
 ```
 
-Run `store.getState()` in the console and inspect the results. Your
-state should look like the default state mentioned above!
+Run `store.getState()` in the console and inspect the results.
+Your state should look like the default state mentioned above!
 
 ## Phase 2: React Router and Session Components
 
@@ -304,8 +270,7 @@ Add routing to our application by running:
 npm install --save react-router-dom
 ```
 
-Before we add the `ReactRouter`, we'll need to refactor our component
-hierarchy a bit.
+Before we add the `ReactRouter`, we'll need to refactor our component hierarchy a bit.
 
 Define 2 new files at the root of your `frontend/components` folder:
 
@@ -314,10 +279,10 @@ Define 2 new files at the root of your `frontend/components` folder:
 
 ### The `App` component
 
-Create and export a new **functional component** that renders an `<h1>`
-tag with "Bench BnB" text. It should look something like this:
+Create and export a new **functional component** that renders an `<h1>` tag with "Bench BnB" text.
+It should look something like this:
 
-```javascript
+```js
 // frontend/components/App.jsx
 
 import React from 'react';
@@ -333,11 +298,10 @@ export default App;
 
 ### The `Root` component
 
-Create and export a **functional component** called `Root`. It will
-accept the `store` as a prop, and render routes wrapped by the
-`Provider`.
+Create and export a **functional component** called `Root`.
+It will accept the `store` as a prop, and render routes wrapped by the `Provider`.
 
-```javascript
+```js
 // frontend/components/root.jsx
 
 import React from 'react';
@@ -352,8 +316,7 @@ const Root = ({ store }) => (
 
 ### React Router
 
-Import `HashRouter` from `react-router-dom` into `root.jsx`, then wrap
-the `App` component in `HashRouter`.
+Import `HashRouter` from `react-router-dom` into `root.jsx`, then wrap the `App` component in `HashRouter`.
 
 ```javascript
 import { HashRouter } from 'react-router-dom';
@@ -368,22 +331,19 @@ const Root = ({ store }) => (
 );
 ```
 
-Thus `App` will be rendered for all routes in your app. We'll define our
-routes within `App`.
+Thus `App` will be rendered for all routes in your app.
+We'll define our routes within `App`.
 
 ### Updating the Entry Point
 
-Let's modify our entry file, `bench_bnb.jsx`, to only import the
-following:
+Let's modify our entry file, `bench_bnb.jsx`, to only import the following:
   * `React` & `ReactDOM`
   * `Root`
   * `configureStore`
 
-In the document-ready callback, you should simply invoke
-`configureStore` and then render the `Root` component into the `#root`
-container. Pass the `store` to the `Root` component as a prop.
+In the document-ready callback, you should simply invoke `configureStore` and then render the `Root` component into the `#root` container. Pass the `store` to the `Root` component as a prop.
 
-```javascript
+```js
 // frontend/bench_bnb.jsx
 
 import ReactDOM from 'react-dom';
@@ -399,13 +359,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### `Greeting` Components
 
-* Create a new react component, `Greeting`, and a container,
-`GreetingContainer`.
+* Create a new react component, `Greeting`, and a container, `GreetingContainer`.
 
 #### `GreetingContainer`
-* `GreetingContainer` passes as `props` to the presentational component
-`currentUser` from the state and the `logout` action creator. Set up
-`mapStateToProps` and `mapDispatchToProps` accordingly.
+* `GreetingContainer` passes as `props` to the presentational component `currentUser` from the state and the `logout` action creator.
+Set up `mapStateToProps` and `mapDispatchToProps` accordingly.
 
 #### `Greeting`
 If the user **is logged in**, then the `Greeting` should contain:
@@ -416,8 +374,7 @@ If the user **is not logged in**, then the `Greeting` should contain:
   * A [`<Link to>`][link-docs] `/#/signup`
   * A [`<Link to>`][link-docs] `/#/login`
 
-Update your `App` component so that it renders the `GreetingContainer`
-and `<h1>` within a `<header>` tag. It should look like this:
+Update your `App` component so that it renders the `GreetingContainer` and `<h1>` within a `<header>` tag. It should look like this:
 
 ```js
 import GreetingContainer from './greeting/greeting_container';
@@ -432,37 +389,32 @@ const App = () => (
 );
 ```
 
-**Test that you can logout from `App.jsx`.** Navigate to the root url.
+**Test that you can logout from `App.jsx`.**
+Navigate to the root url.
 From the console, log in a user (`window.store.dispatch(login(user))`).
-Check that clicking the logout button logs out the current user before
-moving on.
+Check that clicking the logout button logs out the current user before moving on.
 
 ### `SessionForm` Components
 
-To make our React components modular, we will reuse and render the same
-form component on login and signup.
+To make our React components modular, we will reuse and render the same form component on login and signup.
 
-* Create a container `SessionFormContainer` and its controlled component
-`SessionForm`.
+* Create a container `SessionFormContainer` and its controlled component `SessionForm`.
 
 #### `SessionFormContainer`
 
-The `SessionFormContainer` should provide `SessionForm` with the
-following props:
+The `SessionFormContainer` should provide `SessionForm` with the following props:
 + From `mapStateToProps(state, ownProps)`:
   * `loggedIn` (boolean) - representing whether a `currentUser` exists
   * `errors` (array) - list of errors from the state
-  * `formType` (string): `'login'` or `'signup'` given the current
-`ownProps.location.pathname`
+  * `formType` (string): `'login'` or `'signup'` given the current `ownProps.location.pathname`
 + From `mapDispatchToProps(dispatch, ownProps)`:
-  * `processForm` (function): dispatching action creators `login` or
-`signup` given `formType`
+  * `processForm` (function): dispatching action creators `login` or `signup` given `formType`
 
 #### `SessionForm`
 
 The `SessionForm` component should be responsible for a number of tasks:
-  * Render a controlled component with `state` governed by user
-interface. For example,
+  * Render a controlled component with `state` governed by user interface.
+  For example,
 
   ```js
   class SessionForm extends React.Component {
@@ -496,18 +448,16 @@ interface. For example,
 
     + Pass it as a callback to your form's `onSubmit`.
   * Render a "Log in" or "Sign up" header based on the `formType` prop.
-  * Provide a [`<Link to>`][link-docs] to `/#/signup` or `/#/login`,
-whichever isn't the current address.
+  * Provide a [`<Link to>`][link-docs] to `/#/signup` or `/#/login`, whichever isn't the current address.
   * Render a list of error messages if any are present.
-  * Redirect the user to the `/#/` route if they are logged in. Don't
-forget to export the component [`withRouter`][withRouter-docs]!
+  * Redirect the user to the `/#/` route if they are logged in.
+  Don't forget to export the component [`withRouter`][withRouter-docs]!
 
 ### Session Routes
 
 Now it's time to create routes for logging in and signing up.
 
-* Create two new routes in your `App` component for `/#/login` and
-`/#/signup`.
+* Create two new routes in your `App` component for `/#/login` and `/#/signup`.
   * Their paths should be `"/login"` and `"/signup"`.
   + They should both render the `SessionFormContainer`.
 
@@ -526,36 +476,27 @@ const App = () => (
 )
 ```
 
-**Call a TA over and show them your `SessionForm` renders for logging
-and signing up before moving on!**
+**Call a TA over and show them your `SessionForm` renders for logging and signing up before moving on!**
 
 [link-docs]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md
 [withRouter-docs]: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/withRouter.md
 
 ## Phase 3: Bootstrapping the Current User
 
-When our static `root` page loads, our app mounts without being aware of
-who the current user is.
+When our static `root` page loads, our app mounts without being aware of who the current user is.
 
-One solution to this problem is to create another API hook that returns
-the current user and then fetches that information when the app mounts.
-However, since the request would be asynchronous, our app would
-momentarily have no current user. This would cause it to briefly render
-in a 'not-logged-in' state and then re-render when the current user was
-received, causing a strange, flickering effect. To circumvent this,
-we'll 'bootstrap' the current user alongside our HTML when the page
-initially loads.
+One solution to this problem is to create another API hook that returns the current user and then fetches that information when the app mounts.
+However, since the request would be asynchronous, our app would momentarily have no current user.
+This would cause it to briefly render in a 'not-logged-in' state and then re-render when the current user was received, causing a strange, flickering effect.
+To circumvent this, we'll 'bootstrap' the current user alongside our HTML when the page initially loads.
 
 #### Edit your `root.html.erb`
 
-Add a `<script></script>` element to the top of your `root.html.erb`
-file.
+Add a `<script></script>` element to the top of your `root.html.erb` file.
 
-Inside your `<script>`, we're going to assign `window.currentUser`. In
-order to get the proper value, we'll need to ask our controller for the
-`current_user` and then `render` that information inside the script tag
-using `ERB` interpolation. The result will be a hard-coded assignment in
-our rendered html that looks something like this:
+Inside your `<script>`, we're going to assign `window.currentUser`.
+In order to get the proper value, we'll need to ask our controller for the `current_user` and then `render` that information inside the script tag using `ERB` interpolation.
+The result will be a hard-coded assignment in our rendered html that looks something like this:
 
 ```html
 // root.html.erb
@@ -579,17 +520,14 @@ In your script, assign your `window.currentUser` to an ERB expression:
 window.currentUser = <%=  %>
 ```
 
-Make sure to use `<%= %>` so that the result of your ruby code is
-rendered into the script (it will eventually return a JSON object).
+Make sure to use `<%= %>` so that the result of your ruby code is rendered into the script (it will eventually return a JSON object).
 
-Inside your erb expression, `render` your jbuilder `_user` partial,
-passing it the `current_user`. Specify the whole path, including
-`.json.jbuilder`, to prevent rails from automatically looking for a HTML
-partial. Mark your `render` result `html_safe` to avoid escaping certain
-characters. You should get a JS- compatible object to assign to
-`window.currentUser`. Add interpolation around your
-`window.currentUser=` assignment so that it only runs if someone is
-logged in. You should have something like this:
+Inside your erb expression, `render` your jbuilder `_user` partial, passing it the `current_user`.
+Specify the whole path, including `.json.jbuilder`, to prevent rails from automatically looking for a HTML partial.
+Mark your `render` result `html_safe` to avoid escaping certain characters.
+You should get a JS- compatible object to assign to `window.currentUser`.
+Add interpolation around your `window.currentUser=` assignment so that it only runs if someone is logged in.
+You should have something like this:
 
 ```
 <!-- root.html.erb -->
@@ -604,9 +542,8 @@ logged in. You should have something like this:
 </script>
 ```
 
-Log in, refresh your page, and check out your `elements` in the Dev
-Tools. **Verify that the `script` contains an object literal of the
-current user** and properly assigns `window.currentUser`.
+Log in, refresh your page, and check out your `elements` in the Dev Tools.
+**Verify that the `script` contains an object literal of the current user** and properly assigns `window.currentUser`.
 
 ### `preloadedState`
 
@@ -635,18 +572,16 @@ if (window.currentUser) {
 //...
 ```
 
-**Test your code** by logging in and refreshing the page. You should
-stay logged in.
+**Test your code** by logging in and refreshing the page.
+You should stay logged in.
 
 ### Protecting your front-end routes
 
-Let's make sure users can't visit our `"/#/login"` or `"/#/signup"`
-routes if they are already logged in on the front-end.
+Let's make sure users can't visit our `"/#/login"` or `"/#/signup"` routes if they are already logged in on the front-end.
 
-* Let's create a `frontend/util/route_util.jsx` file. In it we will define
-some custom routes. Our goal is to conditionally render either the component or a
-[`<Redirect>`][redirect-docs] based on whether a user is logged in. To do this
-we'll need to:
+* Let's create a `frontend/util/route_util.jsx` file.
+In it we will define some custom routes. Our goal is to conditionally render either the component or a [`<Redirect>`][redirect-docs] based on whether a user is logged in.
+To do this we'll need to:
   * Check to see if the application state has a `currentUser` property.
   * If true, redirect to `"/"`.
   * Otherwise, render the specified component.
@@ -677,11 +612,9 @@ const mapStateToProps = state => {
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 ```
 
-Import your `AuthRoute` into `App.jsx` and update the login and signup
-routes to use `AuthRoute`.
+Import your `AuthRoute` into `App.jsx` and update the login and signup routes to use `AuthRoute`.
 
-:confetti_ball: You've finished adding front-end user auth to your app!
-Now let's add benches!
+:confetti_ball: You've finished adding front-end user auth to your app! Now let's add benches!
 
 ---
 
