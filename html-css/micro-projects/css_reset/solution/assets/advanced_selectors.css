@@ -68,11 +68,6 @@ ol li:nth-of-type(2n) {
   background-color: whitesmoke;
 }
 
-input[type="radio"], select, input[type="submit"] {
-  cursor: pointer;
-  outline: none;
-}
-
 h2 + .user_review {
-  border-top: 1px solid black;
+    border-top: 1px solid black;
 }
