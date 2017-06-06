@@ -156,7 +156,7 @@
 + [Associations Exercise][associations-exercise]
 + [URL Shortener][url-shortener]
 
-[css-reset-exercise]: ../html-css/micro-projects/advanced_selectors/
+[css-reset-exercise]: ../html-css/micro-projects/css_reset
 [associations-exercise]: projects/associations_exercise
 [url-shortener]: projects/url_shortener
 
