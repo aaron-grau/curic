@@ -318,7 +318,7 @@ min)
 [jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
 
 ### Projects
-* [AjaxTwitter][ajax-twitter]
+* [AJAXTwitter][ajax-twitter]
 
 [ajax-twitter]: projects/ajax_twitter
 
@@ -339,14 +339,14 @@ min)
 * [Event Propagation][event-propagation] (5 min)
 * [History and Location][history-location] (5 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
-* [Nontechnical Overview of JavaScript][js-nontech] (15 min)
-* [Technical overview of Browsers][browser-tech] (15 min)
-
-### Homeworks (55 min)
-* [Vanilla DOM Manipulation][vanilla-dom] (45 min)
+* [Vanilla JavaScript][vanilla-javascript] (15 min)
 
 ### Additional Resources
-* [Vanilla AJAX][vanilla-ajax]
+* [Non-technical Overview of JavaScript][js-nontech] (10 min)
+* [Technical Overview of Browsers][browser-tech] (10 min)
+
+### Homeworks (45 min)
+* [Vanilla DOM Manipulation][vanilla-dom] (45 min)
 
 ### Projects
 * [jQuery Lite][jquery-lite]
@@ -366,7 +366,7 @@ min)
 [mail]: projects/mail
 [jquery-lite]: projects/jquery_lite
 [snake-project]: projects/snake
-[vanilla-ajax]: readings/vanilla_ajax.md
+[vanilla-javascript]: readings/vanilla_javascript.md
 
 <!-- CSS Curriculum Links -->
 [css-1]: ../html-css/README.md#lesson-1-intro-workflow
