@@ -29,21 +29,21 @@ class UsersSearch {
     this.ul.innerHTML = '';
 
     for (let i = 0; i < users.length; i++) {
-      let user = users[i];
+      const user = users[i];
 
       // makes a new <a>, which is not yet attached to the DOM
-      let a = document.createElement('a');
+      const a = document.createElement('a');
       a.textContent = user.username;
       a.setAttribute("href", `/users/${user.id}`);
 
       // makes a new <button>, which is not yet attached to the DOM
-      let followToggle = document.createElement('button');
+      const followToggle = document.createElement('button');
       new FollowToggle(followToggle, {
         userId: user.id,
         followState: user.followed ? "followed" : "unfollowed"
       });
 
-      let li = document.createElement("li");
+      const li = document.createElement("li");
       // adds the  <a> element to the <li>
       li.appendChild(a);
       // in this case add the <button> element to the <li>
