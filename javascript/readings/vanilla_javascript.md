@@ -1,4 +1,6 @@
-# Vanilla DOM Manipulation
+# Vanilla JavaScript
+
+Vanilla, in the context of coding, not cooking, means using a language or library without additional enhancements. In this case, _Vanilla JavaScript_, would JavaScript without any additional libraries (jQuery in our case).
 
 ## Why not jQuery?
 
@@ -63,6 +65,8 @@ If we use XHR (the vanilla-DOM way), we have to handle this ourselves.
 
 Although we will be relying on jQuery, you may be asked about non-jQuery AJAX requests in interviews or if you end up working with a stack that doesn't rely on jQuery. Therefore it is important to know how to use vanilla DOM.
 
+Check out [`AJAXTwitter's UserSearch class with Vanilla JavaScript`][vanilla-user-search] to see how these and other methods might be used.
+
 ## XMLHttpRequest
 
 The functionality of AJAX is accomplished though something called an XMLHttpRequest object (aka **XHR**). The steps to make an XHR request are:
@@ -108,4 +112,5 @@ Check out the [MDN Documentation][mdn-xhr] for more information.
 [addEventListener]: https://developer.mozilla.org/en-US/docs/Talk:DOM/element.addEventListener
 [appendChild]: https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
 [removeChild]: https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+[vanilla-user-search]: ../demos/vanilla_user_search.js
 [mdn-xhr]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest

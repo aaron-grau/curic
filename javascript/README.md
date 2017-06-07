@@ -339,9 +339,9 @@ min)
 * [Event Propagation][event-propagation] (5 min)
 * [History and Location][history-location] (5 min)
 * Effective JavaScript: Items 46, 50, 52 (15 min)
-* [Vanilla jQuery][vanilla-javascript] (15 min)
+* [Vanilla JavaScript][vanilla-javascript] (15 min)
 
-## Additional Resources
+### Additional Resources
 * [Non-technical Overview of JavaScript][js-nontech] (10 min)
 * [Technical Overview of Browsers][browser-tech] (10 min)
 
