@@ -1,6 +1,6 @@
 # Vanilla JavaScript
 
-Vanilla, in the context of coding, not cooking, means using a language or library without additional enhancements. In this case, _Vanilla JavaScript_, would JavaScript without any additional libraries (jQuery in our case).
+Vanilla, in the context of coding, not cooking, means using a language or library without additional enhancements. In this case, _Vanilla JavaScript_, would be JavaScript without any additional libraries (jQuery in our case).
 
 ## Why not jQuery?
 
@@ -25,7 +25,7 @@ So, let's learn a few things about JavaScript - jQuery.
 Fortunately for us, MDN provides an excellent source of documentation for all things JavaScript, including the [DOM][mdn-dom].
 
 Now, ye be forewarned that much of working with vanilla JavaScript is looking through the docs.
-We can't provide you with a code snippet for every jQuery method, but we can give you a few starting points.
+We can't provide you with a vanilla code snippet for every jQuery method, but we can give you a few starting points.
 
 ### DOM Elements
 
@@ -43,7 +43,7 @@ So, if we want to select something from the page, we would start by calling a me
 From the returned items, we can do more sub-selection, assign event handlers, or mutate the elements.
 
 A few methods to get you started:
-* [`Element.getElementById`][getElementById]
+* [`document.getElementById`][getElementById]
 * [`Element.getElementsByClassName`][getElementsByClassName]
 * [`Element.querySelectorAll`][querySelectorAll]
 * [`EventTarget.addEventListener`][addEventListener]
@@ -106,7 +106,7 @@ Check out the [MDN Documentation][mdn-xhr] for more information.
 [mdn-htmlelement]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
 [mdn-htmlcollection]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection
 [mdn-document]: https://developer.mozilla.org/en-US/docs/Web/API/Document
-[getElementById]: https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementById
+[getElementById]: https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
 [getElementsByClassName]: https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
 [querySelectorAll]: https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
 [addEventListener]: https://developer.mozilla.org/en-US/docs/Talk:DOM/element.addEventListener
