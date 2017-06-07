@@ -4,9 +4,9 @@ Vanilla, in the context of coding, not cooking, means using a language or librar
 
 ## Why not jQuery?
 
-As we continue in the course, we will continue to use jQuery with Rails.
+Throughout this course we will continue to use jQuery with Rails.
 This is primarily because of the `jquery-rails` gem, which provides us both `jquery` and `jquery_ujs`, both of which are pre-required in `application.js`.
-`jquery` gives us the standard [jQuery library][jquery-api] and `jquery_ujs` monkey patches our AJAX requests to include the Rails CSRF token.
+`jquery` gives us the standard [jQuery library][jquery-api] and `jquery_ujs`, which monkey-patches our AJAX requests to include the Rails CSRF token.
 
 Though jQuery comes with Rails, there will come a time in your illustrious coding career that you cannot use jQuery.
 There are a few reasons we may want to utilize "vanilla" DOM manipulation:
@@ -18,9 +18,9 @@ If speed is our goal, we may want to use the API provided to us by the browser.
 Maybe you are only doing a little bit of simple DOM manipulation in your app and can suffice without jQuery.
 3. The company that pays you money doesn't like it. `¯\_(ツ)_/¯`
 
-So, let's learn a few things about JavaScript - jQuery.
+So, let's learn a few things about DOM manipulation with vanilla JavaScript.
 
-## But How Do I Even?
+## But how do I even?
 
 Fortunately for us, MDN provides an excellent source of documentation for all things JavaScript, including the [DOM][mdn-dom].
 
@@ -40,7 +40,7 @@ Firstly, we need to understand what kind of objects we will be working with. The
 ### Doing stuff
 
 So, if we want to select something from the page, we would start by calling a method on `document`, (an instance of `Document` and `Element`) and return either an `HTMLElement` or `HTMLCollection` depending upon whether we searched broadly (class name, tag name) or specifically (id).
-From the returned items, we can do more sub-selection, assign event handlers, or mutate the elements.
+From the returned items, we can do more sub-selection, assign event handlers, or mutate elements.
 
 A few methods to get you started:
 * [`document.getElementById`][getElementById]
