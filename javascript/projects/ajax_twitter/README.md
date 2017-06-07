@@ -32,7 +32,7 @@ our HTML, except that Rails compiles them all into a single file for production.
 But unlike Webpack, Rails doesn't intelligently manage dependencies, so you still
 have to be extra careful about the load order.
 
-It's currently only requiring jQuery. Make it require `bundle.js` as well. Now
+It's currently only requiring jQuery. Make it require `jquery.serializejson` (for submitting forms) and `bundle.js` (all the scripts!) as well. Now
 we shouldn't have to worry about compiling our JS files again because Webpack
 will do it for us as long as we remember to webpack (ie. run `webpack` or
 `webpack --watch`).
