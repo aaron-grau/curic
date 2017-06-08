@@ -215,7 +215,7 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
   to get a sense of what the defaults should be. Provide defaults for
 `success`, `error`, `url`, `method`, `data`,  and `contentType`.
 * Merge the `options` onto the `defaults`
-* Review [this reading][vanilla_ajax] to learn how
+* Review [this reading][vanilla_javascript] to learn how
   to implement an AJAX request using the native JavaScript API. It's
   actually quite easy!
 * Using the options supplied by the user, make the request. Be sure to
@@ -240,4 +240,4 @@ objA //=> {a: 'a', b: 'b', c: 'c'}
 [removeeventlistener]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
 [sample-ajax-request]: ../../readings/simple-ajax-example.md
 [jquery_ajax]: http://api.jquery.com/jquery.ajax/
-[vanilla_ajax]: ../../readings/vanilla_ajax.md
+[vanilla_javascript]: ../../readings/vanilla_javascript.md
