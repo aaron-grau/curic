@@ -63,7 +63,7 @@
 + :movie_camera: [ORM Intro][orm-intro-video] (5 min)
 + :movie_camera: [ORM Demo][orm-demo-video] (25 min)
 
-### Readings (17 min)
+### Readings (22 min)
 
 + [SQLite3][sqlite3] (15 min)
 + [Heredocs][heredocs] (5 min)
