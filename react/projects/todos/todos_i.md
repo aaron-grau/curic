@@ -132,7 +132,7 @@ Remember that reducers should:
 + Return the `state` if the reducer doesn't care about the action;
 + Return a new state object if the reducer cares about the `action`
 
-**N.B.** the reducer must never mutate the previous state. Instead it should return a brand new state object with the necessary changes."
+**N.B.** The reducer must never mutate the previous state. Instead it should return a brand new state object with the necessary changes.
 
 Let's start by just setting up our `todosReducer` to return its default
 state - an empty object with no todos:
