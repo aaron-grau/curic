@@ -122,7 +122,7 @@ the current weather.
 component.
 
 * Review the [open weather API][weather] documentation. We'll use this
-API to get the weather based on our current location
+API to get the weather based on our current location (we recommend fetching the weather by geographic coordinates).
 
 * In order to get the API to accept your HTTP requests, you'll need an API key.
 [Read up on how to use the API key and sign up for one here.][api-key] After
@@ -136,21 +136,25 @@ Stolen keys can cost you. _You have been warned._
 
 * To get your current location, add a call to `navigator.geolocation` when the
 component mounts. Read through the [documentation][navigator] to figure out
-how to get your current position. (Make sure you have [location services
+how to get your current location. (Make sure you have [location services
 enabled][location-services] in your browser, or this won't work.)
 
-* When the location is received, use a callback to query the weather
-API using a raw `XMLHttpRequest`.
+* When the current location is received, use a callback to query the weather
+API using a raw, "vanilla" Javascript `XMLHttpRequest`.
 
   + See [here][vanilla-ajax] and [here][nojquery] for help with the XMLHttpRequest.
 
   + For more in-depth details, look at the [XMLHttpRequest Docs][xmlhttpdocs]
 
-* Common pitfall: You need to include `http://` in your request URI
+  + Hint: pass a callback to your location query that takes a `location` argument.  `console.log` that argument to figure out how to extract the information you need, then build your `XMLHttpRequest`.
 
-* Hint: pass a callback to your location query
+  + Hint: You should build out the URI of your API request piece by piece, using the coordinates in the location argument and your API key.
 
-* Render the current city and temperature on the page.
+  + Common pitfall: You need to include `http://` in your request URI
+
+  + If you're spending more than 25 minutes setting up your request, ask a TA for help!
+
+* Render the current city and temperature on the page (temperature comes back as Kelvin. Convert!).
 
 * Give the weather box a nice border and make sure the elements inside are
 spaced evenly.
