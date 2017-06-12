@@ -107,7 +107,7 @@ export const RECEIVE_TODO = "RECEIVE_TODO";
 
 This action lets our reducer know to reset the list of `todos` and, as such, will
 also need to pass along a new set of `todos`. Write your `receiveTodos`
-action creator so that it accepts an argument `todos` and returns an action object with
+action creator so that it accepts an array argument `todos` and returns an action object with
 `type` `RECEIVE_TODOS` and a `todos` property that represents all of our todos
 data.
 
