@@ -170,12 +170,14 @@ A Redux store holds a reference to an application state. The store handles
 updating state when actions are dispatched and tells the necessary components to
 re-render. Let's create our Redux store.
 
-+ Create a new file, `store/store.js`.
++ Create a new file, `store/store.js`
 + Refer to the [store reading][store_reading] if needed
-+ Import `createStore` from the `redux` library.
-+ Import our `rootReducer`.
-+ Create a function `configureStore` which creates the store passing in the `rootReducer`.
-+ Export `configureStore`.
++ Import `createStore` from the `redux` library
++ Import `rootReducer`
++ Create a function `configureStore` which calls `createStore` with the `rootReducer`
+  + **NB:** While `configureStore` may seem meaningless now, it is a pattern we will be following throughout the course.
+    This will come in handy when we begin working with `preloadedState` and middlewares, or if you want to use hot-module replacement or other snazzy add-ons.
++ Export `configureStore`
 
 **Test your code** - Import the store to your entry file. Create your store by calling
 `configureStore`, set `window.store = store` and call `window.store.getState()` in
