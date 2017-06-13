@@ -5,6 +5,7 @@ import LoadingIcon from './loading_icon';
 import ItemDetailContainer from '../items/item_detail_container';
 
 class PokemonDetail extends Component {
+
   componentDidMount() {
     this.props.requestSinglePokemon(this.props.match.params.pokemonId);
   }
@@ -16,28 +17,32 @@ class PokemonDetail extends Component {
   }
 
   render() {
-    const { pokemonDetail, loading } = this.props;
+    const { pokemon, items, loading } = this.props;
+
     if (loading) {
       return <section className="pokemon-detail"><LoadingIcon /></section>;
     }
+
+    if (!pokemon) return null;
+
     return (
       <section className="pokemon-detail">
         <figure>
-          <img src={pokemonDetail.image_url} alt={pokemonDetail.name} />
+          <img src={pokemon.image_url} alt={pokemon.name} />
         </figure>
         <ul>
           <li>
-            <h2>{pokemonDetail.name}</h2>
+            <h2>{pokemon.name}</h2>
           </li>
-          <li>Type: {pokemonDetail.poke_type}</li>
-          <li>Attack: {pokemonDetail.attack}</li>
-          <li>Defense: {pokemonDetail.defense}</li>
-          <li>Moves: {pokemonDetail.moves.join(', ')}</li>
+          <li>Type: {pokemon.poke_type}</li>
+          <li>Attack: {pokemon.attack}</li>
+          <li>Defense: {pokemon.defense}</li>
+          <li>Moves: {pokemon.moves.join(', ')}</li>
         </ul>
         <section className="toys">
           <h3>Items</h3>
           <ul className="toy-list">
-            {pokemonDetail.items.map(item => <Item key={item.name} item={item} />)}
+            {items.map(item => <Item key={item.name} item={item} />)}
           </ul>
         </section>
 

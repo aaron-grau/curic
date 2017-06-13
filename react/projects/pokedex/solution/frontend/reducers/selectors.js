@@ -5,4 +5,4 @@ export const selectPokemonItem = ({ pokemonDetail }, itemId) => {
   return foundItem || {};
 }
 
-export const selectAllPokemon = ({ pokemon }) => values(pokemon);
+export const selectAllPokemon = ({ pokemon }) => values(pokemon.entities);
