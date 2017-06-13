@@ -78,18 +78,19 @@ So the `todos` slice of our application might look something like this:
 
 ### Action Creators
 
-Let's write a couple action creators, these are functions that will create the Redux
+Let's write a couple action creators. These are functions that will create the Redux
 `actions` that will later tell your `todosReducer` how to update the state. The first
-one will receive `todos` and populate the store, and the second one will receive a single todo and add or update a single todo.
+one will receive `todos` and populate the store, and the second one will receive a
+single `todo` and either add or update a single todo in the store.
 
 Remember that:
   + Redux actions are plain-old javascript objects that have a `type` property.
-  + Action creators don't directly interact with reducers or the `store`,
+  + Action creators don't directly interact with reducers or the `store`;
   they simply return action objects.
   + These returned action objects are passed through our
   `rootReducer` only when `store.dispatch(action)` is called.
 
-+ Create a file `actions/todo_actions.js` that will house our action creators and action type constants.
+Create a file `actions/todo_actions.js` that will house our action creators and action type constants.
 
 #### Action Type Constants
 
@@ -105,15 +106,16 @@ export const RECEIVE_TODO = "RECEIVE_TODO";
 
 #### `receiveTodos`
 
-This action lets our reducer know to reset the list of `todos` and, as such, will
+This action creator lets our reducer know to reset the list of `todos` and, as such, will
 also need to pass along a new set of `todos`. Write your `receiveTodos`
-action creator so that it accepts an array argument `todos` and returns an action object with
-`type` `RECEIVE_TODOS` and a `todos` property that represents all of our todos
-data.
+action creator so that it accepts an array argument `todos`. It should return an action object with
+a `type` property pointing to `RECEIVE_TODOS` and a `todos` property pointing to the `todos`
+argument you're passing in. This represents all of our todos data.
 
 #### `receiveTodo`
 
-The same as `receiveTodos` but for a single todo. As simple as it sounds.
+This action creator is formatted in the same way as `receiveTodos`, but accepts an argument/has a property of just
+a single `todo`. Write this out now. We will describe its function later.
 
 ### Reducers
 
@@ -121,21 +123,21 @@ The same as `receiveTodos` but for a single todo. As simple as it sounds.
 
 Redux reducers manage the shape of our application state.
 
-+ Create and export `todosReducer` in a file `reducers/todos_reducer.js`.
++ Create and export your `todosReducer` in a file `reducers/todos_reducer.js`.
 
 A Redux reducer accepts two arguments:
 + `state` - the previous application state.
 + `action` - the action object being dispatched.
 
 Remember that reducers should:
-+ Return the initial state if the state argument is undefined;
-+ Return the `state` if the reducer doesn't care about the action;
-+ Return a new state object if the reducer cares about the `action`
++ Return the initial state if the state argument is undefined.
++ Return the `state` if the reducer doesn't care about the action.
++ Return a new state object if the reducer cares about the `action`.
 
-**N.B.** The reducer must never mutate the previous state. Instead it should return a brand new state object with the necessary changes.
+**N.B.** The reducer must never mutate the previous state. Instead, it should return a brand new state object with the necessary changes.
 
-Let's start by just setting up our `todosReducer` to return its default
-state - an empty object with no todos:
+Let's start by setting up our `todosReducer` to return its default
+state - an empty object with no todos. **Do not move on to the other cases just yet**:
 ```js
 const todosReducer = (state = {}, action) => {
   switch(action.type) {
@@ -238,14 +240,21 @@ default state. Does it format the data into an array of `todos`?
 
 #### Receiving and Reducing `todos`
 
-Now that you have a functioning store, let's test out those actions we created earlier. Inside of the `todosReducer` implement the following.
+Now that you have a functioning store, let's test out those actions we created earlier. Inside of the `todosReducer`, implement the following.
 
-+ Import action constant `RECEIVE_TODOS` and `RECEIVE_TODO`.
++ Import action constants `RECEIVE_TODOS` and `RECEIVE_TODO`.
+
 + Add a new `case` to the `switch` statement in your `todosReducer`
-  + This case will execute if the `action.type` is `RECEIVE_TODOS`
-  + The `todo` data in your store will be replaced by the data stored in `action.todos`
+  + This case should execute if the `action.type` is `RECEIVE_TODOS`
+  + The `todos` data in your store should be replaced by the data in `action.todos`
+  + Do not merge the old `todos` state with the new `todos` coming in
+
+
 + Add another `case` to the `switch` statement to handle `RECEIVE_TODO`
-  + This time, return a new state object with only action.todo added/replaced.
+
+  + This case should return a new state object, either adding the `todo` in the `action` to
+  the previous state, or replacing a `todo` in the previous state at the same object key.
+  + You do not need an if/else statement for this functionality.
 
 
 Remember, you must not mutate state! If you want to change a data structure you must copy it first.
@@ -298,7 +307,7 @@ In this phase, you will create React components to display your todo list and it
 
 ### `App`
 
-This component will hold all of the top-level concerns of your app. A top-level
+This component will hold all of the top-level concerns/components of your app. A top-level
 concern is a feature of the app that functions on its own and as such is not
 nested under any other features. In this case, that will only be the `TodoList`,
 but nonetheless it's a good design pattern to get used to. You should define `App`
@@ -320,7 +329,7 @@ Make sure it works before continuing!
 ### `Root`
 
 The `Root` component serves to wrap your `App` component with a `react-redux`
-`Provider`. Remember the `Provider` gives all of your components access to your
+`Provider`. Remember that the `Provider` gives all of your components access to your
 `store`, allowing them to read the application state and dispatch actions.
 
 + Create a file `components/root.jsx`.
