@@ -370,7 +370,7 @@ Before we can test our app's reducer we need a Redux store to dispatch
 from. Let's create our app's store.
 
 * Create a `store.js` file within the `frontend/store` folder.
-* Import `createStore` from the `redux` package.
+* Import `createStore` and `applyMiddleware` from the `redux` package.
 * Import our `rootReducer`
 * Import `logger` the default export of `redux-logger` middleware
 
