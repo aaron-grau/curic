@@ -28,7 +28,7 @@ e.g. `/about`
 ## `<NavLink>`
 
 The `<NavLink>` works just like a `<Link>`, but with a little extra
-functionality. It has the ability to add add extra styling when the path
+functionality. It has the ability to add extra styling when the path
 it links to matches the current path. This makes it an ideal choice for
 a nav bar, hence the name.
 This styling can be controlled by three extra props.
