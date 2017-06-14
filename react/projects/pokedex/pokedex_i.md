@@ -113,12 +113,12 @@ A GET request to `localhost:3000/api/pokemon/5` should render this:
 
 ```js
 {
-  poke: {
+  pokemon: {
     id: 5,
     name: "Rhydon",
     attack: 130,
     defense: 120,
-    image_url: "/assets/pokemon_snaps/112.png",
+    image_url: "5.svg",
     moves: [
       "horn attack",
       //...
@@ -132,7 +132,7 @@ A GET request to `localhost:3000/api/pokemon/5` should render this:
       pokemon_id: 5,
       price: 12,
       happiness: 58,
-      image_url: "/assets/pokeball.png"
+      image_url: "/assets/pokeball.svg"
     },
     //...
   ]
