@@ -122,7 +122,7 @@ Hint: Your state shape will look something like this:
         name: "Pikachu",
       },
       2: {
-        id: 5,
+        id: 2,
         name: "Rhydon",
         attack: 130,
         defense: 120,
@@ -144,7 +144,7 @@ Hint: Your state shape will look something like this:
     {
       id: 15,
       name: "Dark Vulcan",
-      pokemon_id: 5,
+      pokemon_id: 2,
       price: 12,
       happiness: 58,
       image_url: "/assets/pokeball.png"
