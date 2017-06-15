@@ -197,7 +197,7 @@ the shortened urls a user has visited.
 
 To accomplish this, we'll need a `Visit` join table model. We'll use this join
 to link user visits to certain urls. We'll also add associations connecting
-`Visit`,`User`, and `ShortenedURL`.
+`Visit`,`User`, and `ShortenedUrl`.
 
 ### Instructions
 
