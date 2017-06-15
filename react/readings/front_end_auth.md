@@ -126,7 +126,7 @@ const mapStateToProps = state => {
 // connect Auth to the redux state
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 
-// connect Auth to the redux state
+// connect Protected to the redux state
 export const ProtectedRoute = withRouter(connect(mapStateToProps, null)(Protected));
 ```
 
