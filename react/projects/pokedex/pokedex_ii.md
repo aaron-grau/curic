@@ -97,8 +97,7 @@ Give it a `to` prop with the path for the frontend pokemon show page (`/pokemon/
 The `Link` tag will generate an appropriate link to this path.
 While it would be possible to accomplish the same thing with an `a` tag and an `href` property, using React Router's own `Link` tag is less brittle and will do the right thing, even if we use `BrowserRouter` rather than `HashRouter` for example.
 
-While clicking on a `PokemonIndexItem` will change the browser's url, you may have noticed the following error in your browser console: `[react-router] Location "/pokemon/:pokemonId" did not match any routes`.  
-This tells us that the router was looking for a `Route` with a matching `path` in the `HashRouter` and could not find one. Let's fix this.
+While clicking on a `PokemonIndexItem` will change the browser's url, you may have noticed that nothing is happening. We need a `Route` to render when we visit `/pokemon/:pokemonId`. Let's make one.
 
 ## Phase 5: `PokemonDetail`
 
@@ -160,7 +159,7 @@ Implement the `PokemonDetail` component just like we did the `PokemonIndex`. Mak
 * Create actions for receiving a single Pokemon.
 This requires defining a new constant and action creator.
 * Update `PokemonReducer` shape to contain `entities` and a `currentPoke`.
-  * Don't forget to update the `switch` also!
+  * Don't forget to update the `Switch` also!
 * Create an `ItemsReducer` to contain the `currentPoke`'s items.
 * Create a `requestSinglePokemon` thunk action creator.
 * Create a `PokemonDetailContainer` that maps props to `PokemonDetail`.
@@ -203,7 +202,7 @@ Hint: nest your new `Route` under the render function of `PokemonDetail`.
 
 Your app's `HashRouter` should contain the following routes:
 
-```js
+```jsx
 // pokedex.jsx
 <HashRouter>
   <Route path="/" component={PokemonIndexContainer} />
