@@ -284,6 +284,8 @@ AbstractController::ActionNotFound (The action 'create' could not be found for U
 ...
 ```
 
+** NB: ** If your project is using Rails 5, you'll likely see a different response from the server. It will instead return a 204 response and mention it being a `head :no_content` response.
+
 Go ahead and add that method to the controller. Again, if we don't explicitly render or
 redirect, Rails is going to try to render the template with the same name; it's going
 to look for `create.html.erb` in our `app/views/users` folder, which we don't have. To
