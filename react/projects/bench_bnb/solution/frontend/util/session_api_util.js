@@ -1,8 +1,3 @@
-import {
-  receiveCurrentUser,
-  receiveErrors
-} from '../actions/session_actions';
-
 export const login = user => (
   $.ajax({
     method: 'POST',
