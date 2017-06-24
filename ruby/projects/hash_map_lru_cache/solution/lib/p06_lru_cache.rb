@@ -41,7 +41,7 @@ class LRUCache
 
   def update_link!(link)
     link.remove
-    store.append(link.key, link.val)
+    map[link.key] = store.append(link.key, link.val)
   end
 
   def eject!

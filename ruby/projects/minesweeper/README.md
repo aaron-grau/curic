@@ -50,9 +50,9 @@ contains a bomb, then all the adjacent neighbors are also revealed. If
 any of the neighbors have no adjacent bombs, they too are revealed. Et
 cetera.
 
-The "fringe" of the revealed area are squares all adjacent to a bomb
-(or corner). The fringe should be revealed, but should contain counts
-of how many adjacent bombs are adjacent.
+The "fringe" of the revealed area is squares all adjacent to a bomb
+(or corner). The fringe should be revealed and contain the count of
+adjacent bombs.
 
 The goal of the game is to reveal all the bomb-free squares; at this
 point the game ends and the player wins.

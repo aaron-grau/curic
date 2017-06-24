@@ -35,17 +35,14 @@ configuration works.
     todo_redux.jsx
   ```
 
-+ Run `npm init -y` and then `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash webpack-dev-server` to set up React and Redux
++ Run `npm init -y` and then `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
   + This command installs the npm packages that we will be using to create our React/Redux app.
 + Set up your `webpack.config.js` file so that your bundle.js is saved in the root directory of your project. If you need to remind yourself how to set up the file look [here][webpack_setup].
-+ Set up [`webpack-dev-server`][dev-server] and run `npm start`.
-
++ Start `webpack --watch`
 **Test your setup** - Set up your entry file `todo_redux.jsx` to render
 `<h1>Todos App</h1>` into your root page's `#content` container. Open `index.html` and confirm that it worked.
 
 [webpack_setup]: ../../readings/webpack_configuration.md
-[dev-server]: ../../readings/webpack_dev_server.md
-
 
 ---
 ## Phase 2: Todos Redux Structure
@@ -110,7 +107,7 @@ export const RECEIVE_TODO = "RECEIVE_TODO";
 
 This action lets our reducer know to reset the list of `todos` and, as such, will
 also need to pass along a new set of `todos`. Write your `receiveTodos`
-action creator so that it accepts an argument `todos` and returns an action object with
+action creator so that it accepts an array argument `todos` and returns an action object with
 `type` `RECEIVE_TODOS` and a `todos` property that represents all of our todos
 data.
 
@@ -135,7 +132,7 @@ Remember that reducers should:
 + Return the `state` if the reducer doesn't care about the action;
 + Return a new state object if the reducer cares about the `action`
 
-**N.B.** the reducer must never mutate the previous state. Instead it should return a brand new state object with the necessary changes."
+**N.B.** The reducer must never mutate the previous state. Instead it should return a brand new state object with the necessary changes.
 
 Let's start by just setting up our `todosReducer` to return its default
 state - an empty object with no todos:
@@ -173,12 +170,14 @@ A Redux store holds a reference to an application state. The store handles
 updating state when actions are dispatched and tells the necessary components to
 re-render. Let's create our Redux store.
 
-+ Create a new file, `store/store.js`.
++ Create a new file, `store/store.js`
 + Refer to the [store reading][store_reading] if needed
-+ Import `createStore` from the `redux` library.
-+ Import our `rootReducer`.
-+ Create a function `configureStore` which creates the store passing in the `rootReducer`.
-+ Export `configureStore`.
++ Import `createStore` from the `redux` library
++ Import `rootReducer`
++ Create a function `configureStore` which calls `createStore` with the `rootReducer`
+  + **NB:** While `configureStore` may seem meaningless now, it is a pattern we will be following throughout the course.
+    This will come in handy when we begin working with `preloadedState` and middlewares, or if you want to use hot-module replacement or other snazzy add-ons.
++ Export `configureStore`
 
 **Test your code** - Import the store to your entry file. Create your store by calling
 `configureStore`, set `window.store = store` and call `window.store.getState()` in

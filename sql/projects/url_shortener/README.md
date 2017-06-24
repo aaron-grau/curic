@@ -31,7 +31,7 @@ and then type the file name to quickly find the files you are looking for.**
 * Be able to write associations
 * Understand the purpose of adding an index to columns in our database
 
-## Phase I: Setup
+## Phase 0: Setup
 
 Go ahead and create a new Rails project...
 
@@ -47,7 +47,7 @@ $ bundle exec rake db:create
 You now have a working Rails app with database! We can now run migrations to
 add tables to our database.
 
-## Phase II: Users
+## Phase I: Users
 
 ### Overview
 
@@ -125,8 +125,8 @@ in `ShortenedUrl` should we add indices? Which index should be unique?
 Store both the `long_url` and `short_url` as string columns. Also store the id
 of the user who submitted the url.
 
-**NB:** `ShortenedUrl` is a model, `shortened_urls` is the table it's
-connected to, and `short_url` is the string column in the
+**NB:** `ShortenedUrl` is a model, `shortened_urls` is the table it
+_models_ to, and `short_url` is the string column in the
 `shortened_urls` table that contains the actual shortened url string.
 Confusing, I know, but this illustrates why good naming is so important.
 One bad name confuses every poor dev who tries to maintain the code
@@ -138,19 +138,17 @@ and presence validations on the model level as well.
 Once you have your migration and model written how you would like, make sure to
 run your migrations and test out ShortenedUrl in the Rails console.
 
-We **could** factor out the `long_url` to its own model, `LongUrl`,
-and store in the `ShortenedUrl` a key to the `LongUrl`. If the URLs
-are super long this would reduce memory usage by not repeating the
-long url in every shortened url. On the other hand, the long url is
-already an ID (in the sense that all URLs are identifiers for web pages), so
-it's not improper to duplicate, plus factoring it out into its own table will
-force two steps of lookup to resolve a short URL:
-
-0. Find the `ShortenedUrl` model
-0. Find the associated `LongUrl`.
-
-For this reason, we can expect better performance by storing the long
-url in the `shortened_urls` table.
+>#### :bulb: Aside: But Why No `LongUrl` Model?
+>We **could** factor out the `long_url` to its own model, `LongUrl`, and store in `ShortenedUrl` a foreign key to a `LongUrl`. If the URLs are super long this would reduce data usage by allowing multiple `ShortUrl` records to reference a single `LongUrl`, removing duplication of the long url string.
+>
+>On the other hand, factoring it out into its own table forces two steps of lookup to resolve a short URL:
+>
+>1. Find the `ShortenedUrl` record by matching `short_url`
+>2. Find the associated `LongUrl` record by matching to `long_url_id` to a `LongUrl` primary key, `id`
+>
+>**NB: ActiveRecord will still execute a single query, but SQL will be doing a bit more work under the hood**
+>
+>For this reason, we can expect better _performance_ by storing the long url in the `shortened_urls` table. Ultimately, for our implementation we have chosen to prefer performance over reducing our database size.
 
 Now it's time for us to actually shorten a URL for the users. We do this by
 generating a random, easy to remember, 16 character random code and storing
@@ -158,13 +156,10 @@ this code as the `short_url` in our table. Now, we can search for this record
 by the `short_url` and we get the `long_url`.
 
 We will be generating a random string with
-`SecureRandom::urlsafe_base64`. In [Base64 encoding][wiki-base64],
-each character of the string is chosen from one of 64 possible
-letters. That means there are `64**16` possible base64 strings of
-length 16.
+`SecureRandom::urlsafe_base64`. In [Base64 encoding][wiki-base64], a random number with a given byte-length is generated and returned as a string.
 
 Write a method, `ShortenedUrl::random_code` that uses
-`SecureRandom::urlsafe_base64` to generate a 16 letter random code.
+`SecureRandom::urlsafe_base64` to generate a random 16-byte string (**NOTE: 16-bytes != 16 characters**).
 Handle the vanishingly small possibility that a code has already been
 taken: keep generating codes until we find one that isn't the same as one
 already stored as the `short_url` of any record in our table. Return the
@@ -183,7 +178,7 @@ and `User`.
 
 At this point you should have a `shortened_urls` table and a `ShortenedUrl`
 model. The factory method you wrote that creates a shortened url and persists
-it to the database should use the `SecureRandom::random_code` method to provide
+it to the database should use the `ShortenedUrl::random_code` method to provide
 a unique `short_url`. Make sure that each `ShortenedUrl` has a unique 16
 letter `short_url` code.
 
@@ -202,7 +197,7 @@ the shortened urls a user has visited.
 
 To accomplish this, we'll need a `Visit` join table model. We'll use this join
 to link user visits to certain urls. We'll also add associations connecting
-`Visit`,`User`, and `ShortenedURL`.
+`Visit`,`User`, and `ShortenedUrl`.
 
 ### Instructions
 

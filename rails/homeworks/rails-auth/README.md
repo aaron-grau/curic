@@ -13,7 +13,7 @@ Refer to the [first auth reading][auth-1-reading] and the [second auth reading][
 
 ## Phase 1: Create a User model and migration
 
-+ Protip: you can prepopulate a migration by passing `rails g model` an options hash
++ Pro-tip: You can `generate` a model and prepopulated migration from the command line by passing `rails g model` an options hash
   + Example: `rails g model User username:string password_digest:string session_token:string`
 + Add the appropriate constraints and indices to the migration and run `rake db:migrate`
 + Check `schema.rb` to make sure it worked

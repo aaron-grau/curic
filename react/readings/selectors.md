@@ -13,7 +13,7 @@ example:
 			done: 'done'
 		},
 		2: {
-			id: 2
+			id: 2,
 			body: 'look good doing it',
 			done: 'undone'
 		}

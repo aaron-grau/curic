@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 import BenchesReducer from './benches_reducer';
 import FiltersReducer from './filters_reducer';
@@ -11,4 +11,3 @@ const RootReducer = combineReducers({
 });
 
 export default RootReducer;
-

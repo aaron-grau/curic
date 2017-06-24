@@ -16,10 +16,11 @@ export default (state = initialState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_ALL_POKEMON:
+      return Object.assign({}, state, { indexLoading: false });
     case RECEIVE_NEW_POKEMON:
     case RECEIVE_SINGLE_POKEMON:
     case RECEIVE_POKEMON_ERRORS:
-      return initialState;
+      return Object.assign({}, state, { detailLoading: false });
     case START_LOADING_ALL_POKEMON:
       return Object.assign({}, state, { indexLoading: true });
     case CREATE_POKEMON:

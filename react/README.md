@@ -8,13 +8,14 @@
 ### :clock10: Class will start at 10am! :clock10:
 * **Progress Tracker reports are still due at 9am.**
 
-### Materials (116 min)
+### Materials (126 min)
 :closed_lock_with_key: `go_video_go`
 * :book: [NPM][npm_configuration] (15 min)
 * :book: [Webpack][webpack_configuration] (10 min)
 * :book: [ES6 Syntax: Object Destructuring][object_destructuring] (10 min)
 * :book: [ES6 Syntax: Import / Export][import_export] (10 min)
 * :book: [React Developer Tools][react_dev_tools] (3 min)
+* :book: [Thinking in React][thinking_in_react] (10 min)
 * :movie_camera: [React: Intro][react-intro] (27 min)
 * :movie_camera: [React: Transpilation][react-transpilation] (8 min)
 * :movie_camera: [React: Functional Components][react-func-comps] (22 min)
@@ -31,10 +32,12 @@
 [react-func-comps]: https://vimeo.com/188090786
 [react-lifecycle]: https://vimeo.com/188093789
 [click-demo]: demos/click-counter
+[thinking_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 
 ### Homeworks (75 min)
-* [Getting Started with NPM][getting_started] (30 min)
-* [React Calculator][react_calculator] (45 min)
+- [Getting Started with NPM][getting_started] (30 min)
+- [React Calculator][react_calculator] (45 min)
+- Add your questions and answers from pairboarding today to your Study Notes repo! (15 min, SF only)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/calculator
@@ -70,7 +73,7 @@
 
 ## w7d1
 
-### Materials (180 min)
+### Materials (105 min)
 * :book: [Lodash][lodash] (5 min)
 * :book: [Flux and Redux Intro][flux_redux] (10 min)
 * :book: [Store][store] (20 min)
@@ -81,12 +84,6 @@
 * :book: [Containers][containers] (10 min)
 * :book: [Selectors][selectors] (10 min)
 * :book: [Nontechnical Overview of React][react-nontech] (15 min)
-* :movie_camera: Fruit Stand Demo (75 min)
-  * :movie_camera: [Phase I - Redux only][fruit-stand-01-live] (15 min)   
-    * :computer: [Source code][fruit-stand-01-source]
-  * :movie_camera: [Phase II - React/Redux][fruit-stand-02-video] (1 hr)
-    * :earth_africa: [Live example][fruit-stand-02-live]
-    * :computer: [Source code][fruit-stand-02-source]
 
 [lodash]: readings/lodash.md
 [store]: readings/store.md
@@ -98,6 +95,15 @@
 [containers]: readings/containers.md
 [selectors]: readings/selectors.md
 [react-nontech]: readings/react_nontech.md
+
+### Fruit Stand App Demo (120 min)
+* :movie_camera: Fruit Stand Demo (75 min)
+  * :movie_camera: [Phase I - Redux only][fruit-stand-01-live] (15 min)   
+    * :computer: [Source code][fruit-stand-01-source]
+  * :movie_camera: [Phase II - React/Redux][fruit-stand-02-video] (1 hr)
+    * :earth_africa: [Live example][fruit-stand-02-live]
+    * :computer: [Source code][fruit-stand-02-source]
+
 [fruit-stand-01-live]: http://appacademy.github.io/curriculum/react/fruit_stand_01/index.html
 [fruit-stand-01-source]: ./demos/fruit_stand_demos/fruit_stand_01
 [fruit-stand-02-video]: https://vimeo.com/184374712
@@ -124,7 +130,7 @@
 
 ## w7d2
 
-### Materials (55 min)
+### Materials (60 min)
 * [Higher-order Functions][higher_order_functions] (15 min)
 * [Middleware][middleware] (15 min)
 * [Thunks][thunks] (15 min)
@@ -184,18 +190,18 @@
 
 ## w7d4
 
-### Materials (45 min)
+### Materials (26 min)
 * :book: [Intro to React Router][react_router_intro]  (15 min)
 * :book: [`<Link>`][link] (5 min)
-* :book: [Route Hooks (`onEnter`)][on_enter] (10 min)
-* :book: [Index Routes][index_routes] (5 min)
-* :book: [`withRouter`][with_router] (10 min)
+* :book: [`<Switch>`][switch] (2 min)
+* :book: [`withRouter`][with_router] (2 min)
+* :book: [`<Redirect>`][redirect] (2 min)
 
 [react_router_intro]: readings/intro_to_react_router.md
 [link]: readings/link.md
-[index_routes]: https://github.com/reactjs/react-router/blob/v3/docs/guides/IndexRoutes.md
-[on_enter]: readings/on_enter.md
-[with_router]: https://github.com/reactjs/react-router/blob/v3/docs/API.md#withroutercomponent-options
+[switch]: readings/switch.md
+[with_router]: readings/with_router.md
+[redirect]: readings/redirect.md
 
 ### Homeworks (40 min)
 * [Submit your tentative Full-Stack Project Proposal][tentative-proposal] (10 min)
@@ -207,24 +213,12 @@
 [rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
-* :book: Route Configuration][route-configuration]
-* :book: Route Matching][route-matching]
-* :book: React Router 3.0 Documentation][react_router_docs]
-  * Check the `API` docs for quick reference
-
-[route-configuration]: https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteConfiguration.md
-[route-matching]: https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteMatching.md
-[react-router-docs]: https://github.com/reactjs/react-router/blob/v3/docs/
+* :book: [React Router docs](https://reacttraining.com/react-router/web/guides/quick-start)
 
 ### Projects
 * Continue [Pokedex][pokedex]
 
 ## w7d5
-
-### Assessment06 Practice
-* [Practice][assessment-prep-6]
-
-[assessment-prep-6]:https://github.com/appacademy/assessment-prep#assessment-6
 
 ### Materials (74 min)
 :closed_lock_with_key: `go_video_go`
@@ -279,12 +273,11 @@
 * :book: [Think in React][think_in_react] (20 min)
 
 [react_map_demo]: demos/react_map_demo
-[think_in_react]: https://facebook.github.io/react/docs/thinking-in-react.html
 
 ### Homework (5.5 hrs)
 * [UX/UI Layout Practice][uxhw] (30 min)
 * Submit your [full-stack project proposal][full_stack_project_proposal] (5 hrs)
-  * **Due 9am on Monday w8d1**
+  * **Due by 9am on Monday w8d1**
 
 [full_stack_project_proposal]: ../full-stack-project/proposal/full-stack-project-proposal.md
 [uxhw]: ../full-stack-project/homeworks/ux
@@ -299,5 +292,5 @@
 
 ## w8d2
 
-### Assessment06
-* [Practice][assessment-prep-6]
+### Homework
+* Begin work on projects

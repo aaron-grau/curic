@@ -32,7 +32,7 @@ our HTML, except that Rails compiles them all into a single file for production.
 But unlike Webpack, Rails doesn't intelligently manage dependencies, so you still
 have to be extra careful about the load order.
 
-It's currently only requiring jQuery. Make it require `bundle.js` as well. Now
+It's currently only requiring jQuery. Make it require `jquery.serializejson` (for submitting forms) and `bundle.js` (all the scripts!) as well. Now
 we shouldn't have to worry about compiling our JS files again because Webpack
 will do it for us as long as we remember to webpack (ie. run `webpack` or
 `webpack --watch`).
@@ -56,9 +56,11 @@ that gets updated via our front-end JavaScript.
 * Give the button a class of `follow-toggle`.  
 * We'll also need to let the button know the `user-id` and `initial-follow-state`
 ("followed" or "unfollowed") by storing
-these in `data-*` attributes.
+these in [`data-*`][data-*] attributes.
 * Leave the inner HTML of the button empty: the FollowToggle class will be
 responsible for setting this.
+
+[data-*]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*#Usage
 
 #### `FollowToggle` Class
 

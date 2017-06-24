@@ -56,9 +56,9 @@ end
 
 def ice_cream_shop(flavors, favorite)
   return false if flavors.empty?
-  return true if flavors.pop == favorite
+  return true if flavors.last == favorite
 
-  ice_cream_shop(flavors, favorite)
+  ice_cream_shop(flavors[0...-1], favorite)
 end
 
 # Test Cases:

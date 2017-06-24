@@ -230,7 +230,7 @@
 [action-mailer-video]: https://vimeo.com/168810895
 
 ### Projects
-* [Music App][music-app-project]
+* **Solo**: [Music App][music-app-project]
 
 [music-app-project]: projects/music_app
 
