@@ -1,5 +1,5 @@
 class CheersController < ApplicationController
-  before_filter :require_current_user!
+  before_action :require_current_user!
 
   def create
     redirect_to(:back) if current_user.cheer_count <= 0

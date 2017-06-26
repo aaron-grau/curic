@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :require_current_user!
+  before_action :require_current_user!
 
   def new
     @goal = Goal.new

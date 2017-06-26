@@ -2,9 +2,13 @@
 
 ## Overview
 
-We test controllers in Rails to make sure that our controller actions are rendering the correct response.  
+We test controllers in Rails to make sure that our controller actions
+are rendering the correct response.   
 
-Controller testing in Rails is an example of "service level testing" - the middle level of the Testing Pyramid. Controller tests are simpler to write and run faster than integration tests. Solid controller tests are an important part of a strong Rails test suite.
+Controller testing in Rails is an example of "service level testing" -
+the middle level of the Testing Pyramid. Controller tests are simpler to
+write and run faster than integration tests. Solid controller tests are
+an important part of a strong Rails test suite.
 
 ## Creating the spec files
 
@@ -12,20 +16,24 @@ If you've already run `rails generate rspec:install`, then Rails will
 automatically make spec files for you when you generate a controller.
 Otherwise, run `rails generate rspec:controller #{table_name}`.
 
-To run the controller tests file-by-file, run `rspec spec/controllers/{controller_name}_spec.rb`.
+To run the controller tests file-by-file, run `rspec
+spec/controllers/{controller_name}_spec.rb`.
 
 ## Writing tests
 
 You should write tests for each action in your controllers.
 
-RSpec Rails provides us with several helpful methods for testing controllers. We can use RSpec rails to simulate a request, then verify that the controller sends back the correct response.
+RSpec Rails provides us with several helpful methods for testing
+controllers. We can use RSpec rails to simulate a request, then verify
+that the controller sends back the correct response.
 
 Here are some useful matchers you may wish to use:
 * `render_template`
 * `redirect_to`
 * `have_http_status`
 
-Let's look at an example. Assume that we are testing our app's `LinksController`.
+Let's look at an example. Assume that we are testing our app's
+`LinksController`.
 
 ```ruby
 class LinksController < ApplicationController
@@ -50,7 +58,9 @@ end
 
 ```
 
-To simulate a request in RSpec, we specify an http method, controller action, and params. We can then test the `response` using Rspec Rails's controller-specific matchers.
+To simulate a request in RSpec, we specify an http method, controller
+action, and params. We can then test the `response` using Rspec Rails's
+controller-specific matchers.
 
 ```ruby
 RSpec.describe LinksController, :type => :controller do
@@ -67,14 +77,15 @@ RSpec.describe LinksController, :type => :controller do
 end
 ```
 
-It is important to test the controller's response under different contexts. For example, we should test our `LinksController`'s create method, with both valid and invalid params.
+It is important to test the controller's response under different
+contexts. For example, we should test our `LinksController`'s create
+method, with both valid and invalid params.
 
 ```ruby
 describe "POST #create" do
-
   context "with invalid params" do
     it "validates the presence of title and body" do
-      post :create, link: {title: "this is an invalid link"}
+      post :create, link: { title: "this is an invalid link" }
       expect(response).to render_template("new")
       expect(flash[:errors]).to be_present
     end
@@ -82,13 +93,32 @@ describe "POST #create" do
 
   context "with valid params" do
     it "redirects to the link show page" do
-      post :create, link: {title: "teehee", url: "cats.com"}
+      post :create, link: { title: "teehee", url: "cats.com" }
       expect(response).to redirect_to(link_url(Link.last))
     end
   end
 end
-
 ```
 
-For more information on controller specs, consult the [documentation][rspec-controller-docs].
+**NOTE** If you happen to be using Rails 5, you will likely want to wrap your params like so:
+
+```ruby
+context "with invalid params" do
+  it "validates the presence of title and body" do
+    post :create, params: { link: { title: "this is an invalid link" } }
+    expect(response).to render_template("new")
+    expect(flash[:errors]).to be_present
+  end
+end
+
+context "with valid params" do
+  it "redirects to the link show page" do
+    post :create, params: { link: { title: "teehee", url: "cats.com" } }
+    expect(response).to redirect_to(link_url(Link.last))
+  end
+end
+```
+
+For more information on controller specs, consult the
 [rspec-controller-docs]: https://www.relishapp.com/rspec/rspec-rails/docs/controller-specs
+[documentation][rspec-controller-docs].
