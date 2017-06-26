@@ -24,7 +24,7 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def new
-    @rental_request = CatRentalRequest.new
+    @rental_request = CatRentalRequest.new(cat_id: params[:cat_id])
   end
 
   private
