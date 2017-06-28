@@ -59,7 +59,7 @@ Array.prototype.twoSum2 = function() {
 
     // since we can't set a default attribute value in JavaScript,
     // we will need to check for existence first
-    indexHash[el] ? indexHash.push(idx) : indexHash[el] = [idx];
+    indexHash[el] ? indexHash[el].push(idx) : indexHash[el] = [idx];
   });
 
   return pairs;
