@@ -173,7 +173,7 @@ JavaScript needs.
 * [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
   * **Run this and look through it after going through the Canvas Intro.**
 
-[webpack]: https://webpack.js.org/guides/get-started/
+[webpack]: https://webpack.js.org/guides/getting-started/
 [canvas-intro]: homeworks/canvas_practice
 [canvas-demo]: demos/drunken_circles
 
