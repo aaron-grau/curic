@@ -73,7 +73,7 @@ to set it all up. Make sure you push the newest version of your page every night
 throughout the HTML/CSS curriculum.
 
 [gh-pages]:../../../javascript/readings/github_pages.md
-[gh-homeworks]:../../../ruby/homeworks/questions/git-homeworks.md
+[gh-homeworks]:../../../ruby/homeworks/git-homeworks.md
 
 After coding your recipe page, compare your html to [this
 example](intro_example_recipe.html) and view the live version
