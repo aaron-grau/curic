@@ -64,7 +64,7 @@
 [array-hash-defaults]: readings/array-hash-defaults.md
 [scope]: readings/scope.md
 [code-smells]: readings/refactoring.md
-[html-css-overview]: #
+[html-css-overview]: ../html-css-temp/readings/overview.md 
 [html-intro]: ../html-css-temp/readings/introduction.md
 [prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
 
