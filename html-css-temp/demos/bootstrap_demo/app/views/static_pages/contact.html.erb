@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-xs-8">
+    <h1>Contact</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-5" id="contact-form-wrapper">
+    <h2>Contact us!</h2>
+    <form role="form">
+      <div class="form-group" id="bootstrap-demo-contact-form">
+        <label for="contact-name">Your Name:</label>
+        <input type="text" id="contact-name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Your Email:</label>
+        <input type="email" id="contact-email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="contact-msg">Your Message:</label>
+        <textarea id="contact-msg" class="form-control"></textarea>
+      </div>
+      <input type="button" value="submit" class="btn btn-primary"  data-target="#bootstrap-demo-modal" id="contact-form-button">
+    </form>
+    <!-- modal to confirm submission -->
+    <div class="modal fade" id="bootstrap-demo-modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h2>Contact sent!</h2>
+          </div>
+          <div class="modal-body">
+            <p>Great job.</p>
+          </div>
+          <div class="modal-footer">
+            <small>Really.</small>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal -->
+  </div>
+  <div class="col-xs-5 col-xs-offset-1">
+    <h2>Staff Phone Numbers</h2>
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>number</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>number</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>number</td>
+      </tr>
+    </table>
+  </div>
+</div>

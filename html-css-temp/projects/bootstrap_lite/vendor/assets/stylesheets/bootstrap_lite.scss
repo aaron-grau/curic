@@ -1,0 +1,19 @@
+/* Bootstrap Lite Styles Manifest */
+
+/* basic components */
+@import "bootstrap_lite/variables";
+@import "bootstrap_lite/mixins";
+
+/* reset */
+@import "bootstrap_lite/reset";
+
+/* responsive grid */
+@import "bootstrap_lite/grid";
+
+/* base styles */
+@import "bootstrap_lite/base";
+@import "bootstrap_lite/forms";
+@import "bootstrap_lite/navbar";
+@import "bootstrap_lite/modal";
+@import "bootstrap_lite/tabs";
+

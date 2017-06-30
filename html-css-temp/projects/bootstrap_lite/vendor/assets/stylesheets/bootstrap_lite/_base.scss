@@ -1,0 +1,27 @@
+/* Bootstrap Lite Base Styles */
+
+html {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: $base-margin 0;
+}
+
+/* links */
+
+a {
+  color: $highlight-color;
+  text-decoration: none;
+  font-weight: bold;
+  &:visited {
+    color: desaturate($highlight-color, 45%);
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: saturate($highlight-color, 45%);
+  }
+}
+
+

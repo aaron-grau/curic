@@ -1,0 +1,48 @@
+/* Bootstrap Lite Tabs Styles */
+
+.nav-tabs {
+  @include clearfix;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: solid 1px $highlight-color;
+}
+
+.nav-tabs li {
+  background-color: $brand-color;
+  color: $tab-content-color;
+  padding: $base-padding;
+  @include rounded-corners(12px 12px 0px 0px);
+  margin-bottom: -2px;
+  margin-left: $base-padding;
+}
+
+.nav-tabs li.active {
+  background-color: $tab-content-color;
+  border-top: solid 1px $highlight-color;
+  border-left: solid 1px $highlight-color;
+  border-right: solid 1px $highlight-color;
+  /* bottom is white, connecting to the content */
+  border-bottom: solid 1px $tab-content-color;
+  a {
+    color: $brand-color;
+  }
+}
+
+.tab-content {
+  background-color: $tab-content-color;
+  border-left: solid 1px $highlight-color;
+  border-right: solid 1px $highlight-color; 
+  border-bottom: solid 1px $highlight-color; 
+  @include clearfix;
+  padding: $base-padding;
+}
+
+.tab-content > .tab-pane {
+  display: none;
+}
+
+.tab-content > .active {
+  display: block;
+}
+
+

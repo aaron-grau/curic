@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Lite Forms Demo</title>
+    <meta name="viewport" content="width=device-width" />
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../vendor/assets/javascripts/bootstrap_lite/tabs.js"></script>
+    <script src="../vendor/assets/javascripts/bootstrap_lite/collapse.js"></script>
+    <link rel="stylesheet" type="text/css" href="../vendor/assets/stylesheets/bootstrap_lite.css">
+  </head>
+  <body>
+    <header>
+      <nav class="nav-navbar" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle button" data-toggle="collapse" data-target="#main-navigation">
+            &#9776;
+      <!-- This toggle button will show in screen sizes smaller than your breakpoint. -->
+           </button>
+           <!-- the brand will always show up. -->
+           <a class="navbar-brand" href="#">Bootstrap Lite Navbar</a>
+        </div>
+        
+        <!-- This nav will show in screen sizes larger than your breakpoint . -->
+        <ul class="nav nav-collapse" id="main-navigation">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Lorem</a></li>
+          <li><a href="#">Ipsum</a></li>
+          <li><a href="#">Cupcake</a></li>
+        </ul>
+      </nav>
+      </header>
+      <div class="container">
+        <h1>Responsive Navbar Demo</h1>
+        <p>Resize the window to see the navbar options collapse.</p>
+        <h1>One Page Tabbed Content Demo</h1>
+        <p>The content will change with no refresh!</p>
+         <ul class="nav nav-tabs">
+          <li data-toggle="tab" data-target="#option-1"><a href="#">Option 1</a></li>
+          <li data-toggle="tab" data-target="#option-2"><a href="#">Option 2</a></li>
+          <li data-toggle="tab" data-target="#puppies"><a href="#">Puppies</a></li>
+          <li data-toggle="tab" data-target="#kittens" class="active"><a href="#">Kittens</a></li>
+        </ul>
+ 
+        <div class="tab-content content">
+          <div class="tab-pane" id="option-1">
+            <p>Some content for option 1!</p>
+          </div>
+          <div class="tab-pane" id="option-2">
+            <p>Some content for option 2!</p>
+          </div>
+          <div class="tab-pane" id="puppies">
+            <img src="http://farm8.staticflickr.com/7298/8783086682_691cae3822_m.jpg">
+            <small>by Phil Dragash, <a href="http://www.flickr.com/photos/philman/">on flickr</a></small>
+          </div>
+          <div class="tab-pane active" id="kittens">
+            <img src="http://farm1.staticflickr.com/30/67501122_8c57f88c65_m.jpg">
+            <small>By Nicole C. Engard, <a href="http://www.flickr.com/photos/nengard/">on flickr</a></small>
+          </div>
+        </div>       
+      </div>
+    </body>
+</html>
