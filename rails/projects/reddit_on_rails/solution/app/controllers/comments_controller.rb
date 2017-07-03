@@ -1,16 +1,14 @@
 class CommentsController < ApplicationController
-
   before_action :require_signed_in!, only: [:new, :create]
 
   def new
     @comment = Comment.new(post_id: params[:post_id])
-    render :new
   end
 
   def create
     @comment = current_user.comments.new(comment_params)
 
-    if @comment.save
+    if @comment.save!
       redirect_to post_url(@comment.post_id)
     else
       flash[:errors] = @comment.errors.full_messages
@@ -21,12 +19,15 @@ class CommentsController < ApplicationController
   def show
     @comment = Comment.find(params[:id])
     @new_comment = @comment.child_comments.new
-
-    render :show
   end
 
-  def downvote; vote(-1); end
-  def upvote; vote(1); end
+  def downvote
+    vote(-1)
+  end
+
+  def upvote
+    vote(1)
+  end
 
   private
   def comment_params

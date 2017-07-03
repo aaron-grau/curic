@@ -1,8 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :sub do
-    name { |n| Faker::Name.name }
-    association :moderator, factory: :user
+    moderator_id 1
+    name "MyString"
+    description "MyText"
   end
 end

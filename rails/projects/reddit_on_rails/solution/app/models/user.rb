@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token
@@ -7,13 +7,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, :name, uniqueness: true
 
-  has_many(
-    :subs,
-    class_name: "Sub",
+  has_many :subs,
+    class_name: :Sub,
     foreign_key: :moderator_id,
     primary_key: :id,
     inverse_of: :moderator
-  )
+
   has_many :posts, inverse_of: :author
   has_many :comments, inverse_of: :author
   has_many :user_votes, inverse_of: :user
@@ -24,7 +23,11 @@ class User < ActiveRecord::Base
   end
 
   def self.generate_session_token
-    SecureRandom::urlsafe_base64(16)
+    begin
+      token = SecureRandom::urlsafe_base64(16)
+    end while User.exists?(session_token: token)
+
+    token
   end
 
   def is_password?(unencrypted_password)
@@ -47,7 +50,6 @@ class User < ActiveRecord::Base
   private
 
   def ensure_session_token
-    # Lazy: very low probability of collision, but we should fix this.
     self.session_token ||= self.class.generate_session_token
   end
 end

@@ -1,7 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe PostSub do
-
+RSpec.describe PostSub, type: :model do
   it { should validate_presence_of(:post) }
   it { should validate_presence_of(:sub) }
 

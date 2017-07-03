@@ -110,6 +110,10 @@ should still store a `post_id`, even though this may seem redundant**;
 later we'll see why. Write a `Comment#child_comments` association.
 Write a `Post#comments` association.
 
+Please note that Rails 5 automatically validates `belongs_to`
+associations, so you'll need to pass it `optional: true` when you want
+to allow for blank foreign keys.
+
 On your `PostsController#show` page, for each top level comment, add a
 link to the `show` page of the comment (e.g., to `/comments/123`). You
 can find top level comments like so:

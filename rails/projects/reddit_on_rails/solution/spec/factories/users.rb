@@ -1,8 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :user do
-    name { |n| Faker::Name.name }
-    password { |p| Faker::Internet.password }
+    name "MyString"
+    password_digest "MyString"
+    session_token "MyString"
   end
 end
