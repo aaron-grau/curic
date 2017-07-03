@@ -5,7 +5,7 @@
 Take [yesterday's solution][prev-solution] from HTML Containers Exercise and add a review form:
 
 1. Make a `section` element before your footer and after the directions section
-2. Create a `form` element in the section that makes a post request to "/reviews"
+2. Create a `form` element in the section
 2. Inside the `form` element make a `label` and text `input` for the name of the reviewer. Use the 'for' and 'id' attributes to link the label to the input.
 3. Create a label for "Rating" and 5 radio inputs with corresponding value attributes. Have the radio buttons default to checking '1'.
 4. Create a "Cooking Expertise" label that corresponds to a `select` element containing 5 `option` elements, don't forget their value attributes:
