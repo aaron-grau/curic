@@ -28,14 +28,14 @@ Write a basic Auth implementation
 
 ## Phase II: `Sub` and `Post`
 
-A `Sub` is a topic-specific subforum to which users submit a
+A `Sub` is a topic-specific sub-forum to which users submit a
 `Post`. Start by writing a `Sub` model and `SubsController`. The
 `Sub` should have `title` and `description` attributes and a
 `moderator` association. The creator of the `Sub` is the
 `moderator`.
 
 Write all the standard seven routes for `SubsController`. You can leave
-out `destroy` if you like.
+out `destroy` if you'd like.
 
 Write an `edit` route where the moderator is allowed to
 update the `title` and `description`. Use a `before_action` to
@@ -50,7 +50,7 @@ consist of:
 * A `sub` association to the `Sub` the `Post` is submitted to (required)
 * An `author` association.
 
-Again, write all the standard `PostsController` actions, excepting
+Again, write all the standard `PostsController` actions, except for
 `index` (the `subs#show` can list `posts`).
 
 Write `posts#edit` and `posts#update` controller actions (and routes)
@@ -64,8 +64,9 @@ relationship. Add appropriate DB constraints and model validations to
 `PostSub`. Require that a `Post` has at least one associated sub.
 Create appropriate associations between `Post`, `PostSub`, and `Sub`.
 
-Edit your 'Post' new/edit views to allow the user to select multiple subs
-via checkboxes
+Edit your 'Post' new/edit views to allow the user to select multiple
+subs via checkboxes.
+
 * Structure your HTML form to upload an array of `sub_ids` nested under `post`
 * Update the `PostsController#post_params` to accept an array of `sub_ids`
 
@@ -94,8 +95,10 @@ Start by focusing on top-level comments. Write a `Comment` model with:
 * An `author` association,
 * A `post` association.
 
-Create `CommentsController` and a top-level `create` route. Also create a `new` route nested under `posts`
-(should look like: `/posts/:post_id/comments/new`). These are the only two comments routes you need so far.
+Create `CommentsController` and a top-level `create` route.
+Also create a `new` route nested under `posts` (should look
+like: `/posts/:post_id/comments/new`).
+These are the only two comments routes you need so far.
 
 Edit your `PostsController#show` view to provide a link to a comment
 form and to display top-level comments.
@@ -112,7 +115,7 @@ Write a `Post#comments` association.
 
 Please note that Rails 5 automatically validates `belongs_to`
 associations, so you'll need to pass it `optional: true` when you want
-to allow for blank foreign keys.
+to allow for `nil` foreign keys.
 
 On your `PostsController#show` page, for each top level comment, add a
 link to the `show` page of the comment (e.g., to `/comments/123`). You
