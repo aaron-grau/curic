@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import PokemonDetail from './pokemon_detail';
 import { requestSinglePokemon } from '../../actions/pokemon_actions';
 
-const mapStateToProps = ({ pokemon, items, loading }) => ({
-  pokemon: pokemon.entities[pokemon.currentPoke],
-  items,
-  loading: loading.detailLoading
+const mapStateToProps = state => ({
+  pokemon: state.entities.pokemon[state.ui.pokeDisplay],
+  items: state.entities.items,
+  loading: state.ui.loading.detailLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

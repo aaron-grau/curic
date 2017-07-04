@@ -7,7 +7,8 @@ const pokemonDisplayReducer = (state = null, action) => {
 
   switch (action.type) {
     case RECEIVE_SINGLE_POKEMON:
-      return action.payload.poke.id;
+      debugger
+      return action.payload.pokemon.id;
     default:
       return state;
   }
