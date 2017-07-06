@@ -281,7 +281,7 @@ rollback to edit.
 
 It is okay to edit recent migrations as part of your development
 process. You'll make mistakes. But after you have written a migration,
-committed it, and pushed it to Github, do not return to edit it. Treat
+committed it, and pushed it to GitHub, do not return to edit it. Treat
 that as a permanent part of the historical record of your schema's
 evolution.
 
