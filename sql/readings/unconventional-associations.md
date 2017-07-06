@@ -7,16 +7,16 @@ options for `belongs_to` and `has_many`. We know that Rails can often
 infer these. Let's see an example where it cannot:
 
 ```ruby
-class Employee < ActiveRecord::Base
-  has_many :subordinates, 
-           :class_name => "Employee",
-           :foreign_key => :manager_id,
-           :primary_key => :id
-           
-  belongs_to :manager, 
-             :class_name => "Employee",
-             :foreign_key => :manager_id,
-             :primary_key => :id
+class Employee < ApplicationRecord
+  has_many :subordinates,
+    class_name: 'Employee',
+    foreign_key: :manager_id,
+    primary_key: :id
+
+  belongs_to :manager,
+    class_name: 'Employee',
+    foreign_key: :manager_id,
+    primary_key: :id
 end
 ```
 
@@ -41,33 +41,33 @@ Let's look at another example:
 # emails: id|from_email_address|to_email_address|text
 #  users: id|email_address
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   has_many(
     :sent_emails,
-    :class_name => "Email",
-    :foreign_key => :from_email_address,
-    :primary_key => :email_address
+    class_name: 'Email',
+    foreign_key: :from_email_address,
+    primary_key: :email_address
   )
   has_many(
     :received_emails,
-    :class_name => "Email",
-    :foreign_key => :to_email_address,
-    :primary_key => :email_address
+    class_name: 'Email',
+    foreign_key: :to_email_address,
+    primary_key: :email_address
   )
 end
 
-class Email < ActiveRecord::Base
+class Email < ApplicationRecord
   belongs_to(
     :sender,
-    :class_name => "User",
-    :foreign_key => :from_email_address,
-    :primary_key => :email_address
+    class_name: 'User',
+    foreign_key: :from_email_address,
+    primary_key: :email_address
   )
   belongs_to(
     :recipient,
-    :class_name => "User",
-    :foreign_key => :to_email_address,
-    :primary_key => :email_address
+    class_name: 'User',
+    foreign_key: :to_email_address,
+    primary_key: :email_address
   )
 end
 ```
@@ -79,5 +79,5 @@ and recipient. Additionally, the `Email` record doesn't reference
 option; this is otherwise by default simply `id`.
 
 Through these two examples, we've seen that we can go beyond the
-conventional ActiveRecord guesses in cases where our associations are
+conventional `ActiveRecord` guesses in cases where our associations are
 a little special.

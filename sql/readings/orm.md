@@ -7,8 +7,8 @@ migrations. Now we'd like to start using the records stored in that
 database.
 
 We've previously worked directly with a database by writing SQL. One
-downside was that this embedded SQL code is in our Ruby code; though this
-works, it would be nice to work, as much as possible, only in Ruby syntax.
+downside was that this embedded SQL code is in our Ruby code. Though this
+works, it would be nice to use Ruby syntax as much as possible.
 
 Also, when we fetched data from our SQL database, the data was
 returned in generic `Hash` objects. For instance, if our database was
@@ -24,11 +24,11 @@ And we wrote the following ruby code to fetch the data:
 
 ```ruby
 require 'sqlite3'
-db = SQLite3::Database.new("cars.db")
+db = SQLite3::Database.new('cars.db')
 db.results_as_hash = true
 db.type_translation = true
 
-cars = db.execute("SELECT * FROM cars")
+cars = db.execute('SELECT * FROM cars')
 # => [
 #  {"make" => "Toyota", "model" => "Camry", "year" => 1997},
 #  {"make" => "Toyota", "model" => "Land Cruiser", "year" => 1989},
@@ -63,16 +63,31 @@ For each table, we define a Ruby **model** class; an instance of the
 model will represent an individual row in the table. For instance, a
 `physicians` table will have a corresponding `Physician` model class;
 when we fetch rows from the `physicians` table, we will get back
-`Physician` objects. All model classes extend `ActiveRecord::Base`;
-methods in `ActiveRecord::Base` will allow us to fetch and save Ruby
-objects from/to the table.
+`Physician` objects. All model classes extend `ApplicationRecord`, which
+in turn extends `ActiveRecord::Base`. Methods in `ActiveRecord::Base`
+will allow us to fetch and save Ruby objects from/to the table.
+
+Rails comes with the following `application_record.rb` in our `models`
+folder:
+
+```ruby
+class ApplicationRecord < ActiveRecord::Base
+  self.abstract_class = true
+end
+```
+
+Our `ApplicationRecord` will act as an intermediary class that we use
+to extend our model classes with `ActiveRecord::Base`. (Rails uses this
+intermediary class to avoid being in situations where we would have to
+include modules directly on `ActiveRecord::Base`. `ApplicationRecord`
+essentially keeps `ActiveRecord::Base` clean.)
 
 If we had a table named `physicians`, we would create a model
 class like so:
 
 ```ruby
 # app/models/physician.rb
-class Physician < ActiveRecord::Base
+class Physician < ApplicationRecord
 end
 ```
 
@@ -106,7 +121,7 @@ key. To do this, we use `::where`:
 
 ```ruby
 # return an array of Physicians based in La Jolla
-Physician.where("home_city = ?", "La Jolla")
+Physician.where('home_city = ?', 'La Jolla')
 # Executes:
 #   SELECT *
 #     FROM physicians
@@ -124,7 +139,7 @@ ActiveRecord lets you query without SQL fragments:
 
 ```ruby
 Physician.where(
-  :home_city => "La Jolla"
+  home_city: 'La Jolla'
 )
 ```
 
@@ -133,10 +148,10 @@ requiring `home_city = 'La Jolla'`. Here's some other cool versions:
 
 ```ruby
 # physicians at any of these three schools
-Physician.where(:college => ["City College", "Columbia", "NYU"])
+Physician.where(college: ['City College', 'Columbia', 'NYU'])
 # => SELECT * FROM physicians WHERE college IN ('City College', 'Columbia', 'NYU');
 # physicians with 3-9 years experience
-Physician.where(:years_experience => (3..9))
+Physician.where(years_experience: (3..9))
 # => SELECT * FROM physicians WHERE years_experience BETWEEN 3 AND 9
 ```
 
@@ -146,7 +161,7 @@ shame in writing SQL fragments instead; just be sure you interpolate properly!
 
 ### Updating and inserting rows
 
-By extending `ActiveRecord::Base`, your model class will automatically
+By extending `ActiveRecord::Base` through `ApplicationRecord`, your model class will automatically
 receive getter/setter methods for each of the database columns. This
 is convenient, since you won't have to write `attr_accessor` for each
 column. Here we construct a new `Physician` and set some appropriate
@@ -154,36 +169,36 @@ fields:
 
 ```ruby
 # create a new Physician object
-p = Physician.new
+jonas = Physician.new
 
 # set some fields
-p.name = "Jonas Salk"
-p.college = "City College"
-p.home_city = "La Jolla"
+jonas.name = 'Jonas Salk'
+jonas.college = 'City College'
+jonas.home_city = 'La Jolla'
 ```
 
 Great! As you know from your previous AA Questions project, this will
-not have saved `p` to the Database however. To do this, we need to
+not have saved `jonas` to the Database. To do so, we need to
 call the `ActiveRecord::Base#save!` method:
 
 ```ruby
 # save the record to the database
-p.save!
+jonas.save!
 ```
 
 Notice that I use `#save!`; you may have also seen the plain ol'
 `#save`. The difference between the two is that `#save!` will warn you
 if you fail to save the object, whereas `#save` will quietly return
-`false` (it returns `true` on success). 
+`false` (it returns `true` on success).
 
 To save some steps of `#save!`, we can use `#create!` to create a new
 record and immediately save it to the db:
 
 ```ruby
 Physician.create!(
-  :name => "Jonas Salk",
-  :college => "City College",
-  :home_city => "La Jolla"
+  name: 'Jonas Salk',
+  college: 'City College',
+  home_city: 'La Jolla'
 )
 ```
 
@@ -193,6 +208,7 @@ Finally, we can destroy a record and remove it from the table through
 `#destroy`:
 
 ```ruby
+
 physician.destroy
 ```
 
