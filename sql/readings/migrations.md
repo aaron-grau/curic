@@ -39,7 +39,7 @@ behind-the-scenes work, we are responsible only for describing our
 change in the `up/down` methods.
 
 ```ruby
-class CreateProducts < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration[5.1]
   def up
     create_table :products do |t|
       t.string :name
@@ -81,7 +81,7 @@ migrate your database and reverse it when the migration is rolled back
 without the need to write a separate `down` method.
 
 ```ruby
-class CreateProducts < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration[5.1]
   def change
     create_table :products do |t|
       t.string :name
@@ -100,7 +100,7 @@ it).
 This won't help for migrations which remove a column:
 
 ```ruby
-class CreateProducts < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration[5.1]
   def change
     remove_column :products, :description
   end
@@ -122,7 +122,7 @@ command:
 This will create an empty but appropriately named migration:
 
 ```ruby
-class AddPartNumberToProducts < ActiveRecord::Migration
+class AddPartNumberToProducts < ActiveRecord::Migration[5.1]
   def change
   end
 end
@@ -145,7 +145,7 @@ add code that actually performs the actions we desire.
 ## Writing a migration
 
 Inside your `up/down` or `change` methods, you may call methods of the
-parent class `ActiveRecord::Migration`. Here we go through some of the most
+parent class `ActiveRecord::Migration[5.1]`. Here we go through some of the most
 common.
 
 ### Creating tables
@@ -238,10 +238,10 @@ it would be premature optimization to remove them until necessary.
 ## Running migrations
 
 To actually perform the migrations you have written but not yet run,
-use the command `rake db:migrate`. This will look in the `db/migrate`
+use the command `rails db:migrate`. This will look in the `db/migrate`
 directory, find all unexecuted migrations, and run their `up` or
 `change` methods in order of creation time. Only when you run the
-Rake task is the database actually modified.
+rails task is the database actually modified.
 
 ### What migrations are run?
 
@@ -259,14 +259,14 @@ is in `schema_migrations`.
 Occasionally you will make a mistake when writing a migration. If you
 have already run the migration then you cannot just edit the migration
 and run the migration again: Rails will think it has already run the
-migration and so will do nothing when you run `rake
+migration and so will do nothing when you run `rails
 db:migrate`. That's because the timestamp is in `schema_migrations`.
 
 You must first *rollback* the migration, which reverses the change (by
 calling the `down`), if that is possible. This will undo the changes
 and remove the timestamp from `schema_migrations`.
 
-To rollback the most recent migration, run `rake db:rollback`. You may
+To rollback the most recent migration, run `rails db:rollback`. You may
 now edit the migration file and rerun.
 
 ### Don't edit old migrations
@@ -274,14 +274,14 @@ now edit the migration file and rerun.
 Editing migrations often causes some trouble. It is a common mistake
 to begin editing the migration before rolling it back. Then, when you
 try to roll back, ActiveRecord tries to rollback the migration **as it
-is currently written**. This causes problems becauses the edited
+is currently written**. This causes problems because the edited
 migration does not correspond to the migration that was actually
 previously run. You need to be careful of this: wait until after
 rollback to edit.
 
 It is okay to edit recent migrations as part of your development
 process. You'll make mistakes. But after you have written a migration,
-committed it, and pushed it to github, do not return to edit it. Treat
+committed it, and pushed it to GitHub, do not return to edit it. Treat
 that as a permanent part of the historical record of your schema's
 evolution.
 
@@ -299,7 +299,7 @@ the git branch that consists of recent code not yet deployed to the
 "production", user-facing application), you will frustrate other
 developers if you edit old migrations. Say I run your original `users`
 migration. You then edit it and push your code. When I fetch your
-code, running `rake db:migrate` will not run your changed
+code, running `rails db:migrate` will not run your changed
 migration. Instead, I have to myself reverse the **old** version of
 the migration (which I will have to recover; you checked in the edited
 version...), then re-run the new version.
@@ -327,7 +327,7 @@ the current state of the database.
 There is no need (and it is error prone) to initialize a new database
 by replaying the entire migration history. It is much simpler and
 faster to just load into the database a description of the current
-schema (`rake db:schema:load`). For this reason, the schema file
+schema (`rails db:schema:load`). For this reason, the schema file
 should be checked into source control and tracked.
 
 Schema files are also useful if you want a quick look at what
@@ -342,12 +342,12 @@ that functionality.
 
 You shouldn't worry too much about the `schema.rb` file for quite a
 while. Just do one thing: **check in the changes that result from
-running `rake db:migrate` whenever you write a new migration**. That
+running `rails db:migrate` whenever you write a new migration**. That
 will keep it from cluttering up your git status, and your repo will
 always have an up-to-date, authoritative description of the database
 schema.
 
-I should note that I have seldom used `rake db:schema:load` to load
+I should note that I have seldom used `rails db:schema:load` to load
 the schema.
 
 ### Running arbitrary code
@@ -357,7 +357,7 @@ arbitrary code in our migration. This is helpful to fix bad data in
 the database or populate new fields.
 
 ```ruby
-class AddReceiveNewsletterToUsers < ActiveRecord::Migration
+class AddReceiveNewsletterToUsers < ActiveRecord::Migration[5.1]
   def up
     change_table :users do |t|
       t.boolean :receive_newsletter, :default => false

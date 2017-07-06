@@ -11,37 +11,37 @@ What about indirect relations? For instance, consider the following
 example:
 
 ```ruby
-class Physician < ActiveRecord::Base
+class Physician < ApplicationRecord
   has_many(
     :appointments,
-    :class_name => "Appointment",
-    :foreign_key => :physician_id,
-    :primary_key => :id
+    class_name: 'Appointment',
+    foreign_key: :physician_id,
+    primary_key: :id
   )
 end
 
-class Appointment < ActiveRecord::Base
+class Appointment < ApplicationRecord
   belongs_to(
     :physician,
-    :class_name => "Physician",
-    :foreign_key => :physician_id,
-    :primary_key => :id
+    class_name: 'Physician',
+    foreign_key: :physician_id,
+    primary_key: :id
   )
 
   belongs_to(
     :patient,
-    :class_name => "Patient",
-    :foreign_key => :patient_id,
-    :primary_key => :id
+    class_name: 'Patient',
+    foreign_key: :patient_id,
+    primary_key: :id
   )
 end
 
-class Patient < ActiveRecord::Base
+class Patient < ApplicationRecord
   has_many(
     :appointments
-    :class_name => "Appointment",
-    :foreign_key => :patient_id,
-    :primary_key => :id
+    class_name: 'Appointment',
+    foreign_key: :patient_id,
+    primary_key: :id
   )
 end
 ```
@@ -78,42 +78,42 @@ up two existing associations. **Important note**: a **`has_many
 :through` association has nothing to do with traditional `has_many`**.
 
 ```ruby
-class Physician < ActiveRecord::Base
+class Physician < ApplicationRecord
   has_many(
     :appointments,
-    :class_name => "Appointment",
-    :foreign_key => :physician_id,
-    :primary_key => :id
+    class_name: 'Appointment',
+    foreign_key: :physician_id,
+    primary_key: :id
   )
 
-  has_many :patients, :through => :appointments, :source => :patient
+  has_many :patients, through: :appointments, source: :patient
 end
 
-class Appointment < ActiveRecord::Base
+class Appointment < ApplicationRecord
   belongs_to(
     :physician,
-    :class_name => "Physician",
-    :foreign_key => :physician_id,
-    :primary_key => :id
+    class_name: 'Physician',
+    foreign_key: :physician_id,
+    primary_key: :id
   )
 
   belongs_to(
     :patient,
-    :class_name => "Patient",
-    :foreign_key => :patient_id,
-    :primary_key => :id
+    class_name: 'Patient',
+    foreign_key: :patient_id,
+    primary_key: :id
   )
 end
 
-class Patient < ActiveRecord::Base
+class Patient < ApplicationRecord
   has_many(
     :appointments
-    :class_name => "Appointment",
-    :foreign_key => :patient_id,
-    :primary_key => :id
+    class_name: 'Appointment',
+    foreign_key: :patient_id,
+    primary_key: :id
   )
 
-  has_many :physicians, :through => :appointments, :source => :physician
+  has_many :physicians, through: :appointments, source: :physician
 end
 ```
 
@@ -127,7 +127,7 @@ Let's pull apart the `has_many :through` association. Take the
 example of:
 
 ```ruby
-has_many :patients, :through => :appointments, :source => :patient
+has_many :patients, through: :appointments, source: :patient
 ```
 
 The critical thing here is to note that `:through` and `:source` name

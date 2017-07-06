@@ -10,14 +10,14 @@ With validation methods, you can write your own methods to validate a
 model.
 
 ```ruby
-class Invoice < ActiveRecord::Base
+class Invoice < ApplicationRecord
   # validate tells the class to run these methods at validation time.
   validate :discount_cannot_be_greater_than_total_value
 
   private
   def discount_cannot_be_greater_than_total_value
     if discount > total_value
-      errors[:discount] << "can't be greater than total value"
+      errors[:discount] << 'can\'t be greater than total value'
     end
   end
 end
@@ -37,9 +37,9 @@ array, you can simply add a string to it and it will be used as an
 error message.
 
 ```ruby
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   def a_method_used_for_validation_purposes
-    errors[:base] << "This person is invalid because ..."
+    errors[:base] << 'This person is invalid because ...'
   end
 end
 ```
@@ -64,18 +64,18 @@ class EmailValidator < ActiveModel::EachValidator
     unless value =~ CRAZY_EMAIL_REGEX
       # we can use `EachValidator#options` to access custom options
       # passed to the validator.
-      message = options[:message] || "is not an email"
+      message = options[:message] || 'is not an email'
       record.errors[attribute_name] << message
     end
   end
 end
 
 # app/models/person.rb
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   # Rails knows `:email` means `EmailValidator`.
-  validates :email, :presence => true, :email => true
+  validates :email, presence: true, email: true
   # not required, but must also be an email
-  validates :backup_email, :email => {:message => "isn't even valid"}
+  validates :backup_email, email: { message: 'isn\'t even valid' }
 end
 ```
 
