@@ -170,7 +170,7 @@ The object yielded to the block allows you to create columns on the
 table. The migration calls a method like `string` or
 `integer` on the table to create a column of that type. You then pass a symbol which supplies the name. In general, the format is
 
-    t.data_type :column_name, { :option1 => :option_value, :option2 => :option_value }
+    t.data_type :column_name, { option1: :option_value, option2: :option_value }
 
 Supported column types include:
 
@@ -195,9 +195,9 @@ the most common methods:
 * `add_index :table_name, [:column1, :column2], options_hash`
 * `change_column :table_name, :column_name, :type, options_hash`; you can:
     0. Change the data type of a column,
-    1. Add the option `:null => false` to add a `NOT NULL`
+    1. Add the option `null: false` to add a `NOT NULL`
        constraint,
-    2. Add the option `:default => value` to specify a default
+    2. Add the option `default: value` to specify a default
        value.
 
 For example, to add `user_id` to the `applications` table:
@@ -360,7 +360,7 @@ the database or populate new fields.
 class AddReceiveNewsletterToUsers < ActiveRecord::Migration[5.1]
   def up
     change_table :users do |t|
-      t.boolean :receive_newsletter, :default => false
+      t.boolean :receive_newsletter, default: false
     end
     User.each do |user|
       # sign up existing users for the newsletter, though.
