@@ -1,9 +1,9 @@
-class CreateHouses < ActiveRecord::Migration
+class CreateHouses < ActiveRecord::Migration[5.1]
   def change
     create_table :houses do |t|
       t.string :address
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
