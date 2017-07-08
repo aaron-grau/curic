@@ -7,5 +7,6 @@ class CreateTaggings < ActiveRecord::Migration[5.1]
       t.timestamps
     end
     add_index :taggings, %i(tag_topic_id shortened_url_id), unique: true
+    add_index :taggings, :shortened_url_id
   end
 end
