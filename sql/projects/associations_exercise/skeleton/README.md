@@ -1,12 +1,24 @@
-**Associations!**
+# README
 
-Welcome to the associations exercise.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Check out the [`db/schema.rb`][schema] to see what your database will look like.
+Things you may want to cover:
 
-Check out [`db/seeds.rb`][seedfile] to see what test data your database contains.
+* Ruby version
 
-The database has already been created and is standing by for your usage.
+* System dependencies
 
-[schema]: ./db/schema.rb
-[seedfile]: ./db/seeds.rb
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
