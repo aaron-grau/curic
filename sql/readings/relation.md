@@ -11,7 +11,7 @@ There is one major difference from an `Array`: the contents of
 `Relation` are not fetched until needed. This is called **laziness**:
 
 ```ruby
-users = User.where("likes_dogs = ?", true) # no fetch yet!
+users = User.where('likes_dogs = ?', true) # no fetch yet!
 
 # performs fetch here
 users.each { |user| puts "Hello #{user.name}" }
@@ -47,9 +47,9 @@ p user1.posts.object_id
 # => 70232180387400
 
 Post.create!(
-  :user_id => user1.id, # THIS LINE IS KEY, BECAUSE IT TIES THE POST TO THE USER IN THE DATABASE
-  :title => "Title",
-  :body => "Body body body"
+  user_id: user1.id, # THIS LINE IS KEY, BECAUSE IT TIES THE POST TO THE USER IN THE DATABASE
+  title: 'Title',
+  body: 'Body body body'
 )
 
 # Does not fire a query; uses cached `posts` relation, which itself
@@ -80,11 +80,11 @@ a good thing?
 Laziness allows us to build complex queries. Let's see an example:
 
 ```ruby
-georges = User.where("first_name = ?", "George")
+georges = User.where('first_name = ?', 'George')
 georges.where_values
 # => ["first_name = 'George'"]
 
-george_harrisons = georges.where("last_name = ?", "Harrison")
+george_harrisons = georges.where('last_name = ?', 'Harrison')
 george_harrisons.where_values
 # => ["first_name = 'George'", "last_name = 'Harrison'"]
 
@@ -96,7 +96,7 @@ to `where` returns a `Relation` which knows to filter by `first_name`
 (the condition is stored in the `where_values` attribute). Next, we
 call `where` on this `Relation`; this produces a new `Relation` object
 which will know to filter by both `first_name` and `last_name` (you
-can see that `where_values` was extended`).
+can see that `where_values` was extended`)`.
 
 Note that the additional `where` created a new `Relation`; the
 original `georges` is not changed.
