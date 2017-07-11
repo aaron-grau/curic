@@ -41,7 +41,6 @@ lectures**
 ### Homeworks (75 min)
 - [Getting Started with NPM][getting_started] (30 min)
 - [React Calculator][react_calculator] (45 min)
-- Add your questions and answers from pairboarding today to your Study Notes repo! (15 min, SF only)
 
 [getting_started]: homeworks/getting_started
 [react_calculator]: homeworks/calculator

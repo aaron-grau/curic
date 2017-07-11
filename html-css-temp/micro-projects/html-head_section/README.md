@@ -17,6 +17,6 @@ The JavaScript file that we added uses some fun document manipulation to provide
 After coding your recipe page, compare your html to [this example][solution].
 
 [prev-solution]: ../html-forms/solution.html?raw=true
-[external-javascript-example]: ./../assets/external_javascript_example.js
+[external-javascript-example]: ../../assets/external_javascript_example.js
 [reset]: ../../assets/css_reset.css
 [solution]: ./solution.html
