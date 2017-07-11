@@ -96,7 +96,7 @@ to `where` returns a `Relation` which knows to filter by `first_name`
 (the condition is stored in the `where_values` attribute). Next, we
 call `where` on this `Relation`; this produces a new `Relation` object
 which will know to filter by both `first_name` and `last_name` (you
-can see that `where_values` was extended`)`.
+can see that `where_values` was extended).
 
 Note that the additional `where` created a new `Relation`; the
 original `georges` is not changed.
