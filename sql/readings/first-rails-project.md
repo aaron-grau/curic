@@ -8,14 +8,14 @@ straightforward.
 
 - Make sure that Rails is installed:
   ```sh
-  gem install rails -v '4.2.8'
+  gem install rails -v '5.1.2'
   ```
 - Generate a new Rails *project*:
   ```sh
-  rails new DemoProject
+  rails new demo_project
   ```
 
-This will create a folder `DemoProject`, with a bunch of Rails
+This will create a folder `demo_project`, with a bunch of Rails
 directories in them.
 
 **NB**: If you're starting a new rails app and would like to use
@@ -24,11 +24,11 @@ This will add the correct gem and have sensible defaults in
 `config/database.yml`.
 
 ```sh
-rails new DemoProject --database=postgresql
+rails new demo_project --database=postgresql
 ```
 
 - Add helpful gems for development.
-  - Open up the `Gemfile` file (located in your new `DemoProject` folder). Rails sets you up with a bunch of gems by default, but there are a few other gems we recommend that will make your life **much** easier. You should get in the habit of including the the following gems to your  `development` group:
+  - Open up the `Gemfile` file (located in your new `demo_project` folder). Rails sets you up with a bunch of gems by default, but there are a few other gems we recommend that will make your life **much** easier. You should get in the habit of including the the following gems to your  `development` group:
 
   ```ruby
   group :development do
@@ -49,7 +49,7 @@ rails new DemoProject --database=postgresql
   ```
   - This will allow us to do things like interact with our Rails project
   using the `pry`.
-- Make sure you are in the DemoProject
+- Make sure you are in the `demo_project`
   directory and run `bundle install`.
   - This will look for `Gemfile` and then install gems listed in it.
 
@@ -78,10 +78,10 @@ production databases can be frustrating.
   ```yaml
   development:
     <<: *default
-    database: ProjectName_development
+    database: project_name_development
   ```
 
 * Create your new Postgres database
-  * Run `bundle exec rake db:create`
-  * If you have migrations, run `bundle exec rake db:migrate`
-  * If you have seeds, run `bundle exec rake db:seed`
+  * Run `bundle exec rails db:create`
+  * If you have migrations, run `bundle exec rails db:migrate`
+  * If you have seeds, run `bundle exec rails db:seed`

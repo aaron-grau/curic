@@ -85,12 +85,12 @@ validations and returns true if no errors were found in the object,
 and false otherwise.
 
 ```ruby
-class Person < ActiveRecord::Base
-  validates :name, :presence => true
+class Person < ApplicationRecord
+  validates :name, presence: true
 end
 
-Person.create(:name => "John Doe").valid? # => true
-Person.create(:name => nil).valid? # => false
+Person.create(name: 'John Doe').valid? # => true
+Person.create(name: nil).valid? # => false
 ```
 
 ## `errors`
@@ -110,8 +110,8 @@ some such before trying to access `errors`.
 ```ruby
 # let's see some of the many ways a record may fail to save!
 
-class Person < ActiveRecord::Base
-  validates :name, :presence => true
+class Person < ApplicationRecord
+  validates :name, presence: true
 end
 
 >> p = Person.new
@@ -172,9 +172,9 @@ method to check if the value is either `nil` or a blank string, that
 is, a string that is either empty or consists of only whitespace.
 
 ```ruby
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   # must have name, login, and email
-  validates :name, :login, :email, :presence => true
+  validates :name, :login, :email, presence: true
 end
 ```
 
@@ -186,10 +186,10 @@ If you want to be sure that an associated object exists, you can do
 that too:
 
 ```ruby
-class LineItem < ActiveRecord::Base
+class LineItem < ApplicationRecord
   belongs_to :order
 
-  validates :order, :presence => true
+  validates :order, presence: true
 end
 ```
 
@@ -205,9 +205,9 @@ The default error message is "X can't be empty".
 This helper validates that the attribute's value is unique:
 
 ```ruby
-class Account < ActiveRecord::Base
+class Account < ApplicationRecord
   # no two Accounts with the same email
-  validates :email, :uniqueness => true
+  validates :email, uniqueness: true
 end
 ```
 
@@ -215,11 +215,11 @@ There is a very useful `:scope` option that you can use to specify
 other attributes that are used to limit the uniqueness check:
 
 ```ruby
-class Holiday < ActiveRecord::Base
+class Holiday < ApplicationRecord
   # no two Holidays with the same name for a single year
-  validates :name, :uniqueness => {
-    :scope => :year,
-    :message => "should happen once per year"
+  validates :name, uniqueness: {
+    scope: :year,
+    message: 'should happen once per year'
   }
 end
 ```
@@ -236,7 +236,6 @@ Validation    |  Database Constraint  |  Model Validation
 Present       |  null: false          |  presence: true
 All Unique    |  add_index :tbl, :col, unique: true                   | uniqueness: true
 Scoped Unique |  add_index :tbl, [:scoped_to_col, :col], unique: true | uniqueness: { scope: :scoped_to_col }
-
 
 ### Less common helpers
 
@@ -255,3 +254,60 @@ details:
 * `inclusion`
     * `in` option lets you specify an array of possible values. All
       other values are invalid.
+
+## Warning!
+
+Rails 5 introduces a new behavior: it automatically validates the presence of `belongs_to` associations.
+To override this default behavior, we have to pass `optional: true` to the association initialization.
+
+Let's look at an example.
+Say we have the following models:
+
+```ruby
+class Home < ApplicationRecord
+  has_many :cats,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Cat
+end
+
+class Cat < ApplicationRecord
+  belongs_to :home,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Home
+end
+```
+
+Let's assume that we want to allow for cats to be without a home (😞).
+Because Rails 5 validates the presence of `belongs_to` associations, if we try to `save` a cat without a home, we'll get a validation error.
+
+```ruby
+cat = Cat.new
+cat.save!
+#=> (0.3ms)  BEGIN
+# (0.4ms)  ROLLBACK
+# ActiveRecord::RecordInvalid: Validation failed: Home must exist
+```
+
+In order to allow for homeless cats, we would have to `optional: true` like so:
+
+```ruby
+class Cat < ApplicationRecord
+  belongs_to :home,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Home,
+    optional: true
+end
+```
+
+With that, we get the following:
+
+```ruby
+cat = Cat.new
+cat.save!
+#=>    (0.3ms)  BEGIN
+#  SQL (5.0ms)  INSERT INTO "cats" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2017-07-05 20:24:43.182051"], ["updated_at", "2017-07-05 20:24:43.182051"]]
+#    (2.6ms)  COMMIT
+```

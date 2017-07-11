@@ -2,7 +2,7 @@
 
 Suppose we have a simple query:
 
-```
+```sql
 SELECT *
 FROM Users
 WHERE Name = 'Mike'
@@ -41,11 +41,11 @@ indexed.
 Now let's consider a practical example.
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   has_many :conversations, foreign_key: :user_id
 end
 
-class Conversation < ActiveRecord::Base
+class Conversation < ApplicationRecord
   belongs_to :user, foreign_key: :user_id
 end   
 ```
@@ -63,13 +63,13 @@ prove perilous for our career.
 The solution is to add an index in an ActiveRecord migration. We'll use the [`add_index`][add-index-docs] method:
 
 ```ruby
-class AddUserIdIndexToConversations < ActiveRecord::Migration
+class AddUserIdIndexToConversations < ActiveRecord::Migration[5.1]
   def change
     add_index :conversations, :user_id
   end
 end
 ```
 
-That's all! Run the migration and watch your queries speed up like a rocketship!
+That's all! Run the migration and watch your queries speed up like a rocket ship!
 
 [add-index-docs]: http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
