@@ -9,6 +9,11 @@ class CreateAlbums < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :albums, :band_id
+    ##
+    # We can use the following index to search by
+    # both :band_id and [:band_id, :name] (order matters!)
+    # https://stackoverflow.com/questions/6169996/index-on-multiple-columns-in-ror#6170023
+    ##
+    add_index :albums, %i(band_id name), unique: true
   end
 end
