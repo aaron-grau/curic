@@ -15,6 +15,11 @@ class ShortenedUrl < ApplicationRecord
   validates :short_url, uniqueness: true
   validate :no_spamming, :nonpremium_max
 
+
+  # Remember, belongs_to is just a method where the first argument is
+  # the name of the association, and the second argument is an options
+  # hash.
+  
   belongs_to :submitter,
   primary_key: :id,
   class_name: :User,

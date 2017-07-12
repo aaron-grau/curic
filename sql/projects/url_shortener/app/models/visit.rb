@@ -12,6 +12,10 @@
 class Visit < ApplicationRecord
   validates :visitor, :shortened_url, presence: true
 
+  # Remember, belongs_to is just a method where the first argument is
+  # the name of the association, and the second argument is an options
+  # hash.
+  
   # This is short hand syntax. Since the primary key, foreign key, and
   # class name all follow convention, Rails can guess their values
   # without you having to explicitly state them.

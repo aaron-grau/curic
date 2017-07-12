@@ -11,7 +11,10 @@
 
 class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
-
+  
+  # Remember, belongs_to is just a method where the first argument is
+  # the name of the association, and the second argument is an options
+  # hash.
   # TA: I'm being explicit about foreign_/primary_ keys and class_name
   has_many :submitted_urls,
   class_name: :ShortenedUrl,
