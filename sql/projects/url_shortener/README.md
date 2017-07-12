@@ -17,7 +17,7 @@ we can use the `launchy` gem to pop open the original URL in a browser.
 
 Throughout this project you're going to be navigating through many files. Using
 the file tree to navigate will take a long time. Make sure to instead press ⌘+T
-and then type the file name to quickly find the files you are looking for.**
+and then type the file name to quickly find the files you are looking for.
 
 [goo-gl]: https://goo.gl
 [what-is-cli]: http://www.techopedia.com/definition/3337/command-line-interface-cli
@@ -41,7 +41,7 @@ $ rails new URLShortener --database postgresql
 Create the database with the following command...
 
 ```
-$ bundle exec rake db:create
+$ bundle exec rails db:create
 ```
 
 You now have a working Rails app with database! We can now run migrations to
@@ -86,7 +86,7 @@ can also enforce uniqueness of one or more columns at the database
 level using an index. [These docs][add-index-docs] will give you the syntax needed.
 
 Double check that your migration file syntax is correct and then setup your database
-by running your migrations with: `bundle exec rake db:migrate`.
+by running your migrations with: `bundle exec rails db:migrate`.
 
 Next, let's create a `User` model. No magic to this, just create a `user.rb`
 file in your `app/models` folder.
@@ -279,7 +279,7 @@ end
 ```
 
 This will call `#distinct` on the visitors, returning only unique visitors. It
-is common to write `-> { distinct }` for `Proc.new { distinct }`, because it is
+is common to write a lambda literal like so `-> { distinct }` rather than `Proc.new { distinct }`, because it is
 a little shorter.
 
 Use a "distinct-ified" version of `visitors` to rewrite `num_uniques` simply.
@@ -304,9 +304,11 @@ Everything should be working before you move on.
 ### Overview
 
 Now we're going to write a very simple command-line interface in `bin/cli`
-(the convention for Rails scripts is to omit the extension `.rb`). You already
+(we will write this as a command-line script and so we will omit the `.rb` extension. Instead, we can write `#!/usr/bin/env ruby` on the first line of the file to tell the command-line interpreter that this is a ruby file. This is known as a [Shebang][shebang] ). You already
 know how to do this -- you have written programs that had CLIs using functions like
 `puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.).
+
+[shebang]: https://en.wikipedia.org/wiki/Shebang_(Unix)
 
 ### Instructions
 
