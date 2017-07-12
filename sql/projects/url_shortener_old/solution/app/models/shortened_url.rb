@@ -11,7 +11,7 @@
 #
 
 class ShortenedUrl < ActiveRecord::Base
-  validates :long_url, :short_url, :submitter_id, presence: true
+  validates :long_url, :short_url, :submitter, presence: true
   validates :short_url, uniqueness: true
   validate :no_spamming, :nonpremium_max
 
@@ -113,7 +113,7 @@ class ShortenedUrl < ActiveRecord::Base
     #       AND users.premium ='f'"
   end
 
-  private 
+  private
 
   def no_spamming
     last_minute = ShortenedUrl
