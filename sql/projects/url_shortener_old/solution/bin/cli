@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 class CLI
   def create_url
     puts "Type in your long url"
