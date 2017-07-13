@@ -1,2 +1,9 @@
-<h1>Cats#index</h1>
-<p>Find me in app/views/cats/index.html.erb</p>
+<h1>Cats upon cats!</h1>
+
+<ul>
+  <% @cats.each do |cat| %>
+    <li><%= link_to cat.name, cat_url(cat) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create cat", new_cat_url %>
