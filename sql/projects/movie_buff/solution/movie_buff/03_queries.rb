@@ -7,16 +7,16 @@ def what_was_that_one_with(those_actors)
     .joins(:actors)
     .where(actors: { name: those_actors })
     .group(:id)
-    .having("COUNT(actors.id) >= ?", those_actors.length)
+    .having('COUNT(actors.id) >= ?', those_actors.length)
 end
 
 def golden_age
   # Find the decade with the highest average movie score.
 
   Movie
-    .select("AVG(score), (yr / 10) * 10 AS decade")
-    .group("decade")
-    .order("avg(score) DESC")
+    .select('AVG(score), (yr / 10) * 10 AS decade')
+    .group('decade')
+    .order('avg(score) DESC')
     .first
     .decade
 end
@@ -41,7 +41,7 @@ def actor_out_of_work
 
   Actor
     .select(:name)
-    .joins("LEFT OUTER JOIN castings on castings.actor_id = actors.id")
+    .joins('LEFT OUTER JOIN castings on castings.actor_id = actors.id')
     .where(castings: { movie_id: nil })
     .count
 end
@@ -51,14 +51,14 @@ def starring(whazzername)
   # A name is like whazzername if the actor's name contains all of the
   # letters in whazzername, ignoring case, in order.
 
-  # ex. "Sylvester Stallone" is like "sylvester" and "lester stone" but
-  # not like "stallone sylvester" or "zylvester ztallone"
+  # ex. 'Sylvester Stallone' is like 'sylvester' and 'lester stone' but
+  # not like 'stallone sylvester' or 'zylvester ztallone'
 
   matcher = "%#{whazzername.split(//).join('%')}%"
-  Movie.joins(:actors).where("UPPER(actors.name) LIKE UPPER(?)", matcher)
+  Movie.joins(:actors).where('UPPER(actors.name) LIKE UPPER(?)', matcher)
 
   # Note: The below code also works:
-  # Actor.where("name ilike ?", matcher).first.movies
+  # Actor.where('name ilike ?', matcher).first.movies
 
   # As the Postgres docs say,
   # "the keyword ILIKE can be used instead of LIKE to make the match
@@ -73,9 +73,9 @@ def longest_career
   # their career.
 
   Actor
-    .select(:name, :id, "MAX(movies.yr) - MIN(movies.yr) AS career")
+    .select(:name, :id, 'MAX(movies.yr) - MIN(movies.yr) AS career')
     .joins(:movies)
-    .order("career DESC, name")
+    .order('career DESC, name')
     .group(:id)
     .limit(3)
 end
