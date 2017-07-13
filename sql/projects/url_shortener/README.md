@@ -59,7 +59,7 @@ same person registering on our app with a duplicate email. That wouldn't make se
 
 The naming of your files is going to be essential. When you try to create an
 instance of a model, it looks in the models folder for a file that is the
-`snake_case`ified version of your model's name. Also, it will, by default,
+`snake_case`-ified version of your model's name. Also, it will, by default,
 infer that the name of the table is the pluralized, snake cased, version of your
 model. For example, if I had a `GoodStudent` model, Rails would look in the
 `app/models` folder for a file called `good_student.rb`. Upon finding and
@@ -255,12 +255,10 @@ clicks in a recent time period (say, `10.minutes.ago`). This involves throwing a
 You probably wrote a has_many association that looked like this:
 
 ```ruby
-class ShortenedUrl < ActiveRecord::Base
-  has_many(
-    :visitors,
+class ShortenedUrl < ApplicationRecord
+  has_many :visitors,
     through: :visits,
     source: :visitor
-  )
 end
 ```
 
@@ -268,13 +266,11 @@ To get this association to return each visitor exactly once, we can add a magic
 "scope block" to ask Rails to remove duplicates:
 
 ```ruby
-class ShortenedUrl < ActiveRecord::Base
-  has_many(
-    :visitors,
+class ShortenedUrl < ApplicationRecord
+  has_many :visitors,
     Proc.new { distinct }, #<<<
     through: :visits,
     source: :visitor
-  )
 end
 ```
 
@@ -303,10 +299,10 @@ Everything should be working before you move on.
 
 ### Overview
 
-Now we're going to write a very simple command-line interface in `bin/cli`
-(we will write this as a command-line script and so we will omit the `.rb` extension. Instead, we can write `#!/usr/bin/env ruby` on the first line of the file to tell the command-line interpreter that this is a ruby file. This is known as a [Shebang][shebang] ). You already
-know how to do this -- you have written programs that had CLIs using functions like
-`puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.).
+Now we're going to write a very simple command-line interface in `bin/cli`.
+We'll write this as a command-line script, we'll omit the `.rb` extension.
+Instead, we can write `#!/usr/bin/env ruby` on the first line of the file to tell the command-line interpreter that this is a ruby file. This is known as a [Shebang][shebang].
+You already know how to do this -- you have written programs that had CLIs using functions like `puts` and `gets.chomp` (e.g., Chess, Minesweeper, &c.).
 
 [shebang]: https://en.wikipedia.org/wiki/Shebang_(Unix)
 
@@ -387,7 +383,6 @@ shortened urls.
 
 ## Phase V: TagTopic and Tagging
 
-
 ### Overview
 
 In this phase we'll allow users to choose a set of predefined `TagTopic`'s
@@ -460,34 +455,31 @@ query. Use the following code snippet in `rails console` to make sure
 your `prune` method is working as hoped.
 
 ```ruby
-u1 = User.create!(email: "jefferson@cats.com", premium: true)
-u2 = User.create!(email: "muenster@cats.com")
+u1 = User.create!(email: 'jefferson@cats.com', premium: true)
+u2 = User.create!(email: 'muenster@cats.com')
 
-su1 = ShortenedUrl.create_for_user_and_long_url!(u1, "www.boxes.com")
-su2 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.meowmix.com")
-su3 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.smallrodents.com")
+su1 = ShortenedUrl.create_for_user_and_long_url!(u1, 'www.boxes.com')
+su2 = ShortenedUrl.create_for_user_and_long_url!(u2, 'www.meowmix.com')
+su3 = ShortenedUrl.create_for_user_and_long_url!(u2, 'www.smallrodents.com')
 
 v1 = Visit.create!(user_id: u1.id, shortened_url_id: su1.id)
 v2 = Visit.create!(user_id: u1.id, shortened_url_id: su2.id)
-
 
 ShortenedUrl.all # should return su1, su2 and su3
 ShortenedUrl.prune(10)
 ShortenedUrl.all # should return su1, su2 and su3
 
-
 # wait at least one minute
 ShortenedUrl.prune(1)
 ShortenedUrl.all # should return only su1
 
-su2 = ShortenedUrl.create_for_user_and_long_url!(u2, "www.meowmix.com")
+su2 = ShortenedUrl.create_for_user_and_long_url!(u2, 'www.meowmix.com')
 v3 = Visit.create!(user_id: u2.id, shortened_url_id: su2.id)
 # wait at least two minutes
 v4 = Visit.create!(user_id: u1.id, shortened_url_id: su2.id)
 
 ShortenedUrl.prune(1)
 ShortenedUrl.all # should return su1 and su2
-
 ```
 
 Once you have `ShortenedUrl::prune` working, check out ActiveRecord's
