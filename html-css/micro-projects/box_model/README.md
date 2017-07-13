@@ -13,6 +13,8 @@ inside its own box when rendered to the page.
 Update box_model.css as follows to see how different properties can affect these
 boxes.
 
+### Warmup
+
 1. Right now, none of the `div` elements on the page take up any space because
    they are empty. Open up the Chrome inspector (shortcut is `cmd-option-i`) and
    find one of these `div`s on the "Elements" pane. Verify that they are on the
@@ -34,3 +36,44 @@ boxes.
 6. Do box elements always need a set `height` and `width` to be visible? No! Play
    around with adding text into the `p` element and see how it expands and
    shrinks to accomodate its contents.
+
+### For the children
+
+What if we want a `div` to take up a certain height, but also want it to be able
+to grow accomodate children? Figure out which property allows you to make an
+element take up at least 400px, but grow as needed.
+
+Make a new `div` that defaults to 10px tall, then grows when you insert a long
+paragraph as a child.
+
+### Say cheese
+
+Now let's talk images. Have you seen [this video](nyt-front-page-video)
+showing how much the New York Times' front page has changed since 1852? Long
+story short, images are an important part of modern web design! We run into some
+interesting problems with them in HTML/CSS.
+
+1. Let's get some cat pictures on the screen. Create a new `div` with class
+   'image-1-container' and give it a fixed `width` of 200px and a fixed `height`
+   of 600px. Also give it a colored background so we can actually see it (you
+   get to pick the color this time). Inside of this new `div`, create an `img`
+   tag that points to the file called `cat.jpg` that's in the assets folder. 
+2. Note that the image spills out of the `div`. By default, images will want to
+   render with the full glorious dimensions. How can we combat this brash
+   egotism? Tell the image to obey the constraints of its container by giving it
+   a width of 100%. *NB*: You may be wondering, "100% of what". From the results
+   of this experiment, you should be able to infer that width percentages are
+   determined by the width of one's parent.
+3. Make a copy of your `image-1-container` and paste it below the original.
+   Change this copy's class but give it the same styles as the original. Make
+   sure that the new image is back to it's old image ways and bursting out of its
+   container (If it's not, you weren't specific enough with your style rules for
+   the last image and you should go fix them).
+4. Alter the styling on this new container so that it's width still defaults to
+   200px but now it can grow to accomodate any image. Hint hint, it's something
+   you used earlier to accomodate your other children. Remember that `div`
+   elements are blocks and will take up the whole width of the window if you
+   don't constrain them, so you might want to change them to inline-blocks or
+   something.
+
+[nyt-front-page-video]: https://flowingdata.com/2017/02/21/evolution-of-the-new-york-times-front-page/

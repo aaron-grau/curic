@@ -1,4 +1,4 @@
-div {
+#first-div, #second-div {
   width: 200px;
   height: 200px;
   padding: 50px;
@@ -16,4 +16,25 @@ div {
 
 p {
   background-color: #7fdbff;
+}
+
+.min-height-div {
+  min-height: 10px;
+}
+
+.image-1-container {
+  width: 200px;
+  height: 600px;
+  background: chartreuse;
+}
+
+.image-1-container img {
+  width: 100%;
+}
+
+.image-2-container {
+  display: inline-block;
+  min-width: 200px;
+  height: 600px;
+  background: chartreuse;
 }
