@@ -17,7 +17,7 @@ using the console to directly invoke Rack's parameter parser. For
 example:
 
 ```ruby
-Rack::Utils.parse_nested_query("name=fred&phone=0123456789")
+Rack::Utils.parse_nested_query('name=fred&phone=0123456789')
 # => {"name"=>"fred", "phone"=>"0123456789"}
 ```
 
@@ -34,7 +34,7 @@ contains
 the `params` hash will contain
 
 ```ruby
-{'person' => {'name' => 'Henry'}}
+{ 'person' => { 'name' => 'Henry' } }
 ```
 
 and `params[:person][:name]` will retrieve the submitted value in the
@@ -49,7 +49,7 @@ Hashes can be nested as many levels as required, for example:
 will result in the `params` hash being
 
 ```ruby
-{'person' => {'address' => {'city' => 'New York'}}}
+{ 'person' => { 'address' => { 'city' => 'New York' } } }
 ```
 
 ## Basic Structures: Arrays
@@ -64,12 +64,14 @@ form contains:
 
 then on submission, the browser will send:
 
-    key=value1&key=value2
+```
+  key=value1&key=value2
+```
 
 When Rails goes to parse this, it will return:
 
 ```ruby
-{ "key" => "value2" }
+{ 'key' => 'value2' }
 ```
 
 The last value wins. Rails overwrites any prior values. Note that Rails
@@ -88,11 +90,11 @@ square brackets to the name:
 Rails will parse the uploaded params as:
 
 ```ruby
-{ "person" => {
-    "phone_numbers" => [
-      "555-123-4567",
-      "555-765-4321",
-      "555-135-2468"
+{ 'person' => {
+    'phone_numbers' => [
+      '555-123-4567',
+      '555-765-4321',
+      '555-135-2468'
     ]
   }
 }
@@ -111,10 +113,10 @@ You can't create arrays of hashes:
 You want:
 
 ```ruby
-{ "persons" => [
-    { "phone_number" => "555-123-4567" },
-    { "phone_number" => "555-765-4321" },
-    { "phone_number" => "555-135-2468" }
+{ 'persons' => [
+    { 'phone_number' => '555-123-4567' },
+    { 'phone_number' => '555-765-4321' },
+    { 'phone_number' => '555-135-2468' }
   ]
 }
 ```
@@ -131,10 +133,10 @@ this. Instead, there's a hack:
 Which Rails translates as:
 
 ```ruby
-{ "persons" => {
-    "0" => { "phone_number" => "555-123-4567" },
-    "1" => { "phone_number" => "555-765-4321" },
-    "2" => { "phone_number" => "555-135-2468" }
+{ 'persons' => {
+    '0' => { 'phone_number' => '555-123-4567' },
+    '1' => { 'phone_number' => '555-765-4321' },
+    '2' => { 'phone_number' => '555-135-2468' }
   }
 }
 ```
