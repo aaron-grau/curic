@@ -1,4 +1,4 @@
-##`O(n^2)` vs. `O(n*lg(n))` - Practical Example
+## `O(n^2)` vs. `O(n*lg(n))` - Practical Example
 
 It should be clear now that for any moderately large inputs, algorithms
 that run in `O(n*lg(n))` time will significantly outperform those that run
