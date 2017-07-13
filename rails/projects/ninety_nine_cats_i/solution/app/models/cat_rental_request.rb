@@ -1,0 +1,2 @@
+class CatRentalRequest < ApplicationRecord
+end
