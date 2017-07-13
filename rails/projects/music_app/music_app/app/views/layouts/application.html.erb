@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MusicApp</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Music App</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+<% if logged_in? %>
+  <nav>
+    <p>Logged in as: <%= current_user.email %></p>
+    <%= button_to "Sign Out", session_url, method: :delete %>
+    <p><a href="<%= bands_url %>">Back to All Bands</a></p>
+  </nav>
+<% end %>
 
-  <body>
-    <%= yield %>
-  </body>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:errors] %>
+  <p><%= flash[:errors].join(", ") %></p>
+<% end %>
+
+<%= yield %>
+
+</body>
 </html>

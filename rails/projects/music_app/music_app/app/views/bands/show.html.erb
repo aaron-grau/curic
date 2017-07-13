@@ -1,2 +1,23 @@
-<h1>Bands#show</h1>
-<p>Find me in app/views/bands/show.html.erb</p>
+<h1><%= @band.name %></h1>
+
+<h4>Albums</h4>
+
+<ul>
+  <% @band.albums.each do |album| %>
+    <li><a href="<%= album_url(album) %>"><%= album.name %></a></li>
+  <% end %>
+</ul>
+
+<h4>Links</h4>
+<ul>
+  <li><a href="<%= new_band_album_url(@band) %>">New album</a></li>
+  <li><a href="<%= edit_band_url(@band) %>">Edit Band</a></li>
+  <li>
+    <form action="<%= band_url(@band) %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+      <input type="submit" value="Destroy Band">
+    </form>
+  </li>
+  <li><a href="<%= bands_url %>">All bands</a></li>
+</ul>
