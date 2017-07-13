@@ -40,7 +40,7 @@ group :development, :test do
 
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'db-query-matchers'
-  gem 'rspec'
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'activerecord-import'
 end
