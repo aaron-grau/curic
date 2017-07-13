@@ -19,7 +19,7 @@ class ShortenedUrl < ApplicationRecord
   # Remember, belongs_to is just a method where the first argument is
   # the name of the association, and the second argument is an options
   # hash.
-  
+
   belongs_to :submitter,
   primary_key: :id,
   class_name: :User,
@@ -90,14 +90,15 @@ class ShortenedUrl < ApplicationRecord
     ShortenedUrl
       .joins(:submitter)
       .joins('LEFT JOIN visits ON visits.shortened_url_id = shortened_urls.id')
-      .destroy_all("(shortened_urls.id IN (SELECT shortened_urls.id
-                                          FROM shortened_urls
-                                          JOIN visits
-                                          ON visits.shortened_url_id = shortened_urls.id
-                                          GROUP BY visits.shortened_url_id
-                                          HAVING MAX(visits.created_at) < '#{n.minute.ago}')
-                    OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
-                    AND users.premium ='f'")
+      .where("(shortened_urls.id IN (SELECT shortened_urls.id
+                                    FROM shortened_urls
+                                    JOIN visits
+                                    ON visits.shortened_url_id = shortened_urls.id
+                                    GROUP BY shortened_urls.id
+                                    HAVING MAX(visits.created_at) < '#{n.minute.ago}')
+              OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
+              AND users.premium ='f'")
+      .destroy_all
 
     # The sql for the query would be:
     #
@@ -108,7 +109,7 @@ class ShortenedUrl < ApplicationRecord
     # WHERE (shortened_urls.id IN (SELECT shortened_urls.id
     #                              FROM shortened_urls
     #                              JOIN visits ON visits.shortened_url_id = shortened_urls.id
-    #                              GROUP BY visits.shortened_url_id
+    #                              GROUP BY shortened_urls.id
     #                              HAVING MAX(visits.created_at) < '#{n.minute.ago}')
     #       OR (visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'))
     #       AND users.premium ='f'"
