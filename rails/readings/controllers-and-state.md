@@ -17,14 +17,14 @@ Sometimes the **client** needs to store data across requests. For
 instance, think about login functionality. Let's break this down for
 the example of Facebook:
 
-0. Facebook presents a login page when you go to facebook.com and are
+1. Facebook presents a login page when you go to facebook.com and are
    not logged in.
-0. User fills out the web form, presses "submit". The web browser
+2. User fills out the web form, presses "submit". The web browser
    makes an HTTP request to POST credentials to the Facebook's server
    (perhaps to `/session`).
-0. Facebook server verifies username/password. Sends a redirect to the
+3. Facebook server verifies username/password. Sends a redirect to the
    browser instructing it to GET `/feed`.
-0. Client makes GET request for `/feed`.
+4. Client makes GET request for `/feed`.
 
 The problem is in the last step. From the point of view of Facebook's
 server, the GET for `/feed` is entirely unrelated to the POST to
@@ -59,12 +59,10 @@ data for us. Check it out:
 You know all this from the cookies chapter. Let's talk about how Rails
 lets you set cookies.
 
-Rails does much of the work of implementing the session for us. Within
-our controller, we can use the `ActionController::Base#session` method
-to get a hash-like object where we can retrieve and set state
-(e.g. `session[:user_id] = @user.id`). When we call `render` or
-`redirect`, Rails will take the contents of the `session` hash and
-store it in the cookie.
+Rails does much of the work of implementing the session for us.
+Because our controllers inherit from `ApplicationController`, which in turn inherits from `ActionController::Base`, we can use the `ActionController::Base#session` method in our controllers to get a hash-like object where we can retrieve and set state
+(e.g. `session[:user_id] = @user.id`).
+When we call `render` or `redirect`, Rails will take the contents of the `session` hash and store it in the cookie.
 
 Here's a barebones, simple demo:
 
@@ -76,7 +74,7 @@ SecretApp::Application.routes.draw do
 end
 
 # app/controllers/sessions_controller.rb
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
   def create
     username = params[:user_name]
     password = params[:password]
@@ -97,7 +95,7 @@ class SessionsController < ActionController::Base
 end
 
 # app/controllers/feeds_controller.rb
-class FeedsController < ActionController::Base
+class FeedsController < ApplicationController
   def show
     # pull the session token out of the client's cookies
     # it will be right where we left it in session[:session_token]
@@ -127,7 +125,7 @@ object.
 To remove something from the `session`, set it to `nil`:
 
 ```ruby
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
   def destroy
     # logout
     session_token = session[:session_token]
@@ -160,7 +158,7 @@ can set a message which will be displayed to the user on the next
 request:
 
 ```ruby
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
   def destroy
     # logout
     session_token = session[:session_token]
@@ -215,7 +213,7 @@ still want to display a message using the flash. To do this, you can use `flash.
 in the same way you use the normal `flash`:
 
 ```ruby
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationRecord
   def create
     username = params[:user_name]
     password = params[:password]
