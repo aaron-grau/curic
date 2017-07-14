@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: polls_app_dev
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: polls_app_test
+  host: localhost
+  pool: 5
+  timeout: 5000
