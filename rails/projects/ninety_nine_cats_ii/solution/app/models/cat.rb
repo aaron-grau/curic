@@ -23,7 +23,7 @@ class Cat < ApplicationRecord
     :color,
     :name,
     :sex,
-    :user,
+    :owner,
     presence: true
   )
 
