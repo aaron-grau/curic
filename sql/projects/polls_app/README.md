@@ -14,7 +14,7 @@ today!
 
 Make sure to refer to the [ActiveRecord documentation][ar-docs] and this [ActiveRecord query guide][ar-guide] for help with writing your queries.
 
-Generate a new rails project called `PollApp`. Refer to yesterday's instructions if you need a reminder. Don't forget to include a PostgreSQL flag:  `rails new PollApp --database=postgresql`.
+Generate a new rails project called `PollsApp`. Refer to yesterday's instructions if you need a reminder. Don't forget to include a PostgreSQL flag:  `rails new polls_app --database=postgresql`.
 
 ## Schema
 
@@ -24,7 +24,7 @@ any questions at this point. Then go ahead and create your migration.
 Don't forget to add appropriate indices and constraints!
 
 * `User`
-    * Record a `user_name`; make sure it is unique.
+    * Record a `username`; make sure it is unique.
 * `Poll`
     * A `Poll` belongs to an author (`User`)
     * Record a `title`.
