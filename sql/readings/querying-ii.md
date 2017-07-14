@@ -2,13 +2,14 @@
 
 ## Dynamic Finders
 
-We've seen how to use `where` to retrieve an array of AR objects
+We've seen how to use `where` to retrieve an array of ActiveRecord objects
 matching some conditions. Sometimes, you want to find the single
 object that matches some criteria; you want to dispense with the array
-(which in this case will be either empty, or length 1). We use `::find` and `::find_by` for this:
+(which in this case will be either empty, or length 1).
+We use `::find` and `::find_by` for this:
 
 ```ruby
-Application.find_by(email_address: "ned@appacademy.io")
+Application.find_by(email_address: 'ned@appacademy.io')
 # returns the record whose email_address matches "ned@appacademy.io"
 
 Application.find(4)
@@ -27,7 +28,7 @@ To retrieve records from the database in a specific order, you can use
 the `order` method.
 
 ```ruby
-Client.order("orders_count ASC, created_at DESC").all
+Client.order('orders_count ASC, created_at DESC').all
 ```
 
 ### Group, Having
@@ -37,8 +38,8 @@ You can apply `GROUP BY` and `HAVING` clauses.
 ```ruby
 UserPost
   .joins(:likes)
-  .group("posts.id")
-  .having("COUNT(*) > 5")
+  .group('posts.id')
+  .having('COUNT(*) > 5')
 ```
 
 ### Aggregations
@@ -99,13 +100,13 @@ SQL
 ```
 
 Time to betray some ignorance: I don't know how I would do this with
-AR and not SQL (or if it's possible!). At the very least I don't know
+ActiveRecord and not SQL (or if it's possible!). At the very least I don't know
 how I'd do it in one query.
 
 Even if I spent the time to torture myself and figure it out, I'd only
 be punishing the next person to read my code. Even if they understand
 my intent, it'd be a dog to figure out whether I'm constructing the
-query correctly in AR.
+query correctly in ActiveRecord.
 
 **NB:**
 
@@ -115,13 +116,11 @@ to `find_by_sql`. Consider this example from the
 [`find_by_sql`][find-by-sql] API page:
 
 ```ruby
-Post.find_by_sql(
-  [
-    "SELECT title FROM posts WHERE author = ? AND created > ?",
-    author_id,
-    start_date
-  ]
-)
+Post.find_by_sql([
+  'SELECT title FROM posts WHERE author = ? AND created > ?',
+  author_id,
+  start_date
+])
 ```
 
 Notice that the query and the values to insert are all in one array argument.

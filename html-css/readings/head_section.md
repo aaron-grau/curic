@@ -71,7 +71,7 @@ Don't worry about reading this script and trying to understand what it does. Thi
 Here is an example using an external Javascript file with a declared `type` attribute:
 
 ```html
-<script type="text/javascript" src="review-submit-example.js"/>
+<script type="text/javascript" src="review-submit-example.js"></script>
 ```
 
 ### Link Tag

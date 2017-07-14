@@ -71,7 +71,7 @@ ConnectedComponent = connect(mapStateToProps)(MyComponent);
 `mapDispatchToProps` is the second argument to `connect()`. It is a function
 that accepts the store's `dispatch` method and returns an object containing
 functions that can be called to dispatch actions to the store. These action
-dispatchers are then passed as `props` to the your component.
+dispatchers are then passed as `props` to the component.
 
 ```js
 const deleteTodo = id => ({ type: "DELETE_TODO", id }); // action creators

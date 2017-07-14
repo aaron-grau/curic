@@ -53,6 +53,7 @@ will be working with can be found below:
 #  director_id :integer
 #
 # Table name: castings
+#
 #  id          :integer      not null, primary key
 #  movie_id    :integer      not null
 #  actor_id    :integer      not null

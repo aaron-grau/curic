@@ -8,12 +8,12 @@ models:
 
 ```ruby
 # app/models/magazine.rb
-class Magazine < ActiveRecord::Base
+class Magazine < ApplicationRecord
   has_many :articles
 end
 
 # app/models/article.rb
-class Article < ActiveRecord::Base
+class Article < ApplicationRecord
   belongs_to :magazine
 end
 ```
@@ -92,7 +92,9 @@ to find the article; it can just use the article id directly. If we
 wish to use the `magazine_id`, we can always look it up from the
 article id:
 
-    Article.find(id).magazine_id
+```ruby
+Article.find(id).magazine_id
+```
 
 As a general rule, never generate any of the member routes when
 nesting. Member routes should only belong to top level resources.
