@@ -1,0 +1,32 @@
+<div class="profile">
+  <h2><%= @user.username.capitalize %>'s Profile</h2>
+
+  <div class="profile-section">
+    <% @user.comments.each do |comment| %>
+      <p><%= comment.body %></p>
+    <% end %>
+
+    <%= render "shared/comments_form", commentable_id: @user.id, commentable_type: "User" %>
+  </div>
+
+  <div class="profile-section">
+    <h3><%= @user.username.capitalize %>'s Goals:</h3>
+
+    <% if @user == current_user %>
+      <%= link_to "New Goal", new_goal_url %>
+      <%= link_to "My Cheers!", cheers_url %>
+    <% end %>
+
+    <ul>
+      <% @user.goals.each do |goal| %>
+        <% if (current_user && current_user.id == @user.id) || !(goal.private) %>
+          <%= render "shared/show_goal_basics", goal: goal %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="all-users">
+  <%= link_to "All Users", users_url %>
+</div>
