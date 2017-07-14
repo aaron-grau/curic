@@ -21,13 +21,13 @@ class Response < ApplicationRecord
 
   # Only run validation if there is an answer_choice that exists
   # (otherwise this validation raises an error)
-  validate :respondent_has_not_already_answered_question, unless: -> { answer_choice.nil? }
+  validate :not_duplicate_response, unless: -> { answer_choice.nil? }
 
   # Only run validation if answer_choice exists
   # If answer_choice existence isn't checked, we will incorrectly get an error
   # "Respondent cannot be poll author" when no repondent is provided
   # or won't have an error when we set respondent to the poll author
-  # until a answer_choice is set 
+  # until a answer_choice is set
   validate :respondent_is_not_poll_author, unless: -> { answer_choice.nil? }
 
   def sibling_responses
@@ -60,6 +60,10 @@ class Response < ApplicationRecord
     SQL
   end
 
+  def respondent_already_answered?
+    sibling_responses.exists?(respondent_id: self.respondent_id)
+  end
+
   private
 
   def respondent_is_not_poll_author
@@ -78,8 +82,8 @@ class Response < ApplicationRecord
     end
   end
 
-  def respondent_has_not_already_answered_question
-    if sibling_responses.exists?(respondent_id: self.respondent_id)
+  def not_duplicate_response
+    if respondent_already_answered?
       errors[:respondent_id] << "cannot vote twice for question"
     end
   end
