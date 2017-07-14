@@ -1,10 +1,8 @@
-class Artist < ActiveRecord::Base
-  has_many(
-    :albums,
-    class_name: "Album",
+class Artist < ApplicationRecord
+  has_many :albums,
+    class_name: 'Album',
     foreign_key: :artist_id,
     primary_key: :id
-  )
 
   def n_plus_one_tracks
     albums = self.albums
@@ -19,9 +17,9 @@ class Artist < ActiveRecord::Base
   def better_tracks_query
     albums = self
       .albums
-      .select("albums.*, COUNT(*) AS tracks_count")
+      .select('albums.*, COUNT(*) AS tracks_count')
       .joins(:tracks)
-      .group("albums.id")
+      .group('albums.id')
 
     album_counts = {}
     albums.each do |album|
