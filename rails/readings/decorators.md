@@ -55,7 +55,7 @@ class CatDecorator < Draper::Decorator
   end
 
   def color_selected(color)
-    object.color == color ? ' selected="selected"' : ""
+    object.color == color ? ' selected="selected"' : ''
   end
 
   def form_url
@@ -63,7 +63,7 @@ class CatDecorator < Draper::Decorator
   end
 
   def sex_checked(sex)
-    object.sex == sex ? ' checked="checked"' : ""
+    object.sex == sex ? ' checked="checked"' : ''
   end
 
   def sex_options
@@ -71,7 +71,7 @@ class CatDecorator < Draper::Decorator
   end
 
   def submit_text
-    object.persisted? ? "Edit Cat" : "Add Cat"
+    object.persisted? ? 'Edit Cat' : 'Add Cat'
   end
 end
 ```
