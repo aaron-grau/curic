@@ -1,4 +1,4 @@
-# Testing Models with Rspec
+# Testing Models With Rspec
 
 ## Overview
 
@@ -35,9 +35,9 @@ run all the usual RSpec methods.  For example:
 require 'spec_helper'
 
 describe BasketballTeam do
-  it "orders by city" do
-    cavs = BasketballTeam.create!(name: "Cavaliers", city: "Cleveland")
-    hawks = BasketballTeam.create!(name: "Hawks", city: "Atlanta")
+  it 'orders by city' do
+    cavs = BasketballTeam.create!(name: 'Cavaliers', city: 'Cleveland')
+    hawks = BasketballTeam.create!(name: 'Hawks', city: 'Atlanta')
 
     expect(BasketballTeam.ordered_by_city).to eq([hawks, cavs])
   end
@@ -54,9 +54,9 @@ We can test if a model is valid by using its own `#valid?` method:
 
 ```ruby
 describe BasketballTeam do
-  let(:incomplete_team) { BasketballTeam.new(city: "New York") }
+  let(:incomplete_team) { BasketballTeam.new(city: 'New York') }
 
-  it "validates presence of name" do
+  it 'validates presence of name' do
     expect(incomplete_team).not_to be_valid
   end
 end
@@ -74,7 +74,7 @@ Make sure it's in your Gemfile and run `bundle install`.
 #Gemfile
 
 group :test do
-  gem "shoulda-matchers"
+  gem 'shoulda-matchers'
 end
 ```
 
@@ -98,7 +98,7 @@ methods are a breeze.
 describe BasketballTeam do
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
-  it { should ensure_inclusion_of(:name).in_array(["Cavaliers", "Suns", "Mavericks"])} #etc..
+  it { should ensure_inclusion_of(:name).in_array(['Cavaliers', 'Suns', 'Mavericks'])} #etc..
 end
 ```
 
@@ -106,8 +106,8 @@ We can also test associations!
 
 ```ruby
 describe BasketballTeam do
-  describe "associations" do
-    # "it" refers to an instance of the BasketballTeam class here
+  describe 'associations' do
+    # 'it' refers to an instance of the BasketballTeam class here
     # because we have not explicitly specified a subject
     it { should have_many(:basketball_players)}
     it { should have_one(:owner)}
@@ -126,54 +126,57 @@ example, we may want to test for a specific type of error within the errors
 hash. **Make sure to call `#valid?` beforehand in order for any errors to show up!**
 
 ```ruby
-it "fails validation with no name expecting a specific message" do
-  no_name_team = BasketballTeam.new(city: "Cleveland")
+it 'fails validation with no name expecting a specific message' do
+  no_name_team = BasketballTeam.new(city: 'Cleveland')
   no_name_team.valid?
-  expect(no_name_team.errors[:name]).to include("can't be blank")
+  expect(no_name_team.errors[:name]).to include('can\'t be blank')
 end
 ```
 
 ## Testing scopes
 
 Say I want to write a method `BasketballTeam::playoff_teams` that
-should only return basketball teams that make the playoffs.  In pseudocode, the "scope" would be "where playoffs == true".
+should only return basketball teams that make the playoffs. In pseudocode, the "scope" would be "where playoffs == true".
 
 We don't want to test that the Rails scope methods work--we can
-assume that Rails does its job.  Instead, we want to test that we
+assume that Rails does its job. Instead, we want to test that we
 wrote a method that returns the right data. There are two ways to
 do this:
 
 1. Inspect the properties of the method's SQL query, which we do through
-   methods such as `where_values_hash` and `order_values`.  Inspecting
+   methods such as `where_values_hash` and `order_values`. Inspecting
    the properties speeds up your tests because they don't actually query
-   the database.  In addition, you're testing code that *you* wrote
-   instead of testing Activerecord.
+   the database. In addition, you're testing code that *you* wrote
+   instead of testing ActiveRecord.
 
 2. Actually query the database.
 
 ```ruby
-describe "::playoff_teams" do
-  let!(:cavs) { BasketballTeam.create!(name: "Cavaliers",
-                                      city: "Cleveland",
-                                      playoffs: true) }
-  let!(:suns) { BasketballTeam.create!(name: "Suns",
-                                      city: "Phoenix",
-                                      playoffs: false) }
+describe '::playoff_teams' do
+  let!(:cavs) { BasketballTeam.create!(
+    name: 'Cavaliers',
+    city: 'Cleveland',
+    playoffs: true)
+  }
+  
+  let!(:suns) { BasketballTeam.create!(
+    name: 'Suns',
+    city: 'Phoenix',
+    playoffs: false)
+  }
 
   # 1. Inspect query properties.  Does NOT query the database.
-  it "has the correct values hash" do
-    expect(BasketballTeam.playoff_teams.where_values_hash).to eq({"playoffs" => true})
+  it 'has the correct values hash' do
+    expect(BasketballTeam.playoff_teams.where_values_hash).to eq({'playoffs' => true})
   end
 
   # 2. Actually query the database.
-  it "returns good teams" do
+  it 'returns good teams' do
     expect(BasketballTeam.playoff_teams).to include(cavs)
   end
 
-  it "does not return terrible teams" do
+  it 'does not return terrible teams' do
     expect(BasketballTeam.playoff_teams).not_to include(suns)
   end
 end
-
-
 ```

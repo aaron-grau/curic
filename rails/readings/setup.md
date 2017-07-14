@@ -1,4 +1,4 @@
-# Setting up Rails, RSpec and Guard
+# Setting Up Rails, RSpec And Guard
 
 ## Install RSpec
 
@@ -23,11 +23,11 @@ g rspec:install`. Done!
 ## Setting up the test database
 
 Tests run with their own instance of a test database. To prepare the
-database, first run `rake db:migrate` to bring the development db
-up-to-date. Then run `rake db:test:prepare` to read the `db/schema.rb`
+database, first run `rails db:migrate` to bring the development db
+up-to-date. Then run `rails db:test:prepare` to read the `db/schema.rb`
 and construct the test db.
 
-You should know that if your test db ever talks back, you can delete
+If you're using `sqlite3`, You should know that if your test db ever talks back, you can delete
 it with `rm db/test.sqlite3`.
 
 ## Setting up Guard
