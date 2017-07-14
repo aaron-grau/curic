@@ -407,10 +407,10 @@ the server log - yet another useful piece of information that the log
 contains.
 
 ```
-Started GET "/users.json" for 127.0.0.1 at 2013-12-16 10:12:40 -0800
-Processing by UsersController#index as JSON
-  User Load (0.2ms)  SELECT "users".* FROM "users"
-Completed 200 OK in 72ms (Views: 2.7ms | ActiveRecord: 3.6ms)
+Started GET "/users" for 127.0.0.1 at 2017-07-14 14:06:24 -0700
+Processing by UsersController#index as */*
+  User Load (0.4ms)  SELECT "users".* FROM "users"
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
 ```
 
 Congrats! Applications, and especially web APIs, are all about
