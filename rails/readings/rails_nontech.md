@@ -1,10 +1,11 @@
 # Ruby on Rails
 
-Ruby on Rails is a web application framework written in Ruby. It was developed by David Heinemeier Hansson and first released to the public in July 2004.
+Ruby on Rails is a web application framework written in Ruby.
+It was developed by David Heinemeier Hansson and first released to the public in July 2004.
 
 Not only is Rails popular with start-ups for its ease in deploying to production, but a number of larger companies like Twitter, Hulu, and Kickstarter use Rails in their stack as well.
 
-Rails became popular for a number of reasons. 
+Rails became popular for a number of reasons.
 
 One major reason is that Ruby is a very readable, versatile, and elegant
 language. Ruby was designed to be a "joy to use" and that can be seen in its
@@ -52,7 +53,7 @@ quickly due to all of this configuration being handled. It also means that any
 Rails developer can look at any project and know how to navigate it with less
 extensive documentation.
 
-### REST 
+### REST
 
 REST, or Representational State Transfer, is an architectural style
 for web services. A RESTful web service allows for access to web resources
