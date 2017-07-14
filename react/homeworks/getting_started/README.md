@@ -40,12 +40,12 @@ Make sure to do the following:
 
 In the generated `package.json`:
 
-- Add a `start` script for webpack to your `package.json` (`"start": "webpack --watch"`)
+- Add a `webpack` script for webpack to your `package.json` (`"webpack": "webpack --watch"`)
 - Create a `.gitignore` for your node modules and bundled files
 
 ## Boot it Up!
 
-Run `npm start` in your terminal, then open `index.html`. Congratulations:
+Run `npm run webpack` in your terminal, then open `index.html`. Congratulations:
 you're up and running!
 
 [readings-list]: ../../README.md#readings-48-min
