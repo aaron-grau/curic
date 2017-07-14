@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :cats, except: :destroy
   resources :cat_rental_requests, only: %i(create new) do
     post "approve", on: :member
