@@ -62,7 +62,7 @@ Now go ahead and create your models. Write the following associations:
 
 At this point, it might be nice to have some data to play around with so
 you can test easily. Go ahead and open up `db/seeds.rb` and use normal
-Rails commands to create some seed data. Then run `rake db:seed`.
+Rails commands to create some seed data. Then run `bundle exec rails db:seed`.
 
 If your column names are different, you may have to tweak the seed file
 first (this would be a good excuse to utilize that ⌘D shortcut).
