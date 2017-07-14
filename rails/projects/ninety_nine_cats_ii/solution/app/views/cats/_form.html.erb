@@ -3,6 +3,10 @@
 
 <form action="<%= action %>" method="post">
   <input type="hidden" name="_method" value="<%= method %>">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
 
   <label for="cat_name">Name</label>
   <input
@@ -10,6 +14,8 @@
     name="cat[name]"
     id="cat_name"
     value="<%= cat.name %>">
+
+  <br>
 
   <label for="cat_birth_date">Birth date</label>
   <input
@@ -47,12 +53,12 @@
     <%= cat.sex == "F" ? "checked" : "" %>>
   <label for="cat_sex_female">Female</label>
   <br>
-
   <label>
     Description
     <textarea name="cat[description]"><%= cat.description %></textarea>
   </label>
 
+  <br>
   <% submit_text = (cat.persisted? ? 'Update' : 'Create') + ' cat!' %>
   <input type="submit" value="<%= submit_text %>">
 </form>
