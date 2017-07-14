@@ -19,7 +19,7 @@ For example:
 ```html+erb
 <b>Names of all the people</b>
 <ul>
-  <% ["Tom", "Dick", "Harry"].each do |name| %>
+  <% ['Tom', 'Dick', 'Harry'].each do |name| %>
     <li>
       Name: <%= name %>
     </li>
@@ -82,7 +82,7 @@ Let's give a full example:
 
 ```ruby
 # app/controllers/products_controller.rb
-class ProductsController < ActionController::Base
+class ProductsController < ApplicationController
   def index
     # get an array of all products, make it available to view
     @products = Product.all
@@ -118,10 +118,10 @@ You may have seen `link_to` around before; it generates the HTML code
 for a link. Here's a few uses:
 
 ```html+erb
-<%= link_to "Cat Pictures", "http://cashcats.biz" %>
+<%= link_to 'Cat Pictures', "http://cashcats.biz" %>
 <a href="http://cashcats.biz">Cat Pictures</a> <!-- output -->
 
-<%= link_to "New Comment", new_comment_url %>
+<%= link_to 'New Comment', new_comment_url %>
 <a href="<%= new_comment_url %>">New Comment</a> <!-- equivalent to the above code -->
 <a href="www.example.com/comments/new">New Comment</a> <!-- output -->
 ```
@@ -131,7 +131,7 @@ want to issue a `POST`, `PATCH`, or `DELETE` request, you can use a
 button and specify the method:
 
 ```html+erb
-<%= button_to "Delete comment", comment_url(@comment), method: :delete %>
+<%= button_to 'Delete comment', comment_url(@comment), method: :delete %>
 <form action="<%= comment_url %>"  method="POST"> <!-- equivalent to the above -->
   <input type="hidden" value="delete" name="_method" />
   <input type="submit" value="Delete comment" />
