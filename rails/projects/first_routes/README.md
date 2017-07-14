@@ -205,7 +205,7 @@ Completed 204 No Content in 178ms
 ...
 ```
 
-Note: If you make the GET request through a browser, you will get a 406 Not Acceptable Status Code
+**NB:** If you make a GET request through a browser at this point, you will get a 406 Not Acceptable status code.
 
 This time, it's complaining that there's a missing template. Wait a
 minute; we never called `render`. Why is it trying to look for a
@@ -288,8 +288,6 @@ Started POST "/users" for ::1 at 2017-06-19 10:09:29 -0700
 AbstractController::ActionNotFound (The action 'create' could not be found for UsersController):
 ...
 ```
-
-**NB:** If your project is using Rails 5, you'll likely see a different response from the server. It will instead return a 204 response and mention it being a `head :no_content` response.
 
 Go ahead and add that method to the controller. Again, if we don't explicitly render or
 redirect, Rails is going to try to render the template with the same name; it's going
@@ -487,7 +485,7 @@ Make the request again. You should see the error message displayed in Postman.
 Now build some other controller actions:
 
 * show
-* update (you'll want to use `ActiveRecord::Base#update`)
+* update (you'll want to use `ActiveRecord::Base#update_attributes`)
 * destroy
 
 Think about what each action's purpose is, what
