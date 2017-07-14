@@ -8,7 +8,7 @@ class CatRentalRequest < ApplicationRecord
   after_initialize :assign_pending_status
 
   validates(
-    :cat_id,
+    :cat,
     :end_date,
     :start_date,
     :status,
@@ -48,7 +48,7 @@ class CatRentalRequest < ApplicationRecord
   end
 
   private
-  
+
   def assign_pending_status
     self.status ||= "PENDING"
   end
