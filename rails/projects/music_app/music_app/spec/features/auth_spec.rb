@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "the signup process" do
 
