@@ -84,7 +84,7 @@ Most of your forms create model objects; you want to build these with
 mass-assignment:
 
 ```ruby
-class CatsController
+class CatsController < ApplicationController
   def create
     Cat.create!(cat_params)
 
@@ -140,7 +140,7 @@ This will make the previous `CatsController#create` code work.
 One last thought. Why can't we just write:
 
 ```ruby
-class CatsController
+class CatsController < ApplicationController
   def create
     Cat.create!(cat_params)
 
@@ -249,7 +249,7 @@ should redirect back to the current url (`request.original_url`). Let's
 see how we could implement this behavior in our controller:
 
 ```ruby
-class CatsController
+class CatsController < ApplicationController
   def create
     cat = Cat.create!(cat_params)
 
@@ -337,10 +337,8 @@ know that an array of values is being uploaded. It will collect up all
 the values for the `cat[colors]` key and put them in an array. Thus:
 
 ```ruby
-params == { cat: { colors: ["black", "white"] } }
+params == { cat: { colors: ['black', 'white'] } }
 ```
-
-
 
 ## References
 
