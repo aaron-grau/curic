@@ -9,4 +9,3 @@ const Root = ({ store }) => (
 );
 
 export default Root;
-Contact GitHub API Training Shop Blog About
