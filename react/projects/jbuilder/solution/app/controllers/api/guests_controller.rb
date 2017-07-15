@@ -1,4 +1,4 @@
-class GuestsController < ApplicationController
+class Api::GuestsController < ApplicationController
   def index
     @guests = Guest.all
     render :index

@@ -1,4 +1,4 @@
-class PartiesController < ApplicationController
+class Api::PartiesController < ApplicationController
   def index
     @parties = Party.all
     render :index
