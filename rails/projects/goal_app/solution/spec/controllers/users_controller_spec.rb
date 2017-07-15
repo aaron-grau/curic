@@ -1,7 +1,13 @@
 require 'rails_helper'
 require 'byebug'
-RSpec.describe UsersController, :type => :controller do
-  let(:user) { User.create!({username: "jill_bruce", password: "password"}) }
+
+RSpec.describe UsersController, type: :controller do
+
+  subject(:user) do
+    User.create!(
+    username: "jill_bruce",
+    password: "password")
+  end
 
   describe "GET #show" do
     it "renders the show template" do
@@ -20,15 +26,23 @@ RSpec.describe UsersController, :type => :controller do
   describe "POST #create" do
     context "with invalid params" do
       it "validates the presence of the user's username and password" do
-        # If using Rails 5, you'll want to wrap your params like so:
-        # post :create, params: { user: {username: "jill_bruce", password: ""} }
-        post :create, params: { user: { username: "jill_bruce", password: "" } }
+        post :create, params: {
+          user: {
+            username: "jill_bruce",
+            password: ""
+          }
+        }
         expect(response).to render_template("new")
         expect(flash[:errors]).to be_present
       end
 
       it "validates that the password is at least 6 characters long" do
-        post :create, params: {user: { username: "jill_bruce", password: "short" } }
+        post :create, params: {
+          user: {
+            username: "jill_bruce",
+            password: "short"
+          }
+        }
         expect(response).to render_template("new")
         expect(flash[:errors]).to be_present
       end
@@ -36,7 +50,12 @@ RSpec.describe UsersController, :type => :controller do
 
     context "with valid params" do
       it "redirects user to user show on success" do
-        post :create, params: { user: { username: "jill_bruce", password: "password" } }
+        post :create, params: {
+          user: {
+            username: "jill_bruce",
+            password: "password"
+          }
+        }
         expect(response).to redirect_to(user_url(User.last))
       end
     end
