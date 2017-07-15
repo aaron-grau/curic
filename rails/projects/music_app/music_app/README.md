@@ -46,7 +46,10 @@ of `email`s and speed up the lookup by `session_token`.
   password when they log in.
     * Be careful setting instance variables in ActiveRecord, you can't
       just set `@password_digest`. In `#password=` use
-      `self.password_digest=`.
+      `self.password_digest=`. (`self.___=` calls an `attr_accessor`
+      defined for us by ActiveRecord, which is the state that is saved by
+      `self.save`. While `@___` makes a new instance variable,
+      unrelated to `self.save`)
 * Remember that in the `User` model, you'll want to use an
   `after_initialize` [callback][rails-guides-callbacks] to set the
   `session_token` before validation if it's not present.
@@ -92,7 +95,6 @@ displayed a "sign-out" button.
 
 [rails-guides-callbacks]:http://guides.rubyonrails.org/v3.2.13/active_record_validations_callbacks.html#available-callbacks
 [bcrypt-documentation]:https://github.com/codahale/bcrypt-ruby
-[write_attribute]:http://api.rubyonrails.org/classes/ActiveRecord/Base.html
 
 ## Phase I: Band/Album/Track
 
@@ -102,8 +104,7 @@ inventory system. First, the relevant models:
 * A `Band` records many `Album`s.
     * Just a `name` attribute
 * An `Album` contains many `Track`s.
-    * Don't call it `Record`, as ActiveRecord uses `record_id`
-      internally.
+    * Don't call it `Record`, as ActiveRecord uses `record_id` internally.
     * Have a drop-down to select which `Band` recorded the `Album`. Use
       `selected` to default-select the appropriate `Band` in the
       drop-down.
