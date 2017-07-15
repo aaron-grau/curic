@@ -31,7 +31,7 @@ class TodoForm extends React.Component {
     e.preventDefault();
     const todo = Object.assign({}, this.state);
     this.props.createTodo({ todo }).then(
-      () => this.setState({ 
+      () => this.setState({
         title: "",
         body: "",
         tag_names: []
