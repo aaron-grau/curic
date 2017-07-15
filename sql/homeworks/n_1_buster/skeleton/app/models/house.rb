@@ -1,16 +1,12 @@
-class House < ActiveRecord::Base
-  has_many(
-    :gardeners,
-    class_name: "Gardener",
+class House < ApplicationRecord
+  has_many :gardeners,
+    class_name: 'Gardener',
     foreign_key: :house_id,
     primary_key: :id
-  )
 
-  has_many(
-    :plants,
+  has_many :plants,
     through: :gardeners,
     source: :plants
-  )
 
   def n_plus_one_seeds
     plants = self.plants

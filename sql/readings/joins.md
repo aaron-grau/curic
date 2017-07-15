@@ -11,31 +11,31 @@ Familiarize yourself with the schema for this project:
 ```ruby
 # db/schema.rb
 ActiveRecord::Schema.define(:version => 20130126200858) do
-  create_table "comments", :force => true do |t|
-    # :force => true drops the table before creating it.
+  create_table "comments", force: :cascade do |t|
+    # force: true drops the table before creating it.
     t.text     "body"
     t.integer  "author_id"
     t.integer  "post_id"
     t.integer  "parent_comment_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "author_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    # :null => false means this field must be filled.
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    # null: false means this field must be filled.
   end
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "user_name"
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 end
 ```
@@ -47,7 +47,7 @@ Let's write some code to get the number of comments per `Post` by a
 
 ```ruby
 # app/models/user.rb
-class User
+class User < ApplicationRecord
   # ...
 
   def n_plus_one_post_comment_counts
@@ -96,7 +96,7 @@ the `Post`s in one go, rather than fetch them one-by-one for each
 `Post`.
 
 Active Record lets you specify associations to prefetch. When you use
-these assocations later, the data will already have been fetched and
+these associations later, the data will already have been fetched and
 won't need to be queried for. To do this, use the `includes`
 method. If you use `includes` to prefetch data (e.g., `posts =
 user.posts.includes(:comments)`), a subsequent call to access the
@@ -108,7 +108,7 @@ use eager loading:
 
 ```ruby
 # app/model/user.rb
-class User
+class User < ApplicationRecord
   # ...
 
   def includes_post_comment_counts
@@ -195,7 +195,7 @@ instance, let's filter out `User`s who don't have `Comment`s:
 
 ```ruby
 # app/models/user.rb
-class User
+class User < ApplicationRecord
   # ...
 
   def self.users_with_comments
@@ -311,9 +311,9 @@ join. We can do this like so:
 ```ruby
 posts_with_counts = self
   .posts
-  .select("posts.*, COUNT(comments.id) AS comments_count") # more in a sec
-  .joins("LEFT OUTER JOIN comments ON posts.id = comments.post_id")
-  .group("posts.id") # "comments.post_id" would be equivalent
+  .select('posts.*, COUNT(comments.id) AS comments_count') # more in a sec
+  .joins('LEFT OUTER JOIN comments ON posts.id = comments.post_id')
+  .group('posts.id') # "comments.post_id" would be equivalent
 ```
 
 This is a little more verbose because we don't get the benefit of
