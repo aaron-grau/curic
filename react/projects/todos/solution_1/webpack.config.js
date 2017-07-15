@@ -5,9 +5,7 @@ module.exports = {
   entry: "./frontend/todo_redux.jsx",
   output: {
     path: path.resolve(__dirname),
-    filename: "bundle.js",
-    devtoolModuleFilenameTemplate: '[resourcePath]',
-    devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
+    filename: "bundle.js"
   },
   module: {
     loaders: [
