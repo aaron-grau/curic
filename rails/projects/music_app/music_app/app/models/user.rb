@@ -6,13 +6,11 @@ class User < ApplicationRecord
 
   validates :activation_token, :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates(
-    :activation_token,
-    :email,
-    :password_digest,
-    :session_token,
-    presence: true
-  )
+  validates :activation_token,
+            :email,
+            :password_digest,
+            :session_token,
+            presence: true
 
   has_many :notes
 
@@ -43,7 +41,8 @@ class User < ApplicationRecord
   end
 
   def ensure_session_token
-    self.session_token ||= generate_unique_token_for_field(:session_token)
+    self.session_token ||=
+      generate_unique_token_for_field(:session_token)
   end
 
   def activate!

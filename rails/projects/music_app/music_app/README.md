@@ -278,14 +278,15 @@ they sign up.
 [adding-routes-rails-guides]: http://guides.rubyonrails.org/v3.2.13/routing.html#adding-more-restful-actions
 [ar-toggle]: http://api.rubyonrails.org/classes/ActiveRecord/Persistence.html#method-i-toggle
 
-#### Help for Testing ActionMailer
+#### Testing your ActionMailer
+
 * Run `gem install mailcatcher`
 * Run `mailcatcher`
 * Open `http://127.0.0.1:1080/` in the browser
 * Put the following code in your `environments/development.rb`:
 
 ```ruby
-config.action_mailer.default_url_options = { host: "foo.com" }
+config.action_mailer.default_url_options = { host: "localhost:3000" }
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
 config.action_mailer.raise_delivery_errors = false
