@@ -6,12 +6,12 @@ In this project we'll start playing with Rails routing.
 
 ## Learning Goals
 
-+ Be able to create routes in `routes.rb`
-+ Be able to read and understand Rails server error messages
-+ Know the three places that `params` come from
-+ Be able to nest query parameters
-+ Be able to write controller actions that read from and write to the database
-+ Know how and when to render errors
+* Be able to create routes in `routes.rb`
+* Be able to read and understand Rails server error messages
+* Know the three places that `params` come from
+* Be able to nest query parameters
+* Be able to write controller actions that read from and write to the database
+* Know how and when to render errors
 
 ## Rails Diagram
 
@@ -31,7 +31,7 @@ the database by running `bundle exec rails db:create`.
 Go to `config/routes.rb` and generate your first routes with:
 
 ```ruby
-    resources :users
+resources :users
 ```
 
 Remember that this one line actually generates **eight routes** for
@@ -463,9 +463,7 @@ def create
   if user.save
     render json: user
   else
-    render(
-      json: user.errors.full_messages, status: :unprocessable_entity
-    )
+    render json: user.errors.full_messages, status: :unprocessable_entity
   end
 end
 ```
