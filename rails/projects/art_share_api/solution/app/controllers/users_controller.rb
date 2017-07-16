@@ -1,22 +1,4 @@
 class UsersController < ApplicationController
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      render json: @user, status: :created
-    else
-      render(
-        json: @user.errors.full_messages,
-        status: :unprocessable_entity
-      )
-    end
-  end
-
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    render json: @user
-  end
-
   def index
     if params[:query]
       @users = User.where('username LIKE ?', "%#{params[:query]}%")
@@ -25,6 +7,21 @@ class UsersController < ApplicationController
     end
 
     render json: @users
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      render json: @user, status: :created
+    else
+      render json: @user.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    render json: @user
   end
 
   def show
@@ -36,14 +33,12 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       render json: @user
     else
-      render(
-        json: @user.errors.full_messages,
-        status: :unprocessable_entity
-      )
+      render json: @user.errors.full_messages, status: :unprocessable_entity
     end
   end
 
   private
+
   def user_params
     params.require(:user).permit(:username)
   end
