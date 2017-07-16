@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   before_action :require_no_current_user!, only: [:new, :create]
+  
+  def show
+    @user = User.find(params[:id])
+  end
 
   def new
     @user = User.new
@@ -16,10 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
-
   def index
     @users = User.all
   end
@@ -29,5 +29,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-
 end

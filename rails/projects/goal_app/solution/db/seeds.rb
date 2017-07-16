@@ -9,6 +9,6 @@
 User.destroy_all
 
 User.create!(
-  username: "not_gerald",
-  password: "not_a_super_secret_password"
+  username: 'not_gerald',
+  password: 'not_a_super_secret_password'
 )

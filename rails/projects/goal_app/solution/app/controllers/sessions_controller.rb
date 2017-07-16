@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       login!(@user)
       redirect_to user_url(@user)
     else
-      flash.now[:notices] = ["Invalid credentials."]
+      flash.now[:notices] = ['Invalid credentials.']
       render :new
     end
   end
@@ -29,5 +29,4 @@ class SessionsController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-
 end

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment.author_id = current_user.id
 
     if @comment.save
-      flash[:notices] = ["Comment saved!"]
+      flash[:notices] = ['Comment saved!']
     else
       flash[:errors] = @comment.errors.full_messages
     end

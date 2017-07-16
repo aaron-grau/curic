@@ -1,6 +1,10 @@
 class CheersController < ApplicationController
   before_action :require_current_user!
 
+  def index
+    @cheers = current_user.cheers_received
+  end
+
   def create
     if current_user.cheer_count <= 0
       redirect_back fallback_location: users_url
@@ -13,18 +17,14 @@ class CheersController < ApplicationController
     )
     if @cheer.save
       current_user.decrement_cheer_count!
-      raise "went over cheer limit" if current_user.cheer_count < 0
+      raise 'went over cheer limit' if current_user.cheer_count < 0
       goal_owner_name = Goal.find(params[:goal_id]).author.username
       flash[:notices] = ["You cheered #{goal_owner_name}'s goal!"]
     else
       flash[:errors] = @cheer.errors.full_messages
     end
-    
-    redirect_back fallback_location: users_url
-  end
 
-  def index
-    @cheers = current_user.cheers_received
+    redirect_back fallback_location: users_url
   end
 
   private
@@ -32,5 +32,4 @@ class CheersController < ApplicationController
   def cheer_params
     params.require(:cheer).permit(:giver_id, :goal_id)
   end
-
 end

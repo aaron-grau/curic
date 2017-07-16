@@ -4,13 +4,13 @@ class User < ApplicationRecord
   # concern
   # has_many :comments, as: :commentable
 
-  attr_reader :password
-
   validates :session_token, presence: true
   validates :username, uniqueness: true, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :password_digest, presence: { message: "Password can't be blank." }
+  validates :password_digest, presence: { message: 'Password can\'t be blank.' }
   validates :cheer_count, numericality: { only_integer: true, minimum: 0 }
+  
+  attr_reader :password
 
   before_validation :ensure_session_token
   before_validation :ensure_cheer_count
