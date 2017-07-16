@@ -12,13 +12,17 @@
 #
 
 class Step < ApplicationRecord
-  validates :title, :todo, presence: true
+  # N.B. Remember, Rails 5 automatically validates the presence of
+  # belongs_to associations, so we can leave the validation of todo out
+  # here.
+  validates :title, presence: true
   validates :done, inclusion: [true, false], default: false
+
   after_initialize { self.done = false if self.done.nil? }
 
   belongs_to :todo
 
   has_one :user,
-  through: :todo,
-  source: :user
+    through: :todo,
+    source: :user
 end

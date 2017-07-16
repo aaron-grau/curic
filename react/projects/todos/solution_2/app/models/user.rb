@@ -19,8 +19,8 @@ class User < ApplicationRecord
   has_many :todos
 
   has_many :steps,
-  through: :todos,
-  source: :steps
+    through: :todos,
+    source: :steps
 
   def self.find_by_credentials(user_params)
     user = User.find_by(username: user_params[:username])
@@ -48,5 +48,4 @@ class User < ApplicationRecord
   def password_digest
     BCrypt::Password.new(super)
   end
-
 end
