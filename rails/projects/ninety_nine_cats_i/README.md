@@ -74,7 +74,7 @@ include:
   * Keep it simple; just show the cat's attributes.
   * Learn how to use a [table][table-link] (`table`, `tr`, `td`, `th` tags) to format
     the cat's vital information.
-
+    
 [table-link]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
 ### New Form
@@ -83,7 +83,7 @@ Build a `new` form page to create a new `Cat`:
 
 * Use text for name.
 * Use radio buttons for sex.
-* Use a drop down for color (hint: keep your code DRY by using the
+* Use a drop down for color (hint: keep your code DRY by using the 
   constant you defined on the `Cat` class.
 * Use a blank `<option>` as the default color; this will force the
   user to consciously pick one.
@@ -138,7 +138,7 @@ Build a `new` form page to create a new `Cat`:
     * `start_date` (date)
     * `end_date` (date)
     * `status` (string) will start out as `"PENDING"`, but can be switched
-      to `"APPROVED"` or `"DENIED"`. In your migration, set the default to
+      to `"APPROVED"` or `"DENIED"`. In your migration, set the default to 
       `"PENDING"`.
   * Add an inclusion validation on `status`.
   * Add NOT NULL constraints and presence validations.
@@ -153,7 +153,7 @@ Build a `new` form page to create a new `Cat`:
 `CatRentalRequest` for the same cat. A single cat can't be rented out to
 two people at once! We will write a custom validation for this.
 
-  * First, write a method `#overlapping_requests` to get all the
+  * First, write a method `#overlapping_requests` to get all the 
     `CatRentalRequest`s that overlap with the one we are trying to validate.
     * Be sure to use ActiveRecord to do this. It may be tempting to just get
       `CatRentalRequests.all` and then do all the filtering in Ruby, but this
@@ -172,12 +172,12 @@ two people at once! We will write a custom validation for this.
     be able to use your `#overlapping_requests` method.
 
   * Now we can write our custom validation, `#does_not_overlap_approved_request`.
-   All we need to do is call `#overlapping_approved_requests` and check whether
+   All we need to do is call `#overlapping_approved_requests` and check whether 
    any [`#exists?`][exists].
 
 [exists]: http://apidock.com/rails/ActiveRecord/FinderMethods/exists%3F
-
-
+    
+    
 ### Build the controller & new view
 
 * Create a controller; setup a resource in your routes file.

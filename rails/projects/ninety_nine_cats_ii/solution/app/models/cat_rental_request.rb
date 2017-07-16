@@ -1,7 +1,5 @@
-class CatRentalRequest < ApplicationRecord
-
-  # freeze renders constants immutable
-  STATUS_STATES = %w(APPROVED DENIED PENDING).freeze
+class CatRentalRequest < ActiveRecord::Base
+  STATUS_STATES = %w(APPROVED DENIED PENDING)
 
   belongs_to :cat
   belongs_to :user
@@ -9,11 +7,11 @@ class CatRentalRequest < ApplicationRecord
   after_initialize :assign_pending_status
 
   validates(
-    :cat,
+    :cat_id,
     :end_date,
     :start_date,
     :status,
-    :user,
+    :user_id,
     presence: true
   )
   validates :status, inclusion: STATUS_STATES
@@ -50,7 +48,6 @@ class CatRentalRequest < ApplicationRecord
   end
 
   private
-
   def assign_pending_status
     self.status ||= "PENDING"
   end
@@ -129,8 +126,9 @@ class CatRentalRequest < ApplicationRecord
     CatRentalRequest
       .where.not(id: self.id)
       .where(cat_id: cat_id)
-      .where.not("start_date > :end_date OR end_date < :start_date",
-                 start_date: start_date, end_date: end_date)
+      .where(<<-SQL, start_date: start_date, end_date: end_date)
+         NOT( (start_date > :end_date) OR (end_date < :start_date) )
+      SQL
   end
 
   def overlapping_approved_requests
@@ -154,8 +152,7 @@ class CatRentalRequest < ApplicationRecord
   end
 
   def start_must_come_before_end
-    errors[:start_date] << "must specify a start date" unless start_date
-    errors[:end_date] << "must specify an end date" unless end_date
+    return unless start_date && end_date
     errors[:start_date] << "must come before end date" if start_date > end_date
   end
 end

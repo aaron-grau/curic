@@ -1,18 +1,13 @@
 require 'action_view'
 
-class Cat < ApplicationRecord
+class Cat < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
 
-  # .freeze renders a constant immutable.
-  CAT_COLORS = %w(black white orange brown).freeze
-
-  # Remember, has_many is just a method where the first argument is
-  # the name of the association, and the second argument is an options
-  # hash.
+  CAT_COLORS = %w(black white orange brown)
 
   has_many(
     :rental_requests,
-    class_name: :CatRentalRequest,
+    class_name: "CatRentalRequest",
     dependent: :destroy
   )
 

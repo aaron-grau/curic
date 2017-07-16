@@ -1,14 +1,13 @@
 require 'action_view'
 
-class Cat < ApplicationRecord
+class Cat < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
 
-  # freeze ensures that constants are immutable
-  CAT_COLORS = %w(black white orange brown).freeze
+  CAT_COLORS = %w(black white orange brown)
 
   has_many(
     :rental_requests,
-    class_name: :CatRentalRequest,
+    class_name: "CatRentalRequest",
     dependent: :destroy
   )
 

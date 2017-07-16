@@ -1,9 +1,7 @@
 require 'test_helper'
 
-class CatRentalRequestsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get cat_rental_requests_new_url
-    assert_response :success
-  end
-
+class CatRentalRequestsControllerTest < ActionController::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

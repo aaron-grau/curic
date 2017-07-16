@@ -1,14 +1,12 @@
-class CatRentalRequest < ApplicationRecord
-
-  # freeze renders constants immutable
-  STATUS_STATES = %w(APPROVED DENIED PENDING).freeze
+class CatRentalRequest < ActiveRecord::Base
+  STATUS_STATES = %w(APPROVED DENIED PENDING)
 
   belongs_to :cat
 
   after_initialize :assign_pending_status
 
   validates(
-    :cat,
+    :cat_id,
     :end_date,
     :start_date,
     :status,
@@ -48,7 +46,6 @@ class CatRentalRequest < ApplicationRecord
   end
 
   private
-
   def assign_pending_status
     self.status ||= "PENDING"
   end
@@ -127,8 +124,9 @@ class CatRentalRequest < ApplicationRecord
     CatRentalRequest
       .where.not(id: self.id)
       .where(cat_id: cat_id)
-      .where.not("start_date > :end_date OR end_date < :start_date",
-                 start_date: start_date, end_date: end_date)
+      .where(<<-SQL, start_date: start_date, end_date: end_date)
+         NOT( (start_date > :end_date) OR (end_date < :start_date) )
+      SQL
   end
 
   def overlapping_approved_requests
