@@ -3,5 +3,8 @@ class Guest < ApplicationRecord
 
   has_many :gifts
   has_many :invitations
-  has_many :parties, through: :invitations, source: :party
+  
+  has_many :parties,
+    through: :invitations,
+    source: :party
 end

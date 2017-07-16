@@ -16,17 +16,18 @@ ActiveRecord::Schema.define(version: 20170714204346) do
   enable_extension "plpgsql"
 
   create_table "gifts", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.integer "guest_id"
+    t.string "title", null: false
+    t.string "description", null: false
+    t.integer "guest_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_gifts_on_guest_id"
   end
 
   create_table "guests", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.string "favorite_color"
+    t.string "name", null: false
+    t.integer "age", null: false
+    t.string "favorite_color", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,11 +37,13 @@ ActiveRecord::Schema.define(version: 20170714204346) do
     t.integer "party_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_invitations_on_guest_id"
+    t.index ["party_id"], name: "index_invitations_on_party_id"
   end
 
   create_table "parties", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
+    t.string "name", null: false
+    t.string "location", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

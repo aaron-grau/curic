@@ -10,10 +10,10 @@ describe 'Gifts' do
     it 'the show page shows correct information' do
       get '/api/gifts/3'
       expect(json['title']).to eq('The Hunger Games')
-      expect(json['description']).to eq("A bit dark for a gift, but it's good.")
+      expect(json['description']).to eq('A bit dark for a gift, but it\'s good.')
     end
 
-    it "the show page doesn't too much information" do
+    it 'the show page doesn\'t too much information' do
       get '/api/gifts/3'
       expect(json['created_at']).to be_nil
       expect(json['guest_id']).to be_nil
@@ -37,7 +37,7 @@ describe 'Gifts' do
       expect(json.count).to eq(2)
     end
 
-    it "the index page doesn't show too much information" do
+    it 'the index page doesn\'t show too much information' do
       get '/api/guests/3/gifts'
       expect(json[0]['created_at']).to be_nil
     end

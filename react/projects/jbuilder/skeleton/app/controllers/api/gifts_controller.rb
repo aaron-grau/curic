@@ -5,7 +5,7 @@ class Api::GiftsController < ApplicationController
   end
 
   def show
-    @gift = Gift.find(params[:id])
+    @gift = Gift.find_by(id: params[:id])
     render :show
   end
 end
