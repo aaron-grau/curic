@@ -1,19 +1,16 @@
 class User < ApplicationRecord
+  validates :username, presence: true, uniqueness: true
+  # If a password was set, we validate it meets the requirements.
+  # Note the `allow_nil`.
+  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password_digest, presence: true
+  validates :session_token, presence: true, uniqueness: true
+
   attr_reader :password
 
   has_many :cats
 
   after_initialize :ensure_session_token
-
-  validates :password_digest, presence: true
-  # If a password was set, we validate it meets the requirements.
-  # Note the `allow_nil`.
-  validates(
-    :password,
-    length: { minimum: 6, allow_nil: true }
-  )
-  validates :session_token, presence: true, uniqueness: true
-  validates :username, presence: true, uniqueness: true
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
@@ -42,7 +39,6 @@ class User < ApplicationRecord
   end
 
   private
-
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
