@@ -134,13 +134,13 @@ API keys in frontend JavaScript or anywhere else they are publicly
 available and can be scraped (this includes public Git repos).
 Stolen keys can cost you. _You have been warned._
 
-* To get your current location, add a call to `navigator.geolocation` when the
-component mounts. Read through the [documentation][navigator] to figure out
-how to get your current location. (Make sure you have [location services
+* Now let's get your current location! When the component mounts, call
+`navigator.geolocation.getCurrentPosition` to get it. Read through the [documentation][navigator]
+to figure out how to use this function properly. (Make sure you have [location services
 enabled][location-services] in your browser, or this won't work.)
 
 * When the current location is received, use a callback to query the weather
-API using a raw, "vanilla" Javascript `XMLHttpRequest`.
+API using a raw, "vanilla" JavaScript `XMLHttpRequest`.
 
   + See [here][vanilla-ajax] and [here][nojquery] for help with the XMLHttpRequest.
 
