@@ -221,22 +221,6 @@ but it will speed up our development to have some real todos to test our code on
 **Test your code** - Try calling `window.store.getState()` again from the
 console. Does your store's initial state match the default state you defined?
 
-### Selectors
-
-[Selectors][selector_reading] are "getter" methods for the application state.
-They receive the state as an argument and return a subset of the state
-data formatted in a specific way. We will explore them in more detail but for now
-all we need is a function to transform an object filled with todos, into an array
-for easy consumption by our components.
-
-+ Create a file `reducers/selectors.js`.
-+ Export a function named `allTodos` that receives the entire state as an argument.
-  + Use `Object.keys(state.todos)` to get the keys for the `state.todos`.
-  + Map the array of todo ids to an array of todos.
-  + Return your new array.
-
-**Test your selector** - Put your selector on the `window` and pass it the
-default state. Does it format the data into an array of `todos`?
 
 #### Receiving and Reducing `todos`
 
@@ -353,6 +337,26 @@ export default Root;
 
 + Update your entry file to render your `Root` component instead of `App` into `#content`!
 
+
+### Selectors
+
+Great! We're ready to start creating our components! **BUT WAIT!** We'll be
+taking in some data from the store, but we want it in a specific format for
+our components to use. That's where selectors come in! [Selectors][selector_reading] 
+are "getter" methods for the application state.
+They receive the state as an argument and return a subset of the state
+data formatted in a specific way. We will explore them in more detail but for now
+all we need is a function to transform an object filled with todos, into an array
+for easy consumption by our components.
+
++ Create a file `reducers/selectors.js`.
++ Export a function named `allTodos` that receives the entire state as an argument.
+  + Use `Object.keys(state.todos)` to get the keys for the `state.todos`.
+  + Map the array of todo ids to an array of todos.
+  + Return your new array.
+
+**Test your selector** - Put your selector on the `window` and pass it the
+default state. Does it format the data into an array of `todos`?
 
 ### TodoList
 
