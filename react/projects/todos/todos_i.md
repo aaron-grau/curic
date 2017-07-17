@@ -342,7 +342,7 @@ export default Root;
 
 Great! We're ready to start creating our components! **BUT WAIT!** We'll be
 taking in some data from the store, but we want it in a specific format for
-our components to use. That's where selectors come in! [Selectors][selector_reading] 
+our components to use. That's where selectors come in! [Selectors][selector_reading]
 are "getter" methods for the application state.
 They receive the state as an argument and return a subset of the state
 data formatted in a specific way. We will explore them in more detail but for now
@@ -356,7 +356,7 @@ for easy consumption by our components.
   + Return your new array.
 
 **Test your selector** - Put your selector on the `window` and pass it the
-default state. Does it format the data into an array of `todos`?
+default state. Does it format the data into an array of `todos`? Once your selector is working great, let's put it to use on our `TodoList`!
 
 ### TodoList
 
@@ -378,7 +378,7 @@ reading if you need a refresher on container components.
 + Create a file `components/todo_list/todo_list_container.jsx`
 + Import both the `connect` function and the (as of yet unwritten) `TodoList` presentational component
 + Create a `mapStateToProps` function
-  + Create a prop called `todos` whose value is the return value of your `allTodos` selector passed the `state`
+  + Create a prop with a key of `todos`. It's value should be the return value of your `allTodos` selector passed `state.todos`
 + Create a `mapDispatchToProps` function
   + Create a prop called `receiveTodo` that accepts a `todo` and invokes a call to `dispatch` with the action returned from the `receiveTodo` action creator
 + Pass your `mapStateToProps` and `mapDispatchToProps` functions to `connect`
