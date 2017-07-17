@@ -24,7 +24,7 @@ The beginning of Front-End Development.
 
 + [Recipe Page][html-intro-exercise]
 
-[html-intro-exercise][micro-projects/html-introduction]
+[html-intro-exercise]: micro-projects/html-introduction
 
 ### Semantic Containers
 
@@ -126,7 +126,7 @@ Now that we have some understanding of CSS syntax we can take a look at some mor
 
 + :book: [Advanced Selectors][css-adv-selectors]
 
-[css-adv-selectors]: readings/advanced_selectors.md)
+[css-adv-selectors]: readings/advanced_selectors.md
 
 #### Exercise
 
