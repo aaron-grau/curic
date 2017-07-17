@@ -118,7 +118,7 @@ A GET request to `localhost:3000/api/pokemon/5` should render this:
     name: "Rhydon",
     attack: 130,
     defense: 120,
-    image_url: "5.svg",
+    image_url: "assets/pokemon_snaps/5.svg",
     moves: [
       "horn attack",
       //...
