@@ -93,7 +93,7 @@
 + [CSS Display Exercise][css-display-exercise]
 + [AA Questions][aa-questions]
 
-[css-display-exercise]: #
+[css-display-exercise]: ../html-css/micro-projects/display_box_model/
 [aa-questions]: projects/aa_questions
 
 ## w3d3
