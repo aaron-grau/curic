@@ -93,7 +93,7 @@
 + [CSS Display Exercise][css-display-exercise]
 + [AA Questions][aa-questions]
 
-[css-display-exercise]: ../html-css/micro-projects/display_box_model/
+[css-display-exercise]: ../html-css/micro-projects/display_box_model
 [aa-questions]: projects/aa_questions
 
 ## w3d3
@@ -156,7 +156,7 @@
 + [Associations Exercise][associations-exercise]
 + [URL Shortener][url-shortener]
 
-[css-reset-exercise]: #
+[css-reset-exercise]: ../html-css/micro-projects/css_reset
 [associations-exercise]: projects/associations_exercise
 [url-shortener]: projects/url_shortener
 
@@ -201,7 +201,7 @@
 + [Movie Buff][movie-buff]
 + [Polls][polls-app]
 
-[css-float-exercise]: #use-old-flex-project
+[css-float-exercise]: ../html-css/micro-projects/float
 [movie-buff]: projects/movie_buff
 [polls-app]: projects/polls_app
 
@@ -233,7 +233,7 @@
 + [CSS Flex Exercise][css-flex-exercise]
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
 
-[css-flex-exercise]: ../html-css/micro-projects/float_fluid_flex/  
+[css-flex-exercise]: ../html-css/micro-projects/flex  
 [build-your-own-ar]: projects/active_record_lite
 
 ### :joy_cat: **Happy Hour!** :joy_cat:
