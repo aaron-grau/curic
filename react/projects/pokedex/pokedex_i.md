@@ -241,8 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-**Test your frontend setup**: Make sure that your test component renders
-at the root.
+**Test your frontend setup**: Make sure that your test component renders at the root.
 
 ### Frontend Structure
 Finish your frontend setup by defining the structure of your `frontend` folder.
@@ -252,28 +251,34 @@ Nest folders called `actions`, `components`, `reducers`, `store`, `middleware` a
 
 ### Designing the State Shape
 
-Before we actually build anything, we need to talk about the shape of
-our application state. **This is an important first step!** Don't ever
-skip it. For now, we just want to be able to render all of our pokemon.
-This means we'll probably want a `pokemon` slice of state that returns a
-collection of pokemon objects.
+Before we actually build anything, we need to talk about the shape of our application state.
+**This is an important first step!**
+Don't ever skip it.
+For now, we just want to be able to render all of our pokemon.
+In preparation for our fullstack projects, we will be normalizing our state.
+Right now we don't have much, so let's start with an `entities` slice which will contain separate slices for each of our resources (just `pokemon` for now).
+This will hold _all_ the pokemon, for both our index item and detail views.
+
+**Hint**: in order to have reducers nested in other reducer we can use `combineReducers` inside of the `entities` reducer.
 
 Sample state shape:
 
 ```js
 {
-  pokemon: {
-    1: {
-      id: 1,
-      name: /*...*/,
-      image_url: /*...*/
-    },
-    2: {
-      id: 2,
-      name: /*...*/,
-      image_url: /*...*/
-    },
-    //...
+  entities: {
+    pokemon: {
+      1: {
+        id: 1,
+        name: /*...*/,
+        image_url: /*...*/
+      },
+      2: {
+        id: 2,
+        name: /*...*/,
+        image_url: /*...*/
+      },
+      //...
+    }
   }
 }
 ```
@@ -295,8 +300,7 @@ fetching information from our rails api.
 Next, define an action creator to be called on success of
 `APIUtil#fetchAllPokemon`.
 
-* Create a `pokemon_actions.js` file within your `frontend/actions`
-folder.
+* Create a `pokemon_actions.js` file within your `frontend/actions` folder.
 * Export a constant called `RECEIVE_ALL_POKEMON` with the value
 `"RECEIVE_ALL_POKEMON"`
 * Export a function called `receiveAllPokemon(pokemon)` that returns an
@@ -317,8 +321,7 @@ export const receiveAllPokemon = pokemon => ({
 })
 ```
 
-**Test that your pokemon action creator and api util work in the browser
-before moving on!**
+**Test that your pokemon action creator and api util work in the browser before moving on!**
 * Import the action and api_util functions into your entry file.
 * Assign them to the `window` to test that in the browser's console.
 * You should be able to run:
@@ -347,8 +350,35 @@ If the reducer doesn't care about the action being dispatched, it should return 
 * Create `RECEIVE_ALL_POKEMON` and default cases.
 Remember not to mutate `state`!
 
+### `entitiesReducer`
+
+We want to separate our app's data and presentational states.
+To do this we can create nested reducers, such that eventually our redux state might look something like this:
+
+```js
+{
+  entities: {
+    pokemon: {
+
+    },
+    items: {
+
+    }
+  },
+  ui: {
+    pokeDisplay: 1,
+    errors: {
+
+    },
+    loading: {
+      
+    }
+  }
+}
+
 ### The `rootReducer`
 
+Let's create
 Before we can use our `pokemonReducer`, let's create a `rootReducer` using Redux's `combineReducers` function.
 We'll use `combineReducers` to generate our application state and assign each slice of the state to a different reducer. This will make it easier to grow our application state.
 
