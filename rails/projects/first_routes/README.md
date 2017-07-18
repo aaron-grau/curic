@@ -278,9 +278,13 @@ Think about what controller action we will hit when we make a POST request to `/
 defined on our `UsersController`:
 
 ```
-todo: add error message from console here
+Started POST "/users" for ::1 at 2017-06-19 10:09:29 -0700
+
+AbstractController::ActionNotFound (The action 'create' could not be found for UsersController):
 ...
 ```
+
+**NB:** If your project is using Rails 5, you'll likely see a different response from the server. It will instead return a 204 response and mention it being a `head :no_content` response.
 
 Go ahead and add that method to the controller. Again, if we don't explicitly render or
 redirect, Rails is going to try to render the template with the same name; it's going
@@ -301,7 +305,11 @@ end
 Try making the request in Postman again. You should see the right response now!
 
 ```
-{ todo: put params here }
+{
+  "fav_food": "pizza",
+  "controller": "users",
+  "action": "create"
+}
 ```
 
 Okay, now we've seen params come from the query string and the request body. Let's
@@ -321,7 +329,11 @@ don't have that action defined on the controller. Go ahead and add it, and once 
 our URL in the params!
 
 ```
-{ todo: put params here }
+{
+  "controller": "users",
+  "action": "show",
+  "id": "2"
+}
 ```
 
 ### Nesting Parameters

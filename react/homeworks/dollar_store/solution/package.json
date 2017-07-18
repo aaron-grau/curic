@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack",
-    "start": "webpack-dev-server --inline"
+    "start": "webpack --watch"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,6 @@
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "redux": "^3.5.2",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "webpack": "^2.2.1"
   }
 }

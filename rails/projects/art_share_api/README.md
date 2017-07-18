@@ -101,7 +101,7 @@ always want to create indexes for any foreign keys, particularly if
 those foreign keys will be used in a `has_many` or a `has_one`
 relationship.
 
-Then a associations connecting an `ArtworkShare` to both an `Artwork`
+Then add associations connecting an `ArtworkShare` to both an `Artwork`
 and a `User` (name this association `viewer`). Add a through association
 `shared_viewers` on `Artwork`. `Artwork#shared_viewers` will return the
 set of users with whom an artwork has been shared.

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 class PokemonForm extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class PokemonForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPokemon(this.state)
-      .then(data => this.props.router.push(`/pokemon/${data.id}`));
+      .then(data => this.props.history.push(`/pokemon/${data.id}`));
   }
 
   update(property) {
@@ -45,7 +45,7 @@ class PokemonForm extends React.Component {
     }
   }
 
-	render() {
+  render() {
     return (
       <section className="pokemon-detail">
         <img src="/assets/pokemon-logo.svg" alt="Copyright of Nintendo Pokemon"/>
@@ -103,7 +103,7 @@ class PokemonForm extends React.Component {
         </form>
       </section>
     );
-	}
+  }
 }
 
 export default withRouter(PokemonForm);

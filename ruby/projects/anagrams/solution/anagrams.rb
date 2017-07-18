@@ -1,5 +1,5 @@
-# O(n * n!) combinatorial time
-# O(n!) combinatorial space
+# O(n * n!) factorial time
+# O(n!) factorial space
 def first_anagram?(str1, str2)
   all_anagrams(str1).include?(str2)
 end

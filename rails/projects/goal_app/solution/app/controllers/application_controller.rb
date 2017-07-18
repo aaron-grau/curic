@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     current_user ? current_user.username : nil
   end
 
-  # before filters
+  # Before filters
 
   def require_current_user!
     redirect_to new_user_url unless current_user

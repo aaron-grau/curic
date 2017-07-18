@@ -98,7 +98,7 @@ def num_teachers_and_mobiles
 end
 
 def dept_staff_counts
-  # Use COUNT and GROUP BY dept.name to show each department and
+  # Use COUNT and GROUP BY depts.name to show each department and
   # the number of staff. Structure your JOIN to ensure that the
   # Engineering department is listed.
   execute(<<-SQL)

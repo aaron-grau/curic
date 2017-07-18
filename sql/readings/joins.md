@@ -191,7 +191,7 @@ of an association.
 
 `joins` by default performs an `INNER JOIN`, so they are frequently
 used to filter out records that don't have an associated record. For
-instance, let's filter `User`s who don't have `Comment`s:
+instance, let's filter out `User`s who don't have `Comment`s:
 
 ```ruby
 # app/models/user.rb

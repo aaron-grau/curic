@@ -24,7 +24,7 @@ partner before getting started. Feel free to reference this diagram as needed.
 Write a basic Auth implementation
 (`User`, `UsersController`, `SessionsController`).
 
-**Do not looks at previous day's solutions.  Write Auth from scratch!**  It is important that you understand how each method works, and how to debug any errors you may encounter.  
+**Do not look at previous days' solutions.  Write Auth from scratch!**  It is important that you understand how each method works, and how to debug any errors you may encounter.  
 
 ## Phase II: `Sub` and `Post`
 

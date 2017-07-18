@@ -97,7 +97,7 @@ pass on once the promise has been settled.
 
 ```javascript
 const request = new Promise(resolve => {  
-  setTimeout(() => resolve(msg), 1000);
+  setTimeout((msg) => resolve(msg), 1000);
 });
 
 const receiveResponse = msg => console.log(msg);

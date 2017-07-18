@@ -104,7 +104,7 @@ For example, try:
 
 ```
 $.ajax({ method: 'GET', url: '/api/todos' }).then(
-  todos => console.log(todos), 
+  todos => console.log(todos),
   error => console.log(error)
  );
 ```
@@ -117,10 +117,6 @@ Your entire todos project from yesterday will function as the frontend folder fo
 You will also need your `package.json` and `webpack.config.js` which should be put in the root folder, but you do not need `index.html`.
 
 Modify the output path in your webpack config to create bundle in `app/assets/javascripts` rather than the root directory. Take a look at `application.js`: because it includes the line `//= require_tree .` and the bundled file is in `app/assets/javascripts`, the bundled file will be required for you.
-
-You no longer need `webpack-dev-server`, since we are using rails as our server.
-You can remove the `start` script from you `package.json` and replace it with
-the following scripts:
 
 ```json
 "scripts": {

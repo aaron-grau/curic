@@ -54,5 +54,5 @@ See if you can solve the `two_sum?` problem in linear time now, using your hash 
 
 Once you're finished, make sure you understand the time complexity of your solutions and then call over your TA and show them what you've got. Defend to them why each of your solutions has the time complexity you claim it does.
 
-##### Bonus
+##### Bonus (come back to this once you have completed windowed max range exercises)
 See if you can extend your solution of `two_sum?` to solve `four_sum?`. Call over your TA once you think your implementation is optimal!

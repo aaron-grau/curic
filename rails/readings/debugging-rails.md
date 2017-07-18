@@ -40,7 +40,7 @@ Therefore to debug them, we make use of our good friend: `byebug`.
 
 Add `gem 'byebug'` to your `Gemfile` and `bundle install`.
 
-If you need a refresher on byebug and debugging, be sure to have a 
+If you need a refresher on byebug and debugging, be sure to have a
 look over the previous [reading][debugging-reading].
 
 You can also type
@@ -56,9 +56,9 @@ available for use.
 
 ## Better Errors
 
-**NB**: The latest version of `better_errors` requires ruby 2+. If 
-your ruby version is not up to snuff 
-[upgrade with these instructions][ruby-setup].
+**NB**: The latest version of `better_errors` requires ruby 2+. If
+your ruby version is not up to snuff
+[upgrade with these instructions][dotfiles].
 
 So now you can debug your models like a pro, but that's only 1/3 of
 the battle. Being able to debug your controllers is a crucial skill
@@ -149,4 +149,4 @@ things like params are coming in correctly.
 * Check that objects being built via associations are built
   correctly. EG: `current_user.posts.new(post_params)`
 
-[ruby-setup]: https://github.com/appacademy/meta/blob/master/setup/ruby.md#rbenv-and-ruby
+[dotfiles]: https://github.com/appacademy/dotfiles

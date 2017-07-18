@@ -16,7 +16,7 @@ component.
 ## Phase 1: Setup
 
 Build a new React NPM project from scratch like you did in the ['Getting
-Started'][getting_started] homework, but change your webpack entry point to be
+Started'][getting_started] homework, but change your Webpack entry point to be
 `widgets.jsx`.
 
 Your `widgets.jsx` should have a `DOMContentLoaded` listener that calls
@@ -31,47 +31,6 @@ Note: we won't be using `jQuery` for this project. If you're not sure how to do
 something without it, use Google as a resource and ask a TA if needed.
 
 [getting_started]: ../../homeworks/getting_started
-
-### Running a Simple Development Server
-
-For this project, we're going to use a lightweight development server,
-[`webpack-dev-server`][dev-server]. The benefits of this development server are threefold:
-
-[dev-server]: ../../readings/webpack_dev_server.md
-
-* It automatically watches the project files, re-bundles the `bundle.js` when
-any of those files change, and refreshes the browser when the new `bundle.js`
-is ready. This also means that you *will not* have to keep an extra terminal
-tab open to `webpack --watch`.
-
-* It allows us to access the served content at `http://localhost:8080`. Now we
-won't need to open the `index.html` in the browser.
-
-* It doesn't cache our files like a production server might do by default. This
-means that we won't have to hard refresh the browser to see the changes to our
-`bundle.js`.
-
-To install `webpack-dev-server` in your project, run `npm install --save
-webpack-dev-server`. With the server installed globally, you could run
-`webpack-dev-server --inline` in the command line to serve the project at
-`http://localhost:8080`.
-
-However, we can make things a bit easier for ourselves by adding a script to the
-`package.json`. Let's write a script so that we can type `npm start` in the
-command line to start the server. To do this, add the `webpack-dev-server
---inline` command to the scripts section of the `package.json` like so:
-
-```json
-"scripts": {
-  "start": "webpack-dev-server --inline"
-}
-```
-
-With this start script, you should now be able to run `npm start` to see your
-project served at `http://localhost:8080`.
-
-For information on the `webpack-dev-server` configuration, refer to the
-[webpack-dev-server reading](../../readings/webpack_dev_server.md).
 
 ## Phase 2: Clock Widget
 
@@ -163,7 +122,7 @@ the current weather.
 component.
 
 * Review the [open weather API][weather] documentation. We'll use this
-API to get the weather based on our current location
+API to get the weather based on our current location (we recommend fetching the weather by geographic coordinates).
 
 * In order to get the API to accept your HTTP requests, you'll need an API key.
 [Read up on how to use the API key and sign up for one here.][api-key] After
@@ -175,23 +134,27 @@ API keys in frontend JavaScript or anywhere else they are publicly
 available and can be scraped (this includes public Git repos).
 Stolen keys can cost you. _You have been warned._
 
-* To get your current location, add a call to `navigator.geolocation` when the
-component mounts. Read through the [documentation][navigator] to figure out
-how to get your current position. (Make sure you have [location services
+* Now let's get your current location! When the component mounts, call
+`navigator.geolocation.getCurrentPosition` to get it. Read through the [documentation][navigator]
+to figure out how to use this function properly. (Make sure you have [location services
 enabled][location-services] in your browser, or this won't work.)
 
-* When the location is received, use a callback to query the weather
-API using a raw `XMLHttpRequest`.
+* When the current location is received, use a callback to query the weather
+API using a raw, "vanilla" JavaScript `XMLHttpRequest`.
 
   + See [here][vanilla-ajax] and [here][nojquery] for help with the XMLHttpRequest.
 
   + For more in-depth details, look at the [XMLHttpRequest Docs][xmlhttpdocs]
 
-* Common pitfall: You need to include `http://` in your request URI
+  + Hint: pass a callback to your location query that takes a `location` argument.  `console.log` that argument to figure out how to extract the information you need, then build your `XMLHttpRequest`.
 
-* Hint: pass a callback to your location query
+  + Hint: You should build out the URI of your API request piece by piece, using the coordinates in the location argument and your API key.
 
-* Render the current city and temperature on the page.
+  + Common pitfall: You need to include `http://` in your request URI
+
+  + If you're spending more than 25 minutes setting up your request, ask a TA for help!
+
+* Render the current city and temperature on the page (temperature comes back as Kelvin. Convert!).
 
 * Give the weather box a nice border and make sure the elements inside are
 spaced evenly.

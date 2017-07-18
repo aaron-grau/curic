@@ -95,12 +95,12 @@ we highly encourage you to read the whole book.
 [arguments]: readings/arguments.md
 [function-invocation-in-depth]: readings/function-invocation-in-depth.md
 [intro-to-callbacks]: readings/intro-to-callbacks.md
-[loupe]: http://latentflip.com/loupe
 [es6-classes]: readings/es6-classes.md
 [module-pattern]: readings/module-pattern.md
 [chrome-dev-tools]: readings/chrome_dev_tools.md
 [linting-js]: readings/linting-js.md
 [comparison-chart]: https://appacademy.github.io/curriculum/language_comparison/index.html
+[loupe]: http://latentflip.com/loupe
 
 ### Homeworks (30 min)
 * [Callbacks and Function Calls][cb-function-hw] (30 min)
@@ -157,7 +157,7 @@ we highly encourage you to read the whole book.
 * [Canvas Demo: DrunkenCircles][canvas-demo] (15 min)
   * **Run this and look through it after going through Canvas Intro**
 
-[webpack]: https://webpack.js.org/guides/get-started/
+[webpack]: https://webpack.js.org/guides/getting-started/
 [canvas-intro]: homeworks/canvas_practice
 [canvas-demo]: demos/drunken_circles
 
@@ -262,7 +262,7 @@ possible.
 [jquery-fundamentals-ajax]: http://jqfundamentals.com/chapter/ajax-deferreds
 
 ### Projects
-* [AjaxTwitter][ajax-twitter]
+* [AJAXTwitter][ajax-twitter]
 
 [ajax-twitter]: projects/ajax_twitter
 
@@ -291,13 +291,14 @@ possible.
 [js-nontech]: readings/js-nontech.md
 [browser-tech]: ../html-css/readings/browser_tech.md
 
-### Homeworks (55 min)
+### Homeworks (45 min)
 * [Vanilla DOM Manipulation][vanilla-dom] (45 min)
 
 [vanilla-dom]: homeworks/vanilla-dom
 
 ### Additional Resources
-* [Vanilla AJAX][vanilla-ajax]
+* [Non-technical Overview of JavaScript][js-nontech] (10 min)
+* [Technical Overview of Browsers][browser-tech] (10 min)
 
 ### Projects
 * [jQuery Lite][jquery-lite]
@@ -307,4 +308,3 @@ possible.
 [jquery-lite]: projects/jquery_lite
 [mail]: projects/mail
 [snake-project]: projects/snake
-[vanilla-ajax]: readings/vanilla_ajax.md

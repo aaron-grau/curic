@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
-import ReviewShow from './review_show.jsx';
+
+import ReviewShow from './review_show';
 
 const reviewList = (reviews = []) => (
   reviews.map(review => (
-    <ReviewShow rating={review.rating} body={review.body} key={review.id} />
+    <ReviewShow
+      rating={review.rating}
+      body={review.body}
+      key={review.id}
+    />
   ))
 );
 
@@ -13,7 +18,7 @@ const BenchDetail = ({ bench }) => {
     <div>
       <ul className="bench-list">
         <img className="index-image" src={bench.picture_url}/>
-        <li>Rating: {bench.average_rating || "No reviews yet"}</li>
+        <li>Rating: {bench.average_rating || 'No reviews yet'}</li>
         <li>Description: {bench.description}</li>
         <li>Seats: {bench.seating}</li>
         <li>Latitude: {bench.lat}</li>
@@ -26,6 +31,6 @@ const BenchDetail = ({ bench }) => {
       </div>
     </div>
   );
-}
+};
 
 export default BenchDetail;

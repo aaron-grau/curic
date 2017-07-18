@@ -1,38 +1,22 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Route, Link, NavLink } from 'react-router-dom';
+import Orange from './orange';
+import Yellow from './yellow';
 
 class Red extends React.Component {
-  constructor() {
-    super();
-    this.resetRed = this.resetRed.bind(this);
-    this.addOrange = this.addOrange.bind(this);
-    this.addYellow = this.addYellow.bind(this);
-  }
-  
-  resetRed() {
-    this.props.router.push('/red');
-  }
-
-  addOrange() {
-    this.props.router.push('/red/orange');
-  }
-
-  addYellow() {
-    this.props.router.push('/red/yellow');
-  }
-
   render() {
     return(
       <div>
         <h2 className="red"></h2>
-        <h4 onClick={this.resetRed}>Red only</h4>
-        <h4 onClick={this.addOrange}>Add orange</h4>
-        <h4 onClick={this.addYellow}>Add yellow</h4>
+        <NavLink exact to='/red' >Red only</NavLink>
+        <NavLink to='/red/orange' >Add orange</NavLink>
+        <NavLink to='/red/yellow' >Add yellow</NavLink>
 
-        {this.props.children}
+        <Route path="/red/orange" component={Orange} />
+        <Route path="/red/yellow" component={Yellow} />
       </div>
     );
   }
 };
 
-export default withRouter(Red);
+export default Red;

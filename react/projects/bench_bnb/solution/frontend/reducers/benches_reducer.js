@@ -1,8 +1,11 @@
-import { CREATE_REVIEW,
+import merge from 'lodash/merge';
+
+import {
+  CREATE_REVIEW,
   RECEIVE_REVIEW,
   RECEIVE_BENCHES,
-  RECEIVE_BENCH } from '../actions/bench_actions';
-import merge from 'lodash/merge';
+  RECEIVE_BENCH
+} from '../actions/bench_actions';
 
 const BenchesReducer = (state = {}, action) => {
   Object.freeze(state)
@@ -24,4 +27,3 @@ const BenchesReducer = (state = {}, action) => {
 };
 
 export default BenchesReducer;
-

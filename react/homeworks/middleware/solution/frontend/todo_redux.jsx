@@ -7,20 +7,35 @@ import Root from './components/root';
 document.addEventListener('DOMContentLoaded', () => {
   const preloadedState = localStorage.state ?
     JSON.parse(localStorage.state) : {};
-  const store = configureStore(preloadedState);
-  // const newStore = applyMiddlewares(store, addLoggingToDispatch);
+  let store = configureStore(preloadedState);
+
+  // Phase 1: Logging
+  // store.dispatch = addLoggingToDispatch(store);
+
+  // Phase 2: Refactoring (without using Redux applyMiddleware)
+  // store = applyMiddlewares(store, addLoggingToDispatch);
 
   const root = document.getElementById('content');
   ReactDOM.render(<Root store={store} />, root);
 });
 
-// const addLoggingToDispatch = store => next => action => {
+// Phase 1: Logging
+// const addLoggingToDispatch = (store) => {
 //   const OGDispatch = store.dispatch;
+//   return (action) => {
+//     console.log(store.getState());
+//     console.log(action);
+//     OGDispatch(action);
+//     console.log(store.getState());
+//   }
+// }
+
+// Phase 2: Refactoring (without Using Redux applyMiddleware)
+// const addLoggingToDispatch = store => next => action => {
 //   console.log(store.getState());
 //   console.log(action);
-//   let returnValue = OGDispatch(action);
+//   next(action);
 //   console.log(store.getState());
-//   return returnValue;
 // };
 //
 // const applyMiddlewares = (store, ...middlewares) => {

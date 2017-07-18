@@ -135,7 +135,7 @@ const Item = ({ item }) => (
 
 export default Item;
 ```
-And finally, `list` receives as props a single item, rendering that item's
+And finally, `Item` receives as props a single `item`, rendering that item's
 name and body.
 
 [provider]: ./provider.md

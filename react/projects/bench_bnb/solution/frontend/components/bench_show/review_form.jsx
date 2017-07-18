@@ -1,22 +1,25 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rating: 5, body: "" };
-
+    this.state = {
+      rating: 5,
+      body: ''
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToBenchShow = this.navigateToBenchShow.bind(this);
   }
 
   navigateToBenchShow() {
-    this.props.router.push(`/benches/${this.props.params.benchId}`);
+    const url = `/benches/${this.props.match.params.benchId}`
+    this.props.history.push(url);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const benchId = parseInt(this.props.params.benchId);
+    const benchId = parseInt(this.props.match.params.benchId);
     const review = Object.assign({}, this.state, {
       bench_id: benchId
     });
@@ -31,25 +34,29 @@ class ReviewForm extends React.Component {
   render() {
     return (
       <div className="review-form">
-        <form onSubmit={ this.handleSubmit }>
+        <form onSubmit={this.handleSubmit}>
           <label>Rating</label>
           <br/>
-          <input type="number"
-            value={ this.state.rating }
-            onChange={ this.update("rating") }/>
+          <input
+            type="number"
+            value={this.state.rating}
+            onChange={this.update("rating")}
+          />
           <br/>
 
           <label>Comment</label>
           <br/>
+
           <textarea
-            cols='30'
-            rows='10'
-            value={ this.state.body }
-            onChange={ this.update("body") }></textarea>
+            cols="30"
+            rows="10"
+            value={this.state.body}
+            onChange={this.update("body")}
+          />
           <br/>
-          <input type="submit"/>
+          <input type="submit" />
         </form>
-        <button onClick={ this.navigateToBenchShow }>Cancel</button>
+        <button onClick={this.navigateToBenchShow}>Cancel</button>
       </div>
     );
  }

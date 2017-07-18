@@ -1,6 +1,6 @@
 # TCP/IP
 
-The Transmission Control Protocol (TCP) and Internet Protocol (IP), commonly called as TCP/IP because they are used in conjunction so often, allow computers to pass data to each other.
+The Transmission Control Protocol (TCP) and Internet Protocol (IP), commonly called TCP/IP because they are used in conjunction so often, allow computers to pass data to each other.
 
 ## History
 

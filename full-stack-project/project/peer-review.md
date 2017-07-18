@@ -32,9 +32,9 @@ scoresheets with them to get feedback.
 
 ## Day of
 
-You will be assigned two different fellow students to pair with. You
-will meet with each other for 30 min. Use the following framework for
-each pairing:
+You will be assigned two different fellow students to pair with.
+You will meet with each pair for 30 minutes. Use the following 
+framework for each pairing:
   * Share the spreadsheet you copied in the previous section with your
 reviewer.
   * First 15 min: review each other site's and fill out the spreadsheet.

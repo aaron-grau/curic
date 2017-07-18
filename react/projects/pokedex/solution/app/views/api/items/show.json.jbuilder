@@ -1,1 +1,1 @@
-json.partial! 'api/shared/item', item: @item
+json.partial! 'api/shared/items', item: @item

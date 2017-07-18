@@ -64,7 +64,7 @@
 [array-hash-defaults]: readings/array-hash-defaults.md
 [scope]: readings/scope.md
 [code-smells]: readings/refactoring.md
-[html-css-overview]: #
+[html-css-overview]: ../html-css/readings/overview.md
 [html-intro]: ../html-css/readings/introduction.md
 [prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
 
@@ -450,7 +450,7 @@
 + [Hash Map & LRU Cache][hash-map]
 
 [hash-map]: projects/hash_map_lru_cache
-[css-box-model-exercise]: ../html-css/micro-projects/display_box_model/
+[css-box-model-exercise]: ../html-css/micro-projects/box_model/
 
 ### Additional Bonus Topics
 + [Basic cursor input][cursor-demo]
