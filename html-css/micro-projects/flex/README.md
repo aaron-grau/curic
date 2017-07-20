@@ -4,7 +4,7 @@ Download this [skeleton][skeleton].
 
 [skeleton]: ./skeleton.zip
 
-Starting from the skeleton, update the the `flex.css` stylesheet. In this exercise, we will be converting our yesterday's solution from using floats to using flexbox. Let us begin. 🙏
+Starting from the skeleton, update the the `flex.css` stylesheet. In this exercise, we will be converting yesterday's solution from using floats to using flexbox. Let us begin. 🙏
 
 1. First, let's remove the `clearfix` class from our `header` as it won't play well with flex.
 2. Next, we should unfloat our logo image and our `nav`, and remove the `inline-block` display property from the list items in our `nav`.
