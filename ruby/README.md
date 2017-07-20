@@ -214,23 +214,6 @@
 [git-homeworks]: ./homeworks/git-homeworks.md
 [diy-adts]: ./homeworks/abstract_data_types
 
-### Culture
-+ [Stereotype Threat][stereotype-threat]
-+ [Unconscious Bias in Tech][unconscious-bias]
-+ [When Algorithms Discriminate][algos-discriminate]
-+ [Implicit Association Test][iap-test]
-  * Take whatever interests you
-+ [You're More Biased Than You Think][more-biased]
-+ [Seven Day Bias Cleanse][bias-cleanse]
-  * If you choose to sign up, you'll get an email every day for 7 days with a short activity
-
-[stereotype-threat]: http://www.nytimes.com/2012/10/07/opinion/sunday/intelligence-and-the-stereotype-threat.html
-[unconscious-bias]: https://medium.com/@aldynchwelos/unconscious-bias-in-tech-why-women-leave-their-engineering-careers-f9653185d17b
-[algos-discriminate]: https://www.nytimes.com/2015/07/10/upshot/when-algorithms-discriminate.html
-[iap-test]: https://implicit.harvard.edu/implicit/takeatest.html
-[more-biased]: https://www.fastcompany.com/3036627/youre-more-biased-than-you-think
-[bias-cleanse]: http://www.lookdifferent.org/what-can-i-do/bias-cleanse
-
 ### Projects
 + [HTML `<head>` Exercise][html-head-exercise]
 + [Intro data structures: PolyTreeNode][poly-tree-node]
@@ -274,6 +257,23 @@
 + [Simon][simon] (45 min)
 
 [simon]: homeworks/simon
+
+### Culture
++ [Stereotype Threat][stereotype-threat]
++ [Unconscious Bias in Tech][unconscious-bias]
++ [When Algorithms Discriminate][algos-discriminate]
++ [Implicit Association Test][iap-test]
+  * Take whatever interests you
++ [You're More Biased Than You Think][more-biased]
++ [Seven Day Bias Cleanse][bias-cleanse]
+  * If you choose to sign up, you'll get an email every day for 7 days with a short activity
+
+[stereotype-threat]: http://www.nytimes.com/2012/10/07/opinion/sunday/intelligence-and-the-stereotype-threat.html
+[unconscious-bias]: https://medium.com/@aldynchwelos/unconscious-bias-in-tech-why-women-leave-their-engineering-careers-f9653185d17b
+[algos-discriminate]: https://www.nytimes.com/2015/07/10/upshot/when-algorithms-discriminate.html
+[iap-test]: https://implicit.harvard.edu/implicit/takeatest.html
+[more-biased]: https://www.fastcompany.com/3036627/youre-more-biased-than-you-think
+[bias-cleanse]: http://www.lookdifferent.org/what-can-i-do/bias-cleanse
 
 ### Projects
 + [Error Handling Funtime][errors-exercises]
