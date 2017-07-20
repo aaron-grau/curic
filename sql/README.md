@@ -167,12 +167,13 @@
 
 [assessment-prep-3]: https://github.com/appacademy/assessment-prep#assessment-3
 
-### Materials (88 min)
+### Materials (103 min)
 + :book: [ActiveRecord::Relation][relation] (15 min)
 + :book: [ActiveRecord and Joins][ar-joins] (25 min)
 + :book: [Scopes][scopes] (10 min)
 + :book: [More on Querying][querying-ii] (15 min)
 + :movie_camera: [CSS Float & Clearfix][css-float-video] (18 min)
++ :movie_camera: [CSS Grid System][css-grid-video] (15 min)
 + :book: [CSS Float & Clearfix][css-float] (5 min)
 
 [relation]: readings/relation.md
@@ -180,6 +181,7 @@
 [scopes]: readings/scopes.md
 [querying-ii]: readings/querying-ii.md
 [css-float-video]: https://vimeo.com/album/3732382/video/151190182
+[css-grid-video]: https://vimeo.com/170320160
 [css-float]: ../html-css/readings/floats_clear_fix.md
 
 ### Homeworks (60 min)
