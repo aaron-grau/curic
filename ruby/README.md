@@ -259,13 +259,13 @@
 [simon]: homeworks/simon
 
 ### Culture
-+ [Stereotype Threat][stereotype-threat]
-+ [Unconscious Bias in Tech][unconscious-bias]
-+ [When Algorithms Discriminate][algos-discriminate]
-+ [Implicit Association Test][iap-test]
++ [Stereotype Threat][stereotype-threat] (5 min)
++ [Unconscious Bias in Tech][unconscious-bias] (8 min)
++ [When Algorithms Discriminate][algos-discriminate] (5 min)
++ [Implicit Association Test][iap-test] (~5 min per test)
   * Take whatever interests you
-+ [You're More Biased Than You Think][more-biased]
-+ [Seven Day Bias Cleanse][bias-cleanse]
++ [You're More Biased Than You Think][more-biased] (7 min)
++ [Seven Day Bias Cleanse][bias-cleanse] (~1 min per day)
   * If you choose to sign up, you'll get an email every day for 7 days with a short activity
 
 [stereotype-threat]: http://www.nytimes.com/2012/10/07/opinion/sunday/intelligence-and-the-stereotype-threat.html
