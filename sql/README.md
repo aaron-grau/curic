@@ -207,12 +207,13 @@
 
 ## w3d5
 
-### Materials (88 min)
+### Materials (103 min)
 + :book: [Metaprogramming][metaprogramming] (20 min)
 + :book: [Class Instance Variables][class-instance-variables] (15 min)
 + :book: [Demo: send][meta-send] (5 min)
 + :book: [Demo: macros][meta-macros] (5 min)
 + :book: [Nontechnical Overview of SQL][sql-nontech] (15 min)
++ :movie_camera: [CSS Grid System][css-grid-video] (15 min)
 + :movie_camera: [CSS Flexbox][css-flex-video] (19 min)
 + :book: [CSS Display Types][css-display-types] (10 min)
 
@@ -223,6 +224,7 @@
 [sql-nontech]: readings/sql_nontech.md
 [css-flex-video]: https://vimeo.com/170512344
 [css-display-types]: ../html-css/readings/display.md
+[css-grid-video]: https://vimeo.com/170320160
 
 ### Homework (30 min)
 + [Metacorgis][metacorgi-hw] (30 min)
