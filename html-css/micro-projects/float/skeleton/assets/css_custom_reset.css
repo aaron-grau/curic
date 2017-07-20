@@ -23,11 +23,3 @@ input[type="radio"], select, input[type="submit"] {
 h2 + .user_review {
   border-top: 1px solid black;
 }
-
-/* This is useful when implementing a grid system so that all image elements
-will take up 100% width of their containers */
-img {
-  width: 100%
-}
-
-
