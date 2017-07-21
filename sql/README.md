@@ -226,7 +226,6 @@
 [sql-nontech]: readings/sql_nontech.md
 [css-flex-video]: https://vimeo.com/170512344
 [css-display-types]: ../html-css/readings/display.md
-[css-grid-video]: https://vimeo.com/170320160
 
 ### Homework (30 min)
 + [Metacorgis][metacorgi-hw] (30 min)
