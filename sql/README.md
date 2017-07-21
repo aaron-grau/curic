@@ -39,6 +39,19 @@
 
 [sql-bolt]: https://sqlbolt.com/
 
+### Culture
++ [What is Privilege?][privilege] (6 min)
++ [What is Intersectionality?][Intersectionality] (5 min)
++ [12 Things Allies Can Do][allies] (5 min)
++ [How Do I Ally?][allies-2] (7 min)
++ [Getting Started in Social Justice][social-justice] (8 min)
+
+[privilege]: https://www.buzzfeed.com/nicolaharvey/what-is-privilege
+[intersectionality]: http://www.care2.com/causes/what-is-intersectionality-and-why-is-it-important.html
+[allies]: https://blog.techinclusion.co/tech-diversity-12-things-an-ally-can-do-ca5c93435d26
+[allies-2]: https://medium.com/@hadrad1000/how-do-i-ally-being-an-ally-to-women-in-technology-73b70fb86a98
+[social-justice]: https://modelviewculture.com/pieces/getting-started-in-techs-social-justice-movement
+
 ### Projects
 + **Solo** [SQL Zoo][sqlzoo-readme]
 
