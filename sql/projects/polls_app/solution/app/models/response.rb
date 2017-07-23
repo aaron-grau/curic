@@ -1,6 +1,8 @@
 class Response < ApplicationRecord
 
-  validates :answer_choice, :respondent, presence: true
+  # N.B. Remember, Rails 5 automatically validates the presence of
+  # belongs_to associations, so we can leave the validation of
+  # :answer_choice and :respondent out here.
 
   # Remember, belongs_to is just a method where the first argument is
   # the name of the association, and the second argument is an options

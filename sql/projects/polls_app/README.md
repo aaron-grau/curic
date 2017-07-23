@@ -73,6 +73,9 @@ first (this would be a good excuse to utilize that ⌘D shortcut).
 
 Add `presence` and `uniqueness` validations wherever required.
 
+**N.B.** Remember, Rails 5 automatically validates the presence of
+belongs_to associations.
+
 ### User can't create multiple responses to the same question
 
 We will write a custom validation method, `not_duplicate_response`, to

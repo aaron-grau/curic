@@ -1,5 +1,8 @@
 class Question < ApplicationRecord
-  validates :poll, :text, presence: true
+  validates :text, presence: true
+
+  # N.B. Remember, Rails 5 automatically validates the presence of
+  # belongs_to associations, so we can leave the validation of :poll out here.
 
   # Remember, has_many is just a method where the first argument is
   # the name of the association, and the second argument is an options
