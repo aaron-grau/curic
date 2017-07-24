@@ -3,7 +3,7 @@
 In this project, we'll write an React/Redux/Rails app to manage `Pokemon` and their `Items`!
 Check out the live demo [here](http://aa-pokedex.herokuapp.com/)!
 
-Note: The singular and plural forms of the word "pokemon" do not
+NB: The singular and plural forms of the word "pokemon" do not
 differ.
 
 ## Phase 0: Rails API Setup
@@ -25,7 +25,7 @@ Get yourself oriented.
 
 ### API Namespace
 
-Let's build routes for our pokemon! We want these routes to be nested under an api namespace.
+Let's build routes for our pokemon! We want these routes to be nested under an `api` namespace.
 Like so:
 
 ```ruby
@@ -34,7 +34,7 @@ namespace :api, defaults: {format: :json} do
 end
 ```
 
-The `defaults: {format: :json}` option tells the controller to first look for a `.json.jbuilder` view rather than an `html.erb` view.
+The `defaults: {format: :json}` option tells the controller to first look for view with a  `.json.jbuilder` extention rather than the default `.html.erb`.
 
 Edit your `routes.rb`. Your routes table should look like the following:
 
@@ -256,10 +256,10 @@ Before we actually build anything, we need to talk about the shape of our applic
 Don't ever skip it.
 For now, we just want to be able to render all of our pokemon.
 In preparation for our fullstack projects, we will be normalizing our state.
-Right now we don't have much, so let's start with an `entities` slice which will contain separate slices for each of our resources (just `pokemon` for now).
+Right now we don't have much, so let's start with an `entities` slice which will contain separate sub-slices for each of our resources (just `pokemon` for now).
 This will hold _all_ the pokemon, for both our index item and detail views.
 
-**Hint**: in order to have reducers nested in other reducer we can use `combineReducers` inside of the `entities` reducer.
+**Hint**: in order to have reducers nested in other reducers we can use `combineReducers` inside of the `entities` reducer.
 
 Sample state shape:
 
@@ -345,7 +345,7 @@ If the reducer doesn't care about the action being dispatched, it should return 
   import { RECEIVE_ALL_POKEMON } from '../actions/pokemon_actions';
   ```
 
-* Define and `export default` a `pokemonReducer(state = {}, action)`.
+* Define and `export default` a `pokemonReducer => (state = {}, action) { ... }`.
 * Add a `switch(action.type)` statement.
 * Create `RECEIVE_ALL_POKEMON` and default cases.
 Remember not to mutate `state`!
@@ -355,49 +355,103 @@ Remember not to mutate `state`!
 We want to separate our app's data and presentational states.
 To do this we can create nested reducers, such that eventually our redux state might look something like this:
 
+Note how we are using `entities.pokemon` to manage _all_ the pokemon. At this point we have loaded the index and the detail of Ivysaur, which is why we see Ivysaur's attack, defense, item_ids, etc., see Ivysaur's `id` in `ui.pokedisplay`, and have also loaded Ivysaur's items in the `items` slice.
+
 ```js
 {
   entities: {
     pokemon: {
-
+      1: {
+        name: Bulbasaur,
+        image_url: "/assets/pokemon_snaps/110.png",
+      },
+      2: {
+        name: "Ivysaur",
+        image_url: "/assets/pokemon_snaps/112.png",
+        attack: 62,
+        defense: 63,
+        poke_type: "grass",
+        moves: [
+           "tackle",
+           "vine whip",
+           "razor leaf"
+        ],
+        item_ids: [3, 4, 5],
+      },
+      3: {
+        name: "Venusaur",
+        image_url: "/assets/pokemon_snaps/130.png",
+      },
+      //... more pokemon
     },
     items: {
-
+      3: {
+        pokemon_id: 2,
+        name: "Berry",
+        price: 5,
+        happiness: 99,
+        image_url: "/assets/pokemon_berry.svg",
+      },
+      4: {
+        pokemon_id: 2,
+        name: "Egg",
+        price: 5,
+        happiness: 99,
+        image_url: "/assets/pokemon_egg.svg",
+      },
+      5: {
+        pokemon_id: 2,
+        name: "Potion",
+        price: 5,
+        happiness: 99,
+        image_url: "/assets/pokemon_potion.svg",
+      },
+      // ... more items
     }
   },
   ui: {
-    pokeDisplay: 1,
-    errors: {
-
-    },
-    loading: {
-      
-    }
+    pokeDisplay: 2,
+    errors: {},
+    loading: {},
   }
 }
+```
+
+Create a new reducer, `entitiesReducer`, that will be in charge of combining each of our entity sub-reducers (`pokemonReducer` and later `itemsReducer`).
+
+* Create a new file: `/frontend/reducers/entities_reducer.js`
+* Import `combineReducers` from `redux` and our `pokemonReducer`
+* Call `combineReducers` so that our `pokemonReducer` is responsible for
+the `pokemon` slice. Like so:
+
+```js
+const entitiesReducer = combineReducers({
+  pokemon: pokemonReducer,
+})
+```
 
 ### The `rootReducer`
 
-Let's create
-Before we can use our `pokemonReducer`, let's create a `rootReducer` using Redux's `combineReducers` function.
-We'll use `combineReducers` to generate our application state and assign each slice of the state to a different reducer. This will make it easier to grow our application state.
+Before we can use our `entities`, let's create a `rootReducer` using Redux's `combineReducers` function.
+We'll use `combineReducers` to generate our application state and assign each slice of the state to a different reducer.
+This will make it easier to grow our application state.
 
 * Create a new file: `/frontend/reducers/root_reducer.js`
-* Import `combineReducers` from `redux` and our `pokemonReducer`:
-* Call `combineReducers` so that our `pokemonReducer` is responsible for
-the `pokemon` slice of the app state. Like so:
+* Import `combineReducers` from `redux` and our `entitiesReducer`
+* Call `combineReducers` so that our `entitiesReducer` is responsible for
+the `entities` slice of the app state. Like so:
 
 ```js
 const rootReducer = combineReducers({
-  pokemon: pokemonReducer
+  entities: entitiesReducer
 });
 export default rootReducer
 ```
 
 ### Store
 
-Before we can test our app's reducer we need a Redux store to dispatch
-from. Let's create our app's store.
+Before we can test our app's reducer we need a Redux store to dispatch from.
+Let's create our app's store.
 
 * Create a `store.js` file within the `frontend/store` folder.
 * Import `createStore` and `applyMiddleware` from the `redux` package.
@@ -499,8 +553,7 @@ Define them in a `selectors.js` file in your app's `frontend/reducers` folder.
 * Define and export a function, `selectAllPokemon(state)`, which accepts the application state as an argument and exports an array of all the pokemon objects.
 You can use [lodash's values][lodash-values] method.
 
-**Test your selector in the browser**. You should should be able to do
-the following:
+**Test your selector in the browser**. You should should be able to do the following:
 
 ```js
 const initialState = getState();
