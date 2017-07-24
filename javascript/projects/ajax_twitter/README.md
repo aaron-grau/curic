@@ -16,7 +16,7 @@
 ## Phase 0: Setup
 
 Download the project [skeleton](skeleton.zip?raw=true). Start by running `bundle
-install`. To setup the database, run `rake db:setup` which creates, loads from
+install`. To setup the database, run `rails db:setup` which creates, loads from
 schema and seeds the db in one command. Run `webpack --watch` or `webpack -w` in a
 new tab to transpile the JavaScript.
 
