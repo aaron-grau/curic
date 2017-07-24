@@ -111,45 +111,65 @@ Talk over the following questions with your partner:
 * How will we pass this information to `PokemonDetail`?
 
 Hint: Your state shape will look something like this:
+
 ```js
 // Sample State Shape
 {
-  pokemon: {
-    entities: {
+  entities: {
+    pokemon: {
       1: {
-        id: 1,
-        name: "Pikachu",
+        name: Bulbasaur,
+        image_url: "/assets/pokemon_snaps/110.png",
       },
       2: {
-        id: 2,
-        name: "Rhydon",
-        attack: 130,
-        defense: 120,
-        image_url: "/assets/pokemon_snaps/112.svg",
+        name: "Ivysaur",
+        image_url: "/assets/pokemon_snaps/112.png",
+        attack: 62,
+        defense: 63,
+        poke_type: "grass",
         moves: [
-          "horn attack",
-          //...
+           "tackle",
+           "vine whip",
+           "razor leaf"
         ],
-        poke_type: "ground",
-      }
+        item_ids: [3, 4, 5],
+      },
+      3: {
+        name: "Venusaur",
+        image_url: "/assets/pokemon_snaps/130.png",
+      },
+      //... more pokemon
     },
-    // Rhydon is the pokemon we want to show in PokemonDetail component
-    // so we keep it's id here to signify that is has been fetched and fully
-    // loaded into entities
-    currentPoke: 2,
+    items: {
+      3: {
+        pokemon_id: 2,
+        name: "Berry",
+        price: 5,
+        happiness: 99,
+        image_url: "/assets/pokemon_berry.svg",
+      },
+      4: {
+        pokemon_id: 2,
+        name: "Egg",
+        price: 5,
+        happiness: 99,
+        image_url: "/assets/pokemon_egg.svg",
+      },
+      5: {
+        pokemon_id: 2,
+        name: "Potion",
+        price: 5,
+        happiness: 99,
+        image_url: "/assets/pokemon_potion.svg",
+      },
+      // ... more items
+    }
+  },
+  ui: {
+    pokeDisplay: 2,
+    errors: {},
+    loading: {},
   }
-  // this slice will contain an array of the items of the currentPoke
-  items: [
-    {
-      id: 15,
-      name: "Dark Vulcan",
-      pokemon_id: 2,
-      price: 12,
-      happiness: 58,
-      image_url: "/assets/pokeball.png"
-    },
-    //...
-  ]
 }
 ```
 
@@ -158,9 +178,10 @@ Implement the `PokemonDetail` component just like we did the `PokemonIndex`. Mak
 * Create an API utility function that fetches a single pokemon.
 * Create actions for receiving a single Pokemon.
 This requires defining a new constant and action creator.
-* Update `PokemonReducer` shape to contain `entities` and a `currentPoke`.
+* Update `pokemonReducer` shape to contain `entities` and a `currentPoke`.
   * Don't forget to update the `Switch` also!
-* Create an `ItemsReducer` to contain the `currentPoke`'s items.
+* Create an `itemsReducer` to contain the `currentPoke`'s items. Just like `pokemonReducer` this should also be nested under the `entities` slice of state.
+  * Remember: multiple reducers can respond to the same action!
 * Create a `requestSinglePokemon` thunk action creator.
 * Create a `PokemonDetailContainer` that maps props to `PokemonDetail`.
 * Create a class `PokemonDetail` component that returns information of the pokemon.
