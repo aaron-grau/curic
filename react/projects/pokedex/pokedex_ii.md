@@ -420,8 +420,8 @@ The css animation requires the following html to function:
 * Feel free to use the pokeball spinner we've provided.
 However, you can also Google "css spinner" to find another spinner to implement!
 * Before calling the `APIUtil`, have your async actions also dispatch an action with `type: START_LOADING_ALL_POKEMON` for `requestAllPokemon` and an action with `type: START_LOADING_SINGLE_POKEMON` for `requestSinglePokemon`.
-* Create a new reducer, the `LoadingReducer`
-  * Your `LoadingReducer` should care about all `START_LOADING_` and `RECEIVE_` action types
+* Create a new reducer, the `loadingReducer`
+  * Your `loadingReducer` should care about all `START_LOADING_` and `RECEIVE_` action types
   * When a request is made, change the loading state to `true`, when the data is received, change the state to `false`
 * Change your `PokemonIndex` and `PokemonDetail` components to render the spinner if the loading state is `true`
 
