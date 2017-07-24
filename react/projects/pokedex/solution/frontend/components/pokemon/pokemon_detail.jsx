@@ -18,7 +18,7 @@ class PokemonDetail extends Component {
 
   render() {
     const { pokemon, items, loading } = this.props;
-
+    
     if (loading) {
       return <section className="pokemon-detail"><LoadingIcon /></section>;
     }
