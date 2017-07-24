@@ -34,7 +34,7 @@ namespace :api, defaults: {format: :json} do
 end
 ```
 
-The `defaults: {format: :json}` option tells the controller to first look for view with a  `.json.jbuilder` extention rather than the default `.html.erb`.
+The `defaults: {format: :json}` option tells the controller to first look for view with a  `.json.jbuilder` extension rather than the default `.html.erb`.
 
 Edit your `routes.rb`. Your routes table should look like the following:
 
@@ -345,7 +345,7 @@ If the reducer doesn't care about the action being dispatched, it should return 
   import { RECEIVE_ALL_POKEMON } from '../actions/pokemon_actions';
   ```
 
-* Define and `export default` a `pokemonReducer => (state = {}, action) { ... }`.
+* Define and `export default` a `pokemonReducer` that has a default state of an empty object.
 * Add a `switch(action.type)` statement.
 * Create `RECEIVE_ALL_POKEMON` and default cases.
 Remember not to mutate `state`!
