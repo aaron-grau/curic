@@ -19,6 +19,19 @@ Today we add a users and login to our 99Cats application.
 
 [skeleton]: ./skeleton.zip
 
+## Warm-Up: Styling
+
+Since we are now CSS pros, let's spend a little time making our 99 Cats less of an eyesore.
+Apply some basic styling to our cat index, show and rental form pages.
+Check out the [live demo][live-demo] if you need inspiration.
+
+* No more `serif` font
+* Use flexbox to render the cat index as a grid
+* Prettier background colors
+* Add a header to `application.html.erb` that we can see on each page
+
+**Spend no more than 30 minutes on this! We have much to learn.**
+
 ## Phase IV: Users
 
 ### Add a `User` model
@@ -106,6 +119,7 @@ Build a `SessionsController`:
   cause Rails to throw an error, because it won't know if the POST
   request is coming "cross-site".
 * Fix your forms, friend!
+* Spend no more than 10 minutes styling
 
 ## Phase V: Using `current_user` with Cats and CatRentalRequests.
 
