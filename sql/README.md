@@ -215,7 +215,6 @@
 + :book: [Demo: send][meta-send] (5 min)
 + :book: [Demo: macros][meta-macros] (5 min)
 + :book: [Nontechnical Overview of SQL][sql-nontech] (15 min)
-+ :movie_camera: [CSS Grid System][css-grid-video] (15 min)
 + :movie_camera: [CSS Flexbox][css-flex-video] (19 min)
 + :book: [CSS Display Types][css-display-types] (10 min)
 
