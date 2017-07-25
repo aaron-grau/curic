@@ -16,8 +16,10 @@ The beginning of Front-End Development.
 
 #### Materials
 
++ :book: [Overview of HTML/CSS Curriculum][html-css-overview] (2 min)
 + :book: [An Introduction to HTML][html-intro]
 
+[html-css-overview]: readings/overview.md
 [html-intro]: readings/introduction.md
 
 #### Exercise
@@ -148,9 +150,9 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 #### Exercise
 
-+ [Recipe Display][css-box-exercise]
++ [CSS Box Model Exercise][css-box-exercise]
 
-[css-box-exercise]: micro-projects/display_box_model
+[css-box-exercise]: micro-projects/box_model
 
 ### Display Property
 
@@ -184,9 +186,11 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 #### Materials
 + :movie_camera: [CSS Float & Clearfix][css-float-video]
++ :movie_camera: [CSS Grid System][css-grid-video] (15 min)
 + :book: [CSS Float & Clearfix][css-float]
 
 [css-float-video]: https://vimeo.com/album/3732382/video/151190182
+[css-grid-video]: https://vimeo.com/170320160
 [css-float]: readings/floats_clear_fix.md
 
 #### Exercise
@@ -194,7 +198,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 
 [css-float-exercise]: micro-projects/float
 
-### CSS Display Types
+### CSS Display Types & Flexbox
 
 #### Materials
 + :movie_camera: [CSS Flexbox][css-flex-video]
