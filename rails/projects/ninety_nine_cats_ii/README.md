@@ -10,7 +10,7 @@ Today we add a users and login to our 99Cats application.
 
 + Be able to create a user authentication system
   + Know the user model's methods that are required for authentication
-    + `reset_session_token`, `password=`, `is_password?`, `find_by_credentials`
+    + `reset_session_token!`, `password=`, `is_password?`, `find_by_credentials`
   + Know what it means to create and destroy a session
   + Know how cookies and sessions interact in a `current_user` method
   + Know how to access the current user from within a view
@@ -119,7 +119,7 @@ Build a `SessionsController`:
   cause Rails to throw an error, because it won't know if the POST
   request is coming "cross-site".
 * Fix your forms, friend!
-* Spend no more than 10 minutes styling
+* Spend no more than 10 minutes styling.
 
 ## Phase V: Using `current_user` with Cats and CatRentalRequests.
 
