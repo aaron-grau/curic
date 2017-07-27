@@ -44,24 +44,18 @@ The clock component should display the current date and time, updating every sec
 defining your `Clock` class there. Remember to export. You
 will require this class from `widgets.jsx` and incorporate it into
 `Root#render`. This is the pattern you will follow for all the widgets.
-
 * Create a render method. Give your clock a title in an `<h1>` and check that
 this renders correctly on the page.
-
 * In the constructor, set the initial state for the time of your clock using `new Date()`.
-
 * Write a method, `tick` that uses `setState` to set the time to a `new Date()`
-
 * You'll use `setInterval` to call `tick` every second, but you should
 wait until the component is actually on the page. For this, you can define a
 [`componentDidMount`][componentDidMount] function.
-
 * You'll also want to [store that interval's id][clearInterval] so you can
 cancel it in [`componentWillUnmount`][componentWillUnmount], which gets called
 just before the component is removed. Don't store this in the component's
 `state` since it doesn't affect the UI. Instead, just store it directly on
 `this`.
-
 * In your render method, display the current hours, minutes, and seconds. Check
 out all of the [methods][date-object] you can use to display the date and time
 in a human-readable string.
@@ -122,7 +116,7 @@ the current weather.
 component.
 
 * Review the [open weather API][weather] documentation. We'll use this
-API to get the weather based on our current location
+API to get the weather based on our current location (we recommend fetching the weather by geographic coordinates).
 
 * In order to get the API to accept your HTTP requests, you'll need an API key.
 [Read up on how to use the API key and sign up for one here.][api-key] After
@@ -134,24 +128,20 @@ API keys in frontend JavaScript or anywhere else they are publicly
 available and can be scraped (this includes public Git repos).
 Stolen keys can cost you. _You have been warned._
 
-* To get your current location, add a call to `navigator.geolocation` when the
-component mounts. Read through the [documentation][navigator] to figure out
-how to get your current position. (Make sure you have [location services
+* Now let's get your current location! When the component mounts, call
+`navigator.geolocation.getCurrentPosition` to get it. Read through the [documentation][navigator]
+to figure out how to use this function properly. (Make sure you have [location services
 enabled][location-services] in your browser, or this won't work.)
 
-* When the location is received, use a callback to query the weather
-API using a raw `XMLHttpRequest`.
-
-  + See [here][vanilla-ajax] and [here][nojquery] for help with the XMLHttpRequest.
-
-  + For more in-depth details, look at the [XMLHttpRequest Docs][xmlhttpdocs]
-
-* Common pitfall: You need to include `http://` in your request URI
-
-* Hint: pass a callback to your location query
-
-* Render the current city and temperature on the page.
-
+* When the current location is received, use a callback to query the weather
+API using a raw, "vanilla" JavaScript `XMLHttpRequest`.
+  * See [here][vanilla-ajax] and [here][nojquery] for help with the XMLHttpRequest.
+  * For more in-depth details, look at the [XMLHttpRequest Docs][xmlhttpdocs]
+  * Hint: pass a callback to your location query that takes a `location` argument.  `console.log` that argument to figure out how to extract the information you need, then build your `XMLHttpRequest`.
+  * Hint: You should build out the URI of your API request piece by piece, using the coordinates in the location argument and your API key.
+  * Common pitfall: You need to include `http://` in your request URI
+  * If you're spending more than 25 minutes setting up your request, ask a TA for help!
+* Render the current city and temperature on the page (temperature comes back as Kelvin. Convert!).
 * Give the weather box a nice border and make sure the elements inside are
 spaced evenly.
 
@@ -186,30 +176,21 @@ name.
 
 * Create a new file `autocomplete.jsx` and define your
   `Autocomplete` class there. Incorporate it into `Root#render`.
-
 * Because your `Autocomplete` widget should be reusable, it mustn't
   define its own list of names. Instead create a list of names in
   `widgets.jsx` and pass them into `Autocomplete` as a prop.
-
 * Set your initial state for inputVal as an empty string.
-
 * Build your widget in the `render` method.
-
-  - It should contain an input field and an unordered list.
-
-  - Create an `<li>` inside the `<ul>` for every name that begins with
+  * It should contain an input field and an unordered list.
+  * Create an `<li>` inside the `<ul>` for every name that begins with
     the value in the input box.
-
-  - You'll need to pass a [unique `key` property][react-keys] to each
+  * You'll need to pass a [unique `key` property][react*keys] to each
     `<li>` or React will grumble to all your console-reading users about
     its unfair working conditions. "How is one supposed to efficiently
     diff the DOM when one doesn't even know which list items match up
     with which!?"
-
-
 * When a user types something into the input, use an event handler to
   update the widget's state. Remember, no jQuery!
-
 * Add a click handler to the `<li>`s you've created for each name using
   onClick. In the click handler, use `setState` to update the widget's
   search string. You will need to turn your `<input>` into a [controlled
@@ -219,10 +200,8 @@ name.
 
 * Give your component a border and make sure all the `<li>`s are nicely
   padded inside the box.
-
 * Change the `cursor` property to display a pointer when hovering over one of
   the `<li>`s.
-
 * Center all your widgets using flexboxes. Which `justify-content` property
   would you use for this?
 
@@ -245,19 +224,13 @@ content pane should update when the user selects different tabs.
 
 * Make a `Tabs` component. `Root` should pass the `Tabs` component an array of
 Javascript objects that each have `title` and `content` as keys.
-
 * Keep track of the selected tab's index in your `Tabs` component's state. Set
 it initially to zero.
-
 * In the render method of `Tabs`, render a collection of `<h1>`s (with titles)
 in a `<ul>` and the content of the selected tab in an `<article>`.
-
-  + Consider creating a `Header` subcomponent for the tabs.
-
-
+  * Consider creating a `Header` subcomponent for the tabs.
 * Add a click handler to each header that updates the selected index in the
 `Tabs` component.
-
 * Remember that JSX interpolation is just syntactic sugar for passing an
 argument to a function, which means that it only supports _expressions_, so
 you can't use `if`/`else` inside `{ }`. (This is also why you can't end with a
@@ -267,15 +240,11 @@ semicolon.)
 
 * Add a border around each tab header and the whole section. Use `border-radius`
 to add nicely curved corners to the top of your tabs.
-
 * Use a flexbox to ensure that the tabs all take up the same amount of space.
 Add `display: flex` to your CSS for your tab headers.
-
 * Center the tab content, both horizontally and vertically.
-
 * Add a hover effect to change the background color of the tab that's being
 moused over.
-
 * Change the `cursor` to be a `pointer` when you're mousing over the tabs to
 make it clear that the tabs are interactive.
 
@@ -295,31 +264,27 @@ with React? With the [ReactCSSTransitionGroup][react-transitions]!
 
 * First we need to import the `ReactCSSTransitionGroup` module into our project.
 In the console, run `npm install --save react-addons-css-transition-group`.
-
 * Then you need to require the module in the file. At the top of
 `autocomplete.jsx`, write `const ReactCSSTransitionGroup = require('react-addons-css-transition-group');`.
-
 * In your `render` method, you will need to wrap the group of elements that will
 be entering and leaving the screen with the `<ReactCSSTransitionGroup>` element.
 In the case of the autocomplete widget, those are the `<li>`. **You are not
 wrapping each individual `li`, but rather the entire group.**
-
 * `<ReactCSSTransitionGroup>` has three necessary attributes. Read what they are
 below and make sure to include them:
-  - `transitionName` - This is the name that's used to create all of the
+  * `transitionName`: This is the name that's used to create all of the
     transition classes. I set this equal to `"auto"`, but you can pick any name
     you like.
-  - `transitionEnterTimeout` - Specifies how long (in ms) the transition should
+  * `transitionEnterTimeout`: Specifies how long (in ms) the transition should
     last when the element enters the page. This needs to be a number, so you'll
     have to interpolate the javascript number, otherwise it'll be read as a
     string. (i.e `{500}` instead of `500`).
-  - `transitionLeaveTimeout` - Same as above, except for when an element is
+  * `transitionLeaveTimeout`: Same as above, except for when an element is
     leaving the page.
-
 * Finally the css. Create a new css file and paste in the code below.
-  - Be sure to make a `link` tag in your `index.html` page so the transitions
+  * Be sure to make a `link` tag in your `index.html` page so the transitions
     are applied.
-  - The css below assumes you've given the `transitionName` attribute to `auto`.
+  * The css below assumes you've given the `transitionName` attribute to `auto`.
     If you gave it a different name, just replace every `auto` with the name
     you gave.
 
@@ -352,26 +317,24 @@ below and make sure to include them:
 * Go play with the widget. You'll notice that when names appear, they fade in
   from the bottom. When they leave, they fade out and fall to the bottom. Let's
   break down the css file:
-  - `.[transitionName]-enter` - Specifies the initial state of an element that
+  * `.[transitionName]-enter`: Specifies the initial state of an element that
     is entering the page. Since I want the names to start invisible and at the
     bottom, I've given it the `opacity` and `transform` properties the
     appropriate values.
-  - `.[transitionName]-enter.[transitionName]-enter-active` - Specifies the
+  * `.[transitionName]-enter.[transitionName]-enter-active`: Specifies the
     final state of an element that has entered the screen. Looking at the css,
     we can see that I expect the element to be completely opaque and in it's
     original y-position when it is done entering. This is where you also specify
     the `transition` property.
-  - `.[transitionName]-leave` - Specifies the initial state of an element that
+  * `.[transitionName]-leave`: Specifies the initial state of an element that
     is leaving the page. In almost all cases, the values of this class with
     match the values in the `[transitionName]-enter.[transitionName]-enter-active`
     class.
-  - `.[transitionName]-leave.[transitionName]-leave-active` - Specifies the
+  * `.[transitionName]-leave.[transitionName]-leave-active`: Specifies the
     final state of an element that has left the screen. This is where you also
     specify the `transition` property.
-
 * Now play around with the css file. What kind of interesting transitions can
   you create?
-
 
 [react-transitions]: https://facebook.github.io/react/docs/animation.html
 [react-keys]: https://facebook.github.io/react/docs/reconciliation.html#list-wise-diff

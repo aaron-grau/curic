@@ -1,6 +1,6 @@
 # JavaScript
 
-:link: *[w5d3](#w5d3) :: [w5d4](#w5d4) :: [w5d5](#w5d5) :: [w6d1](#w6d1) :: [w6d2](#w6d2) :: [w6d3](#w6d3) :: [w6d4](#w6d4)* :link:
+:link: *[w5d4](#w5d4) :: [w5d5](#w5d5) :: [w6d1](#w6d1) :: [w6d2](#w6d2) :: [w6d3](#w6d3) :: [w6d4](#w6d4)* :link:
 
 ## w5d4
 

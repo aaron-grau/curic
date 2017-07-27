@@ -18,7 +18,7 @@ class LRUCache
   end
 
   def to_s
-    "Map: " + @map.to_s + "\n" + "Store: " + @store.to_s
+    'Map: ' + @map.to_s + '\n' + 'Store: ' + @store.to_s
   end
 
   private
@@ -27,8 +27,8 @@ class LRUCache
     # suggested helper method; insert an (un-cached) key
   end
 
-  def update_link!(link)
-    # suggested helper method; move a link to the end of the list
+  def update_node!(node)
+    # suggested helper method; move a node to the end of the list
   end
 
   def eject!

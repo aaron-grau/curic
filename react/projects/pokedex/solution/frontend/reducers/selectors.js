@@ -1,8 +1,11 @@
 import values from 'lodash/values';
 
-export const selectPokemonItem = ({ pokemonDetail }, itemId) => {
-  const foundItem = pokemonDetail.items.find(item => item.id === itemId);
-  return foundItem || {};
+export const selectAllPokemon = state => values(state.entities.pokemon);
+
+export const selectPokeItems = (state, poke) => {
+  return poke ? poke.item_ids.map(id => state.entities.items[id]) : [];
 }
 
-export const selectAllPokemon = ({ pokemon }) => values(pokemon.entities);
+export const selectPokemonItem = (state, id) => {
+  return state.entities.items[id];
+}
