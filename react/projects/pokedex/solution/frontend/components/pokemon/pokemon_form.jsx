@@ -32,7 +32,7 @@ class PokemonForm extends React.Component {
       moves: Object.assign(
         {},
         this.state.moves,
-        {[e.target.id]: e.target.value}
+        { [e.target.id]: e.target.value }
       )
     });
   }

@@ -49,7 +49,7 @@ Instead of rendering the `PokemonIndexContainer` directly, setup a root
 ```js
 <Provider store={ store }>
   <HashRouter>
-    <Route path="/" component={ PokemonIndexContainer } />
+    <Route path="/" component={PokemonIndexContainer} />
   </HashRouter>
 </Provider>
 ```
@@ -118,19 +118,19 @@ Hint: Your state shape will look something like this:
     entities: {
       1: {
         id: 1,
-        name: "Pikachu",
+        name: 'Pikachu',
       },
       2: {
         id: 2,
-        name: "Rhydon",
+        name: 'Rhydon',
         attack: 130,
         defense: 120,
-        image_url: "/assets/pokemon_snaps/112.svg",
+        image_url: '/assets/pokemon_snaps/112.svg',
         moves: [
-          "horn attack",
+          'horn attack',
           //...
         ],
-        poke_type: "ground",
+        poke_type: 'ground',
       }
     },
     // Rhydon is the pokemon we want to show in PokemonDetail component
@@ -142,11 +142,11 @@ Hint: Your state shape will look something like this:
   items: [
     {
       id: 15,
-      name: "Dark Vulcan",
+      name: 'Dark Vulcan',
       pokemon_id: 2,
       price: 12,
       happiness: 58,
-      image_url: "/assets/pokeball.png"
+      image_url: '/assets/pokeball.png'
     },
     //...
   ]
@@ -267,7 +267,7 @@ class ControlledComponent extends React.Component {
   //...
 
   update(property) {
-    return e => this.setState({[property]: e.target.value});
+    return e => this.setState({ [property]: e.target.value });
   }
 
   //...
@@ -314,13 +314,10 @@ In order to get the router to send us to a new location from within the componen
 Much like our container components, it serves to pass down information (namely the `history`) through props.
 
 * Import `withRouter` to your `PokemonForm` like so:
-
   ```js
   import { withRouter } from 'react-router-dom';
   ```
-
 * Call this function on `PokemonForm` before exporting it like so:
-
   ```js
   export default withRouter(PokemonForm);
   ```
@@ -330,7 +327,6 @@ Your `PokemonForm` will now have access to your app's router via `props.history`
 On successful submission of your form, redirect the user to the pokemon show page.
 
 ```js
-
 class PokemonForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
@@ -356,7 +352,7 @@ But so far, we have no way of letting our users know what happened. We need a wa
     //...
   },
 
-  errors: [ "message 1", "message 2" ]
+  errors: [ 'message 1', 'message 2' ]
 }
 ```
 
@@ -378,7 +374,6 @@ You'll need to use HTML and CSS to style your project to look good and like the 
 Let's practice that now!
 
 Style your app to look like the [live demo][live-demo]. Our HTML/CSS [curriculum][html-css-curriculum], the [Complete Guide to Flexbox][flexbox-guide], and the internet are good resources if you get stuck! :art:
-
 
 [html-css-curriculum]: ../../../html-css#htmlcss-curriculum
 [flexbox-guide]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
@@ -418,7 +413,7 @@ This is not very dry. Let's employ a tactic called "bootstrapping" to tell our f
 * Update you `PokemonForm` to use `window.POKEMON_TYPES` instead
 
 ```js
-window.POKEMON_TYPES = <%=raw Pokemon::TYPES %>
+window.POKEMON_TYPES = <%= raw Pokemon::TYPES %>
 ```
 
 ## Bonus: Update Pokemon

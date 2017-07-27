@@ -34,7 +34,7 @@ namespace :api, defaults: {format: :json} do
 end
 ```
 
-The `defaults: {format: :json}` option tells the controller to first look for a `.json.jbuilder` view rather than an `html.erb` view.
+The `defaults: { format: :json }` option tells the controller to first look for a `.json.jbuilder` view rather than an `html.erb` view.
 
 Edit your `routes.rb`. Your routes table should look like the following:
 
@@ -115,24 +115,24 @@ A GET request to `localhost:3000/api/pokemon/5` should render this:
 {
   poke: {
     id: 5,
-    name: "Rhydon",
+    name: 'Rhydon',
     attack: 130,
     defense: 120,
-    image_url: "/assets/pokemon_snaps/112.png",
+    image_url: '/assets/pokemon_snaps/112.png',
     moves: [
-      "horn attack",
+      'horn attack',
       //...
     ],
-    poke_type: "ground",
+    poke_type: 'ground',
   }
   items: [
     {
       id: 15,
-      name: "Dark Vulcan",
+      name: 'Dark Vulcan',
       pokemon_id: 5,
       price: 12,
       happiness: 58,
-      image_url: "/assets/pokeball.png"
+      image_url: '/assets/pokeball.png'
     },
     //...
   ]
@@ -205,6 +205,7 @@ Next we need to configure Webpack to compile our `bundle.js` file.
 > You should see a few `require` statements.
 >
 ```js
+//= require rails-ujs
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
@@ -307,7 +308,7 @@ Your code should look like the following:
 ```js
 // frontend/actions/pokemon_actions.js
 
-export const RECEIVE_ALL_POKEMON = "RECEIVE_ALL_POKEMON";
+export const RECEIVE_ALL_POKEMON = 'RECEIVE_ALL_POKEMON';
 
 export const receiveAllPokemon = pokemon => ({
   type: RECEIVE_ALL_POKEMON,
@@ -441,10 +442,10 @@ It should not receive any arguments and should call the `APIUtil`, and then on r
 This one's free!
 
 ```js
-export const requestAllPokemon = () => (dispatch) => {
-  return APIUtil.fetchAllPokemon()
-    .then(pokemon => dispatch(receiveAllPokemon(pokemon)));
-}
+export const requestAllPokemon = () => (dispatch) => (
+  APIUtil.fetchAllPokemon()
+    .then(pokemon => dispatch(receiveAllPokemon(pokemon)))
+)
 ```
 
 **Test your redux cycle**. In the browser console try:
