@@ -31,8 +31,6 @@ class User < ApplicationRecord
     return nil if user.nil?
 
     # check user's password
-    # NOTE: OLD
-    # user.password_digest.is_password?(password) ? user : nil
     user.is_password?(password) ? user : nil
   end
 
@@ -44,11 +42,6 @@ class User < ApplicationRecord
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
-
-  # NOTE: THIS OLD CODE FAILS VALIDATIONS
-  # def password_digest
-  #   BCrypt::Password.new(super)
-  # end
 
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
@@ -66,7 +59,7 @@ class User < ApplicationRecord
       .where("tweets.user_id = :id OR follows.follower_id = :id", id: self.id)
       .order("tweets.created_at DESC")
       .distinct
-      
+
     # TODO: How can we use limit/max_created_at here??
 
     @tweets
