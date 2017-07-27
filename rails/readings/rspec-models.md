@@ -148,21 +148,23 @@ do this:
    the properties speeds up your tests because they don't actually query
    the database. In addition, you're testing code that *you* wrote
    instead of testing ActiveRecord.
-
 2. Actually query the database.
-
 ```ruby
 describe '::playoff_teams' do
-  let!(:cavs) { BasketballTeam.create!(
-    name: 'Cavaliers',
-    city: 'Cleveland',
-    playoffs: true)
+  let!(:cavs) {
+    BasketballTeam.create!(
+      name: 'Cavaliers',
+      city: 'Cleveland',
+      playoffs: true
+    )
   }
-  
-  let!(:suns) { BasketballTeam.create!(
-    name: 'Suns',
-    city: 'Phoenix',
-    playoffs: false)
+
+  let!(:suns) {
+    BasketballTeam.create!(
+      name: 'Suns',
+      city: 'Phoenix',
+      playoffs: false
+    )
   }
 
   # 1. Inspect query properties.  Does NOT query the database.

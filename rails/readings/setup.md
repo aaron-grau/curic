@@ -27,7 +27,7 @@ database, first run `rails db:migrate` to bring the development db
 up-to-date. Then run `rails db:test:prepare` to read the `db/schema.rb`
 and construct the test db.
 
-If you're using `sqlite3`, You should know that if your test db ever talks back, you can delete
+If you're using `sqlite3`, you should know that if your test db ever talks back, you can delete
 it with `rm db/test.sqlite3`.
 
 ## Setting up Guard
