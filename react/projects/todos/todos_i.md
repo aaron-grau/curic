@@ -54,7 +54,7 @@ todo would be O(n). Using a hash to store our todos yields O(1) for the same
 operations given the id of any todo.
 
 So the `todos` slice of our application might look something like this:
-```js
+```javascript
 {
   1: {
     id: 1,
@@ -96,7 +96,7 @@ action types are being set or read (i.e. in our action creators and in the
 `switch` statements in our reducers and middleware).
 
 Create and export `RECEIVE_TODOS` and `RECEIVE_TODO` action types like this
-```js
+```javascript
 export const RECEIVE_TODOS = 'RECEIVE_TODOS';
 export const RECEIVE_TODO = 'RECEIVE_TODO';
 ```
@@ -430,7 +430,7 @@ need to give our todos unique ids. Usually, our database would take care of this
 As an easy way to get unique sequential numbers, use the current unix timestamp.
 Make a util file to export the following function (or something similar).
 
-```
+```javascript
 function uniqueId() {
   return new Date().getTime();
 }
@@ -627,7 +627,6 @@ That's it! Try making some todos or steps and then refreshing the page. Do the c
   * Sort by priority
   * Add a time when a 'todo' is due
     * Sort by due date
-
 
 [store_reading]: ../../readings/store.md
 [components_reading]: ../../readings/containers.md
