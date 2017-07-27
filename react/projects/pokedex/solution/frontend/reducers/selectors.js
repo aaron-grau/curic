@@ -1,4 +1,4 @@
-import { values } from 'lodash';
+import values from 'lodash/values';
 
 export const selectPokemonItem = ({ pokemonDetail }, itemId) => {
   const foundItem = pokemonDetail.items.find(item => item.id === itemId);

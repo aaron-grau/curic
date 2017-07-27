@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+
 import Item from '../items/item';
 import LoadingIcon from './loading_icon';
 import ItemDetailContainer from '../items/item_detail_container';
 
 class PokemonDetail extends Component {
-
   componentDidMount() {
     this.props.requestSinglePokemon(this.props.match.params.pokemonId);
   }

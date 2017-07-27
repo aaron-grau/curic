@@ -1,19 +1,20 @@
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 
 import {
   RECEIVE_ALL_POKEMON,
   RECEIVE_SINGLE_POKEMON
 } from '../actions/pokemon_actions';
 
-const defaultState = () => ({
+const defaultState = {
   entities: {},
   currentPoke: null,
-})
+};
 
-const PokemonReducer = (state = defaultState(), action) => {
+const PokemonReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
+    console.log(action.pokemon);
       return merge({}, state, { entities: action.pokemon });
     case RECEIVE_SINGLE_POKEMON:
       const poke = action.payload.pokemon;

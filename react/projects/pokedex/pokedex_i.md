@@ -142,7 +142,6 @@ A GET request to `localhost:3000/api/pokemon/5` should render this:
 **Test your routes, controller actions and Jbuilder view**: Make GET requests to (i.e. visit) `localhost:3000/api/pokemon` and `localhost:3000/api/pokemon/:id`.
 Show a TA before moving on.
 
-
 ## Phase 1: Frontend Setup
 
 ### Node Package Manager
@@ -199,7 +198,6 @@ Next we need to configure Webpack to compile our `bundle.js` file.
     devtool: 'source-maps'
   };
   ```
-
 
 > #### :bulb: Aside: How does Rails get `bundle.js`?
 >
@@ -493,8 +491,7 @@ Make sure you can explain how the different pieces of Redux fit together (i.e. s
 ### The `Root` Component
 
 * Create a `Root` component that will be responsible for rendering all of the app's React components.
-    * `Root` should be a *stateless* component (i.e. a *functional
-component*).
+    * `Root` should be a *stateless* component (i.e. a *functional component*).
     * It will be passed the app's  Redux`store` as a prop.
     * It should wrap our all of our app's components with the `Provider` from `react-redux`.
 
@@ -540,7 +537,7 @@ Our **presentational components** are concerned with rendering JSX and defining 
 #### `PokemonIndexContainer`
 
 * Create a `frontend/components/pokemon` folder.
-This will house all of the React components concerning the `pokemon` slice of state.
+  * This will house all of the React components concerning the `pokemon` slice of state.
 * With this folder, create a `pokemon_index_container.js` file.
 * As with all container components, import the `connect` function from the `react-redux` package.
 
@@ -549,21 +546,17 @@ Both functions are invoked when our redux store updates.
 They are responsible for determining and constructing the props that are passed to presentational component.
 
 * Define `mapStateToProps`.
-
   ```js
   const mapStateToProps = state => ({
     // piece of state that container subscribes to
   });
   ```
-
 * Define `mapDispatchToProps`.
-
   ```js
   const mapDispatchToProps = dispatch => ({
     requestAllPokemon: // dispatch requestAllPokemon action.
   });
   ```
-
 * Import your `selectAllPokemon` selector.
 * Use it to pass a `pokemon` prop to the connected presentational component `PokemonIndex`. `this.props.pokemon` in `PokemonIndex` will return an array of all the pokemon objects in the app state.
 * In the next phase we'll actually define our `PokemonIndex` component in `frontend/components/pokemon/pokemon_index.jsx`. Assume it already exists, and import it.

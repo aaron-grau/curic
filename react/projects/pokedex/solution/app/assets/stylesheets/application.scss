@@ -31,10 +31,11 @@ header {
   display: flex;
   justify-content: center;
   background-color: $red;
+  padding: 10px;
 
   img {
     width: 43px;
-    height: auto;
+    height: 43px;
   }
 }
 
