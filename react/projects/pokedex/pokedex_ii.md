@@ -11,7 +11,7 @@ In order to maintain a common user interface used around the web, we will have t
 This is exactly what the powerful `react-router-dom` package is for.
 To use it, navigate to your `pokedex.jsx` file and import the following:
 
-```js
+```javascript
 import { HashRouter, Route } from 'react-router-dom';
 ```
 Refer to the [react-router-dom documentation][routes-docs] as a reference.
@@ -29,7 +29,7 @@ Define your `Root` after you've defined `store` (within your `addEventListener` 
 
 Your `Root` should now look like this:
 
-```js
+```javascript
 import { HashRouter, Route } from 'react-router-dom';
 
 const Root = () => (
@@ -46,7 +46,7 @@ const Root = () => (
 Instead of rendering the `PokemonIndexContainer` directly, setup a root
 `Route` that will render the component when `path="/"`. Like so:
 
-```js
+```javascript
 <Provider store={ store }>
   <HashRouter>
     <Route path="/" component={PokemonIndexContainer} />
@@ -68,7 +68,7 @@ This information should be served as props. Refactor `PokemonIndex` to utilize t
 Your `PokemonIndex` should map each pokemon objects in `this.props.pokemon` to a `PokemonIndexItem`.
 It should look something like this:
 
-```js
+```javascript
 const pokemonItems = pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />);
 
 // And inside the render:
@@ -87,7 +87,7 @@ To see this in action check out the [live demo][live-demo].
 
 * Import `Link` to your `PokemonIndexItem` like so:
 
-  ```js
+  ```javascript
   import { Link } from 'react-router-dom';
   ```
 
@@ -112,73 +112,55 @@ Talk over the following questions with your partner:
 
 Hint: Your state shape will look something like this:
 
-```js
+```javascript
 // Sample State Shape
 {
   entities: {
     pokemon: {
       1: {
-<<<<<<< HEAD
-        id: 1,
-        name: 'Pikachu',
-      },
-      2: {
-        id: 2,
-        name: 'Rhydon',
-        attack: 130,
-        defense: 120,
-        image_url: '/assets/pokemon_snaps/112.svg',
-        moves: [
-          'horn attack',
-          //...
-        ],
-        poke_type: 'ground',
-      }
-=======
         name: Bulbasaur,
-        image_url: "/assets/pokemon_snaps/110.png",
+        image_url: '/assets/110.png',
       },
       2: {
-        name: "Ivysaur",
-        image_url: "/assets/pokemon_snaps/112.png",
+        name: 'Ivysaur',
+        image_url: '/assets/pokemon_snaps/112.png',
         attack: 62,
         defense: 63,
-        poke_type: "grass",
+        poke_type: 'grass',
         moves: [
-           "tackle",
-           "vine whip",
-           "razor leaf"
+           'tackle',
+           'vine whip',
+           'razor leaf'
         ],
         item_ids: [3, 4, 5],
       },
       3: {
-        name: "Venusaur",
-        image_url: "/assets/pokemon_snaps/130.png",
+        name: 'Venusaur',
+        image_url: '/assets/130.png',
       },
       //... more pokemon
->>>>>>> 4e6c93ffefa302e2db97727a11e6e8d542544818
     },
     items: {
       3: {
         pokemon_id: 2,
-        name: "Berry",
+        name: 'Berry',
         price: 5,
         happiness: 99,
-        image_url: "/assets/pokemon_berry.svg",
+        image_url: '/assets/pokemon_berry.svg',
       },
       4: {
         pokemon_id: 2,
-        name: "Egg",
+        name: 'Egg',
         price: 5,
         happiness: 99,
-        image_url: "/assets/pokemon_egg.svg",
+        image_url: '/assets/pokemon_egg.svg',
       },
       5: {
         pokemon_id: 2,
-        name: "Potion",
+        name: 'Potion',
         price: 5,
         happiness: 99,
-        image_url: "/assets/pokemon_potion.svg",
+        image_url: '/assets/pokemon_potion.svg',
       },
       // ... more items
     }
@@ -188,21 +170,6 @@ Hint: Your state shape will look something like this:
     errors: {},
     loading: {},
   }
-<<<<<<< HEAD
-  // this slice will contain an array of the items of the currentPoke
-  items: [
-    {
-      id: 15,
-      name: 'Dark Vulcan',
-      pokemon_id: 2,
-      price: 12,
-      happiness: 58,
-      image_url: '/assets/pokeball.png'
-    },
-    //...
-  ]
-=======
->>>>>>> 4e6c93ffefa302e2db97727a11e6e8d542544818
 }
 ```
 
@@ -256,7 +223,7 @@ Hint: nest your new `Route` under the render function of `PokemonDetail`.
 
 Your app's `HashRouter` should contain the following routes:
 
-```jsx
+```javascriptx
 // pokedex.jsx
 <HashRouter>
   <Route path="/" component={PokemonIndexContainer} />
@@ -316,7 +283,7 @@ class ControlledComponent extends React.Component {
 For the input elements, use an `onChange` listener and write a single `update` function to call the `setState` method.
 
 An basic example of an `update` method is below:
-```js
+```javascript
 class ControlledComponent extends React.Component {
   //...
 
@@ -354,7 +321,7 @@ This can be handy for gradually building up a value, in our case we want to do t
 
 Your `createPokemon` should look like this:
 
-```js
+```javascript
 export const createPokemon = pokemon => dispatch => (
 	APIUtil.postPokemon(pokemon).then(pokemon => {
 		dispatch(receiveNewPokemon(pokemon));
@@ -368,11 +335,11 @@ In order to get the router to send us to a new location from within the componen
 Much like our container components, it serves to pass down information (namely the `history`) through props.
 
 * Import `withRouter` to your `PokemonForm` like so:
-  ```js
+  ```javascript
   import { withRouter } from 'react-router-dom';
   ```
 * Call this function on `PokemonForm` before exporting it like so:
-  ```js
+  ```javascript
   export default withRouter(PokemonForm);
   ```
 
@@ -380,7 +347,7 @@ Your `PokemonForm` will now have access to your app's router via `props.history`
 
 On successful submission of your form, redirect the user to the pokemon show page.
 
-```js
+```javascript
 class PokemonForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
@@ -396,7 +363,7 @@ class PokemonForm extends Component {
 The server will tell us whether or not our new Pokemon was created successfully.
 But so far, we have no way of letting our users know what happened. We need a way of displaying errors on the front-end after an unsuccessful POST request by adding an `errors` slice to our state.
 
-```js
+```javascript
 // Sample State Shape
 {
   pokemon: {
@@ -466,7 +433,7 @@ This is not very dry. Let's employ a tactic called "bootstrapping" to tell our f
   * Use the `#raw` method to tell Rails not to escape the symbols in our array
 * Update you `PokemonForm` to use `window.POKEMON_TYPES` instead
 
-```js
+```javascript
 window.POKEMON_TYPES = <%= raw Pokemon::TYPES %>
 ```
 

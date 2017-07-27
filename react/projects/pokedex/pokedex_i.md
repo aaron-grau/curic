@@ -34,11 +34,7 @@ namespace :api, defaults: {format: :json} do
 end
 ```
 
-<<<<<<< HEAD
 The `defaults: { format: :json }` option tells the controller to first look for a `.json.jbuilder` view rather than an `html.erb` view.
-=======
-The `defaults: {format: :json}` option tells the controller to first look for view with a  `.json.jbuilder` extension rather than the default `.html.erb`.
->>>>>>> 4e6c93ffefa302e2db97727a11e6e8d542544818
 
 Edit your `routes.rb`. Your routes table should look like the following:
 
@@ -63,7 +59,7 @@ Build a controller to handle our pokemon `resources`.
 Remember, we want these actions to **render json responses**.
 To make the job easier for our frontend, you should format your index action to serve up json responses that look something like this:
 
-```js
+```javascript
 {
   1: {
     id: 1,
@@ -115,18 +111,14 @@ The reasoning behind this will become more clear, when we normalize our state on
 
 A GET request to `localhost:3000/api/pokemon/5` should render this:
 
-```js
+```javascript
 {
   pokemon: {
     id: 5,
     name: 'Rhydon',
     attack: 130,
     defense: 120,
-<<<<<<< HEAD
-    image_url: '/assets/pokemon_snaps/112.png',
-=======
-    image_url: "assets/pokemon_snaps/5.svg",
->>>>>>> 4e6c93ffefa302e2db97727a11e6e8d542544818
+    image_url: "assets/5.svg",
     moves: [
       'horn attack',
       //...
@@ -140,11 +132,7 @@ A GET request to `localhost:3000/api/pokemon/5` should render this:
       pokemon_id: 5,
       price: 12,
       happiness: 58,
-<<<<<<< HEAD
-      image_url: '/assets/pokeball.png'
-=======
       image_url: "/assets/pokeball.svg"
->>>>>>> 4e6c93ffefa302e2db97727a11e6e8d542544818
     },
     //...
   ]
@@ -182,7 +170,7 @@ Next we need to configure Webpack to compile our `bundle.js` file.
 * Create a new file called `webpack.config.js` in the root of your project.
 * Copy and paste the following configuration:
 
-  ```js
+  ```javascript
   const path = require('path');
 
   module.exports = {
@@ -216,7 +204,7 @@ Next we need to configure Webpack to compile our `bundle.js` file.
 > Take a look in `app/assets/application.js`.
 > You should see a few `require` statements.
 >
-```js
+```javascript
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
@@ -240,7 +228,7 @@ Notice that the `entry` key in `webpack.config.js` expects a file called `./fron
 
 Your entry file might look like the following:
 
-```js
+```javascript
 // frontend/pokedex.jsx
 
 import React from 'react';
@@ -274,7 +262,7 @@ This will hold _all_ the pokemon, for both our index item and detail views.
 
 Sample state shape:
 
-```js
+```javascript
 {
   entities: {
     pokemon: {
@@ -321,7 +309,7 @@ action object.
 
 Your code should look like the following:
 
-```js
+```javascript
 // frontend/actions/pokemon_actions.js
 
 export const RECEIVE_ALL_POKEMON = 'RECEIVE_ALL_POKEMON';
@@ -337,7 +325,7 @@ export const receiveAllPokemon = pokemon => ({
 * Assign them to the `window` to test that in the browser's console.
 * You should be able to run:
 
-  ```js
+  ```javascript
   const getSuccess = pokemon => console.log(receiveAllPokemon(pokemon));
   fetchAllPokemon().then(getSuccess);
   ```
@@ -352,7 +340,7 @@ If the reducer doesn't care about the action being dispatched, it should return 
 * Create a `frontend/reducers/pokemon_reducer.js` file.
 * Import our `RECEIVE_ALL_POKEMON` constant.
 
-  ```js
+  ```javascript
   import { RECEIVE_ALL_POKEMON } from '../actions/pokemon_actions';
   ```
 
@@ -368,7 +356,7 @@ To do this we can create nested reducers, such that eventually our redux state m
 
 Note how we are using `entities.pokemon` to manage _all_ the pokemon. At this point we have loaded the index and the detail of Ivysaur, which is why we see Ivysaur's attack, defense, item_ids, etc., see Ivysaur's `id` in `ui.pokedisplay`, and have also loaded Ivysaur's items in the `items` slice.
 
-```js
+```javascript
 {
   entities: {
     pokemon: {
@@ -435,7 +423,7 @@ Create a new reducer, `entitiesReducer`, that will be in charge of combining eac
 * Call `combineReducers` so that our `pokemonReducer` is responsible for
 the `pokemon` slice. Like so:
 
-```js
+```javascript
 const entitiesReducer = combineReducers({
   pokemon: pokemonReducer,
 })
@@ -452,7 +440,7 @@ This will make it easier to grow our application state.
 * Call `combineReducers` so that our `entitiesReducer` is responsible for
 the `entities` slice of the app state. Like so:
 
-```js
+```javascript
 const rootReducer = combineReducers({
   entities: entitiesReducer
 });
@@ -479,7 +467,7 @@ We will come back to the other arguments later.
 * Wrap the creation of the store in a `configureStore` function. Like
 so:
 
-  ```js
+  ```javascript
   // frontend/store/store.js
 
   const configureStore = () => createStore(rootReducer, applyMiddleware(logger));
@@ -499,7 +487,7 @@ function.
 **Test your store and reducer.** You should be able to run the following
 code snippet in the browser's console:
 
-```js
+```javascript
 getState(); // should return initial app state
 
 const getSuccess = pokemon => dispatch(receiveAllPokemon(pokemon));
@@ -518,7 +506,7 @@ they are not. Reference yesterdays solutions if you need more guidance.
 * Refactor your `configureStore` function to incorporate your `thunk
 middleware`.
 
-  ```js
+  ```javascript
   // frontend/store/store.js
   import thunk from '../middleware/thunk';
 
@@ -537,7 +525,7 @@ It should not receive any arguments and should call the `APIUtil`, and then on r
 
 This one's free!
 
-```js
+```javascript
 export const requestAllPokemon = () => (dispatch) => (
   APIUtil.fetchAllPokemon()
     .then(pokemon => dispatch(receiveAllPokemon(pokemon)))
@@ -546,7 +534,7 @@ export const requestAllPokemon = () => (dispatch) => (
 
 **Test your redux cycle**. In the browser console try:
 
-```js
+```javascript
 getState(); // should return initial app state
 dispatch(requestAllPokemon());
 getState(); // should return the app state populated with pokemon
@@ -566,7 +554,7 @@ You can use [lodash's values][lodash-values] method.
 
 **Test your selector in the browser**. You should should be able to do the following:
 
-```js
+```javascript
 const initialState = getState();
 selectAllPokemon(initialState); //=> []
 
@@ -593,7 +581,7 @@ Make sure you can explain how the different pieces of Redux fit together (i.e. s
 
 Your `Root` component should look like this:
 
-```js
+```javascript
 import React from 'react';
 import { Provider } from 'react-redux';
 
@@ -614,7 +602,7 @@ export default Root;
 
 Like so:
 
-```js
+```javascript
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
   const root = document.getElementById('root');
@@ -642,13 +630,13 @@ Both functions are invoked when our redux store updates.
 They are responsible for determining and constructing the props that are passed to presentational component.
 
 * Define `mapStateToProps`.
-  ```js
+  ```javascript
   const mapStateToProps = state => ({
     // piece of state that container subscribes to
   });
   ```
 * Define `mapDispatchToProps`.
-  ```js
+  ```javascript
   const mapDispatchToProps = dispatch => ({
     requestAllPokemon: // dispatch requestAllPokemon action.
   });
@@ -658,7 +646,7 @@ They are responsible for determining and constructing the props that are passed 
 * In the next phase we'll actually define our `PokemonIndex` component in `frontend/components/pokemon/pokemon_index.jsx`. Assume it already exists, and import it.
 * `connect` `PokemonIndex` and export the returned component. Like so:
 
-  ```js
+  ```javascript
   export default connect(
     mapStateToProps,
     mapDispatchToProps
