@@ -24,41 +24,39 @@ any questions at this point. Then go ahead and create your migration.
 Don't forget to add appropriate indices and constraints!
 
 * `User`
-    * Record a `username`; make sure it is unique.
+  * Record a `username`; make sure it is unique.
 * `Poll`
-    * A `Poll` belongs to an author (`User`)
-    * Record a `title`.
+  * A `Poll` belongs to an author (`User`)
+  * Record a `title`.
 * `Question`
-    * A `Poll` has many `Question`s. Record the `text`.
+  * A `Poll` has many `Question`s. Record the `text`.
 * `AnswerChoice`
-    * A `Question` has many `AnswerChoice`s. These are the options that
-      a `User` can choose from when responding to the question. Record the
-      `text`.
+  * A `Question` has many `AnswerChoice`s. These are the options that a `User` can choose from when responding to the question. Record the `text`.
 * `Response`
-    * A `User` answers to a `Question`s by choosing an `AnswerChoice`.
-    * What pair of foreign keys will you need?
+  * A `User` answers to a `Question`s by choosing an `AnswerChoice`.
+  * What pair of foreign keys will you need?
 
 ## Associations
 
 Now go ahead and create your models. Write the following associations:
 
 * `User`
-    * `authored_polls`
-    * `responses`
+  * `authored_polls`
+  * `responses`
 * `Poll`
-    * `author`
-    * `questions`
+  * `author`
+  * `questions`
 * `Question`
-    * `answer_choices`
-    * `poll`
+  * `answer_choices`
+  * `poll`
 * `AnswerChoice`
-    * `question`
-    * `responses`
+  * `question`
+  * `responses`
 * `Response`
-    * `answer_choice`
-    * `respondent`
+  * `answer_choice`
+  * `respondent`
 
-## Seed the Database
+## Seed The Database
 
 At this point, it might be nice to have some data to play around with so
 you can test easily. Go ahead and open up `db/seeds.rb` and use normal
@@ -76,7 +74,7 @@ Add `presence` and `uniqueness` validations wherever required.
 **N.B.** Remember, Rails 5 automatically validates the presence of
 belongs_to associations.
 
-### User can't create multiple responses to the same question
+### User Can't Create Multiple Responses To The Same Question
 
 We will write a custom validation method, `not_duplicate_response`, to
 check that the `respondent` has not previously answered this question.
@@ -100,7 +98,7 @@ instead of an Array (or empty array).
 This is a `has_many through:` association.
 You've got this :-)
 
-##### Singling yourself out
+##### Singling Yourself Out
 
 Having written these associations, we should be able to write
 `Response#sibling_responses` by (1) calling `#question` and then (2)
@@ -119,7 +117,7 @@ and calling `sibling_responses` and then saving it and calling
 
 This be not good. How can we fix this?
 
-Remember how associations are actually lazy-loading chainable query
+Remember how associations are actually lazy-loading chain-able query
 objects? Let's chain a `where` clause on here to filter out responses
 with the same id as `self.id`.
 
@@ -142,7 +140,7 @@ respondent has not already answered it.
 [exists?-docs]: http://apidock.com/rails/ActiveRecord/FinderMethods/exists%3F
 [custom-validation]: ../../readings/custom-validations.md
 
-### Author can't respond to own poll
+### Author Can't Respond To Own Poll
 
 Enforce that the creator of the poll must not answer their own
 questions: don't let the creator rig the results!
@@ -202,7 +200,7 @@ ActiveRecord. Hints:
 * You can do a `LEFT OUTER JOIN` if you use a SQL fragment in your
   `joins`.
 
-## Bonus: more methods
+## Bonus: More Methods
 
 Write a `User#completed_polls` method: it should return polls where
 the user has answered all of the questions in the poll.
@@ -238,7 +236,7 @@ You can write an uncompleted polls method too; it should return polls
 where the user has answered at least one question, but not all of
 them. I think this merely uses a different `HAVING` clause, don't you?
 
-## Bonus: Playing with custom validations
+## Bonus: Playing With Custom Validations
 
 Improve `Response#does_not_respond_to_own_poll` to do one query by
 doing a join across answer choice, question and poll to get the poll
@@ -256,7 +254,7 @@ join back to `answer_choices` again and onward to `responses`.
 BTW: this "improvement" is likely not worth the tears future readers
 of your code will shed, but it's a good brain-twister.
 
-## Technical details
+## Technical Details
 
 * Allow deletion of questions; clean up all related records with a
   [relational callback][relational-callback].

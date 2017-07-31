@@ -75,18 +75,18 @@ class Response < ApplicationRecord
     # 1-query; joins two extra tables.
     poll_author_id = Poll
       .joins(questions: :answer_choices)
-      .where("answer_choices.id = ?", self.answer_choice_id)
-      .pluck("polls.author_id")
+      .where('answer_choices.id = ?', self.answer_choice_id)
+      .pluck('polls.author_id')
       .first
 
     if poll_author_id == self.respondent_id
-      errors[:respondent_id] << "cannot be poll author"
+      errors[:respondent_id] << 'cannot be poll author'
     end
   end
 
   def not_duplicate_response
     if respondent_already_answered?
-      errors[:respondent_id] << "cannot vote twice for question"
+      errors[:respondent_id] << 'cannot vote twice for question'
     end
   end
 end

@@ -7,25 +7,33 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ActiveRecord::Base.transaction do
-  u1 = User.create!(username: "Markov")
-  u2 = User.create!(username: "Gizmo")
+  User.destroy_all
+  Poll.destroy_all
+  Question.destroy_all
+  AnswerChoice.destroy_all
+  Response.destroy_all
 
-  p1 = Poll.create!(title: "Cats Poll", author_id: u1.id)
+  u1 = User.create!(username: 'Markov')
+  u2 = User.create!(username: 'Gizmo')
 
-  q1 = Question.create!(text: "What Cat Is Cutest?", poll_id: p1.id)
-  ac1 = AnswerChoice.create!(text: "Markov", question_id: q1.id)
-  ac2 = AnswerChoice.create!(text: "Curie", question_id: q1.id)
-  ac3 = AnswerChoice.create!(text: "Sally", question_id: q1.id)
+  p1 = Poll.create!(title: 'Cats Poll', author: u1)
 
-  q2 = Question.create!(text: "Which Toy Is Most Fun?", poll_id: p1.id)
-  ac4 = AnswerChoice.create!(text: "String", question_id: q2.id)
-  ac5 = AnswerChoice.create!(text: "Ball", question_id: q2.id)
-  ac6 = AnswerChoice.create!(text: "Bird", question_id: q2.id)
+  q1 = Question.create!(text: 'What Cat Is Cutest?', poll: p1)
+  ac1 = AnswerChoice.create!(text: 'Markov', question: q1)
+  ac2 = AnswerChoice.create!(text: 'Curie', question: q1)
+  ac3 = AnswerChoice.create!(text: 'Sally', question: q1)
+
+  q2 = Question.create!(text: 'Which Toy Is Most Fun?', poll: p1)
+  ac4 = AnswerChoice.create!(text: 'String', question: q2)
+  ac5 = AnswerChoice.create!(text: 'Ball', question: q2)
+  ac6 = AnswerChoice.create!(text: 'Bird', question: q2)
 
   r1 = Response.create!(
-    respondent_id: u2.id, answer_choice_id: ac3.id
+    respondent: u2,
+    answer_choice: ac3
   )
   r2 = Response.create!(
-    respondent_id: u2.id, answer_choice_id: ac4.id
+    respondent: u2,
+    answer_choice: ac4
   )
 end
