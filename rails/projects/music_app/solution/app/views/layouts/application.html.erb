@@ -14,7 +14,18 @@
       <% if logged_in? %>
         <nav>
           <p>Logged in as: <%= current_user.email %></p>
-          <%= button_to "Sign Out", session_url, method: :delete %>
+          <form action=<%= session_url %> method='post'>
+            <input
+              type="hidden"
+              name="_method"
+              value="delete">
+            <input
+              type="hidden"
+              name="authenticity_token"
+              value="<%= form_authenticity_token %>">
+            <input 
+              type="submit" value="Sign Out">
+          </form>
           <p><a href="<%= bands_url %>">Back to All Bands</a></p>
         </nav>
       <% end %>
