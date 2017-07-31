@@ -29,7 +29,7 @@ A couple notes:
 
 ## Phase IV: Logging In: Verifying Credentials
 
-### Adding A `session` Resource, `SessionsController`
+### Adding a `session` Resource, `SessionsController`
 
 Add a `session` resource to the routes file. Generate a
 `SessionsController`. Write a `new` form so that the user can fill out
@@ -258,7 +258,7 @@ end
 
 ## Phase VI: Using The `current_user`
 
-### Adding A Logout Button
+### Adding a Logout Button
 
 We haven't written any logout functionality, nor do we ever tell the
 user who they are logged in as. Let's fix that by editing the
@@ -319,7 +319,7 @@ we reset the session token. This will invalidate the old session
 token. We want to do that in case anyone has managed to steal the
 token; this will deny the thieves further access to the account.
 
-### Adding A `before_action` Callback
+### Adding a `before_action` Callback
 
 Let's finally finish what we started: let's protect the `users#show`
 page so that only the user themselves can view their own show.

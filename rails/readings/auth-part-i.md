@@ -33,9 +33,9 @@ the mathematicians), is to design a function where:
 * Even though the scrambling isn't truly random, it should still be
   difficult (that is, near impossible) to "unscramble".
 
-### Using A Library
+### Using a Library
 
-Let's use a library called `BCrypt` to do the hashing for
+Let's use a library called `bcrypt` to do the hashing for
 us. First `gem install bcrypt`. Now let's play in the console:
 
 ```ruby
