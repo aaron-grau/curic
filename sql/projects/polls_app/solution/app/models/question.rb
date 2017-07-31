@@ -1,10 +1,25 @@
-class Question < ActiveRecord::Base
-  validates :poll, :text, presence: true
+class Question < ApplicationRecord
+  validates :text, presence: true
 
-  has_many :answer_choices
-  belongs_to :poll
+  # N.B. Remember, Rails 5 automatically validates the presence of
+  # belongs_to associations, so we can leave the validation of :poll out here.
 
-  has_many :responses, through: :answer_choices
+  # Remember, has_many is just a method where the first argument is
+  # the name of the association, and the second argument is an options
+  # hash.
+  has_many :answer_choices,
+    primary_key: :id,
+    foreign_key: :question_id,
+    class_name: 'AnswerChoice'
+
+  belongs_to :poll,
+    primary_key: :id,
+    foreign_key: :poll_id,
+    class_name: 'Poll'
+
+  has_many :responses,
+    through: :answer_choices,
+    source: :responses
 
   def results_n_plus_1
     # N+1 way:
