@@ -21,15 +21,15 @@ const APIUtil = {
     })
   ),
 
-  // createTweet: data => (
-  //   $.ajax({
-  //     url: "/tweets",
-  //     method: "POST",
-  //     dataType: "json",
-  //     data
-  //   })
-  // ),
-  //
+  createTweet: data => (
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      dataType: "json",
+      data
+    })
+  ),
+
   // fetchTweets: data => (
   //   $.ajax({
   //     url: "/feed",

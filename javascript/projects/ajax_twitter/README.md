@@ -303,7 +303,7 @@ information, and also information about each of that tweet's mentions.
 
 #### `TweetCompose` Class
 
-* Open `app/views/tweets/_form.HTML.erb` and give the form a class `tweet-compose`.
+* Open `app/views/tweets/_form.html.erb` and give the form a class `tweet-compose`.
 * Write a TweetCompose class that grabs this form and installs itself.
 * In the `TweetCompose` `constructor`, install a `submit` event handler.
 * Write a `TweetCompose#submit` method that uses `serializeJSON` to build JSON
