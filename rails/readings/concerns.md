@@ -58,13 +58,13 @@ module Taggable
 end
 
 # app/models/question.rb
-class Question < ActiveRecord
+class Question < ApplicationRecord
   include Taggable
   # ...
 end
 
 # app/models/answer.rb
-class Answer < ActiveRecord
+class Answer < ApplicationRecord
   include Taggable
   # ...
 end
