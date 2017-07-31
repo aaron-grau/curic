@@ -318,7 +318,7 @@
 [decorators]: readings/decorators.md
 [checkboxes-id-setters]: readings/checkboxes.md
 
-### Projects (Solo)
+### Projects
 * [RedditClone][reddit-clone]
 
 [reddit-clone]: projects/reddit_on_rails
