@@ -6,79 +6,97 @@ page! Each day's assignment contains brief readings and an exercise. Be sure to
 complete all assignments, as the exercises build on each other.
 
 SF: Don't forget to push every one of your completed assignments to the
-[Github Pages][gh-pages] branch on your `homeworks` repo.
+[Github Pages][gh-pages] branch on your `micro-projects` repo.
 
 ## HTML
 
-### Lesson 1: Introduction
+### Introduction
 
 The beginning of Front-End Development.
 
-#### Readings (20 min)
+#### Materials
 
-+ [An Introduction to HTML](readings/introduction.md)
-+ [Github Pages][gh-pages]
++ :book: [An Introduction to HTML][html-intro]
 
-[gh-pages]: ../javascript/readings/github_pages.md
+[html-intro]: readings/introduction.md
 
-#### Exercise (25 min)
+#### Exercise
 
-+ [Recipe Page](homeworks/introduction/introduction_html_exercise.md)
++ [Recipe Page][html-intro-exercise]
 
-### Lesson 2: Containers
+[html-intro-exercise][micro-projects/html-introduction]
+
+### Semantic Containers
 
 A look at containers in HTML and HTML5 semantic elements.
 
-#### Reading (15 min)
+#### Materials
 
-+ [Semantic HTML Containers](readings/containers.md)
++ :book: [Semantic HTML Containers][html-containers]
 
-#### Exercise (20 min)
+[html-containers]: readings/containers.md
 
-+ [Recipe Containers](homeworks/containers/containers_html_exercise.md)
+#### Exercise
 
-### Lesson 3: Forms
++ [Recipe Containers][html-containers-exercise]
+
+[html-containers-exercise]: micro-projects/html-containers
+
+### Forms
 
 Bringing user input to your HTML with Form and Input elements.
 
-#### Reading (10 min)
+#### Materials
 
-+ [Forms](readings/forms.md)
++ :book: [Forms][html-forms]
 
-#### Exercise (20 min)
+[html-forms]: reading/forms.md
 
-+ [Recipe Review Form](homeworks/forms/forms_html_exercise.md)
+#### Exercise
 
-### Lesson 4: Head Section
++ [Recipe Review Form][html-forms-exercise]
+
+[html-forms-exercise]: micro-projects/html-forms
+
+### Head Section
 
 Providing specific information and loading external files to your webpage.
 
-#### Reading (10 min)
+#### Materials
 
-+ [HTML Head Tag](readings/head_section.md)
++ :book: [HTML Head Tag][html-head]
 
-#### Exercise (20 min)
+[html-head]: readings/head_section.md
 
-+ [Recipe Head Section](homeworks/head_section/html_head_section_exercise.md)
+#### Exercise
+
++ [Recipe Head Section][html-head-exercise]
+
+[html-head-exercise]: micro-projects/html-head_section
 
 ## CSS
 
-### Lesson 1: Intro Workflow
+### Intro Workflow
 
 Our first look at cascading style sheets and how to be efficient CSS developers.
 Before we dive into CSS syntax, watch the introduction video explaining some CSS
 history and then the Workflow video to learn about the Chrome Developer Tools.
 
-#### Video (20 min)
+#### Materials
 
-+ [CSS Intro](https://vimeo.com/album/3732382/video/151188850)
-+ [CSS Workflow](https://vimeo.com/168826664)
++ :movie_camera: [CSS Intro][css-intro]
++ :movie_camera: [CSS Workflow][css-workflow]
 
-#### Exercise (10 min)
+[css-intro]: https://vimeo.com/album/3732382/video/151188850
+[css-workflow]: https://vimeo.com/168826664
 
-+ [Hack Academy](homeworks/css_intro/exercise.md)
+#### Exercise
 
-### Lesson 2: Syntax
++ [Hack Academy][css-intro-exercise]
+
+[css-intro-exercise]: micro-projects/css_intro
+
+### Syntax
 
 ```css
 selector {
@@ -86,105 +104,106 @@ selector {
 }
 ```
 
-#### Reading (15 min)
+#### Materials
 
-+ [CSS Selectors & Precedence](readings/css_selectors_precedence.md)
++ :book: [CSS Selectors & Precedence][css-selectors]
++ :movie_camera: [CSS Syntax][css-syntax]
 
-#### Video (20 min)
+[css-selectors]: readings/css_selectors_precedence.md
+[css-syntax]: https://vimeo.com/album/3732382/video/151185331
 
-+ [CSS Syntax](https://vimeo.com/album/3732382/video/151185331)
-+ [Inherit Property](https://vimeo.com/album/3732382/video/151190179)
+#### Exercise
 
-#### Exercise (15 min)
++ [Recipe Styles][css-syntax-exercise]
 
-+ [Recipe Styles](homeworks/css_syntax/exercise.md)
+[css-syntax-exercise]: micro-projects/css_syntax
 
-### Lesson 3: Reset & Advanced Selectors
+### Advanced Selectors
 
-Now that we have some understanding of CSS syntax we can review the css_reset file and customize our own. We will also take a look at some more advanced selectors that will allow us to target other aspects of our HTML document.
+Now that we have some understanding of CSS syntax we can take a look at some more advanced selectors that will allow us to target other aspects of our HTML document.
 
-#### Video (15 min)
+#### Materials
 
-+ [CSS Reset](https://vimeo.com/album/3732382/video/151190181)
++ :book: [Advanced Selectors][css-adv-selectors]
 
-#### Reading (15 min)
+[css-adv-selectors]: readings/advanced_selectors.md)
 
-+ [Advanced Selectors](readings/advanced_selectors.md)
+#### Exercise
 
-#### Exercise (10 min)
++ [More Recipe Styles][css-adv-selectors-exercise]
 
-+ [More Recipe Styles](homeworks/advanced_selectors/exercise.md)
+[css-adv-selectors-exercise]: micro-projects/advanced_selectors
 
-#### Additional Resources
-
-+ [Pseudo Content Video](https://vimeo.com/album/3732382/video/151190178)
-
-### Lesson 4: The Display Property & The Box Model
+### The Box Model
 
 The box model describes how space is calculated with CSS. This model combined with popular properties including display, margin, padding, width and height mark the beginning of styling the layout of our HTML document.
 
-#### Video (25 min)
+#### Materials
 
-+ [Display Property](https://vimeo.com/album/3732382/video/151190176)
-+ [Box Model](https://vimeo.com/album/3732382/video/151190177)
++ :movie_camera: [Box Model][css-box]
++ :book: [Box Model][css-box-reading]
 
-#### Reading (15 min)
+[css-box]: https://vimeo.com/album/3732382/video/151190177
+[css-box-reading]: readings/box_model.md
 
-+ [Box Model](readings/box_model.md)
-+ [Display Properties](readings/display.md) (Save Flex for day 5)
+#### Exercise
 
-#### Exercise (15 min)
++ [Recipe Display][css-box-exercise]
 
-+ [Recipe Display](homeworks/display_box_model/exercise.md)
+[css-box-exercise]: micro-projects/display_box_model
 
-#### Additional Resources
+### Display Property
 
-+ [Margin Gotchya Video](https://vimeo.com/album/3732382/video/151190180)
+#### Materials
++ :movie_camera: [Display Property][css-display-video]
++ :book: [Display Properties][css-display-reading] (Save Flex for day 5)
 
-### Lesson 5: Float, Fluid Layouts & Flexbox
+[css-display-video]: https://vimeo.com/album/3732382/video/151190176
+[css-display-reading]: readings/display.md
 
-#### Video (55 min)
+#### Exercise
++ [Recipe Display][css-display-exercise]
 
-+ [Floats & Clearfix](https://vimeo.com/album/3732382/video/151190182)
-+ [CSS Grid System](https://vimeo.com/170320160)
-+ [Flexbox](https://vimeo.com/170512344)
+[css-display-exercise]: micro-projects/display_box_model
 
-#### Reading (15 min)
+### Inherits & Reset
 
-+ [Floating](readings/floats_clear_fix.md)
-+ [Flexbox](readings/display.md) (Just Flex)
+#### Materials
++ [CSS Inherits][css-inherits]
++ [CSS Reset][css-reset]
 
-#### Exercise (15 min)
+[css-reset]: https://vimeo.com/album/3732382/video/151190181
+[css-inherits]: https://vimeo.com/album/3732382/video/151190179
 
-+ [Fluid Flex Recipe](homeworks/float_fluid_flex/exercise.md)
+#### Exercise
++ [CSS Reset Exercise][css-reset-exercise]
 
-#### Additional Resources
+[css-reset-exercise]: micro-projects/css_reset
 
-+ [Tic-Tac-Toe Float Demo](https://vimeo.com/album/3732382/video/151190183)
-+ [Navbar Demo](https://vimeo.com/album/3732382/video/158975002)
+### CSS Float & Clearfix
 
-### Lesson 6: Positioning & Media Queries
+#### Materials
++ :movie_camera: [CSS Float & Clearfix][css-float-video]
++ :book: [CSS Float & Clearfix][css-float]
 
-#### Video (60 min)
+[css-float-video]: https://vimeo.com/album/3732382/video/151190182
+[css-float]: readings/floats_clear_fix.md
 
-+ [Positioning](https://vimeo.com/album/3732382/video/151190184)
-+ [Glasses Demo](https://vimeo.com/album/3732382/video/151190185)
+#### Exercise
++ [CSS Float Exercise][css-float-exercise]
 
-#### Reading (15 min)
+[css-float-exercise]: micro-projects/float
 
-+ [Positioning](readings/positioning.md)
-+ [Responsive Design & Media Queries](readings/responsive_design.md)
+### CSS Display Types
 
-#### Exercise (15 min)
+#### Materials
++ :movie_camera: [CSS Flexbox][css-flex-video]
++ :book: [CSS Display Types][css-display-types]
 
-+ [Hamburger Icon](homeworks/positioning_media_queries/exercise.md)
+[css-flex-video]: https://vimeo.com/170512344
+[css-display-types]: readings/display.md
 
-### Bonus Materials
+#### Exercise
++ [CSS Flex Exercise][css-flex-exercise]
 
-#### Readings
-
-+ [Bootstrap][bootstrap]
-+ [SASS][sass]
-
-[bootstrap]: readings/bootstrap.md
-[sass]: readings/sass.md
+[css-flex-exercise]: micro-projects/flex  

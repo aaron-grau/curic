@@ -4,17 +4,17 @@ Today's homework is going to focus on controllers.
 
 **Things to know for this homework:**
 
-- Views are a new concept that you will be learning about in greater
+* Views are a new concept that you will be learning about in greater
 detail during tomorrow's homework. For now, just know that they have
 access to instance variables defined by the corresponding controller
 action (e.g. the books' `index` view has access to instance variables
 defined in `BooksController#index`) and are what we actually see on the
 page.
-- In the videos/readings on controllers so far, we have seen them `render
+* In the videos/readings on controllers so far, we have seen them `render
 :json`; for this assignment, we will be rendering templates instead. For
 example, to render the `index`, we simply `render :index`. To redirect
 to the index, we `redirect_to` the url that matches our intended route
-when we `rake routes` - in this case, the `books_url`.
+when we `rails routes` – in this case, the `books_url`.
 
 A basic rails project has already been made for you - except for the
 controllers. Download the [skeleton zip][skeleton]. To set up, navigate
@@ -22,9 +22,10 @@ into the project directory and run:
 
 ```
 bundle install
-bundle exec rake db:setup
+bundle exec rails db:setup
 rails s
 ```
+
 Now we have some basic data and our server is running and ready to take requests.
 
 ### Index and Destroy
@@ -93,13 +94,13 @@ render the page with the form to add a book; `create` is what will
 actually save that new book with the parameters we give it to the database.
 
 Hints:
-- the `new` template has already been made for you and is located at
+* the `new` template has already been made for you and is located at
 `app/views/books/new.html.erb`
-- the `create` action needs to `redirect_to` the `index` page if we want
+* the `create` action needs to `redirect_to` the `index` page if we want
 to see our new book added to the library
-- you can hit the `:new` route by either clicking on the 'Add a book!'
+* you can hit the `:new` route by either clicking on the 'Add a book!'
 link or navigating directly to `localhost:3000/books/new`
-- our `create` action has access to the values submitted through the new
+* our `create` action has access to the values submitted through the new
 book form via the private `book_params` method provided for you in the
 `BooksController`
 
@@ -108,6 +109,5 @@ and additional readings!
 
 Once you've got it working, celebrate by adding some of your favorite books! :books:
 
-[controlla-by-drake]: https://soundcloud.com/octobersveryown/drake-controlla
 [skeleton]: skeleton.zip?raw=true
 [restful-controller-demo]: https://vimeo.com/168505535

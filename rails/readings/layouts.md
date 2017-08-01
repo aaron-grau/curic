@@ -69,10 +69,10 @@ this HTML:
 ```html+erb
 <html>
   <head>
-  <title>A simple page</title>
+    <title>A simple page</title>
   </head>
   <body>
-  <p>Hello, Rails!</p>
+    <p>Hello, Rails!</p>
   </body>
 </html>
 ```

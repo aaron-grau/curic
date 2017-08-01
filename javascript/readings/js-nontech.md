@@ -102,7 +102,7 @@ following dependency structure:
 
 With npm, both A version 1.0 and A version 2.0 will be included. Bower,
 however, will only require one of the two versions of A in order to decrease
-duplication (which reduces the payload size). On bundle, Bower will ask version
+duplication (which reduces the payload size). On bundle, Bower will ask which version
 should be included. It will throw an error in the case that no mutual version
 of a package exists between two dependencies.
 

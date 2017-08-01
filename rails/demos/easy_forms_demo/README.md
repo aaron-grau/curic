@@ -1,4 +1,4 @@
-# w4d2: EasyFormsDemo
+# Easy Form Demo
 
 * [app/models/cat.rb][cat]
 * [app/controllers/cats_controller.rb][cats_controller]

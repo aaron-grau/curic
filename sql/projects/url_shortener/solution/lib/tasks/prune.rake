@@ -4,5 +4,4 @@ namespace :prune do
     puts "Pruning old urls..."
     ShortenedUrl.prune(minutes)
   end
-
 end

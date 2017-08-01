@@ -1,10 +1,8 @@
-class Route < ActiveRecord::Base
-  has_many(
-    :buses,
-    class_name: "Bus",
+class Route < ApplicationRecord
+  has_many :buses,
+    class_name: 'Bus',
     foreign_key: :route_id,
     primary_key: :id
-  )
 
   def n_plus_one_drivers
     buses = self.buses

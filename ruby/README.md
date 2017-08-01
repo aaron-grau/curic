@@ -64,8 +64,8 @@
 [array-hash-defaults]: readings/array-hash-defaults.md
 [scope]: readings/scope.md
 [code-smells]: readings/refactoring.md
-[html-css-overview]: ../html-css-temp/readings/overview.md 
-[html-intro]: ../html-css-temp/readings/introduction.md
+[html-css-overview]: ../html-css/readings/overview.md
+[html-intro]: ../html-css/readings/introduction.md
 [prep-w2]: https://github.com/appacademy/appacademy-prep/tree/master/w2
 
 ### Additional Resources
@@ -80,7 +80,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-intro-exercise]: ../html-css-temp/micro-projects/html-introduction/
+[html-intro-exercise]: ../html-css/micro-projects/html-introduction/
 [memory-project]: projects/memory
 [sudoku-project]: projects/sudoku
 
@@ -109,7 +109,7 @@
 [stack-overflow-demo-video]: https://vimeo.com/162569490
 [the-stack-video]: https://vimeo.com/162571286
 [recursion]: readings/recursion.md
-[html-containers]: ../html-css-temp/readings/containers.md
+[html-containers]: ../html-css/readings/containers.md
 [prep-w3]: https://github.com/appacademy/appacademy-prep/tree/master/w3
 
 ### Homeworks (50 min)
@@ -125,7 +125,7 @@
 + **Bonus**: [Maze solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 
-[html-containers-exercise]: ../html-css-temp/micro-projects/html-containers/
+[html-containers-exercise]: ../html-css/micro-projects/html-containers/
 [recursion-project]: projects/recursion
 [word-chains]:  projects/word_chains
 [bonus-recursion-practice]: https://github.com/appacademy/recursion_exercises
@@ -159,7 +159,7 @@
 [gems]: readings/gems-and-rbenv.md
 [git-nontech]: readings/git_nontech.md
 [agile-nontech]: readings/agile_nontech.md
-[html-forms]: ../html-css-temp/readings/forms.md
+[html-forms]: ../html-css/readings/forms.md
 
 ### Homeworks (20 min)
 + [Git Workflow Exercises][git-workflow-exercises] (20 min)
@@ -188,7 +188,7 @@
 + [Screwedoku][screwedoku]
 + [Minesweeper][minesweeper]
 
-[html-forms-exercise]: ../html-css-temp/micro-projects/html-forms/
+[html-forms-exercise]: ../html-css/micro-projects/html-forms/
 [screwedoku]: projects/screwdoku
 [minesweeper]: projects/minesweeper
 
@@ -204,7 +204,7 @@
 [data-structures-video]: https://vimeo.com/162763729
 [dfs-video]: https://vimeo.com/162763740
 [intro-algorithms-and-data-structures]: ./readings/intro-algorithms-and-data-structures.md
-[html-head]: ../html-css-temp/readings/head_section.md
+[html-head]: ../html-css/readings/head_section.md
 
 ### Homeworks (55 min)
 + [Homeworks with Git][git-homeworks] (10 min)
@@ -220,7 +220,7 @@
 + [Knight's Travails][knights-travails]
 + [Tic-Tac-Toe AI][tic-tac-toe-ai]
 
-[html-head-exercise]: ../html-css-temp/micro-projects/html-head_section/
+[html-head-exercise]: ../html-css/micro-projects/html-head_section/
 [poly-tree-node]: projects/poly_tree_node
 [knights-travails]: projects/knights_travails
 [tic-tac-toe-ai]: projects/tic_tac_toe_ai
@@ -291,7 +291,7 @@
 + [Hack Academy][css-hack-academy]
 + Continue [Chess][chess]
 
-[css-hack-academy]: ../html-css-temp/micro-projects/css_intro/
+[css-hack-academy]: ../html-css/micro-projects/css_intro/
 
 ## w2d3
 
@@ -316,7 +316,7 @@
 [rspec-setup-syntax]: https://vimeo.com/192665133
 [rspec-more-syntax]: https://vimeo.com/192662950
 [rspec-demo]: https://vimeo.com/192666370
-[css-selectors-precedence]: ../html-css-temp/readings/css_selectors_precedence.md
+[css-selectors-precedence]: ../html-css/readings/css_selectors_precedence.md
 [css-syntax]: https://vimeo.com/album/3732382/video/151185331
 
 ### Homeworks (40 min)
@@ -344,7 +344,7 @@
 
 [first-tdd-projects]: projects/first_tdd
 [poker-project]: projects/poker
-[css-syntax-exercise]: ../html-css-temp/micro-projects/css_syntax/
+[css-syntax-exercise]: ../html-css/micro-projects/css_syntax/
 
 ## w2d4
 
@@ -372,7 +372,7 @@
 [big-O-classifications]: https://vimeo.com/175568501
 [big-O-set]: https://vimeo.com/175568481
 [big-O-space]: https://vimeo.com/175565092
-[css-advanced-selectors]: ../html-css-temp/readings/advanced_selectors.md
+[css-advanced-selectors]: ../html-css/readings/advanced_selectors.md
 
 ### Homeworks (40 min)
 + [Sorting Complexity][sorting-demo] (15 min)
@@ -403,7 +403,7 @@
 + [Windowed max range][max-windowed-range]
 + **Bonus**: [Benchmarking][benchmarking]
 
-[css-advanced-selectors-exercise]: ../html-css-temp/micro-projects/advanced_selectors/
+[css-advanced-selectors-exercise]: ../html-css/micro-projects/advanced_selectors/
 [execution-time]: projects/execution_time_differences
 [anagrams]: projects/anagrams
 [two-sum]: projects/two_sum
@@ -436,7 +436,7 @@
 [dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
 [xor]: readings/xor.md
 [css-box-model-video]: https://vimeo.com/album/3732382/video/151190177
-[css-box-model]: ../html-css-temp/readings/box_model.md
+[css-box-model]: ../html-css/readings/box_model.md
 
 ### Homeworks (30 min)
 + [LRU Cache][lru-cache-hw] (30 min)
@@ -450,7 +450,7 @@
 + [Hash Map & LRU Cache][hash-map]
 
 [hash-map]: projects/hash_map_lru_cache
-[css-box-model-exercise]: ../html-css-temp/micro-projects/display_box_model/
+[css-box-model-exercise]: ../html-css/micro-projects/display_box_model/
 
 ### Additional Bonus Topics
 + [Basic cursor input][cursor-demo]

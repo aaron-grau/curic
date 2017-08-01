@@ -24,41 +24,31 @@ Count all of the tracks on each album by a given artist.
 ```ruby
 # app/models/track.rb
 class Track
-   belongs_to(
-    :album,
-    class_name: "Album",
+   belongs_to :album,
+    class_name: 'Album',
     foreign_key: :album_id,
     primary_key: :id
-  )
 end
-
 
 # app/models/album.rb
 class Album
-  belongs_to(
-    :artist,
-    class_name: "Artist",
+  belongs_to :artist,
+    class_name: 'Artist',
     foreign_key: :artist_id,
     primary_key: :id
-  )
 
-  has_many(
-    :tracks,
+  has_many :tracks,
     class_name: "Track",
     foreign_key: :album_id,
     primary_key: :id
-  )
 end
-
 
 # app/models/artist.rb
 class Artist
-  has_many(
-    :albums,
-    class_name: "Album",
+  has_many :albums,
+    class_name: 'Album',
     foreign_key: :artist_id,
     primary_key: :id
-  )
 
   def n_plus_one_tracks
     albums = self.albums
@@ -80,21 +70,19 @@ Test in the rails console:
 
 ```ruby
 Artist.first.n_plus_one_tracks
-  Artist Load (0.1ms)  SELECT  "artists".* FROM "artists"  ORDER BY "artists"."id" ASC LIMIT 1
-  Album Load (0.2ms)  SELECT "albums".* FROM "albums" WHERE "albums"."artist_id" = ?  [["artist_id", 1]]
-  Track Load (0.2ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 1]]
-  Track Load (0.1ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 2]]
-  Track Load (0.1ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 3]]
-  Track Load (0.1ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 4]]
-  Track Load (0.2ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = ?  [["album_id", 5]]
+  Artist Load (0.5ms)  SELECT  "artists".* FROM "artists" ORDER BY "artists"."id" ASC LIMIT $1  [["LIMIT", 1]]
+  Album Load (0.6ms)  SELECT "albums".* FROM "albums" WHERE "albums"."artist_id" = $1  [["artist_id", 1]]
+  Track Load (0.7ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = $1  [["album_id", 1]]
+  Track Load (0.4ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = $1  [["album_id", 2]]
+  Track Load (0.3ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = $1  [["album_id", 3]]
+  Track Load (0.3ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = $1  [["album_id", 4]]
+  Track Load (0.3ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = $1  [["album_id", 5]]
 => {"Lemonade"=>8, "I Am... Sasha Fierce"=>6, "Dangerously in Love"=>3, "B'Day"=>4, "4"=>1}
-
 
 Artist.first.better_tracks_query
-  Artist Load (1.0ms)  SELECT  "artists".* FROM "artists"  ORDER BY "artists"."id" ASC LIMIT 1
-  Album Load (0.3ms)  SELECT albums.*, COUNT(*) AS tracks_count FROM "albums" INNER JOIN "tracks" ON "tracks"."album_id" = "albums"."id" WHERE "albums"."artist_id" = ? GROUP BY albums.id  [["artist_id", 1]]
+  Artist Load (0.7ms)  SELECT  "artists".* FROM "artists" ORDER BY "artists"."id" ASC LIMIT $1  [["LIMIT", 1]]
+  Album Load (2.5ms)  SELECT albums.*, COUNT(*) AS tracks_count FROM "albums" INNER JOIN "tracks" ON "tracks"."album_id" = "albums"."id" WHERE "albums"."artist_id" = $1 GROUP BY albums.id  [["artist_id", 1]]
 => {"Lemonade"=>8, "I Am... Sasha Fierce"=>6, "Dangerously in Love"=>3, "B'Day"=>4, "4"=>1}
-
 ```
 
 ## Plants, Gardeners, and Houses
@@ -104,66 +92,48 @@ Create an array of all the seeds within a given house.
 ```ruby
 # app/models/gardener.rb
 class Gardener
-  belongs_to(
-    :house,
-    class_name: "House",
+  belongs_to :house,
+    class_name: 'House',
     foreign_key: :house_id,
     primary_key: :id
-  )
 
-  has_many(
-    :plants,
-    class_name: "Plant",
+  has_many :plants,
+    class_name: 'Plant',
     foreign_key: :gardener_id,
     primary_key: :id
-  )
 end
-
 
 # app/models/plant.rb
 class Plant
-  belongs_to(
-    :gardener,
-    class_name: "Gardener",
+  belongs_to :gardener,
+    class_name: 'Gardener',
     foreign_key: :gardener_id,
     primary_key: :id
-  )
 
-  has_many(
-    :seeds,
-    class_name: "Seed",
+  has_many :seeds,
+    class_name: 'Seed',
     foreign_key: :plant_id,
     primary_key: :id
-  )
 end
-
-
 
 # app/models/seed.rb
 class Seed
-  belongs_to(
-    :plant,
-    class_name: "Plant",
+  belongs_to :plant,
+    class_name: 'Plant',
     foreign_key: :plant_id,
     primary_key: :id
-  )
 end
-
 
 # app/models/house.rb
 class House
-  has_many(
-    :gardeners,
-    class_name: "Gardener",
+  has_many :gardeners,
+    class_name: 'Gardener',
     foreign_key: :house_id,
     primary_key: :id
-  )
 
-  has_many(
-    :plants,
+  has_many :plants,
     through: :gardeners,
     source: :plants
-  )
 
   def n_plus_one_seeds
     plants = self.plants
@@ -181,13 +151,10 @@ class House
 end
 ```
 
-
-
-
 ## MUNI Routes, Buses, and Drivers
 
 Create a hash with bus id's as keys and an array of bus drivers as the
-corresponding value. 
+corresponding value.
 
 (e.g., `{'1' => ['Joan Lee', 'Charlie McDonald', 'Kevin
 Quashie'], '2' => ['Ed Michaels', 'Lisa Frank', 'Sharla Alegria']}`)
@@ -195,41 +162,31 @@ Quashie'], '2' => ['Ed Michaels', 'Lisa Frank', 'Sharla Alegria']}`)
 ```ruby
 # app/models/driver.rb
 class Driver
-  belongs_to(
-    :bus,
-    class_name: "Bus",
+  belongs_to :bus,
+    class_name: 'Bus',
     foreign_key: :bus_id,
     primary_key: :id
-  )
 end
-
 
 # app/models/bus.rb
 class Bus
-  belongs_to(
-    :route,
-    class_name: "Route",
+  belongs_to :route,
+    class_name: 'Route',
     foreign_key: :route_id,
     primary_key: :id,
-  )
 
-  has_many(
-    :drivers,
-    class_name: "Driver",
+  has_many :drivers,
+    class_name: 'Driver',
     foreign_key: :bus_id,
     primary_key: :id,
-  )
 end
-
 
 # app/models/route.rb
 class Route
-  has_many(
-    :buses,
-    class_name: "Bus",
+  has_many :buses,
+    class_name: 'Bus',
     foreign_key: :route_id,
     primary_key: :id
-  )
 
   def n_plus_one_drivers
     buses = self.buses

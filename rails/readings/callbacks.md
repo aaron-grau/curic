@@ -12,11 +12,11 @@ be destroyed if the user is destroyed; else the posts are said to be
 *widowed*. To do this, we pass the `:dependent` option to `has_many`:
 
 ```ruby
-class User < ActiveRecord::Base
-  has_many :posts, :dependent => :destroy
+class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
 end
 
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   belongs_to :user
 end
 
@@ -28,15 +28,15 @@ end
 => #<User id: 1>
 ```
 
-A somewhat less common option is to use `:dependent => :nullify`;
+A somewhat less common option is to use `dependent: :nullify`;
 which instead of destroying the dependent objects will merely set the
-foreign key to `NULL`. An even less common option is `:dependent =>
+foreign key to `NULL`. An even less common option is `dependent:
 :restrict`, which will cause an exception to be raised if there exists
 associated objects; you'd have to destroy the associated objects
 yourself. This won't do any deleting or nullifying for you, but at
 least you are assured safety from widowed records.
 
-You may add `:dependent => destroy` on a `belongs_to` relationship,
+You may add `dependent: destroy` on a `belongs_to` relationship,
 but this is uncommon. Logically, if a `Post` `belongs_to` a `User`,
 why should destroying the `Post` destroy the `User`? For this reason
 it's seldom the case to add dependent logic to `belongs_to` relations.
@@ -46,7 +46,7 @@ it's seldom the case to add dependent logic to `belongs_to` relations.
 When a record is widowed, its foreign key becomes invalid. This is
 an error.
 
-Using `:dependent => :destroy` or `:dependent => :nullify` should help
+Using `dependent: :destroy` or `dependent: :nullify` should help
 clean up child records so that records don't become widowed. However,
 these validations won't help if you explicitly set a bogus foreign key
 value (e.g., `post.user_id = -1`). Likewise, if a record is DELETEd
@@ -76,8 +76,8 @@ You implement callbacks as ordinary methods and use a macro-style
 class method to register them as callbacks:
 
 ```ruby
-class User < ActiveRecord::Base
-  validates :random_code, :presence => true
+class User < ApplicationRecord
+  validates :random_code, presence: true
   before_validation :ensure_random_code
 
   protected
@@ -110,11 +110,11 @@ You can further specify that the callback should only be called when
 performing certain operations:
 
 ```ruby
-class CreditCard < ActiveRecord::Base
+class CreditCard < ApplicationRecord
   # Strip everything but digits, so the user can specify "555 234 34" or
   # "5552-3434" or both will mean "55523434"
-  before_validation(:on => :create) do
-    self.number = number.gsub(/[^0-9]/, "") if attribute_present?("number")
+  before_validation(on: :create) do
+    self.number = number.gsub(/[^0-9]/, '') if attribute_present?('number')
   end
 end
 ```
