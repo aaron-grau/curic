@@ -27,9 +27,9 @@ module ApplicationHelper
   end
 
   def picture_for(user)
-    html = "<div class=\"user-picture\">"
+    html = '<div class="user-picture">'
     html += "<img src=\"#{user.picture_url}\" alt=\"#{h(user.name)}\">"
-    html += "</div>"
+    html += '</div>'
 
     html.html_safe
   end
@@ -143,12 +143,12 @@ def long_quote(author, &block)
   html = "<blockquote cite=\"#{h(author)}\">"
   html += text
   html += "</blockquote>"
-  
+
   html.html_safe
 end
 ```
 
-Alright, let's do it! 
+Alright, let's do it!
 
 ```html+erb
 <%= long_quote("_whytheluckystiff") do %>
@@ -158,12 +158,12 @@ Alright, let's do it!
     collections of words and punctuation which encompass a single
     thought.
   </p>
-  
+
   <p>
     Look ma, a <%= link_to "link",
     "http://en.wikipedia.org/wiki/Why_the_lucky_stiff" %>
   </p>
-  
+
   <p>
     These sentences can form books. They can form pages. They can form
     entire novels, when strung together. Novels that can be read by

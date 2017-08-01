@@ -16,7 +16,6 @@ cat = Cat.create(
   temperament: 'mild'
 )
 # ... test stuff about the cat object
-
 ```
 
 However, we want to avoid having all of that clutter in our test code
@@ -124,7 +123,7 @@ We'll see more examples soon, but, first, let's get set up.
 
 
 ```ruby
-  g.fixture_replacement :factory_girl, :dir => "spec/factories"
+  g.fixture_replacement :factory_girl, dir: 'spec/factories'
 ```
 
 You should now have the following in your `config/application.rb` file:
@@ -133,13 +132,13 @@ You should now have the following in your `config/application.rb` file:
 ```ruby
 config.generators do |g|
   g.test_framework :rspec,
-    :fixtures => true,
-    :view_specs => false,
-    :helper_specs => false,
-    :routing_specs => false,
-    :controller_specs => true,
-    :request_specs => false
-  g.fixture_replacement :factory_girl, :dir => "spec/factories"
+    fixtures: true,
+    view_specs: false,
+    helper_specs: false,
+    routing_specs: false,
+    controller_specs: true,
+    request_specs: false
+  g.fixture_replacement :factory_girl, dir: 'spec/factories'
 end
 ```
 
@@ -176,8 +175,8 @@ Suppose we have a `Post` model, and its attributes are `title`,
 
 FactoryGirl.define do
   factory :post do
-    title "It's a title!"
-    subtitle "~also has a subtitle~"
+    title 'It\'s a title!'
+    subtitle '~also has a subtitle~'
     random_num { 1 + rand(100) }
 
     # Child of :post factory, since it's in the `factory :post` block
@@ -236,7 +235,7 @@ And your test could look like this:
 require 'spec_helper'
 
 describe Cat do
-  it "has no required attributes" do
+  it 'has no required attributes' do
     expect(FactoryGirl.build(:cat)).to be_valid
   end
 end
@@ -248,16 +247,16 @@ attributes:
 ```ruby
 # in my_app/app/models/cat.rb
 
-class Cat < ActiveRecord::Base
-  validates :name, :presence => true, format: { with:  /\A[a-zA-Z\s\.]+\z/,
-    message: "only allows letters and spaces" }, length: { minimum: 3 },
+class Cat < ApplicationRecord
+  validates :name, presence: true, format: { with:  /\A[a-zA-Z\s\.]+\z/,
+    message: 'only allows letters and spaces' }, length: { minimum: 3 },
     uniqueness: true
-  validates :color, :presence => true, inclusion: { in: %w(red blue green yellow brown black white orange),
-    message: "That is not a valid color for a cat." }
-  validates :age, :presence => true, numericality: { only_integer: true,
-    less_than: 100, message: "Cat age must be a number below 100." }
-  validates :temperament, :presence => true, exclusion: { in: %w(evil mean),
-    message: "No bad cats allowed!" }
+  validates :color, presence: true, inclusion: { in: %w(red blue green yellow brown black white orange),
+    message: 'That is not a valid color for a cat.' }
+  validates :age, presence: true, numericality: { only_integer: true,
+    less_than: 100, message: 'Cat age must be a number below 100.' }
+  validates :temperament, presence: true, exclusion: { in: %w(evil mean),
+    message: 'No bad cats allowed!' }
 end
 ```
 
@@ -269,10 +268,10 @@ which satisfy the validations, like this:
 
 FactoryGirl.define do
   factory :cat do
-    name "Garfield"
-    color "orange"
+    name 'Garfield'
+    color 'orange'
     age 53
-    temperament "sarcastic"
+    temperament 'sarcastic'
   end
 end
 ```
@@ -284,7 +283,7 @@ instances of the model:
 
 ```ruby
 # ...
-it "must have a name" do
+it 'must have a name' do
   expect(FactoryGirl.build(:cat, name: nil)).not_to be_valid
 end
 # ...
@@ -300,17 +299,17 @@ overwrite those attributes for the model.
 # fully testing the name validations
 
 describe Cat do
-  context "when name is invalid" do
-    it "should require a name" do
-      expect(FactoryGirl.build(:cat, :name => "")).not_to be_valid
+  context 'when name is invalid' do
+    it 'should require a name' do
+      expect(FactoryGirl.build(:cat, name: '')).not_to be_valid
     end
 
-    it "should only accept letters and spaces in name" do
-      expect(FactoryGirl.build(:cat, :name => "1337-H4x0r")).not_to be_valid
+    it 'should only accept letters and spaces in name' do
+      expect(FactoryGirl.build(:cat, name: '1337-H4x0r')).not_to be_valid
     end
 
-    it "should require a name longer than 2 letters" do
-      expect(FactoryGirl.build(:cat, :name => "Bo")).not_to be_valid
+    it 'should require a name longer than 2 letters' do
+      expect(FactoryGirl.build(:cat, name: "Bo")).not_to be_valid
     end
   end
  # (... more validation tests would follow.)
@@ -363,7 +362,7 @@ between cats and  hats set up.)
 FactoryGirl.define do
   factory :cat do
     sequence :hat do |n|
-      FactoryGirl.build(:hat, :hat_name => "top-hat #{n}")
+      FactoryGirl.build(:hat, hat_name: "top-hat #{n}")
     end
   end
 end
@@ -382,7 +381,7 @@ describe Cat do
 
  # ...
 
-  it "may wear a hat" do
+  it 'may wear a hat' do
     expect(FactoryGirl.build(:cat).hat).to be_instance_of(Hat)
   end
 

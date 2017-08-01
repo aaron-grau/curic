@@ -27,9 +27,9 @@ A couple notes:
 * We'll write a `SessionsController`; even when using a singular
   resource, controllers are **always** pluralized.
 
-## Phase IV: Logging in: verifying credentials
+## Phase IV: Logging In: Verifying Credentials
 
-### Adding a `session` resource, `SessionsController`
+### Adding a `session` Resource, `SessionsController`
 
 Add a `session` resource to the routes file. Generate a
 `SessionsController`. Write a `new` form so that the user can fill out
@@ -45,14 +45,16 @@ their username/password:
     type="hidden"
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
-  
+
   <label for="user_username">Username</label>
   <input type="text" name="user[username]" id="user_username">
-  <br>
+
+  <br />
 
   <label for="user_password">Password</label>
   <input type="password" name="user[password]" id="user_password">
-  <br>
+
+  <br />
 
   <input type="submit" value="Log in!">
 </form>
@@ -69,7 +71,7 @@ the username/password and then builds/sets a session token. Let's add
 a `find_by_credentials` method:
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # ...
 
   def self.find_by_credentials(username, password)
@@ -95,7 +97,7 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      render json: "Credentials were wrong"
+      render json: 'Credentials were wrong'
     else
       render json: "Welcome back #{user.username}!"
     end
@@ -109,13 +111,13 @@ end
 Cool! But this is useless, because the sessions controller doesn't set
 any cookie to remember the logged-in user.
 
-## Phase V: Logging in: setting the session
+## Phase V: Logging In: Setting The Session
 
 We now have the `SessionsController` properly verifying the user's
 credentials, but it doesn't actually do anything with the successful
 login. Let's fix that.
 
-### Add a `UsersController#show` page
+### Add A `UsersController#show` Page
 
 Make a very simple `show` view for your `UsersController`.
 
@@ -134,13 +136,13 @@ Let's begin making the show page private; a user should be the only
 one allowed to look at their own `users#show` page. But before we
 start, we need to start setting a session token...
 
-### Adding `session_token` to `User`
+### Adding `session_token` To `User`
 
 We're going to need to introduce a `session_token` so that after login
 we can remember the current user. Let's write a migration:
 
 ```ruby
-class AddSessionTokenToUsers < ActiveRecord::Migration
+class AddSessionTokenToUsers < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :session_token, :string, null: false
     add_index :users, :session_token, unique: true
@@ -152,7 +154,7 @@ Next, let's make sure that when we create a `User` it has a
 `session_token`:
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # ...
 
   validates :session_token, presence: true
@@ -185,7 +187,7 @@ Note that the `User` now validates the presence of the
 for the `User` *if one isn't already set* (that's the `after_initialize`
 callback bit).
 
-### Setting the session
+### Setting The Session
 
 We're now storing the session token in the `User`, but we need to also
 store it in the `session`. Let's write helper methods in the `ApplicationController`.
@@ -228,7 +230,7 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      render json: "Credentials were wrong"
+      render json: 'Credentials were wrong'
     else
       login!(user)
       redirect_to user_url(user)
@@ -254,9 +256,9 @@ class UsersController < ApplicationController
 end
 ```
 
-## Phase VI: Using the `current_user`
+## Phase VI: Using The `current_user`
 
-### Adding a logout button
+### Adding a Logout Button
 
 We haven't written any logout functionality, nor do we ever tell the
 user who they are logged in as. Let's fix that by editing the
@@ -271,8 +273,8 @@ application's layout:
     <li>Logged in as: <%= current_user.username %></li>
     <li>
       <form action="<%= session_url %>" method="POST">
-        <input type="hidden" 
-               name="authenticity_token" 
+        <input type="hidden"
+               name="authenticity_token"
                value="<%= form_authenticity_token %>">
         <input type="hidden" value="delete" name="_method" />
         <input type="submit" value="Logout" />
@@ -317,7 +319,7 @@ we reset the session token. This will invalidate the old session
 token. We want to do that in case anyone has managed to steal the
 token; this will deny the thieves further access to the account.
 
-### Adding a `before_action` callback
+### Adding a `before_action` Callback
 
 Let's finally finish what we started: let's protect the `users#show`
 page so that only the user themselves can view their own show.
@@ -354,10 +356,9 @@ called. For instance, if a user tries to visit the `users#show` page
 without having logged in first, the callback will issue a redirect, and
 Rails will forgo calling the `UsersController#show` method.
 
-### Wait one more second
+### Wait One More Second
 
 The callback we defined requires that a user be logged in to look at a
 `users#show` page. However, it does not enforce that user A may not
 look at user B's show page. Write a new filter in the
 `UsersController` to do this.
-

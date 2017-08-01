@@ -1,13 +1,18 @@
-class User < ActiveRecord::Base
-  validates :user_name, presence: true, uniqueness: true
+class User < ApplicationRecord
+  validates :username, presence: true, uniqueness: true
 
-  has_many(
-    :authored_polls,
-    class_name: 'Poll',
+  # Remember, has_many is just a method where the first argument is
+  # the name of the association, and the second argument is an options
+  # hash.
+  has_many :authored_polls,
+    primary_key: :id,
     foreign_key: :author_id,
-  )
+    class_name: 'Poll'
 
-  has_many :responses, foreign_key: :respondent_id
+  has_many :responses,
+    primary_key: :id,
+    foreign_key: :respondent_id,
+    class_name: 'Response'
 
   def completed_polls_sql
     # This is how the method would be written in raw SQL. If we just used
@@ -47,7 +52,7 @@ class User < ActiveRecord::Base
 
   def completed_polls
     polls_with_completion_counts
-        .having('COUNT(DISTINCT questions.id) = COUNT(responses.id)')
+      .having('COUNT(DISTINCT questions.id) = COUNT(responses.id)')
   end
 
   def incomplete_polls
@@ -57,6 +62,7 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def polls_with_completion_counts
     joins_sql = <<-SQL
       LEFT OUTER JOIN (
@@ -70,7 +76,7 @@ class User < ActiveRecord::Base
     SQL
 
     Poll.joins(questions: :answer_choices)
-        .joins(joins_sql)
-        .group('polls.id')
+      .joins(joins_sql)
+      .group('polls.id')
   end
 end

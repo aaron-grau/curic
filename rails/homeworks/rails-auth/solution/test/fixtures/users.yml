@@ -2,10 +2,10 @@
 
 one:
   username: MyString
-  password_digest: MyString
   session_token: MyString
+  password_digest: MyString
 
 two:
   username: MyString
-  password_digest: MyString
   session_token: MyString
+  password_digest: MyString

@@ -1,2 +1,2 @@
-class Corgi < ActiveRecord::Base
+class Corgi < ApplicationRecord
 end

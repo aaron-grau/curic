@@ -24,6 +24,7 @@ class CatRentalRequestsController < ApplicationController
   end
 
   private
+
   def current_cat_rental_request
     @rental_request ||=
       CatRentalRequest.includes(:cat).find(params[:id])
@@ -34,7 +35,6 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def cat_rental_request_params
-    params.require(:cat_rental_request)
-      .permit(:cat_id, :end_date, :start_date, :status)
+    params.require(:cat_rental_request).permit(:cat_id, :end_date, :start_date, :status)
   end
 end

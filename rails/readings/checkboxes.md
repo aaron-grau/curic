@@ -9,6 +9,7 @@ checkbox input field on our post form where users can check all of the tags that
 they want a post to be associated with.
 
 We will look at:
+
 * The Rails associations involved.
 * Rails ID setters.
 * What to add to your controller.
@@ -23,12 +24,12 @@ simply the join table between `Post` and `Tag`. We would write our associations
 as such:
 
 ```ruby
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   has_many :taggings, dependent: :destroy, inverse_of: :post
   has_many :tags, through: :taggings
 end
 
-class Tagging < ActiveRecord::Base
+class Tagging < ApplicationRecord
   # Validate post and tag rather than post_id or tag_id
   validates :post, :tag, presence: true
   validates :tag_id, uniqueness: { scope: :post_id }
@@ -37,7 +38,7 @@ class Tagging < ActiveRecord::Base
   belongs_to :tag
 end
 
-class Tag < ActiveRecord::Base
+class Tag < ApplicationRecord
   has_many :taggings, dependent: :destroy, inverse_of: :tag
   has_many :posts, through: :taggings
 end
@@ -82,7 +83,7 @@ This creates new `Tagging` objects linking the pos to tags with IDs 1, 2, 3, and
 We could also pass in an array of tag ids when we create a new post like such:
 
 ```ruby
-Post.create(text: "new post", tag_ids: [1,2,3,4])
+Post.create(text: 'new post', tag_ids: [1,2,3,4])
 ```
 
 This will simultaneously create a new post along with its associated taggings in
@@ -143,10 +144,12 @@ Our new posts form might look a little like this:
 
   <% Tag.all.each do |tag| %>
     <label><%= tag.name %>
-      <input type="checkbox"
-              value="<%= tag.id %>"
-              name="post[tag_ids][]"
-              <%= "checked" if @post.tag_ids.include?(tag.id) %>>
+      <input
+        type="checkbox"
+        value="<%= tag.id %>"
+        name="post[tag_ids][]"
+        <%= "checked" if @post.tag_ids.include?(tag.id) %>
+      />
     </label>
   <% end %>
 
