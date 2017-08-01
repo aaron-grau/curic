@@ -15,16 +15,9 @@ class Artwork < ApplicationRecord
   # class method that returns all of the artworks made by the user OR
   # shared with the user
   def self.artworks_for_user_id(user_id)
-    joins_cond = <<-SQL
-      LEFT OUTER JOIN
-        artwork_shares ON artworks.id = artwork_shares.artwork_id
-    SQL
-    where_cond = <<-SQL
-      ((artworks.artist_id = :user_id) OR (artwork_shares.viewer_id = :user_id))
-    SQL
-
-    Artwork.joins(joins_cond)
-      .where(where_cond, user_id: user_id)
-      .uniq
+    Artwork
+      .left_outer_joins(:artwork_shares)
+      .where('(artworks.artist_id = :user_id) OR (artwork_shares.viewer_id = :user_id)', user_id: user_id)
+      .distinct
   end
 end
