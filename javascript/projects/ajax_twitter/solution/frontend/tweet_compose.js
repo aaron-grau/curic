@@ -39,6 +39,8 @@ class TweetCompose {
 
   handleSuccess(data) {
     const $tweetsUl = $(this.$el.data("tweets-ul"));
+    console.log($tweetsUl);
+    console.log(data);
     $tweetsUl.trigger("insert-tweet", data);
 
     this.clearInput();
@@ -51,7 +53,7 @@ class TweetCompose {
 
   submit(event) {
     event.preventDefault();
-
+    console.log("HDSKFLSDFLKJ");
     const data = this.$el.serializeJSON();
     this.$el.find(":input").prop("disabled", true);
 
