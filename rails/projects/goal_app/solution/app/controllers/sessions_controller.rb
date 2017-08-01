@@ -7,14 +7,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    credentials = [params[:user][:username], params[:user][:password]]
+    credentials = [user_params[:username], user_params[:password]]
     @user = User.find_by_credentials(*credentials)
     if @user
       login!(@user)
       redirect_to user_url(@user)
     else
-      flash.now[:notices] = ["Invalid credentials."]
-      @user = User.new
+      flash.now[:errors] = ['Invalid credentials.']
       render :new
     end
   end
@@ -23,5 +22,11 @@ class SessionsController < ApplicationController
     current_user.reset_session_token!
     session[:session_token] = nil
     redirect_to new_session_url
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password)
   end
 end
