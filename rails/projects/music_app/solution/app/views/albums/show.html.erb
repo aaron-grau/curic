@@ -7,9 +7,9 @@
 </ul>
 
 <h4>Links</h4>
-<ul>
-  <li><a href="<%= new_album_track_url(@album) %>">New track</a></li>
-  <li><a href="<%= edit_album_url(@album) %>">Edit album</a></li>
+<ul class='page-links'>
+  <li><a class='button' href="<%= new_album_track_url(@album) %>">New track</a></li>
+  <li><a class='button' href="<%= edit_album_url(@album) %>">Edit album</a></li>
   <li>
     <form action="<%= album_url(@album) %>" method="POST">
       <input type="hidden" name="_method" value="DELETE">
@@ -17,5 +17,5 @@
       <input type="submit" value="Destroy Album">
     </form>
   </li>
-  <li><a href="<%= band_url(@album.band) %>"><%= @album.band.name %></a></li>
+  <li><a class='button' href="<%= band_url(@album.band) %>">Back to <%= @album.band.name %></a></li>
 </ul>
