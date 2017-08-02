@@ -21,14 +21,16 @@
 
 ### Materials (20 min)
 * :book: [CSS Nontechnical Overview][css-nontech] (20 min)
+* :book: [CSS Resposive Design][css-responsive] (10 min)
 
 [css-nontech]: ../html-css/readings/css_nontech.md
+[css-responsive]: ../html-css/readings/responsive_design.md
 
 ### Homeworks (150 min)
 * [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
 * [CSS Warm Up][css-warmup] (60 min)
 
-[css-6]: ../html-css/README.md#lesson-6-positioning--media-queries
+[css-6]: ../html-css/micro-projects/positioning_media_queries/exercise.md
 [css-warmup]: ../html-css/projects/css_warm_up
 
 ### Additional Resources

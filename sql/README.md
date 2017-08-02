@@ -39,6 +39,19 @@
 
 [sql-bolt]: https://sqlbolt.com/
 
+### Culture
++ [What is Privilege?][privilege] (6 min)
++ [What is Intersectionality?][Intersectionality] (5 min)
++ [12 Things Allies Can Do][allies] (5 min)
++ [How Do I Ally?][allies-2] (7 min)
++ [Getting Started in Social Justice][social-justice] (8 min)
+
+[privilege]: https://www.buzzfeed.com/nicolaharvey/what-is-privilege
+[intersectionality]: http://www.care2.com/causes/what-is-intersectionality-and-why-is-it-important.html
+[allies]: https://blog.techinclusion.co/tech-diversity-12-things-an-ally-can-do-ca5c93435d26
+[allies-2]: https://medium.com/@hadrad1000/how-do-i-ally-being-an-ally-to-women-in-technology-73b70fb86a98
+[social-justice]: https://modelviewculture.com/pieces/getting-started-in-techs-social-justice-movement
+
 ### Projects
 + **Solo** [SQL Zoo][sqlzoo-readme]
 
@@ -93,7 +106,7 @@
 + [CSS Display Exercise][css-display-exercise]
 + [AA Questions][aa-questions]
 
-[css-display-exercise]: #
+[css-display-exercise]: ../html-css/micro-projects/display_box_model
 [aa-questions]: projects/aa_questions
 
 ## w3d3
@@ -156,7 +169,7 @@
 + [Associations Exercise][associations-exercise]
 + [URL Shortener][url-shortener]
 
-[css-reset-exercise]: #
+[css-reset-exercise]: ../html-css/micro-projects/css_reset
 [associations-exercise]: projects/associations_exercise
 [url-shortener]: projects/url_shortener
 
@@ -167,12 +180,13 @@
 
 [assessment-prep-3]: https://github.com/appacademy/assessment-prep#assessment-3
 
-### Materials (88 min)
+### Materials (103 min)
 + :book: [ActiveRecord::Relation][relation] (15 min)
 + :book: [ActiveRecord and Joins][ar-joins] (25 min)
 + :book: [Scopes][scopes] (10 min)
 + :book: [More on Querying][querying-ii] (15 min)
 + :movie_camera: [CSS Float & Clearfix][css-float-video] (18 min)
++ :movie_camera: [CSS Grid System][css-grid-video] (15 min)
 + :book: [CSS Float & Clearfix][css-float] (5 min)
 
 [relation]: readings/relation.md
@@ -180,6 +194,7 @@
 [scopes]: readings/scopes.md
 [querying-ii]: readings/querying-ii.md
 [css-float-video]: https://vimeo.com/album/3732382/video/151190182
+[css-grid-video]: https://vimeo.com/170320160
 [css-float]: ../html-css/readings/floats_clear_fix.md
 
 ### Homeworks (60 min)
@@ -201,13 +216,13 @@
 + [Movie Buff][movie-buff]
 + [Polls][polls-app]
 
-[css-float-exercise]: #use-old-flex-project
+[css-float-exercise]: ../html-css/micro-projects/float
 [movie-buff]: projects/movie_buff
 [polls-app]: projects/polls_app
 
 ## w3d5
 
-### Materials (88 min)
+### Materials (103 min)
 + :book: [Metaprogramming][metaprogramming] (20 min)
 + :book: [Class Instance Variables][class-instance-variables] (15 min)
 + :book: [Demo: send][meta-send] (5 min)
@@ -233,7 +248,7 @@
 + [CSS Flex Exercise][css-flex-exercise]
 + **Solo**: [Build Your Own ActiveRecord][build-your-own-ar]
 
-[css-flex-exercise]: ../html-css/micro-projects/float_fluid_flex/  
+[css-flex-exercise]: ../html-css/micro-projects/flex  
 [build-your-own-ar]: projects/active_record_lite
 
 ### :joy_cat: **Happy Hour!** :joy_cat:

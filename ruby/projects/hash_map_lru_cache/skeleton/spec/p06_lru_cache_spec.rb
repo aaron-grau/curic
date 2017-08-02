@@ -66,7 +66,7 @@ describe LRUCache do
       ).to eq([0, 2, 3])
     end
 
-    it "should update the map to point at the new link" do
+    it "should update the map to point at the new node" do
       lru = LRUCache.new(3, prc)
 
       1.upto(3) do |i|
