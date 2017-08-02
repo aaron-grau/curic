@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
 
     if @user.nil?
       # no user with the given name!
+      flash.now[:errors] = ["Invalid credentials"]
       render :new
     else
       # sign the user in

@@ -1,5 +1,13 @@
 <h1>Log in!</h1>
 
+<ul>
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+<% end %>
+</ul>
+
 <form action="/session" method="POST">
   <input
     type="hidden"
