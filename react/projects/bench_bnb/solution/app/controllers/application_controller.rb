@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
   helper_method :current_user, :logged_in?
 
   private
@@ -28,7 +27,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_in
-    render json: {base: ['invalid credentials']}, status: 401 if !current_user
+    unless current_user
+      render json: { base: ['invalid credentials'] }, status: 401
+    end
   end
 
 end
