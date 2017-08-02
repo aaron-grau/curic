@@ -17,32 +17,32 @@ describe LinkedList do
   end
 
   describe "#empty" do
-    it "checks whether any links have been inserted" do
+    it "checks whether any nodes have been inserted" do
       expect(empty_list.empty?).to be true
       expect(list.empty?).to be false
     end
   end
 
   describe "#append" do
-    it "appends links" do
+    it "appends nodes" do
       empty_list.append(:first, 1)
       expect(empty_list.empty?).to be false
     end
 
-    it "appends links in order" do
+    it "appends nodes in order" do
       expect(list.first.key).to be(:first)
       expect(list.last.key).to be(:third)
     end
   end
 
   describe "#update" do
-    it "updates links" do
+    it "updates nodes" do
       empty_list.append(:first, 1)
       empty_list.update(:first, 2)
       expect(empty_list.first.val).to be 2
     end
 
-    it "doesn't add new links" do
+    it "doesn't add new nodes" do
       empty_list.update(:first, 2)
       expect(empty_list.empty?).to be true
     end
@@ -61,13 +61,13 @@ describe LinkedList do
   end
 
   describe "#remove" do
-    it "removes a link by key" do
+    it "removes a node by key" do
       expect(list.get(:first)).to eq(1)
       list.remove(:first)
       expect(list.get(:first)).to be_nil
     end
 
-    it "reassigns pointers when links are removed" do
+    it "reassigns pointers when nodes are removed" do
       list.remove(:second)
 
       expect(list.first.next.key).to be(:third)
@@ -86,17 +86,17 @@ describe LinkedList do
   end
 
   describe "#each" do
-    it "enumerates over the links and yields each successive link" do
+    it "enumerates over the nodes and yields each successive node" do
       list_vals_ordered = k_v_pairs.values
       list_vals_yielded = []
-      list.each do |link|
-        list_vals_yielded << link.val
+      list.each do |node|
+        list_vals_yielded << node.val
       end
       expect(list_vals_yielded).to eq(list_vals_ordered)
     end
 
   describe "#[]" do
-    it "can look up links by index" do
+    it "can look up nodes by index" do
       expect(list[0].key).to eq(:first)
       expect(list[1].key).to eq(:second)
       expect(list[2].key).to eq(:third)

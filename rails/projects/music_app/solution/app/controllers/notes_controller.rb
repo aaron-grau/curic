@@ -16,6 +16,7 @@ class NotesController < ApplicationController
   end
 
   private
+  
   def note_params
     params.require(:note).permit(:content, :track_id)
   end

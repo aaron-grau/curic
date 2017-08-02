@@ -1,4 +1,4 @@
-# Fast and easy testing with `spring` and `guard`
+# Fast And Easy Testing With `spring` And `guard`
 
 ## Gems
 
@@ -17,7 +17,7 @@ group :development do
 end
 ```
 
-* `spring` is a Rails application preloader; it's included by default in
+* `spring` is a Rails application pre-loader; it's included by default in
 Rails 4.1+ apps. Spring speeds up development by keeping your
 application running in the background, so you don't need to boot it
 every time you run a test, rake task, or migration. Loading up your
@@ -58,9 +58,9 @@ specs whenever any file changes in the `app` or `spec` directories (or
 
 ```rb
 guard :rspec, cmd: 'spring rspec' do
-  watch(%r{^app/}) { "spec" }
-  watch(%r{^spec/}) { "spec" }
-  watch('config/routes.rb') { "spec" }
+  watch(%r{^app/}) { 'spec' }
+  watch(%r{^spec/}) { 'spec' }
+  watch('config/routes.rb') { 'spec' }
 end
 ```
 
@@ -69,10 +69,10 @@ plugin gem that we installed. Also, note that we are passing `cmd:
 'spring rspec'`. This will leverage `spring`'s application preloading to
 run our specs quickly.
 
-As your test suite grows larger, you can change the catch-all `"spec"`
-command to name a specific spec directory (such as `"spec/models"` or
-`"spec/features"`) or a specific spec file (such as
-`"spec/features/auth_spec.rb"`) to only trigger the execution of
+As your test suite grows larger, you can change the catch-all `'spec'`
+command to name a specific spec directory (such as `'spec/models'` or
+`'spec/features'`) or a specific spec file (such as
+`'spec/features/auth_spec.rb'`) to only trigger the execution of
 whichever specs you are focusing on at the moment.
 
 ## Setup Rspec
@@ -81,6 +81,12 @@ If you haven't already, set up RSpec with
 
 ```
 rails g rspec:install
+```
+
+**_N.B._** If this command seems to hang, close it out and try running:
+
+```
+spring stop
 ```
 
 ## Setup Spring
@@ -107,12 +113,11 @@ to fire up a Guard console. Now whenever you save a file, Guard should
 run all of your specs for you! They will run as slowly as ever the first
 time around, because Spring hasn't loaded our application's environment
 yet. But the second time that you save a file and your specs run (and
-every time thereafter), they should run noticeaby more quickly. Super
-convenient, right? :)
+every time thereafter), they should run noticeably more quickly. That's pretty convenient.
 
 ## Problems?
 
-### Version issues
+### Version Issues
 
 You might see an error like `You have already activated spring 1.3.3,
 but your Gemfile requires spring 1.3.2`. This is fixed easily with

@@ -18,13 +18,13 @@ namespace :api do
 end
 ```
 
-Running rake routes, we get:
+Running rails routes, we get:
 
 ```
   Prefix Verb URI Pattern         Controller#Action
 api_cats GET  /api/cats(.:format) api/cats#index
 ```
 
-Finally, we have to store our `index.json.jbuilder` view in the location 
+Finally, we have to store our `index.json.jbuilder` view in the location
 `app/views/api/cats/index.json.jbuilder` so our new `Api:CatsController` can
 find it. Now we can access our api endpoint on `localhost:3000/api/cats`.

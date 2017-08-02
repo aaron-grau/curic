@@ -1,4 +1,4 @@
-class Link
+class Node
   attr_accessor :key, :val, :next, :prev
 
   def initialize(key = nil, val = nil)
