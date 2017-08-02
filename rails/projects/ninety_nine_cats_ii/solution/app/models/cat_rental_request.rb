@@ -1,5 +1,7 @@
-class CatRentalRequest < ActiveRecord::Base
-  STATUS_STATES = %w(APPROVED DENIED PENDING)
+class CatRentalRequest < ApplicationRecord
+
+  # freeze renders constants immutable
+  STATUS_STATES = %w(APPROVED DENIED PENDING).freeze
 
   after_initialize :assign_pending_status
 
@@ -44,6 +46,7 @@ class CatRentalRequest < ActiveRecord::Base
   end
 
   private
+
   def assign_pending_status
     self.status ||= 'PENDING'
   end
