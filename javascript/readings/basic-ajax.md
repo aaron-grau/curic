@@ -74,10 +74,10 @@ And here's some JavaScript that might make a request to the server:
 
 ```javascript
 $.ajax({
-  url: "/widgets/1.json",
-  type: "GET",
+  url: '/widgets/1.json',
+  type: 'GET',
   success: function(widgetData) {
-    console.log("Here are the fetched json parameters of the widget:");
+    console.log('Here are the fetched json parameters of the widget:');
     console.log(widgetData);
   },
   error: function(errMsg) {
@@ -86,20 +86,20 @@ $.ajax({
 });
 
 $.ajax({
-  url: "/widgets.json",
-  type: "POST",
+  url: '/widgets.json',
+  type: 'POST',
   data: {
     widget: {
-      name: "The Best Widget",
-      maker: "The Widget King"
+      name: 'The Best Widget',
+      maker: 'The Widget King'
     }
   },
   success: function(widgetData) {
-    console.log("Widget created!");
+    console.log('Widget created!');
     // `create` action should `render json: @widget`
     // this gives the client access to the `id` attribute issued by
     // the server.
-    console.log("issued id: " + widgetData.id);
+    console.log('issued id: ' + widgetData.id);
   },
   error: function(errMsg) {
     console.log(errMsg);

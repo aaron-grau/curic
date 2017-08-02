@@ -12,7 +12,8 @@ Open up your `helpers/application_helper.rb` file and write a new method called 
 <input
   type="hidden"
   name="authenticity_token"
-  value='<%= form_authenticity_token %>'>
+  value='<%= form_authenticity_token %>'
+/>
 ```
 
 Let's put this code in our new `auth_token` method, but with a few changes. First of all, we'll need to wrap the input tag in a string and call `#html_safe` on it. Otherwise, our `auth_token` method will output the string literal for our input tag. Secondly, now that our input tag is little more than a string in Ruby-land, we shouldn't interpolate the actual `form_authenticity_token` using erb tags. Instead, just interpolate `form_authenticity_token` using the string interpolation syntax we know and love (`#{}`).
@@ -54,7 +55,7 @@ Finished? Navigate around your site in localhost. Make sure that the main body o
 1. Create a user mailer to welcome new users to your account. The `bundle exec rails generate mailer UserMailer` command will create a new mailer class file with some default code in `app/mailers/user_mailer.rb`.
 
   ```ruby
-  class UserMailer < ActionMailer::Base
+  class UserMailer < ApplicationMailer
     default from: 'from@example.com'
   end
   ```
@@ -64,7 +65,7 @@ Finished? Navigate around your site in localhost. Make sure that the main body o
   Need a hint? Refer back to the [mailer readings][mailer-reading-1].
 
   ```ruby
-  class UserMailer < ActionMailer::Base
+  class UserMailer < ApplicationMailer
     default from: 'from@example.com'
 
     def welcome_email(user)
@@ -90,7 +91,7 @@ Finished? Navigate around your site in localhost. Make sure that the main body o
 
   ```ruby
   # Gemfile
-  gem "letter_opener", group: :development
+  gem 'letter_opener', group: :development
 
   # config/environments/development.rb
   config.action_mailer.delivery_method = :letter_opener

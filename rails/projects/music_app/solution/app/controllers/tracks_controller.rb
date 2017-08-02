@@ -1,6 +1,17 @@
 class TracksController < ApplicationController
   before_action :require_user!
 
+  def show
+    @track = Track.find(params[:id])
+    render :show
+  end
+
+  def new
+    @album = Album.find(params[:album_id])
+    @track = Track.new(album_id: params[:album_id])
+    render :new
+  end
+
   def create
     @track = Track.new(track_params)
 
@@ -13,26 +24,9 @@ class TracksController < ApplicationController
     end
   end
 
-  def destroy
-    @track = Track.find(params[:id])
-    @track.destroy
-    redirect_to album_url(@track.album_id)
-  end
-
   def edit
     @track = Track.find(params[:id])
     render :edit
-  end
-
-  def new
-    @album = Album.find(params[:album_id])
-    @track = Track.new(album_id: params[:album_id])
-    render :new
-  end
-
-  def show
-    @track = Track.find(params[:id])
-    render :show
   end
 
   def update
@@ -45,7 +39,14 @@ class TracksController < ApplicationController
     end
   end
 
+  def destroy
+    @track = Track.find(params[:id])
+    @track.destroy
+    redirect_to album_url(@track.album_id)
+  end
+
   private
+
   def track_params
     params.require(:track).permit(:album_id, :bonus, :lyrics, :name, :ord)
   end

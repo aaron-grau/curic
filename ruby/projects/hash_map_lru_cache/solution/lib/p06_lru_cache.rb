@@ -15,9 +15,9 @@ class LRUCache
 
   def get(key)
     if map[key]
-      link = map[key]
-      update_link!(link)
-      link.val
+      node = map[key]
+      update_node!(node)
+      node.val
     else
       calc!(key)
     end
@@ -32,22 +32,22 @@ class LRUCache
 
   def calc!(key)
     val = @prc.call(key)
-    new_link = store.append(key, val)
-    map[key] = new_link
+    new_node = store.append(key, val)
+    map[key] = new_node
 
     eject! if count > @max
     val
   end
 
-  def update_link!(link)
-    link.remove
-    map[link.key] = store.append(link.key, link.val)
+  def update_node!(node)
+    node.remove
+    map[node.key] = store.append(node.key, node.val)
   end
 
   def eject!
-    rm_link = store.first
-    rm_link.remove
-    map.delete(rm_link.key)
+    rm_node = store.first
+    rm_node.remove
+    map.delete(rm_node.key)
     nil
   end
 end

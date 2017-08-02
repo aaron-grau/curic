@@ -8,6 +8,7 @@ are two parts:
 * Views, which live in `app/views/[mailer_name]`.
 
 ## Your first mailer
+
 ### Generate the Mailer
 
 ```bash
@@ -21,7 +22,7 @@ create    test/functional/user_mailer_test.rb
 
 So we have the mailer, the views, and the tests.
 
-### Edit the mailer
+### Edit The Mailer
 
 `app/mailers/user_mailer.rb` contains an empty mailer:
 
@@ -36,7 +37,7 @@ the user's registered email address:
 
 ```ruby
 # app/mailers/user_mailer.rb
-class UserMailer < ActionMailer::Base
+class UserMailer < ApplicationMailer
   default from: 'notifications@example.com'
 
   def welcome_email(user)
@@ -84,7 +85,7 @@ though. The caller of `UserMailer#welcome_email` will then call
   end
 ```
 
-### Create a mailer view
+### Create A Mailer View
 
 Wait. What about the content? Create a file called
 `welcome_email.html.erb` in `app/views/user_mailer/`. This will be the
@@ -102,7 +103,7 @@ template used for the email, formatted in HTML:
     <h1>Welcome to example.com, <%= @user.name %></h1>
     <p>
       You have successfully signed up to example.com,
-      your username is: <%= @user.login %>.<br/>
+      your username is: <%= @user.login %>.<br />
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
@@ -142,7 +143,7 @@ templates (text and HTML) and automatically generate a
 `multipart/alternative` email; the user's email client will be able to
 choose between the two formats.
 
-### Mailing is slow
+### Mailing Is Slow
 
 Sending out an email often takes up to 1sec. This is kind of slow. In
 particular, if your Rails app is sending a mail as part of a
@@ -153,11 +154,11 @@ We'll eventually learn how to "batch up" and send emails offline, but
 for now just know that if you try to send 100 emails in a controller
 method, you're going to have trouble responding to requests promptly.
 
-## Mailing deets
+## Mailing Details
 
-### Adding attachments
+### Adding Attachments
 
-Adding attachments is pretty simple, just add new key/value pairs to the hash-like `attachments` variable. This is provided in each instance of `ActionMailer::Base`.
+Adding attachments is pretty simple, just add new key/value pairs to the hash-like `attachments` variable. This is provided in each instance of `ActionMailer::Base`, which comes through `ApplicationMailer`.
 
 ```ruby
 # app/mailers/user_mailer.rb
@@ -168,7 +169,7 @@ Adding attachments is pretty simple, just add new key/value pairs to the hash-li
   end
 ```
 
-### Generating URLs in Action Mailer Views
+### Generating URLs In Action Mailer Views
 
 You will probably want to embed URLs into your mailer views just like
 for your controller views. Somewhat oddly, you must set an option in
@@ -207,7 +208,7 @@ Setup is two lines:
 
 ```ruby
 # Gemfile
-gem "letter_opener", group: :development
+gem 'letter_opener', group: :development
 
 # config/environments/development.rb
 config.action_mailer.delivery_method = :letter_opener
