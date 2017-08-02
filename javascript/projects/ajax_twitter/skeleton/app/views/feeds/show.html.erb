@@ -3,8 +3,8 @@
 <b>Your Feed!</b>
 <ul id="feed">
   <% @feed_tweets.each do |tweet| %>
-    <li><%= render "tweets/tweet", tweet: tweet %></li>
+    <li><%= render 'tweets/tweet', tweet: tweet %></li>
   <% end %>
 </ul>
 
-<%= render "tweets/form" %>
+<%= render 'tweets/form' %>

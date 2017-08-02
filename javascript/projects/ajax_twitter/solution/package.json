@@ -1,0 +1,12 @@
+{
+  "name": "ajax_twitter",
+  "private": true,
+  "scripts": {
+    "postinstall":"webpack",
+    "webpack": "webpack --watch"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "webpack": "^3.4.1"
+  }
+}

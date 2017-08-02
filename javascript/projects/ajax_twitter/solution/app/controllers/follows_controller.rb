@@ -9,7 +9,7 @@ class FollowsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referrer }
-      format.json { render :show }
+      format.json { render json: @follow }
     end
   end
 
@@ -22,7 +22,7 @@ class FollowsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referrer }
-      format.json { render :show }
+      format.json { render json: @follow }
     end
   end
 end

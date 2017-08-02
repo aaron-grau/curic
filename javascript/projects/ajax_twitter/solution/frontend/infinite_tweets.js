@@ -1,12 +1,14 @@
 const APIUtil = require('./api_util');
 
+const _ = require('lodash');
+
 class InfiniteTweets {
   constructor(el) {
     this.$el = $(el);
     this.lastCreatedAt = null;
 
-    this.$el.on("click", ".fetch-more", this.fetchTweets.bind(this));
-    this.$el.on("insert-tweet", this.insertTweet.bind(this));
+    this.$el.on('click', '.fetch-more', this.fetchTweets.bind(this));
+    this.$el.on('insert-tweet', this.insertTweet.bind(this));
   }
 
   fetchTweets(event) {
@@ -20,8 +22,8 @@ class InfiniteTweets {
       infiniteTweets.insertTweets(data);
 
       if (data.length < 20) {
-        infiniteTweets.$el.find(".fetch-more")
-                          .replaceWith("<b>No more tweets!</b>");
+        infiniteTweets.$el.find('.fetch-more')
+                          .replaceWith('<b>No more tweets!</b>');
       }
 
       if (data.length > 0) {
@@ -31,8 +33,8 @@ class InfiniteTweets {
   }
 
   insertTweet(event, data) {
-    const tmpl = _.template(this.$el.find("script").html());
-    this.$el.find("ul.tweets").prepend(tmpl({
+    const tmpl = _.template(this.$el.find('script').html());
+    this.$el.find('ul.tweets').prepend(tmpl({
       tweets: [data]
     }));
 
@@ -42,8 +44,8 @@ class InfiniteTweets {
   }
 
   insertTweets(data) {
-    const tmpl = _.template(this.$el.find("script").html());
-    this.$el.find("ul.tweets").append(tmpl({
+    const tmpl = _.template(this.$el.find('script').html());
+    this.$el.find('ul.tweets').append(tmpl({
       tweets: data
     }));
   }
