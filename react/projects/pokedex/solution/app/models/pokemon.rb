@@ -16,7 +16,7 @@ class Pokemon < ApplicationRecord
     'ground',
     'rock',
     'steel'
-  ].sort
+  ].sort.freeze
 
   validates :attack, :defense, :image_url, :name, :poke_type, presence: true
   validates :name, uniqueness: true
