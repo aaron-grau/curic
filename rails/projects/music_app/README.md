@@ -44,9 +44,12 @@ of `email`s and speed up the lookup by `session_token`.
   `password_digest` attribute using [BCrypt][bcrypt-documentation],
   and a `User#is_password?(password)` method to check the users'
   password when they log in.
-    * Be careful setting instance variables in ActiveRecord, you can't
-      just set `@password_digest`. In `#password=` use
-      `self.password_digest=`.
+  * Be careful setting instance variables in ActiveRecord, you can't
+    just set `@password_digest`. In `#password=` use
+    `self.password_digest=`. (`self.___=` calls an `attr_accessor`
+    defined for us by ActiveRecord, which is the state that is saved by
+    `self.save`. While `@___` makes a new instance variable,
+    unrelated to `self.save`)
 * Remember that in the `User` model, you'll want to use an
   `after_initialize` [callback][rails-guides-callbacks] to set the
   `session_token` before validation if it's not present.
@@ -55,14 +58,14 @@ of `email`s and speed up the lookup by `session_token`.
 Next write a `UsersController` and `SessionsController`
 
 * Write methods on the `UsersController` to allow new users to sign up.
-    * Users should be logged in immediately after they sign up.
+  * Users should be logged in immediately after they sign up.
 * Create a `SessionsController` but no `Session` model.
-    * Write controller methods and the accompanying routes so that users
-      can log in and log out. Should session be a singular resource?
-    * `SessionsController#create` should re-set the appropriate user's
-      `session_token` and `session[:session_token]`.
-    * For now just redirect them to a `User#show` page which simply
-      displays that user's email.
+  * Write controller methods and the accompanying routes so that users
+    can log in and log out. Should session be a singular resource?
+  * `SessionsController#create` should re-set the appropriate user's
+    `session_token` and `session[:session_token]`.
+  * For now just redirect them to a `User#show` page which simply
+    displays that user's email.
 
 Finally, take some time to refactor out shared code & add some
 convenience methods to `ApplicationController`. Make sure to include
@@ -79,12 +82,12 @@ the appropriate methods in your views as helper methods
 Your app should have routes for:
 
 ```
-        session POST   /session(.:format)                     sessions#create
-    new_session GET    /session/new(.:format)                 sessions#new
-                DELETE /session(.:format)                     sessions#destroy
-          users POST   /users(.:format)                       users#create
-       new_user GET    /users/new(.:format)                   users#new
-           user GET    /users/:id(.:format)                   users#show
+    session POST   /session(.:format)                     sessions#create
+new_session GET    /session/new(.:format)                 sessions#new
+            DELETE /session(.:format)                     sessions#destroy
+      users POST   /users(.:format)                       users#create
+   new_user GET    /users/new(.:format)                   users#new
+       user GET    /users/:id(.:format)                   users#show
 ```
 
 Also, edit the `application.html.erb` layout so that a logged in user is
@@ -92,7 +95,6 @@ displayed a "sign-out" button.
 
 [rails-guides-callbacks]:http://guides.rubyonrails.org/v3.2.13/active_record_validations_callbacks.html#available-callbacks
 [bcrypt-documentation]:https://github.com/codahale/bcrypt-ruby
-[write_attribute]:http://api.rubyonrails.org/classes/ActiveRecord/Base.html
 
 ## Phase I: Band/Album/Track
 
@@ -100,23 +102,22 @@ We'll put aside the `user` features for a moment and build out our
 inventory system. First, the relevant models:
 
 * A `Band` records many `Album`s.
-    * Just a `name` attribute
+  * Just a `name` attribute
 * An `Album` contains many `Track`s.
-    * Don't call it `Record`, as ActiveRecord uses `record_id`
-      internally.
-    * Have a drop-down to select which `Band` recorded the `Album`. Use
-      `selected` to default-select the appropriate `Band` in the
-      drop-down.
-    * Use radio buttons to select whether the album is a live or studio
-      album. Don't use a column named `type`, since Rails uses this for
-      a special purpose and everything will break. Use `checked` to
-      default select the appropriate value.
+  * Don't call it `Record`, as ActiveRecord uses `record_id` internally.
+  * Have a drop-down to select which `Band` recorded the `Album`. Use
+    `selected` to default-select the appropriate `Band` in the
+    drop-down.
+  * Use radio buttons to select whether the album is a live or studio
+    album. Don't use a column named `type`, since Rails uses this for
+    a special purpose and everything will break. Use `checked` to
+    default select the appropriate value.
 * A `Track` is a recording on an `Album`.
-    * You need a drop down to select the `Album`. Again, default select
-      the appropriate `Album` in the drop down.
-    * Use radio buttons to mark a track as a "bonus" or "regular" track.
-      Again, default select the appropriate value.
-    * Use a `textarea` to allow the user to enter lyrics.
+  * You need a drop down to select the `Album`. Again, default select
+    the appropriate `Album` in the drop down.
+  * Use radio buttons to mark a track as a "bonus" or "regular" track.
+    Again, default select the appropriate value.
+  * Use a `textarea` to allow the user to enter lyrics.
 
 Add `dependent: :destroy` to applicable associations. Remember that
 this option causes associated objects to be destroyed on destroy.
@@ -167,7 +168,7 @@ Each of your `Band`/`Album`/`Track` show pages should have links for:
 * Up one level (`Track` to `Album`, `Album` to `Band`, `Band` to bands
   index).
 * Down one level (`Band` to each `Album`, `Album` to each `Track`).
-    * Also a link to build one more of each.
+  * Also a link to build one more of each.
 
 ### Requiring Login
 
@@ -181,30 +182,30 @@ Let's allow users to write notes about tracks. Let's "embed" the note
 form on the track show page.
 
 * Add a `Note` model. Users can take a `Note` on any `Track`.
-    * `Note`s will belong to a `User` and a `Track`.
-    * Use a `TEXT` column to store arbitrarily long notes.
-    * Write appropriate presence validations.
+  * `Note`s will belong to a `User` and a `Track`.
+  * Use a `TEXT` column to store arbitrarily long notes.
+  * Write appropriate presence validations.
 * On the `Track` show page, display the track's `Note`s.
-    * Write a `notes/_note.html.erb` partial.
-    * Render the content, plus the author's email.
+  * Write a `notes/_note.html.erb` partial.
+  * Render the content, plus the author's email.
 * Put a `Note` form on the `Track` show page.
-    * Use a `notes/_form.html.erb` partial.
-    * Use a `textarea` in the form. Do not store the `user_id` in a
-      hidden field. **Why?**
-    * On submit of a new `Note`, redirect back to the `Track`.
-    * For this form, you can `redirect_to` the track even on
-      validation failure. This "blanks out" the note content in the
-      form. That would be bad, but the only real validation is that the
-      content not be blank...
+  * Use a `notes/_form.html.erb` partial.
+  * Use a `textarea` in the form. Do not store the `user_id` in a
+    hidden field. **Why?**
+  * On submit of a new `Note`, redirect back to the `Track`.
+  * For this form, you can `redirect_to` the track even on
+    validation failure. This "blanks out" the note content in the
+    form. That would be bad, but the only real validation is that the
+    content not be blank...
 * Add destroy buttons for notes to the `notes/_note` partial.
-    * Only show the button if the `current_user` authored the note.
-    * In the controller, ensure that a user is not allowed to destroy
-      a note unless they authored it.
-    * Issue a 403 FORBIDDEN status if the user tries to destroy a note
-      but they are not allowed to. Use `render text:` to give a
-      bare-bones error message here. Don't worry about making this nice
-      because someone would have to reverse-engineer your API in order
-      to see it.
+  * Only show the button if the `current_user` authored the note.
+  * In the controller, ensure that a user is not allowed to destroy
+    a note unless they authored it.
+  * Issue a 403 FORBIDDEN status if the user tries to destroy a note
+    but they are not allowed to. Use `render text:` to give a
+    bare-bones error message here. Don't worry about making this nice
+    because someone would have to reverse-engineer your API in order
+    to see it.
 
 ## Phase III: Helpers
 
@@ -278,6 +279,22 @@ they sign up.
 [adding-routes-rails-guides]: http://guides.rubyonrails.org/v3.2.13/routing.html#adding-more-restful-actions
 [ar-toggle]: http://api.rubyonrails.org/classes/ActiveRecord/Persistence.html#method-i-toggle
 
+#### Testing Your ActionMailer
+
+* Run `gem install mailcatcher`
+* Run `mailcatcher`
+* Open `http://127.0.0.1:1080/` in the browser
+* Put the following code in your `environments/development.rb`:
+
+```ruby
+config.action_mailer.default_url_options = { host: 'localhost:3000' }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
+config.action_mailer.raise_delivery_errors = false
+```
+
+* Restart your rails server and send away!
+
 ### Bonus II: Admin Accounts
 
 Let's add admin accounts for people from our record label. This way
@@ -297,7 +314,7 @@ properties.
   * Put a button next to each user which, when clicked, makes that
     user an admin.
 
-### Bonus III: More bonuses!
+### Bonus III: More Bonuses!
 
 * Implement `tags`. Use [polymorphic associations][poly-assoc] to associate `tags` with
 `bands`, `albums`, and `tracks`.

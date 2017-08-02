@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,53 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301012113) do
+ActiveRecord::Schema.define(version: 20170714060238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cheers", force: true do |t|
-    t.integer  "giver_id"
-    t.integer  "goal_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "cheers", force: :cascade do |t|
+    t.integer "giver_id", null: false
+    t.integer "goal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["giver_id"], name: "index_cheers_on_giver_id"
+    t.index ["goal_id", "giver_id"], name: "index_cheers_on_goal_id_and_giver_id", unique: true
   end
 
-  add_index "cheers", ["giver_id"], name: "index_cheers_on_giver_id", using: :btree
-  add_index "cheers", ["goal_id"], name: "index_cheers_on_goal_id", using: :btree
-
-  create_table "comments", force: true do |t|
-    t.text     "body"
-    t.integer  "author_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "comments", force: :cascade do |t|
+    t.string "body", null: false
+    t.integer "author_id", null: false
+    t.integer "commentable_id", null: false
+    t.string "commentable_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id"
   end
 
-  create_table "goals", force: true do |t|
-    t.string   "title"
-    t.boolean  "private",    default: false
-    t.text     "details"
-    t.boolean  "completed",  default: false
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "goals", force: :cascade do |t|
+    t.string "title", null: false
+    t.boolean "private", default: false, null: false
+    t.text "details", null: false
+    t.boolean "completed", default: false, null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_goals_on_title"
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
-  add_index "goals", ["title"], name: "index_goals_on_title", using: :btree
-  add_index "goals", ["user_id"], name: "index_goals_on_user_id", using: :btree
-
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "password_digest"
-    t.string   "session_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "cheer_count"
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "session_token", null: false
+    t.string "password_digest", null: false
+    t.integer "cheer_count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_token"], name: "index_users_on_session_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
-
-  add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
