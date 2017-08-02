@@ -1,3 +1,3 @@
-class Corgi < ActiveRecord::Base
+class Corgi < ApplicationRecord
   include Toyable
 end

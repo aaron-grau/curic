@@ -1,4 +1,4 @@
-class Gift < ActiveRecord::Base
+class Gift < ApplicationRecord
   validates :description, :title, :guest, presence: true
 
   belongs_to :guest

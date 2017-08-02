@@ -18,7 +18,7 @@ Let's see it go!
 </form>
 
 <script>
-  $("#cat-form").on("submit", event => {
+  $('#cat-form').on('submit', (event) => {
 		// Lookup `preventDefault`; it stops the browser's default action,
 		// which is to make a synchronous submission of the form.
 		// http://api.jquery.com/category/events/event-object
@@ -33,11 +33,11 @@ Let's see it go!
 		// formData == "cat%5Bname%5D=Gizmo&cat%5Bcolor%5D=Black"
 
 		$.ajax({
-			url: "/cats",
-			type: "POST",
+			url: '/cats',
+			type: 'POST',
 			data: formData,
 			success() {
-				console.log("Your callback here!");
+				console.log('Your callback here!');
 			}
 		});
   });
@@ -59,7 +59,7 @@ object following the Rails parameter conventions.
 
 Using the same form as the above example, we can now get `formData` in the following way:
 
-```js 
+```js
 var formData = $(event.currentTarget).serializeJSON();
 
 /* formData is now an easy-to-use POJO

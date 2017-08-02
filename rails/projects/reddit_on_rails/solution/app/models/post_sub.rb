@@ -1,4 +1,4 @@
-class PostSub < ActiveRecord::Base
+class PostSub < ApplicationRecord
   validates :post, :sub, presence: true
 
   belongs_to :post

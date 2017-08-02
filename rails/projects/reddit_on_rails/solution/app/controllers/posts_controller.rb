@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    render :new
   end
 
   def create
@@ -13,18 +12,15 @@ class PostsController < ApplicationController
       redirect_to post_url(@post)
     else
       flash.now[:errors] = @post.errors.full_messages
-      render :new
     end
   end
 
   def show
     @post = Post.find(params[:id])
-    render :show
   end
 
   def edit
     @post = Post.find(params[:id])
-    render :edit
   end
 
   def update
@@ -37,19 +33,24 @@ class PostsController < ApplicationController
     end
   end
 
-  def downvote; vote(-1); end
-  def upvote; vote(1); end
+  def downvote
+    vote(-1)
+  end
+
+  def upvote
+    vote(1)
+  end
 
   private
   def post_params
     params.require(:post).permit(
-      :url, :title, :content, :user_id, sub_ids: []
+    :url, :title, :content, :user_id, sub_ids: []
     )
   end
 
   def require_user_owns_post!
     return if current_user.posts.find_by(id: params[:id])
-    render json: "Forbidden", status: :forbidden
+    render json: 'Forbidden', status: :forbidden
   end
 
   def vote(direction)
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
     @user_vote = @post.user_votes.find_or_initialize_by(user: current_user)
 
     unless @user_vote.update(value: direction)
-      flash[:errors] = @user_vote.errors.full_messages 
+      flash[:errors] = @user_vote.errors.full_messages
     end
 
     redirect_to post_url(@post)

@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
   def show
     @feed_tweets =
       current_user.feed_tweets(LIMIT, params[:max_created_at]).includes(:user)
-    
+
     render :show
   end
 end

@@ -1,4 +1,4 @@
-class Api::TodosController < Api::ApiController
+class Api::TodosController < ApplicationController
   before_action :deny_access_if_not_logged_in
 
   def index

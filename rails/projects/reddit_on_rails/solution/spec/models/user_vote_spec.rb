@@ -1,7 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe UserVote do
-
+RSpec.describe UserVote, type: :model do
   it { should validate_presence_of(:user) }
 
   it { should belong_to(:user) }

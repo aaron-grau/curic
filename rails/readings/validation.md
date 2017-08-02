@@ -28,7 +28,7 @@ Lets consider the `User` class with basic validations for username and
 password.
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :username, :password, presence: true
   validates :password, length: { minimum: 6 }
 end
@@ -37,7 +37,7 @@ end
 So if we run
 
 ```ruby
-u = User.new(username: "Billy Bob")
+u = User.new(username: 'Billy Bob')
 u.save
 ```
 
@@ -80,7 +80,7 @@ a `flash[:errors]` array.
 def create
   @user = User.new(params[:user])
   if @user.save
-    flash[:notice] = "Success!"
+    flash[:notice] = 'Success!'
     redirect_to user_url(@user)
   else
     # sweet! now my flash.now[:errors] will be full of informative errors!
@@ -104,10 +104,10 @@ the errors if any.
 <% end %>
 
 <!-- views/users/new.html.erb -->
-<%= render partial: "layouts/errors" %>
+<%= render partial: 'layouts/errors' %>
 
 <!-- views/users/edit.html.erb -->
-<%= render partial: "layouts/errors" %>
+<%= render partial: 'layouts/errors' %>
 ```
 
 Notice how trivial it is to add the list of errors to future new/edit

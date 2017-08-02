@@ -37,7 +37,7 @@ information as it executes.
 
 ## Example
 
-### Static HTML Implementation (The old way)
+### Static HTML Implementation (The Old Way)
 
 Take a look at this `CatsController`:
 
@@ -57,6 +57,7 @@ It should render the following template whenever we visit `localhost:3000/cats`:
 ```erb
 <!-- app/views/cats/index.html.erb -->
 <h1> Cats </h1>
+
 <ul>
 <% @cats.each do |cat| %>
 	<li><%= cat.name %>: <%= cat.color %></li>

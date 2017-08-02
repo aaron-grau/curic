@@ -85,12 +85,12 @@ validations and returns true if no errors were found in the object,
 and false otherwise.
 
 ```ruby
-class Person < ActiveRecord::Base
-  validates :name, :presence => true
+class Person < ApplicationRecord
+  validates :name, presence: true
 end
 
-Person.create(:name => "John Doe").valid? # => true
-Person.create(:name => nil).valid? # => false
+Person.create(name: 'John Doe').valid? # => true
+Person.create(name: nil).valid? # => false
 ```
 
 ## `errors`
@@ -110,8 +110,8 @@ some such before trying to access `errors`.
 ```ruby
 # let's see some of the many ways a record may fail to save!
 
-class Person < ActiveRecord::Base
-  validates :name, :presence => true
+class Person < ApplicationRecord
+  validates :name, presence: true
 end
 
 >> p = Person.new
@@ -172,9 +172,9 @@ method to check if the value is either `nil` or a blank string, that
 is, a string that is either empty or consists of only whitespace.
 
 ```ruby
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   # must have name, login, and email
-  validates :name, :login, :email, :presence => true
+  validates :name, :login, :email, presence: true
 end
 ```
 
@@ -186,10 +186,10 @@ If you want to be sure that an associated object exists, you can do
 that too:
 
 ```ruby
-class LineItem < ActiveRecord::Base
+class LineItem < ApplicationRecord
   belongs_to :order
 
-  validates :order, :presence => true
+  validates :order, presence: true
 end
 ```
 
@@ -205,9 +205,9 @@ The default error message is "X can't be empty".
 This helper validates that the attribute's value is unique:
 
 ```ruby
-class Account < ActiveRecord::Base
+class Account < ApplicationRecord
   # no two Accounts with the same email
-  validates :email, :uniqueness => true
+  validates :email, uniqueness: true
 end
 ```
 
@@ -215,11 +215,11 @@ There is a very useful `:scope` option that you can use to specify
 other attributes that are used to limit the uniqueness check:
 
 ```ruby
-class Holiday < ActiveRecord::Base
+class Holiday < ApplicationRecord
   # no two Holidays with the same name for a single year
-  validates :name, :uniqueness => {
-    :scope => :year,
-    :message => "should happen once per year"
+  validates :name, uniqueness: {
+    scope: :year,
+    message: 'should happen once per year'
   }
 end
 ```
@@ -236,7 +236,6 @@ Validation    |  Database Constraint  |  Model Validation
 Present       |  null: false          |  presence: true
 All Unique    |  add_index :tbl, :col, unique: true                   | uniqueness: true
 Scoped Unique |  add_index :tbl, [:scoped_to_col, :col], unique: true | uniqueness: { scope: :scoped_to_col }
-
 
 ### Less common helpers
 
@@ -255,3 +254,133 @@ details:
 * `inclusion`
     * `in` option lets you specify an array of possible values. All
       other values are invalid.
+
+## Warning!
+
+Rails 5 introduces a new behavior: it automatically validates the presence of `belongs_to` associations.
+To override this default behavior, we have to pass `optional: true` to the association initialization.
+
+Let's look at an example.
+Say we have the following models:
+
+```ruby
+class Home < ApplicationRecord
+  has_many :cats,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Cat
+end
+
+class Cat < ApplicationRecord
+  belongs_to :home,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Home
+end
+```
+
+Let's assume that we want to allow for cats to be without a home (😞).
+Because Rails 5 validates the presence of `belongs_to` associations, if we try to `save` a cat without a home, we'll get a validation error.
+
+```ruby
+cat = Cat.new
+cat.save!
+#=> (0.3ms)  BEGIN
+# (0.4ms)  ROLLBACK
+# ActiveRecord::RecordInvalid: Validation failed: Home must exist
+```
+
+In order to allow for homeless cats, we would have to `optional: true` like so:
+
+```ruby
+class Cat < ApplicationRecord
+  belongs_to :home,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Home,
+    optional: true
+end
+```
+
+With that, we get the following:
+
+```ruby
+cat = Cat.new
+cat.save!
+#=>    (0.3ms)  BEGIN
+#  SQL (5.0ms)  INSERT INTO "cats" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2017-07-05 20:24:43.182051"], ["updated_at", "2017-07-05 20:24:43.182051"]]
+#    (2.6ms)  COMMIT
+```
+
+## Another Warning!
+
+Because Rails 5 automatically validates the presence of our `belongs_to` associations, we can actually find ourselves in a bit of a tricky spot when also explicitly validating such an association.
+Let's imagine that we want to have cats that belong to homes, and the presence of the home for each cat is in fact validated.
+Imagine we approached that by doing the following:
+
+```ruby
+class Home < ApplicationRecord
+  has_many :cats,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Cat
+end
+
+class Cat < ApplicationRecord
+  validates :home, presence: true
+
+  belongs_to :home,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Home
+end
+```
+
+This seems like the right way of going about it, but in Rails 5 it's not!
+Remember, Rails 5 automatically validates the presence of our `belongs_to` associations.
+By writing our own validation of `validates :home, presence: true`, we are actually validating it twice!
+That might seem harmless enough, but that gives us errors that we don't want.
+Notice the resulting errors in the following example:
+
+```
+irb(main):001:0> c = Cat.new(name: 'Callie')
+=> #<Cat id: nil, name: "Callie", home_id: nil, created_at: nil, updated_at: nil>
+irb(main):002:0> c.save!
+   (0.1ms)  begin transaction
+   (0.1ms)  rollback transaction
+ActiveRecord::RecordInvalid: Validation failed: Home can't be blank, Home must exist
+```
+
+Notice we get `Home can't be blank` in addition to `Home must exist`.
+What's the problem with that, you ask?
+We'll be in positions later where we'll want to display our errors to the users of our applications, and if we were to display both of these error messages for the same error, our users are likely to be confused.
+Because of this, **we will specifically refrain from validating our `belongs_to` associations**.
+
+So, what we'd prefer to do is the following:
+
+```ruby
+class Home < ApplicationRecord
+  has_many :cats,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Cat
+end
+
+class Cat < ApplicationRecord
+  belongs_to :home,
+    primary_key: :id,
+    foreign_key: :home_id,
+    class_name: :Home
+end
+```
+
+Now, we we try to `save` a cat without a home, we get a single, appropriate error:
+
+```
+irb(main):001:0> c = Cat.new(name: 'Callie')
+=> #<Cat id: nil, name: "Callie", home_id: nil, created_at: nil, updated_at: nil>
+irb(main):002:0> c.save!
+   (0.2ms)  begin transaction
+   (0.1ms)  rollback transaction
+ActiveRecord::RecordInvalid: Validation failed: Home must exist
+```

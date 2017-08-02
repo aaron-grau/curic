@@ -1,2 +1,2 @@
-class Enrollment < ActiveRecord::Base
+class Enrollment < ApplicationRecord
 end

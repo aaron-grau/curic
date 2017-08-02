@@ -1,8 +1,8 @@
 class CatsController < ApplicationController
   def create
-    p "THESE ARE THE PARAMS"
+    p 'THESE ARE THE PARAMS'
     p params
-    p "THESE ARE THE CAT PARAMS"
+    p 'THESE ARE THE CAT PARAMS'
     p cat_params
 
     Cat.create!(cat_params)
@@ -21,8 +21,6 @@ class CatsController < ApplicationController
   end
 
   def cat_params
-    params.
-      require(:cat).
-      permit(:name, :age, :sex, :biography, :coat_color, :birth_date)
+    params.require(:cat).permit(:name, :age, :sex, :biography, :coat_color, :birth_date)
   end
 end

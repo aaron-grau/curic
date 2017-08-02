@@ -1,5 +1,5 @@
 {
-  "name": "solution",
+  "name": "pokedex",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -25,7 +25,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack",
-    "webpack": "webpack --watch"
+    "start": "webpack --watch"
   },
   "author": "",
   "license": "ISC"

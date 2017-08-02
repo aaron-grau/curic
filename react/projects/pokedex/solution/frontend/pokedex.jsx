@@ -6,7 +6,7 @@ import { HashRouter, Route } from 'react-router-dom';
 import configureStore from './store/store';
 import PokemonIndexContainer from './components/pokemon/pokemon_index_container';
 
-const Root = ({store}) => (
+const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
       <Route path="/" component={PokemonIndexContainer} />

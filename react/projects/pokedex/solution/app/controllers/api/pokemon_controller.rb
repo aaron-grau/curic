@@ -1,4 +1,14 @@
 class Api::PokemonController < ApplicationController
+  def index
+    sleep 0.5
+    @pokemon = Pokemon.all
+  end
+
+  def show
+    sleep 0.5
+    @pokemon = Pokemon.find(params[:id])
+  end
+
   def create
     @pokemon = Pokemon.new(pokemon_params)
 
@@ -12,24 +22,13 @@ class Api::PokemonController < ApplicationController
   def destroy
     @pokemon = Pokemon.find(params[:id])
     @pokemon.destroy
+
     render :show
-  end
-
-  def index
-    sleep 0.5
-    @pokemon = Pokemon.all
-  end
-
-  def show
-    sleep 0.5
-    @pokemon = Pokemon.find(params[:id])
   end
 
   private
 
   def pokemon_params
-    params
-      .require(:pokemon)
-      .permit(:image_url, :attack, :defense, :name, :poke_type, moves: [])
+    params.require(:pokemon).permit(:image_url, :attack, :defense, :name, :poke_type, moves: [])
   end
 end

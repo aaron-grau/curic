@@ -1,7 +1,8 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-require 'faker'
 FactoryGirl.define do
   factory :comment do
-    body Faker::Lorem.paragraph
+    body "MyText"
+    parent_comment_id 1
+    post_id 1
+    user_id 1
   end
 end

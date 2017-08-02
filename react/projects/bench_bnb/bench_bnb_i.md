@@ -114,7 +114,7 @@ Create a new file, `util/session_api_util.js` with the following functions:
   * `login`: should make an AJAX request that creates a new session.
   * `logout`: should make an AJAX request that deletes the current session.
 
-**NB**: Check out `routes.rb` and run `rake routes` to determine the appropriate URL for each of these requests.
+**NB**: Check out `routes.rb` and run `rails routes` to determine the appropriate URL for each of these requests.
 
 **Test each of your api util functions before moving on!**
 To do this, you can import these functions in your entry file and save them to the window (e.g., `window.login = login;`).
@@ -430,12 +430,13 @@ The `SessionForm` component should be responsible for a number of tasks:
 
   ```js
   class SessionForm extends React.Component {
-  	constructor(props) {
-  		super(props);
-  		this.state = {
-  			username: "",
-  			password: ""
-  		};
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        username: "",
+        password: ""
+      };
     }
 
     //...

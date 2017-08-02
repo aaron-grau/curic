@@ -9,12 +9,10 @@ class SubsController < ApplicationController
 
   def new
     @sub = Sub.new
-    render :new
   end
 
   def show
     @sub = Sub.find(params[:id])
-    render :show
   end
 
   def create
@@ -39,13 +37,12 @@ class SubsController < ApplicationController
 
   def edit
     @sub = Sub.find(params[:id])
-    render :edit
   end
 
   private
   def require_user_owns_sub!
     return if current_user.subs.find_by(id: params[:id])
-    render json: "Forbidden", status: :forbidden
+    render json: 'Forbidden', status: :forbidden
   end
 
   def sub_params

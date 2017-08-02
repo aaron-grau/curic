@@ -55,7 +55,6 @@ class LinksController < ApplicationController
 
   # ...
 end
-
 ```
 
 To simulate a request in RSpec, we specify an http method, controller
@@ -63,14 +62,14 @@ action, and params. We can then test the `response` using Rspec Rails's
 controller-specific matchers.
 
 ```ruby
-RSpec.describe LinksController, :type => :controller do
-  describe "GET #new" do
-    it "renders the new links page" do
+RSpec.describe LinksController, type: :controller do
+  describe 'GET #new' do
+    it 'renders the new links page' do
       # this line simulates a "GET" request to the LinksController that hits the #new method, passing in `{link: {}}` as params.
       get :new, link: {}
 
       # here we check to make sure that the response renders back the new template
-      expect(response).to render_template("new")
+      expect(response).to render_template('new')
       expect(response).to have_http_status(200)
     end
   end
@@ -82,38 +81,17 @@ contexts. For example, we should test our `LinksController`'s create
 method, with both valid and invalid params.
 
 ```ruby
-describe "POST #create" do
-  context "with invalid params" do
-    it "validates the presence of title and body" do
-      post :create, link: { title: "this is an invalid link" }
-      expect(response).to render_template("new")
-      expect(flash[:errors]).to be_present
-    end
-  end
-
-  context "with valid params" do
-    it "redirects to the link show page" do
-      post :create, link: { title: "teehee", url: "cats.com" }
-      expect(response).to redirect_to(link_url(Link.last))
-    end
-  end
-end
-```
-
-**NOTE** If you happen to be using Rails 5, you will likely want to wrap your params like so:
-
-```ruby
-context "with invalid params" do
-  it "validates the presence of title and body" do
-    post :create, params: { link: { title: "this is an invalid link" } }
-    expect(response).to render_template("new")
+context 'with invalid params' do
+  it 'validates the presence of title and body' do
+    post :create, params: { link: { title: 'this is an invalid link' } }
+    expect(response).to render_template('new')
     expect(flash[:errors]).to be_present
   end
 end
 
-context "with valid params" do
-  it "redirects to the link show page" do
-    post :create, params: { link: { title: "teehee", url: "cats.com" } }
+context 'with valid params' do
+  it 'redirects to the link show page' do
+    post :create, params: { link: { title: 'teehee', url: 'cats.com' } }
     expect(response).to redirect_to(link_url(Link.last))
   end
 end

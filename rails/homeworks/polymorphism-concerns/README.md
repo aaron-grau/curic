@@ -14,7 +14,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 name        | string    | not null
 
-
 ## Phase 0: Create a Toys Table
 
 First create a migration that implements the following schema:
@@ -45,7 +44,7 @@ migration:
 add_index :toys, [:name, :toyable_id, :toyable_type], unique: true
 ```
 
-Run `rake db:migrate`.
+Run `rails db:migrate`.
 
 ## Phase 1: Create Polymorphic Associations
 
@@ -56,7 +55,7 @@ First, create a `Toy` model and build a polymorphic `belongs_to` association on 
 
 Next, build corresponding `has_many` associations in the `Corgi` and `Cat` models. These should both be named `toys`. Again, refer to the [reading]((http://guides.rubyonrails.org/association_basics.html#polymorphic-associations)).
 
-Run `rake db:seed`. Check that your associations work as expected.
+Run `rails db:seed`. Check that your associations work as expected.
 
 ## Phase 2: Create a Toyable Concern
 
@@ -78,7 +77,6 @@ module Toyable
 
   end
 end
-
 ```
 
 Write the code for the `toys` association within an `included` block. All code within this block is executed whenever the module is included within the context of the class that includes it.

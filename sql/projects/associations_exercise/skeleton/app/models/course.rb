@@ -1,2 +1,2 @@
-class Course < ActiveRecord::Base
+class Course < ApplicationRecord
 end

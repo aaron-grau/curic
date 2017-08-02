@@ -2,14 +2,14 @@
 
 one:
   description: MyString
-  lat: MyString
-  long: MyString
+  lat: 1.5
+  lng: 1.5
   seating: 1
-  material: MyString
+  picture_url: MyString
 
 two:
   description: MyString
-  lat: MyString
-  long: MyString
+  lat: 1.5
+  lng: 1.5
   seating: 1
-  material: MyString
+  picture_url: MyString

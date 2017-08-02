@@ -1,4 +1,3 @@
-class User < ActiveRecord::Base
-
-  validates :name, :email, :presence => true
+class User < ApplicationRecord
+  validates :name, :email, presence: true
 end

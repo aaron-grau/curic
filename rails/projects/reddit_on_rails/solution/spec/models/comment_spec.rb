@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Comment do
+RSpec.describe Comment, type: :model do
   it { should validate_presence_of(:author) }
   it { should validate_presence_of(:post) }
   it { should validate_presence_of(:body) }
@@ -9,5 +9,4 @@ describe Comment do
   it { should belong_to(:post) }
   it { should have_many(:child_comments) }
   it { should belong_to(:parent_comment) }
-
 end

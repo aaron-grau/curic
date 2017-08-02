@@ -1,4 +1,4 @@
-class Invitation < ActiveRecord::Base
+class Invitation < ApplicationRecord
   validates :party, :guest, presence: true
 
   belongs_to :party

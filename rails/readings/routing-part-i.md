@@ -14,7 +14,7 @@ construct the response.
 
 ## Resource Routing: the Rails Default
 
-Say that we have a `Photo` model, and we would like to begin buildling
+Say that we have a `Photo` model, and we would like to begin building
 a `PhotosController` to display photos, create new ones, edit
 existing ones, delete old ones...
 
@@ -111,7 +111,7 @@ path, four URLs map to seven actions. Many methods that take a URL
 will also accept a `:method` option to specify the option. For
 instance, to create an HTML button that will destroy a photo, we write
 
-```rubyonrails
+```
 <form action="<%= photo_url(@photo) %>" method="POST">
   <input type="hidden" value="delete" name="_method" />
   <input type="submit" value="Delete photo" />
@@ -122,8 +122,8 @@ instance, to create an HTML button that will destroy a photo, we write
 Finally, note that you can embed query-string options into the
 url-helpers easily:
 
-```rubyonrails
-    photos_url(recent: true) == http://www.example-site.com/photos?recent=true
+```
+photos_url(recent: true) == http://www.example-site.com/photos?recent=true
 ```
 
 On the streets, you will see a `_path` version of these helpers; the
@@ -139,7 +139,7 @@ just be consistent and use `_url` all the time.
 ## Inspecting and Testing Routes
 
 To get a complete list of the available routes in your application,
-execute the `rake routes` command in your terminal. This will list all
+execute the `rails routes` command in your terminal. This will list all
 of your routes, in the same order that they appear in `routes.rb`. For
 each route, you'll see:
 
@@ -149,7 +149,7 @@ each route, you'll see:
 * The URL pattern to match,
 * The `controller#action` to route to
 
-For example, here's a small section of the `rake routes` output for a
+For example, here's a small section of the `rails routes` output for a
 RESTful route:
 
 ```
@@ -170,9 +170,9 @@ have different URL helpers for `index` and `create` actions because
 they are both activated by different request methods (`GET`/`POST`) to
 the same URL (`/users`).
 
-**TIP**: You'll find that the output from `rake routes` is much more
+**TIP**: You'll find that the output from `rails routes` is much more
 readable if you widen your terminal window until the output lines
-don't wrap. Embiggen your terminal appropriately.
+don't wrap. Enlarge your terminal appropriately.
 
 ## Using `root`
 

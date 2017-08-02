@@ -5,14 +5,15 @@ import {
   RECEIVE_POKEMON_ERRORS,
   CREATE_POKEMON,
   START_LOADING_ALL_POKEMON,
-  START_LOADING_SINGLE_POKEMON } from '../actions/pokemon_actions';
+  START_LOADING_SINGLE_POKEMON
+} from '../actions/pokemon_actions';
 
 const initialState = {
   indexLoading: false,
   detailLoading: false
 };
 
-export default (state = initialState, action) => {
+const LoadingReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_ALL_POKEMON:
@@ -30,3 +31,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default LoadingReducer;
