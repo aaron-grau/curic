@@ -9,22 +9,22 @@
 CATS = %w(breakfast earl curie markov gizmo kiki sally)
 
 CATS.each do |cat|
-  u = User.create!(username: cat, password: "#{cat}#{cat}")
+  u = User.create!(username: cat, password: '#{cat}#{cat}')
 end
 
 MESSAGES = [
-  "Ate some tuna",
-  "Chased a string",
-  "Bounced a ball",
-  "Took a photo of a sandwich",
-  "Took a long nap",
-  "Jumped on some piano keys",
-  "Is that a mouse?",
-  "Scratched a human",
-  "Jumped to the top of the shelf!",
-  "Do cats know how to tweet? YES, we do.",
-  "Set world napping record",
-  "xvyadfoiuasdfnasfdn"
+  'Ate some tuna',
+  'Chased a string',
+  'Bounced a ball',
+  'Took a photo of a sandwich',
+  'Took a long nap',
+  'Jumped on some piano keys',
+  'Is that a mouse?',
+  'Scratched a human',
+  'Jumped to the top of the shelf!',
+  'Do cats know how to tweet? YES, we do.',
+  'Set world napping record',
+  'xvyadfoiuasdfnasfdn'
 ]
 
 User.all.each do |user|
