@@ -1,7 +1,7 @@
 # MyHashMap
 
 Today you will implement your very own HashMap. If this sounds tricky,
-don't worry--we've provided specs. Download the [skeleton][skeleton] before you start.
+don't worry – we've provided specs. Download the [skeleton][skeleton] before you start.
 
 [skeleton]: skeleton.zip?raw=true
 
@@ -45,21 +45,21 @@ store integers that live in a predefined range. So I tell you the
 maximum integer I'll ever want to store, and you give me a set that can
 store it and any smaller positive number.
 
-- Initialize your MaxIntSet with an integer called `max` to define the
+* Initialize your MaxIntSet with an integer called `max` to define the
   range of integers that we're keeping track of.
-- Internal structure:
-  - An array called `@store`, of length `max`
-  - Each index in the `@store` will correspond to an item, and the value
+* Internal structure:
+  * An array called `@store`, of length `max`
+  * Each index in the `@store` will correspond to an item, and the value
     at that index will correspond to its presence (either `true` or
     `false`)
-  - e.g., the set `{ 0, 2, 3 }` will be stored as: `[true, false, true,
+  * e.g., the set `{ 0, 2, 3 }` will be stored as: `[true, false, true,
     true]`
-  - The size of the array will remain constant!
-  - The `MaxIntSet` should raise an error if someone tries to insert, remove, or check inclusion of a number that is out of bounds.
-- Methods:
-  - `#insert`
-  - `#remove`
-  - `#include?`
+  * The size of the array will remain constant!
+  * The `MaxIntSet` should raise an error if someone tries to insert, remove, or check inclusion of a number that is out of bounds.
+* Methods:
+  * `#insert`
+  * `#remove`
+  * `#include?`
 
 Once you've built this and it works, we'll move on to the next
 iteration.
@@ -81,13 +81,13 @@ Using this mapping, which wraps around once every 20 integers, every
 integer will be deterministically assigned to a bucket. Using this
 concept, create your new and improved set.
 
-- Initialize an array of size 20, with each containing item being an
+* Initialize an array of size 20, with each containing item being an
   empty array.
-- To look up a number in the set, modulo (%) the number by the set's
+* To look up a number in the set, modulo (%) the number by the set's
   length, and add it to the array at that index. If the integer is
   present in that bucket, that's how we know it's included in the set.
-- You should fill out the `#[]` method to easily look up a bucket in the store - calling `self[num]` will be more DRY than `@store[num % num_buckets]` at every step of the way!
-- Your new set should be able to keep track of an arbitrary range of
+* You should fill out the `#[]` method to easily look up a bucket in the store - calling `self[num]` will be more DRY than `@store[num % num_buckets]` at every step of the way!
+* Your new set should be able to keep track of an arbitrary range of
   integers, including negative integers. Test it out.
 
 ### ResizingIntSet
@@ -105,11 +105,11 @@ factor, that's still `O(n)`. Meh.
 
 Let's see if we can do better.
 
-- Make a new class. This time, let's increase the number of buckets as
+* Make a new class. This time, let's increase the number of buckets as
   the size of the set increases. The goal is to have `buckets.length >
   N` at all times.
-- You may want to implement an `inspect` method to make debugging easier.
-- What are the time complexities of the operations of your set
+* You may want to implement an `inspect` method to make debugging easier.
+* What are the time complexities of the operations of your set
   implementation?
 
 **Once you're done, get a code review!**
@@ -137,24 +137,24 @@ creative here!
 
 Write hash functions for `Array`, `String`, and `Hash`. Build these up sequentially.
 
-  - Use `Fixnum#hash` as a base hashing function. The trick here will be to create a
-    scheme to convert instances of each class to a `Fixnum` and then apply this
-    hashing function. This can be used on `Numeric`s such as the index of an array
-    element.
-    - Don't try to overwrite Ruby's native `Fixnum#hash`; making a hash function
-      for numbers is something that's outside the scope of this assignment.
-  - Ordering of elements is essential to hashing an `Array` or `String`. This means each
-    element in an `Array` or `String` should be associated with its index during hashing.
-    Ex. `[1, 2, 3].hash == [3, 2, 1].hash # => false`
-  - On the other hand, ordering is **not** to be considered with a `Hash`. Hashes are based
-    on sets and have no fixed order. Ex. `{a: 1, b: 2}.hash == {b: 2, a: 1}.hash # => true`
+* Use `Fixnum#hash` as a base hashing function. The trick here will be to create a
+  scheme to convert instances of each class to a `Fixnum` and then apply this
+  hashing function. This can be used on `Numeric`s such as the index of an array
+  element.
+  * Don't try to overwrite Ruby's native `Fixnum#hash`; making a hash function
+    for numbers is something that's outside the scope of this assignment.
+* Ordering of elements is essential to hashing an `Array` or `String`. This means each
+  element in an `Array` or `String` should be associated with its index during hashing.
+  Ex. `[1, 2, 3].hash == [3, 2, 1].hash # => false`
+* On the other hand, ordering is **not** to be considered with a `Hash`. Hashes are based
+  on sets and have no fixed order. Ex. `{a: 1, b: 2}.hash == {b: 2, a: 1}.hash # => true`
 
 ### Hints:
-  - Can you write `String#hash` in terms of `Array#hash`?
-  - When you get to hashing hashes: one trick to make a hash function
-    order-agnostic is to turn the object into an array, stably sort
-    the array, and then hash the array. This'll make it so every
-    unordered version of that same object will hash to the same value.
+* Can you write `String#hash` in terms of `Array#hash`?
+* When you get to hashing hashes: one trick to make a hash function
+  order-agnostic is to turn the object into an array, stably sort
+  the array, and then hash the array. This'll make it so every
+  unordered version of that same object will hash to the same value.
 
 #### Notes:
 
@@ -213,13 +213,13 @@ Given these properties of our `LinkedList`, how might we check if our list is em
 ### Methods to Implement
 
 Go forth and implement the following methods:
-- `first`
-- `empty?`
-- `#append(key, val)` - Append a new node to the end of the list.
-- `#update(key, val)` - Find an existing node by key and update it's value.
-- `#get(key)`
-- `#include?(key)`
-- `#remove(key)`
+* `first`
+* `empty?`
+* `#append(key, val)` - Append a new node to the end of the list.
+* `#update(key, val)` - Find an existing node by key and update it's value.
+* `#get(key)`
+* `#include?(key)`
+* `#remove(key)`
 
 Specs await!
 
@@ -240,11 +240,11 @@ start out empty. But whenever we want to insert an item into that
 bucket, we'll just append it to the end of that linked list.
 
 So here again is a summary of how you use our hash map:
-- Hash the key, mod by the number of buckets (implement the `#bucket` method first for cleaner code - it should return the correct bucket for a hashed key)
-- To **set**, insert a new node with the key and value into the correct bucket. (You can use your `LinkedList#append` method.) If the key already exists, you will need to update the existing node.
-- To **get**, check whether the linked list contains the key you're
+* Hash the key, mod by the number of buckets (implement the `#bucket` method first for cleaner code - it should return the correct bucket for a hashed key)
+* To **set**, insert a new node with the key and value into the correct bucket. (You can use your `LinkedList#append` method.) If the key already exists, you will need to update the existing node.
+* To **get**, check whether the linked list contains the key you're
   looking up
-- To **delete**, remove the node corresponding to that key from the
+* To **delete**, remove the node corresponding to that key from the
   linked list
 
 Finally, let's make your hash map properly enumerable. You know the
@@ -331,7 +331,7 @@ So let's map the same data in both a hash map and in a linked list.
 
 ### Instructions:
 
-- Let's say we're building an LRU cache that's going to cache the values
+* Let's say we're building an LRU cache that's going to cache the values
   of the perfect squares. So our LRU cache will store a `@prc`, which
   in this case will be `Proc.new { |x| x ** 2 }`. If we don't have the
   value of any number's square, we'll use this Proc to actually compute
@@ -339,16 +339,16 @@ So let's map the same data in both a hash map and in a linked list.
   after I compute anything, I'll store it in my LRU cache. But if my LRU
   Cache gets an input that doesn't exist in the cache, it'll compute it
   using the Proc.
-- Now build your LRU cache. Every time you add a new key-value pair to
+* Now build your LRU cache. Every time you add a new key-value pair to
   your cache, you'll take two steps.
-  - First, look to see if the key points to any node in your hash map.
+  * First, look to see if the key points to any node in your hash map.
     If it does, that means that the item exists in your cache. Before
     you return the value from the node though, move the node to the very
     end of the list (since it's now the most recently used item).
-  - Say the key isn't in your hash map. That means it's not in your
+  * Say the key isn't in your hash map. That means it's not in your
     cache, so you need to compute its value and then add it. That has
     two parts.
-      - First, you call the proc using your key as input; the output
+      * First, you call the proc using your key as input; the output
         will be your key's value. Append that key-value pair to the
         linked list (since, again, it's now the most recently used
         item). Then, add the key to your hash, along with a pointer to
@@ -356,7 +356,7 @@ So let's map the same data in both a hash map and in a linked list.
         exceeded its `max` size. If so, call the`eject!` function, which
         should delete the least recently used item so your LRU cache is
         back to `max` size.
-      - Hint: to delete that item, you have to delete the *first* item
+      * Hint: to delete that item, you have to delete the *first* item
         in your linked list, and
         delete that key from your hash. Implemented correctly, these
         should both happen in `O(1)` time.

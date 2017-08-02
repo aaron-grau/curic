@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 import PokemonDetail from './pokemon_detail';
 import { requestSinglePokemon } from '../../actions/pokemon_actions';
 import { selectPokeItems } from '../../reducers/selectors';
@@ -9,7 +10,7 @@ const mapStateToProps = state => {
   return{
     pokemon,
     items: selectPokeItems(state, pokemon),
-    loading: state.ui.loading.detailLoading,
+    loading: state.ui.loading.detailLoading
   };
 };
 

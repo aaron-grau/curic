@@ -24,7 +24,7 @@ class LRUCache
   end
 
   def to_s
-    "Map: " + map.to_s + "\n" + "Store: " + store.to_s
+    'Map: ' + map.to_s + '\n' + 'Store: ' + store.to_s
   end
 
   private

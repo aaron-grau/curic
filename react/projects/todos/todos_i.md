@@ -43,6 +43,7 @@ configuration works.
 [webpack_setup]: ../../readings/webpack_configuration.md
 
 ---
+
 ## Phase 2: Todos Redux Structure
 
 In this phase you will create a Redux loop, including a store with reducers, action creators and constants.
@@ -56,7 +57,7 @@ operations given the id of any todo.
 
 So the `todos` slice of our application might look something like this:
 
-```js
+```javascript
 {
   1: {
     id: 1,
@@ -98,7 +99,8 @@ action types are being set or read (i.e. in our action creators and in the
 `switch` statements in our reducers and middleware).
 
 Create and export `RECEIVE_TODOS` and `RECEIVE_TODO` action types like this
-```js
+
+```javascript
 export const RECEIVE_TODOS = 'RECEIVE_TODOS';
 export const RECEIVE_TODO = 'RECEIVE_TODO';
 ```
@@ -122,16 +124,17 @@ a single `todo`. Write this out now. We will describe its function later.
 
 Redux reducers manage the shape of our application state.
 
-* Create and export `todosReducer` in a file `reducers/todos_reducer.js`.
+* Create and export your `todosReducer` in a file `reducers/todos_reducer.js`.
 
 A Redux reducer accepts two arguments:
 * `state` - the previous application state.
 * `action` - the action object being dispatched.
 
 Remember that reducers should:
-* Return the initial state if the state argument is undefined;
-* Return the `state` if the reducer doesn't care about the action;
-* Return a new state object if the reducer cares about the `action`
+
+* Return the initial state if the state argument is undefined.
+* Return the `state` if the reducer doesn't care about the action.
+* Return a new state object if the reducer cares about the `action`.
 
 **N.B.** The reducer must never mutate the previous state. Instead, it should return a brand new state object with the necessary changes.
 
@@ -227,19 +230,14 @@ console. Does your store's initial state match the default state you defined?
 Now that you have a functioning store, let's test out those actions we created earlier. Inside of the `todosReducer`, implement the following.
 
 * Import action constants `RECEIVE_TODOS` and `RECEIVE_TODO`.
-
 * Add a new `case` to the `switch` statement in your `todosReducer`
   * This case should execute if the `action.type` is `RECEIVE_TODOS`
   * The `todos` data in your store should be replaced by the data in `action.todos`
   * Do not merge the old `todos` state with the new `todos` coming in
-
-
 * Add another `case` to the `switch` statement to handle `RECEIVE_TODO`
-
   * This case should return a new state object, either adding the `todo` in the `action` to
   the previous state, or replacing a `todo` in the previous state at the same object key.
   * You do not need an if/else statement for this functionality.
-
 
 Remember, you must not mutate state! If you want to change a data structure you must copy it first.
 The built in `Object.assign` method is perfect for this. Just make sure the first argument is a new blank object to avoid mutations.
@@ -414,10 +412,10 @@ Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a
 `TodoListItem` component that receives the appropriate item as a prop. Each
 `TodoListItem` will render the title of its item inside an `<li>`.  
 
-+ Create a file `components/todo_list/todo_list_item.jsx`
-+ Create a React Component called a `TodoListItem`
-+ Write a `render` function for that component that returns an `<li>` with `this.props.todo.title` inside it
-+ The `TodoList` component should render `TodoListItem`s and give them the necessary props.
+* Create a file `components/todo_list/todo_list_item.jsx`
+* Create a React Component called a `TodoListItem`
+* Write a `render` function for that component that returns an `<li>` with `this.props.todo.title` inside it
+* The `TodoList` component should render `TodoListItem`s and give them the necessary props.
 
 **Test your code** - Refresh your page - everything should look the same!
 
@@ -426,18 +424,18 @@ Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a
 
 In this phase you will create a form that allows users to create new todo items.
 
-+ Create a new component (`components/todo_list/todo_form.jsx`).
-  + This component will use controlled inputs to keep track of its form data; thus it will have a local state
-    + If you don't remember how to set up controlled inputs in a React component, look at this reading about [props and state][props_and_state_reading]
-  + Render this component in your `TodoList` component
-+ Update your `TodoList` to pass `receiveTodo` down to your `TodoForm`
+* Create a new component (`components/todo_list/todo_form.jsx`).
+  * This component will use controlled inputs to keep track of its form data; thus it will have a local state
+    * If you don't remember how to set up controlled inputs in a React component, look at this reading about [props and state][props_and_state_reading]
+  * Render this component in your `TodoList` component
+* Update your `TodoList` to pass `receiveTodo` down to your `TodoForm`
 
 Before you create your todos by calling `receiveTodo` on submission of the form, we
 need to give our todos unique ids. Usually, our database would take care of this for us.
 As an easy way to get unique sequential numbers, use the current unix timestamp.
 Make a util file to export the following function (or something similar).
 
-```js
+```javascript
 function uniqueId() {
   return new Date().getTime();
 }
@@ -450,18 +448,18 @@ appear on your page? Call over a TA for a code review.
 ## Phase 5: Updating And Deleting Todos
 
 In this phase, you will add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them.
-+ Create new action creator methods (in `actions/todo_actions`)
-  + `removeTodo`
-+ Add a new `case` to your reducer's `switch` statement that handles the deletion of a todo list item
-  + `REMOVE_TODO` should cause that item to be removed from future versions of `state.todos`
-+ Update your components so that you can dispatch and view the effects of these actions
-  + Add `removeTodo` to the `MapDispatchToProps` in your `TodoListContainer`
-  + Pass those functions as props to your `TodoListItem` components
-  + Render a delete button that will call `removeTodo` with the current todos id `onClick`.
-  + Render 'done' button that will call `receiveTodo` with the current todo and it's status flipped.
-    + The `Done` or `Undo` button should display the current state of the todo item
-      + Hint: Write a helper method to update the todo item's `done` attribute when the button is clicked
-      + Call `updateTodo` to change the status of the todo item
+* Create new action creator methods (in `actions/todo_actions`)
+  * `removeTodo`
+* Add a new `case` to your reducer's `switch` statement that handles the deletion of a todo list item
+  * `REMOVE_TODO` should cause that item to be removed from future versions of `state.todos`
+* Update your components so that you can dispatch and view the effects of these actions
+  * Add `removeTodo` to the `MapDispatchToProps` in your `TodoListContainer`
+  * Pass those functions as props to your `TodoListItem` components
+  * Render a delete button that will call `removeTodo` with the current todos id `onClick`.
+  * Render 'done' button that will call `receiveTodo` with the current todo and it's status flipped.
+    * The `Done` or `Undo` button should display the current state of the todo item
+      * Hint: Write a helper method to update the todo item's `done` attribute when the button is clicked
+      * Call `updateTodo` to change the status of the todo item
 
 **Test your code** - You should now be able to create, toggle, and delete todo
 items on your list.
@@ -612,8 +610,8 @@ Before beginning, [read up on `localStorage`](https://developer.mozilla.org/en-U
 
 We want our store to save to `localStorage` after every dispatch, (that is, every time our state has changed).
 There are a few ways to go about implementing this behavior, the simplest of which is subscribing to the store as soon as it's created.
-+ Inside `configureStore`, once the store is created, call `store.subscribe` and pass it a callback.
-+ Inside the callback, call `store.getState` and save the results in localStorage.
+* Inside `configureStore`, once the store is created, call `store.subscribe` and pass it a callback.
+* Inside the callback, call `store.getState` and save the results in localStorage.
 
 Before moving on, verify that if you change your state through actions, the value stored in localStorage reflects those changes.
 

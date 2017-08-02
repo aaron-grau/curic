@@ -98,6 +98,6 @@ class LinkedList
   end
 
   def to_s
-    inject([]) { |acc, node| acc << "[#{node.key}, #{node.val}]" }.join(", ")
+    inject([]) { |acc, node| acc << "[#{node.key}, #{node.val}]" }.join(', ')
   end
 end

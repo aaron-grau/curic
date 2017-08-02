@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { withRouter } from 'react-router-dom';
 
 class PokemonForm extends React.Component {
@@ -19,8 +20,7 @@ class PokemonForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPokemon(this.state)
-      .then(data => 
-        this.props.history.push(`/pokemon/${data.pokemon.id}`));
+      .then(data => this.props.history.push(`/pokemon/${data.pokemon.id}`));
   }
 
   update(property) {
@@ -32,7 +32,8 @@ class PokemonForm extends React.Component {
       moves: Object.assign(
         {},
         this.state.moves,
-        { [e.target.id]: e.target.value })
+        { [e.target.id]: e.target.value }
+      )
     });
   }
 
@@ -69,7 +70,8 @@ class PokemonForm extends React.Component {
             <select
               value={this.state.type}
               onChange={this.update('poke_type')}
-              defaultValue="Select Pokemon Type">
+              defaultValue="Select Pokemon Type"
+            >
               {POKEMON_TYPES.map((type, i) => {
                 return <option value={type} key={i}>{type}</option>;
               })}
