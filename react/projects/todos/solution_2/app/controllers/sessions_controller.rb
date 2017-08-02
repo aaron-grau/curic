@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_action :redirect_if_logged_in, except: :destroy
+
   def new
     @user = User.new
   end
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       @user = User.new
-      flash.now[:errors] = { base: ["Invalid username/password combination"] }
+      flash.now[:errors] << 'Invalid username/password combination'
       render :new
     end
   end

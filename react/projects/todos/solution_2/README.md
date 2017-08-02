@@ -1,1 +1,0 @@
-Rails API backend for ReduxTodos project

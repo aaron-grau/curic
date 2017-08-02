@@ -1,4 +1,4 @@
-class Api::StepsController < Api::ApiController
+class Api::StepsController < ApplicationController
   def create
     step = Step.new(step_params)
 
@@ -15,7 +15,7 @@ class Api::StepsController < Api::ApiController
   end
 
   def destroy
-    step = Step.find(params[:id]).destroy 
+    step = Step.find(params[:id]).destroy
     render json: step
   end
 
