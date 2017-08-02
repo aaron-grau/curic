@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
-  # Do allow unlogged in users to browse cats.
-  before_action :require_user!, only: [:new, :create, :edit, :update]
+  # Allow unlogged in users to browse cats.
+  before_action :require_user!, only: %i(new create edit update)
 
   def index
     @cats = Cat.all
