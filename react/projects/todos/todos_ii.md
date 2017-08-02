@@ -41,8 +41,8 @@ Let's get started!
     `validates :boolean_field_name, inclusion: { in: [true, false] }`
     at the model level to validate boolean fields.
 * Make sure Postgres is running on your machine
-  * Run `rake db:create`.
-  * Run `rake db:migrate`.
+  * Run `rails db:create`.
+  * Run `rails db:migrate`.
 
 **Test your setup** - Try creating a couple of todos in your database using the
 Rails console (`rails c`).
@@ -76,7 +76,7 @@ end
 + Nest your routes under [namespace][namespace-docs] `api`.
 + In `config/routes.rb`, set `defaults: {format: :json}` for your `api` namespace.
 
-**Test your routes** - You should get the following when you run `rake routes`.
+**Test your routes** - You should get the following when you run `rails routes`.
 ```
 api_todos GET    /api/todos(.:format)     api/todos#index {format: :json}
           POST   /api/todos(.:format)     api/todos#create {format: :json}
