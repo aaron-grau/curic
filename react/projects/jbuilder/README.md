@@ -1,6 +1,6 @@
 # Jbuilder Exercises
 
-To get started, download this [skeleton][jbuilder-zip].  Run `bundle install`, then run `bundle exec rake db:setup`. To get the test database setup correctly, run `bundle exec rake db:seed RAILS_ENV=test --trace`.
+To get started, download this [skeleton][jbuilder-zip].  Run `bundle install`, then run `bundle exec rails db:setup`. To get the test database setup correctly, run `bundle exec rails db:seed RAILS_ENV=test --trace`.
 
 Once you're set up, run the specs using `bundle exec rspec spec`. These are
 testing whether our API is sending the correct information. We're going to
@@ -18,7 +18,7 @@ namespace :api, defaults: { format: :json } do
 end
 ```
 
-Run `rake routes` to ensure this is working as intended.
+Run `rails routes` to ensure this is working as intended.
 
 Keep open and use the [Jbuilder docs][docs-link] for reference as you work through this.
 
@@ -103,18 +103,19 @@ repetitive queries. E.g., with the parties show view, before we fixed the N+1 qu
 logs would have looked something like this:
 
 ```
-Started GET "/api/parties/1" for ::1 at 2016-10-05 17:56:12 -0700
+Started GET "/api/parties/1" for 127.0.0.1 at 2017-07-15 15:44:05 -0700
 Processing by Api::PartiesController#show as JSON
   Parameters: {"id"=>"1"}
-  Party Load (0.4ms)  SELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT 1  [["id", 1]]
-  Guest Load (0.5ms)  SELECT "guests".* FROM "guests" INNER JOIN "invitations" ON "guests"."id" = "invitations"."guest_id" WHERE "invitations"."party_id" = $1  [["party_id", 1]]
-  Gift Load (0.4ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 1]]
-  Gift Load (0.4ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 2]]
-  Gift Load (0.3ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 3]]
-  Gift Load (0.3ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 4]]
-  Gift Load (0.3ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 5]]
-  Rendered api/parties/show.json.jbuilder (42.1ms)
-Completed 200 OK in 61ms (Views: 40.9ms | ActiveRecord: 11.9ms)
+  Party Load (0.6ms)  SELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Guest Load (1.1ms)  SELECT "guests".* FROM "guests" INNER JOIN "invitations" ON "guests"."id" = "invitations"."guest_id" WHERE "invitations"."party_id" = $1  [["party_id", 1]]
+  Gift Load (0.5ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 1]]
+  Gift Load (0.6ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 2]]
+  Gift Load (0.6ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 3]]
+  Gift Load (0.8ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 4]]
+  Gift Load (0.9ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1  [["guest_id", 5]]
+  Rendered api/parties/show.json.jbuilder (105.9ms)
+Completed 200 OK in 140ms (Views: 113.5ms | ActiveRecord: 5.0ms)
 ```
 
 See all those Gift Loads? Those are the N queries to accompany our 1 query for the party and 1 query for the guests.
@@ -122,15 +123,17 @@ See all those Gift Loads? Those are the N queries to accompany our 1 query for t
 When it's fixed, it should look more like this:
 
 ```
-Started GET "/api/parties/1" for ::1 at 2016-10-05 18:01:47 -0700
+Started GET "/api/parties/1" for 127.0.0.1 at 2017-07-15 15:41:25 -0700
+   (1.7ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
 Processing by Api::PartiesController#show as JSON
   Parameters: {"id"=>"1"}
-  Party Load (0.3ms)  SELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT 1  [["id", 1]]
-  Invitation Load (0.4ms)  SELECT "invitations".* FROM "invitations" WHERE "invitations"."party_id" IN (1)
-  Guest Load (0.6ms)  SELECT "guests".* FROM "guests" WHERE "guests"."id" IN (1, 2, 3, 4, 5)
-  Gift Load (0.6ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" IN (1, 2, 3, 4, 5)
-  Rendered api/parties/show.json.jbuilder (8.6ms)
-Completed 200 OK in 77ms (Views: 14.9ms | ActiveRecord: 13.1ms)
+  Party Load (1.7ms)  SELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2  [["id", 1], ["LIMIT", 1]]
+  Invitation Load (1.3ms)  SELECT "invitations".* FROM "invitations" WHERE "invitations"."party_id" = 1
+  Guest Load (1.5ms)  SELECT "guests".* FROM "guests" WHERE "guests"."id" IN (1, 2, 3, 4, 5)
+  Gift Load (1.0ms)  SELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" IN (1, 2, 3, 4, 5)
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (9.2ms)
+Completed 200 OK in 233ms (Views: 28.4ms | ActiveRecord: 47.0ms)
 ```
 
 Only one query per table! That's what we want to see.

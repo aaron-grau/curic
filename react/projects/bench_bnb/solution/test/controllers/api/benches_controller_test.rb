@@ -1,9 +1,7 @@
 require 'test_helper'
 
-class Api::BenchesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-  end
-
+class Api::BenchesControllerTest < ActionDispatch::IntegrationTest
+  # test "the truth" do
+  #   assert true
+  # end
 end

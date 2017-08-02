@@ -258,6 +258,23 @@
 
 [simon]: homeworks/simon
 
+### Culture
++ [Stereotype Threat][stereotype-threat] (5 min)
++ [Unconscious Bias in Tech][unconscious-bias] (8 min)
++ [When Algorithms Discriminate][algos-discriminate] (5 min)
++ [Implicit Association Test][iap-test] (~5 min per test)
+  * Take whatever interests you
++ [You're More Biased Than You Think][more-biased] (7 min)
++ [Seven Day Bias Cleanse][bias-cleanse] (~1 min per day)
+  * If you choose to sign up, you'll get an email every day for 7 days with a short activity
+
+[stereotype-threat]: http://www.nytimes.com/2012/10/07/opinion/sunday/intelligence-and-the-stereotype-threat.html
+[unconscious-bias]: https://medium.com/@aldynchwelos/unconscious-bias-in-tech-why-women-leave-their-engineering-careers-f9653185d17b
+[algos-discriminate]: https://www.nytimes.com/2015/07/10/upshot/when-algorithms-discriminate.html
+[iap-test]: https://implicit.harvard.edu/implicit/takeatest.html
+[more-biased]: https://www.fastcompany.com/3036627/youre-more-biased-than-you-think
+[bias-cleanse]: http://www.lookdifferent.org/what-can-i-do/bias-cleanse
+
 ### Projects
 + [Error Handling Funtime][errors-exercises]
 + [Class inheritance][inheritance-exercises]
@@ -450,7 +467,7 @@
 + [Hash Map & LRU Cache][hash-map]
 
 [hash-map]: projects/hash_map_lru_cache
-[css-box-model-exercise]: ../html-css/micro-projects/display_box_model/
+[css-box-model-exercise]: ../html-css/micro-projects/box_model/
 
 ### Additional Bonus Topics
 + [Basic cursor input][cursor-demo]
