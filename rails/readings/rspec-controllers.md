@@ -48,7 +48,7 @@ class LinksController < ApplicationController
     if @link.save
       redirect_to link_url(@link)
     else
-      flash[:errors] = @link.errors.full_messages
+      flash.now[:errors] = @link.errors.full_messages
       render :new
     end
   end

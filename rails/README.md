@@ -1,6 +1,6 @@
 # Rails
 
-:link: *[w4d1](#w4d1) :: [w4d2](#w4d2) :: [w4d3](#w4d3) :: [w4d4](#w4d4) :: [w4d5](#w4d5) :: [w5d1](#w5d1) :: [w5d2](#w5d2)* :link:
+:link: *[w4d1](#w4d1) :: [w4d2](#w4d2) :: [w4d3](#w4d3) :: [w4d4](#w4d4) :: [w4d5](#w4d5) :: [w5d1](#w5d1) :: [w5d2](#w5d2) :: [w5d3](#w5d3)* :link:
 
 * [Setup][rails-setup]
 * [Rails API (api.rubyonrails.org)][rails-api]
@@ -318,7 +318,7 @@
 [decorators]: readings/decorators.md
 [checkboxes-id-setters]: readings/checkboxes.md
 
-### Projects (Solo)
+### Projects
 * [RedditClone][reddit-clone]
 
 [reddit-clone]: projects/reddit_on_rails
