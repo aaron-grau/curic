@@ -1,5 +1,7 @@
 const APIUtil = require('./api_util');
 
+const _ = require('lodash');
+
 class InfiniteTweets {
   constructor(el) {
     this.$el = $(el);
