@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Tweet.destroy_all
+
 CATS = %w(breakfast earl curie markov gizmo kiki sally)
 
 CATS.each do |cat|
@@ -13,18 +16,18 @@ CATS.each do |cat|
 end
 
 MESSAGES = [
-  "Ate some tuna",
-  "Chased a string",
-  "Bounced a ball",
-  "Took a photo of a sandwich",
-  "Took a long nap",
-  "Jumped on some piano keys",
-  "Is that a mouse?",
-  "Scratched a human",
-  "Jumped to the top of the shelf!",
-  "Do cats know how to tweet? YES, we do.",
-  "Set world napping record",
-  "xvyadfoiuasdfnasfdn"
+  'Ate some tuna',
+  'Chased a string',
+  'Bounced a ball',
+  'Took a photo of a sandwich',
+  'Took a long nap',
+  'Jumped on some piano keys',
+  'Is that a mouse?',
+  'Scratched a human',
+  'Jumped to the top of the shelf!',
+  'Do cats know how to tweet? YES, we do.',
+  'Set world napping record',
+  'xvyadfoiuasdfnasfdn'
 ]
 
 User.all.each do |user|

@@ -6,10 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Tweet.destroy_all
+
 CATS = %w(breakfast earl curie markov gizmo kiki sally)
 
 CATS.each do |cat|
-  u = User.create!(username: cat, password: '#{cat}#{cat}')
+  u = User.create!(username: cat, password: "#{cat}#{cat}")
 end
 
 MESSAGES = [
