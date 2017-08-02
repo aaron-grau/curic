@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def deny_access_if_not_logged_in
-    render json: ["You must be logged in to do that"] unless logged_in?
+    render json: ['You must be logged in to do that'] unless logged_in?
   end
 
   def user_params

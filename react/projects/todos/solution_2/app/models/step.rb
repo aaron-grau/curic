@@ -16,7 +16,7 @@ class Step < ApplicationRecord
   # belongs_to associations, so we can leave the validation of todo out
   # here.
   validates :title, presence: true
-  validates :done, inclusion: [true, false], default: false
+  validates :done, inclusion: { in: [true, false] }
 
   after_initialize { self.done = false if self.done.nil? }
 
