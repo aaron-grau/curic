@@ -2,7 +2,7 @@
 <% http_method = track.persisted? ? "PATCH" : "POST" %>
 
 
-<form action="<%= action_url %>" method="POST" %>
+<form class='form' action="<%= action_url %>" method="POST" %>
   <input type="hidden" name="_method" value="<%= http_method %>">
   <input
     type="hidden"

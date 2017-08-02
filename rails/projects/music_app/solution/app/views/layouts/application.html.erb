@@ -13,7 +13,10 @@
 
       <% if logged_in? %>
         <nav>
-          <p>Logged in as: <%= current_user.email %></p>
+          <a class='button' href="<%= bands_url %>">Back to All Bands</a>
+          
+          <div class='user-detail'>
+            <p>Logged in as: <%= current_user.email %></p>
           <form action=<%= session_url %> method='post'>
             <input
               type="hidden"
@@ -26,7 +29,7 @@
             <input 
               type="submit" value="Sign Out">
           </form>
-          <p><a href="<%= bands_url %>">Back to All Bands</a></p>
+          </div>
         </nav>
       <% end %>
 

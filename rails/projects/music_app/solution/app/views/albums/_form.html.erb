@@ -2,7 +2,7 @@
 <% http_method = album.persisted? ? "PATCH" : "POST" %>
 <% button_text = album.persisted? ? "Update Album!" : "Create Album!" %>
 
-<form action="<%= action_url %>" method="POST">
+<form class='form' action="<%= action_url %>" method="POST">
   <input type="hidden" name="_method" value="<%= http_method %>">
   <input
     type="hidden"
@@ -10,14 +10,13 @@
     value="<%= form_authenticity_token %>">
 
   <p>
-    <label>Name
-      <input type="text" name="album[name]" value="<%= album.name %>">
-    </label>
+    <label for='album-name'>Name</label>
+    <input id='album-name' type="text" name="album[name]" value="<%= album.name %>">
   </p>
 
   <p>
-  <label>Band
-    <select name="album[band_id]">
+    <label for='album-band'>Band</label>
+    <select id='album-band' name="album[band_id]">
         <% Band.all.each do |band| %>
             <option
                 <%= "selected" if album.band_id == band.id %>
@@ -26,30 +25,28 @@
             </option>
         <% end %>
     </select>
-  </label>
   </p>
 
   <p>
+    <label for="album_live_t">Live</label>
     <input
       type="radio"
       name="album[live]"
       value="t"
       id="album_live_t"
       <%= "checked" if album.live %>>
-    <label for="album_live_t">Live</label>
+    <label for="album_live_f">Studio</label>
     <input
       type="radio"
       name="album[live]"
       value="f"
       id="album_live_f"
       <%= "checked" if !album.live %>>
-    <label for="album_live_f">Studio</label>
   </p>
 
   <p>
-    <label>Year
-      <input type="number" name="album[year]" value="<%= album.year %>">
-    </label>
+    <label for='album-year'>Year</label>
+    <input id='album-year' type="number" name="album[year]" value="<%= album.year %>">
   </p>
 
   <input type="submit" value="<%= button_text %>">
