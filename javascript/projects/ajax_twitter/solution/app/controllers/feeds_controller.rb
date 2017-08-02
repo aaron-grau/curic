@@ -5,8 +5,11 @@ class FeedsController < ApplicationController
 
   def show
     @feed_tweets =
-      current_user.feed_tweets(LIMIT, params[:max_created_at]).includes(:user)
+      current_user.feed_tweets(LIMIT, params[:max_created_at]).includes(:user, :mentions)
 
-    render :show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render :show }
+    end
   end
 end

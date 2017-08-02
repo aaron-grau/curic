@@ -39,8 +39,6 @@ class TweetCompose {
 
   handleSuccess(data) {
     const $tweetsUl = $(this.$el.data("tweets-ul"));
-    console.log($tweetsUl);
-    console.log(data);
     $tweetsUl.trigger("insert-tweet", data);
 
     this.clearInput();

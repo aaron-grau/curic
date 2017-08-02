@@ -20,7 +20,10 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all.includes(:user, :mentioned_users)
-    render :index
+    respond_to do |format|
+      format.html { redirect_to request.referrer }
+      format.json { render :index }
+    end
   end
 
   private

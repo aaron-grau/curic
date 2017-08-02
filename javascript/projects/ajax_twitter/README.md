@@ -413,7 +413,7 @@ JavaScript portion.
 
 #### Views
 
-Next, let's begin modifying the `app/views/feeds/show.HTML.erb` template. You
+Next, let's begin modifying the `app/views/feeds/show.html.erb` template. You
 should have a `ul#feed` from phase III. Wrap that `ul` with a `div` with class
 `infinite-tweets`. You can empty out the contents of the `ul#feed` since we'll
 be adding the tweets inside dynamically with jQuery now. Also, write an anchor
@@ -544,7 +544,7 @@ its id. It will look like the following:
 ```
 
 Write a `tweets/index.json.jbuilder` that returns an object full of tweets.
-Create a `Tweets#index` method and route, and render your new index view in it.
+Create a `Tweets#index` method and route, and render your new index view in it. 
 Test your new code by navigating to `localhost:3000/tweets`.
 
 Next, include the tweeter's username along with each tweet. Prevent n+1 queries

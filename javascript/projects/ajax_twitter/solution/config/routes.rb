@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resource :feed, only: [:show]
   resource :session, only: [:create, :destroy, :new]
   resources :tweets, only: [:create]
+  resources :tweets, only: [:index], defaults: { format: :json }
   resources :users, only: [:create, :new, :show] do
     get "search", on: :collection
 
