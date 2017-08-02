@@ -1,6 +1,5 @@
-class CatRentalRequest < ApplicationRecord
-  # .freeze renders constants immutable
-  STATUS_STATES = %w(APPROVED DENIED PENDING).freeze
+class CatRentalRequest < ActiveRecord::Base
+  STATUS_STATES = %w(APPROVED DENIED PENDING)
 
   validates :cat_id, :end_date, :start_date, :status, presence: true
   validates :status, inclusion: STATUS_STATES
@@ -41,7 +40,6 @@ class CatRentalRequest < ApplicationRecord
   end
 
   private
-
   def assign_pending_status
     self.status ||= 'PENDING'
   end

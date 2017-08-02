@@ -24,7 +24,6 @@ class CatRentalRequestsController < ApplicationController
   end
 
   private
-
   def current_cat_rental_request
     @rental_request ||=
       CatRentalRequest.includes(:cat).find(params[:id])

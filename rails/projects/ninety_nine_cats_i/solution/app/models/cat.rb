@@ -1,6 +1,6 @@
 require 'action_view'
 
-class Cat < ApplicationRecord
+class Cat < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
 
   # .freeze renders a constant immutable.

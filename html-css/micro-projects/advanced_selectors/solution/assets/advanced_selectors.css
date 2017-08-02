@@ -47,7 +47,7 @@ input[type="radio"] {
     -webkit-appearance: none;
     width: 27px;
     height: 27px;
-    background-image: url(../assets/stars.png);
+    background-image: url(./stars.png);
     vertical-align: bottom;
 }
 
@@ -68,7 +68,11 @@ ol li:nth-of-type(2n) {
   background-color: whitesmoke;
 }
 
-h2 + .user_review {
-    border-top: 1px solid black;
+input[type="radio"], select, input[type="submit"] {
+  cursor: pointer;
+  outline: none;
 }
 
+h2 + .user_review {
+  border-top: 1px solid black;
+}

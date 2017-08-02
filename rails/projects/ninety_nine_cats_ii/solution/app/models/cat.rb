@@ -1,6 +1,5 @@
 require 'action_view'
-
-class Cat < ApplicationRecord
+class Cat < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
   # freeze ensures that constants are immutable
   CAT_COLORS = %w(black white orange brown).freeze
@@ -18,7 +17,7 @@ class Cat < ApplicationRecord
     dependent: :destroy
 
   belongs_to :owner,
-    class_name: 'User',
+    class_name: :User,
     foreign_key: :user_id
 
   def age
