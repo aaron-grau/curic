@@ -16,7 +16,7 @@
 ## Phase 0: Setup
 
 Download the project [skeleton](skeleton.zip?raw=true). Start by running `bundle
-install`. To setup the database, run `rake db:setup` which creates, loads from
+install`. To setup the database, run `rails db:setup` which creates, loads from
 schema and seeds the db in one command. Run `webpack --watch` or `webpack -w` in a
 new tab to transpile the JavaScript.
 
@@ -303,7 +303,7 @@ information, and also information about each of that tweet's mentions.
 
 #### `TweetCompose` Class
 
-* Open `app/views/tweets/_form.HTML.erb` and give the form a class `tweet-compose`.
+* Open `app/views/tweets/_form.html.erb` and give the form a class `tweet-compose`.
 * Write a TweetCompose class that grabs this form and installs itself.
 * In the `TweetCompose` `constructor`, install a `submit` event handler.
 * Write a `TweetCompose#submit` method that uses `serializeJSON` to build JSON
@@ -413,7 +413,7 @@ JavaScript portion.
 
 #### Views
 
-Next, let's begin modifying the `app/views/feeds/show.HTML.erb` template. You
+Next, let's begin modifying the `app/views/feeds/show.html.erb` template. You
 should have a `ul#feed` from phase III. Wrap that `ul` with a `div` with class
 `infinite-tweets`. You can empty out the contents of the `ul#feed` since we'll
 be adding the tweets inside dynamically with jQuery now. Also, write an anchor
@@ -544,7 +544,7 @@ its id. It will look like the following:
 ```
 
 Write a `tweets/index.json.jbuilder` that returns an object full of tweets.
-Create a `Tweets#index` method and route, and render your new index view in it.
+Create a `Tweets#index` method and route, and render your new index view in it. 
 Test your new code by navigating to `localhost:3000/tweets`.
 
 Next, include the tweeter's username along with each tweet. Prevent n+1 queries

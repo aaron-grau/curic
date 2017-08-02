@@ -20,6 +20,7 @@ configure your npm packages and webpack, and test that your frontend
 configuration works.
 
 * Model your project folder to look like the directory tree below:
+
   ```
   index.html
   bundle.js (no need to create this file, webpack will create it for us)
@@ -31,6 +32,7 @@ configuration works.
     * util
     todo_redux.jsx
   ```
+
 * Run `npm init -y` and then `npm install --save webpack react react-dom redux react-redux babel-core babel-loader babel-preset-react babel-preset-es2015 lodash` to set up React and Redux
   * This command installs the npm packages that we will be using to create our React/Redux app.
 * Set up your `webpack.config.js` file so that your bundle.js is saved in the root directory of your project. If you need to remind yourself how to set up the file look [here][webpack_setup].
@@ -54,6 +56,7 @@ todo would be O(n). Using a hash to store our todos yields O(1) for the same
 operations given the id of any todo.
 
 So the `todos` slice of our application might look something like this:
+
 ```javascript
 {
   1: {
@@ -81,11 +84,11 @@ one will receive `todos` and populate the store, and the second one will receive
 single `todo` and either add or update a single todo in the store.
 
 Remember that:
-* Redux actions are plain-old javascript objects that have a `type` property.
-* Action creators don't directly interact with reducers or the `store`;
-they simply return action objects.
-* These returned action objects are passed through our
-`rootReducer` only when `store.dispatch(action)` is called.
+  * Redux actions are plain-old javascript objects that have a `type` property.
+  * Action creators don't directly interact with reducers or the `store`,
+  they simply return action objects.
+  * These returned action objects are passed through our
+  `rootReducer` only when `store.dispatch(action)` is called.
 
 Create a file `actions/todo_actions.js` that will house our action creators and action type constants.
 
@@ -96,6 +99,7 @@ action types are being set or read (i.e. in our action creators and in the
 `switch` statements in our reducers and middleware).
 
 Create and export `RECEIVE_TODOS` and `RECEIVE_TODO` action types like this
+
 ```javascript
 export const RECEIVE_TODOS = 'RECEIVE_TODOS';
 export const RECEIVE_TODO = 'RECEIVE_TODO';
@@ -127,6 +131,7 @@ A Redux reducer accepts two arguments:
 * `action` - the action object being dispatched.
 
 Remember that reducers should:
+
 * Return the initial state if the state argument is undefined.
 * Return the `state` if the reducer doesn't care about the action.
 * Return a new state object if the reducer cares about the `action`.
@@ -135,6 +140,7 @@ Remember that reducers should:
 
 Let's start by setting up our `todosReducer` to return its default
 state - an empty object with no todos. **Do not move on to the other cases just yet**:
+
 ```js
 const todosReducer = (state = {}, action) => {
   switch(action.type) {
@@ -146,7 +152,6 @@ const todosReducer = (state = {}, action) => {
 export default todosReducer;
 ```
 
-
 #### `rootReducer`
 
 * Create a new file, `reducers/root_reducer.js`.
@@ -157,6 +162,7 @@ export default todosReducer;
 * Create a `rootReducer` using `combineReducers`.
 
 So far, our default application state looks like this:
+
 ```js
 {
   todos: {}
@@ -185,7 +191,7 @@ described above. Don't move on until it does!
 
 **NB**: Keeping your `store` on the `window` while working on a Redux app is a
 very handy and quick way to ensure that your state is changing the way you
-expect it to given any user interaction, ajax call, Redux action. However,
+expect it to given any user interaction, AJAX call, Redux action. However,
 **you should only do this while developing**, be sure to remove it later.
 
 Try setting a initial value for state in your `todosReducer`. Feel free to use this as a template.
@@ -369,7 +375,7 @@ reading if you need a refresher on container components.
 * Create a file `components/todo_list/todo_list_container.jsx`
 * Import both the `connect` function and the (as of yet unwritten) `TodoList` presentational component
 * Create a `mapStateToProps` function
-  * Create a prop with a key of `todos`. It's value should be the return value of your `allTodos` selector passed `state.todos`
+  * Create a prop called `todos` whose value is the return value of your `allTodos` selector passed the `state`
 * Create a `mapDispatchToProps` function
   * Create a prop called `receiveTodo` that accepts a `todo` and invokes a call to `dispatch` with the action returned from the `receiveTodo` action creator
 * Pass your `mapStateToProps` and `mapDispatchToProps` functions to `connect`
@@ -414,7 +420,6 @@ Now, let's refactor this `<ul>`/`<li>` structure so that each list item is a
 **Test your code** - Refresh your page - everything should look the same!
 
 ---
-
 ## Phase 4: `TodoForm`
 
 In this phase you will create a form that allows users to create new todo items.
@@ -440,8 +445,7 @@ function uniqueId() {
 appear on your page? Call over a TA for a code review.
 
 ---
-
-## Phase 5: Updating and Deleting Todos
+## Phase 5: Updating And Deleting Todos
 
 In this phase, you will add new actions and buttons so that you can mark `todo`s as `done` or `undone` as well as delete them.
 * Create new action creator methods (in `actions/todo_actions`)
@@ -462,7 +466,7 @@ items on your list.
 
 ---
 
-## Phase 6: Steps Redux structure
+## Phase 6: Steps Redux Structure
 
 ### Refactoring and Setup
 
@@ -526,6 +530,7 @@ duplicated data and complex reducers. If we want to re-nest our associated objec
 we can do so with selectors.
 
 Your application state will end up looking like this:
+
 ```js
 {
   todos: {

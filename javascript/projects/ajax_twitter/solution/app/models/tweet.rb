@@ -1,7 +1,10 @@
-class Tweet < ActiveRecord::Base
-  has_many :mentions
-  has_many :mentioned_users, through: :mentions, source: :user
-  belongs_to :user
+class Tweet < ApplicationRecord
+  validates :content, presence: true
 
-  validates :content, :user, presence: true
+  belongs_to :user
+  has_many :mentions
+
+  has_many :mentioned_users,
+    through: :mentions,
+    source: :user
 end

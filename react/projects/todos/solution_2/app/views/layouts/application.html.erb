@@ -11,7 +11,7 @@
 
   <body>
     <% if logged_in? %>
-      <%= button_to "Log Out", session_url, method: :delete, class: "log-out button" %>
+      <%= button_to 'Log Out', session_url, method: :delete, class: 'log-out button' %>
     <% end %>
     <%= yield %>
   </body>

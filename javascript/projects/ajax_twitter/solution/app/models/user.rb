@@ -1,15 +1,26 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   attr_reader :password
-
-  has_many :in_follows, class_name: "Follow", foreign_key: "followee_id"
-  has_many :out_follows, class_name: "Follow", foreign_key: "follower_id"
-  has_many :followers, through: :in_follows, source: :follower
-  has_many :followees, through: :out_follows, source: :followee
-  has_many :tweets, dependent: :destroy
-
   validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  has_many :in_follows,
+    foreign_key: :followee_id,
+    class_name: :Follow
+
+  has_many :out_follows,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+  has_many :followers,
+    through: :in_follows,
+    source: :follower
+
+  has_many :followees,
+    through: :out_follows,
+    source: :followee
+
+  has_many :tweets, dependent: :destroy
 
   before_validation :ensure_session_token
 
@@ -20,7 +31,7 @@ class User < ActiveRecord::Base
     return nil if user.nil?
 
     # check user's password
-    user.password_digest.is_password?(password) ? user : nil
+    user.is_password?(password) ? user : nil
   end
 
   def password=(password)
@@ -28,8 +39,8 @@ class User < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def password_digest
-    BCrypt::Password.new(super)
+  def is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
   def ensure_session_token
@@ -44,13 +55,13 @@ class User < ActiveRecord::Base
   def feed_tweets(limit = nil, max_created_at = nil)
     @tweets = Tweet
       .joins(:user)
-      .joins("LEFT OUTER JOIN follows ON users.id = follows.followee_id")
-      .where("tweets.user_id = :id OR follows.follower_id = :id", id: self.id)
-      .order("tweets.created_at DESC")
-      .uniq
+      .joins('LEFT OUTER JOIN follows ON users.id = follows.followee_id')
+      .where('tweets.user_id = :id OR follows.follower_id = :id', id: self.id)
+      .order('tweets.created_at DESC')
+      .distinct
 
     @tweets = @tweets.limit(limit) if limit
-    @tweets = @tweets.where("tweets.created_at < ?", max_created_at) if max_created_at
+    @tweets = @tweets.where('tweets.created_at < ?', max_created_at) if max_created_at
 
     @tweets
   end
