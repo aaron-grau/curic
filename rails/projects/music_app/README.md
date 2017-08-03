@@ -1,4 +1,4 @@
-# MusicApp
+# Music App
 
 **[Live Demo!][live-demo]**
 
@@ -77,6 +77,7 @@ the appropriate methods in your views as helper methods
   signed in.
 * `#log_in_user!(user)` reset the `user`s session token and cookie
 
+
 ### Routes Summary
 
 Your app should have routes for:
@@ -90,8 +91,15 @@ new_session GET    /session/new(.:format)                 sessions#new
        user GET    /users/:id(.:format)                   users#show
 ```
 
-Also, edit the `application.html.erb` layout so that a logged in user is
-displayed a "sign-out" button.
+Create login/signup views and edit `application.html.erb` layout so that a logged in user is displayed a "sign-out" button and a logged-out user is displayed links to sign-up or sign-in pages.
+
+### Styling
+
+Spend a few minutes adding some styling to your session forms.
+* Add a `Music App` header and with a snazzy font to `application.html.erb`
+* Use `flex` to display our logged-in or logged-out info in the right-hand side of our `Music App` header
+* Default link styling is pretty ugly, while keeping our `<a>` tags let's make our links look more like buttons by using `background-color` and `border-radius`
+* Improve upon our session forms by changing the spacing and alignment of their elements
 
 [rails-guides-callbacks]:http://guides.rubyonrails.org/v3.2.13/active_record_validations_callbacks.html#available-callbacks
 [bcrypt-documentation]:https://github.com/codahale/bcrypt-ruby
@@ -99,12 +107,60 @@ displayed a "sign-out" button.
 ## Phase I: Band/Album/Track
 
 We'll put aside the `user` features for a moment and build out our
-inventory system. First, the relevant models:
+inventory system.
 
-* A `Band` records many `Album`s.
-  * Just a `name` attribute
-* An `Album` contains many `Track`s.
-  * Don't call it `Record`, as ActiveRecord uses `record_id` internally.
+We want to build out a feature/resource at a time.
+Let's follow this order per resource:
+* Migrations
+* Model stuff (validations, associations, helper methods)
+* Routes
+* Controller + controller actions and their associated views
+
+Here's what we need for each resource:
+
+### Bands
+
+* Create a `bands` table with a `name` (required) column (and don't forget timestamps)
+* Create a `Band` model with a validation to ensure `name` is not null
+* Create the following RESTful routes:
+```
+bands     GET    /bands(.:format)                       bands#index
+          POST   /bands(.:format)                       bands#create
+new_band  GET    /bands/new(.:format)                   bands#new
+edit_band GET    /bands/:id/edit(.:format)              bands#edit
+band      GET    /bands/:id(.:format)                   bands#show
+          PATCH  /bands/:id(.:format)                   bands#update
+          PUT    /bands/:id(.:format)                   bands#update
+          DELETE /bands/:id(.:format)                   bands#destroy
+```
+* Create `BandsController` and actions/views to handle each of the routes
+  * Create each view after finishing the controller action that would render it
+  * Test as you go! Remember, we can use [Postman][postman-reading] to test `POST`, `PATCH` and `DELETE` actions prior to building our form views
+
+[postman-reading]: ../../readings/postman.md
+
+### Albums
+
+Follow the same pattern for a new resource, `Albums`.
+
+An `Album` should:
+* Not be called `Record`, as ActiveRecord uses `record_id`
+  internally.
+* Belong to a `band` (don't forget to add the association to `Band` also)
+* Have a `title`, `year`
+* Designate whether it is a `live` or `studio` album
+  * HINT: use a boolean paired with a reasonable default value
+* Have the following routes:
+```
+new_band_album GET    /bands/:band_id/albums/new(.:format)   albums#new
+        albums POST   /albums(.:format)                      albums#create
+    edit_album GET    /albums/:id/edit(.:format)             albums#edit
+         album GET    /albums/:id(.:format)                  albums#show
+               PATCH  /albums/:id(.:format)                  albums#update
+               PUT    /albums/:id(.:format)                  albums#update
+               DELETE /albums/:id(.:format)                  albums#destroy
+```
+* For the views:
   * Have a drop-down to select which `Band` recorded the `Album`. Use
     `selected` to default-select the appropriate `Band` in the
     drop-down.
@@ -112,45 +168,18 @@ inventory system. First, the relevant models:
     album. Don't use a column named `type`, since Rails uses this for
     a special purpose and everything will break. Use `checked` to
     default select the appropriate value.
-* A `Track` is a recording on an `Album`.
-  * You need a drop down to select the `Album`. Again, default select
-    the appropriate `Album` in the drop down.
-  * Use radio buttons to mark a track as a "bonus" or "regular" track.
-    Again, default select the appropriate value.
-  * Use a `textarea` to allow the user to enter lyrics.
+  * Make sure to provide links back to the album's band and make edit/delete buttons visible from the album's `show` page
+  * Update the `Band` `show` page to list/link to all of the band's albums and create a new one
 
-Add `dependent: :destroy` to applicable associations. Remember that
-this option causes associated objects to be destroyed on destroy.
+### Tracks
 
-### Routes Summary
+Yet again, follow the same pattern for a new resource, `Tracks`.
 
-You should have the following `Band` routes:
-
-```
-    bands GET    /bands(.:format)                       bands#index
-          POST   /bands(.:format)                       bands#create
- new_band GET    /bands/new(.:format)                   bands#new
-edit_band GET    /bands/:id/edit(.:format)              bands#edit
-     band GET    /bands/:id(.:format)                   bands#show
-          PATCH  /bands/:id(.:format)                   bands#update
-          PUT    /bands/:id(.:format)                   bands#update
-          DELETE /bands/:id(.:format)                   bands#destroy
-```
-
-The following `Album` routes:
-
-```
- new_band_album GET    /bands/:band_id/albums/new(.:format)   albums#new
-         albums POST   /albums(.:format)                      albums#create
-     edit_album GET    /albums/:id/edit(.:format)             albums#edit
-          album GET    /albums/:id(.:format)                  albums#show
-                PATCH  /albums/:id(.:format)                  albums#update
-                PUT    /albums/:id(.:format)                  albums#update
-                DELETE /albums/:id(.:format)                  albums#destroy
-```
-
-And the following `Track` routes:
-
+A `Track` should:
+* Belong to an `album` (make sure to also add associations to `Band` and `Album`)
+* Have a `title`, `ord` (track number) and optional `lyrics`
+* Designate whether it is a `regular` or `bonus` track
+* Have the following routes:
 ```
 new_album_track GET    /albums/:album_id/tracks/new(.:format) tracks#new
          tracks POST   /tracks(.:format)                      tracks#create
@@ -160,21 +189,30 @@ new_album_track GET    /albums/:album_id/tracks/new(.:format) tracks#new
                 PUT    /tracks/:id(.:format)                  tracks#update
                 DELETE /tracks/:id(.:format)                  tracks#destroy
 ```
+* For the views:
+  * You need a drop down to select the `Album`. Again, default select
+    the appropriate `Album` in the drop down
+  * Use radio buttons to mark a track as a "bonus" or "regular" track
+    Again, default select the appropriate value
+  * Use a `textarea` to allow the user to enter lyrics
+  * Again, provide links the the track's album make edit/delete buttons visible from the track's `show` page
+  * Update the `Album` `show` page to list/link to all of the album's tracks and create a new one
 
-Each of your `Band`/`Album`/`Track` show pages should have links for:
-
-* Editing
-* Destroying
-* Up one level (`Track` to `Album`, `Album` to `Band`, `Band` to bands
-  index).
-* Down one level (`Band` to each `Album`, `Album` to each `Track`).
-  * Also a link to build one more of each.
+Add `dependent: :destroy` to applicable associations. Remember that
+this option causes associated objects to be destroyed on `destroy`.
 
 ### Requiring Login
 
 Make sure a user cannot view any of the `Band`, `Album`, `Track` data
 without first logging in. If they are not logged in, bounce them to the
 sign-in url with a `before_action`.
+
+### Style it
+
+Spend no more than 20 minutes adding some CSS to your views. Some ideas:
+* Improve spacing/alignment of form elements
+* Improve upon default list styling with a fancy flexbox grid
+* Add page headers
 
 ## Phase II: Notes
 
