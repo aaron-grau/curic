@@ -112,9 +112,10 @@ inventory system.
 We want to build out a feature/resource at a time.
 Let's follow this order per resource:
 * Migrations
-* Model stuff (validations, associations, helper methods)
+* Model definition (validations, associations, helper methods)
 * Routes
-* Controller + controller actions and their associated views
+* Controller + controller actions
+* Views (should coincide with the actions that render them)
 
 Here's what we need for each resource:
 
