@@ -34,8 +34,10 @@
 [css-warmup]: ../html-css/projects/css_warm_up
 
 ### Additional Resources
+* :movie_camera: [CSS Review][css-review-vid]
 * :book: **(BONUS)** [CSS Transform property][css-transform]
 
+[css-review-vid]: https://vimeo.com/214597789
 [css-transform]: http://css-tricks.com/almanac/properties/t/transform/
 
 ### Projects (Solo in SF)
