@@ -268,7 +268,7 @@
 
 ### Materials (35 min)
 *	:book: [React Map Demo][react_map_demo] (15 min)
-* :book: [Think in React][think_in_react] (20 min)
+* :book: [Thinking in React][thinking_in_react] (20 min)
 
 [react_map_demo]: demos/react_map_demo
 
