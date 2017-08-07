@@ -179,13 +179,6 @@ we highly encourage you to read the whole book.
 
 ## w6d2
 
-### Assessment05 Practice
-+ In-class practice assessment at 9am. Please bring your own machine if
-possible.
-* [Practice][assessment-prep-5]
-
-[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
-
 ### Materials (75 min)
 * :book: [The Document Object Model][dom] (10 min)
 * :book: [jQuery I: Selection and Manipulation][jquery-01-selection] (15 min)
