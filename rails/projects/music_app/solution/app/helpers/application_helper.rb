@@ -8,5 +8,3 @@ module ApplicationHelper
     "<pre class='lyrics'>#{formatted_lyrics}</pre>".html_safe
   end
 end
-
-end
