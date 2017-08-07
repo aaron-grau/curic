@@ -37,11 +37,13 @@
 * [True Diversity is Intersectional][intersectional] (9 min)
 * [6-Year-Old Girls Already Have Gendered Beliefs About Intelligence][gendered-beliefs] (4 min)
 * [VCs and Female Entrepreneurs][vc-entrepreneurs] (5 min)
+* [Elephant in the Valley][elephant] (3 min, longer if you read the stories)
 * [When Bias in Product Design Means Life or Death][bias-product] (6 min)
 
 [intersectional]: https://medium.com/projectinclude/true-diversity-is-intersectional-2282b8da8882
 [gendered-beliefs]: https://www.theatlantic.com/science/archive/2017/01/six-year-old-girls-already-have-gendered-beliefs-about-intelligence/514340/
 [vc-entrepreneurs]: https://hbr.org/2017/05/we-recorded-vcs-conversations-and-analyzed-how-differently-they-talk-about-female-entrepreneurs
+[elephant]: https://www.elephantinthevalley.com/
 [bias-product]: https://techcrunch.com/2016/11/16/when-bias-in-product-design-means-life-or-death/
 
 ### Additional Resources
