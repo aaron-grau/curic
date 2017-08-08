@@ -275,6 +275,19 @@
 
 [capybara-hw]: homeworks/capybara
 
+### Culture
+* [Have You Experienced Racism in the Workplace?][racism-stats] (3 min)
+* [Diversity in Tech Remains Elusive][diversity-elusive] (7 min)
+* [Commoditization and Exploitation of Asians in Tech][asian-racism] (11 min)
+* [The Other Side of Diversity][other-side-diversity] (11 min)
+* [How AI is Learning All of Our Worst Impulses][ai-impulses] (9 min)
+
+[racism-stats]: https://www.comparably.com/guest/culture/tech/all-departments/109-have-you-ever-experienced-racism-in-the-workplace
+[diversity-elusive]: https://modelviewculture.com/pieces/diversity-in-tech-remains-elusive-due-to-racism-lack-of-representation-and-cultural-differences
+[asian-racism]: https://modelviewculture.com/pieces/damaged-karma-commoditization-and-exploitation-of-asians-in-tech
+[other-side-diversity]: https://medium.com/this-is-hard/the-other-side-of-diversity-1bb3de2f053e
+[ai-impulses]: https://www.theguardian.com/inequality/2017/aug/08/rise-of-the-racist-robots-how-ai-is-learning-all-our-worst-impulses
+
 ### Additional Resources
 * [Integration Testing][integration-testing]
 * [RSpec and Rails Setup][rspec-setup]
