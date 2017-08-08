@@ -264,6 +264,8 @@ we highly encourage you to read the whole book.
 ### Assessment05
 * [Practice Assessment][assessment-prep-5]
 
+[assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
+
 ### Materials (90 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
