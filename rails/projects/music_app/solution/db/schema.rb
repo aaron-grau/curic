@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170711232251) do
     t.string "name", null: false
     t.integer "band_id", null: false
     t.integer "year", null: false
-    t.boolean "live", null: false
+    t.boolean "live", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["band_id", "name"], name: "index_albums_on_band_id_and_name", unique: true
