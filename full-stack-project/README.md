@@ -28,7 +28,6 @@ deadlines for this part of the curriculum.
 [mvp-checklist]: proposal/mvp-list.md
 [trello]: proposal/using-trello.md
 
-
 ## Project
 
 You will spend the next two weeks working full-time on your
@@ -45,6 +44,13 @@ full-stack project Here are the important deadlines.
 [production-readme]: project/production-readme.md
 [turn-in-fullstack]: project/turn_in_fullstack.md
 [jobsearch]: https://github.com/appacademy/job-search-curriculum
+
+### Plagiarism
+
+While it is both normal and acceptable to view other code bases to find
+inspiration for your own project, plagiarism is not tolerated.
+**Any act of plagiarism is deemed an infraction of the code of conduct
+and could result in immediate dismissal from the course.**
 
 ### Resources
 
