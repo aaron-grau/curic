@@ -7,9 +7,12 @@ p {
   color: #fff;
 }
 
-a:hover {
-  transition: .5s;
-  color: white;
+a, input[type='submit'] {
+
+  &:hover {
+    transition: .5s;
+    color: white;
+  }
 }
 
 .button {
@@ -75,7 +78,7 @@ body {
 
     .user-detail {
       display: flex;
-      
+
       p {
         margin: 10px;
       }
