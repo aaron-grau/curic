@@ -12,6 +12,13 @@ class Track < ApplicationRecord
   has_one :band,
     through: :album,
     source: :band
+
   has_many :notes,
     dependent: :destroy
+
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.bonus ||= false
+  end
 end
