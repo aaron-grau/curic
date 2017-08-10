@@ -19,49 +19,6 @@
 
 [assessment-prep-3]: http://github.com/appacademy/assessment-prep#assessment-3
 
-### Materials (20 min)
-* :book: [CSS Nontechnical Overview][css-nontech] (20 min)
-* :book: [CSS Resposive Design][css-responsive] (10 min)
-
-[css-nontech]: ../html-css/readings/css_nontech.md
-[css-responsive]: ../html-css/readings/responsive_design.md
-
-### Homeworks (150 min)
-* [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
-* [CSS Warm Up][css-warmup] (60 min)
-
-[css-6]: ../html-css/micro-projects/positioning_media_queries/exercise.md
-[css-warmup]: ../html-css/projects/css_warm_up
-
-### Culture
-* [True Diversity is Intersectional][intersectional] (9 min)
-* [6-Year-Old Girls Already Have Gendered Beliefs About Intelligence][gendered-beliefs] (4 min)
-* [VCs and Female Entrepreneurs][vc-entrepreneurs] (5 min)
-* [Elephant in the Valley][elephant] (3 min, longer if you read the stories)
-* [When Bias in Product Design Means Life or Death][bias-product] (6 min)
-
-[intersectional]: https://medium.com/projectinclude/true-diversity-is-intersectional-2282b8da8882
-[gendered-beliefs]: https://www.theatlantic.com/science/archive/2017/01/six-year-old-girls-already-have-gendered-beliefs-about-intelligence/514340/
-[vc-entrepreneurs]: https://hbr.org/2017/05/we-recorded-vcs-conversations-and-analyzed-how-differently-they-talk-about-female-entrepreneurs
-[elephant]: https://www.elephantinthevalley.com/
-[bias-product]: https://techcrunch.com/2016/11/16/when-bias-in-product-design-means-life-or-death/
-
-### Additional Resources
-* :movie_camera: [CSS Review][css-review-vid]
-* :book: **(BONUS)** [CSS Transform property][css-transform]
-
-[css-review-vid]: https://vimeo.com/214597789
-[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
-
-### Projects (Solo in SF)
-* [AA Times][aa-times]
-* **(BONUS)** [Google Homepage][google-homepage]
-
-[aa-times]: ../html-css/projects/aa_times
-[google-homepage]: ../html-css/projects/google_homepage
-
-## w4d2
-
 ### Materials (80 min)
 :closed_lock_with_key: `go_video_go`
 + :movie_camera: [What is an API?][api-video] (10 min)
@@ -85,6 +42,20 @@
 [delegation]: readings/delegation.md
 [dns_reading]: readings/dns.md
 [postman]: readings/postman.md
+
+### Culture
+* [True Diversity is Intersectional][intersectional] (9 min)
+* [6-Year-Old Girls Already Have Gendered Beliefs About Intelligence][gendered-beliefs] (4 min)
+* [VCs and Female Entrepreneurs][vc-entrepreneurs] (5 min)
+* [Elephant in the Valley][elephant] (3 min, longer if you read the stories)
+* [When Bias in Product Design Means Life or Death][bias-product] (6 min)
+
+[intersectional]: https://medium.com/projectinclude/true-diversity-is-intersectional-2282b8da8882
+[gendered-beliefs]: https://www.theatlantic.com/science/archive/2017/01/six-year-old-girls-already-have-gendered-beliefs-about-intelligence/514340/
+[vc-entrepreneurs]: https://hbr.org/2017/05/we-recorded-vcs-conversations-and-analyzed-how-differently-they-talk-about-female-entrepreneurs
+[elephant]: https://www.elephantinthevalley.com/
+[bias-product]: https://techcrunch.com/2016/11/16/when-bias-in-product-design-means-life-or-death/
+
 
 ### Homeworks (125 min)
 * [Library Controller][library-hw] (45 min)
@@ -113,7 +84,7 @@
 [first-routes]: projects/first_routes
 [artshare-api]: projects/art_share_api
 
-## w4d3
+## w4d2
 
 ### Materials (2 hr, 3 min)
 :closed_lock_with_key: `go_video_go`
@@ -149,6 +120,36 @@
 * [99 Cats][99-cats]
 
 [99-cats]: projects/ninety_nine_cats_i
+
+## w4d3
+
+### Materials (20 min)
+* :book: [CSS Nontechnical Overview][css-nontech] (20 min)
+* :book: [CSS Resposive Design][css-responsive] (10 min)
+
+[css-nontech]: ../html-css/readings/css_nontech.md
+[css-responsive]: ../html-css/readings/responsive_design.md
+
+### Homeworks (150 min)
+* [CSS Curriculum 6: Positioning & Media Queries][css-6] (90 min)
+* [CSS Warm Up][css-warmup] (60 min)
+
+[css-6]: ../html-css/micro-projects/positioning_media_queries/exercise.md
+[css-warmup]: ../html-css/projects/css_warm_up
+
+### Additional Resources
+* :movie_camera: [CSS Review][css-review-vid]
+* :book: **(BONUS)** [CSS Transform property][css-transform]
+
+[css-review-vid]: https://vimeo.com/214597789
+[css-transform]: http://css-tricks.com/almanac/properties/t/transform/
+
+### Projects (Solo in SF)
+* [AA Times][aa-times]
+* **(BONUS)** [Google Homepage][google-homepage]
+
+[aa-times]: ../html-css/projects/aa_times
+[google-homepage]: ../html-css/projects/google_homepage
 
 ## w4d4
 
