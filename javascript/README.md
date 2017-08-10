@@ -266,7 +266,7 @@ we highly encourage you to read the whole book.
 
 [assessment-prep-5]: http://github.com/appacademy/assessment-prep#assessment-5
 
-### Materials (90 min)
+### Materials (70 min)
 :closed_lock_with_key: `go_video_go`
 * :movie_camera:[backbone-14: jQuery event delegation (cc)][backbone-14-vid] (30 min)
   * You can ignore the last part, which has Backbone code
@@ -274,17 +274,15 @@ we highly encourage you to read the whole book.
 * :book: [jQuery VII: Triggering][jquery-07-triggering] (5 min)
 * :book: [Event Propagation][event-propagation] (5 min)
 * :book: [History and Location][history-location] (5 min)
+* :book: [Vanilla JavaScript][vanilla-js] (10 min)
 * :book: Effective JavaScript: Items 46, 50, 52 (15 min)
-* :book: [Nontechnical Overview of JavaScript][js-nontech] (15 min)
-* :book: [Technical Overview of Browsers][browser-tech] (15 min)
 
 [backbone-14-vid]: https://vimeo.com/groups/appacademy/videos/85221706
 [jquery-06-event-delegation]: readings/jquery-06-event-delegation.md
 [jquery-07-triggering]: readings/jquery-07-triggering.md
 [event-propagation]: readings/event-propagation.md
 [history-location]: readings/history-location.md
-[js-nontech]: readings/js-nontech.md
-[browser-tech]: ../html-css/readings/browser_tech.md
+[vanilla-js]: readings/vanilla_javascript.md
 
 ### Homeworks (45 min)
 * [Vanilla DOM Manipulation][vanilla-dom] (45 min)
@@ -294,6 +292,9 @@ we highly encourage you to read the whole book.
 ### Additional Resources
 * [Non-technical Overview of JavaScript][js-nontech] (10 min)
 * [Technical Overview of Browsers][browser-tech] (10 min)
+
+[js-nontech]: readings/js-nontech.md
+[browser-tech]: ../html-css/readings/browser_tech.md
 
 ### Projects
 * [jQuery Lite][jquery-lite]
