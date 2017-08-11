@@ -110,9 +110,13 @@
 [fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit_stand_02
 
 ### Homeworks (45 min)
-* [Dollar Store][dollar_store_hw] (45 min)
+- [Dollar Store][dollar_store_hw] (45 min)
+- [Selecting a Full-stack Project][selecting-a-fsp]
+- Check out the [list of approved full-stack apps][approved-apps]
 
 [dollar_store_hw]: homeworks/dollar_store
+[selecting-a-fsp]:  ../full-stack-project/proposal/selecting-a-fsp.md
+[approved-apps]: ../full-stack-project/proposal/projects-to-clone.md
 
 ### Additional Resources
 * :book: [Official `redux` Documentation][redux_docs]
@@ -142,9 +146,13 @@
 [obj-freeze]: readings/object_freeze.md
 [namespacing]: readings/rails_router_namespacing.md
 
-### Homework (45 min)
+### Homework (55 min)
+* [Submit your tentative Full-Stack Project Proposal][tentative-proposal] (10 min)
+  * **Due by 9AM Tuesday w7d2**
+  * Check out the [list of approved apps][approved-apps]
 * [Middleware Homework][middleware_homework] (45 min)
 
+[tentative-proposal]: ../full-stack-project/proposal/tentative-project-proposal.md
 [middleware_homework]: homeworks/middleware
 
 ### Projects
@@ -170,10 +178,8 @@
 
 ### Homeworks (100 min)
 * [Giphy Homework][giphy_homework] (90 min)
-* Check out the [list of approved full-stack apps][approved-apps]
 
 [giphy_homework]: homeworks/giphy
-[approved-apps]: ../full-stack-project/proposal/projects-to-clone.md
 
 ### Additional Resources
 * :book: [Redux Developer Tools][redux_dev_tools]
@@ -203,12 +209,8 @@
 [redirect]: readings/redirect.md
 
 ### Homeworks (40 min)
-* [Submit your tentative Full-Stack Project Proposal][tentative-proposal] (10 min)
-  * **Due by 9AM Thursday w7d4**
-  * Check out the [list of approved apps][approved-apps]
 * [Rainbow Routes][rainbow_routes] (30 min)
 
-[tentative-proposal]: ../full-stack-project/proposal/tentative-project-proposal.md
 [rainbow_routes]: homeworks/rainbow_routes
 
 ### Additional Resources
