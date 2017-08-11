@@ -48,7 +48,7 @@ paragraph as a child.
 
 ### Say cheese
 
-Now let's talk images. Have you seen [this video](nyt-front-page-video)
+Now let's talk images. Have you seen [this video][nyt-front-page-video]
 showing how much the New York Times' front page has changed since 1852? Long
 story short, images are an important part of modern web design! We run into some
 interesting problems with them in HTML/CSS.
@@ -57,7 +57,7 @@ interesting problems with them in HTML/CSS.
    'image-1-container' and give it a fixed `width` of 200px and a fixed `height`
    of 600px. Also give it a colored background so we can actually see it (you
    get to pick the color this time). Inside of this new `div`, create an `img`
-   tag that points to the file called `cat.jpg` that's in the assets folder. 
+   tag that points to the file called `cat.jpg` that's in the assets folder.
 2. Note that the image spills out of the `div`. By default, images will want to
    render with the full glorious dimensions. How can we combat this brash
    egotism? Tell the image to obey the constraints of its container by giving it
