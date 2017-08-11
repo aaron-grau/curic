@@ -35,9 +35,7 @@ middleware:
 
 import { createStore, applyMiddleware } from 'redux';
 import RootReducer from 'reducers';
-import createLogger from 'redux-logger';
-
-const logger = createLogger();
+import logger from 'redux-logger';
 
 let configureStore = (preloadedState = {}) => (
   createStore(
@@ -68,8 +66,8 @@ function. A Redux middleware must always have the following signature:
 
 ```js
 const middleware = store => next => action => {
-	// side effects, if any
-	return next(action);
+  // side effects, if any
+  return next(action);
 };
 ```
 
@@ -82,9 +80,9 @@ can also happen after the `next(action)` is called, like so:
 
 ```js
 const middleware = store => next => action => {
-	const result = next(action);
-	// side effect using `result`
-	return result;
+  const result = next(action);
+  // side effect using `result`
+  return result;
 };
 ```
 
@@ -148,17 +146,15 @@ Follow the example below to include it in your projects:
 	import { createStore, applyMiddleware } from 'redux';
 	import RootReducer from 'reducers';
 	import thunk from 'redux-thunk';
-	import createLogger from 'redux-logger';
+	import logger from 'redux-logger';
 
-	const logger = createLogger();
-
-	let configureStore = (preloadedState = {}) => (
-		createStore(
-			RootReducer,
-			preloadedState,
-			applyMiddleware(thunk, logger)
-		)
-	);
+  let configureStore = (preloadedState = {}) => (
+    createStore(
+      RootReducer,
+      preloadedState,
+      applyMiddleware(thunk, logger)
+    )
+  );
 
 	export default configureStore;
 	```
