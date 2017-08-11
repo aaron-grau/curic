@@ -14,7 +14,7 @@ We have worked with a very fixed set of libraries and technologies thus far. If 
 
 On the other hand, maybe you really want to clone *app xyz*, but it does this really magical thing that you (as of now) have no idea how to implement. What libraries might be helpful? Do they seem easy to work with (good documentation, lots of users)?
 
-Using third-party libraries can be a boon, but it is important to consider how long it will take to learn/implement said technology. Remember: you only have two weeks, so spending 1 or 2 days struggling with a library is not how we want to be spending our time.
+Using third-party libraries can be a boon, but it is important to consider how long it will take to learn/implement said technology. Remember: you only have 10 days, so spending 1 or 2 days struggling with a library is not how we want to be spending our time.
 
 ### Interest
 
@@ -22,4 +22,4 @@ There will be many ups and downs while working on your full-stack project. Does 
 
 ### Showcase-ability
 
-If you are interested in mostly frontend work, you may want to choose an app with a lot of views and fancy CSS. If you'd prefer to focus on the backend, consider app with a lot of querying or complex associations.
+If you are interested in mostly frontend work, you may want to choose an app with a lot of views and fancy CSS. If you'd prefer to focus on the backend, consider an app with a lot of querying or complex associations.
