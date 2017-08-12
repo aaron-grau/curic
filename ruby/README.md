@@ -316,7 +316,7 @@
 * :movie_camera: [CSS Workflow][css-workflow] (12 min)
 
 [ruby-nontech]: readings/ruby_nontech.md
-[css-intro]: https://vimeo.com/album/3732382/video/151188850
+[css-intro]: https://vimeo.com/151188850
 [css-workflow]: https://vimeo.com/168826664
 
 ### Homeworks (60 min)
@@ -361,7 +361,7 @@
 [rspec-more-syntax]: https://vimeo.com/192662950
 [rspec-demo]: https://vimeo.com/192666370
 [css-selectors-precedence]: ../html-css/readings/css_selectors_precedence.md
-[css-syntax]: https://vimeo.com/album/3732382/video/151185331
+[css-syntax]: https://vimeo.com/151185331
 
 ### Homeworks (40 min)
 
@@ -488,7 +488,7 @@
 [lru-cache-reading]: https://web.archive.org/web/20150710185255/http://mcicpc.cs.atu.edu/archives/2012/mcpc2012/lru/lru.html
 [dynamic-array-reading]: https://en.wikipedia.org/wiki/Dynamic_array
 [xor]: readings/xor.md
-[css-box-model-video]: https://vimeo.com/album/3732382/video/151190177
+[css-box-model-video]: https://vimeo.com/151190177
 [css-box-model]: ../html-css/readings/box_model.md
 
 ### Homeworks (30 min)
