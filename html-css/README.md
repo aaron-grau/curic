@@ -89,7 +89,7 @@ history and then the Workflow video to learn about the Chrome Developer Tools.
 + :movie_camera: [CSS Intro][css-intro]
 + :movie_camera: [CSS Workflow][css-workflow]
 
-[css-intro]: https://vimeo.com/album/3732382/video/151188850
+[css-intro]: https://vimeo.com/video/151188850
 [css-workflow]: https://vimeo.com/168826664
 
 #### Exercise
@@ -112,7 +112,7 @@ selector {
 + :movie_camera: [CSS Syntax][css-syntax]
 
 [css-selectors]: readings/css_selectors_precedence.md
-[css-syntax]: https://vimeo.com/album/3732382/video/151185331
+[css-syntax]: https://vimeo.com/video/151185331
 
 #### Exercise
 
@@ -145,7 +145,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 + :movie_camera: [Box Model][css-box]
 + :book: [Box Model][css-box-reading]
 
-[css-box]: https://vimeo.com/album/3732382/video/151190177
+[css-box]: https://vimeo.com/video/151190177
 [css-box-reading]: readings/box_model.md
 
 #### Exercise
@@ -160,7 +160,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 + :movie_camera: [Display Property][css-display-video]
 + :book: [Display Properties][css-display-reading] (Save Flex for day 5)
 
-[css-display-video]: https://vimeo.com/album/3732382/video/151190176
+[css-display-video]: https://vimeo.com/video/151190176
 [css-display-reading]: readings/display.md
 
 #### Exercise
@@ -174,8 +174,8 @@ The box model describes how space is calculated with CSS. This model combined wi
 + [CSS Inherits][css-inherits]
 + [CSS Reset][css-reset]
 
-[css-reset]: https://vimeo.com/album/3732382/video/151190181
-[css-inherits]: https://vimeo.com/album/3732382/video/151190179
+[css-reset]: https://vimeo.com/video/151190181
+[css-inherits]: https://vimeo.com/video/151190179
 
 #### Exercise
 + [CSS Reset Exercise][css-reset-exercise]
@@ -189,7 +189,7 @@ The box model describes how space is calculated with CSS. This model combined wi
 + :movie_camera: [CSS Grid System][css-grid-video] (15 min)
 + :book: [CSS Float & Clearfix][css-float]
 
-[css-float-video]: https://vimeo.com/album/3732382/video/151190182
+[css-float-video]: https://vimeo.com/video/151190182
 [css-grid-video]: https://vimeo.com/170320160
 [css-float]: readings/floats_clear_fix.md
 
