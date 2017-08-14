@@ -15,7 +15,7 @@ pattern again tomorrow in a more sophisticated way.
 
 ## Phase 0: Setup
 
-+ Download the provided [skeleton](../../projects/todos/solution_1.zip?raw=true).
++ Download the provided [skeleton](../../projects/todos/solution-1.zip?raw=true).
 + Install the node packages with `npm install`
 + Run `npm start` to start up `webpack --watch`
 + Open `index.html` in your browser
