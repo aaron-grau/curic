@@ -85,7 +85,7 @@
 [sqlite3]: readings/sqlite3.md
 [heredocs]: readings/heredocs.md
 [xkcd-bobby-tables]: http://xkcd.com/327/
-[css-display-video]: https://vimeo.com/album/3732382/video/151190176
+[css-display-video]: https://vimeo.com/151190176
 [css-display]: ../html-css/readings/display.md
 
 ### Homeworks (35 min)
@@ -130,8 +130,8 @@
 [associations-2-video]: https://vimeo.com/167799430
 [validations-video]: https://vimeo.com/167799437
 [indices-video]: https://vimeo.com/167799431
-[css-inherits]: https://vimeo.com/album/3732382/video/151190179
-[css-reset]: https://vimeo.com/album/3732382/video/151190181
+[css-inherits]: https://vimeo.com/151190179
+[css-reset]: https://vimeo.com/151190181
 
 ### Homeworks (45 min)
 + [Intro to Rails][intro-rails-homework] (45 min)
@@ -193,7 +193,7 @@
 [ar-joins]: readings/joins.md
 [scopes]: readings/scopes.md
 [querying-ii]: readings/querying-ii.md
-[css-float-video]: https://vimeo.com/album/3732382/video/151190182
+[css-float-video]: https://vimeo.com/151190182
 [css-grid-video]: https://vimeo.com/170320160
 [css-float]: ../html-css/readings/floats_clear_fix.md
 
