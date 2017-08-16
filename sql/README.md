@@ -1,14 +1,12 @@
 # SQL and ActiveRecord
-:link: *[w3d1](#w3d1) :: [w3d2](#w3d2) :: [w3d3](#w3d3) :: [w3d4](#w3d4)
-:: [w3d5](#w3d5)* :link:
+:link: *[w3d1](#w3d1) :: [w3d2](#w3d2) :: [w3d3](#w3d3) :: [w3d4](#w3d4) :: [w3d5](#w3d5)* :link:
 
 ## w3d1
 
 ### Assessment02
 + [Practice][assessment-prep-2]
-  + We'll implement a simple version of a well-known card game. We'll
-announce   the specific game, and you can look up the basic rules ahead
-of time.
+  + We'll implement a simple version of a well-known card game. We'll announce
+  the specific game, and you can look up the basic rules ahead of time.
 
 [assessment-prep-2]: https://github.com/appacademy/assessment-prep#assessment-2
 
@@ -61,8 +59,7 @@ of time.
 
 ### Project Solutions
 + [Video solution to Julie Andrews query][julie-andrews-vid]
-+ [Video solution to Craiglockhart to Sighthill
-query][craiglockhart-vid]
++ [Video solution to Craiglockhart to Sighthill query][craiglockhart-vid]
 
 [julie-andrews-vid]: https://vimeo.com/184539804
 [craiglockhart-vid]: https://vimeo.com/184539167
@@ -116,22 +113,16 @@ query][craiglockhart-vid]
 
 ### Materials (93 min)
 :closed_lock_with_key: `go_video_go`
-+ :movie_camera: [Starting a new Rails Project][rails-intro-video] (7
-min)
++ :movie_camera: [Starting a new Rails Project][rails-intro-video] (7 min)
 + :movie_camera: [Migrations][migrations-video] (14 min)
 + :movie_camera: [Models][models-video] (8 min)
-+ :movie_camera: [Basic Associations (belongs_to,
-has_many)][associations-video]  (12 min)
-+ :movie_camera: [More Associations (has_many
-through:...)][associations-2-video] (12 min)
++ :movie_camera: [Basic Associations (belongs_to, has_many)][associations-video]  (12 min)
++ :movie_camera: [More Associations (has_many through:...)][associations-2-video] (12 min)
 + :movie_camera: [Validations][validations-video] (13 min)
 + :movie_camera: [Indices][indices-video] (7 min)
 + :movie_camera: [CSS Inherits][css-inherits] (4 min)
 + :movie_camera: [CSS Reset][css-reset] (16 min)
-+ **NB**: Video lectures are using Rails 4, but we will be using Rails 5
-everywhere else. If you would like to read about some of the more
-important differences between Rails 4 and Rails 5, check out [this
-reading][rails-5-updates].
++ **NB**: Video lectures are using Rails 4, but we will be using Rails 5 everywhere else. If you would like to read about some of the more important differences between Rails 4 and Rails 5, check out [this reading][rails-5-updates].
 
 [rails-intro-video]: https://vimeo.com/167799435
 [migrations-video]: https://vimeo.com/167799434
