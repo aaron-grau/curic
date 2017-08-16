@@ -208,10 +208,15 @@
 [with_router]: readings/with_router.md
 [redirect]: readings/redirect.md
 
-### Homeworks (30 min)
+### Homeworks (60 min)
 * [Rainbow Routes][rainbow_routes] (30 min)
+* [Full-stack Proposal Prep: Component Hierarchy][prep-component-hierarchy] (15 min)
+* [Full-stack Proposal Prep: State Shape][prep-state-shape] (15 min)
 
 [rainbow_routes]: homeworks/rainbow_routes
+[prep-component-hierarchy]: ../full-stack-project/homeworks/proposal-prep/component-hierarchy.md
+[prep-state-shape]: ../full-stack-project/homeworks/proposal-prep/state-shape.md
+
 
 ### Additional Resources
 * :book: [React Router docs](https://reacttraining.com/react-router/web/guides/quick-start)
