@@ -89,7 +89,7 @@ history and then the Workflow video to learn about the Chrome Developer Tools.
 + :movie_camera: [CSS Intro][css-intro]
 + :movie_camera: [CSS Workflow][css-workflow]
 
-[css-intro]: https://vimeo.com/video/151188850
+[css-intro]: https://vimeo.com/151188850
 [css-workflow]: https://vimeo.com/168826664
 
 #### Exercise
@@ -112,7 +112,7 @@ selector {
 + :movie_camera: [CSS Syntax][css-syntax]
 
 [css-selectors]: readings/css_selectors_precedence.md
-[css-syntax]: https://vimeo.com/video/151185331
+[css-syntax]: https://vimeo.com/151185331
 
 #### Exercise
 
