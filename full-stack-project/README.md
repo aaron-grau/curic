@@ -12,7 +12,7 @@ proposal in which you carefully plan out the app you are going to build.
 This is your _full-stack project proposal_. Here are the important
 deadlines for this part of the curriculum.
 
-  * **W7D4**: Submit your tentative proposal by 9am
+  * **W7D2**: Submit your tentative proposal by 9am
     * [Tentative proposal guidelines][tentative-proposal]
     * [List of approved apps][good-projects]
   * **W8D1**: Submit your full-stack proposal by 9am
