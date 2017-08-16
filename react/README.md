@@ -95,7 +95,7 @@
 [selectors]: readings/selectors.md
 [react-nontech]: readings/react_nontech.md
 
-### Fruit Stand App Demo (120 min)
+### (optional) Fruit Stand App Demo (75 min)
 * :movie_camera: Fruit Stand Demo (75 min)
   * :movie_camera: [Phase I - Redux only][fruit-stand-01-live] (15 min)   
     * :computer: [Source code][fruit-stand-01-source]
@@ -109,9 +109,9 @@
 [fruit-stand-02-live]: http://appacademy.github.io/curriculum/react/fruit_stand_02/index.html
 [fruit-stand-02-source]: ./demos/fruit_stand_demos/fruit_stand_02
 
-### Homeworks (45 min)
+### Homeworks (50 min)
 - [Dollar Store][dollar_store_hw] (45 min)
-- [Selecting a Full-stack Project][selecting-a-fsp]
+- [Selecting a Full-stack Project][selecting-a-fsp] (5 min)
 - Check out the [list of approved full-stack apps][approved-apps]
 
 [dollar_store_hw]: homeworks/dollar_store
@@ -176,7 +176,7 @@
 [updating-normalized]: http://redux.js.org/docs/recipes/reducers/UpdatingNormalizedData.html
 [redux-nontech]: readings/redux_nontech.md
 
-### Homeworks (100 min)
+### Homeworks (90 min)
 * [Giphy Homework][giphy_homework] (90 min)
 
 [giphy_homework]: homeworks/giphy
@@ -208,7 +208,7 @@
 [with_router]: readings/with_router.md
 [redirect]: readings/redirect.md
 
-### Homeworks (40 min)
+### Homeworks (30 min)
 * [Rainbow Routes][rainbow_routes] (30 min)
 
 [rainbow_routes]: homeworks/rainbow_routes
