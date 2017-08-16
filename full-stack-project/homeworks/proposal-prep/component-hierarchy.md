@@ -18,7 +18,7 @@ Create a rough-draft of your component hierarchy (starting from `App`) which inc
 Here's an example for a _super_ basic Twitter clone (with wireframes):
 
 ---
-# Tweeeter Component hierarchy
+# Tweeeter Component Hierarchy
 
 ## Views
 
