@@ -1,7 +1,7 @@
 <% action_url = band.persisted? ? band_url(band) : bands_url %>
 <% http_method = band.persisted? ? "PATCH" : "POST" %>
 
-<form action="<%= action_url %>" method="POST">
+<form class='form' action="<%= action_url %>" method="POST">
   <input type="hidden" name="_method" value="<%= http_method %>">
   <input
     type="hidden"
@@ -9,9 +9,8 @@
     value="<%= form_authenticity_token %>">
 
   <p>
-    <label>Name
-    <input type="text" name="band[name]" value="<%= band.name %>">
-    </label>
+    <label for='band-name'>Name</label>
+    <input id='band-name' type="text" name="band[name]" value="<%= band.name %>">
   </p>
 
   <input type="submit">

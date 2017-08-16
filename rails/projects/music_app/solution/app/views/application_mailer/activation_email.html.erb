@@ -8,7 +8,7 @@
     <p>
       You have successfully signed up to my app!
       Please activate your account by visiting this link:
-      <%= link_to("Activate", activate_user_url(activation_token: @user.activation_token)) %>
+      <a href="<%= activate_user_url(activation_token: @user.activation_token) %>">Activate</a>
     </p>
 
     <p>
