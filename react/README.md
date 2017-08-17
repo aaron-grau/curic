@@ -238,10 +238,10 @@
 * :book: [`preloadedState`][preloaded_state] (5 min)
 * :book: [Front End Authentication][user_authentication] (15 min)
 
-[uiux-intro]: https://vimeo.com/album/4453315/video/206661754
-[uiux-web]: https://vimeo.com/album/4453315/video/206661769
-[uiux-affordances]: https://vimeo.com/album/4453315/video/206661839
-[uiux-look-good]: https://vimeo.com/album/4453315/video/206661864
+[uiux-intro]: https://vimeo.com/206661754
+[uiux-web]: https://vimeo.com/206661769
+[uiux-affordances]: https://vimeo.com/206661839
+[uiux-look-good]: https://vimeo.com/206661864
 [frontend_auth_1]: https://vimeo.com/210683007
 [frontend_auth_2]: https://vimeo.com/210683951
 [frontend_auth_3]: https://vimeo.com/210684312
