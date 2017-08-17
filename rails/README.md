@@ -6,11 +6,13 @@
 * [Rails API (api.rubyonrails.org)][rails-api]
 * [Rails Guides (guides.rubyonrails.org)][rails-guides]
 * [Diagram of Rails][rails-diagram]
+* [Rails 4 vs Rails 5][rails-5-updates]
 
 [rails-setup]: readings/rails-setup.md
 [rails-api]: http://api.rubyonrails.org/v4.0.2/
 [rails-guides]: http://guides.rubyonrails.org/v4.0.2/
 [rails-diagram]: assets/rails_diagram.png
+[rails-5-updates]: readings/rails-5-updates.md
 
 ## w4d1
 
