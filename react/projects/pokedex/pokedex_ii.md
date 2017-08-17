@@ -178,9 +178,7 @@ Implement the `PokemonDetail` component just like we did the `PokemonIndex`. Mak
 * Create an API utility function that fetches a single pokemon.
 * Create actions for receiving a single Pokemon.
 This requires defining a new constant and action creator.
-* Update `pokemonReducer` shape to contain `entities` and a `currentPoke`.
-  * Don't forget to update the `Switch` also!
-* Create an `itemsReducer` to contain the `currentPoke`'s items. Just like `pokemonReducer` this should also be nested under the `entities` slice of state.
+* Create an `itemsReducer` for an items slice of state. Just like `pokemonReducer` this should also be nested under the `entities` slice of state.
   * Remember: multiple reducers can respond to the same action!
 * Create a `requestSinglePokemon` thunk action creator.
 * Create a `PokemonDetailContainer` that maps props to `PokemonDetail`.
