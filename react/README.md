@@ -255,7 +255,7 @@
 * [Full-stack Proposal Prep: Routes][prep-routes] (15 min)
 
 [a04_prep]: https://github.com/appacademy/assessment-prep#assessment-4
-[prep-routes: ../full-stack-project/homeworks/proposal-prep/routes.md
+[prep-routes]: ../full-stack-project/homeworks/proposal-prep/routes.md
 
 ### Additional Resources
 * :book: [Rails/React/Redux Configuration Checklist][checklist]
