@@ -4,27 +4,27 @@ There are several things you **must** do when beginning every Rails app in the n
 
 ## Create a New App with a Stable Version of Rails
 
-First off, check your Rails version. In this course, we will be using Rails `4.2.8`. Check to see if you have a proper version by running:
+First off, check your Rails version. In this course, we will be using Rails `>= 5.1.2`. Check to see if you have a proper version by running:
 
 ```
 $ rails -v
 Rails X.X.X
 ```
 
-If the returns anything besides `Rails 4.2.8`, run:
+If the returns anything before `Rails 5.1.2`, run:
 
 ```
-gem install rails -v '4.2.8'
+gem update rails
 ```
 
-Now that you have Rails 4.2.8 installed, start your project with the following command:
+Now that you have Rails >= 5.1.2 installed, start your project with the following command:
 
 ```
 # you may have a newer version of Rails installed, so make sure to specify the version
-rails _4.2.8_ new MyProjectName --database=postgresql
+rails new my_project_name --database=postgresql
 ```
 
-When using PostgreSQL, you should also run the command `rake db:create` in the terminal before trying to run migrations.  This creates the database for your application.
+When using PostgreSQL, you should also run the command `bundle exec rails db:create` in the terminal before trying to run migrations.  This creates the database for your application.
 
 [setting-up-postgresql]: ../../sql/readings/first-rails-project.md#postgres
 
@@ -65,9 +65,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  # if you have foolishly setup a Rails 5 project, 
-  # 'quiet-assets' will break it (skip it!)
-  gem 'quiet_assets' 
 end
 ```
 
