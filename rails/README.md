@@ -182,9 +182,9 @@
 [auth-session]: https://vimeo.com/160824886
 [auth-pattern]: https://vimeo.com/160826910
 [auth-05-bcrypt]: https://vimeo.com/groups/appacademy/videos/93104232
-[auth-06-csrf-attack]: https://vimeo.com/groups/appacademy/videos/93114286
-[auth-07-csrf-protection]: https://vimeo.com/groups/appacademy/videos/93114288
-[auth-08-csrf-methods]: https://vimeo.com/groups/appacademy/videos/93114287
+[auth-06-csrf-attack]: https://vimeo.com/93114286
+[auth-07-csrf-protection]: https://vimeo.com/93114288
+[auth-08-csrf-methods]: https://vimeo.com/93114287
 
 ### Homeworks (60 min)
 * [Rails Auth][rails-auth-homework] (30 min)
@@ -229,8 +229,8 @@
 * :book: [View partials][view-partials] (15 min)
 * :book: [Nontechnical Overview of Rails][rails-nontech] (15 min)
 
-[14-radio-and-textarea]: http://vimeo.com/groups/appacademy/videos/100729825
-[15-helpers]: http://vimeo.com/groups/appacademy/videos/100780885
+[14-radio-and-textarea]: http://vimeo.com/100729825
+[15-helpers]: http://vimeo.com/100780885
 [layout-video]: https://vimeo.com/168822741
 [action-mailer]: readings/mailing-1.md
 [view-helpers]: readings/helpers.md
@@ -329,11 +329,11 @@
   * **Just section 2.9**
 * :book: [Concerns][concerns-reading] (10 min)
 
-[16-tag-ids-setter]: http://vimeo.com/groups/appacademy/videos/100780886
-[17-checkboxes-1]: http://vimeo.com/groups/appacademy/videos/100780887
-[18-checkboxes-2]: http://vimeo.com/groups/appacademy/videos/100846847
-[19-checkboxes-3]: http://vimeo.com/groups/appacademy/videos/100846848
-[20-query-string]: http://vimeo.com/groups/appacademy/videos/100849678
+[16-tag-ids-setter]: http://vimeo.com/100780886
+[17-checkboxes-1]: http://vimeo.com/100780887
+[18-checkboxes-2]: http://vimeo.com/100846847
+[19-checkboxes-3]: http://vimeo.com/100846848
+[20-query-string]: http://vimeo.com/100849678
 [polym-assoc-blurb]: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
 [concerns-reading]: readings/concerns.md
 
@@ -403,9 +403,9 @@
 [middleware-demo-code]: https://github.com/appacademy/lecture-notes/blob/master/rails/w5d2/video/demos/rack_middleware/middleware.rb
 [tcp-video]: https://vimeo.com/161382361
 [dns-video]: https://vimeo.com/161381921
-[00-webserver]: http://vimeo.com/groups/appacademy/videos/100169899
-[01-protocols]: http://vimeo.com/groups/appacademy/videos/100169898
-[02-http]: http://vimeo.com/groups/appacademy/videos/100267302
+[00-webserver]: http://vimeo.com/100169899
+[01-protocols]: http://vimeo.com/100169898
+[02-http]: http://vimeo.com/100267302
 [http]: readings/http.md
 [rack]: readings/rack.md
 [middleware]: readings/middleware.md
